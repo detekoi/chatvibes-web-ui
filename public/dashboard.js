@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Dashboard UI Elements
     const twitchUsernameEl = document.getElementById('twitch-username');
     const channelNameStatusEl = document.getElementById('channel-name-status');
     const botStatusEl = document.getElementById('bot-status');
@@ -7,37 +8,60 @@ document.addEventListener('DOMContentLoaded', () => {
     const actionMessageEl = document.getElementById('action-message');
     const logoutLink = document.getElementById('logout-link');
 
-    // IMPORTANT: Configure this to your deployed Cloud Function URL
-    const API_BASE_URL = 'https://us-central1-chatvibestts.cloudfunctions.net/webUi';
-    let appSessionToken = null; // Variable to hold the token
+    // TTS URL Elements (from dashboard.html)
+    const ttsUrlField = document.getElementById('tts-url-field');
+    const copyTtsUrlBtn = document.getElementById('copy-tts-url-btn');
+    const copyStatusEl = document.getElementById('copy-status-message');
+
+    // IMPORTANT: Configure this to your deployed Cloud Function URL for ChatVibes
+    const API_BASE_URL = 'https://us-central1-chatvibestts.cloudfunctions.net/webUi'; // Make sure 'chatvibestts' is your project ID
+    let appSessionToken = null;
     let loggedInUser = null;
+
+    /**
+     * Updates the TTS URL field with the user's specific URL.
+     * @param {string} userLoginName - The Twitch login name of the user.
+     */
+    function updateTtsUrl(userLoginName) {
+        if (ttsUrlField && userLoginName && userLoginName.trim() !== '' && userLoginName !== 'loading...') {
+            // CRITICAL: Replace this placeholder with your actual ChatVibes TTS handler URL structure
+            const ttsHandlerBaseUrl = 'https://chatvibes-tts-service-h7kj56ct4q-uc.a.run.app'; 
+            // Example: const ttsHandlerBaseUrl = 'https://us-central1-chatvibestts.cloudfunctions.net/handleTtsRequest';
+            
+            ttsUrlField.value = `${ttsHandlerBaseUrl}?channel=${userLoginName.toLowerCase()}`;
+        } else if (ttsUrlField) {
+            ttsUrlField.value = ''; // Clear if username is not available or invalid
+            ttsUrlField.placeholder = 'Could not determine TTS URL.';
+        }
+    }
 
     async function initializeDashboard() {
         appSessionToken = localStorage.getItem('app_session_token');
-        console.log("Dashboard: Loaded app_session_token from localStorage:", appSessionToken); // Log what's loaded
+        console.log("Dashboard: Loaded app_session_token from localStorage:", appSessionToken);
 
         const userLoginFromStorage = localStorage.getItem('twitch_user_login');
         const userIdFromStorage = localStorage.getItem('twitch_user_id');
 
         if (userLoginFromStorage && userIdFromStorage) {
+            // Assume displayName from storage is login initially, it might be updated by backend if different
             loggedInUser = { login: userLoginFromStorage, id: userIdFromStorage, displayName: userLoginFromStorage };
-            twitchUsernameEl.textContent = loggedInUser.displayName;
-            channelNameStatusEl.textContent = loggedInUser.login;
-            actionMessageEl.textContent = '';
+            
+            if (twitchUsernameEl) twitchUsernameEl.textContent = loggedInUser.displayName;
+            if (channelNameStatusEl) channelNameStatusEl.textContent = loggedInUser.login;
+            if (actionMessageEl) actionMessageEl.textContent = '';
+
+            // *** KEY CHANGE: Call updateTtsUrl with the user's LOGIN name ***
+            updateTtsUrl(loggedInUser.login);
 
             if (!appSessionToken) {
                 console.warn("No session token found, API calls might fail authentication.");
-                actionMessageEl.textContent = "Authentication token missing. Please log in again.";
-                // Optionally redirect to login if token is essential
-                // window.location.href = 'index.html';
+                if (actionMessageEl) actionMessageEl.textContent = "Authentication token missing. Please log in again.";
+                // Optionally redirect or disable features
                 return;
             }
 
             try {
-                const headers = {};
-                if (appSessionToken) {
-                    headers['Authorization'] = `Bearer ${appSessionToken}`;
-                }
+                const headers = { 'Authorization': `Bearer ${appSessionToken}` };
                 console.log("Dashboard: Sending headers to /api/bot/status:", JSON.stringify(headers));
 
                 const statusRes = await fetch(`${API_BASE_URL}/api/bot/status`, {
@@ -47,24 +71,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (!statusRes.ok) {
                     if (statusRes.status === 401) {
-                        actionMessageEl.textContent = "Session potentially expired or not fully established. Try logging in again.";
-                        return;
+                       if (actionMessageEl) actionMessageEl.textContent = "Session potentially expired. Please log in again.";
+                    } else {
+                        const errorData = await statusRes.json().catch(() => ({ message: statusRes.statusText }));
+                        if (actionMessageEl) actionMessageEl.textContent = `Failed to fetch status: ${errorData.message || statusRes.statusText}`;
                     }
-                    const errorData = await statusRes.json().catch(() => ({ message: statusRes.statusText }));
-                    throw new Error(`Failed to fetch status: ${errorData.message || statusRes.statusText}`);
+                    if (botStatusEl) botStatusEl.textContent = "Error";
+                    return;
                 }
                 const statusData = await statusRes.json();
 
                 if (statusData.success) {
                     updateBotStatusUI(statusData.isActive);
+                    // Optionally update displayName if backend provides a canonical one
+                    // if (twitchUsernameEl && statusData.displayName) twitchUsernameEl.textContent = statusData.displayName;
                 } else {
-                    actionMessageEl.textContent = `Error: ${statusData.message}`;
-                    botStatusEl.textContent = "Error";
+                    if (actionMessageEl) actionMessageEl.textContent = `Error: ${statusData.message}`;
+                    if (botStatusEl) botStatusEl.textContent = "Error";
                 }
             } catch (error) {
                 console.error('Error fetching bot status:', error);
-                actionMessageEl.textContent = 'Failed to load bot status. ' + error.message;
-                botStatusEl.textContent = 'Error';
+                if (actionMessageEl) actionMessageEl.textContent = 'Failed to load bot status. ' + error.message;
+                if (botStatusEl) botStatusEl.textContent = 'Error';
             }
         } else {
             // Not logged in or info missing, redirect to index.html
@@ -74,158 +102,129 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateBotStatusUI(isActive) {
         if (isActive) {
-            botStatusEl.textContent = 'Active';
-            botStatusEl.className = 'status-active';
-            addBotBtn.style.display = 'none';
-            removeBotBtn.style.display = 'inline-block';
+            if (botStatusEl) {
+                botStatusEl.textContent = 'Active';
+                botStatusEl.className = 'status-active';
+            }
+            if (addBotBtn) addBotBtn.style.display = 'none';
+            if (removeBotBtn) removeBotBtn.style.display = 'inline-block';
         } else {
-            botStatusEl.textContent = 'Inactive / Not Joined';
-            botStatusEl.className = 'status-inactive';
-            addBotBtn.style.display = 'inline-block';
-            removeBotBtn.style.display = 'none';
+            if (botStatusEl) {
+                botStatusEl.textContent = 'Inactive / Not Joined';
+                botStatusEl.className = 'status-inactive';
+            }
+            if (addBotBtn) addBotBtn.style.display = 'inline-block';
+            if (removeBotBtn) removeBotBtn.style.display = 'none';
         }
-        actionMessageEl.textContent = ''; // Clear previous messages
+        if (actionMessageEl) actionMessageEl.textContent = '';
     }
 
-    addBotBtn.addEventListener('click', async () => {
-        if (!appSessionToken) {
-            actionMessageEl.textContent = "Authentication token missing. Please log in again.";
-            return;
-        }
-        actionMessageEl.textContent = 'Requesting bot to join...';
-        try {
-            const res = await fetch(`${API_BASE_URL}/api/bot/add`, {
-                method: 'POST',
-                headers: {
-                    'Authorization': `Bearer ${appSessionToken}`,
-                    'Content-Type': 'application/json'
-                }
-            });
-            const data = await res.json();
-            actionMessageEl.textContent = data.message;
-            if (data.success) {
-                updateBotStatusUI(true);
+    if (addBotBtn) {
+        addBotBtn.addEventListener('click', async () => {
+            if (!appSessionToken) {
+                if (actionMessageEl) actionMessageEl.textContent = "Authentication token missing. Please log in again.";
+                return;
             }
-        } catch (error) {
-            console.error('Error adding bot:', error);
-            actionMessageEl.textContent = 'Failed to send request to add bot.';
-        }
-    });
-
-    removeBotBtn.addEventListener('click', async () => {
-        if (!appSessionToken) {
-            actionMessageEl.textContent = "Authentication token missing. Please log in again.";
-            return;
-        }
-        actionMessageEl.textContent = 'Requesting bot to leave...';
-        try {
-            const res = await fetch(`${API_BASE_URL}/api/bot/remove`, {
-                method: 'POST',
-                headers: {
-                    'Authorization': `Bearer ${appSessionToken}`,
-                    'Content-Type': 'application/json'
-                }
-            });
-            const data = await res.json();
-            actionMessageEl.textContent = data.message;
-            if (data.success) {
-                updateBotStatusUI(false);
-            }
-        } catch (error) {
-            console.error('Error removing bot:', error);
-            actionMessageEl.textContent = 'Failed to send request to remove bot.';
-        }
-    });
-
-    logoutLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        localStorage.removeItem('twitch_user_login');
-        localStorage.removeItem('twitch_user_id');
-        localStorage.removeItem('app_session_token'); // Clear JWT
-        appSessionToken = null; // Clear in-memory token
-        // Optionally call a backend /auth/logout endpoint
-        window.location.href = 'index.html';
-    });
-
-    initializeDashboard();
-});
-
-        // JavaScript for TTS URL field and copy button
-        document.addEventListener('DOMContentLoaded', () => {
-            const ttsUrlField = document.getElementById('tts-url-field');
-            const copyTtsUrlBtn = document.getElementById('copy-tts-url-btn');
-            const twitchUsernameEl = document.getElementById('twitch-username');
-            const copyStatusEl = document.getElementById('copy-status-message');
-
-            // Function to update the TTS URL. This should be called when the username is known.
-            function updateTtsUrl(username) {
-                if (username && username !== 'loading...') {
-                    // IMPORTANT: Replace with your ACTUAL ChatVibes TTS URL structure
-                    const baseUrl = 'https://your-chatvibes-project-id.cloudfunctions.net/ttsHandler'; // Example base URL
-                    ttsUrlField.value = `${baseUrl}?channel=${username.toLowerCase()}`;
-                } else {
-                    ttsUrlField.value = ''; // Clear if username is not available
-                }
-            }
-
-            // --- Integration with your existing dashboard.js logic ---
-            // dashboard.js should already be fetching and displaying the Twitch username.
-            // We need to tap into that to get the username.
-
-            // Option 1: If dashboard.js sets the username text content reliably, use a MutationObserver.
-            const observer = new MutationObserver(mutations => {
-                mutations.forEach(mutation => {
-                    if (mutation.target === twitchUsernameEl && twitchUsernameEl.textContent && twitchUsernameEl.textContent !== 'loading...') {
-                        updateTtsUrl(twitchUsernameEl.textContent);
-                        // observer.disconnect(); // Optional: disconnect if only needed once
+            if (actionMessageEl) actionMessageEl.textContent = 'Requesting bot to join...';
+            try {
+                const res = await fetch(`${API_BASE_URL}/api/bot/add`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${appSessionToken}`,
+                        'Content-Type': 'application/json'
                     }
                 });
-            });
-            observer.observe(twitchUsernameEl, { childList: true, characterData: true, subtree: true });
-            
-            // Option 2 (Alternative, if you modify dashboard.js):
-            // You could have dashboard.js directly call `updateTtsUrl(loggedInUser.login)` 
-            // after `loggedInUser` is populated. This is cleaner.
-            // Example: In dashboard.js, after:
-            // twitchUsernameEl.textContent = loggedInUser.displayName;
-            // Add:
-            // if (typeof updateTtsUrl === 'function') { updateTtsUrl(loggedInUser.login); }
-
-
-            if (copyTtsUrlBtn) {
-                copyTtsUrlBtn.addEventListener('click', () => {
-                    if (!ttsUrlField.value) {
-                        copyStatusEl.textContent = 'URL not available yet.';
-                        setTimeout(() => copyStatusEl.textContent = '', 3000);
-                        return;
-                    }
-                    ttsUrlField.select();
-                    ttsUrlField.setSelectionRange(0, 99999); // For mobile devices
-
-                    try {
-                        navigator.clipboard.writeText(ttsUrlField.value).then(() => {
-                            copyStatusEl.textContent = 'Copied to clipboard!';
-                            copyTtsUrlBtn.textContent = 'Copied!';
-                            setTimeout(() => {
-                                copyStatusEl.textContent = '';
-                                copyTtsUrlBtn.textContent = 'Copy URL';
-                            }, 2000);
-                        }, (err) => {
-                            console.error('Failed to copy using navigator.clipboard:', err);
-                            // Fallback for older browsers
-                            document.execCommand('copy');
-                            copyStatusEl.textContent = 'Copied (fallback)!';
-                             copyTtsUrlBtn.textContent = 'Copied!';
-                            setTimeout(() => {
-                                copyStatusEl.textContent = '';
-                                copyTtsUrlBtn.textContent = 'Copy URL';
-                            }, 2000);
-                        });
-                    } catch (err) {
-                        console.error('Error during copy:', err);
-                        copyStatusEl.textContent = 'Failed to copy.';
-                        setTimeout(() => copyStatusEl.textContent = '', 3000);
-                    }
-                });
+                const data = await res.json();
+                if (actionMessageEl) actionMessageEl.textContent = data.message;
+                if (data.success) {
+                    updateBotStatusUI(true);
+                }
+            } catch (error) {
+                console.error('Error adding bot:', error);
+                if (actionMessageEl) actionMessageEl.textContent = 'Failed to send request to add bot.';
             }
         });
+    }
+
+    if (removeBotBtn) {
+        removeBotBtn.addEventListener('click', async () => {
+            if (!appSessionToken) {
+                if (actionMessageEl) actionMessageEl.textContent = "Authentication token missing. Please log in again.";
+                return;
+            }
+            if (actionMessageEl) actionMessageEl.textContent = 'Requesting bot to leave...';
+            try {
+                const res = await fetch(`${API_BASE_URL}/api/bot/remove`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${appSessionToken}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+                const data = await res.json();
+                if (actionMessageEl) actionMessageEl.textContent = data.message;
+                if (data.success) {
+                    updateBotStatusUI(false);
+                }
+            } catch (error) {
+                console.error('Error removing bot:', error);
+                if (actionMessageEl) actionMessageEl.textContent = 'Failed to send request to remove bot.';
+            }
+        });
+    }
+
+    if (logoutLink) {
+        logoutLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            localStorage.removeItem('twitch_user_login');
+            localStorage.removeItem('twitch_user_id');
+            localStorage.removeItem('app_session_token');
+            appSessionToken = null;
+            window.location.href = 'index.html';
+        });
+    }
+
+    // Event listener for TTS URL copy button
+    if (copyTtsUrlBtn && ttsUrlField) {
+        copyTtsUrlBtn.addEventListener('click', () => {
+            if (!ttsUrlField.value) {
+                if (copyStatusEl) copyStatusEl.textContent = 'URL not available yet.';
+                setTimeout(() => { if (copyStatusEl) copyStatusEl.textContent = ''; }, 3000);
+                return;
+            }
+            ttsUrlField.select();
+            ttsUrlField.setSelectionRange(0, 99999); // For mobile devices
+
+            try {
+                navigator.clipboard.writeText(ttsUrlField.value).then(() => {
+                    if (copyStatusEl) copyStatusEl.textContent = 'Copied to clipboard!';
+                    copyTtsUrlBtn.textContent = 'Copied!';
+                    setTimeout(() => {
+                        if (copyStatusEl) copyStatusEl.textContent = '';
+                        copyTtsUrlBtn.textContent = 'Copy URL';
+                    }, 2000);
+                }, (err) => { // Handle promise rejection for writeText
+                    console.warn('navigator.clipboard.writeText failed, trying execCommand fallback:', err);
+                    // Fallback for older browsers or if navigator.clipboard is not available/fails
+                    if (document.execCommand('copy')) {
+                        if (copyStatusEl) copyStatusEl.textContent = 'Copied (fallback)!';
+                        copyTtsUrlBtn.textContent = 'Copied!';
+                    } else {
+                        if (copyStatusEl) copyStatusEl.textContent = 'Copy failed using fallback.';
+                    }
+                    setTimeout(() => {
+                        if (copyStatusEl) copyStatusEl.textContent = '';
+                        copyTtsUrlBtn.textContent = 'Copy URL';
+                    }, 2000);
+                });
+            } catch (err) { // Catch synchronous errors with execCommand or setup
+                console.error('Error during copy attempt:', err);
+                if (copyStatusEl) copyStatusEl.textContent = 'Failed to copy.';
+                setTimeout(() => { if (copyStatusEl) copyStatusEl.textContent = ''; }, 3000);
+            }
+        });
+    }
+
+    // Initialize the dashboard
+    initializeDashboard();
+});
