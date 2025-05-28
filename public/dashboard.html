@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ChatVibes Dashboard</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Cabin+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script
+    src="https://app.rybbit.io/api/script.js"
+    data-site-id="780"
+    defer
+></script>
+</head>
+<body>
+    <canvas id="staticCanvas" style="width:100vw; height:100vh; position:fixed; top:0; left:0; z-index:-1;"></canvas>
+    <div class="container">
+        <h1>ChatVibes Dashboard</h1>
+        <p>Welcome, <span id="twitch-username">loading...</span>!</p>
+        <div id="bot-status-container">
+            <p>Bot status for channel <strong id="channel-name-status">your channel</strong>: <strong id="bot-status">Loading...</strong></p>
+            <button id="add-bot-btn" class="button" style="display:none;">Add Bot to My Channel</button>
+            <button id="remove-bot-btn" class="button" style="display:none;">Remove Bot from My Channel</button>
+        </div>
+        <p id="action-message"></p>
+        <div id="obs-setup-instructions">
+          <h2>ChatVibes OBS Setup</h2>
+          <p>To hear ChatVibes TTS alerts in your stream and for yourself, add it as a Browser Source in OBS (or Streamlabs, etc.) and configure audio monitoring.</p>
+          
+          <div class="tts-url-container">
+              <input type="text" id="tts-url-field" readonly placeholder="Your TTS URL will appear here...">
+              <button id="copy-tts-url-btn" class="button">Copy URL</button>
+          </div>
+          <p id="copy-status-message" style="font-size: 0.8em; height: 1em;"></p>
+
+          <h4>Step 1: Add Browser Source</h4>
+          <ol>
+              <li>In OBS, under 'Sources', click the '+' button.</li>
+              <li>Select 'Browser'.</li>
+              <li>Give it a name (e.g., "ChatVibes TTS").</li>
+              <li>In the properties window:
+                  <ul>
+                      <li><strong>URL:</strong> Paste the URL copied from above.</li>
+                      <li><strong>Width & Height:</strong> You can safely ignore these settings, or set them to something small (e.g., 300x100), as this source is for audio only.</li>
+                      <li>Ensure "Control audio via OBS" is CHECKED.</li>
+                      <li>For persistent audio, it's recommended to UNCHECK "Shutdown source when not visible" and "Refresh browser when scene becomes active".</li>
+                  </ul>
+              </li>
+              <li>Click 'OK'.</li>
+          </ol>
+
+          <h4>Step 2: Enable Audio Monitoring</h4>
+          <ol>
+              <li>In OBS, find your audio mixer (usually at the bottom).</li>
+              <li>Locate the audio source for "ChatVibes TTS" (or whatever you named it).</li>
+              <li>Click the gear icon (⚙️) next to its volume bar and select 'Advanced Audio Properties'.</li>
+              <li>In the Advanced Audio Properties window, find your "ChatVibes TTS" source.</li>
+              <li>Under 'Audio Monitoring', select:
+                  <ul>
+                      <li><strong>"Monitor and Output"</strong> if you want to hear the TTS alerts yourself AND have your stream hear them.</li>
+                      <li><strong>"Monitor Only (mute output)"</strong> if you only want to hear them yourself.</li>
+                  </ul>
+              </li>
+              <li>Close the Advanced Audio Properties window.</li>
+          </ol>
+          <p><strong>Important:</strong> Make sure the ChatVibes TTS browser source is unmuted in your OBS audio mixer and the volume is at an appropriate level.</p>
+      </div>
+      <a href="#" id="logout-link" class="button">Logout</a>
+    </div>
+    <script src="dashboard.js"></script>
+    <script src="static-background.js"></script>
+</body>
+</html>
