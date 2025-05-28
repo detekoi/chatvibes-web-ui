@@ -172,6 +172,49 @@ a:not(.button):active {
     background: none;
 }
 
+/* Scrollable OBS instructions and copy button */
+#obs-setup-instructions {
+    text-align: left;
+    margin-top: 0;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.tts-url-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#tts-url-field {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+    font-size: 0.9em;
+}
+
+#copy-tts-url-btn {
+    padding: 8px 12px;
+}
+
+#copy-status-message {
+    font-size: 0.8em;
+    height: 1em;
+    margin-bottom: 15px;
+}
+
+body.page-center-content {
+    justify-content: center; /* Overrides justify-content: flex-start from the general body rule */
+    padding-top: 0; /* Remove specific body padding if centering handles it */
+    padding-bottom: 0; /* Remove specific body padding */
+}
+
 
 /* Dark Mode Adjustments */
 @media (prefers-color-scheme: dark) {
@@ -255,47 +298,51 @@ a:not(.button):active {
     a:not(.button):active {
         color: #999999;
     }
+
+    /* Dark Mode for OBS Setup Instructions */
+    #obs-setup-instructions {
+        background-color: #2a2a2a; /* Slightly lighter than container bg for differentiation */
+        border-color: #555;
+        color: #e0e0e0; /* Main text color for OBS instructions in dark mode */
+    }
+
+    #obs-setup-instructions h2,
+    #obs-setup-instructions h4 {
+        color: #ffffff; /* Brighter headings */
+    }
+
+    #obs-setup-instructions p,
+    #obs-setup-instructions li {
+        color: #c0c0c0; /* Softer text for paragraphs and list items */
+    }
+    
+    #obs-setup-instructions strong {
+        color: #e0e0e0; /* Ensure strong text is also light */
+    }
+
+    #obs-setup-instructions code { /* If you use <code> for URLs or URLs */
+        background-color: #333;
+        color: lightcyan; /* Example for code text */
+        padding: 2px 4px;
+        border-radius: 3px;
+    }
+    
+    #tts-url-field { /* Input field for the TTS URL */
+        background-color: #333333;
+        border-color: #555555;
+        color: #ffffff; /* Text color inside the input */
+    }
+
+    #tts-url-field::placeholder {
+        color: #888888; /* Dark mode placeholder text */
+    }
+
+    /* Copy button inherits .button dark mode styles, but you can add specifics if needed */
+    /* #copy-tts-url-btn { ... } */ 
+
+    #copy-status-message {
+        color: #bbbbbb; /* Dark mode for the "Copied!" message */
+    }
 }
 
-/* Canvas styling moved to inline HTML */
 
-html {
-    /* scroll-behavior: smooth; is fine if you have it here or in main.css */
-}
-
-/* Scrollable OBS instructions and copy button */
-#obs-setup-instructions {
-    text-align: left;
-    margin-top: 0;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    max-height: 400px;
-    overflow-y: auto;
-}
-
-.tts-url-container {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-#tts-url-field {
-    flex-grow: 1;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-right: 10px;
-    font-size: 0.9em;
-}
-
-#copy-tts-url-btn {
-    padding: 8px 12px;
-}
-
-#copy-status-message {
-    font-size: 0.8em;
-    height: 1em;
-    margin-bottom: 15px;
-}
