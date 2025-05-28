@@ -27,6 +27,7 @@ const axios = require("axios");
 const crypto = require("crypto");
 const cookieParser = require("cookie-parser");
 const jwt = require("jsonwebtoken");
+console.log("--- /auth/twitch/initiate HIT --- Version 1.1 ---");
 
 const {Firestore, FieldValue} = require("@google-cloud/firestore");
 let db;
