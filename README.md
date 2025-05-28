@@ -2,7 +2,9 @@
 
 ## Description
 
-ChatVibes Bot Management is a web application that allows Twitch streamers to manage the ChatVibes bot for their channel. Users can log in with their Twitch account to add or remove the bot, and view its current status. The application features a dynamic, animated background.
+ChatVibes Bot Management is a web application that allows Twitch streamers to manage the [ChatVibes **Text-to-Speech (TTS)** bot](https://github.com/detekoi/chatvibes) for their channel. Users can log in with their Twitch account to add or remove the bot, and view its current status. The application features a dynamic, animated background.
+
+The ChatVibes web UI is hosted [here](https://chatvibestts.web.app/).
 
 ## Features
 
@@ -11,6 +13,7 @@ ChatVibes Bot Management is a web application that allows Twitch streamers to ma
 * **Bot Status:** View the current status (active/inactive) of the bot for your channel.
 * **Dynamic Background:** An animated static-like background enhances the user interface.
 * **Firebase Integration:** Utilizes Firebase for backend functions and hosting.
+* **OBS Setup Guidance:** Instructions on how to integrate ChatVibes TTS audio into their streaming software.
 
 ## Technologies Used
 
@@ -42,7 +45,8 @@ ChatVibes Bot Management is a web application that allows Twitch streamers to ma
     * Enable Firestore and Authentication.
     * Configure Firebase Hosting and Cloud Functions.
 3.  **Environment Variables:**
-    * Create `.env` files (e.g., `.env.chatvibestts` for deployed, `.env` for local emulator) in the `functions` directory with the necessary configuration for Twitch Client ID, Client Secret, Callback URL, Frontend URL, JWT Secret Key, and Session Cookie Secret.
+    * **For Local Development (Firebase Emulator):** Create a `.env.<YOUR_PROJECT_ID>` file (e.g., `.env.chatvibestts`) in the `functions` directory. Add your variables here (e.g., `TWITCH_CLIENT_ID=your_local_test_id`). The Firebase Emulator will load these automatically when running locally.
+    * **For Deployed Functions (Live Environment):** Environment variables must be set directly in the Google Cloud Console for your Cloud Function. Navigate to your function in GCP, edit it, and add the variables under "Runtime environment variables." (Note: `.env` files are not deployed with the function code for runtime configuration).
 4.  **Install Dependencies:**
     * Navigate to the `functions` directory.
     * Run `npm install` to install backend dependencies.
@@ -58,4 +62,5 @@ ChatVibes Bot Management is a web application that allows Twitch streamers to ma
     * View the current status of the ChatVibes bot for your channel.
     * Add the bot to your channel if it's not already active.
     * Remove the bot from your channel if it is active.
+    * Access instructions for setting up ChatVibes in OBS.
     * Logout from the application.
