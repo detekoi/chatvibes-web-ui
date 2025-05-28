@@ -1,0 +1,301 @@
+/* General body and container for UI pages */
+body {
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+    background-color: #ffffff;
+    color: #121212;
+    line-height: 1.6;
+    margin: 0;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.container {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    border: 2px solid #333333;
+    box-shadow: 8px 8px 0 #333333;
+    text-align: center;
+    max-width: 550px;
+    width: 90%;
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    margin-bottom: 40px;
+}
+
+.container h1 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+}
+
+.container > p {
+    margin-bottom: 15px;
+}
+
+/* Typography */
+h1 {
+    font-size: 3rem;
+    margin-bottom: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+p {
+    line-height: 1.6;
+    margin-bottom: 24px;
+    font-size: 1rem;
+}
+
+/* Button Styling */
+a.button, button.button {
+    background-color: white;
+    color: #121212;
+    border: 2px solid #121212;
+    position: relative;
+    box-shadow: 4px 4px 0 #121212;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    padding: 6px 12px;
+    display: inline-block;
+    font-weight: 600;
+    margin: 8px 0;
+    cursor: pointer;
+}
+
+a.button:hover,
+a.button:focus,
+button.button:hover,
+button.button:focus {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 1px rgba(0, 0, 0, 0.6);
+    text-decoration: none;
+}
+
+a.button:active,
+button.button:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 #121212;
+    background-color: #eaeaea;
+}
+
+button.button:disabled,
+a.button:disabled {
+    cursor: wait;
+    background-color: #eeeeee;
+    box-shadow: 1px 1px 0 #333333;
+    color: #888888;
+    transform: translate(1px, 1px);
+}
+
+/* Specific button for Twitch Login */
+.twitch-login {
+    background-color: #9146FF; /* Twitch Purple */
+    color: white;
+    border-color: #772CE8; /* Darker Twitch Purple */
+    box-shadow: 4px 4px 0 #772CE8;
+}
+
+.twitch-login:hover,
+.twitch-login:focus {
+    /* Keep same background color on hover, only change shadow */
+    box-shadow: 6px 6px 1px rgba(0, 0, 0, 0.4);
+}
+
+.twitch-login:active {
+    background-color: #5c16c5;
+    box-shadow: 1px 1px 0 #772CE8;
+}
+
+/* Dashboard Specific Styles */
+#bot-status-container {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 20px;
+}
+
+#bot-status-container p {
+    margin-bottom: 8px;
+}
+
+#bot-status-container strong {
+    font-weight: 700;
+}
+
+.status-active {
+    color: #4caf50; /* Green */
+}
+
+.status-inactive {
+    color: #f44336; /* Red */
+}
+
+#action-message {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    min-height: 18px;
+    font-size: 0.875rem;
+}
+
+/* Links not styled as buttons */
+a:not(.button) {
+    background-color: transparent;
+    color: #121212;
+    border: none;
+    box-shadow: none;
+    text-decoration: underline;
+    padding: 0;
+    font-weight: normal;
+}
+
+a:not(.button):hover,
+a:not(.button):focus {
+    color: #666666;
+    transform: none;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+a:not(.button):active {
+    color: #999999;
+    transform: none;
+    box-shadow: none;
+    background: none;
+}
+
+
+/* Dark Mode Adjustments */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: #ffffff;
+    }
+
+    .container {
+        background-color: #1e1e1e;
+        border-color: #ffffff;
+        box-shadow: 8px 8px 0 rgba(255, 255, 255, 0.33);
+    }
+
+    h1 {
+        color: #ffffff;
+    }
+
+    a.button, 
+    button.button {
+        background-color: #ffffff;
+        color: #121212;
+        border: 2px solid #ffffff;
+        box-shadow: 4px 4px 0 rgba(255, 255, 255, 0.33);
+    }
+
+    a.button:hover,
+    a.button:focus,
+    button.button:hover,
+    button.button:focus {
+        box-shadow: 6px 6px 1px rgba(255, 255, 255, 0.1);
+    }
+
+    a.button:active,
+    button.button:active {
+        box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.33);
+        background-color: #333333;
+        color: #ffffff;
+    }
+    
+    button.button:disabled,
+    a.button:disabled {
+      background-color: #444444;
+      border-color: #666666;
+      color: #888888;
+      box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.33);
+    }
+
+    .twitch-login {
+        background-color: #9146FF;
+        color: white;
+        border-color: #772CE8;
+        box-shadow: 4px 4px 0 #5c16c5;
+    }
+    
+    .twitch-login:hover,
+    .twitch-login:focus {
+        /* Keep the same background color, only change shadow */
+        box-shadow: 6px 6px 1px rgba(255, 255, 255, 0.2);
+    }
+
+    .twitch-login:active {
+        background-color: #5c16c5;
+        box-shadow: 1px 1px 0 #772CE8;
+    }
+
+    #bot-status-container {
+        background-color: #333333;
+        border-color: #ffffff;
+    }
+
+    a:not(.button) {
+        color: #ffffff;
+    }
+
+    a:not(.button):hover,
+    a:not(.button):focus {
+        color: #bbbbbb;
+    }
+    
+    a:not(.button):active {
+        color: #999999;
+    }
+}
+
+/* Canvas styling moved to inline HTML */
+
+html {
+    /* scroll-behavior: smooth; is fine if you have it here or in main.css */
+}
+
+/* Scrollable OBS instructions and copy button */
+#obs-setup-instructions {
+    text-align: left;
+    margin-top: 0;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.tts-url-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#tts-url-field {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+    font-size: 0.9em;
+}
+
+#copy-tts-url-btn {
+    padding: 8px 12px;
+}
+
+#copy-status-message {
+    font-size: 0.8em;
+    height: 1em;
+    margin-bottom: 15px;
+}
