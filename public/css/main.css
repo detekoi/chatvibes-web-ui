@@ -558,6 +558,12 @@ input[type="range"]::-moz-range-track {
   transform: translateY(-2px);
 }
 
+.button.primary:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 #121212;
+  background-color: #eaeaea;
+}
+
 @media (prefers-color-scheme: light) {
   .button.primary {
     background: #3498db;
@@ -1100,12 +1106,16 @@ footer a:active {
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   :root {
-    --font-size-huge: 3.5rem;
-    --font-size-large: 2rem;
+    --font-size-huge: 2.5rem;
+    --font-size-large: 1.8rem;
+    --font-size-medium: 1.2rem;
+    --spacing-unit: 6px;
   }
   
   body {
-    padding: var(--spacing-medium);
+    padding: var(--spacing-small);
+    max-width: 100%;
+    margin: 0;
   }
   
   .project-grid {
@@ -1118,6 +1128,62 @@ footer a:active {
   
   .header-mascot-area {
      width: 350px; /* Increased mascot area width for tablet */
+  }
+  
+  /* Dashboard specific mobile styles */
+  .container {
+    padding: var(--spacing-small);
+  }
+  
+  /* Tab navigation mobile adjustments */
+  .tab-nav {
+    margin-bottom: var(--spacing-small);
+  }
+  
+  .tab-button {
+    font-size: 1rem;
+    padding: 12px 8px 10px 8px;
+  }
+  
+  /* Settings sections mobile styling */
+  .settings-section {
+    padding: var(--spacing-small);
+    margin-bottom: var(--spacing-medium);
+  }
+  
+  .setting-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-small);
+  }
+  
+  .setting-item label {
+    min-width: auto;
+    width: 100%;
+  }
+  
+  .setting-item input[type="number"],
+  .setting-item select {
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .setting-item input[type="range"] {
+    width: 100%;
+  }
+  
+  /* Ignore list mobile adjustments */
+  .add-user-form {
+    flex-direction: column;
+    gap: var(--spacing-small);
+  }
+  
+  .add-user-form input {
+    width: 100%;
+  }
+  
+  .ignore-list {
+    max-height: 120px;
   }
 }
 
