@@ -26,7 +26,155 @@
             <button id="remove-bot-btn" class="button" style="display:none;">Remove Bot from My Channel</button>
         </div>
         <p id="action-message"></p>
-        <div id="obs-setup-instructions">
+        
+        <!-- Tab Navigation -->
+        <div class="tab-container">
+            <div class="tab-nav">
+                <button id="settings-tab-btn" class="tab-button active">Settings</button>
+                <button id="obs-tab-btn" class="tab-button">OBS Setup</button>
+            </div>
+            
+            <!-- Settings Panel -->
+            <div id="settings-panel" class="tab-content active">
+                <h2>Bot Settings</h2>
+                <p id="settings-status-message"></p>
+                
+                <!-- Engine & Mode Control -->
+                <div class="settings-section">
+                    <h3>Engine & Mode</h3>
+                    <div class="setting-item">
+                        <label>
+                            <input type="checkbox" id="tts-enabled"> TTS Engine Enabled
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <label for="tts-mode">TTS Mode:</label>
+                        <select id="tts-mode">
+                            <option value="all">All Messages</option>
+                            <option value="command">Commands Only</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label>
+                            <input type="checkbox" id="events-enabled"> Announce Events (subs, raids, etc.)
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Bits Configuration -->
+                <div class="settings-section">
+                    <h3>Bits-for-TTS</h3>
+                    <div class="setting-item">
+                        <label>
+                            <input type="checkbox" id="bits-enabled"> Require Bits for TTS
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <label for="bits-amount">Minimum Bits Required:</label>
+                        <input type="number" id="bits-amount" min="0" value="100">
+                    </div>
+                </div>
+                
+                <!-- Default Settings -->
+                <div class="settings-section">
+                    <h3>Default Voice Settings</h3>
+                    <div class="setting-item">
+                        <label for="default-voice">Default Voice:</label>
+                        <select id="default-voice">
+                            <option value="Friendly_Person">Loading voices...</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label for="default-emotion">Default Emotion:</label>
+                        <select id="default-emotion">
+                            <option value="auto">Auto</option>
+                            <option value="neutral">Neutral</option>
+                            <option value="happy">Happy</option>
+                            <option value="sad">Sad</option>
+                            <option value="angry">Angry</option>
+                            <option value="fearful">Fearful</option>
+                            <option value="disgusted">Disgusted</option>
+                            <option value="surprised">Surprised</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label for="default-pitch">Default Pitch (-12 to +12):</label>
+                        <input type="range" id="default-pitch" min="-12" max="12" value="0">
+                        <span id="pitch-value">0</span>
+                    </div>
+                    <div class="setting-item">
+                        <label for="default-speed">Default Speed (0.5 to 2.0):</label>
+                        <input type="range" id="default-speed" min="0.5" max="2.0" step="0.1" value="1.0">
+                        <span id="speed-value">1.0</span>
+                    </div>
+                    <div class="setting-item">
+                        <label for="default-language">Default Language:</label>
+                        <select id="default-language">
+                            <option value="Automatic">Automatic</option>
+                            <option value="English">English</option>
+                            <option value="Spanish">Spanish</option>
+                            <option value="French">French</option>
+                            <option value="German">German</option>
+                            <option value="Japanese">Japanese</option>
+                            <option value="Chinese">Chinese</option>
+                            <!-- More languages will be loaded dynamically -->
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Music Settings -->
+                <div class="settings-section">
+                    <h3>Music Generation</h3>
+                    <div class="setting-item">
+                        <label>
+                            <input type="checkbox" id="music-enabled"> Music Generation Enabled
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <label for="music-mode">Who Can Generate Music:</label>
+                        <select id="music-mode">
+                            <option value="everyone">Everyone</option>
+                            <option value="moderator">Moderators Only</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label>
+                            <input type="checkbox" id="music-bits-enabled"> Require Bits for Music
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <label for="music-bits-amount">Minimum Bits for Music:</label>
+                        <input type="number" id="music-bits-amount" min="0" value="100">
+                    </div>
+                </div>
+                
+                <!-- Ignore Lists -->
+                <div class="settings-section">
+                    <h3>Ignored Users</h3>
+                    <div class="ignore-section">
+                        <h4>TTS Ignore List</h4>
+                        <div class="add-user-form">
+                            <input type="text" id="tts-ignore-username" placeholder="Username to ignore">
+                            <button id="add-tts-ignore-btn" class="button">Add</button>
+                        </div>
+                        <ul id="tts-ignore-list" class="ignore-list"></ul>
+                    </div>
+                    
+                    <div class="ignore-section">
+                        <h4>Music Ignore List</h4>
+                        <div class="add-user-form">
+                            <input type="text" id="music-ignore-username" placeholder="Username to ignore">
+                            <button id="add-music-ignore-btn" class="button">Add</button>
+                        </div>
+                        <ul id="music-ignore-list" class="ignore-list"></ul>
+                    </div>
+                </div>
+                
+                <button id="save-settings-btn" class="button primary">Save All Settings</button>
+            </div>
+            
+            <!-- OBS Setup Panel -->
+            <div id="obs-setup-instructions" class="tab-content">
           <h2>ChatVibes OBS Setup</h2>
           <p>To hear ChatVibes TTS alerts in your stream and for yourself, add it as a Browser Source in OBS (or Streamlabs, etc.) and configure audio monitoring. For usage instructions, visit our <a href="https://detekoi.github.io/chatvibesdocs.html" target="_blank">documentation page</a>.</p>
           
@@ -67,8 +215,10 @@
               <li>Close the Advanced Audio Properties window.</li>
           </ol>
           <p><strong>Important:</strong> Make sure the ChatVibes TTS browser source is unmuted in your OBS audio mixer and the volume is at an appropriate level.</p>
-      </div>
-      <a href="#" id="logout-link" class="button">Logout</a>
+            </div>
+        </div>
+        
+        <a href="#" id="logout-link" class="button">Logout</a>
     </div>
     <script src="dashboard.js"></script>
     <script src="static-background.js"></script>

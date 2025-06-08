@@ -311,6 +311,229 @@ header .tagline {
   display: block; /* Ensure it's displayed when visible class is added */
 }
 
+/* Tab interface styles */
+.tab-container {
+  margin: var(--spacing-large) 0;
+}
+
+.tab-nav {
+  display: flex;
+  border-bottom: 3px solid var(--color-border);
+  margin-bottom: var(--spacing-medium);
+}
+
+.tab-button {
+  background: var(--color-bg);
+  border: 3px solid var(--color-border);
+  border-bottom: none;
+  padding: var(--spacing-small) var(--spacing-medium);
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 8px 8px 0 0;
+  margin-right: 4px;
+}
+
+.tab-button:hover {
+  background: var(--color-card-bg);
+  transform: translateY(-2px);
+}
+
+.tab-button.active {
+  background: var(--color-card-bg);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  box-shadow: 0 -2px 0 var(--color-primary);
+}
+
+.tab-content {
+  display: none;
+  background: var(--color-card-bg);
+  border: 3px solid var(--color-border);
+  border-radius: 0 8px 8px 8px;
+  padding: var(--spacing-large);
+  min-height: 400px;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Settings panel styles */
+.settings-section {
+  margin-bottom: var(--spacing-large);
+  padding: var(--spacing-medium);
+  border-radius: 8px;
+  background: var(--color-bg);
+}
+
+.settings-section h3 {
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-medium);
+  font-family: var(--font-mascot);
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.setting-item {
+  margin-bottom: var(--spacing-medium);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-small);
+  padding-bottom: var(--spacing-small);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.setting-item:last-child {
+  border-bottom: none;
+}
+
+.setting-item label {
+  font-weight: 500;
+  color: var(--color-text);
+  min-width: 200px;
+}
+
+.setting-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-right: var(--spacing-small);
+}
+
+.setting-item input[type="range"] {
+  flex: 1;
+  margin: 0 var(--spacing-small);
+}
+
+.setting-item input[type="number"],
+.setting-item select {
+  padding: 8px 12px;
+  border: 2px solid var(--color-border);
+  border-radius: 4px;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-primary);
+  max-width: 200px;
+}
+
+.setting-item input[type="number"] {
+  max-width: 120px;
+}
+
+.setting-item input[type="number"]:focus,
+.setting-item select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(var(--color-primary-rgb), 0.2);
+}
+
+/* Range slider styling */
+input[type="range"] {
+  appearance: none;
+  height: 6px;
+  background: var(--color-border);
+  border-radius: 3px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+}
+
+/* Ignore list styles */
+.ignore-section {
+  margin-bottom: var(--spacing-medium);
+}
+
+.ignore-section h4 {
+  margin-bottom: var(--spacing-small);
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.add-user-form {
+  display: flex;
+  gap: var(--spacing-small);
+  margin-bottom: var(--spacing-small);
+}
+
+.add-user-form input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 2px solid var(--color-border);
+  border-radius: 4px;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-primary);
+}
+
+.ignore-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 150px;
+  overflow-y: auto;
+  border: 2px solid var(--color-border);
+  border-radius: 4px;
+  background: var(--color-bg);
+}
+
+.ignore-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.ignore-list li:last-child {
+  border-bottom: none;
+}
+
+.ignore-list .remove-btn {
+  background: var(--color-danger, #e74c3c);
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.ignore-list .remove-btn:hover {
+  background: var(--color-danger-hover, #c0392b);
+}
+
+/* Button styles */
+.button.primary {
+  background: var(--color-primary);
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: var(--spacing-medium) var(--spacing-large);
+}
+
+.button.primary:hover {
+  background: var(--color-primary-hover, #2c3e50);
+  transform: translateY(-2px);
+}
+
 @media (prefers-color-scheme: dark) {
   .mascot-ai-description {
     background-color: #333333; /* Darker background */
