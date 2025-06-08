@@ -1104,18 +1104,66 @@ footer a {
   }
 }
 
+/* Simplified layout for slider settings - tablet style for all screens */
+.setting-item:has(input[type="range"]) {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding: 8px 0;
+}
+
+.setting-item:has(input[type="range"]) label {
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.setting-item:has(input[type="range"]) input[type="range"] {
+  width: 100%;
+  margin: 0;
+}
+
+.setting-item:has(input[type="range"]) .reset-btn {
+  align-self: center;
+  margin: 8px 0 0 0;
+}
+
+/* Fallback for browsers that don't support :has() */
+@supports not (selector(:has(*))) {
+  .setting-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+    padding: 8px 0;
+  }
+  
+  .setting-item label {
+    text-align: center;
+    margin-bottom: 4px;
+  }
+  
+  .setting-item input[type="range"] {
+    width: 100%;
+    margin: 0;
+  }
+  
+  .setting-item .reset-btn {
+    align-self: center;
+    margin: 8px 0 0 0;
+  }
+}
+
 /* Reset buttons for sliders */
 .reset-btn {
   font-size: 0.8rem;
-  padding: 4px 8px;
-  margin-left: 12px;
+  padding: 4px 12px;
   background: #f0f0f0;
   border: 1px solid #ccc;
   color: #666;
   cursor: pointer;
   transition: all 0.2s ease;
   box-shadow: none;
-  align-self: center;
 }
 
 .reset-btn:hover {
@@ -1150,86 +1198,10 @@ footer a {
   }
 }
 
-/* Medium screen adjustments - move reset buttons below sliders */
-@media (max-width: 1024px) and (min-width: 601px) {
-  .setting-item {
-    flex-wrap: wrap;
-  }
-  
-  .setting-item input[type="range"] {
-    flex-basis: 100%;
-    order: 1;
-  }
-  
-  .setting-item label {
-    flex-basis: 100%;
-    order: 0;
-  }
-  
-  .setting-item span[id$="-value"] {
-    order: 2;
-    margin-left: 0;
-    margin-top: 4px;
-  }
-  
-  .reset-btn {
-    order: 3;
-    margin-left: 8px;
-    margin-top: 4px;
-    max-width: 80px;
-  }
-}
-
-/* Desktop layout for slider settings */
-@media (min-width: 1025px) {
-  .setting-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 20px;
-    padding: 12px 0;
-    position: relative;
-    max-width: 100%;
-    box-sizing: border-box;
-  }
-  .setting-item label {
-    flex: 0 0 200px;
-    margin-right: 8px;
-    min-width: 120px;
-  }
-  .setting-item input[type="range"] {
-    flex: 1 1 120px;
-    max-width: 180px;
-    min-width: 60px;
-    margin-top: 0;
-    margin-bottom: 0;
-    align-self: center;
-    box-sizing: border-box;
-    flex-shrink: 1;
-  }
-  .setting-item .reset-btn {
-    flex: 0 1 auto;
-    margin-left: 6px;
-    margin-top: 0;
-    align-self: center;
-    position: relative;
-    z-index: 1;
-    max-width: 80px;
-    flex-shrink: 1;
-    box-sizing: border-box;
-    white-space: nowrap;
-  }
-}
-
 /* Mobile adjustments for reset buttons */
 @media (max-width: 600px) {
   .reset-btn {
     font-size: 0.75rem;
-    padding: 3px 6px;
-    margin-left: 0;
-    margin-top: 8px;
-    width: 100%;
-    max-width: 70px;
-    align-self: center;
+    padding: 3px 8px;
   }
 }
