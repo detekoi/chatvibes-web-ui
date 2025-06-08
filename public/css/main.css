@@ -1176,10 +1176,16 @@ footer a:active {
   .add-user-form {
     flex-direction: column;
     gap: var(--spacing-small);
+    align-items: center;
   }
   
   .add-user-form input {
     width: 100%;
+  }
+  
+  .add-user-form .button {
+    width: 60%;
+    max-width: 120px;
   }
   
   .ignore-list {
@@ -1188,6 +1194,18 @@ footer a:active {
 }
 
 @media (max-width: 575px) {
+  :root {
+    --font-size-huge: 2rem;
+    --font-size-large: 1.5rem;
+    --font-size-medium: 1.1rem;
+    --spacing-unit: 4px;
+  }
+  
+  body {
+    padding: var(--spacing-small);
+    font-size: 0.9rem;
+  }
+  
   header {
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -1196,22 +1214,100 @@ footer a:active {
   }
   
   .header-mascot-area {
-    width: 300px; /* Increased width for mobile */
+    width: 100%;
+    max-width: 300px;
     align-items: center; /* Center align in mobile */
     margin: var(--spacing-medium) auto 0 auto; /* Center the block */
   }
   
   .mascot-ai-description {
-    width: 280px;
+    width: 100%;
+    max-width: 280px;
     text-align: center;
   }
   
   header h1 {
-    font-size: 2.8rem;
+    font-size: 2rem;
+    text-align: center;
   }
   
   header .tagline {
     max-width: 100%;
+    text-align: center;
+  }
+  
+  /* Dashboard mobile specific */
+  .container {
+    padding: var(--spacing-small);
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .container h1 {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: var(--spacing-small);
+  }
+  
+  .tab-content {
+    padding: var(--spacing-small);
+    min-height: auto;
+  }
+  
+  .settings-section h3 {
+    font-size: 1.1rem;
+  }
+  
+  .setting-item {
+    margin-bottom: var(--spacing-small);
+  }
+  
+  .setting-item label {
+    font-size: 0.9rem;
+  }
+  
+  .setting-item input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+  }
+  
+  /* Button adjustments for mobile */
+  .button {
+    padding: var(--spacing-small) var(--spacing-medium);
+    font-size: 0.9rem;
+    width: 85%;
+    max-width: 280px;
+    margin: var(--spacing-small) auto;
+    display: block;
+  }
+  
+  .button.primary {
+    padding: var(--spacing-small) var(--spacing-medium);
+    font-size: 1rem;
+    width: 90%;
+    max-width: 320px;
+  }
+  
+  /* OBS setup mobile adjustments */
+  #obs-setup-instructions {
+    font-size: 0.85rem;
+  }
+  
+  #obs-setup-instructions h2 {
+    font-size: 1.3rem;
+  }
+  
+  #obs-setup-instructions h4 {
+    font-size: 1rem;
+  }
+  
+  .tts-url-container {
+    flex-direction: column;
+    gap: var(--spacing-small);
+  }
+  
+  #tts-url-field {
+    font-size: 0.8rem;
   }
 }
 
