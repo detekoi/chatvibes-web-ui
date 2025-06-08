@@ -287,33 +287,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Load available voices using the working implementation logic
+    // Load available voices via bot API (avoids CORS issues)
     async function loadAvailableVoices() {
         if (!defaultVoiceSelect) return;
         
         // Fallback voice list in case API fails
         const fallbackVoices = [
             'Friendly_Person', 'Professional_Woman', 'Casual_Male', 'Energetic_Youth',
-            'Warm_Grandmother', 'Confident_Leader', 'Soothing_Narrator', 'Cheerful_Assistant'
+            'Warm_Grandmother', 'Confident_Leader', 'Soothing_Narrator', 'Cheerful_Assistant',
+            'Deep_Narrator', 'Bright_Assistant', 'Calm_Guide', 'Energetic_Host'
         ];
         
         try {
-            // Try to fetch directly from Replicate (same as the bot does)
-            const response = await fetch('https://replicate.com/minimax/speech-02-turbo/llms.txt');
-            if (response.ok) {
-                const rawText = await response.text();
-                const voices = parseVoicesFromText(rawText);
-                if (voices.length > 0) {
-                    populateVoices(voices);
-                    return;
-                }
-            }
-        } catch (error) {
-            console.warn('Failed to load voices from Replicate, trying bot API:', error);
-        }
-        
-        try {
-            // Try to fetch from bot's API as fallback
+            // Try to fetch from bot's API first (no CORS issues)
             const response = await fetch(`${BOT_API_BASE_URL}/voices`);
             if (response.ok) {
                 const voicesData = await response.json();
@@ -325,7 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.warn('Failed to load voices from bot API, using fallback:', error);
         }
         
-        // Use fallback voices
+        // Use fallback voices if all else fails
         populateVoices(fallbackVoices);
     }
     
@@ -455,8 +441,13 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (error) {
             console.error('Failed to load bot settings:', error);
             if (settingsStatusMessage) {
-                settingsStatusMessage.textContent = 'Failed to load current settings. Using defaults.';
-                settingsStatusMessage.style.color = 'orange';
+                if (error.message?.includes('Failed to fetch') || error.name === 'TypeError') {
+                    settingsStatusMessage.textContent = '⚠️ Settings management not available - bot needs to be updated with REST API endpoints. Using defaults for now.';
+                    settingsStatusMessage.style.color = 'orange';
+                } else {
+                    settingsStatusMessage.textContent = 'Failed to load current settings. Using defaults.';
+                    settingsStatusMessage.style.color = 'orange';
+                }
             }
         }
     }
@@ -507,8 +498,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 
                 if (!response.ok) {
-                    const errorData = await response.json();
-                    errors.push(`TTS ${setting.key}: ${errorData.error}`);
+                    if (response.status === 400) {
+                        const errorData = await response.json().catch(() => ({ error: 'Validation error' }));
+                        console.warn(`TTS setting ${setting.key} validation failed:`, errorData.error);
+                        // Continue with other settings even if one fails validation
+                    } else if (response.status === 500 || response.status === 404) {
+                        errors.push(`Settings management not available yet - bot needs API update`);
+                        break; // Don't continue with other settings
+                    } else {
+                        const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
+                        errors.push(`TTS ${setting.key}: ${errorData.error}`);
+                    }
                 }
             }
 
@@ -530,8 +530,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 
                 if (!response.ok) {
-                    const errorData = await response.json();
-                    errors.push(`Music ${setting.key}: ${errorData.error}`);
+                    if (response.status === 500 || response.status === 404 || response.status === 400) {
+                        errors.push(`Settings management not available yet - bot needs API update`);
+                        break; // Don't continue with other settings
+                    } else {
+                        const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
+                        errors.push(`Music ${setting.key}: ${errorData.error}`);
+                    }
                 }
             }
 
@@ -622,8 +627,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 inputEl.value = '';
                 loadBotSettings(); // Refresh the lists
             } else {
-                const errorData = await response.json();
-                alert(`Failed to add user: ${errorData.error}`);
+                if (response.status === 500 || response.status === 404) {
+                    alert('Settings management is not available yet. The bot needs to be updated with the new REST API endpoints.');
+                } else {
+                    const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
+                    alert(`Failed to add user: ${errorData.error}`);
+                }
             }
         } catch (error) {
             console.error(`Failed to add user to ${type} ignore list:`, error);
@@ -656,8 +665,12 @@ document.addEventListener('DOMContentLoaded', () => {
             if (response.ok) {
                 loadBotSettings(); // Refresh the lists
             } else {
-                const errorData = await response.json();
-                alert(`Failed to remove user: ${errorData.error}`);
+                if (response.status === 500 || response.status === 404) {
+                    alert('Settings management is not available yet. The bot needs to be updated with the new REST API endpoints.');
+                } else {
+                    const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
+                    alert(`Failed to remove user: ${errorData.error}`);
+                }
             }
         } catch (error) {
             console.error(`Failed to remove user from ${type} ignore list:`, error);
