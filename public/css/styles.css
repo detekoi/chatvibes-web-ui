@@ -614,7 +614,7 @@ input[type="range"]::-webkit-slider-thumb {
   border: 2px solid #fff;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   cursor: pointer;
-  margin-top: -8px;
+  margin-top: -4px;
 }
 
 input[type="range"]::-moz-range-thumb {
@@ -625,6 +625,7 @@ input[type="range"]::-moz-range-thumb {
   border: 2px solid #fff;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   cursor: pointer;
+  margin-top: 0;
 }
 
 .settings-section span[id$="-value"] {
@@ -1184,25 +1185,39 @@ footer a {
   .setting-item {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
     margin-bottom: 20px;
     padding: 12px 0;
+    position: relative;
+    max-width: 100%;
+    box-sizing: border-box;
   }
-  
   .setting-item label {
-    flex: 0 0 220px;
+    flex: 0 0 200px;
     margin-right: 8px;
+    min-width: 120px;
   }
-  
   .setting-item input[type="range"] {
-    flex: 1 1 200px;
-    max-width: 250px;
-  }
-  
-  .setting-item .reset-btn {
-    flex: 0 0 auto;
-    margin-left: 12px;
+    flex: 1 1 120px;
+    max-width: 180px;
+    min-width: 60px;
     margin-top: 0;
+    margin-bottom: 0;
+    align-self: center;
+    box-sizing: border-box;
+    flex-shrink: 1;
+  }
+  .setting-item .reset-btn {
+    flex: 0 1 auto;
+    margin-left: 6px;
+    margin-top: 0;
+    align-self: center;
+    position: relative;
+    z-index: 1;
+    max-width: 80px;
+    flex-shrink: 1;
+    box-sizing: border-box;
+    white-space: nowrap;
   }
 }
 
