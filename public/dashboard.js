@@ -256,6 +256,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const musicBitsEnabledCheckbox = document.getElementById('music-bits-enabled');
     const musicBitsAmountInput = document.getElementById('music-bits-amount');
     const saveSettingsBtn = document.getElementById('save-settings-btn');
+    
+    // Reset buttons
+    const resetPitchBtn = document.getElementById('reset-pitch-btn');
+    const resetSpeedBtn = document.getElementById('reset-speed-btn');
 
     // Track original settings to detect changes
     let originalSettings = {};
@@ -288,6 +292,21 @@ document.addEventListener('DOMContentLoaded', () => {
     if (defaultSpeedSlider && speedValueSpan) {
         defaultSpeedSlider.addEventListener('input', () => {
             speedValueSpan.textContent = defaultSpeedSlider.value;
+        });
+    }
+
+    // Reset button functionality
+    if (resetPitchBtn && defaultPitchSlider && pitchValueSpan) {
+        resetPitchBtn.addEventListener('click', () => {
+            defaultPitchSlider.value = '0';
+            pitchValueSpan.textContent = '0';
+        });
+    }
+
+    if (resetSpeedBtn && defaultSpeedSlider && speedValueSpan) {
+        resetSpeedBtn.addEventListener('click', () => {
+            defaultSpeedSlider.value = '1.0';
+            speedValueSpan.textContent = '1.0';
         });
     }
 

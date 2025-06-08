@@ -1102,3 +1102,119 @@ footer a {
     font-size: 0.8rem;
   }
 }
+
+/* Reset buttons for sliders */
+.reset-btn {
+  font-size: 0.8rem;
+  padding: 4px 8px;
+  margin-left: 12px;
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: none;
+  align-self: center;
+}
+
+.reset-btn:hover {
+  background: #e0e0e0;
+  border-color: #999;
+  color: #333;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  transform: none;
+}
+
+.reset-btn:active {
+  background: #d0d0d0;
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .reset-btn {
+    background: #333;
+    border-color: #555;
+    color: #ccc;
+  }
+  
+  .reset-btn:hover {
+    background: #444;
+    border-color: #777;
+    color: #fff;
+  }
+  
+  .reset-btn:active {
+    background: #222;
+  }
+}
+
+/* Medium screen adjustments - move reset buttons below sliders */
+@media (max-width: 1024px) and (min-width: 601px) {
+  .setting-item {
+    flex-wrap: wrap;
+  }
+  
+  .setting-item input[type="range"] {
+    flex-basis: 100%;
+    order: 1;
+  }
+  
+  .setting-item label {
+    flex-basis: 100%;
+    order: 0;
+  }
+  
+  .setting-item span[id$="-value"] {
+    order: 2;
+    margin-left: 0;
+    margin-top: 4px;
+  }
+  
+  .reset-btn {
+    order: 3;
+    margin-left: 8px;
+    margin-top: 4px;
+    max-width: 80px;
+  }
+}
+
+/* Desktop layout for slider settings */
+@media (min-width: 1025px) {
+  .setting-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding: 12px 0;
+  }
+  
+  .setting-item label {
+    flex: 0 0 220px;
+    margin-right: 8px;
+  }
+  
+  .setting-item input[type="range"] {
+    flex: 1 1 200px;
+    max-width: 250px;
+  }
+  
+  .setting-item .reset-btn {
+    flex: 0 0 auto;
+    margin-left: 12px;
+    margin-top: 0;
+  }
+}
+
+/* Mobile adjustments for reset buttons */
+@media (max-width: 600px) {
+  .reset-btn {
+    font-size: 0.75rem;
+    padding: 3px 6px;
+    margin-left: 0;
+    margin-top: 8px;
+    width: 100%;
+    max-width: 70px;
+    align-self: center;
+  }
+}
