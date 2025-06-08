@@ -225,6 +225,470 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Settings Panel Elements
+    const settingsTabBtn = document.getElementById('settings-tab-btn');
+    const obsTabBtn = document.getElementById('obs-tab-btn');
+    const settingsPanel = document.getElementById('settings-panel');
+    const obsSetupInstructions = document.getElementById('obs-setup-instructions');
+    const settingsStatusMessage = document.getElementById('settings-status-message');
+    
+    // Bot settings API URL - configurable for dev/production
+    const BOT_API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+        ? 'http://localhost:8080/api'  // Local development
+        : 'https://chatvibes-tts-service-h7kj56ct4q-uc.a.run.app/api';  // Production
+    
+    // Settings form elements
+    const ttsEnabledCheckbox = document.getElementById('tts-enabled');
+    const ttsModeSelect = document.getElementById('tts-mode');
+    const eventsEnabledCheckbox = document.getElementById('events-enabled');
+    const bitsEnabledCheckbox = document.getElementById('bits-enabled');
+    const bitsAmountInput = document.getElementById('bits-amount');
+    const defaultVoiceSelect = document.getElementById('default-voice');
+    const defaultEmotionSelect = document.getElementById('default-emotion');
+    const defaultPitchSlider = document.getElementById('default-pitch');
+    const pitchValueSpan = document.getElementById('pitch-value');
+    const defaultSpeedSlider = document.getElementById('default-speed');
+    const speedValueSpan = document.getElementById('speed-value');
+    const defaultLanguageSelect = document.getElementById('default-language');
+    const musicEnabledCheckbox = document.getElementById('music-enabled');
+    const musicModeSelect = document.getElementById('music-mode');
+    const musicBitsEnabledCheckbox = document.getElementById('music-bits-enabled');
+    const musicBitsAmountInput = document.getElementById('music-bits-amount');
+    const saveSettingsBtn = document.getElementById('save-settings-btn');
+
+    // Tab switching functionality
+    function switchTab(activeTabBtn, activePanel, inactiveTabBtn, inactivePanel) {
+        activeTabBtn.classList.add('active');
+        activePanel.classList.add('active');
+        inactiveTabBtn.classList.remove('active');
+        inactivePanel.classList.remove('active');
+    }
+
+    if (settingsTabBtn && obsTabBtn) {
+        settingsTabBtn.addEventListener('click', () => {
+            switchTab(settingsTabBtn, settingsPanel, obsTabBtn, obsSetupInstructions);
+        });
+
+        obsTabBtn.addEventListener('click', () => {
+            switchTab(obsTabBtn, obsSetupInstructions, settingsTabBtn, settingsPanel);
+        });
+    }
+
+    // Slider value updates
+    if (defaultPitchSlider && pitchValueSpan) {
+        defaultPitchSlider.addEventListener('input', () => {
+            pitchValueSpan.textContent = defaultPitchSlider.value;
+        });
+    }
+
+    if (defaultSpeedSlider && speedValueSpan) {
+        defaultSpeedSlider.addEventListener('input', () => {
+            speedValueSpan.textContent = defaultSpeedSlider.value;
+        });
+    }
+
+    // Load available voices using the working implementation logic
+    async function loadAvailableVoices() {
+        if (!defaultVoiceSelect) return;
+        
+        // Fallback voice list in case API fails
+        const fallbackVoices = [
+            'Friendly_Person', 'Professional_Woman', 'Casual_Male', 'Energetic_Youth',
+            'Warm_Grandmother', 'Confident_Leader', 'Soothing_Narrator', 'Cheerful_Assistant'
+        ];
+        
+        try {
+            // Try to fetch directly from Replicate (same as the bot does)
+            const response = await fetch('https://replicate.com/minimax/speech-02-turbo/llms.txt');
+            if (response.ok) {
+                const rawText = await response.text();
+                const voices = parseVoicesFromText(rawText);
+                if (voices.length > 0) {
+                    populateVoices(voices);
+                    return;
+                }
+            }
+        } catch (error) {
+            console.warn('Failed to load voices from Replicate, trying bot API:', error);
+        }
+        
+        try {
+            // Try to fetch from bot's API as fallback
+            const response = await fetch(`${BOT_API_BASE_URL}/voices`);
+            if (response.ok) {
+                const voicesData = await response.json();
+                const voices = voicesData.voices || fallbackVoices;
+                populateVoices(voices);
+                return;
+            }
+        } catch (error) {
+            console.warn('Failed to load voices from bot API, using fallback:', error);
+        }
+        
+        // Use fallback voices
+        populateVoices(fallbackVoices);
+    }
+    
+    // Parse voices from Replicate text (same logic as bot)
+    function parseVoicesFromText(rawText) {
+        const lines = rawText.split('\n');
+        const allFoundVoiceIds = new Set();
+        
+        // Parse system voice IDs from input line
+        const voiceIdInputHeader = '- voice_id:';
+        const voiceIdInputLineIndex = lines.findIndex(line => line.trim().startsWith(voiceIdInputHeader));
+        
+        if (voiceIdInputLineIndex !== -1) {
+            const lineContent = lines[voiceIdInputLineIndex];
+            const systemVoicesMatch = lineContent.match(/system voice IDs:\s*([^)]+)\s*\(/i);
+            if (systemVoicesMatch && systemVoicesMatch[1]) {
+                const systemVoiceChunk = systemVoicesMatch[1];
+                systemVoiceChunk.split(',')
+                    .map(v => v.trim())
+                    .filter(v => v)
+                    .forEach(vId => allFoundVoiceIds.add(vId));
+            }
+        }
+        
+        // Parse main voice list
+        const mainListHeaderString = '> ## MiniMax TTS Voice List';
+        const mainListStartIndex = lines.findIndex(line => line.trim() === mainListHeaderString);
+        
+        if (mainListStartIndex !== -1) {
+            for (let i = mainListStartIndex + 1; i < lines.length; i++) {
+                const trimmed = lines[i].trim();
+                if (trimmed.startsWith('> - ')) {
+                    allFoundVoiceIds.add(trimmed.substring(4).trim());
+                } else if (trimmed.startsWith('- ')) {
+                    allFoundVoiceIds.add(trimmed.substring(2).trim());
+                } else if (trimmed === '' || trimmed === '>') {
+                    continue;
+                } else if (trimmed.startsWith('#') || trimmed.startsWith('> #')) {
+                    break;
+                }
+            }
+        }
+        
+        return Array.from(allFoundVoiceIds);
+    }
+    
+    function populateVoices(voices) {
+        // Clear existing options
+        defaultVoiceSelect.innerHTML = '';
+        
+        // Add voice options
+        voices.forEach(voice => {
+            const option = document.createElement('option');
+            option.value = voice;
+            option.textContent = voice.replace(/[_-]/g, ' ').replace(/\b\w/g, chr => chr.toUpperCase());
+            defaultVoiceSelect.appendChild(option);
+        });
+        
+        // Set default selection
+        defaultVoiceSelect.value = 'Friendly_Person';
+    }
+
+    // Load current settings from bot API
+    async function loadBotSettings() {
+        if (!loggedInUser?.login) {
+            console.warn('No logged in user, cannot load bot settings');
+            return;
+        }
+
+        try {
+            const channelName = loggedInUser.login.toLowerCase();
+            
+            // Prepare headers with auth token
+            const headers = {
+                'Content-Type': 'application/json'
+            };
+            if (appSessionToken) {
+                headers['Authorization'] = `Bearer ${appSessionToken}`;
+            }
+            
+            // Load TTS settings
+            let ttsData = { settings: {} };
+            const ttsResponse = await fetch(`${BOT_API_BASE_URL}/tts/settings/channel/${channelName}`, { headers });
+            if (ttsResponse.ok) {
+                ttsData = await ttsResponse.json();
+                const settings = ttsData.settings || {};
+                
+                if (ttsEnabledCheckbox) ttsEnabledCheckbox.checked = settings.engineEnabled || false;
+                if (ttsModeSelect) ttsModeSelect.value = settings.mode || 'command';
+                if (eventsEnabledCheckbox) eventsEnabledCheckbox.checked = settings.speakEvents !== false;
+                if (bitsEnabledCheckbox) bitsEnabledCheckbox.checked = settings.bitsModeEnabled || false;
+                if (bitsAmountInput) bitsAmountInput.value = settings.bitsMinimumAmount || 100;
+                if (defaultVoiceSelect) defaultVoiceSelect.value = settings.voiceId || 'Friendly_Person';
+                if (defaultEmotionSelect) defaultEmotionSelect.value = settings.emotion || 'auto';
+                if (defaultPitchSlider) {
+                    defaultPitchSlider.value = settings.pitch || 0;
+                    if (pitchValueSpan) pitchValueSpan.textContent = settings.pitch || 0;
+                }
+                if (defaultSpeedSlider) {
+                    defaultSpeedSlider.value = settings.speed || 1.0;
+                    if (speedValueSpan) speedValueSpan.textContent = settings.speed || 1.0;
+                }
+                if (defaultLanguageSelect) defaultLanguageSelect.value = settings.languageBoost || 'Automatic';
+            }
+            
+            // Load Music settings
+            let musicData = { settings: {} };
+            const musicResponse = await fetch(`${BOT_API_BASE_URL}/music/settings/channel/${channelName}`, { headers });
+            if (musicResponse.ok) {
+                musicData = await musicResponse.json();
+                const settings = musicData.settings || {};
+                
+                if (musicEnabledCheckbox) musicEnabledCheckbox.checked = settings.enabled || false;
+                if (musicModeSelect) {
+                    // Convert from allowedRoles array to simple mode
+                    const mode = settings.allowedRoles?.includes('everyone') ? 'everyone' : 'moderator';
+                    musicModeSelect.value = mode;
+                }
+                if (musicBitsEnabledCheckbox) musicBitsEnabledCheckbox.checked = settings.bitsModeEnabled || false;
+                if (musicBitsAmountInput) musicBitsAmountInput.value = settings.bitsMinimumAmount || 100;
+            }
+            
+            // Display ignore lists
+            displayIgnoreList('tts', ttsData.settings?.ignoredUsers || []);
+            displayIgnoreList('music', musicData.settings?.ignoredUsers || []);
+            
+        } catch (error) {
+            console.error('Failed to load bot settings:', error);
+            if (settingsStatusMessage) {
+                settingsStatusMessage.textContent = 'Failed to load current settings. Using defaults.';
+                settingsStatusMessage.style.color = 'orange';
+            }
+        }
+    }
+
+    // Save settings to bot API
+    async function saveBotSettings() {
+        if (!loggedInUser?.login) {
+            console.warn('No logged in user, cannot save bot settings');
+            return;
+        }
+
+        if (settingsStatusMessage) {
+            settingsStatusMessage.textContent = 'Saving settings...';
+            settingsStatusMessage.style.color = 'blue';
+        }
+
+        try {
+            const channelName = loggedInUser.login.toLowerCase();
+            const errors = [];
+
+            // Prepare headers with auth token
+            const headers = {
+                'Content-Type': 'application/json'
+            };
+            if (appSessionToken) {
+                headers['Authorization'] = `Bearer ${appSessionToken}`;
+            }
+
+            // Save TTS settings
+            const ttsSettings = [
+                { key: 'engineEnabled', value: ttsEnabledCheckbox?.checked || false },
+                { key: 'mode', value: ttsModeSelect?.value || 'command' },
+                { key: 'speakEvents', value: eventsEnabledCheckbox?.checked !== false },
+                { key: 'bitsModeEnabled', value: bitsEnabledCheckbox?.checked || false },
+                { key: 'bitsMinimumAmount', value: parseInt(bitsAmountInput?.value || '100') },
+                { key: 'voiceId', value: defaultVoiceSelect?.value || 'Friendly_Person' },
+                { key: 'emotion', value: defaultEmotionSelect?.value || 'auto' },
+                { key: 'pitch', value: parseInt(defaultPitchSlider?.value || '0') },
+                { key: 'speed', value: parseFloat(defaultSpeedSlider?.value || '1.0') },
+                { key: 'languageBoost', value: defaultLanguageSelect?.value || 'Automatic' }
+            ];
+
+            for (const setting of ttsSettings) {
+                const response = await fetch(`${BOT_API_BASE_URL}/tts/settings/channel/${channelName}`, {
+                    method: 'PUT',
+                    headers,
+                    body: JSON.stringify(setting)
+                });
+                
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    errors.push(`TTS ${setting.key}: ${errorData.error}`);
+                }
+            }
+
+            // Save Music settings
+            const musicSettings = [
+                { key: 'enabled', value: musicEnabledCheckbox?.checked || false },
+                { key: 'allowedRoles', value: musicModeSelect?.value === 'everyone' ? ['everyone'] : ['moderator'] },
+                { key: 'bitsConfig', value: { 
+                    enabled: musicBitsEnabledCheckbox?.checked || false,
+                    minimumAmount: parseInt(musicBitsAmountInput?.value || '100')
+                }}
+            ];
+
+            for (const setting of musicSettings) {
+                const response = await fetch(`${BOT_API_BASE_URL}/music/settings/channel/${channelName}`, {
+                    method: 'PUT',
+                    headers,
+                    body: JSON.stringify(setting)
+                });
+                
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    errors.push(`Music ${setting.key}: ${errorData.error}`);
+                }
+            }
+
+            if (errors.length > 0) {
+                if (settingsStatusMessage) {
+                    settingsStatusMessage.textContent = `Some settings failed to save: ${errors.join(', ')}`;
+                    settingsStatusMessage.style.color = 'red';
+                }
+            } else {
+                if (settingsStatusMessage) {
+                    settingsStatusMessage.textContent = 'All settings saved successfully!';
+                    settingsStatusMessage.style.color = 'green';
+                }
+            }
+            
+        } catch (error) {
+            console.error('Failed to save bot settings:', error);
+            if (settingsStatusMessage) {
+                settingsStatusMessage.textContent = 'Failed to save settings. Please try again.';
+                settingsStatusMessage.style.color = 'red';
+            }
+        }
+
+        // Clear status message after 5 seconds
+        setTimeout(() => {
+            if (settingsStatusMessage) settingsStatusMessage.textContent = '';
+        }, 5000);
+    }
+
+    // Save settings button handler
+    if (saveSettingsBtn) {
+        saveSettingsBtn.addEventListener('click', saveBotSettings);
+    }
+
+    // Display ignore list
+    function displayIgnoreList(type, users) {
+        const listEl = document.getElementById(`${type}-ignore-list`);
+        if (!listEl) return;
+        
+        listEl.innerHTML = '';
+        users.forEach(username => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+                <span>${username}</span>
+                <button class="remove-btn" onclick="removeFromIgnoreList('${type}', '${username}')">Remove</button>
+            `;
+            listEl.appendChild(li);
+        });
+        
+        if (users.length === 0) {
+            const li = document.createElement('li');
+            li.innerHTML = '<span style="color: #999; font-style: italic;">No ignored users</span>';
+            listEl.appendChild(li);
+        }
+    }
+    
+    // Add to ignore list
+    async function addToIgnoreList(type) {
+        const inputEl = document.getElementById(`${type}-ignore-username`);
+        const username = inputEl?.value?.trim();
+        
+        if (!username) {
+            alert('Please enter a username');
+            return;
+        }
+        
+        if (!loggedInUser?.login) {
+            alert('Not logged in');
+            return;
+        }
+        
+        try {
+            const channelName = loggedInUser.login.toLowerCase();
+            const headers = {
+                'Content-Type': 'application/json'
+            };
+            if (appSessionToken) {
+                headers['Authorization'] = `Bearer ${appSessionToken}`;
+            }
+            
+            const response = await fetch(`${BOT_API_BASE_URL}/${type}/ignore/channel/${channelName}`, {
+                method: 'POST',
+                headers,
+                body: JSON.stringify({ username })
+            });
+            
+            if (response.ok) {
+                inputEl.value = '';
+                loadBotSettings(); // Refresh the lists
+            } else {
+                const errorData = await response.json();
+                alert(`Failed to add user: ${errorData.error}`);
+            }
+        } catch (error) {
+            console.error(`Failed to add user to ${type} ignore list:`, error);
+            alert('Failed to add user to ignore list');
+        }
+    }
+    
+    // Remove from ignore list  
+    async function removeFromIgnoreList(type, username) {
+        if (!loggedInUser?.login) {
+            alert('Not logged in');
+            return;
+        }
+        
+        try {
+            const channelName = loggedInUser.login.toLowerCase();
+            const headers = {
+                'Content-Type': 'application/json'
+            };
+            if (appSessionToken) {
+                headers['Authorization'] = `Bearer ${appSessionToken}`;
+            }
+            
+            const response = await fetch(`${BOT_API_BASE_URL}/${type}/ignore/channel/${channelName}`, {
+                method: 'DELETE',
+                headers,
+                body: JSON.stringify({ username })
+            });
+            
+            if (response.ok) {
+                loadBotSettings(); // Refresh the lists
+            } else {
+                const errorData = await response.json();
+                alert(`Failed to remove user: ${errorData.error}`);
+            }
+        } catch (error) {
+            console.error(`Failed to remove user from ${type} ignore list:`, error);
+            alert('Failed to remove user from ignore list');
+        }
+    }
+    
+    // Make functions global for onclick handlers
+    window.removeFromIgnoreList = removeFromIgnoreList;
+    
+    // Add event listeners for ignore list buttons
+    const addTtsIgnoreBtn = document.getElementById('add-tts-ignore-btn');
+    const addMusicIgnoreBtn = document.getElementById('add-music-ignore-btn');
+    
+    if (addTtsIgnoreBtn) {
+        addTtsIgnoreBtn.addEventListener('click', () => addToIgnoreList('tts'));
+    }
+    
+    if (addMusicIgnoreBtn) {
+        addMusicIgnoreBtn.addEventListener('click', () => addToIgnoreList('music'));
+    }
+
+    // Initialize settings panel
+    async function initializeSettingsPanel() {
+        await loadAvailableVoices();
+        await loadBotSettings();
+    }
+
     // Initialize the dashboard
-    initializeDashboard();
+    initializeDashboard().then(() => {
+        // Initialize settings panel after dashboard is loaded
+        initializeSettingsPanel();
+    });
 });

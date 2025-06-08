@@ -66,6 +66,8 @@ node_modules/
 .env
 .env.chatvibestts
 
+.venv
+
 # dataconnect generated files
 .dataconnect
 functions/.runtimeconfig.json
