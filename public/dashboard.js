@@ -231,6 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const settingsPanel = document.getElementById('settings-panel');
     const obsSetupInstructions = document.getElementById('obs-setup-instructions');
     const settingsStatusMessage = document.getElementById('settings-status-message');
+    const saveConfirmationMessage = document.getElementById('save-confirmation-message');
     
     // Bot settings API URL - configurable for dev/production
     const BOT_API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
@@ -255,6 +256,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const musicBitsEnabledCheckbox = document.getElementById('music-bits-enabled');
     const musicBitsAmountInput = document.getElementById('music-bits-amount');
     const saveSettingsBtn = document.getElementById('save-settings-btn');
+
+    // Track original settings to detect changes
+    let originalSettings = {};
 
     // Tab switching functionality
     function switchTab(activeTabBtn, activePanel, inactiveTabBtn, inactivePanel) {
@@ -438,6 +442,12 @@ document.addEventListener('DOMContentLoaded', () => {
             displayIgnoreList('tts', ttsData.settings?.ignoredUsers || []);
             displayIgnoreList('music', musicData.settings?.ignoredUsers || []);
             
+            // Store original settings for change detection
+            originalSettings = {
+                tts: ttsData.settings || {},
+                music: musicData.settings || {}
+            };
+            
         } catch (error) {
             console.error('Failed to load bot settings:', error);
             if (settingsStatusMessage) {
@@ -459,15 +469,15 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        if (settingsStatusMessage) {
-            settingsStatusMessage.textContent = 'Saving settings...';
-            settingsStatusMessage.style.color = 'blue';
+        if (saveConfirmationMessage) {
+            saveConfirmationMessage.textContent = 'Saving settings...';
+            saveConfirmationMessage.style.color = 'blue';
         }
 
         try {
             const channelName = loggedInUser.login.toLowerCase();
             const errors = [];
-            const savedSettings = [];
+            const changedSettings = [];
 
             // Prepare headers with auth token
             const headers = {
@@ -477,8 +487,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 headers['Authorization'] = `Bearer ${appSessionToken}`;
             }
 
-            // Save TTS settings
-            const ttsSettings = [
+            // Get current values and check for changes
+            const currentTtsSettings = [
                 { key: 'engineEnabled', value: ttsEnabledCheckbox?.checked || false, label: 'TTS Engine' },
                 { key: 'mode', value: ttsModeSelect?.value || 'command', label: 'TTS Mode' },
                 { key: 'speakEvents', value: eventsEnabledCheckbox?.checked !== false, label: 'Event Announcements' },
@@ -491,89 +501,123 @@ document.addEventListener('DOMContentLoaded', () => {
                 { key: 'languageBoost', value: defaultLanguageSelect?.value || 'Automatic', label: 'Default Language' }
             ];
 
-            for (const setting of ttsSettings) {
-                const response = await fetch(`${BOT_API_BASE_URL}/tts/settings/channel/${channelName}`, {
-                    method: 'PUT',
-                    headers,
-                    body: JSON.stringify(setting)
-                });
-                
-                if (response.ok) {
-                    savedSettings.push(`${setting.label}: ${setting.value}`);
-                } else if (response.status === 400) {
-                    const errorData = await response.json().catch(() => ({ error: 'Validation error' }));
-                    console.warn(`TTS setting ${setting.key} validation failed:`, errorData.error);
-                    // Continue with other settings even if one fails validation
-                } else if (response.status === 500 || response.status === 404) {
-                    errors.push(`Settings management not available yet - bot needs API update`);
-                    break; // Don't continue with other settings
-                } else {
-                    const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
-                    errors.push(`TTS ${setting.label}: ${errorData.error}`);
+            // Only save settings that have changed
+            for (const setting of currentTtsSettings) {
+                const originalValue = originalSettings.tts?.[setting.key];
+                if (originalValue !== setting.value) {
+                    const response = await fetch(`${BOT_API_BASE_URL}/tts/settings/channel/${channelName}`, {
+                        method: 'PUT',
+                        headers,
+                        body: JSON.stringify(setting)
+                    });
+                    
+                    if (response.ok) {
+                        changedSettings.push(`${setting.label}: ${setting.value}`);
+                    } else if (response.status === 400) {
+                        const errorData = await response.json().catch(() => ({ error: 'Validation error' }));
+                        console.warn(`TTS setting ${setting.key} validation failed:`, errorData.error);
+                    } else if (response.status === 500 || response.status === 404) {
+                        errors.push(`Settings management not available yet - bot needs API update`);
+                        break;
+                    } else {
+                        const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
+                        errors.push(`TTS ${setting.label}: ${errorData.error}`);
+                    }
                 }
             }
 
-            // Save Music settings
-            const musicSettings = [
-                { key: 'enabled', value: musicEnabledCheckbox?.checked || false, label: 'Music Generation' },
-                { key: 'allowedRoles', value: musicModeSelect?.value === 'everyone' ? ['everyone'] : ['moderator'], label: 'Music Access' },
-                { key: 'bitsConfig', value: { 
-                    enabled: musicBitsEnabledCheckbox?.checked || false,
-                    minimumAmount: parseInt(musicBitsAmountInput?.value || '100')
-                }, label: 'Music Bits Config' }
-            ];
+            // Check music settings for changes
+            const currentMusicEnabled = musicEnabledCheckbox?.checked || false;
+            const currentMusicMode = musicModeSelect?.value === 'everyone' ? ['everyone'] : ['moderator'];
+            const currentMusicBitsEnabled = musicBitsEnabledCheckbox?.checked || false;
+            const currentMusicBitsAmount = parseInt(musicBitsAmountInput?.value || '100');
 
-            for (const setting of musicSettings) {
+            if (originalSettings.music?.enabled !== currentMusicEnabled) {
                 const response = await fetch(`${BOT_API_BASE_URL}/music/settings/channel/${channelName}`, {
                     method: 'PUT',
                     headers,
-                    body: JSON.stringify(setting)
+                    body: JSON.stringify({ key: 'enabled', value: currentMusicEnabled })
                 });
                 
                 if (response.ok) {
-                    if (setting.key === 'bitsConfig') {
-                        savedSettings.push(`${setting.label}: ${setting.value.enabled ? 'Enabled' : 'Disabled'} (${setting.value.minimumAmount} bits)`);
-                    } else if (setting.key === 'allowedRoles') {
-                        savedSettings.push(`${setting.label}: ${setting.value.includes('everyone') ? 'Everyone' : 'Moderators Only'}`);
-                    } else {
-                        savedSettings.push(`${setting.label}: ${setting.value ? 'Enabled' : 'Disabled'}`);
-                    }
-                } else if (response.status === 500 || response.status === 404 || response.status === 400) {
-                    errors.push(`Settings management not available yet - bot needs API update`);
-                    break; // Don't continue with other settings
-                } else {
+                    changedSettings.push(`Music Generation: ${currentMusicEnabled ? 'Enabled' : 'Disabled'}`);
+                } else if (response.status !== 500 && response.status !== 404) {
                     const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
-                    errors.push(`Music ${setting.label}: ${errorData.error}`);
+                    errors.push(`Music Generation: ${errorData.error}`);
+                }
+            }
+
+            if (JSON.stringify(originalSettings.music?.allowedRoles) !== JSON.stringify(currentMusicMode)) {
+                const response = await fetch(`${BOT_API_BASE_URL}/music/settings/channel/${channelName}`, {
+                    method: 'PUT',
+                    headers,
+                    body: JSON.stringify({ key: 'allowedRoles', value: currentMusicMode })
+                });
+                
+                if (response.ok) {
+                    changedSettings.push(`Music Access: ${currentMusicMode.includes('everyone') ? 'Everyone' : 'Moderators Only'}`);
+                } else if (response.status !== 500 && response.status !== 404) {
+                    const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
+                    errors.push(`Music Access: ${errorData.error}`);
+                }
+            }
+
+            if (originalSettings.music?.bitsModeEnabled !== currentMusicBitsEnabled || 
+                originalSettings.music?.bitsMinimumAmount !== currentMusicBitsAmount) {
+                const response = await fetch(`${BOT_API_BASE_URL}/music/settings/channel/${channelName}`, {
+                    method: 'PUT',
+                    headers,
+                    body: JSON.stringify({ 
+                        key: 'bitsConfig', 
+                        value: { 
+                            enabled: currentMusicBitsEnabled,
+                            minimumAmount: currentMusicBitsAmount
+                        }
+                    })
+                });
+                
+                if (response.ok) {
+                    changedSettings.push(`Music Bits: ${currentMusicBitsEnabled ? 'Enabled' : 'Disabled'} (${currentMusicBitsAmount} bits)`);
+                } else if (response.status !== 500 && response.status !== 404) {
+                    const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
+                    errors.push(`Music Bits: ${errorData.error}`);
                 }
             }
 
             if (errors.length > 0) {
-                if (settingsStatusMessage) {
-                    settingsStatusMessage.textContent = `Some settings failed to save: ${errors.join(', ')}`;
-                    settingsStatusMessage.style.color = 'red';
+                if (saveConfirmationMessage) {
+                    saveConfirmationMessage.textContent = `Some settings failed to save: ${errors.join(', ')}`;
+                    saveConfirmationMessage.style.color = 'red';
                 }
-            } else {
-                if (settingsStatusMessage) {
-                    const savedCount = savedSettings.length;
-                    settingsStatusMessage.innerHTML = `
-                        <strong>✅ All settings saved successfully!</strong><br>
-                        <small style="opacity: 0.8;">Updated ${savedCount} settings: ${savedSettings.slice(0, 3).join(', ')}${savedCount > 3 ? ` and ${savedCount - 3} more...` : ''}</small>
+            } else if (changedSettings.length > 0) {
+                if (saveConfirmationMessage) {
+                    const changedCount = changedSettings.length;
+                    saveConfirmationMessage.innerHTML = `
+                        <strong>✅ Settings saved successfully!</strong><br>
+                        <small style="opacity: 0.8;">Updated ${changedCount} setting${changedCount > 1 ? 's' : ''}: ${changedSettings.slice(0, 2).join(', ')}${changedCount > 2 ? ` and ${changedCount - 2} more...` : ''}</small>
                     `;
-                    settingsStatusMessage.style.color = 'green';
+                    saveConfirmationMessage.style.color = 'green';
+                }
+                // Update original settings to reflect the changes
+                await loadBotSettings();
+            } else {
+                if (saveConfirmationMessage) {
+                    saveConfirmationMessage.innerHTML = `<span style="opacity: 0.8;">No changes to save</span>`;
+                    saveConfirmationMessage.style.color = '#666';
                 }
             }
             
         } catch (error) {
             console.error('Failed to save bot settings:', error);
-            if (settingsStatusMessage) {
-                settingsStatusMessage.textContent = 'Failed to save settings. Please try again.';
-                settingsStatusMessage.style.color = 'red';
+            if (saveConfirmationMessage) {
+                saveConfirmationMessage.textContent = 'Failed to save settings. Please try again.';
+                saveConfirmationMessage.style.color = 'red';
             }
         }
 
-        // Clear status message after 5 seconds
+        // Clear confirmation message after 5 seconds
         setTimeout(() => {
-            if (settingsStatusMessage) settingsStatusMessage.textContent = '';
+            if (saveConfirmationMessage) saveConfirmationMessage.textContent = '';
         }, 5000);
     }
 
