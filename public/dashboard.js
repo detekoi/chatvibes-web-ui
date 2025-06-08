@@ -467,6 +467,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const channelName = loggedInUser.login.toLowerCase();
             const errors = [];
+            const savedSettings = [];
 
             // Prepare headers with auth token
             const headers = {
@@ -478,16 +479,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Save TTS settings
             const ttsSettings = [
-                { key: 'engineEnabled', value: ttsEnabledCheckbox?.checked || false },
-                { key: 'mode', value: ttsModeSelect?.value || 'command' },
-                { key: 'speakEvents', value: eventsEnabledCheckbox?.checked !== false },
-                { key: 'bitsModeEnabled', value: bitsEnabledCheckbox?.checked || false },
-                { key: 'bitsMinimumAmount', value: parseInt(bitsAmountInput?.value || '100') },
-                { key: 'voiceId', value: defaultVoiceSelect?.value || 'Friendly_Person' },
-                { key: 'emotion', value: defaultEmotionSelect?.value || 'auto' },
-                { key: 'pitch', value: parseInt(defaultPitchSlider?.value || '0') },
-                { key: 'speed', value: parseFloat(defaultSpeedSlider?.value || '1.0') },
-                { key: 'languageBoost', value: defaultLanguageSelect?.value || 'Automatic' }
+                { key: 'engineEnabled', value: ttsEnabledCheckbox?.checked || false, label: 'TTS Engine' },
+                { key: 'mode', value: ttsModeSelect?.value || 'command', label: 'TTS Mode' },
+                { key: 'speakEvents', value: eventsEnabledCheckbox?.checked !== false, label: 'Event Announcements' },
+                { key: 'bitsModeEnabled', value: bitsEnabledCheckbox?.checked || false, label: 'Bits-for-TTS' },
+                { key: 'bitsMinimumAmount', value: parseInt(bitsAmountInput?.value || '100'), label: 'Minimum Bits' },
+                { key: 'voiceId', value: defaultVoiceSelect?.value || 'Friendly_Person', label: 'Default Voice' },
+                { key: 'emotion', value: defaultEmotionSelect?.value || 'auto', label: 'Default Emotion' },
+                { key: 'pitch', value: parseInt(defaultPitchSlider?.value || '0'), label: 'Default Pitch' },
+                { key: 'speed', value: parseFloat(defaultSpeedSlider?.value || '1.0'), label: 'Default Speed' },
+                { key: 'languageBoost', value: defaultLanguageSelect?.value || 'Automatic', label: 'Default Language' }
             ];
 
             for (const setting of ttsSettings) {
@@ -497,29 +498,29 @@ document.addEventListener('DOMContentLoaded', () => {
                     body: JSON.stringify(setting)
                 });
                 
-                if (!response.ok) {
-                    if (response.status === 400) {
-                        const errorData = await response.json().catch(() => ({ error: 'Validation error' }));
-                        console.warn(`TTS setting ${setting.key} validation failed:`, errorData.error);
-                        // Continue with other settings even if one fails validation
-                    } else if (response.status === 500 || response.status === 404) {
-                        errors.push(`Settings management not available yet - bot needs API update`);
-                        break; // Don't continue with other settings
-                    } else {
-                        const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
-                        errors.push(`TTS ${setting.key}: ${errorData.error}`);
-                    }
+                if (response.ok) {
+                    savedSettings.push(`${setting.label}: ${setting.value}`);
+                } else if (response.status === 400) {
+                    const errorData = await response.json().catch(() => ({ error: 'Validation error' }));
+                    console.warn(`TTS setting ${setting.key} validation failed:`, errorData.error);
+                    // Continue with other settings even if one fails validation
+                } else if (response.status === 500 || response.status === 404) {
+                    errors.push(`Settings management not available yet - bot needs API update`);
+                    break; // Don't continue with other settings
+                } else {
+                    const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
+                    errors.push(`TTS ${setting.label}: ${errorData.error}`);
                 }
             }
 
             // Save Music settings
             const musicSettings = [
-                { key: 'enabled', value: musicEnabledCheckbox?.checked || false },
-                { key: 'allowedRoles', value: musicModeSelect?.value === 'everyone' ? ['everyone'] : ['moderator'] },
+                { key: 'enabled', value: musicEnabledCheckbox?.checked || false, label: 'Music Generation' },
+                { key: 'allowedRoles', value: musicModeSelect?.value === 'everyone' ? ['everyone'] : ['moderator'], label: 'Music Access' },
                 { key: 'bitsConfig', value: { 
                     enabled: musicBitsEnabledCheckbox?.checked || false,
                     minimumAmount: parseInt(musicBitsAmountInput?.value || '100')
-                }}
+                }, label: 'Music Bits Config' }
             ];
 
             for (const setting of musicSettings) {
@@ -529,14 +530,20 @@ document.addEventListener('DOMContentLoaded', () => {
                     body: JSON.stringify(setting)
                 });
                 
-                if (!response.ok) {
-                    if (response.status === 500 || response.status === 404 || response.status === 400) {
-                        errors.push(`Settings management not available yet - bot needs API update`);
-                        break; // Don't continue with other settings
+                if (response.ok) {
+                    if (setting.key === 'bitsConfig') {
+                        savedSettings.push(`${setting.label}: ${setting.value.enabled ? 'Enabled' : 'Disabled'} (${setting.value.minimumAmount} bits)`);
+                    } else if (setting.key === 'allowedRoles') {
+                        savedSettings.push(`${setting.label}: ${setting.value.includes('everyone') ? 'Everyone' : 'Moderators Only'}`);
                     } else {
-                        const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
-                        errors.push(`Music ${setting.key}: ${errorData.error}`);
+                        savedSettings.push(`${setting.label}: ${setting.value ? 'Enabled' : 'Disabled'}`);
                     }
+                } else if (response.status === 500 || response.status === 404 || response.status === 400) {
+                    errors.push(`Settings management not available yet - bot needs API update`);
+                    break; // Don't continue with other settings
+                } else {
+                    const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
+                    errors.push(`Music ${setting.label}: ${errorData.error}`);
                 }
             }
 
@@ -547,7 +554,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             } else {
                 if (settingsStatusMessage) {
-                    settingsStatusMessage.textContent = 'All settings saved successfully!';
+                    const savedCount = savedSettings.length;
+                    settingsStatusMessage.innerHTML = `
+                        <strong>✅ All settings saved successfully!</strong><br>
+                        <small style="opacity: 0.8;">Updated ${savedCount} settings: ${savedSettings.slice(0, 3).join(', ')}${savedCount > 3 ? ` and ${savedCount - 3} more...` : ''}</small>
+                    `;
                     settingsStatusMessage.style.color = 'green';
                 }
             }
