@@ -215,6 +215,95 @@ body.page-center-content {
     padding-bottom: 0; /* Remove specific body padding */
 }
 
+/* Mobile responsiveness for smaller screens */
+@media (max-width: 768px) {
+    .container {
+        max-width: 95%;
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .container h1 {
+        font-size: 2rem;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    .tts-url-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    #tts-url-field {
+        margin-right: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    #copy-tts-url-btn {
+        width: 80%;
+        max-width: 200px;
+        margin: 0 auto;
+    }
+    
+    #obs-setup-instructions {
+        padding: 10px;
+        max-height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 5px;
+    }
+    
+    .container {
+        max-width: 98%;
+        padding: 12px;
+        border-radius: 6px;
+    }
+    
+    .container h1 {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+        margin-bottom: 16px;
+    }
+    
+    p {
+        font-size: 0.9rem;
+        margin-bottom: 16px;
+    }
+    
+    .button {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+        width: 80%;
+        max-width: 300px;
+        margin: 8px auto;
+    }
+    
+    #bot-status-container {
+        padding: 12px;
+    }
+    
+    #obs-setup-instructions {
+        padding: 8px;
+        font-size: 0.85rem;
+        max-height: 250px;
+    }
+    
+    #tts-url-field {
+        font-size: 0.8rem;
+        padding: 6px;
+    }
+}
+
 
 /* Dark Mode Adjustments */
 @media (prefers-color-scheme: dark) {
