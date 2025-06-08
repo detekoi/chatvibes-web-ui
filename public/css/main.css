@@ -367,7 +367,6 @@ header .tagline {
   display: none;
   background: var(--color-card-bg);
   border: 3px solid var(--color-border);
-  border-radius: 0 8px 8px 8px;
   padding: var(--spacing-large);
   min-height: 400px;
 }
@@ -380,8 +379,8 @@ header .tagline {
 .settings-section {
   margin-bottom: var(--spacing-large);
   padding: var(--spacing-medium);
-  border-radius: 8px;
   background: var(--color-bg);
+  border-bottom: 2px solid var(--color-border);
 }
 
 .settings-section h3 {
@@ -399,13 +398,6 @@ header .tagline {
   gap: var(--spacing-small);
 }
 
-.settings-section {
-  margin-bottom: var(--spacing-large);
-  padding: var(--spacing-medium);
-  border-radius: 8px;
-  background: var(--color-bg);
-  border-bottom: 2px solid var(--color-border);
-}
 
 .settings-section:last-child {
   border-bottom: none;
@@ -1193,5 +1185,33 @@ footer a:active {
   .tab-button {
     font-size: 1rem;
     padding: 12px 0 10px 0;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .tab-nav {
+    border-bottom: 4px solid #fff;
+    background: none;
+  }
+  .tab-button {
+    background: #222;
+    color: #eee;
+    border: 4px solid #fff;
+    border-bottom: none;
+    border-radius: 16px 16px 0 0;
+    box-shadow: none;
+  }
+  .tab-button.active {
+    background: #111;
+    color: #4aa3f7;
+    border-bottom: none;
+    border-radius: 16px 16px 0 0;
+    box-shadow: 4px 4px 0 #fff;
+    z-index: 2;
+  }
+  .tab-button:hover,
+  .tab-button:focus {
+    background: #333;
+    color: #fff;
   }
 }
