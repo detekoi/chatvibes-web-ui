@@ -258,6 +258,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const musicBitsAmountInput = document.getElementById('music-bits-amount');
     const saveSettingsBtn = document.getElementById('save-settings-btn');
     
+    // Voice test elements
+    const voiceTestTextInput = document.getElementById('voice-test-text');
+    const voiceTestBtn = document.getElementById('voice-test-btn');
+    const voiceTestStatus = document.getElementById('voice-test-status');
+    
     // Reset buttons
     const resetPitchBtn = document.getElementById('reset-pitch-btn');
     const resetSpeedBtn = document.getElementById('reset-speed-btn');
@@ -755,6 +760,117 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
+    // Voice test functionality
+    async function testVoice() {
+        if (!voiceTestTextInput || !voiceTestBtn || !voiceTestStatus) {
+            console.error('Voice test elements not found');
+            return;
+        }
+
+        const text = voiceTestTextInput.value.trim();
+        if (!text) {
+            voiceTestStatus.textContent = 'Please enter some text to test';
+            voiceTestStatus.style.color = 'orange';
+            return;
+        }
+
+        if (text.length > 500) {
+            voiceTestStatus.textContent = 'Text must be 500 characters or less';
+            voiceTestStatus.style.color = 'red';
+            return;
+        }
+
+        if (!appSessionToken) {
+            voiceTestStatus.textContent = 'Authentication required';
+            voiceTestStatus.style.color = 'red';
+            return;
+        }
+
+        // Disable button and show loading state
+        voiceTestBtn.disabled = true;
+        voiceTestBtn.textContent = 'Generating...';
+        voiceTestStatus.textContent = 'Generating voice sample...';
+        voiceTestStatus.style.color = 'blue';
+
+        try {
+            // Get current voice settings from the form
+            const voiceSettings = {
+                text: text,
+                voiceId: defaultVoiceSelect?.value || 'Friendly_Person',
+                emotion: defaultEmotionSelect?.value || 'auto',
+                pitch: parseInt(defaultPitchSlider?.value || '0'),
+                speed: parseFloat(defaultSpeedSlider?.value || '1.0'),
+                languageBoost: defaultLanguageSelect?.value || 'Automatic'
+            };
+
+            console.log('Testing voice with settings:', voiceSettings);
+
+            const response = await fetch(`${API_BASE_URL}/api/tts/test`, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${appSessionToken}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(voiceSettings)
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json().catch(() => ({ message: response.statusText }));
+                throw new Error(errorData.message || `Request failed with status ${response.status}`);
+            }
+
+            const data = await response.json();
+
+            if (data.success && data.audioUrl) {
+                voiceTestStatus.textContent = 'Playing voice sample...';
+                voiceTestStatus.style.color = 'green';
+
+                // Create and play audio element
+                const audio = new Audio(data.audioUrl);
+                audio.onloadstart = () => {
+                    voiceTestStatus.textContent = 'Loading audio...';
+                };
+                audio.oncanplaythrough = () => {
+                    voiceTestStatus.textContent = 'Playing voice sample...';
+                };
+                audio.onended = () => {
+                    voiceTestStatus.textContent = 'Voice test completed!';
+                    setTimeout(() => {
+                        if (voiceTestStatus) voiceTestStatus.textContent = '';
+                    }, 3000);
+                };
+                audio.onerror = () => {
+                    voiceTestStatus.textContent = 'Error playing audio sample';
+                    voiceTestStatus.style.color = 'red';
+                    setTimeout(() => {
+                        if (voiceTestStatus) voiceTestStatus.textContent = '';
+                    }, 5000);
+                };
+                
+                await audio.play();
+            } else {
+                throw new Error(data.message || 'Failed to generate voice sample');
+            }
+
+        } catch (error) {
+            console.error('Voice test error:', error);
+            voiceTestStatus.textContent = `Voice test failed: ${error.message}`;
+            voiceTestStatus.style.color = 'red';
+            setTimeout(() => {
+                if (voiceTestStatus) voiceTestStatus.textContent = '';
+            }, 5000);
+        } finally {
+            // Re-enable button
+            voiceTestBtn.disabled = false;
+            voiceTestBtn.textContent = 'Test Voice';
+        }
+    }
+
+    // Voice test button event listener
+    if (voiceTestBtn) {
+        voiceTestBtn.addEventListener('click', testVoice);
+    }
+
     // Make functions global for onclick handlers
     window.removeFromIgnoreList = removeFromIgnoreList;
     

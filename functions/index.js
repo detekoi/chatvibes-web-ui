@@ -30,6 +30,9 @@ const jwt = require("jsonwebtoken");
 console.log("--- /auth/twitch/initiate HIT --- Version 1.1 ---");
 
 const {Firestore, FieldValue} = require("@google-cloud/firestore");
+const {SecretManagerServiceClient} = require("@google-cloud/secret-manager");
+const Replicate = require("replicate");
+
 let db;
 try {
   db = new Firestore();
@@ -37,6 +40,8 @@ try {
 } catch (e) {
   console.error("[CloudFunctions] Firestore client init error:", e);
 }
+
+const secretClient = new SecretManagerServiceClient();
 
 const CHANNELS_COLLECTION = "managedChannels";
 
@@ -484,6 +489,82 @@ app.post("/api/bot/remove", authenticateApiRequest, async (req, res) => {
   }
 });
 
+// TTS Test Route
+app.post("/api/tts/test", authenticateApiRequest, async (req, res) => {
+  console.log("[API /tts/test] Voice test request received");
+  const {text, voiceId, emotion, pitch, speed, languageBoost} = req.body;
+
+  if (!text || typeof text !== "string" || text.trim().length === 0) {
+    return res.status(400).json({
+      success: false,
+      message: "Text is required and must be a non-empty string.",
+    });
+  }
+
+  if (text.length > 500) {
+    return res.status(400).json({
+      success: false,
+      message: "Text must be 500 characters or less.",
+    });
+  }
+
+  try {
+    // Get Replicate API token from Secret Manager
+    const replicateToken = await getSecret("REPLICATE_API_TOKEN");
+
+    if (!replicateToken) {
+      console.error("[API /tts/test] Failed to retrieve Replicate API token");
+      return res.status(500).json({
+        success: false,
+        message: "TTS service configuration error.",
+      });
+    }
+
+    const replicate = new Replicate({auth: replicateToken});
+
+    // Prepare TTS parameters with validation and defaults
+    const input = {
+      text: text.trim(),
+      voice_id: voiceId || "Friendly_Person",
+      speed: validateSpeed(speed) || 1.0,
+      volume: 1.0,
+      pitch: validatePitch(pitch) || 0,
+      emotion: validateEmotion(emotion) || "auto",
+      language_boost: validateLanguageBoost(languageBoost) || "Automatic",
+      english_normalization: true,
+      sample_rate: 32000,
+      bitrate: 128000,
+      channel: "mono",
+    };
+
+    console.log(`[API /tts/test] Generating TTS for user ${req.user.login} with voice ${input.voice_id}`);
+
+    // Generate speech using Replicate
+    const output = await replicate.run("minimax/speech-02-turbo", {input});
+
+    if (typeof output === "string" && output.startsWith("https://")) {
+      console.log(`[API /tts/test] TTS generated successfully for ${req.user.login}`);
+      return res.json({
+        success: true,
+        audioUrl: output,
+        message: "TTS generated successfully",
+      });
+    } else {
+      console.error("[API /tts/test] Replicate returned unexpected output format:", output);
+      return res.status(500).json({
+        success: false,
+        message: "TTS generation failed: unexpected response format.",
+      });
+    }
+  } catch (error) {
+    console.error("[API /tts/test] Error generating TTS:", error);
+    return res.status(500).json({
+      success: false,
+      message: "TTS generation failed: " + error.message,
+    });
+  }
+});
+
 // Logout Route
 app.get("/auth/logout", (req, res) => {
   console.log("Logout requested. Client should clear its token.");
@@ -840,6 +921,76 @@ async function getValidTwitchTokenForUser(userLogin) {
 
     throw new Error("Failed to obtain a valid Twitch token. User may need to re-authenticate.");
   }
+}
+
+/**
+ * Gets a secret from Google Secret Manager
+ * @param {string} secretName - The name of the secret
+ * @return {Promise<string>} The secret value
+ */
+async function getSecret(secretName) {
+  try {
+    const name = `projects/${process.env.GOOGLE_CLOUD_PROJECT || process.env.GCP_PROJECT}/secrets/${secretName}/versions/latest`;
+    const [version] = await secretClient.accessSecretVersion({name});
+    return version.payload.data.toString();
+  } catch (error) {
+    console.error(`Failed to access secret ${secretName}:`, error.message);
+    return null;
+  }
+}
+
+/**
+ * Validates TTS speed parameter
+ * @param {number} speed - Speed value to validate
+ * @return {number|null} Valid speed or null
+ */
+function validateSpeed(speed) {
+  const parsed = parseFloat(speed);
+  if (isNaN(parsed) || parsed < 0.5 || parsed > 2.0) {
+    return null;
+  }
+  return parsed;
+}
+
+/**
+ * Validates TTS pitch parameter
+ * @param {number} pitch - Pitch value to validate
+ * @return {number|null} Valid pitch or null
+ */
+function validatePitch(pitch) {
+  const parsed = parseInt(pitch);
+  if (isNaN(parsed) || parsed < -12 || parsed > 12) {
+    return null;
+  }
+  return parsed;
+}
+
+/**
+ * Validates TTS emotion parameter
+ * @param {string} emotion - Emotion to validate
+ * @return {string|null} Valid emotion or null
+ */
+function validateEmotion(emotion) {
+  const validEmotions = [
+    "auto", "neutral", "happy", "sad", "angry", "fearful", "disgusted", "surprised",
+  ];
+  return validEmotions.includes(emotion) ? emotion : null;
+}
+
+/**
+ * Validates language boost parameter
+ * @param {string} languageBoost - Language boost to validate
+ * @return {string|null} Valid language boost or null
+ */
+function validateLanguageBoost(languageBoost) {
+  const validLanguageBoosts = [
+    "None", "Automatic", "Chinese", "Chinese,Yue", "English", "Arabic",
+    "Russian", "Spanish", "French", "Portuguese", "German", "Turkish",
+    "Dutch", "Ukrainian", "Vietnamese", "Indonesian", "Japanese",
+    "Italian", "Korean", "Thai", "Polish", "Romanian", "Greek",
+    "Czech", "Finnish", "Hindi",
+  ];
+  return validLanguageBoosts.includes(languageBoost) ? languageBoost : null;
 }
 
 exports.webUi = functions.https.onRequest(app);
