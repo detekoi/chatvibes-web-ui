@@ -76,12 +76,37 @@ Set via `.env.<PROJECT_ID>` files for local development or Google Cloud Console 
 - `/api/auth/refresh` - Refresh Twitch tokens
 
 ### Database Schema
-Firestore `managedChannels` collection documents (keyed by Twitch login):
+
+#### Collection: `managedChannels` (keyed by Twitch login)
 - `isActive` - Whether bot is active in channel
 - `twitchAccessToken` / `twitchRefreshToken` - OAuth tokens
 - `twitchAccessTokenExpiresAt` - Token expiration
 - `needsTwitchReAuth` - Flag for required re-authentication
 - User metadata (twitchUserId, displayName, etc.)
+
+#### Collection: `ttsChannelConfigs` (keyed by channel name)
+TTS settings managed by the main TTS application:
+- `engineEnabled` - Whether TTS is enabled for the channel
+- `mode` - TTS mode ('all', 'bits', etc.)
+- `ttsPermissionLevel` - Who can use TTS ('everyone', 'moderator', etc.)
+- `voiceId` - Selected voice (e.g., 'Friendly_Person')
+- `speed`, `volume`, `pitch` - Audio parameters
+- `emotion` - Voice emotion ('auto', 'neutral', 'happy', etc.)
+- `englishNormalization`, `sampleRate`, `bitrate`, `channel` - Audio processing
+- `languageBoost` - Language detection boost ('Automatic', 'English', etc.)
+- `speakEvents` - Whether to announce events
+- `userPreferences` - Per-user voice/emotion overrides
+- `ignoredUsers` - Array of usernames to ignore
+- `bitsModeEnabled`, `bitsMinimumAmount` - Bits requirements
+
+#### Collection: `musicSettings` (keyed by channel name)
+Music bot settings managed by the main TTS application:
+- `enabled` - Whether music commands are enabled
+- `maxQueueLength` - Maximum songs in queue
+- `allowedRoles` - Array of roles that can use music commands
+- `cooldownSeconds` - Cooldown between music commands
+- `ignoredUsers` - Array of usernames to ignore
+- `bitsModeEnabled`, `bitsMinimumAmount` - Bits requirements for music
 
 ## Development Notes
 
