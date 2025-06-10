@@ -91,3 +91,6 @@ Icon
 *.DS_Store
 
 **/.claude/settings.local.json
+
+# Local development documentation
+CLAUDE.local.md
