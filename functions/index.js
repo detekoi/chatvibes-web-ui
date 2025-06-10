@@ -30,7 +30,6 @@ const jwt = require("jsonwebtoken");
 console.log("--- /auth/twitch/initiate HIT --- Version 1.1 ---");
 
 const {Firestore, FieldValue} = require("@google-cloud/firestore");
-const {SecretManagerServiceClient} = require("@google-cloud/secret-manager");
 const Replicate = require("replicate");
 
 let db;
@@ -40,8 +39,6 @@ try {
 } catch (e) {
   console.error("[CloudFunctions] Firestore client init error:", e);
 }
-
-const secretClient = new SecretManagerServiceClient();
 
 const CHANNELS_COLLECTION = "managedChannels";
 
@@ -928,16 +925,6 @@ async function getValidTwitchTokenForUser(userLogin) {
  * @param {string} secretName - The name of the secret
  * @return {Promise<string>} The secret value
  */
-async function getSecret(secretName) {
-  try {
-    const name = `projects/${process.env.GOOGLE_CLOUD_PROJECT || process.env.GCP_PROJECT}/secrets/${secretName}/versions/latest`;
-    const [version] = await secretClient.accessSecretVersion({name});
-    return version.payload.data.toString();
-  } catch (error) {
-    console.error(`Failed to access secret ${secretName}:`, error.message);
-    return null;
-  }
-}
 
 /**
  * Validates TTS speed parameter
