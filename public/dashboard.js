@@ -241,6 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Settings form elements
     const ttsEnabledCheckbox = document.getElementById('tts-enabled');
     const ttsModeSelect = document.getElementById('tts-mode');
+    const ttsPermissionSelect = document.getElementById('tts-permission');
     const eventsEnabledCheckbox = document.getElementById('events-enabled');
     const bitsEnabledCheckbox = document.getElementById('bits-enabled');
     const bitsAmountInput = document.getElementById('bits-amount');
@@ -424,6 +425,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 if (ttsEnabledCheckbox) ttsEnabledCheckbox.checked = settings.engineEnabled || false;
                 if (ttsModeSelect) ttsModeSelect.value = settings.mode || 'command';
+                if (ttsPermissionSelect) ttsPermissionSelect.value = settings.ttsPermissionLevel || 'everyone';
                 if (eventsEnabledCheckbox) eventsEnabledCheckbox.checked = settings.speakEvents !== false;
                 if (bitsEnabledCheckbox) bitsEnabledCheckbox.checked = settings.bitsModeEnabled || false;
                 if (bitsAmountInput) bitsAmountInput.value = settings.bitsMinimumAmount || 100;
@@ -510,6 +512,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const currentTtsSettings = [
                 { key: 'engineEnabled', value: ttsEnabledCheckbox?.checked || false, label: 'TTS Engine' },
                 { key: 'mode', value: ttsModeSelect?.value || 'command', label: 'TTS Mode' },
+                { key: 'ttsPermissionLevel', value: ttsPermissionSelect?.value || 'everyone', label: 'TTS Permission' },
                 { key: 'speakEvents', value: eventsEnabledCheckbox?.checked !== false, label: 'Event Announcements' },
                 { key: 'bitsModeEnabled', value: bitsEnabledCheckbox?.checked || false, label: 'Bits-for-TTS' },
                 { key: 'bitsMinimumAmount', value: parseInt(bitsAmountInput?.value || '100'), label: 'Minimum Bits' },
