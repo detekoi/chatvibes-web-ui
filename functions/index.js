@@ -510,7 +510,7 @@ app.post("/api/tts/test", authenticateApiRequest, async (req, res) => {
 
   try {
     // Get Replicate API token from Secret Manager
-    const replicateToken = await getSecret("REPLICATE_API_TOKEN");
+    const replicateToken = process.env.REPLICATE_API_TOKEN;
 
     if (!replicateToken) {
       console.error("[API /tts/test] Failed to retrieve Replicate API token");
