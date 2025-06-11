@@ -1158,6 +1158,38 @@ footer a {
   }
 }
 
+/* Voice test layout - stack vertically like range inputs */
+.voice-test-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding: 8px 0;
+}
+
+.voice-test-item label {
+  text-align: center;
+  margin-bottom: 4px;
+  min-width: unset;
+}
+
+.voice-test-item input[type="text"] {
+  width: 100%;
+  margin: 0;
+  max-width: unset;
+  padding: 8px 12px;
+  border: 2px solid var(--color-border);
+  border-radius: 4px;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-primary);
+}
+
+.voice-test-item .reset-btn {
+  align-self: center;
+  margin: 8px 0 0 0;
+}
+
 /* Reset buttons for sliders */
 .reset-btn {
   font-size: 0.8rem;
