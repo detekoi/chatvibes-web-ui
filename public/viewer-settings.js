@@ -193,12 +193,27 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
     
     /**
-     * Load available voices
+     * Load available voices from the TTS bot API (same as dashboard)
      */
     async function loadVoices() {
+        // Fallback voice list in case API fails
+        const fallbackVoices = [
+            'Friendly_Person', 'Professional_Woman', 'Casual_Male', 'Energetic_Youth',
+            'Warm_Grandmother', 'Confident_Leader', 'Soothing_Narrator', 'Cheerful_Assistant',
+            'Deep_Narrator', 'Bright_Assistant', 'Calm_Guide', 'Energetic_Host'
+        ];
+        
         try {
-            const response = await fetchWithAuth(`${API_BASE_URL}/api/tts/voices`);
-            const voices = await response.json();
+            // Use same source as dashboard - TTS bot API
+            const BOT_API_BASE_URL = 'https://chatvibes-tts-service-h7kj56ct4q-uc.a.run.app/api';
+            console.log('Loading voices from TTS bot API:', `${BOT_API_BASE_URL}/voices`);
+            const response = await fetch(`${BOT_API_BASE_URL}/voices`);
+            
+            let voices = fallbackVoices;
+            if (response.ok) {
+                const voicesData = await response.json();
+                voices = voicesData.voices || fallbackVoices;
+            }
             
             availableVoices = voices;
             
@@ -208,14 +223,24 @@ document.addEventListener('DOMContentLoaded', async () => {
             // Add voice options
             voices.forEach(voice => {
                 const option = document.createElement('option');
-                option.value = voice.id;
-                option.textContent = voice.friendlyName || voice.id;
+                option.value = voice;
+                option.textContent = voice.replace(/_/g, ' '); // Convert underscores to spaces
                 voiceSelect.appendChild(option);
             });
             
         } catch (error) {
-            console.error('Failed to load voices:', error);
-            showSaveStatus('Failed to load available voices', 'error');
+            console.error('Failed to load voices, using fallback:', error);
+            
+            // Use fallback voices
+            availableVoices = fallbackVoices;
+            voiceSelect.innerHTML = '<option value="">Use channel default</option>';
+            
+            fallbackVoices.forEach(voice => {
+                const option = document.createElement('option');
+                option.value = voice;
+                option.textContent = voice.replace(/_/g, ' ');
+                voiceSelect.appendChild(option);
+            });
         }
     }
     
