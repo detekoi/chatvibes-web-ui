@@ -89,6 +89,8 @@
     display: flex;
     align-items: center;
     gap: 1rem;
+    justify-content: center;
+    margin: 0 auto;
 }
 
 .slider-container input[type="range"] {
@@ -106,7 +108,8 @@
 }
 
 .reset-btn {
-    align-self: flex-start;
+    align-self: center !important;
+    margin: 8px auto 0 auto !important;
     padding: 0.5rem 1rem;
     background: #f8f9fa;
     border: 1px solid #dee2e6;
@@ -328,4 +331,9 @@
 .reset-btn:focus {
     outline: 2px solid #007bff;
     outline-offset: 2px;
+}
+
+#preview-btn {
+    display: block;
+    margin: 8px auto 0 auto;
 }
