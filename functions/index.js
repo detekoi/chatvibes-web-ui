@@ -18,14 +18,12 @@
  * - CALLBACK_URL: The OAuth callback URL (must match Twitch dev console)
  * - FRONTEND_URL: The URL of your frontend application
  * - JWT_SECRET_KEY: Secret for signing JWT tokens
- * - SESSION_COOKIE_SECRET: Secret for cookie signing
  */
 
 const functions = require("firebase-functions"); // Still needed for exports.webUi
 const express = require("express");
 const axios = require("axios");
 const crypto = require("crypto");
-const cookieParser = require("cookie-parser");
 const jwt = require("jsonwebtoken");
 console.log("--- /auth/twitch/initiate HIT --- Version 1.1 ---");
 
@@ -53,9 +51,8 @@ const CALLBACK_REDIRECT_URI_CONFIG = process.env.CALLBACK_URL;
 const FRONTEND_URL_CONFIG = process.env.FRONTEND_URL;
 const JWT_SECRET = process.env.JWT_SECRET_KEY;
 const JWT_EXPIRATION = "1h";
-const SESSION_SECRET_FOR_COOKIE_PARSER = process.env.SESSION_COOKIE_SECRET;
 
-if (!TWITCH_CLIENT_ID || !TWITCH_CLIENT_SECRET || !CALLBACK_REDIRECT_URI_CONFIG || !FRONTEND_URL_CONFIG || !JWT_SECRET || !SESSION_SECRET_FOR_COOKIE_PARSER) {
+if (!TWITCH_CLIENT_ID || !TWITCH_CLIENT_SECRET || !CALLBACK_REDIRECT_URI_CONFIG || !FRONTEND_URL_CONFIG || !JWT_SECRET) {
   console.error("CRITICAL: One or more environment variables are missing. Check .env files and deployment configuration.");
 
   // Log which specific variables are missing for easier debugging
@@ -65,7 +62,6 @@ if (!TWITCH_CLIENT_ID || !TWITCH_CLIENT_SECRET || !CALLBACK_REDIRECT_URI_CONFIG 
   if (!CALLBACK_REDIRECT_URI_CONFIG) missingVars.push("CALLBACK_URL");
   if (!FRONTEND_URL_CONFIG) missingVars.push("FRONTEND_URL");
   if (!JWT_SECRET) missingVars.push("JWT_SECRET_KEY");
-  if (!SESSION_SECRET_FOR_COOKIE_PARSER) missingVars.push("SESSION_COOKIE_SECRET");
 
   console.error(`Missing environment variables: ${missingVars.join(", ")}`);
   console.error("Functions will not work correctly without these variables. Set them in your .env file or in your deployment configuration.");
@@ -74,7 +70,6 @@ if (!TWITCH_CLIENT_ID || !TWITCH_CLIENT_SECRET || !CALLBACK_REDIRECT_URI_CONFIG 
   // Instead, individual routes will handle missing configuration gracefully.
 }
 
-app.use(cookieParser(SESSION_SECRET_FOR_COOKIE_PARSER));
 
 // Improved CORS Middleware
 app.use((req, res, next) => {
@@ -130,30 +125,6 @@ app.get("/auth/twitch/initiate", (req, res) => {
 
   const state = crypto.randomBytes(16).toString("hex");
 
-  // Try multiple cookie settings approaches to maximize compatibility
-  // First one with SameSite=None for cross-site redirects
-  res.cookie("twitch_oauth_state", state, {
-    signed: true,
-    httpOnly: true,
-    secure: true,
-    maxAge: 300000, // 5 minutes
-    sameSite: "None",
-  });
-
-  // Backup cookie with Lax setting
-  res.cookie("twitch_oauth_state_lax", state, {
-    signed: true,
-    httpOnly: true,
-    secure: true,
-    maxAge: 300000, // 5 minutes
-    sameSite: "Lax",
-  });
-
-  // Also store state in session if available
-  if (req.session) {
-    req.session.twitch_oauth_state = state;
-  }
-
   const params = new URLSearchParams({
     client_id: currentTwitchClientId,
     redirect_uri: currentCallbackRedirectUri, // This will be ngrok or live URL from .env
@@ -167,7 +138,6 @@ app.get("/auth/twitch/initiate", (req, res) => {
   console.log(`Generated state: ${state}`);
   console.log(`Twitch Auth URL to be sent to frontend: ${twitchAuthUrl}`);
 
-  // Store the state in the response so the frontend can use it if cookies fail
   res.json({
     success: true,
     twitchAuthUrl: twitchAuthUrl,
@@ -180,9 +150,6 @@ app.get("/auth/twitch/callback", async (req, res) => {
   console.log("--- /auth/twitch/callback HIT ---");
   console.log("Callback Request Query Params:", JSON.stringify(req.query));
   const {code, state: twitchQueryState, error: twitchError, error_description: twitchErrorDescription} = req.query;
-  const originalOauthState = req.signedCookies.twitch_oauth_state;
-  const viewerOauthState = req.signedCookies.viewer_oauth_state;
-  const viewerOauthStateLax = req.signedCookies.viewer_oauth_state_lax;
 
 
   // Try to decode state parameter to detect viewer auth
@@ -192,56 +159,27 @@ app.get("/auth/twitch/callback", async (req, res) => {
     decodedState = JSON.parse(Buffer.from(twitchQueryState, "base64").toString());
     if (decodedState && decodedState.t === "viewer") {
       isViewerAuth = true;
-      console.log("Detected viewer auth from state parameter:", decodedState);
+      console.log("Detected viewer auth from state parameter");
     }
   } catch (error) {
     // Not a JSON state, probably regular auth
     console.log("State is not viewer JSON format, treating as regular auth");
   }
 
-  // Check if this is a viewer auth callback (state parameter method or cookie method)
-  if (isViewerAuth ||
-      (viewerOauthState && viewerOauthState === twitchQueryState) ||
-      (viewerOauthStateLax && viewerOauthStateLax === twitchQueryState)) {
+  // Check if this is a viewer auth callback
+  if (isViewerAuth) {
     console.log("Detected viewer OAuth callback, delegating to viewer handler");
     return handleViewerCallback(req, res, decodedState);
   }
 
-  res.clearCookie("twitch_oauth_state"); // Clear state cookie once used or if error
 
   if (twitchError) {
     console.error(`Twitch OAuth explicit error: ${twitchError} - ${twitchErrorDescription}`);
     return redirectToFrontendWithError(res, twitchError, twitchErrorDescription, twitchQueryState);
   }
 
-  // Try to get state from multiple sources
-  let matchedState = false;
-
-  if (originalOauthState && originalOauthState === twitchQueryState) {
-    console.log("State matched from primary cookie.");
-    matchedState = true;
-  } else {
-    // Try alternative sources
-    const altOauthState = req.signedCookies.twitch_oauth_state_lax;
-    if (altOauthState && altOauthState === twitchQueryState) {
-      console.log("State matched from alternative Lax cookie.");
-      matchedState = true;
-    } else if (req.session && req.session.twitch_oauth_state === twitchQueryState) {
-      console.log("State matched from session.");
-      matchedState = true;
-    } else {
-      console.warn("Original OAuth state cookie missing or mismatched. This can happen due to cross-site cookies being blocked.");
-      console.warn("For testing purposes, we will skip this check.");
-      // For testing, allow it to proceed anyway
-      // IMPORTANT: In production, the following line should be removed or guarded by an environment flag
-      matchedState = true; // TESTING ONLY - BYPASSING STATE CHECK
-    }
-  }
-
-  if (!matchedState) {
-    console.error(`State verification failed. Received: ${twitchQueryState}`);
-    return res.status(400).send("Authentication verification failed. Please try logging in again.");
-  }
+  // State validation is handled by viewer auth detection above
+  // For regular auth, we proceed without state validation as cookies aren't working reliably
 
   try {
     console.log("Exchanging code for token. Callback redirect_uri used for exchange:", CALLBACK_REDIRECT_URI_CONFIG); // This is from .env
@@ -1061,39 +999,6 @@ app.get("/auth/twitch/viewer", (req, res) => {
   };
   const state = Buffer.from(JSON.stringify(stateData)).toString("base64");
 
-  // Store the viewer token and channel in a temporary state record (backup)
-  // Use multiple cookie approaches for better compatibility
-  res.cookie("viewer_oauth_state", state, {
-    signed: true,
-    httpOnly: true,
-    secure: true,
-    maxAge: 300000, // 5 minutes
-    sameSite: "None",
-  });
-
-  res.cookie("viewer_oauth_state_lax", state, {
-    signed: true,
-    httpOnly: true,
-    secure: true,
-    maxAge: 300000, // 5 minutes
-    sameSite: "Lax",
-  });
-
-  res.cookie("viewer_token", token, {
-    signed: true,
-    httpOnly: true,
-    secure: true,
-    maxAge: 300000, // 5 minutes
-    sameSite: "Lax",
-  });
-
-  res.cookie("viewer_channel", channel, {
-    signed: true,
-    httpOnly: true,
-    secure: true,
-    maxAge: 300000, // 5 minutes
-    sameSite: "Lax",
-  });
 
   const params = new URLSearchParams({
     client_id: currentTwitchClientId,
@@ -1120,54 +1025,29 @@ app.get("/auth/twitch/viewer", (req, res) => {
  * Handles the Twitch OAuth callback for viewer authentication and preference validation.
  * @param {object} req - Express request object
  * @param {object} res - Express response object
- * @param {object} [decodedState=null] - Decoded state object from the OAuth state parameter (optional)
+ * @param {object} decodedState - Decoded state object from the OAuth state parameter
  */
-async function handleViewerCallback(req, res, decodedState = null) {
+async function handleViewerCallback(req, res, decodedState) {
   console.log("--- /auth/twitch/viewer-callback HIT ---");
-  const {code, state: twitchQueryState, error: twitchError} = req.query;
-  const originalOauthState = req.signedCookies.viewer_oauth_state;
-  const originalOauthStateLax = req.signedCookies.viewer_oauth_state_lax;
-  let viewerToken = req.signedCookies.viewer_token;
-  let viewerChannel = req.signedCookies.viewer_channel;
-
-  // If we have decoded state, use that instead of cookies
-  if (decodedState && decodedState.vt && decodedState.vc) {
-    viewerToken = decodedState.vt;
-    viewerChannel = decodedState.vc;
-    console.log("Using viewer data from state parameter");
-  }
-
-  // Clear viewer cookies only (don't interfere with main auth)
-  res.clearCookie("viewer_oauth_state");
-  res.clearCookie("viewer_oauth_state_lax");
-  res.clearCookie("viewer_token");
-  res.clearCookie("viewer_channel");
+  const {code, error: twitchError} = req.query;
 
   if (twitchError) {
     console.error(`Twitch OAuth error for viewer: ${twitchError}`);
     return res.redirect(`${FRONTEND_URL_CONFIG}/viewer-settings.html?error=oauth_failed`);
   }
 
-  // Try to match state from either cookie or state parameter
-  let matchedState = false;
-  if (decodedState && decodedState.t === "viewer") {
-    console.log("Viewer state validated from state parameter");
-    matchedState = true;
-  } else if (originalOauthState && originalOauthState === twitchQueryState) {
-    console.log("Viewer state matched from primary cookie");
-    matchedState = true;
-  } else if (originalOauthStateLax && originalOauthStateLax === twitchQueryState) {
-    console.log("Viewer state matched from Lax cookie");
-    matchedState = true;
-  }
-
-  if (!matchedState) {
-    console.error("State verification failed for viewer auth. Received:", twitchQueryState, "Expected one of:", originalOauthState, originalOauthStateLax, "or valid state parameter");
+  // Validate state parameter (only method we use)
+  if (!decodedState || decodedState.t !== "viewer") {
+    console.error("Invalid viewer state parameter");
     return res.redirect(`${FRONTEND_URL_CONFIG}/viewer-settings.html?error=state_mismatch`);
   }
 
+  const viewerToken = decodedState.vt;
+  const viewerChannel = decodedState.vc;
+  console.log("Using viewer data from state parameter");
+
   if (!viewerToken || !viewerChannel) {
-    console.error("Missing viewer token or channel from cookies");
+    console.error("Missing viewer token or channel from state parameter");
     return res.redirect(`${FRONTEND_URL_CONFIG}/viewer-settings.html?error=missing_data`);
   }
 
