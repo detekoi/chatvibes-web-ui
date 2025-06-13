@@ -114,10 +114,76 @@ document.addEventListener('DOMContentLoaded', async () => {
      * Initialize authentication
      */
     async function initializeAuth() {
-        // If we have a token in URL, use it for initial auth
+        const urlParams = new URLSearchParams(window.location.search);
+        const sessionTokenParam = urlParams.get('session_token');
+        const validatedParam = urlParams.get('validated');
+        const errorParam = urlParams.get('error');
+        const messageParam = urlParams.get('message');
+        
+        // Handle errors from OAuth callback
+        if (errorParam) {
+            let errorMessage = 'Authentication failed';
+            if (errorParam === 'access_denied') {
+                errorMessage = messageParam ? decodeURIComponent(messageParam) : 'Access denied: You can only access your own preferences';
+            } else if (errorParam === 'oauth_failed') {
+                errorMessage = 'Twitch OAuth authentication failed';
+            } else if (errorParam === 'state_mismatch') {
+                errorMessage = 'Security validation failed';
+            } else if (errorParam === 'auth_failed') {
+                errorMessage = messageParam ? decodeURIComponent(messageParam) : 'Authentication failed';
+            }
+            
+            showAuthStatus(errorMessage, 'error');
+            setTimeout(() => {
+                window.location.href = '/';
+            }, 5000);
+            return false;
+        }
+        
+        // Handle successful OAuth callback with validated session token
+        if (sessionTokenParam && validatedParam) {
+            try {
+                appSessionToken = sessionTokenParam;
+                localStorage.setItem('app_session_token', appSessionToken);
+                
+                // Verify the session token by decoding it (client-side validation)
+                const tokenParts = appSessionToken.split('.');
+                if (tokenParts.length === 3) {
+                    const payload = JSON.parse(atob(tokenParts[1]));
+                    localStorage.setItem('twitch_user_login', payload.userLogin);
+                    localStorage.setItem('token_user', payload.tokenUser);
+                    localStorage.setItem('token_channel', payload.tokenChannel);
+                }
+                
+                isAuthenticated = true;
+                showAuthStatus('Authentication successful! Welcome to your preferences.', 'success');
+                preferencesPanel.style.display = 'block';
+                authStatus.style.display = 'none';
+                
+                // Set the channel from URL parameters
+                if (channel) {
+                    channelInput.value = channel;
+                    currentChannel = channel;
+                }
+                
+                // Clean URL
+                const cleanUrl = new URL(window.location);
+                cleanUrl.searchParams.delete('session_token');
+                cleanUrl.searchParams.delete('validated');
+                window.history.replaceState({}, '', cleanUrl);
+                
+                return true;
+            } catch (error) {
+                console.error('Failed to process validated session token:', error);
+                showAuthStatus('Authentication failed. Please try again.', 'error');
+                return false;
+            }
+        }
+        
+        // If we have a token in URL, try initial auth
         if (token) {
             try {
-                // Verify the token and get session
+                // First attempt without Twitch auth
                 const response = await fetch(`${API_BASE_URL}/api/viewer/auth`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -126,27 +192,46 @@ document.addEventListener('DOMContentLoaded', async () => {
                 
                 if (response.ok) {
                     const data = await response.json();
+                    
+                    // Check if Twitch authentication is required for security
+                    if (data.requiresTwitchAuth) {
+                        console.log('Twitch authentication required for security validation');
+                        return await requireTwitchAuth();
+                    }
+                    
+                    // Direct authentication successful
                     appSessionToken = data.sessionToken;
                     localStorage.setItem('app_session_token', appSessionToken);
                     localStorage.setItem('twitch_user_login', data.user.login);
-                    isAuthenticated = true;
                     
+                    if (data.tokenUser && data.tokenChannel) {
+                        localStorage.setItem('token_user', data.tokenUser);
+                        localStorage.setItem('token_channel', data.tokenChannel);
+                    }
+                    
+                    isAuthenticated = true;
                     showAuthStatus(`Welcome, ${data.user.displayName || data.user.login}!`, 'success');
                     preferencesPanel.style.display = 'block';
                     authStatus.style.display = 'none';
                     
-                    // Pre-fill channel if provided
                     if (channel) {
                         channelInput.value = channel;
                     }
                     
                     return true;
+                } else if (response.status === 403) {
+                    // Security violation detected
+                    const data = await response.json();
+                    showAuthStatus(data.error || 'Access denied', 'error');
+                    setTimeout(() => {
+                        window.location.href = '/';
+                    }, 5000);
+                    return false;
                 } else {
                     throw new Error('Invalid or expired token');
                 }
             } catch (error) {
                 console.error('Token authentication failed:', error);
-                // Fall back to existing session
                 return checkExistingSession();
             }
         } else {
@@ -155,13 +240,58 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
     
     /**
+     * Require Twitch authentication for security validation
+     */
+    async function requireTwitchAuth() {
+        showAuthStatus('For security, please verify your Twitch identity to access these preferences.', 'info');
+        
+        // Add a login button
+        const loginButton = document.createElement('button');
+        loginButton.textContent = 'Verify with Twitch';
+        loginButton.className = 'button';
+        loginButton.onclick = async () => {
+            try {
+                showAuthStatus('Redirecting to Twitch for verification...', 'info');
+                
+                // Initiate Twitch OAuth flow
+                const response = await fetch(`${API_BASE_URL}/auth/twitch/viewer?token=${encodeURIComponent(token)}&channel=${encodeURIComponent(channel)}`);
+                const data = await response.json();
+                
+                if (data.success && data.twitchAuthUrl) {
+                    window.location.href = data.twitchAuthUrl;
+                } else {
+                    throw new Error('Failed to initiate Twitch authentication');
+                }
+            } catch (error) {
+                console.error('Failed to initiate Twitch auth:', error);
+                showAuthStatus('Failed to start Twitch authentication. Please try again.', 'error');
+            }
+        };
+        
+        authStatus.appendChild(loginButton);
+        return false;
+    }
+    
+    /**
      * Check for existing authentication session
      */
     async function checkExistingSession() {
         appSessionToken = localStorage.getItem('app_session_token');
+        const tokenUser = localStorage.getItem('token_user');
+        const currentUser = localStorage.getItem('twitch_user_login');
         
         if (!appSessionToken) {
             showAuthStatus('Please log in with Twitch to access your preferences.', 'error');
+            setTimeout(() => {
+                window.location.href = '/';
+            }, 3000);
+            return false;
+        }
+        
+        // Check if current user matches the token user (security check)
+        if (tokenUser && currentUser && tokenUser !== currentUser) {
+            showAuthStatus('Access denied: You can only access your own preferences.', 'error');
+            localStorage.clear();
             setTimeout(() => {
                 window.location.href = '/';
             }, 3000);

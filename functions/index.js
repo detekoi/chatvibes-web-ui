@@ -181,6 +181,31 @@ app.get("/auth/twitch/callback", async (req, res) => {
   console.log("Callback Request Query Params:", JSON.stringify(req.query));
   const {code, state: twitchQueryState, error: twitchError, error_description: twitchErrorDescription} = req.query;
   const originalOauthState = req.signedCookies.twitch_oauth_state;
+  const viewerOauthState = req.signedCookies.viewer_oauth_state;
+  const viewerOauthStateLax = req.signedCookies.viewer_oauth_state_lax;
+
+
+  // Try to decode state parameter to detect viewer auth
+  let isViewerAuth = false;
+  let decodedState = null;
+  try {
+    decodedState = JSON.parse(Buffer.from(twitchQueryState, "base64").toString());
+    if (decodedState && decodedState.t === "viewer") {
+      isViewerAuth = true;
+      console.log("Detected viewer auth from state parameter:", decodedState);
+    }
+  } catch (error) {
+    // Not a JSON state, probably regular auth
+    console.log("State is not viewer JSON format, treating as regular auth");
+  }
+
+  // Check if this is a viewer auth callback (state parameter method or cookie method)
+  if (isViewerAuth ||
+      (viewerOauthState && viewerOauthState === twitchQueryState) ||
+      (viewerOauthStateLax && viewerOauthStateLax === twitchQueryState)) {
+    console.log("Detected viewer OAuth callback, delegating to viewer handler");
+    return handleViewerCallback(req, res, decodedState);
+  }
 
   res.clearCookie("twitch_oauth_state"); // Clear state cookie once used or if error
 
@@ -356,6 +381,9 @@ const authenticateApiRequest = (req, res, next) => {
       id: decoded.userId,
       login: decoded.userLogin,
       displayName: decoded.displayName,
+      type: decoded.type,
+      tokenUser: decoded.tokenUser,
+      tokenChannel: decoded.tokenChannel,
     };
     console.log(`API Auth Middleware: User ${req.user.login} successfully authenticated. Decoded:`, JSON.stringify(decoded));
     next();
@@ -1006,10 +1034,223 @@ async function createShortLink(longUrl) {
 
 // === Viewer Preferences API Routes ===
 
+// Route: /auth/twitch/viewer - Initiate Twitch OAuth for viewer preferences
+app.get("/auth/twitch/viewer", (req, res) => {
+  console.log("--- /auth/twitch/viewer HIT ---");
+  const {token, channel} = req.query;
+
+  if (!token || !channel) {
+    return res.status(400).json({success: false, error: "Token and channel are required"});
+  }
+
+  const currentTwitchClientId = TWITCH_CLIENT_ID;
+  const currentCallbackRedirectUri = CALLBACK_REDIRECT_URI_CONFIG; // Use same callback as main auth
+
+  if (!currentTwitchClientId) {
+    console.error("Config missing for /auth/twitch/viewer: TWITCH_CLIENT_ID not found");
+    return res.status(500).json({success: false, error: "Server configuration error"});
+  }
+
+  // Encode viewer info in the state parameter for reliability
+  const baseState = crypto.randomBytes(12).toString("hex");
+  const stateData = {
+    s: baseState, // base state
+    t: "viewer", // type: viewer auth
+    vt: token, // viewer token
+    vc: channel, // viewer channel
+  };
+  const state = Buffer.from(JSON.stringify(stateData)).toString("base64");
+
+  // Store the viewer token and channel in a temporary state record (backup)
+  // Use multiple cookie approaches for better compatibility
+  res.cookie("viewer_oauth_state", state, {
+    signed: true,
+    httpOnly: true,
+    secure: true,
+    maxAge: 300000, // 5 minutes
+    sameSite: "None",
+  });
+
+  res.cookie("viewer_oauth_state_lax", state, {
+    signed: true,
+    httpOnly: true,
+    secure: true,
+    maxAge: 300000, // 5 minutes
+    sameSite: "Lax",
+  });
+
+  res.cookie("viewer_token", token, {
+    signed: true,
+    httpOnly: true,
+    secure: true,
+    maxAge: 300000, // 5 minutes
+    sameSite: "Lax",
+  });
+
+  res.cookie("viewer_channel", channel, {
+    signed: true,
+    httpOnly: true,
+    secure: true,
+    maxAge: 300000, // 5 minutes
+    sameSite: "Lax",
+  });
+
+  const params = new URLSearchParams({
+    client_id: currentTwitchClientId,
+    redirect_uri: currentCallbackRedirectUri,
+    response_type: "code",
+    scope: "user:read:email",
+    state: state,
+    force_verify: "false",
+  });
+
+  const twitchAuthUrl = `${TWITCH_AUTH_URL}?${params.toString()}`;
+
+  console.log(`Generated viewer auth state for secure access`);
+  console.log(`Redirecting to Twitch OAuth for viewer validation`);
+
+  res.json({
+    success: true,
+    twitchAuthUrl: twitchAuthUrl,
+    state: state,
+  });
+});
+
+/**
+ * Handles the Twitch OAuth callback for viewer authentication and preference validation.
+ * @param {object} req - Express request object
+ * @param {object} res - Express response object
+ * @param {object} [decodedState=null] - Decoded state object from the OAuth state parameter (optional)
+ */
+async function handleViewerCallback(req, res, decodedState = null) {
+  console.log("--- /auth/twitch/viewer-callback HIT ---");
+  const {code, state: twitchQueryState, error: twitchError} = req.query;
+  const originalOauthState = req.signedCookies.viewer_oauth_state;
+  const originalOauthStateLax = req.signedCookies.viewer_oauth_state_lax;
+  let viewerToken = req.signedCookies.viewer_token;
+  let viewerChannel = req.signedCookies.viewer_channel;
+
+  // If we have decoded state, use that instead of cookies
+  if (decodedState && decodedState.vt && decodedState.vc) {
+    viewerToken = decodedState.vt;
+    viewerChannel = decodedState.vc;
+    console.log("Using viewer data from state parameter");
+  }
+
+  // Clear viewer cookies only (don't interfere with main auth)
+  res.clearCookie("viewer_oauth_state");
+  res.clearCookie("viewer_oauth_state_lax");
+  res.clearCookie("viewer_token");
+  res.clearCookie("viewer_channel");
+
+  if (twitchError) {
+    console.error(`Twitch OAuth error for viewer: ${twitchError}`);
+    return res.redirect(`${FRONTEND_URL_CONFIG}/viewer-settings.html?error=oauth_failed`);
+  }
+
+  // Try to match state from either cookie or state parameter
+  let matchedState = false;
+  if (decodedState && decodedState.t === "viewer") {
+    console.log("Viewer state validated from state parameter");
+    matchedState = true;
+  } else if (originalOauthState && originalOauthState === twitchQueryState) {
+    console.log("Viewer state matched from primary cookie");
+    matchedState = true;
+  } else if (originalOauthStateLax && originalOauthStateLax === twitchQueryState) {
+    console.log("Viewer state matched from Lax cookie");
+    matchedState = true;
+  }
+
+  if (!matchedState) {
+    console.error("State verification failed for viewer auth. Received:", twitchQueryState, "Expected one of:", originalOauthState, originalOauthStateLax, "or valid state parameter");
+    return res.redirect(`${FRONTEND_URL_CONFIG}/viewer-settings.html?error=state_mismatch`);
+  }
+
+  if (!viewerToken || !viewerChannel) {
+    console.error("Missing viewer token or channel from cookies");
+    return res.redirect(`${FRONTEND_URL_CONFIG}/viewer-settings.html?error=missing_data`);
+  }
+
+  try {
+    // Exchange code for token
+    const tokenResponse = await axios.post(TWITCH_TOKEN_URL, null, {
+      params: {
+        client_id: TWITCH_CLIENT_ID,
+        client_secret: TWITCH_CLIENT_SECRET,
+        code: code,
+        grant_type: "authorization_code",
+        redirect_uri: CALLBACK_REDIRECT_URI_CONFIG, // Use same callback as main auth
+      },
+    });
+
+    const {access_token: accessToken} = tokenResponse.data;
+
+    if (!accessToken) {
+      throw new Error("No access token received from Twitch");
+    }
+
+    // Validate the token and get user info
+    const validateResponse = await axios.get(TWITCH_VALIDATE_URL, {
+      headers: {Authorization: `OAuth ${accessToken}`},
+    });
+
+    if (!validateResponse.data || !validateResponse.data.login) {
+      throw new Error("Failed to validate Twitch token or get user info");
+    }
+
+    const twitchUser = validateResponse.data.login.toLowerCase();
+
+    // Verify the viewer token
+    const decoded = jwt.verify(viewerToken, JWT_SECRET);
+    const tokenUser = decoded.usr.toLowerCase();
+
+    console.log("Viewer OAuth callback validation:", {
+      actualUser: twitchUser,
+      tokenUser: tokenUser,
+      channel: viewerChannel,
+      match: twitchUser === tokenUser,
+    });
+
+    // CRITICAL SECURITY CHECK
+    if (twitchUser !== tokenUser) {
+      console.log("SECURITY VIOLATION BLOCKED: User", twitchUser, "trying to access", tokenUser, "preferences via OAuth");
+      return res.redirect(`${FRONTEND_URL_CONFIG}/viewer-settings.html?error=access_denied&message=${encodeURIComponent("You can only access your own preferences")}`);
+    }
+
+    // Success - create a session token with Twitch validation
+    const sessionToken = jwt.sign(
+        {
+          userId: twitchUser,
+          userLogin: twitchUser,
+          displayName: twitchUser,
+          type: "viewer",
+          tokenUser: tokenUser,
+          tokenChannel: decoded.ch,
+          twitchValidated: true, // Mark as Twitch-validated
+        },
+        JWT_SECRET,
+        {expiresIn: "24h"},
+    );
+
+    console.log("Viewer OAuth validation successful for:", twitchUser);
+
+    // Redirect back to viewer settings with the session token
+    const redirectUrl = new URL(`${FRONTEND_URL_CONFIG}/viewer-settings.html`);
+    redirectUrl.searchParams.append("channel", viewerChannel);
+    redirectUrl.searchParams.append("session_token", sessionToken);
+    redirectUrl.searchParams.append("validated", "true");
+
+    res.redirect(redirectUrl.toString());
+  } catch (error) {
+    console.error("Viewer OAuth callback error:", error.message);
+    return res.redirect(`${FRONTEND_URL_CONFIG}/viewer-settings.html?error=auth_failed&message=${encodeURIComponent(error.message)}`);
+  }
+}
+
 // Route: /api/viewer/auth - Authenticate with viewer token
 app.post("/api/viewer/auth", async (req, res) => {
   try {
-    const {token} = req.body;
+    const {token, twitchAccessToken} = req.body;
 
     if (!token) {
       return res.status(400).json({error: "Token is required"});
@@ -1021,22 +1262,82 @@ app.post("/api/viewer/auth", async (req, res) => {
 
     // Verify the viewer token
     const decoded = jwt.verify(token, JWT_SECRET);
+    console.log("Viewer token decoded:", {
+      user: decoded.usr,
+      channel: decoded.ch,
+      type: decoded.typ,
+    });
 
     if (decoded.typ !== "prefs") {
       return res.status(400).json({error: "Invalid token type"});
     }
 
-    // Create a new session token for the viewer
+    // Check if token requires Twitch authentication (newer tokens have this flag)
+    const requiresTwitchAuth = decoded.requiresTwitchAuth === true;
+    console.log("Token requires Twitch auth:", requiresTwitchAuth);
+
+    // SECURITY: Validate actual Twitch user if access token provided
+    if (twitchAccessToken) {
+      try {
+        // Verify the Twitch access token and get the actual user
+        const twitchResponse = await axios.get(TWITCH_VALIDATE_URL, {
+          headers: {Authorization: `OAuth ${twitchAccessToken}`},
+        });
+
+        if (twitchResponse.data && twitchResponse.data.login) {
+          const actualTwitchUser = twitchResponse.data.login.toLowerCase();
+          const tokenUser = decoded.usr.toLowerCase();
+
+          console.log("Twitch OAuth validation:", {
+            actualUser: actualTwitchUser,
+            tokenUser: tokenUser,
+            match: actualTwitchUser === tokenUser,
+          });
+
+          // CRITICAL SECURITY CHECK: Only allow access if the actual Twitch user matches the token user
+          if (actualTwitchUser !== tokenUser) {
+            console.log("SECURITY VIOLATION BLOCKED: User", actualTwitchUser, "trying to access", tokenUser, "preferences");
+            return res.status(403).json({
+              error: "Access denied: You can only access your own preferences",
+              details: "The preferences link is for a different user",
+            });
+          }
+
+          console.log("Security validation passed: User", actualTwitchUser, "accessing their own preferences");
+        } else {
+          console.warn("Invalid Twitch access token provided");
+          return res.status(401).json({error: "Invalid Twitch authentication"});
+        }
+      } catch (twitchError) {
+        console.error("Twitch validation failed:", twitchError.message);
+        return res.status(401).json({error: "Failed to validate Twitch authentication"});
+      }
+    } else if (requiresTwitchAuth) {
+      // Token requires Twitch auth but none provided - return flag to frontend
+      console.log("Token requires Twitch authentication but none provided");
+      return res.json({
+        requiresTwitchAuth: true,
+        tokenUser: decoded.usr,
+        tokenChannel: decoded.ch,
+        message: "Twitch authentication required for security validation",
+      });
+    }
+
+    // Create a new session token for the SPECIFIC viewer
     const sessionToken = jwt.sign(
         {
           userId: decoded.usr,
           userLogin: decoded.usr,
           displayName: decoded.usr,
           type: "viewer",
+          tokenUser: decoded.usr, // Store the original token user for validation
+          tokenChannel: decoded.ch, // Store the original channel
         },
         JWT_SECRET,
         {expiresIn: "24h"},
     );
+
+    console.log("Created session token for viewer:", decoded.usr);
 
     res.json({
       sessionToken,
@@ -1044,6 +1345,9 @@ app.post("/api/viewer/auth", async (req, res) => {
         login: decoded.usr,
         displayName: decoded.usr,
       },
+      tokenChannel: decoded.ch,
+      tokenUser: decoded.usr,
+      requiresTwitchAuth: !twitchAccessToken, // Indicate if additional auth is needed
     });
   } catch (error) {
     console.error("Viewer auth error:", error);
@@ -1062,6 +1366,12 @@ app.get("/api/viewer/preferences/:channel", authenticateApiRequest, async (req, 
 
     if (!channel) {
       return res.status(400).json({error: "Channel is required"});
+    }
+
+    // Security check: ensure the authenticated user matches the token user
+    if (req.user.type === "viewer" && req.user.tokenUser && req.user.tokenUser !== username) {
+      console.log("SECURITY VIOLATION BLOCKED: User", username, "trying to access", req.user.tokenUser, "preferences in GET");
+      return res.status(403).json({error: "Access denied: token user mismatch"});
     }
 
     // Check if channel exists and has TTS enabled
@@ -1116,6 +1426,12 @@ app.put("/api/viewer/preferences/:channel", authenticateApiRequest, async (req, 
 
     if (!channel) {
       return res.status(400).json({error: "Channel is required"});
+    }
+
+    // Security check: ensure the authenticated user matches the token user
+    if (req.user.type === "viewer" && req.user.tokenUser && req.user.tokenUser !== username) {
+      console.log("SECURITY VIOLATION BLOCKED: User", username, "trying to access", req.user.tokenUser, "preferences in PUT");
+      return res.status(403).json({error: "Access denied: token user mismatch"});
     }
 
     // Validate updates
@@ -1191,6 +1507,19 @@ app.post("/api/viewer/ignore/tts/:channel", authenticateApiRequest, async (req, 
     const {channel} = req.params;
     const username = req.user.login;
 
+    // Security check: ensure the authenticated user matches the token user
+    console.log("TTS Ignore Security Check:", {
+      userType: req.user.type,
+      currentUser: username,
+      tokenUser: req.user.tokenUser,
+      mismatch: req.user.tokenUser && req.user.tokenUser !== username,
+    });
+
+    if (req.user.type === "viewer" && req.user.tokenUser && req.user.tokenUser !== username) {
+      console.log("SECURITY VIOLATION: User", username, "trying to access", req.user.tokenUser, "preferences");
+      return res.status(403).json({error: "Access denied: token user mismatch"});
+    }
+
     await db.collection("ttsChannelConfigs").doc(channel).update({
       ignoredUsers: FieldValue.arrayUnion(username),
     });
@@ -1207,6 +1536,19 @@ app.post("/api/viewer/ignore/music/:channel", authenticateApiRequest, async (req
   try {
     const {channel} = req.params;
     const username = req.user.login;
+
+    // Security check: ensure the authenticated user matches the token user
+    console.log("Music Ignore Security Check:", {
+      userType: req.user.type,
+      currentUser: username,
+      tokenUser: req.user.tokenUser,
+      mismatch: req.user.tokenUser && req.user.tokenUser !== username,
+    });
+
+    if (req.user.type === "viewer" && req.user.tokenUser && req.user.tokenUser !== username) {
+      console.log("SECURITY VIOLATION: User", username, "trying to access", req.user.tokenUser, "preferences");
+      return res.status(403).json({error: "Access denied: token user mismatch"});
+    }
 
     await db.collection("musicSettings").doc(channel).update({
       ignoredUsers: FieldValue.arrayUnion(username),
