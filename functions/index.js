@@ -1214,29 +1214,6 @@ app.post("/api/viewer/ignore/music/:channel", authenticateApiRequest, async (req
   }
 });
 
-// Route: /api/tts/voices - Get available voices (accessible to viewers)
-app.get("/api/tts/voices", authenticateApiRequest, async (req, res) => {
-  try {
-    // Return a list of available voices
-    const voices = [
-      {id: "Friendly_Person", friendlyName: "Friendly Person"},
-      {id: "Female_Narrator", friendlyName: "Female Narrator"},
-      {id: "Male_Narrator", friendlyName: "Male Narrator"},
-      {id: "Young_Adult_Female", friendlyName: "Young Adult Female"},
-      {id: "Young_Adult_Male", friendlyName: "Young Adult Male"},
-      {id: "Professional_Male", friendlyName: "Professional Male"},
-      {id: "Professional_Female", friendlyName: "Professional Female"},
-      {id: "Energetic_Female", friendlyName: "Energetic Female"},
-      {id: "Calm_Male", friendlyName: "Calm Male"},
-      {id: "Warm_Female", friendlyName: "Warm Female"},
-    ];
-
-    res.json(voices);
-  } catch (error) {
-    console.error("Error fetching voices:", error);
-    res.status(500).json({error: "Internal server error"});
-  }
-});
 
 // Route: /api/shortlink - Create short link
 app.post("/api/shortlink", async (req, res) => {
