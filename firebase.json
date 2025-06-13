@@ -24,6 +24,20 @@
       "firebase-debug.*.log",
       "*.local",
       ".env"
+    ],
+    "rewrites": [
+      {
+        "source": "/api/**",
+        "function": "webUi"
+      },
+      {
+        "source": "/auth/**",
+        "function": "webUi"
+      },
+      {
+        "source": "/s/**",
+        "function": "webUi"
+      }
     ]
   }
 }
