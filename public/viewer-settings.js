@@ -1,0 +1,508 @@
+// Viewer Settings JavaScript
+document.addEventListener('DOMContentLoaded', async () => {
+    // Get URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const channel = urlParams.get('channel');
+    const token = urlParams.get('token');
+    
+    // API Configuration
+    const API_BASE_URL = 'https://us-central1-chatvibestts.cloudfunctions.net/webUi';
+    let appSessionToken = null;
+    let currentChannel = channel;
+    
+    // UI Elements
+    const authStatus = document.getElementById('auth-status');
+    const preferencesPanel = document.getElementById('preferences-panel');
+    const channelInput = document.getElementById('channel-input');
+    const channelHint = document.getElementById('channel-hint');
+    const voiceSelect = document.getElementById('voice-select');
+    const pitchSlider = document.getElementById('pitch-slider');
+    const pitchOutput = document.getElementById('pitch-output');
+    const speedSlider = document.getElementById('speed-slider');
+    const speedOutput = document.getElementById('speed-output');
+    const emotionSelect = document.getElementById('emotion-select');
+    const languageSelect = document.getElementById('language-select');
+    const previewText = document.getElementById('preview-text');
+    const previewBtn = document.getElementById('preview-btn');
+    const previewStatus = document.getElementById('preview-status');
+    const ignoreTtsCheckbox = document.getElementById('ignore-tts');
+    const ignoreMusicCheckbox = document.getElementById('ignore-music');
+    const confirmModal = document.getElementById('confirm-modal');
+    const confirmText = document.getElementById('confirm-text');
+    const confirmYes = document.getElementById('confirm-yes');
+    const confirmNo = document.getElementById('confirm-no');
+    const saveStatus = document.getElementById('save-status');
+    
+    // Reset buttons
+    const voiceReset = document.getElementById('voice-reset');
+    const pitchReset = document.getElementById('pitch-reset');
+    const speedReset = document.getElementById('speed-reset');
+    const emotionReset = document.getElementById('emotion-reset');
+    const languageReset = document.getElementById('language-reset');
+    
+    // State
+    let availableVoices = [];
+    let currentPreferences = {};
+    let isAuthenticated = false;
+    let pendingAction = null;
+    
+    /**
+     * Display authentication status
+     */
+    function showAuthStatus(message, type = 'info') {
+        authStatus.innerHTML = `<p>${message}</p>`;
+        authStatus.className = `auth-message ${type}`;
+    }
+    
+    /**
+     * Show save status notification
+     */
+    function showSaveStatus(message, type = 'success') {
+        saveStatus.textContent = message;
+        saveStatus.className = `save-status ${type} show`;
+        
+        setTimeout(() => {
+            saveStatus.classList.remove('show');
+        }, 3000);
+    }
+    
+    /**
+     * Debounce function to limit API calls
+     */
+    function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+    
+    /**
+     * Make authenticated API request
+     */
+    async function fetchWithAuth(url, options = {}) {
+        if (!appSessionToken) {
+            throw new Error('Not authenticated');
+        }
+        
+        const headers = {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${appSessionToken}`,
+            ...options.headers
+        };
+        
+        const response = await fetch(url, {
+            ...options,
+            headers
+        });
+        
+        if (!response.ok) {
+            if (response.status === 401) {
+                throw new Error('Authentication failed. Please log in again.');
+            }
+            throw new Error(`API Error: ${response.status} ${response.statusText}`);
+        }
+        
+        return response;
+    }
+    
+    /**
+     * Initialize authentication
+     */
+    async function initializeAuth() {
+        // If we have a token in URL, use it for initial auth
+        if (token) {
+            try {
+                // Verify the token and get session
+                const response = await fetch(`${API_BASE_URL}/api/viewer/auth`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ token, channel })
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    appSessionToken = data.sessionToken;
+                    localStorage.setItem('app_session_token', appSessionToken);
+                    localStorage.setItem('twitch_user_login', data.user.login);
+                    isAuthenticated = true;
+                    
+                    showAuthStatus(`Welcome, ${data.user.displayName || data.user.login}!`, 'success');
+                    preferencesPanel.style.display = 'block';
+                    authStatus.style.display = 'none';
+                    
+                    // Pre-fill channel if provided
+                    if (channel) {
+                        channelInput.value = channel;
+                    }
+                    
+                    return true;
+                } else {
+                    throw new Error('Invalid or expired token');
+                }
+            } catch (error) {
+                console.error('Token authentication failed:', error);
+                // Fall back to existing session
+                return checkExistingSession();
+            }
+        } else {
+            return checkExistingSession();
+        }
+    }
+    
+    /**
+     * Check for existing authentication session
+     */
+    async function checkExistingSession() {
+        appSessionToken = localStorage.getItem('app_session_token');
+        
+        if (!appSessionToken) {
+            showAuthStatus('Please log in with Twitch to access your preferences.', 'error');
+            setTimeout(() => {
+                window.location.href = '/';
+            }, 3000);
+            return false;
+        }
+        
+        try {
+            const response = await fetchWithAuth(`${API_BASE_URL}/api/auth/status`);
+            const data = await response.json();
+            
+            if (data.authenticated) {
+                isAuthenticated = true;
+                showAuthStatus(`Welcome back, ${data.user.displayName || data.user.login}!`, 'success');
+                preferencesPanel.style.display = 'block';
+                authStatus.style.display = 'none';
+                return true;
+            } else {
+                throw new Error('Not authenticated');
+            }
+        } catch (error) {
+            console.error('Session check failed:', error);
+            showAuthStatus('Authentication expired. Redirecting to login...', 'error');
+            localStorage.removeItem('app_session_token');
+            setTimeout(() => {
+                window.location.href = '/';
+            }, 3000);
+            return false;
+        }
+    }
+    
+    /**
+     * Load available voices
+     */
+    async function loadVoices() {
+        try {
+            const response = await fetchWithAuth(`${API_BASE_URL}/api/tts/voices`);
+            const voices = await response.json();
+            
+            availableVoices = voices;
+            
+            // Clear existing options (except default)
+            voiceSelect.innerHTML = '<option value="">Use channel default</option>';
+            
+            // Add voice options
+            voices.forEach(voice => {
+                const option = document.createElement('option');
+                option.value = voice.id;
+                option.textContent = voice.friendlyName || voice.id;
+                voiceSelect.appendChild(option);
+            });
+            
+        } catch (error) {
+            console.error('Failed to load voices:', error);
+            showSaveStatus('Failed to load available voices', 'error');
+        }
+    }
+    
+    /**
+     * Load user preferences for current channel
+     */
+    async function loadPreferences() {
+        if (!currentChannel) return;
+        
+        try {
+            const response = await fetchWithAuth(`${API_BASE_URL}/api/viewer/preferences/${encodeURIComponent(currentChannel)}`);
+            const data = await response.json();
+            
+            currentPreferences = data;
+            
+            // Update UI with preferences
+            voiceSelect.value = data.voiceId || '';
+            pitchSlider.value = data.pitch !== undefined ? data.pitch : 0;
+            pitchOutput.textContent = pitchSlider.value;
+            speedSlider.value = data.speed !== undefined ? data.speed : 1;
+            speedOutput.textContent = Number(speedSlider.value).toFixed(2);
+            emotionSelect.value = data.emotion || '';
+            languageSelect.value = data.language || '';
+            
+            // Update ignore checkboxes
+            ignoreTtsCheckbox.checked = data.ttsIgnored || false;
+            ignoreTtsCheckbox.disabled = data.ttsIgnored || false;
+            ignoreMusicCheckbox.checked = data.musicIgnored || false;
+            ignoreMusicCheckbox.disabled = data.musicIgnored || false;
+            
+            // Update channel hint
+            if (data.channelExists) {
+                channelHint.textContent = 'Channel found ✓';
+                channelHint.className = 'hint success';
+            } else {
+                channelHint.textContent = 'ChatVibes is not enabled for this channel';
+                channelHint.className = 'hint error';
+            }
+            
+        } catch (error) {
+            console.error('Failed to load preferences:', error);
+            if (error.message.includes('404')) {
+                channelHint.textContent = 'Channel not found or ChatVibes not enabled';
+                channelHint.className = 'hint error';
+            } else {
+                showSaveStatus('Failed to load preferences', 'error');
+            }
+        }
+    }
+    
+    /**
+     * Save a preference setting
+     */
+    async function savePreference(key, value) {
+        if (!currentChannel) return;
+        
+        try {
+            const body = { [key]: value };
+            await fetchWithAuth(`${API_BASE_URL}/api/viewer/preferences/${encodeURIComponent(currentChannel)}`, {
+                method: 'PUT',
+                body: JSON.stringify(body)
+            });
+            
+            showSaveStatus(`${key} updated`, 'success');
+            
+        } catch (error) {
+            console.error(`Failed to save ${key}:`, error);
+            showSaveStatus(`Failed to save ${key}`, 'error');
+        }
+    }
+    
+    /**
+     * Reset a preference to default
+     */
+    async function resetPreference(key, element, defaultValue) {
+        element.value = defaultValue;
+        if (element.type === 'range') {
+            const output = document.getElementById(element.id.replace('-slider', '-output'));
+            if (output) {
+                output.textContent = element.id === 'speed-slider' ? 
+                    Number(defaultValue).toFixed(2) : defaultValue;
+            }
+        }
+        await savePreference(key, null); // null removes the preference
+    }
+    
+    /**
+     * Test voice with current settings
+     */
+    async function testVoice() {
+        if (!currentChannel) {
+            showSaveStatus('Please select a channel first', 'error');
+            return;
+        }
+        
+        const text = previewText.value.trim();
+        if (!text) {
+            showSaveStatus('Please enter some text to test', 'error');
+            return;
+        }
+        
+        previewBtn.disabled = true;
+        previewBtn.textContent = 'Testing...';
+        previewStatus.textContent = 'Generating audio...';
+        previewStatus.className = 'status-message info';
+        
+        try {
+            const response = await fetchWithAuth(`${API_BASE_URL}/api/tts/test`, {
+                method: 'POST',
+                body: JSON.stringify({
+                    channel: currentChannel,
+                    text: text,
+                    voiceId: voiceSelect.value || null,
+                    pitch: pitchSlider.value != 0 ? Number(pitchSlider.value) : null,
+                    speed: speedSlider.value != 1 ? Number(speedSlider.value) : null,
+                    emotion: emotionSelect.value || null,
+                    languageBoost: languageSelect.value || null
+                })
+            });
+            
+            const data = await response.json();
+            
+            if (data.audioUrl) {
+                previewStatus.textContent = 'Playing audio...';
+                const audio = new Audio(data.audioUrl);
+                
+                audio.onended = () => {
+                    previewStatus.textContent = 'Audio completed';
+                    previewStatus.className = 'status-message success';
+                    setTimeout(() => {
+                        previewStatus.textContent = '';
+                        previewStatus.className = 'status-message';
+                    }, 3000);
+                };
+                
+                audio.onerror = () => {
+                    throw new Error('Failed to play audio');
+                };
+                
+                await audio.play();
+            } else {
+                throw new Error(data.message || 'No audio URL received');
+            }
+            
+        } catch (error) {
+            console.error('Voice test failed:', error);
+            previewStatus.textContent = `Test failed: ${error.message}`;
+            previewStatus.className = 'status-message error';
+            setTimeout(() => {
+                previewStatus.textContent = '';
+                previewStatus.className = 'status-message';
+            }, 5000);
+        } finally {
+            previewBtn.disabled = false;
+            previewBtn.textContent = '▶ Preview Voice';
+        }
+    }
+    
+    /**
+     * Handle ignore action with confirmation
+     */
+    function handleIgnoreAction(type) {
+        const checkbox = type === 'tts' ? ignoreTtsCheckbox : ignoreMusicCheckbox;
+        
+        if (!checkbox.checked) return;
+        
+        pendingAction = { type, checkbox };
+        confirmText.textContent = `Are you absolutely sure you want to opt out of ${type.toUpperCase()} in this channel? Only a moderator can undo this action.`;
+        confirmModal.showModal();
+    }
+    
+    /**
+     * Confirm ignore action
+     */
+    async function confirmIgnoreAction() {
+        if (!pendingAction || !currentChannel) return;
+        
+        const { type, checkbox } = pendingAction;
+        
+        try {
+            await fetchWithAuth(`${API_BASE_URL}/api/viewer/ignore/${type}/${encodeURIComponent(currentChannel)}`, {
+                method: 'POST'
+            });
+            
+            checkbox.disabled = true;
+            showSaveStatus(`You have been opted out of ${type.toUpperCase()}`, 'success');
+            
+        } catch (error) {
+            console.error(`Failed to opt out of ${type}:`, error);
+            checkbox.checked = false;
+            showSaveStatus(`Failed to opt out of ${type.toUpperCase()}`, 'error');
+        }
+        
+        confirmModal.close();
+        pendingAction = null;
+    }
+    
+    /**
+     * Cancel ignore action
+     */
+    function cancelIgnoreAction() {
+        if (pendingAction) {
+            pendingAction.checkbox.checked = false;
+            pendingAction = null;
+        }
+        confirmModal.close();
+    }
+    
+    // Event Listeners
+    
+    // Channel input change
+    channelInput.addEventListener('input', debounce((e) => {
+        currentChannel = e.target.value.trim().toLowerCase();
+        if (currentChannel) {
+            loadPreferences();
+        } else {
+            channelHint.textContent = '';
+            channelHint.className = 'hint';
+        }
+    }, 600));
+    
+    // Preference controls
+    voiceSelect.addEventListener('change', () => {
+        savePreference('voiceId', voiceSelect.value || null);
+    });
+    
+    pitchSlider.addEventListener('input', () => {
+        pitchOutput.textContent = pitchSlider.value;
+    });
+    
+    pitchSlider.addEventListener('change', () => {
+        const value = Number(pitchSlider.value);
+        savePreference('pitch', value !== 0 ? value : null);
+    });
+    
+    speedSlider.addEventListener('input', () => {
+        speedOutput.textContent = Number(speedSlider.value).toFixed(2);
+    });
+    
+    speedSlider.addEventListener('change', () => {
+        const value = Number(speedSlider.value);
+        savePreference('speed', value !== 1 ? value : null);
+    });
+    
+    emotionSelect.addEventListener('change', () => {
+        savePreference('emotion', emotionSelect.value || null);
+    });
+    
+    languageSelect.addEventListener('change', () => {
+        savePreference('language', languageSelect.value || null);
+    });
+    
+    // Reset buttons
+    voiceReset.addEventListener('click', () => resetPreference('voiceId', voiceSelect, ''));
+    pitchReset.addEventListener('click', () => resetPreference('pitch', pitchSlider, 0));
+    speedReset.addEventListener('click', () => resetPreference('speed', speedSlider, 1));
+    emotionReset.addEventListener('click', () => resetPreference('emotion', emotionSelect, ''));
+    languageReset.addEventListener('click', () => resetPreference('language', languageSelect, ''));
+    
+    // Preview button
+    previewBtn.addEventListener('click', testVoice);
+    
+    // Ignore checkboxes
+    ignoreTtsCheckbox.addEventListener('change', () => {
+        if (ignoreTtsCheckbox.checked) {
+            handleIgnoreAction('tts');
+        }
+    });
+    
+    ignoreMusicCheckbox.addEventListener('change', () => {
+        if (ignoreMusicCheckbox.checked) {
+            handleIgnoreAction('music');
+        }
+    });
+    
+    // Confirmation modal
+    confirmYes.addEventListener('click', confirmIgnoreAction);
+    confirmNo.addEventListener('click', cancelIgnoreAction);
+    
+    // Initialize the application
+    const authenticated = await initializeAuth();
+    
+    if (authenticated) {
+        await loadVoices();
+        
+        if (currentChannel) {
+            await loadPreferences();
+        }
+    }
+});
