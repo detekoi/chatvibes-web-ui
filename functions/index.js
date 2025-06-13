@@ -980,4 +980,314 @@ function validateLanguageBoost(languageBoost) {
   return validLanguageBoosts.includes(languageBoost) ? languageBoost : null;
 }
 
+// === Short Link Service ===
+/**
+ * Creates a short link with TTL for viewer preferences
+ * @param {string} longUrl - The full URL to shorten
+ * @return {string} - Short URL
+ */
+async function createShortLink(longUrl) {
+  try {
+    const slug = crypto.randomBytes(4).toString("hex"); // 8 character slug
+    const expiresAt = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes from now
+
+    await db.collection("shortLinks").doc(slug).set({
+      url: longUrl,
+      expires: expiresAt,
+      created: new Date(),
+    });
+
+    return `https://chatvibestts.web.app/s/${slug}`;
+  } catch (error) {
+    console.error("Error creating short link:", error);
+    throw new Error("Failed to create short link");
+  }
+}
+
+// === Viewer Preferences API Routes ===
+
+// Route: /api/viewer/auth - Authenticate with viewer token
+app.post("/api/viewer/auth", async (req, res) => {
+  try {
+    const {token} = req.body;
+
+    if (!token) {
+      return res.status(400).json({error: "Token is required"});
+    }
+
+    if (!JWT_SECRET) {
+      return res.status(500).json({error: "Server configuration error"});
+    }
+
+    // Verify the viewer token
+    const decoded = jwt.verify(token, JWT_SECRET);
+
+    if (decoded.typ !== "prefs") {
+      return res.status(400).json({error: "Invalid token type"});
+    }
+
+    // Create a new session token for the viewer
+    const sessionToken = jwt.sign(
+        {
+          userId: decoded.usr,
+          userLogin: decoded.usr,
+          displayName: decoded.usr,
+          type: "viewer",
+        },
+        JWT_SECRET,
+        {expiresIn: "24h"},
+    );
+
+    res.json({
+      sessionToken,
+      user: {
+        login: decoded.usr,
+        displayName: decoded.usr,
+      },
+    });
+  } catch (error) {
+    console.error("Viewer auth error:", error);
+    if (error.name === "TokenExpiredError") {
+      return res.status(401).json({error: "Token expired"});
+    }
+    res.status(401).json({error: "Invalid token"});
+  }
+});
+
+// Route: /api/viewer/preferences/:channel - Get viewer preferences
+app.get("/api/viewer/preferences/:channel", authenticateApiRequest, async (req, res) => {
+  try {
+    const {channel} = req.params;
+    const username = req.user.login;
+
+    if (!channel) {
+      return res.status(400).json({error: "Channel is required"});
+    }
+
+    // Check if channel exists and has TTS enabled
+    const channelDoc = await db.collection("ttsChannelConfigs").doc(channel).get();
+
+    if (!channelDoc.exists) {
+      return res.status(404).json({error: "Channel not found or TTS not enabled"});
+    }
+
+    const channelData = channelDoc.data();
+    const userPrefs = (channelData.userPreferences || {})[username] || {};
+
+    // Check if user is ignored
+    const ttsIgnored = (channelData.ignoredUsers || []).includes(username);
+
+    // Check music ignore status
+    let musicIgnored = false;
+    try {
+      const musicDoc = await db.collection("musicSettings").doc(channel).get();
+      if (musicDoc.exists) {
+        musicIgnored = ((musicDoc.data().ignoredUsers || []).includes(username));
+      }
+    } catch (error) {
+      console.warn("Failed to check music ignore status:", error);
+    }
+
+    res.json({
+      ...userPrefs,
+      ttsIgnored,
+      musicIgnored,
+      channelExists: true,
+      channelDefaults: {
+        voiceId: channelData.voiceId || null,
+        pitch: channelData.pitch || null,
+        speed: channelData.speed || null,
+        emotion: channelData.emotion || null,
+        language: channelData.languageBoost || null,
+      },
+    });
+  } catch (error) {
+    console.error("Error fetching viewer preferences:", error);
+    res.status(500).json({error: "Internal server error"});
+  }
+});
+
+// Route: /api/viewer/preferences/:channel - Update viewer preferences
+app.put("/api/viewer/preferences/:channel", authenticateApiRequest, async (req, res) => {
+  try {
+    const {channel} = req.params;
+    const username = req.user.login;
+    const updates = req.body;
+
+    if (!channel) {
+      return res.status(400).json({error: "Channel is required"});
+    }
+
+    // Validate updates
+    const validKeys = ["voiceId", "pitch", "speed", "emotion", "language"];
+    const filteredUpdates = {};
+
+    for (const [key, value] of Object.entries(updates)) {
+      if (!validKeys.includes(key)) {
+        continue;
+      }
+
+      // Validate values
+      if (key === "pitch" && value !== null) {
+        const pitch = Number(value);
+        if (isNaN(pitch) || pitch < -12 || pitch > 12) {
+          return res.status(400).json({error: "Invalid pitch value"});
+        }
+        filteredUpdates[key] = pitch;
+      } else if (key === "speed" && value !== null) {
+        const speed = Number(value);
+        if (isNaN(speed) || speed < 0.5 || speed > 2) {
+          return res.status(400).json({error: "Invalid speed value"});
+        }
+        filteredUpdates[key] = speed;
+      } else if (key === "emotion" && value !== null && value !== "") {
+        const validEmotions = ["auto", "neutral", "happy", "sad", "angry", "surprised"];
+        if (!validEmotions.includes(value)) {
+          return res.status(400).json({error: "Invalid emotion value"});
+        }
+        filteredUpdates[key] = value;
+      } else if (key === "language" && value !== null && value !== "") {
+        const validLanguages = ["Automatic", "English", "Spanish", "French", "German", "Japanese", "Korean"];
+        if (!validLanguages.includes(value)) {
+          return res.status(400).json({error: "Invalid language value"});
+        }
+        filteredUpdates[key] = value;
+      } else if (key === "voiceId") {
+        filteredUpdates[key] = value;
+      }
+    }
+
+    // Build Firestore update object
+    const updateObject = {};
+    for (const [key, value] of Object.entries(filteredUpdates)) {
+      if (value === null || value === "") {
+        // Remove the preference
+        updateObject[`userPreferences.${username}.${key}`] = FieldValue.delete();
+      } else {
+        // Set the preference
+        updateObject[`userPreferences.${username}.${key}`] = value;
+      }
+    }
+
+    if (Object.keys(updateObject).length > 0) {
+      await db.collection("ttsChannelConfigs").doc(channel).update(updateObject);
+    }
+
+    res.json({success: true});
+  } catch (error) {
+    console.error("Error updating viewer preferences:", error);
+    res.status(500).json({error: "Internal server error"});
+  }
+});
+
+// Route: /api/viewer/ignore/tts/:channel - Add user to TTS ignore list
+app.post("/api/viewer/ignore/tts/:channel", authenticateApiRequest, async (req, res) => {
+  try {
+    const {channel} = req.params;
+    const username = req.user.login;
+
+    await db.collection("ttsChannelConfigs").doc(channel).update({
+      ignoredUsers: FieldValue.arrayUnion(username),
+    });
+
+    res.json({success: true});
+  } catch (error) {
+    console.error("Error adding user to TTS ignore list:", error);
+    res.status(500).json({error: "Internal server error"});
+  }
+});
+
+// Route: /api/viewer/ignore/music/:channel - Add user to music ignore list
+app.post("/api/viewer/ignore/music/:channel", authenticateApiRequest, async (req, res) => {
+  try {
+    const {channel} = req.params;
+    const username = req.user.login;
+
+    await db.collection("musicSettings").doc(channel).update({
+      ignoredUsers: FieldValue.arrayUnion(username),
+    });
+
+    res.json({success: true});
+  } catch (error) {
+    console.error("Error adding user to music ignore list:", error);
+    res.status(500).json({error: "Internal server error"});
+  }
+});
+
+// Route: /api/tts/voices - Get available voices (accessible to viewers)
+app.get("/api/tts/voices", authenticateApiRequest, async (req, res) => {
+  try {
+    // Return a list of available voices
+    const voices = [
+      {id: "Friendly_Person", friendlyName: "Friendly Person"},
+      {id: "Female_Narrator", friendlyName: "Female Narrator"},
+      {id: "Male_Narrator", friendlyName: "Male Narrator"},
+      {id: "Young_Adult_Female", friendlyName: "Young Adult Female"},
+      {id: "Young_Adult_Male", friendlyName: "Young Adult Male"},
+      {id: "Professional_Male", friendlyName: "Professional Male"},
+      {id: "Professional_Female", friendlyName: "Professional Female"},
+      {id: "Energetic_Female", friendlyName: "Energetic Female"},
+      {id: "Calm_Male", friendlyName: "Calm Male"},
+      {id: "Warm_Female", friendlyName: "Warm Female"},
+    ];
+
+    res.json(voices);
+  } catch (error) {
+    console.error("Error fetching voices:", error);
+    res.status(500).json({error: "Internal server error"});
+  }
+});
+
+// Route: /api/shortlink - Create short link
+app.post("/api/shortlink", async (req, res) => {
+  try {
+    const {url} = req.body;
+
+    if (!url) {
+      return res.status(400).json({error: "URL is required"});
+    }
+
+    const shortUrl = await createShortLink(url);
+    res.json({shortUrl});
+  } catch (error) {
+    console.error("Error creating short link:", error);
+    res.status(500).json({error: "Failed to create short link"});
+  }
+});
+
+// Route: /s/:slug - Short link redirect
+app.get("/s/:slug", async (req, res) => {
+  const {slug} = req.params;
+
+  if (!slug) {
+    return res.status(400).send("Missing slug");
+  }
+
+  try {
+    const doc = await db.collection("shortLinks").doc(slug).get();
+
+    if (!doc.exists) {
+      return res.status(404).send("Link not found or expired");
+    }
+
+    const data = doc.data();
+    const now = new Date();
+
+    if (now > data.expires.toDate()) {
+      // Clean up expired link
+      await db.collection("shortLinks").doc(slug).delete();
+      return res.status(410).send("Link expired");
+    }
+
+    // Delete the link after first use (single-use)
+    await db.collection("shortLinks").doc(slug).delete();
+
+    // Redirect to the actual viewer settings page
+    res.redirect(302, data.url);
+  } catch (error) {
+    console.error("Error processing short link:", error);
+    res.status(500).send("Internal server error");
+  }
+});
+
 exports.webUi = functions.https.onRequest(app);
