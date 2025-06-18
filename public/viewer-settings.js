@@ -302,9 +302,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             const response = await fetchWithAuth(`${API_BASE_URL}/api/auth/status`);
             const data = await response.json();
             
-            if (data.authenticated) {
+            if (data.isAuthenticated) {
                 isAuthenticated = true;
-                showAuthStatus(`Welcome back, ${data.user.displayName || data.user.login}!`, 'success');
+                // Handle case where user object might not be present
+                const userName = data.user?.displayName || data.user?.login || 'there';
+                showAuthStatus(`Welcome ${userName}!`, 'success');
                 preferencesPanel.style.display = 'block';
                 authStatus.style.display = 'none';
                 return true;
