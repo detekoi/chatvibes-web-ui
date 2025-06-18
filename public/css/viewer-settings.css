@@ -548,4 +548,6 @@
   background: #e0e0e0;
   height: 6px;
   border-radius: 3px;
+  padding: 0;
+  border: none;
 }
