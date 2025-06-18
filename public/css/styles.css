@@ -1245,7 +1245,7 @@ footer a {
   }
   
   .tooltip-wrapper {
-    left: calc(50% + 100px);
+    left: calc(50% + 160px);
   }
 
   .help-icon::after {
