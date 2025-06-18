@@ -266,8 +266,8 @@
     color: #2e7d32;
 }
 
-/* Mobile Styles */
-@media (max-width: 767px) {
+/* Responsive design */
+@media (max-width: 768px) {
     .container {
         padding: 20px;
     }
@@ -281,29 +281,6 @@
         top: auto;
         right: auto;
         margin-top: 1rem;
-    }
-
-    .setting-item {
-        align-items: center;
-        text-align: center;
-    }
-
-    .setting-item label {
-        align-self: center;
-        text-align: center;
-    }
-
-    .setting-item input,
-    .setting-item select {
-        align-self: center;
-    }
-
-    .setting-item .reset-btn {
-        align-self: center;
-    }
-
-    .setting-item input[type="range"] {
-        width: 100%;
     }
 }
 
@@ -352,18 +329,7 @@
     margin: 8px auto 0 auto;
 }
 
-/* Control group wrapper */
-.control-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.setting-item .reset-btn {
-    align-self: center;
-}
-
-/* Light mode reset button styling - put before dark mode */
+/* Light mode reset button styling */
 .button.reset-btn {
   font-size: 0.8rem;
   padding: 6px 12px;
@@ -391,72 +357,6 @@
   outline: none;
   box-shadow: none;
   transform: none;
-}
-
-/* Tablet and Desktop Styles */
-@media (min-width: 768px) {
-    .setting-item {
-        flex-direction: row;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .setting-item label {
-        flex: 1;
-        text-align: left;
-    }
-
-    .control-group {
-        flex: 2;
-        flex-direction: row;
-        align-items: center;
-        gap: 1rem;
-        justify-content: space-between;
-    }
-    
-    .setting-item input,
-    .setting-item select {
-        flex: 1;
-        max-width: 300px;
-    }
-
-    .setting-item .reset-btn {
-        flex-shrink: 0;
-    }
-
-    /* Center sliders by offsetting for reset button width */
-    .setting-item:has(input[type="range"]) input[type="range"] {
-        margin-left: 80px; /* Offset by reset button width to center slider */
-    }
-    
-    /* Channel selection horizontal layout */
-    .channel-selection-section .setting-item {
-        flex-direction: row;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .channel-selection-section .setting-item label {
-        flex: 0 0 150px;
-        white-space: nowrap;
-    }
-
-    .channel-selection-section .setting-item input {
-        flex: 1;
-        max-width: 400px;
-        min-width: 250px;
-    }
-
-    /* Danger zone item layout */
-    .danger-zone .setting-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.25rem;
-    }
-
-    .danger-zone .setting-item label {
-        margin-bottom: 0;
-    }
 }
 
 /* Dark mode styles - applies when user has dark mode preference */
@@ -542,31 +442,12 @@
         color: #e0e0e0;
     }
 
-    /* Voice preview textarea dark mode */
-    .voice-test-item textarea {
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        background: rgba(255, 255, 255, 0.1);
-        color: #e0e0e0;
-        backdrop-filter: blur(5px);
-    }
-
-    .voice-test-item textarea:focus {
-        border-color: #64b5f6;
-        box-shadow: 0 0 0 2px rgba(100, 181, 246, 0.25);
-        background: rgba(255, 255, 255, 0.15);
-    }
-
-    .voice-test-item textarea::placeholder {
-        color: #b0b0b0;
-    }
-
     .slider-container output {
         background: rgba(255, 255, 255, 0.15);
         border: 1px solid rgba(255, 255, 255, 0.3);
         color: #e0e0e0;
         backdrop-filter: blur(5px);
     }
-
 
     .status-message.success {
         background: rgba(76, 175, 80, 0.15);
@@ -684,7 +565,7 @@
         cursor: not-allowed;
     }
 
-    /* Dark mode reset button overrides - slightly more visible */
+    /* Dark mode reset button overrides */
     .button.reset-btn {
         background-color: #404040;
         color: #888;
@@ -717,14 +598,11 @@
     }
 }
 
-
-/* Range slider styling */
+/* Ensure range track matches dashboard dimensions */
 .setting-item input[type="range"] {
   background: #e0e0e0;
   height: 6px;
   border-radius: 3px;
   padding: 0;
   border: none;
-  min-width: 200px;
 }
-

@@ -446,9 +446,18 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
     
     /**
-     * Reset a preference to default
+     * Reset a preference to default (use channel default if available, otherwise fallback)
      */
-    async function resetPreference(key, element, defaultValue) {
+    async function resetPreference(key, element, fallbackValue) {
+        // Get channel default value if available
+        let defaultValue = fallbackValue;
+        if (currentPreferences && currentPreferences.channelDefaults) {
+            const channelDefault = currentPreferences.channelDefaults[key];
+            if (channelDefault !== null && channelDefault !== undefined) {
+                defaultValue = channelDefault;
+            }
+        }
+        
         element.value = defaultValue;
         if (element.type === 'range') {
             const output = document.getElementById(element.id.replace('-slider', '-value'));
