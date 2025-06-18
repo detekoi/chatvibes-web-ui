@@ -455,7 +455,7 @@ app.post("/api/bot/remove", authenticateApiRequest, async (req, res) => {
 // TTS Test Route
 app.post("/api/tts/test", authenticateApiRequest, async (req, res) => {
   console.log("[API /tts/test] Voice test request received");
-  const {text, voiceId, emotion, pitch, speed, languageBoost} = req.body;
+  const {text, voiceId, emotion, pitch, speed, languageBoost, channel} = req.body;
 
   if (!text || typeof text !== "string" || text.trim().length === 0) {
     return res.status(400).json({
@@ -485,15 +485,38 @@ app.post("/api/tts/test", authenticateApiRequest, async (req, res) => {
 
     const replicate = new Replicate({auth: replicateToken});
 
-    // Prepare TTS parameters with validation and defaults
+    // Fetch channel defaults if any parameter is null and channel is provided
+    let channelDefaults = {};
+    if (channel && (voiceId === null || emotion === null || languageBoost === null || speed === null || pitch === null)) {
+      try {
+        console.log(`[API /tts/test] Fetching channel defaults for ${channel}`);
+        const channelConfigDoc = await db.collection("ttsChannelConfigs").doc(channel.toLowerCase()).get();
+        if (channelConfigDoc.exists) {
+          channelDefaults = channelConfigDoc.data();
+          console.log(`[API /tts/test] Found channel defaults for ${channel}:`, {
+            voiceId: channelDefaults.voiceId,
+            emotion: channelDefaults.emotion,
+            languageBoost: channelDefaults.languageBoost,
+            speed: channelDefaults.speed,
+            pitch: channelDefaults.pitch,
+          });
+        } else {
+          console.log(`[API /tts/test] No channel config found for ${channel}, using fallback defaults`);
+        }
+      } catch (error) {
+        console.error(`[API /tts/test] Error fetching channel defaults for ${channel}:`, error);
+      }
+    }
+
+    // Prepare TTS parameters with validation and defaults (use channel defaults when user preference is null)
     const input = {
       text: text.trim(),
-      voice_id: voiceId || "Friendly_Person",
-      speed: validateSpeed(speed) || 1.0,
+      voice_id: voiceId || channelDefaults.voiceId || "Friendly_Person",
+      speed: validateSpeed(speed !== null ? speed : channelDefaults.speed) || 1.0,
       volume: 1.0,
-      pitch: validatePitch(pitch) || 0,
-      emotion: validateEmotion(emotion) || "auto",
-      language_boost: validateLanguageBoost(languageBoost) || "Automatic",
+      pitch: validatePitch(pitch !== null ? pitch : channelDefaults.pitch) || 0,
+      emotion: validateEmotion(emotion || channelDefaults.emotion) || "auto",
+      language_boost: validateLanguageBoost(languageBoost || channelDefaults.languageBoost) || "Automatic",
       english_normalization: true,
       sample_rate: 32000,
       bitrate: 128000,
