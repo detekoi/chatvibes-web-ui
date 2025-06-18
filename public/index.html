@@ -85,7 +85,7 @@
                 return;
             }
             
-            // User needs to log in - start OAuth flow
+            // User needs to log in - use regular OAuth but redirect to viewer settings
             try {
                 const apiBaseUrl = 'https://us-central1-chatvibestts.cloudfunctions.net/webUi';
                 const response = await fetch(`${apiBaseUrl}/auth/twitch/initiate`);
