@@ -486,8 +486,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                     channel: currentChannel,
                     text: text,
                     voiceId: voiceSelect.value || null,
-                    pitch: pitchSlider.value != 0 ? Number(pitchSlider.value) : null,
-                    speed: speedSlider.value != 1 ? Number(speedSlider.value) : null,
+                    pitch: Number(pitchSlider.value) !== 0 ? Number(pitchSlider.value) : null,
+                    speed: Math.abs(Number(speedSlider.value) - 1) > 0.01 ? Number(speedSlider.value) : null,
                     emotion: emotionSelect.value || null,
                     languageBoost: languageSelect.value || null
                 })
@@ -614,7 +614,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     speedSlider.addEventListener('change', () => {
         const value = Number(speedSlider.value);
-        savePreference('speed', value !== 1 ? value : null);
+        savePreference('speed', Math.abs(value - 1) > 0.01 ? value : null);
     });
     
     emotionSelect.addEventListener('change', () => {
