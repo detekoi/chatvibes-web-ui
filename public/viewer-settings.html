@@ -43,25 +43,19 @@
                     <select id="voice-select">
                         <option value="">Use channel default</option>
                     </select>
-                    <button type="button" class="reset-btn" id="voice-reset">Reset to Default</button>
+                    <button type="button" class="button reset-btn" id="voice-reset">Reset to Default</button>
                 </div>
                 
-                <div class="setting-item slider-item">
-                    <label for="pitch-slider">Pitch</label>
-                    <div class="slider-container">
-                        <input type="range" id="pitch-slider" min="-12" max="12" step="1" value="0">
-                        <output for="pitch-slider" id="pitch-output">0</output>
-                    </div>
-                    <button type="button" class="reset-btn" id="pitch-reset">Reset to Default</button>
+                <div class="setting-item">
+                    <label for="pitch-slider">Pitch (-12 to +12): <span id="pitch-value">0</span></label>
+                    <input type="range" id="pitch-slider" min="-12" max="12" step="1" value="0">
+                    <button type="button" class="button reset-btn" id="pitch-reset">Reset</button>
                 </div>
                 
-                <div class="setting-item slider-item">
-                    <label for="speed-slider">Speed</label>
-                    <div class="slider-container">
-                        <input type="range" id="speed-slider" min="0.5" max="2" step="0.05" value="1">
-                        <output for="speed-slider" id="speed-output">1.00</output>
-                    </div>
-                    <button type="button" class="reset-btn" id="speed-reset">Reset to Default</button>
+                <div class="setting-item">
+                    <label for="speed-slider">Speed (0.5 to 2.0): <span id="speed-value">1.0</span></label>
+                    <input type="range" id="speed-slider" min="0.5" max="2" step="0.05" value="1">
+                    <button type="button" class="button reset-btn" id="speed-reset">Reset</button>
                 </div>
                 
                 <div class="setting-item">
@@ -77,7 +71,7 @@
                         <option value="disgusted">Disgusted</option>
                         <option value="surprised">Surprised</option>
                     </select>
-                    <button type="button" class="reset-btn" id="emotion-reset">Reset to Default</button>
+                    <button type="button" class="button reset-btn" id="emotion-reset">Reset to Default</button>
                 </div>
                 
                 <div class="setting-item">
@@ -111,7 +105,7 @@
                         <option value="Finnish">Finnish</option>
                         <option value="Hindi">Hindi</option>
                     </select>
-                    <button type="button" class="reset-btn" id="language-reset">Reset to Default</button>
+                    <button type="button" class="button reset-btn" id="language-reset">Reset to Default</button>
                 </div>
             </div>
             

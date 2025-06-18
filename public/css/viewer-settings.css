@@ -99,52 +99,6 @@
     box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
 }
 
-/* Slider styling to match dashboard */
-.slider-item {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.slider-container {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    justify-content: center;
-    margin: 0 auto;
-}
-
-.slider-container input[type="range"] {
-    flex: 1;
-    margin: 0;
-}
-
-.slider-container output {
-    min-width: 50px;
-    text-align: center;
-    font-weight: 600;
-    background: #f0f0f0;
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
-}
-
-.reset-btn {
-    align-self: center !important;
-    margin: 8px auto 0 auto !important;
-    padding: 0.5rem 1rem;
-    background: #f8f9fa;
-    border: 1px solid #dee2e6;
-    border-radius: 4px;
-    font-size: 0.875rem;
-    color: #6c757d;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-.reset-btn:hover {
-    background: #e9ecef;
-    color: #495057;
-}
 
 /* Voice test styling to match dashboard */
 .voice-test-item {
@@ -465,18 +419,6 @@
         backdrop-filter: blur(5px);
     }
 
-    .reset-btn {
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        color: #b0b0b0;
-        backdrop-filter: blur(5px);
-    }
-
-    .reset-btn:hover {
-        background: rgba(255, 255, 255, 0.2);
-        border-color: rgba(255, 255, 255, 0.4);
-        color: #e0e0e0;
-    }
 
     .status-message.success {
         background: rgba(76, 175, 80, 0.15);
@@ -593,4 +535,10 @@
         box-shadow: 2px 2px 0 rgba(255, 255, 255, 0.1);
         cursor: not-allowed;
     }
+}
+
+/* Ensure viewer reset buttons inherit the global "button" styling */
+.button.reset-btn {
+  font-size: 0.8rem;
+  padding: 6px 12px;
 }
