@@ -543,7 +543,7 @@
   padding: 6px 12px;
 }
 
-/* Ensure range track matches dashboard */
+/* Ensure range track matches dashboard dimensions */
 .setting-item input[type="range"] {
   background: #e0e0e0;
   height: 6px;
