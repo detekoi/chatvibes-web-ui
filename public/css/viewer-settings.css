@@ -266,8 +266,8 @@
     color: #2e7d32;
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
+/* Mobile Styles */
+@media (max-width: 767px) {
     .container {
         padding: 20px;
     }
@@ -281,6 +281,29 @@
         top: auto;
         right: auto;
         margin-top: 1rem;
+    }
+
+    .setting-item {
+        align-items: center;
+        text-align: center;
+    }
+
+    .setting-item label {
+        align-self: center;
+        text-align: center;
+    }
+
+    .setting-item input,
+    .setting-item select {
+        align-self: center;
+    }
+
+    .setting-item .reset-btn {
+        align-self: center;
+    }
+
+    .setting-item input[type="range"] {
+        width: 100%;
     }
 }
 
@@ -327,6 +350,113 @@
 #preview-btn {
     display: block;
     margin: 8px auto 0 auto;
+}
+
+/* Control group wrapper */
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.setting-item .reset-btn {
+    align-self: center;
+}
+
+/* Light mode reset button styling - put before dark mode */
+.button.reset-btn {
+  font-size: 0.8rem;
+  padding: 6px 12px;
+  background-color: #f5f5f5;
+  color: #666;
+  border: 1px solid #ddd;
+  box-shadow: none;
+}
+
+.button.reset-btn:hover {
+  background-color: #e8e8e8;
+  color: #555;
+  border-color: #ccc;
+  box-shadow: none;
+  transform: none;
+}
+
+.button.reset-btn:active {
+  background-color: #e0e0e0;
+  transform: none;
+  box-shadow: none;
+}
+
+.button.reset-btn:focus {
+  outline: none;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Tablet and Desktop Styles */
+@media (min-width: 768px) {
+    .setting-item {
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .setting-item label {
+        flex: 1;
+        text-align: left;
+    }
+
+    .control-group {
+        flex: 2;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+        justify-content: space-between;
+    }
+    
+    .setting-item input,
+    .setting-item select {
+        flex: 1;
+        max-width: 300px;
+    }
+
+    .setting-item .reset-btn {
+        flex-shrink: 0;
+    }
+
+    /* Center sliders by offsetting for reset button width */
+    .setting-item:has(input[type="range"]) input[type="range"] {
+        margin-left: 80px; /* Offset by reset button width to center slider */
+    }
+    
+    /* Channel selection horizontal layout */
+    .channel-selection-section .setting-item {
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .channel-selection-section .setting-item label {
+        flex: 0 0 150px;
+        white-space: nowrap;
+    }
+
+    .channel-selection-section .setting-item input {
+        flex: 1;
+        max-width: 400px;
+        min-width: 250px;
+    }
+
+    /* Danger zone item layout */
+    .danger-zone .setting-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+
+    .danger-zone .setting-item label {
+        margin-bottom: 0;
+    }
 }
 
 /* Dark mode styles - applies when user has dark mode preference */
@@ -410,6 +540,24 @@
     .setting-item select option {
         background: #2a2a2a;
         color: #e0e0e0;
+    }
+
+    /* Voice preview textarea dark mode */
+    .voice-test-item textarea {
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        background: rgba(255, 255, 255, 0.1);
+        color: #e0e0e0;
+        backdrop-filter: blur(5px);
+    }
+
+    .voice-test-item textarea:focus {
+        border-color: #64b5f6;
+        box-shadow: 0 0 0 2px rgba(100, 181, 246, 0.25);
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    .voice-test-item textarea::placeholder {
+        color: #b0b0b0;
     }
 
     .slider-container output {
@@ -500,54 +648,83 @@
         outline: 2px solid #64b5f6;
     }
 
-    /* Dark mode button overrides */
-    a.button, button.button {
-        background-color: rgba(255, 255, 255, 0.1);
-        color: #e0e0e0;
-        border: 2px solid rgba(255, 255, 255, 0.3);
-        box-shadow: 4px 4px 0 rgba(255, 255, 255, 0.2);
+    /* Dark mode button overrides - lighter colors for main buttons */
+    a.button:not(.reset-btn), button.button:not(.reset-btn) {
+        background-color: rgba(255, 255, 255, 0.9);
+        color: #333;
+        border: 2px solid rgba(255, 255, 255, 0.95);
+        box-shadow: 4px 4px 0 rgba(255, 255, 255, 0.7);
         backdrop-filter: blur(5px);
     }
 
-    a.button:hover,
-    a.button:focus,
-    button.button:hover,
-    button.button:focus {
-        background-color: rgba(255, 255, 255, 0.2);
-        color: #ffffff;
-        border-color: rgba(255, 255, 255, 0.5);
-        box-shadow: 6px 6px 1px rgba(255, 255, 255, 0.3);
+    a.button:not(.reset-btn):hover,
+    a.button:not(.reset-btn):focus,
+    button.button:not(.reset-btn):hover,
+    button.button:not(.reset-btn):focus {
+        background-color: rgba(255, 255, 255, 1);
+        color: #000;
+        border-color: rgba(255, 255, 255, 1);
+        box-shadow: 6px 6px 1px rgba(255, 255, 255, 0.8);
         transform: translate(-2px, -2px);
     }
 
-    a.button:active,
-    button.button:active {
-        background-color: rgba(255, 255, 255, 0.15);
+    a.button:not(.reset-btn):active,
+    button.button:not(.reset-btn):active {
+        background-color: rgba(255, 255, 255, 0.85);
         transform: translate(2px, 2px);
-        box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
+        box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.7);
     }
 
-    button.button:disabled,
-    a.button:disabled {
-        background-color: rgba(255, 255, 255, 0.05);
+    button.button:not(.reset-btn):disabled,
+    a.button:not(.reset-btn):disabled {
+        background-color: rgba(255, 255, 255, 0.3);
         color: #666;
-        border-color: rgba(255, 255, 255, 0.1);
-        box-shadow: 2px 2px 0 rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.4);
+        box-shadow: 2px 2px 0 rgba(255, 255, 255, 0.2);
         cursor: not-allowed;
     }
+
+    /* Dark mode reset button overrides - slightly more visible */
+    .button.reset-btn {
+        background-color: #404040;
+        color: #888;
+        border: 1px solid #555;
+        box-shadow: none;
+        backdrop-filter: none;
+    }
+
+    .button.reset-btn:hover {
+        background-color: #484848;
+        color: #999;
+        border-color: #666;
+        box-shadow: none;
+        transform: none;
+    }
+
+    .button.reset-btn:active {
+        background-color: #3a3a3a;
+        transform: none;
+        box-shadow: none;
+    }
+
+    .button.reset-btn:focus {
+        background-color: #404040;
+        color: #888;
+        border: 1px solid #555;
+        outline: none;
+        box-shadow: none;
+        transform: none;
+    }
 }
 
-/* Ensure viewer reset buttons inherit the global "button" styling */
-.button.reset-btn {
-  font-size: 0.8rem;
-  padding: 6px 12px;
-}
 
-/* Ensure range track matches dashboard dimensions */
+/* Range slider styling */
 .setting-item input[type="range"] {
   background: #e0e0e0;
   height: 6px;
   border-radius: 3px;
   padding: 0;
   border: none;
+  min-width: 200px;
 }
+

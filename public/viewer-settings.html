@@ -22,90 +22,100 @@
             <p>Please wait while we verify your access...</p>
         </div>
         
-        <div id="preferences-panel" class="preferences-panel" style="display: none;">
+        <div id="preferences-panel" class="preferences-panel" >
             <!-- Channel Selection -->
             <div class="setting-section channel-selection-section">
                 <h3>Choose a Channel</h3>
                 <p class="section-description">Enter the name of any Twitch channel where you want to customize your TTS voice settings:</p>
                 <div class="setting-item">
                     <label for="channel-input">Channel Name</label>
-                    <input type="text" id="channel-input" placeholder="e.g., shroud, pokimane, your_favorite_streamer" required>
-                    <small id="channel-hint" class="hint">Type a channel name above to load your voice preferences for that channel</small>
+                    <input type="text" id="channel-input" placeholder="Streamer Username" required>
                 </div>
+                <small id="channel-hint" class="hint">Type a channel name above to load your voice preferences for that channel</small>
             </div>
             
             <!-- Voice Preferences -->
             <div class="setting-section">
                 <h3>Voice Settings</h3>
-                
+            
                 <div class="setting-item">
                     <label for="voice-select">Voice</label>
-                    <select id="voice-select">
-                        <option value="">Use channel default</option>
-                    </select>
-                    <button type="button" class="button reset-btn" id="voice-reset">Reset to Default</button>
+                    <div class="control-group">
+                        <select id="voice-select">
+                            <option value="">Use channel default</option>
+                        </select>
+                        <button type="button" class="button reset-btn" id="voice-reset">Reset</button>
+                    </div>
                 </div>
                 
                 <div class="setting-item">
                     <label for="pitch-slider">Pitch (-12 to +12): <span id="pitch-value">0</span></label>
-                    <input type="range" id="pitch-slider" min="-12" max="12" step="1" value="0">
-                    <button type="button" class="button reset-btn" id="pitch-reset">Reset to Default</button>
+                    <div class="control-group">
+                        <input type="range" id="pitch-slider" min="-12" max="12" step="1" value="0">
+                        <button type="button" class="button reset-btn" id="pitch-reset">Reset</button>
+                    </div>
                 </div>
                 
                 <div class="setting-item">
                     <label for="speed-slider">Speed (0.5 to 2.0): <span id="speed-value">1.0</span></label>
-                    <input type="range" id="speed-slider" min="0.5" max="2" step="0.05" value="1">
-                    <button type="button" class="button reset-btn" id="speed-reset">Reset to Default</button>
+                    <div class="control-group">
+                        <input type="range" id="speed-slider" min="0.5" max="2" step="0.05" value="1">
+                        <button type="button" class="button reset-btn" id="speed-reset">Reset</button>
+                    </div>
                 </div>
                 
                 <div class="setting-item">
                     <label for="emotion-select">Emotion</label>
-                    <select id="emotion-select">
-                        <option value="">Use channel default</option>
-                        <option value="auto">Auto</option>
-                        <option value="neutral">Neutral</option>
-                        <option value="happy">Happy</option>
-                        <option value="sad">Sad</option>
-                        <option value="angry">Angry</option>
-                        <option value="fearful">Fearful</option>
-                        <option value="disgusted">Disgusted</option>
-                        <option value="surprised">Surprised</option>
-                    </select>
-                    <button type="button" class="button reset-btn" id="emotion-reset">Reset to Default</button>
+                    <div class="control-group">
+                        <select id="emotion-select">
+                            <option value="">Use channel default</option>
+                            <option value="auto">Auto</option>
+                            <option value="neutral">Neutral</option>
+                            <option value="happy">Happy</option>
+                            <option value="sad">Sad</option>
+                            <option value="angry">Angry</option>
+                            <option value="fearful">Fearful</option>
+                            <option value="disgusted">Disgusted</option>
+                            <option value="surprised">Surprised</option>
+                        </select>
+                        <button type="button" class="button reset-btn" id="emotion-reset">Reset</button>
+                    </div>
                 </div>
                 
                 <div class="setting-item">
                     <label for="language-select">Language Boost</label>
-                    <select id="language-select">
-                        <option value="">Use channel default</option>
-                        <option value="None">None</option>
-                        <option value="Automatic">Automatic</option>
-                        <option value="Chinese">Chinese</option>
-                        <option value="Chinese,Yue">Chinese, Yue</option>
-                        <option value="English">English</option>
-                        <option value="Arabic">Arabic</option>
-                        <option value="Russian">Russian</option>
-                        <option value="Spanish">Spanish</option>
-                        <option value="French">French</option>
-                        <option value="Portuguese">Portuguese</option>
-                        <option value="German">German</option>
-                        <option value="Turkish">Turkish</option>
-                        <option value="Dutch">Dutch</option>
-                        <option value="Ukrainian">Ukrainian</option>
-                        <option value="Vietnamese">Vietnamese</option>
-                        <option value="Indonesian">Indonesian</option>
-                        <option value="Japanese">Japanese</option>
-                        <option value="Italian">Italian</option>
-                        <option value="Korean">Korean</option>
-                        <option value="Thai">Thai</option>
-                        <option value="Polish">Polish</option>
-                        <option value="Romanian">Romanian</option>
-                        <option value="Greek">Greek</option>
-                        <option value="Czech">Czech</option>
-                        <option value="Finnish">Finnish</option>
-                        <option value="Hindi">Hindi</option>
-                    </select>
-                    <button type="button" class="button reset-btn" id="language-reset">Reset to Default</button>
+                    <div class="control-group">
+                        <select id="language-select">
+                            <option value="">Use channel default</option>
+                            <option value="None">None</option>
+                            <option value="Automatic">Automatic</option>
+                            <option value="Chinese">Chinese</option>
+                            <option value="Chinese,Yue">Chinese, Yue</option>
+                            <option value="English">English</option>
+                            <option value="Arabic">Arabic</option>
+                            <option value="Russian">Russian</option>
+                            <option value="Spanish">Spanish</option>
+                            <option value="French">French</option>
+                            <option value="Portuguese">Portuguese</option>
+                            <option value="German">German</option>
+                            <option value="Turkish">Turkish</option>
+                            <option value="Dutch">Dutch</option>
+                            <option value="Ukrainian">Ukrainian</option>
+                            <option value="Vietnamese">Vietnamese</option>
+                            <option value="Indonesian">Indonesian</option>
+                            <option value="Japanese">Japanese</option>
+                            <option value="Italian">Italian</option>
+                            <option value="Korean">Korean</option>
+                            <option value="Thai">Thai</option>
+                            <option value="Polish">Polish</option>
+                            <option value="Romanian">Romanian</option>
+                            <option value="Greek">Greek</option>
+                            <option value="Czech">Czech</option>
+                            <option value="Finnish">Finnish</option>
+                            <option value="Hindi">Hindi</option>
+                        </select>
+                        <button type="button" class="button reset-btn" id="language-reset">Reset</button>
+                    </div>
                 </div>
             </div>
             
