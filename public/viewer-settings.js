@@ -450,7 +450,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     async function resetPreference(key, element, defaultValue) {
         element.value = defaultValue;
         if (element.type === 'range') {
-            const output = document.getElementById(element.id.replace('-slider', '-output'));
+            const output = document.getElementById(element.id.replace('-slider', '-value'));
             if (output) {
                 output.textContent = element.id === 'speed-slider' ? 
                     Number(defaultValue).toFixed(2) : defaultValue;

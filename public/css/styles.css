@@ -1411,3 +1411,25 @@ footer a {
     padding: 3px 8px;
   }
 }
+
+@media all {
+  /* Ensure bordered current-value badge appears in viewer page too */
+  .setting-section span[id$="-value"] {
+    min-width: 32px;
+    display: inline-block;
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.1em;
+    margin-left: 8px;
+    padding: 2px 6px;
+    border: 2px solid #000;
+    border-radius: 4px;
+    background: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    .setting-section span[id$="-value"] {
+      border-color: #fff;
+      background: #333;
+    }
+  }
+}
