@@ -1324,35 +1324,51 @@ app.put("/api/viewer/preferences/:channel", authenticateApiRequest, async (req, 
       }
 
       // Validate values
-      if (key === "pitch" && value !== null) {
-        const pitch = Number(value);
-        if (isNaN(pitch) || pitch < -12 || pitch > 12) {
-          return res.status(400).json({error: "Invalid pitch value"});
+      if (key === "pitch") {
+        if (value !== null) {
+          const pitch = Number(value);
+          if (isNaN(pitch) || pitch < -12 || pitch > 12) {
+            return res.status(400).json({error: "Invalid pitch value"});
+          }
+          filteredUpdates[key] = pitch;
+        } else {
+          filteredUpdates[key] = null;
         }
-        filteredUpdates[key] = pitch;
-      } else if (key === "speed" && value !== null) {
-        const speed = Number(value);
-        if (isNaN(speed) || speed < 0.5 || speed > 2) {
-          return res.status(400).json({error: "Invalid speed value"});
+      } else if (key === "speed") {
+        if (value !== null) {
+          const speed = Number(value);
+          if (isNaN(speed) || speed < 0.5 || speed > 2) {
+            return res.status(400).json({error: "Invalid speed value"});
+          }
+          filteredUpdates[key] = speed;
+        } else {
+          filteredUpdates[key] = null;
         }
-        filteredUpdates[key] = speed;
-      } else if (key === "emotion" && value !== null && value !== "") {
-        const validEmotions = ["auto", "neutral", "happy", "sad", "angry", "fearful", "disgusted", "surprised"];
-        if (!validEmotions.includes(value)) {
-          return res.status(400).json({error: "Invalid emotion value"});
+      } else if (key === "emotion") {
+        if (value !== null && value !== "") {
+          const validEmotions = ["auto", "neutral", "happy", "sad", "angry", "fearful", "disgusted", "surprised"];
+          if (!validEmotions.includes(value)) {
+            return res.status(400).json({error: "Invalid emotion value"});
+          }
+          filteredUpdates[key] = value;
+        } else {
+          filteredUpdates[key] = null;
         }
-        filteredUpdates[key] = value;
-      } else if (key === "language" && value !== null && value !== "") {
-        const validLanguages = [
-          "None", "Automatic", "Chinese", "Chinese,Yue", "English", "Arabic", "Russian",
-          "Spanish", "French", "Portuguese", "German", "Turkish", "Dutch", "Ukrainian",
-          "Vietnamese", "Indonesian", "Japanese", "Italian", "Korean", "Thai", "Polish",
-          "Romanian", "Greek", "Czech", "Finnish", "Hindi",
-        ];
-        if (!validLanguages.includes(value)) {
-          return res.status(400).json({error: "Invalid language value"});
+      } else if (key === "language") {
+        if (value !== null && value !== "") {
+          const validLanguages = [
+            "None", "Automatic", "Chinese", "Chinese,Yue", "English", "Arabic", "Russian",
+            "Spanish", "French", "Portuguese", "German", "Turkish", "Dutch", "Ukrainian",
+            "Vietnamese", "Indonesian", "Japanese", "Italian", "Korean", "Thai", "Polish",
+            "Romanian", "Greek", "Czech", "Finnish", "Hindi",
+          ];
+          if (!validLanguages.includes(value)) {
+            return res.status(400).json({error: "Invalid language value"});
+          }
+          filteredUpdates[key] = value;
+        } else {
+          filteredUpdates[key] = null;
         }
-        filteredUpdates[key] = value;
       } else if (key === "voiceId") {
         filteredUpdates[key] = value;
       }
