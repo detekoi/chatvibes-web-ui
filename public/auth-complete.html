@@ -53,8 +53,17 @@
                     return;
                 }
 
-                messageEl.textContent = `Welcome, ${userLogin}! Redirecting to dashboard...`;
-                window.location.href = 'dashboard.html';
+                // Check if user came here for viewer preferences
+                const viewerPrefsIntent = sessionStorage.getItem('viewer_prefs_intent');
+                sessionStorage.removeItem('viewer_prefs_intent'); // Clean up
+                
+                if (viewerPrefsIntent === 'true') {
+                    messageEl.textContent = `Welcome, ${userLogin}! Redirecting to viewer preferences...`;
+                    window.location.href = 'viewer-settings.html';
+                } else {
+                    messageEl.textContent = `Welcome, ${userLogin}! Redirecting to dashboard...`;
+                    window.location.href = 'dashboard.html';
+                }
             } else {
                 messageEl.textContent = "Login failed: Missing user information from callback. Please try again.";
                 setTimeout(() => { window.location.href = 'index.html'; }, 5000);
