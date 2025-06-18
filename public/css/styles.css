@@ -747,6 +747,10 @@ input[type="range"]::-moz-range-thumb {
   font-weight: 500;
   font-size: 1.1em;
   margin-left: 8px;
+  padding: 2px 6px;
+  border: 2px solid #000;
+  border-radius: 4px;
+  background: #ffffff;
 }
 
 /* Ignore list styles */
@@ -1055,6 +1059,10 @@ footer a {
   }
   #tts-url-field::placeholder {
       color: #888888;
+  }
+  .settings-section span[id$="-value"] {
+    border-color: #fff;
+    background: #333;
   }
 }
 
