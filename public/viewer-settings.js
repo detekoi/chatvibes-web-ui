@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const speedReset = document.getElementById('speed-reset');
     const emotionReset = document.getElementById('emotion-reset');
     const languageReset = document.getElementById('language-reset');
+    const logoutLink = document.getElementById('logout-link');
     
     // State
     let availableVoices = [];
@@ -651,6 +652,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Confirmation modal
     confirmYes.addEventListener('click', confirmIgnoreAction);
     confirmNo.addEventListener('click', cancelIgnoreAction);
+    
+    // Logout button
+    if (logoutLink) {
+        logoutLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            localStorage.removeItem('twitch_user_login');
+            localStorage.removeItem('twitch_user_id');
+            localStorage.removeItem('app_session_token');
+            localStorage.removeItem('token_user');
+            localStorage.removeItem('token_channel');
+            appSessionToken = null;
+            window.location.href = 'index.html';
+        });
+    }
     
     // Initialize the application
     const authenticated = await initializeAuth();
