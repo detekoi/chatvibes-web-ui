@@ -282,6 +282,12 @@
         right: auto;
         margin-top: 1rem;
     }
+    
+    /* Center reset buttons for slider items in tablet medium */
+    .setting-item input[type="range"] + .reset-btn {
+        align-self: center;
+        margin-top: 0.5rem;
+    }
 }
 
 /* Loading states */
