@@ -1523,7 +1523,7 @@ app.get("/s/:slug", async (req, res) => {
     }
 
     // Delete the link after first use (single-use)
-    //await db.collection("shortLinks").doc(slug).delete();
+    // await db.collection("shortLinks").doc(slug).delete();
 
     // Redirect to the actual viewer settings page
     res.redirect(302, data.url);
