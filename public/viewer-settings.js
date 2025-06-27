@@ -39,6 +39,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     const speedReset = document.getElementById('speed-reset');
     const emotionReset = document.getElementById('emotion-reset');
     const languageReset = document.getElementById('language-reset');
+    const englishNormalizationCheckbox = document.getElementById('english-normalization-checkbox');
+    const englishNormalizationReset = document.getElementById('english-normalization-reset');
     const logoutLink = document.getElementById('logout-link');
     
     // State
@@ -397,6 +399,15 @@ document.addEventListener('DOMContentLoaded', async () => {
             speedOutput.textContent = Number(speedSlider.value).toFixed(2);
             emotionSelect.value = data.emotion || '';
             languageSelect.value = data.language || '';
+
+            if (data.englishNormalization !== undefined) {
+                // Viewer has an override
+                englishNormalizationCheckbox.checked = data.englishNormalization;
+            } else {
+                // No override: use channel default if exists, otherwise false
+                const chDefault = data.channelDefaults?.englishNormalization;
+                englishNormalizationCheckbox.checked = (chDefault !== null && chDefault !== undefined) ? chDefault : false;
+            }
             
             // Update ignore checkboxes
             ignoreTtsCheckbox.checked = data.ttsIgnored || false;
@@ -457,8 +468,13 @@ document.addEventListener('DOMContentLoaded', async () => {
                 defaultValue = channelDefault;
             }
         }
-        
-        element.value = defaultValue;
+
+        if (element.type === 'checkbox') {
+            element.checked = defaultValue;
+        } else {
+            element.value = defaultValue;
+        }
+
         if (element.type === 'range') {
             const output = document.getElementById(element.id.replace('-slider', '-value'));
             if (output) {
@@ -641,6 +657,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     speedReset.addEventListener('click', () => resetPreference('speed', speedSlider, 1));
     emotionReset.addEventListener('click', () => resetPreference('emotion', emotionSelect, ''));
     languageReset.addEventListener('click', () => resetPreference('language', languageSelect, ''));
+
+    englishNormalizationCheckbox.addEventListener('change', () => {
+        savePreference('englishNormalization', englishNormalizationCheckbox.checked || false);
+    });
+
+    englishNormalizationReset.addEventListener('click', () => {
+        resetPreference('englishNormalization', englishNormalizationCheckbox, false);
+    });
     
     // Preview button
     previewBtn.addEventListener('click', testVoice);

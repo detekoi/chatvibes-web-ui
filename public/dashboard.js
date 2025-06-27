@@ -256,6 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const musicModeSelect = document.getElementById('music-mode');
     const musicBitsEnabledCheckbox = document.getElementById('music-bits-enabled');
     const musicBitsAmountInput = document.getElementById('music-bits-amount');
+    const englishNormalizationCheckbox = document.getElementById('english-normalization');
     const saveSettingsBtn = document.getElementById('save-settings-btn');
     
     // Voice test elements
@@ -445,6 +446,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (speedValueSpan) speedValueSpan.textContent = settings.speed || 1.0;
                 }
                 if (defaultLanguageSelect) defaultLanguageSelect.value = settings.languageBoost || 'Automatic';
+                if (englishNormalizationCheckbox) englishNormalizationCheckbox.checked = settings.englishNormalization || false;
             }
             
             // Load Music settings
@@ -525,7 +527,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 { key: 'emotion', value: defaultEmotionSelect?.value || 'auto', label: 'Default Emotion' },
                 { key: 'pitch', value: parseInt(defaultPitchSlider?.value || '0'), label: 'Default Pitch' },
                 { key: 'speed', value: parseFloat(defaultSpeedSlider?.value || '1.0'), label: 'Default Speed' },
-                { key: 'languageBoost', value: defaultLanguageSelect?.value || 'Automatic', label: 'Default Language' }
+                { key: 'languageBoost', value: defaultLanguageSelect?.value || 'Automatic', label: 'Default Language' },
+                { key: 'englishNormalization', value: englishNormalizationCheckbox.checked || false, label: 'English Normalization' }
             ];
 
             // Only save settings that have changed
