@@ -224,7 +224,11 @@ app.get("/auth/twitch/callback", async (req, res) => {
         userLogin: twitchUser.login,
         displayName: twitchUser.displayName,
       };
-      const appSessionToken = jwt.sign(appTokenPayload, JWT_SECRET, {expiresIn: JWT_EXPIRATION});
+      const appSessionToken = jwt.sign(appTokenPayload, JWT_SECRET, {
+        expiresIn: JWT_EXPIRATION,
+        issuer: 'chatvibes-auth',
+        audience: 'chatvibes-api'
+      });
       console.log(`Generated app session token for ${twitchUser.login}`);
 
       const frontendAuthCompleteUrl = new URL(FRONTEND_URL_CONFIG); // from .env
@@ -1132,7 +1136,11 @@ async function handleViewerCallback(req, res, decodedState) {
           twitchValidated: true, // Mark as Twitch-validated
         },
         JWT_SECRET,
-        {expiresIn: "24h"},
+        {
+          expiresIn: "24h",
+          issuer: 'chatvibes-auth',
+          audience: 'chatvibes-api'
+        },
     );
 
     console.log("Viewer OAuth validation successful for:", twitchUser);
@@ -1237,7 +1245,11 @@ app.post("/api/viewer/auth", async (req, res) => {
           tokenChannel: decoded.ch, // Store the original channel
         },
         JWT_SECRET,
-        {expiresIn: "24h"},
+        {
+          expiresIn: "24h",
+          issuer: 'chatvibes-auth',
+          audience: 'chatvibes-api'
+        },
     );
 
     console.log("Created session token for viewer:", decoded.usr);
