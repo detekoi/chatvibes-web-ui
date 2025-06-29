@@ -25,7 +25,6 @@ const express = require("express");
 const axios = require("axios");
 const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
-const cookieParser = require("cookie-parser"); // Add cookie-parser for session cookies
 console.log("--- /auth/twitch/initiate HIT --- Version 1.1 ---");
 
 const {Firestore, FieldValue} = require("@google-cloud/firestore");
@@ -40,10 +39,8 @@ try {
 }
 
 const CHANNELS_COLLECTION = "managedChannels";
-const OAUTH_STATES_COLLECTION = "oauthStates";
 
 const app = express();
-app.use(cookieParser()); // Use cookie-parser middleware
 
 // --- Environment Configuration using process.env for 2nd Gen Functions ---
 // These will be loaded from .env files (e.g., .env.chatvibestts for deployed, .env for local emulator)
@@ -55,22 +52,11 @@ const FRONTEND_URL_CONFIG = process.env.FRONTEND_URL;
 const JWT_SECRET = process.env.JWT_SECRET_KEY;
 const JWT_EXPIRATION = "1h";
 
-if (!TWITCH_CLIENT_ID || !TWITCH_CLIENT_SECRET || !CALLBACK_REDIRECT_URI_CONFIG || !FRONTEND_URL_CONFIG || !JWT_SECRET) {
-  console.error("CRITICAL: One or more environment variables are missing. Check .env files and deployment configuration.");
-
-  // Log which specific variables are missing for easier debugging
-  const missingVars = [];
-  if (!TWITCH_CLIENT_ID) missingVars.push("TWITCH_CLIENT_ID");
-  if (!TWITCH_CLIENT_SECRET) missingVars.push("TWITCH_CLIENT_SECRET");
-  if (!CALLBACK_REDIRECT_URI_CONFIG) missingVars.push("CALLBACK_URL");
-  if (!FRONTEND_URL_CONFIG) missingVars.push("FRONTEND_URL");
-  if (!JWT_SECRET) missingVars.push("JWT_SECRET_KEY");
-
-  console.error(`Missing environment variables: ${missingVars.join(", ")}`);
-  console.error("Functions will not work correctly without these variables. Set them in your .env file or in your deployment configuration.");
-
-  // We don't throw an error here as it would prevent the function from initializing at all.
-  // Instead, individual routes will handle missing configuration gracefully.
+// Environment variable check
+if (process.env.FUNCTION_TARGET) { // This variable only exists in the live/emulated environment
+  if (!TWITCH_CLIENT_ID || !TWITCH_CLIENT_SECRET || !CALLBACK_REDIRECT_URI_CONFIG || !FRONTEND_URL_CONFIG || !JWT_SECRET) {
+    console.error("CRITICAL: One or more environment variables are not set in the production environment.");
+  }
 }
 
 
@@ -111,7 +97,7 @@ const TWITCH_VALIDATE_URL = "https://id.twitch.tv/oauth2/validate";
 
 
 // Route: /auth/twitch/initiate
-app.get("/auth/twitch/initiate", async (req, res) => {
+app.get("/auth/twitch/initiate", (req, res) => {
   console.log("--- /auth/twitch/initiate HIT ---");
   const currentTwitchClientId = TWITCH_CLIENT_ID;
   const currentCallbackRedirectUri = CALLBACK_REDIRECT_URI_CONFIG;
@@ -122,23 +108,6 @@ app.get("/auth/twitch/initiate", async (req, res) => {
   }
 
   const state = crypto.randomBytes(16).toString("hex");
-  const expires = new Date(Date.now() + 5 * 60 * 1000); // Expires in 5 minutes
-
-  try {
-    if (db) {
-      const stateDocRef = db.collection(OAUTH_STATES_COLLECTION).doc();
-      await stateDocRef.set({
-        state: state,
-        expires: expires,
-      });
-      res.cookie('oauth_session_id', stateDocRef.id, { httpOnly: true, secure: true, maxAge: 300000 });
-    } else {
-      throw new Error("Firestore not initialized.");
-    }
-  } catch (dbError) {
-    console.error("Error storing OAuth state in Firestore:", dbError);
-    return res.status(500).json({success: false, error: "Failed to create a secure session."});
-  }
 
   const params = new URLSearchParams({
     client_id: currentTwitchClientId,
@@ -156,7 +125,7 @@ app.get("/auth/twitch/initiate", async (req, res) => {
   res.json({
     success: true,
     twitchAuthUrl: twitchAuthUrl,
-    state: state, // For client-side validation if still desired
+    state: state,
   });
 });
 
@@ -165,7 +134,6 @@ app.get("/auth/twitch/callback", async (req, res) => {
   console.log("--- /auth/twitch/callback HIT ---");
   console.log("Callback Request Query Params:", JSON.stringify(req.query));
   const {code, state: twitchQueryState, error: twitchError, error_description: twitchErrorDescription} = req.query;
-  const sessionId = req.cookies.oauth_session_id;
 
   // Try to decode state parameter to detect viewer auth
   let isViewerAuth = false;
@@ -192,35 +160,9 @@ app.get("/auth/twitch/callback", async (req, res) => {
     return redirectToFrontendWithError(res, twitchError, twitchErrorDescription, twitchQueryState);
   }
 
-  if (!sessionId) {
-    return redirectToFrontendWithError(res, "session_expired", "Your session has expired. Please try again.");
-  }
-
-  res.clearCookie('oauth_session_id'); // Clear the session ID cookie
-
   try {
-    const stateDocRef = db.collection(OAUTH_STATES_COLLECTION).doc(sessionId);
-    const stateDoc = await stateDocRef.get();
-
-    if (!stateDoc.exists) {
-      throw new Error("Invalid session state.");
-    }
-
-    const { state: storedState, expires } = stateDoc.data();
-
-    // Delete the state document from Firestore now that we've used it
-    await stateDocRef.delete();
-
-    // Correctly handle the expires timestamp from Firestore
-    const expiresDate = typeof expires.toDate === 'function' ? expires.toDate() : new Date(expires);
-    if (new Date() > expiresDate) {
-      throw new Error("Session has expired.");
-    }
-
-    if (!twitchQueryState || twitchQueryState !== storedState) {
-      throw new Error("State mismatch. Potential CSRF attack.");
-    }
-
+    // The rest of the logic to exchange the code for a token remains the same.
+    // It starts from here:
     console.log("Exchanging code for token. Callback redirect_uri used for exchange:", CALLBACK_REDIRECT_URI_CONFIG); // This is from .env
     const tokenResponse = await axios.post(TWITCH_TOKEN_URL, null, {
       params: {
@@ -1585,3 +1527,24 @@ app.get("/s/:slug", async (req, res) => {
 });
 
 exports.webUi = functions.https.onRequest(app);
+
+// Scheduled function to clean up expired short links
+exports.cleanupExpiredShortLinks = functions.pubsub.schedule('every 24 hours').onRun(async (context) => {
+  const now = new Date();
+  const query = db.collection('shortLinks').where('expires', '<=', now);
+  const snapshot = await query.get();
+
+  if (snapshot.empty) {
+    console.log('No expired short links to delete.');
+    return null;
+  }
+
+  const batch = db.batch();
+  snapshot.docs.forEach(doc => {
+    batch.delete(doc.ref);
+  });
+
+  await batch.commit();
+  console.log(`Deleted ${snapshot.size} expired short links.`);
+  return null;
+});
