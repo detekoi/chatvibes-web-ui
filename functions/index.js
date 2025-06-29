@@ -25,6 +25,7 @@ const express = require("express");
 const axios = require("axios");
 const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
+const cookieParser = require("cookie-parser"); // Add cookie-parser for session cookies
 console.log("--- /auth/twitch/initiate HIT --- Version 1.1 ---");
 
 const {Firestore, FieldValue} = require("@google-cloud/firestore");
@@ -39,8 +40,10 @@ try {
 }
 
 const CHANNELS_COLLECTION = "managedChannels";
+const OAUTH_STATES_COLLECTION = "oauthStates";
 
 const app = express();
+app.use(cookieParser()); // Use cookie-parser middleware
 
 // --- Environment Configuration using process.env for 2nd Gen Functions ---
 // These will be loaded from .env files (e.g., .env.chatvibestts for deployed, .env for local emulator)
@@ -108,15 +111,10 @@ const TWITCH_VALIDATE_URL = "https://id.twitch.tv/oauth2/validate";
 
 
 // Route: /auth/twitch/initiate
-app.get("/auth/twitch/initiate", (req, res) => {
+app.get("/auth/twitch/initiate", async (req, res) => {
   console.log("--- /auth/twitch/initiate HIT ---");
-  // Removed 'conf' variable as it's not used and was from functions.config()
   const currentTwitchClientId = TWITCH_CLIENT_ID;
   const currentCallbackRedirectUri = CALLBACK_REDIRECT_URI_CONFIG;
-
-  console.log("TWITCH_CLIENT_ID from env:", currentTwitchClientId);
-  console.log("CALLBACK_REDIRECT_URI_CONFIG from env:", currentCallbackRedirectUri);
-
 
   if (!currentTwitchClientId || !currentCallbackRedirectUri) {
     console.error("Config missing for /auth/twitch/initiate: TWITCH_CLIENT_ID or CALLBACK_URL not found in environment variables.");
@@ -124,14 +122,31 @@ app.get("/auth/twitch/initiate", (req, res) => {
   }
 
   const state = crypto.randomBytes(16).toString("hex");
+  const expires = new Date(Date.now() + 5 * 60 * 1000); // Expires in 5 minutes
+
+  try {
+    if (db) {
+      const stateDocRef = db.collection(OAUTH_STATES_COLLECTION).doc();
+      await stateDocRef.set({
+        state: state,
+        expires: expires,
+      });
+      res.cookie('oauth_session_id', stateDocRef.id, { httpOnly: true, secure: true, maxAge: 300000 });
+    } else {
+      throw new Error("Firestore not initialized.");
+    }
+  } catch (dbError) {
+    console.error("Error storing OAuth state in Firestore:", dbError);
+    return res.status(500).json({success: false, error: "Failed to create a secure session."});
+  }
 
   const params = new URLSearchParams({
     client_id: currentTwitchClientId,
-    redirect_uri: currentCallbackRedirectUri, // This will be ngrok or live URL from .env
+    redirect_uri: currentCallbackRedirectUri,
     response_type: "code",
     scope: "user:read:email",
     state: state,
-    force_verify: "true", // Consider "false" for production for better UX
+    force_verify: "true",
   });
   const twitchAuthUrl = `${TWITCH_AUTH_URL}?${params.toString()}`;
 
@@ -141,7 +156,7 @@ app.get("/auth/twitch/initiate", (req, res) => {
   res.json({
     success: true,
     twitchAuthUrl: twitchAuthUrl,
-    state: state,
+    state: state, // For client-side validation if still desired
   });
 });
 
@@ -150,7 +165,7 @@ app.get("/auth/twitch/callback", async (req, res) => {
   console.log("--- /auth/twitch/callback HIT ---");
   console.log("Callback Request Query Params:", JSON.stringify(req.query));
   const {code, state: twitchQueryState, error: twitchError, error_description: twitchErrorDescription} = req.query;
-
+  const sessionId = req.cookies.oauth_session_id;
 
   // Try to decode state parameter to detect viewer auth
   let isViewerAuth = false;
@@ -172,16 +187,40 @@ app.get("/auth/twitch/callback", async (req, res) => {
     return handleViewerCallback(req, res, decodedState);
   }
 
-
   if (twitchError) {
     console.error(`Twitch OAuth explicit error: ${twitchError} - ${twitchErrorDescription}`);
     return redirectToFrontendWithError(res, twitchError, twitchErrorDescription, twitchQueryState);
   }
 
-  // State validation is handled by viewer auth detection above
-  // For regular auth, we proceed without state validation as cookies aren't working reliably
+  if (!sessionId) {
+    return redirectToFrontendWithError(res, "session_expired", "Your session has expired. Please try again.");
+  }
+
+  res.clearCookie('oauth_session_id'); // Clear the session ID cookie
 
   try {
+    const stateDocRef = db.collection(OAUTH_STATES_COLLECTION).doc(sessionId);
+    const stateDoc = await stateDocRef.get();
+
+    if (!stateDoc.exists) {
+      throw new Error("Invalid session state.");
+    }
+
+    const { state: storedState, expires } = stateDoc.data();
+
+    // Delete the state document from Firestore now that we've used it
+    await stateDocRef.delete();
+
+    // Correctly handle the expires timestamp from Firestore
+    const expiresDate = typeof expires.toDate === 'function' ? expires.toDate() : new Date(expires);
+    if (new Date() > expiresDate) {
+      throw new Error("Session has expired.");
+    }
+
+    if (!twitchQueryState || twitchQueryState !== storedState) {
+      throw new Error("State mismatch. Potential CSRF attack.");
+    }
+
     console.log("Exchanging code for token. Callback redirect_uri used for exchange:", CALLBACK_REDIRECT_URI_CONFIG); // This is from .env
     const tokenResponse = await axios.post(TWITCH_TOKEN_URL, null, {
       params: {
@@ -290,7 +329,7 @@ app.get("/auth/twitch/callback", async (req, res) => {
   } catch (error) {
     console.error("[AuthCallback] Twitch OAuth callback error:", error.response ? JSON.stringify(error.response.data, null, 2) : error.message, error.stack);
     // Try to redirect to frontend with generic error if possible
-    return redirectToFrontendWithError(res, "auth_failed", "Authentication failed with Twitch due to an internal server error.", twitchQueryState);
+    return redirectToFrontendWithError(res, "auth_failed", error.message || "Authentication failed with Twitch due to an internal server error.", twitchQueryState);
   }
 });
 
