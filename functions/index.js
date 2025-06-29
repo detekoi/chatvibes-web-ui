@@ -226,8 +226,8 @@ app.get("/auth/twitch/callback", async (req, res) => {
       };
       const appSessionToken = jwt.sign(appTokenPayload, JWT_SECRET, {
         expiresIn: JWT_EXPIRATION,
-        issuer: 'chatvibes-auth',
-        audience: 'chatvibes-api'
+        issuer: "chatvibes-auth",
+        audience: "chatvibes-api",
       });
       console.log(`Generated app session token for ${twitchUser.login}`);
 
@@ -1138,8 +1138,8 @@ async function handleViewerCallback(req, res, decodedState) {
         JWT_SECRET,
         {
           expiresIn: "24h",
-          issuer: 'chatvibes-auth',
-          audience: 'chatvibes-api'
+          issuer: "chatvibes-auth",
+          audience: "chatvibes-api",
         },
     );
 
@@ -1247,8 +1247,8 @@ app.post("/api/viewer/auth", async (req, res) => {
         JWT_SECRET,
         {
           expiresIn: "24h",
-          issuer: 'chatvibes-auth',
-          audience: 'chatvibes-api'
+          issuer: "chatvibes-auth",
+          audience: "chatvibes-api",
         },
     );
 
