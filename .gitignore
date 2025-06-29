@@ -68,6 +68,8 @@ node_modules/
 
 .venv
 
+.vscode
+
 # dataconnect generated files
 .dataconnect
 functions/.runtimeconfig.json
