@@ -235,8 +235,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Bot settings API URL - configurable for dev/production
     const BOT_API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
-        ? 'http://localhost:5001/chatvibestts/us-central1/webUi/api'  // Local development
-        : 'https://us-central1-chatvibestts.cloudfunctions.net/webUi/api';  // Production
+        ? 'http://localhost:8080/api'  // Local development
+        : 'https://chatvibes-tts-service-h7kj56ct4q-uc.a.run.app/api';  // Production
     
     // Settings form elements
     const ttsEnabledCheckbox = document.getElementById('tts-enabled');
