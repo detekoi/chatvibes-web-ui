@@ -1527,24 +1527,3 @@ app.get("/s/:slug", async (req, res) => {
 });
 
 exports.webUi = functions.https.onRequest(app);
-
-// Scheduled function to clean up expired short links
-exports.cleanupExpiredShortLinks = functions.pubsub.schedule('every 24 hours').onRun(async (context) => {
-  const now = new Date();
-  const query = db.collection('shortLinks').where('expires', '<=', now);
-  const snapshot = await query.get();
-
-  if (snapshot.empty) {
-    console.log('No expired short links to delete.');
-    return null;
-  }
-
-  const batch = db.batch();
-  snapshot.docs.forEach(doc => {
-    batch.delete(doc.ref);
-  });
-
-  await batch.commit();
-  console.log(`Deleted ${snapshot.size} expired short links.`);
-  return null;
-});
