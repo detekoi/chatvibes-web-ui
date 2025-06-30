@@ -28,14 +28,17 @@ const jwt = require("jsonwebtoken");
 console.log("--- /auth/twitch/initiate HIT --- Version 1.1 ---");
 
 const {Firestore, FieldValue} = require("@google-cloud/firestore");
+const {SecretManagerServiceClient} = require("@google-cloud/secret-manager");
 const Replicate = require("replicate");
 
 let db;
+let secretManagerClient;
 try {
   db = new Firestore();
-  console.log("[CloudFunctions] Firestore client initialized.");
+  secretManagerClient = new SecretManagerServiceClient();
+  console.log("[CloudFunctions] Firestore and Secret Manager clients initialized.");
 } catch (e) {
-  console.error("[CloudFunctions] Firestore client init error:", e);
+  console.error("[CloudFunctions] Client initialization error:", e);
 }
 
 const CHANNELS_COLLECTION = "managedChannels";
@@ -173,15 +176,13 @@ app.get("/auth/twitch/callback", async (req, res) => {
         redirect_uri: CALLBACK_REDIRECT_URI_CONFIG, // from .env
       },
     });
-    const {access_token: accessToken, refresh_token: refreshToken, expires_in: expiresIn} = tokenResponse.data;
+    const {access_token: accessToken, refresh_token: refreshToken} = tokenResponse.data;
     console.log("Access token and refresh token received from Twitch.");
 
     if (!accessToken || !refreshToken) {
       console.error("Missing access_token or refresh_token from Twitch.", tokenResponse.data);
       throw new Error("Twitch did not return the expected tokens.");
     }
-
-    const accessTokenExpiresAt = new Date(Date.now() + expiresIn * 1000);
 
     const validateResponse = await axios.get(TWITCH_VALIDATE_URL, {
       headers: {Authorization: `OAuth ${accessToken}`},
@@ -221,46 +222,55 @@ app.get("/auth/twitch/callback", async (req, res) => {
 
       console.log(`Redirecting to frontend auth-complete page: ${frontendAuthCompleteUrl.toString()}`);
 
-      // Store tokens in Firestore
-      if (db) {
+      // Store tokens securely
+      if (db && secretManagerClient) {
         const userDocRef = db.collection(CHANNELS_COLLECTION).doc(twitchUser.login);
+        const secretName = `projects/${process.env.GCLOUD_PROJECT}/secrets/twitch-refresh-token-${twitchUser.id}`;
         try {
+          // Create or update the secret in Secret Manager
+          try {
+            // Attempt to create the secret first.
+            await secretManagerClient.createSecret({
+              parent: `projects/${process.env.GCLOUD_PROJECT}`,
+              secretId: `twitch-refresh-token-${twitchUser.id}`,
+              secret: {
+                replication: {automatic: {}},
+              },
+            });
+          } catch (secretError) {
+            if (secretError.code !== 6) { // 6 means "ALREADY_EXISTS"
+              throw secretError;
+            }
+            // If it already exists, that's fine, we'll just add a new version.
+          }
+
+          // Add the new refresh token as a secret version.
+          await secretManagerClient.addSecretVersion({
+            parent: secretName,
+            payload: {
+              data: Buffer.from(refreshToken, "utf8"),
+            },
+          });
+          console.log(`Twitch refresh token stored in Secret Manager for user ${twitchUser.login}`);
+
+          // Now, store the reference to the secret in Firestore, NOT the token itself.
+          // We no longer store the accessToken at all.
           await userDocRef.set({
-            twitchAccessToken: accessToken,
-            twitchRefreshToken: refreshToken, // Encrypt this in a real production system if desired
-            twitchAccessTokenExpiresAt: accessTokenExpiresAt,
+            twitchRefreshTokenSecretName: secretName, // Store the secret name
             twitchUserId: twitchUser.id,
             displayName: twitchUser.displayName,
-            // Preserve other fields by merging, or set them if this is the first time
             lastLoginAt: FieldValue.serverTimestamp(),
-            // Clear any previous error flags or re-auth requirements
             needsTwitchReAuth: false,
             lastTokenError: null,
             lastTokenErrorAt: null,
           }, {merge: true});
-          console.log(`Twitch tokens stored for user ${twitchUser.login}`);
-
-          // Now validate the tokens are working by attempting to use them
-          try {
-            // Use the validate endpoint to ensure the tokens work properly
-            await axios.get(TWITCH_VALIDATE_URL, {
-              headers: {
-                Authorization: `OAuth ${accessToken}`,
-              },
-            });
-            console.log(`Twitch tokens for ${twitchUser.login} successfully validated.`);
-          } catch (validateError) {
-            console.error(`Failed to validate new tokens for ${twitchUser.login}:`, validateError.message);
-            // We'll continue the auth flow anyway since we already got tokens, but log the validation failure
-          }
+          console.log(`Secret reference stored in Firestore for user ${twitchUser.login}`);
         } catch (dbError) {
-          console.error(`Error storing Twitch tokens for ${twitchUser.login}:`, dbError);
+          console.error(`Error storing secret for ${twitchUser.login}:`, dbError);
           // Decide if this is a fatal error for the auth flow or just log and continue
-          // For now, we'll log and continue, but you might want to send an error response.
         }
       } else {
-        console.error("Firestore (db) not initialized. Cannot store Twitch tokens.");
-        // This is a server configuration issue, likely fatal for storing tokens.
+        console.error("Firestore (db) or SecretManagerServiceClient not initialized. Cannot store Twitch tokens.");
       }
 
       return res.redirect(frontendAuthCompleteUrl.toString());
@@ -595,43 +605,13 @@ app.post("/api/auth/refresh", authenticateApiRequest, async (req, res) => {
   }
 
   try {
-    // Clear any cached tokens to force a fresh refresh
-    await clearCachedTokens(userLogin, "Manual refresh requested by user");
+    // Try to get a fresh token, which involves a full refresh cycle
+    await getValidTwitchTokenForUser(userLogin);
 
-    // Try to get a fresh token
+    // If the above call succeeds, the refresh was successful.
+    // We only need to update the Firestore document to clear any error state.
     const userDocRef = db.collection(CHANNELS_COLLECTION).doc(userLogin);
-    const userDoc = await userDocRef.get();
-
-    if (!userDoc.exists) {
-      console.warn(`[API /auth/refresh] User document for ${userLogin} not found.`);
-      return res.status(404).json({
-        success: false,
-        needsReAuth: true,
-        message: "User not found. Please re-authenticate with Twitch.",
-      });
-    }
-
-    const userData = userDoc.data();
-    const {twitchRefreshToken} = userData;
-
-    if (!twitchRefreshToken) {
-      console.warn(`[API /auth/refresh] No refresh token found for ${userLogin}.`);
-      return res.status(400).json({
-        success: false,
-        needsReAuth: true,
-        message: "No refresh token available. Please re-authenticate with Twitch.",
-      });
-    }
-
-    // Attempt to refresh the token
-    const newTokens = await refreshTwitchToken(twitchRefreshToken);
-    const newExpiresAt = new Date(Date.now() + newTokens.expiresIn * 1000);
-
-    // Update the tokens in Firestore
     await userDocRef.update({
-      twitchAccessToken: newTokens.accessToken,
-      twitchRefreshToken: newTokens.refreshToken || twitchRefreshToken,
-      twitchAccessTokenExpiresAt: newExpiresAt,
       lastTokenRefreshAt: FieldValue.serverTimestamp(),
       needsTwitchReAuth: false,
       lastTokenError: null,
@@ -664,48 +644,6 @@ const redirectToFrontendWithError = (res, error, errorDescription, state) => {
   console.warn(`Redirecting to frontend error page: ${frontendErrorUrl.toString()}`);
   return res.redirect(frontendErrorUrl.toString());
 };
-
-/**
- * Clears cached Twitch tokens for a user and marks them as requiring re-authentication
- * @param {string} userLogin - The Twitch channel/login name
- * @param {string} reason - Reason for clearing the tokens (for logging)
- * @return {Promise<boolean>} True if successful, false otherwise
- */
-async function clearCachedTokens(userLogin, reason = "Unspecified reason") {
-  if (!db) {
-    console.error("[clearCachedTokens] Firestore (db) not initialized!");
-    return false;
-  }
-
-  if (!userLogin) {
-    console.error("[clearCachedTokens] No userLogin provided");
-    return false;
-  }
-
-  try {
-    const userDocRef = db.collection(CHANNELS_COLLECTION).doc(userLogin);
-    const userDoc = await userDocRef.get();
-
-    if (!userDoc.exists) {
-      console.warn(`[clearCachedTokens] User document for ${userLogin} not found.`);
-      return false;
-    }
-
-    await userDocRef.update({
-      twitchAccessToken: null,
-      twitchAccessTokenExpiresAt: null,
-      needsTwitchReAuth: true,
-      lastTokenError: reason,
-      lastTokenErrorAt: FieldValue.serverTimestamp(),
-    });
-
-    console.log(`[clearCachedTokens] Successfully cleared tokens for ${userLogin}. Reason: ${reason}`);
-    return true;
-  } catch (error) {
-    console.error(`[clearCachedTokens] Error clearing tokens for ${userLogin}:`, error.message);
-    return false;
-  }
-}
 
 /**
  * Refreshes a Twitch token using the refresh token with retry logic
@@ -819,13 +757,14 @@ async function refreshTwitchToken(currentRefreshToken) {
 
 /**
  * Gets a valid Twitch access token for a user, refreshing if necessary
+ * by retrieving the refresh token from Secret Manager.
  * @param {string} userLogin - The user's login name
- * @return {Promise<string>} A valid access token
+ * @return {Promise<string>} A valid, short-lived access token
  */
 async function getValidTwitchTokenForUser(userLogin) {
-  if (!db) {
-    console.error("[getValidTwitchTokenForUser] Firestore (db) not initialized!");
-    throw new Error("Firestore not available.");
+  if (!db || !secretManagerClient) {
+    console.error("[getValidTwitchTokenForUser] Firestore or Secret Manager client not initialized!");
+    throw new Error("Server configuration error.");
   }
 
   const userDocRef = db.collection(CHANNELS_COLLECTION).doc(userLogin);
@@ -837,55 +776,47 @@ async function getValidTwitchTokenForUser(userLogin) {
   }
 
   const userData = userDoc.data();
-  const {twitchAccessToken, twitchRefreshToken, twitchAccessTokenExpiresAt} = userData;
+  const {twitchRefreshTokenSecretName} = userData;
 
-  // Token buffer - consider tokens invalid 5 minutes before actual expiry
-  const TOKEN_EXPIRY_BUFFER_MS = 5 * 60 * 1000;
-
-  // Check if token is valid for at least 5 more minutes
-  if (twitchAccessToken && twitchAccessTokenExpiresAt) {
-    // Handle both Firestore Timestamp objects and regular Date strings
-    const expiryDate = typeof twitchAccessTokenExpiresAt.toDate === "function" ?
-      twitchAccessTokenExpiresAt.toDate() :
-      new Date(twitchAccessTokenExpiresAt);
-
-    if (expiryDate > new Date(Date.now() + TOKEN_EXPIRY_BUFFER_MS)) {
-      console.log(`[getValidTwitchTokenForUser] Using existing valid access token for ${userLogin}.`);
-      return twitchAccessToken;
-    }
-  }
-
-  if (!twitchRefreshToken) {
-    console.warn(`[getValidTwitchTokenForUser] No refresh token found for ${userLogin}. Re-authentication required.`);
+  if (!twitchRefreshTokenSecretName) {
+    console.warn(`[getValidTwitchTokenForUser] No refresh token secret reference found for ${userLogin}. Re-authentication required.`);
+    await userDocRef.update({needsTwitchReAuth: true});
     throw new Error("Refresh token not available. User needs to re-authenticate.");
   }
 
-  console.log(`[getValidTwitchTokenForUser] Access token for ${userLogin} expired or missing. Attempting refresh.`);
+  console.log(`[getValidTwitchTokenForUser] Access token for ${userLogin} needs to be generated. Attempting refresh.`);
   try {
-    const newTokens = await refreshTwitchToken(twitchRefreshToken);
-    const newExpiresAt = new Date(Date.now() + newTokens.expiresIn * 1000);
-
-    await userDocRef.update({
-      twitchAccessToken: newTokens.accessToken,
-      twitchRefreshToken: newTokens.refreshToken || twitchRefreshToken, // Update if a new one is provided
-      twitchAccessTokenExpiresAt: newExpiresAt,
-      lastTokenRefreshAt: FieldValue.serverTimestamp(),
-      needsTwitchReAuth: false, // Clear any previous re-auth flags
+    // Access the refresh token from Secret Manager
+    const [version] = await secretManagerClient.accessSecretVersion({
+      name: `${twitchRefreshTokenSecretName}/versions/latest`,
     });
-    console.log(`[getValidTwitchTokenForUser] Successfully refreshed and stored new tokens for ${userLogin}.`);
+    const refreshToken = version.payload.data.toString("utf8");
+
+    // Use the retrieved refresh token to get a new access token
+    const newTokens = await refreshTwitchToken(refreshToken);
+
+    // If Twitch provides a new refresh token, update it in Secret Manager
+    if (newTokens.refreshToken && newTokens.refreshToken !== refreshToken) {
+      await secretManagerClient.addSecretVersion({
+        parent: twitchRefreshTokenSecretName,
+        payload: {
+          data: Buffer.from(newTokens.refreshToken, "utf8"),
+        },
+      });
+      console.log(`[getValidTwitchTokenForUser] Updated refresh token in Secret Manager for ${userLogin}.`);
+    }
+    // We do NOT store the new access token. We return it for immediate use.
+    console.log(`[getValidTwitchTokenForUser] Successfully generated ephemeral access token for ${userLogin}.`);
     return newTokens.accessToken;
   } catch (error) {
     console.error(`[getValidTwitchTokenForUser] Failed to refresh token for ${userLogin}:`, error.message);
-    // If refresh fails, it might be due to revoked access or invalid refresh token
     try {
       await userDocRef.update({
-        twitchAccessToken: null,
-        twitchAccessTokenExpiresAt: null,
         needsTwitchReAuth: true,
         lastTokenError: error.message,
         lastTokenErrorAt: FieldValue.serverTimestamp(),
       });
-      console.log(`[getValidTwitchTokenForUser] Marked tokens as invalid for ${userLogin}`);
+      console.log(`[getValidTwitchTokenForUser] Marked user as needing re-auth: ${userLogin}`);
     } catch (updateError) {
       console.error(`[getValidTwitchTokenForUser] Failed to update user document for ${userLogin}:`, updateError.message);
     }
