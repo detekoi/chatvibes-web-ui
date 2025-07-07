@@ -60,7 +60,7 @@ This is a ChatVibes TTS bot management web application with the following struct
 Functions require these environment variables:
 - `TWITCH_CLIENT_ID` / `TWITCH_CLIENT_SECRET` - Twitch app credentials
 - `CALLBACK_URL` - OAuth redirect URI 
-- `FRONTEND_URL` - Frontend application URL
+- `FRONTEND_URL_CONFIG` - Frontend application URL
 - `JWT_SECRET_KEY` - For signing session tokens
 - `SESSION_COOKIE_SECRET` - For cookie signing
 

@@ -16,7 +16,7 @@
  * - TWITCH_CLIENT_ID: Your Twitch application client ID
  * - TWITCH_CLIENT_SECRET: Your Twitch application client secret
  * - CALLBACK_URL: The OAuth callback URL (must match Twitch dev console)
- * - FRONTEND_URL: The URL of your frontend application
+ * - FRONTEND_URL_CONFIG: The URL of your frontend application
  * - JWT_SECRET_KEY: Secret for signing JWT tokens
  */
 
@@ -65,21 +65,39 @@ if (process.env.FUNCTION_TARGET) { // This variable only exists in the live/emul
 
 // Improved CORS Middleware
 app.use((req, res, next) => {
-  const allowedOrigins = [
-    FRONTEND_URL_CONFIG, // This will be the live URL from .env.chatvibestts when deployed or local from .env when emulated
-    "http://127.0.0.1:5002", // Keep for local emulator access
-    "http://localhost:5002", // Keep for local emulator access
-  ].filter(Boolean);
+  let allowedOrigins = [];
+
+  // Differentiate between production and local development
+  if (process.env.FUNCTIONS_EMULATOR === "true") {
+    // In the local emulator, allow localhost with any port
+    allowedOrigins = [/^http:\/\/localhost:\d+$/, /^http:\/\/127\.0\.0\.1:\d+$/];
+  } else {
+    // In production, only allow your frontend's URL
+    allowedOrigins = [FRONTEND_URL_CONFIG];
+  }
 
   const origin = req.headers.origin;
   console.log(`CORS Check: Request Origin: ${origin}, Allowed Production Frontend URL: ${FRONTEND_URL_CONFIG}`);
 
-  if (allowedOrigins.includes(origin)) {
+  let originAllowed = false;
+  if (Array.isArray(allowedOrigins)) {
+    for (const allowed of allowedOrigins) {
+      if (typeof allowed === "string" && allowed === origin) {
+        originAllowed = true;
+        break;
+      } else if (allowed instanceof RegExp && allowed.test(origin)) {
+        originAllowed = true;
+        break;
+      }
+    }
+  }
+
+  if (originAllowed) {
     res.setHeader("Access-Control-Allow-Origin", origin);
     console.log(`CORS Check: Origin ${origin} is allowed.`);
   } else {
     if (origin) {
-      console.warn(`CORS Check: Origin ${origin} is NOT in allowed list: ${allowedOrigins.join(", ")}`);
+      console.warn(`CORS Check: Origin ${origin} is NOT in allowed list: ${allowedOrigins.map((o) => o.toString()).join(", ")}`);
     }
   }
 

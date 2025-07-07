@@ -69,6 +69,7 @@ node_modules/
 .venv
 
 .vscode
+.claude
 
 # dataconnect generated files
 .dataconnect
