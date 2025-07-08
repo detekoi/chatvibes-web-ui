@@ -1,3 +1,4 @@
+// functions/index.js
 /**
  * Twitch OAuth 2.0 Authentication and Bot Management API
  *
@@ -25,14 +26,14 @@ const express = require("express");
 const axios = require("axios");
 const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
-console.log("--- /auth/twitch/initiate HIT --- Version 1.1 ---");
 
 const {Firestore, FieldValue} = require("@google-cloud/firestore");
 const {SecretManagerServiceClient} = require("@google-cloud/secret-manager");
 const Replicate = require("replicate");
+const cors = require("cors");
 
-let db;
-let secretManagerClient;
+// Initialize clients once per instance
+let db; let secretManagerClient;
 try {
   db = new Firestore();
   secretManagerClient = new SecretManagerServiceClient();
@@ -45,72 +46,74 @@ const CHANNELS_COLLECTION = "managedChannels";
 
 const app = express();
 
-// --- Environment Configuration using process.env for 2nd Gen Functions ---
-// These will be loaded from .env files (e.g., .env.chatvibestts for deployed, .env for local emulator)
-const TWITCH_CLIENT_ID = process.env.TWITCH_CLIENT_ID;
-// The client secret comes from environment variables and should be kept secure
-const TWITCH_CLIENT_SECRET = process.env.TWITCH_CLIENT_SECRET;
+// --- Global variables for secrets ---
+let TWITCH_CLIENT_ID; let TWITCH_CLIENT_SECRET; let JWT_SECRET; let REPLICATE_API_TOKEN;
+
+// --- These are configuration variables, not secrets. Load them directly. ---
 const CALLBACK_REDIRECT_URI_CONFIG = process.env.CALLBACK_URL;
 const FRONTEND_URL_CONFIG = process.env.FRONTEND_URL;
-const JWT_SECRET = process.env.JWT_SECRET_KEY;
-const JWT_EXPIRATION = "1h";
 
-// Environment variable check
-if (process.env.FUNCTION_TARGET) { // This variable only exists in the live/emulated environment
-  if (!TWITCH_CLIENT_ID || !TWITCH_CLIENT_SECRET || !CALLBACK_REDIRECT_URI_CONFIG || !FRONTEND_URL_CONFIG || !JWT_SECRET) {
-    console.error("CRITICAL: One or more environment variables are not set in the production environment.");
+// --- Asynchronous Secret Loading ---
+const secretsLoaded = (async () => {
+  try {
+    const loadSecret = async (secretName) => {
+      const [version] = await secretManagerClient.accessSecretVersion({
+        name: `projects/${process.env.GCLOUD_PROJECT}/secrets/${secretName}/versions/latest`,
+      });
+      return version.payload.data.toString().trim();
+    };
+
+    [
+      TWITCH_CLIENT_ID,
+      TWITCH_CLIENT_SECRET,
+      JWT_SECRET,
+      REPLICATE_API_TOKEN,
+    ] = await Promise.all([
+      loadSecret("twitch-webui-client-id"),
+      loadSecret("twitch-webui-client-secret"),
+      loadSecret("jwt-secret-key"),
+      loadSecret("replicate-api-token"),
+    ]);
+
+    console.log("✅ Successfully loaded all required secrets.");
+  } catch (error) {
+    console.error("CRITICAL: Failed to load secrets on startup.", error);
+    throw new Error("Could not load necessary secrets to start the function.");
   }
-}
+})();
 
-
-// Improved CORS Middleware
-app.use((req, res, next) => {
-  let allowedOrigins = [];
-
-  // Differentiate between production and local development
-  if (process.env.FUNCTIONS_EMULATOR === "true") {
-    // In the local emulator, allow localhost with any port
-    allowedOrigins = [/^http:\/\/localhost:\d+$/, /^http:\/\/127\.0\.0\.1:\d+$/];
-  } else {
-    // In production, only allow your frontend's URL
-    allowedOrigins = [FRONTEND_URL_CONFIG];
+// --- Middleware to Ensure Secrets Are Loaded ---
+// This middleware will make sure that no request is processed before secrets are ready.
+app.use(async (req, res, next) => {
+  try {
+    await secretsLoaded; // Wait for the async loading to complete
+    next(); // Proceed to the actual route handler
+  } catch (error) {
+    console.error("Function is not ready, secrets failed to load.", error.message);
+    // Respond with a 503 Service Unavailable error if secrets aren't loaded
+    res.status(503).send("Service Unavailable: Server is initializing or has a configuration error.");
   }
-
-  const origin = req.headers.origin;
-  console.log(`CORS Check: Request Origin: ${origin}, Allowed Production Frontend URL: ${FRONTEND_URL_CONFIG}`);
-
-  let originAllowed = false;
-  if (Array.isArray(allowedOrigins)) {
-    for (const allowed of allowedOrigins) {
-      if (typeof allowed === "string" && allowed === origin) {
-        originAllowed = true;
-        break;
-      } else if (allowed instanceof RegExp && allowed.test(origin)) {
-        originAllowed = true;
-        break;
-      }
-    }
-  }
-
-  if (originAllowed) {
-    res.setHeader("Access-Control-Allow-Origin", origin);
-    console.log(`CORS Check: Origin ${origin} is allowed.`);
-  } else {
-    if (origin) {
-      console.warn(`CORS Check: Origin ${origin} is NOT in allowed list: ${allowedOrigins.map((o) => o.toString()).join(", ")}`);
-    }
-  }
-
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  res.setHeader("Access-Control-Allow-Credentials", "true");
-
-  if (req.method === "OPTIONS") {
-    console.log(`CORS Check: Responding to OPTIONS request for origin: ${origin}`);
-    return res.sendStatus(204);
-  }
-  next();
 });
+
+// --- CORS Configuration ---
+const allowedOrigins = [
+  /^http:\/\/localhost:\d+$/,
+  /^http:\/\/127\.0\.0\.1:\d+$/,
+  "https://chatvibestts.web.app",
+];
+
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.some((o) => o instanceof RegExp ? o.test(origin) : o === origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 
 const TWITCH_AUTH_URL = "https://id.twitch.tv/oauth2/authorize";
 const TWITCH_TOKEN_URL = "https://id.twitch.tv/oauth2/token";
@@ -119,7 +122,7 @@ const TWITCH_VALIDATE_URL = "https://id.twitch.tv/oauth2/validate";
 
 // Route: /auth/twitch/initiate
 app.get("/auth/twitch/initiate", (req, res) => {
-  console.log("--- /auth/twitch/initiate HIT ---");
+  console.log("--- /auth/twitch/initiate HIT --- Version 1.2 ---");
   const currentTwitchClientId = TWITCH_CLIENT_ID;
   const currentCallbackRedirectUri = CALLBACK_REDIRECT_URI_CONFIG;
 
@@ -225,7 +228,7 @@ app.get("/auth/twitch/callback", async (req, res) => {
         displayName: twitchUser.displayName,
       };
       const appSessionToken = jwt.sign(appTokenPayload, JWT_SECRET, {
-        expiresIn: JWT_EXPIRATION,
+        expiresIn: "1h", // Use a fixed expiration for now, as JWT_EXPIRATION is removed
         issuer: "chatvibes-auth",
         audience: "chatvibes-api",
       });
@@ -485,18 +488,16 @@ app.post("/api/tts/test", authenticateApiRequest, async (req, res) => {
   }
 
   try {
-    // Get Replicate API token from Secret Manager
-    const replicateToken = process.env.REPLICATE_API_TOKEN;
-
-    if (!replicateToken) {
-      console.error("[API /tts/test] Failed to retrieve Replicate API token");
+    // Use the loaded REPLICATE_API_TOKEN, not process.env
+    if (!REPLICATE_API_TOKEN) {
+      console.error("[API /tts/test] Replicate API token not available.");
       return res.status(500).json({
         success: false,
         message: "TTS service configuration error.",
       });
     }
 
-    const replicate = new Replicate({auth: replicateToken});
+    const replicate = new Replicate({auth: REPLICATE_API_TOKEN});
 
     // Fetch channel defaults if any parameter is null and channel is provided
     let channelDefaults = {};
