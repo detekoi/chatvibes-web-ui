@@ -215,13 +215,14 @@
             <!-- OBS Setup Panel -->
             <div id="obs-setup-instructions" class="tab-content">
           <h2>ChatVibes OBS Setup</h2>
-          <p>To hear ChatVibes TTS alerts in your stream and for yourself, add it as a Browser Source in OBS (or Streamlabs, etc.) and configure audio monitoring. For usage instructions, visit the <a href="https://detekoi.github.io/chatvibesdocs.html" target="_blank">documentation page</a>.</p>
+          <p>To hear ChatVibes TTS alerts in your stream and for yourself, add it as a Browser Source in OBS (or Streamlabs, etc.) and configure audio monitoring. The URL below is a secure Browser Source URL with authentication tokens. For usage instructions, visit the <a href="https://detekoi.github.io/chatvibesdocs.html" target="_blank">documentation page</a>.</p>
           
           <div class="tts-url-container">
               <input type="text" id="tts-url-field" readonly placeholder="Your TTS URL will appear here...">
               <button id="copy-tts-url-btn" class="button">Copy URL</button>
           </div>
-          <p id="copy-status-message" style="font-size: 0.8em; height: 1em;"></p>
+          <p style="font-size: 0.8em; margin: 2px 0 0 0;"><a href="#" id="regenerate-tts-url-btn" style="text-decoration: underline; color: #666; cursor: pointer;">Regenerate URL</a></p>
+          <p id="copy-status-message" style="font-size: 0.8em; height: 1em; margin: 5px 0;"></p>
 
           <h4>Step 1: Add Browser Source</h4>
           <ol>

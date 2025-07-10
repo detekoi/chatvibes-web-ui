@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // TTS URL Elements (from dashboard.html)
     const ttsUrlField = document.getElementById('tts-url-field');
     const copyTtsUrlBtn = document.getElementById('copy-tts-url-btn');
+    const regenerateTtsUrlBtn = document.getElementById('regenerate-tts-url-btn');
     const copyStatusEl = document.getElementById('copy-status-message');
 
     // IMPORTANT: Configure this to your deployed Cloud Function URL for ChatVibes
@@ -19,19 +20,57 @@ document.addEventListener('DOMContentLoaded', () => {
     let loggedInUser = null;
 
     /**
-     * Updates the TTS URL field with the user's specific URL.
+     * Updates the TTS URL field with a secure WebSocket URL by calling the token generation API.
      * @param {string} userLoginName - The Twitch login name of the user.
      */
-    function updateTtsUrl(userLoginName) {
-        if (ttsUrlField && userLoginName && userLoginName.trim() !== '' && userLoginName !== 'loading...') {
-            // CRITICAL: Replace this placeholder with your actual ChatVibes TTS handler URL structure
-            const ttsHandlerBaseUrl = 'https://chatvibes-tts-service-h7kj56ct4q-uc.a.run.app'; 
-            // Example: const ttsHandlerBaseUrl = 'https://us-central1-chatvibestts.cloudfunctions.net/handleTtsRequest';
-            
-            ttsUrlField.value = `${ttsHandlerBaseUrl}?channel=${userLoginName.toLowerCase()}`;
-        } else if (ttsUrlField) {
-            ttsUrlField.value = ''; // Clear if username is not available or invalid
+    async function updateTtsUrl(userLoginName) {
+        if (!ttsUrlField) return;
+        
+        if (!userLoginName || userLoginName.trim() === '' || userLoginName === 'loading...') {
+            ttsUrlField.value = '';
             ttsUrlField.placeholder = 'Could not determine TTS URL.';
+            return;
+        }
+
+        // Show loading state
+        ttsUrlField.value = 'Generating secure URL...';
+        ttsUrlField.placeholder = '';
+
+        try {
+            const response = await fetch(`${API_BASE_URL}/api/obs/generateToken`, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${appSessionToken}`,
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
+
+            const data = await response.json();
+            
+            if (data.success && data.obsWebSocketUrl) {
+                ttsUrlField.value = data.obsWebSocketUrl;
+                ttsUrlField.placeholder = 'Your secure OBS Browser Source URL';
+                console.log('Dashboard: Generated secure OBS WebSocket URL for', userLoginName);
+            } else {
+                throw new Error(data.message || 'Failed to generate OBS URL');
+            }
+        } catch (error) {
+            console.error('Dashboard: Error generating OBS URL:', error);
+            ttsUrlField.value = '';
+            ttsUrlField.placeholder = 'Error generating URL. Please try refreshing.';
+            
+            // Show error message briefly
+            if (copyStatusEl) {
+                copyStatusEl.textContent = 'Failed to generate OBS URL. Please try again.';
+                copyStatusEl.style.color = '#ff6b6b';
+                setTimeout(() => {
+                    copyStatusEl.textContent = '';
+                }, 3000);
+            }
         }
     }
 
@@ -51,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (actionMessageEl) actionMessageEl.textContent = '';
 
             // *** KEY CHANGE: Call updateTtsUrl with the user's LOGIN name ***
-            updateTtsUrl(loggedInUser.login);
+            await updateTtsUrl(loggedInUser.login);
 
             if (!appSessionToken) {
                 console.warn("No session token found, API calls might fail authentication.");
@@ -221,6 +260,56 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('Error during copy attempt:', err);
                 if (copyStatusEl) copyStatusEl.textContent = 'Failed to copy.';
                 setTimeout(() => { if (copyStatusEl) copyStatusEl.textContent = ''; }, 3000);
+            }
+        });
+    }
+
+    // Event listener for TTS URL regenerate link
+    if (regenerateTtsUrlBtn) {
+        regenerateTtsUrlBtn.addEventListener('click', async (e) => {
+            e.preventDefault(); // Prevent default link navigation
+            if (!loggedInUser || !loggedInUser.login) {
+                if (copyStatusEl) {
+                    copyStatusEl.textContent = 'Error: User not logged in.';
+                    copyStatusEl.style.color = '#ff6b6b';
+                    setTimeout(() => { 
+                        copyStatusEl.textContent = '';
+                        copyStatusEl.style.color = '';
+                    }, 3000);
+                }
+                return;
+            }
+
+            // Update link text during regeneration
+            const originalText = regenerateTtsUrlBtn.textContent;
+            regenerateTtsUrlBtn.textContent = 'Generating...';
+            regenerateTtsUrlBtn.style.pointerEvents = 'none'; // Disable clicks
+
+            try {
+                await updateTtsUrl(loggedInUser.login);
+                
+                if (copyStatusEl) {
+                    copyStatusEl.textContent = 'New URL generated successfully!';
+                    copyStatusEl.style.color = '#4CAF50';
+                    setTimeout(() => { 
+                        copyStatusEl.textContent = '';
+                        copyStatusEl.style.color = '';
+                    }, 3000);
+                }
+            } catch (error) {
+                console.error('Error regenerating URL:', error);
+                if (copyStatusEl) {
+                    copyStatusEl.textContent = 'Failed to regenerate URL.';
+                    copyStatusEl.style.color = '#ff6b6b';
+                    setTimeout(() => { 
+                        copyStatusEl.textContent = '';
+                        copyStatusEl.style.color = '';
+                    }, 3000);
+                }
+            } finally {
+                // Re-enable link
+                regenerateTtsUrlBtn.style.pointerEvents = 'auto';
+                regenerateTtsUrlBtn.textContent = originalText;
             }
         });
     }

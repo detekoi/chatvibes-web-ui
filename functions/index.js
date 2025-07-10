@@ -1476,4 +1476,98 @@ app.get("/s/:slug", async (req, res) => {
   }
 });
 
-exports.webUi = functions.https.onRequest(app);
+// Route: /api/obs/generateToken - Generate OBS WebSocket token
+app.post("/api/obs/generateToken", authenticateApiRequest, async (req, res) => {
+  const channelLogin = req.user.login;
+  console.log(`[API /obs/generateToken] OBS token generation requested for ${channelLogin}`);
+
+  if (!db || !secretManagerClient) {
+    console.error("[API /obs/generateToken] Firestore or Secret Manager client not initialized!");
+    return res.status(500).json({success: false, message: "Server configuration error."});
+  }
+
+  try {
+    // Check if user has valid Twitch tokens
+    try {
+      await getValidTwitchTokenForUser(channelLogin);
+      console.log(`[API /obs/generateToken] Verified valid Twitch token for ${channelLogin}`);
+    } catch (tokenError) {
+      console.error(`[API /obs/generateToken] Token validation failed for ${channelLogin}:`, tokenError.message);
+      return res.status(403).json({
+        success: false,
+        needsReAuth: true,
+        message: "Your Twitch authentication has expired. Please reconnect your account.",
+      });
+    }
+
+    // Generate a secure token using crypto.randomUUID()
+    const obsToken = crypto.randomUUID();
+    const secretName = `obs-token-${channelLogin}`;
+    const fullSecretName = `projects/${process.env.GCLOUD_PROJECT}/secrets/${secretName}`;
+
+    console.log(`[API /obs/generateToken] Generated token for ${channelLogin}, creating secret: ${secretName}`);
+
+    // Create or update the secret in Secret Manager
+    try {
+      // Try to create the secret first
+      await secretManagerClient.createSecret({
+        parent: `projects/${process.env.GCLOUD_PROJECT}`,
+        secretId: secretName,
+        secret: {
+          replication: {automatic: {}},
+        },
+      });
+      console.log(`[API /obs/generateToken] Created new secret: ${secretName}`);
+    } catch (secretError) {
+      if (secretError.code !== 6) { // 6 means "ALREADY_EXISTS"
+        throw secretError;
+      }
+      console.log(`[API /obs/generateToken] Secret already exists: ${secretName}`);
+    }
+
+    // Add the token as a secret version
+    await secretManagerClient.addSecretVersion({
+      parent: fullSecretName,
+      payload: {
+        data: Buffer.from(obsToken, "utf8"),
+      },
+    });
+    console.log(`[API /obs/generateToken] Added token version to secret: ${secretName}`);
+
+    // Store the secret name in the TTS channel config in main app
+    // We'll make a direct call to the function in the main TTS app
+    try {
+      // For now, we'll store it in the managedChannels collection as well
+      // The main TTS app will need to read this and call setObsSocketSecretName
+      const userDocRef = db.collection(CHANNELS_COLLECTION).doc(channelLogin);
+      await userDocRef.update({
+        obsTokenSecretName: `${fullSecretName}/versions/latest`,
+        obsTokenGeneratedAt: FieldValue.serverTimestamp(),
+      });
+      console.log(`[API /obs/generateToken] Stored secret reference for ${channelLogin}`);
+    } catch (dbError) {
+      console.error(`[API /obs/generateToken] Error storing secret reference for ${channelLogin}:`, dbError);
+      throw new Error("Failed to store OBS token reference");
+    }
+
+    // Generate the OBS Browser Source URL (HTTPS, not WSS)
+    const obsWebSocketUrl = `https://chatvibes-tts-service-h7kj56ct4q-uc.a.run.app/?channel=${channelLogin}&token=${obsToken}`;
+
+    console.log(`[API /obs/generateToken] Successfully generated OBS token for ${channelLogin}`);
+
+    res.json({
+      success: true,
+      obsWebSocketUrl: obsWebSocketUrl,
+      token: obsToken,
+      message: "OBS Browser Source URL generated successfully. This URL is persistent and won't expire.",
+    });
+  } catch (error) {
+    console.error(`[API /obs/generateToken] Error generating OBS token for ${channelLogin}:`, error);
+    res.status(500).json({
+      success: false,
+      message: "Failed to generate OBS token: " + error.message,
+    });
+  }
+});
+
+exports.webUi = functions.https.onRequest(app); // Updated with OBS token generation

@@ -4,7 +4,7 @@
 
 ChatVibes Bot Management is a web application that allows Twitch streamers to manage the [ChatVibes **Text-to-Speech (TTS)** bot](https://github.com/detekoi/chatvibes) for their channel. Users can log in with their Twitch account to add or remove the bot, and view its current status. The application features a dynamic, animated background.
 
-The ChatVibes web UI is hosted [here](https://chatvibestts.web.app/).
+Currently, the ChatVibes web UI is hosted [here](https://chatvibestts.web.app/).
 
 ## Features
 
