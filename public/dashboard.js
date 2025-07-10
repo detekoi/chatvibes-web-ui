@@ -20,7 +20,56 @@ document.addEventListener('DOMContentLoaded', () => {
     let loggedInUser = null;
 
     /**
-     * Updates the TTS URL field with a secure WebSocket URL by calling the token generation API.
+     * Loads the existing TTS URL for a user without generating a new token.
+     * @param {string} userLoginName - The Twitch login name of the user.
+     */
+    async function loadExistingTtsUrl(userLoginName) {
+        if (!ttsUrlField) return;
+        
+        if (!userLoginName || userLoginName.trim() === '' || userLoginName === 'loading...') {
+            ttsUrlField.value = '';
+            ttsUrlField.placeholder = 'Could not determine TTS URL.';
+            return;
+        }
+
+        // Show loading state
+        ttsUrlField.value = 'Loading existing URL...';
+        ttsUrlField.placeholder = '';
+
+        try {
+            const response = await fetch(`${API_BASE_URL}/api/obs/getToken`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${appSessionToken}`,
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
+
+            const data = await response.json();
+            
+            if (data.success && data.obsWebSocketUrl) {
+                // User has an existing token, display the URL
+                ttsUrlField.value = data.obsWebSocketUrl;
+                ttsUrlField.placeholder = 'Your existing OBS Browser Source URL';
+                console.log('Dashboard: Loaded existing OBS URL for', userLoginName);
+            } else {
+                // No existing token, user needs to generate one
+                ttsUrlField.value = '';
+                ttsUrlField.placeholder = 'Click "Regenerate URL" to generate your OBS Browser Source URL';
+            }
+        } catch (error) {
+            console.error('Dashboard: Error loading existing TTS URL:', error);
+            ttsUrlField.value = '';
+            ttsUrlField.placeholder = 'Click "Regenerate URL" to generate your OBS Browser Source URL';
+        }
+    }
+
+    /**
+     * Generates a new TTS URL with a secure token by calling the token generation API.
      * @param {string} userLoginName - The Twitch login name of the user.
      */
     async function updateTtsUrl(userLoginName) {
@@ -89,8 +138,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (channelNameStatusEl) channelNameStatusEl.textContent = loggedInUser.login;
             if (actionMessageEl) actionMessageEl.textContent = '';
 
-            // *** KEY CHANGE: Call updateTtsUrl with the user's LOGIN name ***
-            await updateTtsUrl(loggedInUser.login);
+            // *** LOAD EXISTING URL without generating new token ***
+            await loadExistingTtsUrl(loggedInUser.login);
 
             if (!appSessionToken) {
                 console.warn("No session token found, API calls might fail authentication.");

@@ -1476,6 +1476,76 @@ app.get("/s/:slug", async (req, res) => {
   }
 });
 
+// Route: /api/obs/getToken - Get existing OBS token or generate new one
+app.get("/api/obs/getToken", authenticateApiRequest, async (req, res) => {
+  const channelLogin = req.user.login;
+  console.log(`[API /obs/getToken] OBS token retrieval requested for ${channelLogin}`);
+
+  if (!db || !secretManagerClient) {
+    console.error("[API /obs/getToken] Firestore or Secret Manager client not initialized!");
+    return res.status(500).json({success: false, message: "Server configuration error."});
+  }
+
+  try {
+    // Check if user has valid Twitch tokens
+    try {
+      await getValidTwitchTokenForUser(channelLogin);
+      console.log(`[API /obs/getToken] Verified valid Twitch token for ${channelLogin}`);
+    } catch (tokenError) {
+      console.error(`[API /obs/getToken] Token validation failed for ${channelLogin}:`, tokenError.message);
+      return res.status(403).json({
+        success: false,
+        needsReAuth: true,
+        message: "Your Twitch authentication has expired. Please reconnect your account.",
+      });
+    }
+
+    // Check if user already has an OBS token
+    const userDocRef = db.collection(CHANNELS_COLLECTION).doc(channelLogin);
+    const userDoc = await userDocRef.get();
+
+    if (userDoc.exists && userDoc.data().obsTokenSecretName) {
+      try {
+        // Try to retrieve the existing token
+        const secretName = userDoc.data().obsTokenSecretName;
+        const [version] = await secretManagerClient.accessSecretVersion({
+          name: secretName,
+        });
+        const existingToken = version.payload.data.toString("utf8");
+
+        // Generate the existing OBS Browser Source URL
+        const obsWebSocketUrl = `https://chatvibes-tts-service-h7kj56ct4q-uc.a.run.app/?channel=${channelLogin}&token=${existingToken}`;
+
+        console.log(`[API /obs/getToken] Retrieved existing OBS token for ${channelLogin}`);
+
+        return res.json({
+          success: true,
+          obsWebSocketUrl: obsWebSocketUrl,
+          token: existingToken,
+          isExisting: true,
+          message: "Retrieved existing OBS Browser Source URL.",
+        });
+      } catch (secretError) {
+        console.error(`[API /obs/getToken] Error retrieving existing token for ${channelLogin}:`, secretError);
+        // Fall through to generate new token
+      }
+    }
+
+    // No existing token or error retrieving it, return indication that user needs to generate one
+    res.json({
+      success: true,
+      hasToken: false,
+      message: "No OBS token found. Use the regenerate option to create one.",
+    });
+  } catch (error) {
+    console.error(`[API /obs/getToken] Error checking OBS token for ${channelLogin}:`, error);
+    res.status(500).json({
+      success: false,
+      message: "Failed to check OBS token: " + error.message,
+    });
+  }
+});
+
 // Route: /api/obs/generateToken - Generate OBS WebSocket token
 app.post("/api/obs/generateToken", authenticateApiRequest, async (req, res) => {
   const channelLogin = req.user.login;
