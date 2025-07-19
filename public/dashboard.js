@@ -124,6 +124,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function initializeDashboard() {
+        // Show the loading overlay for settings right away
+        if (settingsLoadingOverlay) settingsLoadingOverlay.style.display = 'flex';
+        if (settingsContentWrapper) settingsContentWrapper.classList.add('hidden');
+
         appSessionToken = localStorage.getItem('app_session_token');
         console.log("Dashboard: Loaded app_session_token from localStorage:", appSessionToken);
 
@@ -370,6 +374,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const obsSetupInstructions = document.getElementById('obs-setup-instructions');
     const settingsStatusMessage = document.getElementById('settings-status-message');
     const saveConfirmationMessage = document.getElementById('save-confirmation-message');
+    const settingsLoadingOverlay = document.getElementById('settings-loading-overlay');
+    const settingsContentWrapper = document.getElementById('settings-content-wrapper');
     
     // Bot settings API URL - configurable for dev/production
     const BOT_API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
@@ -546,6 +552,8 @@ document.addEventListener('DOMContentLoaded', () => {
     async function loadBotSettings() {
         if (!loggedInUser?.login) {
             console.warn('No logged in user, cannot load bot settings');
+            if (settingsLoadingOverlay) settingsLoadingOverlay.style.display = 'none';
+            if (settingsContentWrapper) settingsContentWrapper.classList.remove('hidden');
             return;
         }
 
@@ -625,6 +633,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     settingsStatusMessage.style.color = 'orange';
                 }
             }
+        } finally {
+            // Hide loading overlay and show content regardless of success or failure
+            if (settingsLoadingOverlay) settingsLoadingOverlay.style.display = 'none';
+            if (settingsContentWrapper) settingsContentWrapper.classList.remove('hidden');
         }
     }
 
@@ -1029,6 +1041,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize settings panel
     async function initializeSettingsPanel() {
+        // No longer need to show the overlay here as it's done in initializeDashboard
         await loadAvailableVoices();
         await loadBotSettings();
     }

@@ -39,9 +39,14 @@
             <!-- Settings Panel -->
             <div id="settings-panel" class="tab-content active">
                 <h2>Bot Settings</h2>
-                <p id="settings-status-message"></p>
-                
-                <!-- Engine & Mode Control -->
+                <div id="settings-loading-overlay" class="loading-overlay">
+                    <div class="loading-spinner"></div>
+                    <p>Loading settings...</p>
+                </div>
+                <div id="settings-content-wrapper" class="hidden">
+                    <p id="settings-status-message"></p>
+                    
+                    <!-- Engine & Mode Control -->
                 <div class="settings-section">
                     <h3>Engine & Mode</h3>
                     <div class="setting-item">
@@ -210,6 +215,7 @@
                 
                 <button id="save-settings-btn" class="button primary">Save All Settings</button>
                 <p id="save-confirmation-message" style="margin-top: 15px; text-align: center; min-height: 20px;"></p>
+                </div>
             </div>
             
             <!-- OBS Setup Panel -->
