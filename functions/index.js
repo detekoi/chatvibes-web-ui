@@ -30,7 +30,7 @@ const jwt = require("jsonwebtoken");
 const {Firestore, FieldValue} = require("@google-cloud/firestore");
 const {SecretManagerServiceClient} = require("@google-cloud/secret-manager");
 const Replicate = require("replicate");
-const cors = require("cors");
+// const cors = require("cors");
 
 // Initialize clients once per instance
 let db; let secretManagerClient;
@@ -96,29 +96,123 @@ app.use(async (req, res, next) => {
 });
 
 // --- CORS Configuration ---
-const allowedOrigins = [
-  /^http:\/\/localhost:\d+$/,
-  /^http:\/\/127\.0\.0\.1:\d+$/,
-  "https://chatvibestts.web.app",
-];
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
 
-const corsOptions = {
-  origin: (origin, callback) => {
-    if (!origin || allowedOrigins.some((o) => o instanceof RegExp ? o.test(origin) : o === origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
+  // Build allowed origins list dynamically
+  const allowedOrigins = new Set(["http://127.0.0.1:5002", "http://localhost:5002"]);
+
+  // Add production frontend URL from environment
+  if (FRONTEND_URL_CONFIG) {
+    try {
+      const url = new URL(FRONTEND_URL_CONFIG);
+      allowedOrigins.add(`${url.protocol}//${url.host}`);
+      // If using Firebase Hosting defaults, include both web.app and firebaseapp.com variants
+      if (url.host.endsWith(".web.app")) {
+        const altHost = url.host.replace(/\.web\.app$/, ".firebaseapp.com");
+        allowedOrigins.add(`${url.protocol}//${altHost}`);
+      } else if (url.host.endsWith(".firebaseapp.com")) {
+        const altHost = url.host.replace(/\.firebaseapp\.com$/, ".web.app");
+        allowedOrigins.add(`${url.protocol}//${altHost}`);
+      }
+    } catch (e) {
+      console.warn("CORS: FRONTEND_URL is not a valid URL:", FRONTEND_URL_CONFIG);
     }
-  },
-  credentials: true,
-};
+  } else {
+    // Fallback: add hardcoded production URL if no FRONTEND_URL configured
+    allowedOrigins.add("https://chatvibestts.web.app");
+    allowedOrigins.add("https://chatvibestts.firebaseapp.com");
+  }
 
-app.use(cors(corsOptions));
+  console.log(`CORS Check: Origin: ${origin} | Allowed: ${Array.from(allowedOrigins).join(", ")}`);
+
+  if (origin && allowedOrigins.has(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+  }
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(204);
+  }
+  next();
+});
 
 const TWITCH_AUTH_URL = "https://id.twitch.tv/oauth2/authorize";
 const TWITCH_TOKEN_URL = "https://id.twitch.tv/oauth2/token";
 const TWITCH_VALIDATE_URL = "https://id.twitch.tv/oauth2/validate";
 
+// Helper to get GCP project ID for Secret Manager (if not already defined)
+function getProjectId() {
+  const projectId = process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT;
+  if (!projectId) {
+    throw new Error("GCP project ID not found in environment variables.");
+  }
+  return projectId;
+}
+
+// Normalize a Secret Manager reference to a Secret Version path
+// Accepts:
+// - full version path: projects/{project}/secrets/{secret}/versions/{version}
+// - secret path without version: projects/{project}/secrets/{secret}
+// - bare secret id: {secret}
+// Returns a version path using "latest" when no version provided
+function normalizeSecretVersionPath(secretInput) {
+  if (!secretInput) return secretInput;
+  if (secretInput.includes("/versions/")) return secretInput;
+  if (secretInput.startsWith("projects/")) {
+    return `${secretInput}/versions/latest`;
+  }
+  const projectId = getProjectId();
+  return `projects/${projectId}/secrets/${secretInput}/versions/latest`;
+}
+
+// Load allow-listed channels from env CSV or Secret Manager
+// If both ALLOWED_CHANNELS and ALLOWED_CHANNELS_SECRET_NAME are unset, allow all (no restrictions)
+async function getAllowedChannelsList() {
+  try {
+    // First try environment variable (CSV)
+    const ALLOWED_CHANNELS_ENV = (process.env.ALLOWED_CHANNELS || "")
+        .split(",")
+        .map((c) => c.trim().toLowerCase())
+        .filter(Boolean);
+
+    if (ALLOWED_CHANNELS_ENV.length > 0) {
+      console.log(`[AllowList] Loaded ${ALLOWED_CHANNELS_ENV.length} entries from ALLOWED_CHANNELS env var: [${ALLOWED_CHANNELS_ENV.join(", ")}]`);
+      return ALLOWED_CHANNELS_ENV;
+    }
+
+    // Fall back to Secret Manager if env not set
+    const ALLOWED_CHANNELS_SECRET_NAME = process.env.ALLOWED_CHANNELS_SECRET_NAME;
+    if (!ALLOWED_CHANNELS_SECRET_NAME) {
+      console.log("[AllowList] No allow-list configured (ALLOWED_CHANNELS or ALLOWED_CHANNELS_SECRET_NAME). Allowing all channels.");
+      return null; // null means no restrictions
+    }
+
+    const name = normalizeSecretVersionPath(ALLOWED_CHANNELS_SECRET_NAME);
+    const [version] = await secretManagerClient.accessSecretVersion({name});
+    const secretCsv = version.payload.data.toString("utf8");
+    const list = secretCsv
+        .split(",")
+        .map((c) => c.trim().toLowerCase())
+        .filter(Boolean);
+    console.log(`[AllowList] Loaded ${list.length} entries from ALLOWED_CHANNELS_SECRET_NAME: [${list.join(", ")}]`);
+    return list;
+  } catch (e) {
+    console.error("[AllowList] Error loading allow-list:", e.message);
+    // On error, be permissive if no config is set (backwards compatibility)
+    // but restrictive if config was attempted but failed
+    const hasConfig = process.env.ALLOWED_CHANNELS || process.env.ALLOWED_CHANNELS_SECRET_NAME;
+    if (hasConfig) {
+      console.error("[AllowList] Allow-list configured but failed to load. Denying all for security.");
+      return []; // Empty list = deny all
+    } else {
+      console.log("[AllowList] No allow-list configured and no error loading. Allowing all channels.");
+      return null; // null means no restrictions
+    }
+  }
+}
 
 // Route: /auth/twitch/initiate
 app.get("/auth/twitch/initiate", (req, res) => {
@@ -288,7 +382,7 @@ app.get("/auth/twitch/callback", async (req, res) => {
           console.log(`Secret reference stored in Firestore for user ${twitchUser.login}`);
         } catch (dbError) {
           console.error(`Error storing secret for ${twitchUser.login}:`, dbError);
-          // Decide if this is a fatal error for the auth flow or just log and continue
+          return redirectToFrontendWithError(res, "token_store_failed", "Failed to securely store Twitch credentials. Please try again.", twitchQueryState);
         }
       } else {
         console.error("Firestore (db) or SecretManagerServiceClient not initialized. Cannot store Twitch tokens.");
@@ -398,7 +492,28 @@ app.post("/api/bot/add", authenticateApiRequest, async (req, res) => {
     return res.status(500).json({success: false, message: "Firestore not available."});
   }
 
-  // First check if we have valid Twitch tokens for this user
+  // Enforce allow-list FIRST (check BEFORE token validation to return accurate errors)
+  try {
+    const allowedList = await getAllowedChannelsList();
+    // If allowedList is null, no restrictions are configured
+    if (allowedList !== null) {
+      const isAllowed = allowedList.includes(channelLogin.toLowerCase());
+      if (!isAllowed) {
+        console.warn(`[API /add] Channel ${channelLogin} is not allow-listed. Rejecting self-serve activation.`);
+        return res.status(403).json({
+          success: false,
+          code: "not_allowed",
+          message: "This channel is not permitted to add the bot.",
+          details: "Access to the cloud version of ChatVibes is invite-only. If you'd like access, please contact the administrator via https://detekoi.github.io/#contact-me",
+        });
+      }
+    }
+  } catch (allowErr) {
+    console.error("[API /add] Error during allow-list check:", allowErr.message);
+    return res.status(500).json({success: false, message: "Server error during allow-list verification."});
+  }
+
+  // After allow-list passes, check if we have valid Twitch tokens for this user
   try {
     await getValidTwitchTokenForUser(channelLogin);
     console.log(`[API /add] Verified valid Twitch token for ${channelLogin}`);

@@ -24,7 +24,13 @@
 
             if (errorMessageEl) {
                 if (errorDescription) {
-                    errorMessageEl.textContent = decodeURIComponent(errorDescription);
+                    const decodedDescription = decodeURIComponent(errorDescription);
+                    errorMessageEl.textContent = decodedDescription;
+                    
+                    // If this is a not_allowed error, add contact link
+                    if (error === 'not_allowed' || decodedDescription.includes('not permitted')) {
+                        errorMessageEl.innerHTML = `${decodedDescription} <a href="https://detekoi.github.io/#contact-me" target="_blank" style="color: #007bff; text-decoration: underline;">Request access here</a>.`;
+                    }
                 } else if (error) {
                     errorMessageEl.textContent = `Error code: ${decodeURIComponent(error)}`;
                 } else {
@@ -34,6 +40,8 @@
             
             if (errorTitleEl && error === 'access_denied') {
                 errorTitleEl.textContent = "Authentication Denied";
+            } else if (errorTitleEl && error === 'not_allowed') {
+                errorTitleEl.textContent = "Access Not Permitted";
             }
         });
     </script>

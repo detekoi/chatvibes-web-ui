@@ -906,6 +906,21 @@ footer a {
   display: inline;
 }
 
+/* Invite-only notice styles */
+.invite-notice {
+  background: #fff3cd;
+  border: 1px solid #ffeaa7;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-size: 0.9em;
+}
+
+.invite-notice a {
+  color: #007bff;
+  text-decoration: underline;
+}
+
 /* Dark Mode Styles */
 @media (prefers-color-scheme: dark) {
   :root {
@@ -1467,6 +1482,19 @@ footer a {
   
   .reset-btn:active {
     background: #222;
+  }
+}
+
+/* Dark mode for invite notice */
+@media (prefers-color-scheme: dark) {
+  .invite-notice {
+    background: #2a2a1a;
+    border: 1px solid #544c3a;
+    color: #e0e0e0;
+  }
+  
+  .invite-notice a {
+    color: #66b3ff;
   }
 }
 

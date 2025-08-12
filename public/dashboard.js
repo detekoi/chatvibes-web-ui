@@ -227,9 +227,27 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
                 const data = await res.json();
-                if (actionMessageEl) actionMessageEl.textContent = data.message;
+                
                 if (data.success) {
+                    if (actionMessageEl) actionMessageEl.textContent = data.message;
                     updateBotStatusUI(true);
+                } else {
+                    // Handle 403 not_allowed error with contact link
+                    if (data.code === 'not_allowed') {
+                        if (actionMessageEl) {
+                            const errorText = data.details || data.message;
+                            // If details already contains the contact link, use it as-is
+                            if (errorText.includes('https://detekoi.github.io/#contact-me')) {
+                                actionMessageEl.innerHTML = errorText.replace('https://detekoi.github.io/#contact-me', '<a href="https://detekoi.github.io/#contact-me" target="_blank" style="color: #007bff; text-decoration: underline;">this link</a>');
+                            } else {
+                                // Add contact link if not present
+                                actionMessageEl.innerHTML = `${errorText} <a href="https://detekoi.github.io/#contact-me" target="_blank" style="color: #007bff; text-decoration: underline;">Request access here</a>.`;
+                            }
+                        }
+                    } else {
+                        // Show generic error message for other errors
+                        if (actionMessageEl) actionMessageEl.textContent = data.message;
+                    }
                 }
             } catch (error) {
                 console.error('Error adding bot:', error);
