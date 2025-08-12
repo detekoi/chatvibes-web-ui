@@ -589,7 +589,23 @@ document.addEventListener('DOMContentLoaded', () => {
             // Load TTS settings
             let ttsData = { settings: {} };
             const ttsResponse = await fetch(`${BOT_API_BASE_URL}/tts/settings/channel/${channelName}`, { headers });
-            if (ttsResponse.ok) {
+            if (ttsResponse.status === 403) {
+                // Channel not allowed, show invite-only message and stop processing
+                const errorData = await ttsResponse.json().catch(() => ({}));
+                if (settingsStatusMessage) {
+                    const errorText = errorData.details || errorData.message || "This channel is not permitted to use this service.";
+                    if (errorText.includes('https://detekoi.github.io/#contact-me')) {
+                        settingsStatusMessage.innerHTML = errorText.replace('https://detekoi.github.io/#contact-me', '<a href="https://detekoi.github.io/#contact-me" target="_blank" style="color: #007bff; text-decoration: underline;">this link</a>');
+                    } else {
+                        settingsStatusMessage.innerHTML = `${errorText} <a href="https://detekoi.github.io/#contact-me" target="_blank" style="color: #007bff; text-decoration: underline;">Request access here</a>.`;
+                    }
+                    settingsStatusMessage.style.color = 'red';
+                }
+                // Make sure loading overlay is hidden
+                if (settingsLoadingOverlay) settingsLoadingOverlay.style.display = 'none';
+                if (settingsContentWrapper) settingsContentWrapper.classList.remove('hidden');
+                return; // Stop processing settings
+            } else if (ttsResponse.ok) {
                 ttsData = await ttsResponse.json();
                 const settings = ttsData.settings || {};
                 
@@ -616,7 +632,13 @@ document.addEventListener('DOMContentLoaded', () => {
             // Load Music settings
             let musicData = { settings: {} };
             const musicResponse = await fetch(`${BOT_API_BASE_URL}/music/settings/channel/${channelName}`, { headers });
-            if (musicResponse.ok) {
+            if (musicResponse.status === 403) {
+                // Already handled above for TTS, don't show duplicate message
+                // Make sure loading overlay is hidden
+                if (settingsLoadingOverlay) settingsLoadingOverlay.style.display = 'none';
+                if (settingsContentWrapper) settingsContentWrapper.classList.remove('hidden');
+                return;
+            } else if (musicResponse.ok) {
                 musicData = await musicResponse.json();
                 const settings = musicData.settings || {};
                 
@@ -711,6 +733,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     
                     if (response.ok) {
                         changedSettings.push(`${setting.label}: ${setting.value}`);
+                    } else if (response.status === 403) {
+                        // Channel not allowed, show invite-only message and stop processing
+                        const errorData = await response.json().catch(() => ({}));
+                        const errorText = errorData.details || errorData.message || "Channel is not allowed to use this service";
+                        errors.push(`Forbidden: ${errorText}`);
+                        break; // Stop processing more settings
                     } else if (response.status === 400) {
                         const errorData = await response.json().catch(() => ({ error: 'Validation error' }));
                         console.warn(`TTS setting ${setting.key} validation failed:`, errorData.error);
@@ -739,6 +767,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 if (response.ok) {
                     changedSettings.push(`Music Generation: ${currentMusicEnabled ? 'Enabled' : 'Disabled'}`);
+                } else if (response.status === 403) {
+                    const errorData = await response.json().catch(() => ({}));
+                    const errorText = errorData.details || errorData.message || "Channel is not allowed to use this service";
+                    errors.push(`Forbidden: ${errorText}`);
+                    // Continue to show all forbidden errors for music settings
                 } else if (response.status !== 500 && response.status !== 404) {
                     const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
                     errors.push(`Music Generation: ${errorData.error}`);
@@ -754,6 +787,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 if (response.ok) {
                     changedSettings.push(`Music Access: ${currentMusicMode.includes('everyone') ? 'Everyone' : 'Moderators Only'}`);
+                } else if (response.status === 403) {
+                    const errorData = await response.json().catch(() => ({}));
+                    const errorText = errorData.details || errorData.message || "Channel is not allowed to use this service";
+                    errors.push(`Forbidden: ${errorText}`);
                 } else if (response.status !== 500 && response.status !== 404) {
                     const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
                     errors.push(`Music Access: ${errorData.error}`);
@@ -776,6 +813,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 if (response.ok) {
                     changedSettings.push(`Music Bits: ${currentMusicBitsEnabled ? 'Enabled' : 'Disabled'} (${currentMusicBitsAmount} bits)`);
+                } else if (response.status === 403) {
+                    const errorData = await response.json().catch(() => ({}));
+                    const errorText = errorData.details || errorData.message || "Channel is not allowed to use this service";
+                    errors.push(`Forbidden: ${errorText}`);
                 } else if (response.status !== 500 && response.status !== 404) {
                     const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
                     errors.push(`Music Bits: ${errorData.error}`);
