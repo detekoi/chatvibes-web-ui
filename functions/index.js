@@ -231,7 +231,7 @@ app.get("/auth/twitch/initiate", (req, res) => {
     client_id: currentTwitchClientId,
     redirect_uri: currentCallbackRedirectUri,
     response_type: "code",
-    scope: "user:read:email",
+    scope: "user:read:email channel:manage:redemptions channel:read:redemptions",
     state: state,
     force_verify: "true",
   });
@@ -540,7 +540,24 @@ app.post("/api/bot/add", authenticateApiRequest, async (req, res) => {
       needsTwitchReAuth: false,
     }, {merge: true});
     console.log(`[API /add] Bot activated for channel: ${channelLogin}`);
-    res.json({success: true, message: `Bot has been requested for ${channelLogin}. It should join shortly!`});
+    // Optionally create or ensure the Channel Points TTS reward
+    try {
+      const rewardResult = await ensureTtsChannelPointReward(channelLogin, twitchUserId);
+      console.log(`[API /add] Reward ensure result for ${channelLogin}:`, rewardResult.status);
+      res.json({
+        success: true,
+        message: `Bot has been requested for ${channelLogin}. It should join shortly!`,
+        reward: rewardResult,
+      });
+    } catch (rewardErr) {
+      console.error(`[API /add] Failed to create or ensure TTS reward for ${channelLogin}:`, rewardErr.message);
+      // Still succeed bot add; surface reward error separately
+      res.json({
+        success: true,
+        message: `Bot has been requested for ${channelLogin}. It should join shortly!`,
+        reward: {status: "failed", error: rewardErr.message},
+      });
+    }
   } catch (error) {
     console.error(`[API /add] Error activating bot for ${channelLogin}:`, error);
     res.status(500).json({success: false, message: "Error requesting bot."});
@@ -573,6 +590,12 @@ app.post("/api/bot/remove", authenticateApiRequest, async (req, res) => {
         lastStatusChange: FieldValue.serverTimestamp(),
       });
       console.log(`[API /remove] Bot deactivated for channel: ${channelLogin}`);
+      // Try to disable the TTS reward if present (non-blocking)
+      try {
+        await disableTtsChannelPointReward(channelLogin);
+      } catch (disableErr) {
+        console.warn(`[API /remove] Failed to disable TTS reward for ${channelLogin}:`, disableErr.message);
+      }
       res.json({success: true, message: `Bot has been requested to leave ${channelLogin}.`});
     } else {
       res.json({success: false, message: "Bot was not in your channel."});
@@ -956,6 +979,138 @@ async function getValidTwitchTokenForUser(userLogin) {
     }
 
     throw new Error("Failed to obtain a valid Twitch token. User may need to re-authenticate.");
+  }
+}
+
+/**
+ * Ensures a Channel Points reward for TTS exists for a broadcaster. Creates or updates as needed.
+ * Stores the reward ID in Firestore ttsChannelConfigs.{channel}.channelPointRewardId and
+ * sets channelPointsEnabled true.
+ * @param {string} channelLogin
+ * @param {string} twitchUserId
+ * @return {Promise<{status:string, rewardId?:string}>}
+ */
+async function ensureTtsChannelPointReward(channelLogin, twitchUserId) {
+  if (!TWITCH_CLIENT_ID) {
+    throw new Error("Server configuration error: missing TWITCH_CLIENT_ID");
+  }
+
+  // Acquire broadcaster token with required scopes
+  const accessToken = await getValidTwitchTokenForUser(channelLogin);
+
+  const helix = axios.create({
+    baseURL: "https://api.twitch.tv/helix",
+    headers: {
+      "Client-ID": TWITCH_CLIENT_ID,
+      Authorization: `Bearer ${accessToken}`,
+      "Content-Type": "application/json",
+    },
+    timeout: 15000,
+  });
+
+  const desiredTitle = "Text-to-Speech Message";
+  const desiredBody = {
+    title: desiredTitle,
+    cost: 500,
+    prompt: "Enter a message to be read aloud by the TTS bot",
+    is_user_input_required: true,
+    should_redemptions_skip_request_queue: true,
+  };
+
+  // First, see if we already have a stored reward id
+  let storedRewardId = null;
+  try {
+    const ttsDoc = await db.collection("ttsChannelConfigs").doc(channelLogin).get();
+    if (ttsDoc.exists) {
+      storedRewardId = ttsDoc.data().channelPointRewardId || null;
+    }
+  } catch (e) {
+    console.warn(`[ensureTtsChannelPointReward] Could not read ttsChannelConfigs for ${channelLogin}:`, e.message);
+  }
+
+  // Helper to upsert the Firestore record
+  const setFirestoreReward = async (rewardId) => {
+    await db.collection("ttsChannelConfigs").doc(channelLogin).set({
+      channelPointRewardId: rewardId,
+      channelPointsEnabled: true,
+    }, {merge: true});
+  };
+
+  // If we have an ID, try to update to desired settings for idempotency
+  if (storedRewardId) {
+    try {
+      await helix.patch(`/channel_points/custom_rewards?broadcaster_id=${encodeURIComponent(twitchUserId)}&id=${encodeURIComponent(storedRewardId)}`, desiredBody);
+      await setFirestoreReward(storedRewardId);
+      return {status: "updated", rewardId: storedRewardId};
+    } catch (e) {
+      console.warn(`[ensureTtsChannelPointReward] Update existing reward failed for ${channelLogin}:`, e.response?.status, e.response?.data || e.message);
+      // Fall through to search/create
+    }
+  }
+
+  // Query existing manageable rewards and try to find by title
+  try {
+    const listResp = await helix.get(`/channel_points/custom_rewards?broadcaster_id=${encodeURIComponent(twitchUserId)}&only_manageable_rewards=true`);
+    const rewards = Array.isArray(listResp.data?.data) ? listResp.data.data : [];
+    const existing = rewards.find((r) => r.title === desiredTitle);
+    if (existing) {
+      // Update to desired settings in case they differ
+      try {
+        await helix.patch(`/channel_points/custom_rewards?broadcaster_id=${encodeURIComponent(twitchUserId)}&id=${encodeURIComponent(existing.id)}`, desiredBody);
+      } catch (_e) {
+        // Non-fatal if update fails; we can still use the reward as-is
+        console.warn(`[ensureTtsChannelPointReward] Failed to update existing reward ${existing.id} for ${channelLogin}`);
+      }
+      await setFirestoreReward(existing.id);
+      return {status: "reused", rewardId: existing.id};
+    }
+  } catch (e) {
+    console.warn(`[ensureTtsChannelPointReward] Listing rewards failed for ${channelLogin}:`, e.response?.status, e.response?.data || e.message);
+  }
+
+  // Create new reward
+  const createResp = await helix.post(`/channel_points/custom_rewards?broadcaster_id=${encodeURIComponent(twitchUserId)}`, desiredBody);
+  const newRewardId = createResp.data?.data?.[0]?.id;
+  if (!newRewardId) {
+    throw new Error("Failed to create TTS reward: missing reward id in response");
+  }
+  await setFirestoreReward(newRewardId);
+  return {status: "created", rewardId: newRewardId};
+}
+
+/**
+ * Disables the Channel Points TTS reward (sets is_enabled=false) if present.
+ * @param {string} channelLogin
+ */
+async function disableTtsChannelPointReward(channelLogin) {
+  // Read identifiers
+  const managedDoc = await db.collection(CHANNELS_COLLECTION).doc(channelLogin).get();
+  const ttsDoc = await db.collection("ttsChannelConfigs").doc(channelLogin).get();
+  if (!managedDoc.exists || !ttsDoc.exists) return;
+  const twitchUserId = managedDoc.data().twitchUserId;
+  const rewardId = ttsDoc.data().channelPointRewardId;
+  if (!twitchUserId || !rewardId) return;
+
+  const accessToken = await getValidTwitchTokenForUser(channelLogin);
+  const helix = axios.create({
+    baseURL: "https://api.twitch.tv/helix",
+    headers: {
+      "Client-ID": TWITCH_CLIENT_ID,
+      Authorization: `Bearer ${accessToken}`,
+      "Content-Type": "application/json",
+    },
+    timeout: 15000,
+  });
+
+  try {
+    await helix.patch(`/channel_points/custom_rewards?broadcaster_id=${encodeURIComponent(twitchUserId)}&id=${encodeURIComponent(rewardId)}`, {
+      is_enabled: false,
+    });
+    await db.collection("ttsChannelConfigs").doc(channelLogin).set({
+      channelPointsEnabled: false,
+    }, {merge: true});
+  } catch (e) {
+    console.warn(`[disableTtsChannelPointReward] Failed to disable reward for ${channelLogin}:`, e.response?.status, e.response?.data || e.message);
   }
 }
 
