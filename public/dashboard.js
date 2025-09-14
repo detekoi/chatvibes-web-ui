@@ -430,6 +430,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const resetPitchBtn = document.getElementById('reset-pitch-btn');
     const resetSpeedBtn = document.getElementById('reset-speed-btn');
 
+    // Channel Points -> TTS UI elements
+    const cpEnabled = document.getElementById('cp-enabled');
+    const cpTitle = document.getElementById('cp-title');
+    const cpCost = document.getElementById('cp-cost');
+    const cpPrompt = document.getElementById('cp-prompt');
+    const cpSkipQueue = document.getElementById('cp-skip-queue');
+    const cpCooldown = document.getElementById('cp-cooldown');
+    const cpPerStream = document.getElementById('cp-per-stream');
+    const cpPerUser = document.getElementById('cp-per-user');
+    const cpMin = document.getElementById('cp-min');
+    const cpMax = document.getElementById('cp-max');
+    const cpBlockLinks = document.getElementById('cp-block-links');
+    const cpBannedWords = document.getElementById('cp-banned-words');
+    const cpSaveBtn = document.getElementById('cp-save');
+    const cpTestBtn = document.getElementById('cp-test');
+    const cpDeleteBtn = document.getElementById('cp-delete');
+    const cpMsg = document.getElementById('cp-msg');
+    const cpStatusLine = document.getElementById('cp-status-line');
+
     // Track original settings to detect changes
     let originalSettings = {};
 
@@ -661,6 +680,38 @@ document.addEventListener('DOMContentLoaded', () => {
                 tts: ttsData.settings || {},
                 music: musicData.settings || {}
             };
+
+            // Load Channel Points reward config from Cloud Functions
+            try {
+                const res = await fetch(`${API_BASE_URL}/api/rewards/tts`, {
+                    method: 'GET',
+                    headers: { 'Authorization': `Bearer ${appSessionToken}` },
+                    credentials: 'include'
+                });
+                if (res.ok) {
+                    const data = await res.json();
+                    const cp = data.channelPoints || {};
+                    if (cpEnabled) cpEnabled.checked = !!cp.enabled;
+                    if (cpTitle) cpTitle.value = cp.title ?? 'Text-to-Speech Message';
+                    if (cpCost) cpCost.value = cp.cost ?? 500;
+                    if (cpPrompt) cpPrompt.value = cp.prompt ?? 'Enter a message to be read aloud';
+                    if (cpSkipQueue) cpSkipQueue.checked = cp.skipQueue !== false;
+                    if (cpCooldown) cpCooldown.value = cp.cooldownSeconds ?? 0;
+                    if (cpPerStream) cpPerStream.value = cp.perStreamLimit ?? 0;
+                    if (cpPerUser) cpPerUser.value = cp.perUserPerStreamLimit ?? 0;
+                    if (cpMin) cpMin.value = cp.contentPolicy?.minChars ?? 1;
+                    if (cpMax) cpMax.value = cp.contentPolicy?.maxChars ?? 200;
+                    if (cpBlockLinks) cpBlockLinks.checked = cp.contentPolicy?.blockLinks !== false;
+                    if (cpBannedWords) cpBannedWords.value = (cp.contentPolicy?.bannedWords || []).join(', ');
+                    if (cpStatusLine) {
+                        const idPart = cp.rewardId ? `Reward ID: ${cp.rewardId}` : 'No reward created';
+                        const syncPart = cp.lastSyncedAt ? ` · Last synced: ${new Date(cp.lastSyncedAt).toLocaleTimeString()}` : '';
+                        cpStatusLine.textContent = `${idPart}${syncPart}`;
+                    }
+                }
+            } catch (err) {
+                console.warn('Failed to load Channel Points TTS config:', err);
+            }
             
         } catch (error) {
             console.error('Failed to load bot settings:', error);
@@ -864,6 +915,118 @@ document.addEventListener('DOMContentLoaded', () => {
     if (saveSettingsBtn) {
         saveSettingsBtn.addEventListener('click', saveBotSettings);
     }
+
+    // Save Channel Points config
+    async function saveChannelPointsConfig() {
+        if (!appSessionToken) {
+            if (cpMsg) cpMsg.textContent = 'Authentication required';
+            return;
+        }
+        const payload = {
+            enabled: !!cpEnabled?.checked,
+            title: cpTitle?.value || 'Text-to-Speech Message',
+            cost: parseInt(cpCost?.value || '500', 10),
+            prompt: cpPrompt?.value || 'Enter a message to be read aloud',
+            skipQueue: !!cpSkipQueue?.checked,
+            cooldownSeconds: parseInt(cpCooldown?.value || '0', 10),
+            perStreamLimit: parseInt(cpPerStream?.value || '0', 10),
+            perUserPerStreamLimit: parseInt(cpPerUser?.value || '0', 10),
+            contentPolicy: {
+                minChars: parseInt(cpMin?.value || '1', 10),
+                maxChars: parseInt(cpMax?.value || '200', 10),
+                blockLinks: !!cpBlockLinks?.checked,
+                bannedWords: (cpBannedWords?.value || '')
+                    .split(',')
+                    .map(s => s.trim())
+                    .filter(Boolean)
+            }
+        };
+        try {
+            if (cpMsg) { cpMsg.textContent = 'Saving…'; cpMsg.style.color = 'blue'; }
+            const res = await fetch(`${API_BASE_URL}/api/rewards/tts`, {
+                method: 'POST',
+                headers: { 'Authorization': `Bearer ${appSessionToken}`, 'Content-Type': 'application/json' },
+                credentials: 'include',
+                body: JSON.stringify(payload)
+            });
+            const data = await res.json().catch(() => ({}));
+            if (!res.ok) {
+                if (cpMsg) { cpMsg.textContent = data.error || 'Save failed'; cpMsg.style.color = 'red'; }
+                return;
+            }
+            if (cpMsg) { cpMsg.textContent = 'Saved ✓'; cpMsg.style.color = 'green'; }
+            if (cpStatusLine) {
+                const idPart = data.rewardId ? `Reward ID: ${data.rewardId}` : 'No reward created';
+                cpStatusLine.textContent = `${idPart} · Last synced: ${new Date().toLocaleTimeString()}`;
+            }
+        } catch (e) {
+            if (cpMsg) { cpMsg.textContent = 'Save failed'; cpMsg.style.color = 'red'; }
+        } finally {
+            setTimeout(() => { if (cpMsg) cpMsg.textContent = ''; }, 4000);
+        }
+    }
+
+    // Test redeem simulate
+    async function testChannelPointsRedeem() {
+        if (!appSessionToken) {
+            if (cpMsg) cpMsg.textContent = 'Authentication required';
+            return;
+        }
+        const text = prompt('Enter a test message to simulate a redemption:');
+        if (!text) return;
+        try {
+            if (cpMsg) { cpMsg.textContent = 'Testing…'; cpMsg.style.color = 'blue'; }
+            const res = await fetch(`${API_BASE_URL}/api/rewards/tts:test`, {
+                method: 'POST',
+                headers: { 'Authorization': `Bearer ${appSessionToken}`, 'Content-Type': 'application/json' },
+                credentials: 'include',
+                body: JSON.stringify({ text })
+            });
+            const data = await res.json().catch(() => ({}));
+            if (!res.ok) {
+                if (cpMsg) { cpMsg.textContent = data.error || 'Test failed'; cpMsg.style.color = 'red'; }
+                return;
+            }
+            if (cpMsg) { cpMsg.textContent = `Test validated ✓ (${data.status || 'ok'})`; cpMsg.style.color = 'green'; }
+        } catch (e) {
+            if (cpMsg) { cpMsg.textContent = 'Test failed'; cpMsg.style.color = 'red'; }
+        } finally {
+            setTimeout(() => { if (cpMsg) cpMsg.textContent = ''; }, 4000);
+        }
+    }
+
+    // Delete reward
+    async function deleteChannelPointsReward() {
+        if (!appSessionToken) {
+            if (cpMsg) cpMsg.textContent = 'Authentication required';
+            return;
+        }
+        if (!confirm('Disable & delete the Channel Points TTS reward?')) return;
+        try {
+            if (cpMsg) { cpMsg.textContent = 'Deleting…'; cpMsg.style.color = 'blue'; }
+            const res = await fetch(`${API_BASE_URL}/api/rewards/tts`, {
+                method: 'DELETE',
+                headers: { 'Authorization': `Bearer ${appSessionToken}` },
+                credentials: 'include'
+            });
+            const data = await res.json().catch(() => ({}));
+            if (!res.ok) {
+                if (cpMsg) { cpMsg.textContent = data.error || 'Delete failed'; cpMsg.style.color = 'red'; }
+                return;
+            }
+            if (cpEnabled) cpEnabled.checked = false;
+            if (cpStatusLine) cpStatusLine.textContent = 'No reward created · Last synced: ' + new Date().toLocaleTimeString();
+            if (cpMsg) { cpMsg.textContent = 'Disabled & deleted ✓'; cpMsg.style.color = 'green'; }
+        } catch (e) {
+            if (cpMsg) { cpMsg.textContent = 'Delete failed'; cpMsg.style.color = 'red'; }
+        } finally {
+            setTimeout(() => { if (cpMsg) cpMsg.textContent = ''; }, 4000);
+        }
+    }
+
+    if (cpSaveBtn) cpSaveBtn.addEventListener('click', saveChannelPointsConfig);
+    if (cpTestBtn) cpTestBtn.addEventListener('click', testChannelPointsRedeem);
+    if (cpDeleteBtn) cpDeleteBtn.addEventListener('click', deleteChannelPointsReward);
 
     // Display ignore list
     function displayIgnoreList(type, users) {
