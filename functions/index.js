@@ -52,6 +52,7 @@ let TWITCH_CLIENT_ID; let TWITCH_CLIENT_SECRET; let JWT_SECRET; let REPLICATE_AP
 // --- These are configuration variables, not secrets. Load them directly. ---
 const CALLBACK_REDIRECT_URI_CONFIG = process.env.CALLBACK_URL;
 const FRONTEND_URL_CONFIG = process.env.FRONTEND_URL;
+const OBS_BROWSER_BASE_URL = process.env.OBS_BROWSER_BASE_URL || 'https://chatvibes-tts-service-h7kj56ct4q-uc.a.run.app';
 
 // --- Asynchronous Secret Loading ---
 const secretsLoaded = (async () => {
@@ -540,24 +541,10 @@ app.post("/api/bot/add", authenticateApiRequest, async (req, res) => {
       needsTwitchReAuth: false,
     }, {merge: true});
     console.log(`[API /add] Bot activated for channel: ${channelLogin}`);
-    // Optionally create or ensure the Channel Points TTS reward
-    try {
-      const rewardResult = await ensureTtsChannelPointReward(channelLogin, twitchUserId);
-      console.log(`[API /add] Reward ensure result for ${channelLogin}:`, rewardResult.status);
-      res.json({
-        success: true,
-        message: `Bot has been requested for ${channelLogin}. It should join shortly!`,
-        reward: rewardResult,
-      });
-    } catch (rewardErr) {
-      console.error(`[API /add] Failed to create or ensure TTS reward for ${channelLogin}:`, rewardErr.message);
-      // Still succeed bot add; surface reward error separately
-      res.json({
-        success: true,
-        message: `Bot has been requested for ${channelLogin}. It should join shortly!`,
-        reward: {status: "failed", error: rewardErr.message},
-      });
-    }
+    res.json({
+      success: true,
+      message: `Bot has been requested for ${channelLogin}. It should join shortly!`,
+    });
   } catch (error) {
     console.error(`[API /add] Error activating bot for ${channelLogin}:`, error);
     res.status(500).json({success: false, message: "Error requesting bot."});
@@ -1015,6 +1002,7 @@ async function ensureTtsChannelPointReward(channelLogin, twitchUserId) {
     prompt: "Enter a message to be read aloud by the TTS bot",
     is_user_input_required: true,
     should_redemptions_skip_request_queue: true,
+    is_enabled: true,
   };
 
   // First, see if we already have a stored reward id
@@ -1033,7 +1021,7 @@ async function ensureTtsChannelPointReward(channelLogin, twitchUserId) {
     await db.collection("ttsChannelConfigs").doc(channelLogin).set({
       // New structured config
       channelPoints: {
-        enabled: true,
+        enabled: false,
         rewardId: rewardId,
         title: desiredBody.title,
         cost: desiredBody.cost,
@@ -1052,7 +1040,7 @@ async function ensureTtsChannelPointReward(channelLogin, twitchUserId) {
       },
       // Legacy fields for backward compatibility (to be phased out)
       channelPointRewardId: rewardId,
-      channelPointsEnabled: true,
+      channelPointsEnabled: false,
     }, {merge: true});
   };
 
@@ -1804,7 +1792,7 @@ app.get("/api/obs/getToken", authenticateApiRequest, async (req, res) => {
         const existingToken = version.payload.data.toString("utf8");
 
         // Generate the existing OBS Browser Source URL
-        const obsWebSocketUrl = `https://chatvibes-tts-service-h7kj56ct4q-uc.a.run.app/?channel=${channelLogin}&token=${existingToken}`;
+        const obsWebSocketUrl = `${OBS_BROWSER_BASE_URL}/?channel=${channelLogin}&token=${existingToken}`;
 
         console.log(`[API /obs/getToken] Retrieved existing OBS token for ${channelLogin}`);
 
@@ -1911,7 +1899,7 @@ app.post("/api/rewards/tts", authenticateApiRequest, async (req, res) => {
 
     if (!enabled && rewardId) {
       try {
-        await helix.patch(`/channel_points/custom_rewards?broadcaster_id=${encodeURIComponent(broadcasterId)}&id=${encodeURIComponent(rewardId)}`, {is_enabled: false});
+        await helix.patch(`/channel_points/custom_rewards?broadcaster_id=${encodeURIComponent(broadcasterId)}&id=${encodeURIComponent(rewardId)}`, { is_enabled: false });
       } catch (e) {
         console.warn("[POST /api/rewards/tts] Disable failed:", e.response?.status, e.response?.data || e.message);
       }
@@ -1926,6 +1914,7 @@ app.post("/api/rewards/tts", authenticateApiRequest, async (req, res) => {
         prompt,
         is_user_input_required: true,
         should_redemptions_skip_request_queue: !!skipQueue,
+        is_enabled: true,
       };
       if (cooldownSeconds > 0) rewardPayload.global_cooldown_seconds = cooldownSeconds;
       if (perStreamLimit > 0) {
@@ -2140,8 +2129,8 @@ app.post("/api/obs/generateToken", authenticateApiRequest, async (req, res) => {
       throw new Error("Failed to store OBS token reference");
     }
 
-    // Generate the OBS Browser Source URL (HTTPS, not WSS)
-    const obsWebSocketUrl = `https://chatvibes-tts-service-h7kj56ct4q-uc.a.run.app/?channel=${channelLogin}&token=${obsToken}`;
+    // Generate the OBS Browser Source URL (HTTPS in prod; http in local via env)
+    const obsWebSocketUrl = `${OBS_BROWSER_BASE_URL}/?channel=${channelLogin}&token=${obsToken}`;
 
     console.log(`[API /obs/generateToken] Successfully generated OBS token for ${channelLogin}`);
 
