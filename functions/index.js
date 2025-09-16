@@ -1918,29 +1918,15 @@ app.post("/api/rewards/tts", authenticateApiRequest, async (req, res) => {
         is_enabled: true,
       };
 
-      // Global cooldown must include the enable flag per Twitch API
-      if (cooldownSeconds > 0) {
-        rewardPayload.is_global_cooldown_enabled = true;
-        rewardPayload.global_cooldown_seconds = cooldownSeconds;
-      } else {
-        rewardPayload.is_global_cooldown_enabled = false;
-      }
+      // Twitch requires sending both the enable flag and the value together if either is present
+      rewardPayload.is_global_cooldown_enabled = cooldownSeconds > 0;
+      rewardPayload.global_cooldown_seconds = cooldownSeconds > 0 ? cooldownSeconds : 0;
 
-      // Per-stream redemption limit
-      if (perStreamLimit > 0) {
-        rewardPayload.is_max_per_stream_enabled = true;
-        rewardPayload.max_per_stream = perStreamLimit;
-      } else {
-        rewardPayload.is_max_per_stream_enabled = false;
-      }
+      rewardPayload.is_max_per_stream_enabled = perStreamLimit > 0;
+      rewardPayload.max_per_stream = perStreamLimit > 0 ? perStreamLimit : 0;
 
-      // Per-user-per-stream redemption limit
-      if (perUserPerStreamLimit > 0) {
-        rewardPayload.is_max_per_user_per_stream_enabled = true;
-        rewardPayload.max_per_user_per_stream = perUserPerStreamLimit;
-      } else {
-        rewardPayload.is_max_per_user_per_stream_enabled = false;
-      }
+      rewardPayload.is_max_per_user_per_stream_enabled = perUserPerStreamLimit > 0;
+      rewardPayload.max_per_user_per_stream = perUserPerStreamLimit > 0 ? perUserPerStreamLimit : 0;
 
       try {
         if (finalRewardId) {
