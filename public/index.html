@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Cabin+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg==">
     <script
     src="https://app.rybbit.io/api/script.js"
     data-site-id="780"
@@ -48,8 +49,8 @@
             const loginErrorEl = document.getElementById('loginError');
             loginErrorEl.textContent = '';
             try {
-                // Adjust API_BASE_URL if needed, or hardcode for this page
-                const apiBaseUrl = 'https://us-central1-chatvibestts.cloudfunctions.net/webUi';
+                // Use Firebase Hosting rewrites to reach Functions in both local and prod
+                const apiBaseUrl = '';
                 // const apiBaseUrl = 'https://your-ngrok-url.ngrok-free.app/chatvibestts/us-central1/webUi'; // When using ngrok directly for initial hit
                 // const apiBaseUrl = 'https://your-live-function-url/webUi'; // For production
 
@@ -90,7 +91,8 @@
             
             // User needs to log in - use regular OAuth but redirect to viewer settings
             try {
-                const apiBaseUrl = 'https://us-central1-chatvibestts.cloudfunctions.net/webUi';
+                // Use Firebase Hosting rewrites to reach Functions in both local and prod
+                const apiBaseUrl = '';
                 const response = await fetch(`${apiBaseUrl}/auth/twitch/initiate`);
                 if (!response.ok) {
                     throw new Error(`Failed to initiate auth: ${response.statusText}`);

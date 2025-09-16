@@ -5,8 +5,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     const channel = urlParams.get('channel');
     const token = urlParams.get('token');
     
-    // API Configuration
-    const API_BASE_URL = 'https://us-central1-chatvibestts.cloudfunctions.net/webUi';
+    // API Configuration: use Hosting rewrites locally/prod; fallback to prod Functions
+    const API_BASE_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+        ? ''
+        : 'https://us-central1-chatvibestts.cloudfunctions.net/webUi';
     let appSessionToken = null;
     let currentChannel = channel;
     

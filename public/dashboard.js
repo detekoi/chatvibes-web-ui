@@ -14,8 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const regenerateTtsUrlBtn = document.getElementById('regenerate-tts-url-btn');
     const copyStatusEl = document.getElementById('copy-status-message');
 
-    // IMPORTANT: Configure this to your deployed Cloud Function URL for ChatVibes
-    const API_BASE_URL = 'https://us-central1-chatvibestts.cloudfunctions.net/webUi'; // Make sure 'chatvibestts' is your project ID
+    // Use Hosting rewrites for local/prod; fall back to prod Functions when needed
+    const API_BASE_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+        ? ''
+        : 'https://us-central1-chatvibestts.cloudfunctions.net/webUi';
     let appSessionToken = null;
     let loggedInUser = null;
 

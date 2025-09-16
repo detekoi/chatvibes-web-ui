@@ -988,7 +988,7 @@ async function getValidTwitchTokenForUser(userLogin) {
  * sets channelPointsEnabled true.
  * @param {string} channelLogin
  * @param {string} twitchUserId
- * @return {Promise<{status:string, rewardId?:string}>}
+ * @return {Promise<{status: string, rewardId: string}>}
  */
 async function ensureTtsChannelPointReward(channelLogin, twitchUserId) {
   if (!TWITCH_CLIENT_ID) {
@@ -1002,7 +1002,7 @@ async function ensureTtsChannelPointReward(channelLogin, twitchUserId) {
     baseURL: "https://api.twitch.tv/helix",
     headers: {
       "Client-ID": TWITCH_CLIENT_ID,
-      Authorization: `Bearer ${accessToken}`,
+      "Authorization": `Bearer ${accessToken}`,
       "Content-Type": "application/json",
     },
     timeout: 15000,
@@ -1063,7 +1063,7 @@ async function ensureTtsChannelPointReward(channelLogin, twitchUserId) {
       await setFirestoreReward(storedRewardId);
       return {status: "updated", rewardId: storedRewardId};
     } catch (e) {
-      console.warn(`[ensureTtsChannelPointReward] Update existing reward failed for ${channelLogin}:`, e.response?.status, e.response?.data || e.message);
+      console.warn(`[ensureTtsChannelPointReward] Update existing reward failed for ${channelLogin}:`, e && e.response ? e.response.status : null, (e && e.response && e.response.data) || (e && e.message) || e);
       // Fall through to search/create
     }
   }
@@ -1071,7 +1071,7 @@ async function ensureTtsChannelPointReward(channelLogin, twitchUserId) {
   // Query existing manageable rewards and try to find by title
   try {
     const listResp = await helix.get(`/channel_points/custom_rewards?broadcaster_id=${encodeURIComponent(twitchUserId)}&only_manageable_rewards=true`);
-    const rewards = Array.isArray(listResp.data?.data) ? listResp.data.data : [];
+    const rewards = Array.isArray(listResp.data && listResp.data.data) ? listResp.data.data : [];
     const existing = rewards.find((r) => r.title === desiredTitle);
     if (existing) {
       // Update to desired settings in case they differ
@@ -1085,7 +1085,7 @@ async function ensureTtsChannelPointReward(channelLogin, twitchUserId) {
       return {status: "reused", rewardId: existing.id};
     }
   } catch (e) {
-    console.warn(`[ensureTtsChannelPointReward] Listing rewards failed for ${channelLogin}:`, e.response?.status, e.response?.data || e.message);
+    console.warn(`[ensureTtsChannelPointReward] Listing rewards failed for ${channelLogin}:`, e && e.response ? e.response.status : null, (e && e.response && e.response.data) || (e && e.message) || e);
   }
 
   // Create new reward
@@ -1116,7 +1116,7 @@ async function disableTtsChannelPointReward(channelLogin) {
     baseURL: "https://api.twitch.tv/helix",
     headers: {
       "Client-ID": TWITCH_CLIENT_ID,
-      Authorization: `Bearer ${accessToken}`,
+      "Authorization": `Bearer ${accessToken}`,
       "Content-Type": "application/json",
     },
     timeout: 15000,
@@ -1851,7 +1851,7 @@ app.get("/api/rewards/tts", authenticateApiRequest, async (req, res) => {
         const accessToken = await getValidTwitchTokenForUser(channelLogin);
         const helix = axios.create({
           baseURL: "https://api.twitch.tv/helix",
-          headers: { "Client-ID": TWITCH_CLIENT_ID, Authorization: `Bearer ${accessToken}` },
+          headers: {"Client-ID": TWITCH_CLIENT_ID, "Authorization": `Bearer ${accessToken}`},
           timeout: 10000,
         });
         const broadcasterId = data.twitchUserId || req.user.id; // fallback to JWT user id
@@ -1862,10 +1862,10 @@ app.get("/api/rewards/tts", authenticateApiRequest, async (req, res) => {
       }
     }
 
-    return res.json({ success: true, channelPoints, twitchStatus });
+    return res.json({success: true, channelPoints, twitchStatus});
   } catch (error) {
     console.error("[GET /api/rewards/tts] Error:", error);
-    res.status(500).json({ success: false, error: "Failed to load reward config" });
+    res.status(500).json({success: false, error: "Failed to load reward config"});
   }
 });
 
@@ -1892,7 +1892,7 @@ app.post("/api/rewards/tts", authenticateApiRequest, async (req, res) => {
       bannedWords: Array.isArray(body.contentPolicy?.bannedWords) ? body.contentPolicy.bannedWords.slice(0, 200) : [],
     };
     if (contentPolicy.minChars > contentPolicy.maxChars) {
-      return res.status(400).json({ success: false, error: "minChars must be ≤ maxChars" });
+      return res.status(400).json({success: false, error: "minChars must be ≤ maxChars"});
     }
 
     // Current doc values
@@ -1905,13 +1905,13 @@ app.post("/api/rewards/tts", authenticateApiRequest, async (req, res) => {
     const accessToken = await getValidTwitchTokenForUser(channelLogin);
     const helix = axios.create({
       baseURL: "https://api.twitch.tv/helix",
-      headers: { "Client-ID": TWITCH_CLIENT_ID, Authorization: `Bearer ${accessToken}` },
+      headers: {"Client-ID": TWITCH_CLIENT_ID, "Authorization": `Bearer ${accessToken}`},
       timeout: 15000,
     });
 
     if (!enabled && rewardId) {
       try {
-        await helix.patch(`/channel_points/custom_rewards?broadcaster_id=${encodeURIComponent(broadcasterId)}&id=${encodeURIComponent(rewardId)}`, { is_enabled: false });
+        await helix.patch(`/channel_points/custom_rewards?broadcaster_id=${encodeURIComponent(broadcasterId)}&id=${encodeURIComponent(rewardId)}`, {is_enabled: false});
       } catch (e) {
         console.warn("[POST /api/rewards/tts] Disable failed:", e.response?.status, e.response?.data || e.message);
       }
@@ -1950,7 +1950,7 @@ app.post("/api/rewards/tts", authenticateApiRequest, async (req, res) => {
         try {
           const listResp = await helix.get(`/channel_points/custom_rewards?broadcaster_id=${encodeURIComponent(broadcasterId)}&only_manageable_rewards=true`);
           const rewards = Array.isArray(listResp.data?.data) ? listResp.data.data : [];
-          const existing = rewards.find(r => r.title === title);
+          const existing = rewards.find((r) => r.title === title);
           if (existing) {
             finalRewardId = existing.id;
             await helix.patch(`/channel_points/custom_rewards?broadcaster_id=${encodeURIComponent(broadcasterId)}&id=${encodeURIComponent(finalRewardId)}`, rewardPayload);
@@ -1959,7 +1959,7 @@ app.post("/api/rewards/tts", authenticateApiRequest, async (req, res) => {
           }
         } catch (inner) {
           console.error("[POST /api/rewards/tts] Create/Update failed:", inner.response?.status, inner.response?.data || inner.message);
-          return res.status(500).json({ success: false, error: "Failed to create or update reward" });
+          return res.status(500).json({success: false, error: "Failed to create or update reward"});
         }
       }
     }
@@ -1982,12 +1982,12 @@ app.post("/api/rewards/tts", authenticateApiRequest, async (req, res) => {
       channelPointRewardId: finalRewardId || null, // legacy
       channelPointsEnabled: enabled, // legacy
     };
-    await docRef.set(savePayload, { merge: true });
+    await docRef.set(savePayload, {merge: true});
 
-    return res.json({ success: true, rewardId: finalRewardId || undefined });
+    return res.json({success: true, rewardId: finalRewardId || undefined});
   } catch (error) {
     console.error("[POST /api/rewards/tts] Error:", error);
-    res.status(500).json({ success: false, error: "Server error" });
+    res.status(500).json({success: false, error: "Server error"});
   }
 });
 
@@ -2005,7 +2005,7 @@ app.delete("/api/rewards/tts", authenticateApiRequest, async (req, res) => {
         const accessToken = await getValidTwitchTokenForUser(channelLogin);
         const helix = axios.create({
           baseURL: "https://api.twitch.tv/helix",
-          headers: { "Client-ID": TWITCH_CLIENT_ID, Authorization: `Bearer ${accessToken}` },
+          headers: {"Client-ID": TWITCH_CLIENT_ID, "Authorization": `Bearer ${accessToken}`},
           timeout: 10000,
         });
         const broadcasterId = (snap.data() && snap.data().twitchUserId) || req.user.id;
@@ -2023,12 +2023,12 @@ app.delete("/api/rewards/tts", authenticateApiRequest, async (req, res) => {
       },
       channelPointRewardId: null,
       channelPointsEnabled: false,
-    }, { merge: true });
+    }, {merge: true});
 
-    return res.json({ success: true });
+    return res.json({success: true});
   } catch (error) {
     console.error("[DELETE /api/rewards/tts] Error:", error);
-    res.status(500).json({ success: false, error: "Server error" });
+    res.status(500).json({success: false, error: "Server error"});
   }
 });
 
@@ -2036,34 +2036,34 @@ app.delete("/api/rewards/tts", authenticateApiRequest, async (req, res) => {
 app.post("/api/rewards/tts:test", authenticateApiRequest, async (req, res) => {
   try {
     const channelLogin = req.user.login;
-    const { text } = req.body || {};
-    if (!text || typeof text !== 'string') {
-      return res.status(400).json({ success: false, error: 'Text is required' });
+    const {text} = req.body || {};
+    if (!text || typeof text !== "string") {
+      return res.status(400).json({success: false, error: "Text is required"});
     }
 
     const cfgSnap = await db.collection("ttsChannelConfigs").doc(channelLogin).get();
     const cp = cfgSnap.exists ? (cfgSnap.data().channelPoints || {}) : {};
-    if (!cp.enabled) return res.status(400).json({ success: false, error: 'Channel Points TTS is disabled' });
+    if (!cp.enabled) return res.status(400).json({success: false, error: "Channel Points TTS is disabled"});
 
     const p = cp.contentPolicy || {};
-    const minChars = typeof p.minChars === 'number' ? p.minChars : 1;
-    const maxChars = typeof p.maxChars === 'number' ? p.maxChars : 200;
+    const minChars = typeof p.minChars === "number" ? p.minChars : 1;
+    const maxChars = typeof p.maxChars === "number" ? p.maxChars : 200;
     const blockLinks = p.blockLinks !== false;
     const bannedWords = Array.isArray(p.bannedWords) ? p.bannedWords : [];
 
     const trimmed = text.trim();
-    if (trimmed.length < minChars) return res.status(400).json({ success: false, error: `Too short (< ${minChars})` });
-    if (trimmed.length > maxChars) return res.status(400).json({ success: false, error: `Too long (> ${maxChars})` });
-    if (blockLinks && /\bhttps?:\/\//i.test(trimmed)) return res.status(400).json({ success: false, error: 'Links are not allowed' });
+    if (trimmed.length < minChars) return res.status(400).json({success: false, error: `Too short (< ${minChars})`});
+    if (trimmed.length > maxChars) return res.status(400).json({success: false, error: `Too long (> ${maxChars})`});
+    if (blockLinks && /\bhttps?:\/\//i.test(trimmed)) return res.status(400).json({success: false, error: "Links are not allowed"});
     const lowered = trimmed.toLowerCase();
-    if (bannedWords.some(w => w && lowered.includes(w.toLowerCase()))) return res.status(400).json({ success: false, error: 'Contains banned words' });
+    if (bannedWords.some((w) => w && lowered.includes(w.toLowerCase()))) return res.status(400).json({success: false, error: "Contains banned words"});
 
     // Enqueue into bot via Firestore-driven queue (bot already reads configs). Here, we cannot push directly to bot
     // Instead, return success; streamer can redeem in chat or we can later add a direct enqueue bridge.
-    return res.json({ success: true, status: 'validated' });
+    return res.json({success: true, status: "validated"});
   } catch (error) {
     console.error("[POST /api/rewards/tts:test] Error:", error);
-    res.status(500).json({ success: false, error: 'Server error' });
+    res.status(500).json({success: false, error: "Server error"});
   }
 });
 // Route: /api/obs/generateToken - Generate OBS WebSocket token

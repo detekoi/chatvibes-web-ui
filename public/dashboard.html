@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Cabin+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg==">
     <script
     src="https://app.rybbit.io/api/script.js"
     data-site-id="780"
@@ -59,6 +60,7 @@
                         <select id="tts-mode">
                             <option value="all">All Messages</option>
                             <option value="command">Commands Only</option>
+                            <option value="bits_points_only">Bits/Points Only</option>
                         </select>
                     </div>
                     <div class="setting-item">
@@ -75,9 +77,9 @@
                     </div>
                 </div>
                 
-                <!-- Bits Configuration -->
+                <!-- Bits Configuration → TTS -->
                 <div class="settings-section">
-                    <h3>Bits-for-TTS</h3>
+                    <h3>Bits → TTS</h3>
                     <div class="setting-item">
                         <label>
                             <input type="checkbox" id="bits-enabled"> Require Bits for TTS
