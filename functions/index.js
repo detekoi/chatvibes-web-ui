@@ -52,7 +52,7 @@ let TWITCH_CLIENT_ID; let TWITCH_CLIENT_SECRET; let JWT_SECRET; let REPLICATE_AP
 // --- These are configuration variables, not secrets. Load them directly. ---
 const CALLBACK_REDIRECT_URI_CONFIG = process.env.CALLBACK_URL;
 const FRONTEND_URL_CONFIG = process.env.FRONTEND_URL;
-const OBS_BROWSER_BASE_URL = process.env.OBS_BROWSER_BASE_URL || 'https://chatvibes-tts-service-h7kj56ct4q-uc.a.run.app';
+const OBS_BROWSER_BASE_URL = process.env.OBS_BROWSER_BASE_URL || "https://chatvibes-tts-service-h7kj56ct4q-uc.a.run.app";
 
 // --- Asynchronous Secret Loading ---
 const secretsLoaded = (async () => {
@@ -977,6 +977,7 @@ async function getValidTwitchTokenForUser(userLogin) {
  * @param {string} twitchUserId
  * @return {Promise<{status: string, rewardId: string}>}
  */
+// eslint-disable-next-line no-unused-vars
 async function ensureTtsChannelPointReward(channelLogin, twitchUserId) {
   if (!TWITCH_CLIENT_ID) {
     throw new Error("Server configuration error: missing TWITCH_CLIENT_ID");
@@ -1899,7 +1900,7 @@ app.post("/api/rewards/tts", authenticateApiRequest, async (req, res) => {
 
     if (!enabled && rewardId) {
       try {
-        await helix.patch(`/channel_points/custom_rewards?broadcaster_id=${encodeURIComponent(broadcasterId)}&id=${encodeURIComponent(rewardId)}`, { is_enabled: false });
+        await helix.patch(`/channel_points/custom_rewards?broadcaster_id=${encodeURIComponent(broadcasterId)}&id=${encodeURIComponent(rewardId)}`, {is_enabled: false});
       } catch (e) {
         console.warn("[POST /api/rewards/tts] Disable failed:", e.response?.status, e.response?.data || e.message);
       }
