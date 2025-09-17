@@ -169,6 +169,20 @@
                         </div>
                     </div>
 
+                    <!-- Voice Preview - Mobile/Tablet (visible on lg and below) -->
+                    <div class="d-lg-none mb-4">
+                        <div class="card">
+                            <div class="card-header">Voice Preview</div>
+                            <div class="card-body">
+                                <label for="preview-text-mobile" class="form-label">Test Message</label>
+                                <textarea id="preview-text-mobile" class="form-control mb-2" maxlength="500" rows="3">Chat is this real?</textarea>
+                                <div class="d-grid">
+                                    <button type="button" id="preview-btn-mobile" class="btn btn-primary">Send Preview</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Danger Zone -->
                     <div class="settings-section">
                         <h5 class="settings-section-title text-danger">Danger Zone</h5>
@@ -219,7 +233,7 @@
                 </div>
 
                 <!-- Sidebar column -->
-                <div class="col-12 col-lg-4">
+                <div class="col-12 col-lg-4 d-none d-lg-block">
                     <div class="card sticky-top sticky-aside mb-4">
                         <div class="card-header">Voice Preview</div>
                         <div class="card-body">

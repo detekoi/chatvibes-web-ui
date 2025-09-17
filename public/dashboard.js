@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Test mode: enable with ?test=1 in the URL to bypass auth and API calls
+    const TEST_MODE = new URLSearchParams(window.location.search).has('test');
     // Toast helper
     const toastContainer = document.getElementById('toast-container') || (() => {
         const c = document.createElement('div');
@@ -56,6 +58,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function loadExistingTtsUrl(userLoginName) {
         if (!ttsUrlField) return;
+        if (TEST_MODE) {
+            ttsUrlField.value = `https://example.com/tts/test?channel=${encodeURIComponent(userLoginName || 'demo')}`;
+            ttsUrlField.placeholder = 'Test mode URL';
+            return;
+        }
         if (!userLoginName || userLoginName.trim() === '' || userLoginName === 'loading...') {
             ttsUrlField.value = '';
             ttsUrlField.placeholder = 'Could not determine TTS URL.';
@@ -90,6 +97,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function updateTtsUrl(userLoginName) {
         if (!ttsUrlField) return;
+        if (TEST_MODE) {
+            ttsUrlField.value = `https://example.com/tts/new-test-url?channel=${encodeURIComponent(userLoginName || 'demo')}`;
+            ttsUrlField.placeholder = 'Test mode URL';
+            showToast('Generated a new URL successfully. (test mode)', 'success');
+            return;
+        }
         if (!userLoginName || userLoginName.trim() === '' || userLoginName === 'loading...') {
             ttsUrlField.value = '';
             ttsUrlField.placeholder = 'Could not determine TTS URL.';
@@ -127,7 +140,15 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Dashboard: Loaded app_session_token from localStorage:', appSessionToken);
         const userLoginFromStorage = localStorage.getItem('twitch_user_login');
         const userIdFromStorage = localStorage.getItem('twitch_user_id');
-        if (userLoginFromStorage && userIdFromStorage) {
+        if (TEST_MODE) {
+            loggedInUser = { login: 'demostreamer', id: '123456', displayName: 'Demo Streamer' };
+            appSessionToken = 'TEST_SESSION_TOKEN';
+            if (twitchUsernameEl) twitchUsernameEl.textContent = loggedInUser.displayName;
+            if (channelNameStatusEl) channelNameStatusEl.textContent = loggedInUser.login;
+            await loadExistingTtsUrl(loggedInUser.login);
+            updateBotStatusUI(false);
+            return;
+        } else if (userLoginFromStorage && userIdFromStorage) {
             loggedInUser = { login: userLoginFromStorage, id: userIdFromStorage, displayName: userLoginFromStorage };
             if (twitchUsernameEl) twitchUsernameEl.textContent = loggedInUser.displayName;
             if (channelNameStatusEl) channelNameStatusEl.textContent = loggedInUser.login;
@@ -186,6 +207,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (addBotBtn) {
         addBotBtn.addEventListener('click', async () => {
+            if (TEST_MODE) {
+                showToast('Bot added to channel! (test mode)', 'success');
+                updateBotStatusUI(true);
+                return;
+            }
             if (!appSessionToken) {
                 showToast('Authentication token missing. Please log in again.', 'error');
                 return;
@@ -223,6 +249,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (removeBotBtn) {
         removeBotBtn.addEventListener('click', async () => {
+            if (TEST_MODE) {
+                showToast('Bot removed from channel. (test mode)', 'success');
+                updateBotStatusUI(false);
+                return;
+            }
             if (!appSessionToken) {
                 showToast('Authentication token missing. Please log in again.', 'error');
                 return;
@@ -291,6 +322,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (regenerateTtsUrlBtn) {
         regenerateTtsUrlBtn.addEventListener('click', async (e) => {
             e.preventDefault();
+            if (TEST_MODE) {
+                const originalText = regenerateTtsUrlBtn.textContent;
+                regenerateTtsUrlBtn.textContent = 'Generating...';
+                regenerateTtsUrlBtn.style.pointerEvents = 'none';
+                await new Promise(r => setTimeout(r, 500));
+                await updateTtsUrl(loggedInUser?.login || 'demo');
+                regenerateTtsUrlBtn.style.pointerEvents = 'auto';
+                regenerateTtsUrlBtn.textContent = originalText;
+                return;
+            }
             if (!loggedInUser || !loggedInUser.login) {
                 showToast('Error: User not logged in.', 'error');
                 return;
@@ -379,6 +420,10 @@ document.addEventListener('DOMContentLoaded', () => {
             'Warm_Grandmother', 'Confident_Leader', 'Soothing_Narrator', 'Cheerful_Assistant',
             'Deep_Narrator', 'Bright_Assistant', 'Calm_Guide', 'Energetic_Host'
         ];
+        if (TEST_MODE) {
+            populateVoices(fallbackVoices);
+            return;
+        }
         try {
             const response = await fetch(`${BOT_API_BASE_URL}/voices`);
             if (response.ok) {
@@ -407,6 +452,53 @@ document.addEventListener('DOMContentLoaded', () => {
     async function loadBotSettings() {
         if (!loggedInUser?.login) {
             console.warn('No logged in user, cannot load bot settings');
+            return;
+        }
+        if (TEST_MODE) {
+            // Populate UI with demo values
+            const demoTts = {
+                engineEnabled: true,
+                mode: 'command',
+                ttsPermissionLevel: 'everyone',
+                speakEvents: true,
+                bitsModeEnabled: true,
+                bitsMinimumAmount: 100,
+                voiceId: 'Friendly_Person',
+                emotion: 'auto',
+                pitch: 0,
+                speed: 1.0,
+                languageBoost: 'Automatic',
+                englishNormalization: false,
+                ignoredUsers: ['spammer1', 'troll2']
+            };
+            const demoMusic = {
+                enabled: false,
+                allowedRoles: ['everyone'],
+                bitsModeEnabled: false,
+                bitsMinimumAmount: 100,
+                ignoredUsers: ['loudguy']
+            };
+            if (ttsEnabledCheckbox) ttsEnabledCheckbox.checked = demoTts.engineEnabled;
+            if (ttsModeSelect) ttsModeSelect.value = demoTts.mode;
+            if (ttsPermissionSelect) ttsPermissionSelect.value = demoTts.ttsPermissionLevel;
+            if (eventsEnabledCheckbox) eventsEnabledCheckbox.checked = demoTts.speakEvents;
+            if (bitsEnabledCheckbox) bitsEnabledCheckbox.checked = demoTts.bitsModeEnabled;
+            if (bitsAmountInput) bitsAmountInput.value = demoTts.bitsMinimumAmount;
+            if (defaultVoiceSelect) defaultVoiceSelect.value = demoTts.voiceId;
+            if (defaultEmotionSelect) defaultEmotionSelect.value = demoTts.emotion;
+            if (defaultPitchSlider) { defaultPitchSlider.value = demoTts.pitch; if (pitchValueSpan) pitchValueSpan.textContent = demoTts.pitch; }
+            if (defaultSpeedSlider) { defaultSpeedSlider.value = demoTts.speed; if (speedValueSpan) speedValueSpan.textContent = demoTts.speed; }
+            if (defaultLanguageSelect) defaultLanguageSelect.value = demoTts.languageBoost;
+            if (englishNormalizationCheckbox) englishNormalizationCheckbox.checked = demoTts.englishNormalization;
+            if (musicEnabledCheckbox) musicEnabledCheckbox.checked = demoMusic.enabled;
+            if (musicModeSelect) musicModeSelect.value = demoMusic.allowedRoles.includes('everyone') ? 'everyone' : 'moderator';
+            if (musicBitsEnabledCheckbox) musicBitsEnabledCheckbox.checked = demoMusic.bitsModeEnabled;
+            if (musicBitsAmountInput) musicBitsAmountInput.value = demoMusic.bitsMinimumAmount;
+            displayIgnoreList('tts', demoTts.ignoredUsers);
+            displayIgnoreList('music', demoMusic.ignoredUsers);
+            originalSettings = { tts: demoTts, music: demoMusic };
+            if (cpEnabled) cpEnabled.checked = false;
+            if (cpStatusLine) cpStatusLine.textContent = 'No reward created (test mode)';
             return;
         }
         try {
@@ -514,6 +606,10 @@ document.addEventListener('DOMContentLoaded', () => {
     async function saveBotSettings() {
         if (!loggedInUser?.login) {
             console.warn('No logged in user, cannot save bot settings');
+            return;
+        }
+        if (TEST_MODE) {
+            showToast('✅ Settings saved successfully! (test mode)', 'success');
             return;
         }
         try {
@@ -640,6 +736,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Channel Points actions
     async function saveChannelPointsConfig() {
+        if (TEST_MODE) { showToast('Channel Points saved ✓ (test mode)', 'success'); if (cpStatusLine) cpStatusLine.textContent = 'No reward created · Last synced: ' + new Date().toLocaleTimeString(); return; }
         if (!appSessionToken) { showToast('Authentication required', 'error'); return; }
         const payload = {
             enabled: !!cpEnabled?.checked,
@@ -684,6 +781,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function testChannelPointsRedeem() {
+        if (TEST_MODE) { const text = prompt('Enter a test message to simulate a redemption:'); if (text) showToast('Test validated ✓ (test mode)', 'success'); return; }
         if (!appSessionToken) { showToast('Authentication required', 'error'); return; }
         const text = prompt('Enter a test message to simulate a redemption:');
         if (!text) return;
@@ -707,6 +805,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function deleteChannelPointsReward() {
+        if (TEST_MODE) { if (cpEnabled) cpEnabled.checked = false; if (cpStatusLine) cpStatusLine.textContent = 'No reward created · Last synced: ' + new Date().toLocaleTimeString(); showToast('Disabled & deleted ✓ (test mode)', 'success'); return; }
         if (!appSessionToken) { showToast('Authentication required', 'error'); return; }
         if (!confirm('Disable & delete the Channel Points TTS reward?')) return;
         try {
@@ -752,6 +851,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const inputEl = document.getElementById(`${type}-ignore-username`);
         const username = inputEl?.value?.trim();
         if (!username) { showToast('Please enter a username', 'warning'); return; }
+        if (TEST_MODE) {
+            const listEl = document.getElementById(`${type}-ignore-list`);
+            if (listEl) {
+                const current = Array.from(listEl.querySelectorAll('li span')).map(s => s.textContent);
+                current.push(username);
+                displayIgnoreList(type, current);
+            }
+            inputEl.value = '';
+            return;
+        }
         if (!loggedInUser?.login) { showToast('Not logged in', 'error'); return; }
         try {
             const channelName = loggedInUser.login.toLowerCase();
@@ -778,6 +887,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function removeFromIgnoreList(type, username) {
+        if (TEST_MODE) {
+            const listEl = document.getElementById(`${type}-ignore-list`);
+            if (listEl) {
+                const remaining = Array.from(listEl.querySelectorAll('li span')).map(s => s.textContent).filter(u => u !== username);
+                displayIgnoreList(type, remaining);
+            }
+            return;
+        }
         if (!loggedInUser?.login) { showToast('Not logged in', 'error'); return; }
         try {
             const channelName = loggedInUser.login.toLowerCase();
@@ -818,6 +935,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const text = voiceTestTextInput.value.trim();
         if (!text) { showToast('Please enter some text to test', 'warning'); return; }
         if (text.length > 500) { showToast('Text must be 500 characters or less', 'error'); return; }
+        if (TEST_MODE) { showToast('Playing preview… (test mode)', 'success'); return; }
         if (!appSessionToken) { showToast('Authentication required', 'error'); return; }
         voiceTestBtn.disabled = true;
         voiceTestBtn.textContent = 'Generating...';

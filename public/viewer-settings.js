@@ -1,5 +1,7 @@
 // Viewer Settings JavaScript (Bootstrap 5 refactor with toasts)
 document.addEventListener('DOMContentLoaded', async () => {
+    // Test mode: enable with ?test=1 in the URL to bypass auth and API calls
+    const TEST_MODE = new URLSearchParams(window.location.search).has('test');
     // Toast helper
     const toastContainer = document.getElementById('toast-container') || (() => {
         const c = document.createElement('div');
@@ -61,6 +63,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     const languageSelect = document.getElementById('language-select');
     const previewText = document.getElementById('preview-text');
     const previewBtn = document.getElementById('preview-btn');
+    const previewTextMobile = document.getElementById('preview-text-mobile');
+    const previewBtnMobile = document.getElementById('preview-btn-mobile');
     const ignoreTtsCheckbox = document.getElementById('ignore-tts');
     const ignoreMusicCheckbox = document.getElementById('ignore-music');
     const confirmModal = document.getElementById('confirm-modal');
@@ -103,6 +107,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     async function fetchWithAuth(url, options = {}) {
+        if (TEST_MODE) {
+            // Simulate minimal successful responses when needed
+            return new Response(JSON.stringify({ ok: true }), { status: 200, headers: { 'Content-Type': 'application/json' } });
+        }
         if (!appSessionToken) throw new Error('Not authenticated');
         const headers = {
             'Content-Type': 'application/json',
@@ -118,6 +126,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     async function initializeAuth() {
+        if (TEST_MODE) {
+            isAuthenticated = true;
+            appSessionToken = 'TEST_SESSION_TOKEN';
+            if (preferencesPanel) preferencesPanel.style.display = 'block';
+            if (authStatus) authStatus.style.display = 'none';
+            if (channel && channelInput) {
+                channelInput.value = channel;
+                currentChannel = channel;
+            }
+            return true;
+        }
         const urlParams = new URLSearchParams(window.location.search);
         const sessionTokenParam = urlParams.get('session_token');
         const validatedParam = urlParams.get('validated');
@@ -279,6 +298,17 @@ document.addEventListener('DOMContentLoaded', async () => {
             'Warm_Grandmother', 'Confident_Leader', 'Soothing_Narrator', 'Cheerful_Assistant',
             'Deep_Narrator', 'Bright_Assistant', 'Calm_Guide', 'Energetic_Host'
         ];
+        if (TEST_MODE) {
+            availableVoices = fallbackVoices;
+            voiceSelect.innerHTML = '<option value="">Use channel default</option>';
+            fallbackVoices.forEach(voice => {
+                const option = document.createElement('option');
+                option.value = voice;
+                option.textContent = voice.replace(/_/g, ' ');
+                voiceSelect.appendChild(option);
+            });
+            return;
+        }
         try {
             const BOT_API_BASE_URL = 'https://chatvibes-tts-service-h7kj56ct4q-uc.a.run.app/api';
             const response = await fetch(`${BOT_API_BASE_URL}/voices`);
@@ -310,6 +340,36 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     async function loadPreferences() {
         if (!currentChannel) return;
+        if (TEST_MODE) {
+            const data = {
+                channelExists: true,
+                voiceId: '',
+                pitch: 0,
+                speed: 1,
+                emotion: '',
+                language: '',
+                englishNormalization: false,
+                ttsIgnored: false,
+                musicIgnored: false,
+                channelDefaults: { englishNormalization: false }
+            };
+            currentPreferences = data;
+            voiceSelect.value = data.voiceId || '';
+            pitchSlider.value = data.pitch !== undefined ? data.pitch : 0;
+            pitchOutput.textContent = pitchSlider.value;
+            speedSlider.value = data.speed !== undefined ? data.speed : 1;
+            speedOutput.textContent = Number(speedSlider.value).toFixed(2);
+            emotionSelect.value = data.emotion || '';
+            languageSelect.value = data.language || '';
+            englishNormalizationCheckbox.checked = data.englishNormalization;
+            ignoreTtsCheckbox.checked = data.ttsIgnored || false;
+            ignoreTtsCheckbox.disabled = data.ttsIgnored || false;
+            ignoreMusicCheckbox.checked = data.musicIgnored || false;
+            ignoreMusicCheckbox.disabled = data.musicIgnored || false;
+            channelHint.textContent = 'Channel found ✓ (test mode)';
+            channelHint.className = 'form-text text-success';
+            return;
+        }
         try {
             const response = await fetchWithAuth(`${API_BASE_URL}/api/viewer/preferences/${encodeURIComponent(currentChannel)}`);
             const data = await response.json();
@@ -351,6 +411,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     async function savePreference(key, value) {
         if (!currentChannel) return;
+        if (TEST_MODE) { showToast('Preference updated (test mode)', 'success'); return; }
         try {
             const body = { [key]: value };
             await fetchWithAuth(`${API_BASE_URL}/api/viewer/preferences/${encodeURIComponent(currentChannel)}`, {
@@ -388,10 +449,33 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     async function testVoice() {
         if (!currentChannel) { showToast('Please select a channel first', 'error'); return; }
-        const text = (previewText.value || '').trim();
+        // Get text from either preview textarea (they should be in sync)
+        const text = (previewText?.value || previewTextMobile?.value || '').trim();
         if (!text) { showToast('Please enter some text to test', 'warning'); return; }
-        previewBtn.disabled = true;
-        previewBtn.textContent = 'Generating...';
+        
+        // Disable both buttons
+        if (previewBtn) {
+            previewBtn.disabled = true;
+            previewBtn.textContent = 'Generating...';
+        }
+        if (previewBtnMobile) {
+            previewBtnMobile.disabled = true;
+            previewBtnMobile.textContent = 'Generating...';
+        }
+        
+        if (TEST_MODE) {
+            await new Promise(r => setTimeout(r, 400));
+            showToast('Test validated ✓ (test mode)', 'success');
+            if (previewBtn) {
+                previewBtn.disabled = false;
+                previewBtn.textContent = 'Send Preview';
+            }
+            if (previewBtnMobile) {
+                previewBtnMobile.disabled = false;
+                previewBtnMobile.textContent = 'Send Preview';
+            }
+            return;
+        }
         try {
             const response = await fetchWithAuth(`${API_BASE_URL}/api/tts/test`, {
                 method: 'POST',
@@ -417,23 +501,42 @@ document.addEventListener('DOMContentLoaded', async () => {
             console.error('Voice test failed:', error);
             showToast(`Test failed: ${error.message}`, 'error');
         } finally {
-            previewBtn.disabled = false;
-            previewBtn.textContent = 'Send Preview';
+            if (previewBtn) {
+                previewBtn.disabled = false;
+                previewBtn.textContent = 'Send Preview';
+            }
+            if (previewBtnMobile) {
+                previewBtnMobile.disabled = false;
+                previewBtnMobile.textContent = 'Send Preview';
+            }
         }
     }
 
     function handleIgnoreAction(type) {
         const checkbox = type === 'tts' ? ignoreTtsCheckbox : ignoreMusicCheckbox;
         if (!checkbox.checked) return;
-        pendingAction = { type, checkbox };
-        confirmText.textContent = `Are you absolutely sure you want to opt out of ${type.toUpperCase()} in this channel? Only a moderator can undo this action.`;
-        if (confirmModal && confirmModal.showModal) confirmModal.showModal();
+        if (TEST_MODE) {
+            checkbox.disabled = true;
+            showToast(`You have been opted out of ${type.toUpperCase()} (test mode)`, 'success');
+            return;
+        } else {
+            pendingAction = { type, checkbox };
+            confirmText.textContent = `Are you absolutely sure you want to opt out of ${type.toUpperCase()} in this channel? Only a moderator can undo this action.`;
+            if (confirmModal && confirmModal.showModal) confirmModal.showModal();
+        }
     }
 
     async function confirmIgnoreAction() {
         if (!pendingAction || !currentChannel) return;
         const { type, checkbox } = pendingAction;
         try {
+            if (TEST_MODE) {
+                checkbox.disabled = true;
+                showToast(`You have been opted out of ${type.toUpperCase()} (test mode)`, 'success');
+                if (confirmModal && confirmModal.close) confirmModal.close();
+                pendingAction = null;
+                return;
+            }
             await fetchWithAuth(`${API_BASE_URL}/api/viewer/ignore/${type}/${encodeURIComponent(currentChannel)}`, { method: 'POST' });
             checkbox.disabled = true;
             showToast(`You have been opted out of ${type.toUpperCase()}`, 'success');
@@ -482,6 +585,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     englishNormalizationReset.addEventListener('click', () => { resetPreference('englishNormalization', englishNormalizationCheckbox, false); });
 
     previewBtn.addEventListener('click', testVoice);
+    if (previewBtnMobile) {
+        previewBtnMobile.addEventListener('click', testVoice);
+    }
+
+    // Sync textareas between desktop and mobile
+    if (previewText && previewTextMobile) {
+        previewText.addEventListener('input', () => {
+            previewTextMobile.value = previewText.value;
+        });
+        previewTextMobile.addEventListener('input', () => {
+            previewText.value = previewTextMobile.value;
+        });
+    }
 
     ignoreTtsCheckbox.addEventListener('change', () => { if (ignoreTtsCheckbox.checked) handleIgnoreAction('tts'); });
     ignoreMusicCheckbox.addEventListener('change', () => { if (ignoreMusicCheckbox.checked) handleIgnoreAction('music'); });
@@ -498,7 +614,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             localStorage.removeItem('token_user');
             localStorage.removeItem('token_channel');
             appSessionToken = null;
-            window.location.href = 'index.html';
+            if (TEST_MODE) {
+                showToast('Logged out (test mode)', 'success');
+            } else {
+                window.location.href = 'index.html';
+            }
         });
     }
 

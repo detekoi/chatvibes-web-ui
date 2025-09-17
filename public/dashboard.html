@@ -354,76 +354,118 @@
 
                     <!-- Voice Defaults Tab -->
                     <div class="tab-pane fade" id="tab-viewer-defaults" role="tabpanel">
-                        <div class="card mb-4 shadow">
-                            <div class="card-header">Default Voice Settings</div>
-                            <div class="card-body">
-                                <div class="mb-3">
-                                    <label for="default-voice" class="form-label">Default Voice</label>
-                                    <select id="default-voice" class="form-select">
-                                        <option value="Friendly_Person">Loading voices...</option>
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="default-emotion" class="form-label">Default Emotion</label>
-                                    <select id="default-emotion" class="form-select">
-                                        <option value="auto">Auto</option>
-                                        <option value="neutral">Neutral</option>
-                                        <option value="happy">Happy</option>
-                                        <option value="sad">Sad</option>
-                                        <option value="angry">Angry</option>
-                                        <option value="fearful">Fearful</option>
-                                        <option value="disgusted">Disgusted</option>
-                                        <option value="surprised">Surprised</option>
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="default-pitch" class="form-label">Default Pitch (-12 to +12): <span id="pitch-value">0</span></label>
-                                    <div class="d-flex align-items-center">
-                                        <input type="range" id="default-pitch" class="form-range me-3" min="-12" max="12" value="0">
-                                        <button id="reset-pitch-btn" class="btn btn-outline-secondary btn-sm" type="button">Reset</button>
+                        <div class="settings-section">
+                            <h5 class="settings-section-title">Default Voice Settings</h5>
+                            <p class="settings-section-description">Define default voice parameters for your channel</p>
+                            <div class="list-group mb-4 shadow">
+                                <div class="list-group-item">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <label for="default-voice" class="form-label mb-1"><strong>Default Voice</strong></label>
+                                            <p class="text-muted mb-0">Select the default TTS voice for the channel</p>
+                                        </div>
+                                        <div class="col-auto d-flex align-items-center" style="gap:8px;">
+                                            <select id="default-voice" class="form-select">
+                                                <option value="Friendly_Person">Loading voices...</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="default-speed" class="form-label">Default Speed (0.5 to 2.0): <span id="speed-value">1.0</span></label>
-                                    <div class="d-flex align-items-center">
-                                        <input type="range" id="default-speed" class="form-range me-3" min="0.5" max="2.0" step="0.1" value="1.0">
-                                        <button id="reset-speed-btn" class="btn btn-outline-secondary btn-sm" type="button">Reset</button>
+                                <div class="list-group-item">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <label for="default-emotion" class="form-label mb-1"><strong>Default Emotion</strong></label>
+                                            <p class="text-muted mb-0">Set the emotional tone of the default voice</p>
+                                        </div>
+                                        <div class="col-auto d-flex align-items-center" style="gap:8px;">
+                                            <select id="default-emotion" class="form-select">
+                                                <option value="auto">Auto</option>
+                                                <option value="neutral">Neutral</option>
+                                                <option value="happy">Happy</option>
+                                                <option value="sad">Sad</option>
+                                                <option value="angry">Angry</option>
+                                                <option value="fearful">Fearful</option>
+                                                <option value="disgusted">Disgusted</option>
+                                                <option value="surprised">Surprised</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="default-language" class="form-label">Default Language</label>
-                                    <select id="default-language" class="form-select">
-                                        <option value="None">None</option>
-                                        <option value="Automatic">Automatic</option>
-                                        <option value="Chinese">Chinese</option>
-                                        <option value="Chinese,Yue">Chinese, Yue</option>
-                                        <option value="English">English</option>
-                                        <option value="Arabic">Arabic</option>
-                                        <option value="Russian">Russian</option>
-                                        <option value="Spanish">Spanish</option>
-                                        <option value="French">French</option>
-                                        <option value="Portuguese">Portuguese</option>
-                                        <option value="German">German</option>
-                                        <option value="Turkish">Turkish</option>
-                                        <option value="Dutch">Dutch</option>
-                                        <option value="Ukrainian">Ukrainian</option>
-                                        <option value="Vietnamese">Vietnamese</option>
-                                        <option value="Indonesian">Indonesian</option>
-                                        <option value="Japanese">Japanese</option>
-                                        <option value="Italian">Italian</option>
-                                        <option value="Korean">Korean</option>
-                                        <option value="Thai">Thai</option>
-                                        <option value="Polish">Polish</option>
-                                        <option value="Romanian">Romanian</option>
-                                        <option value="Greek">Greek</option>
-                                        <option value="Czech">Czech</option>
-                                        <option value="Finnish">Finnish</option>
-                                        <option value="Hindi">Hindi</option>
-                                    </select>
+                                <div class="list-group-item">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <label for="default-pitch" class="form-label mb-1"><strong>Default Pitch (-12 to +12): <span id="pitch-value">0</span></strong></label>
+                                            <p class="text-muted mb-0">Adjust overall pitch for the default voice</p>
+                                        </div>
+                                        <div class="col-auto d-flex align-items-center" style="gap:8px; min-width: 260px;">
+                                            <input type="range" id="default-pitch" class="form-range" min="-12" max="12" value="0">
+                                            <button id="reset-pitch-btn" class="btn btn-outline-secondary btn-sm" type="button">Reset</button>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="english-normalization">
-                                    <label class="form-check-label" for="english-normalization">English Normalization</label>
+                                <div class="list-group-item">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <label for="default-speed" class="form-label mb-1"><strong>Default Speed (0.5 to 2.0): <span id="speed-value">1.0</span></strong></label>
+                                            <p class="text-muted mb-0">Control how fast the default voice speaks</p>
+                                        </div>
+                                        <div class="col-auto d-flex align-items-center" style="gap:8px; min-width: 260px;">
+                                            <input type="range" id="default-speed" class="form-range" min="0.5" max="2.0" step="0.1" value="1.0">
+                                            <button id="reset-speed-btn" class="btn btn-outline-secondary btn-sm" type="button">Reset</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-group-item">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <label for="default-language" class="form-label mb-1"><strong>Default Language</strong></label>
+                                            <p class="text-muted mb-0">Improve pronunciation for specific languages</p>
+                                        </div>
+                                        <div class="col-auto d-flex align-items-center" style="gap:8px;">
+                                            <select id="default-language" class="form-select">
+                                                <option value="None">None</option>
+                                                <option value="Automatic">Automatic</option>
+                                                <option value="Chinese">Chinese</option>
+                                                <option value="Chinese,Yue">Chinese, Yue</option>
+                                                <option value="English">English</option>
+                                                <option value="Arabic">Arabic</option>
+                                                <option value="Russian">Russian</option>
+                                                <option value="Spanish">Spanish</option>
+                                                <option value="French">French</option>
+                                                <option value="Portuguese">Portuguese</option>
+                                                <option value="German">German</option>
+                                                <option value="Turkish">Turkish</option>
+                                                <option value="Dutch">Dutch</option>
+                                                <option value="Ukrainian">Ukrainian</option>
+                                                <option value="Vietnamese">Vietnamese</option>
+                                                <option value="Indonesian">Indonesian</option>
+                                                <option value="Japanese">Japanese</option>
+                                                <option value="Italian">Italian</option>
+                                                <option value="Korean">Korean</option>
+                                                <option value="Thai">Thai</option>
+                                                <option value="Polish">Polish</option>
+                                                <option value="Romanian">Romanian</option>
+                                                <option value="Greek">Greek</option>
+                                                <option value="Czech">Czech</option>
+                                                <option value="Finnish">Finnish</option>
+                                                <option value="Hindi">Hindi</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-group-item">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <strong class="mb-0">English Normalization</strong>
+                                            <p class="text-muted mb-0">Improve number and text pronunciation</p>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="english-normalization">
+                                                <span class="form-check-label"></span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
