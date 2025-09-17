@@ -323,7 +323,7 @@ app.get("/auth/twitch/callback", async (req, res) => {
         displayName: twitchUser.displayName,
       };
       const appSessionToken = jwt.sign(appTokenPayload, JWT_SECRET, {
-        expiresIn: "1h", // Use a fixed expiration for now, as JWT_EXPIRATION is removed
+        expiresIn: "7d", // Use a fixed expiration for now, as JWT_EXPIRATION is removed
         issuer: "chatvibes-auth",
         audience: "chatvibes-api",
       });
@@ -1347,7 +1347,7 @@ async function handleViewerCallback(req, res, decodedState) {
         },
         JWT_SECRET,
         {
-          expiresIn: "24h",
+          expiresIn: "30d",
           issuer: "chatvibes-auth",
           audience: "chatvibes-api",
         },
@@ -1456,7 +1456,7 @@ app.post("/api/viewer/auth", async (req, res) => {
         },
         JWT_SECRET,
         {
-          expiresIn: "24h",
+          expiresIn: "30d",
           issuer: "chatvibes-auth",
           audience: "chatvibes-api",
         },
