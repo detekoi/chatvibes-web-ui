@@ -13,7 +13,8 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Atkinson Hyperlegible', sans-serif;
+  font-family: 'Atkinson Hyperlegible Next', sans-serif;
+  font-optical-sizing: auto;
   background-color: #ffffff;
   color: #121212;
   line-height: 1.6;
@@ -164,7 +165,7 @@ summary {
 /* Variables */
 :root {
   /* Typography */
-  --font-primary: 'Atkinson Hyperlegible', sans-serif;
+  --font-primary: 'Atkinson Hyperlegible Next', sans-serif;
   --font-mascot: 'Cabin Condensed', sans-serif;
   --font-carousel: var(--font-mascot);
   
