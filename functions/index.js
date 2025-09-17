@@ -1507,7 +1507,17 @@ app.get("/api/viewer/preferences/:channel", authenticateApiRequest, async (req, 
     }
 
     const channelData = channelDoc.data();
-    const userPrefs = (channelData.userPreferences || {})[username] || {};
+
+    // Load GLOBAL user preferences
+    let globalPrefs = {};
+    try {
+      const userDoc = await db.collection("ttsUserPreferences").doc(username).get();
+      if (userDoc.exists) {
+        globalPrefs = userDoc.data() || {};
+      }
+    } catch (e) {
+      console.warn("Failed to load global user prefs:", e.message);
+    }
 
     // Check if user is ignored
     const ttsIgnored = (channelData.ignoredUsers || []).includes(username);
@@ -1523,8 +1533,14 @@ app.get("/api/viewer/preferences/:channel", authenticateApiRequest, async (req, 
       console.warn("Failed to check music ignore status:", error);
     }
 
-    res.json({
-      ...userPrefs,
+    // Map global prefs to UI schema (languageBoost -> language)
+    const responseBody = {
+      voiceId: globalPrefs.voiceId ?? null,
+      pitch: (globalPrefs.pitch !== undefined) ? globalPrefs.pitch : null,
+      speed: (globalPrefs.speed !== undefined) ? globalPrefs.speed : null,
+      emotion: globalPrefs.emotion ?? null,
+      language: globalPrefs.languageBoost ?? null,
+      englishNormalization: (globalPrefs.englishNormalization !== undefined) ? globalPrefs.englishNormalization : undefined,
       ttsIgnored,
       musicIgnored,
       channelExists: true,
@@ -1534,8 +1550,11 @@ app.get("/api/viewer/preferences/:channel", authenticateApiRequest, async (req, 
         speed: channelData.speed || null,
         emotion: channelData.emotion || null,
         language: channelData.languageBoost || null,
+        englishNormalization: (channelData.englishNormalization !== undefined) ? channelData.englishNormalization : false,
       },
-    });
+    };
+
+    res.json(responseBody);
   } catch (error) {
     console.error("Error fetching viewer preferences:", error);
     res.status(500).json({error: "Internal server error"});
@@ -1560,7 +1579,7 @@ app.put("/api/viewer/preferences/:channel", authenticateApiRequest, async (req, 
     }
 
     // Validate updates
-    const validKeys = ["voiceId", "pitch", "speed", "emotion", "language"];
+    const validKeys = ["voiceId", "pitch", "speed", "emotion", "language", "englishNormalization"];
     const filteredUpdates = {};
 
     for (const [key, value] of Object.entries(updates)) {
@@ -1615,24 +1634,45 @@ app.put("/api/viewer/preferences/:channel", authenticateApiRequest, async (req, 
           filteredUpdates[key] = null;
         }
       } else if (key === "voiceId") {
-        filteredUpdates[key] = value;
+        filteredUpdates[key] = (value === null || value === "") ? null : value;
+      } else if (key === "englishNormalization") {
+        filteredUpdates[key] = !!value;
       }
     }
 
-    // Build Firestore update object
-    const updateObject = {};
+    const userDocRef = db.collection("ttsUserPreferences").doc(username);
+    const toSet = {};
+    const toDelete = [];
     for (const [key, value] of Object.entries(filteredUpdates)) {
-      if (value === null || value === "") {
-        // Remove the preference
-        updateObject[`userPreferences.${username}.${key}`] = FieldValue.delete();
+      if (key === "language") {
+        // Map to languageBoost in storage
+        if (value === null) {
+          toDelete.push("languageBoost");
+        } else {
+          toSet["languageBoost"] = value;
+        }
+        continue;
+      }
+      if (value === null) {
+        toDelete.push(key);
       } else {
-        // Set the preference
-        updateObject[`userPreferences.${username}.${key}`] = value;
+        toSet[key] = value;
       }
     }
 
-    if (Object.keys(updateObject).length > 0) {
-      await db.collection("ttsChannelConfigs").doc(channel).update(updateObject);
+    if (Object.keys(toSet).length > 0) {
+      await userDocRef.set({...toSet, updatedAt: FieldValue.serverTimestamp()}, {merge: true});
+    }
+    if (toDelete.length > 0) {
+      const delObj = {};
+      toDelete.forEach((k) => delObj[k] = FieldValue.delete());
+      try {
+        await userDocRef.update(delObj);
+      } catch (e) {
+        if (e.code !== 5) { // ignore NOT_FOUND
+          throw e;
+        }
+      }
     }
 
     res.json({success: true});
