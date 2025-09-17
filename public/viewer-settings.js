@@ -63,6 +63,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     const speedOutput = document.getElementById('speed-value');
     const emotionSelect = document.getElementById('emotion-select');
     const languageSelect = document.getElementById('language-select');
+    const hintVoice = document.getElementById('hint-voice');
+    const hintPitch = document.getElementById('hint-pitch');
+    const hintSpeed = document.getElementById('hint-speed');
+    const hintEmotion = document.getElementById('hint-emotion');
+    const hintLanguage = document.getElementById('hint-language');
+    const hintEnglishNorm = document.getElementById('hint-englishNormalization');
     const previewText = document.getElementById('preview-text');
     const previewBtn = document.getElementById('preview-btn');
     const previewTextMobile = document.getElementById('preview-text-mobile');
@@ -425,6 +431,35 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (data.englishNormalization !== undefined) {
                 englishNormalizationCheckbox.checked = data.englishNormalization;
             }
+            // Dynamic default labels and hints
+            const cd = data.channelDefaults || {};
+            if (voiceSelect && voiceSelect.options && voiceSelect.options.length) {
+                voiceSelect.options[0].textContent = cd.voiceId ? `Use channel default (${cd.voiceId})` : 'Use channel default';
+            }
+            if (emotionSelect && emotionSelect.options && emotionSelect.options.length) {
+                emotionSelect.options[0].textContent = cd.emotion ? `Use channel default (${cd.emotion})` : 'Use channel default';
+            }
+            if (languageSelect && languageSelect.options && languageSelect.options.length) {
+                languageSelect.options[0].textContent = cd.language ? `Use channel default (${cd.language})` : 'Use channel default';
+            }
+            const showHints = !!currentChannel;
+            const describe = (key) => {
+                const userVal = data[key];
+                const defVal = cd[key];
+                if (userVal !== null && userVal !== undefined && userVal !== '') return `Using your global preference: ${userVal}`;
+                if (defVal !== null && defVal !== undefined && defVal !== '') return `Using channel default: ${defVal}`;
+                return 'Using system default';
+            };
+            const setHint = (el, text) => {
+                if (!el) return;
+                if (showHints) { el.textContent = text; el.style.display = ''; } else { el.style.display = 'none'; }
+            };
+            setHint(hintVoice, describe('voiceId'));
+            setHint(hintPitch, describe('pitch'));
+            setHint(hintSpeed, describe('speed'));
+            setHint(hintEmotion, describe('emotion'));
+            setHint(hintLanguage, describe('language'));
+            setHint(hintEnglishNorm, describe('englishNormalization'));
             // Danger zone visibility
             if (currentChannel) {
                 if (channelContextCard) channelContextCard.classList.remove('d-none');
@@ -461,22 +496,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     async function resetPreference(key, element, fallbackValue) {
-        let defaultValue = fallbackValue;
-        if (currentPreferences && currentPreferences.channelDefaults) {
-            const channelDefault = currentPreferences.channelDefaults[key];
-            if (channelDefault !== null && channelDefault !== undefined) {
-                defaultValue = channelDefault;
-            }
-        }
+        // Clear override: set UI to default, but save null so backend uses defaults
+        const cd = (currentPreferences && currentPreferences.channelDefaults) ? currentPreferences.channelDefaults : {};
+        const defaultValue = (cd[key] !== undefined && cd[key] !== null) ? cd[key] : fallbackValue;
         if (element.type === 'checkbox') {
-            element.checked = defaultValue;
+            element.checked = Boolean(defaultValue);
         } else {
-            element.value = defaultValue;
+            element.value = (defaultValue === undefined || defaultValue === null) ? '' : defaultValue;
         }
         if (element.type === 'range') {
             const output = document.getElementById(element.id.replace('-slider', '-value'));
             if (output) {
-                output.textContent = element.id === 'speed-slider' ? Number(defaultValue).toFixed(2) : defaultValue;
+                const outVal = element.id === 'speed-slider' ? Number(defaultValue ?? 1).toFixed(2) : (defaultValue ?? 0);
+                output.textContent = outVal;
             }
         }
         await savePreference(key, null);
