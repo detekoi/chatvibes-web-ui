@@ -1,18 +1,51 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Toast helper
+    const toastContainer = document.getElementById('toast-container') || (() => {
+        const c = document.createElement('div');
+        c.id = 'toast-container';
+        c.className = 'toast-container position-fixed bottom-0 end-0 p-3';
+        document.body.appendChild(c);
+        return c;
+    })();
+    function showToast(message, type = 'success') {
+        const toastEl = document.createElement('div');
+        toastEl.className = 'toast align-items-center border-0';
+        toastEl.setAttribute('role', 'alert');
+        toastEl.setAttribute('aria-live', 'assertive');
+        toastEl.setAttribute('aria-atomic', 'true');
+        const bgClass = type === 'error' || type === 'danger' ? 'text-bg-danger' : type === 'warning' ? 'text-bg-warning' : type === 'info' ? 'text-bg-info' : 'text-bg-success';
+        toastEl.classList.add(bgClass);
+        const inner = document.createElement('div');
+        inner.className = 'd-flex';
+        const body = document.createElement('div');
+        body.className = 'toast-body';
+        body.innerHTML = message;
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'btn-close btn-close-white me-2 m-auto';
+        btn.setAttribute('data-bs-dismiss', 'toast');
+        btn.setAttribute('aria-label', 'Close');
+        inner.appendChild(body);
+        inner.appendChild(btn);
+        toastEl.appendChild(inner);
+        toastContainer.appendChild(toastEl);
+        const bsToast = new bootstrap.Toast(toastEl, { delay: 5000 });
+        bsToast.show();
+        toastEl.addEventListener('hidden.bs.toast', () => toastEl.remove());
+    }
+
     // Dashboard UI Elements
     const twitchUsernameEl = document.getElementById('twitch-username');
     const channelNameStatusEl = document.getElementById('channel-name-status');
     const botStatusEl = document.getElementById('bot-status');
     const addBotBtn = document.getElementById('add-bot-btn');
     const removeBotBtn = document.getElementById('remove-bot-btn');
-    const actionMessageEl = document.getElementById('action-message');
     const logoutLink = document.getElementById('logout-link');
 
-    // TTS URL Elements (from dashboard.html)
+    // TTS URL Elements
     const ttsUrlField = document.getElementById('tts-url-field');
     const copyTtsUrlBtn = document.getElementById('copy-tts-url-btn');
     const regenerateTtsUrlBtn = document.getElementById('regenerate-tts-url-btn');
-    const copyStatusEl = document.getElementById('copy-status-message');
 
     // Use Hosting rewrites for local/prod; fall back to prod Functions when needed
     const API_BASE_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
@@ -21,23 +54,15 @@ document.addEventListener('DOMContentLoaded', () => {
     let appSessionToken = null;
     let loggedInUser = null;
 
-    /**
-     * Loads the existing TTS URL for a user without generating a new token.
-     * @param {string} userLoginName - The Twitch login name of the user.
-     */
     async function loadExistingTtsUrl(userLoginName) {
         if (!ttsUrlField) return;
-        
         if (!userLoginName || userLoginName.trim() === '' || userLoginName === 'loading...') {
             ttsUrlField.value = '';
             ttsUrlField.placeholder = 'Could not determine TTS URL.';
             return;
         }
-
-        // Show loading state
         ttsUrlField.value = 'Loading existing URL...';
         ttsUrlField.placeholder = '';
-
         try {
             const response = await fetch(`${API_BASE_URL}/api/obs/getToken`, {
                 method: 'GET',
@@ -46,20 +71,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     'Content-Type': 'application/json'
                 }
             });
-
-            if (!response.ok) {
-                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-            }
-
+            if (!response.ok) throw new Error(`HTTP ${response.status}: ${response.statusText}`);
             const data = await response.json();
-            
             if (data.success && data.obsWebSocketUrl) {
-                // User has an existing token, display the URL
                 ttsUrlField.value = data.obsWebSocketUrl;
                 ttsUrlField.placeholder = 'Your existing OBS Browser Source URL';
                 console.log('Dashboard: Loaded existing OBS URL for', userLoginName);
             } else {
-                // No existing token, user needs to generate one
                 ttsUrlField.value = '';
                 ttsUrlField.placeholder = 'Click "Regenerate URL" to generate your OBS Browser Source URL';
             }
@@ -70,23 +88,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    /**
-     * Generates a new TTS URL with a secure token by calling the token generation API.
-     * @param {string} userLoginName - The Twitch login name of the user.
-     */
     async function updateTtsUrl(userLoginName) {
         if (!ttsUrlField) return;
-        
         if (!userLoginName || userLoginName.trim() === '' || userLoginName === 'loading...') {
             ttsUrlField.value = '';
             ttsUrlField.placeholder = 'Could not determine TTS URL.';
             return;
         }
-
-        // Show loading state
         ttsUrlField.value = 'Generating secure URL...';
         ttsUrlField.placeholder = '';
-
         try {
             const response = await fetch(`${API_BASE_URL}/api/obs/generateToken`, {
                 method: 'POST',
@@ -95,17 +105,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     'Content-Type': 'application/json'
                 }
             });
-
-            if (!response.ok) {
-                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-            }
-
+            if (!response.ok) throw new Error(`HTTP ${response.status}: ${response.statusText}`);
             const data = await response.json();
-            
             if (data.success && data.obsWebSocketUrl) {
                 ttsUrlField.value = data.obsWebSocketUrl;
                 ttsUrlField.placeholder = 'Your secure OBS Browser Source URL';
-                console.log('Dashboard: Generated secure OBS WebSocket URL for', userLoginName);
+                showToast('Generated a new URL successfully.', 'success');
             } else {
                 throw new Error(data.message || 'Failed to generate OBS URL');
             }
@@ -113,83 +118,50 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Dashboard: Error generating OBS URL:', error);
             ttsUrlField.value = '';
             ttsUrlField.placeholder = 'Error generating URL. Please try refreshing.';
-            
-            // Show error message briefly
-            if (copyStatusEl) {
-                copyStatusEl.textContent = 'Failed to generate OBS URL. Please try again.';
-                copyStatusEl.style.color = '#ff6b6b';
-                setTimeout(() => {
-                    copyStatusEl.textContent = '';
-                }, 3000);
-            }
+            showToast('Failed to generate OBS URL. Please try again.', 'error');
         }
     }
 
     async function initializeDashboard() {
-        // Show the loading overlay for settings right away
-        if (settingsLoadingOverlay) settingsLoadingOverlay.style.display = 'flex';
-        if (settingsContentWrapper) settingsContentWrapper.classList.add('hidden');
-
         appSessionToken = localStorage.getItem('app_session_token');
-        console.log("Dashboard: Loaded app_session_token from localStorage:", appSessionToken);
-
+        console.log('Dashboard: Loaded app_session_token from localStorage:', appSessionToken);
         const userLoginFromStorage = localStorage.getItem('twitch_user_login');
         const userIdFromStorage = localStorage.getItem('twitch_user_id');
-
         if (userLoginFromStorage && userIdFromStorage) {
-            // Assume displayName from storage is login initially, it might be updated by backend if different
             loggedInUser = { login: userLoginFromStorage, id: userIdFromStorage, displayName: userLoginFromStorage };
-            
             if (twitchUsernameEl) twitchUsernameEl.textContent = loggedInUser.displayName;
             if (channelNameStatusEl) channelNameStatusEl.textContent = loggedInUser.login;
-            if (actionMessageEl) actionMessageEl.textContent = '';
-
-            // *** LOAD EXISTING URL without generating new token ***
             await loadExistingTtsUrl(loggedInUser.login);
-
             if (!appSessionToken) {
-                console.warn("No session token found, API calls might fail authentication.");
-                if (actionMessageEl) actionMessageEl.textContent = "Authentication token missing. Please log in again.";
-                // Optionally redirect or disable features
+                showToast('Authentication token missing. Please log in again.', 'error');
                 return;
             }
-
             try {
                 const headers = { 'Authorization': `Bearer ${appSessionToken}` };
-                console.log("Dashboard: Sending headers to /api/bot/status:", JSON.stringify(headers));
-
-                const statusRes = await fetch(`${API_BASE_URL}/api/bot/status`, {
-                    method: 'GET',
-                    headers: headers
-                });
-
+                const statusRes = await fetch(`${API_BASE_URL}/api/bot/status`, { method: 'GET', headers });
                 if (!statusRes.ok) {
                     if (statusRes.status === 401) {
-                       if (actionMessageEl) actionMessageEl.textContent = "Session potentially expired. Please log in again.";
+                        showToast('Session potentially expired. Please log in again.', 'error');
                     } else {
                         const errorData = await statusRes.json().catch(() => ({ message: statusRes.statusText }));
-                        if (actionMessageEl) actionMessageEl.textContent = `Failed to fetch status: ${errorData.message || statusRes.statusText}`;
+                        showToast(`Failed to fetch status: ${errorData.message || statusRes.statusText}`, 'error');
                     }
-                    if (botStatusEl) botStatusEl.textContent = "Error";
+                    if (botStatusEl) botStatusEl.textContent = 'Error';
                     return;
                 }
                 const statusData = await statusRes.json();
-
                 if (statusData.success) {
                     updateBotStatusUI(statusData.isActive);
-                    // Optionally update displayName if backend provides a canonical one
-                    // if (twitchUsernameEl && statusData.displayName) twitchUsernameEl.textContent = statusData.displayName;
                 } else {
-                    if (actionMessageEl) actionMessageEl.textContent = `Error: ${statusData.message}`;
-                    if (botStatusEl) botStatusEl.textContent = "Error";
+                    showToast(`Error: ${statusData.message}`, 'error');
+                    if (botStatusEl) botStatusEl.textContent = 'Error';
                 }
             } catch (error) {
                 console.error('Error fetching bot status:', error);
-                if (actionMessageEl) actionMessageEl.textContent = 'Failed to load bot status. ' + error.message;
+                showToast('Failed to load bot status. ' + error.message, 'error');
                 if (botStatusEl) botStatusEl.textContent = 'Error';
             }
         } else {
-            // Not logged in or info missing, redirect to index.html
             window.location.href = 'index.html';
         }
     }
@@ -198,28 +170,27 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isActive) {
             if (botStatusEl) {
                 botStatusEl.textContent = 'Active';
-                botStatusEl.className = 'status-active';
+                botStatusEl.className = 'fw-semibold text-success';
             }
             if (addBotBtn) addBotBtn.style.display = 'none';
             if (removeBotBtn) removeBotBtn.style.display = 'inline-block';
         } else {
             if (botStatusEl) {
                 botStatusEl.textContent = 'Inactive / Not Joined';
-                botStatusEl.className = 'status-inactive';
+                botStatusEl.className = 'fw-semibold text-secondary';
             }
             if (addBotBtn) addBotBtn.style.display = 'inline-block';
             if (removeBotBtn) removeBotBtn.style.display = 'none';
         }
-        if (actionMessageEl) actionMessageEl.textContent = '';
     }
 
     if (addBotBtn) {
         addBotBtn.addEventListener('click', async () => {
             if (!appSessionToken) {
-                if (actionMessageEl) actionMessageEl.textContent = "Authentication token missing. Please log in again.";
+                showToast('Authentication token missing. Please log in again.', 'error');
                 return;
             }
-            if (actionMessageEl) actionMessageEl.textContent = 'Requesting bot to join...';
+            showToast('Requesting bot to join...', 'info');
             try {
                 const res = await fetch(`${API_BASE_URL}/api/bot/add`, {
                     method: 'POST',
@@ -229,31 +200,23 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
                 const data = await res.json();
-                
                 if (data.success) {
-                    if (actionMessageEl) actionMessageEl.textContent = data.message;
+                    showToast(data.message || 'Bot added to channel!', 'success');
                     updateBotStatusUI(true);
                 } else {
-                    // Handle 403 not_allowed error with contact link
                     if (data.code === 'not_allowed') {
-                        if (actionMessageEl) {
-                            const errorText = data.details || data.message;
-                            // If details already contains the contact link, use it as-is
-                            if (errorText.includes('https://detekoi.github.io/#contact-me')) {
-                                actionMessageEl.innerHTML = errorText.replace('https://detekoi.github.io/#contact-me', '<a href="https://detekoi.github.io/#contact-me" target="_blank" style="color: #007bff; text-decoration: underline;">this link</a>');
-                            } else {
-                                // Add contact link if not present
-                                actionMessageEl.innerHTML = `${errorText} <a href="https://detekoi.github.io/#contact-me" target="_blank" style="color: #007bff; text-decoration: underline;">Request access here</a>.`;
-                            }
-                        }
+                        const errorText = data.details || data.message || 'Channel not authorized.';
+                        const html = errorText.includes('https://detekoi.github.io/#contact-me')
+                            ? errorText.replace('https://detekoi.github.io/#contact-me', '<a href="https://detekoi.github.io/#contact-me" target="_blank" class="link-light">this link</a>')
+                            : `${errorText} <a href="https://detekoi.github.io/#contact-me" target="_blank" class="link-light">Request access here</a>.`;
+                        showToast(html, 'error');
                     } else {
-                        // Show generic error message for other errors
-                        if (actionMessageEl) actionMessageEl.textContent = data.message;
+                        showToast(data.message || 'Failed to add bot.', 'error');
                     }
                 }
             } catch (error) {
                 console.error('Error adding bot:', error);
-                if (actionMessageEl) actionMessageEl.textContent = 'Failed to send request to add bot.';
+                showToast('Failed to send request to add bot.', 'error');
             }
         });
     }
@@ -261,10 +224,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (removeBotBtn) {
         removeBotBtn.addEventListener('click', async () => {
             if (!appSessionToken) {
-                if (actionMessageEl) actionMessageEl.textContent = "Authentication token missing. Please log in again.";
+                showToast('Authentication token missing. Please log in again.', 'error');
                 return;
             }
-            if (actionMessageEl) actionMessageEl.textContent = 'Requesting bot to leave...';
+            showToast('Requesting bot to leave...', 'info');
             try {
                 const res = await fetch(`${API_BASE_URL}/api/bot/remove`, {
                     method: 'POST',
@@ -274,13 +237,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
                 const data = await res.json();
-                if (actionMessageEl) actionMessageEl.textContent = data.message;
-                if (data.success) {
-                    updateBotStatusUI(false);
-                }
+                showToast(data.message || 'Request sent.', data.success ? 'success' : 'error');
+                if (data.success) updateBotStatusUI(false);
             } catch (error) {
                 console.error('Error removing bot:', error);
-                if (actionMessageEl) actionMessageEl.textContent = 'Failed to send request to remove bot.';
+                showToast('Failed to send request to remove bot.', 'error');
             }
         });
     }
@@ -296,91 +257,52 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Event listener for TTS URL copy button
     if (copyTtsUrlBtn && ttsUrlField) {
         copyTtsUrlBtn.addEventListener('click', () => {
             if (!ttsUrlField.value) {
-                if (copyStatusEl) copyStatusEl.textContent = 'URL not available yet.';
-                setTimeout(() => { if (copyStatusEl) copyStatusEl.textContent = ''; }, 3000);
+                showToast('URL not available yet.', 'warning');
                 return;
             }
             ttsUrlField.select();
-            ttsUrlField.setSelectionRange(0, 99999); // For mobile devices
-
+            ttsUrlField.setSelectionRange(0, 99999);
             try {
                 navigator.clipboard.writeText(ttsUrlField.value).then(() => {
-                    if (copyStatusEl) copyStatusEl.textContent = 'Copied to clipboard!';
+                    showToast('Copied to clipboard!', 'success');
+                    const original = copyTtsUrlBtn.textContent;
                     copyTtsUrlBtn.textContent = 'Copied!';
-                    setTimeout(() => {
-                        if (copyStatusEl) copyStatusEl.textContent = '';
-                        copyTtsUrlBtn.textContent = 'Copy URL';
-                    }, 2000);
-                }, (err) => { // Handle promise rejection for writeText
-                    console.warn('navigator.clipboard.writeText failed, trying execCommand fallback:', err);
-                    // Fallback for older browsers or if navigator.clipboard is not available/fails
+                    setTimeout(() => { copyTtsUrlBtn.textContent = original; }, 2000);
+                }, () => {
                     if (document.execCommand('copy')) {
-                        if (copyStatusEl) copyStatusEl.textContent = 'Copied (fallback)!';
+                        showToast('Copied to clipboard!', 'success');
+                        const original = copyTtsUrlBtn.textContent;
                         copyTtsUrlBtn.textContent = 'Copied!';
+                        setTimeout(() => { copyTtsUrlBtn.textContent = original; }, 2000);
                     } else {
-                        if (copyStatusEl) copyStatusEl.textContent = 'Copy failed using fallback.';
+                        showToast('Copy failed.', 'error');
                     }
-                    setTimeout(() => {
-                        if (copyStatusEl) copyStatusEl.textContent = '';
-                        copyTtsUrlBtn.textContent = 'Copy URL';
-                    }, 2000);
                 });
-            } catch (err) { // Catch synchronous errors with execCommand or setup
-                console.error('Error during copy attempt:', err);
-                if (copyStatusEl) copyStatusEl.textContent = 'Failed to copy.';
-                setTimeout(() => { if (copyStatusEl) copyStatusEl.textContent = ''; }, 3000);
+            } catch (err) {
+                console.error('Copy attempt error:', err);
+                showToast('Failed to copy.', 'error');
             }
         });
     }
 
-    // Event listener for TTS URL regenerate link
     if (regenerateTtsUrlBtn) {
         regenerateTtsUrlBtn.addEventListener('click', async (e) => {
-            e.preventDefault(); // Prevent default link navigation
+            e.preventDefault();
             if (!loggedInUser || !loggedInUser.login) {
-                if (copyStatusEl) {
-                    copyStatusEl.textContent = 'Error: User not logged in.';
-                    copyStatusEl.style.color = '#ff6b6b';
-                    setTimeout(() => { 
-                        copyStatusEl.textContent = '';
-                        copyStatusEl.style.color = '';
-                    }, 3000);
-                }
+                showToast('Error: User not logged in.', 'error');
                 return;
             }
-
-            // Update link text during regeneration
             const originalText = regenerateTtsUrlBtn.textContent;
             regenerateTtsUrlBtn.textContent = 'Generating...';
-            regenerateTtsUrlBtn.style.pointerEvents = 'none'; // Disable clicks
-
+            regenerateTtsUrlBtn.style.pointerEvents = 'none';
             try {
                 await updateTtsUrl(loggedInUser.login);
-                
-                if (copyStatusEl) {
-                    copyStatusEl.textContent = 'New URL generated successfully!';
-                    copyStatusEl.style.color = '#4CAF50';
-                    setTimeout(() => { 
-                        copyStatusEl.textContent = '';
-                        copyStatusEl.style.color = '';
-                    }, 3000);
-                }
-            } catch (error) {
-                console.error('Error regenerating URL:', error);
-                if (copyStatusEl) {
-                    copyStatusEl.textContent = 'Failed to regenerate URL.';
-                    copyStatusEl.style.color = '#ff6b6b';
-                    setTimeout(() => { 
-                        copyStatusEl.textContent = '';
-                        copyStatusEl.style.color = '';
-                    }, 3000);
-                }
+            } catch (e) {
+                // already handled inside
             } finally {
-                // Re-enable link
                 regenerateTtsUrlBtn.style.pointerEvents = 'auto';
                 regenerateTtsUrlBtn.textContent = originalText;
             }
@@ -388,27 +310,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Settings Panel Elements
-    const settingsTabBtn = document.getElementById('settings-tab-btn');
-    const obsTabBtn = document.getElementById('obs-tab-btn');
-    const settingsPanel = document.getElementById('settings-panel');
-    const obsSetupInstructions = document.getElementById('obs-setup-instructions');
-    const settingsStatusMessage = document.getElementById('settings-status-message');
-    const saveConfirmationMessage = document.getElementById('save-confirmation-message');
-    const settingsLoadingOverlay = document.getElementById('settings-loading-overlay');
-    const settingsContentWrapper = document.getElementById('settings-content-wrapper');
-    
-    // Bot settings API URL - configurable for dev/production
-    const BOT_API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
-        ? 'http://localhost:8080/api'  // Local development
-        : 'https://chatvibes-tts-service-h7kj56ct4q-uc.a.run.app/api';  // Production
-    
-    // Settings form elements
-    const ttsEnabledCheckbox = document.getElementById('tts-enabled');
-    const ttsModeSelect = document.getElementById('tts-mode');
-    const ttsPermissionSelect = document.getElementById('tts-permission');
-    const eventsEnabledCheckbox = document.getElementById('events-enabled');
-    const bitsEnabledCheckbox = document.getElementById('bits-enabled');
-    const bitsAmountInput = document.getElementById('bits-amount');
     const defaultVoiceSelect = document.getElementById('default-voice');
     const defaultEmotionSelect = document.getElementById('default-emotion');
     const defaultPitchSlider = document.getElementById('default-pitch');
@@ -416,23 +317,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const defaultSpeedSlider = document.getElementById('default-speed');
     const speedValueSpan = document.getElementById('speed-value');
     const defaultLanguageSelect = document.getElementById('default-language');
+    const englishNormalizationCheckbox = document.getElementById('english-normalization');
+
+    const ttsEnabledCheckbox = document.getElementById('tts-enabled');
+    const ttsModeSelect = document.getElementById('tts-mode');
+    const ttsPermissionSelect = document.getElementById('tts-permission');
+    const eventsEnabledCheckbox = document.getElementById('events-enabled');
+    const bitsEnabledCheckbox = document.getElementById('bits-enabled');
+    const bitsAmountInput = document.getElementById('bits-amount');
     const musicEnabledCheckbox = document.getElementById('music-enabled');
     const musicModeSelect = document.getElementById('music-mode');
     const musicBitsEnabledCheckbox = document.getElementById('music-bits-enabled');
     const musicBitsAmountInput = document.getElementById('music-bits-amount');
-    const englishNormalizationCheckbox = document.getElementById('english-normalization');
+
     const saveSettingsBtn = document.getElementById('save-settings-btn');
-    
-    // Voice test elements
+
     const voiceTestTextInput = document.getElementById('voice-test-text');
     const voiceTestBtn = document.getElementById('voice-test-btn');
-    const voiceTestStatus = document.getElementById('voice-test-status');
-    
-    // Reset buttons
-    const resetPitchBtn = document.getElementById('reset-pitch-btn');
-    const resetSpeedBtn = document.getElementById('reset-speed-btn');
 
-    // Channel Points -> TTS UI elements
+    // Channel Points elements
     const cpEnabled = document.getElementById('cp-enabled');
     const cpTitle = document.getElementById('cp-title');
     const cpCost = document.getElementById('cp-cost');
@@ -451,68 +354,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const cpMsg = document.getElementById('cp-msg');
     const cpStatusLine = document.getElementById('cp-status-line');
 
-    // Track original settings to detect changes
+    // Bot settings API URL
+    const BOT_API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+        ? 'http://localhost:8080/api'
+        : 'https://chatvibes-tts-service-h7kj56ct4q-uc.a.run.app/api';
+
     let originalSettings = {};
 
-    // Tab switching functionality
-    function switchTab(activeTabBtn, activePanel, inactiveTabBtn, inactivePanel) {
-        activeTabBtn.classList.add('active');
-        activePanel.classList.add('active');
-        inactiveTabBtn.classList.remove('active');
-        inactivePanel.classList.remove('active');
-    }
-
-    if (settingsTabBtn && obsTabBtn) {
-        settingsTabBtn.addEventListener('click', () => {
-            switchTab(settingsTabBtn, settingsPanel, obsTabBtn, obsSetupInstructions);
-        });
-
-        obsTabBtn.addEventListener('click', () => {
-            switchTab(obsTabBtn, obsSetupInstructions, settingsTabBtn, settingsPanel);
-        });
-    }
-
-    // Slider value updates
     if (defaultPitchSlider && pitchValueSpan) {
         defaultPitchSlider.addEventListener('input', () => {
             pitchValueSpan.textContent = defaultPitchSlider.value;
         });
     }
-
     if (defaultSpeedSlider && speedValueSpan) {
         defaultSpeedSlider.addEventListener('input', () => {
             speedValueSpan.textContent = defaultSpeedSlider.value;
         });
     }
 
-    // Reset button functionality
-    if (resetPitchBtn && defaultPitchSlider && pitchValueSpan) {
-        resetPitchBtn.addEventListener('click', () => {
-            defaultPitchSlider.value = '0';
-            pitchValueSpan.textContent = '0';
-        });
-    }
-
-    if (resetSpeedBtn && defaultSpeedSlider && speedValueSpan) {
-        resetSpeedBtn.addEventListener('click', () => {
-            defaultSpeedSlider.value = '1.0';
-            speedValueSpan.textContent = '1.0';
-        });
-    }
-
-    // Load available voices via bot API (avoids CORS issues)
     async function loadAvailableVoices() {
         if (!defaultVoiceSelect) return;
-        
-        // Fallback voice list in case API fails
         const fallbackVoices = [
             'Friendly_Person', 'Professional_Woman', 'Casual_Male', 'Energetic_Youth',
             'Warm_Grandmother', 'Confident_Leader', 'Soothing_Narrator', 'Cheerful_Assistant',
             'Deep_Narrator', 'Bright_Assistant', 'Calm_Guide', 'Energetic_Host'
         ];
-        
         try {
-            // Try to fetch from bot's API first (no CORS issues)
             const response = await fetch(`${BOT_API_BASE_URL}/voices`);
             if (response.ok) {
                 const voicesData = await response.json();
@@ -523,113 +390,44 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (error) {
             console.warn('Failed to load voices from bot API, using fallback:', error);
         }
-        
-        // Use fallback voices if all else fails
         populateVoices(fallbackVoices);
     }
-    
-    // Parse voices from Replicate text (same logic as bot)
-    function parseVoicesFromText(rawText) {
-        const lines = rawText.split('\n');
-        const allFoundVoiceIds = new Set();
-        
-        // Parse system voice IDs from input line
-        const voiceIdInputHeader = '- voice_id:';
-        const voiceIdInputLineIndex = lines.findIndex(line => line.trim().startsWith(voiceIdInputHeader));
-        
-        if (voiceIdInputLineIndex !== -1) {
-            const lineContent = lines[voiceIdInputLineIndex];
-            const systemVoicesMatch = lineContent.match(/system voice IDs:\s*([^)]+)\s*\(/i);
-            if (systemVoicesMatch && systemVoicesMatch[1]) {
-                const systemVoiceChunk = systemVoicesMatch[1];
-                systemVoiceChunk.split(',')
-                    .map(v => v.trim())
-                    .filter(v => v)
-                    .forEach(vId => allFoundVoiceIds.add(vId));
-            }
-        }
-        
-        // Parse main voice list
-        const mainListHeaderString = '> ## MiniMax TTS Voice List';
-        const mainListStartIndex = lines.findIndex(line => line.trim() === mainListHeaderString);
-        
-        if (mainListStartIndex !== -1) {
-            for (let i = mainListStartIndex + 1; i < lines.length; i++) {
-                const trimmed = lines[i].trim();
-                if (trimmed.startsWith('> - ')) {
-                    allFoundVoiceIds.add(trimmed.substring(4).trim());
-                } else if (trimmed.startsWith('- ')) {
-                    allFoundVoiceIds.add(trimmed.substring(2).trim());
-                } else if (trimmed === '' || trimmed === '>') {
-                    continue;
-                } else if (trimmed.startsWith('#') || trimmed.startsWith('> #')) {
-                    break;
-                }
-            }
-        }
-        
-        return Array.from(allFoundVoiceIds);
-    }
-    
+
     function populateVoices(voices) {
-        // Clear existing options
         defaultVoiceSelect.innerHTML = '';
-        
-        // Add voice options
         voices.forEach(voice => {
             const option = document.createElement('option');
             option.value = voice;
             option.textContent = voice.replace(/[_-]/g, ' ').replace(/\b\w/g, chr => chr.toUpperCase());
             defaultVoiceSelect.appendChild(option);
         });
-        
-        // Set default selection
         defaultVoiceSelect.value = 'Friendly_Person';
     }
 
-    // Load current settings from bot API
     async function loadBotSettings() {
         if (!loggedInUser?.login) {
             console.warn('No logged in user, cannot load bot settings');
-            if (settingsLoadingOverlay) settingsLoadingOverlay.style.display = 'none';
-            if (settingsContentWrapper) settingsContentWrapper.classList.remove('hidden');
             return;
         }
-
         try {
             const channelName = loggedInUser.login.toLowerCase();
-            
-            // Prepare headers with auth token
-            const headers = {
-                'Content-Type': 'application/json'
-            };
-            if (appSessionToken) {
-                headers['Authorization'] = `Bearer ${appSessionToken}`;
-            }
-            
-            // Load TTS settings
+            const headers = { 'Content-Type': 'application/json' };
+            if (appSessionToken) headers['Authorization'] = `Bearer ${appSessionToken}`;
+
+            // TTS settings
             let ttsData = { settings: {} };
             const ttsResponse = await fetch(`${BOT_API_BASE_URL}/tts/settings/channel/${channelName}`, { headers });
             if (ttsResponse.status === 403) {
-                // Channel not allowed, show invite-only message and stop processing
                 const errorData = await ttsResponse.json().catch(() => ({}));
-                if (settingsStatusMessage) {
-                    const errorText = errorData.details || errorData.message || "This channel is not permitted to use this service.";
-                    if (errorText.includes('https://detekoi.github.io/#contact-me')) {
-                        settingsStatusMessage.innerHTML = errorText.replace('https://detekoi.github.io/#contact-me', '<a href="https://detekoi.github.io/#contact-me" target="_blank" style="color: #007bff; text-decoration: underline;">this link</a>');
-                    } else {
-                        settingsStatusMessage.innerHTML = `${errorText} <a href="https://detekoi.github.io/#contact-me" target="_blank" style="color: #007bff; text-decoration: underline;">Request access here</a>.`;
-                    }
-                    settingsStatusMessage.style.color = 'red';
-                }
-                // Make sure loading overlay is hidden
-                if (settingsLoadingOverlay) settingsLoadingOverlay.style.display = 'none';
-                if (settingsContentWrapper) settingsContentWrapper.classList.remove('hidden');
-                return; // Stop processing settings
+                const errorText = errorData.details || errorData.message || 'This channel is not permitted to use this service.';
+                const html = errorText.includes('https://detekoi.github.io/#contact-me')
+                    ? errorText.replace('https://detekoi.github.io/#contact-me', '<a href="https://detekoi.github.io/#contact-me" target="_blank" class="link-light">this link</a>')
+                    : `${errorText} <a href=\"https://detekoi.github.io/#contact-me\" target=\"_blank\" class=\"link-light\">Request access here</a>.`;
+                showToast(html, 'error');
+                return;
             } else if (ttsResponse.ok) {
                 ttsData = await ttsResponse.json();
                 const settings = ttsData.settings || {};
-                
                 if (ttsEnabledCheckbox) ttsEnabledCheckbox.checked = settings.engineEnabled || false;
                 if (ttsModeSelect) ttsModeSelect.value = settings.mode || 'command';
                 if (ttsPermissionSelect) ttsPermissionSelect.value = settings.ttsPermissionLevel || 'everyone';
@@ -649,41 +447,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (defaultLanguageSelect) defaultLanguageSelect.value = settings.languageBoost || 'Automatic';
                 if (englishNormalizationCheckbox) englishNormalizationCheckbox.checked = settings.englishNormalization || false;
             }
-            
-            // Load Music settings
+
+            // Music settings
             let musicData = { settings: {} };
             const musicResponse = await fetch(`${BOT_API_BASE_URL}/music/settings/channel/${channelName}`, { headers });
             if (musicResponse.status === 403) {
-                // Already handled above for TTS, don't show duplicate message
-                // Make sure loading overlay is hidden
-                if (settingsLoadingOverlay) settingsLoadingOverlay.style.display = 'none';
-                if (settingsContentWrapper) settingsContentWrapper.classList.remove('hidden');
                 return;
             } else if (musicResponse.ok) {
                 musicData = await musicResponse.json();
                 const settings = musicData.settings || {};
-                
                 if (musicEnabledCheckbox) musicEnabledCheckbox.checked = settings.enabled || false;
                 if (musicModeSelect) {
-                    // Convert from allowedRoles array to simple mode
                     const mode = settings.allowedRoles?.includes('everyone') ? 'everyone' : 'moderator';
                     musicModeSelect.value = mode;
                 }
                 if (musicBitsEnabledCheckbox) musicBitsEnabledCheckbox.checked = settings.bitsModeEnabled || false;
                 if (musicBitsAmountInput) musicBitsAmountInput.value = settings.bitsMinimumAmount || 100;
             }
-            
-            // Display ignore lists
+
+            // Ignore lists
             displayIgnoreList('tts', ttsData.settings?.ignoredUsers || []);
             displayIgnoreList('music', musicData.settings?.ignoredUsers || []);
-            
-            // Store original settings for change detection
+
             originalSettings = {
                 tts: ttsData.settings || {},
                 music: musicData.settings || {}
             };
 
-            // Load Channel Points reward config from Cloud Functions
+            // Load Channel Points config from Cloud Functions
             try {
                 const res = await fetch(`${API_BASE_URL}/api/rewards/tts`, {
                     method: 'GET',
@@ -714,51 +505,24 @@ document.addEventListener('DOMContentLoaded', () => {
             } catch (err) {
                 console.warn('Failed to load Channel Points TTS config:', err);
             }
-            
         } catch (error) {
             console.error('Failed to load bot settings:', error);
-            if (settingsStatusMessage) {
-                if (error.message?.includes('Failed to fetch') || error.name === 'TypeError') {
-                    settingsStatusMessage.textContent = '⚠️ Settings management not available - bot needs to be updated with REST API endpoints. Using defaults for now.';
-                    settingsStatusMessage.style.color = 'orange';
-                } else {
-                    settingsStatusMessage.textContent = 'Failed to load current settings. Using defaults.';
-                    settingsStatusMessage.style.color = 'orange';
-                }
-            }
-        } finally {
-            // Hide loading overlay and show content regardless of success or failure
-            if (settingsLoadingOverlay) settingsLoadingOverlay.style.display = 'none';
-            if (settingsContentWrapper) settingsContentWrapper.classList.remove('hidden');
+            showToast('Failed to load current settings. Using defaults.', 'warning');
         }
     }
 
-    // Save settings to bot API
     async function saveBotSettings() {
         if (!loggedInUser?.login) {
             console.warn('No logged in user, cannot save bot settings');
             return;
         }
-
-        if (saveConfirmationMessage) {
-            saveConfirmationMessage.textContent = 'Saving settings...';
-            saveConfirmationMessage.style.color = 'blue';
-        }
-
         try {
             const channelName = loggedInUser.login.toLowerCase();
             const errors = [];
             const changedSettings = [];
+            const headers = { 'Content-Type': 'application/json' };
+            if (appSessionToken) headers['Authorization'] = `Bearer ${appSessionToken}`;
 
-            // Prepare headers with auth token
-            const headers = {
-                'Content-Type': 'application/json'
-            };
-            if (appSessionToken) {
-                headers['Authorization'] = `Bearer ${appSessionToken}`;
-            }
-
-            // Get current values and check for changes
             const currentTtsSettings = [
                 { key: 'engineEnabled', value: ttsEnabledCheckbox?.checked || false, label: 'TTS Engine' },
                 { key: 'mode', value: ttsModeSelect?.value || 'command', label: 'TTS Mode' },
@@ -771,32 +535,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 { key: 'pitch', value: parseInt(defaultPitchSlider?.value || '0'), label: 'Default Pitch' },
                 { key: 'speed', value: parseFloat(defaultSpeedSlider?.value || '1.0'), label: 'Default Speed' },
                 { key: 'languageBoost', value: defaultLanguageSelect?.value || 'Automatic', label: 'Default Language' },
-                { key: 'englishNormalization', value: englishNormalizationCheckbox.checked || false, label: 'English Normalization' }
+                { key: 'englishNormalization', value: englishNormalizationCheckbox?.checked || false, label: 'English Normalization' }
             ];
 
-            // Only save settings that have changed
             for (const setting of currentTtsSettings) {
                 const originalValue = originalSettings.tts?.[setting.key];
                 if (originalValue !== setting.value) {
                     const response = await fetch(`${BOT_API_BASE_URL}/tts/settings/channel/${channelName}`, {
-                        method: 'PUT',
-                        headers,
-                        body: JSON.stringify(setting)
+                        method: 'PUT', headers, body: JSON.stringify(setting)
                     });
-                    
                     if (response.ok) {
-                        changedSettings.push(`${setting.label}: ${setting.value}`);
+                        changedSettings.push(`${setting.label}`);
                     } else if (response.status === 403) {
-                        // Channel not allowed, show invite-only message and stop processing
                         const errorData = await response.json().catch(() => ({}));
-                        const errorText = errorData.details || errorData.message || "Channel is not allowed to use this service";
+                        const errorText = errorData.details || errorData.message || 'Channel is not allowed to use this service';
                         errors.push(`Forbidden: ${errorText}`);
-                        break; // Stop processing more settings
+                        break;
                     } else if (response.status === 400) {
                         const errorData = await response.json().catch(() => ({ error: 'Validation error' }));
                         console.warn(`TTS setting ${setting.key} validation failed:`, errorData.error);
                     } else if (response.status === 500 || response.status === 404) {
-                        errors.push(`Settings management not available yet - bot needs API update`);
+                        errors.push('Settings management not available yet - bot needs API update');
                         break;
                     } else {
                         const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
@@ -805,7 +564,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
-            // Check music settings for changes
             const currentMusicEnabled = musicEnabledCheckbox?.checked || false;
             const currentMusicMode = musicModeSelect?.value === 'everyone' ? ['everyone'] : ['moderator'];
             const currentMusicBitsEnabled = musicBitsEnabledCheckbox?.checked || false;
@@ -813,18 +571,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (originalSettings.music?.enabled !== currentMusicEnabled) {
                 const response = await fetch(`${BOT_API_BASE_URL}/music/settings/channel/${channelName}`, {
-                    method: 'PUT',
-                    headers,
-                    body: JSON.stringify({ key: 'enabled', value: currentMusicEnabled })
+                    method: 'PUT', headers, body: JSON.stringify({ key: 'enabled', value: currentMusicEnabled })
                 });
-                
                 if (response.ok) {
-                    changedSettings.push(`Music Generation: ${currentMusicEnabled ? 'Enabled' : 'Disabled'}`);
+                    changedSettings.push('Music Generation');
                 } else if (response.status === 403) {
                     const errorData = await response.json().catch(() => ({}));
-                    const errorText = errorData.details || errorData.message || "Channel is not allowed to use this service";
+                    const errorText = errorData.details || errorData.message || 'Channel is not allowed to use this service';
                     errors.push(`Forbidden: ${errorText}`);
-                    // Continue to show all forbidden errors for music settings
                 } else if (response.status !== 500 && response.status !== 404) {
                     const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
                     errors.push(`Music Generation: ${errorData.error}`);
@@ -833,16 +587,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (JSON.stringify(originalSettings.music?.allowedRoles) !== JSON.stringify(currentMusicMode)) {
                 const response = await fetch(`${BOT_API_BASE_URL}/music/settings/channel/${channelName}`, {
-                    method: 'PUT',
-                    headers,
-                    body: JSON.stringify({ key: 'allowedRoles', value: currentMusicMode })
+                    method: 'PUT', headers, body: JSON.stringify({ key: 'allowedRoles', value: currentMusicMode })
                 });
-                
                 if (response.ok) {
-                    changedSettings.push(`Music Access: ${currentMusicMode.includes('everyone') ? 'Everyone' : 'Moderators Only'}`);
+                    changedSettings.push('Music Access');
                 } else if (response.status === 403) {
                     const errorData = await response.json().catch(() => ({}));
-                    const errorText = errorData.details || errorData.message || "Channel is not allowed to use this service";
+                    const errorText = errorData.details || errorData.message || 'Channel is not allowed to use this service';
                     errors.push(`Forbidden: ${errorText}`);
                 } else if (response.status !== 500 && response.status !== 404) {
                     const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
@@ -850,25 +601,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
-            if (originalSettings.music?.bitsModeEnabled !== currentMusicBitsEnabled || 
+            if (originalSettings.music?.bitsModeEnabled !== currentMusicBitsEnabled ||
                 originalSettings.music?.bitsMinimumAmount !== currentMusicBitsAmount) {
                 const response = await fetch(`${BOT_API_BASE_URL}/music/settings/channel/${channelName}`, {
-                    method: 'PUT',
-                    headers,
-                    body: JSON.stringify({ 
-                        key: 'bitsConfig', 
-                        value: { 
-                            enabled: currentMusicBitsEnabled,
-                            minimumAmount: currentMusicBitsAmount
-                        }
-                    })
+                    method: 'PUT', headers,
+                    body: JSON.stringify({ key: 'bitsConfig', value: { enabled: currentMusicBitsEnabled, minimumAmount: currentMusicBitsAmount } })
                 });
-                
                 if (response.ok) {
-                    changedSettings.push(`Music Bits: ${currentMusicBitsEnabled ? 'Enabled' : 'Disabled'} (${currentMusicBitsAmount} bits)`);
+                    changedSettings.push('Music Bits');
                 } else if (response.status === 403) {
                     const errorData = await response.json().catch(() => ({}));
-                    const errorText = errorData.details || errorData.message || "Channel is not allowed to use this service";
+                    const errorText = errorData.details || errorData.message || 'Channel is not allowed to use this service';
                     errors.push(`Forbidden: ${errorText}`);
                 } else if (response.status !== 500 && response.status !== 404) {
                     const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
@@ -877,53 +620,27 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             if (errors.length > 0) {
-                if (saveConfirmationMessage) {
-                    saveConfirmationMessage.textContent = `Some settings failed to save: ${errors.join(', ')}`;
-                    saveConfirmationMessage.style.color = 'red';
-                }
+                showToast(`Some settings failed to save: ${errors.join(', ')}`,'error');
             } else if (changedSettings.length > 0) {
-                if (saveConfirmationMessage) {
-                    const changedCount = changedSettings.length;
-                    saveConfirmationMessage.innerHTML = `
-                        <strong>✅ Settings saved successfully!</strong><br>
-                        <small style="opacity: 0.8;">Updated ${changedCount} setting${changedCount > 1 ? 's' : ''}: ${changedSettings.slice(0, 2).join(', ')}${changedCount > 2 ? ` and ${changedCount - 2} more...` : ''}</small>
-                    `;
-                    saveConfirmationMessage.style.color = 'green';
-                }
-                // Update original settings to reflect the changes
+                const changedCount = changedSettings.length;
+                showToast(`✅ Settings saved successfully! (${changedCount} change${changedCount > 1 ? 's' : ''})`, 'success');
                 await loadBotSettings();
             } else {
-                if (saveConfirmationMessage) {
-                    saveConfirmationMessage.innerHTML = `<span style="opacity: 0.8;">No changes to save</span>`;
-                    saveConfirmationMessage.style.color = '#666';
-                }
+                showToast('No changes to save.', 'info');
             }
-            
         } catch (error) {
             console.error('Failed to save bot settings:', error);
-            if (saveConfirmationMessage) {
-                saveConfirmationMessage.textContent = 'Failed to save settings. Please try again.';
-                saveConfirmationMessage.style.color = 'red';
-            }
+            showToast('Failed to save settings. Please try again.', 'error');
         }
-
-        // Clear confirmation message after 5 seconds
-        setTimeout(() => {
-            if (saveConfirmationMessage) saveConfirmationMessage.textContent = '';
-        }, 5000);
     }
 
-    // Save settings button handler
     if (saveSettingsBtn) {
         saveSettingsBtn.addEventListener('click', saveBotSettings);
     }
 
-    // Save Channel Points config
+    // Channel Points actions
     async function saveChannelPointsConfig() {
-        if (!appSessionToken) {
-            if (cpMsg) cpMsg.textContent = 'Authentication required';
-            return;
-        }
+        if (!appSessionToken) { showToast('Authentication required', 'error'); return; }
         const payload = {
             enabled: !!cpEnabled?.checked,
             title: cpTitle?.value || 'Text-to-Speech Message',
@@ -944,7 +661,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
         try {
-            if (cpMsg) { cpMsg.textContent = 'Saving…'; cpMsg.style.color = 'blue'; }
+            showToast('Saving Channel Points config…', 'info');
             const res = await fetch(`${API_BASE_URL}/api/rewards/tts`, {
                 method: 'POST',
                 headers: { 'Authorization': `Bearer ${appSessionToken}`, 'Content-Type': 'application/json' },
@@ -953,31 +670,25 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             const data = await res.json().catch(() => ({}));
             if (!res.ok) {
-                if (cpMsg) { cpMsg.textContent = data.error || 'Save failed'; cpMsg.style.color = 'red'; }
+                showToast(data.error || 'Save failed', 'error');
                 return;
             }
-            if (cpMsg) { cpMsg.textContent = 'Saved ✓'; cpMsg.style.color = 'green'; }
+            showToast('Channel Points saved ✓', 'success');
             if (cpStatusLine) {
                 const idPart = data.rewardId ? `Reward ID: ${data.rewardId}` : 'No reward created';
                 cpStatusLine.textContent = `${idPart} · Last synced: ${new Date().toLocaleTimeString()}`;
             }
         } catch (e) {
-            if (cpMsg) { cpMsg.textContent = 'Save failed'; cpMsg.style.color = 'red'; }
-        } finally {
-            setTimeout(() => { if (cpMsg) cpMsg.textContent = ''; }, 4000);
+            showToast('Save failed', 'error');
         }
     }
 
-    // Test redeem simulate
     async function testChannelPointsRedeem() {
-        if (!appSessionToken) {
-            if (cpMsg) cpMsg.textContent = 'Authentication required';
-            return;
-        }
+        if (!appSessionToken) { showToast('Authentication required', 'error'); return; }
         const text = prompt('Enter a test message to simulate a redemption:');
         if (!text) return;
         try {
-            if (cpMsg) { cpMsg.textContent = 'Testing…'; cpMsg.style.color = 'blue'; }
+            showToast('Testing redeem…', 'info');
             const res = await fetch(`${API_BASE_URL}/api/rewards/tts:test`, {
                 method: 'POST',
                 headers: { 'Authorization': `Bearer ${appSessionToken}`, 'Content-Type': 'application/json' },
@@ -986,43 +697,32 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             const data = await res.json().catch(() => ({}));
             if (!res.ok) {
-                if (cpMsg) { cpMsg.textContent = data.error || 'Test failed'; cpMsg.style.color = 'red'; }
+                showToast(data.error || 'Test failed', 'error');
                 return;
             }
-            if (cpMsg) { cpMsg.textContent = `Test validated ✓ (${data.status || 'ok'})`; cpMsg.style.color = 'green'; }
+            showToast(`Test validated ✓ (${data.status || 'ok'})`, 'success');
         } catch (e) {
-            if (cpMsg) { cpMsg.textContent = 'Test failed'; cpMsg.style.color = 'red'; }
-        } finally {
-            setTimeout(() => { if (cpMsg) cpMsg.textContent = ''; }, 4000);
+            showToast('Test failed', 'error');
         }
     }
 
-    // Delete reward
     async function deleteChannelPointsReward() {
-        if (!appSessionToken) {
-            if (cpMsg) cpMsg.textContent = 'Authentication required';
-            return;
-        }
+        if (!appSessionToken) { showToast('Authentication required', 'error'); return; }
         if (!confirm('Disable & delete the Channel Points TTS reward?')) return;
         try {
-            if (cpMsg) { cpMsg.textContent = 'Deleting…'; cpMsg.style.color = 'blue'; }
+            showToast('Deleting…', 'info');
             const res = await fetch(`${API_BASE_URL}/api/rewards/tts`, {
                 method: 'DELETE',
                 headers: { 'Authorization': `Bearer ${appSessionToken}` },
                 credentials: 'include'
             });
             const data = await res.json().catch(() => ({}));
-            if (!res.ok) {
-                if (cpMsg) { cpMsg.textContent = data.error || 'Delete failed'; cpMsg.style.color = 'red'; }
-                return;
-            }
+            if (!res.ok) { showToast(data.error || 'Delete failed', 'error'); return; }
             if (cpEnabled) cpEnabled.checked = false;
             if (cpStatusLine) cpStatusLine.textContent = 'No reward created · Last synced: ' + new Date().toLocaleTimeString();
-            if (cpMsg) { cpMsg.textContent = 'Disabled & deleted ✓'; cpMsg.style.color = 'green'; }
+            showToast('Disabled & deleted ✓', 'success');
         } catch (e) {
-            if (cpMsg) { cpMsg.textContent = 'Delete failed'; cpMsg.style.color = 'red'; }
-        } finally {
-            setTimeout(() => { if (cpMsg) cpMsg.textContent = ''; }, 4000);
+            showToast('Delete failed', 'error');
         }
     }
 
@@ -1030,147 +730,98 @@ document.addEventListener('DOMContentLoaded', () => {
     if (cpTestBtn) cpTestBtn.addEventListener('click', testChannelPointsRedeem);
     if (cpDeleteBtn) cpDeleteBtn.addEventListener('click', deleteChannelPointsReward);
 
-    // Display ignore list
     function displayIgnoreList(type, users) {
         const listEl = document.getElementById(`${type}-ignore-list`);
         if (!listEl) return;
-        
         listEl.innerHTML = '';
         users.forEach(username => {
             const li = document.createElement('li');
-            li.innerHTML = `
-                <span>${username}</span>
-                <button class="remove-btn" onclick="removeFromIgnoreList('${type}', '${username}')">Remove</button>
-            `;
+            li.className = 'list-group-item';
+            li.innerHTML = `<span>${username}</span><button class="btn btn-outline-danger btn-sm" onclick="removeFromIgnoreList('${type}', '${username}')">Remove</button>`;
             listEl.appendChild(li);
         });
-        
         if (users.length === 0) {
             const li = document.createElement('li');
-            li.innerHTML = '<span style="color: #999; font-style: italic;">No ignored users</span>';
+            li.className = 'list-group-item';
+            li.innerHTML = '<span class="text-muted fst-italic">No ignored users</span>';
             listEl.appendChild(li);
         }
     }
-    
-    // Add to ignore list
+
     async function addToIgnoreList(type) {
         const inputEl = document.getElementById(`${type}-ignore-username`);
         const username = inputEl?.value?.trim();
-        
-        if (!username) {
-            alert('Please enter a username');
-            return;
-        }
-        
-        if (!loggedInUser?.login) {
-            alert('Not logged in');
-            return;
-        }
-        
+        if (!username) { showToast('Please enter a username', 'warning'); return; }
+        if (!loggedInUser?.login) { showToast('Not logged in', 'error'); return; }
         try {
             const channelName = loggedInUser.login.toLowerCase();
-            const headers = {
-                'Content-Type': 'application/json'
-            };
-            if (appSessionToken) {
-                headers['Authorization'] = `Bearer ${appSessionToken}`;
-            }
-            
+            const headers = { 'Content-Type': 'application/json' };
+            if (appSessionToken) headers['Authorization'] = `Bearer ${appSessionToken}`;
             const response = await fetch(`${BOT_API_BASE_URL}/${type}/ignore/channel/${channelName}`, {
-                method: 'POST',
-                headers,
-                body: JSON.stringify({ username })
+                method: 'POST', headers, body: JSON.stringify({ username })
             });
-            
             if (response.ok) {
                 inputEl.value = '';
-                loadBotSettings(); // Refresh the lists
+                loadBotSettings();
             } else {
                 if (response.status === 500 || response.status === 404) {
-                    alert('Settings management is not available yet. The bot needs to be updated with the new REST API endpoints.');
+                    showToast('Settings management is not available yet. The bot needs to be updated with the new REST API endpoints.', 'warning');
                 } else {
                     const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
-                    alert(`Failed to add user: ${errorData.error}`);
+                    showToast(`Failed to add user: ${errorData.error}`, 'error');
                 }
             }
         } catch (error) {
             console.error(`Failed to add user to ${type} ignore list:`, error);
-            alert('Failed to add user to ignore list');
+            showToast('Failed to add user to ignore list', 'error');
         }
     }
-    
-    // Remove from ignore list  
+
     async function removeFromIgnoreList(type, username) {
-        if (!loggedInUser?.login) {
-            alert('Not logged in');
-            return;
-        }
-        
+        if (!loggedInUser?.login) { showToast('Not logged in', 'error'); return; }
         try {
             const channelName = loggedInUser.login.toLowerCase();
-            const headers = {
-                'Content-Type': 'application/json'
-            };
-            if (appSessionToken) {
-                headers['Authorization'] = `Bearer ${appSessionToken}`;
-            }
-            
+            const headers = { 'Content-Type': 'application/json' };
+            if (appSessionToken) headers['Authorization'] = `Bearer ${appSessionToken}`;
             const response = await fetch(`${BOT_API_BASE_URL}/${type}/ignore/channel/${channelName}`, {
-                method: 'DELETE',
-                headers,
-                body: JSON.stringify({ username })
+                method: 'DELETE', headers, body: JSON.stringify({ username })
             });
-            
             if (response.ok) {
-                loadBotSettings(); // Refresh the lists
+                loadBotSettings();
             } else {
                 if (response.status === 500 || response.status === 404) {
-                    alert('Settings management is not available yet. The bot needs to be updated with the new REST API endpoints.');
+                    showToast('Settings management is not available yet. The bot needs to be updated with the new REST API endpoints.', 'warning');
                 } else {
                     const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
-                    alert(`Failed to remove user: ${errorData.error}`);
+                    showToast(`Failed to remove user: ${errorData.error}`, 'error');
                 }
             }
         } catch (error) {
             console.error(`Failed to remove user from ${type} ignore list:`, error);
-            alert('Failed to remove user from ignore list');
+            showToast('Failed to remove user from ignore list', 'error');
         }
     }
-    
-    // Voice test functionality
+
+    // Expose for inline onclick
+    window.removeFromIgnoreList = removeFromIgnoreList;
+
+    const addTtsIgnoreBtn = document.getElementById('add-tts-ignore-btn');
+    const addMusicIgnoreBtn = document.getElementById('add-music-ignore-btn');
+    if (addTtsIgnoreBtn) addTtsIgnoreBtn.addEventListener('click', () => addToIgnoreList('tts'));
+    if (addMusicIgnoreBtn) addMusicIgnoreBtn.addEventListener('click', () => addToIgnoreList('music'));
+
     async function testVoice() {
-        if (!voiceTestTextInput || !voiceTestBtn || !voiceTestStatus) {
+        if (!voiceTestTextInput || !voiceTestBtn) {
             console.error('Voice test elements not found');
             return;
         }
-
         const text = voiceTestTextInput.value.trim();
-        if (!text) {
-            voiceTestStatus.textContent = 'Please enter some text to test';
-            voiceTestStatus.style.color = 'orange';
-            return;
-        }
-
-        if (text.length > 500) {
-            voiceTestStatus.textContent = 'Text must be 500 characters or less';
-            voiceTestStatus.style.color = 'red';
-            return;
-        }
-
-        if (!appSessionToken) {
-            voiceTestStatus.textContent = 'Authentication required';
-            voiceTestStatus.style.color = 'red';
-            return;
-        }
-
-        // Disable button and show loading state
+        if (!text) { showToast('Please enter some text to test', 'warning'); return; }
+        if (text.length > 500) { showToast('Text must be 500 characters or less', 'error'); return; }
+        if (!appSessionToken) { showToast('Authentication required', 'error'); return; }
         voiceTestBtn.disabled = true;
         voiceTestBtn.textContent = 'Generating...';
-        voiceTestStatus.textContent = 'Generating voice sample...';
-        voiceTestStatus.style.color = 'blue';
-
         try {
-            // Get current voice settings from the form
             const voiceSettings = {
                 text: text,
                 voiceId: defaultVoiceSelect?.value || 'Friendly_Person',
@@ -1179,100 +830,40 @@ document.addEventListener('DOMContentLoaded', () => {
                 speed: parseFloat(defaultSpeedSlider?.value || '1.0'),
                 languageBoost: defaultLanguageSelect?.value || 'Automatic'
             };
-
-            console.log('Testing voice with settings:', voiceSettings);
-
             const response = await fetch(`${API_BASE_URL}/api/tts/test`, {
                 method: 'POST',
-                headers: {
-                    'Authorization': `Bearer ${appSessionToken}`,
-                    'Content-Type': 'application/json'
-                },
+                headers: { 'Authorization': `Bearer ${appSessionToken}`, 'Content-Type': 'application/json' },
                 body: JSON.stringify(voiceSettings)
             });
-
             if (!response.ok) {
                 const errorData = await response.json().catch(() => ({ message: response.statusText }));
                 throw new Error(errorData.message || `Request failed with status ${response.status}`);
             }
-
             const data = await response.json();
-
             if (data.success && data.audioUrl) {
-                voiceTestStatus.textContent = 'Playing voice sample...';
-                voiceTestStatus.style.color = 'green';
-
-                // Create and play audio element
                 const audio = new Audio(data.audioUrl);
-                audio.onloadstart = () => {
-                    voiceTestStatus.textContent = 'Loading audio...';
-                };
-                audio.oncanplaythrough = () => {
-                    voiceTestStatus.textContent = 'Playing voice sample...';
-                };
-                audio.onended = () => {
-                    voiceTestStatus.textContent = 'Voice test completed!';
-                    setTimeout(() => {
-                        if (voiceTestStatus) voiceTestStatus.textContent = '';
-                    }, 3000);
-                };
-                audio.onerror = () => {
-                    voiceTestStatus.textContent = 'Error playing audio sample';
-                    voiceTestStatus.style.color = 'red';
-                    setTimeout(() => {
-                        if (voiceTestStatus) voiceTestStatus.textContent = '';
-                    }, 5000);
-                };
-                
+                audio.onerror = () => { showToast('Error playing audio sample', 'error'); };
                 await audio.play();
             } else {
                 throw new Error(data.message || 'Failed to generate voice sample');
             }
-
         } catch (error) {
             console.error('Voice test error:', error);
-            voiceTestStatus.textContent = `Voice test failed: ${error.message}`;
-            voiceTestStatus.style.color = 'red';
-            setTimeout(() => {
-                if (voiceTestStatus) voiceTestStatus.textContent = '';
-            }, 5000);
+            showToast(`Voice test failed: ${error.message}`, 'error');
         } finally {
-            // Re-enable button
             voiceTestBtn.disabled = false;
-            voiceTestBtn.textContent = 'Test Voice';
+            voiceTestBtn.textContent = 'Send Preview';
         }
     }
 
-    // Voice test button event listener
-    if (voiceTestBtn) {
-        voiceTestBtn.addEventListener('click', testVoice);
-    }
+    if (voiceTestBtn) voiceTestBtn.addEventListener('click', testVoice);
 
-    // Make functions global for onclick handlers
-    window.removeFromIgnoreList = removeFromIgnoreList;
-    
-    // Add event listeners for ignore list buttons
-    const addTtsIgnoreBtn = document.getElementById('add-tts-ignore-btn');
-    const addMusicIgnoreBtn = document.getElementById('add-music-ignore-btn');
-    
-    if (addTtsIgnoreBtn) {
-        addTtsIgnoreBtn.addEventListener('click', () => addToIgnoreList('tts'));
-    }
-    
-    if (addMusicIgnoreBtn) {
-        addMusicIgnoreBtn.addEventListener('click', () => addToIgnoreList('music'));
-    }
-
-    // Initialize settings panel
     async function initializeSettingsPanel() {
-        // No longer need to show the overlay here as it's done in initializeDashboard
         await loadAvailableVoices();
         await loadBotSettings();
     }
 
-    // Initialize the dashboard
     initializeDashboard().then(() => {
-        // Initialize settings panel after dashboard is loaded
         initializeSettingsPanel();
     });
 });

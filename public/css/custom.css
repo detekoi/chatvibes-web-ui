@@ -1,0 +1,99 @@
+/* ChatVibes custom Bootstrap overrides */
+
+/* Fonts */
+body {
+    font-family: 'Atkinson Hyperlegible', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+/* Card rounding */
+.card {
+    border-radius: 8px !important;
+}
+
+/* Optional: rounder controls for a softer look */
+.form-control,
+.form-select,
+.btn {
+    border-radius: 8px !important;
+}
+
+/* Sticky sidebar offset helper (optional) */
+.sticky-aside {
+    top: 1rem;
+}
+
+/* Danger Zone card styling */
+.card.danger-zone {
+    border: 2px solid #f44336 !important;
+    background-color: #ffebee !important;
+}
+.card.danger-zone .card-header,
+.card.danger-zone h5 {
+    color: #c62828;
+    font-weight: 700;
+}
+.card.danger-zone p {
+    color: #d32f2f;
+}
+
+/* Native <dialog> confirm modal styling */
+dialog.modal {
+    border: none;
+    border-radius: 8px;
+    padding: 0;
+    max-width: 420px;
+    width: 90%;
+    background: transparent;
+}
+dialog.modal::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+}
+.modal-content {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+.modal-content h3 {
+    color: #c62828;
+    margin-bottom: 0.75rem;
+}
+.modal-content p {
+    color: #666;
+    margin-bottom: 1rem;
+}
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+}
+
+/* Static background canvas stays behind */
+#staticCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+
+/* Utility for lists in ignore cards */
+.ignore-list.list-group li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Small helper for help icons, if used */
+.help-icon {
+    display: inline-block;
+    width: 1.25rem;
+    height: 1.25rem;
+    line-height: 1.25rem;
+    text-align: center;
+    border-radius: 50%;
+    background: #e9ecef;
+    color: #6c757d;
+    font-weight: 700;
+    cursor: help;
+}

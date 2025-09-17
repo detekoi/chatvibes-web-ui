@@ -4,343 +4,393 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChatVibes Dashboard</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Cabin+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Custom overrides -->
+    <link rel="stylesheet" href="css/custom.css">
+
     <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg==">
-    <script
-    src="https://app.rybbit.io/api/script.js"
-    data-site-id="780"
-    defer
-></script>
+
+    <script src="https://app.rybbit.io/api/script.js" data-site-id="780" defer></script>
 </head>
 <body>
-    <canvas id="staticCanvas" style="width:100vw; height:100vh; position:fixed; top:0; left:0; z-index:-1;"></canvas>
-    <div class="container">
-        <h1>ChatVibes Dashboard</h1>
-        <p>Welcome, <span id="twitch-username">loading...</span>!</p>
-        <div id="bot-status-container">
-            <p>Bot status for channel <strong id="channel-name-status">your channel</strong>: <strong id="bot-status">Loading...</strong></p>
-            <button id="add-bot-btn" class="button" style="display:none;">Add Bot to My Channel</button>
-            <button id="remove-bot-btn" class="button" style="display:none;">Remove Bot from My Channel</button>
+    <canvas id="staticCanvas"></canvas>
+
+    <div class="container my-4">
+        <div class="d-flex align-items-center justify-content-between mb-3">
+            <h1 class="h3 mb-0">ChatVibes Dashboard</h1>
+            <a href="#" id="logout-link" class="btn btn-link">Logout</a>
         </div>
-        <p id="action-message"></p>
-        
-        <p style="text-align: center; margin: 20px 0;"><a href="https://detekoi.github.io/chatvibesdocs.html" target="_blank">Documentation</a></p>
-        
-        <!-- Tab Navigation -->
-        <div class="tab-container">
-            <div class="tab-nav">
-                <button id="settings-tab-btn" class="tab-button active">Settings</button>
-                <button id="obs-tab-btn" class="tab-button">OBS Setup</button>
+        <p class="text-center mb-3">
+            <a href="https://detekoi.github.io/chatvibesdocs.html" target="_blank" class="link-primary">Documentation</a>
+        </p>
+
+        <div class="row g-4">
+            <!-- Main column -->
+            <div class="col-12 col-lg-8">
+                <!-- Tabs -->
+                <ul class="nav nav-tabs mb-3" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-broadcaster" type="button" role="tab">Broadcaster</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-viewer-defaults" type="button" role="tab">Viewer Defaults</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-integrations" type="button" role="tab">Integrations</button>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <!-- Broadcaster Tab -->
+                    <div class="tab-pane fade show active" id="tab-broadcaster" role="tabpanel">
+                        <!-- Bot Status & Control -->
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <p class="mb-1">Welcome, <span id="twitch-username">loading...</span>!</p>
+                                <p class="mb-3">Bot status for channel <strong id="channel-name-status">your channel</strong>: <strong id="bot-status">Loading...</strong></p>
+                                <div class="d-flex gap-2">
+                                    <button id="add-bot-btn" class="btn btn-outline-primary" style="display:none;" type="button">Add Bot to My Channel</button>
+                                    <button id="remove-bot-btn" class="btn btn-outline-danger" style="display:none;" type="button">Remove Bot from My Channel</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Engine & Mode -->
+                        <div class="card mb-4">
+                            <div class="card-header">Engine &amp; Mode</div>
+                            <div class="card-body">
+                                <div class="form-check form-switch mb-3">
+                                    <input class="form-check-input" type="checkbox" id="tts-enabled">
+                                    <label class="form-check-label" for="tts-enabled">TTS Engine Enabled</label>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="tts-mode" class="form-label">TTS Mode</label>
+                                    <select id="tts-mode" class="form-select">
+                                        <option value="all">All Messages</option>
+                                        <option value="command">Commands Only</option>
+                                        <option value="bits_points_only">Bits/Points Only</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="tts-permission" class="form-label">TTS Permission</label>
+                                    <select id="tts-permission" class="form-select">
+                                        <option value="everyone">Everyone</option>
+                                        <option value="mods">Moderators Only</option>
+                                    </select>
+                                </div>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="events-enabled">
+                                    <label class="form-check-label" for="events-enabled">Announce Events (subs, raids, etc.)</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bits -> TTS -->
+                        <div class="card mb-4">
+                            <div class="card-header">Bits → TTS</div>
+                            <div class="card-body">
+                                <div class="form-check form-switch mb-3">
+                                    <input class="form-check-input" type="checkbox" id="bits-enabled">
+                                    <label class="form-check-label" for="bits-enabled">Require Bits for TTS</label>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="bits-amount" class="form-label">Minimum Bits Required</label>
+                                    <input type="number" id="bits-amount" class="form-control" min="0" value="100">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Channel Points -> TTS -->
+                        <div class="card mb-4">
+                            <div class="card-header">Channel Points → TTS</div>
+                            <div class="card-body">
+                                <div class="form-check form-switch mb-3">
+                                    <input class="form-check-input" type="checkbox" id="cp-enabled">
+                                    <label class="form-check-label" for="cp-enabled">Enable Channel Points TTS</label>
+                                </div>
+                                <div class="row g-3">
+                                    <div class="col-12 col-md-6">
+                                        <label class="form-label" for="cp-title">Reward title</label>
+                                        <input id="cp-title" class="form-control" placeholder="Text-to-Speech Message">
+                                        <div class="form-text">Must be unique in your channel.</div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <label class="form-label" for="cp-cost">Cost (points)</label>
+                                        <input id="cp-cost" type="number" min="1" class="form-control" placeholder="500">
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label" for="cp-prompt">Viewer prompt</label>
+                                        <input id="cp-prompt" class="form-control" placeholder="Enter a message to be read aloud">
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-check">
+                                            <input id="cp-skip-queue" type="checkbox" class="form-check-input">
+                                            <label for="cp-skip-queue" class="form-check-label">Auto-approve (skip queue)</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <details class="mt-3">
+                                    <summary class="fw-semibold">Advanced</summary>
+                                    <div class="row g-3 mt-2">
+                                        <div class="col-12 col-md-4">
+                                            <label class="form-label" for="cp-cooldown">Global cooldown (sec)</label>
+                                            <input id="cp-cooldown" type="number" min="0" max="3600" class="form-control" placeholder="0">
+                                        </div>
+                                        <div class="col-12 col-md-4">
+                                            <label class="form-label" for="cp-per-stream">Per-stream limit</label>
+                                            <input id="cp-per-stream" type="number" min="0" max="1000" class="form-control" placeholder="0">
+                                        </div>
+                                        <div class="col-12 col-md-4">
+                                            <label class="form-label" for="cp-per-user">Per-user per stream</label>
+                                            <input id="cp-per-user" type="number" min="0" max="1000" class="form-control" placeholder="0">
+                                        </div>
+                                        <div class="col-12 col-md-4">
+                                            <label class="form-label" for="cp-min">Min chars</label>
+                                            <input id="cp-min" type="number" min="0" max="500" class="form-control" placeholder="1">
+                                        </div>
+                                        <div class="col-12 col-md-4">
+                                            <label class="form-label" for="cp-max">Max chars</label>
+                                            <input id="cp-max" type="number" min="1" max="500" class="form-control" placeholder="200">
+                                        </div>
+                                        <div class="col-12 col-md-4 d-flex align-items-center" style="gap:8px;">
+                                            <input id="cp-block-links" type="checkbox" class="form-check-input me-2" checked>
+                                            <label for="cp-block-links" class="form-check-label">Block links</label>
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label" for="cp-banned-words">Banned words (comma-separated)</label>
+                                            <input id="cp-banned-words" class="form-control" placeholder="">
+                                        </div>
+                                    </div>
+                                </details>
+
+                                <div class="d-flex align-items-center gap-2 mt-3">
+                                    <button id="cp-save" class="btn btn-primary" type="button">Save</button>
+                                    <button id="cp-test" class="btn btn-outline-secondary" type="button">Test redeem</button>
+                                    <button id="cp-delete" class="btn btn-outline-danger" type="button">Disable &amp; Delete</button>
+                                    <div class="ms-auto small text-muted">
+                                        <span id="cp-status-line"></span>
+                                    </div>
+                                </div>
+                                <p id="cp-msg" class="small mt-2 mb-0"></p>
+                            </div>
+                        </div>
+
+                        <!-- Music Generation -->
+                        <div class="card mb-4">
+                            <div class="card-header">Music Generation</div>
+                            <div class="card-body">
+                                <div class="form-check form-switch mb-3">
+                                    <input class="form-check-input" type="checkbox" id="music-enabled">
+                                    <label class="form-check-label" for="music-enabled">Music Generation Enabled</label>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="music-mode" class="form-label">Who Can Generate Music</label>
+                                    <select id="music-mode" class="form-select">
+                                        <option value="everyone">Everyone</option>
+                                        <option value="moderator">Moderators Only</option>
+                                    </select>
+                                </div>
+                                <div class="form-check form-switch mb-3">
+                                    <input class="form-check-input" type="checkbox" id="music-bits-enabled">
+                                    <label class="form-check-label" for="music-bits-enabled">Require Bits for Music</label>
+                                </div>
+                                <div class="mb-0">
+                                    <label for="music-bits-amount" class="form-label">Minimum Bits for Music</label>
+                                    <input type="number" id="music-bits-amount" class="form-control" min="0" value="100">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Ignored Users -->
+                        <div class="card mb-4">
+                            <div class="card-header">Ignored Users</div>
+                            <div class="card-body">
+                                <div class="mb-4">
+                                    <h6 class="mb-2">TTS Ignore List</h6>
+                                    <div class="input-group mb-2">
+                                        <input type="text" id="tts-ignore-username" class="form-control" placeholder="Username to ignore">
+                                        <button id="add-tts-ignore-btn" class="btn btn-secondary" type="button">Add</button>
+                                    </div>
+                                    <ul id="tts-ignore-list" class="ignore-list list-group"></ul>
+                                </div>
+                                <div>
+                                    <h6 class="mb-2">Music Ignore List</h6>
+                                    <div class="input-group mb-2">
+                                        <input type="text" id="music-ignore-username" class="form-control" placeholder="Username to ignore">
+                                        <button id="add-music-ignore-btn" class="btn btn-secondary" type="button">Add</button>
+                                    </div>
+                                    <ul id="music-ignore-list" class="ignore-list list-group"></ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-grid">
+                            <button id="save-settings-btn" class="btn btn-primary" type="button">Save All Settings</button>
+                        </div>
+                    </div>
+
+                    <!-- Viewer Defaults Tab -->
+                    <div class="tab-pane fade" id="tab-viewer-defaults" role="tabpanel">
+                        <div class="card mb-4">
+                            <div class="card-header">Default Voice Settings</div>
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <label for="default-voice" class="form-label">Default Voice</label>
+                                    <select id="default-voice" class="form-select">
+                                        <option value="Friendly_Person">Loading voices...</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="default-emotion" class="form-label">Default Emotion</label>
+                                    <select id="default-emotion" class="form-select">
+                                        <option value="auto">Auto</option>
+                                        <option value="neutral">Neutral</option>
+                                        <option value="happy">Happy</option>
+                                        <option value="sad">Sad</option>
+                                        <option value="angry">Angry</option>
+                                        <option value="fearful">Fearful</option>
+                                        <option value="disgusted">Disgusted</option>
+                                        <option value="surprised">Surprised</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="default-pitch" class="form-label">Default Pitch (-12 to +12): <span id="pitch-value">0</span></label>
+                                    <div class="d-flex align-items-center">
+                                        <input type="range" id="default-pitch" class="form-range me-3" min="-12" max="12" value="0">
+                                        <button id="reset-pitch-btn" class="btn btn-outline-secondary btn-sm" type="button">Reset</button>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="default-speed" class="form-label">Default Speed (0.5 to 2.0): <span id="speed-value">1.0</span></label>
+                                    <div class="d-flex align-items-center">
+                                        <input type="range" id="default-speed" class="form-range me-3" min="0.5" max="2.0" step="0.1" value="1.0">
+                                        <button id="reset-speed-btn" class="btn btn-outline-secondary btn-sm" type="button">Reset</button>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="default-language" class="form-label">Default Language</label>
+                                    <select id="default-language" class="form-select">
+                                        <option value="None">None</option>
+                                        <option value="Automatic">Automatic</option>
+                                        <option value="Chinese">Chinese</option>
+                                        <option value="Chinese,Yue">Chinese, Yue</option>
+                                        <option value="English">English</option>
+                                        <option value="Arabic">Arabic</option>
+                                        <option value="Russian">Russian</option>
+                                        <option value="Spanish">Spanish</option>
+                                        <option value="French">French</option>
+                                        <option value="Portuguese">Portuguese</option>
+                                        <option value="German">German</option>
+                                        <option value="Turkish">Turkish</option>
+                                        <option value="Dutch">Dutch</option>
+                                        <option value="Ukrainian">Ukrainian</option>
+                                        <option value="Vietnamese">Vietnamese</option>
+                                        <option value="Indonesian">Indonesian</option>
+                                        <option value="Japanese">Japanese</option>
+                                        <option value="Italian">Italian</option>
+                                        <option value="Korean">Korean</option>
+                                        <option value="Thai">Thai</option>
+                                        <option value="Polish">Polish</option>
+                                        <option value="Romanian">Romanian</option>
+                                        <option value="Greek">Greek</option>
+                                        <option value="Czech">Czech</option>
+                                        <option value="Finnish">Finnish</option>
+                                        <option value="Hindi">Hindi</option>
+                                    </select>
+                                </div>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="english-normalization">
+                                    <label class="form-check-label" for="english-normalization">English Normalization</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Integrations Tab (OBS) -->
+                    <div class="tab-pane fade" id="tab-integrations" role="tabpanel">
+                        <div class="card mb-4">
+                            <div class="card-header">ChatVibes OBS Setup</div>
+                            <div class="card-body">
+                                <p class="mb-3">To hear ChatVibes TTS alerts in your stream and for yourself, add it as a Browser Source in OBS (or Streamlabs, etc.) and configure audio monitoring. The URL below is a secure Browser Source URL with authentication tokens. For usage instructions, visit the <a href="https://detekoi.github.io/chatvibesdocs.html" target="_blank">documentation page</a>.</p>
+
+                                <div class="row g-2 align-items-center tts-url-container mb-1">
+                                    <div class="col-12 col-md-9">
+                                        <input type="text" id="tts-url-field" class="form-control" readonly placeholder="Your TTS URL will appear here...">
+                                    </div>
+                                    <div class="col-12 col-md-3 d-grid">
+                                        <button id="copy-tts-url-btn" class="btn btn-outline-primary" type="button">Copy URL</button>
+                                    </div>
+                                </div>
+                                <p class="mb-3"><a href="#" id="regenerate-tts-url-btn" class="link-secondary">Regenerate URL</a></p>
+
+                                <h6>Step 1: Add Browser Source</h6>
+                                <ol>
+                                    <li>In OBS, under 'Sources', click the '+' button.</li>
+                                    <li>Select 'Browser'.</li>
+                                    <li>Give it a name (e.g., "ChatVibes TTS").</li>
+                                    <li>In the properties window:
+                                        <ul>
+                                            <li><strong>URL:</strong> Paste the URL copied from above.</li>
+                                            <li><strong>Width &amp; Height:</strong> You can safely ignore these settings, or set them to something small (e.g., 300x100), as this source is for audio only.</li>
+                                            <li>Ensure "Control audio via OBS" is CHECKED.</li>
+                                            <li>For persistent audio, it's recommended to UNCHECK "Shutdown source when not visible" and "Refresh browser when scene becomes active".</li>
+                                        </ul>
+                                    </li>
+                                    <li>Click 'OK'.</li>
+                                </ol>
+
+                                <h6 class="mt-3">Step 2: Enable Audio Monitoring</h6>
+                                <ol>
+                                    <li>In OBS, find your audio mixer (usually at the bottom).</li>
+                                    <li>Locate the audio source for "ChatVibes TTS" (or whatever you named it).</li>
+                                    <li>Click the gear icon (⚙️) next to its volume bar and select 'Advanced Audio Properties'.</li>
+                                    <li>In the Advanced Audio Properties window, find your "ChatVibes TTS" source.</li>
+                                    <li>Under 'Audio Monitoring', select:
+                                        <ul>
+                                            <li><strong>"Monitor and Output"</strong> if you want to hear the TTS alerts yourself AND have your stream hear them.</li>
+                                            <li><strong>"Monitor Only (mute output)"</strong> if you only want to hear them yourself.</li>
+                                        </ul>
+                                    </li>
+                                    <li>Close the Advanced Audio Properties window.</li>
+                                </ol>
+                                <p class="fw-semibold">Important: Make sure the ChatVibes TTS browser source is unmuted in your OBS audio mixer and the volume is at an appropriate level.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            <!-- Settings Panel -->
-            <div id="settings-panel" class="tab-content active">
-                <h2>Bot Settings</h2>
-                <div id="settings-loading-overlay" class="loading-overlay">
-                    <div class="loading-spinner"></div>
-                    <p>Loading settings...</p>
-                </div>
-                <div id="settings-content-wrapper" class="hidden">
-                    <p id="settings-status-message"></p>
-                    
-                    <!-- Engine & Mode Control -->
-                <div class="settings-section">
-                    <h3>Engine & Mode</h3>
-                    <div class="setting-item">
-                        <label>
-                            <input type="checkbox" id="tts-enabled"> TTS Engine Enabled
-                        </label>
-                    </div>
-                    <div class="setting-item">
-                        <label for="tts-mode">TTS Mode:</label>
-                        <select id="tts-mode">
-                            <option value="all">All Messages</option>
-                            <option value="command">Commands Only</option>
-                            <option value="bits_points_only">Bits/Points Only</option>
-                        </select>
-                    </div>
-                    <div class="setting-item">
-                        <label for="tts-permission">TTS Permission:</label>
-                        <select id="tts-permission">
-                            <option value="everyone">Everyone</option>
-                            <option value="mods">Moderators Only</option>
-                        </select>
-                    </div>
-                    <div class="setting-item">
-                        <label>
-                            <input type="checkbox" id="events-enabled"> Announce Events (subs, raids, etc.)
-                        </label>
-                    </div>
-                </div>
-                
-                <!-- Bits Configuration → TTS -->
-                <div class="settings-section">
-                    <h3>Bits → TTS</h3>
-                    <div class="setting-item">
-                        <label>
-                            <input type="checkbox" id="bits-enabled"> Require Bits for TTS
-                        </label>
-                    </div>
-                    <div class="setting-item">
-                        <label for="bits-amount">Minimum Bits Required:</label>
-                        <input type="number" id="bits-amount" min="0" value="100">
-                    </div>
-                </div>
-                
-                <!-- Default Settings -->
-                <div class="settings-section">
-                    <h3>Default Voice Settings</h3>
-                    <div class="setting-item">
-                        <label for="default-voice">Default Voice:</label>
-                        <select id="default-voice">
-                            <option value="Friendly_Person">Loading voices...</option>
-                        </select>
-                    </div>
-                    <div class="setting-item">
-                        <label for="default-emotion">Default Emotion:</label>
-                        <select id="default-emotion">
-                            <option value="auto">Auto</option>
-                            <option value="neutral">Neutral</option>
-                            <option value="happy">Happy</option>
-                            <option value="sad">Sad</option>
-                            <option value="angry">Angry</option>
-                            <option value="fearful">Fearful</option>
-                            <option value="disgusted">Disgusted</option>
-                            <option value="surprised">Surprised</option>
-                        </select>
-                    </div>
-                    <div class="setting-item">
-                        <label for="default-pitch">Default Pitch (-12 to +12): <span id="pitch-value">0</span></label>
-                        <input type="range" id="default-pitch" min="-12" max="12" value="0">
-                        <button id="reset-pitch-btn" class="button reset-btn">Reset</button>
-                    </div>
-                    <div class="setting-item">
-                        <label for="default-speed">Default Speed (0.5 to 2.0): <span id="speed-value">1.0</span></label>
-                        <input type="range" id="default-speed" min="0.5" max="2.0" step="0.1" value="1.0">
-                        <button id="reset-speed-btn" class="button reset-btn">Reset</button>
-                    </div>
-                    <div class="setting-item">
-                        <label for="default-language">Default Language:</label>
-                        <select id="default-language">
-                            <option value="None">None</option>
-                            <option value="Automatic">Automatic</option>
-                            <option value="Chinese">Chinese</option>
-                            <option value="Chinese,Yue">Chinese, Yue</option>
-                            <option value="English">English</option>
-                            <option value="Arabic">Arabic</option>
-                            <option value="Russian">Russian</option>
-                            <option value="Spanish">Spanish</option>
-                            <option value="French">French</option>
-                            <option value="Portuguese">Portuguese</option>
-                            <option value="German">German</option>
-                            <option value="Turkish">Turkish</option>
-                            <option value="Dutch">Dutch</option>
-                            <option value="Ukrainian">Ukrainian</option>
-                            <option value="Vietnamese">Vietnamese</option>
-                            <option value="Indonesian">Indonesian</option>
-                            <option value="Japanese">Japanese</option>
-                            <option value="Italian">Italian</option>
-                            <option value="Korean">Korean</option>
-                            <option value="Thai">Thai</option>
-                            <option value="Polish">Polish</option>
-                            <option value="Romanian">Romanian</option>
-                            <option value="Greek">Greek</option>
-                            <option value="Czech">Czech</option>
-                            <option value="Finnish">Finnish</option>
-                            <option value="Hindi">Hindi</option>
-                        </select>
-                    </div>
-                    <div class="setting-item">
-                        <label><input type="checkbox" id="english-normalization"> English Normalization</label>
-                        <span class="help-icon" data-tooltip="Enable English text normalization if you are having issues with numbers being read incorrectly (slightly increases latency)">?</span>
-                    </div>
-                    
-                    <div class="setting-item voice-test-item">
-                        <label for="voice-test-text">Test Your Voice Settings:</label>
-                        <input type="text" id="voice-test-text" value="Welcome, everyone, to the stream!" maxlength="500" placeholder="Enter text to test (max 500 characters)">
-                        <button id="voice-test-btn" class="button reset-btn">Test Voice</button>
-                        <p id="voice-test-status" style="font-size: 0.9em; margin-top: 5px; min-height: 1.2em;"></p>
-                    </div>
-                </div>
-                
-                <!-- Channel Points -> TTS -->
-                <div class="settings-section">
-                    <h3>Channel Points → TTS</h3>
-                    <div class="setting-item">
-                        <label class="inline-flex">
-                            <input type="checkbox" id="cp-enabled"> Enable Channel Points TTS
-                        </label>
-                    </div>
-                    <div class="grid" style="display:grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-                        <div>
-                            <label class="text-sm">Reward title</label>
-                            <input id="cp-title" class="mt-1 w-full rounded-lg border p-2" placeholder="Text-to-Speech Message">
-                            <p class="text-xs" style="color:#666; margin-top:4px;">Must be unique in your channel.</p>
-                        </div>
-                        <div>
-                            <label class="text-sm">Cost (points)</label>
-                            <input id="cp-cost" type="number" min="1" class="mt-1 w-full rounded-lg border p-2" placeholder="500">
-                        </div>
-                        <div style="grid-column: 1 / -1;">
-                            <label class="text-sm">Viewer prompt</label>
-                            <input id="cp-prompt" class="mt-1 w-full rounded-lg border p-2" placeholder="Enter a message to be read aloud">
-                        </div>
-                        <div class="flex items-center" style="align-items:center; gap:8px;">
-                            <input id="cp-skip-queue" type="checkbox" class="h-4 w-4">
-                            <span class="text-sm">Auto-approve (skip queue)</span>
-                        </div>
-                    </div>
 
-                    <details class="mt-2">
-                        <summary class="cursor-pointer text-sm" style="font-weight:600;">Advanced</summary>
-                        <div class="mt-3 grid" style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px;">
-                            <div>
-                                <label class="text-sm">Global cooldown (sec)</label>
-                                <input id="cp-cooldown" type="number" min="0" max="3600" class="mt-1 w-full rounded-lg border p-2" placeholder="0">
-                            </div>
-                            <div>
-                                <label class="text-sm">Per-stream limit</label>
-                                <input id="cp-per-stream" type="number" min="0" max="1000" class="mt-1 w-full rounded-lg border p-2" placeholder="0">
-                            </div>
-                            <div>
-                                <label class="text-sm">Per-user per stream</label>
-                                <input id="cp-per-user" type="number" min="0" max="1000" class="mt-1 w-full rounded-lg border p-2" placeholder="0">
-                            </div>
-                            <div>
-                                <label class="text-sm">Min chars</label>
-                                <input id="cp-min" type="number" min="0" max="500" class="mt-1 w-full rounded-lg border p-2" placeholder="1">
-                            </div>
-                            <div>
-                                <label class="text-sm">Max chars</label>
-                                <input id="cp-max" type="number" min="1" max="500" class="mt-1 w-full rounded-lg border p-2" placeholder="200">
-                            </div>
-                            <div class="flex items-center" style="align-items:center; gap:8px;">
-                                <input id="cp-block-links" type="checkbox" class="h-4 w-4" checked>
-                                <span class="text-sm">Block links</span>
-                            </div>
-                            <div style="grid-column: 1 / -1;">
-                                <label class="text-sm">Banned words (comma-separated)</label>
-                                <input id="cp-banned-words" class="mt-1 w-full rounded-lg border p-2" placeholder="">
-                            </div>
-                        </div>
-                    </details>
-
-                    <div class="flex" style="display:flex; align-items:center; gap:8px; margin-top:8px;">
-                        <button id="cp-save" class="button">Save</button>
-                        <button id="cp-test" class="button">Test redeem</button>
-                        <button id="cp-delete" class="button" style="color:#b91c1c;">Disable & Delete</button>
-                        <div class="text-xs" style="margin-left:auto; color:#666;">
-                            <span id="cp-status-line"></span>
+            <!-- Sidebar column -->
+            <div class="col-12 col-lg-4">
+                <div class="card sticky-top sticky-aside mb-4">
+                    <div class="card-header">Voice Preview</div>
+                    <div class="card-body">
+                        <label for="voice-test-text" class="form-label">Test Message</label>
+                        <textarea id="voice-test-text" class="form-control mb-2" rows="3" maxlength="500">Welcome, everyone, to the stream!</textarea>
+                        <div class="d-grid">
+                            <button id="voice-test-btn" class="btn btn-primary" type="button">Send Preview</button>
                         </div>
                     </div>
-                    <p id="cp-msg" class="text-sm" style="margin-top:6px;"></p>
                 </div>
-
-                <!-- Music Settings -->
-                <div class="settings-section">
-                    <h3>Music Generation</h3>
-                    <div class="setting-item">
-                        <label>
-                            <input type="checkbox" id="music-enabled"> Music Generation Enabled
-                        </label>
-                    </div>
-                    <div class="setting-item">
-                        <label for="music-mode">Who Can Generate Music:</label>
-                        <select id="music-mode">
-                            <option value="everyone">Everyone</option>
-                            <option value="moderator">Moderators Only</option>
-                        </select>
-                    </div>
-                    <div class="setting-item">
-                        <label>
-                            <input type="checkbox" id="music-bits-enabled"> Require Bits for Music
-                        </label>
-                    </div>
-                    <div class="setting-item">
-                        <label for="music-bits-amount">Minimum Bits for Music:</label>
-                        <input type="number" id="music-bits-amount" min="0" value="100">
-                    </div>
-                </div>
-                
-                <!-- Ignore Lists -->
-                <div class="settings-section">
-                    <h3>Ignored Users</h3>
-                    <div class="ignore-section">
-                        <h4>TTS Ignore List</h4>
-                        <div class="add-user-form">
-                            <input type="text" id="tts-ignore-username" placeholder="Username to ignore">
-                            <button id="add-tts-ignore-btn" class="button">Add</button>
-                        </div>
-                        <ul id="tts-ignore-list" class="ignore-list"></ul>
-                    </div>
-                    
-                    <div class="ignore-section">
-                        <h4>Music Ignore List</h4>
-                        <div class="add-user-form">
-                            <input type="text" id="music-ignore-username" placeholder="Username to ignore">
-                            <button id="add-music-ignore-btn" class="button">Add</button>
-                        </div>
-                        <ul id="music-ignore-list" class="ignore-list"></ul>
-                    </div>
-                </div>
-                
-                <button id="save-settings-btn" class="button primary">Save All Settings</button>
-                <p id="save-confirmation-message" style="margin-top: 15px; text-align: center; min-height: 20px;"></p>
-                </div>
-            </div>
-            
-            <!-- OBS Setup Panel -->
-            <div id="obs-setup-instructions" class="tab-content">
-          <h2>ChatVibes OBS Setup</h2>
-          <p>To hear ChatVibes TTS alerts in your stream and for yourself, add it as a Browser Source in OBS (or Streamlabs, etc.) and configure audio monitoring. The URL below is a secure Browser Source URL with authentication tokens. For usage instructions, visit the <a href="https://detekoi.github.io/chatvibesdocs.html" target="_blank">documentation page</a>.</p>
-          
-          <div class="tts-url-container">
-              <input type="text" id="tts-url-field" readonly placeholder="Your TTS URL will appear here...">
-              <button id="copy-tts-url-btn" class="button">Copy URL</button>
-          </div>
-          <p style="font-size: 0.8em; margin: 2px 0 0 0;"><a href="#" id="regenerate-tts-url-btn" style="text-decoration: underline; color: #666; cursor: pointer;">Regenerate URL</a></p>
-          <p id="copy-status-message" style="font-size: 0.8em; height: 1em; margin: 5px 0;"></p>
-
-          <h4>Step 1: Add Browser Source</h4>
-          <ol>
-              <li>In OBS, under 'Sources', click the '+' button.</li>
-              <li>Select 'Browser'.</li>
-              <li>Give it a name (e.g., "ChatVibes TTS").</li>
-              <li>In the properties window:
-                  <ul>
-                      <li><strong>URL:</strong> Paste the URL copied from above.</li>
-                      <li><strong>Width & Height:</strong> You can safely ignore these settings, or set them to something small (e.g., 300x100), as this source is for audio only.</li>
-                      <li>Ensure "Control audio via OBS" is CHECKED.</li>
-                      <li>For persistent audio, it's recommended to UNCHECK "Shutdown source when not visible" and "Refresh browser when scene becomes active".</li>
-                  </ul>
-              </li>
-              <li>Click 'OK'.</li>
-          </ol>
-
-          <h4>Step 2: Enable Audio Monitoring</h4>
-          <ol>
-              <li>In OBS, find your audio mixer (usually at the bottom).</li>
-              <li>Locate the audio source for "ChatVibes TTS" (or whatever you named it).</li>
-              <li>Click the gear icon (⚙️) next to its volume bar and select 'Advanced Audio Properties'.</li>
-              <li>In the Advanced Audio Properties window, find your "ChatVibes TTS" source.</li>
-              <li>Under 'Audio Monitoring', select:
-                  <ul>
-                      <li><strong>"Monitor and Output"</strong> if you want to hear the TTS alerts yourself AND have your stream hear them.</li>
-                      <li><strong>"Monitor Only (mute output)"</strong> if you only want to hear them yourself.</li>
-                  </ul>
-              </li>
-              <li>Close the Advanced Audio Properties window.</li>
-          </ol>
-          <p><strong>Important:</strong> Make sure the ChatVibes TTS browser source is unmuted in your OBS audio mixer and the volume is at an appropriate level.</p>
             </div>
         </div>
-        
-        <a href="#" id="logout-link" class="button">Logout</a>
     </div>
+
+    <!-- Toasts -->
+    <div id="toast-container" class="toast-container position-fixed bottom-0 end-0 p-3"></div>
+
+    <!-- Bootstrap 5 Bundle JS (with Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
     <script src="dashboard.js"></script>
     <script src="static-background.js"></script>
 </body>

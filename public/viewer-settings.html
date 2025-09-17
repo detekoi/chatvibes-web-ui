@@ -4,170 +4,195 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChatVibes - Viewer TTS Preferences</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/viewer-settings.css">
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Cabin+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Custom overrides -->
+    <link rel="stylesheet" href="css/custom.css">
+
     <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg==">
 </head>
 <body>
-    <canvas id="staticCanvas" style="width:100vw; height:100vh; position:fixed; top:0; left:0; z-index:-1;"></canvas>
-    
-    <div class="container">
-        <h1>Viewer TTS Preferences</h1>
-        <p class="subtitle">Customize how your messages sound when read by TTS</p>
-        
-        <div id="auth-status" class="auth-message">
-            <p>Please wait while we verify your access...</p>
+    <canvas id="staticCanvas"></canvas>
+
+    <div class="container my-4">
+        <div class="d-flex align-items-center justify-content-between mb-3">
+            <h1 class="h3 mb-0">Viewer TTS Preferences</h1>
+            <a href="#" id="logout-link" class="btn btn-link">Logout</a>
         </div>
-        
-        <div id="preferences-panel" class="preferences-panel" style="display: none;">
-            <!-- Channel Selection -->
-            <div class="setting-section channel-selection-section">
-                <h3>Choose a Channel</h3>
-                <p class="section-description">Enter the name of a Twitch channel with ChatVibes where you want to customize your TTS voice settings:</p>
-                <div class="setting-item">
-                    <label for="channel-input">Channel Name</label>
-                    <input type="text" id="channel-input" placeholder="Streamer Username" required>
-                    <small id="channel-hint" class="hint">Type a channel name above to load your voice preferences for that channel</small>
-                </div>
-            </div>
-            
-            <!-- Voice Preferences -->
-            <div class="setting-section">
-                <h3>Voice Settings</h3>
-                
-                <div class="setting-item">
-                    <label for="voice-select">Voice</label>
-                    <select id="voice-select">
-                        <option value="">Use channel default</option>
-                    </select>
-                    <button type="button" class="button reset-btn" id="voice-reset">Reset to Default</button>
-                </div>
-                
-                <div class="setting-item">
-                    <label for="pitch-slider">Pitch (-12 to +12): <span id="pitch-value">0</span></label>
-                    <input type="range" id="pitch-slider" min="-12" max="12" step="1" value="0">
-                    <button type="button" class="button reset-btn" id="pitch-reset">Reset to Default</button>
-                </div>
-                
-                <div class="setting-item">
-                    <label for="speed-slider">Speed (0.5 to 2.0): <span id="speed-value">1.0</span></label>
-                    <input type="range" id="speed-slider" min="0.5" max="2" step="0.05" value="1">
-                    <button type="button" class="button reset-btn" id="speed-reset">Reset to Default</button>
-                </div>
-                
-                <div class="setting-item">
-                    <label for="emotion-select">Emotion</label>
-                    <select id="emotion-select">
-                        <option value="">Use channel default</option>
-                        <option value="auto">Auto</option>
-                        <option value="neutral">Neutral</option>
-                        <option value="happy">Happy</option>
-                        <option value="sad">Sad</option>
-                        <option value="angry">Angry</option>
-                        <option value="fearful">Fearful</option>
-                        <option value="disgusted">Disgusted</option>
-                        <option value="surprised">Surprised</option>
-                    </select>
-                    <button type="button" class="button reset-btn" id="emotion-reset">Reset to Default</button>
-                </div>
-                
-                <div class="setting-item">
-                    <label for="language-select">Language Boost</label>
-                    <select id="language-select">
-                        <option value="">Use channel default</option>
-                        <option value="None">None</option>
-                        <option value="Automatic">Automatic</option>
-                        <option value="Chinese">Chinese</option>
-                        <option value="Chinese,Yue">Chinese, Yue</option>
-                        <option value="English">English</option>
-                        <option value="Arabic">Arabic</option>
-                        <option value="Russian">Russian</option>
-                        <option value="Spanish">Spanish</option>
-                        <option value="French">French</option>
-                        <option value="Portuguese">Portuguese</option>
-                        <option value="German">German</option>
-                        <option value="Turkish">Turkish</option>
-                        <option value="Dutch">Dutch</option>
-                        <option value="Ukrainian">Ukrainian</option>
-                        <option value="Vietnamese">Vietnamese</option>
-                        <option value="Indonesian">Indonesian</option>
-                        <option value="Japanese">Japanese</option>
-                        <option value="Italian">Italian</option>
-                        <option value="Korean">Korean</option>
-                        <option value="Thai">Thai</option>
-                        <option value="Polish">Polish</option>
-                        <option value="Romanian">Romanian</option>
-                        <option value="Greek">Greek</option>
-                        <option value="Czech">Czech</option>
-                        <option value="Finnish">Finnish</option>
-                        <option value="Hindi">Hindi</option>
-                    </select>
-                    <button type="button" class="button reset-btn" id="language-reset">Reset to Default</button>
+        <p class="text-muted">Customize how your messages sound when read by TTS</p>
+
+        <div id="auth-status" class="alert alert-info text-center" role="status">Please wait while we verify your access...</div>
+
+        <div id="preferences-panel" style="display: none;">
+            <div class="row g-4">
+                <!-- Main column -->
+                <div class="col-12 col-lg-8">
+                    <!-- Channel Selection -->
+                    <div class="card mb-4">
+                        <div class="card-header">Choose a Channel</div>
+                        <div class="card-body">
+                            <p class="mb-3">Enter the name of a Twitch channel with ChatVibes where you want to customize your TTS voice settings:</p>
+                            <div class="mb-1">
+                                <label for="channel-input" class="form-label">Channel Name</label>
+                                <input type="text" id="channel-input" class="form-control" placeholder="Streamer Username" required>
+                            </div>
+                            <small id="channel-hint" class="form-text text-muted">Type a channel name above to load your voice preferences for that channel</small>
+                        </div>
+                    </div>
+
+                    <!-- Voice Settings -->
+                    <div class="card mb-4">
+                        <div class="card-header">Voice Settings</div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label for="voice-select" class="form-label">Voice</label>
+                                <div class="d-flex align-items-center">
+                                    <select id="voice-select" class="form-select me-2">
+                                        <option value="">Use channel default</option>
+                                    </select>
+                                    <button type="button" class="btn btn-outline-secondary btn-sm" id="voice-reset">Reset</button>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="pitch-slider" class="form-label">Pitch (-12 to +12): <span id="pitch-value">0</span></label>
+                                <div class="d-flex align-items-center">
+                                    <input type="range" id="pitch-slider" class="form-range me-2" min="-12" max="12" step="1" value="0">
+                                    <button type="button" class="btn btn-outline-secondary btn-sm" id="pitch-reset">Reset</button>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="speed-slider" class="form-label">Speed (0.5 to 2.0): <span id="speed-value">1.0</span></label>
+                                <div class="d-flex align-items-center">
+                                    <input type="range" id="speed-slider" class="form-range me-2" min="0.5" max="2" step="0.05" value="1">
+                                    <button type="button" class="btn btn-outline-secondary btn-sm" id="speed-reset">Reset</button>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="emotion-select" class="form-label">Emotion</label>
+                                <div class="d-flex align-items-center">
+                                    <select id="emotion-select" class="form-select me-2">
+                                        <option value="">Use channel default</option>
+                                        <option value="auto">Auto</option>
+                                        <option value="neutral">Neutral</option>
+                                        <option value="happy">Happy</option>
+                                        <option value="sad">Sad</option>
+                                        <option value="angry">Angry</option>
+                                        <option value="fearful">Fearful</option>
+                                        <option value="disgusted">Disgusted</option>
+                                        <option value="surprised">Surprised</option>
+                                    </select>
+                                    <button type="button" class="btn btn-outline-secondary btn-sm" id="emotion-reset">Reset</button>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="language-select" class="form-label">Language Boost</label>
+                                <div class="d-flex align-items-center">
+                                    <select id="language-select" class="form-select me-2">
+                                        <option value="">Use channel default</option>
+                                        <option value="None">None</option>
+                                        <option value="Automatic">Automatic</option>
+                                        <option value="Chinese">Chinese</option>
+                                        <option value="Chinese,Yue">Chinese, Yue</option>
+                                        <option value="English">English</option>
+                                        <option value="Arabic">Arabic</option>
+                                        <option value="Russian">Russian</option>
+                                        <option value="Spanish">Spanish</option>
+                                        <option value="French">French</option>
+                                        <option value="Portuguese">Portuguese</option>
+                                        <option value="German">German</option>
+                                        <option value="Turkish">Turkish</option>
+                                        <option value="Dutch">Dutch</option>
+                                        <option value="Ukrainian">Ukrainian</option>
+                                        <option value="Vietnamese">Vietnamese</option>
+                                        <option value="Indonesian">Indonesian</option>
+                                        <option value="Japanese">Japanese</option>
+                                        <option value="Italian">Italian</option>
+                                        <option value="Korean">Korean</option>
+                                        <option value="Thai">Thai</option>
+                                        <option value="Polish">Polish</option>
+                                        <option value="Romanian">Romanian</option>
+                                        <option value="Greek">Greek</option>
+                                        <option value="Czech">Czech</option>
+                                        <option value="Finnish">Finnish</option>
+                                        <option value="Hindi">Hindi</option>
+                                    </select>
+                                    <button type="button" class="btn btn-outline-secondary btn-sm" id="language-reset">Reset</button>
+                                </div>
+                            </div>
+                            <div class="mb-2">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="english-normalization-checkbox">
+                                    <label class="form-check-label" for="english-normalization-checkbox">English Normalization <span class="help-icon" title="Enable English text normalization if you are having issues with numbers being read incorrectly (slightly increases latency)">?</span></label>
+                                </div>
+                                <button type="button" class="btn btn-outline-secondary btn-sm mt-2" id="english-normalization-reset">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Danger Zone -->
+                    <div class="card danger-zone mb-4">
+                        <div class="card-header">Danger Zone</div>
+                        <div class="card-body">
+                            <p class="fst-italic mb-3">These actions cannot be undone by you. Only channel moderators can reverse these settings.</p>
+
+                            <div class="form-check form-switch mb-1">
+                                <input class="form-check-input" type="checkbox" id="ignore-tts">
+                                <label class="form-check-label" for="ignore-tts">Opt out of TTS in this channel</label>
+                            </div>
+                            <p class="small text-muted ms-4">Your messages will not be read by TTS</p>
+
+                            <div class="form-check form-switch mb-1">
+                                <input class="form-check-input" type="checkbox" id="ignore-music">
+                                <label class="form-check-label" for="ignore-music">Opt out of Music commands in this channel</label>
+                            </div>
+                            <p class="small text-muted ms-4 mb-0">You will not be able to use music bot commands</p>
+                        </div>
+                    </div>
+
+                    <!-- Confirm dialog -->
+                    <dialog id="confirm-modal" class="modal">
+                        <div class="modal-content">
+                            <h3>Are you absolutely sure?</h3>
+                            <p id="confirm-text">This action cannot be undone by you. Only a channel moderator can reverse this setting.</p>
+                            <div class="modal-actions">
+                                <button type="button" id="confirm-yes" class="btn btn-danger">Confirm</button>
+                                <button type="button" id="confirm-no" class="btn btn-secondary">Cancel</button>
+                            </div>
+                        </div>
+                    </dialog>
                 </div>
 
-                <div class="setting-item">
-                  <label><input type="checkbox" id="english-normalization-checkbox"> English Normalization <span class="help-icon" data-tooltip="Enable English text normalization if you are having issues with numbers being read incorrectly (slightly increases latency)">?</span></label>
-                  <button type="button" class="button reset-btn" id="english-normalization-reset">Reset to Default</button>
-                </div>
-            </div>
-            
-            <!-- Voice Preview -->
-            <div class="setting-section">
-                <h3>Voice Preview</h3>
-                <div class="voice-test-item">
-                    <label for="preview-text">Test Message</label>
-                    <textarea id="preview-text" maxlength="500" rows="3">Chat is this real?</textarea>
-                    <button type="button" id="preview-btn" class="button">▶ Preview Voice</button>
-                    <div id="preview-status" class="status-message"></div>
-                </div>
-            </div>
-            
-            <!-- Danger Zone -->
-            <div class="setting-section danger-zone">
-                <h3>Danger Zone</h3>
-                <p class="warning-text">These actions cannot be undone by you. Only channel moderators can reverse these settings.</p>
-                
-                <div class="setting-item">
-                    <label>
-                        <input type="checkbox" id="ignore-tts" class="danger-checkbox">
-                        Opt out of TTS in this channel
-                    </label>
-                    <p class="setting-description">Your messages will not be read by TTS</p>
-                </div>
-                
-                <div class="setting-item">
-                    <label>
-                        <input type="checkbox" id="ignore-music" class="danger-checkbox">
-                        Opt out of Music commands in this channel
-                    </label>
-                    <p class="setting-description">You will not be able to use music bot commands</p>
+                <!-- Sidebar column -->
+                <div class="col-12 col-lg-4">
+                    <div class="card sticky-top sticky-aside mb-4">
+                        <div class="card-header">Voice Preview</div>
+                        <div class="card-body">
+                            <label for="preview-text" class="form-label">Test Message</label>
+                            <textarea id="preview-text" class="form-control mb-2" maxlength="500" rows="3">Chat is this real?</textarea>
+                            <div class="d-grid">
+                                <button type="button" id="preview-btn" class="btn btn-primary">Send Preview</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        
-        <a href="#" id="logout-link" class="button">Logout</a>
-        
-        <!-- Save Status -->
-        <div id="save-status" class="save-status"></div>
     </div>
-    
-    <!-- Confirmation Modal -->
-    <dialog id="confirm-modal" class="modal">
-        <div class="modal-content">
-            <h3>Are you absolutely sure?</h3>
-            <p id="confirm-text">This action cannot be undone by you. Only a channel moderator can reverse this setting.</p>
-            <div class="modal-actions">
-                <button type="button" id="confirm-yes" class="button danger">Confirm</button>
-                <button type="button" id="confirm-no" class="button">Cancel</button>
-            </div>
-        </div>
-    </dialog>
-    
-    <script src="static-background.js"></script>
+
+    <!-- Toasts -->
+    <div id="toast-container" class="toast-container position-fixed bottom-0 end-0 p-3"></div>
+
+    <!-- Bootstrap 5 Bundle JS (with Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
     <script type="module" src="viewer-settings.js"></script>
+    <script src="static-background.js"></script>
 </body>
 </html>
