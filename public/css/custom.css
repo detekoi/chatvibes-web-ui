@@ -97,3 +97,170 @@ dialog.modal::backdrop {
     font-weight: 700;
     cursor: help;
 }
+
+/* Modern settings page styling */
+body {
+    color: #8e9194;
+    background-color: #f4f6f9;
+}
+
+.page-title {
+    color: #4d5154;
+}
+
+/* Enhanced list-group styling for settings */
+.list-group {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    border-radius: 0.25rem;
+}
+
+.list-group-item-action {
+    width: 100%;
+    color: #4d5154;
+    text-align: inherit;
+}
+.list-group-item-action:hover,
+.list-group-item-action:focus {
+    z-index: 1;
+    color: #4d5154;
+    text-decoration: none;
+    background-color: #f4f6f9;
+}
+.list-group-item-action:active {
+    color: #8e9194;
+    background-color: #eef0f3;
+}
+
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 0.75rem 1.25rem;
+    background-color: #ffffff;
+    border: 1px solid #eef0f3;
+}
+.list-group-item:first-child {
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+}
+.list-group-item:last-child {
+    border-bottom-right-radius: inherit;
+    border-bottom-left-radius: inherit;
+}
+.list-group-item.disabled,
+.list-group-item:disabled {
+    color: #6d7174;
+    pointer-events: none;
+    background-color: #ffffff;
+}
+.list-group-item.active {
+    z-index: 2;
+    color: #ffffff;
+    background-color: #1b68ff;
+    border-color: #1b68ff;
+}
+.list-group-item + .list-group-item {
+    border-top-width: 0;
+}
+.list-group-item + .list-group-item.active {
+    margin-top: -1px;
+    border-top-width: 1px;
+}
+
+/* Enhanced card styling */
+.card {
+    border: 1px solid #eef0f3;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #eef0f3;
+    color: #4d5154;
+    font-weight: 600;
+}
+
+/* Form controls enhanced styling */
+.form-control, .form-select {
+    border: 1px solid #eef0f3;
+    color: #4d5154;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #1b68ff;
+    box-shadow: 0 0 0 0.2rem rgba(27, 104, 255, 0.25);
+}
+
+/* Button enhancements */
+.btn-primary {
+    background-color: #1b68ff;
+    border-color: #1b68ff;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #0056e6;
+    border-color: #0056e6;
+}
+
+/* Custom switch styling for modern look */
+.form-check-input:checked {
+    background-color: #1b68ff;
+    border-color: #1b68ff;
+}
+
+.form-check-input:focus {
+    border-color: #1b68ff;
+    box-shadow: 0 0 0 0.25rem rgba(27, 104, 255, 0.25);
+}
+
+/* Enhanced nav tabs */
+.nav-tabs {
+    border-bottom: 1px solid #eef0f3;
+}
+
+.nav-tabs .nav-link {
+    color: #8e9194;
+    border: 1px solid transparent;
+    border-bottom-color: transparent;
+}
+
+.nav-tabs .nav-link:hover,
+.nav-tabs .nav-link:focus {
+    color: #4d5154;
+    border-color: #eef0f3 #eef0f3 #dee2e6;
+}
+
+.nav-tabs .nav-link.active {
+    color: #4d5154;
+    background-color: #ffffff;
+    border-color: #eef0f3 #eef0f3 #ffffff;
+}
+
+/* Text color improvements */
+.text-muted {
+    color: #8e9194 !important;
+}
+
+strong, .fw-semibold, .fw-bold {
+    color: #4d5154;
+}
+
+/* Settings section styling */
+.settings-section {
+    margin-bottom: 2rem;
+}
+
+.settings-section-title {
+    color: #4d5154;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.settings-section-description {
+    color: #8e9194;
+    margin-bottom: 1rem;
+}
+
