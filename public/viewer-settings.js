@@ -52,7 +52,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     // UI Elements
     const authStatus = document.getElementById('auth-status');
     const preferencesPanel = document.getElementById('preferences-panel');
-    const channelInput = document.getElementById('channel-input');
+    const channelContextCard = document.getElementById('channel-context-card');
+    const addChannelContextCard = document.getElementById('add-channel-context-card');
+    const channelContextNameEl = document.getElementById('channel-context-name');
     const channelHint = document.getElementById('channel-hint');
     const voiceSelect = document.getElementById('voice-select');
     const pitchSlider = document.getElementById('pitch-slider');
@@ -67,10 +69,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     const previewBtnMobile = document.getElementById('preview-btn-mobile');
     const ignoreTtsCheckbox = document.getElementById('ignore-tts');
     const ignoreMusicCheckbox = document.getElementById('ignore-music');
+    const dangerZoneSection = document.getElementById('danger-zone-section');
+    const dangerTtsToggle = document.getElementById('danger-tts-toggle');
+    const dangerMusicToggle = document.getElementById('danger-music-toggle');
     const confirmModal = document.getElementById('confirm-modal');
     const confirmText = document.getElementById('confirm-text');
     const confirmYes = document.getElementById('confirm-yes');
     const confirmNo = document.getElementById('confirm-no');
+    const channelInputModal = document.getElementById('channel-input-modal');
+    const channelInputModalText = document.getElementById('channel-input-modal-text');
+    const channelInputConfirm = document.getElementById('channel-input-confirm');
+    const channelInputCancel = document.getElementById('channel-input-cancel');
+    const openChannelContextModalBtn = document.getElementById('open-channel-context-modal-btn');
+    const clearChannelContextBtn = document.getElementById('clear-channel-context-btn');
     const logoutLink = document.getElementById('logout-link');
 
     // Reset buttons
@@ -87,6 +98,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     let currentPreferences = {};
     let isAuthenticated = false;
     let pendingAction = null;
+    let pendingChannel = null;
 
     // Auth status helper using Bootstrap alerts
     function showAuthStatus(message, type = 'info') {
@@ -104,6 +116,24 @@ document.addEventListener('DOMContentLoaded', async () => {
             clearTimeout(timeout);
             timeout = setTimeout(later, wait);
         };
+    }
+
+    // Dialog helpers with fallback for browsers without <dialog>.showModal/close
+    function openDialog(dialogEl) {
+        if (!dialogEl) return;
+        if (typeof dialogEl.showModal === 'function') {
+            dialogEl.showModal();
+        } else {
+            dialogEl.setAttribute('open', '');
+        }
+    }
+    function closeDialog(dialogEl) {
+        if (!dialogEl) return;
+        if (typeof dialogEl.close === 'function') {
+            dialogEl.close();
+        } else {
+            dialogEl.removeAttribute('open');
+        }
     }
 
     async function fetchWithAuth(url, options = {}) {
@@ -131,8 +161,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             appSessionToken = 'TEST_SESSION_TOKEN';
             if (preferencesPanel) preferencesPanel.style.display = 'block';
             if (authStatus) authStatus.style.display = 'none';
-            if (channel && channelInput) {
-                channelInput.value = channel;
+            if (channel && channelContextCard) {
+                channelContextCard.classList.remove('d-none');
+                if (channelContextNameEl) channelContextNameEl.textContent = channel;
                 currentChannel = channel;
             }
             return true;
@@ -174,8 +205,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 showAuthStatus('Authentication successful! Welcome to your preferences.', 'success');
                 preferencesPanel.style.display = 'block';
                 authStatus.style.display = 'none';
-                if (channel) {
-                    channelInput.value = channel;
+                if (channel && channelContextCard) {
+                    channelContextCard.classList.remove('d-none');
+                    if (channelContextNameEl) channelContextNameEl.textContent = channel;
                     currentChannel = channel;
                 }
                 const cleanUrl = new URL(window.location);
@@ -212,7 +244,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                     showAuthStatus(`Welcome, ${data.user.displayName || data.user.login}!`, 'success');
                     preferencesPanel.style.display = 'block';
                     authStatus.style.display = 'none';
-                    if (channel) channelInput.value = channel;
+                    if (channel && channelContextCard) {
+                        channelContextCard.classList.remove('d-none');
+                        if (channelContextNameEl) channelContextNameEl.textContent = channel;
+                    }
                     return true;
                 } else if (response.status === 403) {
                     const data = await response.json();
@@ -339,19 +374,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     async function loadPreferences() {
-        if (!currentChannel) return;
         if (TEST_MODE) {
             const data = {
-                channelExists: true,
                 voiceId: '',
                 pitch: 0,
                 speed: 1,
                 emotion: '',
                 language: '',
-                englishNormalization: false,
-                ttsIgnored: false,
-                musicIgnored: false,
-                channelDefaults: { englishNormalization: false }
+                englishNormalization: false
             };
             currentPreferences = data;
             voiceSelect.value = data.voiceId || '';
@@ -362,16 +392,25 @@ document.addEventListener('DOMContentLoaded', async () => {
             emotionSelect.value = data.emotion || '';
             languageSelect.value = data.language || '';
             englishNormalizationCheckbox.checked = data.englishNormalization;
-            ignoreTtsCheckbox.checked = data.ttsIgnored || false;
-            ignoreTtsCheckbox.disabled = data.ttsIgnored || false;
-            ignoreMusicCheckbox.checked = data.musicIgnored || false;
-            ignoreMusicCheckbox.disabled = data.musicIgnored || false;
-            channelHint.textContent = 'Channel found ✓ (test mode)';
-            channelHint.className = 'form-text text-success';
+            if (currentChannel) {
+                if (channelContextCard) channelContextCard.classList.remove('d-none');
+                if (channelContextNameEl) channelContextNameEl.textContent = currentChannel;
+                if (dangerZoneSection) dangerZoneSection.style.display = '';
+                if (dangerTtsToggle) dangerTtsToggle.style.display = '';
+                if (dangerMusicToggle) dangerMusicToggle.style.display = '';
+                if (channelHint) { channelHint.textContent = 'Channel found ✓ (test mode)'; channelHint.className = 'form-text text-success'; }
+            } else {
+                if (dangerZoneSection) dangerZoneSection.style.display = 'none';
+            }
             return;
         }
         try {
-            const response = await fetchWithAuth(`${API_BASE_URL}/api/viewer/preferences/${encodeURIComponent(currentChannel)}`);
+            let response;
+            if (currentChannel) {
+                response = await fetchWithAuth(`${API_BASE_URL}/api/viewer/preferences/${encodeURIComponent(currentChannel)}`);
+            } else {
+                response = await fetchWithAuth(`${API_BASE_URL}/api/viewer/preferences`);
+            }
             const data = await response.json();
             currentPreferences = data;
             voiceSelect.value = data.voiceId || '';
@@ -383,38 +422,32 @@ document.addEventListener('DOMContentLoaded', async () => {
             languageSelect.value = data.language || '';
             if (data.englishNormalization !== undefined) {
                 englishNormalizationCheckbox.checked = data.englishNormalization;
-            } else {
-                const chDefault = data.channelDefaults?.englishNormalization;
-                englishNormalizationCheckbox.checked = (chDefault !== null && chDefault !== undefined) ? chDefault : false;
             }
-            ignoreTtsCheckbox.checked = data.ttsIgnored || false;
-            ignoreTtsCheckbox.disabled = data.ttsIgnored || false;
-            ignoreMusicCheckbox.checked = data.musicIgnored || false;
-            ignoreMusicCheckbox.disabled = data.musicIgnored || false;
-            if (data.channelExists) {
-                channelHint.textContent = 'Channel found ✓';
-                channelHint.className = 'form-text text-success';
+            // Danger zone visibility
+            if (currentChannel) {
+                if (channelContextCard) channelContextCard.classList.remove('d-none');
+                if (channelContextNameEl) channelContextNameEl.textContent = currentChannel;
+                if (dangerZoneSection) dangerZoneSection.style.display = '';
+                if (dangerTtsToggle) dangerTtsToggle.style.display = '';
+                if (dangerMusicToggle) dangerMusicToggle.style.display = '';
+                if (channelHint) { channelHint.textContent = 'Channel found ✓'; channelHint.className = 'form-text text-success'; }
             } else {
-                channelHint.textContent = 'ChatVibes is not enabled for this channel';
-                channelHint.className = 'form-text text-danger';
+                if (dangerZoneSection) dangerZoneSection.style.display = 'none';
             }
         } catch (error) {
             console.error('Failed to load preferences:', error);
-            if (String(error.message || '').includes('404')) {
-                channelHint.textContent = 'Channel not found or ChatVibes not enabled';
-                channelHint.className = 'form-text text-danger';
-            } else {
-                showToast('Failed to load preferences', 'error');
-            }
+            showToast('Failed to load preferences', 'error');
         }
     }
 
     async function savePreference(key, value) {
-        if (!currentChannel) return;
         if (TEST_MODE) { showToast('Preference updated (test mode)', 'success'); return; }
         try {
             const body = { [key]: value };
-            await fetchWithAuth(`${API_BASE_URL}/api/viewer/preferences/${encodeURIComponent(currentChannel)}`, {
+            const url = currentChannel
+                ? `${API_BASE_URL}/api/viewer/preferences/${encodeURIComponent(currentChannel)}`
+                : `${API_BASE_URL}/api/viewer/preferences`;
+            await fetchWithAuth(url, {
                 method: 'PUT', body: JSON.stringify(body)
             });
             // Subtle confirmation to avoid spam
@@ -448,7 +481,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     async function testVoice() {
-        if (!currentChannel) { showToast('Please select a channel first', 'error'); return; }
         // Get text from either preview textarea (they should be in sync)
         const text = (previewText?.value || previewTextMobile?.value || '').trim();
         if (!text) { showToast('Please enter some text to test', 'warning'); return; }
@@ -522,22 +554,24 @@ document.addEventListener('DOMContentLoaded', async () => {
         } else {
             pendingAction = { type, checkbox };
             confirmText.textContent = `Are you absolutely sure you want to opt out of ${type.toUpperCase()} in this channel? Only a moderator can undo this action.`;
-            if (confirmModal && confirmModal.showModal) confirmModal.showModal();
+            openDialog(confirmModal);
         }
     }
 
     async function confirmIgnoreAction() {
-        if (!pendingAction || !currentChannel) return;
+        if (!pendingAction) return;
         const { type, checkbox } = pendingAction;
         try {
             if (TEST_MODE) {
                 checkbox.disabled = true;
                 showToast(`You have been opted out of ${type.toUpperCase()} (test mode)`, 'success');
-                if (confirmModal && confirmModal.close) confirmModal.close();
+                closeDialog(confirmModal);
                 pendingAction = null;
                 return;
             }
-            await fetchWithAuth(`${API_BASE_URL}/api/viewer/ignore/${type}/${encodeURIComponent(currentChannel)}`, { method: 'POST' });
+            const targetChannel = currentChannel || pendingChannel;
+            if (!targetChannel) { showToast('Please specify a channel', 'error'); return; }
+            await fetchWithAuth(`${API_BASE_URL}/api/viewer/ignore/${type}/${encodeURIComponent(targetChannel)}`, { method: 'POST' });
             checkbox.disabled = true;
             showToast(`You have been opted out of ${type.toUpperCase()}`, 'success');
         } catch (error) {
@@ -545,8 +579,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             checkbox.checked = false;
             showToast(`Failed to opt out of ${type.toUpperCase()}`, 'error');
         }
-        if (confirmModal && confirmModal.close) confirmModal.close();
+        closeDialog(confirmModal);
         pendingAction = null;
+        pendingChannel = null;
     }
 
     function cancelIgnoreAction() {
@@ -558,15 +593,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     // Event Listeners
-    channelInput.addEventListener('input', debounce((e) => {
-        currentChannel = e.target.value.trim().toLowerCase();
-        if (currentChannel) {
-            loadPreferences();
-        } else {
-            channelHint.textContent = '';
-            channelHint.className = 'form-text';
-        }
-    }, 600));
 
     voiceSelect.addEventListener('change', () => { savePreference('voiceId', voiceSelect.value || null); });
     pitchSlider.addEventListener('input', () => { pitchOutput.textContent = pitchSlider.value; });
@@ -599,8 +625,86 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
-    ignoreTtsCheckbox.addEventListener('change', () => { if (ignoreTtsCheckbox.checked) handleIgnoreAction('tts'); });
-    ignoreMusicCheckbox.addEventListener('change', () => { if (ignoreMusicCheckbox.checked) handleIgnoreAction('music'); });
+    if (ignoreTtsCheckbox) ignoreTtsCheckbox.addEventListener('change', () => { if (ignoreTtsCheckbox.checked) handleIgnoreAction('tts'); });
+    if (ignoreMusicCheckbox) ignoreMusicCheckbox.addEventListener('change', () => { if (ignoreMusicCheckbox.checked) handleIgnoreAction('music'); });
+    // Removed standalone danger buttons; toggles only when channel context is present
+    if (openChannelContextModalBtn) openChannelContextModalBtn.addEventListener('click', () => {
+        // Always show the channel input modal (even in test mode) so you can preview it
+        pendingAction = null; // clear any danger flow
+        channelInputModalText.value = '';
+        openDialog(channelInputModal);
+    });
+    if (channelInputConfirm) channelInputConfirm.addEventListener('click', () => {
+        const entered = (channelInputModalText.value || '').trim().toLowerCase();
+        if (!entered) { showToast('Please enter a channel name', 'warning'); return; }
+        if (TEST_MODE) {
+            if (pendingAction && pendingAction.type === 'tts') {
+                pendingChannel = entered;
+                closeDialog(channelInputModal);
+                confirmText.textContent = `Are you absolutely sure you want to opt out of TTS in #${entered}? Only a moderator can undo this action.`;
+                openDialog(confirmModal);
+            } else if (pendingAction && pendingAction.type === 'music') {
+                pendingChannel = entered;
+                closeDialog(channelInputModal);
+                confirmText.textContent = `Are you absolutely sure you want to opt out of MUSIC in #${entered}? Only a moderator can undo this action.`;
+                openDialog(confirmModal);
+            } else {
+                // Load channel context only
+                currentChannel = entered;
+                closeDialog(channelInputModal);
+                if (channelContextCard) channelContextCard.classList.remove('d-none');
+                if (channelContextNameEl) channelContextNameEl.textContent = currentChannel;
+                if (dangerTtsToggle) dangerTtsToggle.style.display = '';
+                if (dangerMusicToggle) dangerMusicToggle.style.display = '';
+                if (dangerZoneSection) dangerZoneSection.style.display = '';
+                if (channelHint) { 
+                    channelHint.textContent = 'Channel found ✓ (test mode)'; 
+                    channelHint.className = 'form-text text-success'; 
+                }
+                showToast('Channel context loaded (test mode)', 'success');
+            }
+            return;
+        }
+        if (pendingAction && pendingAction.type === 'tts') {
+            pendingChannel = entered;
+            closeDialog(channelInputModal);
+            confirmText.textContent = `Are you absolutely sure you want to opt out of TTS in #${entered}? Only a moderator can undo this action.`;
+            openDialog(confirmModal);
+        } else {
+            // Load channel context only
+            currentChannel = entered;
+            closeDialog(channelInputModal);
+            if (channelContextCard) channelContextCard.classList.remove('d-none');
+            if (channelContextNameEl) channelContextNameEl.textContent = currentChannel;
+            loadPreferences();
+        }
+    });
+    if (channelInputCancel) channelInputCancel.addEventListener('click', () => {
+        if (TEST_MODE) {
+            pendingAction = null; 
+            pendingChannel = null; 
+            closeDialog(channelInputModal);
+            showToast('Modal cancelled (test mode)', 'info');
+            return;
+        }
+        pendingAction = null; pendingChannel = null; closeDialog(channelInputModal);
+    });
+    if (clearChannelContextBtn) clearChannelContextBtn.addEventListener('click', () => {
+        if (TEST_MODE) {
+            currentChannel = null;
+            if (channelContextCard) channelContextCard.classList.add('d-none');
+            if (dangerTtsToggle) dangerTtsToggle.style.display = 'none';
+            if (dangerMusicToggle) dangerMusicToggle.style.display = 'none';
+            if (dangerTtsButton) dangerTtsButton.style.display = '';
+            if (dangerMusicButton) dangerMusicButton.style.display = '';
+            showToast('Channel context cleared (test mode)', 'success');
+            return;
+        }
+        currentChannel = null;
+        if (channelContextCard) channelContextCard.classList.add('d-none');
+        if (dangerZoneSection) dangerZoneSection.style.display = 'none';
+        loadPreferences();
+    });
 
     confirmYes.addEventListener('click', confirmIgnoreAction);
     confirmNo.addEventListener('click', cancelIgnoreAction);
@@ -626,6 +730,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const authenticated = await initializeAuth();
     if (authenticated) {
         await loadVoices();
-        if (currentChannel) await loadPreferences();
+        await loadPreferences();
     }
 });

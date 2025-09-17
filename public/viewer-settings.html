@@ -50,16 +50,22 @@
             <div class="row g-4">
                 <!-- Main column -->
                 <div class="col-12 col-lg-8">
-                    <!-- Channel Selection -->
-                    <div class="card mb-4">
-                        <div class="card-header">Choose a Channel</div>
+                    <!-- Channel Context (optional) -->
+                    <div class="card mb-3" id="add-channel-context-card">
+                        <div class="card-body d-flex justify-content-between align-items-center">
+                            <small class="text-muted">Optionally load a channel to see its defaults and manage opt-outs. Your preferences remain global.</small>
+                            <button class="btn btn-outline-secondary btn-sm" id="open-channel-context-modal-btn">Load Channel…</button>
+                        </div>
+                    </div>
+
+                    <div class="card mb-4 d-none" id="channel-context-card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <span>Channel Context</span>
+                            <button class="btn btn-link btn-sm text-decoration-none" id="clear-channel-context-btn">Clear</button>
+                        </div>
                         <div class="card-body">
-                            <p class="mb-3">Enter the name of a Twitch channel with ChatVibes where you want to customize your TTS voice settings:</p>
-                            <div class="mb-1">
-                                <label for="channel-input" class="form-label">Channel Name</label>
-                                <input type="text" id="channel-input" class="form-control" placeholder="Streamer Username" required>
-                            </div>
-                            <small id="channel-hint" class="form-text text-muted">Type a channel name above to load your voice preferences for that channel</small>
+                            <p class="mb-3">You opened this page from <strong id="channel-context-name"></strong>. Global preferences apply everywhere. Channel defaults are shown for reference.</p>
+                            <small id="channel-hint" class="form-text text-muted">Channel found ✓</small>
                         </div>
                     </div>
 
@@ -201,11 +207,11 @@
                     </div>
 
                     <!-- Danger Zone -->
-                    <div class="settings-section">
+                    <div class="settings-section" id="danger-zone-section">
                         <h5 class="settings-section-title text-danger">Danger Zone</h5>
                         <p class="settings-section-description fst-italic text-danger">These actions cannot be undone by you. Only channel moderators can reverse these settings.</p>
                         <div class="list-group mb-4 shadow border-danger">
-                            <div class="list-group-item list-group-item-danger">
+                            <div class="list-group-item list-group-item-danger" id="danger-tts-toggle" style="display:none;">
                                 <div class="row align-items-center">
                                     <div class="col">
                                         <strong class="mb-0 text-danger">Opt out of TTS in this channel</strong>
@@ -219,7 +225,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="list-group-item list-group-item-danger">
+                            <div class="list-group-item list-group-item-danger" id="danger-music-toggle" style="display:none;">
                                 <div class="row align-items-center">
                                     <div class="col">
                                         <strong class="mb-0 text-danger">Opt out of Music commands in this channel</strong>
@@ -233,6 +239,7 @@
                                     </div>
                                 </div>
                             </div>
+                            
                         </div>
                     </div>
 
@@ -244,6 +251,19 @@
                             <div class="modal-actions">
                                 <button type="button" id="confirm-yes" class="btn btn-danger">Confirm</button>
                                 <button type="button" id="confirm-no" class="btn btn-secondary">Cancel</button>
+                            </div>
+                        </div>
+                    </dialog>
+
+                    <!-- Channel input modal for global Danger action -->
+                    <dialog id="channel-input-modal" class="modal">
+                        <div class="modal-content">
+                            <h3>Opt out of TTS</h3>
+                            <p>Enter the channel name you want to opt out from:</p>
+                            <input type="text" id="channel-input-modal-text" class="form-control mb-3" placeholder="Streamer Username">
+                            <div class="modal-actions">
+                                <button type="button" id="channel-input-confirm" class="btn btn-danger">Opt Out</button>
+                                <button type="button" id="channel-input-cancel" class="btn btn-secondary">Cancel</button>
                             </div>
                         </div>
                     </dialog>

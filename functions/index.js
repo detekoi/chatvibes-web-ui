@@ -1682,6 +1682,112 @@ app.put("/api/viewer/preferences/:channel", authenticateApiRequest, async (req, 
   }
 });
 
+// Route: /api/viewer/preferences - Get GLOBAL viewer preferences (no channel required)
+app.get("/api/viewer/preferences", authenticateApiRequest, async (req, res) => {
+  try {
+    const username = req.user.login;
+    let globalPrefs = {};
+    try {
+      const userDoc = await db.collection("ttsUserPreferences").doc(username).get();
+      if (userDoc.exists) globalPrefs = userDoc.data() || {};
+    } catch (e) {
+      console.warn("Failed to load global user prefs:", e.message);
+    }
+    return res.json({
+      voiceId: globalPrefs.voiceId ?? null,
+      pitch: (globalPrefs.pitch !== undefined) ? globalPrefs.pitch : null,
+      speed: (globalPrefs.speed !== undefined) ? globalPrefs.speed : null,
+      emotion: globalPrefs.emotion ?? null,
+      language: globalPrefs.languageBoost ?? null,
+      englishNormalization: (globalPrefs.englishNormalization !== undefined) ? globalPrefs.englishNormalization : undefined,
+    });
+  } catch (error) {
+    console.error("Error fetching GLOBAL viewer preferences:", error);
+    res.status(500).json({error: "Internal server error"});
+  }
+});
+
+// Route: /api/viewer/preferences - Update GLOBAL viewer preferences (no channel required)
+app.put("/api/viewer/preferences", authenticateApiRequest, async (req, res) => {
+  try {
+    const username = req.user.login;
+    const updates = req.body || {};
+
+    const validKeys = ["voiceId", "pitch", "speed", "emotion", "language", "englishNormalization"];
+    const filteredUpdates = {};
+
+    for (const [key, value] of Object.entries(updates)) {
+      if (!validKeys.includes(key)) continue;
+      if (key === "pitch") {
+        if (value !== null) {
+          const pitch = Number(value);
+          if (isNaN(pitch) || pitch < -12 || pitch > 12) return res.status(400).json({error: "Invalid pitch value"});
+          filteredUpdates[key] = pitch;
+        } else {
+          filteredUpdates[key] = null;
+        }
+      } else if (key === "speed") {
+        if (value !== null) {
+          const speed = Number(value);
+          if (isNaN(speed) || speed < 0.5 || speed > 2) return res.status(400).json({error: "Invalid speed value"});
+          filteredUpdates[key] = speed;
+        } else {
+          filteredUpdates[key] = null;
+        }
+      } else if (key === "emotion") {
+        if (value !== null && value !== "") {
+          const validEmotions = ["auto", "neutral", "happy", "sad", "angry", "fearful", "disgusted", "surprised"];
+          if (!validEmotions.includes(value)) return res.status(400).json({error: "Invalid emotion value"});
+          filteredUpdates[key] = value;
+        } else {
+          filteredUpdates[key] = null;
+        }
+      } else if (key === "language") {
+        if (value !== null && value !== "") {
+          const validLanguages = [
+            "None", "Automatic", "Chinese", "Chinese,Yue", "English", "Arabic", "Russian",
+            "Spanish", "French", "Portuguese", "German", "Turkish", "Dutch", "Ukrainian",
+            "Vietnamese", "Indonesian", "Japanese", "Italian", "Korean", "Thai", "Polish",
+            "Romanian", "Greek", "Czech", "Finnish", "Hindi",
+          ];
+          if (!validLanguages.includes(value)) return res.status(400).json({error: "Invalid language value"});
+          filteredUpdates[key] = value;
+        } else {
+          filteredUpdates[key] = null;
+        }
+      } else if (key === "voiceId") {
+        filteredUpdates[key] = (value === null || value === "") ? null : value;
+      } else if (key === "englishNormalization") {
+        filteredUpdates[key] = !!value;
+      }
+    }
+
+    const userDocRef = db.collection("ttsUserPreferences").doc(username);
+    const toSet = {};
+    const toDelete = [];
+    for (const [key, value] of Object.entries(filteredUpdates)) {
+      if (key === "language") {
+        if (value === null) toDelete.push("languageBoost"); else toSet["languageBoost"] = value;
+        continue;
+      }
+      if (value === null) toDelete.push(key); else toSet[key] = value;
+    }
+
+    if (Object.keys(toSet).length > 0) {
+      await userDocRef.set({ ...toSet, updatedAt: FieldValue.serverTimestamp() }, { merge: true });
+    }
+    if (toDelete.length > 0) {
+      const delObj = {}; toDelete.forEach((k) => delObj[k] = FieldValue.delete());
+      try { await userDocRef.update(delObj); } catch (e) { if (e.code !== 5) throw e; }
+    }
+
+    res.json({success: true});
+  } catch (error) {
+    console.error("Error updating GLOBAL viewer preferences:", error);
+    res.status(500).json({error: "Internal server error"});
+  }
+});
+
 // Route: /api/viewer/ignore/tts/:channel - Add user to TTS ignore list
 app.post("/api/viewer/ignore/tts/:channel", authenticateApiRequest, async (req, res) => {
   try {
