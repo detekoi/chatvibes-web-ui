@@ -1774,11 +1774,16 @@ app.put("/api/viewer/preferences", authenticateApiRequest, async (req, res) => {
     }
 
     if (Object.keys(toSet).length > 0) {
-      await userDocRef.set({ ...toSet, updatedAt: FieldValue.serverTimestamp() }, { merge: true });
+      await userDocRef.set({...toSet, updatedAt: FieldValue.serverTimestamp()}, {merge: true});
     }
     if (toDelete.length > 0) {
-      const delObj = {}; toDelete.forEach((k) => delObj[k] = FieldValue.delete());
-      try { await userDocRef.update(delObj); } catch (e) { if (e.code !== 5) throw e; }
+      const delObj = {};
+      toDelete.forEach((k) => delObj[k] = FieldValue.delete());
+      try {
+        await userDocRef.update(delObj);
+      } catch (e) {
+        if (e.code !== 5) throw e;
+      }
     }
 
     res.json({success: true});
