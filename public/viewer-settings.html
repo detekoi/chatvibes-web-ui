@@ -255,14 +255,14 @@
                         </div>
                     </dialog>
 
-                    <!-- Channel input modal for global Danger action -->
+                    <!-- Channel input modal (used to load channel context) -->
                     <dialog id="channel-input-modal" class="modal">
                         <div class="modal-content">
-                            <h3>Opt out of TTS</h3>
-                            <p>Enter the channel name you want to opt out from:</p>
+                            <h3 id="channel-input-title">Load Channel Context</h3>
+                            <p id="channel-input-desc">Enter the channel name to view its defaults and manage opt-outs:</p>
                             <input type="text" id="channel-input-modal-text" class="form-control mb-3" placeholder="Streamer Username">
                             <div class="modal-actions">
-                                <button type="button" id="channel-input-confirm" class="btn btn-danger">Opt Out</button>
+                                <button type="button" id="channel-input-confirm" class="btn btn-primary">Load</button>
                                 <button type="button" id="channel-input-cancel" class="btn btn-secondary">Cancel</button>
                             </div>
                         </div>

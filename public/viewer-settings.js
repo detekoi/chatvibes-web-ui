@@ -82,6 +82,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     const channelInputCancel = document.getElementById('channel-input-cancel');
     const openChannelContextModalBtn = document.getElementById('open-channel-context-modal-btn');
     const clearChannelContextBtn = document.getElementById('clear-channel-context-btn');
+    const channelInputTitle = document.getElementById('channel-input-title');
+    const channelInputDesc = document.getElementById('channel-input-desc');
     const logoutLink = document.getElementById('logout-link');
 
     // Reset buttons
@@ -632,16 +634,24 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Always show the channel input modal (even in test mode) so you can preview it
         pendingAction = null; // clear any danger flow
         channelInputModalText.value = '';
+        if (channelInputTitle) channelInputTitle.textContent = 'Load Channel Context';
+        if (channelInputDesc) channelInputDesc.textContent = 'Enter the channel name to view its defaults and manage opt-outs:';
+        const confirmBtn = document.getElementById('channel-input-confirm');
+        if (confirmBtn) {
+            confirmBtn.textContent = 'Load';
+            confirmBtn.classList.remove('btn-danger');
+            confirmBtn.classList.add('btn-primary');
+        }
         openDialog(channelInputModal);
     });
     if (channelInputConfirm) channelInputConfirm.addEventListener('click', () => {
         const entered = (channelInputModalText.value || '').trim().toLowerCase();
         if (!entered) { showToast('Please enter a channel name', 'warning'); return; }
         if (TEST_MODE) {
-            if (pendingAction && pendingAction.type === 'tts') {
+        if (pendingAction && pendingAction.type === 'tts') {
                 pendingChannel = entered;
                 closeDialog(channelInputModal);
-                confirmText.textContent = `Are you absolutely sure you want to opt out of TTS in #${entered}? Only a moderator can undo this action.`;
+            confirmText.textContent = `Are you absolutely sure you want to opt out of TTS in #${entered}? Only a moderator can undo this action.`;
                 openDialog(confirmModal);
             } else if (pendingAction && pendingAction.type === 'music') {
                 pendingChannel = entered;

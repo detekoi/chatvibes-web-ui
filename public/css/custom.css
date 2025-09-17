@@ -95,6 +95,14 @@ dialog.modal {
     width: 90%;
     background: transparent;
 }
+/* Ensure native dialog displays even with Bootstrap .modal default styles */
+dialog.modal[open] {
+    display: block !important;
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    z-index: 1055; /* above typical content, similar to Bootstrap modal */
+}
 dialog.modal::backdrop {
     background: var(--modal-backdrop);
 }
