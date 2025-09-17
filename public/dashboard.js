@@ -401,6 +401,142 @@ document.addEventListener('DOMContentLoaded', () => {
         : 'https://chatvibes-tts-service-h7kj56ct4q-uc.a.run.app/api';
 
     let originalSettings = {};
+    let isInitializing = true;
+    let lastSuccessToastAt = 0;
+
+    function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => { clearTimeout(timeout); func.apply(this, args); };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+
+    function maybeSuccessToast(message) {
+        const now = Date.now();
+        if (now - lastSuccessToastAt > 5000) {
+            showToast(message, 'success');
+            lastSuccessToastAt = now;
+        }
+    }
+
+    function getChannelName() {
+        return loggedInUser?.login?.toLowerCase();
+    }
+
+    function authHeaders() {
+        const headers = { 'Content-Type': 'application/json' };
+        if (appSessionToken) headers['Authorization'] = `Bearer ${appSessionToken}`;
+        return headers;
+    }
+
+    async function saveTtsSetting(key, value, label) {
+        if (isInitializing) return;
+        const channelName = getChannelName();
+        if (TEST_MODE) { maybeSuccessToast('Saved'); return; }
+        if (!channelName) { showToast('Not logged in', 'error'); return; }
+        try {
+            const response = await fetch(`${BOT_API_BASE_URL}/tts/settings/channel/${channelName}`, {
+                method: 'PUT', headers: authHeaders(), body: JSON.stringify({ key, value })
+            });
+            if (response.ok) {
+                maybeSuccessToast('Saved');
+            } else if (response.status === 403) {
+                const errorData = await response.json().catch(() => ({}));
+                const errorText = errorData.details || errorData.message || 'Channel is not allowed to use this service';
+                const html = errorText.includes('https://detekoi.github.io/#contact-me')
+                    ? errorText.replace('https://detekoi.github.io/#contact-me', '<a href="https://detekoi.github.io/#contact-me" target="_blank" class="link-light">this link</a>')
+                    : `${errorText} <a href=\"https://detekoi.github.io/#contact-me\" target=\"_blank\" class=\"link-light\">Request access here</a>.`;
+                showToast(html, 'error');
+            } else if (response.status === 500 || response.status === 404) {
+                showToast('Settings management not available yet - bot needs API update', 'warning');
+            } else {
+                const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
+                showToast(`${label || 'Setting'}: ${errorData.error}`, 'error');
+            }
+        } catch (error) {
+            console.error('Failed to save setting:', key, error);
+            showToast(`Failed to save ${label || key}`, 'error');
+        }
+    }
+
+    async function saveMusicEnabled(enabled) {
+        if (isInitializing) return;
+        const channelName = getChannelName();
+        if (TEST_MODE) { maybeSuccessToast('Saved'); return; }
+        if (!channelName) { showToast('Not logged in', 'error'); return; }
+        try {
+            const response = await fetch(`${BOT_API_BASE_URL}/music/settings/channel/${channelName}`, {
+                method: 'PUT', headers: authHeaders(), body: JSON.stringify({ key: 'enabled', value: enabled })
+            });
+            if (response.ok) { maybeSuccessToast('Saved'); }
+            else if (response.status === 403) {
+                const errorData = await response.json().catch(() => ({}));
+                const errorText = errorData.details || errorData.message || 'Channel is not allowed to use this service';
+                showToast(`Forbidden: ${errorText}`, 'error');
+            } else if (response.status !== 500 && response.status !== 404) {
+                const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
+                showToast(`Music Generation: ${errorData.error}`, 'error');
+            } else {
+                showToast('Settings management not available yet - bot needs API update', 'warning');
+            }
+        } catch (e) {
+            showToast('Failed to save Music Generation', 'error');
+        }
+    }
+
+    async function saveMusicAllowedRoles(modeValue) {
+        if (isInitializing) return;
+        const channelName = getChannelName();
+        if (TEST_MODE) { maybeSuccessToast('Saved'); return; }
+        if (!channelName) { showToast('Not logged in', 'error'); return; }
+        const roles = modeValue === 'everyone' ? ['everyone'] : ['moderator'];
+        try {
+            const response = await fetch(`${BOT_API_BASE_URL}/music/settings/channel/${channelName}`, {
+                method: 'PUT', headers: authHeaders(), body: JSON.stringify({ key: 'allowedRoles', value: roles })
+            });
+            if (response.ok) { maybeSuccessToast('Saved'); }
+            else if (response.status === 403) {
+                const errorData = await response.json().catch(() => ({}));
+                const errorText = errorData.details || errorData.message || 'Channel is not allowed to use this service';
+                showToast(`Forbidden: ${errorText}`, 'error');
+            } else if (response.status !== 500 && response.status !== 404) {
+                const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
+                showToast(`Music Access: ${errorData.error}`, 'error');
+            } else {
+                showToast('Settings management not available yet - bot needs API update', 'warning');
+            }
+        } catch (e) {
+            showToast('Failed to save Music Access', 'error');
+        }
+    }
+
+    async function saveMusicBitsConfig(enabled, minimumAmount) {
+        if (isInitializing) return;
+        const channelName = getChannelName();
+        if (TEST_MODE) { maybeSuccessToast('Saved'); return; }
+        if (!channelName) { showToast('Not logged in', 'error'); return; }
+        try {
+            const response = await fetch(`${BOT_API_BASE_URL}/music/settings/channel/${channelName}`, {
+                method: 'PUT', headers: authHeaders(),
+                body: JSON.stringify({ key: 'bitsConfig', value: { enabled, minimumAmount } })
+            });
+            if (response.ok) { maybeSuccessToast('Saved'); }
+            else if (response.status === 403) {
+                const errorData = await response.json().catch(() => ({}));
+                const errorText = errorData.details || errorData.message || 'Channel is not allowed to use this service';
+                showToast(`Forbidden: ${errorText}`, 'error');
+            } else if (response.status !== 500 && response.status !== 404) {
+                const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
+                showToast(`Music Bits: ${errorData.error}`, 'error');
+            } else {
+                showToast('Settings management not available yet - bot needs API update', 'warning');
+            }
+        } catch (e) {
+            showToast('Failed to save Music Bits', 'error');
+        }
+    }
 
     if (defaultPitchSlider && pitchValueSpan) {
         defaultPitchSlider.addEventListener('input', () => {
@@ -730,12 +866,54 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Hide legacy Save button; auto-save is enabled
     if (saveSettingsBtn) {
-        saveSettingsBtn.addEventListener('click', saveBotSettings);
+        saveSettingsBtn.style.display = 'none';
+        saveSettingsBtn.disabled = true;
+    }
+
+    // Auto-save listeners for Broadcaster settings (TTS)
+    if (ttsEnabledCheckbox) ttsEnabledCheckbox.addEventListener('change', () => saveTtsSetting('engineEnabled', !!ttsEnabledCheckbox.checked, 'TTS Engine'));
+    if (ttsModeSelect) ttsModeSelect.addEventListener('change', () => saveTtsSetting('mode', ttsModeSelect.value || 'command', 'TTS Mode'));
+    if (ttsPermissionSelect) ttsPermissionSelect.addEventListener('change', () => saveTtsSetting('ttsPermissionLevel', ttsPermissionSelect.value || 'everyone', 'TTS Permission'));
+    if (eventsEnabledCheckbox) eventsEnabledCheckbox.addEventListener('change', () => saveTtsSetting('speakEvents', eventsEnabledCheckbox.checked !== false, 'Event Announcements'));
+    if (bitsEnabledCheckbox) bitsEnabledCheckbox.addEventListener('change', () => saveTtsSetting('bitsModeEnabled', !!bitsEnabledCheckbox.checked, 'Bits for TTS'));
+    if (bitsAmountInput) {
+        const debouncedBitsAmountSave = debounce(() => saveTtsSetting('bitsMinimumAmount', parseInt(bitsAmountInput.value || '100', 10), 'Minimum Bits'), 600);
+        bitsAmountInput.addEventListener('input', () => { if (!isInitializing) debouncedBitsAmountSave(); });
+        bitsAmountInput.addEventListener('change', () => saveTtsSetting('bitsMinimumAmount', parseInt(bitsAmountInput.value || '100', 10), 'Minimum Bits'));
+    }
+
+    if (defaultVoiceSelect) defaultVoiceSelect.addEventListener('change', () => saveTtsSetting('voiceId', defaultVoiceSelect.value || 'Friendly_Person', 'Default Voice'));
+    if (defaultEmotionSelect) defaultEmotionSelect.addEventListener('change', () => saveTtsSetting('emotion', defaultEmotionSelect.value || 'auto', 'Default Emotion'));
+    if (defaultPitchSlider) {
+        const debouncedPitchSave = debounce(() => saveTtsSetting('pitch', parseInt(defaultPitchSlider.value || '0', 10), 'Default Pitch'), 400);
+        defaultPitchSlider.addEventListener('input', () => { if (!isInitializing) debouncedPitchSave(); });
+        defaultPitchSlider.addEventListener('change', () => saveTtsSetting('pitch', parseInt(defaultPitchSlider.value || '0', 10), 'Default Pitch'));
+    }
+    if (defaultSpeedSlider) {
+        const debouncedSpeedSave = debounce(() => saveTtsSetting('speed', parseFloat(defaultSpeedSlider.value || '1.0'), 'Default Speed'), 400);
+        defaultSpeedSlider.addEventListener('input', () => { if (!isInitializing) debouncedSpeedSave(); });
+        defaultSpeedSlider.addEventListener('change', () => saveTtsSetting('speed', parseFloat(defaultSpeedSlider.value || '1.0'), 'Default Speed'));
+    }
+    if (defaultLanguageSelect) defaultLanguageSelect.addEventListener('change', () => saveTtsSetting('languageBoost', defaultLanguageSelect.value || 'Automatic', 'Default Language'));
+    if (englishNormalizationCheckbox) englishNormalizationCheckbox.addEventListener('change', () => saveTtsSetting('englishNormalization', !!englishNormalizationCheckbox.checked, 'English Normalization'));
+
+    // Auto-save listeners for Music settings
+    if (musicEnabledCheckbox) musicEnabledCheckbox.addEventListener('change', () => saveMusicEnabled(!!musicEnabledCheckbox.checked));
+    if (musicModeSelect) musicModeSelect.addEventListener('change', () => saveMusicAllowedRoles(musicModeSelect.value || 'everyone'));
+    if (musicBitsEnabledCheckbox || musicBitsAmountInput) {
+        const saveBits = () => saveMusicBitsConfig(!!musicBitsEnabledCheckbox?.checked, parseInt(musicBitsAmountInput?.value || '100', 10));
+        const debouncedSaveBits = debounce(() => { if (!isInitializing) saveBits(); }, 600);
+        if (musicBitsEnabledCheckbox) musicBitsEnabledCheckbox.addEventListener('change', () => saveBits());
+        if (musicBitsAmountInput) {
+            musicBitsAmountInput.addEventListener('input', () => debouncedSaveBits());
+            musicBitsAmountInput.addEventListener('change', () => saveBits());
+        }
     }
 
     // Channel Points actions
-    async function saveChannelPointsConfig() {
+    async function saveChannelPointsConfig(isAuto = false) {
         if (TEST_MODE) { showToast('Channel Points saved ✓ (test mode)', 'success'); if (cpStatusLine) cpStatusLine.textContent = 'No reward created · Last synced: ' + new Date().toLocaleTimeString(); return; }
         if (!appSessionToken) { showToast('Authentication required', 'error'); return; }
         const payload = {
@@ -758,7 +936,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
         try {
-            showToast('Saving Channel Points config…', 'info');
+            if (!isAuto) showToast('Saving Channel Points config…', 'info');
             const res = await fetch(`${API_BASE_URL}/api/rewards/tts`, {
                 method: 'POST',
                 headers: { 'Authorization': `Bearer ${appSessionToken}`, 'Content-Type': 'application/json' },
@@ -770,7 +948,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 showToast(data.error || 'Save failed', 'error');
                 return;
             }
-            showToast('Channel Points saved ✓', 'success');
+            if (isAuto) { maybeSuccessToast('Channel Points saved ✓'); } else { showToast('Channel Points saved ✓', 'success'); }
             if (cpStatusLine) {
                 const idPart = data.rewardId ? `Reward ID: ${data.rewardId}` : 'No reward created';
                 cpStatusLine.textContent = `${idPart} · Last synced: ${new Date().toLocaleTimeString()}`;
@@ -779,6 +957,40 @@ document.addEventListener('DOMContentLoaded', () => {
             showToast('Save failed', 'error');
         }
     }
+
+    // Rate-limited, debounced auto-save for Channel Points
+    (function setupChannelPointsAutoSave() {
+        const MIN_INTERVAL_MS = 1500;
+        const DEBOUNCE_MS = 800;
+        let lastSaveAt = 0;
+        let timerId = null;
+        function scheduleCpAutoSave() {
+            if (isInitializing) return;
+            if (timerId) clearTimeout(timerId);
+            const now = Date.now();
+            const wait = Math.max(DEBOUNCE_MS, MIN_INTERVAL_MS - (now - lastSaveAt));
+            timerId = setTimeout(async () => {
+                await saveChannelPointsConfig(true);
+                lastSaveAt = Date.now();
+            }, wait);
+        }
+        const bind = (el, events = ['input', 'change']) => {
+            if (!el) return;
+            events.forEach(evt => el.addEventListener(evt, scheduleCpAutoSave));
+        };
+        bind(cpEnabled, ['change']);
+        bind(cpTitle);
+        bind(cpCost);
+        bind(cpPrompt);
+        bind(cpSkipQueue, ['change']);
+        bind(cpCooldown);
+        bind(cpPerStream);
+        bind(cpPerUser);
+        bind(cpMin);
+        bind(cpMax);
+        bind(cpBlockLinks, ['change']);
+        bind(cpBannedWords);
+    })();
 
     async function testChannelPointsRedeem() {
         if (TEST_MODE) { const text = prompt('Enter a test message to simulate a redemption:'); if (text) showToast('Test validated ✓ (test mode)', 'success'); return; }
@@ -979,6 +1191,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function initializeSettingsPanel() {
         await loadAvailableVoices();
         await loadBotSettings();
+        isInitializing = false;
     }
 
     initializeDashboard().then(() => {

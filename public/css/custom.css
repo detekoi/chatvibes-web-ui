@@ -324,8 +324,12 @@ strong, .fw-semibold, .fw-bold {
 [data-theme="dark"] .card-body li,
 [data-theme="dark"] .card-body ol,
 [data-theme="dark"] .card-body ul,
+[data-theme="dark"] .card-body .form-text,
+[data-theme="dark"] .card-body .small,
+[data-theme="dark"] .card-body label,
 [data-theme="dark"] .form-label,
 [data-theme="dark"] .alert,
+[data-theme="dark"] .form-check-label,
 [data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3,
 [data-theme="dark"] h4, [data-theme="dark"] h5, [data-theme="dark"] h6 {
     color: var(--text-primary);
@@ -337,5 +341,19 @@ strong, .fw-semibold, .fw-bold {
 
 [data-theme="dark"] .link-primary {
     color: var(--accent-primary);
+}
+
+/* Form placeholder text in dark mode */
+[data-theme="dark"] .form-control::placeholder,
+[data-theme="dark"] .form-select::placeholder {
+    color: var(--text-muted);
+    opacity: 0.8;
+}
+
+/* Status text and small elements */
+[data-theme="dark"] .text-muted,
+[data-theme="dark"] .small,
+[data-theme="dark"] small {
+    color: var(--text-muted) !important;
 }
 
