@@ -397,12 +397,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (currentChannel) {
                 if (channelContextCard) channelContextCard.classList.remove('d-none');
                 if (channelContextNameEl) channelContextNameEl.textContent = currentChannel;
-                if (dangerZoneSection) dangerZoneSection.style.display = '';
+                if (dangerZoneSection) dangerZoneSection.classList.remove('d-none');
                 if (dangerTtsToggle) dangerTtsToggle.style.display = '';
                 if (dangerMusicToggle) dangerMusicToggle.style.display = '';
                 if (channelHint) { channelHint.textContent = 'Channel found ✓ (test mode)'; channelHint.className = 'form-text text-success'; }
             } else {
-                if (dangerZoneSection) dangerZoneSection.style.display = 'none';
+                if (dangerZoneSection) dangerZoneSection.classList.add('d-none');
             }
             return;
         }
@@ -429,12 +429,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (currentChannel) {
                 if (channelContextCard) channelContextCard.classList.remove('d-none');
                 if (channelContextNameEl) channelContextNameEl.textContent = currentChannel;
-                if (dangerZoneSection) dangerZoneSection.style.display = '';
+                if (dangerZoneSection) dangerZoneSection.classList.remove('d-none');
                 if (dangerTtsToggle) dangerTtsToggle.style.display = '';
                 if (dangerMusicToggle) dangerMusicToggle.style.display = '';
                 if (channelHint) { channelHint.textContent = 'Channel found ✓'; channelHint.className = 'form-text text-success'; }
             } else {
-                if (dangerZoneSection) dangerZoneSection.style.display = 'none';
+                if (dangerZoneSection) dangerZoneSection.classList.add('d-none');
             }
         } catch (error) {
             console.error('Failed to load preferences:', error);
@@ -666,7 +666,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 if (channelContextNameEl) channelContextNameEl.textContent = currentChannel;
                 if (dangerTtsToggle) dangerTtsToggle.style.display = '';
                 if (dangerMusicToggle) dangerMusicToggle.style.display = '';
-                if (dangerZoneSection) dangerZoneSection.style.display = '';
+            if (dangerZoneSection) dangerZoneSection.classList.remove('d-none');
                 if (channelHint) { 
                     channelHint.textContent = 'Channel found ✓ (test mode)'; 
                     channelHint.className = 'form-text text-success'; 
@@ -712,7 +712,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
         currentChannel = null;
         if (channelContextCard) channelContextCard.classList.add('d-none');
-        if (dangerZoneSection) dangerZoneSection.style.display = 'none';
+        if (dangerZoneSection) dangerZoneSection.classList.add('d-none');
         loadPreferences();
     });
 
