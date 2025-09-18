@@ -1003,7 +1003,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             if (isAuto) { maybeSuccessToast('Channel Points saved ✓'); } else { showToast('Channel Points saved ✓', 'success'); }
             if (cpStatusLine) {
-                const idPart = data.rewardId ? `Reward ID: ${data.rewardId}` : 'No reward created';
+                const rewardFromResponse = data.channelPoints?.rewardId || data.rewardId;
+                const idPart = rewardFromResponse ? `Reward ID: ${rewardFromResponse}` : 'No reward created';
                 cpStatusLine.textContent = `${idPart} · Last synced: ${new Date().toLocaleTimeString()}`;
             }
         } catch (e) {
