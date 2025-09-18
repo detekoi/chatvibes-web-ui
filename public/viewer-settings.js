@@ -1,5 +1,6 @@
 // Viewer Settings JavaScript (Bootstrap 5 refactor with toasts)
 document.addEventListener('DOMContentLoaded', async () => {
+    console.log('DOMContentLoaded fired - script starting...');
     // Test mode: enable with ?test=1 in the URL to bypass auth and API calls
     const TEST_MODE = new URLSearchParams(window.location.search).has('test');
     // Toast helper
@@ -144,6 +145,71 @@ document.addEventListener('DOMContentLoaded', async () => {
         } else {
             dialogEl.removeAttribute('open');
         }
+    }
+
+    // Hint helpers: format, describe, and update after changes
+    function formatNumberCompact(n) {
+        const s = Number(n).toFixed(2);
+        return s.replace(/\.0+$/, '').replace(/(\.\d*[1-9])0+$/, '$1');
+    }
+    function formatValueForHint(key, value) {
+        if (value === '' || value === undefined || value === null) return value;
+        if (key === 'speed') return formatNumberCompact(value);
+        return value;
+    }
+    function describePreferenceHint(key) {
+        const cd = (currentPreferences && currentPreferences.channelDefaults) ? currentPreferences.channelDefaults : {};
+        const userVal = currentPreferences ? currentPreferences[key] : undefined;
+        const defVal = cd[key];
+        const hasUser = userVal !== null && userVal !== undefined && userVal !== '';
+        const hasDef = defVal !== null && defVal !== undefined && defVal !== '';
+        if (hasUser) return `Using your global preference: ${formatValueForHint(key, userVal)}`;
+        if (hasDef) return `Using channel default: ${formatValueForHint(key, defVal)}`;
+        return 'Using system default';
+    }
+    function updateSingleHint(key) {
+        const map = {
+            voiceId: hintVoice,
+            pitch: hintPitch,
+            speed: hintSpeed,
+            emotion: hintEmotion,
+            language: hintLanguage,
+            englishNormalization: hintEnglishNorm
+        };
+        const el = map[key];
+        if (!el || !currentChannel) return;
+
+        const newHint = describePreferenceHint(key);
+        el.textContent = newHint;
+        el.style.display = '';
+        // Force DOM update to happen immediately
+        el.offsetHeight;
+    }
+
+    function updateHints(keys) {
+        const map = {
+            voiceId: hintVoice,
+            pitch: hintPitch,
+            speed: hintSpeed,
+            emotion: hintEmotion,
+            language: hintLanguage,
+            englishNormalization: hintEnglishNorm
+        };
+        const toUpdate = Array.isArray(keys) ? keys : Object.keys(map);
+        toUpdate.forEach(k => {
+            const el = map[k];
+            if (!el) return;
+            if (currentChannel) {
+                const newHint = describePreferenceHint(k);
+                // Force DOM update to happen immediately
+                el.textContent = newHint;
+                el.style.display = '';
+                // Trigger a reflow to ensure immediate visual update
+                el.offsetHeight;
+            } else {
+                el.style.display = 'none';
+            }
+        });
     }
 
     async function fetchWithAuth(url, options = {}) {
@@ -477,24 +543,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (languageSelect && languageSelect.options && languageSelect.options.length) {
                 languageSelect.options[0].textContent = cd.language ? `Use channel default (${cd.language})` : 'Use channel default';
             }
-            const showHints = !!currentChannel;
-            const describe = (key) => {
-                const userVal = data[key];
-                const defVal = cd[key];
-                if (userVal !== null && userVal !== undefined && userVal !== '') return `Using your global preference: ${userVal}`;
-                if (defVal !== null && defVal !== undefined && defVal !== '') return `Using channel default: ${defVal}`;
-                return 'Using system default';
-            };
-            const setHint = (el, text) => {
-                if (!el) return;
-                if (showHints) { el.textContent = text; el.style.display = ''; } else { el.style.display = 'none'; }
-            };
-            setHint(hintVoice, describe('voiceId'));
-            setHint(hintPitch, describe('pitch'));
-            setHint(hintSpeed, describe('speed'));
-            setHint(hintEmotion, describe('emotion'));
-            setHint(hintLanguage, describe('language'));
-            setHint(hintEnglishNorm, describe('englishNormalization'));
+            updateHints();
             // Danger zone visibility
             if (currentChannel) {
                 if (channelContextCard) channelContextCard.classList.remove('d-none');
@@ -513,6 +562,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     async function savePreference(key, value) {
+        console.log(`savePreference called: ${key} = ${value}`);
+        // Optimistically update local state and hints so UI reflects the change immediately
+        const previous = currentPreferences ? currentPreferences[key] : undefined;
+        console.log(`Previous value: ${previous}`);
+        if (currentPreferences) {
+            currentPreferences[key] = value;
+            console.log(`Updated currentPreferences[${key}] to:`, currentPreferences[key]);
+            // Update the specific hint immediately with the new value
+            updateSingleHint(key);
+        }
+
         if (TEST_MODE) { showToast('Preference updated (test mode)', 'success'); return; }
         try {
             const body = { [key]: value };
@@ -525,8 +585,13 @@ document.addEventListener('DOMContentLoaded', async () => {
             // Subtle confirmation to avoid spam
             showToast('Preference updated', 'success');
         } catch (error) {
+            // Revert optimistic update on failure
+            if (currentPreferences) {
+                currentPreferences[key] = previous;
+                updateSingleHint(key);
+            }
             console.error(`Failed to save ${key}:`, error);
-            showToast(`Failed to save ${key}`, 'error');
+            showToast(`Failed to save ${key}: ${error.message}`, 'error');
         }
     }
 
@@ -705,12 +770,26 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     // Event Listeners
+    console.log('Setting up event listeners...');
+    console.log('pitchSlider:', pitchSlider);
+    console.log('speedSlider:', speedSlider);
+    console.log('voiceSelect:', voiceSelect);
 
     voiceSelect.addEventListener('change', () => { savePreference('voiceId', voiceSelect.value || null); });
     pitchSlider.addEventListener('input', () => { pitchOutput.textContent = pitchSlider.value; });
-    pitchSlider.addEventListener('change', () => { const v = Number(pitchSlider.value); savePreference('pitch', v !== 0 ? v : null); });
+    pitchSlider.addEventListener('change', () => {
+        console.log('Pitch slider changed to:', pitchSlider.value);
+        const v = Number(pitchSlider.value);
+        console.log('Calling savePreference with pitch =', v !== 0 ? v : null);
+        savePreference('pitch', v !== 0 ? v : null);
+    });
     speedSlider.addEventListener('input', () => { speedOutput.textContent = Number(speedSlider.value).toFixed(2); });
-    speedSlider.addEventListener('change', () => { const v = Number(speedSlider.value); savePreference('speed', Math.abs(v - 1) > 0.01 ? v : null); });
+    speedSlider.addEventListener('change', () => {
+        console.log('Speed slider changed to:', speedSlider.value);
+        const v = Number(speedSlider.value);
+        console.log('Calling savePreference with speed =', Math.abs(v - 1) > 0.01 ? v : null);
+        savePreference('speed', Math.abs(v - 1) > 0.01 ? v : null);
+    });
     emotionSelect.addEventListener('change', () => { savePreference('emotion', emotionSelect.value || null); });
     languageSelect.addEventListener('change', () => { savePreference('language', languageSelect.value || null); });
 
@@ -847,9 +926,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     // Initialize the application
+    console.log('Starting initialization...');
     const authenticated = await initializeAuth();
+    console.log('Authentication result:', authenticated);
     if (authenticated) {
+        console.log('Loading voices...');
         await loadVoices();
+        console.log('Loading preferences...');
         await loadPreferences();
+        console.log('Initialization complete!');
+    } else {
+        console.log('Authentication failed, skipping voice/preference loading');
     }
+    console.log('Script execution finished');
 });
