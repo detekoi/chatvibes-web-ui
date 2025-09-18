@@ -377,6 +377,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const voiceTestTextInput = document.getElementById('voice-test-text');
     const voiceTestBtn = document.getElementById('voice-test-btn');
+    if (voiceTestBtn) voiceTestBtn.disabled = true;
 
     // Channel Points elements
     const cpEnabled = document.getElementById('cp-enabled');
@@ -384,6 +385,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cpCost = document.getElementById('cp-cost');
     const cpPrompt = document.getElementById('cp-prompt');
     const cpSkipQueue = document.getElementById('cp-skip-queue');
+    const cpLimitsEnabled = document.getElementById('cp-limits-enabled');
     const cpCooldown = document.getElementById('cp-cooldown');
     const cpPerStream = document.getElementById('cp-per-stream');
     const cpPerUser = document.getElementById('cp-per-user');
@@ -405,6 +407,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let originalSettings = {};
     let isInitializing = true;
     let lastSuccessToastAt = 0;
+    // Resolve when settings (voices + saved preferences) are loaded
+    let settingsInitialized = false;
+    let settingsInitializedPromiseResolve;
+    const settingsInitializedPromise = new Promise((resolve) => {
+        settingsInitializedPromiseResolve = resolve;
+    });
 
     function debounce(func, wait) {
         let timeout;
@@ -431,6 +439,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const headers = { 'Content-Type': 'application/json' };
         if (appSessionToken) headers['Authorization'] = `Bearer ${appSessionToken}`;
         return headers;
+    }
+
+    // Compute effective TTS settings using loaded originals with UI fallbacks
+    function getEffectiveTtsSettings() {
+        const saved = originalSettings?.tts || {};
+        const voiceId = saved.voiceId || (defaultVoiceSelect?.value || 'Friendly_Person');
+        const emotion = (typeof saved.emotion === 'string' ? saved.emotion : (defaultEmotionSelect?.value || 'auto'));
+        const pitch = (typeof saved.pitch === 'number' ? saved.pitch : parseInt(defaultPitchSlider?.value || '0', 10));
+        const speed = (typeof saved.speed === 'number' ? saved.speed : parseFloat(defaultSpeedSlider?.value || '1.0'));
+        const languageBoost = saved.languageBoost || (defaultLanguageSelect?.value || 'Automatic');
+        return { voiceId, emotion, pitch, speed, languageBoost };
     }
 
     async function saveTtsSetting(key, value, label) {
@@ -749,6 +768,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (cpCost) cpCost.value = cp.cost ?? 500;
                     if (cpPrompt) cpPrompt.value = cp.prompt ?? 'Enter a message to be read aloud';
                     if (cpSkipQueue) cpSkipQueue.checked = cp.skipQueue !== false;
+                    if (cpLimitsEnabled) cpLimitsEnabled.checked = cp.limitsEnabled ?? (cp.perStreamLimit > 0);
                     if (cpCooldown) cpCooldown.value = cp.cooldownSeconds ?? 0;
                     if (cpPerStream) cpPerStream.value = cp.perStreamLimit ?? 0;
                     if (cpPerUser) cpPerUser.value = cp.perUserPerStreamLimit ?? 0;
@@ -965,7 +985,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     .split(',')
                     .map(s => s.trim())
                     .filter(Boolean)
-            }
+            },
+            limitsEnabled: !!cpLimitsEnabled?.checked
         };
         try {
             if (!isAuto) showToast('Saving Channel Points config…', 'info');
@@ -1015,6 +1036,7 @@ document.addEventListener('DOMContentLoaded', () => {
         bind(cpCost);
         bind(cpPrompt);
         bind(cpSkipQueue, ['change']);
+        bind(cpLimitsEnabled, ['change']);
         bind(cpCooldown);
         bind(cpPerStream);
         bind(cpPerUser);
@@ -1031,7 +1053,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!text) return;
         try {
             showToast('Testing redeem…', 'info');
-            const res = await fetch(`${API_BASE_URL}/api/rewards/tts:test`, {
+            const res = await fetch(`${API_BASE_URL}/api/rewards/tts/test`, {
                 method: 'POST',
                 headers: { 'Authorization': `Bearer ${appSessionToken}`, 'Content-Type': 'application/json' },
                 credentials: 'include',
@@ -1176,6 +1198,8 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Voice test elements not found');
             return;
         }
+        // Always ensure settings have finished loading to avoid UI race conditions
+        try { await settingsInitializedPromise; } catch (_) {}
         const text = voiceTestTextInput.value.trim();
         if (!text) { showToast('Please enter some text to test', 'warning'); return; }
         if (text.length > 500) { showToast('Text must be 500 characters or less', 'error'); return; }
@@ -1184,13 +1208,14 @@ document.addEventListener('DOMContentLoaded', () => {
         voiceTestBtn.disabled = true;
         voiceTestBtn.textContent = 'Generating...';
         try {
+            const effective = getEffectiveTtsSettings();
             const voiceSettings = {
                 text: text,
-                voiceId: defaultVoiceSelect?.value || 'Friendly_Person',
-                emotion: defaultEmotionSelect?.value || 'auto',
-                pitch: parseInt(defaultPitchSlider?.value || '0'),
-                speed: parseFloat(defaultSpeedSlider?.value || '1.0'),
-                languageBoost: defaultLanguageSelect?.value || 'Automatic'
+                voiceId: effective.voiceId,
+                emotion: effective.emotion,
+                pitch: effective.pitch,
+                speed: effective.speed,
+                languageBoost: effective.languageBoost
             };
             const response = await fetch(`${API_BASE_URL}/api/tts/test`, {
                 method: 'POST',
@@ -1266,6 +1291,9 @@ document.addEventListener('DOMContentLoaded', () => {
         await loadAvailableVoices();
         await loadBotSettings();
         isInitializing = false;
+        settingsInitialized = true;
+        try { settingsInitializedPromiseResolve && settingsInitializedPromiseResolve(); } catch (_) {}
+        if (voiceTestBtn) voiceTestBtn.disabled = false;
     }
 
     initializeDashboard().then(() => {

@@ -12,6 +12,58 @@ const {secrets} = require("../config");
 // eslint-disable-next-line new-cap
 const router = express.Router();
 
+// Utility to escape RegExp special characters
+function escapeRegExp(str) {
+  return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+// Validate a prospective Channel Points message against channel policy
+async function validateChannelPointsTestMessage(channelLogin, text) {
+  if (typeof text !== "string" || text.trim().length === 0) {
+    return {ok: false, reason: "Message is empty"};
+  }
+
+  const doc = await db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelLogin).get();
+  const data = doc.exists ? doc.data() : {};
+  const channelPoints = data.channelPoints || {};
+  const policy = channelPoints.contentPolicy || {};
+
+  const minChars = Number.isFinite(policy.minChars) ? policy.minChars : 1;
+  const maxChars = Number.isFinite(policy.maxChars) ? policy.maxChars : 200;
+  const blockLinks = policy.blockLinks !== false; // default true
+  const bannedWords = Array.isArray(policy.bannedWords) ? policy.bannedWords : [];
+
+  const trimmed = text.trim();
+  if (trimmed.length < minChars) {
+    return {ok: false, reason: `Message too short (min ${minChars})`};
+  }
+  if (trimmed.length > maxChars) {
+    return {ok: false, reason: `Message too long (max ${maxChars})`};
+  }
+
+  if (blockLinks) {
+    const linkRegex = /(https?:\/\/\S+|\b\w+\.[a-z]{2,}\b)/i;
+    if (linkRegex.test(trimmed)) {
+      return {ok: false, reason: "Links are not allowed"};
+    }
+  }
+
+  if (bannedWords.length > 0) {
+    const lower = trimmed.toLowerCase();
+    for (const word of bannedWords) {
+      const w = (word || "").trim();
+      if (!w) continue;
+      // word boundary match, case-insensitive
+      const re = new RegExp(`\\b${escapeRegExp(w)}\\b`, "i");
+      if (re.test(lower)) {
+        return {ok: false, reason: `Contains banned word: "${w}"`};
+      }
+    }
+  }
+
+  return {ok: true};
+}
+
 /**
  * Ensures a TTS channel point reward exists for a channel
  * @param {string} channelLogin - The channel login
@@ -132,59 +184,6 @@ async function ensureTtsChannelPointReward(channelLogin, twitchUserId) {
   }
 }
 
-/**
- * Disables TTS channel point reward for a channel
- * @param {string} channelLogin - The channel login
- * @return {Promise<Object>} Result with success status
- */
-async function disableTtsChannelPointReward(channelLogin) {
-  try {
-    const ttsDoc = await db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelLogin).get();
-    if (!ttsDoc.exists) {
-      return {success: false, message: "No TTS config found for channel"};
-    }
-
-    const data = ttsDoc.data();
-    const rewardId = data.channelPoints?.rewardId || data.channelPointRewardId;
-
-    if (rewardId) {
-      try {
-        const accessToken = await getValidTwitchTokenForUser(channelLogin, secrets);
-        const userDoc = await db.collection(COLLECTIONS.MANAGED_CHANNELS).doc(channelLogin).get();
-        const twitchUserId = userDoc.exists ? userDoc.data().twitchUserId : null;
-
-        if (twitchUserId) {
-          const helix = axios.create({
-            baseURL: "https://api.twitch.tv/helix",
-            headers: {
-              "Client-ID": secrets.TWITCH_CLIENT_ID,
-              "Authorization": `Bearer ${accessToken}`,
-              "Content-Type": "application/json",
-            },
-            timeout: 10000,
-          });
-
-          await helix.patch(`/channel_points/custom_rewards?broadcaster_id=${encodeURIComponent(twitchUserId)}&id=${encodeURIComponent(rewardId)}`, {
-            is_enabled: false,
-          });
-        }
-      } catch (twitchError) {
-        console.warn(`[disableTtsChannelPointReward] Failed to disable reward on Twitch for ${channelLogin}:`, twitchError.message);
-      }
-    }
-
-    // Update Firestore config
-    await db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelLogin).update({
-      "channelPoints.enabled": false,
-      "channelPointsEnabled": false,
-    });
-
-    return {success: true};
-  } catch (error) {
-    console.error(`[disableTtsChannelPointReward] Error for ${channelLogin}:`, error);
-    throw error;
-  }
-}
 
 // GET current TTS reward config and Twitch status
 router.get("/tts", authenticateApiRequest, async (req, res) => {
@@ -234,6 +233,7 @@ router.post("/tts", authenticateApiRequest, async (req, res) => {
     const cooldownSeconds = Math.max(0, Math.min(3600, parseInt(body.cooldownSeconds || 0, 10)));
     const perStreamLimit = Math.max(0, Math.min(1000, parseInt(body.perStreamLimit || 0, 10)));
     const perUserPerStreamLimit = Math.max(0, Math.min(1000, parseInt(body.perUserPerStreamLimit || 0, 10)));
+    const limitsEnabled = body.limitsEnabled === true;
     const contentPolicy = {
       minChars: Math.max(0, Math.min(500, parseInt(body.contentPolicy?.minChars ?? 1, 10))),
       maxChars: Math.max(1, Math.min(500, parseInt(body.contentPolicy?.maxChars ?? 200, 10))),
@@ -275,18 +275,14 @@ router.post("/tts", authenticateApiRequest, async (req, res) => {
           prompt,
           is_enabled: enabled,
           should_redemptions_skip_request_queue: skipQueue,
+          // Cooldown and limits must include the corresponding enable flags per Twitch docs
+          is_global_cooldown_enabled: cooldownSeconds > 0,
+          ...(cooldownSeconds > 0 ? {global_cooldown_seconds: cooldownSeconds} : {}),
+          is_max_per_stream_enabled: limitsEnabled,
+          ...(perStreamLimit > 0 ? {max_per_stream: perStreamLimit} : {}),
+          is_max_per_user_per_stream_enabled: perUserPerStreamLimit > 0,
+          ...(perUserPerStreamLimit > 0 ? {max_per_user_per_stream: perUserPerStreamLimit} : {}),
         };
-
-        // Add cooldown and limits if supported
-        if (cooldownSeconds > 0) {
-          twitchUpdateBody.global_cooldown_seconds = cooldownSeconds;
-        }
-        if (perStreamLimit > 0) {
-          twitchUpdateBody.max_per_stream = perStreamLimit;
-        }
-        if (perUserPerStreamLimit > 0) {
-          twitchUpdateBody.max_per_user_per_stream = perUserPerStreamLimit;
-        }
 
         await helix.patch(`/channel_points/custom_rewards?broadcaster_id=${encodeURIComponent(broadcasterId)}&id=${encodeURIComponent(finalRewardId)}`, twitchUpdateBody);
         console.log(`[POST /api/rewards/tts] Updated Twitch reward ${finalRewardId} for ${channelLogin}`);
@@ -308,6 +304,7 @@ router.post("/tts", authenticateApiRequest, async (req, res) => {
       perStreamLimit,
       perUserPerStreamLimit,
       contentPolicy,
+      limitsEnabled,
       lastSyncedAt: Date.now(),
     };
 
@@ -349,24 +346,60 @@ router.post("/tts", authenticateApiRequest, async (req, res) => {
 router.delete("/tts", authenticateApiRequest, async (req, res) => {
   try {
     const channelLogin = req.user.userLogin;
-    const result = await disableTtsChannelPointReward(channelLogin);
 
-    if (result.success) {
-      res.json({
-        success: true,
-        message: "TTS channel point reward disabled successfully",
-      });
-    } else {
-      res.status(404).json({
-        success: false,
-        message: result.message || "TTS reward not found",
-      });
+    // Load current config
+    const doc = await db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelLogin).get();
+    const data = doc.exists ? doc.data() : {};
+    const rewardId = data.channelPoints?.rewardId || data.channelPointRewardId;
+
+    let twitchDeleted = false;
+    if (rewardId) {
+      try {
+        // Delete on Twitch using Helix Delete Custom Reward
+        const accessToken = await getValidTwitchTokenForUser(channelLogin, secrets);
+        const userDoc = await db.collection(COLLECTIONS.MANAGED_CHANNELS).doc(channelLogin).get();
+        const twitchUserId = userDoc.exists ? userDoc.data().twitchUserId : null;
+        if (twitchUserId) {
+          const helix = axios.create({
+            baseURL: "https://api.twitch.tv/helix",
+            headers: {
+              "Client-ID": secrets.TWITCH_CLIENT_ID,
+              "Authorization": `Bearer ${accessToken}`,
+            },
+            timeout: 10000,
+          });
+          await helix.delete(`/channel_points/custom_rewards?broadcaster_id=${encodeURIComponent(twitchUserId)}&id=${encodeURIComponent(rewardId)}`);
+          twitchDeleted = true;
+        }
+      } catch (twitchError) {
+        // If Twitch deletion fails due to permission or already-deleted, we still proceed to clear local state
+        console.warn(`[DELETE /api/rewards/tts] Twitch delete failed for ${channelLogin}:`, twitchError.response?.status, twitchError.response?.data || twitchError.message);
+      }
     }
+
+    // Disable locally and only clear stored reward id if Twitch confirmed deletion
+    await db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelLogin).set({
+      channelPoints: {
+        ...(data.channelPoints || {}),
+        enabled: false,
+        rewardId: twitchDeleted ? null : (data.channelPoints?.rewardId || null),
+        lastSyncedAt: Date.now(),
+      },
+      // keep legacy flags consistent
+      channelPointsEnabled: false,
+      channelPointRewardId: twitchDeleted ? null : (data.channelPointRewardId || null),
+    }, {merge: true});
+
+    res.json({
+      success: true,
+      twitchDeleted,
+      message: twitchDeleted ? "Disabled & deleted reward" : "Disabled locally; delete may require re-auth or manual removal",
+    });
   } catch (error) {
     console.error("[DELETE /api/rewards/tts] Error:", error);
     res.status(500).json({
       success: false,
-      error: "Failed to disable TTS reward",
+      error: "Failed to disable/delete TTS reward",
     });
   }
 });
@@ -375,22 +408,39 @@ router.delete("/tts", authenticateApiRequest, async (req, res) => {
 router.post("/tts/test", authenticateApiRequest, async (req, res) => {
   try {
     const channelLogin = req.user.userLogin;
+    const text = (req.body?.text ?? "").toString();
 
-    // This would typically trigger a test TTS message
-    // Implementation depends on how the main TTS service handles test requests
-
+    const result = await validateChannelPointsTestMessage(channelLogin, text);
     console.log(`[POST /api/rewards/tts:test] Test requested for ${channelLogin}`);
 
-    res.json({
-      success: true,
-      message: "TTS test initiated",
-    });
+    if (!result.ok) {
+      return res.status(400).json({success: false, error: result.reason});
+    }
+
+    res.json({success: true, message: "TTS test validated"});
   } catch (error) {
     console.error("[POST /api/rewards/tts:test] Error:", error);
     res.status(500).json({
       success: false,
       error: "Failed to test TTS reward",
     });
+  }
+});
+
+// Legacy alias to accept colon-based route used by older dashboard builds
+router.post("/tts:test", authenticateApiRequest, async (req, res) => {
+  try {
+    const channelLogin = req.user.userLogin;
+    const text = (req.body?.text ?? "").toString();
+    const result = await validateChannelPointsTestMessage(channelLogin, text);
+    console.log(`[POST /api/rewards/tts:test] (legacy alias) Test requested for ${channelLogin}`);
+    if (!result.ok) {
+      return res.status(400).json({success: false, error: result.reason});
+    }
+    res.json({success: true, message: "TTS test validated"});
+  } catch (error) {
+    console.error("[POST /api/rewards/tts:test] (legacy) Error:", error);
+    res.status(500).json({success: false, error: "Failed to test TTS reward"});
   }
 });
 
