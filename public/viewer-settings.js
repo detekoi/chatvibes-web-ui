@@ -1,6 +1,5 @@
 // Viewer Settings JavaScript (Bootstrap 5 refactor with toasts)
 document.addEventListener('DOMContentLoaded', async () => {
-    console.log('DOMContentLoaded fired - script starting...');
     // Test mode: enable with ?test=1 in the URL to bypass auth and API calls
     const TEST_MODE = new URLSearchParams(window.location.search).has('test');
     // Toast helper
@@ -483,6 +482,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     async function loadPreferences() {
+        console.log('loadPreferences called');
         if (TEST_MODE) {
             const data = {
                 voiceId: '',
@@ -522,10 +522,18 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
             const data = await response.json();
             currentPreferences = data;
+            const cd = data.channelDefaults || {};
+
+            console.log('loadPreferences data:', data);
+            console.log('data.speed:', data.speed);
+            console.log('data.speed !== undefined:', data.speed !== undefined);
+
             voiceSelect.value = data.voiceId || '';
-            pitchSlider.value = data.pitch !== undefined ? data.pitch : 0;
+            // Show user preference if set, otherwise show system default (sliders don't show channel defaults)
+            pitchSlider.value = (data.pitch !== undefined && data.pitch !== null) ? data.pitch : 0;
             pitchOutput.textContent = pitchSlider.value;
-            speedSlider.value = data.speed !== undefined ? data.speed : 1;
+            speedSlider.value = (data.speed !== undefined && data.speed !== null) ? data.speed : 1;
+            console.log('Setting speedSlider.value to:', speedSlider.value);
             speedOutput.textContent = Number(speedSlider.value).toFixed(2);
             emotionSelect.value = data.emotion || '';
             languageSelect.value = data.language || '';
@@ -533,7 +541,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 englishNormalizationCheckbox.checked = data.englishNormalization;
             }
             // Dynamic default labels and hints
-            const cd = data.channelDefaults || {};
             if (voiceSelect && voiceSelect.options && voiceSelect.options.length) {
                 voiceSelect.options[0].textContent = cd.voiceId ? `Use channel default (${cd.voiceId})` : 'Use channel default';
             }
@@ -557,18 +564,16 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         } catch (error) {
             console.error('Failed to load preferences:', error);
+            console.error('Error details:', error.message, error.stack);
             showToast('Failed to load preferences', 'error');
         }
     }
 
     async function savePreference(key, value) {
-        console.log(`savePreference called: ${key} = ${value}`);
         // Optimistically update local state and hints so UI reflects the change immediately
         const previous = currentPreferences ? currentPreferences[key] : undefined;
-        console.log(`Previous value: ${previous}`);
         if (currentPreferences) {
             currentPreferences[key] = value;
-            console.log(`Updated currentPreferences[${key}] to:`, currentPreferences[key]);
             // Update the specific hint immediately with the new value
             updateSingleHint(key);
         }
@@ -770,24 +775,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     // Event Listeners
-    console.log('Setting up event listeners...');
-    console.log('pitchSlider:', pitchSlider);
-    console.log('speedSlider:', speedSlider);
-    console.log('voiceSelect:', voiceSelect);
 
     voiceSelect.addEventListener('change', () => { savePreference('voiceId', voiceSelect.value || null); });
     pitchSlider.addEventListener('input', () => { pitchOutput.textContent = pitchSlider.value; });
     pitchSlider.addEventListener('change', () => {
-        console.log('Pitch slider changed to:', pitchSlider.value);
         const v = Number(pitchSlider.value);
-        console.log('Calling savePreference with pitch =', v !== 0 ? v : null);
         savePreference('pitch', v !== 0 ? v : null);
     });
     speedSlider.addEventListener('input', () => { speedOutput.textContent = Number(speedSlider.value).toFixed(2); });
     speedSlider.addEventListener('change', () => {
-        console.log('Speed slider changed to:', speedSlider.value);
         const v = Number(speedSlider.value);
-        console.log('Calling savePreference with speed =', Math.abs(v - 1) > 0.01 ? v : null);
         savePreference('speed', Math.abs(v - 1) > 0.01 ? v : null);
     });
     emotionSelect.addEventListener('change', () => { savePreference('emotion', emotionSelect.value || null); });
@@ -926,17 +923,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     // Initialize the application
-    console.log('Starting initialization...');
     const authenticated = await initializeAuth();
-    console.log('Authentication result:', authenticated);
     if (authenticated) {
-        console.log('Loading voices...');
         await loadVoices();
-        console.log('Loading preferences...');
         await loadPreferences();
-        console.log('Initialization complete!');
-    } else {
-        console.log('Authentication failed, skipping voice/preference loading');
     }
-    console.log('Script execution finished');
 });
