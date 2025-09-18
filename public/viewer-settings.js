@@ -43,8 +43,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     const token = urlParams.get('token');
 
     // API Configuration
-    const API_BASE_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
-        ? ''
+    const API_BASE_URL = (window.location.hostname === 'localhost' ||
+                         window.location.hostname === '127.0.0.1' ||
+                         window.location.port === '5002')
+        ? 'http://127.0.0.1:5001/chatvibestts/us-central1/webUi'
         : 'https://us-central1-chatvibestts.cloudfunctions.net/webUi';
     let appSessionToken = null;
     let currentChannel = channel;
@@ -149,13 +151,21 @@ document.addEventListener('DOMContentLoaded', async () => {
             // Simulate minimal successful responses when needed
             return new Response(JSON.stringify({ ok: true }), { status: 200, headers: { 'Content-Type': 'application/json' } });
         }
-        if (!appSessionToken) throw new Error('Not authenticated');
+        if (!appSessionToken) {
+            console.error('fetchWithAuth: No app session token found');
+            console.error('fetchWithAuth: localStorage app_session_token:', localStorage.getItem('app_session_token'));
+            console.error('fetchWithAuth: All localStorage keys:', Object.keys(localStorage));
+            throw new Error('Not authenticated');
+        }
+        console.log('fetchWithAuth: Making request to', url);
+        console.log('fetchWithAuth: Using token:', appSessionToken ? 'Present' : 'Missing');
         const headers = {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${appSessionToken}`,
             ...options.headers
         };
         const response = await fetch(url, { ...options, headers });
+        console.log('fetchWithAuth: Response status:', response.status);
         if (!response.ok) {
             if (response.status === 401) throw new Error('Authentication failed. Please log in again.');
             throw new Error(`API Error: ${response.status} ${response.statusText}`);
@@ -275,16 +285,31 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     async function requireTwitchAuth() {
-        showAuthStatus('For security, please verify your Twitch identity to access these preferences.', 'info');
+        // Clear any existing auth status content first
+        authStatus.innerHTML = '';
+        authStatus.style.display = 'block';
+
+        showAuthStatus('Please verify your Twitch identity to access viewer preferences.', 'info');
         const loginButton = document.createElement('button');
-        loginButton.textContent = 'Verify with Twitch';
+        loginButton.textContent = 'Sign in with Twitch';
         loginButton.className = 'btn btn-primary mt-2';
         loginButton.onclick = async () => {
             try {
-                showAuthStatus('Redirecting to Twitch for verification...', 'info');
-                const response = await fetch(`${API_BASE_URL}/auth/twitch/viewer?token=${encodeURIComponent(token)}&channel=${encodeURIComponent(channel)}`);
+                showAuthStatus('Redirecting to Twitch for authentication...', 'info');
+
+                // For viewer auth, we need token and channel parameters
+                const authUrl = token && channel
+                    ? `${API_BASE_URL}/auth/twitch/viewer?token=${encodeURIComponent(token)}&channel=${encodeURIComponent(channel)}`
+                    : `${API_BASE_URL}/auth/twitch/initiate`;
+
+                const response = await fetch(authUrl);
                 const data = await response.json();
-                if (data.success && data.twitchAuthUrl) {
+
+                if (data.success && data.twitchAuthUrl && data.state) {
+                    // Store the OAuth state for CSRF protection
+                    sessionStorage.setItem('oauth_csrf_state', data.state);
+                    // Mark this as viewer auth intent
+                    sessionStorage.setItem('viewer_prefs_intent', 'true');
                     window.location.href = data.twitchAuthUrl;
                 } else {
                     throw new Error('Failed to initiate Twitch authentication');
@@ -302,36 +327,46 @@ document.addEventListener('DOMContentLoaded', async () => {
         appSessionToken = localStorage.getItem('app_session_token');
         const tokenUser = localStorage.getItem('token_user');
         const currentUser = localStorage.getItem('twitch_user_login');
+
+        console.log('checkExistingSession: appSessionToken from localStorage:', appSessionToken ? 'Present (length: ' + appSessionToken.length + ')' : 'Missing');
+        console.log('checkExistingSession: tokenUser:', tokenUser);
+        console.log('checkExistingSession: currentUser:', currentUser);
+
         if (!appSessionToken) {
-            showAuthStatus('Please log in with Twitch to access your preferences.', 'error');
-            setTimeout(() => { window.location.href = '/'; }, 3000);
-            return false;
+            // No token found, show authentication prompt instead of redirecting
+            return requireTwitchAuth();
         }
+
         if (tokenUser && currentUser && tokenUser !== currentUser) {
             showAuthStatus('Access denied: You can only access your own preferences.', 'error');
             localStorage.clear();
             setTimeout(() => { window.location.href = '/'; }, 3000);
             return false;
         }
+
         try {
             const response = await fetchWithAuth(`${API_BASE_URL}/api/auth/status`);
             const data = await response.json();
-            if (data.isAuthenticated) {
+            console.log('Auth status response:', data);
+            console.log('data.success:', data.success);
+            console.log('data.user:', data.user);
+            console.log('Condition check: data.success && data.user =', Boolean(data.success && data.user));
+            if (data.success === true && data.user) {
                 isAuthenticated = true;
-                const userName = data.user?.displayName || data.user?.login || 'there';
+                const userName = data.user?.displayName || data.user?.userLogin || 'there';
                 showAuthStatus(`Welcome ${userName}!`, 'success');
                 preferencesPanel.style.display = 'block';
                 authStatus.style.display = 'none';
                 return true;
             } else {
+                console.error('Auth validation failed - data.success:', data.success, 'data.user:', data.user);
                 throw new Error('Not authenticated');
             }
         } catch (error) {
             console.error('Session check failed:', error);
-            showAuthStatus('Authentication expired. Redirecting to login...', 'error');
+            // Clear invalid token and show auth prompt
             localStorage.removeItem('app_session_token');
-            setTimeout(() => { window.location.href = '/'; }, 3000);
-            return false;
+            return requireTwitchAuth();
         }
     }
 
@@ -555,13 +590,56 @@ document.addEventListener('DOMContentLoaded', async () => {
                     languageBoost: languageSelect.value || null
                 })
             });
-            const data = await response.json();
-            if (data.audioUrl) {
-                const audio = new Audio(data.audioUrl);
-                audio.onerror = () => { showToast('Failed to play audio', 'error'); };
-                await audio.play();
+            const contentType = response.headers.get('Content-Type') || '';
+            if (contentType.startsWith('audio/')) {
+                const blob = await response.blob();
+                const url = URL.createObjectURL(blob);
+                try {
+                    const audio = new Audio(url);
+                    audio.onerror = () => { showToast('Failed to play audio', 'error'); };
+                    await audio.play();
+                } finally {
+                    URL.revokeObjectURL(url);
+                }
             } else {
-                throw new Error(data.message || 'No audio URL received');
+                const data = await response.json();
+                // Try common fields for Replicate/minimax responses that return an MP3 URL
+                // See: https://replicate.com/minimax/speech-02-turbo/api/schema
+                const candidateUrl = (
+                    data.audioUrl ||
+                    data.audio_url ||
+                    data.url ||
+                    data.audio ||
+                    (Array.isArray(data.output) ? data.output[0] : (
+                        data.output?.audio || data.output?.audio_url || data.output?.url || data.output
+                    ))
+                );
+                if (candidateUrl && typeof candidateUrl === 'string') {
+                    const audio = new Audio(candidateUrl);
+                    audio.onerror = () => { showToast('Failed to play audio', 'error'); };
+                    await audio.play();
+                } else if (data.audioUrl) {
+                    const audio = new Audio(data.audioUrl);
+                    audio.onerror = () => { showToast('Failed to play audio', 'error'); };
+                    await audio.play();
+                } else if (data.audioBase64) {
+                    const byteString = atob(data.audioBase64);
+                    const arrayBuffer = new Uint8Array(byteString.length);
+                    for (let i = 0; i < byteString.length; i++) arrayBuffer[i] = byteString.charCodeAt(i);
+                    const blob = new Blob([arrayBuffer], { type: 'audio/mpeg' });
+                    const url = URL.createObjectURL(blob);
+                    try {
+                        const audio = new Audio(url);
+                        audio.onerror = () => { showToast('Failed to play audio', 'error'); };
+                        await audio.play();
+                    } finally {
+                        URL.revokeObjectURL(url);
+                    }
+                } else if (data.success) {
+                    throw new Error('Server indicated success but did not return an audio URL');
+                } else {
+                    throw new Error(data.message || data.error || 'No audio returned by server');
+                }
             }
         } catch (error) {
             console.error('Voice test failed:', error);

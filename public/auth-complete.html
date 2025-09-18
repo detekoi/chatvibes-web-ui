@@ -44,8 +44,24 @@
                 localStorage.setItem('twitch_user_id', userId);
 
                 if (sessionToken) {
+                    // Store the session token for both app and viewer usage
                     localStorage.setItem('app_session_token', sessionToken);
-                    console.log("App session token stored in localStorage:", sessionToken);
+
+                    // For viewer tokens, also store specific viewer auth info if available
+                    try {
+                        const tokenParts = sessionToken.split('.');
+                        if (tokenParts.length === 3) {
+                            const payload = JSON.parse(atob(tokenParts[1]));
+                            if (payload.scope === 'viewer') {
+                                localStorage.setItem('token_user', payload.userLogin);
+                                console.log("Viewer session token stored for user:", payload.userLogin);
+                            }
+                        }
+                    } catch (e) {
+                        console.warn("Could not parse JWT payload:", e);
+                    }
+
+                    console.log("Session token stored in localStorage");
                 } else {
                     console.warn("No session_token received in auth-complete.html query params!");
                     messageEl.textContent = "Login complete, but session token missing. API calls may fail. Please try logging in again.";

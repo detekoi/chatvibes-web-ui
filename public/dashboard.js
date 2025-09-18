@@ -80,8 +80,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             if (!response.ok) throw new Error(`HTTP ${response.status}: ${response.statusText}`);
             const data = await response.json();
-            if (data.success && data.obsWebSocketUrl) {
-                ttsUrlField.value = data.obsWebSocketUrl;
+            if (data.success && data.browserSourceUrl) {
+                ttsUrlField.value = data.browserSourceUrl;
                 ttsUrlField.placeholder = 'Your existing OBS Browser Source URL';
                 console.log('Dashboard: Loaded existing OBS URL for', userLoginName);
             } else {
@@ -120,8 +120,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             if (!response.ok) throw new Error(`HTTP ${response.status}: ${response.statusText}`);
             const data = await response.json();
-            if (data.success && data.obsWebSocketUrl) {
-                ttsUrlField.value = data.obsWebSocketUrl;
+            if (data.success && data.browserSourceUrl) {
+                ttsUrlField.value = data.browserSourceUrl;
                 ttsUrlField.placeholder = 'Your secure OBS Browser Source URL';
                 showToast('Generated a new URL successfully.', 'success');
             } else {
@@ -1169,13 +1169,55 @@ document.addEventListener('DOMContentLoaded', () => {
                 const errorData = await response.json().catch(() => ({ message: response.statusText }));
                 throw new Error(errorData.message || `Request failed with status ${response.status}`);
             }
-            const data = await response.json();
-            if (data.success && data.audioUrl) {
-                const audio = new Audio(data.audioUrl);
-                audio.onerror = () => { showToast('Error playing audio sample', 'error'); };
-                await audio.play();
+            const contentType = response.headers.get('Content-Type') || '';
+            if (contentType.startsWith('audio/')) {
+                const blob = await response.blob();
+                const url = URL.createObjectURL(blob);
+                try {
+                    const audio = new Audio(url);
+                    audio.onerror = () => { showToast('Error playing audio sample', 'error'); };
+                    await audio.play();
+                } finally {
+                    URL.revokeObjectURL(url);
+                }
             } else {
-                throw new Error(data.message || 'Failed to generate voice sample');
+                const data = await response.json();
+                const candidateUrl = (
+                    data.audioUrl ||
+                    data.audio_url ||
+                    data.url ||
+                    data.audio ||
+                    (Array.isArray(data.output) ? data.output[0] : (
+                        data.output?.audio || data.output?.audio_url || data.output?.url || data.output
+                    ))
+                );
+                if (candidateUrl && typeof candidateUrl === 'string') {
+                    const audio = new Audio(candidateUrl);
+                    audio.onerror = () => { showToast('Error playing audio sample', 'error'); };
+                    await audio.play();
+                } else if (data.audioUrl) {
+                    const audio = new Audio(data.audioUrl);
+                    audio.onerror = () => { showToast('Error playing audio sample', 'error'); };
+                    await audio.play();
+                } else if (data.audioBase64) {
+                    const byteString = atob(data.audioBase64);
+                    const arrayBuffer = new Uint8Array(byteString.length);
+                    for (let i = 0; i < byteString.length; i++) arrayBuffer[i] = byteString.charCodeAt(i);
+                    const blob = new Blob([arrayBuffer], { type: 'audio/mpeg' });
+                    const url = URL.createObjectURL(blob);
+                    try {
+                        const audio = new Audio(url);
+                        audio.onerror = () => { showToast('Error playing audio sample', 'error'); };
+                        await audio.play();
+                    } finally {
+                        URL.revokeObjectURL(url);
+                    }
+                } else if (data.success) {
+                    throw new Error('Server indicated success but did not return an audio URL');
+                } else {
+                    const msg = data.message || data.error || 'No audio returned by server';
+                    throw new Error(msg);
+                }
             }
         } catch (error) {
             console.error('Voice test error:', error);
