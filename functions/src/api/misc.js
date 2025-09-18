@@ -82,7 +82,7 @@ redirectRouter.get("/s/:slug", async (req, res) => {
 // Route: /api/tts/test - Test TTS functionality
 apiRouter.post("/tts/test", authenticateApiRequest, async (req, res) => {
   try {
-    const {text, voiceId, emotion, pitch, speed, languageBoost} = req.body || {};
+    const {text, voiceId, emotion, pitch, speed, languageBoost, channel} = req.body || {};
     const channelLogin = req.user.userLogin;
 
     if (!text) {
@@ -94,6 +94,48 @@ apiRouter.post("/tts/test", authenticateApiRequest, async (req, res) => {
 
     console.log(`[POST /api/tts/test] TTS test requested for ${channelLogin}: "${text}" with voice ${voiceId || "default"}`);
 
+    // Resolve effective parameters in order: request override -> viewer global prefs -> channel defaults
+    let effective = {voiceId: voiceId ?? null, emotion: emotion ?? null, pitch: (pitch !== undefined) ? pitch : null, speed: (speed !== undefined) ? speed : null, languageBoost: languageBoost ?? null};
+
+    try {
+      // Load viewer global preferences
+      const userDoc = await db.collection("ttsUserPreferences").doc(channelLogin).get();
+      const userPrefs = userDoc.exists ? (userDoc.data() || {}) : {};
+
+      // Optionally load channel defaults if a channel is provided
+      let channelDefaults = {};
+      if (channel) {
+        const channelDoc = await db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channel).get();
+        if (channelDoc.exists) {
+          const d = channelDoc.data() || {};
+          channelDefaults = {
+            voiceId: d.voiceId ?? null,
+            emotion: d.emotion ?? null,
+            pitch: (d.pitch !== undefined) ? d.pitch : null,
+            speed: (d.speed !== undefined) ? d.speed : null,
+            languageBoost: d.languageBoost ?? null,
+          };
+        }
+      }
+
+      const pick = (reqVal, userVal, chanVal) => {
+        if (reqVal !== undefined && reqVal !== null && reqVal !== "") return reqVal; // explicit request
+        if (userVal !== undefined && userVal !== null && userVal !== "") return userVal; // viewer global
+        return (chanVal !== undefined && chanVal !== null && chanVal !== "") ? chanVal : null; // channel default
+      };
+
+      effective = {
+        voiceId: pick(voiceId, userPrefs.voiceId, channelDefaults.voiceId),
+        emotion: pick(emotion, userPrefs.emotion, channelDefaults.emotion),
+        pitch: pick(pitch, userPrefs.pitch, channelDefaults.pitch),
+        speed: pick(speed, userPrefs.speed, channelDefaults.speed),
+        languageBoost: pick(languageBoost, userPrefs.languageBoost, channelDefaults.languageBoost),
+      };
+      console.log("[POST /api/tts/test] Effective params:", effective);
+    } catch (resolveErr) {
+      console.warn("[POST /api/tts/test] Failed to resolve defaults; proceeding with request values only:", resolveErr.message);
+    }
+
     // If configured, generate audio via Replicate (minimax/speech-02-turbo)
     if (secrets.REPLICATE_API_TOKEN) {
       try {
@@ -103,31 +145,31 @@ apiRouter.post("/tts/test", authenticateApiRequest, async (req, res) => {
 
         const input = {text, format: "mp3"};
         // Voice: pass common synonyms used by providers so one takes effect
-        if (voiceId) {
-          input.voice = voiceId; // common
-          input.voice_id = voiceId; // some schemas
-          input.speaker = voiceId; // alt key
+        if (effective.voiceId) {
+          input.voice = effective.voiceId; // common
+          input.voice_id = effective.voiceId; // some schemas
+          input.speaker = effective.voiceId; // alt key
         }
         // Speed / rate
-        if (typeof speed === "number") {
-          input.speed = speed; // common
-          input.speed_scale = speed; // alt key
-          input.rate = speed; // alt key
+        if (typeof effective.speed === "number") {
+          input.speed = effective.speed; // common
+          input.speed_scale = effective.speed; // alt key
+          input.rate = effective.speed; // alt key
         }
         // Pitch (in semitones)
-        if (typeof pitch === "number") {
-          input.pitch = pitch; // common
-          input.pitch_semitones = pitch; // alt key
+        if (typeof effective.pitch === "number") {
+          input.pitch = effective.pitch; // common
+          input.pitch_semitones = effective.pitch; // alt key
         }
         // Emotion/Style
-        if (emotion) {
-          input.emotion = emotion; // common
-          input.style = emotion; // alt key
+        if (effective.emotion) {
+          input.emotion = effective.emotion; // common
+          input.style = effective.emotion; // alt key
         }
         // Language
-        if (languageBoost) {
-          input.language = languageBoost; // common
-          input.language_boost = languageBoost; // alt key
+        if (effective.languageBoost) {
+          input.language = effective.languageBoost; // common
+          input.language_boost = effective.languageBoost; // alt key
         }
 
         const result = await replicate.run("minimax/speech-02-turbo", {input});

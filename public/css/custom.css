@@ -387,3 +387,20 @@ strong, .fw-semibold, .fw-bold {
     color: #ffe0a3;
 }
 
+/* Auth status vertical layout for login */
+#auth-status.alert {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 1rem !important;
+    text-align: center !important;
+}
+
+#auth-status.alert .btn {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    align-self: center !important;
+    flex-shrink: 0 !important;
+}
+
