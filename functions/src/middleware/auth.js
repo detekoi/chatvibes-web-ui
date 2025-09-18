@@ -38,10 +38,13 @@ const authenticateApiRequest = (req, res, next) => {
 
   try {
     const decoded = jwt.verify(token, secrets.JWT_SECRET);
+    // Preserve primary fields and important claims for viewer flows
     req.user = {
       userId: decoded.userId,
       userLogin: decoded.userLogin,
       displayName: decoded.displayName,
+      scope: decoded.scope,
+      tokenUser: decoded.tokenUser,
     };
     console.log(`API Auth Middleware: User ${req.user.userLogin} authenticated successfully.`);
     next();

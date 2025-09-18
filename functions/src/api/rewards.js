@@ -372,7 +372,7 @@ router.delete("/tts", authenticateApiRequest, async (req, res) => {
 });
 
 // POST test TTS reward
-router.post("/tts:test", authenticateApiRequest, async (req, res) => {
+router.post("/tts/test", authenticateApiRequest, async (req, res) => {
   try {
     const channelLogin = req.user.userLogin;
 

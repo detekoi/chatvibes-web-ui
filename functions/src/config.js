@@ -7,8 +7,13 @@ const {SecretManagerServiceClient} = require("@google-cloud/secret-manager");
 
 const secretManagerClient = new SecretManagerServiceClient();
 
+// Detect emulator/local mode to avoid Secret Manager access during local testing
+const isEmulator = process.env.FUNCTIONS_EMULATOR === "true" || !!process.env.FIREBASE_EMULATOR_HUB || process.env.USE_ENV_SECRETS === "1";
+
 // Global variables for secrets
-let secrets = {};
+// Important: export a stable object reference and mutate its properties later
+// so that require() consumers always see the updated values.
+const secrets = {};
 
 // Helper function to load a secret from Secret Manager
 const loadSecret = async (secretName) => {
@@ -21,6 +26,15 @@ const loadSecret = async (secretName) => {
 // Asynchronously load all secrets when the module is imported
 const secretsLoadedPromise = (async () => {
   try {
+    if (isEmulator) {
+      secrets.TWITCH_CLIENT_ID = process.env.TWITCH_CLIENT_ID || "demo-client-id";
+      secrets.TWITCH_CLIENT_SECRET = process.env.TWITCH_CLIENT_SECRET || "demo-client-secret";
+      secrets.JWT_SECRET = process.env.JWT_SECRET || "local-dev-jwt-secret";
+      secrets.REPLICATE_API_TOKEN = process.env.REPLICATE_API_TOKEN || "";
+      console.log("✅ Loaded secrets from environment (emulator mode).");
+      return;
+    }
+
     const [
       twitchClientId,
       twitchClientSecret,
@@ -33,12 +47,10 @@ const secretsLoadedPromise = (async () => {
       loadSecret("replicate-api-token"),
     ]);
 
-    secrets = {
-      TWITCH_CLIENT_ID: twitchClientId,
-      TWITCH_CLIENT_SECRET: twitchClientSecret,
-      JWT_SECRET: jwtSecret,
-      REPLICATE_API_TOKEN: replicateApiToken,
-    };
+    secrets.TWITCH_CLIENT_ID = twitchClientId;
+    secrets.TWITCH_CLIENT_SECRET = twitchClientSecret;
+    secrets.JWT_SECRET = jwtSecret;
+    secrets.REPLICATE_API_TOKEN = replicateApiToken;
 
     console.log("✅ Successfully loaded all required secrets.");
   } catch (error) {

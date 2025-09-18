@@ -15,11 +15,12 @@ const {secretsLoadedPromise, config} = require("./src/config");
 
 // Import route modules
 const authRoutes = require("./src/auth/routes");
+const authApiRoutes = require("./src/api/auth");
 const botRoutes = require("./src/api/bot");
 const rewardsRoutes = require("./src/api/rewards");
 const obsRoutes = require("./src/api/obs");
 const viewerRoutes = require("./src/api/viewer");
-const miscRoutes = require("./src/api/misc");
+const {apiRouter: miscApiRoutes, redirectRouter: redirectsRoutes} = require("./src/api/misc");
 
 // Create Express app
 const app = express();
@@ -36,12 +37,18 @@ app.use(async (req, res, next) => {
 });
 
 // CORS Configuration
+const isEmulator = process.env.FUNCTIONS_EMULATOR === "true" || !!process.env.FIREBASE_EMULATOR_HUB;
 app.use(cors({
-  origin: [
-    "http://127.0.0.1:5002",
-    "http://localhost:5002",
-    config.FRONTEND_URL,
-  ].filter(Boolean), // Remove any undefined values
+  origin: (origin, callback) => {
+    const allowed = [config.FRONTEND_URL].filter(Boolean);
+    if (isEmulator) {
+      allowed.push("http://127.0.0.1:5002", "http://localhost:5002");
+    }
+    if (!origin || allowed.includes(origin)) {
+      return callback(null, true);
+    }
+    return callback(new Error("Not allowed by CORS"));
+  },
   credentials: true,
 }));
 
@@ -57,12 +64,13 @@ app.use((req, res, next) => {
 
 // Mount route modules
 app.use("/auth", authRoutes);
+app.use("/api/auth", authApiRoutes);
 app.use("/api/bot", botRoutes);
 app.use("/api/rewards", rewardsRoutes);
 app.use("/api/obs", obsRoutes);
 app.use("/api/viewer", viewerRoutes);
-app.use("/api", miscRoutes); // For /api/shortlink, /api/tts/test
-app.use("/", miscRoutes); // For /s/:slug redirect
+app.use("/api", miscApiRoutes); // For /api/shortlink, /api/tts/test
+app.use("/", redirectsRoutes); // For /s/:slug redirect
 
 // Health check endpoint
 app.get("/health", (req, res) => {

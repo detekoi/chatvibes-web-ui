@@ -9,11 +9,14 @@ const {createShortLink} = require("../services/utils");
 const {authenticateApiRequest} = require("../middleware/auth");
 const {secrets} = require("../config");
 
+// Separate routers for API endpoints and public redirects
 // eslint-disable-next-line new-cap
-const router = express.Router();
+const apiRouter = express.Router();
+// eslint-disable-next-line new-cap
+const redirectRouter = express.Router();
 
-// Route: /api/shortlink - Create a short link
-router.post("/shortlink", async (req, res) => {
+// Route: /api/shortlink - Create a short link (requires app/viewer JWT)
+apiRouter.post("/shortlink", authenticateApiRequest, async (req, res) => {
   try {
     const {url} = req.body;
 
@@ -37,8 +40,8 @@ router.post("/shortlink", async (req, res) => {
   }
 });
 
-// Route: /s/:slug - Redirect short link
-router.get("/s/:slug", async (req, res) => {
+// Route: /s/:slug - Redirect short link (public)
+redirectRouter.get("/s/:slug", async (req, res) => {
   try {
     const {slug} = req.params;
 
@@ -74,7 +77,7 @@ router.get("/s/:slug", async (req, res) => {
 });
 
 // Route: /api/tts/test - Test TTS functionality
-router.post("/tts/test", authenticateApiRequest, async (req, res) => {
+apiRouter.post("/tts/test", authenticateApiRequest, async (req, res) => {
   try {
     const {text, voiceId} = req.body;
     const channelLogin = req.user.userLogin;
@@ -117,4 +120,7 @@ router.post("/tts/test", authenticateApiRequest, async (req, res) => {
   }
 });
 
-module.exports = router;
+module.exports = {
+  apiRouter,
+  redirectRouter,
+};
