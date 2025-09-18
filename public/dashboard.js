@@ -1055,6 +1055,29 @@ document.addEventListener('DOMContentLoaded', () => {
         bind(cpMax);
         bind(cpBlockLinks, ['change']);
         bind(cpBannedWords);
+
+        // UX normalization: entering 0 in limits clears the field (disables on Twitch)
+        const normalizeZeroToBlank = (el) => {
+            if (!el) return;
+            el.addEventListener('change', () => {
+                const v = (el.value || '').trim();
+                if (v === '0') {
+                    el.value = '';
+                }
+            });
+        };
+        normalizeZeroToBlank(cpPerStream);
+        normalizeZeroToBlank(cpPerUser);
+
+        // Cooldown: if limits are enabled, coerce 0 -> 1 on change for clarity
+        if (cpCooldown) {
+            cpCooldown.addEventListener('change', () => {
+                const v = parseInt(cpCooldown.value || '0', 10);
+                if (cpLimitsEnabled?.checked && v === 0) {
+                    cpCooldown.value = '1';
+                }
+            });
+        }
     })();
 
     async function testChannelPointsRedeem() {
