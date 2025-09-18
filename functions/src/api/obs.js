@@ -52,7 +52,7 @@ router.get("/getToken", authenticateApiRequest, async (req, res) => {
         return res.json({
           success: true,
           token: existingToken,
-          browserSourceUrl: `${config.OBS_BROWSER_BASE_URL}/obs-overlay.html?token=${existingToken}&channel=${encodeURIComponent(channelLogin)}`,
+          browserSourceUrl: `${config.OBS_BROWSER_BASE_URL}/?channel=${encodeURIComponent(channelLogin)}&token=${existingToken}`,
         });
       } catch (secretError) {
         console.warn(`[API /obs/getToken] Failed to retrieve existing token for ${channelLogin}:`, secretError.message);
@@ -99,7 +99,7 @@ router.get("/getToken", authenticateApiRequest, async (req, res) => {
       res.json({
         success: true,
         token: obsToken,
-        browserSourceUrl: `${config.OBS_BROWSER_BASE_URL}/obs-overlay.html?token=${obsToken}&channel=${encodeURIComponent(channelLogin)}`,
+        browserSourceUrl: `${config.OBS_BROWSER_BASE_URL}/?channel=${encodeURIComponent(channelLogin)}&token=${obsToken}`,
       });
     } catch (error) {
       console.error(`[API /obs/getToken] Failed to store OBS token for ${channelLogin}:`, error);
@@ -177,7 +177,7 @@ router.post("/generateToken", authenticateApiRequest, async (req, res) => {
     res.json({
       success: true,
       token: obsToken,
-      browserSourceUrl: `${config.OBS_BROWSER_BASE_URL}/obs-overlay.html?token=${obsToken}&channel=${encodeURIComponent(channelLogin)}`,
+      browserSourceUrl: `${config.OBS_BROWSER_BASE_URL}/?channel=${encodeURIComponent(channelLogin)}&token=${obsToken}`,
       message: "New OBS token generated successfully",
     });
   } catch (error) {

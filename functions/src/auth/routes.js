@@ -94,12 +94,17 @@ async function handleViewerCallback(req, res, decodedState) {
 
     console.log(`Generated viewer session token for ${userLogin}`);
 
-    return res.json({
-      success: true,
-      sessionToken: viewerSessionToken,
-      userLogin: userLogin,
-      userId: userInfo.user_id,
-    });
+    // Redirect viewers back to the preferences page with a validated session token
+    const redirectUrl = new URL(config.FRONTEND_URL);
+    redirectUrl.pathname = "/viewer-settings.html";
+    redirectUrl.searchParams.set("session_token", viewerSessionToken);
+    redirectUrl.searchParams.set("validated", "1");
+    // Preserve optional channel context if present in state
+    if (decodedState && (decodedState.c || decodedState.channel)) {
+      redirectUrl.searchParams.set("channel", decodedState.c || decodedState.channel);
+    }
+
+    return res.redirect(redirectUrl.toString());
   } catch (error) {
     console.error("Viewer OAuth callback error:", error.message);
     return res.status(500).json({
@@ -313,10 +318,13 @@ router.get("/twitch/viewer", (req, res) => {
   }
 
   // Create state parameter with viewer type marker
-  const state = Buffer.from(JSON.stringify({
+  const {channel} = req.query || {};
+  const statePayload = {
     t: "viewer", // type: viewer
     r: crypto.randomBytes(8).toString("hex"), // random component
-  })).toString("base64");
+    c: channel || null, // optional channel context
+  };
+  const state = Buffer.from(JSON.stringify(statePayload)).toString("base64");
 
   const params = new URLSearchParams({
     client_id: secrets.TWITCH_CLIENT_ID,
