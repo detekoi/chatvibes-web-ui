@@ -357,6 +357,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const pitchValueSpan = document.getElementById('pitch-value');
     const defaultSpeedSlider = document.getElementById('default-speed');
     const speedValueSpan = document.getElementById('speed-value');
+    const resetPitchBtn = document.getElementById('reset-pitch-btn');
+    const resetSpeedBtn = document.getElementById('reset-speed-btn');
     const defaultLanguageSelect = document.getElementById('default-language');
     const englishNormalizationCheckbox = document.getElementById('english-normalization');
 
@@ -548,6 +550,36 @@ document.addEventListener('DOMContentLoaded', () => {
             speedValueSpan.textContent = defaultSpeedSlider.value;
         });
     }
+
+    // Minimal, reliable global handlers for Reset buttons
+    window.resetPitchDefault = function() {
+        console.log('resetPitchDefault called');
+        const slider = document.getElementById('default-pitch');
+        const valueEl = document.getElementById('pitch-value');
+        console.log('Pitch slider:', slider, 'Value element:', valueEl);
+        if (!slider) {
+            console.error('Pitch slider not found');
+            return;
+        }
+        slider.value = '0';
+        if (valueEl) valueEl.textContent = '0';
+        console.log('Pitch reset to 0, calling saveTtsSetting');
+        saveTtsSetting('pitch', 0, 'Default Pitch');
+    };
+    window.resetSpeedDefault = function() {
+        console.log('resetSpeedDefault called');
+        const slider = document.getElementById('default-speed');
+        const valueEl = document.getElementById('speed-value');
+        console.log('Speed slider:', slider, 'Value element:', valueEl);
+        if (!slider) {
+            console.error('Speed slider not found');
+            return;
+        }
+        slider.value = '1.0';
+        if (valueEl) valueEl.textContent = '1.0';
+        console.log('Speed reset to 1.0, calling saveTtsSetting');
+        saveTtsSetting('speed', 1.0, 'Default Speed');
+    };
 
     async function loadAvailableVoices() {
         if (!defaultVoiceSelect) return;
