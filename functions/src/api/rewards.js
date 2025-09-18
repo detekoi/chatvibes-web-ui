@@ -279,9 +279,9 @@ router.post("/tts", authenticateApiRequest, async (req, res) => {
         const effectiveGlobalEnabled = limitsEnabled && cooldownSeconds > 0;
         // Per Twitch 400 error, if we specify either is_max_per_stream_enabled or max_per_stream, both must be present.
         // Always send both fields; use a safe default of 1 when disabled or unset.
-        const normalizedPerStream = perStreamLimit > 0 ? perStreamLimit : 1;
+        const normalizedPerStream = perStreamLimit > 0 ? perStreamLimit : 0;
         const effectivePerStreamEnabled = limitsEnabled && perStreamLimit > 0;
-        const normalizedPerUser = perUserPerStreamLimit > 0 ? perUserPerStreamLimit : 1;
+        const normalizedPerUser = perUserPerStreamLimit > 0 ? perUserPerStreamLimit : 0;
         const effectivePerUserEnabled = limitsEnabled && perUserPerStreamLimit > 0;
 
         const twitchUpdateBody = {
