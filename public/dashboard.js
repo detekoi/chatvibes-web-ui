@@ -441,15 +441,15 @@ document.addEventListener('DOMContentLoaded', () => {
         return headers;
     }
 
-    // Compute effective TTS settings using loaded originals with UI fallbacks
+    // Compute effective TTS settings using current UI values for voice preview
     function getEffectiveTtsSettings() {
-        const saved = originalSettings?.tts || {};
-        const voiceId = saved.voiceId || (defaultVoiceSelect?.value || 'Friendly_Person');
-        const emotion = (typeof saved.emotion === 'string' ? saved.emotion : (defaultEmotionSelect?.value || 'auto'));
-        const pitch = (typeof saved.pitch === 'number' ? saved.pitch : parseInt(defaultPitchSlider?.value || '0', 10));
-        const speed = (typeof saved.speed === 'number' ? saved.speed : parseFloat(defaultSpeedSlider?.value || '1.0'));
-        const languageBoost = saved.languageBoost || (defaultLanguageSelect?.value || 'Automatic');
-        return { voiceId, emotion, pitch, speed, languageBoost };
+        const voiceId = defaultVoiceSelect?.value || 'Friendly_Person';
+        const emotion = defaultEmotionSelect?.value || 'auto';
+        const pitch = parseInt(defaultPitchSlider?.value || '0', 10);
+        const speed = parseFloat(defaultSpeedSlider?.value || '1.0');
+        const languageBoost = defaultLanguageSelect?.value || 'Automatic';
+        const englishNormalization = englishNormalizationCheckbox?.checked || false;
+        return { voiceId, emotion, pitch, speed, languageBoost, englishNormalization };
     }
 
     async function saveTtsSetting(key, value, label) {
@@ -1249,7 +1249,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 emotion: effective.emotion,
                 pitch: effective.pitch,
                 speed: effective.speed,
-                languageBoost: effective.languageBoost
+                languageBoost: effective.languageBoost,
+                englishNormalization: effective.englishNormalization
             };
             const response = await fetch(`${API_BASE_URL}/api/tts/test`, {
                 method: 'POST',
