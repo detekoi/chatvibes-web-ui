@@ -769,9 +769,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (cpPrompt) cpPrompt.value = cp.prompt ?? 'Enter a message to be read aloud';
                     if (cpSkipQueue) cpSkipQueue.checked = cp.skipQueue !== false;
                     if (cpLimitsEnabled) cpLimitsEnabled.checked = cp.limitsEnabled ?? (cp.perStreamLimit > 0);
-                    if (cpCooldown) cpCooldown.value = cp.cooldownSeconds ?? 0;
-                    if (cpPerStream) cpPerStream.value = cp.perStreamLimit ?? 0;
-                    if (cpPerUser) cpPerUser.value = cp.perUserPerStreamLimit ?? 0;
+                    if (cpCooldown) cpCooldown.value = (cp.limitsEnabled ? Math.max(1, cp.cooldownSeconds ?? 1) : (cp.cooldownSeconds ?? 0));
+                    if (cpPerStream) cpPerStream.value = (cp.perStreamLimit && cp.perStreamLimit > 0) ? cp.perStreamLimit : '';
+                    if (cpPerUser) cpPerUser.value = (cp.perUserPerStreamLimit && cp.perUserPerStreamLimit > 0) ? cp.perUserPerStreamLimit : '';
                     if (cpMin) cpMin.value = cp.contentPolicy?.minChars ?? 1;
                     if (cpMax) cpMax.value = cp.contentPolicy?.maxChars ?? 200;
                     if (cpBlockLinks) cpBlockLinks.checked = cp.contentPolicy?.blockLinks !== false;
@@ -988,6 +988,16 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             limitsEnabled: !!cpLimitsEnabled?.checked
         };
+        // Enforce UX/validation rules:
+        if (payload.limitsEnabled) {
+            // cooldown minimum 1 when enabled
+            payload.cooldownSeconds = Math.max(1, parseInt(cpCooldown?.value || '1', 10));
+        }
+        // Allow blanks -> disabled for per-stream/per-user
+        const perStreamRaw = (cpPerStream?.value || '').toString().trim();
+        const perUserRaw = (cpPerUser?.value || '').toString().trim();
+        payload.perStreamLimit = perStreamRaw === '' ? 0 : Math.max(0, parseInt(perStreamRaw || '0', 10));
+        payload.perUserPerStreamLimit = perUserRaw === '' ? 0 : Math.max(0, parseInt(perUserRaw || '0', 10));
         try {
             if (!isAuto) showToast('Saving Channel Points config…', 'info');
             const res = await fetch(`${API_BASE_URL}/api/rewards/tts`, {

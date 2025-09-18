@@ -230,10 +230,16 @@ router.post("/tts", authenticateApiRequest, async (req, res) => {
     const cost = Math.max(1, Math.min(999999, parseInt(body.cost || 500, 10)));
     const prompt = (body.prompt || "Enter a message to be read aloud").toString().slice(0, 100);
     const skipQueue = body.skipQueue !== false;
-    const cooldownSeconds = Math.max(0, Math.min(3600, parseInt(body.cooldownSeconds || 0, 10)));
-    const perStreamLimit = Math.max(0, Math.min(1000, parseInt(body.perStreamLimit || 0, 10)));
-    const perUserPerStreamLimit = Math.max(0, Math.min(1000, parseInt(body.perUserPerStreamLimit || 0, 10)));
+    const rawCooldown = parseInt(body.cooldownSeconds ?? 0, 10);
+    const rawPerStream = parseInt(body.perStreamLimit ?? 0, 10);
+    const rawPerUser = parseInt(body.perUserPerStreamLimit ?? 0, 10);
+
+    // Interpret empty/NaN as 0 (disabled for per-stream/per-user)
+    const perStreamLimit = Number.isFinite(rawPerStream) ? Math.max(0, Math.min(1000, rawPerStream)) : 0;
+    const perUserPerStreamLimit = Number.isFinite(rawPerUser) ? Math.max(0, Math.min(1000, rawPerUser)) : 0;
+    // For cooldown: when limits are enabled, we enforce minimum 1; when disabled, allow 0
     const limitsEnabled = body.limitsEnabled === true;
+    const cooldownSeconds = Number.isFinite(rawCooldown) ? Math.max(limitsEnabled ? 1 : 0, Math.min(3600, rawCooldown)) : (limitsEnabled ? 1 : 0);
     const contentPolicy = {
       minChars: Math.max(0, Math.min(500, parseInt(body.contentPolicy?.minChars ?? 1, 10))),
       maxChars: Math.max(1, Math.min(500, parseInt(body.contentPolicy?.maxChars ?? 200, 10))),
