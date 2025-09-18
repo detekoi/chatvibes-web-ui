@@ -269,6 +269,15 @@ router.post("/tts", authenticateApiRequest, async (req, res) => {
           timeout: 10000,
         });
 
+        const normalizedCooldown = cooldownSeconds > 0 ? cooldownSeconds : 1;
+        const effectiveGlobalEnabled = limitsEnabled && cooldownSeconds > 0;
+        // Per Twitch 400 error, if we specify either is_max_per_stream_enabled or max_per_stream, both must be present.
+        // Always send both fields; use a safe default of 1 when disabled or unset.
+        const normalizedPerStream = perStreamLimit > 0 ? perStreamLimit : 1;
+        const effectivePerStreamEnabled = limitsEnabled && perStreamLimit > 0;
+        const normalizedPerUser = perUserPerStreamLimit > 0 ? perUserPerStreamLimit : 1;
+        const effectivePerUserEnabled = limitsEnabled && perUserPerStreamLimit > 0;
+
         const twitchUpdateBody = {
           title,
           cost,
@@ -276,12 +285,12 @@ router.post("/tts", authenticateApiRequest, async (req, res) => {
           is_enabled: enabled,
           should_redemptions_skip_request_queue: skipQueue,
           // Cooldown and limits must include the corresponding enable flags per Twitch docs
-          is_global_cooldown_enabled: cooldownSeconds > 0,
-          ...(cooldownSeconds > 0 ? {global_cooldown_seconds: cooldownSeconds} : {}),
-          is_max_per_stream_enabled: limitsEnabled,
-          ...(perStreamLimit > 0 ? {max_per_stream: perStreamLimit} : {}),
-          is_max_per_user_per_stream_enabled: perUserPerStreamLimit > 0,
-          ...(perUserPerStreamLimit > 0 ? {max_per_user_per_stream: perUserPerStreamLimit} : {}),
+          is_global_cooldown_enabled: limitsEnabled ? !!effectiveGlobalEnabled : false,
+          global_cooldown_seconds: normalizedCooldown,
+          is_max_per_stream_enabled: limitsEnabled ? !!effectivePerStreamEnabled : false,
+          max_per_stream: normalizedPerStream,
+          is_max_per_user_per_stream_enabled: limitsEnabled ? !!effectivePerUserEnabled : false,
+          max_per_user_per_stream: normalizedPerUser,
         };
 
         await helix.patch(`/channel_points/custom_rewards?broadcaster_id=${encodeURIComponent(broadcasterId)}&id=${encodeURIComponent(finalRewardId)}`, twitchUpdateBody);
