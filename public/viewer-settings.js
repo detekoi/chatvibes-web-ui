@@ -482,7 +482,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     async function loadPreferences() {
-        console.log('loadPreferences called');
         if (TEST_MODE) {
             const data = {
                 voiceId: '',
@@ -524,16 +523,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             currentPreferences = data;
             const cd = data.channelDefaults || {};
 
-            console.log('loadPreferences data:', data);
-            console.log('data.speed:', data.speed);
-            console.log('data.speed !== undefined:', data.speed !== undefined);
-
             voiceSelect.value = data.voiceId || '';
-            // Show user preference if set, otherwise show system default (sliders don't show channel defaults)
-            pitchSlider.value = (data.pitch !== undefined && data.pitch !== null) ? data.pitch : 0;
+            // Show user preference if set, otherwise show what the user will actually hear (channel default or system default)
+            pitchSlider.value = (data.pitch !== undefined && data.pitch !== null) ? data.pitch : (cd.pitch !== undefined && cd.pitch !== null) ? cd.pitch : 0;
             pitchOutput.textContent = pitchSlider.value;
-            speedSlider.value = (data.speed !== undefined && data.speed !== null) ? data.speed : 1;
-            console.log('Setting speedSlider.value to:', speedSlider.value);
+            speedSlider.value = (data.speed !== undefined && data.speed !== null) ? data.speed : (cd.speed !== undefined && cd.speed !== null) ? cd.speed : 1;
             speedOutput.textContent = Number(speedSlider.value).toFixed(2);
             emotionSelect.value = data.emotion || '';
             languageSelect.value = data.language || '';
@@ -564,7 +558,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         } catch (error) {
             console.error('Failed to load preferences:', error);
-            console.error('Error details:', error.message, error.stack);
             showToast('Failed to load preferences', 'error');
         }
     }
