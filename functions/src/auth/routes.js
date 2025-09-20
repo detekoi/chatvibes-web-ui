@@ -277,8 +277,9 @@ router.get("/twitch/callback", async (req, res) => {
             payload: {data: Buffer.from(accessToken)},
           });
 
-          // Update user document in Firestore
+          // Update user document in Firestore and ensure channelName exists for consistency with bot expectations
           await userDocRef.set({
+            channelName: twitchUser.login,
             twitchUserId: twitchUser.id,
             twitchUserLogin: twitchUser.login,
             twitchDisplayName: twitchUser.displayName,
