@@ -4,7 +4,7 @@
 
 const express = require("express");
 const crypto = require("crypto");
-const {db, COLLECTIONS} = require("../services/firestore");
+const {db, FieldValue, COLLECTIONS} = require("../services/firestore");
 const {getValidTwitchTokenForUser} = require("../services/twitch");
 const {authenticateApiRequest} = require("../middleware/auth");
 const {secrets, config, secretManagerClient} = require("../config");
@@ -36,26 +36,48 @@ router.get("/getToken", authenticateApiRequest, async (req, res) => {
       });
     }
 
-    // Check if user already has an OBS token
-    const userDocRef = db.collection(COLLECTIONS.MANAGED_CHANNELS).doc(channelLogin);
-    const userDoc = await userDocRef.get();
+    // Attempt to read secret reference from the TTS config (source of truth)
+    const ttsDocRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelLogin);
+    const ttsDoc = await ttsDocRef.get();
 
-    if (userDoc.exists && userDoc.data().obsTokenSecretName) {
+    if (ttsDoc.exists && ttsDoc.data().obsSocketSecretName) {
       try {
-        // Try to retrieve the existing token
         const [version] = await secretManagerClient.accessSecretVersion({
-          name: userDoc.data().obsTokenSecretName,
+          name: ttsDoc.data().obsSocketSecretName,
         });
         const existingToken = version.payload.data.toString().trim();
 
-        console.log(`[API /obs/getToken] Retrieved existing OBS token for ${channelLogin}`);
+        console.log(`[API /obs/getToken] Retrieved existing OBS token (from ttsChannelConfigs) for ${channelLogin}`);
         return res.json({
           success: true,
           token: existingToken,
           browserSourceUrl: `${config.OBS_BROWSER_BASE_URL}/?channel=${encodeURIComponent(channelLogin)}&token=${existingToken}`,
         });
       } catch (secretError) {
-        console.warn(`[API /obs/getToken] Failed to retrieve existing token for ${channelLogin}:`, secretError.message);
+        console.warn(`[API /obs/getToken] Failed to retrieve existing token from ttsChannelConfigs for ${channelLogin}:`, secretError.message);
+        // Fall through to legacy check or generate new token
+      }
+    }
+
+    // Legacy fallback: check managedChannels for obsTokenSecretName
+    const userDocRef = db.collection(COLLECTIONS.MANAGED_CHANNELS).doc(channelLogin);
+    const userDoc = await userDocRef.get();
+
+    if (userDoc.exists && userDoc.data().obsTokenSecretName) {
+      try {
+        const [version] = await secretManagerClient.accessSecretVersion({
+          name: userDoc.data().obsTokenSecretName,
+        });
+        const existingToken = version.payload.data.toString().trim();
+
+        console.log(`[API /obs/getToken] Retrieved existing OBS token (from managedChannels) for ${channelLogin}`);
+        return res.json({
+          success: true,
+          token: existingToken,
+          browserSourceUrl: `${config.OBS_BROWSER_BASE_URL}/?channel=${encodeURIComponent(channelLogin)}&token=${existingToken}`,
+        });
+      } catch (secretError) {
+        console.warn(`[API /obs/getToken] Failed legacy retrieval from managedChannels for ${channelLogin}:`, secretError.message);
         // Continue to generate new token
       }
     }
@@ -165,12 +187,19 @@ router.post("/generateToken", authenticateApiRequest, async (req, res) => {
       },
     });
 
-    // Update user document
-    const userDocRef = db.collection(COLLECTIONS.MANAGED_CHANNELS).doc(channelLogin);
-    await userDocRef.update({
-      obsTokenSecretName: `${secretName}/versions/latest`,
+    // Store the secret name in the TTS channel config (source of truth)
+    const fullSecretName = `${secretName}/versions/latest`;
+    const ttsDocRef2 = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelLogin);
+    await ttsDocRef2.set({
+      obsSocketSecretName: fullSecretName,
+      updatedAt: FieldValue.serverTimestamp(),
+    }, {merge: true});
+
+    // Optionally update the managedChannels document for auditing
+    const userDocRef2 = db.collection(COLLECTIONS.MANAGED_CHANNELS).doc(channelLogin);
+    await userDocRef2.set({
       obsTokenGeneratedAt: new Date(),
-    });
+    }, {merge: true});
 
     console.log(`[API /obs/generateToken] Generated new OBS token for ${channelLogin}`);
 
