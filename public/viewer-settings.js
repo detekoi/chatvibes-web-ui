@@ -641,14 +641,16 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
         try {
+            const pitchHasOverride = currentPreferences && currentPreferences.pitch !== undefined && currentPreferences.pitch !== null;
+            const speedHasOverride = currentPreferences && currentPreferences.speed !== undefined && currentPreferences.speed !== null;
             const response = await fetchWithAuth(`${API_BASE_URL}/api/tts/test`, {
                 method: 'POST',
                 body: JSON.stringify({
                     channel: currentChannel,
                     text: text,
                     voiceId: voiceSelect.value || null,
-                    pitch: Number(pitchSlider.value) !== 0 ? Number(pitchSlider.value) : null,
-                    speed: Math.abs(Number(speedSlider.value) - 1) > 0.01 ? Number(speedSlider.value) : null,
+                    pitch: pitchHasOverride ? Number(pitchSlider.value) : null,
+                    speed: speedHasOverride ? Number(speedSlider.value) : null,
                     emotion: emotionSelect.value || null,
                     languageBoost: languageSelect.value || null
                 })
@@ -773,12 +775,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     pitchSlider.addEventListener('input', () => { pitchOutput.textContent = pitchSlider.value; });
     pitchSlider.addEventListener('change', () => {
         const v = Number(pitchSlider.value);
-        savePreference('pitch', v !== 0 ? v : null);
+        // Always persist explicit 0 as a user override (do not clear)
+        savePreference('pitch', v);
     });
     speedSlider.addEventListener('input', () => { speedOutput.textContent = Number(speedSlider.value).toFixed(2); });
     speedSlider.addEventListener('change', () => {
         const v = Number(speedSlider.value);
-        savePreference('speed', Math.abs(v - 1) > 0.01 ? v : null);
+        // Always persist explicit 1.0 as a user override (do not clear)
+        savePreference('speed', v);
     });
     emotionSelect.addEventListener('change', () => { savePreference('emotion', emotionSelect.value || null); });
     languageSelect.addEventListener('change', () => { savePreference('language', languageSelect.value || null); });
