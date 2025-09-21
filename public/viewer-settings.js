@@ -58,6 +58,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const addChannelContextCard = document.getElementById('add-channel-context-card');
     const channelContextNameEl = document.getElementById('channel-context-name');
     const channelHint = document.getElementById('channel-hint');
+    const prefsDisabledNote = document.getElementById('prefs-disabled-note');
     const voiceSelect = document.getElementById('voice-select');
     const pitchSlider = document.getElementById('pitch-slider');
     const pitchOutput = document.getElementById('pitch-value');
@@ -522,6 +523,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const data = await response.json();
             currentPreferences = data;
             const cd = data.channelDefaults || {};
+            const allowViewerPrefs = cd.allowViewerPreferences !== false; // default to true unless explicitly false
 
             voiceSelect.value = data.voiceId || '';
             // Show user preference if set, otherwise show what the user will actually hear (channel default or system default)
@@ -545,6 +547,38 @@ document.addEventListener('DOMContentLoaded', async () => {
                 languageSelect.options[0].textContent = cd.language ? `Use channel default (${cd.language})` : 'Use channel default';
             }
             updateHints();
+            // Handle channel policy: if viewer prefs disabled, show note and disable inputs
+            if (currentChannel) {
+                if (!allowViewerPrefs) {
+                    if (prefsDisabledNote) prefsDisabledNote.classList.remove('d-none');
+                    // Disable preference inputs (but still allow viewing channel defaults)
+                    if (voiceSelect) voiceSelect.disabled = true;
+                    if (pitchSlider) pitchSlider.disabled = true;
+                    if (speedSlider) speedSlider.disabled = true;
+                    if (emotionSelect) emotionSelect.disabled = true;
+                    if (languageSelect) languageSelect.disabled = true;
+                    if (englishNormalizationCheckbox) englishNormalizationCheckbox.disabled = true;
+                    // Disable reset buttons
+                    if (voiceReset) voiceReset.disabled = true;
+                    if (pitchReset) pitchReset.disabled = true;
+                    if (speedReset) speedReset.disabled = true;
+                    if (emotionReset) emotionReset.disabled = true;
+                    if (languageReset) languageReset.disabled = true;
+                } else {
+                    if (prefsDisabledNote) prefsDisabledNote.classList.add('d-none');
+                    if (voiceSelect) voiceSelect.disabled = false;
+                    if (pitchSlider) pitchSlider.disabled = false;
+                    if (speedSlider) speedSlider.disabled = false;
+                    if (emotionSelect) emotionSelect.disabled = false;
+                    if (languageSelect) languageSelect.disabled = false;
+                    if (englishNormalizationCheckbox) englishNormalizationCheckbox.disabled = false;
+                    if (voiceReset) voiceReset.disabled = false;
+                    if (pitchReset) pitchReset.disabled = false;
+                    if (speedReset) speedReset.disabled = false;
+                    if (emotionReset) emotionReset.disabled = false;
+                    if (languageReset) languageReset.disabled = false;
+                }
+            }
             // Danger zone visibility
             if (currentChannel) {
                 if (channelContextCard) channelContextCard.classList.remove('d-none');
