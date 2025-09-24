@@ -4,7 +4,7 @@
 
 const express = require("express");
 const {db, COLLECTIONS} = require("../services/firestore");
-const {validateSpeed, validatePitch, validateEmotion, validateLanguageBoost} = require("../services/utils");
+const {validateSpeed, validatePitch, validateEmotion, validateLanguageBoost, normalizeEmotion} = require("../services/utils");
 const {authenticateApiRequest} = require("../middleware/auth");
 
 // eslint-disable-next-line new-cap
@@ -158,8 +158,9 @@ router.put("/preferences/:channel", authenticateApiRequest, async (req, res) => 
       }
     }
     if (updates.emotion !== undefined) {
-      if (updates.emotion === null || validateEmotion(updates.emotion)) {
-        updateData.emotion = updates.emotion;
+      const normalized = updates.emotion === null ? null : normalizeEmotion(updates.emotion);
+      if (normalized === null || validateEmotion(normalized)) {
+        updateData.emotion = normalized;
       } else {
         return res.status(400).json({error: "Invalid emotion value"});
       }
@@ -247,8 +248,9 @@ router.put("/preferences", authenticateApiRequest, async (req, res) => {
       }
     }
     if (updates.emotion !== undefined) {
-      if (updates.emotion === null || validateEmotion(updates.emotion)) {
-        updateData.emotion = updates.emotion;
+      const normalized = updates.emotion === null ? null : normalizeEmotion(updates.emotion);
+      if (normalized === null || validateEmotion(normalized)) {
+        updateData.emotion = normalized;
       } else {
         return res.status(400).json({error: "Invalid emotion value"});
       }

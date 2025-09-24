@@ -94,13 +94,42 @@ function validatePitch(pitch) {
 }
 
 /**
+ * Normalizes common emotion synonyms to canonical tokens
+ * @param {string|null} emotion - Raw emotion value (may be capitalized or a synonym)
+ * @return {string|null} Canonical token or null
+ */
+function normalizeEmotion(emotion) {
+  if (emotion === null || emotion === undefined || emotion === "") return null;
+  const raw = String(emotion).trim().toLowerCase();
+  // Synonym map to canonical tokens used across the app/backend providers
+  const map = {
+    "auto": "auto",
+    "neutral": "neutral",
+    "happy": "happy",
+    "sad": "sad",
+    "angry": "angry",
+    // canonical per provider schema
+    "fearful": "fearful",
+    "disgusted": "disgusted",
+    "surprised": "surprised",
+    // legacy/synonyms mapped to provider canonical
+    "fear": "fearful",
+    "surprise": "surprised",
+    "disgust": "disgusted",
+  };
+  return map[raw] || raw;
+}
+
+/**
  * Validates TTS emotion parameter
- * @param {string} emotion - The emotion value to validate
+ * @param {string} emotion - The emotion value to validate (canonical or synonym)
  * @return {boolean} True if valid
  */
 function validateEmotion(emotion) {
-  const validEmotions = ["auto", "neutral", "happy", "sad", "angry", "fear", "surprise"];
-  return typeof emotion === "string" && validEmotions.includes(emotion);
+  if (emotion === null) return true;
+  const e = normalizeEmotion(emotion);
+  const validEmotions = ["auto", "neutral", "happy", "sad", "angry", "fearful", "disgusted", "surprised"];
+  return typeof e === "string" && validEmotions.includes(e);
 }
 
 /**

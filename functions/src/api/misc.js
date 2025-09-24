@@ -5,7 +5,7 @@
 const express = require("express");
 const Replicate = require("replicate");
 const {db, COLLECTIONS} = require("../services/firestore");
-const {createShortLink} = require("../services/utils");
+const {createShortLink, normalizeEmotion} = require("../services/utils");
 const {authenticateApiRequest} = require("../middleware/auth");
 const {secrets, config} = require("../config");
 
@@ -95,7 +95,7 @@ apiRouter.post("/tts/test", authenticateApiRequest, async (req, res) => {
     console.log(`[POST /api/tts/test] TTS test requested for ${channelLogin}: "${text}" with voice ${voiceId || "default"}`);
 
     // Resolve effective parameters in order: request override -> viewer global prefs -> channel defaults
-    let effective = {voiceId: voiceId ?? null, emotion: emotion ?? null, pitch: (pitch !== undefined) ? pitch : null, speed: (speed !== undefined) ? speed : null, languageBoost: languageBoost ?? null};
+    let effective = {voiceId: voiceId ?? null, emotion: normalizeEmotion(emotion), pitch: (pitch !== undefined) ? pitch : null, speed: (speed !== undefined) ? speed : null, languageBoost: languageBoost ?? null};
 
     try {
       // Load viewer global preferences
@@ -126,7 +126,7 @@ apiRouter.post("/tts/test", authenticateApiRequest, async (req, res) => {
 
       effective = {
         voiceId: pick(voiceId, userPrefs.voiceId, channelDefaults.voiceId),
-        emotion: pick(emotion, userPrefs.emotion, channelDefaults.emotion),
+        emotion: normalizeEmotion(pick(emotion, userPrefs.emotion, channelDefaults.emotion)),
         pitch: pick(pitch, userPrefs.pitch, channelDefaults.pitch),
         speed: pick(speed, userPrefs.speed, channelDefaults.speed),
         languageBoost: pick(languageBoost, userPrefs.languageBoost, channelDefaults.languageBoost),
