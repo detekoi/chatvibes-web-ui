@@ -172,6 +172,7 @@ module.exports = {
   getAllowedChannelsList,
   validateSpeed,
   validatePitch,
+  normalizeEmotion,
   validateEmotion,
   validateLanguageBoost,
   createShortLink,
