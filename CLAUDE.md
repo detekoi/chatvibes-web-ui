@@ -94,6 +94,7 @@ TTS settings managed by the main TTS application:
 - `emotion` - Voice emotion ('auto', 'neutral', 'happy', etc.)
 - `englishNormalization`, `sampleRate`, `bitrate`, `channel` - Audio processing
 - `languageBoost` - Language detection boost ('Automatic', 'English', etc.)
+- `readFullUrls` - Whether to read full URLs or just domain names (default: false)
 - `speakEvents` - Whether to announce events
 - `userPreferences` - Per-user voice/emotion overrides
 - `ignoredUsers` - Array of usernames to ignore

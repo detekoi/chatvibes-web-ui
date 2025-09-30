@@ -367,6 +367,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const ttsPermissionSelect = document.getElementById('tts-permission');
     const eventsEnabledCheckbox = document.getElementById('events-enabled');
     const allowViewerPreferencesCheckbox = document.getElementById('allow-viewer-preferences');
+    const readFullUrlsCheckbox = document.getElementById('read-full-urls');
     const bitsEnabledCheckbox = document.getElementById('bits-enabled');
     const bitsAmountInput = document.getElementById('bits-amount');
     const musicEnabledCheckbox = document.getElementById('music-enabled');
@@ -649,6 +650,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 mode: 'command',
                 ttsPermissionLevel: 'everyone',
                 speakEvents: true,
+                readFullUrls: false,
                 bitsModeEnabled: true,
                 bitsMinimumAmount: 100,
                 voiceId: 'Friendly_Person',
@@ -670,6 +672,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (ttsModeSelect) ttsModeSelect.value = demoTts.mode;
             if (ttsPermissionSelect) ttsPermissionSelect.value = demoTts.ttsPermissionLevel;
             if (eventsEnabledCheckbox) eventsEnabledCheckbox.checked = demoTts.speakEvents;
+            if (readFullUrlsCheckbox) readFullUrlsCheckbox.checked = demoTts.readFullUrls;
             if (bitsEnabledCheckbox) bitsEnabledCheckbox.checked = demoTts.bitsModeEnabled;
             if (bitsAmountInput) bitsAmountInput.value = demoTts.bitsMinimumAmount;
             if (defaultVoiceSelect) defaultVoiceSelect.value = demoTts.voiceId;
@@ -713,6 +716,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (ttsPermissionSelect) ttsPermissionSelect.value = settings.ttsPermissionLevel || 'everyone';
                 if (eventsEnabledCheckbox) eventsEnabledCheckbox.checked = settings.speakEvents !== false;
                 if (allowViewerPreferencesCheckbox) allowViewerPreferencesCheckbox.checked = settings.allowViewerPreferences !== false;
+                if (readFullUrlsCheckbox) readFullUrlsCheckbox.checked = settings.readFullUrls || false;
                 if (bitsEnabledCheckbox) bitsEnabledCheckbox.checked = settings.bitsModeEnabled || false;
                 if (bitsAmountInput) bitsAmountInput.value = settings.bitsMinimumAmount || 100;
                 if (defaultVoiceSelect) defaultVoiceSelect.value = settings.voiceId || 'Friendly_Person';
@@ -814,6 +818,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 { key: 'mode', value: ttsModeSelect?.value || 'command', label: 'TTS Mode' },
                 { key: 'ttsPermissionLevel', value: ttsPermissionSelect?.value || 'everyone', label: 'TTS Permission' },
                 { key: 'speakEvents', value: eventsEnabledCheckbox?.checked !== false, label: 'Event Announcements' },
+                { key: 'readFullUrls', value: readFullUrlsCheckbox?.checked || false, label: 'Read Full URLs' },
                 { key: 'bitsModeEnabled', value: bitsEnabledCheckbox?.checked || false, label: 'Bits-for-TTS' },
                 { key: 'bitsMinimumAmount', value: parseInt(bitsAmountInput?.value || '100'), label: 'Minimum Bits' },
                 { key: 'voiceId', value: defaultVoiceSelect?.value || 'Friendly_Person', label: 'Default Voice' },
@@ -932,6 +937,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (ttsPermissionSelect) ttsPermissionSelect.addEventListener('change', () => saveTtsSetting('ttsPermissionLevel', ttsPermissionSelect.value || 'everyone', 'TTS Permission'));
     if (eventsEnabledCheckbox) eventsEnabledCheckbox.addEventListener('change', () => saveTtsSetting('speakEvents', eventsEnabledCheckbox.checked !== false, 'Event Announcements'));
     if (allowViewerPreferencesCheckbox) allowViewerPreferencesCheckbox.addEventListener('change', () => saveTtsSetting('allowViewerPreferences', !!allowViewerPreferencesCheckbox.checked, 'Allow Viewer Voice Preferences'));
+    if (readFullUrlsCheckbox) readFullUrlsCheckbox.addEventListener('change', () => saveTtsSetting('readFullUrls', !!readFullUrlsCheckbox.checked, 'Read Full URLs'));
     if (bitsEnabledCheckbox) bitsEnabledCheckbox.addEventListener('change', () => saveTtsSetting('bitsModeEnabled', !!bitsEnabledCheckbox.checked, 'Bits for TTS'));
     if (bitsAmountInput) {
         const debouncedBitsAmountSave = debounce(() => saveTtsSetting('bitsMinimumAmount', parseInt(bitsAmountInput.value || '100', 10), 'Minimum Bits'), 600);
