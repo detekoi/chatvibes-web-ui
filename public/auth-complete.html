@@ -55,6 +55,11 @@
                             if (payload.scope === 'viewer') {
                                 localStorage.setItem('token_user', payload.userLogin);
                                 console.log("Viewer session token stored for user:", payload.userLogin);
+                            } else {
+                                // Streamer token - clear any old viewer-specific tokens
+                                localStorage.removeItem('token_user');
+                                localStorage.removeItem('token_channel');
+                                console.log("Streamer session token stored, cleared viewer-specific tokens");
                             }
                         }
                     } catch (e) {

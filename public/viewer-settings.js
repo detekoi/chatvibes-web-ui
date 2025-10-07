@@ -115,6 +115,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     function showAuthStatus(message, type = 'info') {
         if (!authStatus) return;
         authStatus.innerHTML = message;
+        authStatus.style.display = 'block';
         const klass = type === 'success' ? 'alert-success' : type === 'error' ? 'alert-danger' : 'alert-info';
         authStatus.className = `alert ${klass} text-center`;
     }
