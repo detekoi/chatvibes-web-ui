@@ -200,10 +200,20 @@ router.get("/twitch/callback", async (req, res) => {
     });
 
     if (validateResponse.data && validateResponse.data.user_id) {
+      // Fetch user details including email
+      const userResponse = await axios.get("https://api.twitch.tv/helix/users", {
+        headers: {
+          "Authorization": `Bearer ${accessToken}`,
+          "Client-Id": secrets.TWITCH_CLIENT_ID,
+        },
+      });
+
+      const userData = userResponse.data.data[0];
       const twitchUser = {
         id: validateResponse.data.user_id,
         login: validateResponse.data.login.toLowerCase(),
-        displayName: validateResponse.data.login,
+        displayName: userData?.display_name || validateResponse.data.login,
+        email: userData?.email || null,
       };
       console.log(`[AuthCallback] User ${twitchUser.login} authenticated and validated.`);
 
@@ -283,6 +293,7 @@ router.get("/twitch/callback", async (req, res) => {
             twitchUserId: twitchUser.id,
             twitchUserLogin: twitchUser.login,
             twitchDisplayName: twitchUser.displayName,
+            email: twitchUser.email,
             twitchAccessTokenExpiresAt: new Date(Date.now() + (validateResponse.data.expires_in * 1000)),
             needsTwitchReAuth: false,
             lastTokenError: null,
@@ -331,7 +342,7 @@ router.get("/twitch/viewer", (req, res) => {
     client_id: secrets.TWITCH_CLIENT_ID,
     redirect_uri: config.CALLBACK_URL,
     response_type: "code",
-    scope: "user:read:email",
+    scope: "",
     state: state,
     force_verify: "true",
   });

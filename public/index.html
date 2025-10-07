@@ -89,11 +89,11 @@
                 return;
             }
             
-            // User needs to log in - use regular OAuth but redirect to viewer settings
+            // User needs to log in - use viewer OAuth
             try {
                 // Use Firebase Hosting rewrites to reach Functions in both local and prod
                 const apiBaseUrl = '';
-                const response = await fetch(`${apiBaseUrl}/auth/twitch/initiate`);
+                const response = await fetch(`${apiBaseUrl}/auth/twitch/viewer`);
                 if (!response.ok) {
                     throw new Error(`Failed to initiate auth: ${response.statusText}`);
                 }
@@ -101,7 +101,6 @@
 
                 if (data.success && data.twitchAuthUrl && data.state) {
                     sessionStorage.setItem('oauth_csrf_state', data.state);
-                    sessionStorage.setItem('viewer_prefs_intent', 'true'); // Mark that user wants viewer prefs
                     window.location.href = data.twitchAuthUrl;
                 } else {
                     console.error("Failed to get auth URL or state from backend:", data.error);

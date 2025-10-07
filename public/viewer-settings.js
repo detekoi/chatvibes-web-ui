@@ -94,6 +94,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const channelInputTitle = document.getElementById('channel-input-title');
     const channelInputDesc = document.getElementById('channel-input-desc');
     const logoutLink = document.getElementById('logout-link');
+    const streamerSettingsLink = document.getElementById('streamer-settings-link');
 
     // Reset buttons
     const voiceReset = document.getElementById('voice-reset');
@@ -363,10 +364,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             try {
                 showAuthStatus('Redirecting to Twitch for authentication...', 'info');
 
-                // For viewer auth, we need token and channel parameters
+                // For viewer auth, always use viewer endpoint
                 const authUrl = token && channel
                     ? `${API_BASE_URL}/auth/twitch/viewer?token=${encodeURIComponent(token)}&channel=${encodeURIComponent(channel)}`
-                    : `${API_BASE_URL}/auth/twitch/initiate`;
+                    : `${API_BASE_URL}/auth/twitch/viewer`;
 
                 const response = await fetch(authUrl);
                 const data = await response.json();
@@ -949,6 +950,46 @@ document.addEventListener('DOMContentLoaded', async () => {
                 showToast('Logged out (test mode)', 'success');
             } else {
                 window.location.href = 'index.html';
+            }
+        });
+    }
+
+    if (streamerSettingsLink) {
+        streamerSettingsLink.addEventListener('click', async (e) => {
+            e.preventDefault();
+
+            // Check if user has a streamer session token with "scope" not equal to "viewer"
+            const sessionToken = localStorage.getItem('app_session_token');
+
+            if (sessionToken) {
+                try {
+                    // Decode JWT to check scope (basic decode without verification)
+                    const payload = JSON.parse(atob(sessionToken.split('.')[1]));
+
+                    // If scope is not "viewer", user has streamer auth
+                    if (payload.scope !== 'viewer') {
+                        window.location.href = 'dashboard.html';
+                        return;
+                    }
+                } catch (error) {
+                    console.error('Error decoding token:', error);
+                }
+            }
+
+            // User doesn't have streamer auth, initiate streamer OAuth
+            try {
+                const response = await fetch(`${API_BASE_URL}/auth/twitch/initiate`);
+                const data = await response.json();
+
+                if (data.success && data.twitchAuthUrl && data.state) {
+                    sessionStorage.setItem('oauth_csrf_state', data.state);
+                    window.location.href = data.twitchAuthUrl;
+                } else {
+                    showToast('Failed to initiate streamer authentication', 'error');
+                }
+            } catch (error) {
+                console.error('Failed to initiate streamer auth:', error);
+                showToast('Failed to start authentication. Please try again.', 'error');
             }
         });
     }
