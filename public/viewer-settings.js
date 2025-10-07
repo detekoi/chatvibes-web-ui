@@ -957,39 +957,23 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (streamerSettingsLink) {
         streamerSettingsLink.addEventListener('click', async (e) => {
             e.preventDefault();
-
-            // Check if user has a streamer session token with "scope" not equal to "viewer"
-            const sessionToken = localStorage.getItem('app_session_token');
-
-            if (sessionToken) {
-                try {
-                    // Decode JWT to check scope (basic decode without verification)
-                    const payload = JSON.parse(atob(sessionToken.split('.')[1]));
-
-                    // If scope is not "viewer", user has streamer auth
-                    if (payload.scope !== 'viewer') {
-                        window.location.href = 'dashboard.html';
-                        return;
-                    }
-                } catch (error) {
-                    console.error('Error decoding token:', error);
-                }
-            }
-
-            // User doesn't have streamer auth, initiate streamer OAuth
             try {
                 const response = await fetch(`${API_BASE_URL}/auth/twitch/initiate`);
+                if (!response.ok) {
+                    throw new Error(`Failed to initiate auth: ${response.statusText}`);
+                }
                 const data = await response.json();
 
                 if (data.success && data.twitchAuthUrl && data.state) {
                     sessionStorage.setItem('oauth_csrf_state', data.state);
                     window.location.href = data.twitchAuthUrl;
                 } else {
-                    showToast('Failed to initiate streamer authentication', 'error');
+                    console.error("Failed to get auth URL or state from backend:", data.error);
+                    showToast(data.error || "Could not initiate login with Twitch.", 'error');
                 }
             } catch (error) {
-                console.error('Failed to initiate streamer auth:', error);
-                showToast('Failed to start authentication. Please try again.', 'error');
+                console.error("Error during login initiation:", error);
+                showToast("Error initiating login. Check console.", 'error');
             }
         });
     }
