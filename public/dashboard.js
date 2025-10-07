@@ -43,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const addBotBtn = document.getElementById('add-bot-btn');
     const removeBotBtn = document.getElementById('remove-bot-btn');
     const logoutLink = document.getElementById('logout-link');
-    const viewerSettingsLink = document.getElementById('viewer-settings-link');
 
     // TTS URL Elements
     const ttsUrlField = document.getElementById('tts-url-field');
@@ -286,14 +285,6 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.removeItem('app_session_token');
             appSessionToken = null;
             window.location.href = 'index.html';
-        });
-    }
-
-    if (viewerSettingsLink) {
-        viewerSettingsLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            // Streamers can access viewer settings directly with their existing session
-            window.location.href = 'viewer-settings.html';
         });
     }
 

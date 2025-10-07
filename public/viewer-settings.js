@@ -94,7 +94,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const channelInputTitle = document.getElementById('channel-input-title');
     const channelInputDesc = document.getElementById('channel-input-desc');
     const logoutLink = document.getElementById('logout-link');
-    const streamerSettingsLink = document.getElementById('streamer-settings-link');
 
     // Reset buttons
     const voiceReset = document.getElementById('voice-reset');
@@ -950,30 +949,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 showToast('Logged out (test mode)', 'success');
             } else {
                 window.location.href = 'index.html';
-            }
-        });
-    }
-
-    if (streamerSettingsLink) {
-        streamerSettingsLink.addEventListener('click', async (e) => {
-            e.preventDefault();
-            try {
-                const response = await fetch(`${API_BASE_URL}/auth/twitch/initiate`);
-                if (!response.ok) {
-                    throw new Error(`Failed to initiate auth: ${response.statusText}`);
-                }
-                const data = await response.json();
-
-                if (data.success && data.twitchAuthUrl && data.state) {
-                    sessionStorage.setItem('oauth_csrf_state', data.state);
-                    window.location.href = data.twitchAuthUrl;
-                } else {
-                    console.error("Failed to get auth URL or state from backend:", data.error);
-                    showToast(data.error || "Could not initiate login with Twitch.", 'error');
-                }
-            } catch (error) {
-                console.error("Error during login initiation:", error);
-                showToast("Error initiating login. Check console.", 'error');
             }
         });
     }
