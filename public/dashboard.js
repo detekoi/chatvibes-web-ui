@@ -37,6 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Dashboard UI Elements
+    const authStatus = document.getElementById('auth-status');
+    const dashboardContent = document.getElementById('dashboard-content');
     const twitchUsernameEl = document.getElementById('twitch-username');
     const channelNameStatusEl = document.getElementById('channel-name-status');
     const botStatusEl = document.getElementById('bot-status');
@@ -143,6 +145,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (TEST_MODE) {
             loggedInUser = { login: 'demostreamer', id: '123456', displayName: 'Demo Streamer' };
             appSessionToken = 'TEST_SESSION_TOKEN';
+            if (authStatus) authStatus.style.display = 'none';
+            if (dashboardContent) dashboardContent.style.display = 'block';
             if (twitchUsernameEl) twitchUsernameEl.textContent = loggedInUser.displayName;
             if (channelNameStatusEl) channelNameStatusEl.textContent = loggedInUser.login;
             await loadExistingTtsUrl(loggedInUser.login);
@@ -150,6 +154,8 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         } else if (userLoginFromStorage && userIdFromStorage) {
             loggedInUser = { login: userLoginFromStorage, id: userIdFromStorage, displayName: userLoginFromStorage };
+            if (authStatus) authStatus.style.display = 'none';
+            if (dashboardContent) dashboardContent.style.display = 'block';
             if (twitchUsernameEl) twitchUsernameEl.textContent = loggedInUser.displayName;
             if (channelNameStatusEl) channelNameStatusEl.textContent = loggedInUser.login;
             await loadExistingTtsUrl(loggedInUser.login);
@@ -183,25 +189,46 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (botStatusEl) botStatusEl.textContent = 'Error';
             }
         } else {
-            // No session found, automatically trigger streamer OAuth
-            console.log('No session found, initiating streamer OAuth...');
-            try {
-                const response = await fetch(`${API_BASE_URL}/auth/twitch/initiate`);
-                if (!response.ok) {
-                    throw new Error(`Failed to initiate auth: ${response.statusText}`);
-                }
-                const data = await response.json();
+            // No session found, show auth prompt
+            console.log('No session found, showing auth prompt...');
+            if (dashboardContent) dashboardContent.style.display = 'none';
+            if (authStatus) {
+                authStatus.innerHTML = '';
+                authStatus.className = 'alert alert-info text-center';
+                authStatus.style.display = 'block';
 
-                if (data.success && data.twitchAuthUrl && data.state) {
-                    sessionStorage.setItem('oauth_csrf_state', data.state);
-                    window.location.href = data.twitchAuthUrl;
-                } else {
-                    console.error("Failed to get auth URL from backend:", data.error);
-                    showToast('Could not initiate login. Please try again.', 'error');
-                }
-            } catch (error) {
-                console.error("Error during auth initiation:", error);
-                showToast('Error starting authentication. Please try again.', 'error');
+                const message = document.createElement('p');
+                message.textContent = 'Please verify your Twitch identity to access streamer settings.';
+                authStatus.appendChild(message);
+
+                const loginButton = document.createElement('button');
+                loginButton.textContent = 'Sign in with Twitch';
+                loginButton.className = 'btn btn-primary mt-2';
+                loginButton.onclick = async () => {
+                    try {
+                        loginButton.textContent = 'Redirecting...';
+                        loginButton.disabled = true;
+
+                        const response = await fetch(`${API_BASE_URL}/auth/twitch/initiate`);
+                        if (!response.ok) {
+                            throw new Error(`Failed to initiate auth: ${response.statusText}`);
+                        }
+                        const data = await response.json();
+
+                        if (data.success && data.twitchAuthUrl && data.state) {
+                            sessionStorage.setItem('oauth_csrf_state', data.state);
+                            window.location.href = data.twitchAuthUrl;
+                        } else {
+                            throw new Error(data.error || 'Could not initiate login with Twitch');
+                        }
+                    } catch (error) {
+                        console.error("Error during login initiation:", error);
+                        showToast('Error initiating login. Please try again.', 'error');
+                        loginButton.textContent = 'Sign in with Twitch';
+                        loginButton.disabled = false;
+                    }
+                };
+                authStatus.appendChild(loginButton);
             }
         }
     }
