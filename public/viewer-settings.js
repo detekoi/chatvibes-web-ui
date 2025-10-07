@@ -351,41 +351,32 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     async function requireTwitchAuth() {
-        // Clear any existing auth status content first
+        // Automatically trigger viewer OAuth
+        console.log('No session found, initiating viewer OAuth...');
         authStatus.innerHTML = '';
         authStatus.style.display = 'block';
+        showAuthStatus('Redirecting to Twitch for authentication...', 'info');
 
-        showAuthStatus('Please verify your Twitch identity to access viewer preferences.', 'info');
-        const loginButton = document.createElement('button');
-        loginButton.textContent = 'Sign in with Twitch';
-        loginButton.className = 'btn btn-primary mt-2';
-        loginButton.onclick = async () => {
-            try {
-                showAuthStatus('Redirecting to Twitch for authentication...', 'info');
+        try {
+            // For viewer auth, always use viewer endpoint
+            const authUrl = token && channel
+                ? `${API_BASE_URL}/auth/twitch/viewer?token=${encodeURIComponent(token)}&channel=${encodeURIComponent(channel)}`
+                : `${API_BASE_URL}/auth/twitch/viewer`;
 
-                // For viewer auth, always use viewer endpoint
-                const authUrl = token && channel
-                    ? `${API_BASE_URL}/auth/twitch/viewer?token=${encodeURIComponent(token)}&channel=${encodeURIComponent(channel)}`
-                    : `${API_BASE_URL}/auth/twitch/viewer`;
+            const response = await fetch(authUrl);
+            const data = await response.json();
 
-                const response = await fetch(authUrl);
-                const data = await response.json();
-
-                if (data.success && data.twitchAuthUrl && data.state) {
-                    // Store the OAuth state for CSRF protection
-                    sessionStorage.setItem('oauth_csrf_state', data.state);
-                    // Mark this as viewer auth intent
-                    sessionStorage.setItem('viewer_prefs_intent', 'true');
-                    window.location.href = data.twitchAuthUrl;
-                } else {
-                    throw new Error('Failed to initiate Twitch authentication');
-                }
-            } catch (error) {
-                console.error('Failed to initiate Twitch auth:', error);
-                showAuthStatus('Failed to start Twitch authentication. Please try again.', 'error');
+            if (data.success && data.twitchAuthUrl && data.state) {
+                // Store the OAuth state for CSRF protection
+                sessionStorage.setItem('oauth_csrf_state', data.state);
+                window.location.href = data.twitchAuthUrl;
+            } else {
+                throw new Error('Failed to initiate Twitch authentication');
             }
-        };
-        authStatus.appendChild(loginButton);
+        } catch (error) {
+            console.error('Failed to initiate Twitch auth:', error);
+            showAuthStatus('Failed to start Twitch authentication. Please try again.', 'error');
+        }
         return false;
     }
 

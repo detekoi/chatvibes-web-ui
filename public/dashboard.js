@@ -183,7 +183,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (botStatusEl) botStatusEl.textContent = 'Error';
             }
         } else {
-            window.location.href = 'index.html';
+            // No session found, automatically trigger streamer OAuth
+            console.log('No session found, initiating streamer OAuth...');
+            try {
+                const response = await fetch(`${API_BASE_URL}/auth/twitch/initiate`);
+                if (!response.ok) {
+                    throw new Error(`Failed to initiate auth: ${response.statusText}`);
+                }
+                const data = await response.json();
+
+                if (data.success && data.twitchAuthUrl && data.state) {
+                    sessionStorage.setItem('oauth_csrf_state', data.state);
+                    window.location.href = data.twitchAuthUrl;
+                } else {
+                    console.error("Failed to get auth URL from backend:", data.error);
+                    showToast('Could not initiate login. Please try again.', 'error');
+                }
+            } catch (error) {
+                console.error("Error during auth initiation:", error);
+                showToast('Error starting authentication. Please try again.', 'error');
+            }
         }
     }
 
