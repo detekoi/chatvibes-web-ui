@@ -53,6 +53,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // UI Elements
     const authStatus = document.getElementById('auth-status');
+    const loggedInStatus = document.getElementById('logged-in-status');
+    const loggedInUsername = document.getElementById('logged-in-username');
     const preferencesPanel = document.getElementById('preferences-panel');
     const channelContextCard = document.getElementById('channel-context-card');
     const addChannelContextCard = document.getElementById('add-channel-context-card');
@@ -246,6 +248,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             appSessionToken = 'TEST_SESSION_TOKEN';
             if (preferencesPanel) preferencesPanel.style.display = 'block';
             if (authStatus) authStatus.style.display = 'none';
+            if (loggedInUsername) loggedInUsername.textContent = 'Test User';
+            if (loggedInStatus) loggedInStatus.style.display = 'block';
             if (channel && channelContextCard) {
                 channelContextCard.classList.remove('d-none');
                 if (channelContextNameEl) channelContextNameEl.textContent = channel;
@@ -280,15 +284,21 @@ document.addEventListener('DOMContentLoaded', async () => {
                 appSessionToken = sessionTokenParam;
                 localStorage.setItem('app_session_token', appSessionToken);
                 const tokenParts = appSessionToken.split('.');
+                let userDisplayName = null;
                 if (tokenParts.length === 3) {
                     const payload = JSON.parse(atob(tokenParts[1]));
                     localStorage.setItem('twitch_user_login', payload.userLogin);
                     localStorage.setItem('token_user', payload.tokenUser);
                     localStorage.setItem('token_channel', payload.tokenChannel);
+                    userDisplayName = payload.displayName || payload.userLogin;
                 }
                 isAuthenticated = true;
                 preferencesPanel.style.display = 'block';
                 authStatus.style.display = 'none';
+
+                // Show logged in status
+                if (loggedInUsername) loggedInUsername.textContent = userDisplayName || 'User';
+                if (loggedInStatus) loggedInStatus.style.display = 'block';
                 if (channel && channelContextCard) {
                     channelContextCard.classList.remove('d-none');
                     if (channelContextNameEl) channelContextNameEl.textContent = channel;
@@ -327,6 +337,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                     isAuthenticated = true;
                     preferencesPanel.style.display = 'block';
                     authStatus.style.display = 'none';
+
+                    // Show logged in status
+                    if (loggedInUsername) loggedInUsername.textContent = data.user.displayName || data.user.login;
+                    if (loggedInStatus) loggedInStatus.style.display = 'block';
                     if (channel && channelContextCard) {
                         channelContextCard.classList.remove('d-none');
                         if (channelContextNameEl) channelContextNameEl.textContent = channel;
@@ -418,6 +432,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                 isAuthenticated = true;
                 preferencesPanel.style.display = 'block';
                 authStatus.style.display = 'none';
+
+                // Show logged in status
+                if (loggedInUsername) loggedInUsername.textContent = data.user.displayName || data.user.userLogin || data.user.login;
+                if (loggedInStatus) loggedInStatus.style.display = 'block';
+
                 return true;
             } else {
                 console.error('Auth validation failed - data.success:', data.success, 'data.user:', data.user);
