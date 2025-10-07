@@ -116,10 +116,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Auth status helper using Bootstrap alerts
     function showAuthStatus(message, type = 'info') {
         if (!authStatus) return;
-        authStatus.innerHTML = message;
-        authStatus.style.display = 'block';
-        const klass = type === 'success' ? 'alert-success' : type === 'error' ? 'alert-danger' : 'alert-info';
-        authStatus.className = `alert ${klass} text-center`;
+        // Only show if there's actually a message
+        if (message) {
+            authStatus.innerHTML = message;
+            authStatus.style.display = 'block';
+            const klass = type === 'success' ? 'alert-success' : type === 'error' ? 'alert-danger' : 'alert-info';
+            authStatus.className = `alert ${klass} text-center`;
+        } else {
+            authStatus.innerHTML = '';
+            authStatus.className = '';
+            authStatus.style.display = 'none';
+        }
     }
 
     // Debounce
@@ -247,7 +254,14 @@ document.addEventListener('DOMContentLoaded', async () => {
             isAuthenticated = true;
             appSessionToken = 'TEST_SESSION_TOKEN';
             if (preferencesPanel) preferencesPanel.style.display = 'block';
-            if (authStatus) authStatus.style.display = 'none';
+
+            // Completely hide auth status
+            if (authStatus) {
+                authStatus.innerHTML = '';
+                authStatus.className = '';
+                authStatus.style.display = 'none';
+            }
+
             if (loggedInUsername) loggedInUsername.textContent = 'Test User';
             if (loggedInStatus) loggedInStatus.style.display = 'block';
             if (channel && channelContextCard) {
@@ -294,7 +308,13 @@ document.addEventListener('DOMContentLoaded', async () => {
                 }
                 isAuthenticated = true;
                 preferencesPanel.style.display = 'block';
-                authStatus.style.display = 'none';
+
+                // Completely hide auth status
+                if (authStatus) {
+                    authStatus.innerHTML = '';
+                    authStatus.className = '';
+                    authStatus.style.display = 'none';
+                }
 
                 // Show logged in status
                 if (loggedInUsername) loggedInUsername.textContent = userDisplayName || 'User';
@@ -336,7 +356,12 @@ document.addEventListener('DOMContentLoaded', async () => {
                     }
                     isAuthenticated = true;
                     preferencesPanel.style.display = 'block';
-                    authStatus.style.display = 'none';
+
+                    // Completely hide auth status
+                    if (authStatus) {
+                        authStatus.innerHTML = '';
+                        authStatus.style.display = 'none';
+                    }
 
                     // Show logged in status
                     if (loggedInUsername) loggedInUsername.textContent = data.user.displayName || data.user.login;
@@ -431,7 +456,13 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (data.success === true && data.user) {
                 isAuthenticated = true;
                 preferencesPanel.style.display = 'block';
-                authStatus.style.display = 'none';
+
+                // Completely hide auth status
+                if (authStatus) {
+                    authStatus.innerHTML = '';
+                    authStatus.className = '';
+                    authStatus.style.display = 'none';
+                }
 
                 // Show logged in status
                 if (loggedInUsername) loggedInUsername.textContent = data.user.displayName || data.user.userLogin || data.user.login;

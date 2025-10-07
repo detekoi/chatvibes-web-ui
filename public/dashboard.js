@@ -197,7 +197,11 @@ document.addEventListener('DOMContentLoaded', () => {
             loggedInUser = { login: 'demostreamer', id: '123456', displayName: 'Demo Streamer' };
             appSessionToken = 'TEST_SESSION_TOKEN';
             // Show dashboard, hide auth status
-            if (authStatus) authStatus.style.display = 'none';
+            if (authStatus) {
+                authStatus.innerHTML = '';
+                authStatus.className = '';
+                authStatus.style.display = 'none';
+            }
             if (dashboardContent) dashboardContent.style.display = 'block';
             if (twitchUsernameEl) twitchUsernameEl.textContent = loggedInUser.displayName;
             if (channelNameStatusEl) channelNameStatusEl.textContent = loggedInUser.login;
@@ -207,7 +211,11 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (userLoginFromStorage && userIdFromStorage) {
             loggedInUser = { login: userLoginFromStorage, id: userIdFromStorage, displayName: userLoginFromStorage };
             // Show dashboard, hide auth status
-            if (authStatus) authStatus.style.display = 'none';
+            if (authStatus) {
+                authStatus.innerHTML = '';
+                authStatus.className = '';
+                authStatus.style.display = 'none';
+            }
             if (dashboardContent) dashboardContent.style.display = 'block';
             if (twitchUsernameEl) twitchUsernameEl.textContent = loggedInUser.displayName;
             if (channelNameStatusEl) channelNameStatusEl.textContent = loggedInUser.login;
