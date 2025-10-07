@@ -286,7 +286,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                     localStorage.setItem('token_channel', payload.tokenChannel);
                 }
                 isAuthenticated = true;
-                showAuthStatus('Authentication successful! Welcome to your preferences.', 'success');
                 preferencesPanel.style.display = 'block';
                 authStatus.style.display = 'none';
                 if (channel && channelContextCard) {
@@ -325,7 +324,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                         localStorage.setItem('token_channel', data.tokenChannel);
                     }
                     isAuthenticated = true;
-                    showAuthStatus(`Welcome, ${data.user.displayName || data.user.login}!`, 'success');
                     preferencesPanel.style.display = 'block';
                     authStatus.style.display = 'none';
                     if (channel && channelContextCard) {
@@ -417,8 +415,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             console.log('Condition check: data.success && data.user =', Boolean(data.success && data.user));
             if (data.success === true && data.user) {
                 isAuthenticated = true;
-                const userName = data.user?.displayName || data.user?.userLogin || 'there';
-                showAuthStatus(`Welcome ${userName}!`, 'success');
                 preferencesPanel.style.display = 'block';
                 authStatus.style.display = 'none';
                 return true;
