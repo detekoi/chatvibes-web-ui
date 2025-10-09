@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                          window.location.hostname === '127.0.0.1' ||
                          window.location.port === '5002')
         ? 'http://127.0.0.1:5001/chatvibestts/us-central1/webUi'
-        : 'https://us-central1-chatvibestts.cloudfunctions.net/webUi';
+        : ''; // Use Firebase Hosting rewrites
     let appSessionToken = null;
     let currentChannel = channel;
 

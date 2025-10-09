@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Use Hosting rewrites for local/prod; fall back to prod Functions when needed
     const API_BASE_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
         ? ''
-        : 'https://us-central1-chatvibestts.cloudfunctions.net/webUi';
+        : ''; // Use Firebase Hosting rewrites
     let appSessionToken = null;
     let loggedInUser = null;
 
