@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 authStatus.className = '';
                 authStatus.style.display = 'none';
             }
-            if (dashboardContent) dashboardContent.style.display = 'block';
+            if (dashboardContent) dashboardContent.style.display = 'flex';
             if (twitchUsernameEl) twitchUsernameEl.textContent = loggedInUser.displayName;
             if (channelNameStatusEl) channelNameStatusEl.textContent = loggedInUser.login;
             await loadExistingTtsUrl(loggedInUser.login);
@@ -216,7 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 authStatus.className = '';
                 authStatus.style.display = 'none';
             }
-            if (dashboardContent) dashboardContent.style.display = 'block';
+            if (dashboardContent) dashboardContent.style.display = 'flex';
             if (twitchUsernameEl) twitchUsernameEl.textContent = loggedInUser.displayName;
             if (channelNameStatusEl) channelNameStatusEl.textContent = loggedInUser.login;
             await loadExistingTtsUrl(loggedInUser.login);
