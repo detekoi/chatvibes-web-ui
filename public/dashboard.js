@@ -483,7 +483,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const voiceTestTextInput = document.getElementById('voice-test-text');
     const voiceTestBtn = document.getElementById('voice-test-btn');
+    const voiceTestTextInputMobile = document.getElementById('voice-test-text-mobile');
+    const voiceTestBtnMobile = document.getElementById('voice-test-btn-mobile');
     if (voiceTestBtn) voiceTestBtn.disabled = true;
+    if (voiceTestBtnMobile) voiceTestBtnMobile.disabled = true;
 
     // Channel Points elements
     const cpEnabled = document.getElementById('cp-enabled');
@@ -1340,20 +1343,22 @@ document.addEventListener('DOMContentLoaded', () => {
     if (addTtsIgnoreBtn) addTtsIgnoreBtn.addEventListener('click', () => addToIgnoreList('tts'));
     if (addMusicIgnoreBtn) addMusicIgnoreBtn.addEventListener('click', () => addToIgnoreList('music'));
 
-    async function testVoice() {
-        if (!voiceTestTextInput || !voiceTestBtn) {
+    async function testVoice(isMobile = false) {
+        const textInput = isMobile ? voiceTestTextInputMobile : voiceTestTextInput;
+        const btn = isMobile ? voiceTestBtnMobile : voiceTestBtn;
+        if (!textInput || !btn) {
             console.error('Voice test elements not found');
             return;
         }
         // Always ensure settings have finished loading to avoid UI race conditions
         try { await settingsInitializedPromise; } catch (_) {}
-        const text = voiceTestTextInput.value.trim();
+        const text = textInput.value.trim();
         if (!text) { showToast('Please enter some text to test', 'warning'); return; }
         if (text.length > 500) { showToast('Text must be 500 characters or less', 'error'); return; }
         if (TEST_MODE) { showToast('Playing preview… (test mode)', 'success'); return; }
         if (!appSessionToken) { showToast('Authentication required', 'error'); return; }
-        voiceTestBtn.disabled = true;
-        voiceTestBtn.textContent = 'Generating...';
+        btn.disabled = true;
+        btn.textContent = 'Generating...';
         try {
             const effective = getEffectiveTtsSettings();
             const voiceSettings = {
@@ -1428,12 +1433,13 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Voice test error:', error);
             showToast(`Voice test failed: ${error.message}`, 'error');
         } finally {
-            voiceTestBtn.disabled = false;
-            voiceTestBtn.textContent = 'Send Preview';
+            btn.disabled = false;
+            btn.textContent = 'Send Preview';
         }
     }
 
-    if (voiceTestBtn) voiceTestBtn.addEventListener('click', testVoice);
+    if (voiceTestBtn) voiceTestBtn.addEventListener('click', () => testVoice(false));
+    if (voiceTestBtnMobile) voiceTestBtnMobile.addEventListener('click', () => testVoice(true));
 
     async function initializeSettingsPanel() {
         await loadAvailableVoices();
@@ -1442,6 +1448,7 @@ document.addEventListener('DOMContentLoaded', () => {
         settingsInitialized = true;
         try { settingsInitializedPromiseResolve && settingsInitializedPromiseResolve(); } catch (_) {}
         if (voiceTestBtn) voiceTestBtn.disabled = false;
+        if (voiceTestBtnMobile) voiceTestBtnMobile.disabled = false;
     }
 
     initializeDashboard().then(() => {
