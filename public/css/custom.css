@@ -404,3 +404,176 @@ strong, .fw-semibold, .fw-bold {
     flex-shrink: 0 !important;
 }
 
+/* iOS-style settings layout */
+
+/* Toggle controls: Name and toggle on same line, description below */
+.list-group-item:has(.form-check-switch) {
+    position: relative;
+    min-height: 3.5rem;
+    padding: 0.875rem 1.25rem;
+}
+
+.list-group-item .row.align-items-center:has(.form-check-switch) {
+    flex-wrap: nowrap;
+    align-items: flex-start !important;
+    margin: 0;
+}
+
+.list-group-item .row.align-items-center:has(.form-check-switch) .col {
+    padding-right: 4rem;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.list-group-item .row.align-items-center:has(.form-check-switch) .col strong {
+    margin-bottom: 0.25rem;
+    display: block;
+    font-weight: 400;
+}
+
+.list-group-item .row.align-items-center:has(.form-check-switch) .col .text-muted {
+    margin-bottom: 0;
+    font-size: 0.8125rem;
+    line-height: 1.4;
+}
+
+.list-group-item .row.align-items-center:has(.form-check-switch) .col-auto {
+    position: absolute;
+    right: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
+    padding: 0;
+}
+
+/* Slider controls: Full width layout */
+.list-group-item:has(.form-range) {
+    padding: 0.875rem 1.25rem;
+}
+
+.list-group-item .row.align-items-center:has(.form-range) {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin: 0;
+}
+
+.list-group-item .row.align-items-center:has(.form-range) .col {
+    width: 100%;
+    margin-bottom: 0.75rem;
+    padding: 0;
+}
+
+.list-group-item .row.align-items-center:has(.form-range) .col strong {
+    font-weight: 400;
+}
+
+.list-group-item .row.align-items-center:has(.form-range) .col .text-muted {
+    font-size: 0.8125rem;
+    line-height: 1.4;
+}
+
+.list-group-item .row.align-items-center:has(.form-range) .col-auto {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0;
+}
+
+.list-group-item .row.align-items-center:has(.form-range) .form-range {
+    flex: 1;
+}
+
+/* Adjust min-width constraints for full-width controls */
+.list-group-item .col-auto[style*="min-width"] {
+    min-width: unset !important;
+}
+
+/* Select controls: iOS-style layout */
+.list-group-item:has(.form-select):not(:has(.form-check-switch)) {
+    padding: 0.875rem 1.25rem;
+}
+
+.list-group-item .row.align-items-center:has(.form-select):not(:has(.form-check-switch)) {
+    margin: 0;
+}
+
+.list-group-item .row.align-items-center:has(.form-select) .col {
+    padding-left: 0;
+}
+
+.list-group-item .row.align-items-center:has(.form-select) .col strong {
+    font-weight: 400;
+}
+
+.list-group-item .row.align-items-center:has(.form-select) .col .text-muted {
+    font-size: 0.8125rem;
+    line-height: 1.4;
+}
+
+/* Input controls (number, text): iOS-style layout */
+.list-group-item:has(input[type="number"]):not(:has(.form-check-switch)):not(:has(.form-range)) {
+    padding: 0.875rem 1.25rem;
+}
+
+.list-group-item .row.align-items-center:has(input[type="number"]) .col {
+    padding-left: 0;
+}
+
+.list-group-item .row.align-items-center:has(input[type="number"]) .col strong {
+    font-weight: 400;
+}
+
+.list-group-item .row.align-items-center:has(input[type="number"]) .col .text-muted {
+    font-size: 0.8125rem;
+    line-height: 1.4;
+}
+
+/* Mobile stacking for select controls */
+@media (max-width: 767.98px) {
+    .list-group-item .row.align-items-center:has(.form-select):not(:has(.form-check-switch)) {
+        flex-direction: column;
+        align-items: flex-start !important;
+    }
+    
+    .list-group-item .row.align-items-center:has(.form-select) .col {
+        width: 100%;
+        margin-bottom: 0.5rem;
+        padding: 0;
+    }
+    
+    .list-group-item .row.align-items-center:has(.form-select) .col-auto {
+        width: 100%;
+        padding: 0;
+    }
+    
+    .list-group-item .row.align-items-center:has(.form-select) .form-select {
+        width: 100%;
+    }
+    
+    /* Mobile stacking for input controls */
+    .list-group-item .row.align-items-center:has(input[type="number"]):not(:has(.form-check-switch)):not(:has(.form-range)) {
+        flex-direction: column;
+        align-items: flex-start !important;
+    }
+    
+    .list-group-item .row.align-items-center:has(input[type="number"]) .col {
+        width: 100%;
+        margin-bottom: 0.5rem;
+        padding: 0;
+    }
+    
+    .list-group-item .row.align-items-center:has(input[type="number"]) .col-auto {
+        width: 100%;
+        padding: 0;
+    }
+    
+    .list-group-item .row.align-items-center:has(input[type="number"]) input[type="number"] {
+        width: 100%;
+    }
+}
+
