@@ -6,7 +6,7 @@ ChatVibes Bot Management is a web application that allows approved Twitch stream
 
 > **Important:** Access to ChatVibes is currently invite-only. The management interface will show an access denied message for unapproved channels. If you'd like to request access, please contact me via [this contact form](https://detekoi.github.io/#contact-me).
 
-Currently, the ChatVibes web UI is hosted [here](https://chatvibestts.web.app/) *(invite-only access)*.
+Currently, the ChatVibes web UI is hosted [here](https://tts.wildcat.chat/) *(invite-only access)*.
 
 ## Features
 
@@ -36,6 +36,32 @@ Currently, the ChatVibes web UI is hosted [here](https://chatvibestts.web.app/) 
 * **Development Tools:**
     * npm
     * ESLint
+
+## OAuth Scopes & Permissions
+
+### Broadcaster/Streamer OAuth Scopes
+
+When streamers authenticate with Twitch, the following OAuth scopes are requested to enable full bot functionality:
+
+* **`user:read:email`** - Access user email and basic profile information
+* **`chat:read`** - Read chat messages in the broadcaster's channel
+* **`chat:edit`** - Send chat messages and TTS responses in the broadcaster's channel
+* **`channel:read:subscriptions`** - Detect subscription events for TTS announcements
+* **`bits:read`** - Detect bits/cheer events for TTS requirements and announcements
+* **`moderator:read:followers`** - Detect follow events for TTS announcements (optional)
+* **`channel:manage:redemptions`** - Manage channel point redemptions
+* **`channel:read:redemptions`** - Read channel point redemptions
+
+These scopes enable the ChatVibes bot to:
+- Connect to and monitor the broadcaster's chat
+- Read and respond to TTS commands
+- Announce subscription, bits, and follower events
+- Support bits-gated TTS modes
+- Integrate with channel point redemptions
+
+### Viewer OAuth Scopes
+
+Viewers who authenticate to set personal TTS preferences do not require any special OAuth scopes beyond basic Twitch authentication. Viewer authentication uses an empty scope list to minimize permissions.
 
 ## Setup
 

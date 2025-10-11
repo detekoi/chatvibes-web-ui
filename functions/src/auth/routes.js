@@ -130,7 +130,7 @@ router.get("/twitch/initiate", (req, res) => {
     client_id: secrets.TWITCH_CLIENT_ID,
     redirect_uri: config.CALLBACK_URL,
     response_type: "code",
-    scope: "user:read:email channel:manage:redemptions channel:read:redemptions",
+    scope: "user:read:email chat:read chat:edit channel:read:subscriptions bits:read moderator:read:followers channel:manage:redemptions channel:read:redemptions",
     state: state,
     force_verify: "true",
   });
