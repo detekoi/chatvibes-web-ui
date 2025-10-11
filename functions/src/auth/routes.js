@@ -309,6 +309,34 @@ router.get("/twitch/callback", async (req, res) => {
         console.error("Firestore (db) or SecretManagerServiceClient not initialized. Cannot store Twitch tokens.");
       }
 
+      // Automatically setup EventSub subscriptions for the authenticated streamer
+      try {
+        console.log(`[AuthCallback] Setting up EventSub for ${twitchUser.login}`);
+        const ttsBotUrl = process.env.TTS_BOT_URL || "https://chatvibes-tts-service-906125386407.us-central1.run.app";
+
+        const eventSubResponse = await fetch(`${ttsBotUrl}/api/setup-eventsub`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${appSessionToken}`,
+          },
+          body: JSON.stringify({
+            channelLogin: twitchUser.login,
+            userId: twitchUser.id,
+          }),
+        });
+
+        if (eventSubResponse.ok) {
+          const eventSubResult = await eventSubResponse.json();
+          console.log(`[AuthCallback] EventSub setup successful for ${twitchUser.login}:`, eventSubResult);
+        } else {
+          console.warn(`[AuthCallback] EventSub setup failed for ${twitchUser.login}: ${eventSubResponse.status} ${await eventSubResponse.text()}`);
+        }
+      } catch (eventSubError) {
+        console.error(`[AuthCallback] Error setting up EventSub for ${twitchUser.login}:`, eventSubError);
+        // Don't fail the auth process if EventSub setup fails
+      }
+
       return res.redirect(frontendAuthCompleteUrl.toString());
     } else {
       console.error("Failed to validate token or get user info from Twitch after token exchange.");
