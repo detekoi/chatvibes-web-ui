@@ -30,7 +30,7 @@ const secretsLoadedPromise = (async () => {
       secrets.TWITCH_CLIENT_ID = process.env.TWITCH_CLIENT_ID || "demo-client-id";
       secrets.TWITCH_CLIENT_SECRET = process.env.TWITCH_CLIENT_SECRET || "demo-client-secret";
       secrets.JWT_SECRET = process.env.JWT_SECRET || "local-dev-jwt-secret";
-      secrets.REPLICATE_API_TOKEN = process.env.REPLICATE_API_TOKEN || "";
+      secrets.WAVESPEED_API_KEY = process.env.WAVESPEED_API_KEY || "";
       console.log("✅ Loaded secrets from environment (emulator mode).");
       return;
     }
@@ -39,18 +39,18 @@ const secretsLoadedPromise = (async () => {
       twitchClientId,
       twitchClientSecret,
       jwtSecret,
-      replicateApiToken,
+      wavespeedApiKey,
     ] = await Promise.all([
       loadSecret("twitch-webui-client-id"),
       loadSecret("twitch-webui-client-secret"),
       loadSecret("jwt-secret-key"),
-      loadSecret("replicate-api-token"),
+      loadSecret("WAVESPEED_API_KEY"),
     ]);
 
     secrets.TWITCH_CLIENT_ID = twitchClientId;
     secrets.TWITCH_CLIENT_SECRET = twitchClientSecret;
     secrets.JWT_SECRET = jwtSecret;
-    secrets.REPLICATE_API_TOKEN = replicateApiToken;
+    secrets.WAVESPEED_API_KEY = wavespeedApiKey;
 
     console.log("✅ Successfully loaded all required secrets.");
   } catch (error) {
