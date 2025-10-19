@@ -1377,7 +1377,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             if (!response.ok) {
                 const errorData = await response.json().catch(() => ({ message: response.statusText }));
-                throw new Error(errorData.message || `Request failed with status ${response.status}`);
+                const errorMessage = errorData.error || errorData.message || response.statusText;
+                throw new Error(`API Error: ${response.status} ${errorMessage}`);
             }
             const contentType = response.headers.get('Content-Type') || '';
             if (contentType.startsWith('audio/')) {
@@ -1435,7 +1436,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Extract error message from API response if available
             let errorMessage = error.message;
             if (error.message && error.message.includes('API Error:')) {
-                // Extract the actual error message from "API Error: 502" format
+                // Extract the actual error message from "API Error: 403 Voice access denied..." format
                 const match = error.message.match(/API Error: \d+ (.+)/);
                 if (match) {
                     errorMessage = match[1];

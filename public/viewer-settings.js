@@ -244,7 +244,20 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.log('fetchWithAuth: Response status:', response.status);
         if (!response.ok) {
             if (response.status === 401) throw new Error('Authentication failed. Please log in again.');
-            throw new Error(`API Error: ${response.status} ${response.statusText}`);
+            
+            // Try to extract error message from response body
+            let errorMessage = response.statusText;
+            try {
+                const errorData = await response.json();
+                console.log('fetchWithAuth: Parsed errorData:', errorData);
+                if (errorData.error) {
+                    errorMessage = errorData.error;
+                }
+            } catch (e) {
+                console.log('fetchWithAuth: Could not parse error response as JSON');
+            }
+            
+            throw new Error(`API Error: ${response.status} ${errorMessage}`);
         }
         return response;
     }
@@ -791,7 +804,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             // Extract error message from API response if available
             let errorMessage = error.message;
             if (error.message && error.message.includes('API Error:')) {
-                // Extract the actual error message from "API Error: 502" format
+                // Extract the actual error message from "API Error: 403 Voice access denied..." format
                 const match = error.message.match(/API Error: \d+ (.+)/);
                 if (match) {
                     errorMessage = match[1];
