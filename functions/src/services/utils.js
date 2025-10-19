@@ -140,7 +140,12 @@ function validateEmotion(emotion) {
  */
 function validateLanguageBoost(languageBoost) {
   // Wavespeed AI language boost options
-  const validLanguages = ["auto", "English", "Chinese", "Chinese,Yue", "Spanish", "Hindi", "Portuguese", "Russian", "Japanese", "Korean", "Vietnamese", "Arabic", "French", "German", "Turkish", "Dutch", "Ukrainian", "Indonesian", "Italian", "Thai", "Polish", "Romanian", "Greek", "Czech", "Finnish"];
+  const validLanguages = [
+    "auto", "English", "Chinese", "Chinese,Yue", "Spanish", "Hindi",
+    "Portuguese", "Russian", "Japanese", "Korean", "Vietnamese", "Arabic",
+    "French", "German", "Turkish", "Dutch", "Ukrainian", "Indonesian",
+    "Italian", "Thai", "Polish", "Romanian", "Greek", "Czech", "Finnish",
+  ];
   return typeof languageBoost === "string" && validLanguages.includes(languageBoost);
 }
 
