@@ -141,6 +141,12 @@ apiRouter.post("/tts/test", authenticateApiRequest, async (req, res) => {
       try {
         console.log("Wavespeed AI client initialized for TTS test ✓");
 
+        // Map legacy language boost values to Wavespeed format
+        let languageBoost = effective.languageBoost || "auto";
+        if (languageBoost === "Automatic" || languageBoost === "None") {
+          languageBoost = "auto";
+        }
+
         const input = {
           text,
           voice_id: effective.voiceId || "Friendly_Person",
@@ -148,7 +154,7 @@ apiRouter.post("/tts/test", authenticateApiRequest, async (req, res) => {
           volume: 1.0,
           pitch: typeof effective.pitch === "number" ? effective.pitch : 0,
           emotion: effective.emotion || "neutral",
-          language_boost: effective.languageBoost || "auto",
+          language_boost: languageBoost,
           english_normalization: false,
           sample_rate: 32000,
           bitrate: 128000,
