@@ -1431,7 +1431,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         } catch (error) {
             console.error('Voice test error:', error);
-            showToast(`Voice test failed: ${error.message}`, 'error');
+            
+            // Extract error message from API response if available
+            let errorMessage = error.message;
+            if (error.message && error.message.includes('API Error:')) {
+                // Extract the actual error message from "API Error: 502" format
+                const match = error.message.match(/API Error: \d+ (.+)/);
+                if (match) {
+                    errorMessage = match[1];
+                }
+            }
+            
+            showToast(`Voice test failed: ${errorMessage}`, 'error');
         } finally {
             btn.disabled = false;
             btn.textContent = 'Send Preview';

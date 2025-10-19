@@ -183,6 +183,22 @@ apiRouter.post("/tts/test", authenticateApiRequest, async (req, res) => {
           return res.json({success: true, audioUrl, provider: "wavespeed", model: "minimax/speech-02-turbo"});
         } else if (data.status === "failed") {
           console.error("[POST /api/tts/test] Wavespeed AI returned failed status:", data.error);
+          
+          // Provide specific error messages based on the failure reason
+          if (data.error && data.error.includes("you don't have access to this voice_id")) {
+            return res.status(403).json({
+              success: false, 
+              error: `Voice access denied: The voice "${effective.voiceId}" requires special access permissions. Please try a different voice.`
+            });
+          }
+          
+          if (data.error && data.error.includes("voice_id")) {
+            return res.status(400).json({
+              success: false, 
+              error: `Invalid voice: "${effective.voiceId}" is not available. Please check the voice ID and try again.`
+            });
+          }
+          
           return res.status(502).json({success: false, error: `TTS generation failed: ${data.error || "Unknown error"}`});
         } else {
           console.warn("[POST /api/tts/test] Wavespeed AI returned unexpected status or missing outputs:", data);
@@ -190,6 +206,35 @@ apiRouter.post("/tts/test", authenticateApiRequest, async (req, res) => {
         }
       } catch (wavespeedError) {
         console.error("[POST /api/tts/test] Wavespeed AI call failed:", wavespeedError?.response?.data || wavespeedError.message || wavespeedError);
+        
+        // Provide specific error messages based on Wavespeed API response
+        if (wavespeedError.response?.data) {
+          const apiError = wavespeedError.response.data;
+          
+          // Check for specific Wavespeed error messages
+          if (apiError.message && apiError.message.includes("you don't have access to this voice_id")) {
+            return res.status(403).json({
+              success: false, 
+              error: `Voice access denied: The voice "${effective.voiceId}" requires special access permissions. Please try a different voice.`
+            });
+          }
+          
+          if (apiError.message && apiError.message.includes("voice_id")) {
+            return res.status(400).json({
+              success: false, 
+              error: `Invalid voice: "${effective.voiceId}" is not available. Please check the voice ID and try again.`
+            });
+          }
+          
+          if (apiError.message) {
+            return res.status(502).json({
+              success: false, 
+              error: `TTS generation failed: ${apiError.message}`
+            });
+          }
+        }
+        
+        // Fallback to generic error
         return res.status(500).json({success: false, error: "TTS generation failed"});
       }
     }
