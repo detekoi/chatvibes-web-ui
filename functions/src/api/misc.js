@@ -3,7 +3,7 @@
  */
 
 const express = require("express");
-const Replicate = require("replicate");
+const axios = require("axios");
 const {db, COLLECTIONS} = require("../services/firestore");
 const {createShortLink, normalizeEmotion} = require("../services/utils");
 const {authenticateApiRequest} = require("../middleware/auth");
@@ -136,68 +136,59 @@ apiRouter.post("/tts/test", authenticateApiRequest, async (req, res) => {
       console.warn("[POST /api/tts/test] Failed to resolve defaults; proceeding with request values only:", resolveErr.message);
     }
 
-    // If configured, generate audio via Replicate (minimax/speech-02-turbo)
-    if (secrets.REPLICATE_API_TOKEN) {
+    // If configured, generate audio via Wavespeed AI (minimax/speech-02-turbo)
+    if (secrets.WAVESPEED_API_KEY) {
       try {
-        // eslint-disable-next-line new-cap
-        const replicate = new Replicate({auth: secrets.REPLICATE_API_TOKEN});
-        console.log("Replicate client initialized for TTS test ✓");
+        console.log("Wavespeed AI client initialized for TTS test ✓");
 
-        const input = {text, format: "mp3"};
-        // Voice: pass common synonyms used by providers so one takes effect
-        if (effective.voiceId) {
-          input.voice = effective.voiceId; // common
-          input.voice_id = effective.voiceId; // some schemas
-          input.speaker = effective.voiceId; // alt key
-        }
-        // Speed / rate
-        if (typeof effective.speed === "number") {
-          input.speed = effective.speed; // common
-          input.speed_scale = effective.speed; // alt key
-          input.rate = effective.speed; // alt key
-        }
-        // Pitch (in semitones)
-        if (typeof effective.pitch === "number") {
-          input.pitch = effective.pitch; // common
-          input.pitch_semitones = effective.pitch; // alt key
-        }
-        // Emotion/Style
-        if (effective.emotion) {
-          input.emotion = effective.emotion; // common
-          input.style = effective.emotion; // alt key
-        }
-        // Language
-        if (effective.languageBoost) {
-          input.language = effective.languageBoost; // common
-          input.language_boost = effective.languageBoost; // alt key
-        }
+        const input = {
+          text,
+          voice_id: effective.voiceId || "Friendly_Person",
+          speed: typeof effective.speed === "number" ? effective.speed : 1.0,
+          volume: 1.0,
+          pitch: typeof effective.pitch === "number" ? effective.pitch : 0,
+          emotion: effective.emotion || "neutral",
+          language_boost: effective.languageBoost || "auto",
+          english_normalization: false,
+          sample_rate: 32000,
+          bitrate: 128000,
+          channel: "1",
+          format: "mp3",
+          enable_sync_mode: true, // Enable sync mode for lowest latency
+        };
 
-        const result = await replicate.run("minimax/speech-02-turbo", {input});
+        const response = await axios.post(
+            "https://api.wavespeed.ai/api/v3/minimax/speech-02-turbo",
+            input,
+            {
+              headers: {
+                "Authorization": `Bearer ${secrets.WAVESPEED_API_KEY}`,
+                "Content-Type": "application/json",
+              },
+              timeout: 60000, // 60 second timeout
+            },
+        );
 
-        let audioUrl = null;
-        if (typeof result === "string") {
-          audioUrl = result;
-        } else if (Array.isArray(result)) {
-          audioUrl = result[0];
-        } else if (result) {
-          audioUrl = result.audioUrl || result.audio_url || result.url || result.audio ||
-            (Array.isArray(result.output) ? result.output[0] : (result.output?.audio || result.output?.audio_url || result.output?.url || result.output));
+        const result = response.data;
+        const data = result.data || result;
+
+        if (data.status === "completed" && data.outputs && data.outputs.length > 0) {
+          const audioUrl = data.outputs[0];
+          return res.json({success: true, audioUrl, provider: "wavespeed", model: "minimax/speech-02-turbo"});
+        } else if (data.status === "failed") {
+          console.error("[POST /api/tts/test] Wavespeed AI returned failed status:", data.error);
+          return res.status(502).json({success: false, error: `TTS generation failed: ${data.error || "Unknown error"}`});
+        } else {
+          console.warn("[POST /api/tts/test] Wavespeed AI returned unexpected status or missing outputs:", data);
+          return res.status(502).json({success: false, error: "No audio URL returned by TTS provider"});
         }
-
-        if (audioUrl && typeof audioUrl === "string") {
-          return res.json({success: true, audioUrl, provider: "replicate", model: "minimax/speech-02-turbo"});
-        }
-
-        console.warn("[POST /api/tts/test] Replicate returned no audio URL. Raw result:", typeof result, result);
-        return res.status(502).json({success: false, error: "No audio URL returned by TTS provider"});
-      } catch (replicateError) {
-        console.error("[POST /api/tts/test] Replicate call failed:", replicateError?.response?.data || replicateError.message || replicateError);
-        // Fall through to generic response so frontend still gets clear error message
+      } catch (wavespeedError) {
+        console.error("[POST /api/tts/test] Wavespeed AI call failed:", wavespeedError?.response?.data || wavespeedError.message || wavespeedError);
         return res.status(500).json({success: false, error: "TTS generation failed"});
       }
     }
 
-    // Fallback when Replicate is not configured
+    // Fallback when Wavespeed AI is not configured
     return res.status(501).json({success: false, error: "TTS provider not configured"});
   } catch (error) {
     console.error("[POST /api/tts/test] Error:", error);

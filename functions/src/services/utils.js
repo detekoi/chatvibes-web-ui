@@ -103,7 +103,7 @@ function normalizeEmotion(emotion) {
   const raw = String(emotion).trim().toLowerCase();
   // Synonym map to canonical tokens used across the app/backend providers
   const map = {
-    "auto": "auto",
+    "auto": "neutral", // Wavespeed doesn't support "auto", map to "neutral"
     "neutral": "neutral",
     "happy": "happy",
     "sad": "sad",
@@ -128,7 +128,8 @@ function normalizeEmotion(emotion) {
 function validateEmotion(emotion) {
   if (emotion === null) return true;
   const e = normalizeEmotion(emotion);
-  const validEmotions = ["auto", "neutral", "happy", "sad", "angry", "fearful", "disgusted", "surprised"];
+  // Wavespeed AI supported emotions (no "auto")
+  const validEmotions = ["neutral", "happy", "sad", "angry", "fearful", "disgusted", "surprised"];
   return typeof e === "string" && validEmotions.includes(e);
 }
 
@@ -138,7 +139,8 @@ function validateEmotion(emotion) {
  * @return {boolean} True if valid
  */
 function validateLanguageBoost(languageBoost) {
-  const validLanguages = ["Automatic", "English", "Chinese", "Spanish", "Hindi", "Portuguese", "Russian", "Japanese", "Korean", "Vietnamese"];
+  // Wavespeed AI language boost options
+  const validLanguages = ["auto", "English", "Chinese", "Chinese,Yue", "Spanish", "Hindi", "Portuguese", "Russian", "Japanese", "Korean", "Vietnamese", "Arabic", "French", "German", "Turkish", "Dutch", "Ukrainian", "Indonesian", "Italian", "Thai", "Polish", "Romanian", "Greek", "Czech", "Finnish"];
   return typeof languageBoost === "string" && validLanguages.includes(languageBoost);
 }
 
