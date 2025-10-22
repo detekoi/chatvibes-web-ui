@@ -680,6 +680,18 @@ strong, .fw-semibold, .fw-bold {
     box-shadow: 0 0 0 0.2rem var(--accent-focus);
 }
 
+/* Dark mode styling for search input */
+[data-theme="dark"] .custom-voice-dropdown input[type="text"] {
+    background-color: var(--bg-secondary);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .custom-voice-dropdown input[type="text"]::placeholder {
+    color: var(--text-muted);
+    opacity: 0.8;
+}
+
 .voice-dropdown-menu {
     position: absolute;
     top: 100%;
@@ -700,8 +712,20 @@ strong, .fw-semibold, .fw-bold {
     display: block;
 }
 
+/* Dark mode styling for dropdown menu */
+[data-theme="dark"] .voice-dropdown-menu {
+    background: var(--bg-secondary);
+    border-color: var(--border-color);
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
 .voice-dropdown-list {
     padding: 0.5rem 0;
+}
+
+/* Dark mode styling for dropdown list */
+[data-theme="dark"] .voice-dropdown-list {
+    background: transparent;
 }
 
 .voice-dropdown-item {
@@ -718,6 +742,17 @@ strong, .fw-semibold, .fw-bold {
     background-color: var(--bg-tertiary);
 }
 
+/* Dark mode styling for dropdown items */
+[data-theme="dark"] .voice-dropdown-item {
+    background-color: transparent;
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .voice-dropdown-item:hover {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
 .voice-dropdown-item.no-results {
     cursor: default;
     color: var(--text-muted);
@@ -728,10 +763,29 @@ strong, .fw-semibold, .fw-bold {
     background-color: transparent;
 }
 
+/* Dark mode styling for no results text */
+[data-theme="dark"] .voice-dropdown-item.no-results {
+    color: var(--text-muted) !important;
+}
+
 .voice-label {
     flex: 1;
     color: var(--text-primary);
     font-size: 0.875rem;
+}
+
+/* Ensure voice dropdown text has proper dark mode contrast */
+[data-theme="dark"] .voice-label {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .voice-dropdown-item {
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .voice-dropdown-item:hover {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
 }
 
 /* Voice play button styles */
@@ -784,5 +838,10 @@ strong, .fw-semibold, .fw-bold {
     height: 12px;
     pointer-events: none;
     display: block;
+}
+
+/* Dark mode styling for play button SVG */
+[data-theme="dark"] .voice-play-btn svg {
+    color: white;
 }
 
