@@ -214,6 +214,16 @@
                                 <div class="d-grid">
                                     <button type="button" id="preview-btn-mobile" class="btn btn-primary">Send Preview</button>
                                 </div>
+                                <!-- Audio Player Container -->
+                                <div id="voice-preview-player-mobile" class="voice-preview-player mt-3" style="display: none;">
+                                    <audio controls class="w-100">
+                                        <source id="voice-preview-source-mobile" type="audio/mpeg">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                    <small id="voice-preview-hint-mobile" class="settings-changed-hint text-warning mt-1" style="display: none;">
+                                        <i>⚠ Settings changed - regenerate for updated preview</i>
+                                    </small>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -290,6 +300,16 @@
                             <textarea id="preview-text" class="form-control mb-2" maxlength="500" rows="3">Chat is this real?</textarea>
                             <div class="d-grid">
                                 <button type="button" id="preview-btn" class="btn btn-primary">Send Preview</button>
+                            </div>
+                            <!-- Audio Player Container -->
+                            <div id="voice-preview-player" class="voice-preview-player mt-3" style="display: none;">
+                                <audio controls class="w-100">
+                                    <source id="voice-preview-source" type="audio/mpeg">
+                                    Your browser does not support the audio element.
+                                </audio>
+                                <small id="voice-preview-hint" class="settings-changed-hint text-warning mt-1" style="display: none;">
+                                    <i>⚠ Settings changed - regenerate for updated preview</i>
+                                </small>
                             </div>
                         </div>
                     </div>

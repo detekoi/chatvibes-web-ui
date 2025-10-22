@@ -1,0 +1,17 @@
+{
+  "name": "chatvibes-web-ui",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "ChatVibes Web UI with voice preview generation",
+  "main": "scripts/generate-voice-previews.js",
+  "scripts": {
+    "generate-voices": "node scripts/generate-voice-previews.js",
+    "test-api": "node scripts/test-api.js"
+  },
+  "keywords": ["tts", "voice", "wavespeed", "chatvibes"],
+  "author": "",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
+}

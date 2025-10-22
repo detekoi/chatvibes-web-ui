@@ -704,11 +704,84 @@ document.addEventListener('DOMContentLoaded', async () => {
         await savePreference(key, null);
     }
 
+    // Voice preview audio caching
+    let cachedAudioUrl = null;
+    let cachedSettings = null;
+    let isDirty = false;
+
+    function clearAudioCache() {
+        if (cachedAudioUrl) {
+            URL.revokeObjectURL(cachedAudioUrl);
+            cachedAudioUrl = null;
+        }
+        cachedSettings = null;
+        const playerEl = document.getElementById('voice-preview-player');
+        const playerElMobile = document.getElementById('voice-preview-player-mobile');
+        if (playerEl) playerEl.style.display = 'none';
+        if (playerElMobile) playerElMobile.style.display = 'none';
+        if (previewBtn) previewBtn.textContent = 'Send Preview';
+        if (previewBtnMobile) previewBtnMobile.textContent = 'Send Preview';
+        isDirty = false;
+    }
+
+    function markSettingsAsDirty() {
+        isDirty = true;
+        const hint = document.getElementById('voice-preview-hint');
+        const hintMobile = document.getElementById('voice-preview-hint-mobile');
+        if (hint && cachedAudioUrl) hint.style.display = 'block';
+        if (hintMobile && cachedAudioUrl) hintMobile.style.display = 'block';
+    }
+
+    async function tryLoadPreMadeRecording(settings, text) {
+        // Check if this is eligible for pre-made recording
+        const isDefaultText = text.trim().toLowerCase() === 'chat is this real?';
+        const cd = (currentPreferences && currentPreferences.channelDefaults) ? currentPreferences.channelDefaults : {};
+
+        // Get effective settings (user override or channel default)
+        const effectiveVoiceId = settings.voiceId || cd.voiceId || 'Friendly_Person';
+        const effectivePitch = (settings.pitch !== undefined && settings.pitch !== null) ? settings.pitch : (cd.pitch !== undefined && cd.pitch !== null) ? cd.pitch : 0;
+        const effectiveSpeed = (settings.speed !== undefined && settings.speed !== null) ? settings.speed : (cd.speed !== undefined && cd.speed !== null) ? cd.speed : 1.0;
+        const effectiveEmotion = settings.emotion || cd.emotion || '';
+        const effectiveLanguage = settings.languageBoost || cd.language || '';
+
+        const isDefaultSettings = (
+            effectivePitch === 0 &&
+            effectiveSpeed === 1.0 &&
+            (!effectiveEmotion || effectiveEmotion === 'neutral') &&
+            (!effectiveLanguage || effectiveLanguage === 'auto' || effectiveLanguage === 'Automatic')
+        );
+
+        if (!isDefaultText || !isDefaultSettings) {
+            return null; // Not eligible for pre-made recording
+        }
+
+        const preMadeUrl = `/assets/voices/${effectiveVoiceId}-chat-is-this-real.mp3`;
+
+        try {
+            const response = await fetch(preMadeUrl);
+            if (response.ok) {
+                const blob = await response.blob();
+                return URL.createObjectURL(blob);
+            }
+        } catch (error) {
+            console.log('No pre-made recording available for', effectiveVoiceId);
+        }
+
+        return null;
+    }
+
     async function testVoice() {
         // Get text from either preview textarea (they should be in sync)
         const text = (previewText?.value || previewTextMobile?.value || '').trim();
         if (!text) { showToast('Please enter some text to test', 'warning'); return; }
-        
+
+        const playerEl = document.getElementById('voice-preview-player');
+        const playerElMobile = document.getElementById('voice-preview-player-mobile');
+        const sourceEl = document.getElementById('voice-preview-source');
+        const sourceElMobile = document.getElementById('voice-preview-source-mobile');
+        const hintEl = document.getElementById('voice-preview-hint');
+        const hintElMobile = document.getElementById('voice-preview-hint-mobile');
+
         // Disable both buttons
         if (previewBtn) {
             previewBtn.disabled = true;
@@ -718,7 +791,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             previewBtnMobile.disabled = true;
             previewBtnMobile.textContent = 'Generating...';
         }
-        
+
         if (TEST_MODE) {
             await new Promise(r => setTimeout(r, 400));
             showToast('Test validated ✓ (test mode)', 'success');
@@ -732,75 +805,106 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
             return;
         }
+
         try {
             const pitchHasOverride = currentPreferences && currentPreferences.pitch !== undefined && currentPreferences.pitch !== null;
             const speedHasOverride = currentPreferences && currentPreferences.speed !== undefined && currentPreferences.speed !== null;
-            const response = await fetchWithAuth(`${API_BASE_URL}/api/tts/test`, {
-                method: 'POST',
-                body: JSON.stringify({
-                    channel: currentChannel,
-                    text: text,
-                    voiceId: voiceSelect.value || null,
-                    pitch: pitchHasOverride ? Number(pitchSlider.value) : null,
-                    speed: speedHasOverride ? Number(speedSlider.value) : null,
-                    emotion: emotionSelect.value || null,
-                    languageBoost: languageSelect.value || null
-                })
-            });
-            const contentType = response.headers.get('Content-Type') || '';
-            if (contentType.startsWith('audio/')) {
-                const blob = await response.blob();
-                const url = URL.createObjectURL(blob);
-                try {
-                    const audio = new Audio(url);
-                    audio.onerror = () => { showToast('Failed to play audio', 'error'); };
-                    await audio.play();
-                } finally {
-                    URL.revokeObjectURL(url);
-                }
+
+            const voiceSettings = {
+                channel: currentChannel,
+                text: text,
+                voiceId: voiceSelect.value || null,
+                pitch: pitchHasOverride ? Number(pitchSlider.value) : null,
+                speed: speedHasOverride ? Number(speedSlider.value) : null,
+                emotion: emotionSelect.value || null,
+                languageBoost: languageSelect.value || null
+            };
+
+            let audioUrl = null;
+
+            // Try loading pre-made recording first
+            if (previewBtn) previewBtn.textContent = 'Loading...';
+            if (previewBtnMobile) previewBtnMobile.textContent = 'Loading...';
+            audioUrl = await tryLoadPreMadeRecording(voiceSettings, text);
+
+            if (audioUrl) {
+                console.log('Using pre-made recording');
             } else {
-                const data = await response.json();
-                // Try common fields for Replicate/minimax responses that return an MP3 URL
-                // See: https://replicate.com/minimax/speech-02-turbo/api/schema
-                const candidateUrl = (
-                    data.audioUrl ||
-                    data.audio_url ||
-                    data.url ||
-                    data.audio ||
-                    (Array.isArray(data.output) ? data.output[0] : (
-                        data.output?.audio || data.output?.audio_url || data.output?.url || data.output
-                    ))
-                );
-                if (candidateUrl && typeof candidateUrl === 'string') {
-                    const audio = new Audio(candidateUrl);
-                    audio.onerror = () => { showToast('Failed to play audio', 'error'); };
-                    await audio.play();
-                } else if (data.audioUrl) {
-                    const audio = new Audio(data.audioUrl);
-                    audio.onerror = () => { showToast('Failed to play audio', 'error'); };
-                    await audio.play();
-                } else if (data.audioBase64) {
-                    const byteString = atob(data.audioBase64);
-                    const arrayBuffer = new Uint8Array(byteString.length);
-                    for (let i = 0; i < byteString.length; i++) arrayBuffer[i] = byteString.charCodeAt(i);
-                    const blob = new Blob([arrayBuffer], { type: 'audio/mpeg' });
-                    const url = URL.createObjectURL(blob);
-                    try {
-                        const audio = new Audio(url);
-                        audio.onerror = () => { showToast('Failed to play audio', 'error'); };
-                        await audio.play();
-                    } finally {
-                        URL.revokeObjectURL(url);
-                    }
-                } else if (data.success) {
-                    throw new Error('Server indicated success but did not return an audio URL');
+                // Generate via API
+                if (previewBtn) previewBtn.textContent = 'Generating...';
+                if (previewBtnMobile) previewBtnMobile.textContent = 'Generating...';
+
+                const response = await fetchWithAuth(`${API_BASE_URL}/api/tts/test`, {
+                    method: 'POST',
+                    body: JSON.stringify(voiceSettings)
+                });
+
+                const contentType = response.headers.get('Content-Type') || '';
+                if (contentType.startsWith('audio/')) {
+                    const blob = await response.blob();
+                    audioUrl = URL.createObjectURL(blob);
                 } else {
-                    throw new Error(data.message || data.error || 'No audio returned by server');
+                    const data = await response.json();
+                    const candidateUrl = (
+                        data.audioUrl ||
+                        data.audio_url ||
+                        data.url ||
+                        data.audio ||
+                        (Array.isArray(data.output) ? data.output[0] : (
+                            data.output?.audio || data.output?.audio_url || data.output?.url || data.output
+                        ))
+                    );
+                    if (candidateUrl && typeof candidateUrl === 'string') {
+                        audioUrl = candidateUrl;
+                    } else if (data.audioBase64) {
+                        const byteString = atob(data.audioBase64);
+                        const arrayBuffer = new Uint8Array(byteString.length);
+                        for (let i = 0; i < byteString.length; i++) arrayBuffer[i] = byteString.charCodeAt(i);
+                        const blob = new Blob([arrayBuffer], { type: 'audio/mpeg' });
+                        audioUrl = URL.createObjectURL(blob);
+                    } else if (data.success) {
+                        throw new Error('Server indicated success but did not return an audio URL');
+                    } else {
+                        throw new Error(data.message || data.error || 'No audio returned by server');
+                    }
                 }
             }
+
+            // Cache the audio and settings
+            if (cachedAudioUrl) URL.revokeObjectURL(cachedAudioUrl);
+            cachedAudioUrl = audioUrl;
+            cachedSettings = voiceSettings;
+            isDirty = false;
+
+            // Show audio player (both desktop and mobile)
+            if (sourceEl && playerEl) {
+                sourceEl.src = audioUrl;
+                const audioElement = playerEl.querySelector('audio');
+                if (audioElement) {
+                    audioElement.load();
+                    audioElement.play().catch(err => {
+                        console.error('Error playing audio:', err);
+                        showToast('Error playing audio sample', 'error');
+                    });
+                }
+                playerEl.style.display = 'block';
+                if (hintEl) hintEl.style.display = 'none';
+            }
+            if (sourceElMobile && playerElMobile) {
+                sourceElMobile.src = audioUrl;
+                const audioElementMobile = playerElMobile.querySelector('audio');
+                if (audioElementMobile) {
+                    audioElementMobile.load();
+                }
+                playerElMobile.style.display = 'block';
+                if (hintElMobile) hintElMobile.style.display = 'none';
+            }
+
+            if (previewBtn) previewBtn.textContent = 'Regenerate';
+            if (previewBtnMobile) previewBtnMobile.textContent = 'Regenerate';
         } catch (error) {
             console.error('Voice test failed:', error);
-            
+
             // Extract error message from API response if available
             let errorMessage = error.message;
             if (error.message && error.message.includes('API Error:')) {
@@ -810,19 +914,28 @@ document.addEventListener('DOMContentLoaded', async () => {
                     errorMessage = match[1];
                 }
             }
-            
+
             showToast(`Test failed: ${errorMessage}`, 'error');
+            if (previewBtn) previewBtn.textContent = 'Send Preview';
+            if (previewBtnMobile) previewBtnMobile.textContent = 'Send Preview';
         } finally {
-            if (previewBtn) {
-                previewBtn.disabled = false;
-                previewBtn.textContent = 'Send Preview';
-            }
-            if (previewBtnMobile) {
-                previewBtnMobile.disabled = false;
-                previewBtnMobile.textContent = 'Send Preview';
-            }
+            if (previewBtn) previewBtn.disabled = false;
+            if (previewBtnMobile) previewBtnMobile.disabled = false;
         }
     }
+
+    // Settings change listeners to mark preview as dirty
+    voiceSelect.addEventListener('change', markSettingsAsDirty);
+    pitchSlider.addEventListener('change', markSettingsAsDirty);
+    speedSlider.addEventListener('change', markSettingsAsDirty);
+    emotionSelect.addEventListener('change', markSettingsAsDirty);
+    languageSelect.addEventListener('change', markSettingsAsDirty);
+    englishNormalizationCheckbox.addEventListener('change', markSettingsAsDirty);
+
+    // Cleanup cached audio on page unload
+    window.addEventListener('beforeunload', () => {
+        if (cachedAudioUrl) URL.revokeObjectURL(cachedAudioUrl);
+    });
 
     function handleIgnoreAction(type) {
         const checkbox = type === 'tts' ? ignoreTtsCheckbox : ignoreMusicCheckbox;

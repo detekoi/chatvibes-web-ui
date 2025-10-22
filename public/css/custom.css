@@ -577,3 +577,47 @@ strong, .fw-semibold, .fw-bold {
     }
 }
 
+/* Voice Preview Audio Player Styling */
+.voice-preview-player {
+    display: none;
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background-color: var(--bg-tertiary);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.voice-preview-player audio {
+    width: 100%;
+    height: 40px;
+    outline: none;
+}
+
+/* Audio controls styling for better theme integration */
+.voice-preview-player audio::-webkit-media-controls-panel {
+    background-color: var(--bg-tertiary);
+}
+
+.settings-changed-hint {
+    display: block;
+    font-size: 0.875rem;
+    font-style: italic;
+    color: var(--danger-text);
+    margin-top: 0.5rem;
+}
+
+[data-theme="dark"] .settings-changed-hint {
+    color: #ffc107;
+}
+
+/* Responsive audio player adjustments */
+@media (max-width: 767.98px) {
+    .voice-preview-player {
+        padding: 0.5rem;
+    }
+
+    .voice-preview-player audio {
+        height: 36px;
+    }
+}
+

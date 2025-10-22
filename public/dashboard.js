@@ -1343,22 +1343,103 @@ document.addEventListener('DOMContentLoaded', () => {
     if (addTtsIgnoreBtn) addTtsIgnoreBtn.addEventListener('click', () => addToIgnoreList('tts'));
     if (addMusicIgnoreBtn) addMusicIgnoreBtn.addEventListener('click', () => addToIgnoreList('music'));
 
+    // Voice preview audio caching
+    let cachedAudioUrl = null;
+    let cachedAudioUrlMobile = null;
+    let cachedSettings = null;
+    let cachedSettingsMobile = null;
+    let isDirty = false;
+    let isDirtyMobile = false;
+
+    function clearAudioCache(isMobile = false) {
+        if (isMobile) {
+            if (cachedAudioUrlMobile) {
+                URL.revokeObjectURL(cachedAudioUrlMobile);
+                cachedAudioUrlMobile = null;
+            }
+            cachedSettingsMobile = null;
+            const playerEl = document.getElementById('voice-preview-player-mobile');
+            if (playerEl) playerEl.style.display = 'none';
+            const btn = document.getElementById('voice-test-btn-mobile');
+            if (btn) btn.textContent = 'Send Preview';
+            isDirtyMobile = false;
+        } else {
+            if (cachedAudioUrl) {
+                URL.revokeObjectURL(cachedAudioUrl);
+                cachedAudioUrl = null;
+            }
+            cachedSettings = null;
+            const playerEl = document.getElementById('voice-preview-player');
+            if (playerEl) playerEl.style.display = 'none';
+            const btn = document.getElementById('voice-test-btn');
+            if (btn) btn.textContent = 'Send Preview';
+            isDirty = false;
+        }
+    }
+
+    function markSettingsAsDirty() {
+        isDirty = true;
+        isDirtyMobile = true;
+        const hint = document.getElementById('voice-preview-hint');
+        const hintMobile = document.getElementById('voice-preview-hint-mobile');
+        if (hint && cachedAudioUrl) hint.style.display = 'block';
+        if (hintMobile && cachedAudioUrlMobile) hintMobile.style.display = 'block';
+    }
+
+    async function tryLoadPreMadeRecording(settings, text) {
+        // Check if this is eligible for pre-made recording
+        const isDefaultText = text.trim().toLowerCase() === 'welcome, everyone, to the stream!';
+        const isDefaultSettings = (
+            (!settings.pitch || settings.pitch === 0) &&
+            (!settings.speed || settings.speed === 1.0) &&
+            (!settings.emotion || settings.emotion === 'auto' || settings.emotion === 'neutral') &&
+            (!settings.languageBoost || settings.languageBoost === 'Automatic' || settings.languageBoost === 'auto')
+        );
+
+        if (!isDefaultText || !isDefaultSettings) {
+            return null; // Not eligible for pre-made recording
+        }
+
+        const voiceId = settings.voiceId || 'Friendly_Person';
+        const preMadeUrl = `/assets/voices/${voiceId}-welcome-everyone-to-the-stream.mp3`;
+
+        try {
+            const response = await fetch(preMadeUrl);
+            if (response.ok) {
+                const blob = await response.blob();
+                return URL.createObjectURL(blob);
+            }
+        } catch (error) {
+            console.log('No pre-made recording available for', voiceId);
+        }
+
+        return null;
+    }
+
     async function testVoice(isMobile = false) {
         const textInput = isMobile ? voiceTestTextInputMobile : voiceTestTextInput;
         const btn = isMobile ? voiceTestBtnMobile : voiceTestBtn;
+        const playerEl = isMobile ? document.getElementById('voice-preview-player-mobile') : document.getElementById('voice-preview-player');
+        const sourceEl = isMobile ? document.getElementById('voice-preview-source-mobile') : document.getElementById('voice-preview-source');
+        const hintEl = isMobile ? document.getElementById('voice-preview-hint-mobile') : document.getElementById('voice-preview-hint');
+
         if (!textInput || !btn) {
             console.error('Voice test elements not found');
             return;
         }
+
         // Always ensure settings have finished loading to avoid UI race conditions
         try { await settingsInitializedPromise; } catch (_) {}
+
         const text = textInput.value.trim();
         if (!text) { showToast('Please enter some text to test', 'warning'); return; }
         if (text.length > 500) { showToast('Text must be 500 characters or less', 'error'); return; }
         if (TEST_MODE) { showToast('Playing preview… (test mode)', 'success'); return; }
         if (!appSessionToken) { showToast('Authentication required', 'error'); return; }
+
         btn.disabled = true;
         btn.textContent = 'Generating...';
+
         try {
             const effective = getEffectiveTtsSettings();
             const voiceSettings = {
@@ -1370,69 +1451,94 @@ document.addEventListener('DOMContentLoaded', () => {
                 languageBoost: effective.languageBoost,
                 englishNormalization: effective.englishNormalization
             };
-            const response = await fetch(`${API_BASE_URL}/api/tts/test`, {
-                method: 'POST',
-                headers: { 'Authorization': `Bearer ${appSessionToken}`, 'Content-Type': 'application/json' },
-                body: JSON.stringify(voiceSettings)
-            });
-            if (!response.ok) {
-                const errorData = await response.json().catch(() => ({ message: response.statusText }));
-                const errorMessage = errorData.error || errorData.message || response.statusText;
-                throw new Error(`API Error: ${response.status} ${errorMessage}`);
-            }
-            const contentType = response.headers.get('Content-Type') || '';
-            if (contentType.startsWith('audio/')) {
-                const blob = await response.blob();
-                const url = URL.createObjectURL(blob);
-                try {
-                    const audio = new Audio(url);
-                    audio.onerror = () => { showToast('Error playing audio sample', 'error'); };
-                    await audio.play();
-                } finally {
-                    URL.revokeObjectURL(url);
-                }
+
+            let audioUrl = null;
+
+            // Try loading pre-made recording first
+            btn.textContent = 'Loading...';
+            audioUrl = await tryLoadPreMadeRecording(voiceSettings, text);
+
+            if (audioUrl) {
+                console.log('Using pre-made recording');
             } else {
-                const data = await response.json();
-                const candidateUrl = (
-                    data.audioUrl ||
-                    data.audio_url ||
-                    data.url ||
-                    data.audio ||
-                    (Array.isArray(data.output) ? data.output[0] : (
-                        data.output?.audio || data.output?.audio_url || data.output?.url || data.output
-                    ))
-                );
-                if (candidateUrl && typeof candidateUrl === 'string') {
-                    const audio = new Audio(candidateUrl);
-                    audio.onerror = () => { showToast('Error playing audio sample', 'error'); };
-                    await audio.play();
-                } else if (data.audioUrl) {
-                    const audio = new Audio(data.audioUrl);
-                    audio.onerror = () => { showToast('Error playing audio sample', 'error'); };
-                    await audio.play();
-                } else if (data.audioBase64) {
-                    const byteString = atob(data.audioBase64);
-                    const arrayBuffer = new Uint8Array(byteString.length);
-                    for (let i = 0; i < byteString.length; i++) arrayBuffer[i] = byteString.charCodeAt(i);
-                    const blob = new Blob([arrayBuffer], { type: 'audio/mpeg' });
-                    const url = URL.createObjectURL(blob);
-                    try {
-                        const audio = new Audio(url);
-                        audio.onerror = () => { showToast('Error playing audio sample', 'error'); };
-                        await audio.play();
-                    } finally {
-                        URL.revokeObjectURL(url);
-                    }
-                } else if (data.success) {
-                    throw new Error('Server indicated success but did not return an audio URL');
+                // Generate via API
+                btn.textContent = 'Generating...';
+                const response = await fetch(`${API_BASE_URL}/api/tts/test`, {
+                    method: 'POST',
+                    headers: { 'Authorization': `Bearer ${appSessionToken}`, 'Content-Type': 'application/json' },
+                    body: JSON.stringify(voiceSettings)
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json().catch(() => ({ message: response.statusText }));
+                    const errorMessage = errorData.error || errorData.message || response.statusText;
+                    throw new Error(`API Error: ${response.status} ${errorMessage}`);
+                }
+
+                const contentType = response.headers.get('Content-Type') || '';
+                if (contentType.startsWith('audio/')) {
+                    const blob = await response.blob();
+                    audioUrl = URL.createObjectURL(blob);
                 } else {
-                    const msg = data.message || data.error || 'No audio returned by server';
-                    throw new Error(msg);
+                    const data = await response.json();
+                    const candidateUrl = (
+                        data.audioUrl ||
+                        data.audio_url ||
+                        data.url ||
+                        data.audio ||
+                        (Array.isArray(data.output) ? data.output[0] : (
+                            data.output?.audio || data.output?.audio_url || data.output?.url || data.output
+                        ))
+                    );
+                    if (candidateUrl && typeof candidateUrl === 'string') {
+                        audioUrl = candidateUrl;
+                    } else if (data.audioBase64) {
+                        const byteString = atob(data.audioBase64);
+                        const arrayBuffer = new Uint8Array(byteString.length);
+                        for (let i = 0; i < byteString.length; i++) arrayBuffer[i] = byteString.charCodeAt(i);
+                        const blob = new Blob([arrayBuffer], { type: 'audio/mpeg' });
+                        audioUrl = URL.createObjectURL(blob);
+                    } else if (data.success) {
+                        throw new Error('Server indicated success but did not return an audio URL');
+                    } else {
+                        const msg = data.message || data.error || 'No audio returned by server';
+                        throw new Error(msg);
+                    }
                 }
             }
+
+            // Cache the audio and settings
+            if (isMobile) {
+                if (cachedAudioUrlMobile) URL.revokeObjectURL(cachedAudioUrlMobile);
+                cachedAudioUrlMobile = audioUrl;
+                cachedSettingsMobile = voiceSettings;
+                isDirtyMobile = false;
+            } else {
+                if (cachedAudioUrl) URL.revokeObjectURL(cachedAudioUrl);
+                cachedAudioUrl = audioUrl;
+                cachedSettings = voiceSettings;
+                isDirty = false;
+            }
+
+            // Show audio player
+            if (sourceEl && playerEl) {
+                sourceEl.src = audioUrl;
+                const audioElement = playerEl.querySelector('audio');
+                if (audioElement) {
+                    audioElement.load();
+                    audioElement.play().catch(err => {
+                        console.error('Error playing audio:', err);
+                        showToast('Error playing audio sample', 'error');
+                    });
+                }
+                playerEl.style.display = 'block';
+                if (hintEl) hintEl.style.display = 'none';
+            }
+
+            btn.textContent = 'Regenerate';
         } catch (error) {
             console.error('Voice test error:', error);
-            
+
             // Extract error message from API response if available
             let errorMessage = error.message;
             if (error.message && error.message.includes('API Error:')) {
@@ -1442,16 +1548,30 @@ document.addEventListener('DOMContentLoaded', () => {
                     errorMessage = match[1];
                 }
             }
-            
+
             showToast(`Voice test failed: ${errorMessage}`, 'error');
+            btn.textContent = 'Send Preview';
         } finally {
             btn.disabled = false;
-            btn.textContent = 'Send Preview';
         }
     }
 
     if (voiceTestBtn) voiceTestBtn.addEventListener('click', () => testVoice(false));
     if (voiceTestBtnMobile) voiceTestBtnMobile.addEventListener('click', () => testVoice(true));
+
+    // Settings change listeners to mark preview as dirty
+    if (defaultVoiceSelect) defaultVoiceSelect.addEventListener('change', markSettingsAsDirty);
+    if (defaultEmotionSelect) defaultEmotionSelect.addEventListener('change', markSettingsAsDirty);
+    if (defaultPitchSlider) defaultPitchSlider.addEventListener('change', markSettingsAsDirty);
+    if (defaultSpeedSlider) defaultSpeedSlider.addEventListener('change', markSettingsAsDirty);
+    if (defaultLanguageSelect) defaultLanguageSelect.addEventListener('change', markSettingsAsDirty);
+    if (englishNormalizationCheckbox) englishNormalizationCheckbox.addEventListener('change', markSettingsAsDirty);
+
+    // Cleanup cached audio on page unload
+    window.addEventListener('beforeunload', () => {
+        if (cachedAudioUrl) URL.revokeObjectURL(cachedAudioUrl);
+        if (cachedAudioUrlMobile) URL.revokeObjectURL(cachedAudioUrlMobile);
+    });
 
     async function initializeSettingsPanel() {
         await loadAvailableVoices();
