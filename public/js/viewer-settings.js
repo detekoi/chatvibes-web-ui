@@ -40,6 +40,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     const previewBtn = document.getElementById('preview-btn');
     const previewTextMobile = document.getElementById('preview-text-mobile');
     const previewBtnMobile = document.getElementById('preview-btn-mobile');
+
+    // Sync the text areas
+    syncTextareas(previewText, previewTextMobile);
     const ignoreTtsCheckbox = document.getElementById('ignore-tts');
     const ignoreMusicCheckbox = document.getElementById('ignore-music');
     const dangerZoneSection = document.getElementById('danger-zone-section');
@@ -869,157 +872,32 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     async function testVoice() {
-        // Get text from either preview textarea (they should be in sync)
         const text = (previewText?.value || previewTextMobile?.value || '').trim();
-        if (!text) { showToast('Please enter some text to test', 'warning'); return; }
-
-        const playerEl = document.getElementById('voice-preview-player');
-        const playerElMobile = document.getElementById('voice-preview-player-mobile');
-        const sourceEl = document.getElementById('voice-preview-source');
-        const sourceElMobile = document.getElementById('voice-preview-source-mobile');
-        const hintEl = document.getElementById('voice-preview-hint');
-        const hintElMobile = document.getElementById('voice-preview-hint-mobile');
-
-        // Disable both buttons
-        if (previewBtn) {
-            previewBtn.disabled = true;
-            previewBtn.textContent = 'Generating...';
-        }
-        if (previewBtnMobile) {
-            previewBtnMobile.disabled = true;
-            previewBtnMobile.textContent = 'Generating...';
-        }
-
-        if (TEST_MODE) {
-            await new Promise(r => setTimeout(r, 400));
-            showToast('Test validated ✓ (test mode)', 'success');
-            if (previewBtn) {
-                previewBtn.disabled = false;
-                previewBtn.textContent = 'Send Preview';
-            }
-            if (previewBtnMobile) {
-                previewBtnMobile.disabled = false;
-                previewBtnMobile.textContent = 'Send Preview';
-            }
+        if (!text) {
+            showToast('Please enter some text to test', 'warning');
             return;
         }
 
-        try {
-            const pitchHasOverride = currentPreferences && currentPreferences.pitch !== undefined && currentPreferences.pitch !== null;
-            const speedHasOverride = currentPreferences && currentPreferences.speed !== undefined && currentPreferences.speed !== null;
-
-            const voiceSettings = {
-                channel: currentChannel,
-                text: text,
-                voiceId: voiceSelect.value || null,
-                pitch: pitchHasOverride ? Number(pitchSlider.value) : null,
-                speed: speedHasOverride ? Number(speedSlider.value) : null,
-                emotion: emotionSelect.value || null,
-                languageBoost: languageSelect.value || null
-            };
-
-            let audioUrl = null;
-
-            // Try loading pre-made recording first
-            if (previewBtn) previewBtn.textContent = 'Loading...';
-            if (previewBtnMobile) previewBtnMobile.textContent = 'Loading...';
-            audioUrl = await tryLoadPreMadeRecording(voiceSettings, text);
-
-            if (audioUrl) {
-                console.log('Using pre-made recording');
-            } else {
-                // Generate via API
-                if (previewBtn) previewBtn.textContent = 'Generating...';
-                if (previewBtnMobile) previewBtnMobile.textContent = 'Generating...';
-
-                const response = await fetchWithAuth(`${API_BASE_URL}/api/tts/test`, {
-                    method: 'POST',
-                    body: JSON.stringify(voiceSettings)
-                });
-
-                const contentType = response.headers.get('Content-Type') || '';
-                if (contentType.startsWith('audio/')) {
-                    const blob = await response.blob();
-                    audioUrl = URL.createObjectURL(blob);
-                } else {
-                    const data = await response.json();
-                    const candidateUrl = (
-                        data.audioUrl ||
-                        data.audio_url ||
-                        data.url ||
-                        data.audio ||
-                        (Array.isArray(data.output) ? data.output[0] : (
-                            data.output?.audio || data.output?.audio_url || data.output?.url || data.output
-                        ))
-                    );
-                    if (candidateUrl && typeof candidateUrl === 'string') {
-                        audioUrl = candidateUrl;
-                    } else if (data.audioBase64) {
-                        const byteString = atob(data.audioBase64);
-                        const arrayBuffer = new Uint8Array(byteString.length);
-                        for (let i = 0; i < byteString.length; i++) arrayBuffer[i] = byteString.charCodeAt(i);
-                        const blob = new Blob([arrayBuffer], { type: 'audio/mpeg' });
-                        audioUrl = URL.createObjectURL(blob);
-                    } else if (data.success) {
-                        throw new Error('Server indicated success but did not return an audio URL');
-                    } else {
-                        throw new Error(data.message || data.error || 'No audio returned by server');
-                    }
-                }
-            }
-
-            // Cache the audio and settings
-            if (cachedAudioUrl) URL.revokeObjectURL(cachedAudioUrl);
-            cachedAudioUrl = audioUrl;
-            cachedSettings = voiceSettings;
-            isDirty = false;
-
-            // Show audio player (both desktop and mobile)
-            if (sourceEl && playerEl) {
-                sourceEl.src = audioUrl;
-                const audioElement = playerEl.querySelector('audio');
-                if (audioElement) {
-                    audioElement.load();
-                    audioElement.play().catch(err => {
-                        console.error('Error playing audio:', err);
-                        showToast('Error playing audio sample', 'error');
-                    });
-                }
-                playerEl.style.display = 'block';
-                if (hintEl) hintEl.style.display = 'none';
-            }
-            if (sourceElMobile && playerElMobile) {
-                sourceElMobile.src = audioUrl;
-                const audioElementMobile = playerElMobile.querySelector('audio');
-                if (audioElementMobile) {
-                    audioElementMobile.load();
-                }
-                playerElMobile.style.display = 'block';
-                if (hintElMobile) hintElMobile.style.display = 'none';
-            }
-
-            if (previewBtn) previewBtn.textContent = 'Regenerate';
-            if (previewBtnMobile) previewBtnMobile.textContent = 'Regenerate';
-        } catch (error) {
-            console.error('Voice test failed:', error);
-
-            // Extract error message from API response if available
-            let errorMessage = error.message;
-            if (error.message && error.message.includes('API Error:')) {
-                // Extract the actual error message from "API Error: 403 Voice access denied..." format
-                const match = error.message.match(/API Error: \d+ (.+)/);
-                if (match) {
-                    errorMessage = match[1];
-                }
-            }
-
-            showToast(`Test failed: ${errorMessage}`, 'error');
-            if (previewBtn) previewBtn.textContent = 'Send Preview';
-            if (previewBtnMobile) previewBtnMobile.textContent = 'Send Preview';
-        } finally {
-            if (previewBtn) previewBtn.disabled = false;
-            if (previewBtnMobile) previewBtnMobile.disabled = false;
+        if (TEST_MODE) {
+            showToast('Test validated ✓ (test mode)', 'success');
+            return;
         }
+
+        const pitchHasOverride = currentPreferences?.pitch !== undefined && currentPreferences?.pitch !== null;
+        const speedHasOverride = currentPreferences?.speed !== undefined && currentPreferences?.speed !== null;
+
+        const payload = {
+            channel: currentChannel,
+            text: text,
+            voiceId: voiceSelect.value || null,
+            pitch: pitchHasOverride ? Number(pitchSlider.value) : null,
+            speed: speedHasOverride ? Number(speedSlider.value) : null,
+            emotion: emotionSelect.value || null,
+            languageBoost: languageSelect.value || null
+        };
+        
+        // Use the shared function from app.js
+        await performVoiceTest(payload, [previewBtn, previewBtnMobile]);
     }
 
     // Settings change listeners to mark preview as dirty
@@ -1114,15 +992,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         previewBtnMobile.addEventListener('click', testVoice);
     }
 
-    // Sync textareas between desktop and mobile
-    if (previewText && previewTextMobile) {
-        previewText.addEventListener('input', () => {
-            previewTextMobile.value = previewText.value;
-        });
-        previewTextMobile.addEventListener('input', () => {
-            previewText.value = previewTextMobile.value;
-        });
-    }
 
     if (ignoreTtsCheckbox) ignoreTtsCheckbox.addEventListener('change', () => { if (ignoreTtsCheckbox.checked) handleIgnoreAction('tts'); });
     if (ignoreMusicCheckbox) ignoreMusicCheckbox.addEventListener('change', () => { if (ignoreMusicCheckbox.checked) handleIgnoreAction('music'); });

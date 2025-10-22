@@ -204,3 +204,93 @@ async function copyToClipboard(text) {
         return false;
     }
 }
+
+/**
+ * Sends a TTS preview request and plays the resulting audio.
+ * @param {object} payload - The request body for the /api/tts/test endpoint.
+ * @param {HTMLButtonElement[]} buttons - An array of buttons to disable/enable during the request.
+ */
+async function performVoiceTest(payload, buttons) {
+    buttons.forEach(btn => {
+        if (btn) {
+            btn.disabled = true;
+            btn.textContent = 'Generating...';
+        }
+    });
+
+    try {
+        const response = await fetchWithAuth(`${getApiBaseUrl()}/api/tts/test`, {
+            method: 'POST',
+            body: JSON.stringify(payload)
+        });
+
+        const contentType = response.headers.get('Content-Type') || '';
+        if (contentType.startsWith('audio/')) {
+            const blob = await response.blob();
+            const url = URL.createObjectURL(blob);
+            const audio = new Audio(url);
+            audio.play();
+            // Clean up the object URL after the audio has finished playing
+            audio.addEventListener('ended', () => URL.revokeObjectURL(url));
+        } else {
+            const data = await response.json();
+            const candidateUrl = (
+                data.audioUrl || data.audio_url || data.url || data.audio ||
+                (Array.isArray(data.output) ? data.output[0] : (
+                    data.output?.audio || data.output?.audio_url || data.output?.url || data.output
+                ))
+            );
+
+            if (candidateUrl && typeof candidateUrl === 'string') {
+                const audio = new Audio(candidateUrl);
+                await audio.play();
+            } else if (data.audioBase64) {
+                const byteString = atob(data.audioBase64);
+                const arrayBuffer = new Uint8Array(byteString.length);
+                for (let i = 0; i < byteString.length; i++) {
+                    arrayBuffer[i] = byteString.charCodeAt(i);
+                }
+                const blob = new Blob([arrayBuffer], { type: 'audio/mpeg' });
+                const url = URL.createObjectURL(blob);
+                const audio = new Audio(url);
+                audio.play();
+                audio.addEventListener('ended', () => URL.revokeObjectURL(url));
+            } else {
+                 throw new Error(data.message || data.error || 'No audio returned by server');
+            }
+        }
+    } catch (error) {
+        console.error('Voice test failed:', error);
+        let errorMessage = error.message;
+        if (error.message && error.message.includes('API Error:')) {
+            const match = error.message.match(/API Error: \d+ (.+)/);
+            if (match) {
+                errorMessage = match[1];
+            }
+        }
+        showToast(`Test failed: ${errorMessage}`, 'error');
+    } finally {
+        buttons.forEach(btn => {
+            if (btn) {
+                btn.disabled = false;
+                btn.textContent = 'Send Preview';
+            }
+        });
+    }
+}
+
+/**
+ * Syncs the value of two textarea elements.
+ * @param {HTMLTextAreaElement} el1 - The first textarea element.
+ * @param {HTMLTextAreaElement} el2 - The second textarea element.
+ */
+function syncTextareas(el1, el2) {
+    if (el1 && el2) {
+        el1.addEventListener('input', () => {
+            el2.value = el1.value;
+        });
+        el2.addEventListener('input', () => {
+            el1.value = el2.value;
+        });
+    }
+}

@@ -336,7 +336,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (copyTtsUrlBtn && ttsUrlField) {
-        copyTtsUrlBtn.addEventListener('click', () => {
+        copyTtsUrlBtn.addEventListener('click', async () => {
             if (!ttsUrlField.value) {
                 showToast('URL not available yet.', 'warning');
                 return;
@@ -424,6 +424,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const voiceTestBtnMobile = document.getElementById('voice-test-btn-mobile');
     if (voiceTestBtn) voiceTestBtn.disabled = true;
     if (voiceTestBtnMobile) voiceTestBtnMobile.disabled = true;
+
+    // Sync the text areas
+    syncTextareas(voiceTestTextInput, voiceTestTextInputMobile);
 
     // Channel Points elements
     const cpEnabled = document.getElementById('cp-enabled');
@@ -1539,142 +1542,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function testVoice(isMobile = false) {
-        const textInput = isMobile ? voiceTestTextInputMobile : voiceTestTextInput;
-        const btn = isMobile ? voiceTestBtnMobile : voiceTestBtn;
-        const playerEl = isMobile ? document.getElementById('voice-preview-player-mobile') : document.getElementById('voice-preview-player');
-        const sourceEl = isMobile ? document.getElementById('voice-preview-source-mobile') : document.getElementById('voice-preview-source');
-        const hintEl = isMobile ? document.getElementById('voice-preview-hint-mobile') : document.getElementById('voice-preview-hint');
+        await settingsInitializedPromise; // Ensure settings are loaded first
 
-        if (!textInput || !btn) {
-            console.error('Voice test elements not found');
+        const textInput = isMobile ? voiceTestTextInputMobile : voiceTestTextInput;
+        const text = textInput.value.trim();
+        if (!text) {
+            showToast('Please enter some text to test', 'warning');
             return;
         }
-
-        // Always ensure settings have finished loading to avoid UI race conditions
-        try { await settingsInitializedPromise; } catch (_) {}
-
-        const text = textInput.value.trim();
-        if (!text) { showToast('Please enter some text to test', 'warning'); return; }
-        if (text.length > 500) { showToast('Text must be 500 characters or less', 'error'); return; }
-        if (TEST_MODE) { showToast('Playing preview… (test mode)', 'success'); return; }
-        if (!appSessionToken) { showToast('Authentication required', 'error'); return; }
-
-        btn.disabled = true;
-        btn.textContent = 'Generating...';
-
-        try {
-            const effective = getEffectiveTtsSettings();
-            const voiceSettings = {
-                text: text,
-                voiceId: effective.voiceId,
-                emotion: effective.emotion,
-                pitch: effective.pitch,
-                speed: effective.speed,
-                languageBoost: effective.languageBoost,
-                englishNormalization: effective.englishNormalization
-            };
-
-            let audioUrl = null;
-
-            // Try loading pre-made recording first
-            btn.textContent = 'Loading...';
-            audioUrl = await tryLoadPreMadeRecording(voiceSettings, text);
-
-            if (audioUrl) {
-                console.log('Using pre-made recording');
-            } else {
-                // Generate via API
-                btn.textContent = 'Generating...';
-            const response = await fetchWithAuth(`${API_BASE_URL}/api/tts/test`, {
-                method: 'POST',
-                body: JSON.stringify(voiceSettings)
-            });
-
-                if (!response.ok) {
-                    const errorData = await response.json().catch(() => ({ message: response.statusText }));
-                    const errorMessage = errorData.error || errorData.message || response.statusText;
-                    throw new Error(`API Error: ${response.status} ${errorMessage}`);
-                }
-
-                const contentType = response.headers.get('Content-Type') || '';
-                if (contentType.startsWith('audio/')) {
-                    const blob = await response.blob();
-                    audioUrl = URL.createObjectURL(blob);
-                } else {
-                    const data = await response.json();
-                    const candidateUrl = (
-                        data.audioUrl ||
-                        data.audio_url ||
-                        data.url ||
-                        data.audio ||
-                        (Array.isArray(data.output) ? data.output[0] : (
-                            data.output?.audio || data.output?.audio_url || data.output?.url || data.output
-                        ))
-                    );
-                    if (candidateUrl && typeof candidateUrl === 'string') {
-                        audioUrl = candidateUrl;
-                    } else if (data.audioBase64) {
-                        const byteString = atob(data.audioBase64);
-                        const arrayBuffer = new Uint8Array(byteString.length);
-                        for (let i = 0; i < byteString.length; i++) arrayBuffer[i] = byteString.charCodeAt(i);
-                        const blob = new Blob([arrayBuffer], { type: 'audio/mpeg' });
-                        audioUrl = URL.createObjectURL(blob);
-                    } else if (data.success) {
-                        throw new Error('Server indicated success but did not return an audio URL');
-                    } else {
-                        const msg = data.message || data.error || 'No audio returned by server';
-                        throw new Error(msg);
-                    }
-                }
-            }
-
-            // Cache the audio and settings
-            if (isMobile) {
-                if (cachedAudioUrlMobile) URL.revokeObjectURL(cachedAudioUrlMobile);
-                cachedAudioUrlMobile = audioUrl;
-                cachedSettingsMobile = voiceSettings;
-                isDirtyMobile = false;
-            } else {
-                if (cachedAudioUrl) URL.revokeObjectURL(cachedAudioUrl);
-                cachedAudioUrl = audioUrl;
-                cachedSettings = voiceSettings;
-                isDirty = false;
-            }
-
-            // Show audio player
-            if (sourceEl && playerEl) {
-                sourceEl.src = audioUrl;
-                const audioElement = playerEl.querySelector('audio');
-                if (audioElement) {
-                    audioElement.load();
-                    audioElement.play().catch(err => {
-                        console.error('Error playing audio:', err);
-                        showToast('Error playing audio sample', 'error');
-                    });
-                }
-                playerEl.style.display = 'block';
-                if (hintEl) hintEl.style.display = 'none';
-            }
-
-            btn.textContent = 'Regenerate';
-        } catch (error) {
-            console.error('Voice test error:', error);
-
-            // Extract error message from API response if available
-            let errorMessage = error.message;
-            if (error.message && error.message.includes('API Error:')) {
-                // Extract the actual error message from "API Error: 403 Voice access denied..." format
-                const match = error.message.match(/API Error: \d+ (.+)/);
-                if (match) {
-                    errorMessage = match[1];
-                }
-            }
-
-            showToast(`Voice test failed: ${errorMessage}`, 'error');
-            btn.textContent = 'Send Preview';
-        } finally {
-            btn.disabled = false;
+        if (text.length > 500) { 
+            showToast('Text must be 500 characters or less', 'error'); 
+            return; 
         }
+
+        if (TEST_MODE) { 
+            showToast('Playing preview… (test mode)', 'success'); 
+            return; 
+        }
+        
+        const payload = {
+            text,
+            ...getEffectiveTtsSettings()
+        };
+        
+        // Use the shared function from app.js
+        await performVoiceTest(payload, [voiceTestBtn, voiceTestBtnMobile]);
     }
 
     if (voiceTestBtn) voiceTestBtn.addEventListener('click', () => testVoice(false));
