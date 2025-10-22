@@ -1,40 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Test mode: enable with ?test=1 in the URL to bypass auth and API calls
     const TEST_MODE = new URLSearchParams(window.location.search).has('test');
-    // Toast helper
-    const toastContainer = document.getElementById('toast-container') || (() => {
-        const c = document.createElement('div');
-        c.id = 'toast-container';
-        c.className = 'toast-container position-fixed bottom-0 end-0 p-3';
-        document.body.appendChild(c);
-        return c;
-    })();
-    function showToast(message, type = 'success') {
-        const toastEl = document.createElement('div');
-        toastEl.className = 'toast align-items-center border-0';
-        toastEl.setAttribute('role', 'alert');
-        toastEl.setAttribute('aria-live', 'assertive');
-        toastEl.setAttribute('aria-atomic', 'true');
-        const bgClass = type === 'error' || type === 'danger' ? 'text-bg-danger' : type === 'warning' ? 'text-bg-warning' : type === 'info' ? 'text-bg-info' : 'text-bg-success';
-        toastEl.classList.add(bgClass);
-        const inner = document.createElement('div');
-        inner.className = 'd-flex';
-        const body = document.createElement('div');
-        body.className = 'toast-body';
-        body.innerHTML = message;
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'btn-close btn-close-white me-2 m-auto';
-        btn.setAttribute('data-bs-dismiss', 'toast');
-        btn.setAttribute('aria-label', 'Close');
-        inner.appendChild(body);
-        inner.appendChild(btn);
-        toastEl.appendChild(inner);
-        toastContainer.appendChild(toastEl);
-        const bsToast = new bootstrap.Toast(toastEl, { delay: 5000 });
-        bsToast.show();
-        toastEl.addEventListener('hidden.bs.toast', () => toastEl.remove());
-    }
 
     // Dashboard UI Elements
     const authStatus = document.getElementById('auth-status');
@@ -52,9 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const regenerateTtsUrlBtn = document.getElementById('regenerate-tts-url-btn');
 
     // Use Hosting rewrites for local/prod; fall back to prod Functions when needed
-    const API_BASE_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
-        ? ''
-        : ''; // Use Firebase Hosting rewrites
+    const API_BASE_URL = getApiBaseUrl();
     let appSessionToken = null;
     let loggedInUser = null;
 
@@ -73,12 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
         ttsUrlField.value = 'Loading existing URL...';
         ttsUrlField.placeholder = '';
         try {
-            const response = await fetch(`${API_BASE_URL}/api/obs/getToken`, {
-                method: 'GET',
-                headers: {
-                    'Authorization': `Bearer ${appSessionToken}`,
-                    'Content-Type': 'application/json'
-                }
+            const response = await fetchWithAuth(`${API_BASE_URL}/api/obs/getToken`, {
+                method: 'GET'
             });
             if (!response.ok) throw new Error(`HTTP ${response.status}: ${response.statusText}`);
             const data = await response.json();
@@ -113,12 +73,8 @@ document.addEventListener('DOMContentLoaded', () => {
         ttsUrlField.value = 'Generating secure URL...';
         ttsUrlField.placeholder = '';
         try {
-            const response = await fetch(`${API_BASE_URL}/api/obs/generateToken`, {
-                method: 'POST',
-                headers: {
-                    'Authorization': `Bearer ${appSessionToken}`,
-                    'Content-Type': 'application/json'
-                }
+            const response = await fetchWithAuth(`${API_BASE_URL}/api/obs/generateToken`, {
+                method: 'POST'
             });
             if (!response.ok) throw new Error(`HTTP ${response.status}: ${response.statusText}`);
             const data = await response.json();
@@ -225,8 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
             try {
-                const headers = { 'Authorization': `Bearer ${appSessionToken}` };
-                const statusRes = await fetch(`${API_BASE_URL}/api/bot/status`, { method: 'GET', headers });
+                const statusRes = await fetchWithAuth(`${API_BASE_URL}/api/bot/status`, { method: 'GET' });
                 if (!statusRes.ok) {
                     if (statusRes.status === 401) {
                         showToast('Session potentially expired. Please log in again.', 'error');
@@ -322,12 +277,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             showToast('Requesting bot to join...', 'info');
             try {
-                const res = await fetch(`${API_BASE_URL}/api/bot/add`, {
-                    method: 'POST',
-                    headers: {
-                        'Authorization': `Bearer ${appSessionToken}`,
-                        'Content-Type': 'application/json'
-                    }
+                const res = await fetchWithAuth(`${API_BASE_URL}/api/bot/add`, {
+                    method: 'POST'
                 });
                 const data = await res.json();
                 if (data.success) {
@@ -364,12 +315,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             showToast('Requesting bot to leave...', 'info');
             try {
-                const res = await fetch(`${API_BASE_URL}/api/bot/remove`, {
-                    method: 'POST',
-                    headers: {
-                        'Authorization': `Bearer ${appSessionToken}`,
-                        'Content-Type': 'application/json'
-                    }
+                const res = await fetchWithAuth(`${API_BASE_URL}/api/bot/remove`, {
+                    method: 'POST'
                 });
                 const data = await res.json();
                 showToast(data.message || 'Request sent.', data.success ? 'success' : 'error');
@@ -384,11 +331,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (logoutLink) {
         logoutLink.addEventListener('click', (e) => {
             e.preventDefault();
-            localStorage.removeItem('twitch_user_login');
-            localStorage.removeItem('twitch_user_id');
-            localStorage.removeItem('app_session_token');
-            appSessionToken = null;
-            window.location.href = 'index.html';
+            logout();
         });
     }
 
@@ -401,21 +344,15 @@ document.addEventListener('DOMContentLoaded', () => {
             ttsUrlField.select();
             ttsUrlField.setSelectionRange(0, 99999);
             try {
-                navigator.clipboard.writeText(ttsUrlField.value).then(() => {
+                const success = await copyToClipboard(ttsUrlField.value);
+                if (success) {
                     showToast('Copied to clipboard!', 'success');
                     const original = copyTtsUrlBtn.textContent;
                     copyTtsUrlBtn.textContent = 'Copied!';
                     setTimeout(() => { copyTtsUrlBtn.textContent = original; }, 2000);
-                }, () => {
-                    if (document.execCommand('copy')) {
-                        showToast('Copied to clipboard!', 'success');
-                        const original = copyTtsUrlBtn.textContent;
-                        copyTtsUrlBtn.textContent = 'Copied!';
-                        setTimeout(() => { copyTtsUrlBtn.textContent = original; }, 2000);
-                    } else {
-                        showToast('Copy failed.', 'error');
-                    }
-                });
+                } else {
+                    showToast('Copy failed.', 'error');
+                }
             } catch (err) {
                 console.error('Copy attempt error:', err);
                 showToast('Failed to copy.', 'error');
@@ -523,14 +460,6 @@ document.addEventListener('DOMContentLoaded', () => {
         settingsInitializedPromiseResolve = resolve;
     });
 
-    function debounce(func, wait) {
-        let timeout;
-        return function executedFunction(...args) {
-            const later = () => { clearTimeout(timeout); func.apply(this, args); };
-            clearTimeout(timeout);
-            timeout = setTimeout(later, wait);
-        };
-    }
 
     function maybeSuccessToast(message) {
         const now = Date.now();
@@ -863,9 +792,6 @@ document.addEventListener('DOMContentLoaded', () => {
             hiddenInput.dispatchEvent(new Event('change', { bubbles: true }));
         }
 
-        function formatVoiceName(voice) {
-            return voice.replace(/[_-]/g, ' ').replace(/\b\w/g, chr => chr.toUpperCase());
-        }
     }
 
     async function playVoicePreview(voiceId, buttonElement) {
@@ -1068,11 +994,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Load Channel Points config from Cloud Functions
             try {
-                const res = await fetch(`${API_BASE_URL}/api/rewards/tts`, {
-                    method: 'GET',
-                    headers: { 'Authorization': `Bearer ${appSessionToken}` },
-                    credentials: 'include'
-                });
+            const res = await fetchWithAuth(`${API_BASE_URL}/api/rewards/tts`, {
+                method: 'GET',
+                credentials: 'include'
+            });
                 if (res.ok) {
                     const data = await res.json();
                     const cp = data.channelPoints || {};
@@ -1316,9 +1241,8 @@ document.addEventListener('DOMContentLoaded', () => {
         payload.perUserPerStreamLimit = perUserRaw === '' ? 0 : Math.max(0, parseInt(perUserRaw || '0', 10));
         try {
             if (!isAuto) showToast('Saving Channel Points config…', 'info');
-            const res = await fetch(`${API_BASE_URL}/api/rewards/tts`, {
+            const res = await fetchWithAuth(`${API_BASE_URL}/api/rewards/tts`, {
                 method: 'POST',
-                headers: { 'Authorization': `Bearer ${appSessionToken}`, 'Content-Type': 'application/json' },
                 credentials: 'include',
                 body: JSON.stringify(payload)
             });
@@ -1403,9 +1327,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!text) return;
         try {
             showToast('Testing redeem…', 'info');
-            const res = await fetch(`${API_BASE_URL}/api/rewards/tts/test`, {
+            const res = await fetchWithAuth(`${API_BASE_URL}/api/rewards/tts/test`, {
                 method: 'POST',
-                headers: { 'Authorization': `Bearer ${appSessionToken}`, 'Content-Type': 'application/json' },
                 credentials: 'include',
                 body: JSON.stringify({ text })
             });
@@ -1426,9 +1349,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!confirm('Disable & delete the Channel Points TTS reward?')) return;
         try {
             showToast('Deleting…', 'info');
-            const res = await fetch(`${API_BASE_URL}/api/rewards/tts`, {
+            const res = await fetchWithAuth(`${API_BASE_URL}/api/rewards/tts`, {
                 method: 'DELETE',
-                headers: { 'Authorization': `Bearer ${appSessionToken}` },
                 credentials: 'include'
             });
             const data = await res.json().catch(() => ({}));
@@ -1663,11 +1585,10 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 // Generate via API
                 btn.textContent = 'Generating...';
-                const response = await fetch(`${API_BASE_URL}/api/tts/test`, {
-                    method: 'POST',
-                    headers: { 'Authorization': `Bearer ${appSessionToken}`, 'Content-Type': 'application/json' },
-                    body: JSON.stringify(voiceSettings)
-                });
+            const response = await fetchWithAuth(`${API_BASE_URL}/api/tts/test`, {
+                method: 'POST',
+                body: JSON.stringify(voiceSettings)
+            });
 
                 if (!response.ok) {
                     const errorData = await response.json().catch(() => ({ message: response.statusText }));

@@ -2,40 +2,6 @@
 document.addEventListener('DOMContentLoaded', async () => {
     // Test mode: enable with ?test=1 in the URL to bypass auth and API calls
     const TEST_MODE = new URLSearchParams(window.location.search).has('test');
-    // Toast helper
-    const toastContainer = document.getElementById('toast-container') || (() => {
-        const c = document.createElement('div');
-        c.id = 'toast-container';
-        c.className = 'toast-container position-fixed bottom-0 end-0 p-3';
-        document.body.appendChild(c);
-        return c;
-    })();
-    function showToast(message, type = 'success') {
-        const toastEl = document.createElement('div');
-        toastEl.className = 'toast align-items-center border-0';
-        toastEl.setAttribute('role', 'alert');
-        toastEl.setAttribute('aria-live', 'assertive');
-        toastEl.setAttribute('aria-atomic', 'true');
-        const bgClass = type === 'error' || type === 'danger' ? 'text-bg-danger' : type === 'warning' ? 'text-bg-warning' : type === 'info' ? 'text-bg-info' : 'text-bg-success';
-        toastEl.classList.add(bgClass);
-        const inner = document.createElement('div');
-        inner.className = 'd-flex';
-        const body = document.createElement('div');
-        body.className = 'toast-body';
-        body.innerHTML = message;
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'btn-close btn-close-white me-2 m-auto';
-        btn.setAttribute('data-bs-dismiss', 'toast');
-        btn.setAttribute('aria-label', 'Close');
-        inner.appendChild(body);
-        inner.appendChild(btn);
-        toastEl.appendChild(inner);
-        toastContainer.appendChild(toastEl);
-        const bsToast = new bootstrap.Toast(toastEl, { delay: 5000 });
-        bsToast.show();
-        toastEl.addEventListener('hidden.bs.toast', () => toastEl.remove());
-    }
 
     // Get URL parameters
     const urlParams = new URLSearchParams(window.location.search);
@@ -43,11 +9,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const token = urlParams.get('token');
 
     // API Configuration
-    const API_BASE_URL = (window.location.hostname === 'localhost' ||
-                         window.location.hostname === '127.0.0.1' ||
-                         window.location.port === '5002')
-        ? 'http://127.0.0.1:5001/chatvibestts/us-central1/webUi'
-        : ''; // Use Firebase Hosting rewrites
+    const API_BASE_URL = getApiBaseUrl();
     let appSessionToken = null;
     let currentChannel = channel;
 
@@ -129,39 +91,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    // Debounce
-    function debounce(func, wait) {
-        let timeout;
-        return function executedFunction(...args) {
-            const later = () => { clearTimeout(timeout); func(...args); };
-            clearTimeout(timeout);
-            timeout = setTimeout(later, wait);
-        };
-    }
 
-    // Dialog helpers with fallback for browsers without <dialog>.showModal/close
-    function openDialog(dialogEl) {
-        if (!dialogEl) return;
-        if (typeof dialogEl.showModal === 'function') {
-            dialogEl.showModal();
-        } else {
-            dialogEl.setAttribute('open', '');
-        }
-    }
-    function closeDialog(dialogEl) {
-        if (!dialogEl) return;
-        if (typeof dialogEl.close === 'function') {
-            dialogEl.close();
-        } else {
-            dialogEl.removeAttribute('open');
-        }
-    }
 
-    // Hint helpers: format, describe, and update after changes
-    function formatNumberCompact(n) {
-        const s = Number(n).toFixed(2);
-        return s.replace(/\.0+$/, '').replace(/(\.\d*[1-9])0+$/, '$1');
-    }
     function formatValueForHint(key, value) {
         if (value === '' || value === undefined || value === null) return value;
         if (key === 'speed') return formatNumberCompact(value);
@@ -222,45 +153,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
-    async function fetchWithAuth(url, options = {}) {
-        if (TEST_MODE) {
-            // Simulate minimal successful responses when needed
-            return new Response(JSON.stringify({ ok: true }), { status: 200, headers: { 'Content-Type': 'application/json' } });
-        }
-        if (!appSessionToken) {
-            console.error('fetchWithAuth: No app session token found');
-            console.error('fetchWithAuth: localStorage app_session_token:', localStorage.getItem('app_session_token'));
-            console.error('fetchWithAuth: All localStorage keys:', Object.keys(localStorage));
-            throw new Error('Not authenticated');
-        }
-        console.log('fetchWithAuth: Making request to', url);
-        console.log('fetchWithAuth: Using token:', appSessionToken ? 'Present' : 'Missing');
-        const headers = {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${appSessionToken}`,
-            ...options.headers
-        };
-        const response = await fetch(url, { ...options, headers });
-        console.log('fetchWithAuth: Response status:', response.status);
-        if (!response.ok) {
-            if (response.status === 401) throw new Error('Authentication failed. Please log in again.');
-            
-            // Try to extract error message from response body
-            let errorMessage = response.statusText;
-            try {
-                const errorData = await response.json();
-                console.log('fetchWithAuth: Parsed errorData:', errorData);
-                if (errorData.error) {
-                    errorMessage = errorData.error;
-                }
-            } catch (e) {
-                console.log('fetchWithAuth: Could not parse error response as JSON');
-            }
-            
-            throw new Error(`API Error: ${response.status} ${errorMessage}`);
-        }
-        return response;
-    }
 
     async function initializeAuth() {
         if (TEST_MODE) {
@@ -667,9 +559,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             hiddenInput.dispatchEvent(new Event('change', { bubbles: true }));
         }
 
-        function formatVoiceName(voice) {
-            return voice.replace(/[_-]/g, ' ').replace(/\b\w/g, chr => chr.toUpperCase());
-        }
     }
 
     async function playVoicePreview(voiceId, buttonElement) {
@@ -1330,17 +1219,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (logoutLink) {
         logoutLink.addEventListener('click', (e) => {
             e.preventDefault();
-            localStorage.removeItem('twitch_user_login');
-            localStorage.removeItem('twitch_user_id');
-            localStorage.removeItem('app_session_token');
-            localStorage.removeItem('token_user');
-            localStorage.removeItem('token_channel');
-            appSessionToken = null;
-            if (TEST_MODE) {
-                showToast('Logged out (test mode)', 'success');
-            } else {
-                window.location.href = 'index.html';
-            }
+            logout();
         });
     }
 
