@@ -131,7 +131,7 @@ export function initChannelPointsModule(context, services, deps = {}) {
 
         try {
             const res = await fetchWithAuth(`${apiBaseUrl}/api/rewards/tts`, {
-                method: 'PUT',
+                method: 'POST',
                 credentials: 'include',
                 body: JSON.stringify(payload)
             });

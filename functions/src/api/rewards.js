@@ -217,8 +217,8 @@ router.get("/tts", authenticateApiRequest, async (req, res) => {
   }
 });
 
-// POST create or update TTS reward and persist config
-router.post("/tts", authenticateApiRequest, async (req, res) => {
+// Shared handler to create or update TTS reward and persist config
+async function handleUpsertTtsReward(req, res) {
   try {
     const channelLogin = req.user.userLogin;
     const broadcasterId = req.user.userId;
@@ -300,9 +300,9 @@ router.post("/tts", authenticateApiRequest, async (req, res) => {
         };
 
         await helix.patch(`/channel_points/custom_rewards?broadcaster_id=${encodeURIComponent(broadcasterId)}&id=${encodeURIComponent(finalRewardId)}`, twitchUpdateBody);
-        console.log(`[POST /api/rewards/tts] Updated Twitch reward ${finalRewardId} for ${channelLogin}`);
+        console.log(`[${req.method} /api/rewards/tts] Updated Twitch reward ${finalRewardId} for ${channelLogin}`);
       } catch (twitchError) {
-        console.warn(`[POST /api/rewards/tts] Failed to update Twitch reward for ${channelLogin}:`, twitchError.response?.status, twitchError.response?.data || twitchError.message);
+        console.warn(`[${req.method} /api/rewards/tts] Failed to update Twitch reward for ${channelLogin}:`, twitchError.response?.status, twitchError.response?.data || twitchError.message);
         // Continue with Firestore update even if Twitch update fails
       }
     }
@@ -330,7 +330,7 @@ router.post("/tts", authenticateApiRequest, async (req, res) => {
       channelPointsEnabled: enabled,
     }, {merge: true});
 
-    console.log(`[POST /api/rewards/tts] Updated config for ${channelLogin}: enabled=${enabled}, rewardId=${finalRewardId}`);
+    console.log(`[${req.method} /api/rewards/tts] Updated config for ${channelLogin}: enabled=${enabled}, rewardId=${finalRewardId}`);
 
     return res.json({
       success: true,
@@ -338,7 +338,7 @@ router.post("/tts", authenticateApiRequest, async (req, res) => {
       message: enabled ? "Channel point reward configured successfully" : "Channel point reward disabled",
     });
   } catch (error) {
-    console.error("[POST /api/rewards/tts] Error:", error);
+    console.error(`[${req.method} /api/rewards/tts] Error:`, error);
 
     if (error.message.includes("re-authenticate")) {
       return res.status(401).json({
@@ -355,7 +355,12 @@ router.post("/tts", authenticateApiRequest, async (req, res) => {
       message: error.message,
     });
   }
-});
+}
+
+// POST create or update TTS reward and persist config
+router.post("/tts", authenticateApiRequest, handleUpsertTtsReward);
+// Allow PUT for idempotent updates (front-end refactor compatibility)
+router.put("/tts", authenticateApiRequest, handleUpsertTtsReward);
 
 // DELETE TTS reward
 router.delete("/tts", authenticateApiRequest, async (req, res) => {
