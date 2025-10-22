@@ -734,15 +734,150 @@ document.addEventListener('DOMContentLoaded', () => {
         populateVoices(fallbackVoices);
     }
 
+    let voiceChoicesInstance = null;
+    let currentlyPlayingAudio = null;
+    let currentlyPlayingVoiceId = null;
+
     function populateVoices(voices) {
         defaultVoiceSelect.innerHTML = '';
+
+        // Add options to the select element
         voices.forEach(voice => {
             const option = document.createElement('option');
             option.value = voice;
             option.textContent = voice.replace(/[_-]/g, ' ').replace(/\b\w/g, chr => chr.toUpperCase());
             defaultVoiceSelect.appendChild(option);
         });
-        defaultVoiceSelect.value = 'Friendly_Person';
+
+        // Initialize Choices.js with custom template
+        if (voiceChoicesInstance) {
+            voiceChoicesInstance.destroy();
+        }
+
+        voiceChoicesInstance = new Choices(defaultVoiceSelect, {
+            searchEnabled: true,
+            searchPlaceholderValue: 'Search voices...',
+            itemSelectText: '',
+            shouldSort: false,
+            callbackOnCreateTemplates: function(template) {
+                return {
+                    choice: (classNames, data) => {
+                        const displayName = data.label;
+                        const voiceId = data.value;
+
+                        return template(`
+                            <div class="${classNames.item} ${classNames.itemChoice} ${data.highlighted ? classNames.highlightedState : classNames.itemSelectable}"
+                                 data-select-text="${this.config.itemSelectText}"
+                                 data-choice ${data.disabled ? 'data-choice-disabled aria-disabled="true"' : 'data-choice-selectable'}
+                                 data-id="${data.id}"
+                                 data-value="${voiceId}"
+                                 ${data.groupId > 0 ? 'role="treeitem"' : 'role="option"'}>
+                                <span class="voice-choice-label">${displayName}</span>
+                                <button type="button" class="voice-play-btn" data-voice-id="${voiceId}" aria-label="Preview ${displayName}" title="Preview voice">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        `);
+                    },
+                };
+            },
+        });
+
+        // Set default value
+        voiceChoicesInstance.setChoiceByValue('Friendly_Person');
+
+        // Handle play button clicks with event delegation
+        document.addEventListener('click', handleVoicePlayClick);
+    }
+
+    function handleVoicePlayClick(e) {
+        const playBtn = e.target.closest('.voice-play-btn');
+        if (!playBtn) return;
+
+        e.preventDefault();
+        e.stopPropagation();
+
+        const voiceId = playBtn.dataset.voiceId;
+        playVoicePreview(voiceId, playBtn);
+    }
+
+    async function playVoicePreview(voiceId, buttonElement) {
+        // If already playing this voice, stop it
+        if (currentlyPlayingVoiceId === voiceId && currentlyPlayingAudio) {
+            currentlyPlayingAudio.pause();
+            currentlyPlayingAudio = null;
+            currentlyPlayingVoiceId = null;
+            updatePlayButton(buttonElement, false);
+            return;
+        }
+
+        // Stop any currently playing audio
+        if (currentlyPlayingAudio) {
+            currentlyPlayingAudio.pause();
+            const oldBtn = document.querySelector(`.voice-play-btn[data-voice-id="${currentlyPlayingVoiceId}"]`);
+            if (oldBtn) updatePlayButton(oldBtn, false);
+        }
+
+        // Try to load the pre-made recording
+        const preMadeUrl = `/assets/voices/${voiceId}-welcome-everyone-to-the-stream.mp3`;
+
+        try {
+            const response = await fetch(preMadeUrl);
+            if (!response.ok) {
+                console.log('No pre-made recording for', voiceId);
+                return;
+            }
+
+            const blob = await response.blob();
+            const audioUrl = URL.createObjectURL(blob);
+
+            currentlyPlayingAudio = new Audio(audioUrl);
+            currentlyPlayingVoiceId = voiceId;
+            updatePlayButton(buttonElement, true);
+
+            currentlyPlayingAudio.onended = () => {
+                URL.revokeObjectURL(audioUrl);
+                currentlyPlayingAudio = null;
+                currentlyPlayingVoiceId = null;
+                updatePlayButton(buttonElement, false);
+            };
+
+            currentlyPlayingAudio.onerror = () => {
+                URL.revokeObjectURL(audioUrl);
+                currentlyPlayingAudio = null;
+                currentlyPlayingVoiceId = null;
+                updatePlayButton(buttonElement, false);
+            };
+
+            await currentlyPlayingAudio.play();
+        } catch (error) {
+            console.error('Error playing voice preview:', error);
+            currentlyPlayingAudio = null;
+            currentlyPlayingVoiceId = null;
+            updatePlayButton(buttonElement, false);
+        }
+    }
+
+    function updatePlayButton(buttonElement, isPlaying) {
+        if (!buttonElement) return;
+
+        if (isPlaying) {
+            buttonElement.innerHTML = `
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                </svg>
+            `;
+            buttonElement.classList.add('playing');
+        } else {
+            buttonElement.innerHTML = `
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 5v14l11-7z"/>
+                </svg>
+            `;
+            buttonElement.classList.remove('playing');
+        }
     }
 
     async function loadBotSettings() {
@@ -1573,75 +1708,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (cachedAudioUrlMobile) URL.revokeObjectURL(cachedAudioUrlMobile);
     });
 
-    // Auto-load pre-made recording if settings are at default
-    async function autoLoadPreviewIfDefault() {
-        try {
-            // Wait for settings to be loaded
-            await settingsInitializedPromise;
-
-            // Get current settings
-            const effective = getEffectiveTtsSettings();
-            const isDefaultText = voiceTestTextInput?.value.trim() === 'Welcome, everyone, to the stream!';
-            const isDefaultSettings = (
-                (!effective.pitch || effective.pitch === 0) &&
-                (!effective.speed || effective.speed === 1.0) &&
-                (!effective.emotion || effective.emotion === 'auto' || effective.emotion === 'neutral') &&
-                (!effective.languageBoost || effective.languageBoost === 'Automatic' || effective.languageBoost === 'auto')
-            );
-
-            if (!isDefaultText || !isDefaultSettings) {
-                return; // Not eligible for auto-load
-            }
-
-            // Try to load pre-made recording
-            const voiceId = effective.voiceId || 'Friendly_Person';
-            const preMadeUrl = `/assets/voices/${voiceId}-welcome-everyone-to-the-stream.mp3`;
-
-            const response = await fetch(preMadeUrl);
-            if (!response.ok) return; // File doesn't exist
-
-            const blob = await response.blob();
-            const audioUrl = URL.createObjectURL(blob);
-
-            // Cache and display (desktop)
-            if (cachedAudioUrl) URL.revokeObjectURL(cachedAudioUrl);
-            cachedAudioUrl = audioUrl;
-            isDirty = false;
-
-            const playerEl = document.getElementById('voice-preview-player');
-            const sourceEl = document.getElementById('voice-preview-source');
-            if (sourceEl && playerEl) {
-                sourceEl.src = audioUrl;
-                const audioElement = playerEl.querySelector('audio');
-                if (audioElement) audioElement.load();
-                playerEl.style.display = 'block';
-            }
-
-            // Also set for mobile
-            if (cachedAudioUrlMobile) URL.revokeObjectURL(cachedAudioUrlMobile);
-            cachedAudioUrlMobile = audioUrl;
-            isDirtyMobile = false;
-
-            const playerElMobile = document.getElementById('voice-preview-player-mobile');
-            const sourceElMobile = document.getElementById('voice-preview-source-mobile');
-            if (sourceElMobile && playerElMobile) {
-                sourceElMobile.src = audioUrl;
-                const audioElementMobile = playerElMobile.querySelector('audio');
-                if (audioElementMobile) audioElementMobile.load();
-                playerElMobile.style.display = 'block';
-            }
-
-            // Update button text
-            if (voiceTestBtn) voiceTestBtn.textContent = 'Regenerate';
-            if (voiceTestBtnMobile) voiceTestBtnMobile.textContent = 'Regenerate';
-
-            console.log('Auto-loaded pre-made recording for', voiceId);
-        } catch (error) {
-            console.log('Auto-load failed:', error);
-            // Silently fail - user can still click Send Preview
-        }
-    }
-
     async function initializeSettingsPanel() {
         await loadAvailableVoices();
         await loadBotSettings();
@@ -1650,9 +1716,6 @@ document.addEventListener('DOMContentLoaded', () => {
         try { settingsInitializedPromiseResolve && settingsInitializedPromiseResolve(); } catch (_) {}
         if (voiceTestBtn) voiceTestBtn.disabled = false;
         if (voiceTestBtnMobile) voiceTestBtnMobile.disabled = false;
-
-        // Auto-load preview if default settings
-        autoLoadPreviewIfDefault();
     }
 
     initializeDashboard().then(() => {
