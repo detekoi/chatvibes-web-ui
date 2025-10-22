@@ -1573,6 +1573,75 @@ document.addEventListener('DOMContentLoaded', () => {
         if (cachedAudioUrlMobile) URL.revokeObjectURL(cachedAudioUrlMobile);
     });
 
+    // Auto-load pre-made recording if settings are at default
+    async function autoLoadPreviewIfDefault() {
+        try {
+            // Wait for settings to be loaded
+            await settingsInitializedPromise;
+
+            // Get current settings
+            const effective = getEffectiveTtsSettings();
+            const isDefaultText = voiceTestTextInput?.value.trim() === 'Welcome, everyone, to the stream!';
+            const isDefaultSettings = (
+                (!effective.pitch || effective.pitch === 0) &&
+                (!effective.speed || effective.speed === 1.0) &&
+                (!effective.emotion || effective.emotion === 'auto' || effective.emotion === 'neutral') &&
+                (!effective.languageBoost || effective.languageBoost === 'Automatic' || effective.languageBoost === 'auto')
+            );
+
+            if (!isDefaultText || !isDefaultSettings) {
+                return; // Not eligible for auto-load
+            }
+
+            // Try to load pre-made recording
+            const voiceId = effective.voiceId || 'Friendly_Person';
+            const preMadeUrl = `/assets/voices/${voiceId}-welcome-everyone-to-the-stream.mp3`;
+
+            const response = await fetch(preMadeUrl);
+            if (!response.ok) return; // File doesn't exist
+
+            const blob = await response.blob();
+            const audioUrl = URL.createObjectURL(blob);
+
+            // Cache and display (desktop)
+            if (cachedAudioUrl) URL.revokeObjectURL(cachedAudioUrl);
+            cachedAudioUrl = audioUrl;
+            isDirty = false;
+
+            const playerEl = document.getElementById('voice-preview-player');
+            const sourceEl = document.getElementById('voice-preview-source');
+            if (sourceEl && playerEl) {
+                sourceEl.src = audioUrl;
+                const audioElement = playerEl.querySelector('audio');
+                if (audioElement) audioElement.load();
+                playerEl.style.display = 'block';
+            }
+
+            // Also set for mobile
+            if (cachedAudioUrlMobile) URL.revokeObjectURL(cachedAudioUrlMobile);
+            cachedAudioUrlMobile = audioUrl;
+            isDirtyMobile = false;
+
+            const playerElMobile = document.getElementById('voice-preview-player-mobile');
+            const sourceElMobile = document.getElementById('voice-preview-source-mobile');
+            if (sourceElMobile && playerElMobile) {
+                sourceElMobile.src = audioUrl;
+                const audioElementMobile = playerElMobile.querySelector('audio');
+                if (audioElementMobile) audioElementMobile.load();
+                playerElMobile.style.display = 'block';
+            }
+
+            // Update button text
+            if (voiceTestBtn) voiceTestBtn.textContent = 'Regenerate';
+            if (voiceTestBtnMobile) voiceTestBtnMobile.textContent = 'Regenerate';
+
+            console.log('Auto-loaded pre-made recording for', voiceId);
+        } catch (error) {
+            console.log('Auto-load failed:', error);
+            // Silently fail - user can still click Send Preview
+        }
+    }
+
     async function initializeSettingsPanel() {
         await loadAvailableVoices();
         await loadBotSettings();
@@ -1581,6 +1650,9 @@ document.addEventListener('DOMContentLoaded', () => {
         try { settingsInitializedPromiseResolve && settingsInitializedPromiseResolve(); } catch (_) {}
         if (voiceTestBtn) voiceTestBtn.disabled = false;
         if (voiceTestBtnMobile) voiceTestBtnMobile.disabled = false;
+
+        // Auto-load preview if default settings
+        autoLoadPreviewIfDefault();
     }
 
     initializeDashboard().then(() => {

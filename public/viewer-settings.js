@@ -937,6 +937,90 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (cachedAudioUrl) URL.revokeObjectURL(cachedAudioUrl);
     });
 
+    // Auto-load pre-made recording if settings are at default
+    async function autoLoadPreviewIfDefault() {
+        try {
+            // Wait a bit for UI to settle
+            await new Promise(resolve => setTimeout(resolve, 500));
+
+            // Check if we have default text
+            const text = (previewText?.value || previewTextMobile?.value || '').trim();
+            const isDefaultText = text.toLowerCase() === 'chat is this real?';
+
+            if (!isDefaultText) return;
+
+            // Get channel defaults
+            const cd = (currentPreferences && currentPreferences.channelDefaults) ? currentPreferences.channelDefaults : {};
+
+            // Get user settings (null means using channel default)
+            const userVoice = voiceSelect.value || null;
+            const userPitch = pitchSlider.value;
+            const userSpeed = speedSlider.value;
+            const userEmotion = emotionSelect.value || null;
+            const userLanguage = languageSelect.value || null;
+
+            // Determine effective settings
+            const effectiveVoiceId = userVoice || cd.voiceId || 'Friendly_Person';
+            const effectivePitch = userVoice ? (userPitch !== undefined && userPitch !== null ? Number(userPitch) : 0) : (cd.pitch !== undefined && cd.pitch !== null ? cd.pitch : 0);
+            const effectiveSpeed = userVoice ? (userSpeed !== undefined && userSpeed !== null ? Number(userSpeed) : 1.0) : (cd.speed !== undefined && cd.speed !== null ? cd.speed : 1.0);
+            const effectiveEmotion = userEmotion || cd.emotion || '';
+            const effectiveLanguage = userLanguage || cd.language || '';
+
+            // Check if settings are at defaults
+            const isDefaultSettings = (
+                effectivePitch === 0 &&
+                effectiveSpeed === 1.0 &&
+                (!effectiveEmotion || effectiveEmotion === 'neutral') &&
+                (!effectiveLanguage || effectiveLanguage === 'auto' || effectiveLanguage === 'Automatic')
+            );
+
+            if (!isDefaultSettings) return;
+
+            // Try to load pre-made recording
+            const preMadeUrl = `/assets/voices/${effectiveVoiceId}-chat-is-this-real.mp3`;
+
+            const response = await fetch(preMadeUrl);
+            if (!response.ok) return; // File doesn't exist
+
+            const blob = await response.blob();
+            const audioUrl = URL.createObjectURL(blob);
+
+            // Cache and display
+            if (cachedAudioUrl) URL.revokeObjectURL(cachedAudioUrl);
+            cachedAudioUrl = audioUrl;
+            isDirty = false;
+
+            // Show audio player (desktop)
+            const playerEl = document.getElementById('voice-preview-player');
+            const sourceEl = document.getElementById('voice-preview-source');
+            if (sourceEl && playerEl) {
+                sourceEl.src = audioUrl;
+                const audioElement = playerEl.querySelector('audio');
+                if (audioElement) audioElement.load();
+                playerEl.style.display = 'block';
+            }
+
+            // Show audio player (mobile)
+            const playerElMobile = document.getElementById('voice-preview-player-mobile');
+            const sourceElMobile = document.getElementById('voice-preview-source-mobile');
+            if (sourceElMobile && playerElMobile) {
+                sourceElMobile.src = audioUrl;
+                const audioElementMobile = playerElMobile.querySelector('audio');
+                if (audioElementMobile) audioElementMobile.load();
+                playerElMobile.style.display = 'block';
+            }
+
+            // Update button text
+            if (previewBtn) previewBtn.textContent = 'Regenerate';
+            if (previewBtnMobile) previewBtnMobile.textContent = 'Regenerate';
+
+            console.log('Auto-loaded pre-made recording for', effectiveVoiceId);
+        } catch (error) {
+            console.log('Auto-load failed:', error);
+            // Silently fail - user can still click Send Preview
+        }
+    }
+
     function handleIgnoreAction(type) {
         const checkbox = type === 'tts' ? ignoreTtsCheckbox : ignoreMusicCheckbox;
         if (!checkbox.checked) return;
@@ -1140,5 +1224,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (authenticated) {
         await loadVoices();
         await loadPreferences();
+
+        // Auto-load preview if default settings
+        autoLoadPreviewIfDefault();
     }
 });
