@@ -688,14 +688,19 @@ strong, .fw-semibold, .fw-bold {
     border-radius: 8px;
     box-shadow: 0 0.5rem 1rem var(--shadow-color);
     z-index: 1050;
+    min-width: 400px !important;
+    width: 100% !important;
 }
 
 .choices__list--dropdown .choices__item {
     color: var(--text-primary);
+    padding: 0.875rem 3rem 0.875rem 1rem !important;
+    min-height: 44px;
+    position: relative;
 }
 
 .choices__list--dropdown .choices__item--selectable {
-    padding-right: 45px;
+    padding-right: 3rem !important;
 }
 
 .choices__input {
@@ -725,44 +730,47 @@ strong, .fw-semibold, .fw-bold {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    padding-right: 0.5rem;
 }
 
 .voice-play-btn {
-    position: absolute;
-    right: 8px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: var(--accent-primary);
-    border: none;
-    border-radius: 50%;
-    width: 28px;
-    height: 28px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    color: white;
-    flex-shrink: 0;
-    z-index: 10;
+    position: absolute !important;
+    right: 10px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background: var(--accent-primary) !important;
+    border: none !important;
+    border-radius: 50% !important;
+    width: 24px !important;
+    height: 24px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    color: white !important;
+    flex-shrink: 0 !important;
+    z-index: 100 !important;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
 .voice-play-btn:hover {
-    background: var(--accent-primary-hover);
-    transform: translateY(-50%) scale(1.1);
+    background: var(--accent-primary-hover) !important;
+    transform: translateY(-50%) scale(1.15) !important;
 }
 
 .voice-play-btn:active {
-    transform: translateY(-50%) scale(0.95);
+    transform: translateY(-50%) scale(0.9) !important;
 }
 
 .voice-play-btn.playing {
-    background: var(--danger-primary);
+    background: var(--danger-primary) !important;
     animation: pulse 1.5s ease-in-out infinite;
 }
 
 [data-theme="dark"] .voice-play-btn.playing {
-    background: var(--danger-secondary);
+    background: var(--danger-secondary) !important;
 }
 
 @keyframes pulse {
@@ -775,14 +783,10 @@ strong, .fw-semibold, .fw-bold {
 }
 
 .voice-play-btn svg {
-    width: 14px;
-    height: 14px;
-    pointer-events: none;
-}
-
-/* Ensure dropdown items have proper spacing for play button */
-.choices__list--dropdown .choices__item {
-    padding: 0.75rem 1rem;
+    width: 12px !important;
+    height: 12px !important;
+    pointer-events: none !important;
+    display: block !important;
 }
 
 /* Dark mode Choices.js enhancements */

@@ -542,51 +542,62 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         voiceChoicesInstance = new Choices(voiceSelect, {
             searchEnabled: true,
-            searchPlaceholderValue: 'Search voices...',
+            searchPlaceholderValue: 'Type to search...',
             itemSelectText: '',
             shouldSort: false,
-            callbackOnCreateTemplates: function(template) {
-                return {
-                    choice: (classNames, data) => {
-                        const displayName = data.label;
-                        const voiceId = data.value;
+            noResultsText: 'No voices found',
+            searchResultLimit: 10000,
+        });
 
-                        // Don't add play button to "Use channel default" option
-                        if (!voiceId) {
-                            return template(`
-                                <div class="${classNames.item} ${classNames.itemChoice} ${data.highlighted ? classNames.highlightedState : classNames.itemSelectable}"
-                                     data-select-text="${this.config.itemSelectText}"
-                                     data-choice ${data.disabled ? 'data-choice-disabled aria-disabled="true"' : 'data-choice-selectable'}
-                                     data-id="${data.id}"
-                                     data-value="${voiceId}"
-                                     ${data.groupId > 0 ? 'role="treeitem"' : 'role="option"'}>
-                                    <span class="voice-choice-label">${displayName}</span>
-                                </div>
-                            `);
-                        }
+        // Add play buttons when dropdown opens
+        voiceSelect.addEventListener('showDropdown', () => {
+            setTimeout(addPlayButtonsToDropdown, 50);
+        });
 
-                        return template(`
-                            <div class="${classNames.item} ${classNames.itemChoice} ${data.highlighted ? classNames.highlightedState : classNames.itemSelectable}"
-                                 data-select-text="${this.config.itemSelectText}"
-                                 data-choice ${data.disabled ? 'data-choice-disabled aria-disabled="true"' : 'data-choice-selectable'}
-                                 data-id="${data.id}"
-                                 data-value="${voiceId}"
-                                 ${data.groupId > 0 ? 'role="treeitem"' : 'role="option"'}>
-                                <span class="voice-choice-label">${displayName}</span>
-                                <button type="button" class="voice-play-btn" data-voice-id="${voiceId}" aria-label="Preview ${displayName}" title="Preview voice">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M8 5v14l11-7z"/>
-                                    </svg>
-                                </button>
-                            </div>
-                        `);
-                    },
-                };
-            },
+        voiceSelect.addEventListener('search', () => {
+            setTimeout(addPlayButtonsToDropdown, 50);
         });
 
         // Handle play button clicks with event delegation
         document.addEventListener('click', handleVoicePlayClick);
+    }
+
+    function addPlayButtonsToDropdown() {
+        const dropdownItems = document.querySelectorAll('.choices__list--dropdown .choices__item[data-value]');
+
+        dropdownItems.forEach(item => {
+            const voiceId = item.getAttribute('data-value');
+            if (!voiceId) return; // Skip "Use channel default" option
+
+            // Check if button already exists
+            if (item.querySelector('.voice-play-btn')) return;
+
+            // Get the display name
+            const displayName = item.textContent.trim();
+
+            // Wrap text content in span
+            const textContent = item.textContent;
+            item.innerHTML = '';
+            const labelSpan = document.createElement('span');
+            labelSpan.className = 'voice-choice-label';
+            labelSpan.textContent = textContent;
+            item.appendChild(labelSpan);
+
+            // Create play button
+            const playBtn = document.createElement('button');
+            playBtn.type = 'button';
+            playBtn.className = 'voice-play-btn';
+            playBtn.setAttribute('data-voice-id', voiceId);
+            playBtn.setAttribute('aria-label', `Preview ${displayName}`);
+            playBtn.setAttribute('title', 'Preview voice');
+            playBtn.innerHTML = `
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 5v14l11-7z"/>
+                </svg>
+            `;
+
+            item.appendChild(playBtn);
+        });
     }
 
     function handleVoicePlayClick(e) {
