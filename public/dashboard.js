@@ -734,99 +734,126 @@ document.addEventListener('DOMContentLoaded', () => {
         populateVoices(fallbackVoices);
     }
 
-    let voiceChoicesInstance = null;
     let currentlyPlayingAudio = null;
     let currentlyPlayingVoiceId = null;
+    let allVoices = [];
 
     function populateVoices(voices) {
-        defaultVoiceSelect.innerHTML = '';
+        allVoices = voices;
+        const searchInput = document.getElementById('default-voice-search');
+        const hiddenInput = document.getElementById('default-voice');
+        const dropdown = document.getElementById('default-voice-dropdown');
+        const menu = document.getElementById('default-voice-menu');
+        const list = menu.querySelector('.voice-dropdown-list');
 
-        // Add options to the select element
-        voices.forEach(voice => {
-            const option = document.createElement('option');
-            option.value = voice;
-            option.textContent = voice.replace(/[_-]/g, ' ').replace(/\b\w/g, chr => chr.toUpperCase());
-            defaultVoiceSelect.appendChild(option);
-        });
-
-        // Initialize Choices.js with custom template
-        if (voiceChoicesInstance) {
-            voiceChoicesInstance.destroy();
+        if (!searchInput || !hiddenInput || !menu || !list) {
+            console.error('Custom dropdown elements not found');
+            return;
         }
 
-        voiceChoicesInstance = new Choices(defaultVoiceSelect, {
-            searchEnabled: true,
-            searchPlaceholderValue: 'Search voices...',
-            itemSelectText: '',
-            shouldSort: false,
-            searchPlaceholderValue: 'Type to search...',
-            noResultsText: 'No voices found',
-            searchResultLimit: 10000,
+        // Set initial value
+        hiddenInput.value = 'Friendly_Person';
+        searchInput.value = formatVoiceName('Friendly_Person');
+
+        // Render all voices initially
+        renderVoiceList(voices, list);
+
+        // Toggle dropdown on click
+        searchInput.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = menu.classList.contains('show');
+            if (isOpen) {
+                closeDropdown();
+            } else {
+                openDropdown();
+            }
         });
 
-        // Set default value
-        voiceChoicesInstance.setChoiceByValue('Friendly_Person');
-
-        // Add play buttons when dropdown opens
-        defaultVoiceSelect.addEventListener('showDropdown', () => {
-            setTimeout(addPlayButtonsToDropdown, 50);
+        // Filter voices on input
+        searchInput.addEventListener('input', () => {
+            const query = searchInput.value.toLowerCase();
+            const filtered = voices.filter(voice =>
+                formatVoiceName(voice).toLowerCase().includes(query)
+            );
+            renderVoiceList(filtered, list);
         });
 
-        defaultVoiceSelect.addEventListener('search', () => {
-            setTimeout(addPlayButtonsToDropdown, 50);
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target)) {
+                closeDropdown();
+            }
         });
 
-        // Handle play button clicks with event delegation
-        document.addEventListener('click', handleVoicePlayClick);
-    }
+        function openDropdown() {
+            menu.classList.add('show');
+            searchInput.removeAttribute('readonly');
+            searchInput.focus();
+            searchInput.select();
+        }
 
-    function addPlayButtonsToDropdown() {
-        const dropdownItems = document.querySelectorAll('.choices__list--dropdown .choices__item[data-value]');
+        function closeDropdown() {
+            menu.classList.remove('show');
+            searchInput.setAttribute('readonly', 'readonly');
+            // Restore selected value if search was cleared
+            searchInput.value = formatVoiceName(hiddenInput.value);
+        }
 
-        dropdownItems.forEach(item => {
-            const voiceId = item.getAttribute('data-value');
-            if (!voiceId) return; // Skip empty options
+        function renderVoiceList(voicesToRender, container) {
+            container.innerHTML = '';
 
-            // Check if button already exists
-            if (item.querySelector('.voice-play-btn')) return;
+            if (voicesToRender.length === 0) {
+                container.innerHTML = '<div class="voice-dropdown-item no-results">No voices found</div>';
+                return;
+            }
 
-            // Get the display name
-            const displayName = item.textContent.trim();
+            voicesToRender.forEach(voice => {
+                const item = document.createElement('div');
+                item.className = 'voice-dropdown-item';
+                item.setAttribute('data-voice-id', voice);
 
-            // Wrap text content in span
-            const textContent = item.textContent;
-            item.innerHTML = '';
-            const labelSpan = document.createElement('span');
-            labelSpan.className = 'voice-choice-label';
-            labelSpan.textContent = textContent;
-            item.appendChild(labelSpan);
+                const label = document.createElement('span');
+                label.className = 'voice-label';
+                label.textContent = formatVoiceName(voice);
 
-            // Create play button
-            const playBtn = document.createElement('button');
-            playBtn.type = 'button';
-            playBtn.className = 'voice-play-btn';
-            playBtn.setAttribute('data-voice-id', voiceId);
-            playBtn.setAttribute('aria-label', `Preview ${displayName}`);
-            playBtn.setAttribute('title', 'Preview voice');
-            playBtn.innerHTML = `
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M8 5v14l11-7z"/>
-                </svg>
-            `;
+                // Click label to select voice
+                label.addEventListener('click', () => {
+                    selectVoice(voice);
+                });
 
-            item.appendChild(playBtn);
-        });
-    }
+                const playBtn = document.createElement('button');
+                playBtn.type = 'button';
+                playBtn.className = 'voice-play-btn';
+                playBtn.setAttribute('aria-label', `Preview ${voice}`);
+                playBtn.innerHTML = `
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                `;
 
-    function handleVoicePlayClick(e) {
-        const playBtn = e.target.closest('.voice-play-btn');
-        if (!playBtn) return;
+                // Click play button to preview
+                playBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    playVoicePreview(voice, playBtn);
+                });
 
-        e.preventDefault();
-        e.stopPropagation();
+                item.appendChild(label);
+                item.appendChild(playBtn);
+                container.appendChild(item);
+            });
+        }
 
-        const voiceId = playBtn.dataset.voiceId;
-        playVoicePreview(voiceId, playBtn);
+        function selectVoice(voiceId) {
+            hiddenInput.value = voiceId;
+            searchInput.value = formatVoiceName(voiceId);
+            closeDropdown();
+            // Trigger change event for save handler
+            hiddenInput.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+
+        function formatVoiceName(voice) {
+            return voice.replace(/[_-]/g, ' ').replace(/\b\w/g, chr => chr.toUpperCase());
+        }
     }
 
     async function playVoicePreview(voiceId, buttonElement) {
