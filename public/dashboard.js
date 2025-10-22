@@ -824,12 +824,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 const playBtn = document.createElement('button');
                 playBtn.type = 'button';
                 playBtn.className = 'voice-play-btn';
+                playBtn.setAttribute('data-voice-id', voice);
                 playBtn.setAttribute('aria-label', `Preview ${voice}`);
-                playBtn.innerHTML = `
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M8 5v14l11-7z"/>
-                    </svg>
-                `;
+
+                // Check if this voice is currently playing
+                if (voice === currentlyPlayingVoiceId) {
+                    playBtn.innerHTML = `
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                        </svg>
+                    `;
+                    playBtn.classList.add('playing');
+                } else {
+                    playBtn.innerHTML = `
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    `;
+                }
 
                 // Click play button to preview
                 playBtn.addEventListener('click', (e) => {
