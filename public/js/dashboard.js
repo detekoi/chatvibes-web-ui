@@ -1564,9 +1564,43 @@ document.addEventListener('DOMContentLoaded', () => {
             text,
             ...getEffectiveTtsSettings()
         };
+
+        // Set up audio player elements
+        const playerElements = {
+            playerEl: document.getElementById('voice-preview-player'),
+            playerElMobile: document.getElementById('voice-preview-player-mobile'),
+            sourceEl: document.getElementById('voice-preview-source'),
+            sourceElMobile: document.getElementById('voice-preview-source-mobile')
+        };
+
+        const hintElements = {
+            hintEl: document.getElementById('voice-preview-hint'),
+            hintElMobile: document.getElementById('voice-preview-hint-mobile')
+        };
+
+        // Cache audio callback
+        const onAudioGenerated = (audioUrl, settings) => {
+            // Cache the audio and settings
+            if (isMobile) {
+                if (cachedAudioUrlMobile) URL.revokeObjectURL(cachedAudioUrlMobile);
+                cachedAudioUrlMobile = audioUrl;
+                cachedSettingsMobile = settings;
+                isDirtyMobile = false;
+            } else {
+                if (cachedAudioUrl) URL.revokeObjectURL(cachedAudioUrl);
+                cachedAudioUrl = audioUrl;
+                cachedSettings = settings;
+                isDirty = false;
+            }
+        };
         
-        // Use the shared function from app.js
-        await performVoiceTest(payload, [voiceTestBtn, voiceTestBtnMobile]);
+        // Use the enhanced shared function from app.js
+        await performVoiceTest(payload, [voiceTestBtn, voiceTestBtnMobile], {
+            defaultText: 'Welcome, everyone, to the stream!',
+            playerElements,
+            hintElements,
+            onAudioGenerated
+        });
     }
 
     if (voiceTestBtn) voiceTestBtn.addEventListener('click', () => testVoice(false));
