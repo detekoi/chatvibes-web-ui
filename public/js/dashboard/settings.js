@@ -772,7 +772,13 @@ export function initSettingsModule(context, services, dependencies) {
         if (readFullUrlsCheckbox) readFullUrlsCheckbox.checked = settings.readFullUrls || false;
         if (bitsEnabledCheckbox) bitsEnabledCheckbox.checked = settings.bitsModeEnabled || false;
         if (bitsAmountInput) bitsAmountInput.value = settings.bitsMinimumAmount ?? 100;
-        if (defaultVoiceSelect) defaultVoiceSelect.value = settings.voiceId || 'Friendly_Person';
+        if (defaultVoiceSelect) {
+            defaultVoiceSelect.value = settings.voiceId || 'Friendly_Person';
+            const searchInput = document.getElementById('default-voice-search');
+            if (searchInput) {
+                searchInput.value = formatVoiceName(defaultVoiceSelect.value);
+            }
+        }
         if (defaultEmotionSelect) defaultEmotionSelect.value = settings.emotion || 'auto';
         if (defaultPitchSlider) {
             defaultPitchSlider.value = settings.pitch ?? 0;

@@ -493,7 +493,12 @@ export function initPreferencesModule(context, services, deps = {}) {
             prefsDisabledNote,
         } = elements;
 
-        if (voiceSelect) voiceSelect.value = prefs.voiceId || '';
+        if (voiceSelect) {
+            voiceSelect.value = prefs.voiceId || '';
+            if (elements.voiceSearch) {
+                elements.voiceSearch.value = voiceSelect.value ? formatVoiceName(voiceSelect.value) : 'Use channel default';
+            }
+        }
         if (pitchSlider && pitchValue) {
             pitchSlider.value = prefs.pitch ?? 0;
             pitchValue.textContent = prefs.pitch ?? 0;
