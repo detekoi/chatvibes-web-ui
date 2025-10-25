@@ -302,8 +302,39 @@ async function handleUpsertTtsReward(req, res) {
         await helix.patch(`/channel_points/custom_rewards?broadcaster_id=${encodeURIComponent(broadcasterId)}&id=${encodeURIComponent(finalRewardId)}`, twitchUpdateBody);
         console.log(`[${req.method} /api/rewards/tts] Updated Twitch reward ${finalRewardId} for ${channelLogin}`);
       } catch (twitchError) {
-        console.warn(`[${req.method} /api/rewards/tts] Failed to update Twitch reward for ${channelLogin}:`, twitchError.response?.status, twitchError.response?.data || twitchError.message);
-        // Continue with Firestore update even if Twitch update fails
+        const errorMessage = twitchError.response?.data?.message || twitchError.message;
+        const errorStatus = twitchError.response?.status;
+        console.error(`[${req.method} /api/rewards/tts] Failed to update Twitch reward for ${channelLogin}:`, errorStatus, twitchError.response?.data || errorMessage);
+
+        // If reward not found (404), create a new one if we're enabling
+        if (errorStatus === 404 && enabled) {
+          console.log(`[${req.method} /api/rewards/tts] Reward not found, creating new reward for ${channelLogin}`);
+          try {
+            const result = await ensureTtsChannelPointReward(channelLogin, broadcasterId);
+            finalRewardId = result.rewardId;
+            console.log(`[${req.method} /api/rewards/tts] Created new reward ${finalRewardId} for ${channelLogin}`);
+          } catch (createError) {
+            console.error(`[${req.method} /api/rewards/tts] Failed to create new reward:`, createError);
+            return res.status(500).json({
+              success: false,
+              error: "Failed to create new Channel Points reward",
+              details: createError.message,
+            });
+          }
+        } else {
+          // Provide helpful error messages for common issues
+          let userFriendlyMessage = `Failed to update Twitch reward: ${errorMessage}`;
+          if (errorStatus === 403 && errorMessage.includes("Client-Id header must match")) {
+            userFriendlyMessage = "The reward was created with a different client ID. Please delete the reward and create a new one.";
+          }
+
+          // Return error to frontend so user knows the update failed
+          return res.status(errorStatus || 500).json({
+            success: false,
+            error: userFriendlyMessage,
+            details: twitchError.response?.data,
+          });
+        }
       }
     }
 
