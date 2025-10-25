@@ -41,8 +41,8 @@ const secretsLoadedPromise = (async () => {
       jwtSecret,
       wavespeedApiKey,
     ] = await Promise.all([
-      loadSecret("twitch-webui-client-id"),
-      loadSecret("twitch-webui-client-secret"),
+      loadSecret("twitch-client-id"),
+      loadSecret("twitch-client-secret"),
       loadSecret("jwt-secret-key"),
       loadSecret("WAVESPEED_API_KEY"),
     ]);
