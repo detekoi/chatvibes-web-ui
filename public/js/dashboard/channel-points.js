@@ -86,7 +86,7 @@ export function initChannelPointsModule(context, services, deps = {}) {
             if (cpBannedWords) cpBannedWords.value = (cp.bannedWords || []).join(', ');
             if (cpMsg) cpMsg.className = 'text-muted';
             if (cpStatusLine) {
-                const lastSynced = cp.updatedAt ? new Date(cp.updatedAt).toLocaleTimeString() : 'never';
+                const lastSynced = cp.lastSyncedAt ? new Date(cp.lastSyncedAt).toLocaleTimeString() : 'never';
                 const rewardInfo = cp.rewardId ? `Reward ID: ${cp.rewardId}` : 'No reward created';
                 cpStatusLine.textContent = `${rewardInfo} · Last synced: ${lastSynced}`;
             }
