@@ -71,19 +71,20 @@ export function initChannelPointsModule(context, services, deps = {}) {
 
             const data = await res.json();
             const cp = data.channelPoints || {};
+            const policy = cp.contentPolicy || {};
             if (cpEnabled) cpEnabled.checked = !!cp.enabled;
             if (cpTitle) cpTitle.value = cp.title ?? 'Text-to-Speech Message';
             if (cpCost) cpCost.value = cp.cost ?? 500;
             if (cpPrompt) cpPrompt.value = cp.prompt ?? 'Enter a message to be read aloud';
             if (cpSkipQueue) cpSkipQueue.checked = cp.skipQueue !== false;
-            if (cpLimitsEnabled) cpLimitsEnabled.checked = cp.limitsEnabled ?? (cp.perStreamLimit > 0 || cp.perUserLimit > 0);
+            if (cpLimitsEnabled) cpLimitsEnabled.checked = cp.limitsEnabled ?? (cp.perStreamLimit > 0 || cp.perUserPerStreamLimit > 0);
             if (cpCooldown) cpCooldown.value = cp.limitsEnabled ? Math.max(1, cp.cooldownSeconds ?? 1) : (cp.cooldownSeconds ?? 0);
             if (cpPerStream) cpPerStream.value = cp.perStreamLimit > 0 ? cp.perStreamLimit : '';
-            if (cpPerUser) cpPerUser.value = cp.perUserLimit > 0 ? cp.perUserLimit : '';
-            if (cpMin) cpMin.value = cp.minimumBitsRequirement ?? '';
-            if (cpMax) cpMax.value = cp.maximumBitsRequirement ?? '';
-            if (cpBlockLinks) cpBlockLinks.checked = cp.blockLinks ?? false;
-            if (cpBannedWords) cpBannedWords.value = (cp.bannedWords || []).join(', ');
+            if (cpPerUser) cpPerUser.value = cp.perUserPerStreamLimit > 0 ? cp.perUserPerStreamLimit : '';
+            if (cpMin) cpMin.value = policy.minChars ?? 1;
+            if (cpMax) cpMax.value = policy.maxChars ?? 500;
+            if (cpBlockLinks) cpBlockLinks.checked = policy.blockLinks ?? false;
+            if (cpBannedWords) cpBannedWords.value = (policy.bannedWords || []).join(', ');
             if (cpMsg) cpMsg.className = 'text-muted';
             if (cpStatusLine) {
                 const lastSynced = cp.lastSyncedAt ? new Date(cp.lastSyncedAt).toLocaleTimeString() : 'never';
@@ -115,14 +116,16 @@ export function initChannelPointsModule(context, services, deps = {}) {
             limitsEnabled: !!cpLimitsEnabled?.checked,
             cooldownSeconds: parseInt(cpCooldown?.value || '0', 10),
             perStreamLimit: parseInt((cpPerStream?.value || '').toString().trim() || '0', 10),
-            perUserLimit: parseInt((cpPerUser?.value || '').toString().trim() || '0', 10),
-            minimumBitsRequirement: parseInt((cpMin?.value || '').toString().trim() || '0', 10),
-            maximumBitsRequirement: parseInt((cpMax?.value || '').toString().trim() || '0', 10),
-            blockLinks: !!cpBlockLinks?.checked,
-            bannedWords: (cpBannedWords?.value || '')
-                .split(',')
-                .map(word => word.trim())
-                .filter(Boolean)
+            perUserPerStreamLimit: parseInt((cpPerUser?.value || '').toString().trim() || '0', 10),
+            contentPolicy: {
+                minChars: parseInt((cpMin?.value || '').toString().trim() || '1', 10),
+                maxChars: parseInt((cpMax?.value || '').toString().trim() || '500', 10),
+                blockLinks: !!cpBlockLinks?.checked,
+                bannedWords: (cpBannedWords?.value || '')
+                    .split(',')
+                    .map(word => word.trim())
+                    .filter(Boolean)
+            }
         };
 
         if (!isAuto) {
