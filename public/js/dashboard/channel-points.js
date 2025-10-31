@@ -233,8 +233,6 @@ export function initChannelPointsModule(context, services, deps = {}) {
         bind(cpCooldown);
         bind(cpPerStream);
         bind(cpPerUser);
-        bind(cpMin);
-        bind(cpMax);
         bind(cpBlockLinks, ['change']);
         bind(cpBannedWords);
 
