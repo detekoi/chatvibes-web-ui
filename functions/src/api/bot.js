@@ -4,10 +4,10 @@
 
 const express = require("express");
 const {db, COLLECTIONS} = require("../services/firestore");
-const {getValidTwitchTokenForUser} = require("../services/twitch");
+const {getValidTwitchTokenForUser, getUserIdFromUsername, addModerator} = require("../services/twitch");
 const {getAllowedChannelsList} = require("../services/utils");
 const {authenticateApiRequest} = require("../middleware/auth");
-const {secrets} = require("../config");
+const {secrets, config, secretsLoadedPromise} = require("../config");
 
 // eslint-disable-next-line new-cap
 const router = express.Router();
@@ -55,6 +55,9 @@ router.get("/status", authenticateApiRequest, async (req, res) => {
 
 // Route: /api/bot/add
 router.post("/add", authenticateApiRequest, async (req, res) => {
+  // Ensure secrets are loaded before accessing config
+  await secretsLoadedPromise;
+
   const {userId: twitchUserId, userLogin: channelLogin, displayName} = req.user;
   if (!db) {
     console.error("[API /add] Firestore (db) not initialized!");
@@ -96,10 +99,39 @@ router.post("/add", authenticateApiRequest, async (req, res) => {
     }, {merge: true});
 
     console.log(`[API /add] Bot successfully added to channel: ${channelLogin}`);
+
+    // Automatically add bot as moderator
+    let modStatus = {success: false, error: "Bot username not configured"};
+    if (config.TWITCH_BOT_USERNAME) {
+      try {
+        console.log(`[API /add] Attempting to add bot ${config.TWITCH_BOT_USERNAME} as moderator...`);
+        const botUserId = await getUserIdFromUsername(config.TWITCH_BOT_USERNAME, secrets);
+
+        if (botUserId) {
+          modStatus = await addModerator(channelLogin, twitchUserId, botUserId, secrets);
+          if (modStatus.success) {
+            console.log(`[API /add] Bot successfully added as moderator to ${channelLogin}`);
+          } else {
+            console.warn(`[API /add] Failed to add bot as moderator: ${modStatus.error}`);
+          }
+        } else {
+          console.warn(`[API /add] Could not find user ID for bot username: ${config.TWITCH_BOT_USERNAME}`);
+          modStatus = {success: false, error: "Bot user not found"};
+        }
+      } catch (modError) {
+        console.error(`[API /add] Error adding bot as moderator:`, modError);
+        modStatus = {success: false, error: modError.message};
+      }
+    } else {
+      console.warn(`[API /add] TWITCH_BOT_USERNAME not configured, skipping moderator setup`);
+    }
+
     res.json({
       success: true,
       message: "Bot added to your channel successfully!",
       channelName: channelLogin,
+      moderatorStatus: modStatus.success ? "added" : "failed",
+      moderatorError: modStatus.success ? undefined : modStatus.error,
     });
   } catch (error) {
     console.error(`[API /add] Error adding bot to ${channelLogin}:`, error);

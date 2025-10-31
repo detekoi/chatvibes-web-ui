@@ -31,6 +31,7 @@ const secretsLoadedPromise = (async () => {
       secrets.TWITCH_CLIENT_SECRET = process.env.TWITCH_CLIENT_SECRET || "demo-client-secret";
       secrets.JWT_SECRET = process.env.JWT_SECRET || "local-dev-jwt-secret";
       secrets.WAVESPEED_API_KEY = process.env.WAVESPEED_API_KEY || "";
+      config.TWITCH_BOT_USERNAME = process.env.TWITCH_BOT_USERNAME || "";
       console.log("✅ Loaded secrets from environment (emulator mode).");
       return;
     }
@@ -40,17 +41,21 @@ const secretsLoadedPromise = (async () => {
       twitchClientSecret,
       jwtSecret,
       wavespeedApiKey,
+      botUsername,
     ] = await Promise.all([
       loadSecret("twitch-client-id"),
       loadSecret("twitch-client-secret"),
       loadSecret("jwt-secret-key"),
       loadSecret("WAVESPEED_API_KEY"),
+      loadSecret("twitch-bot-username").catch(() => null), // Bot username is optional if stored as secret
     ]);
 
     secrets.TWITCH_CLIENT_ID = twitchClientId;
     secrets.TWITCH_CLIENT_SECRET = twitchClientSecret;
     secrets.JWT_SECRET = jwtSecret;
     secrets.WAVESPEED_API_KEY = wavespeedApiKey;
+    // Bot username can be from secret or env var
+    config.TWITCH_BOT_USERNAME = botUsername || process.env.TWITCH_BOT_USERNAME || "";
 
     console.log("✅ Successfully loaded all required secrets.");
   } catch (error) {
@@ -60,11 +65,13 @@ const secretsLoadedPromise = (async () => {
 })();
 
 // Configuration variables (not secrets)
+// Important: Bot username is loaded from secret or env var in secretsLoadedPromise
 const config = {
   CALLBACK_URL: process.env.CALLBACK_URL,
   FRONTEND_URL: process.env.FRONTEND_URL,
   OBS_BROWSER_BASE_URL: process.env.OBS_BROWSER_BASE_URL || "https://chatvibes-tts-service-h7kj56ct4q-uc.a.run.app",
   GCLOUD_PROJECT: process.env.GCLOUD_PROJECT,
+  TWITCH_BOT_USERNAME: "", // Set during secretsLoadedPromise
 };
 
 module.exports = {

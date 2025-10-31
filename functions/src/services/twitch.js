@@ -201,11 +201,135 @@ async function makeTwitchApiRequest(userLogin, endpoint, secrets, options = {}) 
   return response.data;
 }
 
+/**
+ * Gets an app access token for Twitch API calls that don't require user context
+ * @param {Object} secrets - The loaded secrets object
+ * @return {Promise<string>} An app access token
+ */
+async function getAppAccessToken(secrets) {
+  try {
+    const response = await axios.post(TWITCH_TOKEN_URL, null, {
+      params: {
+        client_id: secrets.TWITCH_CLIENT_ID,
+        client_secret: secrets.TWITCH_CLIENT_SECRET,
+        grant_type: "client_credentials",
+      },
+      timeout: 15000,
+    });
+
+    if (!response.data?.access_token) {
+      throw new Error("No access token in response");
+    }
+
+    return response.data.access_token;
+  } catch (error) {
+    console.error("[getAppAccessToken] Error getting app access token:", error.response?.data || error.message);
+    throw new Error("Failed to get app access token");
+  }
+}
+
+/**
+ * Gets a Twitch user ID from a username (login)
+ * @param {string} username - The Twitch username
+ * @param {Object} secrets - The loaded secrets object
+ * @return {Promise<string|null>} The user ID or null if not found
+ */
+async function getUserIdFromUsername(username, secrets) {
+  try {
+    // Use app access token for this lookup (doesn't require user context)
+    const appToken = await getAppAccessToken(secrets);
+
+    const response = await axios.get(`${TWITCH_HELIX_BASE}/users`, {
+      params: {login: username.toLowerCase()},
+      headers: {
+        "Authorization": `Bearer ${appToken}`,
+        "Client-Id": secrets.TWITCH_CLIENT_ID,
+      },
+      timeout: 15000,
+    });
+
+    if (response.data?.data && response.data.data.length > 0) {
+      return response.data.data[0].id;
+    }
+    return null;
+  } catch (error) {
+    console.error(`[getUserIdFromUsername] Error getting user ID for ${username}:`, error.response?.data || error.message);
+    return null;
+  }
+}
+
+/**
+ * Adds a user as a moderator in a broadcaster's channel
+ * @param {string} broadcasterLogin - The broadcaster's Twitch login
+ * @param {string} broadcasterId - The broadcaster's Twitch user ID
+ * @param {string} moderatorUserId - The user ID to add as moderator
+ * @param {Object} secrets - The loaded secrets object
+ * @return {Promise<Object>} Success status and optional error message. Object has success (boolean) and optional error (string) properties.
+ */
+async function addModerator(broadcasterLogin, broadcasterId, moderatorUserId, secrets) {
+  try {
+    const accessToken = await getValidTwitchTokenForUser(broadcasterLogin, secrets);
+
+    const response = await axios.post(
+        `${TWITCH_HELIX_BASE}/moderation/moderators`,
+        null,
+        {
+          params: {
+            broadcaster_id: broadcasterId,
+            user_id: moderatorUserId,
+          },
+          headers: {
+            "Authorization": `Bearer ${accessToken}`,
+            "Client-Id": secrets.TWITCH_CLIENT_ID,
+          },
+          timeout: 15000,
+        },
+    );
+
+    // 204 No Content means success (moderator was added)
+    if (response.status === 204) {
+      console.log(`[addModerator] Successfully added moderator ${moderatorUserId} to channel ${broadcasterLogin}`);
+      return {success: true};
+    }
+
+    return {success: false, error: `Unexpected status: ${response.status}`};
+  } catch (error) {
+    const status = error.response?.status;
+    const errorData = error.response?.data;
+    const errorMessage = errorData?.message || error.message;
+
+    // 401 Unauthorized - token invalid, expired, or missing scope
+    if (status === 401) {
+      console.warn(`[addModerator] Authentication failed for ${broadcasterLogin} - may be missing channel:manage:moderators scope`);
+      return {success: false, error: "Authentication failed. Missing required scope or invalid token. Please re-authenticate."};
+    }
+
+    // 403 Forbidden - user is already a moderator or other permission issue
+    if (status === 403) {
+      console.log(`[addModerator] User ${moderatorUserId} is already a moderator in ${broadcasterLogin} (403 response)`);
+      return {success: true}; // Already a mod, treat as success
+    }
+
+    // 400 Bad Request - could be: invalid parameters, user banned, or VIP
+    if (status === 400) {
+      console.warn(`[addModerator] Cannot add ${moderatorUserId} as moderator in ${broadcasterLogin}: ${errorMessage}`);
+      return {success: false, error: errorMessage || "User cannot be added as moderator (may be banned, VIP, or invalid parameters)"};
+    }
+
+    // Other errors
+    console.error(`[addModerator] Error adding moderator ${moderatorUserId} to ${broadcasterLogin}:`, errorData || errorMessage);
+    return {success: false, error: errorMessage || "Unknown error occurred"};
+  }
+}
+
 module.exports = {
   refreshTwitchToken,
   getValidTwitchTokenForUser,
   validateTwitchToken,
   makeTwitchApiRequest,
+  getAppAccessToken,
+  getUserIdFromUsername,
+  addModerator,
   TWITCH_TOKEN_URL,
   TWITCH_VALIDATE_URL,
   TWITCH_HELIX_BASE,
