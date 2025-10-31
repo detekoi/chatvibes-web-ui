@@ -26,8 +26,6 @@ export function initChannelPointsModule(context, services, deps = {}) {
     const cpCooldown = document.getElementById('cp-cooldown');
     const cpPerStream = document.getElementById('cp-per-stream');
     const cpPerUser = document.getElementById('cp-per-user');
-    const cpMin = document.getElementById('cp-min');
-    const cpMax = document.getElementById('cp-max');
     const cpBlockLinks = document.getElementById('cp-block-links');
     const cpBannedWords = document.getElementById('cp-banned-words');
     const cpSaveBtn = document.getElementById('cp-save');
@@ -81,8 +79,6 @@ export function initChannelPointsModule(context, services, deps = {}) {
             if (cpCooldown) cpCooldown.value = cp.limitsEnabled ? Math.max(1, cp.cooldownSeconds ?? 1) : (cp.cooldownSeconds ?? 0);
             if (cpPerStream) cpPerStream.value = cp.perStreamLimit > 0 ? cp.perStreamLimit : '';
             if (cpPerUser) cpPerUser.value = cp.perUserPerStreamLimit > 0 ? cp.perUserPerStreamLimit : '';
-            if (cpMin) cpMin.value = policy.minChars ?? 1;
-            if (cpMax) cpMax.value = policy.maxChars ?? 500;
             if (cpBlockLinks) cpBlockLinks.checked = policy.blockLinks ?? false;
             if (cpBannedWords) cpBannedWords.value = (policy.bannedWords || []).join(', ');
             if (cpMsg) cpMsg.className = 'text-muted';
@@ -118,8 +114,6 @@ export function initChannelPointsModule(context, services, deps = {}) {
             perStreamLimit: parseInt((cpPerStream?.value || '').toString().trim() || '0', 10),
             perUserPerStreamLimit: parseInt((cpPerUser?.value || '').toString().trim() || '0', 10),
             contentPolicy: {
-                minChars: parseInt((cpMin?.value || '').toString().trim() || '1', 10),
-                maxChars: parseInt((cpMax?.value || '').toString().trim() || '500', 10),
                 blockLinks: !!cpBlockLinks?.checked,
                 bannedWords: (cpBannedWords?.value || '')
                     .split(',')

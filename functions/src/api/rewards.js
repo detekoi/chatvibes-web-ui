@@ -28,18 +28,12 @@ async function validateChannelPointsTestMessage(channelLogin, text) {
   const channelPoints = data.channelPoints || {};
   const policy = channelPoints.contentPolicy || {};
 
-  const minChars = Number.isFinite(policy.minChars) ? policy.minChars : 1;
-  const maxChars = Number.isFinite(policy.maxChars) ? policy.maxChars : 200;
   const blockLinks = policy.blockLinks !== false; // default true
   const bannedWords = Array.isArray(policy.bannedWords) ? policy.bannedWords : [];
 
   const trimmed = text.trim();
-  if (trimmed.length < minChars) {
-    return {ok: false, reason: `Message too short (min ${minChars})`};
-  }
-  if (trimmed.length > maxChars) {
-    return {ok: false, reason: `Message too long (max ${maxChars})`};
-  }
+
+  // Note: Twitch enforces 500 character limit on redemption input, so we don't validate length here
 
   if (blockLinks) {
     const linkRegex = /(https?:\/\/\S+|\b\w+\.[a-z]{2,}\b)/i;
@@ -124,8 +118,6 @@ async function ensureTtsChannelPointReward(channelLogin, twitchUserId) {
         perStreamLimit: 0,
         perUserPerStreamLimit: 0,
         contentPolicy: {
-          minChars: 1,
-          maxChars: 200,
           blockLinks: true,
           bannedWords: [],
         },
@@ -241,8 +233,6 @@ async function handleUpsertTtsReward(req, res) {
     const limitsEnabled = body.limitsEnabled === true;
     const cooldownSeconds = Number.isFinite(rawCooldown) ? Math.max(limitsEnabled ? 1 : 0, Math.min(3600, rawCooldown)) : (limitsEnabled ? 1 : 0);
     const contentPolicy = {
-      minChars: Math.max(0, Math.min(500, parseInt(body.contentPolicy?.minChars ?? 1, 10))),
-      maxChars: Math.max(1, Math.min(500, parseInt(body.contentPolicy?.maxChars ?? 200, 10))),
       blockLinks: body.contentPolicy?.blockLinks !== false,
       bannedWords: Array.isArray(body.contentPolicy?.bannedWords) ? body.contentPolicy.bannedWords.slice(0, 100) : [],
     };
