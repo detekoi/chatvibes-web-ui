@@ -8,6 +8,7 @@ const {db, COLLECTIONS} = require("../services/firestore");
 const {getValidTwitchTokenForUser} = require("../services/twitch");
 const {authenticateApiRequest} = require("../middleware/auth");
 const {secrets} = require("../config");
+const {logger, redactSensitive} = require("../logger");
 
 // eslint-disable-next-line new-cap
 const router = express.Router();
@@ -100,7 +101,7 @@ async function ensureTtsChannelPointReward(channelLogin, twitchUserId) {
       storedRewardId = ttsDoc.data().channelPointRewardId || null;
     }
   } catch (e) {
-    console.warn(`[ensureTtsChannelPointReward] Could not read ttsChannelConfigs for ${channelLogin}:`, e.message);
+    logger.warn({channelLogin, error: e.message}, "[ensureTtsChannelPointReward] Could not read ttsChannelConfigs");
   }
 
   // Helper to upsert the Firestore record
@@ -136,7 +137,12 @@ async function ensureTtsChannelPointReward(channelLogin, twitchUserId) {
       await setFirestoreReward(storedRewardId);
       return {status: "updated", rewardId: storedRewardId};
     } catch (e) {
-      console.warn(`[ensureTtsChannelPointReward] Update existing reward failed for ${channelLogin}:`, e?.response?.status, e?.response?.data || e?.message || e);
+      logger.warn({
+        channelLogin,
+        status: e?.response?.status,
+        error: e?.message,
+        responseData: redactSensitive(e?.response?.data),
+      }, "[ensureTtsChannelPointReward] Update existing reward failed");
       // Fall through to search/create
     }
   }
@@ -152,13 +158,18 @@ async function ensureTtsChannelPointReward(channelLogin, twitchUserId) {
         await helix.patch(`/channel_points/custom_rewards?broadcaster_id=${encodeURIComponent(twitchUserId)}&id=${encodeURIComponent(existing.id)}`, desiredBody);
       } catch (_e) {
         // Non-fatal if update fails; we can still use the reward as-is
-        console.warn(`[ensureTtsChannelPointReward] Failed to update existing reward ${existing.id} for ${channelLogin}`);
+        logger.warn({channelLogin, rewardId: existing.id}, "[ensureTtsChannelPointReward] Failed to update existing reward");
       }
       await setFirestoreReward(existing.id);
       return {status: "reused", rewardId: existing.id};
     }
   } catch (e) {
-    console.warn(`[ensureTtsChannelPointReward] Listing rewards failed for ${channelLogin}:`, e?.response?.status, e?.response?.data || e?.message || e);
+    logger.warn({
+      channelLogin,
+      status: e?.response?.status,
+      error: e?.message,
+      responseData: redactSensitive(e?.response?.data),
+    }, "[ensureTtsChannelPointReward] Listing rewards failed");
   }
 
   // Create new reward
@@ -171,7 +182,12 @@ async function ensureTtsChannelPointReward(channelLogin, twitchUserId) {
     }
     throw new Error("No reward data returned from Twitch");
   } catch (e) {
-    console.error(`[ensureTtsChannelPointReward] Create new reward failed for ${channelLogin}:`, e?.response?.status, e?.response?.data || e?.message || e);
+    logger.error({
+      channelLogin,
+      status: e?.response?.status,
+      error: e?.message,
+      responseData: redactSensitive(e?.response?.data),
+    }, "[ensureTtsChannelPointReward] Create new reward failed");
     throw new Error("Failed to create TTS channel point reward");
   }
 }
@@ -179,8 +195,10 @@ async function ensureTtsChannelPointReward(channelLogin, twitchUserId) {
 
 // GET current TTS reward config and Twitch status
 router.get("/tts", authenticateApiRequest, async (req, res) => {
+  const channelLogin = req.user.userLogin;
+  const log = logger.child({endpoint: "GET /api/rewards/tts", channelLogin});
+  
   try {
-    const channelLogin = req.user.userLogin;
     const doc = await db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelLogin).get();
     const data = doc.exists ? doc.data() : {};
     const channelPoints = data.channelPoints || null;
@@ -198,22 +216,28 @@ router.get("/tts", authenticateApiRequest, async (req, res) => {
         const resp = await helix.get(`/channel_points/custom_rewards?broadcaster_id=${encodeURIComponent(broadcasterId)}&id=${encodeURIComponent(channelPoints.rewardId)}`);
         twitchStatus = Array.isArray(resp.data?.data) && resp.data.data.length > 0 ? resp.data.data[0] : null;
       } catch (e) {
-        console.warn("[GET /api/rewards/tts] Twitch lookup failed:", e.response?.status, e.response?.data || e.message);
+        log.warn({
+          status: e.response?.status,
+          error: e.message,
+          responseData: redactSensitive(e.response?.data),
+        }, "Twitch lookup failed");
       }
     }
 
     return res.json({success: true, channelPoints, twitchStatus});
   } catch (error) {
-    console.error("[GET /api/rewards/tts] Error:", error);
+    log.error({error: error.message}, "Error getting reward config");
     res.status(500).json({success: false, error: "Failed to load reward config"});
   }
 });
 
 // Shared handler to create or update TTS reward and persist config
 async function handleUpsertTtsReward(req, res) {
+  const channelLogin = req.user.userLogin;
+  const broadcasterId = req.user.userId;
+  const log = logger.child({endpoint: `${req.method} /api/rewards/tts`, channelLogin});
+  
   try {
-    const channelLogin = req.user.userLogin;
-    const broadcasterId = req.user.userId;
     const body = req.body || {};
 
     // Normalize and validate incoming config minimally (server-side)
@@ -290,21 +314,25 @@ async function handleUpsertTtsReward(req, res) {
         };
 
         await helix.patch(`/channel_points/custom_rewards?broadcaster_id=${encodeURIComponent(broadcasterId)}&id=${encodeURIComponent(finalRewardId)}`, twitchUpdateBody);
-        console.log(`[${req.method} /api/rewards/tts] Updated Twitch reward ${finalRewardId} for ${channelLogin}`);
+        log.info({rewardId: finalRewardId}, "Updated Twitch reward");
       } catch (twitchError) {
         const errorMessage = twitchError.response?.data?.message || twitchError.message;
         const errorStatus = twitchError.response?.status;
-        console.error(`[${req.method} /api/rewards/tts] Failed to update Twitch reward for ${channelLogin}:`, errorStatus, twitchError.response?.data || errorMessage);
+        log.error({
+          status: errorStatus,
+          error: errorMessage,
+          responseData: redactSensitive(twitchError.response?.data),
+        }, "Failed to update Twitch reward");
 
         // If reward not found (404), create a new one if we're enabling
         if (errorStatus === 404 && enabled) {
-          console.log(`[${req.method} /api/rewards/tts] Reward not found, creating new reward for ${channelLogin}`);
+          log.info("Reward not found, creating new reward");
           try {
             const result = await ensureTtsChannelPointReward(channelLogin, broadcasterId);
             finalRewardId = result.rewardId;
-            console.log(`[${req.method} /api/rewards/tts] Created new reward ${finalRewardId} for ${channelLogin}`);
+            log.info({rewardId: finalRewardId}, "Created new reward");
           } catch (createError) {
-            console.error(`[${req.method} /api/rewards/tts] Failed to create new reward:`, createError);
+            log.error({error: createError.message}, "Failed to create new reward");
             return res.status(500).json({
               success: false,
               error: "Failed to create new Channel Points reward",
@@ -351,7 +379,7 @@ async function handleUpsertTtsReward(req, res) {
       channelPointsEnabled: enabled,
     }, {merge: true});
 
-    console.log(`[${req.method} /api/rewards/tts] Updated config for ${channelLogin}: enabled=${enabled}, rewardId=${finalRewardId}`);
+    log.info({enabled, rewardId: finalRewardId}, "Updated config");
 
     return res.json({
       success: true,
@@ -359,7 +387,7 @@ async function handleUpsertTtsReward(req, res) {
       message: enabled ? "Channel point reward configured successfully" : "Channel point reward disabled",
     });
   } catch (error) {
-    console.error(`[${req.method} /api/rewards/tts] Error:`, error);
+    log.error({error: error.message}, "Error in handleUpsertTtsReward");
 
     if (error.message.includes("re-authenticate")) {
       return res.status(401).json({
@@ -385,8 +413,10 @@ router.put("/tts", authenticateApiRequest, handleUpsertTtsReward);
 
 // DELETE TTS reward
 router.delete("/tts", authenticateApiRequest, async (req, res) => {
+  const channelLogin = req.user.userLogin;
+  const log = logger.child({endpoint: "DELETE /api/rewards/tts", channelLogin});
+  
   try {
-    const channelLogin = req.user.userLogin;
 
     // Load current config
     const doc = await db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelLogin).get();
@@ -414,7 +444,11 @@ router.delete("/tts", authenticateApiRequest, async (req, res) => {
         }
       } catch (twitchError) {
         // If Twitch deletion fails due to permission or already-deleted, we still proceed to clear local state
-        console.warn(`[DELETE /api/rewards/tts] Twitch delete failed for ${channelLogin}:`, twitchError.response?.status, twitchError.response?.data || twitchError.message);
+        log.warn({
+          status: twitchError.response?.status,
+          error: twitchError.message,
+          responseData: redactSensitive(twitchError.response?.data),
+        }, "Twitch delete failed");
       }
     }
 
@@ -437,7 +471,7 @@ router.delete("/tts", authenticateApiRequest, async (req, res) => {
       message: twitchDeleted ? "Disabled & deleted reward" : "Disabled locally; delete may require re-auth or manual removal",
     });
   } catch (error) {
-    console.error("[DELETE /api/rewards/tts] Error:", error);
+    log.error({error: error.message}, "Error deleting TTS reward");
     res.status(500).json({
       success: false,
       error: "Failed to disable/delete TTS reward",
@@ -447,12 +481,14 @@ router.delete("/tts", authenticateApiRequest, async (req, res) => {
 
 // POST test TTS reward
 router.post("/tts/test", authenticateApiRequest, async (req, res) => {
+  const channelLogin = req.user.userLogin;
+  const log = logger.child({endpoint: "POST /api/rewards/tts:test", channelLogin});
+  
   try {
-    const channelLogin = req.user.userLogin;
     const text = (req.body?.text ?? "").toString();
 
     const result = await validateChannelPointsTestMessage(channelLogin, text);
-    console.log(`[POST /api/rewards/tts:test] Test requested for ${channelLogin}`);
+    log.info("Test requested");
 
     if (!result.ok) {
       return res.status(400).json({success: false, error: result.reason});
@@ -460,7 +496,7 @@ router.post("/tts/test", authenticateApiRequest, async (req, res) => {
 
     res.json({success: true, message: "TTS test validated"});
   } catch (error) {
-    console.error("[POST /api/rewards/tts:test] Error:", error);
+    log.error({error: error.message}, "Error testing TTS reward");
     res.status(500).json({
       success: false,
       error: "Failed to test TTS reward",
@@ -470,17 +506,19 @@ router.post("/tts/test", authenticateApiRequest, async (req, res) => {
 
 // Legacy alias to accept colon-based route used by older dashboard builds
 router.post("/tts:test", authenticateApiRequest, async (req, res) => {
+  const channelLogin = req.user.userLogin;
+  const log = logger.child({endpoint: "POST /api/rewards/tts:test (legacy)", channelLogin});
+  
   try {
-    const channelLogin = req.user.userLogin;
     const text = (req.body?.text ?? "").toString();
     const result = await validateChannelPointsTestMessage(channelLogin, text);
-    console.log(`[POST /api/rewards/tts:test] (legacy alias) Test requested for ${channelLogin}`);
+    log.info("Test requested (legacy alias)");
     if (!result.ok) {
       return res.status(400).json({success: false, error: result.reason});
     }
     res.json({success: true, message: "TTS test validated"});
   } catch (error) {
-    console.error("[POST /api/rewards/tts:test] (legacy) Error:", error);
+    log.error({error: error.message}, "Error testing TTS reward (legacy)");
     res.status(500).json({success: false, error: "Failed to test TTS reward"});
   }
 });

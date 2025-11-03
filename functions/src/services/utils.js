@@ -4,6 +4,7 @@
 
 const crypto = require("crypto");
 const {db, COLLECTIONS} = require("./firestore");
+const {logger} = require("../logger");
 
 /**
  * Gets the current Google Cloud project ID
@@ -12,7 +13,7 @@ const {db, COLLECTIONS} = require("./firestore");
 function getProjectId() {
   const projectId = process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT;
   if (!projectId) {
-    console.error("Project ID not found in environment variables.");
+    logger.error("Project ID not found in environment variables.");
     throw new Error("Project ID not configured.");
   }
   return projectId;
@@ -41,13 +42,13 @@ async function getAllowedChannelsList() {
       const list = directList.split(",")
           .map((channel) => channel.trim().toLowerCase())
           .filter(Boolean);
-      console.log(`[AllowList] Loaded ${list.length} entries from ALLOWED_CHANNELS: [${list.join(", ")}]`);
+      logger.info({count: list.length, channels: list}, "[AllowList] Loaded entries from ALLOWED_CHANNELS");
       return list;
     }
 
     const secretName = process.env.ALLOWED_CHANNELS_SECRET_NAME;
     if (!secretName) {
-      console.log("[AllowList] No ALLOWED_CHANNELS or ALLOWED_CHANNELS_SECRET_NAME configured. No channel restrictions.");
+      logger.info("[AllowList] No ALLOWED_CHANNELS or ALLOWED_CHANNELS_SECRET_NAME configured. No channel restrictions.");
       return null;
     }
 
@@ -60,16 +61,16 @@ async function getAllowedChannelsList() {
     const list = secretValue.split(",")
         .map((channel) => channel.trim().toLowerCase())
         .filter(Boolean);
-    console.log(`[AllowList] Loaded ${list.length} entries from ALLOWED_CHANNELS_SECRET_NAME: [${list.join(", ")}]`);
+    logger.info({count: list.length, channels: list}, "[AllowList] Loaded entries from ALLOWED_CHANNELS_SECRET_NAME");
     return list;
   } catch (e) {
-    console.error("[AllowList] Error loading allow-list:", e.message);
+    logger.error({error: e.message}, "[AllowList] Error loading allow-list");
     const hasConfig = process.env.ALLOWED_CHANNELS || process.env.ALLOWED_CHANNELS_SECRET_NAME;
     if (hasConfig) {
-      console.error("[AllowList] Allow-list configured but failed to load. Denying all for security.");
+      logger.error("[AllowList] Allow-list configured but failed to load. Denying all for security.");
       return [];
     } else {
-      console.log("[AllowList] No allow-list configured and no error loading. Allowing all channels.");
+      logger.info("[AllowList] No allow-list configured and no error loading. Allowing all channels.");
       return null;
     }
   }
@@ -169,7 +170,7 @@ async function createShortLink(longUrl) {
     clicks: 0,
   });
 
-  console.log(`Created short link: ${slug} -> ${longUrl}`);
+  logger.info({slug, url: longUrl}, "Created short link");
   return slug;
 }
 

@@ -8,6 +8,7 @@ const {getValidTwitchTokenForUser, getUserIdFromUsername, addModerator} = requir
 const {getAllowedChannelsList} = require("../services/utils");
 const {authenticateApiRequest} = require("../middleware/auth");
 const {secrets, config, secretsLoadedPromise} = require("../config");
+const {logger} = require("../logger");
 
 // eslint-disable-next-line new-cap
 const router = express.Router();
@@ -15,8 +16,10 @@ const router = express.Router();
 // Route: /api/bot/status
 router.get("/status", authenticateApiRequest, async (req, res) => {
   const channelLogin = req.user.userLogin;
+  const log = logger.child({endpoint: "/api/bot/status", channelLogin});
+  
   if (!db) {
-    console.error("[API /status] Firestore (db) not initialized!");
+    log.error("Firestore (db) not initialized!");
     return res.status(500).json({success: false, message: "Firestore not available."});
   }
 
@@ -27,7 +30,7 @@ router.get("/status", authenticateApiRequest, async (req, res) => {
       // Token is valid - proceed
     } catch (tokenError) {
       // Token refresh failed, but we can still check bot status
-      console.warn(`[API /status] Token validation failed for ${channelLogin}, but continuing:`, tokenError.message);
+      log.warn({error: tokenError.message}, "Token validation failed, but continuing");
     }
 
     const docRef = db.collection(COLLECTIONS.MANAGED_CHANNELS).doc(channelLogin);
@@ -48,7 +51,7 @@ router.get("/status", authenticateApiRequest, async (req, res) => {
       });
     }
   } catch (error) {
-    console.error(`[API /status] Error getting status for ${channelLogin}:`, error);
+    log.error({error: error.message}, "Error getting status");
     res.status(500).json({success: false, message: "Error fetching bot status."});
   }
 });
@@ -59,8 +62,10 @@ router.post("/add", authenticateApiRequest, async (req, res) => {
   await secretsLoadedPromise;
 
   const {userId: twitchUserId, userLogin: channelLogin, displayName} = req.user;
+  const log = logger.child({endpoint: "/api/bot/add", channelLogin, twitchUserId});
+  
   if (!db) {
-    console.error("[API /add] Firestore (db) not initialized!");
+    log.error("Firestore (db) not initialized!");
     return res.status(500).json({success: false, message: "Firestore not available."});
   }
 
@@ -68,14 +73,14 @@ router.post("/add", authenticateApiRequest, async (req, res) => {
   try {
     const allowedList = await getAllowedChannelsList();
     if (allowedList !== null && !allowedList.includes(channelLogin.toLowerCase())) {
-      console.log(`[API /add] Channel ${channelLogin} not in allow-list. Access denied.`);
+      log.warn("Channel not in allow-list. Access denied.");
       return res.status(403).json({
         success: false,
         message: "Your channel is not authorized to use this bot. Please contact support if you believe this is an error.",
       });
     }
   } catch (allowListError) {
-    console.error("[API /add] Error checking allow-list:", allowListError.message);
+    log.error({error: allowListError.message}, "Error checking allow-list");
     return res.status(500).json({
       success: false,
       message: "Server error while checking channel authorization.",
@@ -86,7 +91,7 @@ router.post("/add", authenticateApiRequest, async (req, res) => {
     // Ensure we have a valid Twitch token for this user
     await getValidTwitchTokenForUser(channelLogin, secrets);
 
-    console.log(`[API /add] Adding bot to channel: ${channelLogin} (User ID: ${twitchUserId})`);
+    log.info("Adding bot to channel");
 
     const docRef = db.collection(COLLECTIONS.MANAGED_CHANNELS).doc(channelLogin);
     await docRef.set({
@@ -98,32 +103,32 @@ router.post("/add", authenticateApiRequest, async (req, res) => {
       addedAt: new Date(),
     }, {merge: true});
 
-    console.log(`[API /add] Bot successfully added to channel: ${channelLogin}`);
+    log.info("Bot successfully added to channel");
 
     // Automatically add bot as moderator
     let modStatus = {success: false, error: "Bot username not configured"};
     if (config.TWITCH_BOT_USERNAME) {
       try {
-        console.log(`[API /add] Attempting to add bot ${config.TWITCH_BOT_USERNAME} as moderator...`);
+        log.debug({botUsername: config.TWITCH_BOT_USERNAME}, "Attempting to add bot as moderator");
         const botUserId = await getUserIdFromUsername(config.TWITCH_BOT_USERNAME, secrets);
 
         if (botUserId) {
           modStatus = await addModerator(channelLogin, twitchUserId, botUserId, secrets);
           if (modStatus.success) {
-            console.log(`[API /add] Bot successfully added as moderator to ${channelLogin}`);
+            log.info("Bot successfully added as moderator");
           } else {
-            console.warn(`[API /add] Failed to add bot as moderator: ${modStatus.error}`);
+            log.warn({error: modStatus.error}, "Failed to add bot as moderator");
           }
         } else {
-          console.warn(`[API /add] Could not find user ID for bot username: ${config.TWITCH_BOT_USERNAME}`);
+          log.warn({botUsername: config.TWITCH_BOT_USERNAME}, "Could not find user ID for bot username");
           modStatus = {success: false, error: "Bot user not found"};
         }
       } catch (modError) {
-        console.error(`[API /add] Error adding bot as moderator:`, modError);
+        log.error({error: modError.message}, "Error adding bot as moderator");
         modStatus = {success: false, error: modError.message};
       }
     } else {
-      console.warn(`[API /add] TWITCH_BOT_USERNAME not configured, skipping moderator setup`);
+      log.warn("TWITCH_BOT_USERNAME not configured, skipping moderator setup");
     }
 
     res.json({
@@ -134,7 +139,7 @@ router.post("/add", authenticateApiRequest, async (req, res) => {
       moderatorError: modStatus.success ? undefined : modStatus.error,
     });
   } catch (error) {
-    console.error(`[API /add] Error adding bot to ${channelLogin}:`, error);
+    log.error({error: error.message}, "Error adding bot");
     if (error.message.includes("re-authenticate")) {
       res.status(401).json({
         success: false,
@@ -153,13 +158,15 @@ router.post("/add", authenticateApiRequest, async (req, res) => {
 // Route: /api/bot/remove
 router.post("/remove", authenticateApiRequest, async (req, res) => {
   const {userId: twitchUserId, userLogin: channelLogin} = req.user;
+  const log = logger.child({endpoint: "/api/bot/remove", channelLogin, twitchUserId});
+  
   if (!db) {
-    console.error("[API /remove] Firestore (db) not initialized!");
+    log.error("Firestore (db) not initialized!");
     return res.status(500).json({success: false, message: "Firestore not available."});
   }
 
   try {
-    console.log(`[API /remove] Removing bot from channel: ${channelLogin} (User ID: ${twitchUserId})`);
+    log.info("Removing bot from channel");
 
     const docRef = db.collection(COLLECTIONS.MANAGED_CHANNELS).doc(channelLogin);
     await docRef.update({
@@ -167,14 +174,14 @@ router.post("/remove", authenticateApiRequest, async (req, res) => {
       removedAt: new Date(),
     });
 
-    console.log(`[API /remove] Bot successfully removed from channel: ${channelLogin}`);
+    log.info("Bot successfully removed from channel");
     res.json({
       success: true,
       message: "Bot removed from your channel successfully!",
       channelName: channelLogin,
     });
   } catch (error) {
-    console.error(`[API /remove] Error removing bot from ${channelLogin}:`, error);
+    log.error({error: error.message}, "Error removing bot");
     res.status(500).json({
       success: false,
       message: "Failed to remove bot from your channel. Please try again.",

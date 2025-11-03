@@ -6,6 +6,7 @@
 const axios = require("axios");
 const {db, COLLECTIONS} = require("./firestore");
 const {secretManagerClient, config} = require("../config");
+const {logger, redactSensitive} = require("../logger");
 
 // Twitch API endpoints
 const TWITCH_TOKEN_URL = "https://id.twitch.tv/oauth2/token";
@@ -20,11 +21,11 @@ const TWITCH_HELIX_BASE = "https://api.twitch.tv/helix";
  */
 async function refreshTwitchToken(currentRefreshToken, secrets) {
   if (!secrets.TWITCH_CLIENT_ID || !secrets.TWITCH_CLIENT_SECRET) {
-    console.error("Twitch client ID or secret not configured for token refresh.");
+    logger.error("Twitch client ID or secret not configured for token refresh.");
     throw new Error("Server configuration error for Twitch token refresh.");
   }
 
-  console.log("Attempting to refresh Twitch token...");
+  logger.info("Attempting to refresh Twitch token...");
 
   try {
     const refreshResponse = await axios.post(TWITCH_TOKEN_URL, null, {
@@ -39,12 +40,12 @@ async function refreshTwitchToken(currentRefreshToken, secrets) {
     const {access_token: newAccessToken, refresh_token: newRefreshToken, expires_in: expiresIn} = refreshResponse.data;
 
     if (!newAccessToken || !newRefreshToken) {
-      console.error("Missing access_token or refresh_token in refresh response.", refreshResponse.data);
+      logger.error({responseData: redactSensitive(refreshResponse.data)}, "Missing access_token or refresh_token in refresh response");
       throw new Error("Twitch did not return the expected refreshed tokens.");
     }
 
     const expiresAt = new Date(Date.now() + (expiresIn * 1000));
-    console.log(`✅ Successfully refreshed Twitch token. New token expires at: ${expiresAt.toISOString()}`);
+    logger.info({expiresAt: expiresAt.toISOString()}, "Successfully refreshed Twitch token");
 
     return {
       newAccessToken,
@@ -52,7 +53,10 @@ async function refreshTwitchToken(currentRefreshToken, secrets) {
       expiresAt,
     };
   } catch (error) {
-    console.error("❌ Failed to refresh Twitch token:", error.response?.data || error.message);
+    logger.error({
+      error: error.message,
+      responseData: redactSensitive(error.response?.data),
+    }, "Failed to refresh Twitch token");
     throw new Error("Failed to refresh Twitch token");
   }
 }
@@ -64,8 +68,10 @@ async function refreshTwitchToken(currentRefreshToken, secrets) {
  * @return {Promise<string>} A valid access token
  */
 async function getValidTwitchTokenForUser(userLogin, secrets) {
+  const log = logger.child({userLogin});
+  
   if (!db || !secretManagerClient) {
-    console.error("[getValidTwitchTokenForUser] Firestore or Secret Manager client not initialized!");
+    log.error("Firestore or Secret Manager client not initialized!");
     throw new Error("Server configuration error.");
   }
 
@@ -73,7 +79,7 @@ async function getValidTwitchTokenForUser(userLogin, secrets) {
   const userDoc = await userDocRef.get();
 
   if (!userDoc.exists) {
-    console.error(`[getValidTwitchTokenForUser] User ${userLogin} not found in managed channels.`);
+    log.error("User not found in managed channels");
     throw new Error("User not found in managed channels.");
   }
 
@@ -81,12 +87,12 @@ async function getValidTwitchTokenForUser(userLogin, secrets) {
   const {twitchUserId, twitchAccessTokenExpiresAt, needsTwitchReAuth} = userData;
 
   if (needsTwitchReAuth) {
-    console.error(`[getValidTwitchTokenForUser] User ${userLogin} needs to re-authenticate with Twitch.`);
+    log.error("User needs to re-authenticate with Twitch");
     throw new Error("User needs to re-authenticate with Twitch.");
   }
 
   if (!twitchUserId) {
-    console.error(`[getValidTwitchTokenForUser] User ${userLogin} missing twitchUserId.`);
+    log.error("User missing twitchUserId");
     throw new Error("User missing Twitch user ID.");
   }
 
@@ -103,16 +109,16 @@ async function getValidTwitchTokenForUser(userLogin, secrets) {
         name: `${secretName}/versions/latest`,
       });
       const accessToken = version.payload.data.toString().trim();
-      console.log(`[getValidTwitchTokenForUser] Using existing valid token for ${userLogin}`);
+      log.info("Using existing valid token");
       return accessToken;
     } catch (error) {
-      console.warn(`[getValidTwitchTokenForUser] Failed to get access token from Secret Manager for ${userLogin}:`, error.message);
+      log.warn({error: error.message}, "Failed to get access token from Secret Manager");
       // Continue to refresh flow
     }
   }
 
   // Token is expired or missing, refresh it
-  console.log(`[getValidTwitchTokenForUser] Token expired or missing for ${userLogin}, refreshing...`);
+  log.info("Token expired or missing, refreshing...");
 
   try {
     // Get refresh token from Secret Manager
@@ -144,10 +150,10 @@ async function getValidTwitchTokenForUser(userLogin, secrets) {
       lastTokenErrorAt: null,
     });
 
-    console.log(`[getValidTwitchTokenForUser] Successfully refreshed token for ${userLogin}`);
+    log.info("Successfully refreshed token");
     return newAccessToken;
   } catch (error) {
-    console.error(`[getValidTwitchTokenForUser] Failed to refresh token for ${userLogin}:`, error.message);
+    log.error({error: error.message}, "Failed to refresh token");
 
     // Mark user as needing re-auth
     await userDocRef.update({
@@ -172,7 +178,10 @@ async function validateTwitchToken(accessToken) {
     });
     return response.data;
   } catch (error) {
-    console.error("Failed to validate Twitch token:", error.response?.data || error.message);
+    logger.error({
+      error: error.message,
+      responseData: redactSensitive(error.response?.data),
+    }, "Failed to validate Twitch token");
     throw new Error("Token validation failed");
   }
 }
@@ -223,7 +232,10 @@ async function getAppAccessToken(secrets) {
 
     return response.data.access_token;
   } catch (error) {
-    console.error("[getAppAccessToken] Error getting app access token:", error.response?.data || error.message);
+    logger.error({
+      error: error.message,
+      responseData: redactSensitive(error.response?.data),
+    }, "[getAppAccessToken] Error getting app access token");
     throw new Error("Failed to get app access token");
   }
 }
@@ -253,7 +265,11 @@ async function getUserIdFromUsername(username, secrets) {
     }
     return null;
   } catch (error) {
-    console.error(`[getUserIdFromUsername] Error getting user ID for ${username}:`, error.response?.data || error.message);
+    logger.error({
+      username,
+      error: error.message,
+      responseData: redactSensitive(error.response?.data),
+    }, "[getUserIdFromUsername] Error getting user ID");
     return null;
   }
 }
@@ -288,7 +304,7 @@ async function addModerator(broadcasterLogin, broadcasterId, moderatorUserId, se
 
     // 204 No Content means success (moderator was added)
     if (response.status === 204) {
-      console.log(`[addModerator] Successfully added moderator ${moderatorUserId} to channel ${broadcasterLogin}`);
+      logger.info({broadcasterLogin, moderatorUserId}, "[addModerator] Successfully added moderator");
       return {success: true};
     }
 
@@ -297,27 +313,31 @@ async function addModerator(broadcasterLogin, broadcasterId, moderatorUserId, se
     const status = error.response?.status;
     const errorData = error.response?.data;
     const errorMessage = errorData?.message || error.message;
+    const log = logger.child({broadcasterLogin, moderatorUserId, status});
 
     // 401 Unauthorized - token invalid, expired, or missing scope
     if (status === 401) {
-      console.warn(`[addModerator] Authentication failed for ${broadcasterLogin} - may be missing channel:manage:moderators scope`);
+      log.warn("Authentication failed - may be missing channel:manage:moderators scope");
       return {success: false, error: "Authentication failed. Missing required scope or invalid token. Please re-authenticate."};
     }
 
     // 403 Forbidden - user is already a moderator or other permission issue
     if (status === 403) {
-      console.log(`[addModerator] User ${moderatorUserId} is already a moderator in ${broadcasterLogin} (403 response)`);
+      log.info("User is already a moderator (403 response)");
       return {success: true}; // Already a mod, treat as success
     }
 
     // 400 Bad Request - could be: invalid parameters, user banned, or VIP
     if (status === 400) {
-      console.warn(`[addModerator] Cannot add ${moderatorUserId} as moderator in ${broadcasterLogin}: ${errorMessage}`);
+      log.warn({errorMessage}, "Cannot add user as moderator");
       return {success: false, error: errorMessage || "User cannot be added as moderator (may be banned, VIP, or invalid parameters)"};
     }
 
     // Other errors
-    console.error(`[addModerator] Error adding moderator ${moderatorUserId} to ${broadcasterLogin}:`, errorData || errorMessage);
+    log.error({
+      errorMessage,
+      errorData: redactSensitive(errorData),
+    }, "Error adding moderator");
     return {success: false, error: errorMessage || "Unknown error occurred"};
   }
 }

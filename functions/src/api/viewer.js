@@ -6,12 +6,14 @@ const express = require("express");
 const {db, COLLECTIONS} = require("../services/firestore");
 const {validateSpeed, validatePitch, validateEmotion, validateLanguageBoost, normalizeEmotion} = require("../services/utils");
 const {authenticateApiRequest} = require("../middleware/auth");
+const {logger} = require("../logger");
 
 // eslint-disable-next-line new-cap
 const router = express.Router();
 
 // Route: /api/viewer/auth - Viewer authentication
 router.post("/auth", async (req, res) => {
+  const log = logger.child({endpoint: "/api/viewer/auth"});
   try {
     const {token} = req.body;
 
@@ -21,7 +23,7 @@ router.post("/auth", async (req, res) => {
 
     // For viewer auth, we might validate against a different service
     // or use a simpler token scheme
-    console.log(`[API /viewer/auth] Authenticating viewer token`);
+    log.info("Authenticating viewer token");
 
     // This would typically validate the token with your main TTS service
     // For now, we'll return a simple response
@@ -30,24 +32,25 @@ router.post("/auth", async (req, res) => {
       message: "Viewer authenticated successfully",
     });
   } catch (error) {
-    console.error("[API /viewer/auth] Error:", error);
+    log.error({error: error.message}, "Error authenticating viewer");
     res.status(500).json({error: "Authentication failed"});
   }
 });
 
 // Route: /api/viewer/preferences/:channel - Get viewer preferences for a specific channel
 router.get("/preferences/:channel", authenticateApiRequest, async (req, res) => {
+  const {channel} = req.params;
+  const username = req.user.userLogin;
+  const log = logger.child({endpoint: "/api/viewer/preferences/:channel", channel, username});
+  
   try {
-    const {channel} = req.params;
-    const username = req.user.userLogin;
-
     if (!channel) {
       return res.status(400).json({error: "Channel is required"});
     }
 
     // Security check: ensure the authenticated user matches the token user
     if (req.user.scope === "viewer" && req.user.tokenUser && req.user.tokenUser !== username) {
-      console.log("SECURITY VIOLATION BLOCKED: User", username, "trying to access", req.user.tokenUser, "preferences in GET");
+      log.warn({tokenUser: req.user.tokenUser}, "SECURITY VIOLATION BLOCKED: User trying to access other user preferences in GET");
       return res.status(403).json({error: "Access denied: token user mismatch"});
     }
 
@@ -68,7 +71,7 @@ router.get("/preferences/:channel", authenticateApiRequest, async (req, res) => 
         globalPrefs = userDoc.data() || {};
       }
     } catch (e) {
-      console.warn("Failed to load global user prefs:", e.message);
+      log.warn({error: e.message}, "Failed to load global user prefs");
     }
 
     // Check if user is ignored
@@ -82,7 +85,7 @@ router.get("/preferences/:channel", authenticateApiRequest, async (req, res) => 
         musicIgnored = ((musicDoc.data().ignoredUsers || []).includes(username));
       }
     } catch (error) {
-      console.warn("Failed to check music ignore status:", error);
+      log.warn({error: error.message}, "Failed to check music ignore status");
     }
 
     // Map global prefs to UI schema (languageBoost -> language)
@@ -106,19 +109,21 @@ router.get("/preferences/:channel", authenticateApiRequest, async (req, res) => 
       },
     };
 
-    console.log(`[API /viewer/preferences/:channel] Preferences retrieved for ${username} in ${channel}`);
+    log.info("Preferences retrieved");
     res.json(responseBody);
   } catch (error) {
-    console.error("[API /viewer/preferences/:channel] Error:", error);
+    log.error({error: error.message}, "Error retrieving preferences");
     res.status(500).json({error: "Failed to retrieve preferences"});
   }
 });
 
 // Route: /api/viewer/preferences/:channel - Update viewer preferences for a specific channel
 router.put("/preferences/:channel", authenticateApiRequest, async (req, res) => {
+  const {channel} = req.params;
+  const username = req.user.userLogin;
+  const log = logger.child({endpoint: "/api/viewer/preferences/:channel", channel, username});
+  
   try {
-    const {channel} = req.params;
-    const username = req.user.userLogin;
     const updates = req.body;
 
     if (!channel) {
@@ -127,7 +132,7 @@ router.put("/preferences/:channel", authenticateApiRequest, async (req, res) => 
 
     // Security check
     if (req.user.scope === "viewer" && req.user.tokenUser && req.user.tokenUser !== username) {
-      console.log("SECURITY VIOLATION BLOCKED: User", username, "trying to access", req.user.tokenUser, "preferences in PUT");
+      log.warn({tokenUser: req.user.tokenUser}, "SECURITY VIOLATION BLOCKED: User trying to access other user preferences in PUT");
       return res.status(403).json({error: "Access denied: token user mismatch"});
     }
 
@@ -179,19 +184,20 @@ router.put("/preferences/:channel", authenticateApiRequest, async (req, res) => 
     // Update global user preferences
     await db.collection("ttsUserPreferences").doc(username).set(updateData, {merge: true});
 
-    console.log(`[API /viewer/preferences/:channel] Preferences updated for ${username} in ${channel}`);
+    log.info("Preferences updated");
     res.json({success: true, message: "Preferences updated successfully"});
   } catch (error) {
-    console.error("[API /viewer/preferences/:channel] Error:", error);
+    log.error({error: error.message}, "Error updating preferences");
     res.status(500).json({error: "Failed to update preferences"});
   }
 });
 
 // Route: /api/viewer/preferences - Get global viewer preferences
 router.get("/preferences", authenticateApiRequest, async (req, res) => {
+  const username = req.user.userLogin;
+  const log = logger.child({endpoint: "/api/viewer/preferences", username});
+  
   try {
-    const username = req.user.userLogin;
-
     // Load global user preferences
     let globalPrefs = {};
     try {
@@ -200,7 +206,7 @@ router.get("/preferences", authenticateApiRequest, async (req, res) => {
         globalPrefs = userDoc.data() || {};
       }
     } catch (e) {
-      console.warn("Failed to load global user prefs:", e.message);
+      log.warn({error: e.message}, "Failed to load global user prefs");
     }
 
     // Map internal fields to UI schema
@@ -213,18 +219,20 @@ router.get("/preferences", authenticateApiRequest, async (req, res) => {
       englishNormalization: (globalPrefs.englishNormalization !== undefined) ? globalPrefs.englishNormalization : undefined,
     };
 
-    console.log(`[API /viewer/preferences] Global preferences retrieved for ${username}`);
+    log.info("Global preferences retrieved");
     res.json(responseBody);
   } catch (error) {
-    console.error("[API /viewer/preferences] Error:", error);
+    log.error({error: error.message}, "Error retrieving global preferences");
     res.status(500).json({error: "Failed to retrieve global preferences"});
   }
 });
 
 // Route: /api/viewer/preferences - Update global viewer preferences
 router.put("/preferences", authenticateApiRequest, async (req, res) => {
+  const username = req.user.userLogin;
+  const log = logger.child({endpoint: "/api/viewer/preferences", username});
+  
   try {
-    const username = req.user.userLogin;
     const updates = req.body;
 
     // Prepare update data with validation
@@ -269,19 +277,21 @@ router.put("/preferences", authenticateApiRequest, async (req, res) => {
     // Update global user preferences
     await db.collection("ttsUserPreferences").doc(username).set(updateData, {merge: true});
 
-    console.log(`[API /viewer/preferences] Global preferences updated for ${username}`);
+    log.info("Global preferences updated");
     res.json({success: true, message: "Global preferences updated successfully"});
   } catch (error) {
-    console.error("[API /viewer/preferences] Error:", error);
+    log.error({error: error.message}, "Error updating global preferences");
     res.status(500).json({error: "Failed to update global preferences"});
   }
 });
 
 // Route: /api/viewer/ignore/tts/:channel - Toggle TTS ignore status
 router.post("/ignore/tts/:channel", authenticateApiRequest, async (req, res) => {
+  const {channel} = req.params;
+  const username = req.user.userLogin;
+  const log = logger.child({endpoint: "/api/viewer/ignore/tts/:channel", channel, username});
+  
   try {
-    const {channel} = req.params;
-    const username = req.user.userLogin;
 
     if (!channel) {
       return res.status(400).json({error: "Channel is required"});
@@ -303,27 +313,29 @@ router.post("/ignore/tts/:channel", authenticateApiRequest, async (req, res) => 
       await channelDocRef.update({
         ignoredUsers: ignoredUsers.filter((user) => user !== username),
       });
-      console.log(`[API /viewer/ignore/tts/:channel] Removed ${username} from TTS ignore list for ${channel}`);
+      log.info("Removed user from TTS ignore list");
       res.json({success: true, ignored: false, message: "Removed from TTS ignore list"});
     } else {
       // Add to ignore list
       await channelDocRef.update({
         ignoredUsers: [...ignoredUsers, username],
       });
-      console.log(`[API /viewer/ignore/tts/:channel] Added ${username} to TTS ignore list for ${channel}`);
+      log.info("Added user to TTS ignore list");
       res.json({success: true, ignored: true, message: "Added to TTS ignore list"});
     }
   } catch (error) {
-    console.error("[API /viewer/ignore/tts/:channel] Error:", error);
+    log.error({error: error.message}, "Error updating ignore status");
     res.status(500).json({error: "Failed to update ignore status"});
   }
 });
 
 // Route: /api/viewer/ignore/music/:channel - Toggle music ignore status
 router.post("/ignore/music/:channel", authenticateApiRequest, async (req, res) => {
+  const {channel} = req.params;
+  const username = req.user.userLogin;
+  const log = logger.child({endpoint: "/api/viewer/ignore/music/:channel", channel, username});
+  
   try {
-    const {channel} = req.params;
-    const username = req.user.userLogin;
 
     if (!channel) {
       return res.status(400).json({error: "Channel is required"});
@@ -338,7 +350,7 @@ router.post("/ignore/music/:channel", authenticateApiRequest, async (req, res) =
         enabled: false,
         ignoredUsers: [username],
       });
-      console.log(`[API /viewer/ignore/music/:channel] Created music settings and added ${username} to ignore list for ${channel}`);
+      log.info("Created music settings and added user to ignore list");
       return res.json({success: true, ignored: true, message: "Added to music ignore list"});
     }
 
@@ -351,18 +363,18 @@ router.post("/ignore/music/:channel", authenticateApiRequest, async (req, res) =
       await musicDocRef.update({
         ignoredUsers: ignoredUsers.filter((user) => user !== username),
       });
-      console.log(`[API /viewer/ignore/music/:channel] Removed ${username} from music ignore list for ${channel}`);
+      log.info("Removed user from music ignore list");
       res.json({success: true, ignored: false, message: "Removed from music ignore list"});
     } else {
       // Add to ignore list
       await musicDocRef.update({
         ignoredUsers: [...ignoredUsers, username],
       });
-      console.log(`[API /viewer/ignore/music/:channel] Added ${username} to music ignore list for ${channel}`);
+      log.info("Added user to music ignore list");
       res.json({success: true, ignored: true, message: "Added to music ignore list"});
     }
   } catch (error) {
-    console.error("[API /viewer/ignore/music/:channel] Error:", error);
+    log.error({error: error.message}, "Error updating music ignore status");
     res.status(500).json({error: "Failed to update music ignore status"});
   }
 });

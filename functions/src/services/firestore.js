@@ -4,14 +4,17 @@
  */
 
 const {Firestore, FieldValue} = require("@google-cloud/firestore");
+const {createLogger} = require("../logger");
+
+const logger = createLogger({module: "firestore"});
 
 // Initialize Firestore client
 let db;
 try {
   db = new Firestore();
-  console.log("[Firestore] Client initialized successfully.");
+  logger.info("Client initialized successfully");
 } catch (error) {
-  console.error("[Firestore] Client initialization error:", error);
+  logger.error({err: error}, "Client initialization error");
   throw error;
 }
 

@@ -8,6 +8,7 @@ const {db, FieldValue, COLLECTIONS} = require("../services/firestore");
 const {getValidTwitchTokenForUser} = require("../services/twitch");
 const {authenticateApiRequest} = require("../middleware/auth");
 const {secrets, config, secretManagerClient} = require("../config");
+const {logger, redactSensitive} = require("../logger");
 
 // eslint-disable-next-line new-cap
 const router = express.Router();
@@ -15,10 +16,11 @@ const router = express.Router();
 // Route: /api/obs/getToken
 router.get("/getToken", authenticateApiRequest, async (req, res) => {
   const channelLogin = req.user.userLogin;
-  console.log(`[API /obs/getToken] OBS token retrieval requested for ${channelLogin}`);
+  const log = logger.child({endpoint: "/api/obs/getToken", channelLogin});
+  log.info("OBS token retrieval requested");
 
   if (!db || !secretManagerClient) {
-    console.error("[API /obs/getToken] Firestore or Secret Manager client not initialized!");
+    log.error("Firestore or Secret Manager client not initialized!");
     return res.status(500).json({success: false, message: "Server configuration error."});
   }
 
@@ -26,9 +28,9 @@ router.get("/getToken", authenticateApiRequest, async (req, res) => {
     // Check if user has valid Twitch tokens
     try {
       await getValidTwitchTokenForUser(channelLogin, secrets);
-      console.log(`[API /obs/getToken] Verified valid Twitch token for ${channelLogin}`);
+      log.debug("Verified valid Twitch token");
     } catch (tokenError) {
-      console.error(`[API /obs/getToken] Token validation failed for ${channelLogin}:`, tokenError.message);
+      log.error({error: tokenError.message}, "Token validation failed");
       return res.status(403).json({
         success: false,
         needsReAuth: true,
@@ -47,14 +49,14 @@ router.get("/getToken", authenticateApiRequest, async (req, res) => {
         });
         const existingToken = version.payload.data.toString().trim();
 
-        console.log(`[API /obs/getToken] Retrieved existing OBS token (from ttsChannelConfigs) for ${channelLogin}`);
+        log.info("Retrieved existing OBS token (from ttsChannelConfigs)");
         return res.json({
           success: true,
           token: existingToken,
           browserSourceUrl: `${config.OBS_BROWSER_BASE_URL}/?channel=${encodeURIComponent(channelLogin)}&token=${existingToken}`,
         });
       } catch (secretError) {
-        console.warn(`[API /obs/getToken] Failed to retrieve existing token from ttsChannelConfigs for ${channelLogin}:`, secretError.message);
+        log.warn({error: secretError.message}, "Failed to retrieve existing token from ttsChannelConfigs");
         // Fall through to legacy check or generate new token
       }
     }
@@ -70,14 +72,14 @@ router.get("/getToken", authenticateApiRequest, async (req, res) => {
         });
         const existingToken = version.payload.data.toString().trim();
 
-        console.log(`[API /obs/getToken] Retrieved existing OBS token (from managedChannels) for ${channelLogin}`);
+        log.info("Retrieved existing OBS token (from managedChannels)");
         return res.json({
           success: true,
           token: existingToken,
           browserSourceUrl: `${config.OBS_BROWSER_BASE_URL}/?channel=${encodeURIComponent(channelLogin)}&token=${existingToken}`,
         });
       } catch (secretError) {
-        console.warn(`[API /obs/getToken] Failed legacy retrieval from managedChannels for ${channelLogin}:`, secretError.message);
+        log.warn({error: secretError.message}, "Failed legacy retrieval from managedChannels");
         // Continue to generate new token
       }
     }
@@ -116,7 +118,7 @@ router.get("/getToken", authenticateApiRequest, async (req, res) => {
         obsTokenGeneratedAt: new Date(),
       });
 
-      console.log(`[API /obs/getToken] Generated new OBS token for ${channelLogin}`);
+      log.info("Generated new OBS token");
 
       res.json({
         success: true,
@@ -124,14 +126,14 @@ router.get("/getToken", authenticateApiRequest, async (req, res) => {
         browserSourceUrl: `${config.OBS_BROWSER_BASE_URL}/?channel=${encodeURIComponent(channelLogin)}&token=${obsToken}`,
       });
     } catch (error) {
-      console.error(`[API /obs/getToken] Failed to store OBS token for ${channelLogin}:`, error);
+      log.error({error: error.message}, "Failed to store OBS token");
       res.status(500).json({
         success: false,
         message: "Failed to generate OBS token. Please try again.",
       });
     }
   } catch (error) {
-    console.error(`[API /obs/getToken] Error for ${channelLogin}:`, error);
+    log.error({error: error.message}, "Error retrieving OBS token");
     res.status(500).json({
       success: false,
       message: "Failed to retrieve OBS token.",
@@ -142,10 +144,11 @@ router.get("/getToken", authenticateApiRequest, async (req, res) => {
 // Route: /api/obs/generateToken
 router.post("/generateToken", authenticateApiRequest, async (req, res) => {
   const channelLogin = req.user.userLogin;
-  console.log(`[API /obs/generateToken] OBS token generation requested for ${channelLogin}`);
+  const log = logger.child({endpoint: "/api/obs/generateToken", channelLogin});
+  log.info("OBS token generation requested");
 
   if (!db || !secretManagerClient) {
-    console.error("[API /obs/generateToken] Firestore or Secret Manager client not initialized!");
+    log.error("Firestore or Secret Manager client not initialized!");
     return res.status(500).json({success: false, message: "Server configuration error."});
   }
 
@@ -201,7 +204,7 @@ router.post("/generateToken", authenticateApiRequest, async (req, res) => {
       obsTokenGeneratedAt: new Date(),
     }, {merge: true});
 
-    console.log(`[API /obs/generateToken] Generated new OBS token for ${channelLogin}`);
+    log.info("Generated new OBS token");
 
     res.json({
       success: true,
@@ -210,7 +213,7 @@ router.post("/generateToken", authenticateApiRequest, async (req, res) => {
       message: "New OBS token generated successfully",
     });
   } catch (error) {
-    console.error(`[API /obs/generateToken] Error for ${channelLogin}:`, error);
+    log.error({error: error.message}, "Error generating OBS token");
     res.status(500).json({
       success: false,
       message: "Failed to generate new OBS token.",

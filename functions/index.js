@@ -12,6 +12,7 @@ const cors = require("cors");
 
 // Import configuration and wait for secrets to load
 const {secretsLoadedPromise, config} = require("./src/config");
+const {logger, requestLoggingMiddleware} = require("./src/logger");
 
 // Import route modules
 const authRoutes = require("./src/auth/routes");
@@ -31,7 +32,7 @@ app.use(async (req, res, next) => {
     await secretsLoadedPromise;
     next();
   } catch (error) {
-    console.error("Function is not ready, secrets failed to load.", error.message);
+    logger.error({error: error.message}, "Function is not ready, secrets failed to load");
     res.status(503).send("Service Unavailable: Server is initializing or has a configuration error.");
   }
 });
@@ -56,11 +57,8 @@ app.use(cors({
 app.use(express.json({limit: "1mb"}));
 app.use(express.urlencoded({extended: true, limit: "1mb"}));
 
-// Request logging middleware
-app.use((req, res, next) => {
-  console.log(`${new Date().toISOString()} ${req.method} ${req.path}`);
-  next();
-});
+// Request logging middleware (adds correlation ID and logs requests/responses)
+app.use(requestLoggingMiddleware);
 
 // Mount route modules
 app.use("/auth", authRoutes);
@@ -83,7 +81,7 @@ app.get("/health", (req, res) => {
 
 // 404 handler
 app.use((req, res) => {
-  console.warn(`404 Not Found: ${req.method} ${req.path}`);
+  logger.warn({method: req.method, path: req.path}, "404 Not Found");
   res.status(404).json({
     success: false,
     error: "Endpoint not found",
@@ -94,7 +92,12 @@ app.use((req, res) => {
 
 // Error handler
 app.use((error, req, res, next) => {
-  console.error(`Unhandled error in ${req.method} ${req.path}:`, error);
+  logger.error({
+    error: error.message,
+    stack: error.stack,
+    method: req.method,
+    path: req.path,
+  }, "Unhandled error");
   res.status(500).json({
     success: false,
     error: "Internal server error",

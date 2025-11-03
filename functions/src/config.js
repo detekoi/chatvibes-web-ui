@@ -4,8 +4,10 @@
  */
 
 const {SecretManagerServiceClient} = require("@google-cloud/secret-manager");
+const {createLogger} = require("./logger");
 
 const secretManagerClient = new SecretManagerServiceClient();
+const logger = createLogger({module: "config"});
 
 // Detect emulator/local mode to avoid Secret Manager access during local testing
 const isEmulator = process.env.FUNCTIONS_EMULATOR === "true" || !!process.env.FIREBASE_EMULATOR_HUB || process.env.USE_ENV_SECRETS === "1";
@@ -32,7 +34,7 @@ const secretsLoadedPromise = (async () => {
       secrets.JWT_SECRET = process.env.JWT_SECRET || "local-dev-jwt-secret";
       secrets.WAVESPEED_API_KEY = process.env.WAVESPEED_API_KEY || "";
       config.TWITCH_BOT_USERNAME = process.env.TWITCH_BOT_USERNAME || "";
-      console.log("✅ Loaded secrets from environment (emulator mode).");
+      logger.info("Loaded secrets from environment (emulator mode)");
       return;
     }
 
@@ -57,9 +59,9 @@ const secretsLoadedPromise = (async () => {
     // Bot username can be from secret or env var
     config.TWITCH_BOT_USERNAME = botUsername || process.env.TWITCH_BOT_USERNAME || "";
 
-    console.log("✅ Successfully loaded all required secrets.");
+    logger.info("Successfully loaded all required secrets");
   } catch (error) {
-    console.error("CRITICAL: Failed to load secrets on startup.", error);
+    logger.error({err: error}, "CRITICAL: Failed to load secrets on startup");
     throw new Error("Could not load necessary secrets to start the function.");
   }
 })();

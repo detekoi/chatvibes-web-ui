@@ -8,6 +8,7 @@ const {db, COLLECTIONS} = require("../services/firestore");
 const {createShortLink, normalizeEmotion} = require("../services/utils");
 const {authenticateApiRequest} = require("../middleware/auth");
 const {secrets, config} = require("../config");
+const {logger, redactSensitive} = require("../logger");
 
 // Separate routers for API endpoints and public redirects
 // eslint-disable-next-line new-cap
@@ -17,6 +18,7 @@ const redirectRouter = express.Router();
 
 // Route: /api/shortlink - Create a short link (requires app/viewer JWT)
 apiRouter.post("/shortlink", authenticateApiRequest, async (req, res) => {
+  const log = logger.child({endpoint: "/api/shortlink"});
   try {
     const {url} = req.body;
 
@@ -35,7 +37,7 @@ apiRouter.post("/shortlink", authenticateApiRequest, async (req, res) => {
       absoluteUrl: absoluteUrl,
     });
   } catch (error) {
-    console.error("[POST /api/shortlink] Error:", error);
+    log.error({error: error.message}, "Error creating shortlink");
     res.status(500).json({
       success: false,
       error: error.message,
@@ -68,23 +70,24 @@ redirectRouter.get("/s/:slug", async (req, res) => {
         lastClickedAt: new Date(),
       });
     } catch (updateError) {
-      console.warn("Failed to update click counter:", updateError);
+      logger.warn({error: updateError.message, slug}, "Failed to update click counter");
     }
 
-    console.log(`[GET /s/:slug] Redirecting ${slug} to ${url}`);
+    logger.info({slug, url}, "Redirecting short link");
     res.redirect(301, url);
   } catch (error) {
-    console.error("[GET /s/:slug] Error:", error);
+    logger.error({error: error.message, slug}, "Error redirecting short link");
     res.status(500).send("Internal server error");
   }
 });
 
 // Route: /api/tts/test - Test TTS functionality
 apiRouter.post("/tts/test", authenticateApiRequest, async (req, res) => {
+  const {text, voiceId, emotion, pitch, speed, languageBoost, channel} = req.body || {};
+  const channelLogin = req.user.userLogin;
+  const log = logger.child({endpoint: "/api/tts/test", channelLogin, voiceId: voiceId || "default"});
+  
   try {
-    const {text, voiceId, emotion, pitch, speed, languageBoost, channel} = req.body || {};
-    const channelLogin = req.user.userLogin;
-
     if (!text) {
       return res.status(400).json({
         success: false,
@@ -92,7 +95,7 @@ apiRouter.post("/tts/test", authenticateApiRequest, async (req, res) => {
       });
     }
 
-    console.log(`[POST /api/tts/test] TTS test requested for ${channelLogin}: "${text}" with voice ${voiceId || "default"}`);
+    log.info({textLength: text.length}, "TTS test requested");
 
     // Resolve effective parameters in order: request override -> viewer global prefs -> channel defaults
     let effective = {voiceId: voiceId ?? null, emotion: normalizeEmotion(emotion), pitch: (pitch !== undefined) ? pitch : null, speed: (speed !== undefined) ? speed : null, languageBoost: languageBoost ?? null};
@@ -131,15 +134,15 @@ apiRouter.post("/tts/test", authenticateApiRequest, async (req, res) => {
         speed: pick(speed, userPrefs.speed, channelDefaults.speed),
         languageBoost: pick(languageBoost, userPrefs.languageBoost, channelDefaults.languageBoost),
       };
-      console.log("[POST /api/tts/test] Effective params:", effective);
+      log.debug({effective}, "Effective params");
     } catch (resolveErr) {
-      console.warn("[POST /api/tts/test] Failed to resolve defaults; proceeding with request values only:", resolveErr.message);
+      log.warn({error: resolveErr.message}, "Failed to resolve defaults; proceeding with request values only");
     }
 
     // If configured, generate audio via Wavespeed AI (minimax/speech-02-turbo)
     if (secrets.WAVESPEED_API_KEY) {
       try {
-        console.log("Wavespeed AI client initialized for TTS test ✓");
+        log.debug("Wavespeed AI client initialized for TTS test");
 
         // Map legacy language boost values to Wavespeed format
         let languageBoost = effective.languageBoost || "auto";
@@ -182,7 +185,7 @@ apiRouter.post("/tts/test", authenticateApiRequest, async (req, res) => {
           const audioUrl = data.outputs[0];
           return res.json({success: true, audioUrl, provider: "wavespeed", model: "minimax/speech-02-turbo"});
         } else if (data.status === "failed") {
-          console.error("[POST /api/tts/test] Wavespeed AI returned failed status:", data.error);
+          log.error({error: data.error}, "Wavespeed AI returned failed status");
 
           // Provide specific error messages based on the failure reason
           if (data.error && data.error.includes("you don't have access to this voice_id")) {
@@ -201,11 +204,14 @@ apiRouter.post("/tts/test", authenticateApiRequest, async (req, res) => {
 
           return res.status(502).json({success: false, error: `TTS generation failed: ${data.error || "Unknown error"}`});
         } else {
-          console.warn("[POST /api/tts/test] Wavespeed AI returned unexpected status or missing outputs:", data);
+          log.warn({data: redactSensitive(data)}, "Wavespeed AI returned unexpected status or missing outputs");
           return res.status(502).json({success: false, error: "No audio URL returned by TTS provider"});
         }
       } catch (wavespeedError) {
-        console.error("[POST /api/tts/test] Wavespeed AI call failed:", wavespeedError?.response?.data || wavespeedError.message || wavespeedError);
+        log.error({
+          error: wavespeedError.message,
+          responseData: redactSensitive(wavespeedError?.response?.data),
+        }, "Wavespeed AI call failed");
 
         // Provide specific error messages based on Wavespeed API response
         if (wavespeedError.response?.data) {
@@ -242,7 +248,7 @@ apiRouter.post("/tts/test", authenticateApiRequest, async (req, res) => {
     // Fallback when Wavespeed AI is not configured
     return res.status(501).json({success: false, error: "TTS provider not configured"});
   } catch (error) {
-    console.error("[POST /api/tts/test] Error:", error);
+    log.error({error: error.message}, "Error in TTS test");
     res.status(500).json({
       success: false,
       error: "TTS test failed",

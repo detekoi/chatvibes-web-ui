@@ -7,21 +7,23 @@ const {db, COLLECTIONS} = require("../services/firestore");
 const {getValidTwitchTokenForUser} = require("../services/twitch");
 const {authenticateApiRequest} = require("../middleware/auth");
 const {secrets} = require("../config");
+const {logger} = require("../logger");
 
 // eslint-disable-next-line new-cap
 const router = express.Router();
 
 // Route: /api/auth/status
 router.get("/status", authenticateApiRequest, async (req, res) => {
-  console.log("--- /api/auth/status HIT ---");
-  console.log("Authenticated user from middleware:", req.user);
+  const log = logger.child({endpoint: "/api/auth/status", userLogin: req.user?.userLogin});
+  log.info("--- /api/auth/status HIT ---");
+  log.debug({user: req.user}, "Authenticated user from middleware");
 
   try {
     const userDocRef = db.collection(COLLECTIONS.MANAGED_CHANNELS).doc(req.user.userLogin);
     const userDoc = await userDocRef.get();
 
     if (!userDoc.exists) {
-      console.log(`User ${req.user.userLogin} not found in managed channels.`);
+      log.warn({userLogin: req.user.userLogin}, "User not found in managed channels");
       return res.json({
         success: true,
         user: req.user,
@@ -44,7 +46,7 @@ router.get("/status", authenticateApiRequest, async (req, res) => {
       }
     }
 
-    console.log(`User ${req.user.userLogin} auth status: ${twitchTokenStatus}`);
+    log.info({userLogin: req.user.userLogin, twitchTokenStatus}, "User auth status");
 
     res.json({
       success: true,
@@ -53,7 +55,7 @@ router.get("/status", authenticateApiRequest, async (req, res) => {
       needsTwitchReAuth: needsTwitchReAuth || false,
     });
   } catch (error) {
-    console.error("Error checking auth status:", error);
+    logger.error({error: error.message}, "Error checking auth status");
     res.status(500).json({
       success: false,
       error: "Failed to check authentication status",
@@ -63,19 +65,20 @@ router.get("/status", authenticateApiRequest, async (req, res) => {
 
 // Route: /api/auth/refresh
 router.post("/refresh", authenticateApiRequest, async (req, res) => {
-  console.log("--- /api/auth/refresh HIT ---");
+  const log = logger.child({endpoint: "/api/auth/refresh", userLogin: req.user?.userLogin});
+  log.info("--- /api/auth/refresh HIT ---");
 
   try {
     // This will automatically refresh the token if needed
     await getValidTwitchTokenForUser(req.user.userLogin, secrets);
 
-    console.log(`Token refresh successful for ${req.user.userLogin}`);
+    log.info("Token refresh successful");
     res.json({
       success: true,
       message: "Token refreshed successfully",
     });
   } catch (error) {
-    console.error(`Token refresh failed for ${req.user.userLogin}:`, error.message);
+    log.error({error: error.message}, "Token refresh failed");
     res.status(400).json({
       success: false,
       error: error.message,
