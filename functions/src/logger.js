@@ -18,12 +18,12 @@ const pinoConfig = {
       level: (label, number) => {
         // Map Pino levels to Cloud Logging severity
         const severityMap = {
-          10: "DEBUG",
-          20: "INFO",
-          30: "WARNING",
-          40: "ERROR",
-          50: "CRITICAL",
-          60: "ALERT",
+          10: "DEBUG", // trace
+          20: "DEBUG", // debug
+          30: "INFO", // info
+          40: "WARNING", // warn
+          50: "ERROR", // error
+          60: "CRITICAL", // fatal
         };
         return {
           severity: severityMap[number] || "INFO",
