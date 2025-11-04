@@ -197,7 +197,7 @@ async function ensureTtsChannelPointReward(channelLogin, twitchUserId) {
 router.get("/tts", authenticateApiRequest, async (req, res) => {
   const channelLogin = req.user.userLogin;
   const log = logger.child({endpoint: "GET /api/rewards/tts", channelLogin});
-  
+
   try {
     const doc = await db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelLogin).get();
     const data = doc.exists ? doc.data() : {};
@@ -236,7 +236,7 @@ async function handleUpsertTtsReward(req, res) {
   const channelLogin = req.user.userLogin;
   const broadcasterId = req.user.userId;
   const log = logger.child({endpoint: `${req.method} /api/rewards/tts`, channelLogin});
-  
+
   try {
     const body = req.body || {};
 
@@ -415,9 +415,8 @@ router.put("/tts", authenticateApiRequest, handleUpsertTtsReward);
 router.delete("/tts", authenticateApiRequest, async (req, res) => {
   const channelLogin = req.user.userLogin;
   const log = logger.child({endpoint: "DELETE /api/rewards/tts", channelLogin});
-  
-  try {
 
+  try {
     // Load current config
     const doc = await db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelLogin).get();
     const data = doc.exists ? doc.data() : {};
@@ -483,7 +482,7 @@ router.delete("/tts", authenticateApiRequest, async (req, res) => {
 router.post("/tts/test", authenticateApiRequest, async (req, res) => {
   const channelLogin = req.user.userLogin;
   const log = logger.child({endpoint: "POST /api/rewards/tts:test", channelLogin});
-  
+
   try {
     const text = (req.body?.text ?? "").toString();
 
@@ -508,7 +507,7 @@ router.post("/tts/test", authenticateApiRequest, async (req, res) => {
 router.post("/tts:test", authenticateApiRequest, async (req, res) => {
   const channelLogin = req.user.userLogin;
   const log = logger.child({endpoint: "POST /api/rewards/tts:test (legacy)", channelLogin});
-  
+
   try {
     const text = (req.body?.text ?? "").toString();
     const result = await validateChannelPointsTestMessage(channelLogin, text);

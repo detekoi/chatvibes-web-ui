@@ -47,9 +47,8 @@ apiRouter.post("/shortlink", authenticateApiRequest, async (req, res) => {
 
 // Route: /s/:slug - Redirect short link (public)
 redirectRouter.get("/s/:slug", async (req, res) => {
+  const {slug} = req.params;
   try {
-    const {slug} = req.params;
-
     if (!slug) {
       return res.status(400).send("Invalid short link");
     }
@@ -86,7 +85,7 @@ apiRouter.post("/tts/test", authenticateApiRequest, async (req, res) => {
   const {text, voiceId, emotion, pitch, speed, languageBoost, channel} = req.body || {};
   const channelLogin = req.user.userLogin;
   const log = logger.child({endpoint: "/api/tts/test", channelLogin, voiceId: voiceId || "default"});
-  
+
   try {
     if (!text) {
       return res.status(400).json({

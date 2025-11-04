@@ -69,7 +69,7 @@ async function refreshTwitchToken(currentRefreshToken, secrets) {
  */
 async function getValidTwitchTokenForUser(userLogin, secrets) {
   const log = logger.child({userLogin});
-  
+
   if (!db || !secretManagerClient) {
     log.error("Firestore or Secret Manager client not initialized!");
     throw new Error("Server configuration error.");

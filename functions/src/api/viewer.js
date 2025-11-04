@@ -42,7 +42,7 @@ router.get("/preferences/:channel", authenticateApiRequest, async (req, res) => 
   const {channel} = req.params;
   const username = req.user.userLogin;
   const log = logger.child({endpoint: "/api/viewer/preferences/:channel", channel, username});
-  
+
   try {
     if (!channel) {
       return res.status(400).json({error: "Channel is required"});
@@ -122,7 +122,7 @@ router.put("/preferences/:channel", authenticateApiRequest, async (req, res) => 
   const {channel} = req.params;
   const username = req.user.userLogin;
   const log = logger.child({endpoint: "/api/viewer/preferences/:channel", channel, username});
-  
+
   try {
     const updates = req.body;
 
@@ -196,7 +196,7 @@ router.put("/preferences/:channel", authenticateApiRequest, async (req, res) => 
 router.get("/preferences", authenticateApiRequest, async (req, res) => {
   const username = req.user.userLogin;
   const log = logger.child({endpoint: "/api/viewer/preferences", username});
-  
+
   try {
     // Load global user preferences
     let globalPrefs = {};
@@ -231,7 +231,7 @@ router.get("/preferences", authenticateApiRequest, async (req, res) => {
 router.put("/preferences", authenticateApiRequest, async (req, res) => {
   const username = req.user.userLogin;
   const log = logger.child({endpoint: "/api/viewer/preferences", username});
-  
+
   try {
     const updates = req.body;
 
@@ -290,9 +290,8 @@ router.post("/ignore/tts/:channel", authenticateApiRequest, async (req, res) => 
   const {channel} = req.params;
   const username = req.user.userLogin;
   const log = logger.child({endpoint: "/api/viewer/ignore/tts/:channel", channel, username});
-  
-  try {
 
+  try {
     if (!channel) {
       return res.status(400).json({error: "Channel is required"});
     }
@@ -334,9 +333,8 @@ router.post("/ignore/music/:channel", authenticateApiRequest, async (req, res) =
   const {channel} = req.params;
   const username = req.user.userLogin;
   const log = logger.child({endpoint: "/api/viewer/ignore/music/:channel", channel, username});
-  
-  try {
 
+  try {
     if (!channel) {
       return res.status(400).json({error: "Channel is required"});
     }

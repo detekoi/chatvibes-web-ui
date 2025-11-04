@@ -32,6 +32,7 @@ const pinoConfig = {
       },
       log: (object) => {
         // Remove Pino-specific fields that Cloud Logging doesn't need
+        // eslint-disable-next-line no-unused-vars
         const {hostname, pid, ...rest} = object;
         return rest;
       },

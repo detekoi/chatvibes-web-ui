@@ -8,7 +8,7 @@ const {db, FieldValue, COLLECTIONS} = require("../services/firestore");
 const {getValidTwitchTokenForUser} = require("../services/twitch");
 const {authenticateApiRequest} = require("../middleware/auth");
 const {secrets, config, secretManagerClient} = require("../config");
-const {logger, redactSensitive} = require("../logger");
+const {logger} = require("../logger");
 
 // eslint-disable-next-line new-cap
 const router = express.Router();

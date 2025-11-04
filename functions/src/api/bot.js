@@ -17,7 +17,7 @@ const router = express.Router();
 router.get("/status", authenticateApiRequest, async (req, res) => {
   const channelLogin = req.user.userLogin;
   const log = logger.child({endpoint: "/api/bot/status", channelLogin});
-  
+
   if (!db) {
     log.error("Firestore (db) not initialized!");
     return res.status(500).json({success: false, message: "Firestore not available."});
@@ -63,7 +63,7 @@ router.post("/add", authenticateApiRequest, async (req, res) => {
 
   const {userId: twitchUserId, userLogin: channelLogin, displayName} = req.user;
   const log = logger.child({endpoint: "/api/bot/add", channelLogin, twitchUserId});
-  
+
   if (!db) {
     log.error("Firestore (db) not initialized!");
     return res.status(500).json({success: false, message: "Firestore not available."});
@@ -159,7 +159,7 @@ router.post("/add", authenticateApiRequest, async (req, res) => {
 router.post("/remove", authenticateApiRequest, async (req, res) => {
   const {userId: twitchUserId, userLogin: channelLogin} = req.user;
   const log = logger.child({endpoint: "/api/bot/remove", channelLogin, twitchUserId});
-  
+
   if (!db) {
     log.error("Firestore (db) not initialized!");
     return res.status(500).json({success: false, message: "Firestore not available."});

@@ -3,7 +3,7 @@
  */
 
 const jwt = require("jsonwebtoken");
-const {logger, redactSensitive} = require("../logger");
+const {logger} = require("../logger");
 
 /**
  * Middleware to authenticate API requests using JWT tokens
@@ -15,7 +15,7 @@ const {logger, redactSensitive} = require("../logger");
 const authenticateApiRequest = (req, res, next) => {
   const log = logger.child({path: req.path});
   log.debug("authenticateApiRequest");
-  
+
   const authHeader = req.headers.authorization;
 
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
