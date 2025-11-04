@@ -17,6 +17,16 @@ const isEmulator = process.env.FUNCTIONS_EMULATOR === "true" || !!process.env.FI
 // so that require() consumers always see the updated values.
 const secrets = {};
 
+// Configuration variables (not secrets)
+// Important: Bot username is loaded from secret or env var in secretsLoadedPromise
+const config = {
+  CALLBACK_URL: process.env.CALLBACK_URL,
+  FRONTEND_URL: process.env.FRONTEND_URL,
+  OBS_BROWSER_BASE_URL: process.env.OBS_BROWSER_BASE_URL || "https://chatvibes-tts-service-h7kj56ct4q-uc.a.run.app",
+  GCLOUD_PROJECT: process.env.GCLOUD_PROJECT,
+  TWITCH_BOT_USERNAME: "", // Set during secretsLoadedPromise
+};
+
 // Helper function to load a secret from Secret Manager
 const loadSecret = async (secretName) => {
   const [version] = await secretManagerClient.accessSecretVersion({
@@ -65,16 +75,6 @@ const secretsLoadedPromise = (async () => {
     throw new Error("Could not load necessary secrets to start the function.");
   }
 })();
-
-// Configuration variables (not secrets)
-// Important: Bot username is loaded from secret or env var in secretsLoadedPromise
-const config = {
-  CALLBACK_URL: process.env.CALLBACK_URL,
-  FRONTEND_URL: process.env.FRONTEND_URL,
-  OBS_BROWSER_BASE_URL: process.env.OBS_BROWSER_BASE_URL || "https://chatvibes-tts-service-h7kj56ct4q-uc.a.run.app",
-  GCLOUD_PROJECT: process.env.GCLOUD_PROJECT,
-  TWITCH_BOT_USERNAME: "", // Set during secretsLoadedPromise
-};
 
 module.exports = {
   secrets,
