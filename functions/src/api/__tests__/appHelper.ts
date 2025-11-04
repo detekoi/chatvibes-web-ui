@@ -41,7 +41,7 @@ export async function createTestApp() {
   const app = express();
 
   // Middleware to ensure secrets are loaded
-  app.use(async (req: any, res: any, next: any) => {
+  app.use(async (_req: any, res: any, next: any) => {
     try {
       await secretsLoadedPromise;
       next();
@@ -84,7 +84,7 @@ export async function createTestApp() {
   app.use('/', redirectsRoutes);
 
   // Health check endpoint
-  app.get('/health', (req: any, res: any) => {
+  app.get('/health', (_req: any, res: any) => {
     res.json({
       status: 'healthy',
       timestamp: new Date().toISOString(),
@@ -103,7 +103,7 @@ export async function createTestApp() {
   });
 
   // Error handler
-  app.use((error: any, req: any, res: any, next: any) => {
+  app.use((error: any, _req: any, res: any, _next: any) => {
     res.status(500).json({
       success: false,
       error: 'Internal server error',
