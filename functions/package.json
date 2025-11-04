@@ -3,6 +3,7 @@
   "description": "Cloud Functions for Firebase",
   "scripts": {
     "lint": "eslint .",
+    "build": "tsc",
     "serve": "firebase emulators:start --only functions",
     "shell": "firebase functions:shell",
     "start": "npm run shell",
@@ -18,7 +19,7 @@
   "engines": {
     "node": "22"
   },
-  "main": "index.js",
+  "main": "index.ts",
   "dependencies": {
     "@google-cloud/firestore": "^7.11.0",
     "@google-cloud/secret-manager": "^6.0.1",
