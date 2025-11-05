@@ -11,10 +11,18 @@
         ".git",
         "firebase-debug.log",
         "firebase-debug.*.log",
-        "*.local"
+        "*.local",
+        "src/**/*.ts",
+        "index.ts",
+        "**/*.test.ts",
+        "**/__tests__/**",
+        "tsconfig.json",
+        "jest.config.js",
+        "coverage"
       ],
       "predeploy": [
-        "npm --prefix \"$RESOURCE_DIR\" run lint"
+        "npm --prefix \"$RESOURCE_DIR\" run lint",
+        "npm --prefix \"$RESOURCE_DIR\" run build"
       ]
     }
   ],

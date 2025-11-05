@@ -1,0 +1,4 @@
+src/**/*.js
+src/**/*.js.old
+index.js
+lib/**/*.js

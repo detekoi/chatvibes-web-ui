@@ -22,15 +22,16 @@
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "allowJs": true,
-    "checkJs": false,
+    "allowJs": false,
     "types": ["node", "jest"],
-    "noEmit": true
+    "noEmit": false,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true
   },
   "include": [
     "index.ts",
     "src/**/*.ts",
-    "src/**/*.js",
     "**/*.test.ts"
   ],
   "exclude": [
