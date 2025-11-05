@@ -103,8 +103,10 @@ router.get("/preferences/:channel", auth_1.authenticateApiRequest, async (req, r
             emotion: globalPrefs.emotion ?? null,
             language: globalPrefs.languageBoost ?? null,
             englishNormalization: (globalPrefs.englishNormalization !== undefined) ? globalPrefs.englishNormalization : undefined,
-            ttsIgnored,
-            musicIgnored,
+            ignoreStatus: {
+                tts: ttsIgnored,
+                music: musicIgnored,
+            },
             channelExists: true,
             channelDefaults: {
                 voiceId: channelData.voiceId || null,
