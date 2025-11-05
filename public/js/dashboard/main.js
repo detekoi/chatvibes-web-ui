@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     getLoggedInUser: () => state.loggedInUser
   };
   const ignoreModule = initIgnoreListModule({ botApiBaseUrl, testMode }, services);
-  const settingsModule = initSettingsModule({ botApiBaseUrl, apiBaseUrl, testMode }, services, {
+  const settingsModule = initSettingsModule({ botApiBaseUrl, testMode }, services, {
     displayIgnoreList: ignoreModule.displayIgnoreList
   });
   ignoreModule.setOnChange(() => settingsModule.loadSettings());

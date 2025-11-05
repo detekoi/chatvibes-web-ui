@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const ignoreModule: IgnoreListModule = initIgnoreListModule({ botApiBaseUrl, testMode }, services);
-  const settingsModule: SettingsModule = initSettingsModule({ botApiBaseUrl, apiBaseUrl, testMode }, services, {
+  const settingsModule: SettingsModule = initSettingsModule({ botApiBaseUrl, testMode }, services, {
     displayIgnoreList: ignoreModule.displayIgnoreList,
   });
   ignoreModule.setOnChange(() => settingsModule.loadSettings());
