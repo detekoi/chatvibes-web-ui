@@ -1,0 +1,11 @@
+# Mark compiled JavaScript files as generated
+# This makes GitHub collapse them in pull requests and exclude them from language statistics
+
+# Frontend compiled output
+public/js/**/*.js linguist-generated=true
+public/js/**/*.js.map linguist-generated=true
+
+# Backend compiled output
+functions/lib/**/*.js linguist-generated=true
+functions/lib/**/*.js.map linguist-generated=true
+functions/lib/**/*.d.ts linguist-generated=true
