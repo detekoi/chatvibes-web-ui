@@ -6,12 +6,17 @@
   "main": "scripts/generate-voice-previews.js",
   "scripts": {
     "generate-voices": "node scripts/generate-voice-previews.js",
-    "test-api": "node scripts/test-api.js"
+    "test-api": "node scripts/test-api.js",
+    "build:frontend": "node scripts/build-frontend.js",
+    "watch:frontend": "node scripts/build-frontend.js --watch"
   },
   "keywords": ["tts", "voice", "wavespeed", "chatvibes"],
   "author": "",
   "license": "BSD-2-Clause",
   "dependencies": {
     "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.0"
   }
 }
