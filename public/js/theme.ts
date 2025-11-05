@@ -42,6 +42,10 @@ class ThemeManager {
         if (stored === DARK_THEME || stored === LIGHT_THEME) {
             return stored;
         }
+        // Clean up invalid value to prevent checking it on every page load
+        if (stored !== null) {
+            localStorage.removeItem(THEME_KEY);
+        }
         return null;
     }
 

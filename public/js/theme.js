@@ -15,6 +15,9 @@ class ThemeManager {
     if (stored === DARK_THEME || stored === LIGHT_THEME) {
       return stored;
     }
+    if (stored !== null) {
+      localStorage.removeItem(THEME_KEY);
+    }
     return null;
   }
   getSystemTheme() {
