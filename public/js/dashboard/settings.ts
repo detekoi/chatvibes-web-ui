@@ -1,7 +1,7 @@
 import { showToast, syncTextareas } from '../common/ui.js';
 import { debounce, formatVoiceName } from '../common/utils.js';
 import { performVoiceTest, TTSPayload, PlayerElements, HintElements } from '../common/voice-preview.js';
-import { getLanguageExample } from '../common/language-examples.js';
+import { getExampleForVoice } from '../common/language-examples.js';
 import type { DashboardServices } from './types.js';
 
 /**
@@ -268,7 +268,12 @@ export function initSettingsModule(
       bitsAmountInput.addEventListener('change', () => saveTtsSetting('bitsMinimumAmount', parseInt(bitsAmountInput.value || '100', 10), 'Minimum Bits'));
     }
 
-    if (defaultVoiceSelect) defaultVoiceSelect.addEventListener('change', () => saveTtsSetting('voiceId', defaultVoiceSelect.value || 'Friendly_Person', 'Default Voice'));
+    if (defaultVoiceSelect) {
+      defaultVoiceSelect.addEventListener('change', () => {
+        saveTtsSetting('voiceId', defaultVoiceSelect.value || 'Friendly_Person', 'Default Voice');
+        updatePreviewTextForVoice();
+      });
+    }
     if (defaultEmotionSelect) defaultEmotionSelect.addEventListener('change', () => saveTtsSetting('emotion', defaultEmotionSelect.value || 'auto', 'Default Emotion'));
 
     if (defaultPitchSlider) {
@@ -292,7 +297,6 @@ export function initSettingsModule(
     if (defaultLanguageSelect) {
       defaultLanguageSelect.addEventListener('change', () => {
         saveTtsSetting('languageBoost', defaultLanguageSelect.value || 'Automatic', 'Default Language');
-        updatePreviewTextForLanguage();
       });
     }
     if (englishNormalizationCheckbox) englishNormalizationCheckbox.addEventListener('change', () => saveTtsSetting('englishNormalization', !!englishNormalizationCheckbox.checked, 'English Normalization'));
@@ -313,9 +317,9 @@ export function initSettingsModule(
     }
   }
 
-  function updatePreviewTextForLanguage(): void {
-    const selectedLanguage = defaultLanguageSelect?.value || 'auto';
-    const exampleText = getLanguageExample(selectedLanguage, 'dashboard');
+  function updatePreviewTextForVoice(): void {
+    const selectedVoice = defaultVoiceSelect?.value || 'Friendly_Person';
+    const exampleText = getExampleForVoice(selectedVoice, 'dashboard');
 
     // Update both desktop and mobile preview text fields
     if (voiceTestTextInput) {
@@ -418,9 +422,9 @@ export function initSettingsModule(
 
       const buttons = [voiceTestBtn, voiceTestBtnMobile].filter((btn): btn is HTMLButtonElement => btn !== null);
 
-      // Get the appropriate default text for the selected language
-      const selectedLanguage = defaultLanguageSelect?.value || 'auto';
-      const defaultText = getLanguageExample(selectedLanguage, 'dashboard');
+      // Get the appropriate default text for the selected voice
+      const selectedVoice = defaultVoiceSelect?.value || 'Friendly_Person';
+      const defaultText = getExampleForVoice(selectedVoice, 'dashboard');
 
       await performVoiceTest(payload, buttons, {
         defaultText,
@@ -893,6 +897,10 @@ export function initSettingsModule(
       if (searchInput) {
         searchInput.value = formatVoiceName(defaultVoiceSelect.value);
       }
+      // Update preview text to match the loaded voice
+      if (!isInitializing) {
+        updatePreviewTextForVoice();
+      }
     }
     if (defaultEmotionSelect) defaultEmotionSelect.value = settings.emotion || 'auto';
     if (defaultPitchSlider) {
@@ -905,10 +913,6 @@ export function initSettingsModule(
     }
     if (defaultLanguageSelect) {
       defaultLanguageSelect.value = settings.languageBoost || 'Automatic';
-      // Update preview text to match the loaded language
-      if (!isInitializing) {
-        updatePreviewTextForLanguage();
-      }
     }
     if (englishNormalizationCheckbox) englishNormalizationCheckbox.checked = settings.englishNormalization || false;
   }

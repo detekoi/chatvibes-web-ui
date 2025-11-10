@@ -2,7 +2,7 @@ import { fetchWithAuth } from '../common/api.js';
 import { showToast, syncTextareas } from '../common/ui.js';
 import { formatNumberCompact, formatVoiceName } from '../common/utils.js';
 import { performVoiceTest, TTSPayload, PlayerElements, HintElements } from '../common/voice-preview.js';
-import { getLanguageExample } from '../common/language-examples.js';
+import { getExampleForVoice } from '../common/language-examples.js';
 
 /**
  * Viewer voice preferences module.
@@ -231,9 +231,9 @@ export function initPreferencesModule(
   attachPreferenceSaves();
   attachPreviewHandlers();
 
-  function updatePreviewTextForLanguage(): void {
-    const selectedLanguage = elements.languageSelect?.value || '';
-    const exampleText = getLanguageExample(selectedLanguage, 'viewer');
+  function updatePreviewTextForVoice(): void {
+    const selectedVoice = elements.voiceSelect?.value || '';
+    const exampleText = getExampleForVoice(selectedVoice, 'viewer');
 
     // Update both desktop and mobile preview text fields
     if (elements.previewText) {
@@ -296,7 +296,12 @@ export function initPreferencesModule(
       englishNormalizationCheckbox,
     } = elements;
 
-    if (voiceSelect) voiceSelect.addEventListener('change', () => savePreference('voiceId', voiceSelect.value || null));
+    if (voiceSelect) {
+      voiceSelect.addEventListener('change', () => {
+        savePreference('voiceId', voiceSelect.value || null);
+        updatePreviewTextForVoice();
+      });
+    }
     if (pitchSlider) {
       pitchSlider.addEventListener('change', () => {
         const v = Number(pitchSlider.value);
@@ -313,7 +318,6 @@ export function initPreferencesModule(
     if (languageSelect) {
       languageSelect.addEventListener('change', () => {
         savePreference('language', languageSelect.value || null);
-        updatePreviewTextForLanguage();
       });
     }
     if (englishNormalizationCheckbox) englishNormalizationCheckbox.addEventListener('change', () => {
@@ -389,9 +393,9 @@ export function initPreferencesModule(
         if (elements.previewHintMobile) elements.previewHintMobile.style.display = 'none';
       };
 
-      // Get the appropriate default text for the selected language
-      const selectedLanguage = languageSelect?.value || '';
-      const defaultText = getLanguageExample(selectedLanguage, 'viewer');
+      // Get the appropriate default text for the selected voice
+      const selectedVoice = voiceSelect?.value || '';
+      const defaultText = getExampleForVoice(selectedVoice, 'viewer');
 
       await performVoiceTest(payload, buttons, {
         defaultText,
@@ -692,6 +696,8 @@ export function initPreferencesModule(
       if (elements.voiceSearch) {
         elements.voiceSearch.value = voiceSelect.value ? formatVoiceName(voiceSelect.value) : 'Use channel default';
       }
+      // Update preview text to match the loaded voice
+      updatePreviewTextForVoice();
     }
     if (pitchSlider && pitchValue) {
       pitchSlider.value = String(prefs.pitch ?? 0);
@@ -705,8 +711,6 @@ export function initPreferencesModule(
     if (emotionSelect) emotionSelect.value = prefs.emotion || '';
     if (languageSelect) {
       languageSelect.value = prefs.language || '';
-      // Update preview text to match the loaded language
-      updatePreviewTextForLanguage();
     }
     if (englishNormalizationCheckbox) englishNormalizationCheckbox.checked = prefs.englishNormalization || false;
 

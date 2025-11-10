@@ -2,7 +2,7 @@ import { fetchWithAuth } from "../common/api.js";
 import { showToast, syncTextareas } from "../common/ui.js";
 import { formatNumberCompact, formatVoiceName } from "../common/utils.js";
 import { performVoiceTest } from "../common/voice-preview.js";
-import { getLanguageExample } from "../common/language-examples.js";
+import { getExampleForVoice } from "../common/language-examples.js";
 function initPreferencesModule(context, services, deps = {}) {
   const { apiBaseUrl, testMode } = context;
   const { getCurrentChannel } = services;
@@ -57,9 +57,9 @@ function initPreferencesModule(context, services, deps = {}) {
   attachResetButtons();
   attachPreferenceSaves();
   attachPreviewHandlers();
-  function updatePreviewTextForLanguage() {
-    const selectedLanguage = elements.languageSelect?.value || "";
-    const exampleText = getLanguageExample(selectedLanguage, "viewer");
+  function updatePreviewTextForVoice() {
+    const selectedVoice = elements.voiceSelect?.value || "";
+    const exampleText = getExampleForVoice(selectedVoice, "viewer");
     if (elements.previewText) {
       elements.previewText.value = exampleText;
     }
@@ -115,7 +115,12 @@ function initPreferencesModule(context, services, deps = {}) {
       languageSelect,
       englishNormalizationCheckbox
     } = elements;
-    if (voiceSelect) voiceSelect.addEventListener("change", () => savePreference("voiceId", voiceSelect.value || null));
+    if (voiceSelect) {
+      voiceSelect.addEventListener("change", () => {
+        savePreference("voiceId", voiceSelect.value || null);
+        updatePreviewTextForVoice();
+      });
+    }
     if (pitchSlider) {
       pitchSlider.addEventListener("change", () => {
         const v = Number(pitchSlider.value);
@@ -132,7 +137,6 @@ function initPreferencesModule(context, services, deps = {}) {
     if (languageSelect) {
       languageSelect.addEventListener("change", () => {
         savePreference("language", languageSelect.value || null);
-        updatePreviewTextForLanguage();
       });
     }
     if (englishNormalizationCheckbox) englishNormalizationCheckbox.addEventListener("change", () => {
@@ -194,8 +198,8 @@ function initPreferencesModule(context, services, deps = {}) {
         if (elements.previewHint) elements.previewHint.style.display = "none";
         if (elements.previewHintMobile) elements.previewHintMobile.style.display = "none";
       };
-      const selectedLanguage = languageSelect?.value || "";
-      const defaultText = getLanguageExample(selectedLanguage, "viewer");
+      const selectedVoice = voiceSelect?.value || "";
+      const defaultText = getExampleForVoice(selectedVoice, "viewer");
       await performVoiceTest(payload, buttons, {
         defaultText,
         playerElements,
@@ -466,6 +470,7 @@ function initPreferencesModule(context, services, deps = {}) {
       if (elements.voiceSearch) {
         elements.voiceSearch.value = voiceSelect.value ? formatVoiceName(voiceSelect.value) : "Use channel default";
       }
+      updatePreviewTextForVoice();
     }
     if (pitchSlider && pitchValue) {
       pitchSlider.value = String(prefs.pitch ?? 0);
@@ -479,7 +484,6 @@ function initPreferencesModule(context, services, deps = {}) {
     if (emotionSelect) emotionSelect.value = prefs.emotion || "";
     if (languageSelect) {
       languageSelect.value = prefs.language || "";
-      updatePreviewTextForLanguage();
     }
     if (englishNormalizationCheckbox) englishNormalizationCheckbox.checked = prefs.englishNormalization || false;
     updateHints();

@@ -1,7 +1,7 @@
 import { showToast, syncTextareas } from "../common/ui.js";
 import { debounce, formatVoiceName } from "../common/utils.js";
 import { performVoiceTest } from "../common/voice-preview.js";
-import { getLanguageExample } from "../common/language-examples.js";
+import { getExampleForVoice } from "../common/language-examples.js";
 function initSettingsModule(context, services, dependencies) {
   const { botApiBaseUrl, testMode } = context;
   const { getLoggedInUser, getSessionToken } = services;
@@ -139,7 +139,12 @@ function initSettingsModule(context, services, dependencies) {
       });
       bitsAmountInput.addEventListener("change", () => saveTtsSetting("bitsMinimumAmount", parseInt(bitsAmountInput.value || "100", 10), "Minimum Bits"));
     }
-    if (defaultVoiceSelect) defaultVoiceSelect.addEventListener("change", () => saveTtsSetting("voiceId", defaultVoiceSelect.value || "Friendly_Person", "Default Voice"));
+    if (defaultVoiceSelect) {
+      defaultVoiceSelect.addEventListener("change", () => {
+        saveTtsSetting("voiceId", defaultVoiceSelect.value || "Friendly_Person", "Default Voice");
+        updatePreviewTextForVoice();
+      });
+    }
     if (defaultEmotionSelect) defaultEmotionSelect.addEventListener("change", () => saveTtsSetting("emotion", defaultEmotionSelect.value || "auto", "Default Emotion"));
     if (defaultPitchSlider) {
       const debouncedPitchSave = debounce(
@@ -164,7 +169,6 @@ function initSettingsModule(context, services, dependencies) {
     if (defaultLanguageSelect) {
       defaultLanguageSelect.addEventListener("change", () => {
         saveTtsSetting("languageBoost", defaultLanguageSelect.value || "Automatic", "Default Language");
-        updatePreviewTextForLanguage();
       });
     }
     if (englishNormalizationCheckbox) englishNormalizationCheckbox.addEventListener("change", () => saveTtsSetting("englishNormalization", !!englishNormalizationCheckbox.checked, "English Normalization"));
@@ -185,9 +189,9 @@ function initSettingsModule(context, services, dependencies) {
       }
     }
   }
-  function updatePreviewTextForLanguage() {
-    const selectedLanguage = defaultLanguageSelect?.value || "auto";
-    const exampleText = getLanguageExample(selectedLanguage, "dashboard");
+  function updatePreviewTextForVoice() {
+    const selectedVoice = defaultVoiceSelect?.value || "Friendly_Person";
+    const exampleText = getExampleForVoice(selectedVoice, "dashboard");
     if (voiceTestTextInput) {
       voiceTestTextInput.value = exampleText;
     }
@@ -275,8 +279,8 @@ function initSettingsModule(context, services, dependencies) {
         }
       };
       const buttons = [voiceTestBtn, voiceTestBtnMobile].filter((btn) => btn !== null);
-      const selectedLanguage = defaultLanguageSelect?.value || "auto";
-      const defaultText = getLanguageExample(selectedLanguage, "dashboard");
+      const selectedVoice = defaultVoiceSelect?.value || "Friendly_Person";
+      const defaultText = getExampleForVoice(selectedVoice, "dashboard");
       await performVoiceTest(payload, buttons, {
         defaultText,
         playerElements,
@@ -709,6 +713,9 @@ function initSettingsModule(context, services, dependencies) {
       if (searchInput) {
         searchInput.value = formatVoiceName(defaultVoiceSelect.value);
       }
+      if (!isInitializing) {
+        updatePreviewTextForVoice();
+      }
     }
     if (defaultEmotionSelect) defaultEmotionSelect.value = settings.emotion || "auto";
     if (defaultPitchSlider) {
@@ -721,9 +728,6 @@ function initSettingsModule(context, services, dependencies) {
     }
     if (defaultLanguageSelect) {
       defaultLanguageSelect.value = settings.languageBoost || "Automatic";
-      if (!isInitializing) {
-        updatePreviewTextForLanguage();
-      }
     }
     if (englishNormalizationCheckbox) englishNormalizationCheckbox.checked = settings.englishNormalization || false;
   }

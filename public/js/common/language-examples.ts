@@ -192,68 +192,77 @@ const LANGUAGE_EXAMPLES: Record<string, LanguageExamples> = {
 };
 
 /**
- * Map language select values to language example keys
- * The HTML select uses values like "auto", "Chinese", "Chinese,Yue"
- * but our examples use keys like "English", "Chinese (Mandarin)", "Cantonese"
+ * Extract language from voice ID
+ * Voice IDs are formatted like "Spanish_FriendlyNeighbor" or "Chinese (Mandarin)_Reliable_Executive"
+ * @param voiceId - The voice ID (e.g., "Spanish_FriendlyNeighbor", "Friendly_Person")
+ * @returns The language key for LANGUAGE_EXAMPLES
  */
-function mapLanguageValueToKey(languageValue: string): string {
-    const mapping: Record<string, string> = {
-        'auto': 'English',
-        'Automatic': 'English',
-        'Chinese': 'Chinese (Mandarin)',
-        'Chinese,Yue': 'Cantonese',
-        'English': 'English',
-        'Arabic': 'Arabic',
-        'Russian': 'Russian',
-        'Spanish': 'Spanish',
-        'French': 'French',
-        'Portuguese': 'Portuguese',
-        'German': 'German',
-        'Turkish': 'Turkish',
-        'Dutch': 'Dutch',
-        'Ukrainian': 'Ukrainian',
-        'Vietnamese': 'Vietnamese',
-        'Indonesian': 'Indonesian',
-        'Japanese': 'Japanese',
-        'Italian': 'Italian',
-        'Korean': 'Korean',
-        'Thai': 'Thai',
-        'Polish': 'Polish',
-        'Romanian': 'Romanian',
-        'Greek': 'Greek',
-        'Czech': 'Czech',
-        'Finnish': 'Finnish',
-        'Hindi': 'Hindi',
-        'Bulgarian': 'Bulgarian',
-        'Danish': 'Danish',
-        'Hebrew': 'Hebrew',
-        'Malay': 'Malay',
-        'Persian': 'Persian',
-        'Slovak': 'Slovak',
-        'Swedish': 'Swedish',
-        'Croatian': 'Croatian',
-        'Filipino': 'Filipino',
-        'Hungarian': 'Hungarian',
-        'Norwegian': 'Norwegian',
-        'Slovenian': 'Slovenian',
-        'Catalan': 'Catalan',
-        'Nynorsk': 'Nynorsk',
-        'Tamil': 'Tamil',
-        'Afrikaans': 'Afrikaans',
+function getLanguageFromVoiceId(voiceId: string): string {
+    if (!voiceId) return 'English';
+
+    // Check for language prefix patterns
+    const languagePrefixes: Record<string, string> = {
+        'Chinese (Mandarin)_': 'Chinese (Mandarin)',
+        'Cantonese_': 'Cantonese',
+        'Arabic_': 'Arabic',
+        'Dutch_': 'Dutch',
+        'French_': 'French',
+        'German_': 'German',
+        'Indonesian_': 'Indonesian',
+        'Italian_': 'Italian',
+        'Japanese_': 'Japanese',
+        'Korean_': 'Korean',
+        'Portuguese_': 'Portuguese',
+        'Russian_': 'Russian',
+        'Spanish_': 'Spanish',
+        'Turkish_': 'Turkish',
+        'Ukrainian_': 'Ukrainian',
+        'Vietnamese_': 'Vietnamese',
+        'Thai_': 'Thai',
+        'Polish_': 'Polish',
+        'Romanian_': 'Romanian',
+        'Greek_': 'Greek',
+        'Czech_': 'Czech',
+        'Finnish_': 'Finnish',
+        'Hindi_': 'Hindi',
+        'Bulgarian_': 'Bulgarian',
+        'Danish_': 'Danish',
+        'Hebrew_': 'Hebrew',
+        'Malay_': 'Malay',
+        'Persian_': 'Persian',
+        'Slovak_': 'Slovak',
+        'Swedish_': 'Swedish',
+        'Croatian_': 'Croatian',
+        'Filipino_': 'Filipino',
+        'Hungarian_': 'Hungarian',
+        'Norwegian_': 'Norwegian',
+        'Slovenian_': 'Slovenian',
+        'Catalan_': 'Catalan',
+        'Nynorsk_': 'Nynorsk',
+        'Tamil_': 'Tamil',
+        'Afrikaans_': 'Afrikaans',
+        'English_': 'English',
     };
 
-    return mapping[languageValue] || 'English';
+    // Check each prefix
+    for (const [prefix, language] of Object.entries(languagePrefixes)) {
+        if (voiceId.startsWith(prefix)) {
+            return language;
+        }
+    }
+
+    // Default to English for voices without a language prefix
+    return 'English';
 }
 
 /**
- * Get the default example text for a given language
- * @param language - The language value from select (e.g., "auto", "Spanish", "Chinese,Yue")
+ * Get the default example text for a given voice
+ * @param voiceId - The voice ID (e.g., "Spanish_FriendlyNeighbor", "Friendly_Person")
  * @param context - Either "dashboard" (for streamer) or "viewer"
- * @returns The example text, or English default if not found
+ * @returns The example text in the appropriate language
  */
-function getLanguageExample(language: string, context: 'dashboard' | 'viewer' = 'dashboard'): string {
-    // Map the select value to the example key
-    const languageKey = mapLanguageValueToKey(language);
+function getExampleForVoice(voiceId: string, context: 'dashboard' | 'viewer' = 'dashboard'): string {
+    const languageKey = getLanguageFromVoiceId(voiceId);
     const examples = LANGUAGE_EXAMPLES[languageKey];
 
     if (examples && examples[context]) {
@@ -275,6 +284,7 @@ function getAvailableLanguages(): string[] {
 
 export {
     LANGUAGE_EXAMPLES,
-    getLanguageExample,
+    getExampleForVoice,
+    getLanguageFromVoiceId,
     getAvailableLanguages
 };

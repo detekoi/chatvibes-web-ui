@@ -180,55 +180,59 @@ const LANGUAGE_EXAMPLES = {
     viewer: "Chat is this real?"
   }
 };
-function mapLanguageValueToKey(languageValue) {
-  const mapping = {
-    "auto": "English",
-    "Automatic": "English",
-    "Chinese": "Chinese (Mandarin)",
-    "Chinese,Yue": "Cantonese",
-    "English": "English",
-    "Arabic": "Arabic",
-    "Russian": "Russian",
-    "Spanish": "Spanish",
-    "French": "French",
-    "Portuguese": "Portuguese",
-    "German": "German",
-    "Turkish": "Turkish",
-    "Dutch": "Dutch",
-    "Ukrainian": "Ukrainian",
-    "Vietnamese": "Vietnamese",
-    "Indonesian": "Indonesian",
-    "Japanese": "Japanese",
-    "Italian": "Italian",
-    "Korean": "Korean",
-    "Thai": "Thai",
-    "Polish": "Polish",
-    "Romanian": "Romanian",
-    "Greek": "Greek",
-    "Czech": "Czech",
-    "Finnish": "Finnish",
-    "Hindi": "Hindi",
-    "Bulgarian": "Bulgarian",
-    "Danish": "Danish",
-    "Hebrew": "Hebrew",
-    "Malay": "Malay",
-    "Persian": "Persian",
-    "Slovak": "Slovak",
-    "Swedish": "Swedish",
-    "Croatian": "Croatian",
-    "Filipino": "Filipino",
-    "Hungarian": "Hungarian",
-    "Norwegian": "Norwegian",
-    "Slovenian": "Slovenian",
-    "Catalan": "Catalan",
-    "Nynorsk": "Nynorsk",
-    "Tamil": "Tamil",
-    "Afrikaans": "Afrikaans"
+function getLanguageFromVoiceId(voiceId) {
+  if (!voiceId) return "English";
+  const languagePrefixes = {
+    "Chinese (Mandarin)_": "Chinese (Mandarin)",
+    "Cantonese_": "Cantonese",
+    "Arabic_": "Arabic",
+    "Dutch_": "Dutch",
+    "French_": "French",
+    "German_": "German",
+    "Indonesian_": "Indonesian",
+    "Italian_": "Italian",
+    "Japanese_": "Japanese",
+    "Korean_": "Korean",
+    "Portuguese_": "Portuguese",
+    "Russian_": "Russian",
+    "Spanish_": "Spanish",
+    "Turkish_": "Turkish",
+    "Ukrainian_": "Ukrainian",
+    "Vietnamese_": "Vietnamese",
+    "Thai_": "Thai",
+    "Polish_": "Polish",
+    "Romanian_": "Romanian",
+    "Greek_": "Greek",
+    "Czech_": "Czech",
+    "Finnish_": "Finnish",
+    "Hindi_": "Hindi",
+    "Bulgarian_": "Bulgarian",
+    "Danish_": "Danish",
+    "Hebrew_": "Hebrew",
+    "Malay_": "Malay",
+    "Persian_": "Persian",
+    "Slovak_": "Slovak",
+    "Swedish_": "Swedish",
+    "Croatian_": "Croatian",
+    "Filipino_": "Filipino",
+    "Hungarian_": "Hungarian",
+    "Norwegian_": "Norwegian",
+    "Slovenian_": "Slovenian",
+    "Catalan_": "Catalan",
+    "Nynorsk_": "Nynorsk",
+    "Tamil_": "Tamil",
+    "Afrikaans_": "Afrikaans",
+    "English_": "English"
   };
-  return mapping[languageValue] || "English";
+  for (const [prefix, language] of Object.entries(languagePrefixes)) {
+    if (voiceId.startsWith(prefix)) {
+      return language;
+    }
+  }
+  return "English";
 }
-function getLanguageExample(language, context = "dashboard") {
-  const languageKey = mapLanguageValueToKey(language);
+function getExampleForVoice(voiceId, context = "dashboard") {
+  const languageKey = getLanguageFromVoiceId(voiceId);
   const examples = LANGUAGE_EXAMPLES[languageKey];
   if (examples && examples[context]) {
     return examples[context];
@@ -242,6 +246,7 @@ function getAvailableLanguages() {
 export {
   LANGUAGE_EXAMPLES,
   getAvailableLanguages,
-  getLanguageExample
+  getExampleForVoice,
+  getLanguageFromVoiceId
 };
 //# sourceMappingURL=language-examples.js.map
