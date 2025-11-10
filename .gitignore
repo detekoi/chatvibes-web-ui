@@ -18,6 +18,12 @@ downloaded-logs-*.json
 # it commented so all members can deploy to the same project(s) in .firebaserc.
 # .firebaserc
 
+# Compiled frontend JavaScript (generated from TypeScript)
+public/js/**/*.js
+public/js/**/*.js.map
+!public/js/**/static-*.js  # If you have any non-compiled JS files
+
+
 # Runtime data
 pids
 *.pid
