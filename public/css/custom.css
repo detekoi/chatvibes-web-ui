@@ -135,6 +135,134 @@ dialog.modal::backdrop {
     z-index: -1;
 }
 
+/* 3D Skeuomorphic Button Styles (Login Pages Only) */
+.button-3d {
+    background-color: white;
+    color: #121212;
+    border: 2px solid #121212;
+    box-shadow: 4px 4px 0 #121212;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    padding: 12px 24px;
+    display: inline-block;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 8px !important;
+}
+
+.button-3d:hover,
+.button-3d:focus {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 1px rgba(0, 0, 0, 0.6);
+    text-decoration: none;
+    background-color: white;
+    color: #121212;
+}
+
+.button-3d:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 #121212;
+    background-color: #eaeaea;
+}
+
+.button-3d.btn-primary {
+    background-color: var(--accent-primary);
+    color: white;
+    border-color: var(--accent-primary-hover);
+    box-shadow: 4px 4px 0 var(--accent-primary-hover);
+}
+
+.button-3d.btn-primary:hover,
+.button-3d.btn-primary:focus {
+    background-color: var(--accent-primary);
+    color: white;
+    box-shadow: 6px 6px 1px rgba(27, 104, 255, 0.6);
+}
+
+.button-3d.btn-primary:active {
+    background-color: var(--accent-primary-hover);
+    color: white;
+    box-shadow: 1px 1px 0 var(--accent-primary-hover);
+}
+
+.button-3d.btn-success {
+    background-color: #4CAF50;
+    color: white;
+    border-color: #45a049;
+    box-shadow: 4px 4px 0 #45a049;
+}
+
+.button-3d.btn-success:hover,
+.button-3d.btn-success:focus {
+    background-color: #4CAF50;
+    color: white;
+    box-shadow: 6px 6px 1px rgba(76, 175, 80, 0.6);
+}
+
+.button-3d.btn-success:active {
+    background-color: #3e8e41;
+    box-shadow: 1px 1px 0 #45a049;
+}
+
+/* Dark mode 3D button styles */
+[data-theme="dark"] .button-3d {
+    background-color: #ffffff;
+    color: #000000;
+    border: 2px solid #555555;
+    box-shadow: 4px 4px 0 rgba(255, 255, 255, 0.33);
+}
+
+[data-theme="dark"] .button-3d:hover,
+[data-theme="dark"] .button-3d:focus {
+    box-shadow: 6px 6px 1px rgba(255, 255, 255, 0.1);
+    background-color: #ffffff;
+    color: #000000;
+}
+
+[data-theme="dark"] .button-3d:active {
+    box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.33);
+    background-color: #eaeaea;
+}
+
+[data-theme="dark"] .button-3d.btn-primary {
+    background-color: var(--accent-primary);
+    color: white;
+    border-color: #3d82ff;
+    box-shadow: 4px 4px 0 #1b68ff;
+}
+
+[data-theme="dark"] .button-3d.btn-primary:hover,
+[data-theme="dark"] .button-3d.btn-primary:focus {
+    background-color: var(--accent-primary);
+    color: white;
+    box-shadow: 6px 6px 1px rgba(61, 130, 255, 0.4);
+}
+
+[data-theme="dark"] .button-3d.btn-primary:active {
+    background-color: var(--accent-primary-hover);
+    box-shadow: 1px 1px 0 #1b68ff;
+}
+
+[data-theme="dark"] .button-3d.btn-success {
+    background-color: #4CAF50;
+    color: white;
+    border-color: #45a049;
+    box-shadow: 4px 4px 0 #2e7d32;
+}
+
+[data-theme="dark"] .button-3d.btn-success:hover,
+[data-theme="dark"] .button-3d.btn-success:focus {
+    background-color: #4CAF50;
+    color: white;
+    box-shadow: 6px 6px 1px rgba(76, 175, 80, 0.4);
+}
+
+[data-theme="dark"] .button-3d.btn-success:active {
+    background-color: #2e7d32;
+    box-shadow: 1px 1px 0 #45a049;
+}
+
 /* Utility for lists in ignore cards */
 .ignore-list.list-group li {
     display: flex;
@@ -575,6 +703,11 @@ strong, .fw-semibold, .fw-bold {
     .list-group-item .row.align-items-center:has(input[type="number"]) input[type="number"] {
         width: 100%;
     }
+
+    .button-3d {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
 }
 
 /* Voice Preview Audio Player Styling */
@@ -844,4 +977,3 @@ strong, .fw-semibold, .fw-bold {
 [data-theme="dark"] .voice-play-btn svg {
     color: white;
 }
-
