@@ -58,7 +58,7 @@ function initPreferencesModule(context, services, deps = {}) {
   attachPreferenceSaves();
   attachPreviewHandlers();
   function updatePreviewTextForLanguage() {
-    const selectedLanguage = languageSelect?.value || "";
+    const selectedLanguage = elements.languageSelect?.value || "";
     const exampleText = getLanguageExample(selectedLanguage, "viewer");
     if (elements.previewText) {
       elements.previewText.value = exampleText;
@@ -112,7 +112,7 @@ function initPreferencesModule(context, services, deps = {}) {
       pitchSlider,
       speedSlider,
       emotionSelect,
-      languageSelect: languageSelect2,
+      languageSelect,
       englishNormalizationCheckbox
     } = elements;
     if (voiceSelect) voiceSelect.addEventListener("change", () => savePreference("voiceId", voiceSelect.value || null));
@@ -129,9 +129,9 @@ function initPreferencesModule(context, services, deps = {}) {
       });
     }
     if (emotionSelect) emotionSelect.addEventListener("change", () => savePreference("emotion", emotionSelect.value || null));
-    if (languageSelect2) {
-      languageSelect2.addEventListener("change", () => {
-        savePreference("language", languageSelect2.value || null);
+    if (languageSelect) {
+      languageSelect.addEventListener("change", () => {
+        savePreference("language", languageSelect.value || null);
         updatePreviewTextForLanguage();
       });
     }
@@ -140,8 +140,8 @@ function initPreferencesModule(context, services, deps = {}) {
     });
   }
   function attachPreviewHandlers() {
-    const { previewBtn, previewBtnMobile, previewText, previewTextMobile, voiceSelect, pitchSlider, speedSlider, emotionSelect, languageSelect: languageSelect2, englishNormalizationCheckbox } = elements;
-    const changeElements = [voiceSelect, pitchSlider, speedSlider, emotionSelect, languageSelect2, englishNormalizationCheckbox];
+    const { previewBtn, previewBtnMobile, previewText, previewTextMobile, voiceSelect, pitchSlider, speedSlider, emotionSelect, languageSelect, englishNormalizationCheckbox } = elements;
+    const changeElements = [voiceSelect, pitchSlider, speedSlider, emotionSelect, languageSelect, englishNormalizationCheckbox];
     changeElements.forEach((el) => {
       if (el) el.addEventListener("change", markSettingsAsDirty);
     });
@@ -173,7 +173,7 @@ function initPreferencesModule(context, services, deps = {}) {
         pitch: pitchHasOverride ? Number(pitchSlider?.value ?? 0) : void 0,
         speed: speedHasOverride ? Number(speedSlider?.value ?? 1) : void 0,
         emotion: emotionSelect?.value || void 0,
-        languageBoost: languageSelect2?.value || void 0
+        languageBoost: languageSelect?.value || void 0
       };
       const playerElements = {
         playerEl: elements.previewPlayer,
@@ -194,7 +194,7 @@ function initPreferencesModule(context, services, deps = {}) {
         if (elements.previewHint) elements.previewHint.style.display = "none";
         if (elements.previewHintMobile) elements.previewHintMobile.style.display = "none";
       };
-      const selectedLanguage = languageSelect2?.value || "";
+      const selectedLanguage = languageSelect?.value || "";
       const defaultText = getLanguageExample(selectedLanguage, "viewer");
       await performVoiceTest(payload, buttons, {
         defaultText,
@@ -452,7 +452,7 @@ function initPreferencesModule(context, services, deps = {}) {
       speedSlider,
       speedValue,
       emotionSelect,
-      languageSelect: languageSelect2,
+      languageSelect,
       englishNormalizationCheckbox,
       voiceReset,
       pitchReset,
@@ -477,8 +477,8 @@ function initPreferencesModule(context, services, deps = {}) {
       speedValue.textContent = Number(val).toFixed(2);
     }
     if (emotionSelect) emotionSelect.value = prefs.emotion || "";
-    if (languageSelect2) {
-      languageSelect2.value = prefs.language || "";
+    if (languageSelect) {
+      languageSelect.value = prefs.language || "";
       updatePreviewTextForLanguage();
     }
     if (englishNormalizationCheckbox) englishNormalizationCheckbox.checked = prefs.englishNormalization || false;
@@ -489,7 +489,7 @@ function initPreferencesModule(context, services, deps = {}) {
       pitchSlider,
       speedSlider,
       emotionSelect,
-      languageSelect2,
+      languageSelect,
       englishNormalizationCheckbox,
       voiceReset,
       pitchReset,
