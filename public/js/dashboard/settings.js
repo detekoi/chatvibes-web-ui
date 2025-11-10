@@ -186,9 +186,8 @@ function initSettingsModule(context, services, dependencies) {
     }
   }
   function updatePreviewTextForLanguage() {
-    const selectedLanguage = defaultLanguageSelect?.value || "Automatic";
-    const languageKey = selectedLanguage === "Automatic" ? "English" : selectedLanguage;
-    const exampleText = getLanguageExample(languageKey, "dashboard");
+    const selectedLanguage = defaultLanguageSelect?.value || "auto";
+    const exampleText = getLanguageExample(selectedLanguage, "dashboard");
     if (voiceTestTextInput) {
       voiceTestTextInput.value = exampleText;
     }
@@ -276,9 +275,8 @@ function initSettingsModule(context, services, dependencies) {
         }
       };
       const buttons = [voiceTestBtn, voiceTestBtnMobile].filter((btn) => btn !== null);
-      const selectedLanguage = defaultLanguageSelect?.value || "Automatic";
-      const languageKey = selectedLanguage === "Automatic" ? "English" : selectedLanguage;
-      const defaultText = getLanguageExample(languageKey, "dashboard");
+      const selectedLanguage = defaultLanguageSelect?.value || "auto";
+      const defaultText = getLanguageExample(selectedLanguage, "dashboard");
       await performVoiceTest(payload, buttons, {
         defaultText,
         playerElements,

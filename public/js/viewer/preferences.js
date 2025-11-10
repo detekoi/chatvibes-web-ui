@@ -59,8 +59,7 @@ function initPreferencesModule(context, services, deps = {}) {
   attachPreviewHandlers();
   function updatePreviewTextForLanguage() {
     const selectedLanguage = languageSelect?.value || "";
-    const languageKey = !selectedLanguage || selectedLanguage === "Automatic" ? "English" : selectedLanguage;
-    const exampleText = getLanguageExample(languageKey, "viewer");
+    const exampleText = getLanguageExample(selectedLanguage, "viewer");
     if (elements.previewText) {
       elements.previewText.value = exampleText;
     }
@@ -196,8 +195,7 @@ function initPreferencesModule(context, services, deps = {}) {
         if (elements.previewHintMobile) elements.previewHintMobile.style.display = "none";
       };
       const selectedLanguage = languageSelect2?.value || "";
-      const languageKey = !selectedLanguage || selectedLanguage === "Automatic" ? "English" : selectedLanguage;
-      const defaultText = getLanguageExample(languageKey, "viewer");
+      const defaultText = getLanguageExample(selectedLanguage, "viewer");
       await performVoiceTest(payload, buttons, {
         defaultText,
         playerElements,

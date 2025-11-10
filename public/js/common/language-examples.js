@@ -180,8 +180,56 @@ const LANGUAGE_EXAMPLES = {
     viewer: "Chat is this real?"
   }
 };
+function mapLanguageValueToKey(languageValue) {
+  const mapping = {
+    "auto": "English",
+    "Automatic": "English",
+    "Chinese": "Chinese (Mandarin)",
+    "Chinese,Yue": "Cantonese",
+    "English": "English",
+    "Arabic": "Arabic",
+    "Russian": "Russian",
+    "Spanish": "Spanish",
+    "French": "French",
+    "Portuguese": "Portuguese",
+    "German": "German",
+    "Turkish": "Turkish",
+    "Dutch": "Dutch",
+    "Ukrainian": "Ukrainian",
+    "Vietnamese": "Vietnamese",
+    "Indonesian": "Indonesian",
+    "Japanese": "Japanese",
+    "Italian": "Italian",
+    "Korean": "Korean",
+    "Thai": "Thai",
+    "Polish": "Polish",
+    "Romanian": "Romanian",
+    "Greek": "Greek",
+    "Czech": "Czech",
+    "Finnish": "Finnish",
+    "Hindi": "Hindi",
+    "Bulgarian": "Bulgarian",
+    "Danish": "Danish",
+    "Hebrew": "Hebrew",
+    "Malay": "Malay",
+    "Persian": "Persian",
+    "Slovak": "Slovak",
+    "Swedish": "Swedish",
+    "Croatian": "Croatian",
+    "Filipino": "Filipino",
+    "Hungarian": "Hungarian",
+    "Norwegian": "Norwegian",
+    "Slovenian": "Slovenian",
+    "Catalan": "Catalan",
+    "Nynorsk": "Nynorsk",
+    "Tamil": "Tamil",
+    "Afrikaans": "Afrikaans"
+  };
+  return mapping[languageValue] || "English";
+}
 function getLanguageExample(language, context = "dashboard") {
-  const examples = LANGUAGE_EXAMPLES[language];
+  const languageKey = mapLanguageValueToKey(language);
+  const examples = LANGUAGE_EXAMPLES[languageKey];
   if (examples && examples[context]) {
     return examples[context];
   }

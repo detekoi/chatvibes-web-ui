@@ -192,13 +192,70 @@ const LANGUAGE_EXAMPLES: Record<string, LanguageExamples> = {
 };
 
 /**
+ * Map language select values to language example keys
+ * The HTML select uses values like "auto", "Chinese", "Chinese,Yue"
+ * but our examples use keys like "English", "Chinese (Mandarin)", "Cantonese"
+ */
+function mapLanguageValueToKey(languageValue: string): string {
+    const mapping: Record<string, string> = {
+        'auto': 'English',
+        'Automatic': 'English',
+        'Chinese': 'Chinese (Mandarin)',
+        'Chinese,Yue': 'Cantonese',
+        'English': 'English',
+        'Arabic': 'Arabic',
+        'Russian': 'Russian',
+        'Spanish': 'Spanish',
+        'French': 'French',
+        'Portuguese': 'Portuguese',
+        'German': 'German',
+        'Turkish': 'Turkish',
+        'Dutch': 'Dutch',
+        'Ukrainian': 'Ukrainian',
+        'Vietnamese': 'Vietnamese',
+        'Indonesian': 'Indonesian',
+        'Japanese': 'Japanese',
+        'Italian': 'Italian',
+        'Korean': 'Korean',
+        'Thai': 'Thai',
+        'Polish': 'Polish',
+        'Romanian': 'Romanian',
+        'Greek': 'Greek',
+        'Czech': 'Czech',
+        'Finnish': 'Finnish',
+        'Hindi': 'Hindi',
+        'Bulgarian': 'Bulgarian',
+        'Danish': 'Danish',
+        'Hebrew': 'Hebrew',
+        'Malay': 'Malay',
+        'Persian': 'Persian',
+        'Slovak': 'Slovak',
+        'Swedish': 'Swedish',
+        'Croatian': 'Croatian',
+        'Filipino': 'Filipino',
+        'Hungarian': 'Hungarian',
+        'Norwegian': 'Norwegian',
+        'Slovenian': 'Slovenian',
+        'Catalan': 'Catalan',
+        'Nynorsk': 'Nynorsk',
+        'Tamil': 'Tamil',
+        'Afrikaans': 'Afrikaans',
+    };
+
+    return mapping[languageValue] || 'English';
+}
+
+/**
  * Get the default example text for a given language
- * @param language - The language name (e.g., "English", "Spanish")
+ * @param language - The language value from select (e.g., "auto", "Spanish", "Chinese,Yue")
  * @param context - Either "dashboard" (for streamer) or "viewer"
  * @returns The example text, or English default if not found
  */
 function getLanguageExample(language: string, context: 'dashboard' | 'viewer' = 'dashboard'): string {
-    const examples = LANGUAGE_EXAMPLES[language];
+    // Map the select value to the example key
+    const languageKey = mapLanguageValueToKey(language);
+    const examples = LANGUAGE_EXAMPLES[languageKey];
+
     if (examples && examples[context]) {
         return examples[context];
     }

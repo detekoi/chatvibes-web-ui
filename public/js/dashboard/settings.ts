@@ -314,11 +314,8 @@ export function initSettingsModule(
   }
 
   function updatePreviewTextForLanguage(): void {
-    const selectedLanguage = defaultLanguageSelect?.value || 'Automatic';
-
-    // Map "Automatic" to "English" for the examples
-    const languageKey = selectedLanguage === 'Automatic' ? 'English' : selectedLanguage;
-    const exampleText = getLanguageExample(languageKey, 'dashboard');
+    const selectedLanguage = defaultLanguageSelect?.value || 'auto';
+    const exampleText = getLanguageExample(selectedLanguage, 'dashboard');
 
     // Update both desktop and mobile preview text fields
     if (voiceTestTextInput) {
@@ -422,9 +419,8 @@ export function initSettingsModule(
       const buttons = [voiceTestBtn, voiceTestBtnMobile].filter((btn): btn is HTMLButtonElement => btn !== null);
 
       // Get the appropriate default text for the selected language
-      const selectedLanguage = defaultLanguageSelect?.value || 'Automatic';
-      const languageKey = selectedLanguage === 'Automatic' ? 'English' : selectedLanguage;
-      const defaultText = getLanguageExample(languageKey, 'dashboard');
+      const selectedLanguage = defaultLanguageSelect?.value || 'auto';
+      const defaultText = getLanguageExample(selectedLanguage, 'dashboard');
 
       await performVoiceTest(payload, buttons, {
         defaultText,
