@@ -53,11 +53,21 @@
                 </div>
 
                 <div class="d-grid gap-3 mb-3">
-                    <a href="#" id="twitchLoginBtn" class="button-3d btn-primary">Broadcaster Dashboard</a>
-                    <a href="#" id="viewerPrefsBtn" class="button-3d btn-success">Viewer Preferences</a>
+                    <div class="button-wrapper">
+                        <a href="#" id="twitchLoginBtn" class="button-3d btn-primary">Broadcaster Dashboard</a>
+                        <div class="tooltip-wrapper">
+                            <span class="help-icon" data-tooltip="Manage your Twitch channel's TTS bot. Add/remove the bot and configure channel-wide settings.">?</span>
+                        </div>
+                    </div>
+                    <div class="button-wrapper">
+                        <a href="#" id="viewerPrefsBtn" class="button-3d btn-success">Viewer Preferences</a>
+                        <div class="tooltip-wrapper">
+                            <span class="help-icon" data-tooltip="Customize how YOUR messages sound when read by TTS in any channel you visit.">?</span>
+                        </div>
+                    </div>
                 </div>
 
-                <p class="mb-0"><a href="https://detekoi.github.io/chatvibesdocs.html" target="_blank" class="link-primary">Documentation</a></p>
+                <p class="mb-0"><a href="https://docs.wildcat.chat/chatvibesdocs.html" target="_blank" class="link-primary">Documentation</a></p>
                 <p id="loginError" class="text-danger mt-3 mb-0"></p>
             </div>
         </div>
