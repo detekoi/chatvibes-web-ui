@@ -47,13 +47,14 @@
     </script>
 </head>
 <body class="page-center-content">
-    <canvas id="staticCanvas" style="width:100vw; height:100vh; position:fixed; top:0; left:0; z-index:-1;"></canvas>
+    <video id="staticVideo" autoplay loop muted playsinline style="width:100vw; height:100vh; position:fixed; top:0; left:0; z-index:-1; object-fit:cover;">
+        <source src="assets/video/Pixelated_static_pattern_web_balanced.mp4" type="video/mp4">
+    </video>
     <div class="container">
         <h1 id="error-title">Authentication Failed</h1>
         <p>Sorry, there was a problem during the Twitch authentication process.</p>
         <p id="error-message-details" style="color:red; margin-bottom:20px;">Loading error details...</p>
         <a href="index.html" class="button">Try Logging In Again</a>
     </div>
-    <script src="js/static-background.js"></script>
 </body>
 </html>
