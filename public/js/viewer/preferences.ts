@@ -2,6 +2,7 @@ import { fetchWithAuth } from '../common/api.js';
 import { showToast, syncTextareas } from '../common/ui.js';
 import { formatNumberCompact, formatVoiceName } from '../common/utils.js';
 import { performVoiceTest, TTSPayload, PlayerElements, HintElements } from '../common/voice-preview.js';
+import { getLanguageExample } from '../common/language-examples.js';
 
 /**
  * Viewer voice preferences module.
@@ -230,6 +231,22 @@ export function initPreferencesModule(
   attachPreferenceSaves();
   attachPreviewHandlers();
 
+  function updatePreviewTextForLanguage(): void {
+    const selectedLanguage = languageSelect?.value || '';
+
+    // If empty or automatic, use English
+    const languageKey = (!selectedLanguage || selectedLanguage === 'Automatic') ? 'English' : selectedLanguage;
+    const exampleText = getLanguageExample(languageKey, 'viewer');
+
+    // Update both desktop and mobile preview text fields
+    if (elements.previewText) {
+      elements.previewText.value = exampleText;
+    }
+    if (elements.previewTextMobile) {
+      elements.previewTextMobile.value = exampleText;
+    }
+  }
+
   return {
     async loadVoices(): Promise<void> {
       await loadVoices();
@@ -296,7 +313,12 @@ export function initPreferencesModule(
       });
     }
     if (emotionSelect) emotionSelect.addEventListener('change', () => savePreference('emotion', emotionSelect.value || null));
-    if (languageSelect) languageSelect.addEventListener('change', () => savePreference('language', languageSelect.value || null));
+    if (languageSelect) {
+      languageSelect.addEventListener('change', () => {
+        savePreference('language', languageSelect.value || null);
+        updatePreviewTextForLanguage();
+      });
+    }
     if (englishNormalizationCheckbox) englishNormalizationCheckbox.addEventListener('change', () => {
       savePreference('englishNormalization', englishNormalizationCheckbox.checked || false);
     });
@@ -370,8 +392,13 @@ export function initPreferencesModule(
         if (elements.previewHintMobile) elements.previewHintMobile.style.display = 'none';
       };
 
+      // Get the appropriate default text for the selected language
+      const selectedLanguage = languageSelect?.value || '';
+      const languageKey = (!selectedLanguage || selectedLanguage === 'Automatic') ? 'English' : selectedLanguage;
+      const defaultText = getLanguageExample(languageKey, 'viewer');
+
       await performVoiceTest(payload, buttons, {
-        defaultText: 'Chat is this real?',
+        defaultText,
         playerElements,
         hintElements,
         onAudioGenerated,
@@ -680,7 +707,11 @@ export function initPreferencesModule(
       speedValue.textContent = Number(val).toFixed(2);
     }
     if (emotionSelect) emotionSelect.value = prefs.emotion || '';
-    if (languageSelect) languageSelect.value = prefs.language || '';
+    if (languageSelect) {
+      languageSelect.value = prefs.language || '';
+      // Update preview text to match the loaded language
+      updatePreviewTextForLanguage();
+    }
     if (englishNormalizationCheckbox) englishNormalizationCheckbox.checked = prefs.englishNormalization || false;
 
     updateHints();

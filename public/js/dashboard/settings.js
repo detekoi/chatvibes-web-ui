@@ -1,6 +1,7 @@
 import { showToast, syncTextareas } from "../common/ui.js";
 import { debounce, formatVoiceName } from "../common/utils.js";
 import { performVoiceTest } from "../common/voice-preview.js";
+import { getLanguageExample } from "../common/language-examples.js";
 function initSettingsModule(context, services, dependencies) {
   const { botApiBaseUrl, testMode } = context;
   const { getLoggedInUser, getSessionToken } = services;
@@ -160,7 +161,12 @@ function initSettingsModule(context, services, dependencies) {
       });
       defaultSpeedSlider.addEventListener("change", () => saveTtsSetting("speed", parseFloat(defaultSpeedSlider.value || "1.0"), "Default Speed"));
     }
-    if (defaultLanguageSelect) defaultLanguageSelect.addEventListener("change", () => saveTtsSetting("languageBoost", defaultLanguageSelect.value || "Automatic", "Default Language"));
+    if (defaultLanguageSelect) {
+      defaultLanguageSelect.addEventListener("change", () => {
+        saveTtsSetting("languageBoost", defaultLanguageSelect.value || "Automatic", "Default Language");
+        updatePreviewTextForLanguage();
+      });
+    }
     if (englishNormalizationCheckbox) englishNormalizationCheckbox.addEventListener("change", () => saveTtsSetting("englishNormalization", !!englishNormalizationCheckbox.checked, "English Normalization"));
     if (musicEnabledCheckbox) musicEnabledCheckbox.addEventListener("change", () => void saveMusicEnabled(!!musicEnabledCheckbox.checked));
     if (musicModeSelect) musicModeSelect.addEventListener("change", () => void saveMusicAllowedRoles(musicModeSelect.value || "everyone"));
@@ -177,6 +183,17 @@ function initSettingsModule(context, services, dependencies) {
         musicBitsAmountInput.addEventListener("input", () => debouncedSaveBits());
         musicBitsAmountInput.addEventListener("change", () => void saveBits());
       }
+    }
+  }
+  function updatePreviewTextForLanguage() {
+    const selectedLanguage = defaultLanguageSelect?.value || "Automatic";
+    const languageKey = selectedLanguage === "Automatic" ? "English" : selectedLanguage;
+    const exampleText = getLanguageExample(languageKey, "dashboard");
+    if (voiceTestTextInput) {
+      voiceTestTextInput.value = exampleText;
+    }
+    if (voiceTestTextInputMobile) {
+      voiceTestTextInputMobile.value = exampleText;
     }
   }
   function attachVoicePreview() {
@@ -259,8 +276,11 @@ function initSettingsModule(context, services, dependencies) {
         }
       };
       const buttons = [voiceTestBtn, voiceTestBtnMobile].filter((btn) => btn !== null);
+      const selectedLanguage = defaultLanguageSelect?.value || "Automatic";
+      const languageKey = selectedLanguage === "Automatic" ? "English" : selectedLanguage;
+      const defaultText = getLanguageExample(languageKey, "dashboard");
       await performVoiceTest(payload, buttons, {
-        defaultText: "Welcome, everyone, to the stream!",
+        defaultText,
         playerElements,
         hintElements,
         onAudioGenerated
@@ -701,7 +721,12 @@ function initSettingsModule(context, services, dependencies) {
       defaultSpeedSlider.value = String(settings.speed ?? 1);
       if (speedValueSpan) speedValueSpan.textContent = String(settings.speed ?? 1);
     }
-    if (defaultLanguageSelect) defaultLanguageSelect.value = settings.languageBoost || "Automatic";
+    if (defaultLanguageSelect) {
+      defaultLanguageSelect.value = settings.languageBoost || "Automatic";
+      if (!isInitializing) {
+        updatePreviewTextForLanguage();
+      }
+    }
     if (englishNormalizationCheckbox) englishNormalizationCheckbox.checked = settings.englishNormalization || false;
   }
   function applyMusicSettings(settings) {

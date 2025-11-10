@@ -2,6 +2,7 @@ import { fetchWithAuth } from "../common/api.js";
 import { showToast, syncTextareas } from "../common/ui.js";
 import { formatNumberCompact, formatVoiceName } from "../common/utils.js";
 import { performVoiceTest } from "../common/voice-preview.js";
+import { getLanguageExample } from "../common/language-examples.js";
 function initPreferencesModule(context, services, deps = {}) {
   const { apiBaseUrl, testMode } = context;
   const { getCurrentChannel } = services;
@@ -56,6 +57,17 @@ function initPreferencesModule(context, services, deps = {}) {
   attachResetButtons();
   attachPreferenceSaves();
   attachPreviewHandlers();
+  function updatePreviewTextForLanguage() {
+    const selectedLanguage = languageSelect?.value || "";
+    const languageKey = !selectedLanguage || selectedLanguage === "Automatic" ? "English" : selectedLanguage;
+    const exampleText = getLanguageExample(languageKey, "viewer");
+    if (elements.previewText) {
+      elements.previewText.value = exampleText;
+    }
+    if (elements.previewTextMobile) {
+      elements.previewTextMobile.value = exampleText;
+    }
+  }
   return {
     async loadVoices() {
       await loadVoices();
@@ -101,7 +113,7 @@ function initPreferencesModule(context, services, deps = {}) {
       pitchSlider,
       speedSlider,
       emotionSelect,
-      languageSelect,
+      languageSelect: languageSelect2,
       englishNormalizationCheckbox
     } = elements;
     if (voiceSelect) voiceSelect.addEventListener("change", () => savePreference("voiceId", voiceSelect.value || null));
@@ -118,14 +130,19 @@ function initPreferencesModule(context, services, deps = {}) {
       });
     }
     if (emotionSelect) emotionSelect.addEventListener("change", () => savePreference("emotion", emotionSelect.value || null));
-    if (languageSelect) languageSelect.addEventListener("change", () => savePreference("language", languageSelect.value || null));
+    if (languageSelect2) {
+      languageSelect2.addEventListener("change", () => {
+        savePreference("language", languageSelect2.value || null);
+        updatePreviewTextForLanguage();
+      });
+    }
     if (englishNormalizationCheckbox) englishNormalizationCheckbox.addEventListener("change", () => {
       savePreference("englishNormalization", englishNormalizationCheckbox.checked || false);
     });
   }
   function attachPreviewHandlers() {
-    const { previewBtn, previewBtnMobile, previewText, previewTextMobile, voiceSelect, pitchSlider, speedSlider, emotionSelect, languageSelect, englishNormalizationCheckbox } = elements;
-    const changeElements = [voiceSelect, pitchSlider, speedSlider, emotionSelect, languageSelect, englishNormalizationCheckbox];
+    const { previewBtn, previewBtnMobile, previewText, previewTextMobile, voiceSelect, pitchSlider, speedSlider, emotionSelect, languageSelect: languageSelect2, englishNormalizationCheckbox } = elements;
+    const changeElements = [voiceSelect, pitchSlider, speedSlider, emotionSelect, languageSelect2, englishNormalizationCheckbox];
     changeElements.forEach((el) => {
       if (el) el.addEventListener("change", markSettingsAsDirty);
     });
@@ -157,7 +174,7 @@ function initPreferencesModule(context, services, deps = {}) {
         pitch: pitchHasOverride ? Number(pitchSlider?.value ?? 0) : void 0,
         speed: speedHasOverride ? Number(speedSlider?.value ?? 1) : void 0,
         emotion: emotionSelect?.value || void 0,
-        languageBoost: languageSelect?.value || void 0
+        languageBoost: languageSelect2?.value || void 0
       };
       const playerElements = {
         playerEl: elements.previewPlayer,
@@ -178,8 +195,11 @@ function initPreferencesModule(context, services, deps = {}) {
         if (elements.previewHint) elements.previewHint.style.display = "none";
         if (elements.previewHintMobile) elements.previewHintMobile.style.display = "none";
       };
+      const selectedLanguage = languageSelect2?.value || "";
+      const languageKey = !selectedLanguage || selectedLanguage === "Automatic" ? "English" : selectedLanguage;
+      const defaultText = getLanguageExample(languageKey, "viewer");
       await performVoiceTest(payload, buttons, {
-        defaultText: "Chat is this real?",
+        defaultText,
         playerElements,
         hintElements,
         onAudioGenerated
@@ -434,7 +454,7 @@ function initPreferencesModule(context, services, deps = {}) {
       speedSlider,
       speedValue,
       emotionSelect,
-      languageSelect,
+      languageSelect: languageSelect2,
       englishNormalizationCheckbox,
       voiceReset,
       pitchReset,
@@ -459,7 +479,10 @@ function initPreferencesModule(context, services, deps = {}) {
       speedValue.textContent = Number(val).toFixed(2);
     }
     if (emotionSelect) emotionSelect.value = prefs.emotion || "";
-    if (languageSelect) languageSelect.value = prefs.language || "";
+    if (languageSelect2) {
+      languageSelect2.value = prefs.language || "";
+      updatePreviewTextForLanguage();
+    }
     if (englishNormalizationCheckbox) englishNormalizationCheckbox.checked = prefs.englishNormalization || false;
     updateHints();
     const allowViewerPrefs = prefs?.channelPolicy?.allowViewerPreferences !== false;
@@ -468,7 +491,7 @@ function initPreferencesModule(context, services, deps = {}) {
       pitchSlider,
       speedSlider,
       emotionSelect,
-      languageSelect,
+      languageSelect2,
       englishNormalizationCheckbox,
       voiceReset,
       pitchReset,

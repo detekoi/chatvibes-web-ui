@@ -1,6 +1,7 @@
 import { showToast, syncTextareas } from '../common/ui.js';
 import { debounce, formatVoiceName } from '../common/utils.js';
 import { performVoiceTest, TTSPayload, PlayerElements, HintElements } from '../common/voice-preview.js';
+import { getLanguageExample } from '../common/language-examples.js';
 import type { DashboardServices } from './types.js';
 
 /**
@@ -288,7 +289,12 @@ export function initSettingsModule(
       defaultSpeedSlider.addEventListener('change', () => saveTtsSetting('speed', parseFloat(defaultSpeedSlider.value || '1.0'), 'Default Speed'));
     }
 
-    if (defaultLanguageSelect) defaultLanguageSelect.addEventListener('change', () => saveTtsSetting('languageBoost', defaultLanguageSelect.value || 'Automatic', 'Default Language'));
+    if (defaultLanguageSelect) {
+      defaultLanguageSelect.addEventListener('change', () => {
+        saveTtsSetting('languageBoost', defaultLanguageSelect.value || 'Automatic', 'Default Language');
+        updatePreviewTextForLanguage();
+      });
+    }
     if (englishNormalizationCheckbox) englishNormalizationCheckbox.addEventListener('change', () => saveTtsSetting('englishNormalization', !!englishNormalizationCheckbox.checked, 'English Normalization'));
 
     if (musicEnabledCheckbox) musicEnabledCheckbox.addEventListener('change', () => void saveMusicEnabled(!!musicEnabledCheckbox.checked));
@@ -304,6 +310,22 @@ export function initSettingsModule(
         musicBitsAmountInput.addEventListener('input', () => debouncedSaveBits());
         musicBitsAmountInput.addEventListener('change', () => void saveBits());
       }
+    }
+  }
+
+  function updatePreviewTextForLanguage(): void {
+    const selectedLanguage = defaultLanguageSelect?.value || 'Automatic';
+
+    // Map "Automatic" to "English" for the examples
+    const languageKey = selectedLanguage === 'Automatic' ? 'English' : selectedLanguage;
+    const exampleText = getLanguageExample(languageKey, 'dashboard');
+
+    // Update both desktop and mobile preview text fields
+    if (voiceTestTextInput) {
+      voiceTestTextInput.value = exampleText;
+    }
+    if (voiceTestTextInputMobile) {
+      voiceTestTextInputMobile.value = exampleText;
     }
   }
 
@@ -398,8 +420,14 @@ export function initSettingsModule(
       };
 
       const buttons = [voiceTestBtn, voiceTestBtnMobile].filter((btn): btn is HTMLButtonElement => btn !== null);
+
+      // Get the appropriate default text for the selected language
+      const selectedLanguage = defaultLanguageSelect?.value || 'Automatic';
+      const languageKey = selectedLanguage === 'Automatic' ? 'English' : selectedLanguage;
+      const defaultText = getLanguageExample(languageKey, 'dashboard');
+
       await performVoiceTest(payload, buttons, {
-        defaultText: 'Welcome, everyone, to the stream!',
+        defaultText,
         playerElements,
         hintElements,
         onAudioGenerated
@@ -879,7 +907,13 @@ export function initSettingsModule(
       defaultSpeedSlider.value = String(settings.speed ?? 1.0);
       if (speedValueSpan) speedValueSpan.textContent = String(settings.speed ?? 1.0);
     }
-    if (defaultLanguageSelect) defaultLanguageSelect.value = settings.languageBoost || 'Automatic';
+    if (defaultLanguageSelect) {
+      defaultLanguageSelect.value = settings.languageBoost || 'Automatic';
+      // Update preview text to match the loaded language
+      if (!isInitializing) {
+        updatePreviewTextForLanguage();
+      }
+    }
     if (englishNormalizationCheckbox) englishNormalizationCheckbox.checked = settings.englishNormalization || false;
   }
 
