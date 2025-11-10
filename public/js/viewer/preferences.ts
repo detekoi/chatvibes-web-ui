@@ -232,7 +232,7 @@ export function initPreferencesModule(
   attachPreviewHandlers();
 
   function updatePreviewTextForLanguage(): void {
-    const selectedLanguage = languageSelect?.value || '';
+    const selectedLanguage = elements.languageSelect?.value || '';
     const exampleText = getLanguageExample(selectedLanguage, 'viewer');
 
     // Update both desktop and mobile preview text fields
