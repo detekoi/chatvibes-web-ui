@@ -190,6 +190,10 @@ async function tryLoadPreMadeRecording(payload: TTSPayload, defaultText: string)
   return null;
 }
 
+// Track blob URLs for each audio element to properly clean them up
+// Use WeakMap to avoid memory leaks when elements are removed
+const audioBlobUrls = new WeakMap<HTMLAudioElement, string>();
+
 async function handleAudioPlayer(
   audioUrl: string | null,
   playerElements: PlayerElements,
@@ -201,9 +205,20 @@ async function handleAudioPlayer(
   const { hintEl, hintElMobile } = hintElements || {};
 
   if (sourceEl && playerEl) {
-    sourceEl.src = audioUrl;
     const audioElement = playerEl.querySelector('audio');
     if (audioElement) {
+      // Revoke previous blob URL if it exists (Safari fix)
+      const previousUrl = audioBlobUrls.get(audioElement);
+      if (previousUrl && previousUrl.startsWith('blob:')) {
+        URL.revokeObjectURL(previousUrl);
+      }
+
+      // Store new blob URL for future cleanup
+      if (audioUrl.startsWith('blob:')) {
+        audioBlobUrls.set(audioElement, audioUrl);
+      }
+
+      sourceEl.src = audioUrl;
       audioElement.load();
       try {
         await audioElement.play();
@@ -217,30 +232,23 @@ async function handleAudioPlayer(
   }
 
   if (sourceElMobile && playerElMobile) {
-    sourceElMobile.src = audioUrl;
     const audioElementMobile = playerElMobile.querySelector('audio');
     if (audioElementMobile) {
+      // Revoke previous blob URL if it exists (Safari fix)
+      const previousUrl = audioBlobUrls.get(audioElementMobile);
+      if (previousUrl && previousUrl.startsWith('blob:')) {
+        URL.revokeObjectURL(previousUrl);
+      }
+
+      // Store new blob URL for future cleanup
+      if (audioUrl.startsWith('blob:')) {
+        audioBlobUrls.set(audioElementMobile, audioUrl);
+      }
+
+      sourceElMobile.src = audioUrl;
       audioElementMobile.load();
     }
     playerElMobile.style.display = 'block';
     if (hintElMobile) hintElMobile.style.display = 'none';
-  }
-
-  if (audioUrl.startsWith('blob:')) {
-    const audioElements: HTMLAudioElement[] = [];
-    if (playerEl) {
-      const audioEl = playerEl.querySelector('audio');
-      if (audioEl) audioElements.push(audioEl);
-    }
-    if (playerElMobile) {
-      const audioElMobile = playerElMobile.querySelector('audio');
-      if (audioElMobile) audioElements.push(audioElMobile);
-    }
-
-    audioElements.forEach(audioEl => {
-      audioEl.addEventListener('ended', () => {
-        URL.revokeObjectURL(audioUrl);
-      });
-    });
   }
 }

@@ -94,14 +94,22 @@ async function tryLoadPreMadeRecording(payload, defaultText) {
   }
   return null;
 }
+const audioBlobUrls = /* @__PURE__ */ new WeakMap();
 async function handleAudioPlayer(audioUrl, playerElements, hintElements) {
   if (!audioUrl) return;
   const { playerEl, playerElMobile, sourceEl, sourceElMobile } = playerElements;
   const { hintEl, hintElMobile } = hintElements || {};
   if (sourceEl && playerEl) {
-    sourceEl.src = audioUrl;
     const audioElement = playerEl.querySelector("audio");
     if (audioElement) {
+      const previousUrl = audioBlobUrls.get(audioElement);
+      if (previousUrl && previousUrl.startsWith("blob:")) {
+        URL.revokeObjectURL(previousUrl);
+      }
+      if (audioUrl.startsWith("blob:")) {
+        audioBlobUrls.set(audioElement, audioUrl);
+      }
+      sourceEl.src = audioUrl;
       audioElement.load();
       try {
         await audioElement.play();
@@ -114,29 +122,20 @@ async function handleAudioPlayer(audioUrl, playerElements, hintElements) {
     if (hintEl) hintEl.style.display = "none";
   }
   if (sourceElMobile && playerElMobile) {
-    sourceElMobile.src = audioUrl;
     const audioElementMobile = playerElMobile.querySelector("audio");
     if (audioElementMobile) {
+      const previousUrl = audioBlobUrls.get(audioElementMobile);
+      if (previousUrl && previousUrl.startsWith("blob:")) {
+        URL.revokeObjectURL(previousUrl);
+      }
+      if (audioUrl.startsWith("blob:")) {
+        audioBlobUrls.set(audioElementMobile, audioUrl);
+      }
+      sourceElMobile.src = audioUrl;
       audioElementMobile.load();
     }
     playerElMobile.style.display = "block";
     if (hintElMobile) hintElMobile.style.display = "none";
-  }
-  if (audioUrl.startsWith("blob:")) {
-    const audioElements = [];
-    if (playerEl) {
-      const audioEl = playerEl.querySelector("audio");
-      if (audioEl) audioElements.push(audioEl);
-    }
-    if (playerElMobile) {
-      const audioElMobile = playerElMobile.querySelector("audio");
-      if (audioElMobile) audioElements.push(audioElMobile);
-    }
-    audioElements.forEach((audioEl) => {
-      audioEl.addEventListener("ended", () => {
-        URL.revokeObjectURL(audioUrl);
-      });
-    });
   }
 }
 export {
