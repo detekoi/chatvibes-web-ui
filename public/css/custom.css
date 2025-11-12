@@ -626,6 +626,15 @@ strong, .fw-semibold, .fw-bold {
     font-weight: 600;
 }
 
+/* Loading spinner dark mode */
+[data-theme="dark"] .spinner-border {
+    border-right-color: transparent;
+}
+
+[data-theme="dark"] #loading-overlay .text-muted {
+    color: #adb5bd !important;
+}
+
 /* Auth status vertical layout for login */
 #auth-status.alert {
     display: flex !important;

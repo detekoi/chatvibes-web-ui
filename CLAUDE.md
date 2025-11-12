@@ -1,118 +1,46 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+## ⚠️ CRITICAL: TypeScript Source Files
 
-## Development Commands
+**NEVER edit compiled JavaScript files!**
 
-### Firebase Functions
+- ✅ Edit TypeScript sources in `/public/js/**/*.ts`
+- ❌ NEVER edit compiled files in `/public/js/**/*.js`
+- ✅ Run `npm run build:frontend` after editing TypeScript
+- ✅ Use `npm run watch:frontend` for auto-recompilation
+
+## Common Commands
+
 ```bash
-# Install dependencies
-cd functions && npm install
+# Frontend (after editing .ts files)
+npm run build:frontend      # Compile TypeScript
+npm run watch:frontend      # Auto-compile on changes
 
-# Lint functions code
-cd functions && npm run lint
-
-# Start local emulator
-cd functions && npm run serve
-
-# Deploy functions only
-firebase deploy --only functions
-
-# View function logs
-firebase functions:log
+# Backend (Firebase Functions)
+cd functions && npm run serve    # Local emulator
+firebase deploy --only functions # Deploy functions
+firebase deploy                  # Deploy all
 ```
 
-### Firebase Hosting
-```bash
-# Deploy hosting and functions
-firebase deploy
+## Project Overview
 
-# Deploy hosting only
-firebase deploy --only hosting
-```
+ChatVibes TTS bot management web application with:
 
-## Project Architecture
+- **Frontend**: Static site in `/public/` with TypeScript sources
+  - Main pages: `index.html`, `dashboard.html`, `auth-complete.html`, `auth-error.html`
+  - TypeScript compiles to JavaScript (edit `.ts` only!)
 
-This is a ChatVibes TTS bot management web application with the following structure:
+- **Backend**: `/functions/index.js` - Express.js app as Cloud Function (Node.js 22)
+  - JWT sessions + Twitch OAuth with token refresh
+  - Routes: `/auth/*`, `/api/bot/*`, `/api/auth/*`
 
-### Frontend (Static)
-- **Location**: `/public/` directory
-- **Main Pages**: 
-  - `index.html` - Landing page with Twitch OAuth login
-  - `dashboard.html` - Bot management interface 
-  - `auth-complete.html` - OAuth callback handler
-  - `auth-error.html` - OAuth error handler
-- **Key JavaScript**: `dashboard.js` contains all dashboard functionality and API interactions
-- **Styling**: CSS files in `/public/css/` with animated background effects
+- **Database**: Firestore collections
+  - `managedChannels` - Bot status, OAuth tokens (managed by this app)
+  - `ttsChannelConfigs` - TTS settings (managed by main TTS app)
+  - `musicSettings` - Music bot settings (managed by main TTS app)
 
-### Backend (Firebase Cloud Functions)
-- **Location**: `/functions/index.js` - Single file containing all backend logic
-- **Framework**: Express.js app exported as `webUi` function
-- **Authentication**: JWT tokens for app sessions, Twitch OAuth for external API access
-- **Database**: Firestore collection `managedChannels` stores user data and bot status
+## Code Style
 
-### Key Integrations
-- **Twitch OAuth 2.0**: Complete flow with token refresh and validation
-- **ChatVibes TTS Service**: External service at `chatvibes-tts-service-h7kj56ct4q-uc.a.run.app`
-- **Firebase**: Hosting, Cloud Functions (2nd gen), and Firestore database
-
-### Environment Configuration
-Functions require these environment variables:
-- `TWITCH_CLIENT_ID` / `TWITCH_CLIENT_SECRET` - Twitch app credentials
-- `CALLBACK_URL` - OAuth redirect URI 
-- `FRONTEND_URL_CONFIG` - Frontend application URL
-- `JWT_SECRET_KEY` - For signing session tokens
-- `SESSION_COOKIE_SECRET` - For cookie signing
-
-Set via `.env.<PROJECT_ID>` files for local development or Google Cloud Console for deployed functions.
-
-### API Endpoints
-- `/auth/twitch/initiate` - Start OAuth flow
-- `/auth/twitch/callback` - OAuth callback handler  
-- `/api/bot/status` - Get bot status for user's channel
-- `/api/bot/add` - Add bot to user's channel
-- `/api/bot/remove` - Remove bot from user's channel
-- `/api/auth/status` - Check authentication state
-- `/api/auth/refresh` - Refresh Twitch tokens
-
-### Database Schema
-
-#### Collection: `managedChannels` (keyed by Twitch login)
-- `isActive` - Whether bot is active in channel
-- `twitchAccessToken` / `twitchRefreshToken` - OAuth tokens
-- `twitchAccessTokenExpiresAt` - Token expiration
-- `needsTwitchReAuth` - Flag for required re-authentication
-- User metadata (twitchUserId, displayName, etc.)
-
-#### Collection: `ttsChannelConfigs` (keyed by channel name)
-TTS settings managed by the main TTS application:
-- `engineEnabled` - Whether TTS is enabled for the channel
-- `mode` - TTS mode ('all', 'bits', etc.)
-- `ttsPermissionLevel` - Who can use TTS ('everyone', 'moderator', etc.)
-- `voiceId` - Selected voice (e.g., 'Friendly_Person')
-- `speed`, `volume`, `pitch` - Audio parameters
-- `emotion` - Voice emotion ('auto', 'neutral', 'happy', etc.)
-- `englishNormalization`, `sampleRate`, `bitrate`, `channel` - Audio processing
-- `languageBoost` - Language detection boost ('Automatic', 'English', etc.)
-- `readFullUrls` - Whether to read full URLs or just domain names (default: false)
-- `speakEvents` - Whether to announce events
-- `userPreferences` - Per-user voice/emotion overrides
-- `ignoredUsers` - Array of usernames to ignore
-- `bitsModeEnabled`, `bitsMinimumAmount` - Bits requirements
-
-#### Collection: `musicSettings` (keyed by channel name)
-Music bot settings managed by the main TTS application:
-- `enabled` - Whether music commands are enabled
-- `maxQueueLength` - Maximum songs in queue
-- `allowedRoles` - Array of roles that can use music commands
-- `cooldownSeconds` - Cooldown between music commands
-- `ignoredUsers` - Array of usernames to ignore
-- `bitsModeEnabled`, `bitsMinimumAmount` - Bits requirements for music
-
-## Development Notes
-
-- Functions use 2nd generation Cloud Functions with Node.js 22
-- Frontend uses vanilla JavaScript with localStorage for session management
-- CORS configured for local emulator and production domains
-- Token refresh logic handles Twitch API rate limiting and errors
-- State management uses signed cookies and sessions for OAuth security
+- Use 2nd gen Cloud Functions patterns
+- Handle Twitch API rate limiting in token refresh
+- Use signed cookies for OAuth state security

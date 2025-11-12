@@ -22,7 +22,8 @@ Currently, the ChatVibes web UI is hosted [here](https://tts.wildcat.chat/) *(in
 * **Frontend:**
     * HTML
     * CSS
-    * JavaScript
+    * TypeScript (compiled to JavaScript)
+    * Bootstrap 5.3.3
 * **Backend:**
     * Node.js
     * Express.js
@@ -36,6 +37,25 @@ Currently, the ChatVibes web UI is hosted [here](https://tts.wildcat.chat/) *(in
 * **Development Tools:**
     * npm
     * ESLint
+    * TypeScript compiler
+
+## Development
+
+### Frontend Development
+
+**⚠️ IMPORTANT: Always edit TypeScript source files, not compiled JavaScript!**
+
+- TypeScript source files are located in `/public/js/**/*.ts`
+- Compiled JavaScript files in `/public/js/**/*.js` are generated automatically
+- After editing TypeScript files, compile with:
+  ```bash
+  npm run build:frontend
+  ```
+- For automatic recompilation during development:
+  ```bash
+  npm run watch:frontend
+  ```
+- **Never edit `.js` files directly** - they will be overwritten on the next build
 
 ## OAuth Scopes & Permissions
 

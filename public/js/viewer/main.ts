@@ -25,6 +25,7 @@ interface JWTPayload {
 // DOM elements interface
 interface ViewerElements {
     authStatus: HTMLElement | null;
+    loadingOverlay: HTMLElement | null;
     loggedInStatus: HTMLElement | null;
     loggedInUsername: HTMLElement | null;
     preferencesPanel: HTMLElement | null;
@@ -88,6 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const elements: ViewerElements = {
             authStatus: document.getElementById('auth-status'),
+            loadingOverlay: document.getElementById('loading-overlay'),
             loggedInStatus: document.getElementById('logged-in-status'),
             loggedInUsername: document.getElementById('logged-in-username'),
             preferencesPanel: document.getElementById('preferences-panel'),
@@ -163,6 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        showLoading();
         await preferencesModule.loadVoices();
 
         // Ensure initial channel context is reflected in UI
@@ -173,6 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         await handleChannelChange(state.currentChannel);
+        hideLoading();
 
         async function handleChannelChange(channelName: string | null): Promise<void> {
             if (channelName) {
@@ -396,6 +400,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 elements.authStatus.className = '';
                 elements.authStatus.style.display = 'none';
             }
+        }
+
+        function showLoading(): void {
+            if (elements.loadingOverlay) elements.loadingOverlay.style.display = 'block';
+            if (elements.preferencesPanel) elements.preferencesPanel.style.display = 'none';
+        }
+
+        function hideLoading(): void {
+            if (elements.loadingOverlay) elements.loadingOverlay.style.display = 'none';
+            if (elements.preferencesPanel) elements.preferencesPanel.style.display = 'block';
         }
 
         function revealPreferencesPanel(): void {

@@ -52,6 +52,7 @@ interface AuthInitiateResponse {
 document.addEventListener('DOMContentLoaded', () => {
   const testMode = new URLSearchParams(window.location.search).has('test');
   const authStatus = document.getElementById('auth-status') as HTMLDivElement | null;
+  const loadingOverlay = document.getElementById('loading-overlay') as HTMLDivElement | null;
   const dashboardContent = document.getElementById('dashboard-content') as HTMLDivElement | null;
   const twitchUsernameEl = document.getElementById('twitch-username') as HTMLElement | null;
   const channelNameStatusEl = document.getElementById('channel-name-status') as HTMLElement | null;
@@ -109,10 +110,12 @@ document.addEventListener('DOMContentLoaded', () => {
       state.sessionToken = 'TEST_SESSION_TOKEN';
       state.loggedInUser = { login: 'demostreamer', id: '123456', displayName: 'Demo Streamer' };
       showDashboard();
+      showLoading();
       await obsModule.loadExistingTtsUrl(state.loggedInUser.login);
       botModule.updateBotStatusUI(false);
       await settingsModule.initialize();
       await channelPointsModule.load();
+      hideLoading();
       return;
     }
 
@@ -122,15 +125,27 @@ document.addEventListener('DOMContentLoaded', () => {
         showToast('Authentication token missing. Please log in again.', 'error');
         return;
       }
+      showLoading();
       await Promise.all([
         obsModule.loadExistingTtsUrl(state.loggedInUser.login),
         botModule.refreshStatus(),
         settingsModule.initialize(),
         channelPointsModule.load(),
       ]);
+      hideLoading();
     } else {
       showLoginPrompt();
     }
+  }
+
+  function showLoading(): void {
+    if (loadingOverlay) loadingOverlay.style.display = 'block';
+    if (dashboardContent) dashboardContent.style.display = 'none';
+  }
+
+  function hideLoading(): void {
+    if (loadingOverlay) loadingOverlay.style.display = 'none';
+    if (dashboardContent) dashboardContent.style.display = 'flex';
   }
 
   function isViewerToken(token: string): boolean {
