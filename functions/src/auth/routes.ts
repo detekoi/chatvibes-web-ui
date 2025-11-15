@@ -18,12 +18,20 @@ const TWITCH_AUTH_URL = "https://id.twitch.tv/oauth2/authorize";
 const TWITCH_TOKEN_URL = "https://id.twitch.tv/oauth2/token";
 const TWITCH_VALIDATE_URL = "https://id.twitch.tv/oauth2/validate";
 
+// OAuth tier definitions
+const OAUTH_TIERS = {
+  anonymous: "user:read:email channel:read:redemptions channel:manage:redemptions",
+  full: "user:read:email chat:read chat:edit channel:read:subscriptions bits:read moderator:read:followers channel:manage:redemptions channel:read:redemptions channel:manage:moderators",
+} as const;
+
+type OAuthTier = keyof typeof OAUTH_TIERS;
+
 // Type definitions
 interface TwitchTokenResponse {
   access_token: string;
   refresh_token: string;
   expires_in: number;
-  scope: string[];
+  scope: string[] | string;
   token_type: string;
 }
 
@@ -166,7 +174,7 @@ async function handleViewerCallback(req: Request, res: Response, decodedState: V
 }
 
 // Route: /auth/twitch/initiate
-router.get("/twitch/initiate", (_req: Request, res: Response): void => {
+router.get("/twitch/initiate", (req: Request, res: Response): void => {
   logger.info("--- /auth/twitch/initiate HIT --- Version 1.2 ---");
 
   if (!secrets.TWITCH_CLIENT_ID || !config.CALLBACK_URL) {
@@ -175,25 +183,30 @@ router.get("/twitch/initiate", (_req: Request, res: Response): void => {
     return;
   }
 
+  // Determine OAuth tier from query parameter (default to 'full' for backward compatibility)
+  const tier = (req.query.tier as OAuthTier) || "full";
+  const scope = OAUTH_TIERS[tier] || OAUTH_TIERS.full;
+
   const state = randomBytes(16).toString("hex");
 
   const params = new URLSearchParams({
     client_id: secrets.TWITCH_CLIENT_ID,
     redirect_uri: config.CALLBACK_URL,
     response_type: "code",
-    scope: "user:read:email chat:read chat:edit channel:read:subscriptions bits:read moderator:read:followers channel:manage:redemptions channel:read:redemptions channel:manage:moderators",
+    scope: scope,
     state: state,
     force_verify: "true",
   });
   const twitchAuthUrl = `${TWITCH_AUTH_URL}?${params.toString()}`;
 
-  logger.info({state}, "Generated state");
+  logger.info({state, tier, scope}, "Generated state with OAuth tier");
   logger.debug({twitchAuthUrl}, "Twitch Auth URL to be sent to frontend");
 
   res.json({
     success: true,
     twitchAuthUrl: twitchAuthUrl,
     state: state,
+    tier: tier,
   });
 });
 
@@ -240,13 +253,19 @@ router.get("/twitch/callback", async (req: Request, res: Response): Promise<void
       },
     });
 
-    const {access_token: accessToken, refresh_token: refreshToken} = tokenResponse.data;
+    const {access_token: accessToken, refresh_token: refreshToken, scope: grantedScopes} = tokenResponse.data;
     logger.info("Access token and refresh token received from Twitch.");
 
     if (!accessToken || !refreshToken) {
       logger.error({responseData: redactSensitive(tokenResponse.data)}, "Missing access_token or refresh_token from Twitch");
       throw new Error("Twitch did not return the expected tokens.");
     }
+
+    // Determine OAuth tier based on granted scopes
+    const scopeArray = Array.isArray(grantedScopes) ? grantedScopes : (grantedScopes || "").split(" ");
+    const hasModeratorScope = scopeArray.includes("channel:manage:moderators");
+    const oauthTier: OAuthTier = hasModeratorScope ? "full" : "anonymous";
+    logger.info({oauthTier, grantedScopes: scopeArray}, "Determined OAuth tier from granted scopes");
 
     const validateResponse = await axios.get<TwitchValidateResponse>(TWITCH_VALIDATE_URL, {
       headers: {Authorization: `OAuth ${accessToken}`},
@@ -357,6 +376,8 @@ router.get("/twitch/callback", async (req: Request, res: Response): Promise<void
             needsTwitchReAuth: false,
             lastTokenError: null,
             lastTokenErrorAt: null,
+            oauthTier: oauthTier,
+            grantedScopes: scopeArray,
           }, {merge: true});
 
           logger.info({userLogin: twitchUser.login}, "Secret reference stored in Firestore");

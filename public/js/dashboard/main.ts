@@ -178,13 +178,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const message = document.createElement('p');
       message.textContent = 'Please sign in with your broadcaster account to access streamer settings.';
+      message.style.marginBottom = '1rem';
       authStatus.appendChild(message);
 
-      const loginButton = document.createElement('button');
-      loginButton.textContent = 'Sign in with Twitch';
-      loginButton.className = 'btn btn-primary mt-2';
-      loginButton.onclick = () => redirectToTwitch();
-      authStatus.appendChild(loginButton);
+      // Re-use the tier selection UI
+      showLoginPrompt();
     }
   }
 
@@ -196,22 +194,62 @@ document.addEventListener('DOMContentLoaded', () => {
       authStatus.style.display = 'block';
 
       const message = document.createElement('p');
-      message.textContent = 'Please verify your Twitch identity to access streamer settings.';
+      message.textContent = 'Choose your authentication mode:';
+      message.style.marginBottom = '1.5rem';
       authStatus.appendChild(message);
 
-      const loginButton = document.createElement('button');
-      loginButton.textContent = 'Sign in with Twitch';
-      loginButton.className = 'btn btn-primary mt-2';
-      loginButton.onclick = () => redirectToTwitch();
-      authStatus.appendChild(loginButton);
+      // Create tier selection container
+      const tierContainer = document.createElement('div');
+      tierContainer.style.display = 'flex';
+      tierContainer.style.gap = '1rem';
+      tierContainer.style.justifyContent = 'center';
+      tierContainer.style.flexWrap = 'wrap';
+
+      // Anonymous mode option
+      const anonymousCard = document.createElement('div');
+      anonymousCard.style.cssText = 'border: 2px solid #6441a5; border-radius: 8px; padding: 1.5rem; max-width: 300px; cursor: pointer; transition: transform 0.2s;';
+      anonymousCard.innerHTML = `
+        <h5 style="margin-bottom: 0.75rem;">🎤 Anonymous Mode</h5>
+        <p style="font-size: 0.9rem; margin-bottom: 1rem;">No bot in chat • Channel points work</p>
+        <ul style="text-align: left; font-size: 0.85rem; margin-bottom: 1rem;">
+          <li>Bot hidden from viewer list</li>
+          <li>Create custom TTS rewards</li>
+          <li>OBS browser source</li>
+        </ul>
+        <button class="btn btn-primary">Sign in with Twitch</button>
+      `;
+      anonymousCard.onmouseover = () => anonymousCard.style.transform = 'scale(1.02)';
+      anonymousCard.onmouseout = () => anonymousCard.style.transform = 'scale(1)';
+      anonymousCard.onclick = () => redirectToTwitch('anonymous');
+
+      // Full mode option
+      const fullCard = document.createElement('div');
+      fullCard.style.cssText = 'border: 2px solid #6441a5; border-radius: 8px; padding: 1.5rem; max-width: 300px; cursor: pointer; transition: transform 0.2s;';
+      fullCard.innerHTML = `
+        <h5 style="margin-bottom: 0.75rem;">🤖 Full Bot Mode</h5>
+        <p style="font-size: 0.9rem; margin-bottom: 1rem;">Bot responds to commands in chat</p>
+        <ul style="text-align: left; font-size: 0.85rem; margin-bottom: 1rem;">
+          <li>Everything in Anonymous mode</li>
+          <li>Chat command responses</li>
+          <li>Interactive TTS control</li>
+        </ul>
+        <button class="btn btn-primary">Sign in with Twitch</button>
+      `;
+      fullCard.onmouseover = () => fullCard.style.transform = 'scale(1.02)';
+      fullCard.onmouseout = () => fullCard.style.transform = 'scale(1)';
+      fullCard.onclick = () => redirectToTwitch('full');
+
+      tierContainer.appendChild(anonymousCard);
+      tierContainer.appendChild(fullCard);
+      authStatus.appendChild(tierContainer);
     }
   }
 
-  async function redirectToTwitch(): Promise<void> {
+  async function redirectToTwitch(tier: 'anonymous' | 'full' = 'full'): Promise<void> {
     if (!authStatus) return;
     authStatus.innerHTML = '<p>Redirecting to Twitch for authentication...</p>';
     try {
-      const response = await fetch(`${apiBaseUrl}/auth/twitch/initiate`);
+      const response = await fetch(`${apiBaseUrl}/auth/twitch/initiate?tier=${tier}`);
       if (!response.ok) {
         throw new Error(`Failed to initiate auth: ${response.statusText}`);
       }
