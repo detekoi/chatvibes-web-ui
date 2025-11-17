@@ -73,7 +73,7 @@ export function initBotManagement(
       if (removeBotBtn) removeBotBtn.style.display = 'inline-block';
     } else {
       if (botStatusEl) {
-        botStatusEl.textContent = 'Inactive / Not Joined';
+        botStatusEl.textContent = 'Inactive';
         botStatusEl.className = 'fw-semibold text-secondary';
       }
       if (addBotBtn) addBotBtn.style.display = 'inline-block';
@@ -112,7 +112,7 @@ export function initBotManagement(
   if (addBotBtn) {
     addBotBtn.addEventListener('click', async () => {
       if (testMode) {
-        showToast('Bot added to channel! (test mode)', 'success');
+        showToast('TTS Service activated! (test mode)', 'success');
         updateBotStatusUI(true);
         return;
       }
@@ -120,12 +120,12 @@ export function initBotManagement(
         showToast('Authentication token missing. Please log in again.', 'error');
         return;
       }
-      showToast('Requesting bot to join...', 'info');
+      showToast('Activating TTS Service...', 'info');
       try {
         const res = await fetchWithAuth(`${apiBaseUrl}/api/bot/add`, { method: 'POST' });
         const data = await res.json() as BotActionResponse;
         if (data.success) {
-          showToast(data.message || 'Bot added to channel!', 'success');
+          showToast(data.message || 'TTS Service activated!', 'success');
           updateBotStatusUI(true);
         } else if (data.code === 'not_allowed') {
           const errorText = data.details || data.message || 'Channel not authorized.';
@@ -134,11 +134,11 @@ export function initBotManagement(
             : `${errorText} <a href="https://detekoi.github.io/#contact-me" target="_blank" class="link-light">Request access here</a>.`;
           showToast(html, 'error');
         } else {
-          showToast(data.message || 'Failed to add bot.', 'error');
+          showToast(data.message || 'Failed to activate TTS Service.', 'error');
         }
       } catch (error) {
-        console.error('Error adding bot:', error);
-        showToast('Failed to send request to add bot.', 'error');
+        console.error('Error activating TTS Service:', error);
+        showToast('Failed to activate TTS Service.', 'error');
       }
     });
   }
@@ -146,7 +146,7 @@ export function initBotManagement(
   if (removeBotBtn) {
     removeBotBtn.addEventListener('click', async () => {
       if (testMode) {
-        showToast('Bot removed from channel. (test mode)', 'success');
+        showToast('TTS Service deactivated. (test mode)', 'success');
         updateBotStatusUI(false);
         return;
       }
@@ -154,15 +154,15 @@ export function initBotManagement(
         showToast('Authentication token missing. Please log in again.', 'error');
         return;
       }
-      showToast('Requesting bot to leave...', 'info');
+      showToast('Deactivating TTS Service...', 'info');
       try {
         const res = await fetchWithAuth(`${apiBaseUrl}/api/bot/remove`, { method: 'POST' });
         const data = await res.json() as BotActionResponse;
-        showToast(data.message || 'Request sent.', data.success ? 'success' : 'error');
+        showToast(data.message || 'TTS Service deactivated.', data.success ? 'success' : 'error');
         if (data.success) updateBotStatusUI(false);
       } catch (error) {
-        console.error('Error removing bot:', error);
-        showToast('Failed to send request to remove bot.', 'error');
+        console.error('Error deactivating TTS Service:', error);
+        showToast('Failed to deactivate TTS Service.', 'error');
       }
     });
   }
