@@ -188,11 +188,11 @@ document.addEventListener('DOMContentLoaded', () => {
       tierContainer.style.justifyContent = 'center';
       tierContainer.style.flexWrap = 'wrap';
 
-      // Anonymous mode option
+      // Bot-Free mode option
       const anonymousCard = document.createElement('div');
       anonymousCard.style.cssText = 'border: 2px solid #6441a5; border-radius: 8px; padding: 1.5rem; max-width: 300px; cursor: pointer; transition: transform 0.2s;';
       anonymousCard.innerHTML = `
-        <h5 style="margin-bottom: 0.75rem;">🎤 Anonymous Mode</h5>
+        <h5 style="margin-bottom: 0.75rem;">🎤 Bot-Free Mode</h5>
         <p style="font-size: 0.9rem; margin-bottom: 1rem;">No bot in chat • Channel points work</p>
         <ul style="text-align: left; font-size: 0.85rem; margin-bottom: 1rem;">
           <li>Bot hidden from viewer list</li>
@@ -205,14 +205,14 @@ document.addEventListener('DOMContentLoaded', () => {
       anonymousCard.onmouseout = () => anonymousCard.style.transform = 'scale(1)';
       anonymousCard.onclick = () => redirectToTwitch('anonymous');
 
-      // Full mode option
+      // Chatbot mode option
       const fullCard = document.createElement('div');
       fullCard.style.cssText = 'border: 2px solid #6441a5; border-radius: 8px; padding: 1.5rem; max-width: 300px; cursor: pointer; transition: transform 0.2s;';
       fullCard.innerHTML = `
-        <h5 style="margin-bottom: 0.75rem;">🤖 Full Bot Mode</h5>
+        <h5 style="margin-bottom: 0.75rem;">🤖 Chatbot Mode</h5>
         <p style="font-size: 0.9rem; margin-bottom: 1rem;">Bot responds to commands in chat</p>
         <ul style="text-align: left; font-size: 0.85rem; margin-bottom: 1rem;">
-          <li>Everything in Anonymous mode</li>
+          <li>Everything in Bot-Free mode</li>
           <li>Chat command responses</li>
           <li>Interactive TTS control</li>
         </ul>
@@ -247,11 +247,11 @@ document.addEventListener('DOMContentLoaded', () => {
       tierContainer.style.justifyContent = 'center';
       tierContainer.style.flexWrap = 'wrap';
 
-      // Anonymous mode option
+      // Bot-Free mode option
       const anonymousCard = document.createElement('div');
       anonymousCard.style.cssText = 'border: 2px solid #6441a5; border-radius: 8px; padding: 1.5rem; max-width: 300px; cursor: pointer; transition: transform 0.2s;';
       anonymousCard.innerHTML = `
-        <h5 style="margin-bottom: 0.75rem;">🎤 Anonymous Mode</h5>
+        <h5 style="margin-bottom: 0.75rem;">🎤 Bot-Free Mode</h5>
         <p style="font-size: 0.9rem; margin-bottom: 1rem;">No bot in chat • Channel points work</p>
         <ul style="text-align: left; font-size: 0.85rem; margin-bottom: 1rem;">
           <li>Bot hidden from viewer list</li>
@@ -264,14 +264,14 @@ document.addEventListener('DOMContentLoaded', () => {
       anonymousCard.onmouseout = () => anonymousCard.style.transform = 'scale(1)';
       anonymousCard.onclick = () => redirectToTwitch('anonymous');
 
-      // Full mode option
+      // Chatbot mode option
       const fullCard = document.createElement('div');
       fullCard.style.cssText = 'border: 2px solid #6441a5; border-radius: 8px; padding: 1.5rem; max-width: 300px; cursor: pointer; transition: transform 0.2s;';
       fullCard.innerHTML = `
-        <h5 style="margin-bottom: 0.75rem;">🤖 Full Bot Mode</h5>
+        <h5 style="margin-bottom: 0.75rem;">🤖 Chatbot Mode</h5>
         <p style="font-size: 0.9rem; margin-bottom: 1rem;">Bot responds to commands in chat</p>
         <ul style="text-align: left; font-size: 0.85rem; margin-bottom: 1rem;">
-          <li>Everything in Anonymous mode</li>
+          <li>Everything in Bot-Free mode</li>
           <li>Chat command responses</li>
           <li>Interactive TTS control</li>
         </ul>
