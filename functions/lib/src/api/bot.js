@@ -107,6 +107,10 @@ router.post("/add", auth_1.authenticateApiRequest, async (req, res) => {
         await (0, twitch_1.getValidTwitchTokenForUser)(channelLogin, config_1.secrets);
         log.info("Adding bot to channel");
         const docRef = firestore_1.db.collection(firestore_1.COLLECTIONS.MANAGED_CHANNELS).doc(channelLogin);
+        // Get current user data to check OAuth tier
+        const docSnap = await docRef.get();
+        const userData = docSnap.data();
+        const oauthTier = userData?.oauthTier || 'full';
         await docRef.set({
             isActive: true,
             twitchUserId,
@@ -116,9 +120,14 @@ router.post("/add", auth_1.authenticateApiRequest, async (req, res) => {
             addedAt: new Date(),
         }, { merge: true });
         log.info("Bot successfully added to channel");
-        // Automatically add bot as moderator
+        // Automatically add bot as moderator only if in full/chatbot mode
         let modStatus = { success: false, error: "Bot username not configured" };
-        if (config_1.config.TWITCH_BOT_USERNAME) {
+        if (oauthTier === 'anonymous') {
+            // In Bot-Free Mode, don't add as moderator
+            log.info("Bot-Free Mode (anonymous tier) - skipping moderator setup");
+            modStatus = { success: true }; // Not an error, just skipped
+        }
+        else if (config_1.config.TWITCH_BOT_USERNAME) {
             try {
                 log.debug({ botUsername: config_1.config.TWITCH_BOT_USERNAME }, "Attempting to add bot as moderator");
                 const botUserId = await (0, twitch_1.getUserIdFromUsername)(config_1.config.TWITCH_BOT_USERNAME, config_1.secrets);
@@ -145,12 +154,16 @@ router.post("/add", auth_1.authenticateApiRequest, async (req, res) => {
         else {
             log.warn("TWITCH_BOT_USERNAME not configured, skipping moderator setup");
         }
+        const successMessage = oauthTier === 'anonymous'
+            ? "TTS Service activated in Bot-Free Mode! The bot will not appear in your chat."
+            : "Bot added to your channel successfully!";
         res.json({
             success: true,
-            message: "Bot added to your channel successfully!",
+            message: successMessage,
             channelName: channelLogin,
-            moderatorStatus: modStatus.success ? "added" : "failed",
+            moderatorStatus: oauthTier === 'anonymous' ? "skipped" : (modStatus.success ? "added" : "failed"),
             moderatorError: modStatus.success ? undefined : modStatus.error,
+            oauthTier: oauthTier,
         });
     }
     catch (error) {

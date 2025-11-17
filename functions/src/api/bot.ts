@@ -114,6 +114,12 @@ router.post("/add", authenticateApiRequest, async (req: Request, res: Response):
     log.info("Adding bot to channel");
 
     const docRef = db.collection(COLLECTIONS.MANAGED_CHANNELS).doc(channelLogin);
+
+    // Get current user data to check OAuth tier
+    const docSnap = await docRef.get();
+    const userData = docSnap.data();
+    const oauthTier = userData?.oauthTier || 'full';
+
     await docRef.set({
       isActive: true,
       twitchUserId,
@@ -125,9 +131,14 @@ router.post("/add", authenticateApiRequest, async (req: Request, res: Response):
 
     log.info("Bot successfully added to channel");
 
-    // Automatically add bot as moderator
+    // Automatically add bot as moderator only if in full/chatbot mode
     let modStatus: {success: boolean; error?: string} = {success: false, error: "Bot username not configured"};
-    if (config.TWITCH_BOT_USERNAME) {
+
+    if (oauthTier === 'anonymous') {
+      // In Bot-Free Mode, don't add as moderator
+      log.info("Bot-Free Mode (anonymous tier) - skipping moderator setup");
+      modStatus = {success: true}; // Not an error, just skipped
+    } else if (config.TWITCH_BOT_USERNAME) {
       try {
         log.debug({botUsername: config.TWITCH_BOT_USERNAME}, "Attempting to add bot as moderator");
         const botUserId = await getUserIdFromUsername(config.TWITCH_BOT_USERNAME, secrets);
@@ -152,12 +163,17 @@ router.post("/add", authenticateApiRequest, async (req: Request, res: Response):
       log.warn("TWITCH_BOT_USERNAME not configured, skipping moderator setup");
     }
 
+    const successMessage = oauthTier === 'anonymous'
+      ? "TTS Service activated in Bot-Free Mode! The bot will not appear in your chat."
+      : "Bot added to your channel successfully!";
+
     res.json({
       success: true,
-      message: "Bot added to your channel successfully!",
+      message: successMessage,
       channelName: channelLogin,
-      moderatorStatus: modStatus.success ? "added" : "failed",
+      moderatorStatus: oauthTier === 'anonymous' ? "skipped" : (modStatus.success ? "added" : "failed"),
       moderatorError: modStatus.success ? undefined : modStatus.error,
+      oauthTier: oauthTier,
     });
   } catch (error) {
     const err = error as Error;
