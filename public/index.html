@@ -54,13 +54,27 @@
                     <strong>Note:</strong> Access is currently invite-only. Unapproved channels will see an access denied message. <a href="https://detekoi.github.io/#contact-me" target="_blank" class="alert-link">Request access here</a>.
                 </div>
 
-                <div class="d-grid gap-3 mb-3">
+                <h5 class="mb-3">Broadcaster Dashboard</h5>
+                <p class="text-muted mb-3" style="font-size: 0.9rem;">Choose your authentication mode:</p>
+
+                <div class="d-grid gap-3 mb-4">
                     <div class="button-wrapper">
-                        <a href="#" id="twitchLoginBtn" class="button-3d btn-primary">Broadcaster Dashboard</a>
+                        <a href="#" id="anonymousLoginBtn" class="button-3d btn-primary">🎤 Anonymous Mode</a>
                         <div class="tooltip-wrapper">
-                            <span class="help-icon" data-tooltip="Manage your Twitch channel's TTS bot. Add/remove the bot and configure channel-wide settings.">?</span>
+                            <span class="help-icon" data-tooltip="No bot in chat • Channel points work • Bot hidden from viewer list">?</span>
                         </div>
                     </div>
+                    <div class="button-wrapper">
+                        <a href="#" id="fullLoginBtn" class="button-3d btn-primary">🤖 Full Bot Mode</a>
+                        <div class="tooltip-wrapper">
+                            <span class="help-icon" data-tooltip="Bot responds to commands in chat • Everything in Anonymous mode • Interactive TTS control">?</span>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="my-4">
+
+                <div class="d-grid gap-3 mb-3">
                     <div class="button-wrapper">
                         <a href="#" id="viewerPrefsBtn" class="button-3d btn-success">Viewer Preferences</a>
                         <div class="tooltip-wrapper">
@@ -97,15 +111,14 @@
 
     <!-- Authentication functionality -->
     <script>
-        // Broadcaster Dashboard Login
-        document.getElementById('twitchLoginBtn').addEventListener('click', async (event) => {
-            event.preventDefault();
+        // Helper function for broadcaster login
+        async function broadcasterLogin(tier) {
             const loginErrorEl = document.getElementById('loginError');
             loginErrorEl.textContent = '';
             try {
                 // Use Firebase Hosting rewrites to reach Functions in both local and prod
                 const apiBaseUrl = '';
-                const response = await fetch(`${apiBaseUrl}/auth/twitch/initiate`);
+                const response = await fetch(`${apiBaseUrl}/auth/twitch/initiate?tier=${tier}`);
                 if (!response.ok) {
                     throw new Error(`Failed to initiate auth: ${response.statusText}`);
                 }
@@ -122,6 +135,18 @@
                 console.error("Error during login initiation:", error);
                 loginErrorEl.textContent = "Error initiating login. Check console.";
             }
+        }
+
+        // Anonymous Mode Login
+        document.getElementById('anonymousLoginBtn').addEventListener('click', async (event) => {
+            event.preventDefault();
+            await broadcasterLogin('anonymous');
+        });
+
+        // Full Bot Mode Login
+        document.getElementById('fullLoginBtn').addEventListener('click', async (event) => {
+            event.preventDefault();
+            await broadcasterLogin('full');
         });
 
         // Viewer Preferences Access - Direct login
