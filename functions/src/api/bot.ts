@@ -49,6 +49,7 @@ router.get("/status", authenticateApiRequest, async (req: Request, res: Response
         isActive: true,
         channelName: data.channelName || channelLogin,
         needsReAuth: data.needsTwitchReAuth === true,
+        oauthTier: data.oauthTier || 'full', // Default to 'full' for backward compatibility
       });
     } else {
       res.json({
@@ -56,6 +57,7 @@ router.get("/status", authenticateApiRequest, async (req: Request, res: Response
         isActive: false,
         channelName: channelLogin,
         needsReAuth: docSnap.exists && data?.needsTwitchReAuth === true,
+        oauthTier: docSnap.exists && data ? (data.oauthTier || 'full') : 'full',
       });
     }
   } catch (error) {

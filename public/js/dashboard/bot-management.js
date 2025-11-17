@@ -1,8 +1,28 @@
 import { fetchWithAuth } from "../common/api.js";
 import { showToast } from "../common/ui.js";
-function initBotManagement({ botStatusEl, addBotBtn, removeBotBtn }, context, services) {
+function initBotManagement({ botStatusEl, oauthTierStatusEl, addBotBtn, removeBotBtn, switchModeBtn }, context, services) {
   const { apiBaseUrl, testMode } = context;
   const { getSessionToken } = services;
+  let currentTier = null;
+  function updateOAuthTierUI(tier) {
+    currentTier = tier;
+    if (oauthTierStatusEl) {
+      if (tier === "anonymous") {
+        oauthTierStatusEl.textContent = "\u{1F3A4} Bot-Free Mode";
+        oauthTierStatusEl.className = "fw-semibold text-primary";
+      } else if (tier === "full") {
+        oauthTierStatusEl.textContent = "\u{1F916} Chatbot Mode";
+        oauthTierStatusEl.className = "fw-semibold text-success";
+      } else {
+        oauthTierStatusEl.textContent = "Unknown";
+        oauthTierStatusEl.className = "fw-semibold text-muted";
+      }
+    }
+    if (switchModeBtn && tier) {
+      switchModeBtn.style.display = "inline-block";
+      switchModeBtn.textContent = tier === "anonymous" ? "Switch to Chatbot Mode" : "Switch to Bot-Free Mode";
+    }
+  }
   function updateBotStatusUI(isActive) {
     if (isActive) {
       if (botStatusEl) {
@@ -23,6 +43,7 @@ function initBotManagement({ botStatusEl, addBotBtn, removeBotBtn }, context, se
   async function refreshStatus() {
     if (testMode) {
       updateBotStatusUI(false);
+      updateOAuthTierUI("anonymous");
       return;
     }
     if (!getSessionToken()) {
@@ -34,6 +55,7 @@ function initBotManagement({ botStatusEl, addBotBtn, removeBotBtn }, context, se
       const statusData = await statusRes.json();
       if (statusData.success) {
         updateBotStatusUI(statusData.isActive);
+        updateOAuthTierUI(statusData.oauthTier || "full");
       } else {
         showToast(`Error: ${statusData.message}`, "error");
         if (botStatusEl) botStatusEl.textContent = "Error";
@@ -96,6 +118,38 @@ function initBotManagement({ botStatusEl, addBotBtn, removeBotBtn }, context, se
       } catch (error) {
         console.error("Error deactivating TTS Service:", error);
         showToast("Failed to deactivate TTS Service.", "error");
+      }
+    });
+  }
+  if (switchModeBtn) {
+    switchModeBtn.addEventListener("click", async () => {
+      const targetTier = currentTier === "anonymous" ? "full" : "anonymous";
+      const targetModeName = targetTier === "anonymous" ? "Bot-Free Mode" : "Chatbot Mode";
+      if (targetTier === "full") {
+        if (confirm(`Switching to Chatbot Mode requires re-authenticating with additional permissions. You'll be redirected to Twitch. Continue?`)) {
+          sessionStorage.setItem("oauth_csrf_state", "");
+          window.location.href = `${apiBaseUrl}/auth/twitch/initiate?tier=full`;
+        }
+      } else {
+        if (confirm(`Switch to ${targetModeName}? This will update your authentication preference.`)) {
+          try {
+            const res = await fetchWithAuth(`${apiBaseUrl}/api/auth/update-tier`, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ tier: targetTier })
+            });
+            const data = await res.json();
+            if (data.success) {
+              showToast(`Switched to ${targetModeName}!`, "success");
+              updateOAuthTierUI(targetTier);
+            } else {
+              showToast(data.message || "Failed to switch mode.", "error");
+            }
+          } catch (error) {
+            console.error("Error switching mode:", error);
+            showToast("Failed to switch mode.", "error");
+          }
+        }
       }
     });
   }

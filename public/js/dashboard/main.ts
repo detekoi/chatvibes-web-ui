@@ -57,8 +57,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const twitchUsernameEl = document.getElementById('twitch-username') as HTMLElement | null;
   const channelNameStatusEl = document.getElementById('channel-name-status') as HTMLElement | null;
   const botStatusEl = document.getElementById('bot-status') as HTMLElement | null;
+  const oauthTierStatusEl = document.getElementById('oauth-tier-status') as HTMLElement | null;
   const addBotBtn = document.getElementById('add-bot-btn') as HTMLButtonElement | null;
   const removeBotBtn = document.getElementById('remove-bot-btn') as HTMLButtonElement | null;
+  const switchModeBtn = document.getElementById('switch-mode-btn') as HTMLButtonElement | null;
   const logoutLink = document.getElementById('logout-link') as HTMLAnchorElement | null;
   const ttsUrlField = document.getElementById('tts-url-field') as HTMLInputElement | null;
   const copyTtsUrlBtn = document.getElementById('copy-tts-url-btn') as HTMLButtonElement | null;
@@ -85,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   ignoreModule.setOnChange(() => settingsModule.loadSettings());
 
-  const botModule: BotManagementModule = initBotManagement({ botStatusEl, addBotBtn, removeBotBtn }, { apiBaseUrl, testMode }, services);
+  const botModule: BotManagementModule = initBotManagement({ botStatusEl, oauthTierStatusEl, addBotBtn, removeBotBtn, switchModeBtn }, { apiBaseUrl, testMode }, services);
   const obsModule: ObsModule = initObsModule({ ttsUrlField, copyTtsUrlBtn, regenerateTtsUrlBtn }, { apiBaseUrl, testMode }, services);
   const channelPointsModule: ChannelPointsModule = initChannelPointsModule({ apiBaseUrl, testMode }, services, {
     onSettingsRefresh: () => settingsModule.loadSettings(),

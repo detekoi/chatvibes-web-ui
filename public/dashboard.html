@@ -82,10 +82,12 @@
                         <div class="card mb-4 shadow">
                             <div class="card-body">
                                 <p class="mb-1">Welcome, <span id="twitch-username">loading...</span>!</p>
-                                <p class="mb-3">TTS Service status for <strong id="channel-name-status">your channel</strong>: <strong id="bot-status">Loading...</strong></p>
-                                <div class="d-flex gap-2">
+                                <p class="mb-2">TTS Service status for <strong id="channel-name-status">your channel</strong>: <strong id="bot-status">Loading...</strong></p>
+                                <p class="mb-3">Current mode: <strong id="oauth-tier-status">Loading...</strong></p>
+                                <div class="d-flex gap-2 flex-wrap">
                                     <button id="add-bot-btn" class="btn btn-outline-primary" style="display:none;" type="button">Activate TTS Service</button>
                                     <button id="remove-bot-btn" class="btn btn-outline-danger" style="display:none;" type="button">Deactivate TTS Service</button>
+                                    <button id="switch-mode-btn" class="btn btn-outline-secondary" style="display:none;" type="button">Switch Mode</button>
                                 </div>
                             </div>
                         </div>

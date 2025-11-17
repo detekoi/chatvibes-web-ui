@@ -96,5 +96,58 @@ router.post("/refresh", auth_1.authenticateApiRequest, async (req, res) => {
         });
     }
 });
+// Route: /api/auth/update-tier
+router.post("/update-tier", auth_1.authenticateApiRequest, async (req, res) => {
+    const log = logger_1.logger.child({ endpoint: "/api/auth/update-tier", userLogin: req.user?.userLogin });
+    log.info("--- /api/auth/update-tier HIT ---");
+    try {
+        if (!req.user) {
+            res.status(401).json({ success: false, error: "Unauthorized" });
+            return;
+        }
+        const { tier } = req.body;
+        if (!tier || (tier !== 'anonymous' && tier !== 'full')) {
+            res.status(400).json({ success: false, message: "Invalid tier. Must be 'anonymous' or 'full'." });
+            return;
+        }
+        // Note: Downgrading from 'full' to 'anonymous' is allowed
+        // Upgrading from 'anonymous' to 'full' requires re-authentication with more scopes
+        const userDocRef = firestore_1.db.collection(firestore_1.COLLECTIONS.MANAGED_CHANNELS).doc(req.user.userLogin);
+        const userDoc = await userDocRef.get();
+        if (!userDoc.exists) {
+            res.status(404).json({ success: false, message: "User not found" });
+            return;
+        }
+        const userData = userDoc.data();
+        const currentTier = userData?.oauthTier || 'full';
+        // Check if user has the required scopes for the target tier
+        const grantedScopes = userData?.grantedScopes || [];
+        if (tier === 'full' && !grantedScopes.includes('channel:manage:moderators')) {
+            res.status(403).json({
+                success: false,
+                message: "You need to re-authenticate with additional permissions to use Chatbot Mode.",
+                needsReauth: true,
+            });
+            return;
+        }
+        await userDocRef.update({
+            oauthTier: tier,
+        });
+        log.info({ oldTier: currentTier, newTier: tier }, "OAuth tier updated");
+        res.json({
+            success: true,
+            message: `Successfully switched to ${tier === 'anonymous' ? 'Bot-Free' : 'Chatbot'} Mode`,
+            tier: tier,
+        });
+    }
+    catch (error) {
+        const err = error;
+        log.error({ error: err.message }, "Failed to update tier");
+        res.status(500).json({
+            success: false,
+            message: "Failed to update authentication mode",
+        });
+    }
+});
 exports.default = router;
 //# sourceMappingURL=auth.js.map
