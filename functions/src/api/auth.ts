@@ -150,6 +150,15 @@ router.post("/update-tier", authenticateApiRequest, async (req: Request, res: Re
       oauthTier: tier,
     });
 
+    // Sync botMode in ttsChannelConfigs for the TTS bot service
+    // Map oauthTier to botMode: 'anonymous' → 'anonymous', 'full' → 'authenticated'
+    const botMode = tier === 'anonymous' ? 'anonymous' : 'authenticated';
+    const ttsConfigDocRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(req.user.userLogin);
+    await ttsConfigDocRef.set({
+      botMode: botMode,
+    }, {merge: true});
+    log.info({botMode, tier}, "Synced botMode to ttsChannelConfigs");
+
     log.info({oldTier: currentTier, newTier: tier}, "OAuth tier updated");
     res.json({
       success: true,

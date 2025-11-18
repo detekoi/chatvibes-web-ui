@@ -380,6 +380,15 @@ router.get("/twitch/callback", async (req: Request, res: Response): Promise<void
             grantedScopes: scopeArray,
           }, {merge: true});
 
+          // Sync botMode in ttsChannelConfigs for the TTS bot service
+          // Map oauthTier to botMode: 'anonymous' → 'anonymous', 'full' → 'authenticated'
+          const botMode = oauthTier === 'anonymous' ? 'anonymous' : 'authenticated';
+          const ttsConfigDocRef = db.collection('ttsChannelConfigs').doc(twitchUser.login);
+          await ttsConfigDocRef.set({
+            botMode: botMode,
+          }, {merge: true});
+          logger.info({userLogin: twitchUser.login, botMode, oauthTier}, "Synced botMode to ttsChannelConfigs");
+
           logger.info({userLogin: twitchUser.login}, "Secret reference stored in Firestore");
         } catch (dbError) {
           const err = dbError as Error;

@@ -129,6 +129,15 @@ router.post("/add", authenticateApiRequest, async (req: Request, res: Response):
       addedAt: new Date(),
     }, {merge: true});
 
+    // Sync botMode in ttsChannelConfigs for the TTS bot service
+    // Map oauthTier to botMode: 'anonymous' → 'anonymous', 'full' → 'authenticated'
+    const botMode = oauthTier === 'anonymous' ? 'anonymous' : 'authenticated';
+    const ttsConfigRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelLogin);
+    await ttsConfigRef.set({
+      botMode: botMode,
+    }, {merge: true});
+    log.info({botMode, oauthTier}, "Synced botMode to ttsChannelConfigs");
+
     log.info("Bot successfully added to channel");
 
     // Automatically add bot as moderator only if in full/chatbot mode
