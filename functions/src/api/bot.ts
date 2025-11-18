@@ -118,7 +118,20 @@ router.post("/add", authenticateApiRequest, async (req: Request, res: Response):
     // Get current user data to check OAuth tier
     const docSnap = await docRef.get();
     const userData = docSnap.data();
-    const oauthTier = userData?.oauthTier || 'full';
+    
+    // Determine oauthTier: validate scopes for new users or users without oauthTier set
+    let oauthTier: 'anonymous' | 'full';
+    if (userData?.oauthTier) {
+      // Use existing tier if set
+      oauthTier = userData.oauthTier;
+    } else {
+      // For new users or users without oauthTier, check grantedScopes
+      // Default to 'anonymous' unless they have the required scope
+      const grantedScopes = userData?.grantedScopes || [];
+      oauthTier = grantedScopes.includes('channel:manage:moderators') ? 'full' : 'anonymous';
+      log.info({oauthTier, hasModeratorScope: grantedScopes.includes('channel:manage:moderators')}, 
+        "Determined oauthTier from grantedScopes for new user");
+    }
 
     await docRef.set({
       isActive: true,
@@ -127,6 +140,7 @@ router.post("/add", authenticateApiRequest, async (req: Request, res: Response):
       twitchDisplayName: displayName,
       channelName: channelLogin,
       addedAt: new Date(),
+      oauthTier: oauthTier, // Persist the determined tier
     }, {merge: true});
 
     // Sync botMode in ttsChannelConfigs for the TTS bot service

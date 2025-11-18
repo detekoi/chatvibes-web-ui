@@ -89,14 +89,9 @@ export function initBotManagement(
         oauthTierStatusEl.textContent = '🎤 Bot-Free Mode';
         oauthTierStatusEl.className = 'fw-semibold text-primary';
       } else if (tier === 'full') {
-        // Chatbot Mode: show active/inactive status
-        if (isActive) {
-          oauthTierStatusEl.textContent = '🤖 Chatbot Mode (Active)';
-          oauthTierStatusEl.className = 'fw-semibold text-success';
-        } else {
-          oauthTierStatusEl.textContent = '🤖 Chatbot Mode (Inactive)';
-          oauthTierStatusEl.className = 'fw-semibold text-secondary';
-        }
+        // Chatbot Mode: bot can be in chat, regardless of active status
+        oauthTierStatusEl.textContent = '🤖 Chatbot Mode';
+        oauthTierStatusEl.className = 'fw-semibold text-success';
       } else {
         oauthTierStatusEl.textContent = 'Unknown';
         oauthTierStatusEl.className = 'fw-semibold text-muted';

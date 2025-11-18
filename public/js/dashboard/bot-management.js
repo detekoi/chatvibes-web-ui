@@ -13,13 +13,8 @@ function initBotManagement({ botStatusEl, oauthTierStatusEl, addBotBtn, removeBo
         oauthTierStatusEl.textContent = "\u{1F3A4} Bot-Free Mode";
         oauthTierStatusEl.className = "fw-semibold text-primary";
       } else if (tier === "full") {
-        if (isActive) {
-          oauthTierStatusEl.textContent = "\u{1F916} Chatbot Mode (Active)";
-          oauthTierStatusEl.className = "fw-semibold text-success";
-        } else {
-          oauthTierStatusEl.textContent = "\u{1F916} Chatbot Mode (Inactive)";
-          oauthTierStatusEl.className = "fw-semibold text-secondary";
-        }
+        oauthTierStatusEl.textContent = "\u{1F916} Chatbot Mode";
+        oauthTierStatusEl.className = "fw-semibold text-success";
       } else {
         oauthTierStatusEl.textContent = "Unknown";
         oauthTierStatusEl.className = "fw-semibold text-muted";
