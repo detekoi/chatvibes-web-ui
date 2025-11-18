@@ -4,15 +4,22 @@ function initBotManagement({ botStatusEl, oauthTierStatusEl, addBotBtn, removeBo
   const { apiBaseUrl, testMode } = context;
   const { getSessionToken } = services;
   let currentTier = null;
-  function updateOAuthTierUI(tier) {
+  let currentIsActive = false;
+  function updateOAuthTierUI(tier, isActive) {
     currentTier = tier;
+    currentIsActive = isActive;
     if (oauthTierStatusEl) {
       if (tier === "anonymous") {
         oauthTierStatusEl.textContent = "\u{1F3A4} Bot-Free Mode";
         oauthTierStatusEl.className = "fw-semibold text-primary";
       } else if (tier === "full") {
-        oauthTierStatusEl.textContent = "\u{1F916} Chatbot Mode";
-        oauthTierStatusEl.className = "fw-semibold text-success";
+        if (isActive) {
+          oauthTierStatusEl.textContent = "\u{1F916} Chatbot Mode (Active)";
+          oauthTierStatusEl.className = "fw-semibold text-success";
+        } else {
+          oauthTierStatusEl.textContent = "\u{1F916} Chatbot Mode (Inactive)";
+          oauthTierStatusEl.className = "fw-semibold text-secondary";
+        }
       } else {
         oauthTierStatusEl.textContent = "Unknown";
         oauthTierStatusEl.className = "fw-semibold text-muted";
@@ -43,7 +50,7 @@ function initBotManagement({ botStatusEl, oauthTierStatusEl, addBotBtn, removeBo
   async function refreshStatus() {
     if (testMode) {
       updateBotStatusUI(false);
-      updateOAuthTierUI("anonymous");
+      updateOAuthTierUI("anonymous", false);
       return;
     }
     if (!getSessionToken()) {
@@ -54,8 +61,10 @@ function initBotManagement({ botStatusEl, oauthTierStatusEl, addBotBtn, removeBo
       const statusRes = await fetchWithAuth(`${apiBaseUrl}/api/bot/status`, { method: "GET" });
       const statusData = await statusRes.json();
       if (statusData.success) {
-        updateBotStatusUI(statusData.isActive);
-        updateOAuthTierUI(statusData.oauthTier || "full");
+        const isActive = statusData.isActive;
+        const tier = statusData.oauthTier || "full";
+        updateBotStatusUI(isActive);
+        updateOAuthTierUI(tier, isActive);
       } else {
         showToast(`Error: ${statusData.message}`, "error");
         if (botStatusEl) botStatusEl.textContent = "Error";
@@ -127,8 +136,24 @@ function initBotManagement({ botStatusEl, oauthTierStatusEl, addBotBtn, removeBo
       const targetModeName = targetTier === "anonymous" ? "Bot-Free Mode" : "Chatbot Mode";
       if (targetTier === "full") {
         if (confirm(`Switching to Chatbot Mode requires re-authenticating with additional permissions. You'll be redirected to Twitch. Continue?`)) {
-          sessionStorage.setItem("oauth_csrf_state", "");
-          window.location.href = `${apiBaseUrl}/auth/twitch/initiate?tier=full`;
+          try {
+            showToast("Redirecting to Twitch for authentication...", "info");
+            const response = await fetch(`${apiBaseUrl}/auth/twitch/initiate?tier=full`);
+            if (!response.ok) {
+              throw new Error(`Failed to initiate auth: ${response.statusText}`);
+            }
+            const data = await response.json();
+            if (data.success && data.twitchAuthUrl && data.state) {
+              sessionStorage.setItem("oauth_csrf_state", data.state);
+              window.location.href = data.twitchAuthUrl;
+            } else {
+              throw new Error(data.error || "Could not initiate login with Twitch");
+            }
+          } catch (error) {
+            console.error("Error during login initiation:", error);
+            const err = error;
+            showToast(`Failed to start authentication: ${err.message}`, "error");
+          }
         }
       } else {
         if (confirm(`Switch to ${targetModeName}? This will update your authentication preference.`)) {
@@ -141,7 +166,7 @@ function initBotManagement({ botStatusEl, oauthTierStatusEl, addBotBtn, removeBo
             const data = await res.json();
             if (data.success) {
               showToast(`Switched to ${targetModeName}!`, "success");
-              updateOAuthTierUI(targetTier);
+              await refreshStatus();
             } else {
               showToast(data.message || "Failed to switch mode.", "error");
             }
