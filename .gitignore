@@ -23,6 +23,12 @@ public/js/**/*.js
 public/js/**/*.js.map
 !public/js/**/static-*.js  # If you have any non-compiled JS files
 
+# Compiled backend JavaScript (generated from TypeScript)
+functions/lib/**/*.js
+functions/lib/**/*.js.map
+functions/lib/**/*.d.ts
+functions/lib/**/*.d.ts.map
+
 
 # Runtime data
 pids
