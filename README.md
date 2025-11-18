@@ -61,16 +61,24 @@ Currently, the ChatVibes web UI is hosted [here](https://tts.wildcat.chat/) *(in
 
 ### Broadcaster/Streamer OAuth Scopes
 
-When streamers authenticate with Twitch, the following OAuth scopes are requested to enable full bot functionality:
+ChatVibes supports two authentication modes for streamers:
 
-* **`user:read:email`** - Access user email and basic profile information
-* **`chat:read`** - Read chat messages in the broadcaster's channel
-* **`chat:edit`** - Send chat messages and TTS responses in the broadcaster's channel
+#### 1. Bot-Free Mode (Anonymous)
+This mode allows the bot to function in a "stealth" capacity. It can read chat, announce events (Follows, Subs, Bits), and handle Channel Point TTS, but it **cannot** send messages to chat or appear in the user list.
+
+* **`user:read:email`** - Access user email for account identification
+* **`channel:read:redemptions`** - Read channel point redemptions
+* **`channel:manage:redemptions`** - Refund channel points for rejected TTS messages
 * **`channel:read:subscriptions`** - Detect subscription events for TTS announcements
 * **`bits:read`** - Detect bits/cheer events for TTS requirements and announcements
-* **`moderator:read:followers`** - Detect follow events for TTS announcements (optional)
-* **`channel:manage:redemptions`** - Manage channel point redemptions
-* **`channel:read:redemptions`** - Read channel point redemptions
+* **`moderator:read:followers`** - Detect follow events for TTS announcements
+
+#### 2. Chatbot Mode (Full)
+This mode enables full functionality, including the ability for the bot to reply in chat and be managed as a moderator. Includes all scopes from Bot-Free Mode, plus:
+
+* **`chat:read`** - Read chat messages (as an authenticated user)
+* **`chat:edit`** - Send chat messages and TTS responses
+* **`channel:manage:moderators`** - Add the bot as a moderator automatically
 
 These scopes enable the ChatVibes bot to:
 - Connect to and monitor the broadcaster's chat

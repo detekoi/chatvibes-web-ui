@@ -20,7 +20,7 @@ const TWITCH_VALIDATE_URL = "https://id.twitch.tv/oauth2/validate";
 
 // OAuth tier definitions
 const OAUTH_TIERS = {
-  anonymous: "user:read:email channel:read:redemptions channel:manage:redemptions",
+  anonymous: "user:read:email channel:read:redemptions channel:manage:redemptions channel:read:subscriptions bits:read moderator:read:followers",
   full: "user:read:email chat:read chat:edit channel:read:subscriptions bits:read moderator:read:followers channel:manage:redemptions channel:read:redemptions channel:manage:moderators",
 } as const;
 
