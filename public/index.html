@@ -35,7 +35,9 @@
     <video id="staticVideo" autoplay loop muted playsinline style="width:100vw; height:100vh; position:fixed; top:0; left:0; z-index:-1; object-fit:cover;">
         <source src="assets/video/Pixelated_static_pattern_web_balanced.mp4" type="video/mp4">
     </video>
-    
+    <!-- Light mode video overlay -->
+    <div class="video-overlay"></div>
+
     <!-- Dark mode toggle in top-right corner -->
     <div class="position-fixed top-0 end-0 p-3" style="z-index: 1050;">
         <div class="form-check form-switch">
@@ -45,7 +47,7 @@
     </div>
 
     <div class="container" style="max-width: 600px; margin-top: 10vh;">
-        <div class="card shadow-lg">
+        <div class="card shadow-lg" style="border-color: var(--accent-primary);">
             <div class="card-body text-center p-4">
                 <h1 class="h2 mb-3">Text-to-Speech Bot Management</h1>
                 <p class="mb-3">Manage <a href="https://github.com/detekoi/chatvibes" target="_blank" class="link-primary">ChatVibes</a> Text-to-Speech for your Twitch channel.</p>
@@ -54,8 +56,8 @@
                     <strong>Note:</strong> Access is currently invite-only. Unapproved channels will see an access denied message. <a href="https://detekoi.github.io/#contact-me" target="_blank" class="alert-link">Request access here</a>.
                 </div>
 
-                <h5 class="mb-3">Broadcaster Dashboard</h5>
-                <p class="text-muted mb-3" style="font-size: 0.9rem;">Choose your authentication mode:</p>
+                <h5 class="section-header mb-2">For Streamers</h5>
+                <p class="section-subheader">Choose your authentication mode:</p>
 
                 <div class="d-grid gap-3 mb-4">
                     <div class="button-wrapper">
@@ -72,7 +74,10 @@
                     </div>
                 </div>
 
-                <hr class="my-4">
+                <hr class="section-divider">
+
+                <h5 class="section-header mb-2">For Viewers</h5>
+                <p class="section-subheader">Customize your TTS voice preferences</p>
 
                 <div class="d-grid gap-3 mb-3">
                     <div class="button-wrapper">
