@@ -473,6 +473,10 @@ export function initSettingsModule(
       });
       if (response.ok) {
         maybeSuccessToast('Saved');
+      } else if (response.status === 400) {
+        const errorData = await response.json().catch(() => ({ error: 'Invalid request' })) as ErrorResponse;
+        const errorText = errorData.error || errorData.message || 'Invalid setting value';
+        showToast(`${label || 'Setting'}: ${errorText}`, 'error');
       } else if (response.status === 403) {
         const errorData = await response.json().catch(() => ({})) as ErrorResponse;
         const errorText = errorData.details || errorData.message || 'Channel is not allowed to use this service';
