@@ -98,7 +98,7 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--text-primary) !important;
 }
 
-p, label, .form-label, .form-check-label, .card-body, .card-body p, .card-body strong {
+p, label, .form-label, .form-check-label, .form-text, .card-body, .card-body p, .card-body strong, summary {
     color: var(--text-primary) !important;
 }
 
@@ -314,7 +314,7 @@ hr {
    ===================================================== */
 .form-control, .form-select {
     border: 1px solid var(--border-color);
-    color: var(--text-primary);
+    color: var(--text-primary) !important;
     background-color: var(--bg-secondary);
 }
 
@@ -322,7 +322,28 @@ hr {
     border-color: var(--text-primary);
     box-shadow: none;
     background-color: var(--bg-secondary);
-    color: var(--text-primary);
+    color: var(--text-primary) !important;
+}
+
+/* Placeholder text styling */
+.form-control::placeholder {
+    color: var(--text-muted) !important;
+    opacity: 0.7;
+}
+
+.form-control::-webkit-input-placeholder {
+    color: var(--text-muted) !important;
+    opacity: 0.7;
+}
+
+.form-control::-moz-placeholder {
+    color: var(--text-muted) !important;
+    opacity: 0.7;
+}
+
+.form-control:-ms-input-placeholder {
+    color: var(--text-muted) !important;
+    opacity: 0.7;
 }
 
 /* =====================================================
@@ -405,8 +426,8 @@ hr {
 }
 
 .btn-outline-primary {
-    background-color: transparent;
-    color: var(--text-primary);
+    background-color: transparent !important;
+    color: var(--text-primary) !important;
     border: 2px solid var(--text-primary);
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -414,19 +435,20 @@ hr {
 
 .btn-outline-primary:hover,
 .btn-outline-primary:focus {
-    background-color: var(--text-primary);
-    color: var(--bg-primary);
+    background-color: var(--text-primary) !important;
+    color: var(--bg-primary) !important;
     border-color: var(--text-primary);
 }
 
 .btn-outline-primary:active {
-    background-color: var(--color-accent-grey);
+    background-color: var(--color-accent-grey) !important;
+    color: var(--bg-primary) !important;
     border-color: var(--color-accent-grey);
 }
 
 .btn-outline-danger {
-    background-color: transparent;
-    color: var(--danger-primary);
+    background-color: transparent !important;
+    color: var(--danger-primary) !important;
     border: 2px solid var(--danger-primary);
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -434,13 +456,14 @@ hr {
 
 .btn-outline-danger:hover,
 .btn-outline-danger:focus {
-    background-color: var(--danger-primary);
-    color: white;
+    background-color: var(--danger-primary) !important;
+    color: white !important;
     border-color: var(--danger-primary);
 }
 
 .btn-outline-danger:active {
-    background-color: var(--danger-secondary);
+    background-color: var(--danger-secondary) !important;
+    color: white !important;
     border-color: var(--danger-secondary);
 }
 
@@ -809,6 +832,11 @@ hr {
     border-top-width: 0;
 }
 
+/* Ensure all text in list-group items has proper color */
+.list-group-item strong {
+    color: var(--text-primary) !important;
+}
+
 /* =====================================================
    IOS-STYLE SETTINGS LAYOUT
    ===================================================== */
@@ -838,6 +866,7 @@ hr {
     margin-bottom: 0.25rem;
     display: block;
     font-weight: 400;
+    color: var(--text-primary) !important;
 }
 
 .list-group-item .row.align-items-center:has(.form-check-switch) .col .text-muted {
