@@ -49,7 +49,6 @@ router.get("/status", authenticateApiRequest, async (req: Request, res: Response
         isActive: true,
         channelName: data.channelName || channelLogin,
         needsReAuth: data.needsTwitchReAuth === true,
-        oauthTier: data.oauthTier || 'full', // Default to 'full' for backward compatibility
       });
     } else {
       res.json({
@@ -57,7 +56,6 @@ router.get("/status", authenticateApiRequest, async (req: Request, res: Response
         isActive: false,
         channelName: channelLogin,
         needsReAuth: docSnap.exists && data?.needsTwitchReAuth === true,
-        oauthTier: docSnap.exists && data ? (data.oauthTier || 'full') : 'full',
       });
     }
   } catch (error) {
@@ -115,24 +113,6 @@ router.post("/add", authenticateApiRequest, async (req: Request, res: Response):
 
     const docRef = db.collection(COLLECTIONS.MANAGED_CHANNELS).doc(channelLogin);
 
-    // Get current user data to check OAuth tier
-    const docSnap = await docRef.get();
-    const userData = docSnap.data();
-    
-    // Determine oauthTier: validate scopes for new users or users without oauthTier set
-    let oauthTier: 'anonymous' | 'full';
-    if (userData?.oauthTier) {
-      // Use existing tier if set
-      oauthTier = userData.oauthTier;
-    } else {
-      // For new users or users without oauthTier, check grantedScopes
-      // Default to 'anonymous' unless they have the required scope
-      const grantedScopes = userData?.grantedScopes || [];
-      oauthTier = grantedScopes.includes('channel:manage:moderators') ? 'full' : 'anonymous';
-      log.info({oauthTier, hasModeratorScope: grantedScopes.includes('channel:manage:moderators')}, 
-        "Determined oauthTier from grantedScopes for new user");
-    }
-
     await docRef.set({
       isActive: true,
       twitchUserId,
@@ -140,28 +120,22 @@ router.post("/add", authenticateApiRequest, async (req: Request, res: Response):
       twitchDisplayName: displayName,
       channelName: channelLogin,
       addedAt: new Date(),
-      oauthTier: oauthTier, // Persist the determined tier
     }, {merge: true});
 
-    // Sync botMode in ttsChannelConfigs for the TTS bot service
-    // Map oauthTier to botMode: 'anonymous' → 'anonymous', 'full' → 'authenticated'
-    const botMode = oauthTier === 'anonymous' ? 'anonymous' : 'authenticated';
+    // Sync botRespondsInChat in ttsChannelConfigs for the TTS bot service
+    // Default to true (bot responds to commands in chat)
     const ttsConfigRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelLogin);
     await ttsConfigRef.set({
-      botMode: botMode,
+      botRespondsInChat: true,
     }, {merge: true});
-    log.info({botMode, oauthTier}, "Synced botMode to ttsChannelConfigs");
+    log.info({botRespondsInChat: true}, "Synced botRespondsInChat to ttsChannelConfigs");
 
     log.info("Bot successfully added to channel");
 
-    // Automatically add bot as moderator only if in full/chatbot mode
+    // Automatically add bot as moderator
     let modStatus: {success: boolean; error?: string} = {success: false, error: "Bot username not configured"};
 
-    if (oauthTier === 'anonymous') {
-      // In Bot-Free Mode, don't add as moderator
-      log.info("Bot-Free Mode (anonymous tier) - skipping moderator setup");
-      modStatus = {success: true}; // Not an error, just skipped
-    } else if (config.TWITCH_BOT_USERNAME) {
+    if (config.TWITCH_BOT_USERNAME) {
       try {
         log.debug({botUsername: config.TWITCH_BOT_USERNAME}, "Attempting to add bot as moderator");
         const botUserId = await getUserIdFromUsername(config.TWITCH_BOT_USERNAME, secrets);
@@ -186,17 +160,12 @@ router.post("/add", authenticateApiRequest, async (req: Request, res: Response):
       log.warn("TWITCH_BOT_USERNAME not configured, skipping moderator setup");
     }
 
-    const successMessage = oauthTier === 'anonymous'
-      ? "TTS Service activated in Bot-Free Mode! The bot will not appear in your chat."
-      : "Bot added to your channel successfully!";
-
     res.json({
       success: true,
-      message: successMessage,
+      message: "TTS Service activated! The bot is now active in your channel.",
       channelName: channelLogin,
-      moderatorStatus: oauthTier === 'anonymous' ? "skipped" : (modStatus.success ? "added" : "failed"),
+      moderatorStatus: modStatus.success ? "added" : "failed",
       moderatorError: modStatus.success ? undefined : modStatus.error,
-      oauthTier: oauthTier,
     });
   } catch (error) {
     const err = error as Error;
