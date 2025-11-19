@@ -6,10 +6,8 @@ import { showToast } from '../common/ui.js';
  */
 interface BotManagementElements {
   botStatusEl: HTMLElement | null;
-  oauthTierStatusEl: HTMLElement | null;
   addBotBtn: HTMLButtonElement | null;
   removeBotBtn: HTMLButtonElement | null;
-  switchModeBtn: HTMLButtonElement | null;
 }
 
 /**
@@ -33,7 +31,6 @@ interface BotManagementServices {
 interface BotStatusResponse {
   success: boolean;
   isActive: boolean;
-  oauthTier?: 'anonymous' | 'full';
   message?: string;
 }
 
@@ -47,16 +44,6 @@ interface BotActionResponse {
   details?: string;
 }
 
-/**
- * Auth initiate API response
- */
-interface AuthInitiateResponse {
-  success: boolean;
-  twitchAuthUrl?: string;
-  state?: string;
-  tier?: string;
-  error?: string;
-}
 
 /**
  * Bot management module return type
@@ -70,38 +57,12 @@ export interface BotManagementModule {
  * Bot management card bindings.
  */
 export function initBotManagement(
-  { botStatusEl, oauthTierStatusEl, addBotBtn, removeBotBtn, switchModeBtn }: BotManagementElements,
+  { botStatusEl, addBotBtn, removeBotBtn }: BotManagementElements,
   context: BotManagementContext,
   services: BotManagementServices
 ): BotManagementModule {
   const { apiBaseUrl, testMode } = context;
   const { getSessionToken } = services;
-
-  let currentTier: 'anonymous' | 'full' | null = null;
-  let currentIsActive: boolean = false;
-
-  function updateOAuthTierUI(tier: 'anonymous' | 'full' | null, isActive: boolean): void {
-    currentTier = tier;
-    currentIsActive = isActive;
-    if (oauthTierStatusEl) {
-      if (tier === 'anonymous') {
-        // Bot-Free Mode: bot is not in chat, regardless of active status
-        oauthTierStatusEl.textContent = '🎤 Bot-Free Mode';
-        oauthTierStatusEl.className = 'fw-semibold text-primary';
-      } else if (tier === 'full') {
-        // Chatbot Mode: bot can be in chat, regardless of active status
-        oauthTierStatusEl.textContent = '🤖 Chatbot Mode';
-        oauthTierStatusEl.className = 'fw-semibold text-success';
-      } else {
-        oauthTierStatusEl.textContent = 'Unknown';
-        oauthTierStatusEl.className = 'fw-semibold text-muted';
-      }
-    }
-    if (switchModeBtn && tier) {
-      switchModeBtn.style.display = 'inline-block';
-      switchModeBtn.textContent = tier === 'anonymous' ? 'Switch to Chatbot Mode' : 'Switch to Bot-Free Mode';
-    }
-  }
 
   function updateBotStatusUI(isActive: boolean): void {
     if (isActive) {
@@ -124,7 +85,6 @@ export function initBotManagement(
   async function refreshStatus(): Promise<void> {
     if (testMode) {
       updateBotStatusUI(false);
-      updateOAuthTierUI('anonymous', false);
       return;
     }
 
@@ -138,9 +98,7 @@ export function initBotManagement(
       const statusData = await statusRes.json() as BotStatusResponse;
       if (statusData.success) {
         const isActive = statusData.isActive;
-        const tier = statusData.oauthTier || 'full'; // Default to 'full' for backward compatibility
         updateBotStatusUI(isActive);
-        updateOAuthTierUI(tier, isActive);
       } else {
         showToast(`Error: ${statusData.message}`, 'error');
         if (botStatusEl) botStatusEl.textContent = 'Error';
@@ -207,59 +165,6 @@ export function initBotManagement(
       } catch (error) {
         console.error('Error deactivating TTS Service:', error);
         showToast('Failed to deactivate TTS Service.', 'error');
-      }
-    });
-  }
-
-  if (switchModeBtn) {
-    switchModeBtn.addEventListener('click', async () => {
-      const targetTier = currentTier === 'anonymous' ? 'full' : 'anonymous';
-      const targetModeName = targetTier === 'anonymous' ? 'Bot-Free Mode' : 'Chatbot Mode';
-
-      if (targetTier === 'full') {
-        // Upgrading to full mode requires re-authentication with more scopes
-        if (confirm(`Switching to Chatbot Mode requires re-authenticating with additional permissions. You'll be redirected to Twitch. Continue?`)) {
-          try {
-            showToast('Redirecting to Twitch for authentication...', 'info');
-            const response = await fetch(`${apiBaseUrl}/auth/twitch/initiate?tier=full`);
-            if (!response.ok) {
-              throw new Error(`Failed to initiate auth: ${response.statusText}`);
-            }
-            const data = await response.json() as AuthInitiateResponse;
-            if (data.success && data.twitchAuthUrl && data.state) {
-              sessionStorage.setItem('oauth_csrf_state', data.state);
-              window.location.href = data.twitchAuthUrl;
-            } else {
-              throw new Error(data.error || 'Could not initiate login with Twitch');
-            }
-          } catch (error) {
-            console.error('Error during login initiation:', error);
-            const err = error as Error;
-            showToast(`Failed to start authentication: ${err.message}`, 'error');
-          }
-        }
-      } else {
-        // Downgrading to anonymous mode just updates preference (no re-auth needed)
-        if (confirm(`Switch to ${targetModeName}? This will update your authentication preference.`)) {
-          try {
-            const res = await fetchWithAuth(`${apiBaseUrl}/api/auth/update-tier`, {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ tier: targetTier }),
-            });
-            const data = await res.json() as BotActionResponse;
-            if (data.success) {
-              showToast(`Switched to ${targetModeName}!`, 'success');
-              // Refresh status to get updated tier and active status
-              await refreshStatus();
-            } else {
-              showToast(data.message || 'Failed to switch mode.', 'error');
-            }
-          } catch (error) {
-            console.error('Error switching mode:', error);
-            showToast('Failed to switch mode.', 'error');
-          }
-        }
       }
     });
   }

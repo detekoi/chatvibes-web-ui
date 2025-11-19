@@ -57,10 +57,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const twitchUsernameEl = document.getElementById('twitch-username') as HTMLElement | null;
   const channelNameStatusEl = document.getElementById('channel-name-status') as HTMLElement | null;
   const botStatusEl = document.getElementById('bot-status') as HTMLElement | null;
-  const oauthTierStatusEl = document.getElementById('oauth-tier-status') as HTMLElement | null;
   const addBotBtn = document.getElementById('add-bot-btn') as HTMLButtonElement | null;
   const removeBotBtn = document.getElementById('remove-bot-btn') as HTMLButtonElement | null;
-  const switchModeBtn = document.getElementById('switch-mode-btn') as HTMLButtonElement | null;
   const logoutLink = document.getElementById('logout-link') as HTMLAnchorElement | null;
   const ttsUrlField = document.getElementById('tts-url-field') as HTMLInputElement | null;
   const copyTtsUrlBtn = document.getElementById('copy-tts-url-btn') as HTMLButtonElement | null;
@@ -87,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   ignoreModule.setOnChange(() => settingsModule.loadSettings());
 
-  const botModule: BotManagementModule = initBotManagement({ botStatusEl, oauthTierStatusEl, addBotBtn, removeBotBtn, switchModeBtn }, { apiBaseUrl, testMode }, services);
+  const botModule: BotManagementModule = initBotManagement({ botStatusEl, addBotBtn, removeBotBtn }, { apiBaseUrl, testMode }, services);
   const obsModule: ObsModule = initObsModule({ ttsUrlField, copyTtsUrlBtn, regenerateTtsUrlBtn }, { apiBaseUrl, testMode }, services);
   const channelPointsModule: ChannelPointsModule = initChannelPointsModule({ apiBaseUrl, testMode }, services, {
     onSettingsRefresh: () => settingsModule.loadSettings(),
@@ -183,50 +181,11 @@ document.addEventListener('DOMContentLoaded', () => {
       message.style.marginBottom = '1.5rem';
       authStatus.appendChild(message);
 
-      // Create tier selection container
-      const tierContainer = document.createElement('div');
-      tierContainer.style.display = 'flex';
-      tierContainer.style.gap = '1rem';
-      tierContainer.style.justifyContent = 'center';
-      tierContainer.style.flexWrap = 'wrap';
-
-      // Bot-Free mode option
-      const anonymousCard = document.createElement('div');
-      anonymousCard.style.cssText = 'border: 2px solid #6441a5; border-radius: 8px; padding: 1.5rem; max-width: 300px; cursor: pointer; transition: transform 0.2s;';
-      anonymousCard.innerHTML = `
-        <h5 style="margin-bottom: 0.75rem;">🎤 Bot-Free Mode</h5>
-        <p style="font-size: 0.9rem; margin-bottom: 1rem;">No bot in chat • Channel points work</p>
-        <ul style="text-align: left; font-size: 0.85rem; margin-bottom: 1rem;">
-          <li>Bot hidden from viewer list</li>
-          <li>Create custom TTS rewards</li>
-          <li>OBS browser source</li>
-        </ul>
-        <button class="btn btn-primary">Sign in with Twitch</button>
-      `;
-      anonymousCard.onmouseover = () => anonymousCard.style.transform = 'scale(1.02)';
-      anonymousCard.onmouseout = () => anonymousCard.style.transform = 'scale(1)';
-      anonymousCard.onclick = () => redirectToTwitch('anonymous');
-
-      // Chatbot mode option
-      const fullCard = document.createElement('div');
-      fullCard.style.cssText = 'border: 2px solid #6441a5; border-radius: 8px; padding: 1.5rem; max-width: 300px; cursor: pointer; transition: transform 0.2s;';
-      fullCard.innerHTML = `
-        <h5 style="margin-bottom: 0.75rem;">🤖 Chatbot Mode</h5>
-        <p style="font-size: 0.9rem; margin-bottom: 1rem;">Bot responds to commands in chat</p>
-        <ul style="text-align: left; font-size: 0.85rem; margin-bottom: 1rem;">
-          <li>Everything in Bot-Free mode</li>
-          <li>Chat command responses</li>
-          <li>Interactive TTS control</li>
-        </ul>
-        <button class="btn btn-primary">Sign in with Twitch</button>
-      `;
-      fullCard.onmouseover = () => fullCard.style.transform = 'scale(1.02)';
-      fullCard.onmouseout = () => fullCard.style.transform = 'scale(1)';
-      fullCard.onclick = () => redirectToTwitch('full');
-
-      tierContainer.appendChild(anonymousCard);
-      tierContainer.appendChild(fullCard);
-      authStatus.appendChild(tierContainer);
+      const loginButton = document.createElement('button');
+      loginButton.className = 'btn btn-primary';
+      loginButton.textContent = 'Sign in with Twitch';
+      loginButton.onclick = () => redirectToTwitch();
+      authStatus.appendChild(loginButton);
     }
   }
 
@@ -238,62 +197,23 @@ document.addEventListener('DOMContentLoaded', () => {
       authStatus.style.display = 'block';
 
       const message = document.createElement('p');
-      message.textContent = 'Choose your authentication mode:';
+      message.textContent = 'Please sign in with your Twitch account to access the dashboard.';
       message.style.marginBottom = '1.5rem';
       authStatus.appendChild(message);
 
-      // Create tier selection container
-      const tierContainer = document.createElement('div');
-      tierContainer.style.display = 'flex';
-      tierContainer.style.gap = '1rem';
-      tierContainer.style.justifyContent = 'center';
-      tierContainer.style.flexWrap = 'wrap';
-
-      // Bot-Free mode option
-      const anonymousCard = document.createElement('div');
-      anonymousCard.style.cssText = 'border: 2px solid #6441a5; border-radius: 8px; padding: 1.5rem; max-width: 300px; cursor: pointer; transition: transform 0.2s;';
-      anonymousCard.innerHTML = `
-        <h5 style="margin-bottom: 0.75rem;">🎤 Bot-Free Mode</h5>
-        <p style="font-size: 0.9rem; margin-bottom: 1rem;">No bot in chat • Channel points work</p>
-        <ul style="text-align: left; font-size: 0.85rem; margin-bottom: 1rem;">
-          <li>Bot hidden from viewer list</li>
-          <li>Create custom TTS rewards</li>
-          <li>OBS browser source</li>
-        </ul>
-        <button class="btn btn-primary">Sign in with Twitch</button>
-      `;
-      anonymousCard.onmouseover = () => anonymousCard.style.transform = 'scale(1.02)';
-      anonymousCard.onmouseout = () => anonymousCard.style.transform = 'scale(1)';
-      anonymousCard.onclick = () => redirectToTwitch('anonymous');
-
-      // Chatbot mode option
-      const fullCard = document.createElement('div');
-      fullCard.style.cssText = 'border: 2px solid #6441a5; border-radius: 8px; padding: 1.5rem; max-width: 300px; cursor: pointer; transition: transform 0.2s;';
-      fullCard.innerHTML = `
-        <h5 style="margin-bottom: 0.75rem;">🤖 Chatbot Mode</h5>
-        <p style="font-size: 0.9rem; margin-bottom: 1rem;">Bot responds to commands in chat</p>
-        <ul style="text-align: left; font-size: 0.85rem; margin-bottom: 1rem;">
-          <li>Everything in Bot-Free mode</li>
-          <li>Chat command responses</li>
-          <li>Interactive TTS control</li>
-        </ul>
-        <button class="btn btn-primary">Sign in with Twitch</button>
-      `;
-      fullCard.onmouseover = () => fullCard.style.transform = 'scale(1.02)';
-      fullCard.onmouseout = () => fullCard.style.transform = 'scale(1)';
-      fullCard.onclick = () => redirectToTwitch('full');
-
-      tierContainer.appendChild(anonymousCard);
-      tierContainer.appendChild(fullCard);
-      authStatus.appendChild(tierContainer);
+      const loginButton = document.createElement('button');
+      loginButton.className = 'btn btn-primary';
+      loginButton.textContent = 'Sign in with Twitch';
+      loginButton.onclick = () => redirectToTwitch();
+      authStatus.appendChild(loginButton);
     }
   }
 
-  async function redirectToTwitch(tier: 'anonymous' | 'full' = 'full'): Promise<void> {
+  async function redirectToTwitch(): Promise<void> {
     if (!authStatus) return;
     authStatus.innerHTML = '<p>Redirecting to Twitch for authentication...</p>';
     try {
-      const response = await fetch(`${apiBaseUrl}/auth/twitch/initiate?tier=${tier}`);
+      const response = await fetch(`${apiBaseUrl}/auth/twitch/initiate`);
       if (!response.ok) {
         throw new Error(`Failed to initiate auth: ${response.statusText}`);
       }

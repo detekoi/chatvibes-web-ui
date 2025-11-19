@@ -170,7 +170,7 @@ async function handleViewerCallback(req: Request, res: Response, decodedState: V
 }
 
 // Route: /auth/twitch/initiate
-router.get("/twitch/initiate", (req: Request, res: Response): void => {
+router.get("/twitch/initiate", (_req: Request, res: Response): void => {
   logger.info("--- /auth/twitch/initiate HIT --- Version 2.0 (Single OAuth Flow) ---");
 
   if (!secrets.TWITCH_CLIENT_ID || !config.CALLBACK_URL) {
