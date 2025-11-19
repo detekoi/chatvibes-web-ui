@@ -26,14 +26,17 @@ class ThemeManager {
   getCurrentTheme() {
     return this.getStoredTheme() || this.getSystemTheme();
   }
-  setTheme(theme) {
+  applyTheme(theme) {
     if (theme === DARK_THEME) {
       document.documentElement.setAttribute("data-theme", DARK_THEME);
     } else {
       document.documentElement.removeAttribute("data-theme");
     }
-    localStorage.setItem(THEME_KEY, theme);
     this.updateToggleState();
+  }
+  setTheme(theme) {
+    localStorage.setItem(THEME_KEY, theme);
+    this.applyTheme(theme);
   }
   toggleTheme() {
     const currentTheme = this.getCurrentTheme();
@@ -42,10 +45,7 @@ class ThemeManager {
   }
   applyStoredTheme() {
     const theme = this.getCurrentTheme();
-    if (theme === DARK_THEME) {
-      document.documentElement.setAttribute("data-theme", DARK_THEME);
-    }
-    this.updateToggleState();
+    this.applyTheme(theme);
   }
   initToggle() {
     const toggle = document.getElementById("darkModeToggle");
@@ -67,7 +67,7 @@ class ThemeManager {
     mediaQuery.addEventListener("change", (e) => {
       if (!this.getStoredTheme()) {
         const systemTheme = e.matches ? DARK_THEME : LIGHT_THEME;
-        this.setTheme(systemTheme);
+        this.applyTheme(systemTheme);
       }
     });
   }

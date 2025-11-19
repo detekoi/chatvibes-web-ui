@@ -57,15 +57,18 @@ class ThemeManager {
         return this.getStoredTheme() || this.getSystemTheme();
     }
 
-    setTheme(theme: Theme): void {
+    applyTheme(theme: Theme): void {
         if (theme === DARK_THEME) {
             document.documentElement.setAttribute('data-theme', DARK_THEME);
         } else {
             document.documentElement.removeAttribute('data-theme');
         }
-
-        localStorage.setItem(THEME_KEY, theme);
         this.updateToggleState();
+    }
+
+    setTheme(theme: Theme): void {
+        localStorage.setItem(THEME_KEY, theme);
+        this.applyTheme(theme);
     }
 
     toggleTheme(): void {
@@ -76,10 +79,7 @@ class ThemeManager {
 
     applyStoredTheme(): void {
         const theme = this.getCurrentTheme();
-        if (theme === DARK_THEME) {
-            document.documentElement.setAttribute('data-theme', DARK_THEME);
-        }
-        this.updateToggleState();
+        this.applyTheme(theme);
     }
 
     initToggle(): void {
@@ -105,7 +105,7 @@ class ThemeManager {
             // Only apply system theme if user hasn't explicitly chosen a theme
             if (!this.getStoredTheme()) {
                 const systemTheme: Theme = e.matches ? DARK_THEME : LIGHT_THEME;
-                this.setTheme(systemTheme);
+                this.applyTheme(systemTheme);
             }
         });
     }
