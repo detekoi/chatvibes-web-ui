@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["utils.ts"],
-  "sourcesContent": ["/**\n * Generic utility helpers shared across pages.\n */\n\n/**\n * Creates a debounced function.\n */\nexport function debounce<T extends (...args: unknown[]) => void>(\n  func: T,\n  wait: number\n): (...args: Parameters<T>) => void {\n  let timeout: ReturnType<typeof setTimeout> | undefined;\n  return function executedFunction(...args: Parameters<T>): void {\n    const later = (): void => {\n      clearTimeout(timeout);\n      func.apply(this, args);\n    };\n    clearTimeout(timeout);\n    timeout = setTimeout(later, wait);\n  };\n}\n\n/**\n * Format a number compactly for display.\n */\nexport function formatNumberCompact(n: number): string {\n  const s = Number(n).toFixed(2);\n  return s.replace(/\\.0+$/, '').replace(/(\\.\\d*[1-9])0+$/, '$1');\n}\n\n/**\n * Format a voice identifier for display.\n */\nexport function formatVoiceName(voice: string): string {\n  return voice.replace(/[_-]/g, ' ').replace(/\\b\\w/g, chr => chr.toUpperCase());\n}\n"],
-  "mappings": "AAOO,SAAS,SACd,MACA,MACkC;AAClC,MAAI;AACJ,SAAO,SAAS,oBAAoB,MAA2B;AAC7D,UAAM,QAAQ,MAAY;AACxB,mBAAa,OAAO;AACpB,WAAK,MAAM,MAAM,IAAI;AAAA,IACvB;AACA,iBAAa,OAAO;AACpB,cAAU,WAAW,OAAO,IAAI;AAAA,EAClC;AACF;AAKO,SAAS,oBAAoB,GAAmB;AACrD,QAAM,IAAI,OAAO,CAAC,EAAE,QAAQ,CAAC;AAC7B,SAAO,EAAE,QAAQ,SAAS,EAAE,EAAE,QAAQ,mBAAmB,IAAI;AAC/D;AAKO,SAAS,gBAAgB,OAAuB;AACrD,SAAO,MAAM,QAAQ,SAAS,GAAG,EAAE,QAAQ,SAAS,SAAO,IAAI,YAAY,CAAC;AAC9E;",
-  "names": []
-}
