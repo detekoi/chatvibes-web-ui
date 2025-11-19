@@ -57,19 +57,13 @@
                 </div>
 
                 <h5 class="section-header mb-2">For Streamers</h5>
-                <p class="section-subheader">Choose your authentication mode:</p>
+                <p class="section-subheader">Manage your channel's TTS settings</p>
 
                 <div class="d-grid gap-3 mb-4">
                     <div class="button-wrapper">
-                        <a href="#" id="anonymousLoginBtn" class="button-3d btn-primary">Bot-Free Mode</a>
+                        <a href="#" id="streamerLoginBtn" class="button-3d btn-primary">Streamer Login</a>
                         <div class="tooltip-wrapper">
-                            <span class="help-icon" data-tooltip="No bot in chat • Channel points work • Bot hidden from viewer list">?</span>
-                        </div>
-                    </div>
-                    <div class="button-wrapper">
-                        <a href="#" id="fullLoginBtn" class="button-3d btn-primary">🤖 Chatbot Mode</a>
-                        <div class="tooltip-wrapper">
-                            <span class="help-icon" data-tooltip="!myvoice command directs viewers to voice preferences • Everything in Bot-Free mode • Bot responds to commands in chat • Interactive TTS control">?</span>
+                            <span class="help-icon" data-tooltip="Access TTS settings • Toggle bot chat responses • Configure channel points • Customize voice preferences">?</span>
                         </div>
                     </div>
                 </div>
@@ -116,14 +110,15 @@
 
     <!-- Authentication functionality -->
     <script>
-        // Helper function for broadcaster login
-        async function broadcasterLogin(tier) {
+        // Streamer Login
+        document.getElementById('streamerLoginBtn').addEventListener('click', async (event) => {
+            event.preventDefault();
             const loginErrorEl = document.getElementById('loginError');
             loginErrorEl.textContent = '';
             try {
                 // Use Firebase Hosting rewrites to reach Functions in both local and prod
                 const apiBaseUrl = '';
-                const response = await fetch(`${apiBaseUrl}/auth/twitch/initiate?tier=${tier}`);
+                const response = await fetch(`${apiBaseUrl}/auth/twitch/initiate`);
                 if (!response.ok) {
                     throw new Error(`Failed to initiate auth: ${response.statusText}`);
                 }
@@ -140,18 +135,6 @@
                 console.error("Error during login initiation:", error);
                 loginErrorEl.textContent = "Error initiating login. Check console.";
             }
-        }
-
-        // Anonymous Mode Login
-        document.getElementById('anonymousLoginBtn').addEventListener('click', async (event) => {
-            event.preventDefault();
-            await broadcasterLogin('anonymous');
-        });
-
-        // Full Bot Mode Login
-        document.getElementById('fullLoginBtn').addEventListener('click', async (event) => {
-            event.preventDefault();
-            await broadcasterLogin('full');
         });
 
         // Viewer Preferences Access - Direct login

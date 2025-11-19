@@ -8,6 +8,7 @@ import type { DashboardServices } from './types.js';
  */
 export interface TtsSettings {
   engineEnabled?: boolean;
+  botRespondsInChat?: boolean;
   mode?: string;
   ttsPermissionLevel?: string;
   speakEvents?: boolean;
@@ -114,6 +115,7 @@ export function initSettingsModule(
   const englishNormalizationCheckbox = document.getElementById('english-normalization') as HTMLInputElement | null;
 
   const ttsEnabledCheckbox = document.getElementById('tts-enabled') as HTMLInputElement | null;
+  const botRespondsInChatCheckbox = document.getElementById('bot-responds-in-chat') as HTMLInputElement | null;
   const ttsModeSelect = document.getElementById('tts-mode') as HTMLSelectElement | null;
   const ttsPermissionSelect = document.getElementById('tts-permission') as HTMLSelectElement | null;
   const eventsEnabledCheckbox = document.getElementById('events-enabled') as HTMLInputElement | null;
@@ -252,6 +254,7 @@ export function initSettingsModule(
 
   function setupAutoSaveListeners(): void {
     if (ttsEnabledCheckbox) ttsEnabledCheckbox.addEventListener('change', () => saveTtsSetting('engineEnabled', !!ttsEnabledCheckbox.checked, 'TTS Engine'));
+    if (botRespondsInChatCheckbox) botRespondsInChatCheckbox.addEventListener('change', () => saveTtsSetting('botRespondsInChat', !!botRespondsInChatCheckbox.checked, 'Bot Responds in Chat'));
     if (ttsModeSelect) ttsModeSelect.addEventListener('change', () => saveTtsSetting('mode', ttsModeSelect.value || 'command', 'TTS Mode'));
     if (ttsPermissionSelect) ttsPermissionSelect.addEventListener('change', () => saveTtsSetting('ttsPermissionLevel', ttsPermissionSelect.value || 'everyone', 'TTS Permission'));
     if (eventsEnabledCheckbox) eventsEnabledCheckbox.addEventListener('change', () => saveTtsSetting('speakEvents', eventsEnabledCheckbox.checked !== false, 'Event Announcements'));
@@ -784,6 +787,7 @@ export function initSettingsModule(
     if (testMode) {
       const demoTts: TtsSettings = {
         engineEnabled: true,
+        botRespondsInChat: true,
         mode: 'command',
         ttsPermissionLevel: 'everyone',
         speakEvents: true,
@@ -856,6 +860,7 @@ export function initSettingsModule(
 
   function applyTtsSettings(settings: TtsSettings): void {
     if (ttsEnabledCheckbox) ttsEnabledCheckbox.checked = settings.engineEnabled || false;
+    if (botRespondsInChatCheckbox) botRespondsInChatCheckbox.checked = settings.botRespondsInChat !== false;
     if (ttsModeSelect) ttsModeSelect.value = settings.mode || 'command';
     if (ttsPermissionSelect) ttsPermissionSelect.value = settings.ttsPermissionLevel || 'everyone';
     if (eventsEnabledCheckbox) eventsEnabledCheckbox.checked = settings.speakEvents !== false;

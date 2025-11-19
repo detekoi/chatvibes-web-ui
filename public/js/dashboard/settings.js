@@ -16,6 +16,7 @@ function initSettingsModule(context, services, dependencies) {
   const defaultLanguageSelect = document.getElementById("default-language");
   const englishNormalizationCheckbox = document.getElementById("english-normalization");
   const ttsEnabledCheckbox = document.getElementById("tts-enabled");
+  const botRespondsInChatCheckbox = document.getElementById("bot-responds-in-chat");
   const ttsModeSelect = document.getElementById("tts-mode");
   const ttsPermissionSelect = document.getElementById("tts-permission");
   const eventsEnabledCheckbox = document.getElementById("events-enabled");
@@ -122,6 +123,7 @@ function initSettingsModule(context, services, dependencies) {
   }
   function setupAutoSaveListeners() {
     if (ttsEnabledCheckbox) ttsEnabledCheckbox.addEventListener("change", () => saveTtsSetting("engineEnabled", !!ttsEnabledCheckbox.checked, "TTS Engine"));
+    if (botRespondsInChatCheckbox) botRespondsInChatCheckbox.addEventListener("change", () => saveTtsSetting("botRespondsInChat", !!botRespondsInChatCheckbox.checked, "Bot Responds in Chat"));
     if (ttsModeSelect) ttsModeSelect.addEventListener("change", () => saveTtsSetting("mode", ttsModeSelect.value || "command", "TTS Mode"));
     if (ttsPermissionSelect) ttsPermissionSelect.addEventListener("change", () => saveTtsSetting("ttsPermissionLevel", ttsPermissionSelect.value || "everyone", "TTS Permission"));
     if (eventsEnabledCheckbox) eventsEnabledCheckbox.addEventListener("change", () => saveTtsSetting("speakEvents", eventsEnabledCheckbox.checked !== false, "Event Announcements"));
@@ -615,6 +617,7 @@ function initSettingsModule(context, services, dependencies) {
     if (testMode) {
       const demoTts = {
         engineEnabled: true,
+        botRespondsInChat: true,
         mode: "command",
         ttsPermissionLevel: "everyone",
         speakEvents: true,
@@ -678,6 +681,7 @@ function initSettingsModule(context, services, dependencies) {
   }
   function applyTtsSettings(settings) {
     if (ttsEnabledCheckbox) ttsEnabledCheckbox.checked = settings.engineEnabled || false;
+    if (botRespondsInChatCheckbox) botRespondsInChatCheckbox.checked = settings.botRespondsInChat !== false;
     if (ttsModeSelect) ttsModeSelect.value = settings.mode || "command";
     if (ttsPermissionSelect) ttsPermissionSelect.value = settings.ttsPermissionLevel || "everyone";
     if (eventsEnabledCheckbox) eventsEnabledCheckbox.checked = settings.speakEvents !== false;

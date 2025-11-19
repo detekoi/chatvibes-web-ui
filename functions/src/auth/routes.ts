@@ -18,13 +18,9 @@ const TWITCH_AUTH_URL = "https://id.twitch.tv/oauth2/authorize";
 const TWITCH_TOKEN_URL = "https://id.twitch.tv/oauth2/token";
 const TWITCH_VALIDATE_URL = "https://id.twitch.tv/oauth2/validate";
 
-// OAuth tier definitions
-const OAUTH_TIERS = {
-  anonymous: "user:read:email channel:read:redemptions channel:manage:redemptions channel:read:subscriptions bits:read moderator:read:followers",
-  full: "user:read:email chat:read chat:edit channel:read:subscriptions bits:read moderator:read:followers channel:manage:redemptions channel:read:redemptions channel:manage:moderators",
-} as const;
-
-type OAuthTier = keyof typeof OAUTH_TIERS;
+// OAuth scopes for streamer authentication
+// Bot presence is now required, so all streamers use the full scope
+const OAUTH_SCOPES = "user:read:email chat:read chat:edit channel:read:subscriptions bits:read moderator:read:followers channel:manage:redemptions channel:read:redemptions channel:manage:moderators";
 
 // Type definitions
 interface TwitchTokenResponse {
@@ -175,7 +171,7 @@ async function handleViewerCallback(req: Request, res: Response, decodedState: V
 
 // Route: /auth/twitch/initiate
 router.get("/twitch/initiate", (req: Request, res: Response): void => {
-  logger.info("--- /auth/twitch/initiate HIT --- Version 1.2 ---");
+  logger.info("--- /auth/twitch/initiate HIT --- Version 2.0 (Single OAuth Flow) ---");
 
   if (!secrets.TWITCH_CLIENT_ID || !config.CALLBACK_URL) {
     logger.error("Config missing for /auth/twitch/initiate: TWITCH_CLIENT_ID or CALLBACK_URL not found.");
@@ -183,30 +179,25 @@ router.get("/twitch/initiate", (req: Request, res: Response): void => {
     return;
   }
 
-  // Determine OAuth tier from query parameter (default to 'full' for backward compatibility)
-  const tier = (req.query.tier as OAuthTier) || "full";
-  const scope = OAUTH_TIERS[tier] || OAUTH_TIERS.full;
-
   const state = randomBytes(16).toString("hex");
 
   const params = new URLSearchParams({
     client_id: secrets.TWITCH_CLIENT_ID,
     redirect_uri: config.CALLBACK_URL,
     response_type: "code",
-    scope: scope,
+    scope: OAUTH_SCOPES,
     state: state,
     force_verify: "true",
   });
   const twitchAuthUrl = `${TWITCH_AUTH_URL}?${params.toString()}`;
 
-  logger.info({state, tier, scope}, "Generated state with OAuth tier");
+  logger.info({state, scope: OAUTH_SCOPES}, "Generated state for OAuth");
   logger.debug({twitchAuthUrl}, "Twitch Auth URL to be sent to frontend");
 
   res.json({
     success: true,
     twitchAuthUrl: twitchAuthUrl,
     state: state,
-    tier: tier,
   });
 });
 
@@ -261,11 +252,9 @@ router.get("/twitch/callback", async (req: Request, res: Response): Promise<void
       throw new Error("Twitch did not return the expected tokens.");
     }
 
-    // Determine OAuth tier based on granted scopes
+    // Log granted scopes for debugging
     const scopeArray = Array.isArray(grantedScopes) ? grantedScopes : (grantedScopes || "").split(" ");
-    const hasModeratorScope = scopeArray.includes("channel:manage:moderators");
-    const oauthTier: OAuthTier = hasModeratorScope ? "full" : "anonymous";
-    logger.info({oauthTier, grantedScopes: scopeArray}, "Determined OAuth tier from granted scopes");
+    logger.info({grantedScopes: scopeArray}, "Received granted scopes from Twitch");
 
     const validateResponse = await axios.get<TwitchValidateResponse>(TWITCH_VALIDATE_URL, {
       headers: {Authorization: `OAuth ${accessToken}`},
@@ -376,18 +365,16 @@ router.get("/twitch/callback", async (req: Request, res: Response): Promise<void
             needsTwitchReAuth: false,
             lastTokenError: null,
             lastTokenErrorAt: null,
-            oauthTier: oauthTier,
             grantedScopes: scopeArray,
           }, {merge: true});
 
-          // Sync botMode in ttsChannelConfigs for the TTS bot service
-          // Map oauthTier to botMode: 'anonymous' → 'anonymous', 'full' → 'authenticated'
-          const botMode = oauthTier === 'anonymous' ? 'anonymous' : 'authenticated';
+          // Sync botRespondsInChat in ttsChannelConfigs for the TTS bot service
+          // Default to true (bot responds to commands in chat)
           const ttsConfigDocRef = db.collection('ttsChannelConfigs').doc(twitchUser.login);
           await ttsConfigDocRef.set({
-            botMode: botMode,
+            botRespondsInChat: true,
           }, {merge: true});
-          logger.info({userLogin: twitchUser.login, botMode, oauthTier}, "Synced botMode to ttsChannelConfigs");
+          logger.info({userLogin: twitchUser.login, botRespondsInChat: true}, "Synced botRespondsInChat to ttsChannelConfigs");
 
           logger.info({userLogin: twitchUser.login}, "Secret reference stored in Firestore");
         } catch (dbError) {
