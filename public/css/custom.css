@@ -109,7 +109,7 @@ p, label, .form-label, .form-check-label, .card-body, .card-body p, .card-body s
 /* =====================================================
    SHARP CORNERS - POST-INDUSTRIAL
    ===================================================== */
-*:not(.form-switch .form-check-input):not(.voice-play-btn):not(.help-icon) {
+*:not(.form-switch .form-check-input):not(.voice-play-btn):not(.help-icon):not(.spinner-border) {
     border-radius: 0 !important;
 }
 
@@ -326,6 +326,14 @@ hr {
 }
 
 /* =====================================================
+   LOADING SPINNER
+   ===================================================== */
+.spinner-border {
+    border-color: var(--accent-primary);
+    border-right-color: transparent;
+}
+
+/* =====================================================
    BUTTONS - POST-INDUSTRIAL
    ===================================================== */
 .btn {
@@ -398,7 +406,7 @@ hr {
 
 .btn-outline-primary {
     background-color: transparent;
-    color: var(--text-primary) !important;
+    color: var(--text-primary);
     border: 2px solid var(--text-primary);
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -418,7 +426,7 @@ hr {
 
 .btn-outline-danger {
     background-color: transparent;
-    color: var(--text-primary) !important;
+    color: var(--danger-primary);
     border: 2px solid var(--danger-primary);
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -996,13 +1004,13 @@ a:not(.btn):not(.button-3d):not(.nav-link):focus {
     color: var(--accent-primary);
 }
 
-/* Ensure all a tags with href use purple (except buttons) */
-a[href]:not(.btn):not(.button-3d) {
+/* Ensure all a tags with href use purple */
+a[href] {
     color: var(--accent-primary);
     text-decoration-color: var(--accent-primary);
 }
 
-a[href]:not(.btn):not(.button-3d):hover {
+a[href]:hover {
     color: var(--accent-primary-hover);
     text-decoration-color: var(--accent-primary-hover);
 }
@@ -1451,34 +1459,6 @@ dialog.modal::backdrop {
 
 [data-theme="dark"] .voice-play-btn svg {
     fill: currentColor;
-}
-
-/* =====================================================
-   LOADING SPINNER - CIRCULAR WITH PURPLE ACCENT
-   ===================================================== */
-/* Override Bootstrap spinner-border to be fully circular */
-.spinner-border {
-    border: 0.25em solid rgba(155, 77, 150, 0.2) !important;
-    border-top-color: var(--accent-primary) !important;
-    border-right-color: var(--accent-primary) !important;
-    border-bottom-color: var(--accent-primary) !important;
-    border-left-color: transparent !important;
-    border-radius: 50% !important;
-    animation: spinner-border 0.75s linear infinite;
-}
-
-[data-theme="dark"] .spinner-border {
-    border: 0.25em solid rgba(180, 127, 180, 0.2) !important;
-    border-top-color: var(--accent-primary) !important;
-    border-right-color: var(--accent-primary) !important;
-    border-bottom-color: var(--accent-primary) !important;
-    border-left-color: transparent !important;
-}
-
-@keyframes spinner-border {
-    to {
-        transform: rotate(360deg);
-    }
 }
 
 /* =====================================================
