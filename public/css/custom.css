@@ -216,7 +216,8 @@ button:not(.form-check-input) {
     border-color: var(--accent-primary);
 }
 
-.card.sticky-aside {
+.card.sticky-aside,
+.card.voice-preview-card {
     border-color: var(--accent-primary);
 }
 
