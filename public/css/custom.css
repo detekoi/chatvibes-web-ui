@@ -213,7 +213,7 @@ button:not(.form-check-input) {
 
 /* Special styling for voice preview card */
 #voice-preview-player {
-    border-color: var(--border-color);
+    border-color: var(--accent-primary);
 }
 
 .card.sticky-aside {
@@ -1257,7 +1257,7 @@ dialog.modal::backdrop {
     margin-top: 1rem;
     padding: 0.75rem;
     background-color: var(--bg-tertiary);
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--accent-primary);
     transition: background-color 0.2s ease;
 }
 
@@ -1290,7 +1290,7 @@ dialog.modal::backdrop {
 /* Dark mode audio player enhancements */
 [data-theme="dark"] .voice-preview-player {
     background-color: #2a2a2a;
-    border-color: #444444;
+    border-color: var(--accent-primary);
 }
 
 [data-theme="dark"] .voice-preview-player audio {
