@@ -134,9 +134,17 @@ router.get("/getToken", authenticateApiRequest, async (req: Request, res: Respon
         },
       });
 
-      // Update user document with secret reference
+      // Store the secret name in the TTS channel config (source of truth)
+      const fullSecretName = `${secretName}/versions/latest`;
+      const ttsDocRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelLogin);
+      await ttsDocRef.set({
+        obsSocketSecretName: fullSecretName,
+        updatedAt: FieldValue.serverTimestamp(),
+      }, {merge: true});
+
+      // Update user document with secret reference (legacy, for backwards compatibility)
       await userDocRef.update({
-        obsTokenSecretName: `${secretName}/versions/latest`,
+        obsTokenSecretName: fullSecretName,
         obsTokenGeneratedAt: new Date(),
       });
 
