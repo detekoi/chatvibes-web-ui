@@ -29,12 +29,12 @@ export async function createTestApp() {
 
   // Import middleware and routes
   const {requestLoggingMiddleware} = require('../../logger');
-  const authRoutes = require('../../auth/routes');
-  const authApiRoutes = require('../auth');
-  const botRoutes = require('../bot');
-  const rewardsRoutes = require('../rewards');
-  const obsRoutes = require('../obs');
-  const viewerRoutes = require('../viewer');
+  const authRoutes = require('../../auth/routes').default;
+  const authApiRoutes = require('../auth').default;
+  const botRoutes = require('../bot').default;
+  const rewardsRoutes = require('../rewards').default;
+  const obsRoutes = require('../obs').default;
+  const viewerRoutes = require('../viewer').default;
   const {apiRouter: miscApiRoutes, redirectRouter: redirectsRoutes} = require('../misc');
 
   // Create Express app
