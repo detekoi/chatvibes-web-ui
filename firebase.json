@@ -6,6 +6,29 @@
     {
       "source": "functions",
       "codebase": "default",
+      "runtime": "nodejs20",
+      "secretEnvironmentVariables": [
+        {
+          "key": "TWITCH_CLIENT_ID",
+          "secret": "twitch-client-id"
+        },
+        {
+          "key": "TWITCH_CLIENT_SECRET",
+          "secret": "twitch-client-secret"
+        },
+        {
+          "key": "JWT_SECRET_KEY",
+          "secret": "jwt-secret-key"
+        },
+        {
+          "key": "WAVESPEED_API_KEY",
+          "secret": "WAVESPEED_API_KEY"
+        },
+        {
+          "key": "302_KEY",
+          "secret": "302_KEY"
+        }
+      ],
       "ignore": [
         "node_modules",
         ".git",
