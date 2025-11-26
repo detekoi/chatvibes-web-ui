@@ -29,7 +29,9 @@ const __dirname = dirname(__filename);
 // Configuration
 const VOICES_DIR = join(__dirname, '..', 'public', 'assets', 'voices');
 const WAVESPEED_API_KEY = process.env.WAVESPEED_API_KEY;
+const T302_API_KEY = process.env.T302_API_KEY || process.env['302_KEY']; // Fallback for local dev
 const WAVESPEED_API_URL = 'https://api.wavespeed.ai/api/v3/minimax/speech-02-turbo';
+const T302_ENDPOINT = process.env.T302_API_ENDPOINT || 'https://api.302.ai/minimaxi/v1/t2a_v2';
 
 // Language-specific texts for each type
 const LANGUAGE_TEXTS = {
