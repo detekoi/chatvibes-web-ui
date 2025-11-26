@@ -213,6 +213,18 @@ export function initPreferencesModule(
     prefsDisabledNote: document.getElementById('prefs-disabled-note'),
   };
 
+  if (elements.languageSelect) {
+    const options = [
+      "Automatic", "Chinese", "Chinese,Yue", "English", "Arabic", "Russian", "Spanish", "French", "Portuguese",
+      "German", "Turkish", "Dutch", "Ukrainian", "Vietnamese", "Indonesian", "Japanese", "Italian",
+      "Korean", "Thai", "Polish", "Romanian", "Greek", "Czech", "Finnish", "Hindi", "Bulgarian",
+      "Danish", "Hebrew", "Malay", "Persian", "Slovak", "Swedish", "Croatian", "Filipino",
+      "Hungarian", "Norwegian", "Slovenian", "Catalan", "Nynorsk", "Tamil", "Afrikaans"
+    ];
+    elements.languageSelect.innerHTML = `<option value="">Use channel default</option>` +
+      options.map(opt => `<option value="${opt}">${opt}</option>`).join('');
+  }
+
   const state: PreferencesState = {
     availableVoices: [],
     currentPreferences: {},

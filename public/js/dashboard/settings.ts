@@ -112,6 +112,16 @@ export function initSettingsModule(
   const resetPitchBtn = document.getElementById('reset-pitch-btn') as HTMLButtonElement | null;
   const resetSpeedBtn = document.getElementById('reset-speed-btn') as HTMLButtonElement | null;
   const defaultLanguageSelect = document.getElementById('default-language') as HTMLSelectElement | null;
+  if (defaultLanguageSelect) {
+    const options = [
+      "Automatic", "Chinese", "Chinese,Yue", "English", "Arabic", "Russian", "Spanish", "French", "Portuguese",
+      "German", "Turkish", "Dutch", "Ukrainian", "Vietnamese", "Indonesian", "Japanese", "Italian",
+      "Korean", "Thai", "Polish", "Romanian", "Greek", "Czech", "Finnish", "Hindi", "Bulgarian",
+      "Danish", "Hebrew", "Malay", "Persian", "Slovak", "Swedish", "Croatian", "Filipino",
+      "Hungarian", "Norwegian", "Slovenian", "Catalan", "Nynorsk", "Tamil", "Afrikaans"
+    ];
+    defaultLanguageSelect.innerHTML = options.map(opt => `<option value="${opt}">${opt}</option>`).join('');
+  }
   const englishNormalizationCheckbox = document.getElementById('english-normalization') as HTMLInputElement | null;
 
   const ttsEnabledCheckbox = document.getElementById('tts-enabled') as HTMLInputElement | null;
