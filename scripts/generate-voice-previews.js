@@ -368,11 +368,194 @@ function shouldSkipFile(filename, expectedLanguage) {
         return false;
     }
 
+    // Force regeneration for 302.ai voices to ensure they use the new model
+    const voiceId = filename.split('-')[0]; // Extract voiceId from filename
+    // Handle voiceIds with hyphens correctly if needed, but for now strict prefix match is safer
+    // Actually, filename is {VoiceId}-text.mp3. Let's iterate T302 list to be sure.
+    const is302Voice = T302_SUPPORTED_VOICE_IDS.some(id => filename.startsWith(id + '-'));
+
+    if (is302Voice) {
+        // Only regenerate if the file is old (e.g. older than 12 hours)
+        // This prevents regenerating files we just updated today
+        const twelveHoursAgo = Date.now() - (12 * 60 * 60 * 1000);
+        if (stats.mtimeMs < twelveHoursAgo) {
+            console.log(`  🔄 Regenerating old file ${filename} (from ${stats.mtime.toISOString()}) for 302.ai upgrade...`);
+            return false;
+        }
+    }
+
     // For now, assume existing files are correct
-    // In the future, we could add language detection by analyzing the audio content
     console.log(`✓ Skipping ${filename} (already exists, ${stats.size} bytes)`);
     return true;
 }
+
+// List of voice IDs supported by 302.ai / Minimax speech-2.6-turbo
+const T302_SUPPORTED_VOICE_IDS = [
+    // English
+    "English_expressive_narrator", "English_radiant_girl", "English_magnetic_voiced_man",
+    "English_compelling_lady1", "English_Aussie_Bloke", "English_captivating_female1",
+    "English_Upbeat_Woman", "English_Trustworth_Man", "English_CalmWoman", "English_UpsetGirl",
+    "English_Gentle-voiced_man", "English_Whispering_girl", "English_Diligent_Man",
+    "English_Graceful_Lady", "English_ReservedYoungMan", "English_PlayfulGirl",
+    "English_ManWithDeepVoice", "English_MaturePartner", "English_FriendlyPerson",
+    "English_MatureBoss", "English_Debator", "English_LovelyGirl", "English_Steadymentor",
+    "English_Deep-VoicedGentleman", "English_Wiselady", "English_CaptivatingStoryteller",
+    "English_DecentYoungMan", "English_SentimentalLady", "English_ImposingManner",
+    "English_SadTeen", "English_PassionateWarrior", "English_WiseScholar",
+    "English_Soft-spokenGirl", "English_SereneWoman", "English_ConfidentWoman",
+    "English_PatientMan", "English_Comedian", "English_BossyLeader", "English_Strong-WilledBoy",
+    "English_StressedLady", "English_AssertiveQueen", "English_AnimeCharacter",
+    "English_Jovialman", "English_WhimsicalGirl", "English_Kind-heartedGirl",
+
+    // Chinese (Mandarin)
+    "Chinese (Mandarin)_Reliable_Executive", "Chinese (Mandarin)_News_Anchor",
+    "Chinese (Mandarin)_Unrestrained_Young_Man", "Chinese (Mandarin)_Mature_Woman",
+    "Arrogant_Miss", "Robot_Armor", "Chinese (Mandarin)_Kind-hearted_Antie",
+    "Chinese (Mandarin)_HK_Flight_Attendant", "Chinese (Mandarin)_Humorous_Elder",
+    "Chinese (Mandarin)_Gentleman", "Chinese (Mandarin)_Warm_Bestie",
+    "Chinese (Mandarin)_Stubborn_Friend", "Chinese (Mandarin)_Sweet_Lady",
+    "Chinese (Mandarin)_Southern_Young_Man", "Chinese (Mandarin)_Wise_Women",
+    "Chinese (Mandarin)_Gentle_Youth", "Chinese (Mandarin)_Warm_Girl",
+    "Chinese (Mandarin)_Male_Announcer", "Chinese (Mandarin)_Kind-hearted_Elder",
+    "Chinese (Mandarin)_Cute_Spirit", "Chinese (Mandarin)_Radio_Host",
+    "Chinese (Mandarin)_Lyrical_Voice", "Chinese (Mandarin)_Straightforward_Boy",
+    "Chinese (Mandarin)_Sincere_Adult", "Chinese (Mandarin)_Gentle_Senior",
+    "Chinese (Mandarin)_Crisp_Girl", "Chinese (Mandarin)_Pure-hearted_Boy",
+    "Chinese (Mandarin)_Soft_Girl", "Chinese (Mandarin)_IntellectualGirl",
+    "Chinese (Mandarin)_Warm_HeartedGirl", "Chinese (Mandarin)_Laid_BackGirl",
+    "Chinese (Mandarin)_ExplorativeGirl", "Chinese (Mandarin)_Warm-HeartedAunt",
+    "Chinese (Mandarin)_BashfulGirl",
+
+    // Japanese
+    "Japanese_IntellectualSenior", "Japanese_DecisivePrincess", "Japanese_LoyalKnight",
+    "Japanese_DominantMan", "Japanese_SeriousCommander", "Japanese_ColdQueen",
+    "Japanese_DependableWoman", "Japanese_GentleButler", "Japanese_KindLady",
+    "Japanese_CalmLady", "Japanese_OptimisticYouth", "Japanese_GenerousIzakayaOwner",
+    "Japanese_SportyStudent", "Japanese_InnocentBoy", "Japanese_GracefulMaiden",
+
+    // Cantonese
+    "Cantonese_ProfessionalHost (F)", "Cantonese_ProfessionalHost（F)", "Cantonese_GentleLady",
+    "Cantonese_ProfessionalHost (M)", "Cantonese_ProfessionalHost（M)",
+    "Cantonese_PlayfulMan", "Cantonese_CuteGirl", "Cantonese_KindWoman",
+
+    // Korean
+    "Korean_AirheadedGirl", "Korean_AthleticGirl", "Korean_AthleticStudent",
+    "Korean_BraveAdventurer", "Korean_BraveFemaleWarrior", "Korean_BraveYouth",
+    "Korean_CalmGentleman", "Korean_CalmLady", "Korean_CaringWoman",
+    "Korean_CharmingElderSister", "Korean_CharmingSister", "Korean_CheerfulBoyfriend",
+    "Korean_CheerfulCoolJunior", "Korean_CheerfulLittleSister", "Korean_ChildhoodFriendGirl",
+    "Korean_CockyGuy", "Korean_ColdGirl", "Korean_ColdYoungMan", "Korean_ConfidentBoss",
+    "Korean_ConsiderateSenior", "Korean_DecisiveQueen", "Korean_DominantMan",
+    "Korean_ElegantPrincess", "Korean_EnchantingSister", "Korean_EnthusiasticTeen",
+    "Korean_FriendlyBigSister", "Korean_GentleBoss", "Korean_GentleWoman",
+    "Korean_HaughtyLady", "Korean_InnocentBoy", "Korean_IntellectualMan",
+    "Korean_IntellectualSenior", "Korean_LonelyWarrior", "Korean_MatureLady",
+    "Korean_MysteriousGirl", "Korean_OptimisticYouth", "Korean_PlayboyCharmer",
+    "Korean_PossessiveMan", "Korean_QuirkyGirl", "Korean_ReliableSister",
+    "Korean_ReliableYouth", "Korean_SassyGirl", "Korean_ShyGirl", "Korean_SoothingLady",
+    "Korean_StrictBoss", "Korean_SweetGirl", "Korean_ThoughtfulWoman", "Korean_WiseElf",
+    "Korean_WiseTeacher",
+
+    // Spanish
+    "Spanish_SereneWoman", "Spanish_MaturePartner", "Spanish_CaptivatingStoryteller",
+    "Spanish_Narrator", "Spanish_WiseScholar", "Spanish_Kind-heartedGirl",
+    "Spanish_DeterminedManager", "Spanish_BossyLeader", "Spanish_ReservedYoungMan",
+    "Spanish_ConfidentWoman", "Spanish_ThoughtfulMan", "Spanish_Strong-WilledBoy",
+    "Spanish_SophisticatedLady", "Spanish_RationalMan", "Spanish_AnimeCharacter",
+    "Spanish_Deep-tonedMan", "Spanish_Fussyhostess", "Spanish_SincereTeen",
+    "Spanish_FrankLady", "Spanish_Comedian", "Spanish_Debator", "Spanish_ToughBoss",
+    "Spanish_Wiselady", "Spanish_Steadymentor", "Spanish_Jovialman", "Spanish_SantaClaus",
+    "Spanish_Rudolph", "Spanish_Intonategirl", "Spanish_Arnold", "Spanish_Ghost",
+    "Spanish_HumorousElder", "Spanish_EnergeticBoy", "Spanish_WhimsicalGirl",
+    "Spanish_StrictBoss", "Spanish_ReliableMan", "Spanish_SereneElder", "Spanish_AngryMan",
+    "Spanish_AssertiveQueen", "Spanish_CaringGirlfriend", "Spanish_PowerfulSoldier",
+    "Spanish_PassionateWarrior", "Spanish_ChattyGirl", "Spanish_RomanticHusband",
+    "Spanish_CompellingGirl", "Spanish_PowerfulVeteran", "Spanish_SensibleManager",
+    "Spanish_ThoughtfulLady",
+
+    // Portuguese
+    "Portuguese_SentimentalLady", "Portuguese_BossyLeader", "Portuguese_Wiselady",
+    "Portuguese_Strong-WilledBoy", "Portuguese_Deep-VoicedGentleman", "Portuguese_UpsetGirl",
+    "Portuguese_PassionateWarrior", "Portuguese_AnimeCharacter", "Portuguese_ConfidentWoman",
+    "Portuguese_AngryMan", "Portuguese_CaptivatingStoryteller", "Portuguese_Godfather",
+    "Portuguese_ReservedYoungMan", "Portuguese_SmartYoungGirl", "Portuguese_Kind-heartedGirl",
+    "Portuguese_Pompouslady", "Portuguese_Grinch", "Portuguese_Debator", "Portuguese_SweetGirl",
+    "Portuguese_AttractiveGirl", "Portuguese_ThoughtfulMan", "Portuguese_PlayfulGirl",
+    "Portuguese_GorgeousLady", "Portuguese_LovelyLady", "Portuguese_SereneWoman",
+    "Portuguese_SadTeen", "Portuguese_MaturePartner", "Portuguese_Comedian",
+    "Portuguese_NaughtySchoolgirl", "Portuguese_Narrator", "Portuguese_ToughBoss",
+    "Portuguese_Fussyhostess", "Portuguese_Dramatist", "Portuguese_Steadymentor",
+    "Portuguese_Jovialman", "Portuguese_CharmingQueen", "Portuguese_SantaClaus",
+    "Portuguese_Rudolph", "Portuguese_Arnold", "Portuguese_CharmingSanta",
+    "Portuguese_CharmingLady", "Portuguese_Ghost", "Portuguese_HumorousElder",
+    "Portuguese_CalmLeader", "Portuguese_GentleTeacher", "Portuguese_EnergeticBoy",
+    "Portuguese_ReliableMan", "Portuguese_SereneElder", "Portuguese_GrimReaper",
+    "Portuguese_AssertiveQueen", "Portuguese_WhimsicalGirl", "Portuguese_StressedLady",
+    "Portuguese_FriendlyNeighbor", "Portuguese_CaringGirlfriend", "Portuguese_PowerfulSoldier",
+    "Portuguese_FascinatingBoy", "Portuguese_RomanticHusband", "Portuguese_StrictBoss",
+    "Portuguese_InspiringLady", "Portuguese_PlayfulSpirit", "Portuguese_ElegantGirl",
+    "Portuguese_CompellingGirl", "Portuguese_PowerfulVeteran", "Portuguese_SensibleManager",
+    "Portuguese_ThoughtfulLady", "Portuguese_TheatricalActor", "Portuguese_FragileBoy",
+    "Portuguese_ChattyGirl", "Portuguese_Conscientiousinstructor", "Portuguese_RationalMan",
+    "Portuguese_WiseScholar", "Portuguese_FrankLady", "Portuguese_DeterminedManager",
+
+    // French
+    "French_Male_Speech_New", "French_Female_News Anchor", "French_CasualMan",
+    "French_MovieLeadFemale", "French_FemaleAnchor", "French_MaleNarrator",
+
+    // Indonesian
+    "Indonesian_SweetGirl", "Indonesian_ReservedYoungMan", "Indonesian_CharmingGirl",
+    "Indonesian_CalmWoman", "Indonesian_ConfidentWoman", "Indonesian_CaringMan",
+    "Indonesian_BossyLeader", "Indonesian_DeterminedBoy", "Indonesian_GentleGirl",
+
+    // German
+    "German_FriendlyMan", "German_SweetLady", "German_PlayfulMan",
+
+    // Russian
+    "Russian_HandsomeChildhoodFriend", "Russian_BrightHeroine", "Russian_AmbitiousWoman",
+    "Russian_ReliableMan", "Russian_CrazyQueen", "Russian_PessimisticGirl",
+    "Russian_AttractiveGuy", "Russian_Bad-temperedBoy",
+
+    // Italian
+    "Italian_BraveHeroine", "Italian_Narrator", "Italian_WanderingSorcerer",
+    "Italian_DiligentLeader",
+
+    // Dutch
+    "Dutch_kindhearted_girl", "Dutch_bossy_leader",
+
+    // Vietnamese
+    "Vietnamese_kindhearted_girl",
+
+    // Arabic
+    "Arabic_CalmWoman", "Arabic_FriendlyGuy",
+
+    // Turkish
+    "Turkish_CalmWoman", "Turkish_Trustworthyman",
+
+    // Ukrainian
+    "Ukrainian_CalmWoman", "Ukrainian_WiseScholar",
+
+    // Thai
+    "Thai_male_1_sample8", "Thai_male_2_sample2", "Thai_female_1_sample1", "Thai_female_2_sample2",
+
+    // Polish
+    "Polish_male_1_sample4", "Polish_male_2_sample3", "Polish_female_1_sample1", "Polish_female_2_sample3",
+
+    // Romanian
+    "Romanian_male_1_sample2", "Romanian_male_2_sample1", "Romanian_female_1_sample4", "Romanian_female_2_sample1",
+
+    // Greek
+    "greek_male_1a_v1", "Greek_female_1_sample1", "Greek_female_2_sample3",
+
+    // Czech
+    "czech_male_1_v1", "czech_female_5_v7", "czech_female_2_v2",
+
+    // Finnish
+    "finnish_male_3_v1", "finnish_male_1_v2", "finnish_female_4_v1",
+
+    // Hindi
+    "hindi_male_1_v2", "hindi_female_2_v1", "hindi_female_1_v2"
+];
 
 /**
  * Submit TTS request to Wavespeed API
@@ -470,6 +653,74 @@ async function submitTTSRequest(voiceId, text, language) {
 }
 
 /**
+ * Submit TTS request to 302.ai API
+ * @param {string} voiceId - The voice ID
+ * @param {string} text - The text to synthesize
+ * @returns {Promise<Buffer>} - The audio data
+ */
+async function submitTTSRequest302(voiceId, text) {
+    if (!T302_API_KEY) {
+        throw new Error('T302_API_KEY environment variable is required for 302.ai voices');
+    }
+
+    const payload = {
+        model: 'speech-2.6-turbo',
+        text,
+        stream: false,
+        voice_setting: {
+            voice_id: voiceId,
+            speed: 1.0,
+            vol: 1.0,
+            pitch: 0,
+            emotion: 'neutral',
+            text_normalization: false,
+        },
+        audio_setting: {
+            sample_rate: 32000,
+            bitrate: 128000,
+            format: 'mp3',
+            channel: 1,
+        },
+        language_boost: 'auto',
+        output_format: 'url'
+    };
+
+    const response = await fetch(T302_ENDPOINT, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${T302_API_KEY}`
+        },
+        body: JSON.stringify(payload)
+    });
+
+    if (!response.ok) {
+        throw new Error(`302.ai HTTP ${response.status}: ${response.statusText}`);
+    }
+
+    const result = await response.json();
+
+    let audioUrl;
+    if (result.data && result.data.url) {
+        audioUrl = result.data.url;
+    } else if (result.data && result.data.audio) {
+        audioUrl = result.data.audio;
+    } else if (result.url) {
+        audioUrl = result.url;
+    } else {
+        throw new Error(`Unexpected 302.ai response format: ${JSON.stringify(result)}`);
+    }
+
+    // Download the audio file
+    console.log(`  🔗 Downloading audio from: ${audioUrl}`);
+    const audioResponse = await fetch(audioUrl);
+    if (!audioResponse.ok) {
+        throw new Error(`Failed to download audio: ${audioResponse.status} ${audioResponse.statusText}`);
+    }
+    return Buffer.from(await audioResponse.arrayBuffer());
+}
+
+/**
  * Poll for TTS result
  * @param {string} requestId - The request ID
  * @returns {Promise<Buffer>} - The audio data
@@ -549,12 +800,21 @@ async function generateAudioFile(voiceId, type) {
         console.log(`🎤 Generating ${filename} (${language})...`);
         console.log(`  📝 Text: ${text}`);
 
-        // Submit TTS request
-        const requestId = await submitTTSRequest(voiceId, text, language);
-        console.log(`  📝 Request submitted: ${requestId}`);
+        let audioData;
+        const is302 = T302_SUPPORTED_VOICE_IDS.includes(voiceId);
 
-        // Poll for result
-        const audioData = await pollForResult(requestId);
+        if (is302) {
+            console.log(`  🤖 Using 302.ai (speech-2.6-turbo)`);
+            audioData = await submitTTSRequest302(voiceId, text);
+        } else {
+            console.log(`  🌊 Using Wavespeed (speech-02-turbo)`);
+            // Submit TTS request
+            const requestId = await submitTTSRequest(voiceId, text, language);
+            console.log(`  📝 Request submitted: ${requestId}`);
+
+            // Poll for result
+            audioData = await pollForResult(requestId);
+        }
 
         // Save file
         writeFileSync(join(VOICES_DIR, filename), audioData);
