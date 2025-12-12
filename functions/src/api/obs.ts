@@ -7,7 +7,7 @@ import {randomBytes} from "crypto";
 import {db, FieldValue, COLLECTIONS} from "../services/firestore";
 import {getValidTwitchTokenForUser} from "../services/twitch";
 import {authenticateApiRequest} from "../middleware/auth";
-import {secrets, config, secretManagerClient} from "../config";
+import {secrets, config} from "../config";
 import {logger} from "../logger";
 
 const router: Router = express.Router();
@@ -23,8 +23,8 @@ router.get("/getToken", authenticateApiRequest, async (req: Request, res: Respon
   const log = logger.child({endpoint: "/api/obs/getToken", channelLogin});
   log.info("OBS token retrieval requested");
 
-  if (!db || !secretManagerClient) {
-    log.error("Firestore or Secret Manager client not initialized!");
+  if (!db) {
+    log.error("Firestore client not initialized!");
     res.status(500).json({success: false, message: "Server configuration error."});
     return;
   }
@@ -45,110 +45,35 @@ router.get("/getToken", authenticateApiRequest, async (req: Request, res: Respon
       return;
     }
 
-    // Attempt to read secret reference from the TTS config (source of truth)
+    // Try to read existing OBS token from Firestore
     const ttsDocRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelLogin);
     const ttsDoc = await ttsDocRef.get();
     const ttsData = ttsDoc.exists ? ttsDoc.data() : null;
 
-    if (ttsDoc.exists && ttsData?.obsSocketSecretName) {
-      try {
-        const [version] = await secretManagerClient.accessSecretVersion({
-          name: ttsData.obsSocketSecretName,
-        });
-        const payloadData = version.payload?.data;
-        if (!payloadData) {
-          throw new Error("Secret has no data");
-        }
-        const existingToken = payloadData.toString().trim();
-
-        log.info("Retrieved existing OBS token (from ttsChannelConfigs)");
-        res.json({
-          success: true,
-          token: existingToken,
-          browserSourceUrl: `${config.OBS_BROWSER_BASE_URL}/?channel=${encodeURIComponent(channelLogin)}&token=${existingToken}`,
-        });
-        return;
-      } catch (secretError) {
-        const err = secretError as Error;
-        log.warn({error: err.message}, "Failed to retrieve existing token from ttsChannelConfigs");
-        // Fall through to legacy check or generate new token
-      }
+    // Check if token exists in Firestore
+    if (ttsData?.obsSocketToken) {
+      log.info("Retrieved existing OBS token from Firestore");
+      res.json({
+        success: true,
+        token: ttsData.obsSocketToken,
+        browserSourceUrl: `${config.OBS_BROWSER_BASE_URL}/?channel=${encodeURIComponent(channelLogin)}&token=${ttsData.obsSocketToken}`,
+      });
+      return;
     }
 
-    // Legacy fallback: check managedChannels for obsTokenSecretName
-    const userDocRef = db.collection(COLLECTIONS.MANAGED_CHANNELS).doc(channelLogin);
-    const userDoc = await userDocRef.get();
-    const userData = userDoc.exists ? userDoc.data() : null;
-
-    if (userDoc.exists && userData?.obsTokenSecretName) {
-      try {
-        const [version] = await secretManagerClient.accessSecretVersion({
-          name: userData.obsTokenSecretName,
-        });
-        const payloadData = version.payload?.data;
-        if (!payloadData) {
-          throw new Error("Secret has no data");
-        }
-        const existingToken = payloadData.toString().trim();
-
-        log.info("Retrieved existing OBS token (from managedChannels)");
-        res.json({
-          success: true,
-          token: existingToken,
-          browserSourceUrl: `${config.OBS_BROWSER_BASE_URL}/?channel=${encodeURIComponent(channelLogin)}&token=${existingToken}`,
-        });
-        return;
-      } catch (secretError) {
-        const err = secretError as Error;
-        log.warn({error: err.message}, "Failed legacy retrieval from managedChannels");
-        // Continue to generate new token
-      }
-    }
-
-    // Generate new OBS token
+    // Generate new OBS token and store in Firestore
     const obsToken = randomBytes(32).toString("hex");
-    const secretName = `projects/${config.GCLOUD_PROJECT}/secrets/obs-token-${channelLogin}`;
+    log.info("Generating new OBS token");
 
     try {
-      // Create secret if it doesn't exist
-      try {
-        await secretManagerClient.createSecret({
-          parent: `projects/${config.GCLOUD_PROJECT}`,
-          secretId: `obs-token-${channelLogin}`,
-          secret: {
-            replication: {automatic: {}},
-          },
-        });
-      } catch (createError) {
-        const err = createError as Error;
-        if (!err.message.includes("already exists")) {
-          throw createError;
-        }
-      }
-
-      // Add secret version
-      await secretManagerClient.addSecretVersion({
-        parent: secretName,
-        payload: {
-          data: Buffer.from(obsToken),
-        },
-      });
-
-      // Store the secret name in the TTS channel config (source of truth)
-      const fullSecretName = `${secretName}/versions/latest`;
-      const ttsDocRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelLogin);
+      // Store token directly in Firestore
       await ttsDocRef.set({
-        obsSocketSecretName: fullSecretName,
+        obsSocketToken: obsToken,
+        obsTokenGeneratedAt: FieldValue.serverTimestamp(),
         updatedAt: FieldValue.serverTimestamp(),
       }, {merge: true});
 
-      // Update user document with secret reference (legacy, for backwards compatibility)
-      await userDocRef.update({
-        obsTokenSecretName: fullSecretName,
-        obsTokenGeneratedAt: new Date(),
-      });
-
-      log.info("Generated new OBS token");
+      log.info("Generated new OBS token and stored in Firestore");
 
       res.json({
         success: true,
@@ -184,8 +109,8 @@ router.post("/generateToken", authenticateApiRequest, async (req: Request, res: 
   const log = logger.child({endpoint: "/api/obs/generateToken", channelLogin});
   log.info("OBS token generation requested");
 
-  if (!db || !secretManagerClient) {
-    log.error("Firestore or Secret Manager client not initialized!");
+  if (!db) {
+    log.error("Firestore client not initialized!");
     res.status(500).json({success: false, message: "Server configuration error."});
     return;
   }
@@ -205,46 +130,16 @@ router.post("/generateToken", authenticateApiRequest, async (req: Request, res: 
 
     // Generate new OBS token
     const obsToken = randomBytes(32).toString("hex");
-    const secretName = `projects/${config.GCLOUD_PROJECT}/secrets/obs-token-${channelLogin}`;
 
-    // Create or update secret
-    try {
-      await secretManagerClient.createSecret({
-        parent: `projects/${config.GCLOUD_PROJECT}`,
-        secretId: `obs-token-${channelLogin}`,
-        secret: {
-          replication: {automatic: {}},
-        },
-      });
-    } catch (createError) {
-      const err = createError as Error;
-      if (!err.message.includes("already exists")) {
-        throw createError;
-      }
-    }
-
-    await secretManagerClient.addSecretVersion({
-      parent: secretName,
-      payload: {
-        data: Buffer.from(obsToken),
-      },
-    });
-
-    // Store the secret name in the TTS channel config (source of truth)
-    const fullSecretName = `${secretName}/versions/latest`;
-    const ttsDocRef2 = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelLogin);
-    await ttsDocRef2.set({
-      obsSocketSecretName: fullSecretName,
+    // Store token directly in Firestore
+    const ttsDocRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelLogin);
+    await ttsDocRef.set({
+      obsSocketToken: obsToken,
+      obsTokenGeneratedAt: FieldValue.serverTimestamp(),
       updatedAt: FieldValue.serverTimestamp(),
     }, {merge: true});
 
-    // Optionally update the managedChannels document for auditing
-    const userDocRef2 = db.collection(COLLECTIONS.MANAGED_CHANNELS).doc(channelLogin);
-    await userDocRef2.set({
-      obsTokenGeneratedAt: new Date(),
-    }, {merge: true});
-
-    log.info("Generated new OBS token");
+    log.info("Generated new OBS token and stored in Firestore");
 
     res.json({
       success: true,

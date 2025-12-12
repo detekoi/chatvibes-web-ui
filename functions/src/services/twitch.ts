@@ -4,8 +4,8 @@
  */
 
 import axios, {AxiosRequestConfig} from "axios";
+import admin from "firebase-admin";
 import {db, COLLECTIONS} from "./firestore";
-import {secretManagerClient, config} from "../config";
 import {logger, redactSensitive} from "../logger";
 import type {Secrets} from "../config";
 
@@ -106,8 +106,8 @@ async function refreshTwitchToken(currentRefreshToken: string, secrets: Secrets)
 async function getValidTwitchTokenForUser(userLogin: string, secrets: Secrets): Promise<string> {
   const log = logger.child({userLogin});
 
-  if (!db || !secretManagerClient) {
-    log.error("Firestore or Secret Manager client not initialized!");
+  if (!db) {
+    log.error("Firestore client not initialized!");
     throw new Error("Server configuration error.");
   }
 
@@ -138,22 +138,20 @@ async function getValidTwitchTokenForUser(userLogin: string, secrets: Secrets): 
   const bufferTime = 5 * 60 * 1000; // 5 minutes
 
   if (expiresAt && (expiresAt.getTime() - now.getTime()) > bufferTime) {
-    // Token is still valid, get it from Secret Manager
+    // Token is still valid, get it from Firestore
     try {
-      const secretName = `projects/${config.GCLOUD_PROJECT}/secrets/twitch-access-token-${twitchUserId}`;
-      const [version] = await secretManagerClient.accessSecretVersion({
-        name: `${secretName}/versions/latest`,
-      });
-      const data = version.payload?.data;
-      if (!data) {
-        throw new Error("Secret has no data");
+      const oauthDoc = await db.collection("users").doc(twitchUserId).collection("private").doc("oauth").get();
+      const accessToken = oauthDoc.data()?.twitchAccessToken;
+
+      if (!accessToken) {
+        throw new Error("Access token not found in Firestore");
       }
-      const accessToken = data.toString().trim();
-      log.info("Using existing valid token");
+
+      log.info("Using existing valid token from Firestore");
       return accessToken;
     } catch (error) {
       const err = error as Error;
-      log.warn({error: err.message}, "Failed to get access token from Secret Manager");
+      log.warn({error: err.message}, "Failed to get access token from Firestore, will refresh");
       // Continue to refresh flow
     }
   }
@@ -162,33 +160,25 @@ async function getValidTwitchTokenForUser(userLogin: string, secrets: Secrets): 
   log.info("Token expired or missing, refreshing...");
 
   try {
-    // Get refresh token from Secret Manager
-    const refreshSecretName = `projects/${config.GCLOUD_PROJECT}/secrets/twitch-refresh-token-${twitchUserId}`;
-    const [refreshVersion] = await secretManagerClient.accessSecretVersion({
-      name: `${refreshSecretName}/versions/latest`,
-    });
-    const refreshData = refreshVersion.payload?.data;
-    if (!refreshData) {
-      throw new Error("Refresh secret has no data");
+    // Get refresh token from Firestore
+    const oauthDoc = await db.collection("users").doc(twitchUserId).collection("private").doc("oauth").get();
+    const refreshToken = oauthDoc.data()?.twitchRefreshToken;
+
+    if (!refreshToken) {
+      throw new Error("Refresh token not found in Firestore");
     }
-    const refreshToken = refreshData.toString().trim();
 
     // Refresh the token
     const {newAccessToken, newRefreshToken, expiresAt: newExpiresAt} = await refreshTwitchToken(refreshToken, secrets);
 
-    // Store new tokens in Secret Manager
-    await Promise.all([
-      secretManagerClient.addSecretVersion({
-        parent: `projects/${config.GCLOUD_PROJECT}/secrets/twitch-access-token-${twitchUserId}`,
-        payload: {data: Buffer.from(newAccessToken)},
-      }),
-      secretManagerClient.addSecretVersion({
-        parent: `projects/${config.GCLOUD_PROJECT}/secrets/twitch-refresh-token-${twitchUserId}`,
-        payload: {data: Buffer.from(newRefreshToken)},
-      }),
-    ]);
+    // Store new tokens in Firestore (instead of Secret Manager)
+    await db.collection("users").doc(twitchUserId).collection("private").doc("oauth").set({
+      twitchAccessToken: newAccessToken,
+      twitchRefreshToken: newRefreshToken,
+      updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+    }, {merge: true});
 
-    // Update expiration in Firestore
+    // Update expiration in main user document
     await userDocRef.update({
       twitchAccessTokenExpiresAt: newExpiresAt,
       lastTokenError: null,

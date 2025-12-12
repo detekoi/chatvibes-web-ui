@@ -6,8 +6,8 @@ import express, {Request, Response, Router} from "express";
 import {randomBytes} from "crypto";
 import axios from "axios";
 import jwt from "jsonwebtoken";
-import {secrets, config, secretManagerClient} from "../config";
-import {db, COLLECTIONS} from "../services/firestore";
+import {secrets, config} from "../config";
+import {db, COLLECTIONS, FieldValue} from "../services/firestore";
 import {validateTwitchToken} from "../services/twitch";
 import {logger, redactSensitive} from "../logger";
 
@@ -309,50 +309,17 @@ router.get("/twitch/callback", async (req: Request, res: Response): Promise<void
       logger.info({userLogin: twitchUser.login}, "Redirecting to frontend auth-complete page");
 
       // Store tokens securely
-      if (db && secretManagerClient) {
+      if (db) {
         const userDocRef = db.collection(COLLECTIONS.MANAGED_CHANNELS).doc(twitchUser.login);
-        const secretName = `projects/${config.GCLOUD_PROJECT}/secrets/twitch-refresh-token-${twitchUser.id}`;
 
         try {
-          // Store refresh token in Secret Manager
-          try {
-            await secretManagerClient.createSecret({
-              parent: `projects/${config.GCLOUD_PROJECT}`,
-              secretId: `twitch-refresh-token-${twitchUser.id}`,
-              secret: {replication: {automatic: {}}},
-            });
-          } catch (createError) {
-            const err = createError as Error;
-            if (!err.message.includes("already exists")) {
-              throw createError;
-            }
-          }
-
-          // Add secret version
-          await secretManagerClient.addSecretVersion({
-            parent: secretName,
-            payload: {data: Buffer.from(refreshToken)},
-          });
-
-          // Store access token in Secret Manager
-          const accessSecretName = `projects/${config.GCLOUD_PROJECT}/secrets/twitch-access-token-${twitchUser.id}`;
-          try {
-            await secretManagerClient.createSecret({
-              parent: `projects/${config.GCLOUD_PROJECT}`,
-              secretId: `twitch-access-token-${twitchUser.id}`,
-              secret: {replication: {automatic: {}}},
-            });
-          } catch (createError) {
-            const err = createError as Error;
-            if (!err.message.includes("already exists")) {
-              throw createError;
-            }
-          }
-
-          await secretManagerClient.addSecretVersion({
-            parent: accessSecretName,
-            payload: {data: Buffer.from(accessToken)},
-          });
+          // Store OAuth tokens in Firestore (not Secret Manager)
+          const oauthDocRef = db.collection("users").doc(twitchUser.id).collection("private").doc("oauth");
+          await oauthDocRef.set({
+            twitchAccessToken: accessToken,
+            twitchRefreshToken: refreshToken,
+            updatedAt: FieldValue.serverTimestamp(),
+          }, {merge: true});
 
           // Update user document in Firestore and ensure channelName exists for consistency with bot expectations
           await userDocRef.set({
