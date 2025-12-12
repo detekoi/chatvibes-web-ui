@@ -171,7 +171,9 @@ async function migrateTokens() {
     }
 
     // Estimated cost savings
-    const currentMonthlyCost = secretsToDelete.length * 2 * 0.06; // 2 versions per secret on average
+    // Secret Manager storage is billed per secret (not per version).
+    // https://cloud.google.com/secret-manager/pricing
+    const currentMonthlyCost = secretsToDelete.length * 0.06;
     const apiCallReduction = userTokens.size * 4 * 30 * 24; // ~4 calls per user per hour
     console.log(`\n💰 Estimated Savings:`);
     console.log(`   Storage: ~$${currentMonthlyCost.toFixed(2)}/month (${secretsToDelete.length} secrets)`);
