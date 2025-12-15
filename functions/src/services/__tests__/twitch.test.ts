@@ -402,9 +402,13 @@ describe('Twitch service', () => {
         }),
       });
 
-      mockSecretManagerClient.accessSecretVersion.mockResolvedValueOnce([{
-        payload: { data: Buffer.from('valid-access-token') },
-      }]);
+      // Mock Firestore OAuth token read
+      mockDb.get.mockResolvedValueOnce({
+        exists: true,
+        data: () => ({
+          twitchAccessToken: 'valid-access-token',
+        }),
+      });
 
       mockedAxios.post.mockResolvedValueOnce({
         status: 204,
@@ -435,9 +439,13 @@ describe('Twitch service', () => {
         }),
       });
 
-      mockSecretManagerClient.accessSecretVersion.mockResolvedValueOnce([{
-        payload: { data: Buffer.from('valid-access-token') },
-      }]);
+      // Mock Firestore OAuth token read
+      mockDb.get.mockResolvedValueOnce({
+        exists: true,
+        data: () => ({
+          twitchAccessToken: 'valid-access-token',
+        }),
+      });
 
       mockedAxios.post.mockRejectedValueOnce({
         response: {
@@ -471,9 +479,13 @@ describe('Twitch service', () => {
         }),
       });
 
-      mockSecretManagerClient.accessSecretVersion.mockResolvedValueOnce([{
-        payload: { data: Buffer.from('valid-access-token') },
-      }]);
+      // Mock Firestore OAuth token read
+      mockDb.get.mockResolvedValueOnce({
+        exists: true,
+        data: () => ({
+          twitchAccessToken: 'valid-access-token',
+        }),
+      });
 
       mockedAxios.post.mockRejectedValueOnce({
         response: {
@@ -508,9 +520,13 @@ describe('Twitch service', () => {
         }),
       });
 
-      mockSecretManagerClient.accessSecretVersion.mockResolvedValueOnce([{
-        payload: { data: Buffer.from('valid-access-token') },
-      }]);
+      // Mock Firestore OAuth token read
+      mockDb.get.mockResolvedValueOnce({
+        exists: true,
+        data: () => ({
+          twitchAccessToken: 'valid-access-token',
+        }),
+      });
 
       mockedAxios.post.mockRejectedValueOnce({
         response: {
