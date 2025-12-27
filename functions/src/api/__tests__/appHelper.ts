@@ -35,6 +35,7 @@ export async function createTestApp() {
   const rewardsRoutes = require('../rewards').default;
   const obsRoutes = require('../obs').default;
   const viewerRoutes = require('../viewer').default;
+  const settingsRoutes = require('../settings').default;
   const {apiRouter: miscApiRoutes, redirectRouter: redirectsRoutes} = require('../misc');
 
   // Create Express app
@@ -80,6 +81,7 @@ export async function createTestApp() {
   app.use('/api/rewards', rewardsRoutes);
   app.use('/api/obs', obsRoutes);
   app.use('/api/viewer', viewerRoutes);
+  app.use('/api', settingsRoutes);
   app.use('/api', miscApiRoutes);
   app.use('/', redirectsRoutes);
 

@@ -1328,6 +1328,13 @@ dialog.modal::backdrop {
     width: 100%;
 }
 
+/* Wider dropdown on medium+ screens to prevent voice name wrapping */
+@media (min-width: 768px) {
+    #default-voice-dropdown {
+        min-width: 280px;
+    }
+}
+
 .custom-voice-dropdown input[type="text"] {
     cursor: pointer;
     background-color: var(--bg-secondary);
