@@ -1055,10 +1055,8 @@ export function initSettingsModule(
 
   function renderCalibratedVoicesList(): void {
     if (!calibratedVoicesList) {
-      console.error('calibratedVoicesList element not found in DOM');
       return;
     }
-    console.log('Rendering calibrated voices:', currentVoiceVolumes);
     calibratedVoicesList.innerHTML = '';
 
     const calibratedIds = Object.keys(currentVoiceVolumes).filter(id => currentVoiceVolumes[id] !== 1.0); // Only show non-default
@@ -1185,10 +1183,7 @@ export function initSettingsModule(
 
   function applyTtsSettings(settings: TtsSettings): void {
     if (settings.voiceVolumes) {
-      console.log('Received voiceVolumes:', settings.voiceVolumes);
       currentVoiceVolumes = settings.voiceVolumes;
-    } else {
-      console.log('No voiceVolumes in settings');
     }
     if (ttsEnabledCheckbox) ttsEnabledCheckbox.checked = settings.engineEnabled || false;
     if (botRespondsInChatCheckbox) botRespondsInChatCheckbox.checked = settings.botRespondsInChat !== false;
