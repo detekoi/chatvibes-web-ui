@@ -60,6 +60,14 @@ interface ErrorResponse {
   details?: string;
 }
 
+interface VoiceLookupResponse {
+  success: boolean;
+  username: string;
+  voiceId: string | null;
+  message?: string;
+  error?: string;
+}
+
 /**
  * Context for settings module (extends base dashboard context)
  */
@@ -703,6 +711,7 @@ export function initSettingsModule(
     attachVoicePreview();
     setupAutoSaveListeners();
     setupVoiceCalibration();
+    setupVoiceLookup();
 
     if (saveSettingsBtn) {
       saveSettingsBtn.style.display = 'none';
@@ -852,6 +861,101 @@ export function initSettingsModule(
       });
     }
 
+  }
+
+  function setupVoiceLookup(): void {
+    const lookupInput = document.getElementById('lookup-username') as HTMLInputElement | null;
+    const lookupBtn = document.getElementById('lookup-voice-btn') as HTMLButtonElement | null;
+    const lookupResult = document.getElementById('lookup-result') as HTMLElement | null;
+
+    if (!lookupInput || !lookupBtn || !lookupResult) return;
+
+    const performLookup = async (): Promise<void> => {
+      const username = lookupInput.value.trim();
+      if (!username) {
+        showToast('Please enter a username', 'warning');
+        return;
+      }
+
+      lookupBtn.disabled = true;
+      const originalBtnText = lookupBtn.textContent;
+      lookupBtn.textContent = 'Searching...';
+      lookupResult.style.display = 'none';
+      lookupResult.className = 'mt-3'; // Reset classes
+
+      try {
+        const headers = authHeaders();
+        delete headers['Content-Type'];
+
+        const response = await fetch(`${botApiBaseUrl}/tts/user-voice/${username}`, {
+          headers
+        });
+        const data = await response.json() as VoiceLookupResponse;
+
+        if (response.ok) {
+          lookupResult.style.display = 'block';
+          if (data.voiceId) {
+            lookupResult.className = 'mt-3 alert alert-success';
+            lookupResult.innerHTML = `<div>User <strong>${data.username}</strong> has set custom voice: <strong>${data.voiceId}</strong></div>`;
+
+            // Check if voice exists in our list to allow calibration
+            // We use global 'allVoices'
+            const voiceExists = allVoices.includes(data.voiceId);
+
+            if (voiceExists) {
+              const calibrateBtn = document.createElement('button');
+              calibrateBtn.className = 'btn btn-sm btn-success mt-2';
+              calibrateBtn.textContent = `Calibrate "${formatVoiceName(data.voiceId)}"`;
+              calibrateBtn.onclick = () => {
+                if (calibrationVoiceSelect && calibrationVoiceSearch && calibrationVolumeSlider && calibrationVolumeValueSpan && calibrationSaveBtn) {
+                  calibrationVoiceSelect.value = data.voiceId!;
+                  calibrationVoiceSearch.value = formatVoiceName(data.voiceId!);
+
+                  const currentVol = currentVoiceVolumes[data.voiceId!] ?? 1.0;
+                  calibrationVolumeSlider.value = String(currentVol);
+                  calibrationVolumeValueSpan.textContent = String(currentVol);
+                  calibrationSaveBtn.disabled = true;
+
+                  // Scroll to calibration section
+                  calibrationVoiceSearch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                  // Highlight it
+                  calibrationVoiceSearch.classList.add('highlight-flash');
+                  setTimeout(() => calibrationVoiceSearch.classList.remove('highlight-flash'), 2000);
+                }
+              };
+              lookupResult.appendChild(calibrateBtn);
+            } else {
+              const warning = document.createElement('div');
+              warning.className = 'text-warning small mt-1';
+              warning.textContent = 'This voice ID is not in the current available list.';
+              lookupResult.appendChild(warning);
+            }
+
+          } else {
+            lookupResult.className = 'mt-3 alert alert-info';
+            lookupResult.textContent = `User ${data.username} has not set a custom voice (using channel default).`;
+          }
+        } else {
+          // Cast to any to access error property if needed, or rely on updated interface
+          const errorData = data as VoiceLookupResponse & { error?: string };
+          throw new Error(errorData.message || errorData.error || 'Lookup failed');
+        }
+
+      } catch (e) {
+        const err = e as Error;
+        lookupResult.style.display = 'block';
+        lookupResult.className = 'mt-3 alert alert-danger';
+        lookupResult.textContent = `Error: ${err.message}`;
+      } finally {
+        lookupBtn.disabled = false;
+        lookupBtn.textContent = originalBtnText || 'Lookup Voice';
+      }
+    };
+
+    lookupBtn.addEventListener('click', () => void performLookup());
+    lookupInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') void performLookup();
+    });
   }
 
   function setupVoiceCalibration(): void {

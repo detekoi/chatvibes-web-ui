@@ -7,12 +7,12 @@
  */
 
 import * as functions from "firebase-functions";
-import express, {Request, Response, NextFunction, Application} from "express";
+import express, { Request, Response, NextFunction, Application } from "express";
 import cors from "cors";
 
 // Import configuration and wait for secrets to load
-import {secretsLoadedPromise, config} from "./src/config";
-import {logger, requestLoggingMiddleware} from "./src/logger";
+import { secretsLoadedPromise, config } from "./src/config";
+import { logger, requestLoggingMiddleware } from "./src/logger";
 
 // Import route modules
 import authRoutes from "./src/auth/routes";
@@ -21,7 +21,8 @@ import botRoutes from "./src/api/bot";
 import rewardsRoutes from "./src/api/rewards";
 import obsRoutes from "./src/api/obs";
 import viewerRoutes from "./src/api/viewer";
-import {apiRouter as miscApiRoutes, redirectRouter as redirectsRoutes} from "./src/api/misc";
+import settingsRoutes from "./src/api/settings";
+import { apiRouter as miscApiRoutes, redirectRouter as redirectsRoutes } from "./src/api/misc";
 
 // Create Express app
 const app: Application = express();
@@ -33,7 +34,7 @@ app.use(async (_req: Request, res: Response, next: NextFunction): Promise<void> 
     next();
   } catch (error) {
     const err = error as Error;
-    logger.error({error: err.message}, "Function is not ready, secrets failed to load");
+    logger.error({ error: err.message }, "Function is not ready, secrets failed to load");
     res.status(503).send("Service Unavailable: Server is initializing or has a configuration error.");
   }
 });
@@ -55,8 +56,8 @@ app.use(cors({
 }));
 
 // Body parsing middleware
-app.use(express.json({limit: "1mb"}));
-app.use(express.urlencoded({extended: true, limit: "1mb"}));
+app.use(express.json({ limit: "1mb" }));
+app.use(express.urlencoded({ extended: true, limit: "1mb" }));
 
 // Request logging middleware (adds correlation ID and logs requests/responses)
 app.use(requestLoggingMiddleware);
@@ -68,6 +69,7 @@ app.use("/api/bot", botRoutes);
 app.use("/api/rewards", rewardsRoutes);
 app.use("/api/obs", obsRoutes);
 app.use("/api/viewer", viewerRoutes);
+app.use("/api", settingsRoutes); // For /api/tts/settings and /api/music/settings
 app.use("/api", miscApiRoutes); // For /api/shortlink, /api/tts/test
 app.use("/", redirectsRoutes); // For /s/:slug redirect
 
@@ -82,7 +84,7 @@ app.get("/health", (_req: Request, res: Response): void => {
 
 // 404 handler
 app.use((req: Request, res: Response): void => {
-  logger.warn({method: req.method, path: req.path}, "404 Not Found");
+  logger.warn({ method: req.method, path: req.path }, "404 Not Found");
   res.status(404).json({
     success: false,
     error: "Endpoint not found",

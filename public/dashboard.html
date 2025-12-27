@@ -626,6 +626,21 @@
                             <p class="settings-section-description">Calibrate volume for specific voices. Warning:
                                 Values over 1.0 may be loud or distorted.</p>
 
+                            <!-- User Voice Lookup -->
+                            <div class="card mb-4 shadow">
+                                <div class="card-body">
+                                    <h6 class="card-title text-muted text-uppercase small fw-bold mb-3">Viewer Voice
+                                        Lookup</h6>
+                                    <div class="input-group">
+                                        <input type="text" id="lookup-username" class="form-control"
+                                            placeholder="Enter Twitch viewer username">
+                                        <button class="btn btn-outline-secondary" type="button"
+                                            id="lookup-voice-btn">Lookup Voice</button>
+                                    </div>
+                                    <div id="lookup-result" class="mt-3" style="display:none;"></div>
+                                </div>
+                            </div>
+
                             <div class="card mb-4 shadow">
                                 <div class="card-body">
                                     <div class="row g-3 align-items-end">

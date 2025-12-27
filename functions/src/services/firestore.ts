@@ -3,10 +3,10 @@
  * Handles database initialization and collection constants
  */
 
-import {Firestore, FieldValue} from "@google-cloud/firestore";
-import {createLogger} from "../logger";
+import { Firestore, FieldValue } from "@google-cloud/firestore";
+import { createLogger } from "../logger";
 
-const logger = createLogger({module: "firestore"});
+const logger = createLogger({ module: "firestore" });
 
 // Initialize Firestore client
 let db: Firestore;
@@ -14,7 +14,7 @@ try {
   db = new Firestore();
   logger.info("Client initialized successfully");
 } catch (error) {
-  logger.error({err: error}, "Client initialization error");
+  logger.error({ err: error }, "Client initialization error");
   throw error;
 }
 
@@ -24,6 +24,7 @@ const COLLECTIONS = {
   TTS_CHANNEL_CONFIGS: "ttsChannelConfigs",
   MUSIC_SETTINGS: "musicSettings",
   SHORTLINKS: "shortlinks",
+  TTS_USER_PREFS: "ttsUserPreferences",
 } as const;
 
 export {

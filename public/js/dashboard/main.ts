@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const apiBaseUrl = getApiBaseUrl();
   const botApiBaseUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
     ? 'http://localhost:8080/api'
-    : 'https://chatvibes-tts-service-h7kj56ct4q-uc.a.run.app/api';
+    : '/api';
 
   const state: DashboardState = {
     sessionToken: getStoredSessionToken(),
