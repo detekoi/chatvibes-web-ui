@@ -1,96 +1,25 @@
 import { showToast, syncTextareas } from '../common/ui.js';
 import { debounce, formatVoiceName } from '../common/utils.js';
 import { performVoiceTest, TTSPayload, PlayerElements, HintElements } from '../common/voice-preview.js';
-import type { DashboardServices } from './types.js';
+import { DashboardServices, TtsSettings, VoiceLookupResponse } from './types.js';
+import { SettingsApi } from './services/settings-api.js';
+import { VoiceDropdown } from './components/voice-dropdown.js';
+import { VoiceCalibration } from './components/voice-calibration.js';
 
-/**
- * TTS settings stored in database
- */
-export interface TtsSettings {
-  engineEnabled?: boolean;
-  botRespondsInChat?: boolean;
-  mode?: string;
-  ttsPermissionLevel?: string;
-  speakEvents?: boolean;
-  allowViewerPreferences?: boolean;
-  readFullUrls?: boolean;
-  bitsModeEnabled?: boolean;
-  bitsMinimumAmount?: number;
-  voiceId?: string;
-  emotion?: string;
-  pitch?: number;
-  speed?: number;
-  languageBoost?: string;
-  englishNormalization?: boolean;
-  ignoredUsers?: string[];
-  voiceVolumes?: Record<string, number>;
-}
-
-
-/**
- * API response for settings endpoints
- */
-interface SettingsResponse {
-  settings: TtsSettings;
-}
-
-/**
- * API response for voices endpoint
- */
-interface VoicesResponse {
-  voices?: string[];
-}
-
-/**
- * Error response from API
- */
-interface ErrorResponse {
-  error?: string;
-  message?: string;
-  details?: string;
-}
-
-interface VoiceLookupResponse {
-  success: boolean;
-  username: string;
-  voiceId: string | null;
-  message?: string;
-  error?: string;
-}
-
-/**
- * Context for settings module (extends base dashboard context)
- */
 export interface SettingsModuleContext {
   botApiBaseUrl: string;
   testMode: boolean;
 }
 
-/**
- * Dependencies for settings module
- */
 export interface SettingsModuleDependencies {
   displayIgnoreList: (type: 'tts', users: string[]) => void;
 }
 
-/**
- * Settings module interface
- */
 export interface SettingsModule {
   initialize: () => Promise<void>;
   loadSettings: () => Promise<void>;
 }
 
-/**
- * Original settings cached for comparison
- */
-interface OriginalSettings {
-  tts: TtsSettings;
-}
-
-/**
- * Handles dashboard settings (TTS defaults, music, voice preview, etc.).
- */
 export function initSettingsModule(
   context: SettingsModuleContext,
   services: DashboardServices,
@@ -100,8 +29,9 @@ export function initSettingsModule(
   const { getLoggedInUser, getSessionToken } = services;
   const { displayIgnoreList } = dependencies;
 
+  const api = new SettingsApi(botApiBaseUrl, getSessionToken);
+
   // Settings Panel Elements
-  const defaultVoiceSelect = document.getElementById('default-voice') as HTMLInputElement | null;
   const defaultEmotionSelect = document.getElementById('default-emotion') as HTMLSelectElement | null;
   const defaultPitchSlider = document.getElementById('default-pitch') as HTMLInputElement | null;
   const pitchValueSpan = document.getElementById('pitch-value') as HTMLSpanElement | null;
@@ -113,6 +43,7 @@ export function initSettingsModule(
   const resetSpeedBtn = document.getElementById('reset-speed-btn') as HTMLButtonElement | null;
   const resetVolumeBtn = document.getElementById('reset-volume-btn') as HTMLButtonElement | null;
   const defaultLanguageSelect = document.getElementById('default-language') as HTMLSelectElement | null;
+
   if (defaultLanguageSelect) {
     const options = [
       "Automatic", "Chinese", "Chinese,Yue", "English", "Arabic", "Russian", "Spanish", "French", "Portuguese",
@@ -135,16 +66,6 @@ export function initSettingsModule(
   const bitsEnabledCheckbox = document.getElementById('bits-enabled') as HTMLInputElement | null;
   const bitsAmountInput = document.getElementById('bits-amount') as HTMLInputElement | null;
 
-  // Voice Calibration Elements
-  const calibrationVoiceSelect = document.getElementById('calibration-voice') as HTMLInputElement | null; // Hidden input
-  const calibrationVoiceSearch = document.getElementById('calibration-voice-search') as HTMLInputElement | null;
-  const calibrationVoiceDropdown = document.getElementById('calibration-voice-dropdown') as HTMLElement | null;
-  const calibrationVoiceMenu = document.getElementById('calibration-voice-menu') as HTMLElement | null;
-  const calibrationVolumeSlider = document.getElementById('calibration-volume') as HTMLInputElement | null;
-  const calibrationVolumeValueSpan = document.getElementById('calibration-volume-value') as HTMLSpanElement | null;
-  const calibrationSaveBtn = document.getElementById('calibration-save-btn') as HTMLButtonElement | null;
-  const calibratedVoicesList = document.getElementById('calibrated-voices-list') as HTMLUListElement | null;
-
   const saveSettingsBtn = document.getElementById('save-settings-btn') as HTMLButtonElement | null;
 
   const voiceTestTextInput = document.getElementById('voice-test-text') as HTMLTextAreaElement | null;
@@ -156,34 +77,20 @@ export function initSettingsModule(
   if (voiceTestBtnMobile) voiceTestBtnMobile.disabled = true;
   syncTextareas(voiceTestTextInput, voiceTestTextInputMobile);
 
-  let originalSettings: OriginalSettings = { tts: {} };
-  void originalSettings; // Intentionally unused - for future debugging/state tracking
   let isInitializing = true;
   let lastSuccessToastAt = 0;
-
-  let settingsInitialized = false;
-  void settingsInitialized; // Intentionally unused - for future state tracking
   let settingsInitializedPromiseResolve: (() => void) | undefined;
   const settingsInitializedPromise = new Promise<void>((resolve) => {
     settingsInitializedPromiseResolve = resolve;
   });
 
   let allVoices: string[] = [];
-  void allVoices; // Intentionally unused - for future reference
-  let currentlyPlayingAudio: HTMLAudioElement | null = null;
-  let currentlyPlayingVoiceId: string | null = null;
   let currentVoiceVolumes: Record<string, number> = {};
 
-  let cachedAudioUrl: string | null = null;
-  let cachedAudioUrlMobile: string | null = null;
-  let cachedSettings: TTSPayload | null = null;
-  void cachedSettings; // Intentionally unused - for future caching optimization
-  let cachedSettingsMobile: TTSPayload | null = null;
-  void cachedSettingsMobile; // Intentionally unused - for future caching optimization
-  let isDirty = false;
-  void isDirty; // Intentionally unused - for future dirty state tracking
-  let isDirtyMobile = false;
-  void isDirtyMobile; // Intentionally unused - for future dirty state tracking
+  // Components
+  let defaultVoiceDropdown: VoiceDropdown | null = null;
+  let calibrationVoiceDropdown: VoiceDropdown | null = null;
+  let voiceCalibration: VoiceCalibration | null = null;
 
   return {
     async initialize(): Promise<void> {
@@ -200,7 +107,191 @@ export function initSettingsModule(
     }
   }
 
-  async function playVoiceSample(buttonElement: HTMLButtonElement, voiceId: string): Promise<void> {
+  function getChannelName(): string | undefined {
+    return getLoggedInUser()?.login?.toLowerCase();
+  }
+
+  async function saveSettingWrapper(key: string, value: any, label: string): Promise<void> {
+    if (isInitializing) return;
+    const channelName = getChannelName();
+    if (testMode) {
+      maybeSuccessToast('Saved');
+      return;
+    }
+    if (!channelName) {
+      showToast('Not logged in', 'error');
+      return;
+    }
+    try {
+      await api.saveTtsSetting(channelName, key, value);
+      maybeSuccessToast('Saved');
+    } catch (e) {
+      const err = e as Error;
+      showToast(`${label}: ${err.message}`, 'error');
+    }
+  }
+
+  function updateVolumeSlider(voiceId: string): void {
+    if (!defaultVolumeSlider || !volumeValueSpan) return;
+    const vol = currentVoiceVolumes[voiceId] ?? 1.0;
+    defaultVolumeSlider.value = String(vol);
+    volumeValueSpan.textContent = String(vol);
+  }
+
+  function setupAutoSaveListeners(): void {
+    if (ttsEnabledCheckbox) ttsEnabledCheckbox.addEventListener('change', () => saveSettingWrapper('engineEnabled', !!ttsEnabledCheckbox.checked, 'TTS Engine'));
+    if (botRespondsInChatCheckbox) botRespondsInChatCheckbox.addEventListener('change', () => saveSettingWrapper('botRespondsInChat', !!botRespondsInChatCheckbox.checked, 'Bot Responds in Chat'));
+    if (ttsModeSelect) ttsModeSelect.addEventListener('change', () => saveSettingWrapper('mode', ttsModeSelect.value || 'command', 'TTS Mode'));
+    if (ttsPermissionSelect) ttsPermissionSelect.addEventListener('change', () => saveSettingWrapper('ttsPermissionLevel', ttsPermissionSelect.value || 'everyone', 'TTS Permission'));
+    if (eventsEnabledCheckbox) eventsEnabledCheckbox.addEventListener('change', () => saveSettingWrapper('speakEvents', eventsEnabledCheckbox.checked !== false, 'Event Announcements'));
+    if (allowViewerPreferencesCheckbox) allowViewerPreferencesCheckbox.addEventListener('change', () => saveSettingWrapper('allowViewerPreferences', !!allowViewerPreferencesCheckbox.checked, 'Allow Viewer Voice Preferences'));
+    if (readFullUrlsCheckbox) readFullUrlsCheckbox.addEventListener('change', () => saveSettingWrapper('readFullUrls', !!readFullUrlsCheckbox.checked, 'Read Full URLs'));
+    if (bitsEnabledCheckbox) bitsEnabledCheckbox.addEventListener('change', () => saveSettingWrapper('bitsModeEnabled', !!bitsEnabledCheckbox.checked, 'Bits for TTS'));
+    if (bitsAmountInput) {
+      const debouncedBitsAmountSave = debounce(
+        () => saveSettingWrapper('bitsMinimumAmount', parseInt(bitsAmountInput.value || '100', 10), 'Minimum Bits'),
+        600
+      );
+      bitsAmountInput.addEventListener('input', () => { if (!isInitializing) debouncedBitsAmountSave(); });
+      bitsAmountInput.addEventListener('change', () => saveSettingWrapper('bitsMinimumAmount', parseInt(bitsAmountInput.value || '100', 10), 'Minimum Bits'));
+    }
+
+    if (defaultEmotionSelect) defaultEmotionSelect.addEventListener('change', () => saveSettingWrapper('emotion', defaultEmotionSelect.value || 'auto', 'Default Emotion'));
+
+    if (defaultPitchSlider) {
+      const debouncedPitchSave = debounce(
+        () => saveSettingWrapper('pitch', parseInt(defaultPitchSlider.value || '0', 10), 'Default Pitch'),
+        400
+      );
+      defaultPitchSlider.addEventListener('input', () => { if (!isInitializing) debouncedPitchSave(); });
+      defaultPitchSlider.addEventListener('change', () => saveSettingWrapper('pitch', parseInt(defaultPitchSlider.value || '0', 10), 'Default Pitch'));
+    }
+
+    if (defaultSpeedSlider) {
+      const debouncedSpeedSave = debounce(
+        () => saveSettingWrapper('speed', parseFloat(defaultSpeedSlider.value || '1.0'), 'Default Speed'),
+        400
+      );
+      defaultSpeedSlider.addEventListener('input', () => { if (!isInitializing) debouncedSpeedSave(); });
+      defaultSpeedSlider.addEventListener('change', () => saveSettingWrapper('speed', parseFloat(defaultSpeedSlider.value || '1.0'), 'Default Speed'));
+    }
+
+    if (defaultVolumeSlider) {
+      const debouncedVolumeSave = debounce(
+        () => {
+          const voiceId = defaultVoiceDropdown?.getValue() || 'Friendly_Person';
+          const vol = parseFloat(defaultVolumeSlider.value || '1.0');
+          currentVoiceVolumes[voiceId] = vol;
+          voiceCalibration?.updateVolumes(currentVoiceVolumes); // Sync calibration component
+          saveSettingWrapper(`voiceVolumes.${voiceId}`, vol, 'Voice Volume');
+        },
+        400
+      );
+      defaultVolumeSlider.addEventListener('input', () => { if (!isInitializing) debouncedVolumeSave(); });
+      defaultVolumeSlider.addEventListener('change', () => {
+        const voiceId = defaultVoiceDropdown?.getValue() || 'Friendly_Person';
+        const vol = parseFloat(defaultVolumeSlider.value || '1.0');
+        currentVoiceVolumes[voiceId] = vol;
+        voiceCalibration?.updateVolumes(currentVoiceVolumes);
+        saveSettingWrapper(`voiceVolumes.${voiceId}`, vol, 'Voice Volume');
+      });
+    }
+
+    if (defaultLanguageSelect) defaultLanguageSelect.addEventListener('change', () => saveSettingWrapper('languageBoost', defaultLanguageSelect.value || 'Automatic', 'Default Language'));
+    if (englishNormalizationCheckbox) englishNormalizationCheckbox.addEventListener('change', () => saveSettingWrapper('englishNormalization', !!englishNormalizationCheckbox.checked, 'English Normalization'));
+  }
+
+  function getEffectiveTtsSettings(): Omit<TTSPayload, 'text'> {
+    const voiceId = defaultVoiceDropdown?.getValue() || 'Friendly_Person';
+    const emotion = defaultEmotionSelect?.value || 'auto';
+    const pitch = parseInt(defaultPitchSlider?.value || '0', 10);
+    const speed = parseFloat(defaultSpeedSlider?.value || '1.0');
+    const volume = parseFloat(defaultVolumeSlider?.value || '1.0');
+    const languageBoost = defaultLanguageSelect?.value || 'Automatic';
+    return { voiceId, emotion, pitch, speed, volume, languageBoost };
+  }
+
+  // NOTE: This could be refactored into a VoicePreview component too, but for now we keep it here
+  // as it is shared logic mostly imported from voice-preview.js
+  let currentlyPlayingAudio: HTMLAudioElement | null = null;
+  let currentlyPlayingVoiceId: string | null = null;
+  let cachedAudioUrl: string | null = null;
+  let cachedAudioUrlMobile: string | null = null;
+
+  function attachVoicePreview(): void {
+    const playerEl = document.getElementById('voice-preview-player') as HTMLElement | null;
+    const playerElMobile = document.getElementById('voice-preview-player-mobile') as HTMLElement | null;
+    const sourceEl = document.getElementById('voice-preview-source') as HTMLSourceElement | null;
+    const sourceElMobile = document.getElementById('voice-preview-source-mobile') as HTMLSourceElement | null;
+    const hintEl = document.getElementById('voice-preview-hint') as HTMLElement | null;
+    const hintElMobile = document.getElementById('voice-preview-hint-mobile') as HTMLElement | null;
+
+    const testVoice = async (isMobile = false): Promise<void> => {
+      await settingsInitializedPromise;
+      const textInput = isMobile ? voiceTestTextInputMobile : voiceTestTextInput;
+      const text = textInput?.value?.trim() || '';
+
+      if (!text) {
+        showToast('Please enter some text to test', 'warning');
+        return;
+      }
+      if (text.length > 500) {
+        showToast('Text must be 500 characters or less', 'error');
+        return;
+      }
+      if (testMode) {
+        showToast('Playing preview… (test mode)', 'success');
+        return;
+      }
+
+      const payload: TTSPayload = { text, ...getEffectiveTtsSettings() };
+      const playerElements: PlayerElements = { playerEl, playerElMobile, sourceEl, sourceElMobile };
+      const hintElements: HintElements = { hintEl, hintElMobile };
+
+      const onAudioGenerated = (audioUrl: string): void => {
+        if (isMobile) {
+          if (cachedAudioUrlMobile) URL.revokeObjectURL(cachedAudioUrlMobile);
+          cachedAudioUrlMobile = audioUrl;
+        } else {
+          if (cachedAudioUrl) URL.revokeObjectURL(cachedAudioUrl);
+          cachedAudioUrl = audioUrl;
+        }
+      };
+
+      const buttons = [voiceTestBtn, voiceTestBtnMobile].filter((btn): btn is HTMLButtonElement => btn !== null);
+      await performVoiceTest(payload, buttons, {
+        defaultText: 'Welcome, everyone, to the stream!',
+        playerElements,
+        hintElements,
+        onAudioGenerated
+      });
+    };
+
+    if (voiceTestBtn) voiceTestBtn.addEventListener('click', () => void testVoice(false));
+    if (voiceTestBtnMobile) voiceTestBtnMobile.addEventListener('click', () => void testVoice(true));
+
+    const markSettingsAsDirty = (): void => {
+      if (hintEl && cachedAudioUrl) hintEl.style.display = 'block';
+      if (hintElMobile && cachedAudioUrlMobile) hintElMobile.style.display = 'block';
+    };
+
+    // Watch for changes that invalidate preview
+    defaultEmotionSelect?.addEventListener('change', markSettingsAsDirty);
+    defaultPitchSlider?.addEventListener('change', markSettingsAsDirty);
+    defaultSpeedSlider?.addEventListener('change', markSettingsAsDirty);
+    defaultVolumeSlider?.addEventListener('change', markSettingsAsDirty);
+    defaultLanguageSelect?.addEventListener('change', markSettingsAsDirty);
+    englishNormalizationCheckbox?.addEventListener('change', markSettingsAsDirty);
+    // Voice Dropdown handles its own listener if we want? But we can hook into onSelect.
+    // We'll handle voice change in the VoiceDropdown instantiation.
+
+    window.addEventListener('beforeunload', () => {
+      if (cachedAudioUrl) URL.revokeObjectURL(cachedAudioUrl);
+      if (cachedAudioUrlMobile) URL.revokeObjectURL(cachedAudioUrlMobile);
+    });
+  }
+
+  async function playVoiceSample(voiceId: string, buttonElement: HTMLButtonElement): Promise<void> {
     if (!voiceId) return;
 
     if (currentlyPlayingVoiceId === voiceId && currentlyPlayingAudio) {
@@ -212,7 +303,10 @@ export function initSettingsModule(
     }
 
     if (currentlyPlayingAudio) {
-      const previousBtn = document.querySelector('.voice-dropdown-item .voice-play-btn.playing') as HTMLButtonElement | null;
+      // Find the PREVIOUS button and reset it. 
+      // This is tricky because we don't have a direct reference to the previous button element easily
+      // unless we store it or query for it.
+      const previousBtn = document.querySelector('.voice-play-btn.playing') as HTMLButtonElement | null;
       if (previousBtn) {
         updatePlayButton(previousBtn, false);
       }
@@ -220,7 +314,7 @@ export function initSettingsModule(
       currentlyPlayingAudio = null;
     }
 
-    const preMadeUrl = `/assets/voices/${voiceId}-welcome-everyone-to-the-stream.mp3`;
+    const preMadeUrl = `/assets/voices/\${voiceId}-welcome-everyone-to-the-stream.mp3`;
 
     try {
       const response = await fetch(preMadeUrl);
@@ -238,7 +332,7 @@ export function initSettingsModule(
 
       const stopPlayback = (): void => {
         URL.revokeObjectURL(audioUrl);
-        if (buttonElement) updatePlayButton(buttonElement, false);
+        updatePlayButton(buttonElement, false);
         currentlyPlayingAudio = null;
         currentlyPlayingVoiceId = null;
       };
@@ -257,431 +351,122 @@ export function initSettingsModule(
 
   function updatePlayButton(buttonElement: HTMLButtonElement, isPlaying: boolean): void {
     if (!buttonElement) return;
-
     const icon = isPlaying
       ? `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>`
       : `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>`;
-
     buttonElement.innerHTML = icon;
-    if (isPlaying) {
-      buttonElement.classList.add('playing');
-    } else {
-      buttonElement.classList.remove('playing');
-    }
-  }
-
-  function updateVolumeSlider(voiceId: string): void {
-    if (!defaultVolumeSlider || !volumeValueSpan) return;
-    const vol = currentVoiceVolumes[voiceId] ?? 1.0;
-    defaultVolumeSlider.value = String(vol);
-    volumeValueSpan.textContent = String(vol);
-  }
-
-  function setupAutoSaveListeners(): void {
-    if (ttsEnabledCheckbox) ttsEnabledCheckbox.addEventListener('change', () => saveTtsSetting('engineEnabled', !!ttsEnabledCheckbox.checked, 'TTS Engine'));
-    if (botRespondsInChatCheckbox) botRespondsInChatCheckbox.addEventListener('change', () => saveTtsSetting('botRespondsInChat', !!botRespondsInChatCheckbox.checked, 'Bot Responds in Chat'));
-    if (ttsModeSelect) ttsModeSelect.addEventListener('change', () => saveTtsSetting('mode', ttsModeSelect.value || 'command', 'TTS Mode'));
-    if (ttsPermissionSelect) ttsPermissionSelect.addEventListener('change', () => saveTtsSetting('ttsPermissionLevel', ttsPermissionSelect.value || 'everyone', 'TTS Permission'));
-    if (eventsEnabledCheckbox) eventsEnabledCheckbox.addEventListener('change', () => saveTtsSetting('speakEvents', eventsEnabledCheckbox.checked !== false, 'Event Announcements'));
-    if (allowViewerPreferencesCheckbox) allowViewerPreferencesCheckbox.addEventListener('change', () => saveTtsSetting('allowViewerPreferences', !!allowViewerPreferencesCheckbox.checked, 'Allow Viewer Voice Preferences'));
-    if (readFullUrlsCheckbox) readFullUrlsCheckbox.addEventListener('change', () => saveTtsSetting('readFullUrls', !!readFullUrlsCheckbox.checked, 'Read Full URLs'));
-    if (bitsEnabledCheckbox) bitsEnabledCheckbox.addEventListener('change', () => saveTtsSetting('bitsModeEnabled', !!bitsEnabledCheckbox.checked, 'Bits for TTS'));
-    if (bitsAmountInput) {
-      const debouncedBitsAmountSave = debounce(
-        () => saveTtsSetting('bitsMinimumAmount', parseInt(bitsAmountInput.value || '100', 10), 'Minimum Bits'),
-        600
-      );
-      bitsAmountInput.addEventListener('input', () => { if (!isInitializing) debouncedBitsAmountSave(); });
-      bitsAmountInput.addEventListener('change', () => saveTtsSetting('bitsMinimumAmount', parseInt(bitsAmountInput.value || '100', 10), 'Minimum Bits'));
-    }
-
-    if (defaultVoiceSelect) defaultVoiceSelect.addEventListener('change', () => {
-      const newVoiceId = defaultVoiceSelect.value || 'Friendly_Person';
-      if (!isInitializing) updateVolumeSlider(newVoiceId);
-      saveTtsSetting('voiceId', newVoiceId, 'Default Voice');
-    });
-    if (defaultEmotionSelect) defaultEmotionSelect.addEventListener('change', () => saveTtsSetting('emotion', defaultEmotionSelect.value || 'auto', 'Default Emotion'));
-
-    if (defaultPitchSlider) {
-      const debouncedPitchSave = debounce(
-        () => saveTtsSetting('pitch', parseInt(defaultPitchSlider.value || '0', 10), 'Default Pitch'),
-        400
-      );
-      defaultPitchSlider.addEventListener('input', () => { if (!isInitializing) debouncedPitchSave(); });
-      defaultPitchSlider.addEventListener('change', () => saveTtsSetting('pitch', parseInt(defaultPitchSlider.value || '0', 10), 'Default Pitch'));
-    }
-
-    if (defaultSpeedSlider) {
-      const debouncedSpeedSave = debounce(
-        () => saveTtsSetting('speed', parseFloat(defaultSpeedSlider.value || '1.0'), 'Default Speed'),
-        400
-      );
-      defaultSpeedSlider.addEventListener('input', () => { if (!isInitializing) debouncedSpeedSave(); });
-      defaultSpeedSlider.addEventListener('change', () => saveTtsSetting('speed', parseFloat(defaultSpeedSlider.value || '1.0'), 'Default Speed'));
-    }
-
-    if (defaultVolumeSlider) {
-      const debouncedVolumeSave = debounce(
-        () => {
-          const voiceId = defaultVoiceSelect?.value || 'Friendly_Person';
-          const vol = parseFloat(defaultVolumeSlider.value || '1.0');
-          currentVoiceVolumes[voiceId] = vol;
-          saveTtsSetting(`voiceVolumes.${voiceId}`, vol, 'Voice Volume');
-        },
-        400
-      );
-      defaultVolumeSlider.addEventListener('input', () => { if (!isInitializing) debouncedVolumeSave(); });
-      defaultVolumeSlider.addEventListener('change', () => {
-        const voiceId = defaultVoiceSelect?.value || 'Friendly_Person';
-        const vol = parseFloat(defaultVolumeSlider.value || '1.0');
-        currentVoiceVolumes[voiceId] = vol;
-        saveTtsSetting(`voiceVolumes.${voiceId}`, vol, 'Voice Volume');
-      });
-    }
-
-    if (defaultLanguageSelect) defaultLanguageSelect.addEventListener('change', () => saveTtsSetting('languageBoost', defaultLanguageSelect.value || 'Automatic', 'Default Language'));
-    if (englishNormalizationCheckbox) englishNormalizationCheckbox.addEventListener('change', () => saveTtsSetting('englishNormalization', !!englishNormalizationCheckbox.checked, 'English Normalization'));
-
-  }
-
-  function attachVoicePreview(): void {
-    const playerEl = document.getElementById('voice-preview-player') as HTMLElement | null;
-    const playerElMobile = document.getElementById('voice-preview-player-mobile') as HTMLElement | null;
-    const sourceEl = document.getElementById('voice-preview-source') as HTMLSourceElement | null;
-    const sourceElMobile = document.getElementById('voice-preview-source-mobile') as HTMLSourceElement | null;
-    const hintEl = document.getElementById('voice-preview-hint') as HTMLElement | null;
-    const hintElMobile = document.getElementById('voice-preview-hint-mobile') as HTMLElement | null;
-
-    const clearAudioCache = (isMobile = false): void => {
-      if (isMobile) {
-        if (cachedAudioUrlMobile) {
-          URL.revokeObjectURL(cachedAudioUrlMobile);
-          cachedAudioUrlMobile = null;
-        }
-        cachedSettingsMobile = null;
-        if (playerElMobile) playerElMobile.style.display = 'none';
-        if (voiceTestBtnMobile) voiceTestBtnMobile.textContent = 'Send Preview';
-        isDirtyMobile = false;
-      } else {
-        if (cachedAudioUrl) {
-          URL.revokeObjectURL(cachedAudioUrl);
-          cachedAudioUrl = null;
-        }
-        cachedSettings = null;
-        if (playerEl) playerEl.style.display = 'none';
-        if (voiceTestBtn) voiceTestBtn.textContent = 'Send Preview';
-        isDirty = false;
-      }
-    };
-
-    const markSettingsAsDirty = (): void => {
-      isDirty = true;
-      isDirtyMobile = true;
-      if (hintEl && cachedAudioUrl) hintEl.style.display = 'block';
-      if (hintElMobile && cachedAudioUrlMobile) hintElMobile.style.display = 'block';
-    };
-
-    const testVoice = async (isMobile = false): Promise<void> => {
-      await settingsInitializedPromise;
-
-      const textInput = isMobile ? voiceTestTextInputMobile : voiceTestTextInput;
-      const text = textInput?.value?.trim() || '';
-
-      if (!text) {
-        showToast('Please enter some text to test', 'warning');
-        return;
-      }
-      if (text.length > 500) {
-        showToast('Text must be 500 characters or less', 'error');
-        return;
-      }
-
-      if (testMode) {
-        showToast('Playing preview… (test mode)', 'success');
-        return;
-      }
-
-      const payload: TTSPayload = {
-        text,
-        ...getEffectiveTtsSettings()
-      };
-
-      const playerElements: PlayerElements = {
-        playerEl,
-        playerElMobile,
-        sourceEl,
-        sourceElMobile
-      };
-
-      const hintElements: HintElements = {
-        hintEl,
-        hintElMobile
-      };
-
-      const onAudioGenerated = (audioUrl: string, settings: TTSPayload): void => {
-        if (isMobile) {
-          if (cachedAudioUrlMobile) URL.revokeObjectURL(cachedAudioUrlMobile);
-          cachedAudioUrlMobile = audioUrl;
-          cachedSettingsMobile = settings;
-          isDirtyMobile = false;
-          if (hintElMobile) hintElMobile.style.display = 'none';
-        } else {
-          if (cachedAudioUrl) URL.revokeObjectURL(cachedAudioUrl);
-          cachedAudioUrl = audioUrl;
-          cachedSettings = settings;
-          isDirty = false;
-          if (hintEl) hintEl.style.display = 'none';
-        }
-      };
-
-      const buttons = [voiceTestBtn, voiceTestBtnMobile].filter((btn): btn is HTMLButtonElement => btn !== null);
-      await performVoiceTest(payload, buttons, {
-        defaultText: 'Welcome, everyone, to the stream!',
-        playerElements,
-        hintElements,
-        onAudioGenerated
-      });
-    };
-
-    if (voiceTestBtn) voiceTestBtn.addEventListener('click', () => void testVoice(false));
-    if (voiceTestBtnMobile) voiceTestBtnMobile.addEventListener('click', () => void testVoice(true));
-
-    const watchDirtyElements = [
-      defaultVoiceSelect, defaultEmotionSelect, defaultPitchSlider,
-      defaultSpeedSlider, defaultVolumeSlider, defaultLanguageSelect, englishNormalizationCheckbox
-    ];
-    watchDirtyElements.forEach(el => {
-      if (!el) return;
-      el.addEventListener('change', () => {
-        markSettingsAsDirty();
-        if (el === defaultVoiceSelect || el === defaultEmotionSelect) {
-          clearAudioCache(false);
-          clearAudioCache(true);
-        }
-      });
-    });
-
-    window.addEventListener('beforeunload', () => {
-      if (cachedAudioUrl) URL.revokeObjectURL(cachedAudioUrl);
-      if (cachedAudioUrlMobile) URL.revokeObjectURL(cachedAudioUrlMobile);
-    });
-  }
-
-
-  function getChannelName(): string | undefined {
-    return getLoggedInUser()?.login?.toLowerCase();
-  }
-
-  function authHeaders(): Record<string, string> {
-    const headers: Record<string, string> = { 'Content-Type': 'application/json' };
-    const token = getSessionToken();
-    if (token) headers['Authorization'] = `Bearer ${token}`;
-    return headers;
-  }
-
-  function getEffectiveTtsSettings(): Omit<TTSPayload, 'text'> {
-    const voiceId = defaultVoiceSelect?.value || 'Friendly_Person';
-    const emotion = defaultEmotionSelect?.value || 'auto';
-    const pitch = parseInt(defaultPitchSlider?.value || '0', 10);
-    const speed = parseFloat(defaultSpeedSlider?.value || '1.0');
-    const volume = parseFloat(defaultVolumeSlider?.value || '1.0');
-    const languageBoost = defaultLanguageSelect?.value || 'Automatic';
-    return { voiceId, emotion, pitch, speed, volume, languageBoost };
-  }
-
-  async function saveTtsSetting(key: string, value: string | number | boolean, label: string): Promise<void> {
-    if (isInitializing) return;
-    const channelName = getChannelName();
-    if (testMode) {
-      maybeSuccessToast('Saved');
-      return;
-    }
-    if (!channelName) {
-      showToast('Not logged in', 'error');
-      return;
-    }
-    try {
-      const response = await fetch(`${botApiBaseUrl}/tts/settings/channel/${channelName}`, {
-        method: 'PUT',
-        headers: authHeaders(),
-        body: JSON.stringify({ key, value })
-      });
-      if (response.ok) {
-        maybeSuccessToast('Saved');
-      } else if (response.status === 400) {
-        const errorData = await response.json().catch(() => ({ error: 'Invalid request' })) as ErrorResponse;
-        const errorText = errorData.error || errorData.message || 'Invalid setting value';
-        showToast(`${label || 'Setting'}: ${errorText}`, 'error');
-      } else if (response.status === 403) {
-        const errorData = await response.json().catch(() => ({})) as ErrorResponse;
-        const errorText = errorData.details || errorData.message || 'Channel is not allowed to use this service';
-        const html = errorText.includes('https://detekoi.github.io/#contact-me')
-          ? errorText.replace('https://detekoi.github.io/#contact-me', '<a href="https://detekoi.github.io/#contact-me" target="_blank" class="link-light">this link</a>')
-          : `${errorText} <a href="https://detekoi.github.io/#contact-me" target="_blank" class="link-light">Request access here</a>.`;
-        showToast(html, 'error');
-      } else if (response.status === 500 || response.status === 404) {
-        showToast('Settings management not available yet - bot needs API update', 'warning');
-      } else {
-        const errorData = await response.json().catch(() => ({ error: 'Unknown error' })) as ErrorResponse;
-        showToast(`${label || 'Setting'}: ${errorData.error}`, 'error');
-      }
-    } catch (error) {
-      console.error('Failed to save setting:', error);
-      showToast(`Failed to save ${label || 'setting'}. Please try again.`, 'error');
-    }
-  }
-
-  async function saveMusicEnabled(enabled: boolean): Promise<void> {
-    if (isInitializing) return;
-    const channelName = getChannelName();
-    if (testMode) {
-      maybeSuccessToast('Saved');
-      return;
-    }
-    if (!channelName) {
-      showToast('Not logged in', 'error');
-      return;
-    }
-    try {
-      const response = await fetch(`${botApiBaseUrl}/music/settings/channel/${channelName}`, {
-        method: 'PUT',
-        headers: authHeaders(),
-        body: JSON.stringify({ key: 'enabled', value: enabled })
-      });
-      if (response.ok) {
-        maybeSuccessToast('Saved');
-      } else if (response.status === 403) {
-        const errorData = await response.json().catch(() => ({})) as ErrorResponse;
-        const errorText = errorData.details || errorData.message || 'Channel is not allowed to use this service';
-        showToast(`Forbidden: ${errorText}`, 'error');
-      } else if (response.status !== 500 && response.status !== 404) {
-        const errorData = await response.json().catch(() => ({ error: 'Unknown error' })) as ErrorResponse;
-        showToast(`Music Generation: ${errorData.error}`, 'error');
-      } else {
-        showToast('Settings management not available yet - bot needs API update', 'warning');
-      }
-    } catch (e) {
-      showToast('Failed to save Music Generation', 'error');
-    }
-  }
-
-  async function saveMusicAllowedRoles(modeValue: string): Promise<void> {
-    if (isInitializing) return;
-    const channelName = getChannelName();
-    if (testMode) {
-      maybeSuccessToast('Saved');
-      return;
-    }
-    if (!channelName) {
-      showToast('Not logged in', 'error');
-      return;
-    }
-    const roles = modeValue === 'everyone' ? ['everyone'] : ['moderator'];
-    try {
-      const response = await fetch(`${botApiBaseUrl}/music/settings/channel/${channelName}`, {
-        method: 'PUT',
-        headers: authHeaders(),
-        body: JSON.stringify({ key: 'allowedRoles', value: roles })
-      });
-      if (response.ok) {
-        maybeSuccessToast('Saved');
-      } else if (response.status === 403) {
-        const errorData = await response.json().catch(() => ({})) as ErrorResponse;
-        const errorText = errorData.details || errorData.message || 'Channel is not allowed to use this service';
-        showToast(`Forbidden: ${errorText}`, 'error');
-      } else if (response.status !== 500 && response.status !== 404) {
-        const errorData = await response.json().catch(() => ({ error: 'Unknown error' })) as ErrorResponse;
-        showToast(`Music Access: ${errorData.error}`, 'error');
-      } else {
-        showToast('Settings management not available yet - such features require the latest bot update.', 'warning');
-      }
-    } catch (e) {
-      showToast('Failed to save Music Access', 'error');
-    }
-  }
-
-  async function saveMusicBitsConfig(enabled: boolean, minimumAmount: number): Promise<void> {
-    if (isInitializing) return;
-    const channelName = getChannelName();
-    if (testMode) {
-      maybeSuccessToast('Saved');
-      return;
-    }
-    if (!channelName) {
-      showToast('Not logged in', 'error');
-      return;
-    }
-    try {
-      const response = await fetch(`${botApiBaseUrl}/music/settings/channel/${channelName}`, {
-        method: 'PUT',
-        headers: authHeaders(),
-        body: JSON.stringify({ key: 'bitsConfig', value: { enabled, minimumAmount } })
-      });
-      if (response.ok) {
-        maybeSuccessToast('Saved');
-      } else if (response.status === 403) {
-        const errorData = await response.json().catch(() => ({})) as ErrorResponse;
-        const errorText = errorData.details || errorData.message || 'Channel is not allowed to use this service';
-        showToast(`Forbidden: ${errorText}`, 'error');
-      } else if (response.status !== 500 && response.status !== 404) {
-        const errorData = await response.json().catch(() => ({ error: 'Unknown error' })) as ErrorResponse;
-        showToast(`Music Bits: ${errorData.error}`, 'error');
-      } else {
-        showToast('Settings management not available yet - bot needs API update', 'warning');
-      }
-    } catch (e) {
-      showToast('Failed to save Music Bits', 'error');
-    }
+    if (isPlaying) buttonElement.classList.add('playing');
+    else buttonElement.classList.remove('playing');
   }
 
   async function initializeSettingsPanel(): Promise<void> {
+    // Default Sliders UI Logic (sync span)
     if (defaultPitchSlider && pitchValueSpan) {
-      defaultPitchSlider.addEventListener('input', () => {
-        pitchValueSpan.textContent = defaultPitchSlider.value;
-      });
+      defaultPitchSlider.addEventListener('input', () => { pitchValueSpan.textContent = defaultPitchSlider.value; });
     }
     if (defaultSpeedSlider && speedValueSpan) {
-      defaultSpeedSlider.addEventListener('input', () => {
-        speedValueSpan.textContent = defaultSpeedSlider.value;
-      });
+      defaultSpeedSlider.addEventListener('input', () => { speedValueSpan.textContent = defaultSpeedSlider.value; });
     }
     if (defaultVolumeSlider && volumeValueSpan) {
-      defaultVolumeSlider.addEventListener('input', () => {
-        volumeValueSpan.textContent = defaultVolumeSlider.value;
-      });
+      defaultVolumeSlider.addEventListener('input', () => { volumeValueSpan.textContent = defaultVolumeSlider.value; });
     }
 
-    if (resetPitchBtn) {
-      resetPitchBtn.addEventListener('click', () => {
-        if (!defaultPitchSlider || !pitchValueSpan) return;
-        defaultPitchSlider.value = '0';
-        pitchValueSpan.textContent = '0';
-        saveTtsSetting('pitch', 0, 'Default Pitch');
-      });
-    }
-    if (resetSpeedBtn) {
-      resetSpeedBtn.addEventListener('click', () => {
-        if (!defaultSpeedSlider || !speedValueSpan) return;
-        defaultSpeedSlider.value = '1.0';
-        speedValueSpan.textContent = '1.0';
-        saveTtsSetting('speed', 1.0, 'Default Speed');
-      });
-    }
-    if (resetVolumeBtn) {
-      resetVolumeBtn.addEventListener('click', () => {
-        if (!defaultVolumeSlider || !volumeValueSpan || !defaultVoiceSelect) return;
-        defaultVolumeSlider.value = '1.0';
-        volumeValueSpan.textContent = '1.0';
-        const voiceId = defaultVoiceSelect.value || 'Friendly_Person';
-        currentVoiceVolumes[voiceId] = 1.0;
-        saveTtsSetting(`voiceVolumes.${voiceId}`, 1.0, 'Voice Volume');
-      });
-    }
+    // Reset Buttons
+    resetPitchBtn?.addEventListener('click', () => {
+      if (!defaultPitchSlider || !pitchValueSpan) return;
+      defaultPitchSlider.value = '0';
+      pitchValueSpan.textContent = '0';
+      saveSettingWrapper('pitch', 0, 'Default Pitch');
+    });
+    resetSpeedBtn?.addEventListener('click', () => {
+      if (!defaultSpeedSlider || !speedValueSpan) return;
+      defaultSpeedSlider.value = '1.0';
+      speedValueSpan.textContent = '1.0';
+      saveSettingWrapper('speed', 1.0, 'Default Speed');
+    });
+    resetVolumeBtn?.addEventListener('click', () => {
+      if (!defaultVolumeSlider || !volumeValueSpan || !defaultVoiceDropdown) return;
+      defaultVolumeSlider.value = '1.0';
+      volumeValueSpan.textContent = '1.0';
+      const voiceId = defaultVoiceDropdown.getValue() || 'Friendly_Person';
+      currentVoiceVolumes[voiceId] = 1.0;
+      voiceCalibration?.updateVolumes(currentVoiceVolumes);
+      saveSettingWrapper(`voiceVolumes.\${voiceId}`, 1.0, 'Voice Volume');
+    });
 
-    await loadAvailableVoices();
+    // Load Voices
+    const voicesResponse = await api.getVoices();
+    const fallbackVoices = [
+      'Friendly_Person', 'Professional_Woman', 'Casual_Male', 'Energetic_Youth',
+      'Warm_Grandmother', 'Confident_Leader', 'Soothing_Narrator', 'Cheerful_Assistant',
+      'Deep_Narrator', 'Bright_Assistant', 'Calm_Guide', 'Energetic_Host'
+    ];
+    allVoices = voicesResponse.voices && voicesResponse.voices.length > 0 ? voicesResponse.voices : fallbackVoices;
+
+    // Init Default Voice Dropdown
+    defaultVoiceDropdown = new VoiceDropdown({
+      containerId: 'default',
+      onSelect: (voiceId) => {
+        if (!isInitializing) updateVolumeSlider(voiceId);
+        saveSettingWrapper('voiceId', voiceId, 'Default Voice');
+        // Clear preview cache if voice changed
+        const hintEl = document.getElementById('voice-preview-hint');
+        if (hintEl) hintEl.style.display = 'block';
+      },
+      onPlaySample: playVoiceSample
+    });
+    defaultVoiceDropdown.setVoices(allVoices);
+
+    // Init Calibration Dropdown
+    calibrationVoiceDropdown = new VoiceDropdown({
+      containerId: 'calibration',
+      onSelect: () => { }, // Handled by VoiceCalibration wrapper usually, but VoiceCalibration sets logic?
+      // Actually VoiceCalibration doesn't control the dropdown selection event, the dropdown does.
+      // VoiceCalibration only listens to clicks on "Edit" in the list, which sets the dropdown value programmatically.
+      // But user CAN select from dropdown manually to calibrate.
+      // So we need a callback here to update the slider to the selected voice's current volume.
+    });
+    calibrationVoiceDropdown.setVoices(allVoices);
+
+    // Init Voice Calibration
+    voiceCalibration = new VoiceCalibration({
+      voiceDropdown: calibrationVoiceDropdown,
+      currentVoiceVolumes: currentVoiceVolumes,
+      onSave: async (voiceId, volume) => {
+        await api.saveTtsSetting(getChannelName() || '', `voiceVolumes.\${voiceId}`, volume);
+        maybeSuccessToast('Saved');
+        // If this is also the default voice, update the main slider too
+        if (defaultVoiceDropdown?.getValue() === voiceId && defaultVolumeSlider) {
+          defaultVolumeSlider.value = String(volume);
+          if (volumeValueSpan) volumeValueSpan.textContent = String(volume);
+        }
+      },
+      onReset: async (voiceId) => {
+        await api.saveTtsSetting(getChannelName() || '', `voiceVolumes.\${voiceId}`, 1.0);
+        maybeSuccessToast('Reset');
+      },
+      sliderId: 'calibration-volume',
+      valueSpanId: 'calibration-volume-value',
+      saveBtnId: 'calibration-save-btn',
+      listId: 'calibrated-voices-list'
+    });
+
+    // Fix Calibration Dropdown onSelect
+    // We need to inject the logic to update slider when user picks a voice from list
+    // But VoiceDropdown is already created. We passed an empty onSelect.
+    // We can't change it easily unless we expose a setter or recreate.
+    // Wait, VoiceDropdown just calls `this.onSelect(voice)`.
+    // I should have passed the logic in the constructor.
+    // Let's create a wrapper function.
+    const handleCalibrationVoiceSelect = (voiceId: string) => {
+      voiceCalibration?.selectVoice(voiceId); // Re-use selectVoice to update slider state
+    };
+    // Re-create or hack?
+    // JS class properties are mutable.
+    (calibrationVoiceDropdown as any).onSelect = handleCalibrationVoiceSelect;
+
     attachVoicePreview();
     setupAutoSaveListeners();
-    setupVoiceCalibration();
     setupVoiceLookup();
 
     if (saveSettingsBtn) {
@@ -694,229 +479,55 @@ export function initSettingsModule(
     if (voiceTestBtn) voiceTestBtn.disabled = false;
     if (voiceTestBtnMobile) voiceTestBtnMobile.disabled = false;
 
-    settingsInitialized = true;
     settingsInitializedPromiseResolve?.();
-  }
-
-  async function loadAvailableVoices(): Promise<void> {
-    const fallbackVoices = [
-      'Friendly_Person', 'Professional_Woman', 'Casual_Male', 'Energetic_Youth',
-      'Warm_Grandmother', 'Confident_Leader', 'Soothing_Narrator', 'Cheerful_Assistant',
-      'Deep_Narrator', 'Bright_Assistant', 'Calm_Guide', 'Energetic_Host'
-    ];
-
-    if (!defaultVoiceSelect) {
-      return;
-    }
-
-    if (testMode) {
-      populateVoices(fallbackVoices);
-      return;
-    }
-
-    try {
-      const response = await fetch(`${botApiBaseUrl}/voices`);
-      if (response.ok) {
-        const voicesData = await response.json() as VoicesResponse;
-        const voices = voicesData.voices || fallbackVoices;
-        populateVoices(voices);
-        return;
-      }
-    } catch (error) {
-      console.warn('Failed to load voices from bot API, using fallback:', error);
-    }
-
-    populateVoices(fallbackVoices);
-  }
-
-  function populateVoices(voices: string[]): void {
-    allVoices = voices;
-    const searchInput = document.getElementById('default-voice-search') as HTMLInputElement | null;
-    const hiddenInput = document.getElementById('default-voice') as HTMLInputElement | null;
-    const dropdown = document.getElementById('default-voice-dropdown') as HTMLElement | null;
-    const menu = document.getElementById('default-voice-menu') as HTMLElement | null;
-    const list = menu?.querySelector('.voice-dropdown-list') as HTMLElement | null;
-
-    if (!searchInput || !hiddenInput || !menu || !list || !dropdown) {
-      console.error('Custom dropdown elements not found');
-      return;
-    }
-
-    hiddenInput.value = hiddenInput.value || 'Friendly_Person';
-    searchInput.value = formatVoiceName(hiddenInput.value);
-
-    renderVoiceList(voices, list);
-
-    searchInput.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isOpen = menu.classList.contains('show');
-      if (isOpen) {
-        closeDropdown();
-      } else {
-        openDropdown();
-      }
-    });
-
-    searchInput.addEventListener('input', () => {
-      const query = searchInput.value.toLowerCase();
-      const filtered = voices.filter(voice =>
-        formatVoiceName(voice).toLowerCase().includes(query)
-      );
-      renderVoiceList(filtered, list);
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!dropdown.contains(e.target as Node)) {
-        closeDropdown();
-      }
-    });
-
-    function openDropdown(): void {
-      if (!menu || !searchInput) return;
-      menu.classList.add('show');
-      searchInput.removeAttribute('readonly');
-      searchInput.focus();
-      searchInput.select();
-    }
-
-    function closeDropdown(): void {
-      if (!menu || !searchInput) return;
-      menu.classList.remove('show');
-      searchInput.setAttribute('readonly', 'readonly');
-    }
-
-    function renderVoiceList(voicesToRender: string[], container: HTMLElement): void {
-      container.innerHTML = '';
-      if (!voicesToRender.length) {
-        const empty = document.createElement('div');
-        empty.className = 'voice-dropdown-empty';
-        empty.textContent = 'No voices found';
-        container.appendChild(empty);
-        return;
-      }
-
-      voicesToRender.forEach(voice => {
-        const item = document.createElement('div');
-        item.className = 'voice-dropdown-item d-flex justify-content-between align-items-center';
-
-        const label = document.createElement('span');
-        label.textContent = formatVoiceName(voice);
-
-        const button = document.createElement('button');
-        button.type = 'button';
-        button.className = 'btn btn-sm btn-outline-primary voice-play-btn';
-        button.dataset.voiceId = voice;
-        button.innerHTML = `
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M8 5v14l11-7z"/>
-          </svg>
-        `;
-
-        button.addEventListener('click', async (event) => {
-          event.stopPropagation();
-          await playVoiceSample(button, voice);
-        });
-
-        item.addEventListener('click', () => {
-          if (!hiddenInput || !searchInput) return;
-          hiddenInput.value = voice;
-          searchInput.value = formatVoiceName(voice);
-          closeDropdown();
-          if (!isInitializing) updateVolumeSlider(voice);
-          saveTtsSetting('voiceId', hiddenInput.value || 'Friendly_Person', 'Default Voice');
-        });
-
-        item.appendChild(label);
-        item.appendChild(button);
-        container.appendChild(item);
-      });
-    }
-
   }
 
   function setupVoiceLookup(): void {
     const lookupInput = document.getElementById('lookup-username') as HTMLInputElement | null;
     const lookupBtn = document.getElementById('lookup-voice-btn') as HTMLButtonElement | null;
     const lookupResult = document.getElementById('lookup-result') as HTMLElement | null;
-
     if (!lookupInput || !lookupBtn || !lookupResult) return;
 
     const performLookup = async (): Promise<void> => {
       const username = lookupInput.value.trim();
-      if (!username) {
-        showToast('Please enter a username', 'warning');
-        return;
-      }
+      if (!username) { showToast('Please enter a username', 'warning'); return; }
 
       lookupBtn.disabled = true;
       const originalBtnText = lookupBtn.textContent;
       lookupBtn.textContent = 'Searching...';
       lookupResult.style.display = 'none';
-      lookupResult.className = 'mt-3'; // Reset classes
+      lookupResult.className = 'mt-3';
 
       try {
-        const headers = authHeaders();
-        delete headers['Content-Type'];
+        const data = await api.lookupUserVoice(username);
+        lookupResult.style.display = 'block';
+        if (data.voiceId) {
+          lookupResult.className = 'mt-3 alert alert-success';
+          lookupResult.innerHTML = `<div>User <strong>\${data.username}</strong> has set custom voice: <strong>\${data.voiceId}</strong></div>`;
 
-        const response = await fetch(`${botApiBaseUrl}/tts/user-voice/${username}`, {
-          headers
-        });
-        const data = await response.json() as VoiceLookupResponse;
-
-        if (response.ok) {
-          lookupResult.style.display = 'block';
-          if (data.voiceId) {
-            lookupResult.className = 'mt-3 alert alert-success';
-            lookupResult.innerHTML = `<div>User <strong>${data.username}</strong> has set custom voice: <strong>${data.voiceId}</strong></div>`;
-
-            // Check if voice exists in our list to allow calibration
-            // We use global 'allVoices'
-            const voiceExists = allVoices.includes(data.voiceId);
-
-            if (voiceExists) {
-              const calibrateBtn = document.createElement('button');
-              calibrateBtn.className = 'btn btn-sm btn-success mt-2';
-              calibrateBtn.textContent = `Calibrate "${formatVoiceName(data.voiceId)}"`;
-              calibrateBtn.onclick = () => {
-                if (calibrationVoiceSelect && calibrationVoiceSearch && calibrationVolumeSlider && calibrationVolumeValueSpan && calibrationSaveBtn) {
-                  calibrationVoiceSelect.value = data.voiceId!;
-                  calibrationVoiceSearch.value = formatVoiceName(data.voiceId!);
-
-                  const currentVol = currentVoiceVolumes[data.voiceId!] ?? 1.0;
-                  calibrationVolumeSlider.value = String(currentVol);
-                  calibrationVolumeValueSpan.textContent = String(currentVol);
-                  calibrationSaveBtn.disabled = true;
-
-                  // Scroll to calibration section
-                  calibrationVoiceSearch.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                  // Highlight it
-                  calibrationVoiceSearch.classList.add('highlight-flash');
-                  setTimeout(() => calibrationVoiceSearch.classList.remove('highlight-flash'), 2000);
-                }
-              };
-              lookupResult.appendChild(calibrateBtn);
-            } else {
-              const warning = document.createElement('div');
-              warning.className = 'text-warning small mt-1';
-              warning.textContent = 'This voice ID is not in the current available list.';
-              lookupResult.appendChild(warning);
-            }
-
+          if (allVoices.includes(data.voiceId)) {
+            const calibrateBtn = document.createElement('button');
+            calibrateBtn.className = 'btn btn-sm btn-success mt-2';
+            calibrateBtn.textContent = `Calibrate "\${formatVoiceName(data.voiceId)}"`;
+            calibrateBtn.onclick = () => {
+              voiceCalibration?.selectVoice(data.voiceId!);
+            };
+            lookupResult.appendChild(calibrateBtn);
           } else {
-            lookupResult.className = 'mt-3 alert alert-info';
-            lookupResult.textContent = `User ${data.username} has not set a custom voice (using channel default).`;
+            const warning = document.createElement('div');
+            warning.className = 'text-warning small mt-1';
+            warning.textContent = 'This voice ID is not in the current available list.';
+            lookupResult.appendChild(warning);
           }
         } else {
-          // Cast to any to access error property if needed, or rely on updated interface
-          const errorData = data as VoiceLookupResponse & { error?: string };
-          throw new Error(errorData.message || errorData.error || 'Lookup failed');
+          lookupResult.className = 'mt-3 alert alert-info';
+          lookupResult.textContent = `User \${data.username} has not set a custom voice.`;
         }
-
       } catch (e) {
         const err = e as Error;
         lookupResult.style.display = 'block';
         lookupResult.className = 'mt-3 alert alert-danger';
-        lookupResult.textContent = `Error: ${err.message}`;
+        lookupResult.textContent = `Error: \${err.message}`;
       } finally {
         lookupBtn.disabled = false;
         lookupBtn.textContent = originalBtnText || 'Lookup Voice';
@@ -924,197 +535,7 @@ export function initSettingsModule(
     };
 
     lookupBtn.addEventListener('click', () => void performLookup());
-    lookupInput.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') void performLookup();
-    });
-  }
-
-  function setupVoiceCalibration(): void {
-    if (!calibrationVolumeSlider || !calibrationVolumeValueSpan || !calibrationSaveBtn || !calibrationVoiceSelect) return;
-
-    // Volume Slider
-    calibrationVolumeSlider.addEventListener('input', () => {
-      calibrationVolumeValueSpan.textContent = calibrationVolumeSlider.value;
-      calibrationSaveBtn.disabled = false;
-    });
-
-    // Save Button
-    calibrationSaveBtn.addEventListener('click', () => {
-      const voiceId = calibrationVoiceSelect.value;
-      if (!voiceId) return;
-
-      const vol = parseFloat(calibrationVolumeSlider.value);
-      currentVoiceVolumes[voiceId] = vol;
-
-      saveTtsSetting(`voiceVolumes.${voiceId}`, vol, 'Calibration Volume');
-      calibrationSaveBtn.disabled = true;
-      renderCalibratedVoicesList();
-
-      // If this is also the default voice, update the main slider too
-      if (defaultVoiceSelect?.value === voiceId && defaultVolumeSlider) {
-        defaultVolumeSlider.value = String(vol);
-        if (volumeValueSpan) volumeValueSpan.textContent = String(vol);
-      }
-    });
-
-    // Populate dropdown once voices are loaded
-    if (allVoices.length > 0) {
-      populateCalibrationVoices(allVoices);
-    }
-  }
-
-  function populateCalibrationVoices(voices: string[]): void {
-    if (!calibrationVoiceSelect || !calibrationVoiceSearch || !calibrationVoiceMenu || !calibrationVoiceDropdown) return;
-
-    const list = calibrationVoiceMenu.querySelector('.voice-dropdown-list') as HTMLElement | null;
-    if (!list) return;
-
-    // Filter out voices that are already calibrated? No, allow editing.
-
-    renderList(voices);
-
-    calibrationVoiceSearch.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isOpen = calibrationVoiceMenu.classList.contains('show');
-      if (isOpen) closeDropdown();
-      else openDropdown();
-    });
-
-    calibrationVoiceSearch.addEventListener('input', () => {
-      const query = calibrationVoiceSearch.value.toLowerCase();
-      const filtered = voices.filter(voice => formatVoiceName(voice).toLowerCase().includes(query));
-      renderList(filtered);
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!calibrationVoiceDropdown.contains(e.target as Node)) {
-        closeDropdown();
-      }
-    });
-
-    function openDropdown(): void {
-      if (!calibrationVoiceMenu || !calibrationVoiceSearch) return;
-      calibrationVoiceMenu.classList.add('show');
-      calibrationVoiceSearch.removeAttribute('readonly');
-      calibrationVoiceSearch.focus();
-      calibrationVoiceSearch.select();
-    }
-
-    function closeDropdown(): void {
-      if (!calibrationVoiceMenu || !calibrationVoiceSearch) return;
-      calibrationVoiceMenu.classList.remove('show');
-      calibrationVoiceSearch.setAttribute('readonly', 'readonly');
-    }
-
-    function renderList(items: string[]): void {
-      list!.innerHTML = '';
-      if (!items.length) {
-        const empty = document.createElement('div');
-        empty.className = 'voice-dropdown-empty';
-        empty.textContent = 'No voices found';
-        list!.appendChild(empty);
-        return;
-      }
-
-      items.forEach(voice => {
-        const item = document.createElement('div');
-        item.className = 'voice-dropdown-item d-flex justify-content-between align-items-center';
-
-        const label = document.createElement('span');
-        label.textContent = formatVoiceName(voice);
-
-        const button = document.createElement('button');
-        button.type = 'button';
-        button.className = 'btn btn-sm btn-outline-primary voice-play-btn';
-        button.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>`;
-        button.addEventListener('click', async (e) => {
-          e.stopPropagation();
-          await playVoiceSample(button, voice);
-        });
-
-        item.addEventListener('click', () => {
-          if (!calibrationVoiceSelect || !calibrationVoiceSearch || !calibrationVolumeSlider || !calibrationVolumeValueSpan || !calibrationSaveBtn) return;
-
-          calibrationVoiceSelect.value = voice;
-          calibrationVoiceSearch.value = formatVoiceName(voice);
-          closeDropdown();
-
-          // Set slider to current calibrated volume or default 1.0
-          const currentVol = currentVoiceVolumes[voice] ?? 1.0;
-          calibrationVolumeSlider.value = String(currentVol);
-          calibrationVolumeValueSpan.textContent = String(currentVol);
-          calibrationSaveBtn.disabled = true; // Disabled until changed
-        });
-
-        item.appendChild(label);
-        item.appendChild(button);
-        list!.appendChild(item);
-      });
-    }
-  }
-
-  function renderCalibratedVoicesList(): void {
-    if (!calibratedVoicesList) {
-      return;
-    }
-    calibratedVoicesList.innerHTML = '';
-
-    const calibratedIds = Object.keys(currentVoiceVolumes).filter(id => currentVoiceVolumes[id] !== 1.0); // Only show non-default
-
-    if (calibratedIds.length === 0) {
-      calibratedVoicesList.innerHTML = '<li class="list-group-item text-center text-muted py-3">No voices calibrated yet</li>';
-      return;
-    }
-
-    calibratedIds.forEach(voiceId => {
-      const vol = currentVoiceVolumes[voiceId];
-      const li = document.createElement('li');
-      li.className = 'list-group-item d-flex justify-content-between align-items-center';
-
-      const nameSpan = document.createElement('span');
-      nameSpan.textContent = `${formatVoiceName(voiceId)} (${vol})`;
-
-      const actionsDiv = document.createElement('div');
-
-      const editBtn = document.createElement('button');
-      editBtn.className = 'btn btn-sm btn-outline-secondary me-2';
-      editBtn.textContent = 'Edit';
-      editBtn.onclick = () => {
-        if (calibrationVoiceSelect && calibrationVoiceSearch && calibrationVolumeSlider && calibrationVolumeValueSpan && calibrationSaveBtn) {
-          calibrationVoiceSelect.value = voiceId;
-          calibrationVoiceSearch.value = formatVoiceName(voiceId);
-          calibrationVolumeSlider.value = String(vol);
-          calibrationVolumeValueSpan.textContent = String(vol);
-          calibrationSaveBtn.disabled = true;
-          // Scroll to section?
-          calibrationVoiceSelect.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-      };
-
-      const resetBtn = document.createElement('button');
-      resetBtn.className = 'btn btn-sm btn-outline-danger';
-      resetBtn.textContent = 'Reset';
-      resetBtn.onclick = () => {
-        // Reset to 1.0 (remove from map basically, or set to 1.0)
-        // If we want to truly delete the key, we need an API that supports deletion or just set to 1.0
-        // Setting to 1.0 is safer for now.
-        if (confirm(`Reset calibration for ${formatVoiceName(voiceId)}?`)) {
-          currentVoiceVolumes[voiceId] = 1.0;
-          saveTtsSetting(`voiceVolumes.${voiceId}`, 1.0, 'Reset Calibration');
-          renderCalibratedVoicesList();
-          if (calibrationVoiceSelect?.value === voiceId && calibrationVolumeSlider) {
-            calibrationVolumeSlider.value = '1.0';
-            if (calibrationVolumeValueSpan) calibrationVolumeValueSpan.textContent = '1.0';
-          }
-        }
-      };
-
-      actionsDiv.appendChild(editBtn);
-      actionsDiv.appendChild(resetBtn);
-      li.appendChild(nameSpan);
-      li.appendChild(actionsDiv);
-      calibratedVoicesList.appendChild(li);
-    });
+    lookupInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') void performLookup(); });
   }
 
   async function loadBotSettings(): Promise<void> {
@@ -1125,6 +546,7 @@ export function initSettingsModule(
     }
 
     if (testMode) {
+      // Demo settings...
       const demoTts: TtsSettings = {
         engineEnabled: true,
         botRespondsInChat: true,
@@ -1144,47 +566,25 @@ export function initSettingsModule(
       };
       applyTtsSettings(demoTts);
       displayIgnoreList('tts', demoTts.ignoredUsers || []);
-      originalSettings = { tts: demoTts };
       return;
     }
 
-    try {
-      const channelName = user.login.toLowerCase();
-      const headers = authHeaders();
-
-      let ttsData: SettingsResponse = { settings: {} };
-      const ttsResponse = await fetch(`${botApiBaseUrl}/tts/settings/channel/${channelName}?t=${Date.now()}`, {
-        headers,
-        cache: 'no-store'
-      });
-      if (ttsResponse.status === 403) {
-        const errorData = await ttsResponse.json().catch(() => ({})) as ErrorResponse;
-        const errorText = errorData.details || errorData.message || 'This channel is not permitted to use this service.';
-        const html = errorText.includes('https://detekoi.github.io/#contact-me')
-          ? errorText.replace('https://detekoi.github.io/#contact-me', '<a href="https://detekoi.github.io/#contact-me" target="_blank" class="link-light">this link</a>')
-          : `${errorText} <a href="https://detekoi.github.io/#contact-me" target="_blank" class="link-light">Request access here</a>.`;
-        showToast(html, 'error');
-        return;
-      } else if (ttsResponse.ok) {
-        ttsData = await ttsResponse.json() as SettingsResponse;
-        applyTtsSettings(ttsData.settings as TtsSettings || {});
-      }
-
-      displayIgnoreList('tts', (ttsData.settings as TtsSettings)?.ignoredUsers || []);
-
-      originalSettings = {
-        tts: ttsData.settings as TtsSettings || {}
-      };
-    } catch (error) {
-      console.error('Failed to load bot settings:', error);
-      showToast('Failed to load settings. Please refresh.', 'error');
+    const response = await api.getSettings(user.login);
+    if ('error' in response) {
+      showToast(`Failed to load settings: \${response.error}`, 'error');
+      return;
     }
+
+    applyTtsSettings(response.settings || {});
+    displayIgnoreList('tts', response.settings?.ignoredUsers || []);
   }
 
   function applyTtsSettings(settings: TtsSettings): void {
     if (settings.voiceVolumes) {
       currentVoiceVolumes = settings.voiceVolumes;
+      voiceCalibration?.updateVolumes(currentVoiceVolumes);
     }
+
     if (ttsEnabledCheckbox) ttsEnabledCheckbox.checked = settings.engineEnabled || false;
     if (botRespondsInChatCheckbox) botRespondsInChatCheckbox.checked = settings.botRespondsInChat !== false;
     if (ttsModeSelect) ttsModeSelect.value = settings.mode || 'command';
@@ -1194,13 +594,11 @@ export function initSettingsModule(
     if (readFullUrlsCheckbox) readFullUrlsCheckbox.checked = settings.readFullUrls || false;
     if (bitsEnabledCheckbox) bitsEnabledCheckbox.checked = settings.bitsModeEnabled || false;
     if (bitsAmountInput) bitsAmountInput.value = String(settings.bitsMinimumAmount ?? 100);
-    if (defaultVoiceSelect) {
-      defaultVoiceSelect.value = settings.voiceId || 'Friendly_Person';
-      const searchInput = document.getElementById('default-voice-search') as HTMLInputElement | null;
-      if (searchInput) {
-        searchInput.value = formatVoiceName(defaultVoiceSelect.value);
-      }
+
+    if (defaultVoiceDropdown && settings.voiceId) {
+      defaultVoiceDropdown.setValue(settings.voiceId);
     }
+
     if (defaultEmotionSelect) defaultEmotionSelect.value = settings.emotion || 'auto';
     if (defaultPitchSlider) {
       defaultPitchSlider.value = String(settings.pitch ?? 0);
@@ -1211,13 +609,9 @@ export function initSettingsModule(
       if (speedValueSpan) speedValueSpan.textContent = String(settings.speed ?? 1.0);
     }
 
-    // Update volume slider for initialization
     if (settings.voiceId) updateVolumeSlider(settings.voiceId);
-
-    renderCalibratedVoicesList();
 
     if (defaultLanguageSelect) defaultLanguageSelect.value = settings.languageBoost || 'Automatic';
     if (englishNormalizationCheckbox) englishNormalizationCheckbox.checked = settings.englishNormalization || false;
   }
-
 }
