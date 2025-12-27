@@ -1325,7 +1325,7 @@ dialog.modal::backdrop {
    ===================================================== */
 .custom-voice-dropdown {
     position: relative;
-    width: 250px;
+    width: 100%;
 }
 
 .custom-voice-dropdown input[type="text"] {
