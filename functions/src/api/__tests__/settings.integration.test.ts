@@ -1,20 +1,31 @@
 
 import request from "supertest";
 import express from "express";
-import settingsRoutes from "../settings";
 import { authenticateApiRequest } from "../../middleware/auth";
 
-// Mock the dependencies
-jest.mock("../../services/firestore");
+// 1. Define Mocks BEFORE imports that use them
+jest.mock("../../services/firestore", () => ({
+    db: {
+        collection: jest.fn(),
+    },
+    COLLECTIONS: {
+        TTS_CHANNEL_CONFIGS: "ttsChannelConfigs",
+        MUSIC_SETTINGS: "musicSettings",
+    },
+}));
+
 jest.mock("../../middleware/auth");
+
 jest.mock("../../services/utils", () => ({
     getAllowedChannelsList: jest.fn().mockResolvedValue(["testchannel"]),
 }));
+
 jest.mock("../../logger", () => ({
     logger: {
         info: jest.fn(),
         error: jest.fn(),
         warn: jest.fn(),
+        child: jest.fn().mockReturnThis(),
     },
     createLogger: jest.fn().mockReturnValue({
         info: jest.fn(),
@@ -23,6 +34,11 @@ jest.mock("../../logger", () => ({
     }),
 }));
 
+// 2. Import the module under test AFTER mocks
+import settingsRoutes from "../settings";
+import { db } from "../../services/firestore";
+
+// 3. Configure Mocks
 const mockAuth = authenticateApiRequest as jest.Mock;
 mockAuth.mockImplementation((req, _res, next) => {
     req.user = { userLogin: "testchannel", userId: "123" };
@@ -31,25 +47,28 @@ mockAuth.mockImplementation((req, _res, next) => {
 
 const app = express();
 app.use(express.json());
-// Mount exactly as index.ts does
 app.use("/api", settingsRoutes);
 
 describe("Settings API", () => {
+    beforeEach(() => {
+        jest.clearAllMocks();
+    });
+
     it("GET /api/tts/settings/channel/:channelName should return 200", async () => {
-        // Mock db logic would be needed if we want real data, but we just want to check routing
-        const { db, COLLECTIONS } = require("../../services/firestore");
         const mockGet = jest.fn().mockResolvedValue({
             exists: true,
-            data: () => ({ voiceId: "test-voice" }),
+            data: () => ({
+                voiceId: "test-voice",
+                voiceVolumes: { "Spanish_HumorousElder": 0.9 }
+            }),
         });
         const mockDoc = jest.fn().mockReturnValue({ get: mockGet });
-        const mockCollection = jest.fn().mockReturnValue({ doc: mockDoc });
-        db.collection = mockCollection;
-        COLLECTIONS.TTS_CHANNEL_CONFIGS = "ttsChannelConfigs";
+        (db.collection as jest.Mock).mockReturnValue({ doc: mockDoc });
 
         const res = await request(app).get("/api/tts/settings/channel/testchannel");
-        console.log(res.status, res.body);
+
         expect(res.status).toBe(200);
         expect(res.body.settings.voiceId).toBe("test-voice");
-    });
+        expect(res.body.settings.voiceVolumes["Spanish_HumorousElder"]).toBe(0.9);
+    }, 10000); // 10s timeout
 });

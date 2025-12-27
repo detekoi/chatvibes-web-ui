@@ -158,7 +158,7 @@ export function initSettingsModule(
   const calibrationVolumeSlider = document.getElementById('calibration-volume') as HTMLInputElement | null;
   const calibrationVolumeValueSpan = document.getElementById('calibration-volume-value') as HTMLSpanElement | null;
   const calibrationSaveBtn = document.getElementById('calibration-save-btn') as HTMLButtonElement | null;
-  const calibratedVoicesList = document.getElementById('calibrated-voices-list') as HTMLInputElement | null;
+  const calibratedVoicesList = document.getElementById('calibrated-voices-list') as HTMLUListElement | null;
 
   const saveSettingsBtn = document.getElementById('save-settings-btn') as HTMLButtonElement | null;
 
@@ -1083,7 +1083,11 @@ export function initSettingsModule(
   }
 
   function renderCalibratedVoicesList(): void {
-    if (!calibratedVoicesList) return;
+    if (!calibratedVoicesList) {
+      console.error('calibratedVoicesList element not found in DOM');
+      return;
+    }
+    console.log('Rendering calibrated voices:', currentVoiceVolumes);
     calibratedVoicesList.innerHTML = '';
 
     const calibratedIds = Object.keys(currentVoiceVolumes).filter(id => currentVoiceVolumes[id] !== 1.0); // Only show non-default
@@ -1189,7 +1193,10 @@ export function initSettingsModule(
       const headers = authHeaders();
 
       let ttsData: SettingsResponse = { settings: {} };
-      const ttsResponse = await fetch(`${botApiBaseUrl}/tts/settings/channel/${channelName}`, { headers });
+      const ttsResponse = await fetch(`${botApiBaseUrl}/tts/settings/channel/${channelName}?t=${Date.now()}`, {
+        headers,
+        cache: 'no-store'
+      });
       if (ttsResponse.status === 403) {
         const errorData = await ttsResponse.json().catch(() => ({})) as ErrorResponse;
         const errorText = errorData.details || errorData.message || 'This channel is not permitted to use this service.';
@@ -1227,7 +1234,10 @@ export function initSettingsModule(
 
   function applyTtsSettings(settings: TtsSettings): void {
     if (settings.voiceVolumes) {
+      console.log('Received voiceVolumes:', settings.voiceVolumes);
       currentVoiceVolumes = settings.voiceVolumes;
+    } else {
+      console.log('No voiceVolumes in settings');
     }
     if (ttsEnabledCheckbox) ttsEnabledCheckbox.checked = settings.engineEnabled || false;
     if (botRespondsInChatCheckbox) botRespondsInChatCheckbox.checked = settings.botRespondsInChat !== false;
