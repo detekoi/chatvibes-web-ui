@@ -23,6 +23,7 @@ export interface TtsSettings {
   languageBoost?: string;
   englishNormalization?: boolean;
   ignoredUsers?: string[];
+  voiceVolumes?: Record<string, number>;
 }
 
 /**
@@ -109,8 +110,11 @@ export function initSettingsModule(
   const pitchValueSpan = document.getElementById('pitch-value') as HTMLSpanElement | null;
   const defaultSpeedSlider = document.getElementById('default-speed') as HTMLInputElement | null;
   const speedValueSpan = document.getElementById('speed-value') as HTMLSpanElement | null;
+  const defaultVolumeSlider = document.getElementById('default-volume') as HTMLInputElement | null;
+  const volumeValueSpan = document.getElementById('volume-value') as HTMLSpanElement | null;
   const resetPitchBtn = document.getElementById('reset-pitch-btn') as HTMLButtonElement | null;
   const resetSpeedBtn = document.getElementById('reset-speed-btn') as HTMLButtonElement | null;
+  const resetVolumeBtn = document.getElementById('reset-volume-btn') as HTMLButtonElement | null;
   const defaultLanguageSelect = document.getElementById('default-language') as HTMLSelectElement | null;
   if (defaultLanguageSelect) {
     const options = [
@@ -165,6 +169,7 @@ export function initSettingsModule(
   void allVoices; // Intentionally unused - for future reference
   let currentlyPlayingAudio: HTMLAudioElement | null = null;
   let currentlyPlayingVoiceId: string | null = null;
+  let currentVoiceVolumes: Record<string, number> = {};
 
   let cachedAudioUrl: string | null = null;
   let cachedAudioUrlMobile: string | null = null;
@@ -262,6 +267,13 @@ export function initSettingsModule(
     }
   }
 
+  function updateVolumeSlider(voiceId: string): void {
+    if (!defaultVolumeSlider || !volumeValueSpan) return;
+    const vol = currentVoiceVolumes[voiceId] ?? 1.0;
+    defaultVolumeSlider.value = String(vol);
+    volumeValueSpan.textContent = String(vol);
+  }
+
   function setupAutoSaveListeners(): void {
     if (ttsEnabledCheckbox) ttsEnabledCheckbox.addEventListener('change', () => saveTtsSetting('engineEnabled', !!ttsEnabledCheckbox.checked, 'TTS Engine'));
     if (botRespondsInChatCheckbox) botRespondsInChatCheckbox.addEventListener('change', () => saveTtsSetting('botRespondsInChat', !!botRespondsInChatCheckbox.checked, 'Bot Responds in Chat'));
@@ -280,7 +292,11 @@ export function initSettingsModule(
       bitsAmountInput.addEventListener('change', () => saveTtsSetting('bitsMinimumAmount', parseInt(bitsAmountInput.value || '100', 10), 'Minimum Bits'));
     }
 
-    if (defaultVoiceSelect) defaultVoiceSelect.addEventListener('change', () => saveTtsSetting('voiceId', defaultVoiceSelect.value || 'Friendly_Person', 'Default Voice'));
+    if (defaultVoiceSelect) defaultVoiceSelect.addEventListener('change', () => {
+      const newVoiceId = defaultVoiceSelect.value || 'Friendly_Person';
+      if (!isInitializing) updateVolumeSlider(newVoiceId);
+      saveTtsSetting('voiceId', newVoiceId, 'Default Voice');
+    });
     if (defaultEmotionSelect) defaultEmotionSelect.addEventListener('change', () => saveTtsSetting('emotion', defaultEmotionSelect.value || 'auto', 'Default Emotion'));
 
     if (defaultPitchSlider) {
@@ -299,6 +315,25 @@ export function initSettingsModule(
       );
       defaultSpeedSlider.addEventListener('input', () => { if (!isInitializing) debouncedSpeedSave(); });
       defaultSpeedSlider.addEventListener('change', () => saveTtsSetting('speed', parseFloat(defaultSpeedSlider.value || '1.0'), 'Default Speed'));
+    }
+
+    if (defaultVolumeSlider) {
+      const debouncedVolumeSave = debounce(
+        () => {
+          const voiceId = defaultVoiceSelect?.value || 'Friendly_Person';
+          const vol = parseFloat(defaultVolumeSlider.value || '1.0');
+          currentVoiceVolumes[voiceId] = vol;
+          saveTtsSetting(`voiceVolumes.${voiceId}`, vol, 'Voice Volume');
+        },
+        400
+      );
+      defaultVolumeSlider.addEventListener('input', () => { if (!isInitializing) debouncedVolumeSave(); });
+      defaultVolumeSlider.addEventListener('change', () => {
+        const voiceId = defaultVoiceSelect?.value || 'Friendly_Person';
+        const vol = parseFloat(defaultVolumeSlider.value || '1.0');
+        currentVoiceVolumes[voiceId] = vol;
+        saveTtsSetting(`voiceVolumes.${voiceId}`, vol, 'Voice Volume');
+      });
     }
 
     if (defaultLanguageSelect) defaultLanguageSelect.addEventListener('change', () => saveTtsSetting('languageBoost', defaultLanguageSelect.value || 'Automatic', 'Default Language'));
@@ -424,7 +459,7 @@ export function initSettingsModule(
 
     const watchDirtyElements = [
       defaultVoiceSelect, defaultEmotionSelect, defaultPitchSlider,
-      defaultSpeedSlider, defaultLanguageSelect, englishNormalizationCheckbox
+      defaultSpeedSlider, defaultVolumeSlider, defaultLanguageSelect, englishNormalizationCheckbox
     ];
     watchDirtyElements.forEach(el => {
       if (!el) return;
@@ -460,6 +495,8 @@ export function initSettingsModule(
     const emotion = defaultEmotionSelect?.value || 'auto';
     const pitch = parseInt(defaultPitchSlider?.value || '0', 10);
     const speed = parseFloat(defaultSpeedSlider?.value || '1.0');
+    // volume is applied by backend based on voiceId, but for preview we might want it?
+    // The current preview logic uses backend synthesis, so backend will apply it.
     const languageBoost = defaultLanguageSelect?.value || 'Automatic';
     return { voiceId, emotion, pitch, speed, languageBoost };
   }
@@ -620,6 +657,11 @@ export function initSettingsModule(
         speedValueSpan.textContent = defaultSpeedSlider.value;
       });
     }
+    if (defaultVolumeSlider && volumeValueSpan) {
+      defaultVolumeSlider.addEventListener('input', () => {
+        volumeValueSpan.textContent = defaultVolumeSlider.value;
+      });
+    }
 
     if (resetPitchBtn) {
       resetPitchBtn.addEventListener('click', () => {
@@ -635,6 +677,16 @@ export function initSettingsModule(
         defaultSpeedSlider.value = '1.0';
         speedValueSpan.textContent = '1.0';
         saveTtsSetting('speed', 1.0, 'Default Speed');
+      });
+    }
+    if (resetVolumeBtn) {
+      resetVolumeBtn.addEventListener('click', () => {
+        if (!defaultVolumeSlider || !volumeValueSpan || !defaultVoiceSelect) return;
+        defaultVolumeSlider.value = '1.0';
+        volumeValueSpan.textContent = '1.0';
+        const voiceId = defaultVoiceSelect.value || 'Friendly_Person';
+        currentVoiceVolumes[voiceId] = 1.0;
+        saveTtsSetting(`voiceVolumes.${voiceId}`, 1.0, 'Voice Volume');
       });
     }
 
@@ -780,6 +832,7 @@ export function initSettingsModule(
           hiddenInput.value = voice;
           searchInput.value = formatVoiceName(voice);
           closeDropdown();
+          if (!isInitializing) updateVolumeSlider(voice);
           saveTtsSetting('voiceId', hiddenInput.value || 'Friendly_Person', 'Default Voice');
         });
 
@@ -873,6 +926,9 @@ export function initSettingsModule(
   }
 
   function applyTtsSettings(settings: TtsSettings): void {
+    if (settings.voiceVolumes) {
+      currentVoiceVolumes = settings.voiceVolumes;
+    }
     if (ttsEnabledCheckbox) ttsEnabledCheckbox.checked = settings.engineEnabled || false;
     if (botRespondsInChatCheckbox) botRespondsInChatCheckbox.checked = settings.botRespondsInChat !== false;
     if (ttsModeSelect) ttsModeSelect.value = settings.mode || 'command';
@@ -898,6 +954,9 @@ export function initSettingsModule(
       defaultSpeedSlider.value = String(settings.speed ?? 1.0);
       if (speedValueSpan) speedValueSpan.textContent = String(settings.speed ?? 1.0);
     }
+    // Update volume slider for initialization
+    if (settings.voiceId) updateVolumeSlider(settings.voiceId);
+
     if (defaultLanguageSelect) defaultLanguageSelect.value = settings.languageBoost || 'Automatic';
     if (englishNormalizationCheckbox) englishNormalizationCheckbox.checked = settings.englishNormalization || false;
   }
