@@ -110,18 +110,6 @@ router.get("/preferences/:channel", authenticateApiRequest, async (req: Request,
     // Check if user is ignored
     const ttsIgnored = (channelData.ignoredUsers || []).includes(username);
 
-    // Check music ignore status
-    let musicIgnored = false;
-    try {
-      const musicDoc = await db.collection(COLLECTIONS.MUSIC_SETTINGS).doc(channel).get();
-      if (musicDoc.exists) {
-        const musicData = musicDoc.data();
-        musicIgnored = ((musicData?.ignoredUsers || []).includes(username));
-      }
-    } catch (error) {
-      const err = error as Error;
-      log.warn({error: err.message}, "Failed to check music ignore status");
-    }
 
     // Map global prefs to UI schema (languageBoost -> language)
     const responseBody = {
@@ -133,7 +121,6 @@ router.get("/preferences/:channel", authenticateApiRequest, async (req: Request,
       englishNormalization: (globalPrefs.englishNormalization !== undefined) ? globalPrefs.englishNormalization : undefined,
       ignoreStatus: {
         tts: ttsIgnored,
-        music: musicIgnored,
       },
       channelExists: true,
       channelDefaults: {
@@ -406,68 +393,6 @@ router.post("/ignore/tts/:channel", authenticateApiRequest, async (req: Request,
     const err = error as Error;
     log.error({error: err.message}, "Error updating ignore status");
     res.status(500).json({error: "Failed to update ignore status"});
-  }
-});
-
-// Route: /api/viewer/ignore/music/:channel - Toggle music ignore status
-router.post("/ignore/music/:channel", authenticateApiRequest, async (req: Request, res: Response): Promise<void> => {
-  const {channel} = req.params;
-  if (!req.user) {
-    res.status(401).json({error: "Unauthorized"});
-    return;
-  }
-
-  const username = req.user.userLogin;
-  const log = logger.child({endpoint: "/api/viewer/ignore/music/:channel", channel, username});
-
-  try {
-    if (!channel) {
-      res.status(400).json({error: "Channel is required"});
-      return;
-    }
-
-    const musicDocRef = db.collection(COLLECTIONS.MUSIC_SETTINGS).doc(channel);
-    const musicDoc = await musicDocRef.get();
-
-    if (!musicDoc.exists) {
-      // Create music settings document if it doesn't exist
-      await musicDocRef.set({
-        enabled: false,
-        ignoredUsers: [username],
-      });
-      log.info("Created music settings and added user to ignore list");
-      res.json({success: true, ignored: true, message: "Added to music ignore list"});
-      return;
-    }
-
-    const musicData = musicDoc.data();
-    if (!musicData) {
-      res.status(404).json({error: "Music data not found"});
-      return;
-    }
-
-    const ignoredUsers: string[] = musicData.ignoredUsers || [];
-    const isCurrentlyIgnored = ignoredUsers.includes(username);
-
-    if (isCurrentlyIgnored) {
-      // Remove from ignore list
-      await musicDocRef.update({
-        ignoredUsers: ignoredUsers.filter((user) => user !== username),
-      });
-      log.info("Removed user from music ignore list");
-      res.json({success: true, ignored: false, message: "Removed from music ignore list"});
-    } else {
-      // Add to ignore list
-      await musicDocRef.update({
-        ignoredUsers: [...ignoredUsers, username],
-      });
-      log.info("Added user to music ignore list");
-      res.json({success: true, ignored: true, message: "Added to music ignore list"});
-    }
-  } catch (error) {
-    const err = error as Error;
-    log.error({error: err.message}, "Error updating music ignore status");
-    res.status(500).json({error: "Failed to update music ignore status"});
   }
 });
 

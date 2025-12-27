@@ -22,7 +22,6 @@ try {
 const COLLECTIONS = {
   MANAGED_CHANNELS: "managedChannels",
   TTS_CHANNEL_CONFIGS: "ttsChannelConfigs",
-  MUSIC_SETTINGS: "musicSettings",
   SHORTLINKS: "shortlinks",
   TTS_USER_PREFS: "ttsUserPreferences",
 } as const;

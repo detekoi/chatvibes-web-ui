@@ -10,7 +10,6 @@ jest.mock("../../services/firestore", () => ({
     },
     COLLECTIONS: {
         TTS_CHANNEL_CONFIGS: "ttsChannelConfigs",
-        MUSIC_SETTINGS: "musicSettings",
     },
 }));
 

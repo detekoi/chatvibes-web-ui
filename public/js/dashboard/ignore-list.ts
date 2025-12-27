@@ -3,7 +3,7 @@ import { showToast } from '../common/ui.js';
 /**
  * Ignore list type
  */
-export type IgnoreListType = 'tts' | 'music';
+export type IgnoreListType = 'tts';
 
 /**
  * Ignore list module context
@@ -37,7 +37,7 @@ interface IgnoreListErrorResponse {
 }
 
 /**
- * Manage TTS and music ignore lists.
+ * Manage TTS ignore lists.
  */
 export function initIgnoreListModule(
   context: IgnoreListContext,
@@ -48,7 +48,6 @@ export function initIgnoreListModule(
   let onChangeCallback: (() => void) | null = null;
 
   const addTtsIgnoreBtn = document.getElementById('add-tts-ignore-btn');
-  const addMusicIgnoreBtn = document.getElementById('add-music-ignore-btn');
 
   function authHeaders(): HeadersInit {
     const headers: HeadersInit = { 'Content-Type': 'application/json' };
@@ -179,9 +178,6 @@ export function initIgnoreListModule(
 
   if (addTtsIgnoreBtn) {
     addTtsIgnoreBtn.addEventListener('click', () => addToIgnoreList('tts'));
-  }
-  if (addMusicIgnoreBtn) {
-    addMusicIgnoreBtn.addEventListener('click', () => addToIgnoreList('music'));
   }
 
   return {

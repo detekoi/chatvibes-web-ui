@@ -40,11 +40,10 @@ export interface ChannelPolicy {
 }
 
 /**
- * Ignore status for TTS and music
+ * Ignore status for TTS
  */
 export interface IgnoreStatus {
   tts?: boolean;
-  music?: boolean;
 }
 
 /**
@@ -626,7 +625,7 @@ export function initPreferencesModule(
           englishNormalization: false,
         },
         channelPolicy: { allowViewerPreferences: true },
-        ignoreStatus: { tts: false, music: false },
+        ignoreStatus: { tts: false },
       };
       applyPreferences(demo);
       return {

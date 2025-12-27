@@ -359,75 +359,10 @@
                             </div>
                         </div>
 
-                        <!-- Music Generation -->
-                        <div class="settings-section">
-                            <h5 class="settings-section-title">Music Generation</h5>
-                            <p class="settings-section-description">Configure music bot settings and permissions</p>
-                            <div class="list-group mb-4 shadow">
-                                <div class="list-group-item">
-                                    <div class="row align-items-center">
-                                        <div class="col">
-                                            <strong class="mb-0">Music Generation Enabled</strong>
-                                            <p class="text-muted mb-0">Enable or disable the music generation feature
-                                            </p>
-                                        </div>
-                                        <div class="col-auto">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox" id="music-enabled">
-                                                <span class="form-check-label"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="list-group-item">
-                                    <div class="row align-items-center">
-                                        <div class="col">
-                                            <strong class="mb-0">Require Bits for Music</strong>
-                                            <p class="text-muted mb-0">Users must spend bits to generate music</p>
-                                        </div>
-                                        <div class="col-auto">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox" id="music-bits-enabled">
-                                                <span class="form-check-label"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="list-group-item">
-                                    <div class="row align-items-center">
-                                        <div class="col">
-                                            <label for="music-mode" class="form-label mb-1"><strong>Who Can Generate
-                                                    Music</strong></label>
-                                            <p class="text-muted mb-0">Permission level for music commands</p>
-                                        </div>
-                                        <div class="col-auto">
-                                            <select id="music-mode" class="form-select">
-                                                <option value="everyone">Everyone</option>
-                                                <option value="moderator">Moderators Only</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="list-group-item">
-                                    <div class="row align-items-center">
-                                        <div class="col">
-                                            <label for="music-bits-amount" class="form-label mb-1"><strong>Minimum Bits
-                                                    for Music</strong></label>
-                                            <p class="text-muted mb-0">How many bits users must spend for music</p>
-                                        </div>
-                                        <div class="col-auto">
-                                            <input type="number" id="music-bits-amount" class="form-control" min="0"
-                                                value="100" style="width: 120px;">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                         <!-- Ignored Users -->
                         <div class="settings-section">
                             <h5 class="settings-section-title">Ignored Users</h5>
-                            <p class="settings-section-description">Manage users who are ignored by TTS and music
+                            <p class="settings-section-description">Manage users who are ignored by TTS
                                 commands</p>
 
                             <div class="mb-4">
@@ -447,21 +382,6 @@
                                 </div>
                             </div>
 
-                            <div class="mb-4">
-                                <h6 class="mb-2"><strong>Music Ignore List</strong></h6>
-                                <p class="text-muted small mb-2">Users on this list cannot use music bot commands</p>
-                                <div class="card shadow">
-                                    <div class="card-body">
-                                        <div class="input-group mb-2">
-                                            <input type="text" id="music-ignore-username" class="form-control"
-                                                placeholder="Username to ignore">
-                                            <button id="add-music-ignore-btn" class="btn btn-secondary"
-                                                type="button">Add</button>
-                                        </div>
-                                        <ul id="music-ignore-list" class="ignore-list list-group"></ul>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
 
                         <div class="d-grid">

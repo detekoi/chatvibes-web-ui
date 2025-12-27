@@ -37,7 +37,6 @@ ChatVibes TTS bot management web application with:
 - **Database**: Firestore collections
   - `managedChannels` - Bot status, OAuth tokens (managed by this app)
   - `ttsChannelConfigs` - TTS settings (managed by main TTS app)
-  - `musicSettings` - Music bot settings (managed by main TTS app)
 
 ## Code Style
 

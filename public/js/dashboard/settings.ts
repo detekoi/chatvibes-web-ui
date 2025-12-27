@@ -26,22 +26,12 @@ export interface TtsSettings {
   voiceVolumes?: Record<string, number>;
 }
 
-/**
- * Music settings stored in database
- */
-export interface MusicSettings {
-  enabled?: boolean;
-  allowedRoles?: string[];
-  bitsModeEnabled?: boolean;
-  bitsMinimumAmount?: number;
-  ignoredUsers?: string[];
-}
 
 /**
  * API response for settings endpoints
  */
 interface SettingsResponse {
-  settings: TtsSettings | MusicSettings;
+  settings: TtsSettings;
 }
 
 /**
@@ -80,7 +70,7 @@ export interface SettingsModuleContext {
  * Dependencies for settings module
  */
 export interface SettingsModuleDependencies {
-  displayIgnoreList: (type: 'tts' | 'music', users: string[]) => void;
+  displayIgnoreList: (type: 'tts', users: string[]) => void;
 }
 
 /**
@@ -96,7 +86,6 @@ export interface SettingsModule {
  */
 interface OriginalSettings {
   tts: TtsSettings;
-  music: MusicSettings;
 }
 
 /**
@@ -145,10 +134,6 @@ export function initSettingsModule(
   const readFullUrlsCheckbox = document.getElementById('read-full-urls') as HTMLInputElement | null;
   const bitsEnabledCheckbox = document.getElementById('bits-enabled') as HTMLInputElement | null;
   const bitsAmountInput = document.getElementById('bits-amount') as HTMLInputElement | null;
-  const musicEnabledCheckbox = document.getElementById('music-enabled') as HTMLInputElement | null;
-  const musicModeSelect = document.getElementById('music-mode') as HTMLSelectElement | null;
-  const musicBitsEnabledCheckbox = document.getElementById('music-bits-enabled') as HTMLInputElement | null;
-  const musicBitsAmountInput = document.getElementById('music-bits-amount') as HTMLInputElement | null;
 
   // Voice Calibration Elements
   const calibrationVoiceSelect = document.getElementById('calibration-voice') as HTMLInputElement | null; // Hidden input
@@ -171,7 +156,7 @@ export function initSettingsModule(
   if (voiceTestBtnMobile) voiceTestBtnMobile.disabled = true;
   syncTextareas(voiceTestTextInput, voiceTestTextInputMobile);
 
-  let originalSettings: OriginalSettings = { tts: {}, music: {} };
+  let originalSettings: OriginalSettings = { tts: {} };
   void originalSettings; // Intentionally unused - for future debugging/state tracking
   let isInitializing = true;
   let lastSuccessToastAt = 0;
@@ -357,20 +342,6 @@ export function initSettingsModule(
     if (defaultLanguageSelect) defaultLanguageSelect.addEventListener('change', () => saveTtsSetting('languageBoost', defaultLanguageSelect.value || 'Automatic', 'Default Language'));
     if (englishNormalizationCheckbox) englishNormalizationCheckbox.addEventListener('change', () => saveTtsSetting('englishNormalization', !!englishNormalizationCheckbox.checked, 'English Normalization'));
 
-    if (musicEnabledCheckbox) musicEnabledCheckbox.addEventListener('change', () => void saveMusicEnabled(!!musicEnabledCheckbox.checked));
-    if (musicModeSelect) musicModeSelect.addEventListener('change', () => void saveMusicAllowedRoles(musicModeSelect.value || 'everyone'));
-    if (musicBitsEnabledCheckbox || musicBitsAmountInput) {
-      const saveBits = (): Promise<void> => saveMusicBitsConfig(
-        !!musicBitsEnabledCheckbox?.checked,
-        parseInt(musicBitsAmountInput?.value || '100', 10)
-      );
-      const debouncedSaveBits = debounce(() => { if (!isInitializing) void saveBits(); }, 600);
-      if (musicBitsEnabledCheckbox) musicBitsEnabledCheckbox.addEventListener('change', () => void saveBits());
-      if (musicBitsAmountInput) {
-        musicBitsAmountInput.addEventListener('input', () => debouncedSaveBits());
-        musicBitsAmountInput.addEventListener('change', () => void saveBits());
-      }
-    }
   }
 
   function attachVoicePreview(): void {
@@ -1173,18 +1144,9 @@ export function initSettingsModule(
         englishNormalization: false,
         ignoredUsers: ['spammer1', 'troll2']
       };
-      const demoMusic: MusicSettings = {
-        enabled: false,
-        allowedRoles: ['everyone'],
-        bitsModeEnabled: false,
-        bitsMinimumAmount: 100,
-        ignoredUsers: ['loudguy']
-      };
       applyTtsSettings(demoTts);
-      applyMusicSettings(demoMusic);
       displayIgnoreList('tts', demoTts.ignoredUsers || []);
-      displayIgnoreList('music', demoMusic.ignoredUsers || []);
-      originalSettings = { tts: demoTts, music: demoMusic };
+      originalSettings = { tts: demoTts };
       return;
     }
 
@@ -1210,21 +1172,10 @@ export function initSettingsModule(
         applyTtsSettings(ttsData.settings as TtsSettings || {});
       }
 
-      let musicData: SettingsResponse = { settings: {} };
-      const musicResponse = await fetch(`${botApiBaseUrl}/music/settings/channel/${channelName}`, { headers });
-      if (musicResponse.status === 403) {
-        // Music settings not available; skip silently
-      } else if (musicResponse.ok) {
-        musicData = await musicResponse.json() as SettingsResponse;
-        applyMusicSettings(musicData.settings as MusicSettings || {});
-      }
-
       displayIgnoreList('tts', (ttsData.settings as TtsSettings)?.ignoredUsers || []);
-      displayIgnoreList('music', (musicData.settings as MusicSettings)?.ignoredUsers || []);
 
       originalSettings = {
-        tts: ttsData.settings as TtsSettings || {},
-        music: musicData.settings as MusicSettings || {}
+        tts: ttsData.settings as TtsSettings || {}
       };
     } catch (error) {
       console.error('Failed to load bot settings:', error);
@@ -1274,13 +1225,4 @@ export function initSettingsModule(
     if (englishNormalizationCheckbox) englishNormalizationCheckbox.checked = settings.englishNormalization || false;
   }
 
-  function applyMusicSettings(settings: MusicSettings): void {
-    if (musicEnabledCheckbox) musicEnabledCheckbox.checked = settings.enabled || false;
-    if (musicModeSelect) {
-      const mode = settings.allowedRoles?.includes('everyone') ? 'everyone' : 'moderator';
-      musicModeSelect.value = mode || 'everyone';
-    }
-    if (musicBitsEnabledCheckbox) musicBitsEnabledCheckbox.checked = settings.bitsModeEnabled || false;
-    if (musicBitsAmountInput) musicBitsAmountInput.value = String(settings.bitsMinimumAmount ?? 100);
-  }
 }

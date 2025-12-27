@@ -35,11 +35,10 @@ export interface DangerZoneDeps {
 }
 
 /**
- * Status of whether a user is ignored for TTS/music.
+ * Status of whether a user is ignored for TTS.
  */
 export interface IgnoreStatus {
   tts?: boolean;
-  music?: boolean;
 }
 
 /**
@@ -48,9 +47,7 @@ export interface IgnoreStatus {
 interface DangerZoneElements {
   dangerZoneSection: HTMLElement | null;
   dangerTtsToggle: HTMLElement | null;
-  dangerMusicToggle: HTMLElement | null;
   ignoreTtsCheckbox: HTMLInputElement | null;
-  ignoreMusicCheckbox: HTMLInputElement | null;
   confirmModal: HTMLDialogElement | null;
   confirmText: HTMLElement | null;
   confirmYes: HTMLButtonElement | null;
@@ -61,7 +58,7 @@ interface DangerZoneElements {
  * Pending action state.
  */
 interface PendingAction {
-  type: 'tts' | 'music';
+  type: 'tts';
   checkbox: HTMLInputElement;
 }
 
@@ -74,7 +71,7 @@ export interface DangerZoneModule {
 }
 
 /**
- * Handles viewer opt-out toggles for TTS and music.
+ * Handles viewer opt-out toggles for TTS.
  */
 export function initDangerZoneModule(
   context: DangerZoneContext,
@@ -88,9 +85,7 @@ export function initDangerZoneModule(
   const elements: DangerZoneElements = {
     dangerZoneSection: document.getElementById('danger-zone-section'),
     dangerTtsToggle: document.getElementById('danger-tts-toggle'),
-    dangerMusicToggle: document.getElementById('danger-music-toggle'),
     ignoreTtsCheckbox: document.getElementById('ignore-tts') as HTMLInputElement | null,
-    ignoreMusicCheckbox: document.getElementById('ignore-music') as HTMLInputElement | null,
     confirmModal: document.getElementById('confirm-modal') as HTMLDialogElement | null,
     confirmText: document.getElementById('confirm-text'),
     confirmYes: document.getElementById('confirm-yes') as HTMLButtonElement | null,
@@ -120,11 +115,6 @@ export function initDangerZoneModule(
         if (elements.ignoreTtsCheckbox?.checked) handleIgnoreAction('tts');
       });
     }
-    if (elements.ignoreMusicCheckbox) {
-      elements.ignoreMusicCheckbox.addEventListener('change', () => {
-        if (elements.ignoreMusicCheckbox?.checked) handleIgnoreAction('music');
-      });
-    }
     if (elements.confirmYes) {
       elements.confirmYes.addEventListener('click', confirmIgnoreAction);
     }
@@ -140,27 +130,19 @@ export function initDangerZoneModule(
     if (elements.dangerTtsToggle) {
       elements.dangerTtsToggle.style.display = visible ? '' : 'none';
     }
-    if (elements.dangerMusicToggle) {
-      elements.dangerMusicToggle.style.display = visible ? '' : 'none';
-    }
   }
 
   function updateIgnoreCheckboxes(ignoreStatus: IgnoreStatus): void {
-    const { ignoreTtsCheckbox, ignoreMusicCheckbox } = elements;
+    const { ignoreTtsCheckbox } = elements;
     if (ignoreTtsCheckbox) {
       const disabled = ignoreStatus.tts === true;
       ignoreTtsCheckbox.checked = disabled;
       ignoreTtsCheckbox.disabled = disabled;
     }
-    if (ignoreMusicCheckbox) {
-      const disabled = ignoreStatus.music === true;
-      ignoreMusicCheckbox.checked = disabled;
-      ignoreMusicCheckbox.disabled = disabled;
-    }
   }
 
-  function handleIgnoreAction(type: 'tts' | 'music'): void {
-    const checkbox = type === 'tts' ? elements.ignoreTtsCheckbox : elements.ignoreMusicCheckbox;
+  function handleIgnoreAction(type: 'tts'): void {
+    const checkbox = elements.ignoreTtsCheckbox;
     if (!checkbox) return;
 
     if (testMode) {
@@ -192,7 +174,7 @@ export function initDangerZoneModule(
     }
   }
 
-  function showConfirmModal(type: 'tts' | 'music', channelName: string): void {
+  function showConfirmModal(type: 'tts', channelName: string): void {
     if (!elements.confirmModal) return;
     if (elements.confirmText) {
       elements.confirmText.textContent = `Are you absolutely sure you want to opt out of ${type.toUpperCase()} in #${channelName}? Only a moderator can undo this action.`;

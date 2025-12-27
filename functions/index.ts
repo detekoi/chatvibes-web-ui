@@ -69,7 +69,7 @@ app.use("/api/bot", botRoutes);
 app.use("/api/rewards", rewardsRoutes);
 app.use("/api/obs", obsRoutes);
 app.use("/api/viewer", viewerRoutes);
-app.use("/api", settingsRoutes); // For /api/tts/settings and /api/music/settings
+app.use("/api", settingsRoutes); // For /api/tts/settings
 app.use("/api", miscApiRoutes); // For /api/shortlink, /api/tts/test
 app.use("/", redirectsRoutes); // For /s/:slug redirect
 
