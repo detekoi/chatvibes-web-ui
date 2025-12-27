@@ -2,14 +2,14 @@
  * Authentication routes for Twitch OAuth
  */
 
-import express, {Request, Response, Router} from "express";
-import {randomBytes} from "crypto";
+import express, { Request, Response, Router } from "express";
+import { randomBytes } from "crypto";
 import axios from "axios";
 import jwt from "jsonwebtoken";
-import {secrets, config} from "../config";
-import {db, COLLECTIONS, FieldValue} from "../services/firestore";
-import {validateTwitchToken} from "../services/twitch";
-import {logger, redactSensitive} from "../logger";
+import { secrets, config } from "../config";
+import { db, COLLECTIONS, FieldValue } from "../services/firestore";
+import { validateTwitchToken } from "../services/twitch";
+import { logger, redactSensitive } from "../logger";
 
 const router: Router = express.Router();
 
@@ -20,7 +20,7 @@ const TWITCH_VALIDATE_URL = "https://id.twitch.tv/oauth2/validate";
 
 // OAuth scopes for streamer authentication
 // Bot presence is now required, so all streamers use the full scope
-const OAUTH_SCOPES = "user:read:email chat:read chat:edit channel:read:subscriptions bits:read moderator:read:followers channel:manage:redemptions channel:read:redemptions channel:manage:moderators";
+const OAUTH_SCOPES = "user:read:email chat:read chat:edit channel:read:subscriptions bits:read moderator:read:followers channel:manage:redemptions channel:read:redemptions channel:manage:moderators user:read:chat user:write:chat";
 
 // Type definitions
 interface TwitchTokenResponse {
@@ -78,7 +78,7 @@ function redirectToFrontendWithError(res: Response, errorCode: string, errorDesc
   frontendErrorUrl.searchParams.append("error_description", errorDescription);
   if (state) frontendErrorUrl.searchParams.append("state", state);
 
-  logger.info({errorCode, errorDescription}, "Redirecting to frontend error page");
+  logger.info({ errorCode, errorDescription }, "Redirecting to frontend error page");
   res.redirect(frontendErrorUrl.toString());
 }
 
@@ -91,10 +91,10 @@ function redirectToFrontendWithError(res: Response, errorCode: string, errorDesc
  */
 async function handleViewerCallback(req: Request, res: Response, decodedState: ViewerStatePayload | null): Promise<Response> {
   logger.info("Handling viewer OAuth callback");
-  const {code, error: twitchError, error_description: twitchErrorDescription} = req.query;
+  const { code, error: twitchError, error_description: twitchErrorDescription } = req.query;
 
   if (twitchError) {
-    logger.error({twitchError, twitchErrorDescription}, "Viewer OAuth error");
+    logger.error({ twitchError, twitchErrorDescription }, "Viewer OAuth error");
     return res.status(400).json({
       success: false,
       error: twitchError,
@@ -114,7 +114,7 @@ async function handleViewerCallback(req: Request, res: Response, decodedState: V
       },
     });
 
-    const {access_token: accessToken} = tokenResponse.data;
+    const { access_token: accessToken } = tokenResponse.data;
     if (!accessToken) {
       throw new Error("No access token received from Twitch");
     }
@@ -137,7 +137,7 @@ async function handleViewerCallback(req: Request, res: Response, decodedState: V
       audience: "chatvibes-api",
     });
 
-    logger.info({userLogin}, "Generated viewer session token");
+    logger.info({ userLogin }, "Generated viewer session token");
 
     if (!config.FRONTEND_URL) {
       throw new Error("FRONTEND_URL not configured");
@@ -160,7 +160,7 @@ async function handleViewerCallback(req: Request, res: Response, decodedState: V
     return res;
   } catch (error) {
     const err = error as Error;
-    logger.error({error: err.message}, "Viewer OAuth callback error");
+    logger.error({ error: err.message }, "Viewer OAuth callback error");
     return res.status(500).json({
       success: false,
       error: "auth_failed",
@@ -175,7 +175,7 @@ router.get("/twitch/initiate", (_req: Request, res: Response): void => {
 
   if (!secrets.TWITCH_CLIENT_ID || !config.CALLBACK_URL) {
     logger.error("Config missing for /auth/twitch/initiate: TWITCH_CLIENT_ID or CALLBACK_URL not found.");
-    res.status(500).json({success: false, error: "Server configuration error for Twitch auth."});
+    res.status(500).json({ success: false, error: "Server configuration error for Twitch auth." });
     return;
   }
 
@@ -191,8 +191,8 @@ router.get("/twitch/initiate", (_req: Request, res: Response): void => {
   });
   const twitchAuthUrl = `${TWITCH_AUTH_URL}?${params.toString()}`;
 
-  logger.info({state, scope: OAUTH_SCOPES}, "Generated state for OAuth");
-  logger.debug({twitchAuthUrl}, "Twitch Auth URL to be sent to frontend");
+  logger.info({ state, scope: OAUTH_SCOPES }, "Generated state for OAuth");
+  logger.debug({ twitchAuthUrl }, "Twitch Auth URL to be sent to frontend");
 
   res.json({
     success: true,
@@ -204,8 +204,8 @@ router.get("/twitch/initiate", (_req: Request, res: Response): void => {
 // Route: /auth/twitch/callback
 router.get("/twitch/callback", async (req: Request, res: Response): Promise<void | Response> => {
   logger.info("--- /auth/twitch/callback HIT ---");
-  logger.debug({query: redactSensitive(req.query)}, "Callback Request Query Params");
-  const {code, state: twitchQueryState, error: twitchError, error_description: twitchErrorDescription} = req.query;
+  logger.debug({ query: redactSensitive(req.query) }, "Callback Request Query Params");
+  const { code, state: twitchQueryState, error: twitchError, error_description: twitchErrorDescription } = req.query;
 
   // Try to decode state parameter to detect viewer auth
   let isViewerAuth = false;
@@ -228,12 +228,12 @@ router.get("/twitch/callback", async (req: Request, res: Response): Promise<void
   }
 
   if (twitchError) {
-    logger.error({twitchError, twitchErrorDescription}, "Twitch OAuth explicit error");
+    logger.error({ twitchError, twitchErrorDescription }, "Twitch OAuth explicit error");
     return redirectToFrontendWithError(res, twitchError as string, twitchErrorDescription as string, twitchQueryState as string);
   }
 
   try {
-    logger.debug({callbackUrl: config.CALLBACK_URL}, "Exchanging code for token");
+    logger.debug({ callbackUrl: config.CALLBACK_URL }, "Exchanging code for token");
     const tokenResponse = await axios.post<TwitchTokenResponse>(TWITCH_TOKEN_URL, null, {
       params: {
         client_id: secrets.TWITCH_CLIENT_ID,
@@ -244,20 +244,20 @@ router.get("/twitch/callback", async (req: Request, res: Response): Promise<void
       },
     });
 
-    const {access_token: accessToken, refresh_token: refreshToken, scope: grantedScopes} = tokenResponse.data;
+    const { access_token: accessToken, refresh_token: refreshToken, scope: grantedScopes } = tokenResponse.data;
     logger.info("Access token and refresh token received from Twitch.");
 
     if (!accessToken || !refreshToken) {
-      logger.error({responseData: redactSensitive(tokenResponse.data)}, "Missing access_token or refresh_token from Twitch");
+      logger.error({ responseData: redactSensitive(tokenResponse.data) }, "Missing access_token or refresh_token from Twitch");
       throw new Error("Twitch did not return the expected tokens.");
     }
 
     // Log granted scopes for debugging
     const scopeArray = Array.isArray(grantedScopes) ? grantedScopes : (grantedScopes || "").split(" ");
-    logger.info({grantedScopes: scopeArray}, "Received granted scopes from Twitch");
+    logger.info({ grantedScopes: scopeArray }, "Received granted scopes from Twitch");
 
     const validateResponse = await axios.get<TwitchValidateResponse>(TWITCH_VALIDATE_URL, {
-      headers: {Authorization: `OAuth ${accessToken}`},
+      headers: { Authorization: `OAuth ${accessToken}` },
     });
 
     if (validateResponse.data && validateResponse.data.user_id) {
@@ -276,7 +276,7 @@ router.get("/twitch/callback", async (req: Request, res: Response): Promise<void
         displayName: userData?.display_name || validateResponse.data.login,
         email: userData?.email || null,
       };
-      logger.info({userLogin: twitchUser.login}, "[AuthCallback] User authenticated and validated");
+      logger.info({ userLogin: twitchUser.login }, "[AuthCallback] User authenticated and validated");
 
       if (!secrets.JWT_SECRET) {
         logger.error("JWT_SECRET is not configured.");
@@ -293,7 +293,7 @@ router.get("/twitch/callback", async (req: Request, res: Response): Promise<void
         issuer: "chatvibes-auth",
         audience: "chatvibes-api",
       });
-      logger.info({userLogin: twitchUser.login}, "Generated app session token");
+      logger.info({ userLogin: twitchUser.login }, "Generated app session token");
 
       if (!config.FRONTEND_URL) {
         throw new Error("FRONTEND_URL not configured");
@@ -306,7 +306,7 @@ router.get("/twitch/callback", async (req: Request, res: Response): Promise<void
       frontendAuthCompleteUrl.searchParams.append("state", twitchQueryState as string);
       frontendAuthCompleteUrl.searchParams.append("session_token", appSessionToken);
 
-      logger.info({userLogin: twitchUser.login}, "Redirecting to frontend auth-complete page");
+      logger.info({ userLogin: twitchUser.login }, "Redirecting to frontend auth-complete page");
 
       // Store tokens securely
       if (db) {
@@ -319,7 +319,7 @@ router.get("/twitch/callback", async (req: Request, res: Response): Promise<void
             twitchAccessToken: accessToken,
             twitchRefreshToken: refreshToken,
             updatedAt: FieldValue.serverTimestamp(),
-          }, {merge: true});
+          }, { merge: true });
 
           // Update user document in Firestore and ensure channelName exists for consistency with bot expectations
           await userDocRef.set({
@@ -333,20 +333,20 @@ router.get("/twitch/callback", async (req: Request, res: Response): Promise<void
             lastTokenError: null,
             lastTokenErrorAt: null,
             grantedScopes: scopeArray,
-          }, {merge: true});
+          }, { merge: true });
 
           // Sync botRespondsInChat in ttsChannelConfigs for the TTS bot service
           // Default to true (bot responds to commands in chat)
           const ttsConfigDocRef = db.collection('ttsChannelConfigs').doc(twitchUser.login);
           await ttsConfigDocRef.set({
             botRespondsInChat: true,
-          }, {merge: true});
-          logger.info({userLogin: twitchUser.login, botRespondsInChat: true}, "Synced botRespondsInChat to ttsChannelConfigs");
+          }, { merge: true });
+          logger.info({ userLogin: twitchUser.login, botRespondsInChat: true }, "Synced botRespondsInChat to ttsChannelConfigs");
 
-          logger.info({userLogin: twitchUser.login}, "Secret reference stored in Firestore");
+          logger.info({ userLogin: twitchUser.login }, "Secret reference stored in Firestore");
         } catch (dbError) {
           const err = dbError as Error;
-          logger.error({userLogin: twitchUser.login, error: err.message}, "Error storing secret");
+          logger.error({ userLogin: twitchUser.login, error: err.message }, "Error storing secret");
           return redirectToFrontendWithError(res, "token_store_failed", "Failed to securely store Twitch credentials. Please try again.", twitchQueryState as string);
         }
       } else {
@@ -355,7 +355,7 @@ router.get("/twitch/callback", async (req: Request, res: Response): Promise<void
 
       // Automatically setup EventSub subscriptions for the authenticated streamer
       try {
-        logger.info({userLogin: twitchUser.login}, "[AuthCallback] Setting up EventSub");
+        logger.info({ userLogin: twitchUser.login }, "[AuthCallback] Setting up EventSub");
         const ttsBotUrl = process.env.TTS_BOT_URL || "https://chatvibes-tts-service-906125386407.us-central1.run.app";
 
         const eventSubResponse = await fetch(`${ttsBotUrl}/api/setup-eventsub`, {
@@ -372,14 +372,14 @@ router.get("/twitch/callback", async (req: Request, res: Response): Promise<void
 
         if (eventSubResponse.ok) {
           const eventSubResult = await eventSubResponse.json();
-          logger.info({userLogin: twitchUser.login, result: eventSubResult}, "[AuthCallback] EventSub setup successful");
+          logger.info({ userLogin: twitchUser.login, result: eventSubResult }, "[AuthCallback] EventSub setup successful");
         } else {
           const errorText = await eventSubResponse.text();
-          logger.warn({userLogin: twitchUser.login, status: eventSubResponse.status, error: errorText}, "[AuthCallback] EventSub setup failed");
+          logger.warn({ userLogin: twitchUser.login, status: eventSubResponse.status, error: errorText }, "[AuthCallback] EventSub setup failed");
         }
       } catch (eventSubError) {
         const err = eventSubError as Error;
-        logger.error({userLogin: twitchUser.login, error: err.message}, "[AuthCallback] Error setting up EventSub");
+        logger.error({ userLogin: twitchUser.login, error: err.message }, "[AuthCallback] Error setting up EventSub");
         // Don't fail the auth process if EventSub setup fails
       }
 
@@ -389,7 +389,7 @@ router.get("/twitch/callback", async (req: Request, res: Response): Promise<void
       throw new Error("Failed to validate token or get user info from Twitch.");
     }
   } catch (error) {
-    const err = error as {message: string; response?: {data: unknown}; stack?: string};
+    const err = error as { message: string; response?: { data: unknown }; stack?: string };
     logger.error({
       error: err.message,
       responseData: redactSensitive(err.response?.data),
@@ -405,12 +405,12 @@ router.get("/twitch/viewer", (req: Request, res: Response): void => {
 
   if (!secrets.TWITCH_CLIENT_ID || !config.CALLBACK_URL) {
     logger.error("Config missing: TWITCH_CLIENT_ID or CALLBACK_URL not found.");
-    res.status(500).json({success: false, error: "Server configuration error for Twitch viewer auth."});
+    res.status(500).json({ success: false, error: "Server configuration error for Twitch viewer auth." });
     return;
   }
 
   // Create state parameter with viewer type marker
-  const {channel} = req.query || {};
+  const { channel } = req.query || {};
   const statePayload: ViewerStatePayload = {
     t: "viewer", // type: viewer
     r: randomBytes(8).toString("hex"), // random component
@@ -428,7 +428,7 @@ router.get("/twitch/viewer", (req: Request, res: Response): void => {
   });
 
   const twitchAuthUrl = `${TWITCH_AUTH_URL}?${params.toString()}`;
-  logger.debug({twitchAuthUrl}, "Generated viewer auth URL");
+  logger.debug({ twitchAuthUrl }, "Generated viewer auth URL");
 
   res.json({
     success: true,
@@ -440,7 +440,7 @@ router.get("/twitch/viewer", (req: Request, res: Response): void => {
 // Route: /auth/logout
 router.get("/logout", (_req: Request, res: Response): void => {
   logger.info("--- /auth/logout HIT ---");
-  res.json({success: true, message: "Logout successful. Please clear your session token on the client side."});
+  res.json({ success: true, message: "Logout successful. Please clear your session token on the client side." });
 });
 
 
