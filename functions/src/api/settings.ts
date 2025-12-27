@@ -85,7 +85,21 @@ router.put("/tts/settings/channel/:channelName", authenticateApiRequest, async (
 
     try {
         const docRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelName);
-        await docRef.set({ [key]: value }, { merge: true });
+
+        try {
+            await docRef.update({ [key]: value });
+        } catch (err: any) {
+            // If document doesn't exist (code 5), create it first then update
+            if (err.code === 5) {
+                // We use set for the first write. 
+                // Note: set with merge:true does NOT support dot notation for keys in the same way update does.
+                // So we create an empty doc then update.
+                await docRef.set({});
+                await docRef.update({ [key]: value });
+            } else {
+                throw err;
+            }
+        }
 
         logger.info({ channelName, key, value }, "Updated TTS setting");
         res.json({ success: true, message: "Setting updated" });
