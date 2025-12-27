@@ -142,6 +142,16 @@ export function initSettingsModule(
   const musicBitsEnabledCheckbox = document.getElementById('music-bits-enabled') as HTMLInputElement | null;
   const musicBitsAmountInput = document.getElementById('music-bits-amount') as HTMLInputElement | null;
 
+  // Voice Calibration Elements
+  const calibrationVoiceSelect = document.getElementById('calibration-voice') as HTMLInputElement | null; // Hidden input
+  const calibrationVoiceSearch = document.getElementById('calibration-voice-search') as HTMLInputElement | null;
+  const calibrationVoiceDropdown = document.getElementById('calibration-voice-dropdown') as HTMLElement | null;
+  const calibrationVoiceMenu = document.getElementById('calibration-voice-menu') as HTMLElement | null;
+  const calibrationVolumeSlider = document.getElementById('calibration-volume') as HTMLInputElement | null;
+  const calibrationVolumeValueSpan = document.getElementById('calibration-volume-value') as HTMLSpanElement | null;
+  const calibrationSaveBtn = document.getElementById('calibration-save-btn') as HTMLButtonElement | null;
+  const calibratedVoicesList = document.getElementById('calibrated-voices-list') as HTMLInputElement | null;
+
   const saveSettingsBtn = document.getElementById('save-settings-btn') as HTMLButtonElement | null;
 
   const voiceTestTextInput = document.getElementById('voice-test-text') as HTMLTextAreaElement | null;
@@ -692,6 +702,7 @@ export function initSettingsModule(
     await loadAvailableVoices();
     attachVoicePreview();
     setupAutoSaveListeners();
+    setupVoiceCalibration();
 
     if (saveSettingsBtn) {
       saveSettingsBtn.style.display = 'none';
@@ -843,6 +854,192 @@ export function initSettingsModule(
 
   }
 
+  function setupVoiceCalibration(): void {
+    if (!calibrationVolumeSlider || !calibrationVolumeValueSpan || !calibrationSaveBtn || !calibrationVoiceSelect) return;
+
+    // Volume Slider
+    calibrationVolumeSlider.addEventListener('input', () => {
+      calibrationVolumeValueSpan.textContent = calibrationVolumeSlider.value;
+      calibrationSaveBtn.disabled = false;
+    });
+
+    // Save Button
+    calibrationSaveBtn.addEventListener('click', () => {
+      const voiceId = calibrationVoiceSelect.value;
+      if (!voiceId) return;
+
+      const vol = parseFloat(calibrationVolumeSlider.value);
+      currentVoiceVolumes[voiceId] = vol;
+
+      saveTtsSetting(`voiceVolumes.${voiceId}`, vol, 'Calibration Volume');
+      calibrationSaveBtn.disabled = true;
+      renderCalibratedVoicesList();
+
+      // If this is also the default voice, update the main slider too
+      if (defaultVoiceSelect?.value === voiceId && defaultVolumeSlider) {
+        defaultVolumeSlider.value = String(vol);
+        if (volumeValueSpan) volumeValueSpan.textContent = String(vol);
+      }
+    });
+
+    // Populate dropdown once voices are loaded
+    if (allVoices.length > 0) {
+      populateCalibrationVoices(allVoices);
+    }
+  }
+
+  function populateCalibrationVoices(voices: string[]): void {
+    if (!calibrationVoiceSelect || !calibrationVoiceSearch || !calibrationVoiceMenu || !calibrationVoiceDropdown) return;
+
+    const list = calibrationVoiceMenu.querySelector('.voice-dropdown-list') as HTMLElement | null;
+    if (!list) return;
+
+    // Filter out voices that are already calibrated? No, allow editing.
+
+    renderList(voices);
+
+    calibrationVoiceSearch.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = calibrationVoiceMenu.classList.contains('show');
+      if (isOpen) closeDropdown();
+      else openDropdown();
+    });
+
+    calibrationVoiceSearch.addEventListener('input', () => {
+      const query = calibrationVoiceSearch.value.toLowerCase();
+      const filtered = voices.filter(voice => formatVoiceName(voice).toLowerCase().includes(query));
+      renderList(filtered);
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!calibrationVoiceDropdown.contains(e.target as Node)) {
+        closeDropdown();
+      }
+    });
+
+    function openDropdown(): void {
+      if (!calibrationVoiceMenu || !calibrationVoiceSearch) return;
+      calibrationVoiceMenu.classList.add('show');
+      calibrationVoiceSearch.removeAttribute('readonly');
+      calibrationVoiceSearch.focus();
+      calibrationVoiceSearch.select();
+    }
+
+    function closeDropdown(): void {
+      if (!calibrationVoiceMenu || !calibrationVoiceSearch) return;
+      calibrationVoiceMenu.classList.remove('show');
+      calibrationVoiceSearch.setAttribute('readonly', 'readonly');
+    }
+
+    function renderList(items: string[]): void {
+      list!.innerHTML = '';
+      if (!items.length) {
+        const empty = document.createElement('div');
+        empty.className = 'voice-dropdown-empty';
+        empty.textContent = 'No voices found';
+        list!.appendChild(empty);
+        return;
+      }
+
+      items.forEach(voice => {
+        const item = document.createElement('div');
+        item.className = 'voice-dropdown-item d-flex justify-content-between align-items-center';
+
+        const label = document.createElement('span');
+        label.textContent = formatVoiceName(voice);
+
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'btn btn-sm btn-outline-primary voice-play-btn';
+        button.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>`;
+        button.addEventListener('click', async (e) => {
+          e.stopPropagation();
+          await playVoiceSample(button, voice);
+        });
+
+        item.addEventListener('click', () => {
+          if (!calibrationVoiceSelect || !calibrationVoiceSearch || !calibrationVolumeSlider || !calibrationVolumeValueSpan || !calibrationSaveBtn) return;
+
+          calibrationVoiceSelect.value = voice;
+          calibrationVoiceSearch.value = formatVoiceName(voice);
+          closeDropdown();
+
+          // Set slider to current calibrated volume or default 1.0
+          const currentVol = currentVoiceVolumes[voice] ?? 1.0;
+          calibrationVolumeSlider.value = String(currentVol);
+          calibrationVolumeValueSpan.textContent = String(currentVol);
+          calibrationSaveBtn.disabled = true; // Disabled until changed
+        });
+
+        item.appendChild(label);
+        item.appendChild(button);
+        list!.appendChild(item);
+      });
+    }
+  }
+
+  function renderCalibratedVoicesList(): void {
+    if (!calibratedVoicesList) return;
+    calibratedVoicesList.innerHTML = '';
+
+    const calibratedIds = Object.keys(currentVoiceVolumes).filter(id => currentVoiceVolumes[id] !== 1.0); // Only show non-default
+
+    if (calibratedIds.length === 0) {
+      calibratedVoicesList.innerHTML = '<li class="list-group-item text-center text-muted py-3">No voices calibrated yet</li>';
+      return;
+    }
+
+    calibratedIds.forEach(voiceId => {
+      const vol = currentVoiceVolumes[voiceId];
+      const li = document.createElement('li');
+      li.className = 'list-group-item d-flex justify-content-between align-items-center';
+
+      const nameSpan = document.createElement('span');
+      nameSpan.textContent = `${formatVoiceName(voiceId)} (${vol})`;
+
+      const actionsDiv = document.createElement('div');
+
+      const editBtn = document.createElement('button');
+      editBtn.className = 'btn btn-sm btn-outline-secondary me-2';
+      editBtn.textContent = 'Edit';
+      editBtn.onclick = () => {
+        if (calibrationVoiceSelect && calibrationVoiceSearch && calibrationVolumeSlider && calibrationVolumeValueSpan && calibrationSaveBtn) {
+          calibrationVoiceSelect.value = voiceId;
+          calibrationVoiceSearch.value = formatVoiceName(voiceId);
+          calibrationVolumeSlider.value = String(vol);
+          calibrationVolumeValueSpan.textContent = String(vol);
+          calibrationSaveBtn.disabled = true;
+          // Scroll to section?
+          calibrationVoiceSelect.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      };
+
+      const resetBtn = document.createElement('button');
+      resetBtn.className = 'btn btn-sm btn-outline-danger';
+      resetBtn.textContent = 'Reset';
+      resetBtn.onclick = () => {
+        // Reset to 1.0 (remove from map basically, or set to 1.0)
+        // If we want to truly delete the key, we need an API that supports deletion or just set to 1.0
+        // Setting to 1.0 is safer for now.
+        if (confirm(`Reset calibration for ${formatVoiceName(voiceId)}?`)) {
+          currentVoiceVolumes[voiceId] = 1.0;
+          saveTtsSetting(`voiceVolumes.${voiceId}`, 1.0, 'Reset Calibration');
+          renderCalibratedVoicesList();
+          if (calibrationVoiceSelect?.value === voiceId && calibrationVolumeSlider) {
+            calibrationVolumeSlider.value = '1.0';
+            if (calibrationVolumeValueSpan) calibrationVolumeValueSpan.textContent = '1.0';
+          }
+        }
+      };
+
+      actionsDiv.appendChild(editBtn);
+      actionsDiv.appendChild(resetBtn);
+      li.appendChild(nameSpan);
+      li.appendChild(actionsDiv);
+      calibratedVoicesList.appendChild(li);
+    });
+  }
+
   async function loadBotSettings(): Promise<void> {
     const user = getLoggedInUser();
     if (!user?.login) {
@@ -953,8 +1150,11 @@ export function initSettingsModule(
       defaultSpeedSlider.value = String(settings.speed ?? 1.0);
       if (speedValueSpan) speedValueSpan.textContent = String(settings.speed ?? 1.0);
     }
+
     // Update volume slider for initialization
     if (settings.voiceId) updateVolumeSlider(settings.voiceId);
+
+    renderCalibratedVoicesList();
 
     if (defaultLanguageSelect) defaultLanguageSelect.value = settings.languageBoost || 'Automatic';
     if (englishNormalizationCheckbox) englishNormalizationCheckbox.checked = settings.englishNormalization || false;
