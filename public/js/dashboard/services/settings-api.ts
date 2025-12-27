@@ -1,5 +1,5 @@
 import {
-    TtsSettings,
+
     SettingsResponse,
     VoicesResponse,
     ErrorResponse,

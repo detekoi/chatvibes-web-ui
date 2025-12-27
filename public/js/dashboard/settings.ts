@@ -1,7 +1,7 @@
 import { showToast, syncTextareas } from '../common/ui.js';
 import { debounce, formatVoiceName } from '../common/utils.js';
 import { performVoiceTest, TTSPayload, PlayerElements, HintElements } from '../common/voice-preview.js';
-import { DashboardServices, TtsSettings, VoiceLookupResponse } from './types.js';
+import { DashboardServices, TtsSettings } from './types.js';
 import { SettingsApi } from './services/settings-api.js';
 import { VoiceDropdown } from './components/voice-dropdown.js';
 import { VoiceCalibration } from './components/voice-calibration.js';
@@ -433,7 +433,7 @@ export function initSettingsModule(
       voiceDropdown: calibrationVoiceDropdown,
       currentVoiceVolumes: currentVoiceVolumes,
       onSave: async (voiceId, volume) => {
-        await api.saveTtsSetting(getChannelName() || '', `voiceVolumes.\${voiceId}`, volume);
+        await api.saveTtsSetting(getChannelName() || '', `voiceVolumes.${voiceId}`, volume);
         maybeSuccessToast('Saved');
         // If this is also the default voice, update the main slider too
         if (defaultVoiceDropdown?.getValue() === voiceId && defaultVolumeSlider) {
@@ -442,7 +442,7 @@ export function initSettingsModule(
         }
       },
       onReset: async (voiceId) => {
-        await api.saveTtsSetting(getChannelName() || '', `voiceVolumes.\${voiceId}`, 1.0);
+        await api.saveTtsSetting(getChannelName() || '', `voiceVolumes.${voiceId}`, 1.0);
         maybeSuccessToast('Reset');
       },
       sliderId: 'calibration-volume',
@@ -503,12 +503,12 @@ export function initSettingsModule(
         lookupResult.style.display = 'block';
         if (data.voiceId) {
           lookupResult.className = 'mt-3 alert alert-success';
-          lookupResult.innerHTML = `<div>User <strong>\${data.username}</strong> has set custom voice: <strong>\${data.voiceId}</strong></div>`;
+          lookupResult.innerHTML = `<div>User <strong>${data.username}</strong> has set custom voice: <strong>${data.voiceId}</strong></div>`;
 
           if (allVoices.includes(data.voiceId)) {
             const calibrateBtn = document.createElement('button');
             calibrateBtn.className = 'btn btn-sm btn-success mt-2';
-            calibrateBtn.textContent = `Calibrate "\${formatVoiceName(data.voiceId)}"`;
+            calibrateBtn.textContent = `Calibrate "${formatVoiceName(data.voiceId)}"`;
             calibrateBtn.onclick = () => {
               voiceCalibration?.selectVoice(data.voiceId!);
             };
@@ -521,13 +521,13 @@ export function initSettingsModule(
           }
         } else {
           lookupResult.className = 'mt-3 alert alert-info';
-          lookupResult.textContent = `User \${data.username} has not set a custom voice.`;
+          lookupResult.textContent = `User ${data.username} has not set a custom voice.`;
         }
       } catch (e) {
         const err = e as Error;
         lookupResult.style.display = 'block';
         lookupResult.className = 'mt-3 alert alert-danger';
-        lookupResult.textContent = `Error: \${err.message}`;
+        lookupResult.textContent = `Error: ${err.message}`;
       } finally {
         lookupBtn.disabled = false;
         lookupBtn.textContent = originalBtnText || 'Lookup Voice';
@@ -571,12 +571,14 @@ export function initSettingsModule(
 
     const response = await api.getSettings(user.login);
     if ('error' in response) {
-      showToast(`Failed to load settings: \${response.error}`, 'error');
+      showToast(`Failed to load settings: ${response.error}`, 'error');
       return;
     }
 
-    applyTtsSettings(response.settings || {});
-    displayIgnoreList('tts', response.settings?.ignoredUsers || []);
+    if ('settings' in response) {
+      applyTtsSettings(response.settings || {});
+      displayIgnoreList('tts', response.settings?.ignoredUsers || []);
+    }
   }
 
   function applyTtsSettings(settings: TtsSettings): void {
