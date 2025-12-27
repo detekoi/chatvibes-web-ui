@@ -495,10 +495,9 @@ export function initSettingsModule(
     const emotion = defaultEmotionSelect?.value || 'auto';
     const pitch = parseInt(defaultPitchSlider?.value || '0', 10);
     const speed = parseFloat(defaultSpeedSlider?.value || '1.0');
-    // volume is applied by backend based on voiceId, but for preview we might want it?
-    // The current preview logic uses backend synthesis, so backend will apply it.
+    const volume = parseFloat(defaultVolumeSlider?.value || '1.0');
     const languageBoost = defaultLanguageSelect?.value || 'Automatic';
-    return { voiceId, emotion, pitch, speed, languageBoost };
+    return { voiceId, emotion, pitch, speed, volume, languageBoost };
   }
 
   async function saveTtsSetting(key: string, value: string | number | boolean, label: string): Promise<void> {

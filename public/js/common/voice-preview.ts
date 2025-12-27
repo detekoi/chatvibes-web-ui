@@ -11,6 +11,7 @@ export interface TTSPayload {
   speed?: number;
   emotion?: string;
   languageBoost?: string;
+  volume?: number;
 }
 
 /**
@@ -138,7 +139,7 @@ export async function performVoiceTest(
       options.onAudioGenerated(audioUrl, payload);
     }
 
-    return audioUrl;
+    return audioUrl || undefined;
   } catch (error) {
     console.error('Voice test failed:', error);
     const err = error as Error;
@@ -156,6 +157,7 @@ export async function performVoiceTest(
       btn.textContent = 'Regenerate';
     });
   }
+  return undefined;
 }
 
 function isDefaultSettings(payload: TTSPayload, defaultText: string): boolean {
@@ -164,7 +166,8 @@ function isDefaultSettings(payload: TTSPayload, defaultText: string): boolean {
     (!payload.pitch || payload.pitch === 0) &&
     (!payload.speed || payload.speed === 1.0) &&
     (!payload.emotion || payload.emotion === 'auto' || payload.emotion === 'neutral') &&
-    (!payload.languageBoost || payload.languageBoost === 'Automatic' || payload.languageBoost === 'auto')
+    (!payload.languageBoost || payload.languageBoost === 'Automatic' || payload.languageBoost === 'auto') &&
+    (!payload.volume || payload.volume === 1.0)
   );
   return isDefaultText && isDefault;
 }
