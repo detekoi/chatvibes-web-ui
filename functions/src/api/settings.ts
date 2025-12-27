@@ -109,4 +109,124 @@ router.put("/tts/settings/channel/:channelName", authenticateApiRequest, async (
     }
 });
 
+// ==========================================
+// TTS IGNORE LIST MANAGEMENT
+// ==========================================
+
+// POST /tts/ignore/channel/:channelName - Add user to ignore list
+router.post("/tts/ignore/channel/:channelName", authenticateApiRequest, async (req: Request, res: Response): Promise<void> => {
+    const { channelName } = req.params;
+    const { username } = req.body;
+
+    // Verify user is authorized for this channel
+    if (!req.user || req.user.userLogin.toLowerCase() !== channelName.toLowerCase()) {
+        res.status(403).json({ error: "Unauthorized access to channel settings" });
+        return;
+    }
+
+    const allowCheck = await checkAllowedChannel(channelName);
+    if (!allowCheck.allowed) {
+        res.status(403).json({ error: allowCheck.error });
+        return;
+    }
+
+    if (!username || typeof username !== "string") {
+        res.status(400).json({ error: "Username is required" });
+        return;
+    }
+
+    const normalizedUsername = username.toLowerCase().trim();
+    if (!normalizedUsername) {
+        res.status(400).json({ error: "Invalid username" });
+        return;
+    }
+
+    try {
+        const docRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelName);
+        const docSnap = await docRef.get();
+
+        const currentData = docSnap.exists ? docSnap.data() : {};
+        const ignoredUsers: string[] = currentData?.ignoredUsers || [];
+
+        // Check if user is already ignored
+        if (ignoredUsers.includes(normalizedUsername)) {
+            res.status(400).json({ error: "User is already in the ignore list" });
+            return;
+        }
+
+        // Add user to ignore list
+        const updatedIgnoredUsers = [...ignoredUsers, normalizedUsername];
+
+        if (!docSnap.exists) {
+            await docRef.set({ ignoredUsers: updatedIgnoredUsers });
+        } else {
+            await docRef.update({ ignoredUsers: updatedIgnoredUsers });
+        }
+
+        logger.info({ channelName, username: normalizedUsername }, "Added user to TTS ignore list");
+        res.json({ success: true, message: "User added to ignore list", ignoredUsers: updatedIgnoredUsers });
+    } catch (error) {
+        logger.error({ error, channelName, username }, "Error adding user to ignore list");
+        res.status(500).json({ error: "Failed to add user to ignore list" });
+    }
+});
+
+// DELETE /tts/ignore/channel/:channelName - Remove user from ignore list
+router.delete("/tts/ignore/channel/:channelName", authenticateApiRequest, async (req: Request, res: Response): Promise<void> => {
+    const { channelName } = req.params;
+    const { username } = req.body;
+
+    // Verify user is authorized for this channel
+    if (!req.user || req.user.userLogin.toLowerCase() !== channelName.toLowerCase()) {
+        res.status(403).json({ error: "Unauthorized access to channel settings" });
+        return;
+    }
+
+    const allowCheck = await checkAllowedChannel(channelName);
+    if (!allowCheck.allowed) {
+        res.status(403).json({ error: allowCheck.error });
+        return;
+    }
+
+    if (!username || typeof username !== "string") {
+        res.status(400).json({ error: "Username is required" });
+        return;
+    }
+
+    const normalizedUsername = username.toLowerCase().trim();
+    if (!normalizedUsername) {
+        res.status(400).json({ error: "Invalid username" });
+        return;
+    }
+
+    try {
+        const docRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelName);
+        const docSnap = await docRef.get();
+
+        if (!docSnap.exists) {
+            res.status(404).json({ error: "Channel settings not found" });
+            return;
+        }
+
+        const currentData = docSnap.data();
+        const ignoredUsers: string[] = currentData?.ignoredUsers || [];
+
+        // Check if user is in the ignore list
+        if (!ignoredUsers.includes(normalizedUsername)) {
+            res.status(400).json({ error: "User is not in the ignore list" });
+            return;
+        }
+
+        // Remove user from ignore list
+        const updatedIgnoredUsers = ignoredUsers.filter((user) => user !== normalizedUsername);
+        await docRef.update({ ignoredUsers: updatedIgnoredUsers });
+
+        logger.info({ channelName, username: normalizedUsername }, "Removed user from TTS ignore list");
+        res.json({ success: true, message: "User removed from ignore list", ignoredUsers: updatedIgnoredUsers });
+    } catch (error) {
+        logger.error({ error, channelName, username }, "Error removing user from ignore list");
+        res.status(500).json({ error: "Failed to remove user from ignore list" });
+    }
+});
+
 export default router;
