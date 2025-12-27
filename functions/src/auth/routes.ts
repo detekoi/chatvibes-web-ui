@@ -20,7 +20,7 @@ const TWITCH_VALIDATE_URL = "https://id.twitch.tv/oauth2/validate";
 
 // OAuth scopes for streamer authentication
 // Bot presence is now required, so all streamers use the full scope
-const OAUTH_SCOPES = "user:read:email chat:read chat:edit channel:read:subscriptions bits:read moderator:read:followers channel:manage:redemptions channel:read:redemptions channel:manage:moderators user:read:chat user:write:chat";
+const OAUTH_SCOPES = "user:read:email chat:read chat:edit channel:read:subscriptions bits:read moderator:read:followers channel:manage:redemptions channel:read:redemptions channel:manage:moderators user:read:chat user:write:chat channel:bot";
 
 // Type definitions
 interface TwitchTokenResponse {
