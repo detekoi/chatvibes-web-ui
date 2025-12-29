@@ -36,6 +36,7 @@ export interface TtsSettings {
   mode?: string;
   ttsPermissionLevel?: string;
   speakEvents?: boolean;
+  speakCheerEvents?: boolean; // Granular toggle for cheer events specifically
   allowViewerPreferences?: boolean;
   readFullUrls?: boolean;
   bitsModeEnabled?: boolean;

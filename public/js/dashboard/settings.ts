@@ -144,6 +144,8 @@ export function initSettingsModule(
     if (ttsModeSelect) ttsModeSelect.addEventListener('change', () => saveSettingWrapper('mode', ttsModeSelect.value || 'command', 'TTS Mode'));
     if (ttsPermissionSelect) ttsPermissionSelect.addEventListener('change', () => saveSettingWrapper('ttsPermissionLevel', ttsPermissionSelect.value || 'everyone', 'TTS Permission'));
     if (eventsEnabledCheckbox) eventsEnabledCheckbox.addEventListener('change', () => saveSettingWrapper('speakEvents', eventsEnabledCheckbox.checked !== false, 'Event Announcements'));
+    const cheerEventsEnabledCheckbox = document.getElementById('cheer-events-enabled') as HTMLInputElement | null;
+    if (cheerEventsEnabledCheckbox) cheerEventsEnabledCheckbox.addEventListener('change', () => saveSettingWrapper('speakCheerEvents', cheerEventsEnabledCheckbox.checked !== false, 'Cheer Announcements'));
     if (allowViewerPreferencesCheckbox) allowViewerPreferencesCheckbox.addEventListener('change', () => saveSettingWrapper('allowViewerPreferences', !!allowViewerPreferencesCheckbox.checked, 'Allow Viewer Voice Preferences'));
     if (readFullUrlsCheckbox) readFullUrlsCheckbox.addEventListener('change', () => saveSettingWrapper('readFullUrls', !!readFullUrlsCheckbox.checked, 'Read Full URLs'));
     if (bitsEnabledCheckbox) bitsEnabledCheckbox.addEventListener('change', () => saveSettingWrapper('bitsModeEnabled', !!bitsEnabledCheckbox.checked, 'Bits for TTS'));
@@ -592,6 +594,12 @@ export function initSettingsModule(
     if (ttsModeSelect) ttsModeSelect.value = settings.mode || 'command';
     if (ttsPermissionSelect) ttsPermissionSelect.value = settings.ttsPermissionLevel || 'everyone';
     if (eventsEnabledCheckbox) eventsEnabledCheckbox.checked = settings.speakEvents !== false;
+    const cheerEventsEnabledCheckbox = document.getElementById('cheer-events-enabled') as HTMLInputElement | null;
+    if (cheerEventsEnabledCheckbox) {
+      // Default to speakEvents value (or true if everything undefined) if speakCheerEvents not set
+      const defaultState = settings.speakEvents !== false;
+      cheerEventsEnabledCheckbox.checked = settings.speakCheerEvents !== undefined ? settings.speakCheerEvents : defaultState;
+    }
     if (allowViewerPreferencesCheckbox) allowViewerPreferencesCheckbox.checked = settings.allowViewerPreferences !== false;
     if (readFullUrlsCheckbox) readFullUrlsCheckbox.checked = settings.readFullUrls || false;
     if (bitsEnabledCheckbox) bitsEnabledCheckbox.checked = settings.bitsModeEnabled || false;
