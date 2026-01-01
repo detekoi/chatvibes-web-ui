@@ -19,30 +19,24 @@ export class VoiceDropdown {
     private onPlaySample?: (voiceId: string, button: HTMLButtonElement) => void;
 
     constructor(options: VoiceDropdownOptions) {
-        this.container = document.getElementById(options.containerId);
+        // We assume the "containerId" is the ID prefix (e.g. "default", "calibration")
+        // and that the structure follows the pattern: {prefix}-voice-dropdown, {prefix}-voice-search, etc.
+        const prefix = options.containerId;
+
+        this.container = document.getElementById(`${prefix}-voice-dropdown`) as HTMLElement | null;
+
+        // Fallback: maybe the user passed the full ID as the containerId?
+        if (!this.container) {
+            this.container = document.getElementById(options.containerId);
+        }
+
         if (!this.container) {
             console.warn(`VoiceDropdown container not found: ${options.containerId}`);
         }
 
-        // We assume the standard structure exists within the container or related IDs
-        // Based on settings.ts, specific IDs are hardcoded (e.g., 'default-voice', 'default-voice-dropdown')
-        // To make this reusable, we should probably expect the container to HAVE the standard classes
-        // OR we pass in the IDs for the sub-elements if they follow a pattern.
-
-        // Let's assume the "containerId" is the ID prefix (e.g. "default-voice")
-        // Then we look for "-voice" (hidden), "-voice-search", "-voice-menu", etc.
-        // Actually, looking at settings.ts lines 734-738:
-        // hiddenInput: 'default-voice'
-        // searchInput: 'default-voice-search'
-        // dropdown(container): 'default-voice-dropdown'
-        // menu: 'default-voice-menu'
-
-        // So if we pass 'default' or 'calibration' as a prefix, we can construct the IDs
-        const prefix = options.containerId; // e.g., "default", "calibration"
-
         this.hiddenInput = document.getElementById(`${prefix}-voice`) as HTMLInputElement | null;
         this.searchInput = document.getElementById(`${prefix}-voice-search`) as HTMLInputElement | null;
-        this.container = document.getElementById(`${prefix}-voice-dropdown`) as HTMLElement | null; // This is the wrapper
+        this.menu = document.getElementById(`${prefix}-voice-menu`) as HTMLElement | null;
         this.menu = document.getElementById(`${prefix}-voice-menu`) as HTMLElement | null;
         this.list = this.menu?.querySelector('.voice-dropdown-list') as HTMLElement | null || null;
 

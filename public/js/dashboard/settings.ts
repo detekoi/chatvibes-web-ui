@@ -215,10 +215,12 @@ export function initSettingsModule(
 
   // NOTE: This could be refactored into a VoicePreview component too, but for now we keep it here
   // as it is shared logic mostly imported from voice-preview.js
-  let currentlyPlayingAudio: HTMLAudioElement | null = null;
-  let currentlyPlayingVoiceId: string | null = null;
-  let cachedAudioUrl: string | null = null;
-  let cachedAudioUrlMobile: string | null = null;
+  const previewState = {
+    currentlyPlayingAudio: null as HTMLAudioElement | null,
+    currentlyPlayingVoiceId: null as string | null,
+    cachedAudioUrl: null as string | null,
+    cachedAudioUrlMobile: null as string | null
+  };
 
   function attachVoicePreview(): void {
     const playerEl = document.getElementById('voice-preview-player') as HTMLElement | null;
@@ -252,11 +254,11 @@ export function initSettingsModule(
 
       const onAudioGenerated = (audioUrl: string): void => {
         if (isMobile) {
-          if (cachedAudioUrlMobile) URL.revokeObjectURL(cachedAudioUrlMobile);
-          cachedAudioUrlMobile = audioUrl;
+          if (previewState.cachedAudioUrlMobile) URL.revokeObjectURL(previewState.cachedAudioUrlMobile);
+          previewState.cachedAudioUrlMobile = audioUrl;
         } else {
-          if (cachedAudioUrl) URL.revokeObjectURL(cachedAudioUrl);
-          cachedAudioUrl = audioUrl;
+          if (previewState.cachedAudioUrl) URL.revokeObjectURL(previewState.cachedAudioUrl);
+          previewState.cachedAudioUrl = audioUrl;
         }
       };
 
@@ -273,8 +275,8 @@ export function initSettingsModule(
     if (voiceTestBtnMobile) voiceTestBtnMobile.addEventListener('click', () => void testVoice(true));
 
     const markSettingsAsDirty = (): void => {
-      if (hintEl && cachedAudioUrl) hintEl.style.display = 'block';
-      if (hintElMobile && cachedAudioUrlMobile) hintElMobile.style.display = 'block';
+      if (hintEl && previewState.cachedAudioUrl) hintEl.style.display = 'block';
+      if (hintElMobile && previewState.cachedAudioUrlMobile) hintElMobile.style.display = 'block';
     };
 
     // Watch for changes that invalidate preview
@@ -288,23 +290,23 @@ export function initSettingsModule(
     // We'll handle voice change in the VoiceDropdown instantiation.
 
     window.addEventListener('beforeunload', () => {
-      if (cachedAudioUrl) URL.revokeObjectURL(cachedAudioUrl);
-      if (cachedAudioUrlMobile) URL.revokeObjectURL(cachedAudioUrlMobile);
+      if (previewState.cachedAudioUrl) URL.revokeObjectURL(previewState.cachedAudioUrl);
+      if (previewState.cachedAudioUrlMobile) URL.revokeObjectURL(previewState.cachedAudioUrlMobile);
     });
   }
 
   async function playVoiceSample(voiceId: string, buttonElement: HTMLButtonElement): Promise<void> {
     if (!voiceId) return;
 
-    if (currentlyPlayingVoiceId === voiceId && currentlyPlayingAudio) {
-      currentlyPlayingAudio.pause();
-      currentlyPlayingAudio = null;
-      currentlyPlayingVoiceId = null;
+    if (previewState.currentlyPlayingVoiceId === voiceId && previewState.currentlyPlayingAudio) {
+      previewState.currentlyPlayingAudio.pause();
+      previewState.currentlyPlayingAudio = null;
+      previewState.currentlyPlayingVoiceId = null;
       updatePlayButton(buttonElement, false);
       return;
     }
 
-    if (currentlyPlayingAudio) {
+    if (previewState.currentlyPlayingAudio) {
       // Find the PREVIOUS button and reset it. 
       // This is tricky because we don't have a direct reference to the previous button element easily
       // unless we store it or query for it.
@@ -312,11 +314,11 @@ export function initSettingsModule(
       if (previousBtn) {
         updatePlayButton(previousBtn, false);
       }
-      currentlyPlayingAudio.pause();
-      currentlyPlayingAudio = null;
+      previewState.currentlyPlayingAudio.pause();
+      previewState.currentlyPlayingAudio = null;
     }
 
-    const preMadeUrl = `/assets/voices/\${voiceId}-welcome-everyone-to-the-stream.mp3`;
+    const preMadeUrl = `/assets/voices/${voiceId}-welcome-everyone-to-the-stream.mp3`;
 
     try {
       const response = await fetch(preMadeUrl);
@@ -328,26 +330,26 @@ export function initSettingsModule(
       const blob = await response.blob();
       const audioUrl = URL.createObjectURL(blob);
 
-      currentlyPlayingAudio = new Audio(audioUrl);
-      currentlyPlayingVoiceId = voiceId;
+      previewState.currentlyPlayingAudio = new Audio(audioUrl);
+      previewState.currentlyPlayingVoiceId = voiceId;
       updatePlayButton(buttonElement, true);
 
       const stopPlayback = (): void => {
         URL.revokeObjectURL(audioUrl);
         updatePlayButton(buttonElement, false);
-        currentlyPlayingAudio = null;
-        currentlyPlayingVoiceId = null;
+        previewState.currentlyPlayingAudio = null;
+        previewState.currentlyPlayingVoiceId = null;
       };
 
-      currentlyPlayingAudio.onended = stopPlayback;
-      currentlyPlayingAudio.onerror = stopPlayback;
+      previewState.currentlyPlayingAudio.onended = stopPlayback;
+      previewState.currentlyPlayingAudio.onerror = stopPlayback;
 
-      await currentlyPlayingAudio.play();
+      await previewState.currentlyPlayingAudio.play();
     } catch (error) {
       console.error('Error playing voice preview:', error);
       updatePlayButton(buttonElement, false);
-      currentlyPlayingAudio = null;
-      currentlyPlayingVoiceId = null;
+      previewState.currentlyPlayingAudio = null;
+      previewState.currentlyPlayingVoiceId = null;
     }
   }
 
