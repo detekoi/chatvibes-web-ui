@@ -6,6 +6,13 @@ import { SettingsApi } from './services/settings-api.js';
 import { VoiceDropdown } from './components/voice-dropdown.js';
 import { VoiceCalibration } from './components/voice-calibration.js';
 
+const previewState = {
+  currentlyPlayingAudio: null as HTMLAudioElement | null,
+  currentlyPlayingVoiceId: null as string | null,
+  cachedAudioUrl: null as string | null,
+  cachedAudioUrlMobile: null as string | null
+};
+
 export interface SettingsModuleContext {
   botApiBaseUrl: string;
   testMode: boolean;
@@ -213,14 +220,7 @@ export function initSettingsModule(
     return { voiceId, emotion, pitch, speed, volume, languageBoost };
   }
 
-  // NOTE: This could be refactored into a VoicePreview component too, but for now we keep it here
-  // as it is shared logic mostly imported from voice-preview.js
-  const previewState = {
-    currentlyPlayingAudio: null as HTMLAudioElement | null,
-    currentlyPlayingVoiceId: null as string | null,
-    cachedAudioUrl: null as string | null,
-    cachedAudioUrlMobile: null as string | null
-  };
+
 
   function attachVoicePreview(): void {
     const playerEl = document.getElementById('voice-preview-player') as HTMLElement | null;
