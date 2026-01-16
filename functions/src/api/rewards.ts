@@ -231,7 +231,35 @@ async function ensureTtsChannelPointReward(channelLogin: string, twitchUserId: s
     }
     throw new Error("No reward data returned from Twitch");
   } catch (e) {
-    const err = e as {response?: {status?: number; data?: unknown}; message?: string};
+    const err = e as {response?: {status?: number; data?: {message?: string}}; message?: string};
+    const errorMessage = err?.response?.data?.message || "";
+
+    // Handle duplicate reward error - user likely created one manually
+    if (err?.response?.status === 400 && errorMessage === "CREATE_CUSTOM_REWARD_DUPLICATE_REWARD") {
+      logger.warn({channelLogin}, "[ensureTtsChannelPointReward] Duplicate reward detected, checking for manual reward");
+
+      // Query ALL rewards (not just manageable) to find the conflicting one
+      try {
+        const allRewardsResp = await helix.get<{data: Array<{id: string; title: string}>}>(
+          `/channel_points/custom_rewards?broadcaster_id=${encodeURIComponent(twitchUserId)}`
+        );
+        const allRewards = Array.isArray(allRewardsResp.data?.data) ? allRewardsResp.data.data : [];
+        const conflicting = allRewards.find((r) => r.title === desiredTitle);
+
+        if (conflicting) {
+          logger.info({channelLogin, conflictingRewardId: conflicting.id}, "[ensureTtsChannelPointReward] Found manually created reward");
+          throw new Error(`A channel point reward named "${desiredTitle}" already exists but was created manually through Twitch. Please delete it from your Twitch Creator Dashboard (Viewer Rewards > Channel Points > Manage Rewards) and try again.`);
+        }
+      } catch (listErr) {
+        // If this is our custom error, rethrow it
+        if (listErr instanceof Error && listErr.message.includes("already exists but was created manually")) {
+          throw listErr;
+        }
+        // Otherwise log and fall through to generic error
+        logger.warn({channelLogin, error: (listErr as Error).message}, "[ensureTtsChannelPointReward] Failed to list all rewards");
+      }
+    }
+
     logger.error({
       channelLogin,
       status: err?.response?.status,
