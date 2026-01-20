@@ -356,7 +356,7 @@ router.get("/twitch/callback", async (req: Request, res: Response): Promise<void
       // Automatically setup EventSub subscriptions for the authenticated streamer
       try {
         logger.info({ userLogin: twitchUser.login }, "[AuthCallback] Setting up EventSub");
-        const ttsBotUrl = process.env.TTS_BOT_URL || "https://wildcat-tts-service-906125386407.us-central1.run.app";
+        const ttsBotUrl = process.env.TTS_BOT_URL || "https://tts.wildcat.chat";
 
         const eventSubResponse = await fetch(`${ttsBotUrl}/api/setup-eventsub`, {
           method: "POST",

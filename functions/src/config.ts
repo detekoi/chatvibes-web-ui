@@ -46,7 +46,7 @@ const secrets: Secrets = {
 const config: Config = {
   CALLBACK_URL: process.env.CALLBACK_URL,
   FRONTEND_URL: process.env.FRONTEND_URL,
-  OBS_BROWSER_BASE_URL: process.env.OBS_BROWSER_BASE_URL || "https://chatvibes-tts-service-h7kj56ct4q-uc.a.run.app",
+  OBS_BROWSER_BASE_URL: process.env.OBS_BROWSER_BASE_URL || "https://tts.wildcat.chat",
   GCLOUD_PROJECT: process.env.GCLOUD_PROJECT,
   TWITCH_BOT_USERNAME: process.env.TWITCH_BOT_USERNAME || "",
 };
