@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Voice Preview Generator for ChatVibes Web UI
+ * Voice Preview Generator for WildcatTTS Web UI
  * 
  * This script generates TTS audio files for voice previews using the Wavespeed API.
  * It creates two types of files:

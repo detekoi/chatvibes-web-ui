@@ -1,8 +1,8 @@
 {
-  "name": "chatvibes-web-ui",
+  "name": "wildcat-tts-web-ui",
   "version": "1.0.0",
   "type": "module",
-  "description": "ChatVibes Web UI with voice preview generation",
+  "description": "WildcatTTS Web UI",
   "main": "scripts/generate-voice-previews.js",
   "scripts": {
     "generate-voices": "node scripts/generate-voice-previews.js",
@@ -10,7 +10,12 @@
     "build:frontend": "node scripts/build-frontend.js",
     "watch:frontend": "node scripts/build-frontend.js --watch"
   },
-  "keywords": ["tts", "voice", "wavespeed", "chatvibes"],
+  "keywords": [
+    "tts",
+    "voice",
+    "wavespeed",
+    "chatvibes"
+  ],
   "author": "",
   "license": "BSD-2-Clause",
   "dependencies": {

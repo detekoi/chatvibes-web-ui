@@ -1,5 +1,5 @@
 /**
- * Shared UI helpers for ChatVibes Web UI.
+ * Shared UI helpers for WildcatTTS Web UI.
  */
 
 // Extend window for Bootstrap types
@@ -45,7 +45,7 @@ export function showToast(message: string, type: ToastType = 'success'): void {
 
   const bgClass = type === 'error' || type === 'danger' ? 'text-bg-danger' :
     type === 'warning' ? 'text-bg-warning' :
-    type === 'info' ? 'text-bg-info' : 'text-bg-success';
+      type === 'info' ? 'text-bg-info' : 'text-bg-success';
   toastEl.classList.add(bgClass);
 
   const inner = document.createElement('div');

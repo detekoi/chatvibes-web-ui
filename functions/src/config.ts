@@ -1,16 +1,16 @@
 /**
- * Configuration module for ChatVibes Web UI Functions
+ * Configuration module for WildcatTTS Web UI Functions
  * Centralizes environment variables and secret loading
  *
  * Secrets are now loaded from Firebase Functions secret environment variables
  * (mounted from Secret Manager at deploy time) for zero API costs and faster startup.
  */
 
-import {SecretManagerServiceClient} from "@google-cloud/secret-manager";
-import {createLogger} from "./logger";
+import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
+import { createLogger } from "./logger";
 
 const secretManagerClient = new SecretManagerServiceClient();
-const logger = createLogger({module: "config"});
+const logger = createLogger({ module: "config" });
 
 // Detect emulator/local mode
 const isEmulator = process.env.FUNCTIONS_EMULATOR === "true" || !!process.env.FIREBASE_EMULATOR_HUB || process.env.USE_ENV_SECRETS === "1";
@@ -65,11 +65,11 @@ if (isEmulator && !secrets.TWITCH_CLIENT_ID) {
 let secretsValidated = false;
 
 // Store original values to avoid infinite recursion when validating
-const originalSecrets = {...secrets};
+const originalSecrets = { ...secrets };
 
 function validateSecrets(): void {
   if (secretsValidated) return;
-  
+
   // Skip validation during build/analysis phase
   // Firebase sets FUNCTION_TARGET at runtime, not during build
   const isBuildPhase = !process.env.FUNCTION_TARGET && !isEmulator;
@@ -139,4 +139,4 @@ export {
   config,
   secretManagerClient,
 };
-export type {Secrets, Config};
+export type { Secrets, Config };

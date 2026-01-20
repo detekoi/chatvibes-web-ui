@@ -1,5 +1,5 @@
 /**
- * Refactored ChatVibes Web UI Functions
+ * Refactored WildcatTTS Web UI Functions
  *
  * This is the new modular entry point for the Firebase Functions.
  * The original monolithic index.js has been refactored into smaller,
@@ -78,7 +78,7 @@ app.get("/health", (_req: Request, res: Response): void => {
   res.json({
     status: "healthy",
     timestamp: new Date().toISOString(),
-    service: "chatvibes-web-ui-functions",
+    service: "wildcat-tts-web-ui-functions",
   });
 });
 

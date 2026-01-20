@@ -24,11 +24,11 @@ export async function createTestApp() {
   delete require.cache[require.resolve('../../logger')];
 
   // Wait for secrets to load
-  const {secretsLoadedPromise, config} = require('../../config');
+  const { secretsLoadedPromise, config } = require('../../config');
   await secretsLoadedPromise;
 
   // Import middleware and routes
-  const {requestLoggingMiddleware} = require('../../logger');
+  const { requestLoggingMiddleware } = require('../../logger');
   const authRoutes = require('../../auth/routes').default;
   const authApiRoutes = require('../auth').default;
   const botRoutes = require('../bot').default;
@@ -36,7 +36,7 @@ export async function createTestApp() {
   const obsRoutes = require('../obs').default;
   const viewerRoutes = require('../viewer').default;
   const settingsRoutes = require('../settings').default;
-  const {apiRouter: miscApiRoutes, redirectRouter: redirectsRoutes} = require('../misc');
+  const { apiRouter: miscApiRoutes, redirectRouter: redirectsRoutes } = require('../misc');
 
   // Create Express app
   const app = express();
@@ -68,8 +68,8 @@ export async function createTestApp() {
   }));
 
   // Body parsing middleware
-  app.use(express.json({limit: '1mb'}));
-  app.use(express.urlencoded({extended: true, limit: '1mb'}));
+  app.use(express.json({ limit: '1mb' }));
+  app.use(express.urlencoded({ extended: true, limit: '1mb' }));
 
   // Request logging middleware
   app.use(requestLoggingMiddleware);
@@ -90,7 +90,7 @@ export async function createTestApp() {
     res.json({
       status: 'healthy',
       timestamp: new Date().toISOString(),
-      service: 'chatvibes-web-ui-functions',
+      service: 'wildcat-tts-web-ui-functions',
     });
   });
 

@@ -1,16 +1,16 @@
 /**
- * ChatVibes Theme Manager
+ * WildcatTTS Theme Manager
  * Handles theme switching functionality (light/dark mode)
  */
 
 // Make this file a module to allow global augmentation
-export {};
+export { };
 
 // Type definitions
 type Theme = 'dark' | 'light';
 
 // Constants
-const THEME_KEY = 'chatvibes-theme';
+const THEME_KEY = 'wildcat-tts-theme';
 const DARK_THEME: Theme = 'dark';
 const LIGHT_THEME: Theme = 'light';
 

@@ -24,7 +24,7 @@ firebase deploy                  # Deploy all
 
 ## Project Overview
 
-ChatVibes TTS bot management web application with:
+WildcatTTS TTS bot management web application with:
 
 - **Frontend**: Static site in `/public/` with TypeScript sources
   - Main pages: `index.html`, `dashboard.html`, `auth-complete.html`, `auth-error.html`

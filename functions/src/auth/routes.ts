@@ -133,8 +133,8 @@ async function handleViewerCallback(req: Request, res: Response, decodedState: V
 
     const viewerSessionToken = jwt.sign(viewerTokenPayload, secrets.JWT_SECRET, {
       expiresIn: "7d",
-      issuer: "chatvibes-auth",
-      audience: "chatvibes-api",
+      issuer: "wildcat-tts-auth",
+      audience: "wildcat-tts-api",
     });
 
     logger.info({ userLogin }, "Generated viewer session token");
@@ -290,8 +290,8 @@ router.get("/twitch/callback", async (req: Request, res: Response): Promise<void
       };
       const appSessionToken = jwt.sign(appTokenPayload, secrets.JWT_SECRET, {
         expiresIn: "7d",
-        issuer: "chatvibes-auth",
-        audience: "chatvibes-api",
+        issuer: "wildcat-tts-auth",
+        audience: "wildcat-tts-api",
       });
       logger.info({ userLogin: twitchUser.login }, "Generated app session token");
 
@@ -356,7 +356,7 @@ router.get("/twitch/callback", async (req: Request, res: Response): Promise<void
       // Automatically setup EventSub subscriptions for the authenticated streamer
       try {
         logger.info({ userLogin: twitchUser.login }, "[AuthCallback] Setting up EventSub");
-        const ttsBotUrl = process.env.TTS_BOT_URL || "https://chatvibes-tts-service-906125386407.us-central1.run.app";
+        const ttsBotUrl = process.env.TTS_BOT_URL || "https://wildcat-tts-service-906125386407.us-central1.run.app";
 
         const eventSubResponse = await fetch(`${ttsBotUrl}/api/setup-eventsub`, {
           method: "POST",

@@ -1,5 +1,5 @@
 /**
- * Shared API helpers for ChatVibes Web UI.
+ * Shared API helpers for WildcatTTS Web UI.
  */
 
 /**

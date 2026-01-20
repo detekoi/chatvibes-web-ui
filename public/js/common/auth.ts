@@ -1,5 +1,5 @@
 /**
- * Authentication helpers shared across ChatVibes pages.
+ * Authentication helpers shared across WildcatTTS pages.
  */
 
 const STORAGE_KEYS = {
