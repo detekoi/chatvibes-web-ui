@@ -2,11 +2,11 @@
  * Viewer preferences and settings API routes
  */
 
-import express, {Request, Response, Router} from "express";
-import {db, COLLECTIONS} from "../services/firestore";
-import {validateSpeed, validatePitch, validateEmotion, validateLanguageBoost, normalizeEmotion} from "../services/utils";
-import {authenticateApiRequest} from "../middleware/auth";
-import {logger} from "../logger";
+import express, { Request, Response, Router } from "express";
+import { db, COLLECTIONS } from "../services/firestore";
+import { validateSpeed, validatePitch, validateEmotion, validateLanguageBoost, normalizeEmotion } from "../services/utils";
+import { authenticateApiRequest } from "../middleware/auth";
+import { logger } from "../logger";
 
 const router: Router = express.Router();
 
@@ -31,12 +31,12 @@ interface PreferencesUpdate {
 
 // Route: /api/viewer/auth - Viewer authentication
 router.post("/auth", async (req: Request, res: Response): Promise<void> => {
-  const log = logger.child({endpoint: "/api/viewer/auth"});
+  const log = logger.child({ endpoint: "/api/viewer/auth" });
   try {
-    const {token} = req.body;
+    const { token } = req.body;
 
     if (!token) {
-      res.status(400).json({error: "Token is required"});
+      res.status(400).json({ error: "Token is required" });
       return;
     }
 
@@ -52,32 +52,32 @@ router.post("/auth", async (req: Request, res: Response): Promise<void> => {
     });
   } catch (error) {
     const err = error as Error;
-    log.error({error: err.message}, "Error authenticating viewer");
-    res.status(500).json({error: "Authentication failed"});
+    log.error({ error: err.message }, "Error authenticating viewer");
+    res.status(500).json({ error: "Authentication failed" });
   }
 });
 
 // Route: /api/viewer/preferences/:channel - Get viewer preferences for a specific channel
 router.get("/preferences/:channel", authenticateApiRequest, async (req: Request, res: Response): Promise<void> => {
-  const {channel} = req.params;
+  const { channel } = req.params;
   if (!req.user) {
-    res.status(401).json({error: "Unauthorized"});
+    res.status(401).json({ error: "Unauthorized" });
     return;
   }
 
   const username = req.user.userLogin;
-  const log = logger.child({endpoint: "/api/viewer/preferences/:channel", channel, username});
+  const log = logger.child({ endpoint: "/api/viewer/preferences/:channel", channel, username });
 
   try {
     if (!channel) {
-      res.status(400).json({error: "Channel is required"});
+      res.status(400).json({ error: "Channel is required" });
       return;
     }
 
     // Security check: ensure the authenticated user matches the token user
     if (req.user.scope === "viewer" && req.user.tokenUser && req.user.tokenUser !== username) {
-      log.warn({tokenUser: req.user.tokenUser}, "SECURITY VIOLATION BLOCKED: User trying to access other user preferences in GET");
-      res.status(403).json({error: "Access denied: token user mismatch"});
+      log.warn({ tokenUser: req.user.tokenUser }, "SECURITY VIOLATION BLOCKED: User trying to access other user preferences in GET");
+      res.status(403).json({ error: "Access denied: token user mismatch" });
       return;
     }
 
@@ -85,13 +85,13 @@ router.get("/preferences/:channel", authenticateApiRequest, async (req: Request,
     const channelDoc = await db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channel).get();
 
     if (!channelDoc.exists) {
-      res.status(404).json({error: "Channel not found or TTS not enabled"});
+      res.status(404).json({ error: "Channel not found or TTS not enabled" });
       return;
     }
 
     const channelData = channelDoc.data();
     if (!channelData) {
-      res.status(404).json({error: "Channel data not found"});
+      res.status(404).json({ error: "Channel data not found" });
       return;
     }
 
@@ -104,7 +104,7 @@ router.get("/preferences/:channel", authenticateApiRequest, async (req: Request,
       }
     } catch (e) {
       const err = e as Error;
-      log.warn({error: err.message}, "Failed to load global user prefs");
+      log.warn({ error: err.message }, "Failed to load global user prefs");
     }
 
     // Check if user is ignored
@@ -123,6 +123,9 @@ router.get("/preferences/:channel", authenticateApiRequest, async (req: Request,
         tts: ttsIgnored,
       },
       channelExists: true,
+      channelPolicy: {
+        allowViewerPreferences: channelData.allowViewerPreferences !== false,
+      },
       channelDefaults: {
         voiceId: channelData.voiceId || null,
         pitch: channelData.pitch || null,
@@ -137,41 +140,41 @@ router.get("/preferences/:channel", authenticateApiRequest, async (req: Request,
     res.json(responseBody);
   } catch (error) {
     const err = error as Error;
-    log.error({error: err.message}, "Error retrieving preferences");
-    res.status(500).json({error: "Failed to retrieve preferences"});
+    log.error({ error: err.message }, "Error retrieving preferences");
+    res.status(500).json({ error: "Failed to retrieve preferences" });
   }
 });
 
 // Route: /api/viewer/preferences/:channel - Update viewer preferences for a specific channel
 router.put("/preferences/:channel", authenticateApiRequest, async (req: Request, res: Response): Promise<void> => {
-  const {channel} = req.params;
+  const { channel } = req.params;
   if (!req.user) {
-    res.status(401).json({error: "Unauthorized"});
+    res.status(401).json({ error: "Unauthorized" });
     return;
   }
 
   const username = req.user.userLogin;
-  const log = logger.child({endpoint: "/api/viewer/preferences/:channel", channel, username});
+  const log = logger.child({ endpoint: "/api/viewer/preferences/:channel", channel, username });
 
   try {
     const updates: PreferencesUpdate = req.body;
 
     if (!channel) {
-      res.status(400).json({error: "Channel is required"});
+      res.status(400).json({ error: "Channel is required" });
       return;
     }
 
     // Security check
     if (req.user.scope === "viewer" && req.user.tokenUser && req.user.tokenUser !== username) {
-      log.warn({tokenUser: req.user.tokenUser}, "SECURITY VIOLATION BLOCKED: User trying to access other user preferences in PUT");
-      res.status(403).json({error: "Access denied: token user mismatch"});
+      log.warn({ tokenUser: req.user.tokenUser }, "SECURITY VIOLATION BLOCKED: User trying to access other user preferences in PUT");
+      res.status(403).json({ error: "Access denied: token user mismatch" });
       return;
     }
 
     // Check if channel exists
     const channelDoc = await db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channel).get();
     if (!channelDoc.exists) {
-      res.status(404).json({error: "Channel not found or TTS not enabled"});
+      res.status(404).json({ error: "Channel not found or TTS not enabled" });
       return;
     }
 
@@ -185,7 +188,7 @@ router.put("/preferences/:channel", authenticateApiRequest, async (req: Request,
       if (updates.pitch === null || validatePitch(updates.pitch)) {
         updateData.pitch = updates.pitch;
       } else {
-        res.status(400).json({error: "Invalid pitch value"});
+        res.status(400).json({ error: "Invalid pitch value" });
         return;
       }
     }
@@ -193,7 +196,7 @@ router.put("/preferences/:channel", authenticateApiRequest, async (req: Request,
       if (updates.speed === null || validateSpeed(updates.speed)) {
         updateData.speed = updates.speed;
       } else {
-        res.status(400).json({error: "Invalid speed value"});
+        res.status(400).json({ error: "Invalid speed value" });
         return;
       }
     }
@@ -202,7 +205,7 @@ router.put("/preferences/:channel", authenticateApiRequest, async (req: Request,
       if (normalized === null || validateEmotion(normalized)) {
         updateData.emotion = normalized;
       } else {
-        res.status(400).json({error: "Invalid emotion value"});
+        res.status(400).json({ error: "Invalid emotion value" });
         return;
       }
     }
@@ -210,7 +213,7 @@ router.put("/preferences/:channel", authenticateApiRequest, async (req: Request,
       if (updates.language === null || validateLanguageBoost(updates.language)) {
         updateData.languageBoost = updates.language; // Map UI field to internal field
       } else {
-        res.status(400).json({error: "Invalid language value"});
+        res.status(400).json({ error: "Invalid language value" });
         return;
       }
     }
@@ -219,26 +222,26 @@ router.put("/preferences/:channel", authenticateApiRequest, async (req: Request,
     }
 
     // Update global user preferences
-    await db.collection("ttsUserPreferences").doc(username).set(updateData, {merge: true});
+    await db.collection("ttsUserPreferences").doc(username).set(updateData, { merge: true });
 
     log.info("Preferences updated");
-    res.json({success: true, message: "Preferences updated successfully"});
+    res.json({ success: true, message: "Preferences updated successfully" });
   } catch (error) {
     const err = error as Error;
-    log.error({error: err.message}, "Error updating preferences");
-    res.status(500).json({error: "Failed to update preferences"});
+    log.error({ error: err.message }, "Error updating preferences");
+    res.status(500).json({ error: "Failed to update preferences" });
   }
 });
 
 // Route: /api/viewer/preferences - Get global viewer preferences
 router.get("/preferences", authenticateApiRequest, async (req: Request, res: Response): Promise<void> => {
   if (!req.user) {
-    res.status(401).json({error: "Unauthorized"});
+    res.status(401).json({ error: "Unauthorized" });
     return;
   }
 
   const username = req.user.userLogin;
-  const log = logger.child({endpoint: "/api/viewer/preferences", username});
+  const log = logger.child({ endpoint: "/api/viewer/preferences", username });
 
   try {
     // Load global user preferences
@@ -250,7 +253,7 @@ router.get("/preferences", authenticateApiRequest, async (req: Request, res: Res
       }
     } catch (e) {
       const err = e as Error;
-      log.warn({error: err.message}, "Failed to load global user prefs");
+      log.warn({ error: err.message }, "Failed to load global user prefs");
     }
 
     // Map internal fields to UI schema
@@ -267,20 +270,20 @@ router.get("/preferences", authenticateApiRequest, async (req: Request, res: Res
     res.json(responseBody);
   } catch (error) {
     const err = error as Error;
-    log.error({error: err.message}, "Error retrieving global preferences");
-    res.status(500).json({error: "Failed to retrieve global preferences"});
+    log.error({ error: err.message }, "Error retrieving global preferences");
+    res.status(500).json({ error: "Failed to retrieve global preferences" });
   }
 });
 
 // Route: /api/viewer/preferences - Update global viewer preferences
 router.put("/preferences", authenticateApiRequest, async (req: Request, res: Response): Promise<void> => {
   if (!req.user) {
-    res.status(401).json({error: "Unauthorized"});
+    res.status(401).json({ error: "Unauthorized" });
     return;
   }
 
   const username = req.user.userLogin;
-  const log = logger.child({endpoint: "/api/viewer/preferences", username});
+  const log = logger.child({ endpoint: "/api/viewer/preferences", username });
 
   try {
     const updates: PreferencesUpdate = req.body;
@@ -295,7 +298,7 @@ router.put("/preferences", authenticateApiRequest, async (req: Request, res: Res
       if (updates.pitch === null || validatePitch(updates.pitch)) {
         updateData.pitch = updates.pitch;
       } else {
-        res.status(400).json({error: "Invalid pitch value"});
+        res.status(400).json({ error: "Invalid pitch value" });
         return;
       }
     }
@@ -303,7 +306,7 @@ router.put("/preferences", authenticateApiRequest, async (req: Request, res: Res
       if (updates.speed === null || validateSpeed(updates.speed)) {
         updateData.speed = updates.speed;
       } else {
-        res.status(400).json({error: "Invalid speed value"});
+        res.status(400).json({ error: "Invalid speed value" });
         return;
       }
     }
@@ -312,7 +315,7 @@ router.put("/preferences", authenticateApiRequest, async (req: Request, res: Res
       if (normalized === null || validateEmotion(normalized)) {
         updateData.emotion = normalized;
       } else {
-        res.status(400).json({error: "Invalid emotion value"});
+        res.status(400).json({ error: "Invalid emotion value" });
         return;
       }
     }
@@ -320,7 +323,7 @@ router.put("/preferences", authenticateApiRequest, async (req: Request, res: Res
       if (updates.language === null || validateLanguageBoost(updates.language)) {
         updateData.languageBoost = updates.language; // Map UI field to internal field
       } else {
-        res.status(400).json({error: "Invalid language value"});
+        res.status(400).json({ error: "Invalid language value" });
         return;
       }
     }
@@ -329,31 +332,31 @@ router.put("/preferences", authenticateApiRequest, async (req: Request, res: Res
     }
 
     // Update global user preferences
-    await db.collection("ttsUserPreferences").doc(username).set(updateData, {merge: true});
+    await db.collection("ttsUserPreferences").doc(username).set(updateData, { merge: true });
 
     log.info("Global preferences updated");
-    res.json({success: true, message: "Global preferences updated successfully"});
+    res.json({ success: true, message: "Global preferences updated successfully" });
   } catch (error) {
     const err = error as Error;
-    log.error({error: err.message}, "Error updating global preferences");
-    res.status(500).json({error: "Failed to update global preferences"});
+    log.error({ error: err.message }, "Error updating global preferences");
+    res.status(500).json({ error: "Failed to update global preferences" });
   }
 });
 
 // Route: /api/viewer/ignore/tts/:channel - Toggle TTS ignore status
 router.post("/ignore/tts/:channel", authenticateApiRequest, async (req: Request, res: Response): Promise<void> => {
-  const {channel} = req.params;
+  const { channel } = req.params;
   if (!req.user) {
-    res.status(401).json({error: "Unauthorized"});
+    res.status(401).json({ error: "Unauthorized" });
     return;
   }
 
   const username = req.user.userLogin;
-  const log = logger.child({endpoint: "/api/viewer/ignore/tts/:channel", channel, username});
+  const log = logger.child({ endpoint: "/api/viewer/ignore/tts/:channel", channel, username });
 
   try {
     if (!channel) {
-      res.status(400).json({error: "Channel is required"});
+      res.status(400).json({ error: "Channel is required" });
       return;
     }
 
@@ -361,13 +364,13 @@ router.post("/ignore/tts/:channel", authenticateApiRequest, async (req: Request,
     const channelDoc = await channelDocRef.get();
 
     if (!channelDoc.exists) {
-      res.status(404).json({error: "Channel not found"});
+      res.status(404).json({ error: "Channel not found" });
       return;
     }
 
     const channelData = channelDoc.data();
     if (!channelData) {
-      res.status(404).json({error: "Channel data not found"});
+      res.status(404).json({ error: "Channel data not found" });
       return;
     }
 
@@ -380,19 +383,19 @@ router.post("/ignore/tts/:channel", authenticateApiRequest, async (req: Request,
         ignoredUsers: ignoredUsers.filter((user) => user !== username),
       });
       log.info("Removed user from TTS ignore list");
-      res.json({success: true, ignored: false, message: "Removed from TTS ignore list"});
+      res.json({ success: true, ignored: false, message: "Removed from TTS ignore list" });
     } else {
       // Add to ignore list
       await channelDocRef.update({
         ignoredUsers: [...ignoredUsers, username],
       });
       log.info("Added user to TTS ignore list");
-      res.json({success: true, ignored: true, message: "Added to TTS ignore list"});
+      res.json({ success: true, ignored: true, message: "Added to TTS ignore list" });
     }
   } catch (error) {
     const err = error as Error;
-    log.error({error: err.message}, "Error updating ignore status");
-    res.status(500).json({error: "Failed to update ignore status"});
+    log.error({ error: err.message }, "Error updating ignore status");
+    res.status(500).json({ error: "Failed to update ignore status" });
   }
 });
 

@@ -2,10 +2,10 @@
  * Integration tests for viewer API endpoints
  */
 
-import {describe, it, expect, beforeAll, beforeEach} from '@jest/globals';
+import { describe, it, expect, beforeAll, beforeEach } from '@jest/globals';
 import request from 'supertest';
-import {createTestApp} from './appHelper';
-import {createTestToken, createTestUser, getTestDb, clearTestData} from './testHelpers';
+import { createTestApp } from './appHelper';
+import { createTestToken, createTestUser, getTestDb, clearTestData } from './testHelpers';
 
 describe('Viewer API Integration Tests', () => {
   let app: any;
@@ -25,19 +25,19 @@ describe('Viewer API Integration Tests', () => {
   describe('POST /api/viewer/auth', () => {
     it('should return 400 when token is missing', async () => {
       const response = await request(app)
-          .post('/api/viewer/auth')
-          .send({})
-          .expect(400);
-      
+        .post('/api/viewer/auth')
+        .send({})
+        .expect(400);
+
       expect(response.body.error).toBe('Token is required');
     });
 
     it('should return success when token is provided', async () => {
       const response = await request(app)
-          .post('/api/viewer/auth')
-          .send({token: 'test-token'})
-          .expect(200);
-      
+        .post('/api/viewer/auth')
+        .send({ token: 'test-token' })
+        .expect(200);
+
       expect(response.body.success).toBe(true);
       expect(response.body.message).toContain('authenticated');
     });
@@ -46,9 +46,9 @@ describe('Viewer API Integration Tests', () => {
   describe('GET /api/viewer/preferences/:channel', () => {
     it('should return 401 without token', async () => {
       const response = await request(app)
-          .get(`/api/viewer/preferences/${testChannel}`)
-          .expect(401);
-      
+        .get(`/api/viewer/preferences/${testChannel}`)
+        .expect(401);
+
       expect(response.body.success).toBe(false);
     });
 
@@ -66,10 +66,10 @@ describe('Viewer API Integration Tests', () => {
 
       const token = createTestToken(testUser);
       const response = await request(app)
-          .get(`/api/viewer/preferences/${testChannel}`)
-          .set('Authorization', `Bearer ${token}`)
-          .expect(200);
-      
+        .get(`/api/viewer/preferences/${testChannel}`)
+        .set('Authorization', `Bearer ${token}`)
+        .expect(200);
+
       expect(response.body.success).toBe(true);
       expect(response.body.preferences).toBeDefined();
     });
@@ -77,37 +77,54 @@ describe('Viewer API Integration Tests', () => {
     it('should return empty preferences when none exist', async () => {
       const token = createTestToken(testUser);
       const response = await request(app)
-          .get(`/api/viewer/preferences/${testChannel}`)
-          .set('Authorization', `Bearer ${token}`)
-          .expect(200);
-      
+        .get(`/api/viewer/preferences/${testChannel}`)
+        .set('Authorization', `Bearer ${token}`)
+        .expect(200);
+
       expect(response.body.success).toBe(true);
       expect(response.body.preferences).toBeDefined();
+    });
+
+    it('should return channel policy when allowViewerPreferences is false', async () => {
+      await db.collection('ttsChannelConfigs').doc(testChannel).set({
+        allowViewerPreferences: false,
+      });
+
+      const token = createTestToken(testUser);
+      const response = await request(app)
+        .get(`/api/viewer/preferences/${testChannel}`)
+        .set('Authorization', `Bearer ${token}`)
+        .expect(200);
+
+      expect(response.body.success).toBe(true);
+      expect(response.body.preferences).toBeDefined(); // Fixed property access
+      expect(response.body.preferences.channelPolicy).toBeDefined();
+      expect(response.body.preferences.channelPolicy.allowViewerPreferences).toBe(false);
     });
   });
 
   describe('PUT /api/viewer/preferences/:channel', () => {
     it('should return 401 without token', async () => {
       const response = await request(app)
-          .put(`/api/viewer/preferences/${testChannel}`)
-          .send({speed: 1.0})
-          .expect(401);
-      
+        .put(`/api/viewer/preferences/${testChannel}`)
+        .send({ speed: 1.0 })
+        .expect(401);
+
       expect(response.body.success).toBe(false);
     });
 
     it('should update preferences with valid data', async () => {
       const token = createTestToken(testUser);
       const response = await request(app)
-          .put(`/api/viewer/preferences/${testChannel}`)
-          .set('Authorization', `Bearer ${token}`)
-          .send({
-            speed: 1.2,
-            pitch: 5,
-            emotion: 'happy',
-          })
-          .expect(200);
-      
+        .put(`/api/viewer/preferences/${testChannel}`)
+        .set('Authorization', `Bearer ${token}`)
+        .send({
+          speed: 1.2,
+          pitch: 5,
+          emotion: 'happy',
+        })
+        .expect(200);
+
       expect(response.body.success).toBe(true);
 
       // Verify preferences were saved
@@ -120,22 +137,22 @@ describe('Viewer API Integration Tests', () => {
     it('should return 400 for invalid speed', async () => {
       const token = createTestToken(testUser);
       const response = await request(app)
-          .put(`/api/viewer/preferences/${testChannel}`)
-          .set('Authorization', `Bearer ${token}`)
-          .send({speed: 5.0}) // Invalid: too high
-          .expect(400);
-      
+        .put(`/api/viewer/preferences/${testChannel}`)
+        .set('Authorization', `Bearer ${token}`)
+        .send({ speed: 5.0 }) // Invalid: too high
+        .expect(400);
+
       expect(response.body.error).toBeDefined();
     });
 
     it('should return 400 for invalid pitch', async () => {
       const token = createTestToken(testUser);
       const response = await request(app)
-          .put(`/api/viewer/preferences/${testChannel}`)
-          .set('Authorization', `Bearer ${token}`)
-          .send({pitch: 50}) // Invalid: too high
-          .expect(400);
-      
+        .put(`/api/viewer/preferences/${testChannel}`)
+        .set('Authorization', `Bearer ${token}`)
+        .send({ pitch: 50 }) // Invalid: too high
+        .expect(400);
+
       expect(response.body.error).toBeDefined();
     });
   });
