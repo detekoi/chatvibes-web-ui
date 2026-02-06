@@ -18,6 +18,7 @@ export interface ViewerPreferences {
   emotion?: string | null;
   language?: string | null;
   englishNormalization?: boolean | null;
+  skipEmotes?: boolean | null;
 }
 
 /**
@@ -30,6 +31,7 @@ export interface ChannelDefaults {
   emotion?: string;
   language?: string;
   englishNormalization?: boolean;
+  skipEmotes?: boolean;
 }
 
 /**
@@ -56,6 +58,7 @@ export interface PreferencesData {
   emotion?: string | null;
   language?: string | null;
   englishNormalization?: boolean | null;
+  skipEmotes?: boolean | null;
   channelDefaults?: ChannelDefaults;
   channelPolicy?: ChannelPolicy;
   ignoreStatus?: IgnoreStatus;
@@ -98,6 +101,9 @@ interface PreferencesElements {
   hintEmotion: HTMLElement | null;
   hintLanguage: HTMLElement | null;
   hintEnglishNorm: HTMLElement | null;
+  skipEmotesCheckbox: HTMLInputElement | null;
+  skipEmotesReset: HTMLButtonElement | null;
+  hintSkipEmotes: HTMLElement | null;
   previewText: HTMLTextAreaElement | null;
   previewBtn: HTMLButtonElement | null;
   previewTextMobile: HTMLTextAreaElement | null;
@@ -159,7 +165,7 @@ export interface PreferencesModule {
 /**
  * Preference keys
  */
-type PreferenceKey = 'voiceId' | 'pitch' | 'speed' | 'emotion' | 'language' | 'englishNormalization';
+type PreferenceKey = 'voiceId' | 'pitch' | 'speed' | 'emotion' | 'language' | 'englishNormalization' | 'skipEmotes';
 
 /**
  * Preference value types
@@ -199,6 +205,9 @@ export function initPreferencesModule(
     hintEmotion: document.getElementById('hint-emotion'),
     hintLanguage: document.getElementById('hint-language'),
     hintEnglishNorm: document.getElementById('hint-englishNormalization'),
+    skipEmotesCheckbox: document.getElementById('skip-emotes-checkbox') as HTMLInputElement | null,
+    skipEmotesReset: document.getElementById('skip-emotes-reset') as HTMLButtonElement | null,
+    hintSkipEmotes: document.getElementById('hint-skipEmotes'),
     previewText: document.getElementById('preview-text') as HTMLTextAreaElement | null,
     previewBtn: document.getElementById('preview-btn') as HTMLButtonElement | null,
     previewTextMobile: document.getElementById('preview-text-mobile') as HTMLTextAreaElement | null,
@@ -281,6 +290,10 @@ export function initPreferencesModule(
     if (englishNormalizationReset && englishNormalizationCheckbox) {
       englishNormalizationReset.addEventListener('click', () => resetPreference('englishNormalization', englishNormalizationCheckbox, false));
     }
+    const { skipEmotesReset, skipEmotesCheckbox } = elements;
+    if (skipEmotesReset && skipEmotesCheckbox) {
+      skipEmotesReset.addEventListener('click', () => resetPreference('skipEmotes', skipEmotesCheckbox, false));
+    }
   }
 
   function attachPreferenceSaves(): void {
@@ -291,6 +304,7 @@ export function initPreferencesModule(
       emotionSelect,
       languageSelect,
       englishNormalizationCheckbox,
+      skipEmotesCheckbox,
     } = elements;
 
     if (voiceSelect) voiceSelect.addEventListener('change', () => savePreference('voiceId', voiceSelect.value || null));
@@ -310,6 +324,9 @@ export function initPreferencesModule(
     if (languageSelect) languageSelect.addEventListener('change', () => savePreference('language', languageSelect.value || null));
     if (englishNormalizationCheckbox) englishNormalizationCheckbox.addEventListener('change', () => {
       savePreference('englishNormalization', englishNormalizationCheckbox.checked || false);
+    });
+    if (skipEmotesCheckbox) skipEmotesCheckbox.addEventListener('change', () => {
+      savePreference('skipEmotes', skipEmotesCheckbox.checked || false);
     });
   }
 
@@ -667,6 +684,7 @@ export function initPreferencesModule(
       emotionSelect,
       languageSelect,
       englishNormalizationCheckbox,
+      skipEmotesCheckbox,
       voiceReset,
       pitchReset,
       speedReset,
@@ -693,6 +711,7 @@ export function initPreferencesModule(
     if (emotionSelect) emotionSelect.value = prefs.emotion || '';
     if (languageSelect) languageSelect.value = prefs.language || '';
     if (englishNormalizationCheckbox) englishNormalizationCheckbox.checked = prefs.englishNormalization || false;
+    if (skipEmotesCheckbox) skipEmotesCheckbox.checked = prefs.skipEmotes || false;
 
     updateHints();
 
@@ -719,6 +738,7 @@ export function initPreferencesModule(
       emotion: elements.hintEmotion,
       language: elements.hintLanguage,
       englishNormalization: elements.hintEnglishNorm,
+      skipEmotes: elements.hintSkipEmotes,
     };
     const toUpdate = Array.isArray(keys) ? keys : (Object.keys(map) as PreferenceKey[]);
     toUpdate.forEach(key => {
