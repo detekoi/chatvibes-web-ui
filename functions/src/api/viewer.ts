@@ -98,7 +98,14 @@ router.get("/preferences/:channel", authenticateApiRequest, async (req: Request,
     // Load GLOBAL user preferences
     let globalPrefs: ViewerPreferences = {};
     try {
-      const userDoc = await db.collection("ttsUserPreferences").doc(username).get();
+      // 1. Try fetching by User ID first
+      let userDoc = await db.collection("ttsUserPreferences").doc(req.user.userId).get();
+
+      // 2. Fallback to username for backward compatibility if ID doc doesn't exist
+      if (!userDoc.exists) {
+        userDoc = await db.collection("ttsUserPreferences").doc(username).get();
+      }
+
       if (userDoc.exists) {
         globalPrefs = (userDoc.data() as ViewerPreferences) || {};
       }
@@ -221,8 +228,8 @@ router.put("/preferences/:channel", authenticateApiRequest, async (req: Request,
       updateData.englishNormalization = !!updates.englishNormalization;
     }
 
-    // Update global user preferences
-    await db.collection("ttsUserPreferences").doc(username).set(updateData, { merge: true });
+    // Update global user preferences using User ID
+    await db.collection("ttsUserPreferences").doc(req.user.userId).set(updateData, { merge: true });
 
     log.info("Preferences updated");
     res.json({ success: true, message: "Preferences updated successfully" });
@@ -244,10 +251,17 @@ router.get("/preferences", authenticateApiRequest, async (req: Request, res: Res
   const log = logger.child({ endpoint: "/api/viewer/preferences", username });
 
   try {
-    // Load global user preferences
+    // Load GLOBAL user preferences
     let globalPrefs: ViewerPreferences = {};
     try {
-      const userDoc = await db.collection("ttsUserPreferences").doc(username).get();
+      // 1. Try fetching by User ID first
+      let userDoc = await db.collection("ttsUserPreferences").doc(req.user.userId).get();
+
+      // 2. Fallback to username for backward compatibility if ID doc doesn't exist
+      if (!userDoc.exists) {
+        userDoc = await db.collection("ttsUserPreferences").doc(username).get();
+      }
+
       if (userDoc.exists) {
         globalPrefs = (userDoc.data() as ViewerPreferences) || {};
       }
@@ -331,8 +345,8 @@ router.put("/preferences", authenticateApiRequest, async (req: Request, res: Res
       updateData.englishNormalization = !!updates.englishNormalization;
     }
 
-    // Update global user preferences
-    await db.collection("ttsUserPreferences").doc(username).set(updateData, { merge: true });
+    // Update global user preferences using User ID
+    await db.collection("ttsUserPreferences").doc(req.user.userId).set(updateData, { merge: true });
 
     log.info("Global preferences updated");
     res.json({ success: true, message: "Global preferences updated successfully" });

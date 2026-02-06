@@ -128,7 +128,7 @@ describe('Viewer API Integration Tests', () => {
       expect(response.body.success).toBe(true);
 
       // Verify preferences were saved
-      const doc = await db.collection('ttsUserPreferences').doc(testUser.userLogin).get();
+      const doc = await db.collection('ttsUserPreferences').doc(testUser.userId).get();
       const data = doc.data();
       expect(data.speed).toBe(1.2);
       expect(data.pitch).toBe(5);
