@@ -47,6 +47,7 @@ export interface TtsSettings {
   speed?: number;
   languageBoost?: string;
   englishNormalization?: boolean;
+  skipEmotes?: boolean;
   ignoredUsers?: string[];
   voiceVolumes?: Record<string, number>;
 }

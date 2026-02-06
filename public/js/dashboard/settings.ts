@@ -62,6 +62,7 @@ export function initSettingsModule(
     defaultLanguageSelect.innerHTML = options.map(opt => `<option value="${opt}">${opt}</option>`).join('');
   }
   const englishNormalizationCheckbox = document.getElementById('english-normalization') as HTMLInputElement | null;
+  const skipEmotesCheckbox = document.getElementById('default-skip-emotes') as HTMLInputElement | null;
 
   const ttsEnabledCheckbox = document.getElementById('tts-enabled') as HTMLInputElement | null;
   const botRespondsInChatCheckbox = document.getElementById('bot-responds-in-chat') as HTMLInputElement | null;
@@ -208,6 +209,7 @@ export function initSettingsModule(
 
     if (defaultLanguageSelect) defaultLanguageSelect.addEventListener('change', () => saveSettingWrapper('languageBoost', defaultLanguageSelect.value || 'Automatic', 'Default Language'));
     if (englishNormalizationCheckbox) englishNormalizationCheckbox.addEventListener('change', () => saveSettingWrapper('englishNormalization', !!englishNormalizationCheckbox.checked, 'English Normalization'));
+    if (skipEmotesCheckbox) skipEmotesCheckbox.addEventListener('change', () => saveSettingWrapper('skipEmotes', !!skipEmotesCheckbox.checked, 'Skip Emotes'));
   }
 
   function getEffectiveTtsSettings(): Omit<TTSPayload, 'text'> {
@@ -625,5 +627,6 @@ export function initSettingsModule(
 
     if (defaultLanguageSelect) defaultLanguageSelect.value = settings.languageBoost || 'Automatic';
     if (englishNormalizationCheckbox) englishNormalizationCheckbox.checked = settings.englishNormalization || false;
+    if (skipEmotesCheckbox) skipEmotesCheckbox.checked = settings.skipEmotes || false;
   }
 }

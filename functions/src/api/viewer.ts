@@ -18,7 +18,6 @@ interface ViewerPreferences {
   emotion?: string | null;
   languageBoost?: string | null;
   englishNormalization?: boolean;
-  skipEmotes?: boolean;
 }
 
 interface PreferencesUpdate {
@@ -28,7 +27,6 @@ interface PreferencesUpdate {
   emotion?: string | null;
   language?: string | null;
   englishNormalization?: boolean;
-  skipEmotes?: boolean;
 }
 
 // Route: /api/viewer/auth - Viewer authentication
@@ -128,7 +126,6 @@ router.get("/preferences/:channel", authenticateApiRequest, async (req: Request,
       emotion: globalPrefs.emotion ?? null,
       language: globalPrefs.languageBoost ?? null,
       englishNormalization: (globalPrefs.englishNormalization !== undefined) ? globalPrefs.englishNormalization : undefined,
-      skipEmotes: (globalPrefs.skipEmotes !== undefined) ? globalPrefs.skipEmotes : undefined,
       ignoreStatus: {
         tts: ttsIgnored,
       },
@@ -230,9 +227,6 @@ router.put("/preferences/:channel", authenticateApiRequest, async (req: Request,
     if (updates.englishNormalization !== undefined) {
       updateData.englishNormalization = !!updates.englishNormalization;
     }
-    if (updates.skipEmotes !== undefined) {
-      updateData.skipEmotes = !!updates.skipEmotes;
-    }
 
     // Update global user preferences using User ID
     await db.collection("ttsUserPreferences").doc(req.user.userId).set(updateData, { merge: true });
@@ -284,7 +278,6 @@ router.get("/preferences", authenticateApiRequest, async (req: Request, res: Res
       emotion: globalPrefs.emotion ?? null,
       language: globalPrefs.languageBoost ?? null,
       englishNormalization: (globalPrefs.englishNormalization !== undefined) ? globalPrefs.englishNormalization : undefined,
-      skipEmotes: (globalPrefs.skipEmotes !== undefined) ? globalPrefs.skipEmotes : undefined,
     };
 
     log.info("Global preferences retrieved");
@@ -350,9 +343,6 @@ router.put("/preferences", authenticateApiRequest, async (req: Request, res: Res
     }
     if (updates.englishNormalization !== undefined) {
       updateData.englishNormalization = !!updates.englishNormalization;
-    }
-    if (updates.skipEmotes !== undefined) {
-      updateData.skipEmotes = !!updates.skipEmotes;
     }
 
     // Update global user preferences using User ID
