@@ -20,6 +20,7 @@ export interface SettingsModuleContext {
 
 export interface SettingsModuleDependencies {
   displayIgnoreList: (type: 'tts', users: string[]) => void;
+  displayBannedWords: (words: string[]) => void;
 }
 
 export interface SettingsModule {
@@ -572,6 +573,7 @@ export function initSettingsModule(
       };
       applyTtsSettings(demoTts);
       displayIgnoreList('tts', demoTts.ignoredUsers || []);
+      dependencies.displayBannedWords(['testbadword', 'naughtyword']);
       return;
     }
 
@@ -584,6 +586,7 @@ export function initSettingsModule(
     if ('settings' in response) {
       applyTtsSettings(response.settings || {});
       displayIgnoreList('tts', response.settings?.ignoredUsers || []);
+      dependencies.displayBannedWords(response.settings?.bannedWords || []);
     }
   }
 

@@ -6,6 +6,7 @@ import { initObsModule, ObsModule } from './obs.js';
 import { initSettingsModule } from './settings.js';
 import { initChannelPointsModule, ChannelPointsModule } from './channel-points.js';
 import { initIgnoreListModule, IgnoreListModule } from './ignore-list.js';
+import { initBannedWordsModule, BannedWordsModule } from './banned-words.js';
 
 /**
  * Dashboard application state
@@ -80,10 +81,13 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const ignoreModule: IgnoreListModule = initIgnoreListModule({ botApiBaseUrl, testMode }, services);
+  const bannedWordsModule: BannedWordsModule = initBannedWordsModule({ botApiBaseUrl, testMode }, services);
   const settingsModule: SettingsModule = initSettingsModule({ botApiBaseUrl, testMode }, services, {
     displayIgnoreList: ignoreModule.displayIgnoreList,
+    displayBannedWords: bannedWordsModule.displayBannedWords,
   });
   ignoreModule.setOnChange(() => settingsModule.loadSettings());
+  bannedWordsModule.setOnChange(() => settingsModule.loadSettings());
 
   const botModule: BotManagementModule = initBotManagement({ botStatusEl, addBotBtn, removeBotBtn }, { apiBaseUrl, testMode }, services);
   const obsModule: ObsModule = initObsModule({ ttsUrlField, copyTtsUrlBtn, regenerateTtsUrlBtn }, { apiBaseUrl, testMode }, services);
