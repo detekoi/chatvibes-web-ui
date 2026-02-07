@@ -18,6 +18,7 @@ interface ViewerPreferences {
   emotion?: string | null;
   languageBoost?: string | null;
   englishNormalization?: boolean;
+  emoteMode?: string | null;
 }
 
 interface PreferencesUpdate {
@@ -27,7 +28,10 @@ interface PreferencesUpdate {
   emotion?: string | null;
   language?: string | null;
   englishNormalization?: boolean;
+  emoteMode?: string | null;
 }
+
+const VALID_EMOTE_MODES = ["read", "skip", "describe"];
 
 // Route: /api/viewer/auth - Viewer authentication
 router.post("/auth", async (req: Request, res: Response): Promise<void> => {
@@ -126,6 +130,7 @@ router.get("/preferences/:channel", authenticateApiRequest, async (req: Request,
       emotion: globalPrefs.emotion ?? null,
       language: globalPrefs.languageBoost ?? null,
       englishNormalization: (globalPrefs.englishNormalization !== undefined) ? globalPrefs.englishNormalization : undefined,
+      emoteMode: globalPrefs.emoteMode ?? null,
       ignoreStatus: {
         tts: ttsIgnored,
       },
@@ -140,6 +145,7 @@ router.get("/preferences/:channel", authenticateApiRequest, async (req: Request,
         emotion: channelData.emotion || null,
         language: channelData.languageBoost || null,
         englishNormalization: channelData.englishNormalization,
+        emoteMode: channelData.emoteMode || null,
       },
     };
 
@@ -227,6 +233,14 @@ router.put("/preferences/:channel", authenticateApiRequest, async (req: Request,
     if (updates.englishNormalization !== undefined) {
       updateData.englishNormalization = !!updates.englishNormalization;
     }
+    if (updates.emoteMode !== undefined) {
+      if (updates.emoteMode === null || VALID_EMOTE_MODES.includes(updates.emoteMode)) {
+        updateData.emoteMode = updates.emoteMode;
+      } else {
+        res.status(400).json({ error: "Invalid emoteMode value. Must be 'read', 'skip', or 'describe'." });
+        return;
+      }
+    }
 
     // Update global user preferences using User ID
     await db.collection("ttsUserPreferences").doc(req.user.userId).set(updateData, { merge: true });
@@ -278,6 +292,7 @@ router.get("/preferences", authenticateApiRequest, async (req: Request, res: Res
       emotion: globalPrefs.emotion ?? null,
       language: globalPrefs.languageBoost ?? null,
       englishNormalization: (globalPrefs.englishNormalization !== undefined) ? globalPrefs.englishNormalization : undefined,
+      emoteMode: globalPrefs.emoteMode ?? null,
     };
 
     log.info("Global preferences retrieved");
@@ -343,6 +358,14 @@ router.put("/preferences", authenticateApiRequest, async (req: Request, res: Res
     }
     if (updates.englishNormalization !== undefined) {
       updateData.englishNormalization = !!updates.englishNormalization;
+    }
+    if (updates.emoteMode !== undefined) {
+      if (updates.emoteMode === null || VALID_EMOTE_MODES.includes(updates.emoteMode)) {
+        updateData.emoteMode = updates.emoteMode;
+      } else {
+        res.status(400).json({ error: "Invalid emoteMode value. Must be 'read', 'skip', or 'describe'." });
+        return;
+      }
     }
 
     // Update global user preferences using User ID

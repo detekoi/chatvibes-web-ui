@@ -56,7 +56,6 @@ export interface PreferencesData {
   emotion?: string | null;
   language?: string | null;
   englishNormalization?: boolean | null;
-  skipEmotes?: boolean | null;
   channelDefaults?: ChannelDefaults;
   channelPolicy?: ChannelPolicy;
   ignoreStatus?: IgnoreStatus;
