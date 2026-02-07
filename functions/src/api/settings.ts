@@ -229,4 +229,120 @@ router.delete("/tts/ignore/channel/:channelName", authenticateApiRequest, async 
     }
 });
 
+// ==========================================
+// TTS BANNED WORDS MANAGEMENT
+// ==========================================
+
+// POST /tts/banned-words/channel/:channelName - Add word to banned list
+router.post("/tts/banned-words/channel/:channelName", authenticateApiRequest, async (req: Request, res: Response): Promise<void> => {
+    const { channelName } = req.params;
+    const { word } = req.body;
+
+    // Verify user is authorized for this channel
+    if (!req.user || req.user.userLogin.toLowerCase() !== channelName.toLowerCase()) {
+        res.status(403).json({ error: "Unauthorized access to channel settings" });
+        return;
+    }
+
+    const allowCheck = await checkAllowedChannel(channelName);
+    if (!allowCheck.allowed) {
+        res.status(403).json({ error: allowCheck.error });
+        return;
+    }
+
+    if (!word || typeof word !== "string") {
+        res.status(400).json({ error: "Word or phrase is required" });
+        return;
+    }
+
+    const normalizedWord = word.toLowerCase().trim();
+    if (!normalizedWord) {
+        res.status(400).json({ error: "Invalid word or phrase" });
+        return;
+    }
+
+    try {
+        const docRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelName);
+        const docSnap = await docRef.get();
+
+        const currentData = docSnap.exists ? docSnap.data() : {};
+        const bannedWords: string[] = currentData?.bannedWords || [];
+
+        if (bannedWords.includes(normalizedWord)) {
+            res.status(400).json({ error: "Word is already in the banned list" });
+            return;
+        }
+
+        const updatedBannedWords = [...bannedWords, normalizedWord];
+
+        if (!docSnap.exists) {
+            await docRef.set({ bannedWords: updatedBannedWords });
+        } else {
+            await docRef.update({ bannedWords: updatedBannedWords });
+        }
+
+        logger.info({ channelName, word: normalizedWord }, "Added word to TTS banned list");
+        res.json({ success: true, message: "Word added to banned list", bannedWords: updatedBannedWords });
+    } catch (error) {
+        logger.error({ error, channelName, word }, "Error adding word to banned list");
+        res.status(500).json({ error: "Failed to add word to banned list" });
+    }
+});
+
+// DELETE /tts/banned-words/channel/:channelName - Remove word from banned list
+router.delete("/tts/banned-words/channel/:channelName", authenticateApiRequest, async (req: Request, res: Response): Promise<void> => {
+    const { channelName } = req.params;
+    const { word } = req.body;
+
+    // Verify user is authorized for this channel
+    if (!req.user || req.user.userLogin.toLowerCase() !== channelName.toLowerCase()) {
+        res.status(403).json({ error: "Unauthorized access to channel settings" });
+        return;
+    }
+
+    const allowCheck = await checkAllowedChannel(channelName);
+    if (!allowCheck.allowed) {
+        res.status(403).json({ error: allowCheck.error });
+        return;
+    }
+
+    if (!word || typeof word !== "string") {
+        res.status(400).json({ error: "Word or phrase is required" });
+        return;
+    }
+
+    const normalizedWord = word.toLowerCase().trim();
+    if (!normalizedWord) {
+        res.status(400).json({ error: "Invalid word or phrase" });
+        return;
+    }
+
+    try {
+        const docRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelName);
+        const docSnap = await docRef.get();
+
+        if (!docSnap.exists) {
+            res.status(404).json({ error: "Channel settings not found" });
+            return;
+        }
+
+        const currentData = docSnap.data();
+        const bannedWords: string[] = currentData?.bannedWords || [];
+
+        if (!bannedWords.includes(normalizedWord)) {
+            res.status(400).json({ error: "Word is not in the banned list" });
+            return;
+        }
+
+        const updatedBannedWords = bannedWords.filter((w) => w !== normalizedWord);
+        await docRef.update({ bannedWords: updatedBannedWords });
+
+        logger.info({ channelName, word: normalizedWord }, "Removed word from TTS banned list");
+        res.json({ success: true, message: "Word removed from banned list", bannedWords: updatedBannedWords });
+    } catch (error) {
+        logger.error({ error, channelName, word }, "Error removing word from banned list");
+        res.status(500).json({ error: "Failed to remove word from banned list" });
+    }
+});
+
 export default router;
