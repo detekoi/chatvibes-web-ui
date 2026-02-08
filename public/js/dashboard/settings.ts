@@ -630,6 +630,6 @@ export function initSettingsModule(
 
     if (defaultLanguageSelect) defaultLanguageSelect.value = settings.languageBoost || 'Automatic';
     if (englishNormalizationCheckbox) englishNormalizationCheckbox.checked = settings.englishNormalization || false;
-    if (emoteModeSelect) emoteModeSelect.value = settings.emoteMode || (settings.skipEmotes ? 'skip' : 'describe');
+    if (emoteModeSelect) emoteModeSelect.value = settings.emoteMode || 'describe';
   }
 }

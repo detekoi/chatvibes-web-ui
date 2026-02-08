@@ -48,7 +48,6 @@ export interface TtsSettings {
   languageBoost?: string;
   englishNormalization?: boolean;
   emoteMode?: string;
-  skipEmotes?: boolean; // legacy, migrated to emoteMode
   ignoredUsers?: string[];
   bannedWords?: string[];
   voiceVolumes?: Record<string, number>;
