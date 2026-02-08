@@ -74,6 +74,7 @@ export function initSettingsModule(
   const readFullUrlsCheckbox = document.getElementById('read-full-urls') as HTMLInputElement | null;
   const bitsEnabledCheckbox = document.getElementById('bits-enabled') as HTMLInputElement | null;
   const bitsAmountInput = document.getElementById('bits-amount') as HTMLInputElement | null;
+  const anonymizeFollowersCheckbox = document.getElementById('anonymize-followers') as HTMLInputElement | null;
 
   const saveSettingsBtn = document.getElementById('save-settings-btn') as HTMLButtonElement | null;
 
@@ -155,6 +156,7 @@ export function initSettingsModule(
     if (eventsEnabledCheckbox) eventsEnabledCheckbox.addEventListener('change', () => saveSettingWrapper('speakEvents', eventsEnabledCheckbox.checked !== false, 'Event Announcements'));
     const cheerEventsEnabledCheckbox = document.getElementById('cheer-events-enabled') as HTMLInputElement | null;
     if (cheerEventsEnabledCheckbox) cheerEventsEnabledCheckbox.addEventListener('change', () => saveSettingWrapper('speakCheerEvents', cheerEventsEnabledCheckbox.checked !== false, 'Cheer Announcements'));
+    if (anonymizeFollowersCheckbox) anonymizeFollowersCheckbox.addEventListener('change', () => saveSettingWrapper('anonymizeFollowers', anonymizeFollowersCheckbox.checked !== false, 'Anonymize Followers'));
     if (allowViewerPreferencesCheckbox) allowViewerPreferencesCheckbox.addEventListener('change', () => saveSettingWrapper('allowViewerPreferences', !!allowViewerPreferencesCheckbox.checked, 'Allow Viewer Voice Preferences'));
     if (readFullUrlsCheckbox) readFullUrlsCheckbox.addEventListener('change', () => saveSettingWrapper('readFullUrls', !!readFullUrlsCheckbox.checked, 'Read Full URLs'));
     if (bitsEnabledCheckbox) bitsEnabledCheckbox.addEventListener('change', () => saveSettingWrapper('bitsModeEnabled', !!bitsEnabledCheckbox.checked, 'Bits for TTS'));
@@ -607,6 +609,7 @@ export function initSettingsModule(
       const defaultState = settings.speakEvents !== false;
       cheerEventsEnabledCheckbox.checked = settings.speakCheerEvents !== undefined ? settings.speakCheerEvents : defaultState;
     }
+    if (anonymizeFollowersCheckbox) anonymizeFollowersCheckbox.checked = settings.anonymizeFollowers !== false;
     if (allowViewerPreferencesCheckbox) allowViewerPreferencesCheckbox.checked = settings.allowViewerPreferences !== false;
     if (readFullUrlsCheckbox) readFullUrlsCheckbox.checked = settings.readFullUrls || false;
     if (bitsEnabledCheckbox) bitsEnabledCheckbox.checked = settings.bitsModeEnabled || false;
