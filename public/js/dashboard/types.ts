@@ -37,6 +37,7 @@ export interface TtsSettings {
   ttsPermissionLevel?: string;
   speakEvents?: boolean;
   speakCheerEvents?: boolean; // Granular toggle for cheer events specifically
+  speakRedemptionEvents?: boolean; // Announce channel point reward redemptions via TTS
   anonymizeFollowers?: boolean; // Hide follower names in TTS announcements (default: true)
   allowViewerPreferences?: boolean;
   readFullUrls?: boolean;
