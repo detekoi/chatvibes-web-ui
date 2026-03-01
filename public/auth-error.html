@@ -52,7 +52,13 @@
 
                     // If this is a not_allowed error, add contact link
                     if (error === 'not_allowed' || decodedDescription.includes('not permitted')) {
-                        errorMessageEl.innerHTML = `${decodedDescription} <a href="https://detekoi.github.io/#contact-me" target="_blank">Request access here</a>.`;
+                        errorMessageEl.textContent = decodedDescription + ' ';
+                        const link = document.createElement('a');
+                        link.href = 'https://detekoi.github.io/#contact-me';
+                        link.target = '_blank';
+                        link.textContent = 'Request access here';
+                        errorMessageEl.appendChild(link);
+                        errorMessageEl.appendChild(document.createTextNode('.'));
                     }
                 } else if (error) {
                     // Provide better default messages based on error type
