@@ -3,11 +3,11 @@
  * Handles token management, validation, and API calls
  */
 
-import axios, {AxiosRequestConfig} from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 import admin from "firebase-admin";
-import {db, COLLECTIONS} from "./firestore";
-import {logger, redactSensitive} from "../logger";
-import type {Secrets} from "../config";
+import { db, COLLECTIONS } from "./firestore";
+import { logger, redactSensitive } from "../logger";
+import type { Secrets } from "../config";
 
 // Twitch API endpoints
 const TWITCH_TOKEN_URL = "https://id.twitch.tv/oauth2/token";
@@ -72,15 +72,15 @@ async function refreshTwitchToken(currentRefreshToken: string, secrets: Secrets)
       },
     });
 
-    const {access_token: newAccessToken, refresh_token: newRefreshToken, expires_in: expiresIn} = refreshResponse.data;
+    const { access_token: newAccessToken, refresh_token: newRefreshToken, expires_in: expiresIn } = refreshResponse.data;
 
     if (!newAccessToken || !newRefreshToken) {
-      logger.error({responseData: redactSensitive(refreshResponse.data)}, "Missing access_token or refresh_token in refresh response");
+      logger.error({ responseData: redactSensitive(refreshResponse.data) }, "Missing access_token or refresh_token in refresh response");
       throw new Error("Twitch did not return the expected refreshed tokens.");
     }
 
     const expiresAt = new Date(Date.now() + (expiresIn * 1000));
-    logger.info({expiresAt: expiresAt.toISOString()}, "Successfully refreshed Twitch token");
+    logger.info({ expiresAt: expiresAt.toISOString() }, "Successfully refreshed Twitch token");
 
     return {
       newAccessToken,
@@ -88,7 +88,7 @@ async function refreshTwitchToken(currentRefreshToken: string, secrets: Secrets)
       expiresAt,
     };
   } catch (error) {
-    const err = error as {message: string; response?: {data: unknown}};
+    const err = error as { message: string; response?: { data: unknown } };
     logger.error({
       error: err.message,
       responseData: redactSensitive(err.response?.data),
@@ -104,7 +104,7 @@ async function refreshTwitchToken(currentRefreshToken: string, secrets: Secrets)
  * @return A valid access token
  */
 async function getValidTwitchTokenForUser(userLogin: string, secrets: Secrets): Promise<string> {
-  const log = logger.child({userLogin});
+  const log = logger.child({ userLogin });
 
   if (!db) {
     log.error("Firestore client not initialized!");
@@ -120,7 +120,7 @@ async function getValidTwitchTokenForUser(userLogin: string, secrets: Secrets): 
   }
 
   const userData = userDoc.data() as TwitchUserData;
-  const {twitchUserId, twitchAccessTokenExpiresAt, needsTwitchReAuth} = userData;
+  const { twitchUserId, twitchAccessTokenExpiresAt, needsTwitchReAuth } = userData;
 
   if (needsTwitchReAuth) {
     log.error("User needs to re-authenticate with Twitch");
@@ -151,7 +151,7 @@ async function getValidTwitchTokenForUser(userLogin: string, secrets: Secrets): 
       return accessToken;
     } catch (error) {
       const err = error as Error;
-      log.warn({error: err.message}, "Failed to get access token from Firestore, will refresh");
+      log.warn({ error: err.message }, "Failed to get access token from Firestore, will refresh");
       // Continue to refresh flow
     }
   }
@@ -169,14 +169,14 @@ async function getValidTwitchTokenForUser(userLogin: string, secrets: Secrets): 
     }
 
     // Refresh the token
-    const {newAccessToken, newRefreshToken, expiresAt: newExpiresAt} = await refreshTwitchToken(refreshToken, secrets);
+    const { newAccessToken, newRefreshToken, expiresAt: newExpiresAt } = await refreshTwitchToken(refreshToken, secrets);
 
     // Store new tokens in Firestore (instead of Secret Manager)
     await db.collection("users").doc(twitchUserId).collection("private").doc("oauth").set({
       twitchAccessToken: newAccessToken,
       twitchRefreshToken: newRefreshToken,
       updatedAt: admin.firestore.FieldValue.serverTimestamp(),
-    }, {merge: true});
+    }, { merge: true });
 
     // Update expiration in main user document
     await userDocRef.update({
@@ -189,7 +189,7 @@ async function getValidTwitchTokenForUser(userLogin: string, secrets: Secrets): 
     return newAccessToken;
   } catch (error) {
     const err = error as Error;
-    log.error({error: err.message}, "Failed to refresh token");
+    log.error({ error: err.message }, "Failed to refresh token");
 
     // Mark user as needing re-auth
     await userDocRef.update({
@@ -210,11 +210,11 @@ async function getValidTwitchTokenForUser(userLogin: string, secrets: Secrets): 
 async function validateTwitchToken(accessToken: string): Promise<TwitchValidateResponse> {
   try {
     const response = await axios.get<TwitchValidateResponse>(TWITCH_VALIDATE_URL, {
-      headers: {Authorization: `OAuth ${accessToken}`},
+      headers: { Authorization: `OAuth ${accessToken}` },
     });
     return response.data;
   } catch (error) {
-    const err = error as {message: string; response?: {data: unknown}};
+    const err = error as { message: string; response?: { data: unknown } };
     logger.error({
       error: err.message,
       responseData: redactSensitive(err.response?.data),
@@ -274,7 +274,7 @@ async function getAppAccessToken(secrets: Secrets): Promise<string> {
 
     return response.data.access_token;
   } catch (error) {
-    const err = error as {message: string; response?: {data: unknown}};
+    const err = error as { message: string; response?: { data: unknown } };
     logger.error({
       error: err.message,
       responseData: redactSensitive(err.response?.data),
@@ -295,11 +295,11 @@ async function getUserIdFromUsername(username: string, secrets: Secrets): Promis
     const appToken = await getAppAccessToken(secrets);
 
     interface TwitchUsersResponse {
-      data: Array<{id: string; login: string; display_name: string}>;
+      data: Array<{ id: string; login: string; display_name: string }>;
     }
 
     const response = await axios.get<TwitchUsersResponse>(`${TWITCH_HELIX_BASE}/users`, {
-      params: {login: username.toLowerCase()},
+      params: { login: username.toLowerCase() },
       headers: {
         "Authorization": `Bearer ${appToken}`,
         "Client-Id": secrets.TWITCH_CLIENT_ID,
@@ -312,9 +312,9 @@ async function getUserIdFromUsername(username: string, secrets: Secrets): Promis
     }
     return null;
   } catch (error) {
-    const err = error as {message: string; response?: {data: unknown}};
+    const err = error as { message: string; response?: { data: unknown } };
     logger.error({
-      username,
+      username: redactSensitive(username),
       error: err.message,
       responseData: redactSensitive(err.response?.data),
     }, "[getUserIdFromUsername] Error getting user ID");
@@ -340,51 +340,51 @@ async function addModerator(
     const accessToken = await getValidTwitchTokenForUser(broadcasterLogin, secrets);
 
     const response = await axios.post(
-        `${TWITCH_HELIX_BASE}/moderation/moderators`,
-        null,
-        {
-          params: {
-            broadcaster_id: broadcasterId,
-            user_id: moderatorUserId,
-          },
-          headers: {
-            "Authorization": `Bearer ${accessToken}`,
-            "Client-Id": secrets.TWITCH_CLIENT_ID,
-          },
-          timeout: 15000,
+      `${TWITCH_HELIX_BASE}/moderation/moderators`,
+      null,
+      {
+        params: {
+          broadcaster_id: broadcasterId,
+          user_id: moderatorUserId,
         },
+        headers: {
+          "Authorization": `Bearer ${accessToken}`,
+          "Client-Id": secrets.TWITCH_CLIENT_ID,
+        },
+        timeout: 15000,
+      },
     );
 
     // 204 No Content means success (moderator was added)
     if (response.status === 204) {
-      logger.info({broadcasterLogin, moderatorUserId}, "[addModerator] Successfully added moderator");
-      return {success: true};
+      logger.info({ broadcasterLogin, moderatorUserId }, "[addModerator] Successfully added moderator");
+      return { success: true };
     }
 
-    return {success: false, error: `Unexpected status: ${response.status}`};
+    return { success: false, error: `Unexpected status: ${response.status}` };
   } catch (error) {
-    const err = error as {message: string; response?: {status: number; data: {message?: string}}};
+    const err = error as { message: string; response?: { status: number; data: { message?: string } } };
     const status = err.response?.status;
     const errorData = err.response?.data;
     const errorMessage = errorData?.message || err.message;
-    const log = logger.child({broadcasterLogin, moderatorUserId, status});
+    const log = logger.child({ broadcasterLogin, moderatorUserId, status });
 
     // 401 Unauthorized - token invalid, expired, or missing scope
     if (status === 401) {
       log.warn("Authentication failed - may be missing channel:manage:moderators scope");
-      return {success: false, error: "Authentication failed. Missing required scope or invalid token. Please re-authenticate."};
+      return { success: false, error: "Authentication failed. Missing required scope or invalid token. Please re-authenticate." };
     }
 
     // 403 Forbidden - user is already a moderator or other permission issue
     if (status === 403) {
       log.info("User is already a moderator (403 response)");
-      return {success: true}; // Already a mod, treat as success
+      return { success: true }; // Already a mod, treat as success
     }
 
     // 400 Bad Request - could be: invalid parameters, user banned, or VIP
     if (status === 400) {
-      log.warn({errorMessage}, "Cannot add user as moderator");
-      return {success: false, error: errorMessage || "User cannot be added as moderator (may be banned, VIP, or invalid parameters)"};
+      log.warn({ errorMessage }, "Cannot add user as moderator");
+      return { success: false, error: errorMessage || "User cannot be added as moderator (may be banned, VIP, or invalid parameters)" };
     }
 
     // Other errors
@@ -392,7 +392,7 @@ async function addModerator(
       errorMessage,
       errorData: redactSensitive(errorData),
     }, "Error adding moderator");
-    return {success: false, error: errorMessage || "Unknown error occurred"};
+    return { success: false, error: errorMessage || "Unknown error occurred" };
   }
 }
 
