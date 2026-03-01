@@ -391,12 +391,12 @@ document.addEventListener('DOMContentLoaded', () => {
         function showAuthStatus(message: string, type: AuthStatusType = 'info'): void {
             if (!elements.authStatus) return;
             if (message) {
-                elements.authStatus.innerHTML = message;
+                elements.authStatus.textContent = message;
                 elements.authStatus.style.display = 'block';
                 const klass = type === 'success' ? 'alert-success' : type === 'error' ? 'alert-danger' : 'alert-info';
                 elements.authStatus.className = `alert ${klass} text-center`;
             } else {
-                elements.authStatus.innerHTML = '';
+                elements.authStatus.textContent = '';
                 elements.authStatus.className = '';
                 elements.authStatus.style.display = 'none';
             }
