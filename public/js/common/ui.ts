@@ -53,7 +53,7 @@ export function showToast(message: string, type: ToastType = 'success'): void {
 
   const body = document.createElement('div');
   body.className = 'toast-body';
-  body.innerHTML = message;
+  body.textContent = message;
 
   const btn = document.createElement('button');
   btn.type = 'button';
