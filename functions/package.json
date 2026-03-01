@@ -48,5 +48,8 @@
     "ts-jest": "^29.4.5",
     "typescript": "^5.9.3"
   },
+  "overrides": {
+    "glob": "^10.5.0"
+  },
   "private": true
 }
