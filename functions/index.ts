@@ -23,6 +23,7 @@ import obsRoutes from "./src/api/obs";
 import viewerRoutes from "./src/api/viewer";
 import settingsRoutes from "./src/api/settings";
 import { apiRouter as miscApiRoutes, redirectRouter as redirectsRoutes } from "./src/api/misc";
+import { authLimiter, apiLimiter } from "./src/middleware/rateLimit";
 
 // Create Express app
 const app: Application = express();
@@ -62,15 +63,15 @@ app.use(express.urlencoded({ extended: true, limit: "1mb" }));
 // Request logging middleware (adds correlation ID and logs requests/responses)
 app.use(requestLoggingMiddleware);
 
-// Mount route modules
-app.use("/auth", authRoutes);
-app.use("/api/auth", authApiRoutes);
-app.use("/api/bot", botRoutes);
-app.use("/api/rewards", rewardsRoutes);
-app.use("/api/obs", obsRoutes);
-app.use("/api/viewer", viewerRoutes);
-app.use("/api", settingsRoutes); // For /api/tts/settings
-app.use("/api", miscApiRoutes); // For /api/shortlink, /api/tts/test
+// Mount route modules (with rate limiting)
+app.use("/auth", authLimiter, authRoutes);
+app.use("/api/auth", apiLimiter, authApiRoutes);
+app.use("/api/bot", apiLimiter, botRoutes);
+app.use("/api/rewards", apiLimiter, rewardsRoutes);
+app.use("/api/obs", apiLimiter, obsRoutes);
+app.use("/api/viewer", apiLimiter, viewerRoutes);
+app.use("/api", apiLimiter, settingsRoutes); // For /api/tts/settings
+app.use("/api", apiLimiter, miscApiRoutes); // For /api/shortlink, /api/tts/test
 app.use("/", redirectsRoutes); // For /s/:slug redirect
 
 // Health check endpoint

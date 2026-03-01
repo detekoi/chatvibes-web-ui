@@ -38,6 +38,7 @@ export async function createTestApp() {
   const viewerRoutes = require('../viewer').default;
   const settingsRoutes = require('../settings').default;
   const { apiRouter: miscApiRoutes, redirectRouter: redirectsRoutes } = require('../misc');
+  const { authLimiter, apiLimiter } = require('../../middleware/rateLimit');
 
   // Create Express app
   const app = express();
@@ -75,15 +76,15 @@ export async function createTestApp() {
   // Request logging middleware
   app.use(requestLoggingMiddleware);
 
-  // Mount route modules
-  app.use('/auth', authRoutes);
-  app.use('/api/auth', authApiRoutes);
-  app.use('/api/bot', botRoutes);
-  app.use('/api/rewards', rewardsRoutes);
-  app.use('/api/obs', obsRoutes);
-  app.use('/api/viewer', viewerRoutes);
-  app.use('/api', settingsRoutes);
-  app.use('/api', miscApiRoutes);
+  // Mount route modules (with rate limiting)
+  app.use('/auth', authLimiter, authRoutes);
+  app.use('/api/auth', apiLimiter, authApiRoutes);
+  app.use('/api/bot', apiLimiter, botRoutes);
+  app.use('/api/rewards', apiLimiter, rewardsRoutes);
+  app.use('/api/obs', apiLimiter, obsRoutes);
+  app.use('/api/viewer', apiLimiter, viewerRoutes);
+  app.use('/api', apiLimiter, settingsRoutes);
+  app.use('/api', apiLimiter, miscApiRoutes);
   app.use('/', redirectsRoutes);
 
   // Health check endpoint
