@@ -53,36 +53,42 @@ describe('Viewer API Integration Tests', () => {
     });
 
     it('should return preferences when they exist', async () => {
-      await db.collection('ttsUserPreferences').doc(testUser.userLogin).set({
-        speed: 1.0,
-        pitch: 0,
-        emotion: 'neutral',
-      });
-
+      // Channel config must exist for the route to proceed
       await db.collection('ttsChannelConfigs').doc(testChannel).set({
         voiceId: 'test-voice',
         speed: 1.2,
       });
 
+      await db.collection('ttsUserPreferences').doc(testUser.userId).set({
+        speed: 1.0,
+        pitch: 0,
+        emotion: 'neutral',
+      });
+
       const token = createTestToken(testUser);
       const response = await request(app)
         .get(`/api/viewer/preferences/${testChannel}`)
         .set('Authorization', `Bearer ${token}`)
         .expect(200);
 
-      expect(response.body.success).toBe(true);
-      expect(response.body.preferences).toBeDefined();
+      // Route returns a flat object with preferences fields + channelPolicy
+      expect(response.body.channelExists).toBe(true);
+      expect(response.body.channelPolicy).toBeDefined();
     });
 
     it('should return empty preferences when none exist', async () => {
+      // Channel config must exist
+      await db.collection('ttsChannelConfigs').doc(testChannel).set({
+        voiceId: 'default-voice',
+      });
+
       const token = createTestToken(testUser);
       const response = await request(app)
         .get(`/api/viewer/preferences/${testChannel}`)
         .set('Authorization', `Bearer ${token}`)
         .expect(200);
 
-      expect(response.body.success).toBe(true);
-      expect(response.body.preferences).toBeDefined();
+      expect(response.body.channelExists).toBe(true);
     });
 
     it('should return channel policy when allowViewerPreferences is false', async () => {
@@ -96,10 +102,8 @@ describe('Viewer API Integration Tests', () => {
         .set('Authorization', `Bearer ${token}`)
         .expect(200);
 
-      expect(response.body.success).toBe(true);
-      expect(response.body.preferences).toBeDefined(); // Fixed property access
-      expect(response.body.preferences.channelPolicy).toBeDefined();
-      expect(response.body.preferences.channelPolicy.allowViewerPreferences).toBe(false);
+      expect(response.body.channelPolicy).toBeDefined();
+      expect(response.body.channelPolicy.allowViewerPreferences).toBe(false);
     });
   });
 
@@ -114,6 +118,11 @@ describe('Viewer API Integration Tests', () => {
     });
 
     it('should update preferences with valid data', async () => {
+      // Channel config must exist for the route to proceed
+      await db.collection('ttsChannelConfigs').doc(testChannel).set({
+        voiceId: 'default-voice',
+      });
+
       const token = createTestToken(testUser);
       const response = await request(app)
         .put(`/api/viewer/preferences/${testChannel}`)
@@ -127,7 +136,7 @@ describe('Viewer API Integration Tests', () => {
 
       expect(response.body.success).toBe(true);
 
-      // Verify preferences were saved
+      // Verify preferences were saved (using userId as doc key)
       const doc = await db.collection('ttsUserPreferences').doc(testUser.userId).get();
       const data = doc.data();
       expect(data.speed).toBe(1.2);
@@ -135,6 +144,10 @@ describe('Viewer API Integration Tests', () => {
     });
 
     it('should return 400 for invalid speed', async () => {
+      await db.collection('ttsChannelConfigs').doc(testChannel).set({
+        voiceId: 'default-voice',
+      });
+
       const token = createTestToken(testUser);
       const response = await request(app)
         .put(`/api/viewer/preferences/${testChannel}`)
@@ -146,6 +159,10 @@ describe('Viewer API Integration Tests', () => {
     });
 
     it('should return 400 for invalid pitch', async () => {
+      await db.collection('ttsChannelConfigs').doc(testChannel).set({
+        voiceId: 'default-voice',
+      });
+
       const token = createTestToken(testUser);
       const response = await request(app)
         .put(`/api/viewer/preferences/${testChannel}`)
@@ -157,4 +174,3 @@ describe('Viewer API Integration Tests', () => {
     });
   });
 });
-

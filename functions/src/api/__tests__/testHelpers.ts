@@ -66,31 +66,21 @@ export function getTestDb() {
 
 /**
  * Clear Firestore test data
- * Note: This requires the Firebase Emulator to be running
+ * Requires the Firebase Emulator to be running (started via firebase emulators:exec)
  */
 export async function clearTestData(): Promise<void> {
-  try {
-    const db = getTestDb();
-    const collections = ['managedChannels', 'ttsChannelConfigs', 'shortlinks', 'ttsUserPreferences'];
-    
-    for (const collectionName of collections) {
-      const snapshot = await db.collection(collectionName).get();
-      if (snapshot.empty) continue;
-      
-      const batch = db.batch();
-      snapshot.docs.forEach((doc) => {
-        batch.delete(doc.ref);
-      });
-      await batch.commit();
-    }
-  } catch (error: any) {
-    // If Firestore emulator isn't running, skip cleanup
-    // This allows tests to run without emulator (though they won't test Firestore operations)
-    if (error.message?.includes('ECONNREFUSED') || error.code === 'ECONNREFUSED') {
-      console.warn('Firestore emulator not running, skipping data cleanup');
-      return;
-    }
-    throw error;
+  const db = getTestDb();
+  const collections = ['managedChannels', 'ttsChannelConfigs', 'shortlinks', 'ttsUserPreferences'];
+
+  for (const collectionName of collections) {
+    const snapshot = await db.collection(collectionName).get();
+    if (snapshot.empty) continue;
+
+    const batch = db.batch();
+    snapshot.docs.forEach((doc) => {
+      batch.delete(doc.ref);
+    });
+    await batch.commit();
   }
 }
 
@@ -108,4 +98,3 @@ export function setupTestEnv(): void {
   process.env.CALLBACK_URL = 'http://localhost:5001/test-project/us-central1/webUi/auth/twitch/callback';
   process.env.USE_ENV_SECRETS = '1';
 }
-

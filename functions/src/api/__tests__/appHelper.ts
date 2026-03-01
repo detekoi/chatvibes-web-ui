@@ -11,6 +11,7 @@ export async function createTestApp() {
   process.env.FUNCTIONS_EMULATOR = 'true';
   process.env.USE_ENV_SECRETS = '1';
   process.env.FIREBASE_EMULATOR_HUB = 'localhost:4400';
+  process.env.FIRESTORE_EMULATOR_HOST = process.env.FIRESTORE_EMULATOR_HOST || 'localhost:8080';
   process.env.JWT_SECRET = process.env.JWT_SECRET || 'test-jwt-secret-key';
   process.env.TWITCH_CLIENT_ID = process.env.TWITCH_CLIENT_ID || 'test-client-id';
   process.env.TWITCH_CLIENT_SECRET = process.env.TWITCH_CLIENT_SECRET || 'test-client-secret';
@@ -115,4 +116,3 @@ export async function createTestApp() {
 
   return app;
 }
-
