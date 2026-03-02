@@ -320,7 +320,7 @@ router.get("/twitch/callback", async (req: Request, res: Response): Promise<void
             "Channel not approved — no managedChannels document");
           return redirectToFrontendWithError(res,
             "not_authorized",
-            "Your channel is not authorized to use this bot. Contact me for access: https://detekoi.github.io/index.html#contact-me",
+            "Your channel is not authorized to use this bot.",
             twitchQueryState as string);
         }
 
