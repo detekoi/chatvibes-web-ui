@@ -11,12 +11,12 @@ import { logger } from "../logger";
 const router: Router = express.Router();
 
 /**
- * Middleware to check if channel is allowed to access settings
+ * Middleware to check if broadcaster is allowed to access settings
  */
-const checkAllowedChannel = async (channelName: string): Promise<{ allowed: boolean; error?: string }> => {
+const checkAllowedChannel = async (userId: string): Promise<{ allowed: boolean; error?: string }> => {
     try {
         const allowedList = await getAllowedChannelsList();
-        if (allowedList && !allowedList.includes(channelName.toLowerCase())) {
+        if (allowedList && !allowedList.includes(userId)) {
             return { allowed: false, error: "Channel is not in the allow-list" };
         }
         return { allowed: true };
@@ -40,7 +40,7 @@ router.get("/tts/settings/channel/:channelName", authenticateApiRequest, async (
         return;
     }
 
-    const allowCheck = await checkAllowedChannel(channelName);
+    const allowCheck = await checkAllowedChannel(req.user!.userId);
     if (!allowCheck.allowed) {
         res.status(403).json({ error: allowCheck.error });
         return;
@@ -72,7 +72,7 @@ router.put("/tts/settings/channel/:channelName", authenticateApiRequest, async (
         return;
     }
 
-    const allowCheck = await checkAllowedChannel(channelName);
+    const allowCheck = await checkAllowedChannel(req.user!.userId);
     if (!allowCheck.allowed) {
         res.status(403).json({ error: allowCheck.error });
         return;
@@ -124,7 +124,7 @@ router.post("/tts/ignore/channel/:channelName", authenticateApiRequest, async (r
         return;
     }
 
-    const allowCheck = await checkAllowedChannel(channelName);
+    const allowCheck = await checkAllowedChannel(req.user!.userId);
     if (!allowCheck.allowed) {
         res.status(403).json({ error: allowCheck.error });
         return;
@@ -182,7 +182,7 @@ router.delete("/tts/ignore/channel/:channelName", authenticateApiRequest, async 
         return;
     }
 
-    const allowCheck = await checkAllowedChannel(channelName);
+    const allowCheck = await checkAllowedChannel(req.user!.userId);
     if (!allowCheck.allowed) {
         res.status(403).json({ error: allowCheck.error });
         return;
@@ -244,7 +244,7 @@ router.post("/tts/banned-words/channel/:channelName", authenticateApiRequest, as
         return;
     }
 
-    const allowCheck = await checkAllowedChannel(channelName);
+    const allowCheck = await checkAllowedChannel(req.user!.userId);
     if (!allowCheck.allowed) {
         res.status(403).json({ error: allowCheck.error });
         return;
@@ -300,7 +300,7 @@ router.delete("/tts/banned-words/channel/:channelName", authenticateApiRequest, 
         return;
     }
 
-    const allowCheck = await checkAllowedChannel(channelName);
+    const allowCheck = await checkAllowedChannel(req.user!.userId);
     if (!allowCheck.allowed) {
         res.status(403).json({ error: allowCheck.error });
         return;

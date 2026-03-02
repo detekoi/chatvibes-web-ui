@@ -2,10 +2,10 @@
  * Utility functions used across the application
  */
 
-import {randomBytes} from "crypto";
-import {db, COLLECTIONS} from "./firestore";
-import {logger} from "../logger";
-import type {SecretManagerServiceClient} from "@google-cloud/secret-manager";
+import { randomBytes } from "crypto";
+import { db, COLLECTIONS } from "./firestore";
+import { logger } from "../logger";
+import type { SecretManagerServiceClient } from "@google-cloud/secret-manager";
 
 /**
  * Gets the current Google Cloud project ID
@@ -33,17 +33,17 @@ function normalizeSecretVersionPath(secretInput: string): string {
 }
 
 /**
- * Gets the list of allowed channels from environment or secret
- * @return Array of allowed channels or null if no restrictions
+ * Gets the list of allowed broadcaster IDs from environment or secret
+ * @return Array of allowed broadcaster IDs or null if no restrictions
  */
 async function getAllowedChannelsList(): Promise<string[] | null> {
   try {
     const directList = process.env.ALLOWED_CHANNELS;
     if (directList) {
       const list = directList.split(",")
-          .map((channel) => channel.trim().toLowerCase())
-          .filter(Boolean);
-      logger.info({count: list.length, channels: list}, "[AllowList] Loaded entries from ALLOWED_CHANNELS");
+        .map((id) => id.trim())
+        .filter(Boolean);
+      logger.info({ count: list.length }, "[AllowList] Loaded entries from ALLOWED_CHANNELS");
       return list;
     }
 
@@ -53,7 +53,7 @@ async function getAllowedChannelsList(): Promise<string[] | null> {
       return null;
     }
 
-    const {secretManagerClient}: {secretManagerClient: SecretManagerServiceClient} = await import("../config");
+    const { secretManagerClient }: { secretManagerClient: SecretManagerServiceClient } = await import("../config");
     const [version] = await secretManagerClient.accessSecretVersion({
       name: normalizeSecretVersionPath(secretName),
     });
@@ -64,13 +64,13 @@ async function getAllowedChannelsList(): Promise<string[] | null> {
     const secretValue = data.toString().trim();
 
     const list = secretValue.split(",")
-        .map((channel) => channel.trim().toLowerCase())
-        .filter(Boolean);
-    logger.info({count: list.length, channels: list}, "[AllowList] Loaded entries from ALLOWED_CHANNELS_SECRET_NAME");
+      .map((id) => id.trim())
+      .filter(Boolean);
+    logger.info({ count: list.length }, "[AllowList] Loaded entries from ALLOWED_CHANNELS_SECRET_NAME");
     return list;
   } catch (e) {
     const error = e as Error;
-    logger.error({error: error.message}, "[AllowList] Error loading allow-list");
+    logger.error({ error: error.message }, "[AllowList] Error loading allow-list");
     const hasConfig = process.env.ALLOWED_CHANNELS || process.env.ALLOWED_CHANNELS_SECRET_NAME;
     if (hasConfig) {
       logger.error("[AllowList] Allow-list configured but failed to load. Denying all for security.");
@@ -176,7 +176,7 @@ async function createShortLink(longUrl: string): Promise<string> {
     clicks: 0,
   });
 
-  logger.info({slug, url: longUrl}, "Created short link");
+  logger.info({ slug, url: longUrl }, "Created short link");
   return slug;
 }
 

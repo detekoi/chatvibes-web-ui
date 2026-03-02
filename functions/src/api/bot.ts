@@ -87,7 +87,7 @@ router.post("/add", authenticateApiRequest, async (req: Request, res: Response):
   // Enforce allow-list FIRST (check BEFORE token validation to return accurate errors)
   try {
     const allowedList = await getAllowedChannelsList();
-    if (allowedList !== null && !allowedList.includes(channelLogin.toLowerCase())) {
+    if (allowedList !== null && !allowedList.includes(twitchUserId)) {
       log.warn("Channel not in allow-list. Access denied.");
       res.status(403).json({
         success: false,
