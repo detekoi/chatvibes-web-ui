@@ -23,7 +23,7 @@ router.get("/status", authenticateApiRequest, async (req: Request, res: Response
       return;
     }
 
-    const userDocRef = db.collection(COLLECTIONS.MANAGED_CHANNELS).doc(req.user.userLogin);
+    const userDocRef = db.collection(COLLECTIONS.MANAGED_CHANNELS).doc(req.user.userId);
     const userDoc = await userDocRef.get();
 
     if (!userDoc.exists) {

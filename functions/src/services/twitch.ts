@@ -99,19 +99,19 @@ async function refreshTwitchToken(currentRefreshToken: string, secrets: Secrets)
 
 /**
  * Gets a valid Twitch access token for a user, refreshing if necessary
- * @param userLogin - The user's Twitch login
+ * @param userId - The user's Twitch broadcaster ID
  * @param secrets - The loaded secrets object
  * @return A valid access token
  */
-async function getValidTwitchTokenForUser(userLogin: string, secrets: Secrets): Promise<string> {
-  const log = logger.child({ userLogin });
+async function getValidTwitchTokenForUser(userId: string, secrets: Secrets): Promise<string> {
+  const log = logger.child({ userId });
 
   if (!db) {
     log.error("Firestore client not initialized!");
     throw new Error("Server configuration error.");
   }
 
-  const userDocRef = db.collection(COLLECTIONS.MANAGED_CHANNELS).doc(userLogin);
+  const userDocRef = db.collection(COLLECTIONS.MANAGED_CHANNELS).doc(userId);
   const userDoc = await userDocRef.get();
 
   if (!userDoc.exists) {
@@ -120,17 +120,14 @@ async function getValidTwitchTokenForUser(userLogin: string, secrets: Secrets): 
   }
 
   const userData = userDoc.data() as TwitchUserData;
-  const { twitchUserId, twitchAccessTokenExpiresAt, needsTwitchReAuth } = userData;
+  const { twitchAccessTokenExpiresAt, needsTwitchReAuth } = userData;
 
   if (needsTwitchReAuth) {
     log.error("User needs to re-authenticate with Twitch");
     throw new Error("User needs to re-authenticate with Twitch.");
   }
 
-  if (!twitchUserId) {
-    log.error("User missing twitchUserId");
-    throw new Error("User missing Twitch user ID.");
-  }
+  const twitchUserId = userId;
 
   // Check if token is still valid (5 minute buffer)
   const now = new Date();
@@ -225,19 +222,19 @@ async function validateTwitchToken(accessToken: string): Promise<TwitchValidateR
 
 /**
  * Makes a Twitch Helix API request with automatic token handling
- * @param userLogin - The user's login for token retrieval
+ * @param userId - The user's Twitch broadcaster ID for token retrieval
  * @param endpoint - The API endpoint (without base URL)
  * @param secrets - The loaded secrets object
  * @param options - Additional axios options
  * @return The API response data
  */
 async function makeTwitchApiRequest<T = unknown>(
-  userLogin: string,
+  userId: string,
   endpoint: string,
   secrets: Secrets,
   options: AxiosRequestConfig = {},
 ): Promise<T> {
-  const accessToken = await getValidTwitchTokenForUser(userLogin, secrets);
+  const accessToken = await getValidTwitchTokenForUser(userId, secrets);
 
   const response = await axios<T>({
     url: `${TWITCH_HELIX_BASE}${endpoint}`,
@@ -337,7 +334,7 @@ async function addModerator(
   secrets: Secrets,
 ): Promise<ModeratorResult> {
   try {
-    const accessToken = await getValidTwitchTokenForUser(broadcasterLogin, secrets);
+    const accessToken = await getValidTwitchTokenForUser(broadcasterId, secrets);
 
     const response = await axios.post(
       `${TWITCH_HELIX_BASE}/moderation/moderators`,

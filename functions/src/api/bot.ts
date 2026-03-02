@@ -30,7 +30,7 @@ router.get("/status", authenticateApiRequest, async (req: Request, res: Response
   try {
     // Ensure we have a valid Twitch token for this user
     try {
-      await getValidTwitchTokenForUser(channelLogin, secrets);
+      await getValidTwitchTokenForUser(req.user.userId, secrets);
       // Token is valid - proceed
     } catch (tokenError) {
       // Token refresh failed, but we can still check bot status
@@ -38,7 +38,7 @@ router.get("/status", authenticateApiRequest, async (req: Request, res: Response
       log.warn({ error: err.message }, "Token validation failed, but continuing");
     }
 
-    const docRef = db.collection(COLLECTIONS.MANAGED_CHANNELS).doc(channelLogin);
+    const docRef = db.collection(COLLECTIONS.MANAGED_CHANNELS).doc(req.user.userId);
     const docSnap = await docRef.get();
     const data = docSnap.data();
 
@@ -85,11 +85,22 @@ router.post("/add", authenticateApiRequest, async (req: Request, res: Response):
 
   try {
     // Ensure we have a valid Twitch token for this user
-    await getValidTwitchTokenForUser(channelLogin, secrets);
+    await getValidTwitchTokenForUser(twitchUserId, secrets);
 
     log.info("Adding bot to channel");
 
-    const docRef = db.collection(COLLECTIONS.MANAGED_CHANNELS).doc(channelLogin);
+    const docRef = db.collection(COLLECTIONS.MANAGED_CHANNELS).doc(twitchUserId);
+
+    // Defense-in-depth: verify doc exists (admin-created) even if JWT is valid
+    const existingDoc = await docRef.get();
+    if (!existingDoc.exists) {
+      log.warn("Channel not approved in Firestore");
+      res.status(403).json({
+        success: false,
+        message: "Your channel is not authorized to use this bot. Contact me for access: https://detekoi.github.io/index.html#contact-me",
+      });
+      return;
+    }
 
     await docRef.set({
       isActive: true,
@@ -182,7 +193,7 @@ router.post("/remove", authenticateApiRequest, async (req: Request, res: Respons
   try {
     log.info("Removing bot from channel");
 
-    const docRef = db.collection(COLLECTIONS.MANAGED_CHANNELS).doc(channelLogin);
+    const docRef = db.collection(COLLECTIONS.MANAGED_CHANNELS).doc(twitchUserId);
     await docRef.update({
       isActive: false,
       removedAt: new Date(),

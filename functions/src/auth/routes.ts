@@ -311,7 +311,18 @@ router.get("/twitch/callback", async (req: Request, res: Response): Promise<void
 
       // Store tokens securely
       if (db) {
-        const userDocRef = db.collection(COLLECTIONS.MANAGED_CHANNELS).doc(twitchUser.login);
+        const userDocRef = db.collection(COLLECTIONS.MANAGED_CHANNELS).doc(twitchUser.id);
+
+        // Allow-list gate: only pre-approved channels (admin-created docs) can log in.
+        const existingDoc = await userDocRef.get();
+        if (!existingDoc.exists) {
+          logger.warn({ userLogin: twitchUser.login, userId: twitchUser.id },
+            "Channel not approved — no managedChannels document");
+          return redirectToFrontendWithError(res,
+            "not_authorized",
+            "Your channel is not authorized to use this bot. Contact me for access: https://detekoi.github.io/index.html#contact-me",
+            twitchQueryState as string);
+        }
 
         try {
           // Store OAuth tokens in Firestore (not Secret Manager)
@@ -322,7 +333,7 @@ router.get("/twitch/callback", async (req: Request, res: Response): Promise<void
             updatedAt: FieldValue.serverTimestamp(),
           }, { merge: true });
 
-          // Update user document in Firestore and ensure channelName exists for consistency with bot expectations
+          // Update (never create) the approved channel's metadata
           await userDocRef.set({
             channelName: twitchUser.login,
             twitchUserId: twitchUser.id,
