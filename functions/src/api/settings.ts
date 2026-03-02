@@ -5,26 +5,9 @@
 import express, { Request, Response, Router } from "express";
 import { db, COLLECTIONS } from "../services/firestore";
 import { authenticateApiRequest } from "../middleware/auth";
-import { getAllowedChannelsList } from "../services/utils";
 import { logger } from "../logger";
 
 const router: Router = express.Router();
-
-/**
- * Middleware to check if broadcaster is allowed to access settings
- */
-const checkAllowedChannel = async (userId: string): Promise<{ allowed: boolean; error?: string }> => {
-    try {
-        const allowedList = await getAllowedChannelsList();
-        if (allowedList && !allowedList.includes(userId)) {
-            return { allowed: false, error: "Channel is not in the allow-list" };
-        }
-        return { allowed: true };
-    } catch (error) {
-        logger.error({ error }, "Error checking allow-list");
-        return { allowed: false, error: "Server error checking permissions" };
-    }
-};
 
 // ==========================================
 // TTS SETTINGS
@@ -37,12 +20,6 @@ router.get("/tts/settings/channel/:channelName", authenticateApiRequest, async (
     // Verify user is authorized for this channel
     if (!req.user || req.user.userLogin.toLowerCase() !== channelName.toLowerCase()) {
         res.status(403).json({ error: "Unauthorized access to channel settings" });
-        return;
-    }
-
-    const allowCheck = await checkAllowedChannel(req.user!.userId);
-    if (!allowCheck.allowed) {
-        res.status(403).json({ error: allowCheck.error });
         return;
     }
 
@@ -69,12 +46,6 @@ router.put("/tts/settings/channel/:channelName", authenticateApiRequest, async (
     // Verify user is authorized for this channel
     if (!req.user || req.user.userLogin.toLowerCase() !== channelName.toLowerCase()) {
         res.status(403).json({ error: "Unauthorized access to channel settings" });
-        return;
-    }
-
-    const allowCheck = await checkAllowedChannel(req.user!.userId);
-    if (!allowCheck.allowed) {
-        res.status(403).json({ error: allowCheck.error });
         return;
     }
 
@@ -121,12 +92,6 @@ router.post("/tts/ignore/channel/:channelName", authenticateApiRequest, async (r
     // Verify user is authorized for this channel
     if (!req.user || req.user.userLogin.toLowerCase() !== channelName.toLowerCase()) {
         res.status(403).json({ error: "Unauthorized access to channel settings" });
-        return;
-    }
-
-    const allowCheck = await checkAllowedChannel(req.user!.userId);
-    if (!allowCheck.allowed) {
-        res.status(403).json({ error: allowCheck.error });
         return;
     }
 
@@ -179,12 +144,6 @@ router.delete("/tts/ignore/channel/:channelName", authenticateApiRequest, async 
     // Verify user is authorized for this channel
     if (!req.user || req.user.userLogin.toLowerCase() !== channelName.toLowerCase()) {
         res.status(403).json({ error: "Unauthorized access to channel settings" });
-        return;
-    }
-
-    const allowCheck = await checkAllowedChannel(req.user!.userId);
-    if (!allowCheck.allowed) {
-        res.status(403).json({ error: allowCheck.error });
         return;
     }
 
@@ -244,12 +203,6 @@ router.post("/tts/banned-words/channel/:channelName", authenticateApiRequest, as
         return;
     }
 
-    const allowCheck = await checkAllowedChannel(req.user!.userId);
-    if (!allowCheck.allowed) {
-        res.status(403).json({ error: allowCheck.error });
-        return;
-    }
-
     if (!word || typeof word !== "string") {
         res.status(400).json({ error: "Word or phrase is required" });
         return;
@@ -297,12 +250,6 @@ router.delete("/tts/banned-words/channel/:channelName", authenticateApiRequest, 
     // Verify user is authorized for this channel
     if (!req.user || req.user.userLogin.toLowerCase() !== channelName.toLowerCase()) {
         res.status(403).json({ error: "Unauthorized access to channel settings" });
-        return;
-    }
-
-    const allowCheck = await checkAllowedChannel(req.user!.userId);
-    if (!allowCheck.allowed) {
-        res.status(403).json({ error: allowCheck.error });
         return;
     }
 

@@ -5,7 +5,6 @@
 import express, { Request, Response, Router } from "express";
 import { db, COLLECTIONS } from "../services/firestore";
 import { getValidTwitchTokenForUser, getUserIdFromUsername, addModerator } from "../services/twitch";
-import { getAllowedChannelsList } from "../services/utils";
 import { authenticateApiRequest } from "../middleware/auth";
 import { secrets, config, secretsLoadedPromise } from "../config";
 import { logger, redactSensitive } from "../logger";
@@ -81,27 +80,6 @@ router.post("/add", authenticateApiRequest, async (req: Request, res: Response):
   if (!db) {
     log.error("Firestore (db) not initialized!");
     res.status(500).json({ success: false, message: "Firestore not available." });
-    return;
-  }
-
-  // Enforce allow-list FIRST (check BEFORE token validation to return accurate errors)
-  try {
-    const allowedList = await getAllowedChannelsList();
-    if (allowedList !== null && !allowedList.includes(twitchUserId)) {
-      log.warn("Channel not in allow-list. Access denied.");
-      res.status(403).json({
-        success: false,
-        message: "Your channel is not authorized to use this bot. Please contact support if you believe this is an error.",
-      });
-      return;
-    }
-  } catch (allowListError) {
-    const err = allowListError as Error;
-    log.error({ error: err.message }, "Error checking allow-list");
-    res.status(500).json({
-      success: false,
-      message: "Server error while checking channel authorization.",
-    });
     return;
   }
 
