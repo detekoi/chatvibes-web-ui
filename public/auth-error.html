@@ -46,30 +46,24 @@
             const errorTitleEl = document.getElementById('error-title');
 
             if (errorMessageEl) {
+                let message = '';
                 if (errorDescription) {
-                    const decodedDescription = decodeURIComponent(errorDescription);
-                    errorMessageEl.textContent = decodedDescription;
-
-                    // If this is a not_allowed error, add contact link
-                    if (error === 'not_allowed' || decodedDescription.includes('not permitted')) {
-                        errorMessageEl.textContent = decodedDescription + ' ';
-                        const link = document.createElement('a');
-                        link.href = 'https://detekoi.github.io/#contact-me';
-                        link.target = '_blank';
-                        link.textContent = 'Request access here';
-                        errorMessageEl.appendChild(link);
-                        errorMessageEl.appendChild(document.createTextNode('.'));
-                    }
+                    message = decodeURIComponent(errorDescription);
                 } else if (error) {
-                    // Provide better default messages based on error type
                     if (error === 'access_denied') {
-                        errorMessageEl.textContent = "You cancelled the login process or didn't authorize the application.";
+                        message = "You cancelled the login process or didn't authorize the application.";
                     } else {
-                        errorMessageEl.textContent = `Error code: ${decodeURIComponent(error)}`;
+                        message = `Error code: ${decodeURIComponent(error)}`;
                     }
                 } else {
-                    errorMessageEl.textContent = "An unspecified error occurred.";
+                    message = "An unspecified error occurred.";
                 }
+                // Linkify URLs in the message
+                const linkified = message.replace(
+                    /(https?:\/\/[^\s]+)/g,
+                    '<a href="$1" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">$1</a>'
+                );
+                errorMessageEl.innerHTML = linkified;
             }
 
             if (errorTitleEl && error === 'access_denied') {
