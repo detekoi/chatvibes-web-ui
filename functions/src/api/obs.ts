@@ -32,7 +32,7 @@ router.get("/getToken", authenticateApiRequest, async (req: Request, res: Respon
   try {
     // Check if user has valid Twitch tokens
     try {
-      await getValidTwitchTokenForUser(channelLogin, secrets);
+      await getValidTwitchTokenForUser(req.user.userId, secrets);
       log.debug("Verified valid Twitch token");
     } catch (tokenError) {
       const err = tokenError as Error;
@@ -118,7 +118,7 @@ router.post("/generateToken", authenticateApiRequest, async (req: Request, res: 
   try {
     // Verify valid Twitch token
     try {
-      await getValidTwitchTokenForUser(channelLogin, secrets);
+      await getValidTwitchTokenForUser(req.user.userId, secrets);
     } catch (tokenError) {
       res.status(403).json({
         success: false,
