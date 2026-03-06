@@ -368,20 +368,12 @@ function shouldSkipFile(filename, expectedLanguage) {
         return false;
     }
 
-    // Force regeneration for 302.ai voices to ensure they use the new model
-    const voiceId = filename.split('-')[0]; // Extract voiceId from filename
-    // Handle voiceIds with hyphens correctly if needed, but for now strict prefix match is safer
-    // Actually, filename is {VoiceId}-text.mp3. Let's iterate T302 list to be sure.
-    const is302Voice = T302_SUPPORTED_VOICE_IDS.some(id => filename.startsWith(id + '-'));
-
-    if (is302Voice) {
-        // Only regenerate if the file is old (e.g. older than 12 hours)
-        // This prevents regenerating files we just updated today
-        const twelveHoursAgo = Date.now() - (12 * 60 * 60 * 1000);
-        if (stats.mtimeMs < twelveHoursAgo) {
-            console.log(`  🔄 Regenerating old file ${filename} (from ${stats.mtime.toISOString()}) for 302.ai upgrade...`);
-            return false;
-        }
+    // All voices use 302.ai as of 2026-03-06 (verified all 475 voices work)
+    // Only regenerate if the file is old (e.g. older than 12 hours)
+    const twelveHoursAgo = Date.now() - (12 * 60 * 60 * 1000);
+    if (stats.mtimeMs < twelveHoursAgo) {
+        console.log(`  🔄 Regenerating old file ${filename} (from ${stats.mtime.toISOString()})...`);
+        return false;
     }
 
     // For now, assume existing files are correct
@@ -809,20 +801,10 @@ async function generateAudioFile(voiceId, type) {
         console.log(`  📝 Text: ${text}`);
 
         let audioData;
-        const is302 = T302_SUPPORTED_VOICE_IDS.includes(voiceId);
-
-        if (is302) {
-            console.log(`  🤖 Using 302.ai (speech-2.8-turbo)`);
-            audioData = await submitTTSRequest302(voiceId, text);
-        } else {
-            console.log(`  🌊 Using Wavespeed (speech-02-turbo)`);
-            // Submit TTS request
-            const requestId = await submitTTSRequest(voiceId, text, language);
-            console.log(`  📝 Request submitted: ${requestId}`);
-
-            // Poll for result
-            audioData = await pollForResult(requestId);
-        }
+        // All voices use 302.ai (speech-2.8-turbo) as primary
+        // Verified 2026-03-06: all 475 voices work on 302.ai
+        console.log(`  🤖 Using 302.ai (speech-2.8-turbo)`);
+        audioData = await submitTTSRequest302(voiceId, text);
 
         // Save file
         writeFileSync(join(VOICES_DIR, filename), audioData);

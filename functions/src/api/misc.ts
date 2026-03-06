@@ -9,7 +9,7 @@ import { createShortLink, normalizeEmotion } from "../services/utils";
 import { authenticateApiRequest } from "../middleware/auth";
 import { secrets, config } from "../config";
 import { logger, redactSensitive } from "../logger";
-import { RELEASED_VOICES, T302_VOICES } from "../services/voice-list";
+import { RELEASED_VOICES } from "../services/voice-list";
 
 // Separate routers for API endpoints and public redirects
 const apiRouter: Router = express.Router();
@@ -277,11 +277,10 @@ apiRouter.post("/tts/test", authenticateApiRequest, async (req: Request, res: Re
       log.warn({ error: err.message }, "Failed to resolve defaults; proceeding with request values only");
     }
 
-    // Determine provider based on voice ID
-    const T302_SUPPORTED_VOICE_IDS = T302_VOICES;
-
+    // All voices use 302.ai (speech-2.8-turbo) as primary provider
+    // Verified 2026-03-06: all 475 voices work on 302.ai
     const voice = effective.voiceId || "Friendly_Person";
-    const use302 = T302_SUPPORTED_VOICE_IDS.includes(voice) && !!secrets["302_KEY"];
+    const use302 = !!secrets["302_KEY"];
 
     // Use 302.ai API
     if (use302) {
