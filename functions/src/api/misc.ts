@@ -295,7 +295,7 @@ apiRouter.post("/tts/test", authenticateApiRequest, async (req: Request, res: Re
         }
 
         const input = {
-          model: "speech-2.6-turbo",
+          model: "speech-2.8-turbo",
           text,
           stream: false,
           voice_setting: {
@@ -340,7 +340,7 @@ apiRouter.post("/tts/test", authenticateApiRequest, async (req: Request, res: Re
         }
 
         if (audioUrl) {
-          res.json({ success: true, audioUrl, provider: "302.ai", model: "speech-2.6-turbo" });
+          res.json({ success: true, audioUrl, provider: "302.ai", model: "speech-2.8-turbo" });
           return;
         } else {
           log.error({ result }, "302.ai returned unexpected response");

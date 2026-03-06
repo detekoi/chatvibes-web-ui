@@ -389,7 +389,7 @@ function shouldSkipFile(filename, expectedLanguage) {
     return true;
 }
 
-// List of voice IDs supported by 302.ai / Minimax speech-2.6-turbo
+// List of voice IDs supported by 302.ai / Minimax speech-2.8-turbo
 const T302_SUPPORTED_VOICE_IDS = [
     // English
     "English_expressive_narrator", "English_radiant_girl", "English_magnetic_voiced_man",
@@ -406,6 +406,14 @@ const T302_SUPPORTED_VOICE_IDS = [
     "English_PatientMan", "English_Comedian", "English_BossyLeader", "English_Strong-WilledBoy",
     "English_StressedLady", "English_AssertiveQueen", "English_AnimeCharacter",
     "English_Jovialman", "English_WhimsicalGirl", "English_Kind-heartedGirl",
+    "English_intellect_female_1", "English_energetic_male_1", "English_witty_female_1",
+    "English_Lucky_Robot", "English_Cute_Girl", "English_Sharp_Commentator", "English_Honest_Man",
+    "English_Insightful_Speaker", "English_patient_man_v1", "English_Persuasive_Man",
+    "English_Explanatory_Man", "English_Lively_Male_10", "English_Lively_Male_11",
+    "English_Magnetic_Male_2", "English_Magnetic_Male_12", "English_Friendly_Female_3",
+    "English_Steady_Female_1", "English_Steady_Female_5", "English_Sweet_Female_4",
+    "English_Husky_MetalHead", "English_GentleTeacher", "English_AttractiveGirl",
+    "English_ThoughtfulMan", "English_DecentBoy",
 
     // Chinese (Mandarin)
     "Chinese (Mandarin)_Reliable_Executive", "Chinese (Mandarin)_News_Anchor",
@@ -664,7 +672,7 @@ async function submitTTSRequest302(voiceId, text) {
     }
 
     const payload = {
-        model: 'speech-2.6-turbo',
+        model: 'speech-2.8-turbo',
         text,
         stream: false,
         voice_setting: {
@@ -804,7 +812,7 @@ async function generateAudioFile(voiceId, type) {
         const is302 = T302_SUPPORTED_VOICE_IDS.includes(voiceId);
 
         if (is302) {
-            console.log(`  🤖 Using 302.ai (speech-2.6-turbo)`);
+            console.log(`  🤖 Using 302.ai (speech-2.8-turbo)`);
             audioData = await submitTTSRequest302(voiceId, text);
         } else {
             console.log(`  🌊 Using Wavespeed (speech-02-turbo)`);

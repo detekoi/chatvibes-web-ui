@@ -482,7 +482,7 @@
 - whisper_man
 - whisper_woman_1
 
-## Voices Only on 302.ai (speech-2.6-turbo)
+## Voices Only on 302.ai (speech-2.8-turbo)
 - Cantonese_ProfessionalHost (F)
 - Cantonese_ProfessionalHost (M)
 - English_Whispering_girl
