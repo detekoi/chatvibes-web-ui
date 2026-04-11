@@ -365,35 +365,9 @@ router.get("/twitch/callback", async (req: Request, res: Response): Promise<void
         logger.error("Firestore (db) or SecretManagerServiceClient not initialized. Cannot store Twitch tokens.");
       }
 
-      // Automatically setup EventSub subscriptions for the authenticated streamer
-      try {
-        logger.info({ userLogin: twitchUser.login }, "[AuthCallback] Setting up EventSub");
-        const ttsBotUrl = process.env.TTS_BOT_URL || "https://tts.wildcat.chat";
-
-        const eventSubResponse = await fetch(`${ttsBotUrl}/api/setup-eventsub`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${appSessionToken}`,
-          },
-          body: JSON.stringify({
-            channelLogin: twitchUser.login,
-            userId: twitchUser.id,
-          }),
-        });
-
-        if (eventSubResponse.ok) {
-          const eventSubResult = await eventSubResponse.json();
-          logger.info({ userLogin: twitchUser.login, result: eventSubResult }, "[AuthCallback] EventSub setup successful");
-        } else {
-          const errorText = await eventSubResponse.text();
-          logger.warn({ userLogin: twitchUser.login, status: eventSubResponse.status, error: errorText }, "[AuthCallback] EventSub setup failed");
-        }
-      } catch (eventSubError) {
-        const err = eventSubError as Error;
-        logger.error({ userLogin: twitchUser.login, error: err.message }, "[AuthCallback] Error setting up EventSub");
-        // Don't fail the auth process if EventSub setup fails
-      }
+      // EventSub subscriptions for the authenticated streamer are handled automatically
+      // by the TTS backend's Firestore listener whenever the user document is modified.
+      logger.info({ userLogin: twitchUser.login }, "[AuthCallback] Delegating EventSub setup to backend via Firestore");
 
       return res.redirect(frontendAuthCompleteUrl.toString());
     } else {
