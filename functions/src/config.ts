@@ -39,7 +39,7 @@ const secrets: Secrets = {
   TWITCH_CLIENT_SECRET: process.env.TWITCH_CLIENT_SECRET || "",
   JWT_SECRET: process.env.JWT_SECRET_KEY || process.env.JWT_SECRET || "", // Support both names for compatibility
   WAVESPEED_API_KEY: process.env.WAVESPEED_API_KEY || "",
-  "302_KEY": process.env["302_KEY"] || "",
+  "302_KEY": process.env["302_KEY"] || process.env.T302_API_KEY || "",
 };
 
 // Configuration variables (not secrets)
