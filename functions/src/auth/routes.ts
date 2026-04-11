@@ -19,9 +19,10 @@ const TWITCH_TOKEN_URL = "https://id.twitch.tv/oauth2/token";
 const TWITCH_VALIDATE_URL = "https://id.twitch.tv/oauth2/validate";
 
 // OAuth scopes for streamer authentication
-// Chat read/write and channel:bot scopes are NOT needed here — the bot uses its own
-// user access token (with user:bot, user:read:chat, user:write:chat) for all chat operations.
-const OAUTH_SCOPES = "user:read:email channel:read:subscriptions bits:read moderator:read:followers channel:manage:redemptions channel:read:redemptions channel:manage:moderators";
+// EventSub webhooks use an App Access Token. Twitch strictly requires the broadcaster
+// to grant the `channel:bot` scope for `channel.chat.message` subscriptions
+// if the bot is not explicitly a moderator in the channel.
+const OAUTH_SCOPES = "user:read:email channel:read:subscriptions bits:read moderator:read:followers channel:manage:redemptions channel:read:redemptions channel:manage:moderators channel:bot";
 
 // Type definitions
 interface TwitchTokenResponse {
