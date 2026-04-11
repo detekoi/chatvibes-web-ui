@@ -348,14 +348,15 @@ export function initPreferencesModule(
 
       const pitchHasOverride = state.currentPreferences?.pitch !== undefined && state.currentPreferences?.pitch !== null;
       const speedHasOverride = state.currentPreferences?.speed !== undefined && state.currentPreferences?.speed !== null;
+      const cd = state.currentPreferences?.channelDefaults || {};
 
       const payload: TTSPayload = {
         text,
-        voiceId: voiceSelect?.value || undefined,
-        pitch: pitchHasOverride ? Number(pitchSlider?.value ?? 0) : undefined,
-        speed: speedHasOverride ? Number(speedSlider?.value ?? 1) : undefined,
-        emotion: emotionSelect?.value || undefined,
-        languageBoost: languageSelect?.value || undefined,
+        voiceId: voiceSelect?.value || cd.voiceId || undefined,
+        pitch: pitchHasOverride ? Number(pitchSlider?.value ?? 0) : (cd.pitch !== undefined ? cd.pitch : undefined),
+        speed: speedHasOverride ? Number(speedSlider?.value ?? 1) : (cd.speed !== undefined ? cd.speed : undefined),
+        emotion: emotionSelect?.value || cd.emotion || undefined,
+        languageBoost: languageSelect?.value || cd.language || undefined,
       };
 
       const playerElements: PlayerElements = {
