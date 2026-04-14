@@ -10,6 +10,7 @@ import { authenticateApiRequest } from "../middleware/auth";
 import { secrets, config } from "../config";
 import { logger, redactSensitive } from "../logger";
 import { RELEASED_VOICES } from "../services/voice-list";
+import { getUserIdFromUsername } from "../services/twitch";
 
 // Separate routers for API endpoints and public redirects
 const apiRouter: Router = express.Router();
@@ -167,10 +168,22 @@ apiRouter.get("/tts/user-voice/:username", authenticateApiRequest, async (req: R
   }
 
   try {
-    const docRef = db.collection(COLLECTIONS.TTS_USER_PREFS).doc(username.toLowerCase());
-    const docSnap = await docRef.get();
+    // 1. First, resolve username to Twitch User ID
+    const userId = await getUserIdFromUsername(username, secrets);
+    
+    let docSnap;
+    if (userId) {
+      const docRef = db.collection(COLLECTIONS.TTS_USER_PREFS).doc(userId);
+      docSnap = await docRef.get();
+    }
+    
+    // 2. If not found by userId (or userId lookup failed), fallback to legacy username key
+    if (!docSnap || !docSnap.exists) {
+      const docRef = db.collection(COLLECTIONS.TTS_USER_PREFS).doc(username.toLowerCase());
+      docSnap = await docRef.get();
+    }
 
-    if (docSnap.exists) {
+    if (docSnap && docSnap.exists) {
       const data = docSnap.data();
       res.json({
         success: true,
