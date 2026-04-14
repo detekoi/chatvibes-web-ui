@@ -35,6 +35,8 @@
     </script>
 
     <script src="https://app.rybbit.io/api/script.js" data-site-id="780" defer></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@0.473.0/dist/umd/lucide.min.js"></script>
 </head>
 
 <body>
@@ -71,10 +73,10 @@
 
                 <div class="d-grid gap-3 mb-4">
                     <div class="button-wrapper">
-                        <a href="#" id="streamerLoginBtn" class="button-3d btn-primary">Streamer Login</a>
+                        <a href="#" id="streamerLoginBtn" class="button-3d btn-primary"><i data-lucide="mic" class="inline-icon" style="margin-right: 4px;"></i> Streamer Login</a>
                         <div class="tooltip-wrapper">
                             <span class="help-icon"
-                                data-tooltip="Access TTS settings • Toggle bot chat responses • Configure channel points • Customize voice preferences">?</span>
+                                data-tooltip="Access TTS settings • Toggle bot chat responses • Configure channel points • Customize voice preferences"><i data-lucide="circle-help" class="inline-icon"></i></span>
                         </div>
                     </div>
                 </div>
@@ -86,10 +88,10 @@
 
                 <div class="d-grid gap-3 mb-3">
                     <div class="button-wrapper">
-                        <a href="#" id="viewerPrefsBtn" class="button-3d btn-success">Viewer Preferences</a>
+                        <a href="#" id="viewerPrefsBtn" class="button-3d btn-success"><i data-lucide="headphones" class="inline-icon" style="margin-right: 4px;"></i> Viewer Preferences</a>
                         <div class="tooltip-wrapper">
                             <span class="help-icon"
-                                data-tooltip="Customize how YOUR messages sound when read by TTS in any channel you visit.">?</span>
+                                data-tooltip="Customize how YOUR messages sound when read by TTS in any channel you visit."><i data-lucide="circle-help" class="inline-icon"></i></span>
                         </div>
                     </div>
                 </div>
@@ -194,6 +196,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 
 </html>

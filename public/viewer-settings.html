@@ -33,6 +33,8 @@
             }
         })();
     </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@0.473.0/dist/umd/lucide.min.js"></script>
 </head>
 
 <body>
@@ -233,7 +235,7 @@
                                 <div class="row align-items-center">
                                     <div class="col">
                                         <strong class="mb-0">English Normalization <span class="help-icon"
-                                                title="Enable English text normalization if you are having issues with numbers being read incorrectly (slightly increases latency)">?</span></strong>
+                                                data-tooltip="Enable English text normalization if you are having issues with numbers being read incorrectly (slightly increases latency)"><i data-lucide="circle-help" class="inline-icon"></i></span></strong>
                                         <p class="text-muted mb-0">Improve number and text pronunciation</p>
                                         <small class="form-text text-muted" id="hint-englishNormalization"
                                             style="display:none;"></small>
@@ -273,7 +275,7 @@
                                     </audio>
                                     <small id="voice-preview-hint-mobile"
                                         class="settings-changed-hint text-warning mt-1" style="display: none;">
-                                        <i>⚠ Settings changed - regenerate for updated preview</i>
+                                        <i><i data-lucide="triangle-alert" class="inline-icon"></i> Settings changed - regenerate for updated preview</i>
                                     </small>
                                 </div>
                             </div>
@@ -354,7 +356,7 @@
                                 </audio>
                                 <small id="voice-preview-hint" class="settings-changed-hint text-warning mt-1"
                                     style="display: none;">
-                                    <i>⚠ Settings changed - regenerate for updated preview</i>
+                                    <i><i data-lucide="triangle-alert" class="inline-icon"></i> Settings changed - regenerate for updated preview</i>
                                 </small>
                             </div>
                         </div>
@@ -376,6 +378,11 @@
     <script src="js/theme.js"></script>
 
     <script type="module" src="js/viewer/main.js"></script>
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 
 </html>
