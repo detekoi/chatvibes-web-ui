@@ -131,9 +131,9 @@ export function initBotManagement(
           updateBotStatusUI(true);
         } else if (data.code === 'not_allowed') {
           const errorText = data.details || data.message || 'Channel not authorized.';
-          const html = errorText.includes('https://detekoi.github.io/#contact-me')
-            ? errorText.replace('https://detekoi.github.io/#contact-me', '<a href="https://detekoi.github.io/#contact-me" target="_blank" class="link-light">this link</a>')
-            : `${errorText} <a href="https://detekoi.github.io/#contact-me" target="_blank" class="link-light">Request access here</a>.`;
+          const html = errorText.includes('https://parfaitfair.com/#contact')
+            ? errorText.replace('https://parfaitfair.com/#contact', '<a href="https://parfaitfair.com/#contact" target="_blank" class="link-light">this link</a>')
+            : `${errorText} <a href="https://parfaitfair.com/#contact" target="_blank" class="link-light">Request access here</a>.`;
           showToast(html, 'error');
         } else {
           showToast(data.message || 'Failed to activate TTS Service.', 'error');

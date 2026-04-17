@@ -97,7 +97,7 @@ router.post("/add", authenticateApiRequest, async (req: Request, res: Response):
       log.warn("Channel not approved in Firestore");
       res.status(403).json({
         success: false,
-        message: "Your channel is not authorized to use this bot. Contact me for access: https://detekoi.github.io/index.html#contact-me",
+        message: "Your channel is not authorized to use this bot. Contact me for access: https://parfaitfair.com/#contact",
       });
       return;
     }

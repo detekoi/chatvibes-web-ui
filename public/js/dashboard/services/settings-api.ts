@@ -109,7 +109,7 @@ export class SettingsApi {
         } catch { }
 
         // Special handling for 403 contact me link
-        if (response.status === 403 && errorText.includes('https://detekoi.github.io/#contact-me')) {
+        if (response.status === 403 && errorText.includes('https://parfaitfair.com/#contact')) {
             // Throw specific error or handle in UI? 
             // For now, let's throw an error with the enhanced message
             throw new Error(errorText);
