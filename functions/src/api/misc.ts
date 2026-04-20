@@ -366,7 +366,6 @@ apiRouter.post("/tts/test", authenticateApiRequest, async (req: Request, res: Re
         log.error({ 
           error: error.message, 
           apiError: error.response?.data, 
-          keyInfo: `Len: ${secrets["302_KEY"]?.length}, Start: ${secrets["302_KEY"]?.substring(0,4)}, End: ${secrets["302_KEY"]?.substring(secrets["302_KEY"]?.length - 4)}`,
         }, "302.ai call failed");
         // Could fallback to Wavespeed here if we wanted
         res.status(500).json({ success: false, error: "302.ai TTS generation failed" });
