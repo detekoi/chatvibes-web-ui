@@ -64,12 +64,12 @@ function escapeRegExp(str: string): string {
 }
 
 // Validate a prospective Channel Points message against channel policy
-async function validateChannelPointsTestMessage(channelLogin: string, text: string): Promise<ValidationResult> {
+async function validateChannelPointsTestMessage(_channelLogin: string, twitchUserId: string, text: string): Promise<ValidationResult> {
   if (typeof text !== "string" || text.trim().length === 0) {
     return { ok: false, reason: "Message is empty" };
   }
 
-  const doc = await db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelLogin).get();
+  const doc = await db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(twitchUserId).get();
   const data = doc.exists ? doc.data() : {};
   const channelPoints = (data?.channelPoints as ChannelPointsConfig) || {};
   const policy = channelPoints.contentPolicy || {};
@@ -141,7 +141,7 @@ async function ensureTtsChannelPointReward(channelLogin: string, twitchUserId: s
   // First, see if we already have a stored reward id
   let storedRewardId: string | null = null;
   try {
-    const ttsDoc = await db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelLogin).get();
+    const ttsDoc = await db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(twitchUserId).get();
     if (ttsDoc.exists) {
       const data = ttsDoc.data();
       storedRewardId = data?.channelPointRewardId || null;
@@ -153,7 +153,7 @@ async function ensureTtsChannelPointReward(channelLogin: string, twitchUserId: s
 
   // Helper to upsert the Firestore record
   const setFirestoreReward = async (rewardId: string): Promise<void> => {
-    await db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelLogin).set({
+    await db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(twitchUserId).set({
       // New structured config
       channelPoints: {
         enabled: false,
@@ -282,7 +282,7 @@ router.get("/tts", authenticateApiRequest, async (req: Request, res: Response): 
   const log = logger.child({ endpoint: "GET /api/rewards/tts", channelLogin });
 
   try {
-    const doc = await db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelLogin).get();
+    const doc = await db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(req.user.userId).get();
     const data = doc.exists ? doc.data() : {};
     const channelPoints = (data?.channelPoints as ChannelPointsConfig) || null;
 
@@ -352,7 +352,7 @@ async function handleUpsertTtsReward(req: Request, res: Response): Promise<void>
     };
 
     // Get existing config
-    const existingDoc = await db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelLogin).get();
+    const existingDoc = await db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(req.user.userId).get();
     const existingData = existingDoc.exists ? existingDoc.data() : {};
     const existingChannelPoints = (existingData?.channelPoints as ChannelPointsConfig) || {};
     const rewardId = existingChannelPoints.rewardId;
@@ -466,7 +466,7 @@ async function handleUpsertTtsReward(req: Request, res: Response): Promise<void>
       lastSyncedAt: Date.now(),
     };
 
-    await db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelLogin).set({
+    await db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(req.user.userId).set({
       channelPoints: updatedChannelPoints,
       // Legacy fields for backward compatibility
       channelPointRewardId: finalRewardId,
@@ -519,7 +519,7 @@ router.delete("/tts", authenticateApiRequest, async (req: Request, res: Response
 
   try {
     // Load current config
-    const doc = await db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelLogin).get();
+    const doc = await db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(req.user.userId).get();
     const data = doc.exists ? doc.data() : {};
     const channelPointsData = data?.channelPoints as ChannelPointsConfig | undefined;
     const rewardId = channelPointsData?.rewardId || data?.channelPointRewardId;
@@ -554,7 +554,7 @@ router.delete("/tts", authenticateApiRequest, async (req: Request, res: Response
     }
 
     // Disable locally and only clear stored reward id if Twitch confirmed deletion
-    await db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelLogin).set({
+    await db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(req.user.userId).set({
       channelPoints: {
         ...(channelPointsData || {}),
         enabled: false,
@@ -594,7 +594,7 @@ router.post("/tts/test", authenticateApiRequest, async (req: Request, res: Respo
   try {
     const text = (req.body?.text ?? "").toString();
 
-    const result = await validateChannelPointsTestMessage(channelLogin, text);
+    const result = await validateChannelPointsTestMessage(channelLogin, req.user.userId, text);
     log.info("Test requested");
 
     if (!result.ok) {
@@ -625,7 +625,7 @@ router.post("/tts:test", authenticateApiRequest, async (req: Request, res: Respo
 
   try {
     const text = (req.body?.text ?? "").toString();
-    const result = await validateChannelPointsTestMessage(channelLogin, text);
+    const result = await validateChannelPointsTestMessage(channelLogin, req.user.userId, text);
     log.info("Test requested (legacy alias)");
     if (!result.ok) {
       res.status(400).json({ success: false, error: result.reason });

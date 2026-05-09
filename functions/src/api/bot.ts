@@ -113,7 +113,7 @@ router.post("/add", authenticateApiRequest, async (req: Request, res: Response):
 
     // Sync botMode in ttsChannelConfigs for the TTS bot service
     // Always use 'authenticated' mode (bot mode only)
-    const ttsConfigRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelLogin);
+    const ttsConfigRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(twitchUserId);
     await ttsConfigRef.set({
       botMode: 'authenticated',
     }, { merge: true });

@@ -33,7 +33,23 @@ interface PreferencesUpdate {
 
 const VALID_EMOTE_MODES = ["read", "skip", "describe"];
 
+
+async function getChannelIdFromName(channelName: string): Promise<string | null> {
+  try {
+    const snapshot = await db.collection('managedChannels')
+      .where('channelName', '==', channelName.toLowerCase())
+      .limit(1)
+      .get();
+    if (snapshot.empty) return null;
+    return snapshot.docs[0].data().twitchUserId || snapshot.docs[0].id;
+  } catch (error) {
+    logger.error({ error, channelName }, "Error resolving channel name to ID");
+    return null;
+  }
+}
+
 // Route: /api/viewer/auth - Viewer authentication
+
 router.post("/auth", async (req: Request, res: Response): Promise<void> => {
   const log = logger.child({ endpoint: "/api/viewer/auth" });
   try {
@@ -84,9 +100,13 @@ router.get("/preferences/:channel", authenticateApiRequest, async (req: Request,
       res.status(403).json({ error: "Access denied: token user mismatch" });
       return;
     }
+    const channelId = await getChannelIdFromName(channel);
+    if (!channelId) {
+      res.status(404).json({ error: "Channel not found" });
+      return;
+    }
+    const channelDoc = await db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelId).get();
 
-    // Check if channel exists and has TTS enabled
-    const channelDoc = await db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channel).get();
 
     if (!channelDoc.exists) {
       res.status(404).json({ error: "Channel not found or TTS not enabled" });
@@ -183,9 +203,13 @@ router.put("/preferences/:channel", authenticateApiRequest, async (req: Request,
       res.status(403).json({ error: "Access denied: token user mismatch" });
       return;
     }
+    const channelId = await getChannelIdFromName(channel);
+    if (!channelId) {
+      res.status(404).json({ error: "Channel not found" });
+      return;
+    }
+    const channelDoc = await db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelId).get();
 
-    // Check if channel exists
-    const channelDoc = await db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channel).get();
     if (!channelDoc.exists) {
       res.status(404).json({ error: "Channel not found or TTS not enabled" });
       return;
@@ -396,8 +420,13 @@ router.post("/ignore/tts/:channel", authenticateApiRequest, async (req: Request,
       res.status(400).json({ error: "Channel is required" });
       return;
     }
+    const channelId = await getChannelIdFromName(channel);
+    if (!channelId) {
+      res.status(404).json({ error: "Channel not found" });
+      return;
+    }
+    const channelDocRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelId);
 
-    const channelDocRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channel);
     const channelDoc = await channelDocRef.get();
 
     if (!channelDoc.exists) {

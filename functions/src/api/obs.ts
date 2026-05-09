@@ -46,7 +46,7 @@ router.get("/getToken", authenticateApiRequest, async (req: Request, res: Respon
     }
 
     // Try to read existing OBS token from Firestore
-    const ttsDocRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelLogin);
+    const ttsDocRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(req.user.userId);
     const ttsDoc = await ttsDocRef.get();
     const ttsData = ttsDoc.exists ? ttsDoc.data() : null;
 
@@ -132,7 +132,7 @@ router.post("/generateToken", authenticateApiRequest, async (req: Request, res: 
     const obsToken = randomBytes(32).toString("hex");
 
     // Store token directly in Firestore
-    const ttsDocRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelLogin);
+    const ttsDocRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(req.user.userId);
     await ttsDocRef.set({
       obsSocketToken: obsToken,
       obsTokenGeneratedAt: FieldValue.serverTimestamp(),

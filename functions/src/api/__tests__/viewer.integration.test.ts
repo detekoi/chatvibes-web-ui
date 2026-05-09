@@ -12,6 +12,7 @@ describe('Viewer API Integration Tests', () => {
   let db: any;
   const testUser = createTestUser('testviewer');
   const testChannel = 'testchannel';
+  const testChannelId = '123456789';
 
   beforeAll(async () => {
     app = await createTestApp();
@@ -54,7 +55,8 @@ describe('Viewer API Integration Tests', () => {
 
     it('should return preferences when they exist', async () => {
       // Channel config must exist for the route to proceed
-      await db.collection('ttsChannelConfigs').doc(testChannel).set({
+      await db.collection("managedChannels").doc(testChannelId).set({ channelName: testChannel, twitchUserId: testChannelId });
+      await db.collection("ttsChannelConfigs").doc(testChannelId).set({
         voiceId: 'test-voice',
         speed: 1.2,
       });
@@ -78,7 +80,8 @@ describe('Viewer API Integration Tests', () => {
 
     it('should return empty preferences when none exist', async () => {
       // Channel config must exist
-      await db.collection('ttsChannelConfigs').doc(testChannel).set({
+      await db.collection("managedChannels").doc(testChannelId).set({ channelName: testChannel, twitchUserId: testChannelId });
+      await db.collection("ttsChannelConfigs").doc(testChannelId).set({
         voiceId: 'default-voice',
       });
 
@@ -92,7 +95,8 @@ describe('Viewer API Integration Tests', () => {
     });
 
     it('should return channel policy when allowViewerPreferences is false', async () => {
-      await db.collection('ttsChannelConfigs').doc(testChannel).set({
+      await db.collection("managedChannels").doc(testChannelId).set({ channelName: testChannel, twitchUserId: testChannelId });
+      await db.collection("ttsChannelConfigs").doc(testChannelId).set({
         allowViewerPreferences: false,
       });
 
@@ -119,7 +123,8 @@ describe('Viewer API Integration Tests', () => {
 
     it('should update preferences with valid data', async () => {
       // Channel config must exist for the route to proceed
-      await db.collection('ttsChannelConfigs').doc(testChannel).set({
+      await db.collection("managedChannels").doc(testChannelId).set({ channelName: testChannel, twitchUserId: testChannelId });
+      await db.collection("ttsChannelConfigs").doc(testChannelId).set({
         voiceId: 'default-voice',
       });
 
@@ -144,7 +149,8 @@ describe('Viewer API Integration Tests', () => {
     });
 
     it('should return 400 for invalid speed', async () => {
-      await db.collection('ttsChannelConfigs').doc(testChannel).set({
+      await db.collection("managedChannels").doc(testChannelId).set({ channelName: testChannel, twitchUserId: testChannelId });
+      await db.collection("ttsChannelConfigs").doc(testChannelId).set({
         voiceId: 'default-voice',
       });
 
@@ -159,7 +165,8 @@ describe('Viewer API Integration Tests', () => {
     });
 
     it('should return 400 for invalid pitch', async () => {
-      await db.collection('ttsChannelConfigs').doc(testChannel).set({
+      await db.collection("managedChannels").doc(testChannelId).set({ channelName: testChannel, twitchUserId: testChannelId });
+      await db.collection("ttsChannelConfigs").doc(testChannelId).set({
         voiceId: 'default-voice',
       });
 

@@ -24,7 +24,7 @@ router.get("/tts/settings/channel/:channelName", authenticateApiRequest, async (
     }
 
     try {
-        const docRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelName);
+        const docRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(req.user.userId);
         const docSnap = await docRef.get();
 
         if (docSnap.exists) {
@@ -55,7 +55,7 @@ router.put("/tts/settings/channel/:channelName", authenticateApiRequest, async (
     }
 
     try {
-        const docRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelName);
+        const docRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(req.user.userId);
 
         try {
             await docRef.update({ [key]: value });
@@ -107,7 +107,7 @@ router.post("/tts/ignore/channel/:channelName", authenticateApiRequest, async (r
     }
 
     try {
-        const docRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelName);
+        const docRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(req.user.userId);
         const docSnap = await docRef.get();
 
         const currentData = docSnap.exists ? docSnap.data() : {};
@@ -159,7 +159,7 @@ router.delete("/tts/ignore/channel/:channelName", authenticateApiRequest, async 
     }
 
     try {
-        const docRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelName);
+        const docRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(req.user.userId);
         const docSnap = await docRef.get();
 
         if (!docSnap.exists) {
@@ -215,7 +215,7 @@ router.post("/tts/banned-words/channel/:channelName", authenticateApiRequest, as
     }
 
     try {
-        const docRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelName);
+        const docRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(req.user.userId);
         const docSnap = await docRef.get();
 
         const currentData = docSnap.exists ? docSnap.data() : {};
@@ -265,7 +265,7 @@ router.delete("/tts/banned-words/channel/:channelName", authenticateApiRequest, 
     }
 
     try {
-        const docRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelName);
+        const docRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(req.user.userId);
         const docSnap = await docRef.get();
 
         if (!docSnap.exists) {

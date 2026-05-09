@@ -350,7 +350,7 @@ router.get("/twitch/callback", async (req: Request, res: Response): Promise<void
 
           // Sync botRespondsInChat in ttsChannelConfigs for the TTS bot service
           // Default to true (bot responds to commands in chat)
-          const ttsConfigDocRef = db.collection('ttsChannelConfigs').doc(twitchUser.login);
+          const ttsConfigDocRef = db.collection('ttsChannelConfigs').doc(twitchUser.id);
           await ttsConfigDocRef.set({
             botRespondsInChat: true,
           }, { merge: true });
