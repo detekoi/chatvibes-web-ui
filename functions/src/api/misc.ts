@@ -7,6 +7,7 @@ import axios from "axios";
 import { db, COLLECTIONS } from "../services/firestore";
 import { createShortLink, normalizeEmotion } from "../services/utils";
 import { authenticateApiRequest } from "../middleware/auth";
+import { ttsTestLimiter } from "../middleware/rateLimit";
 import { secrets, config } from "../config";
 import { logger, redactSensitive } from "../logger";
 import { RELEASED_VOICES } from "../services/voice-list";
@@ -211,7 +212,7 @@ apiRouter.get("/tts/user-voice/:username", authenticateApiRequest, async (req: R
 });
 
 // Route: /api/tts/test - Test TTS functionality
-apiRouter.post("/tts/test", authenticateApiRequest, async (req: Request, res: Response): Promise<void> => {
+apiRouter.post("/tts/test", ttsTestLimiter, authenticateApiRequest, async (req: Request, res: Response): Promise<void> => {
   if (!req.user) {
     res.status(401).json({ error: "Unauthorized" });
     return;
