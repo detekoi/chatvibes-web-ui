@@ -28,6 +28,10 @@ import { authLimiter, apiLimiter } from "./src/middleware/rateLimit";
 // Create Express app
 const app: Application = express();
 
+// Trust Firebase/Cloud Run's load balancer so req.ip reflects the real client IP
+// (used by rate limiters — without this all users share one bucket)
+app.set("trust proxy", 1);
+
 // Middleware to ensure secrets are loaded before processing any requests
 app.use(async (_req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
