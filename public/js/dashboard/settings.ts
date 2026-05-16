@@ -221,11 +221,21 @@ export function initSettingsModule(
     if (emoteModeSelect) emoteModeSelect.addEventListener('change', () => saveSettingWrapper('emoteMode', emoteModeSelect.value || 'describe', 'Emote Mode'));
 
     // YouTube integration auto-save
-    if (youtubeEnabledCheckbox) youtubeEnabledCheckbox.addEventListener('change', () => saveSettingWrapper('youtubeEnabled', !!youtubeEnabledCheckbox.checked, 'YouTube TTS'));
+    if (youtubeEnabledCheckbox) {
+      youtubeEnabledCheckbox.addEventListener('change', () => {
+        if (youtubeEnabledCheckbox.checked && youtubeHandleInput && !youtubeHandleInput.value.trim()) {
+          showToast('Please enter a YouTube handle before enabling', 'warning');
+          youtubeEnabledCheckbox.checked = false;
+          return;
+        }
+        saveSettingWrapper('youtubeEnabled', !!youtubeEnabledCheckbox.checked, 'YouTube TTS');
+      });
+    }
     if (youtubeHandleInput) {
       const debouncedHandleSave = debounce(
         () => {
           const handle = youtubeHandleInput.value.trim();
+          youtubeHandleInput.value = handle; // reflect trimmed value in the input
           saveSettingWrapper('youtubeHandle', handle, 'YouTube Handle');
         },
         800
@@ -233,6 +243,7 @@ export function initSettingsModule(
       youtubeHandleInput.addEventListener('input', () => { if (!isInitializing) debouncedHandleSave(); });
       youtubeHandleInput.addEventListener('change', () => {
         const handle = youtubeHandleInput.value.trim();
+        youtubeHandleInput.value = handle; // reflect trimmed value in the input
         saveSettingWrapper('youtubeHandle', handle, 'YouTube Handle');
       });
     }
