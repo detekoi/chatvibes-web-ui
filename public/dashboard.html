@@ -467,6 +467,40 @@
 
                         </div>
 
+                        <!-- YouTube Integration -->
+                        <div class="settings-section">
+                            <h5 class="settings-section-title"><i data-lucide="youtube" class="inline-icon" style="margin-right: 6px; color: #ff0000;"></i>YouTube Integration</h5>
+                            <p class="settings-section-description">Read YouTube live chat messages through TTS. Requires an active YouTube livestream.</p>
+                            <div class="list-group mb-4 shadow">
+                                <div class="list-group-item">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <strong class="mb-0">YouTube TTS Enabled</strong>
+                                            <p class="text-muted mb-0">Enable reading YouTube live chat messages aloud</p>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="youtube-enabled">
+                                                <span class="form-check-label"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-group-item">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <label for="youtube-handle" class="form-label mb-1"><strong>YouTube Handle</strong></label>
+                                            <p class="text-muted mb-0">Your YouTube channel handle (e.g. <code>@yourhandle</code>)</p>
+                                        </div>
+                                        <div class="col-auto">
+                                            <input type="text" id="youtube-handle" class="form-control"
+                                                placeholder="@yourhandle" style="width: 200px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="d-grid">
                             <button id="save-settings-btn" class="btn btn-primary" type="button">Save All
                                 Settings</button>

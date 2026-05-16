@@ -76,6 +76,10 @@ export function initSettingsModule(
   const bitsAmountInput = document.getElementById('bits-amount') as HTMLInputElement | null;
   const anonymizeFollowersCheckbox = document.getElementById('anonymize-followers') as HTMLInputElement | null;
 
+  // YouTube integration elements
+  const youtubeEnabledCheckbox = document.getElementById('youtube-enabled') as HTMLInputElement | null;
+  const youtubeHandleInput = document.getElementById('youtube-handle') as HTMLInputElement | null;
+
   const saveSettingsBtn = document.getElementById('save-settings-btn') as HTMLButtonElement | null;
 
   const voiceTestTextInput = document.getElementById('voice-test-text') as HTMLTextAreaElement | null;
@@ -215,6 +219,23 @@ export function initSettingsModule(
     if (defaultLanguageSelect) defaultLanguageSelect.addEventListener('change', () => saveSettingWrapper('languageBoost', defaultLanguageSelect.value || 'Automatic', 'Default Language'));
     if (englishNormalizationCheckbox) englishNormalizationCheckbox.addEventListener('change', () => saveSettingWrapper('englishNormalization', !!englishNormalizationCheckbox.checked, 'English Normalization'));
     if (emoteModeSelect) emoteModeSelect.addEventListener('change', () => saveSettingWrapper('emoteMode', emoteModeSelect.value || 'describe', 'Emote Mode'));
+
+    // YouTube integration auto-save
+    if (youtubeEnabledCheckbox) youtubeEnabledCheckbox.addEventListener('change', () => saveSettingWrapper('youtubeEnabled', !!youtubeEnabledCheckbox.checked, 'YouTube TTS'));
+    if (youtubeHandleInput) {
+      const debouncedHandleSave = debounce(
+        () => {
+          const handle = youtubeHandleInput.value.trim();
+          saveSettingWrapper('youtubeHandle', handle, 'YouTube Handle');
+        },
+        800
+      );
+      youtubeHandleInput.addEventListener('input', () => { if (!isInitializing) debouncedHandleSave(); });
+      youtubeHandleInput.addEventListener('change', () => {
+        const handle = youtubeHandleInput.value.trim();
+        saveSettingWrapper('youtubeHandle', handle, 'YouTube Handle');
+      });
+    }
   }
 
   function getEffectiveTtsSettings(): Omit<TTSPayload, 'text'> {
@@ -641,5 +662,9 @@ export function initSettingsModule(
     if (defaultLanguageSelect) defaultLanguageSelect.value = settings.languageBoost || 'Automatic';
     if (englishNormalizationCheckbox) englishNormalizationCheckbox.checked = settings.englishNormalization || false;
     if (emoteModeSelect) emoteModeSelect.value = settings.emoteMode || 'describe';
+
+    // YouTube integration
+    if (youtubeEnabledCheckbox) youtubeEnabledCheckbox.checked = settings.youtubeEnabled || false;
+    if (youtubeHandleInput) youtubeHandleInput.value = settings.youtubeHandle || '';
   }
 }

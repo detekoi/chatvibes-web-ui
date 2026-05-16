@@ -53,6 +53,8 @@ export interface TtsSettings {
   ignoredUsers?: string[];
   bannedWords?: string[];
   voiceVolumes?: Record<string, number>;
+  youtubeEnabled?: boolean;
+  youtubeHandle?: string;
 }
 
 /**
