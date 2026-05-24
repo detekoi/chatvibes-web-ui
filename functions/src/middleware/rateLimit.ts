@@ -3,7 +3,11 @@
  * Protects API endpoints from abuse
  */
 
-import rateLimit from "express-rate-limit";
+import rateLimit, { type Options } from "express-rate-limit";
+
+// Default IP-based key generator that handles IPv6 normalization correctly.
+// Used as fallback when no authenticated user ID is available.
+const defaultIpKey: Options["keyGenerator"] = (req, _res) => req.ip ?? "unknown";
 
 /**
  * Rate limiter for authentication routes (/auth/*)
@@ -38,5 +42,9 @@ export const ttsTestLimiter = rateLimit({
     message: "Too many TTS test requests, please wait a moment.",
     standardHeaders: true,
     legacyHeaders: false,
-    keyGenerator: (req) => (req as any).user?.userId ?? req.ip ?? "unknown",
+    keyGenerator: (req, res) => {
+        const userId = (req as any).user?.userId;
+        if (userId) return userId;
+        return defaultIpKey(req, res);
+    },
 });
