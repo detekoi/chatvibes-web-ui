@@ -102,6 +102,34 @@
                         </div>
                     </div>
 
+                    <!-- Voice Preview - Mobile/Tablet (visible on lg and below) -->
+                    <div class="d-lg-none mb-4">
+                        <div class="card voice-preview-card">
+                            <div class="card-header">Voice Preview</div>
+                            <div class="card-body">
+                                <label for="preview-text-mobile" class="form-label">Test Message</label>
+                                <textarea id="preview-text-mobile" class="form-control mb-2" maxlength="500"
+                                    rows="3">Chat is this real?</textarea>
+                                <div class="d-grid">
+                                    <button type="button" id="preview-btn-mobile" class="btn btn-primary">Send
+                                        Preview</button>
+                                </div>
+                                <!-- Audio Player Container -->
+                                <div id="voice-preview-player-mobile" class="voice-preview-player mt-3"
+                                    style="display: none;">
+                                    <audio controls class="w-100">
+                                        <source id="voice-preview-source-mobile" type="audio/mpeg">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                    <small id="voice-preview-hint-mobile"
+                                        class="settings-changed-hint text-warning mt-1" style="display: none;">
+                                        <i><i data-lucide="triangle-alert" class="inline-icon"></i> Settings changed - regenerate for updated preview</i>
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Voice Settings -->
                     <div class="settings-section">
                         <h5 class="settings-section-title">Voice Settings</h5>
@@ -249,34 +277,6 @@
                                         <button type="button" class="btn btn-outline-secondary btn-sm"
                                             id="english-normalization-reset">Clear</button>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Voice Preview - Mobile/Tablet (visible on lg and below) -->
-                    <div class="d-lg-none mb-4">
-                        <div class="card voice-preview-card">
-                            <div class="card-header">Voice Preview</div>
-                            <div class="card-body">
-                                <label for="preview-text-mobile" class="form-label">Test Message</label>
-                                <textarea id="preview-text-mobile" class="form-control mb-2" maxlength="500"
-                                    rows="3">Chat is this real?</textarea>
-                                <div class="d-grid">
-                                    <button type="button" id="preview-btn-mobile" class="btn btn-primary">Send
-                                        Preview</button>
-                                </div>
-                                <!-- Audio Player Container -->
-                                <div id="voice-preview-player-mobile" class="voice-preview-player mt-3"
-                                    style="display: none;">
-                                    <audio controls class="w-100">
-                                        <source id="voice-preview-source-mobile" type="audio/mpeg">
-                                        Your browser does not support the audio element.
-                                    </audio>
-                                    <small id="voice-preview-hint-mobile"
-                                        class="settings-changed-hint text-warning mt-1" style="display: none;">
-                                        <i><i data-lucide="triangle-alert" class="inline-icon"></i> Settings changed - regenerate for updated preview</i>
-                                    </small>
                                 </div>
                             </div>
                         </div>
