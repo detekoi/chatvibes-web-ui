@@ -162,6 +162,8 @@ export function initSettingsModule(
     if (cheerEventsEnabledCheckbox) cheerEventsEnabledCheckbox.addEventListener('change', () => saveSettingWrapper('speakCheerEvents', cheerEventsEnabledCheckbox.checked !== false, 'Cheer Announcements'));
     const redemptionEventsEnabledCheckbox = document.getElementById('redemption-events-enabled') as HTMLInputElement | null;
     if (redemptionEventsEnabledCheckbox) redemptionEventsEnabledCheckbox.addEventListener('change', () => saveSettingWrapper('speakRedemptionEvents', redemptionEventsEnabledCheckbox.checked !== false, 'Redemption Announcements'));
+    const watchStreakEventsEnabledCheckbox = document.getElementById('watch-streak-events-enabled') as HTMLInputElement | null;
+    if (watchStreakEventsEnabledCheckbox) watchStreakEventsEnabledCheckbox.addEventListener('change', () => saveSettingWrapper('speakWatchStreakEvents', !!watchStreakEventsEnabledCheckbox.checked, 'Watch Streak Announcements'));
     if (anonymizeFollowersCheckbox) anonymizeFollowersCheckbox.addEventListener('change', () => saveSettingWrapper('anonymizeFollowers', anonymizeFollowersCheckbox.checked !== false, 'Anonymize Followers'));
     if (allowViewerPreferencesCheckbox) allowViewerPreferencesCheckbox.addEventListener('change', () => saveSettingWrapper('allowViewerPreferences', !!allowViewerPreferencesCheckbox.checked, 'Allow Viewer Voice Preferences'));
     if (readFullUrlsCheckbox) readFullUrlsCheckbox.addEventListener('change', () => saveSettingWrapper('readFullUrls', !!readFullUrlsCheckbox.checked, 'Read Full URLs'));
@@ -647,6 +649,11 @@ export function initSettingsModule(
     if (redemptionEventsEnabledCheckbox) {
       const defaultRedemptionState = settings.speakEvents !== false;
       redemptionEventsEnabledCheckbox.checked = settings.speakRedemptionEvents !== undefined ? settings.speakRedemptionEvents : defaultRedemptionState;
+    }
+    const watchStreakEventsEnabledCheckbox = document.getElementById('watch-streak-events-enabled') as HTMLInputElement | null;
+    if (watchStreakEventsEnabledCheckbox) {
+      const defaultWatchStreakState = settings.speakEvents !== false;
+      watchStreakEventsEnabledCheckbox.checked = settings.speakWatchStreakEvents !== undefined ? settings.speakWatchStreakEvents : defaultWatchStreakState;
     }
     if (anonymizeFollowersCheckbox) anonymizeFollowersCheckbox.checked = settings.anonymizeFollowers !== false;
     if (allowViewerPreferencesCheckbox) allowViewerPreferencesCheckbox.checked = settings.allowViewerPreferences !== false;
