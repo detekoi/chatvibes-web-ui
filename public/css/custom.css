@@ -1330,7 +1330,9 @@ dialog.modal::backdrop {
 
 /* Wider dropdown on medium+ screens to prevent voice name wrapping */
 @media (min-width: 768px) {
-    #default-voice-dropdown {
+    #default-voice-dropdown,
+    #calibration-voice-dropdown,
+    #voice-dropdown {
         min-width: 280px;
     }
 }
@@ -1371,6 +1373,7 @@ dialog.modal::backdrop {
     box-shadow: 0 4px 12px var(--shadow-color);
     max-height: 400px;
     overflow-y: auto;
+    overflow-x: hidden;
     display: none;
 }
 

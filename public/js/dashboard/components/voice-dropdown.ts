@@ -139,6 +139,7 @@ export class VoiceDropdown {
             item.className = 'voice-dropdown-item d-flex justify-content-between align-items-center';
 
             const label = document.createElement('span');
+            label.className = 'voice-label';
             label.textContent = formatVoiceName(voice);
 
             item.appendChild(label);
