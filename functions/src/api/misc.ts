@@ -5,7 +5,8 @@
 import express, { Request, Response, Router } from "express";
 import axios from "axios";
 import { db, COLLECTIONS } from "../services/firestore";
-import { createShortLink, normalizeEmotion } from "../services/utils";
+import { createShortLink, normalizeEmotion, validateEmotion } from "../services/utils";
+import * as ttsConfig from "../services/tts-config.json";
 import { authenticateApiRequest } from "../middleware/auth";
 import { ttsTestLimiter } from "../middleware/rateLimit";
 import { secrets, config } from "../config";
@@ -296,6 +297,12 @@ apiRouter.post("/tts/test", ttsTestLimiter, authenticateApiRequest, async (req: 
     const voice = effective.voiceId || "Friendly_Person";
     const use302 = !!secrets["302_KEY"];
 
+    // Validate emotion before sending to any provider
+    if (effective.emotion && !validateEmotion(effective.emotion)) {
+      log.warn({ emotion: effective.emotion }, "Invalid emotion value, falling back to auto-detect");
+      effective.emotion = null;
+    }
+
     // Use 302.ai API
     if (use302) {
       try {
@@ -316,7 +323,7 @@ apiRouter.post("/tts/test", ttsTestLimiter, authenticateApiRequest, async (req: 
             speed: typeof effective.speed === "number" ? effective.speed : 1.0,
             vol: typeof effective.volume === "number" ? effective.volume : 1.0,
             pitch: typeof effective.pitch === "number" ? effective.pitch : 0,
-            emotion: effective.emotion || "neutral",
+            emotion: (effective.emotion && effective.emotion !== "neutral") ? effective.emotion : undefined,
             text_normalization: false,
           },
           audio_setting: {
@@ -385,6 +392,23 @@ apiRouter.post("/tts/test", ttsTestLimiter, authenticateApiRequest, async (req: 
           languageBoostValue = "auto";
         }
 
+        // Sanitize emotion for Wavespeed (speech-02-turbo doesn't support calm/fluent)
+        let wavespeedEmotion: string | undefined = effective.emotion || undefined;
+        if (wavespeedEmotion && !(ttsConfig.LEGACY_SAFE_EMOTIONS as readonly string[]).includes(wavespeedEmotion)) {
+          log.debug({ emotion: wavespeedEmotion }, "Emotion not supported by Wavespeed, omitting");
+          wavespeedEmotion = undefined;
+        }
+        // neutral → omit for auto-detect
+        if (wavespeedEmotion === "neutral") {
+          wavespeedEmotion = undefined;
+        }
+
+        // Sanitize language for Wavespeed (speech-02-turbo supports fewer languages)
+        if (languageBoostValue && !(ttsConfig.LEGACY_SAFE_LANGUAGE_BOOSTS as readonly string[]).includes(languageBoostValue)) {
+          log.debug({ language: languageBoostValue }, "Language not supported by Wavespeed, falling back to auto");
+          languageBoostValue = "auto";
+        }
+
         const input: WavespeedInput & { vol: number } = {
           text,
           voice_id: voice,
@@ -392,7 +416,7 @@ apiRouter.post("/tts/test", ttsTestLimiter, authenticateApiRequest, async (req: 
           vol: typeof effective.volume === "number" ? effective.volume : 1.0,
           volume: typeof effective.volume === "number" ? effective.volume : 1.0,
           pitch: typeof effective.pitch === "number" ? effective.pitch : 0,
-          emotion: effective.emotion || "neutral",
+          emotion: wavespeedEmotion as string,
           language_boost: languageBoostValue,
           english_normalization: false,
           sample_rate: 32000,

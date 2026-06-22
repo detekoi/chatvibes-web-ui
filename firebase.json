@@ -52,6 +52,7 @@
         "coverage"
       ],
       "predeploy": [
+        "cp ../tts-twitch/src/components/tts/tts-config.json functions/src/services/tts-config.json 2>/dev/null || echo '⚠️  tts-twitch not found as sibling — using committed tts-config.json'",
         "npm --prefix \"$RESOURCE_DIR\" run lint",
         "npm --prefix \"$RESOURCE_DIR\" run build"
       ]

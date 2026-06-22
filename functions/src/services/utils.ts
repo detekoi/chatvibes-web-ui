@@ -6,6 +6,7 @@ import { randomBytes } from "crypto";
 import { db, COLLECTIONS } from "./firestore";
 import { logger } from "../logger";
 import type { SecretManagerServiceClient } from "@google-cloud/secret-manager";
+import * as ttsConfig from "./tts-config.json";
 
 /**
  * Gets the current Google Cloud project ID
@@ -88,7 +89,7 @@ async function getAllowedChannelsList(): Promise<string[] | null> {
  * @return True if valid
  */
 function validateSpeed(speed: number): boolean {
-  return typeof speed === "number" && speed >= 0.5 && speed <= 2.0;
+  return typeof speed === "number" && speed >= ttsConfig.SPEED.MIN && speed <= ttsConfig.SPEED.MAX;
 }
 
 /**
@@ -97,7 +98,7 @@ function validateSpeed(speed: number): boolean {
  * @return True if valid
  */
 function validatePitch(pitch: number): boolean {
-  return typeof pitch === "number" && pitch >= -12 && pitch <= 12;
+  return typeof pitch === "number" && pitch >= ttsConfig.PITCH.MIN && pitch <= ttsConfig.PITCH.MAX;
 }
 
 /**
@@ -108,23 +109,20 @@ function validatePitch(pitch: number): boolean {
 function normalizeEmotion(emotion: string | null | undefined): string | null {
   if (emotion === null || emotion === undefined || emotion === "") return null;
   const raw = String(emotion).trim().toLowerCase();
-  // Synonym map to canonical tokens used across the app/backend providers
-  const map: Record<string, string> = {
-    "auto": "neutral", // Wavespeed doesn't support "auto", map to "neutral"
-    "neutral": "neutral",
-    "happy": "happy",
-    "sad": "sad",
-    "angry": "angry",
-    // canonical per provider schema
-    "fearful": "fearful",
-    "disgusted": "disgusted",
-    "surprised": "surprised",
-    // legacy/synonyms mapped to provider canonical
-    "fear": "fearful",
-    "surprise": "surprised",
-    "disgust": "disgusted",
-  };
-  return map[raw] || raw;
+
+  // Check if it's already a valid canonical emotion
+  if ((ttsConfig.VALID_EMOTIONS as readonly string[]).includes(raw)) {
+    return raw;
+  }
+
+  // Check aliases from the shared config
+  const aliases = ttsConfig.EMOTION_ALIASES as Record<string, string>;
+  if (aliases[raw]) {
+    return aliases[raw];
+  }
+
+  // Return as-is (lowercased) for unknown values — validateEmotion will reject if invalid
+  return raw;
 }
 
 /**
@@ -135,9 +133,7 @@ function normalizeEmotion(emotion: string | null | undefined): string | null {
 function validateEmotion(emotion: string | null): boolean {
   if (emotion === null) return true;
   const e = normalizeEmotion(emotion);
-  // Wavespeed AI supported emotions (no "auto")
-  const validEmotions = ["neutral", "happy", "sad", "angry", "fearful", "disgusted", "surprised"];
-  return typeof e === "string" && validEmotions.includes(e);
+  return typeof e === "string" && (ttsConfig.VALID_EMOTIONS as readonly string[]).includes(e);
 }
 
 /**
@@ -146,14 +142,8 @@ function validateEmotion(emotion: string | null): boolean {
  * @return True if valid
  */
 function validateLanguageBoost(languageBoost: string): boolean {
-  // Wavespeed AI language boost options
-  const validLanguages = [
-    "auto", "English", "Chinese", "Chinese,Yue", "Spanish", "Hindi",
-    "Portuguese", "Russian", "Japanese", "Korean", "Vietnamese", "Arabic",
-    "French", "German", "Turkish", "Dutch", "Ukrainian", "Indonesian",
-    "Italian", "Thai", "Polish", "Romanian", "Greek", "Czech", "Finnish",
-  ];
-  return typeof languageBoost === "string" && validLanguages.includes(languageBoost);
+  return typeof languageBoost === "string" &&
+    (ttsConfig.VALID_LANGUAGE_BOOSTS as readonly string[]).includes(languageBoost);
 }
 
 /**
