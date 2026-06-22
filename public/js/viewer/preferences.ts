@@ -213,15 +213,17 @@ export function initPreferencesModule(
   };
 
   if (elements.languageSelect) {
-    const options = [
-      "Automatic", "Chinese", "Chinese,Yue", "English", "Arabic", "Russian", "Spanish", "French", "Portuguese",
-      "German", "Turkish", "Dutch", "Ukrainian", "Vietnamese", "Indonesian", "Japanese", "Italian",
-      "Korean", "Thai", "Polish", "Romanian", "Greek", "Czech", "Finnish", "Hindi", "Bulgarian",
-      "Danish", "Hebrew", "Malay", "Persian", "Slovak", "Swedish", "Croatian", "Filipino",
-      "Hungarian", "Norwegian", "Slovenian", "Catalan", "Nynorsk", "Tamil", "Afrikaans"
+    const options: { value: string; label: string }[] = [
+      { value: "auto", label: "Automatic" },
+      ...["Chinese", "Chinese,Yue", "English", "Arabic", "Russian", "Spanish", "French", "Portuguese",
+        "German", "Turkish", "Dutch", "Ukrainian", "Vietnamese", "Indonesian", "Japanese", "Italian",
+        "Korean", "Thai", "Polish", "Romanian", "Greek", "Czech", "Finnish", "Hindi", "Bulgarian",
+        "Danish", "Hebrew", "Malay", "Persian", "Slovak", "Swedish", "Croatian", "Filipino",
+        "Hungarian", "Norwegian", "Slovenian", "Catalan", "Nynorsk", "Tamil", "Afrikaans"
+      ].map(lang => ({ value: lang, label: lang }))
     ];
     elements.languageSelect.innerHTML = `<option value="">Use channel default</option>` +
-      options.map(opt => `<option value="${opt}">${opt}</option>`).join('');
+      options.map(opt => `<option value="${opt.value}">${opt.label}</option>`).join('');
   }
 
   const state: PreferencesState = {
