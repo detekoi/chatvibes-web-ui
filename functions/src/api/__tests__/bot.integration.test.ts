@@ -42,7 +42,7 @@ describe('Bot API Integration Tests', () => {
     });
 
     it('should return active status when bot is active', async () => {
-      await db.collection('managedChannels').doc(testUser.userLogin).set({
+      await db.collection('managedChannels').doc(testUser.userId).set({
         twitchUserId: testUser.userId,
         twitchUserLogin: testUser.userLogin,
         isActive: true,
@@ -94,7 +94,7 @@ describe('Bot API Integration Tests', () => {
     });
 
     it('should remove bot when user exists', async () => {
-      await db.collection('managedChannels').doc(testUser.userLogin).set({
+      await db.collection('managedChannels').doc(testUser.userId).set({
         twitchUserId: testUser.userId,
         twitchUserLogin: testUser.userLogin,
         isActive: true,
@@ -111,7 +111,7 @@ describe('Bot API Integration Tests', () => {
       expect(response.body.message).toContain('removed');
 
       // Verify bot was deactivated
-      const doc = await db.collection('managedChannels').doc(testUser.userLogin).get();
+      const doc = await db.collection('managedChannels').doc(testUser.userId).get();
       expect(doc.data().isActive).toBe(false);
     });
   });

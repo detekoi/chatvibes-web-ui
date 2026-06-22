@@ -5,7 +5,7 @@
 import express, { Request, Response, Router } from "express";
 import { db, COLLECTIONS } from "../services/firestore";
 import { getValidTwitchTokenForUser } from "../services/twitch";
-import { authenticateApiRequest } from "../middleware/auth";
+import { authenticateApiRequest, assertAuthenticated } from "../middleware/auth";
 import { secrets } from "../config";
 import { logger } from "../logger";
 
@@ -18,10 +18,7 @@ router.get("/status", authenticateApiRequest, async (req: Request, res: Response
   log.debug({ user: req.user }, "Authenticated user from middleware");
 
   try {
-    if (!req.user) {
-      res.status(401).json({ success: false, error: "Unauthorized" });
-      return;
-    }
+    assertAuthenticated(req);
 
     const userDocRef = db.collection(COLLECTIONS.MANAGED_CHANNELS).doc(req.user.userId);
     const userDoc = await userDocRef.get();
@@ -80,10 +77,7 @@ router.post("/refresh", authenticateApiRequest, async (req: Request, res: Respon
   log.info("--- /api/auth/refresh HIT ---");
 
   try {
-    if (!req.user) {
-      res.status(401).json({ success: false, error: "Unauthorized" });
-      return;
-    }
+    assertAuthenticated(req);
 
     // This will automatically refresh the token if needed
     await getValidTwitchTokenForUser(req.user.userLogin, secrets);

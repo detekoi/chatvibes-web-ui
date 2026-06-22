@@ -6,7 +6,7 @@ import express, { Request, Response, Router } from "express";
 import axios, { AxiosInstance } from "axios";
 import { db, COLLECTIONS } from "../services/firestore";
 import { getValidTwitchTokenForUser } from "../services/twitch";
-import { authenticateApiRequest } from "../middleware/auth";
+import { authenticateApiRequest, assertAuthenticated } from "../middleware/auth";
 import { secrets } from "../config";
 import { logger, redactSensitive } from "../logger";
 
@@ -273,10 +273,7 @@ async function ensureTtsChannelPointReward(channelLogin: string, twitchUserId: s
 
 // GET current TTS reward config and Twitch status
 router.get("/tts", authenticateApiRequest, async (req: Request, res: Response): Promise<void> => {
-  if (!req.user) {
-    res.status(401).json({ error: "Unauthorized" });
-    return;
-  }
+  assertAuthenticated(req);
 
   const channelLogin = req.user.userLogin;
   const log = logger.child({ endpoint: "GET /api/rewards/tts", channelLogin });
@@ -318,10 +315,7 @@ router.get("/tts", authenticateApiRequest, async (req: Request, res: Response): 
 
 // Shared handler to create or update TTS reward and persist config
 async function handleUpsertTtsReward(req: Request, res: Response): Promise<void> {
-  if (!req.user) {
-    res.status(401).json({ error: "Unauthorized" });
-    return;
-  }
+  assertAuthenticated(req);
 
   const channelLogin = req.user.userLogin;
   const broadcasterId = req.user.userId;
@@ -509,10 +503,7 @@ router.put("/tts", authenticateApiRequest, handleUpsertTtsReward);
 
 // DELETE TTS reward
 router.delete("/tts", authenticateApiRequest, async (req: Request, res: Response): Promise<void> => {
-  if (!req.user) {
-    res.status(401).json({ error: "Unauthorized" });
-    return;
-  }
+  assertAuthenticated(req);
 
   const channelLogin = req.user.userLogin;
   const log = logger.child({ endpoint: "DELETE /api/rewards/tts", channelLogin });
@@ -583,10 +574,7 @@ router.delete("/tts", authenticateApiRequest, async (req: Request, res: Response
 
 // POST test TTS reward
 router.post("/tts/test", authenticateApiRequest, async (req: Request, res: Response): Promise<void> => {
-  if (!req.user) {
-    res.status(401).json({ error: "Unauthorized" });
-    return;
-  }
+  assertAuthenticated(req);
 
   const channelLogin = req.user.userLogin;
   const log = logger.child({ endpoint: "POST /api/rewards/tts:test", channelLogin });
@@ -615,10 +603,7 @@ router.post("/tts/test", authenticateApiRequest, async (req: Request, res: Respo
 
 // Legacy alias to accept colon-based route used by older dashboard builds
 router.post("/tts:test", authenticateApiRequest, async (req: Request, res: Response): Promise<void> => {
-  if (!req.user) {
-    res.status(401).json({ error: "Unauthorized" });
-    return;
-  }
+  assertAuthenticated(req);
 
   const channelLogin = req.user.userLogin;
   const log = logger.child({ endpoint: "POST /api/rewards/tts:test (legacy)", channelLogin });

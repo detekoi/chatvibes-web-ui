@@ -4,7 +4,7 @@
 
 import express, { Request, Response, Router } from "express";
 import { db, COLLECTIONS } from "../services/firestore";
-import { authenticateApiRequest } from "../middleware/auth";
+import { authenticateApiRequest, assertAuthenticated } from "../middleware/auth";
 import { logger } from "../logger";
 
 const router: Router = express.Router();
@@ -17,8 +17,9 @@ const router: Router = express.Router();
 router.get("/tts/settings/channel/:channelName", authenticateApiRequest, async (req: Request, res: Response): Promise<void> => {
     const { channelName } = req.params;
 
+    assertAuthenticated(req);
     // Verify user is authorized for this channel
-    if (!req.user || req.user.userLogin.toLowerCase() !== channelName.toLowerCase()) {
+    if (req.user.userLogin.toLowerCase() !== channelName.toLowerCase()) {
         res.status(403).json({ error: "Unauthorized access to channel settings" });
         return;
     }
@@ -43,8 +44,9 @@ router.put("/tts/settings/channel/:channelName", authenticateApiRequest, async (
     const { channelName } = req.params;
     const { key, value } = req.body;
 
+    assertAuthenticated(req);
     // Verify user is authorized for this channel
-    if (!req.user || req.user.userLogin.toLowerCase() !== channelName.toLowerCase()) {
+    if (req.user.userLogin.toLowerCase() !== channelName.toLowerCase()) {
         res.status(403).json({ error: "Unauthorized access to channel settings" });
         return;
     }
@@ -89,8 +91,9 @@ router.post("/tts/ignore/channel/:channelName", authenticateApiRequest, async (r
     const { channelName } = req.params;
     const { username } = req.body;
 
+    assertAuthenticated(req);
     // Verify user is authorized for this channel
-    if (!req.user || req.user.userLogin.toLowerCase() !== channelName.toLowerCase()) {
+    if (req.user.userLogin.toLowerCase() !== channelName.toLowerCase()) {
         res.status(403).json({ error: "Unauthorized access to channel settings" });
         return;
     }
@@ -141,8 +144,9 @@ router.delete("/tts/ignore/channel/:channelName", authenticateApiRequest, async 
     const { channelName } = req.params;
     const { username } = req.body;
 
+    assertAuthenticated(req);
     // Verify user is authorized for this channel
-    if (!req.user || req.user.userLogin.toLowerCase() !== channelName.toLowerCase()) {
+    if (req.user.userLogin.toLowerCase() !== channelName.toLowerCase()) {
         res.status(403).json({ error: "Unauthorized access to channel settings" });
         return;
     }
@@ -197,8 +201,9 @@ router.post("/tts/banned-words/channel/:channelName", authenticateApiRequest, as
     const { channelName } = req.params;
     const { word } = req.body;
 
+    assertAuthenticated(req);
     // Verify user is authorized for this channel
-    if (!req.user || req.user.userLogin.toLowerCase() !== channelName.toLowerCase()) {
+    if (req.user.userLogin.toLowerCase() !== channelName.toLowerCase()) {
         res.status(403).json({ error: "Unauthorized access to channel settings" });
         return;
     }
@@ -247,8 +252,9 @@ router.delete("/tts/banned-words/channel/:channelName", authenticateApiRequest, 
     const { channelName } = req.params;
     const { word } = req.body;
 
+    assertAuthenticated(req);
     // Verify user is authorized for this channel
-    if (!req.user || req.user.userLogin.toLowerCase() !== channelName.toLowerCase()) {
+    if (req.user.userLogin.toLowerCase() !== channelName.toLowerCase()) {
         res.status(403).json({ error: "Unauthorized access to channel settings" });
         return;
     }

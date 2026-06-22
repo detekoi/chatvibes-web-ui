@@ -42,7 +42,7 @@ describe('Auth API Integration Tests', () => {
 
     it('should return user status for valid token when user exists', async () => {
       // Create user in Firestore
-      await db.collection('managedChannels').doc(testUser.userLogin).set({
+      await db.collection('managedChannels').doc(testUser.userId).set({
         twitchUserId: testUser.userId,
         twitchUserLogin: testUser.userLogin,
         isActive: true,
@@ -73,7 +73,7 @@ describe('Auth API Integration Tests', () => {
     });
 
     it('should return expired status when token is expired', async () => {
-      await db.collection('managedChannels').doc(testUser.userLogin).set({
+      await db.collection('managedChannels').doc(testUser.userId).set({
         twitchUserId: testUser.userId,
         twitchUserLogin: testUser.userLogin,
         isActive: true,

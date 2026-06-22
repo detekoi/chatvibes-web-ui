@@ -5,7 +5,7 @@
 import express, { Request, Response, Router } from "express";
 import { db, COLLECTIONS } from "../services/firestore";
 import { getValidTwitchTokenForUser, getUserIdFromUsername, addModerator } from "../services/twitch";
-import { authenticateApiRequest } from "../middleware/auth";
+import { authenticateApiRequest, assertAuthenticated } from "../middleware/auth";
 import { secrets, config, secretsLoadedPromise } from "../config";
 import { logger, redactSensitive } from "../logger";
 
@@ -13,10 +13,7 @@ const router: Router = express.Router();
 
 // Route: /api/bot/status
 router.get("/status", authenticateApiRequest, async (req: Request, res: Response): Promise<void> => {
-  if (!req.user) {
-    res.status(401).json({ success: false, message: "Unauthorized" });
-    return;
-  }
+  assertAuthenticated(req);
 
   const channelLogin = req.user.userLogin;
   const log = logger.child({ endpoint: "/api/bot/status", channelLogin });
@@ -69,10 +66,7 @@ router.post("/add", authenticateApiRequest, async (req: Request, res: Response):
   // Ensure secrets are loaded before accessing config
   await secretsLoadedPromise;
 
-  if (!req.user) {
-    res.status(401).json({ success: false, message: "Unauthorized" });
-    return;
-  }
+  assertAuthenticated(req);
 
   const { userId: twitchUserId, userLogin: channelLogin, displayName } = req.user;
   const log = logger.child({ endpoint: "/api/bot/add", channelLogin, twitchUserId });
@@ -176,10 +170,7 @@ router.post("/add", authenticateApiRequest, async (req: Request, res: Response):
 
 // Route: /api/bot/remove
 router.post("/remove", authenticateApiRequest, async (req: Request, res: Response): Promise<void> => {
-  if (!req.user) {
-    res.status(401).json({ success: false, message: "Unauthorized" });
-    return;
-  }
+  assertAuthenticated(req);
 
   const { userId: twitchUserId, userLogin: channelLogin } = req.user;
   const log = logger.child({ endpoint: "/api/bot/remove", channelLogin, twitchUserId });

@@ -88,6 +88,12 @@ const authenticateApiRequest = (req: Request, res: Response, next: NextFunction)
   }
 };
 
+export function assertAuthenticated(req: Request): asserts req is Request & { user: AuthenticatedUser } {
+  if (!req.user) {
+    throw new Error("Unauthenticated - should never reach here post-middleware");
+  }
+}
+
 export {
   authenticateApiRequest,
 };

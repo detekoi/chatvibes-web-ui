@@ -5,7 +5,7 @@
 import express, { Request, Response, Router } from "express";
 import { db, COLLECTIONS } from "../services/firestore";
 import { validateSpeed, validatePitch, validateEmotion, validateLanguageBoost, normalizeEmotion } from "../services/utils";
-import { authenticateApiRequest } from "../middleware/auth";
+import { authenticateApiRequest, assertAuthenticated } from "../middleware/auth";
 import { logger } from "../logger";
 
 const router: Router = express.Router();
@@ -48,6 +48,67 @@ async function getChannelIdFromName(channelName: string): Promise<string | null>
   }
 }
 
+function validateAndBuildUpdateData(
+  updates: PreferencesUpdate,
+  res: Response
+): Partial<ViewerPreferences> | null {
+  if (!updates) {
+    res.status(400).json({ error: "Missing update data" });
+    return null;
+  }
+  const updateData: Partial<ViewerPreferences> = {};
+
+  if (updates.voiceId !== undefined) {
+    updateData.voiceId = updates.voiceId || null;
+  }
+  if (updates.pitch !== undefined) {
+    if (updates.pitch === null || validatePitch(updates.pitch)) {
+      updateData.pitch = updates.pitch;
+    } else {
+      res.status(400).json({ error: "Invalid pitch value" });
+      return null;
+    }
+  }
+  if (updates.speed !== undefined) {
+    if (updates.speed === null || validateSpeed(updates.speed)) {
+      updateData.speed = updates.speed;
+    } else {
+      res.status(400).json({ error: "Invalid speed value" });
+      return null;
+    }
+  }
+  if (updates.emotion !== undefined) {
+    const normalized = updates.emotion === null ? null : normalizeEmotion(updates.emotion);
+    if (normalized === null || validateEmotion(normalized)) {
+      updateData.emotion = normalized;
+    } else {
+      res.status(400).json({ error: "Invalid emotion value" });
+      return null;
+    }
+  }
+  if (updates.language !== undefined) {
+    if (updates.language === null || validateLanguageBoost(updates.language)) {
+      updateData.languageBoost = updates.language; // Map UI field to internal field
+    } else {
+      res.status(400).json({ error: "Invalid language value" });
+      return null;
+    }
+  }
+  if (updates.englishNormalization !== undefined) {
+    updateData.englishNormalization = !!updates.englishNormalization;
+  }
+  if (updates.emoteMode !== undefined) {
+    if (updates.emoteMode === null || VALID_EMOTE_MODES.includes(updates.emoteMode)) {
+      updateData.emoteMode = updates.emoteMode;
+    } else {
+      res.status(400).json({ error: "Invalid emoteMode value. Must be 'read', 'skip', or 'describe'." });
+      return null;
+    }
+  }
+
+  return updateData;
+}
+
 // Route: /api/viewer/auth - Viewer authentication
 
 router.post("/auth", async (req: Request, res: Response): Promise<void> => {
@@ -80,10 +141,7 @@ router.post("/auth", async (req: Request, res: Response): Promise<void> => {
 // Route: /api/viewer/preferences/:channel - Get viewer preferences for a specific channel
 router.get("/preferences/:channel", authenticateApiRequest, async (req: Request, res: Response): Promise<void> => {
   const { channel } = req.params;
-  if (!req.user) {
-    res.status(401).json({ error: "Unauthorized" });
-    return;
-  }
+  assertAuthenticated(req);
 
   const username = req.user.userLogin;
   const log = logger.child({ endpoint: "/api/viewer/preferences/:channel", channel, username });
@@ -181,10 +239,7 @@ router.get("/preferences/:channel", authenticateApiRequest, async (req: Request,
 // Route: /api/viewer/preferences/:channel - Update viewer preferences for a specific channel
 router.put("/preferences/:channel", authenticateApiRequest, async (req: Request, res: Response): Promise<void> => {
   const { channel } = req.params;
-  if (!req.user) {
-    res.status(401).json({ error: "Unauthorized" });
-    return;
-  }
+  assertAuthenticated(req);
 
   const username = req.user.userLogin;
   const log = logger.child({ endpoint: "/api/viewer/preferences/:channel", channel, username });
@@ -216,55 +271,8 @@ router.put("/preferences/:channel", authenticateApiRequest, async (req: Request,
     }
 
     // Prepare update data with validation
-    const updateData: Partial<ViewerPreferences> = {};
-
-    if (updates.voiceId !== undefined) {
-      updateData.voiceId = updates.voiceId || null;
-    }
-    if (updates.pitch !== undefined) {
-      if (updates.pitch === null || validatePitch(updates.pitch)) {
-        updateData.pitch = updates.pitch;
-      } else {
-        res.status(400).json({ error: "Invalid pitch value" });
-        return;
-      }
-    }
-    if (updates.speed !== undefined) {
-      if (updates.speed === null || validateSpeed(updates.speed)) {
-        updateData.speed = updates.speed;
-      } else {
-        res.status(400).json({ error: "Invalid speed value" });
-        return;
-      }
-    }
-    if (updates.emotion !== undefined) {
-      const normalized = updates.emotion === null ? null : normalizeEmotion(updates.emotion);
-      if (normalized === null || validateEmotion(normalized)) {
-        updateData.emotion = normalized;
-      } else {
-        res.status(400).json({ error: "Invalid emotion value" });
-        return;
-      }
-    }
-    if (updates.language !== undefined) {
-      if (updates.language === null || validateLanguageBoost(updates.language)) {
-        updateData.languageBoost = updates.language; // Map UI field to internal field
-      } else {
-        res.status(400).json({ error: "Invalid language value" });
-        return;
-      }
-    }
-    if (updates.englishNormalization !== undefined) {
-      updateData.englishNormalization = !!updates.englishNormalization;
-    }
-    if (updates.emoteMode !== undefined) {
-      if (updates.emoteMode === null || VALID_EMOTE_MODES.includes(updates.emoteMode)) {
-        updateData.emoteMode = updates.emoteMode;
-      } else {
-        res.status(400).json({ error: "Invalid emoteMode value. Must be 'read', 'skip', or 'describe'." });
-        return;
-      }
-    }
+    const updateData = validateAndBuildUpdateData(updates, res);
+    if (!updateData) return;
 
     // Update global user preferences using User ID
     await db.collection("ttsUserPreferences").doc(req.user.userId).set(updateData, { merge: true });
@@ -280,10 +288,7 @@ router.put("/preferences/:channel", authenticateApiRequest, async (req: Request,
 
 // Route: /api/viewer/preferences - Get global viewer preferences
 router.get("/preferences", authenticateApiRequest, async (req: Request, res: Response): Promise<void> => {
-  if (!req.user) {
-    res.status(401).json({ error: "Unauthorized" });
-    return;
-  }
+  assertAuthenticated(req);
 
   const username = req.user.userLogin;
   const log = logger.child({ endpoint: "/api/viewer/preferences", username });
@@ -330,10 +335,7 @@ router.get("/preferences", authenticateApiRequest, async (req: Request, res: Res
 
 // Route: /api/viewer/preferences - Update global viewer preferences
 router.put("/preferences", authenticateApiRequest, async (req: Request, res: Response): Promise<void> => {
-  if (!req.user) {
-    res.status(401).json({ error: "Unauthorized" });
-    return;
-  }
+  assertAuthenticated(req);
 
   const username = req.user.userLogin;
   const log = logger.child({ endpoint: "/api/viewer/preferences", username });
@@ -342,55 +344,8 @@ router.put("/preferences", authenticateApiRequest, async (req: Request, res: Res
     const updates: PreferencesUpdate = req.body;
 
     // Prepare update data with validation
-    const updateData: Partial<ViewerPreferences> = {};
-
-    if (updates.voiceId !== undefined) {
-      updateData.voiceId = updates.voiceId || null;
-    }
-    if (updates.pitch !== undefined) {
-      if (updates.pitch === null || validatePitch(updates.pitch)) {
-        updateData.pitch = updates.pitch;
-      } else {
-        res.status(400).json({ error: "Invalid pitch value" });
-        return;
-      }
-    }
-    if (updates.speed !== undefined) {
-      if (updates.speed === null || validateSpeed(updates.speed)) {
-        updateData.speed = updates.speed;
-      } else {
-        res.status(400).json({ error: "Invalid speed value" });
-        return;
-      }
-    }
-    if (updates.emotion !== undefined) {
-      const normalized = updates.emotion === null ? null : normalizeEmotion(updates.emotion);
-      if (normalized === null || validateEmotion(normalized)) {
-        updateData.emotion = normalized;
-      } else {
-        res.status(400).json({ error: "Invalid emotion value" });
-        return;
-      }
-    }
-    if (updates.language !== undefined) {
-      if (updates.language === null || validateLanguageBoost(updates.language)) {
-        updateData.languageBoost = updates.language; // Map UI field to internal field
-      } else {
-        res.status(400).json({ error: "Invalid language value" });
-        return;
-      }
-    }
-    if (updates.englishNormalization !== undefined) {
-      updateData.englishNormalization = !!updates.englishNormalization;
-    }
-    if (updates.emoteMode !== undefined) {
-      if (updates.emoteMode === null || VALID_EMOTE_MODES.includes(updates.emoteMode)) {
-        updateData.emoteMode = updates.emoteMode;
-      } else {
-        res.status(400).json({ error: "Invalid emoteMode value. Must be 'read', 'skip', or 'describe'." });
-        return;
-      }
-    }
+    const updateData = validateAndBuildUpdateData(updates, res);
+    if (!updateData) return;
 
     // Update global user preferences using User ID
     await db.collection("ttsUserPreferences").doc(req.user.userId).set(updateData, { merge: true });
@@ -407,10 +362,7 @@ router.put("/preferences", authenticateApiRequest, async (req: Request, res: Res
 // Route: /api/viewer/ignore/tts/:channel - Toggle TTS ignore status
 router.post("/ignore/tts/:channel", authenticateApiRequest, async (req: Request, res: Response): Promise<void> => {
   const { channel } = req.params;
-  if (!req.user) {
-    res.status(401).json({ error: "Unauthorized" });
-    return;
-  }
+  assertAuthenticated(req);
 
   const username = req.user.userLogin;
   const log = logger.child({ endpoint: "/api/viewer/ignore/tts/:channel", channel, username });

@@ -6,7 +6,7 @@ import express, {Request, Response, Router} from "express";
 import {randomBytes} from "crypto";
 import {db, FieldValue, COLLECTIONS} from "../services/firestore";
 import {getValidTwitchTokenForUser} from "../services/twitch";
-import {authenticateApiRequest} from "../middleware/auth";
+import {authenticateApiRequest, assertAuthenticated} from "../middleware/auth";
 import {secrets, config} from "../config";
 import {logger} from "../logger";
 
@@ -14,10 +14,7 @@ const router: Router = express.Router();
 
 // Route: /api/obs/getToken
 router.get("/getToken", authenticateApiRequest, async (req: Request, res: Response): Promise<void> => {
-  if (!req.user) {
-    res.status(401).json({success: false, message: "Unauthorized"});
-    return;
-  }
+  assertAuthenticated(req);
 
   const channelLogin = req.user.userLogin;
   const log = logger.child({endpoint: "/api/obs/getToken", channelLogin});
@@ -100,10 +97,7 @@ router.get("/getToken", authenticateApiRequest, async (req: Request, res: Respon
 
 // Route: /api/obs/generateToken
 router.post("/generateToken", authenticateApiRequest, async (req: Request, res: Response): Promise<void> => {
-  if (!req.user) {
-    res.status(401).json({success: false, message: "Unauthorized"});
-    return;
-  }
+  assertAuthenticated(req);
 
   const channelLogin = req.user.userLogin;
   const log = logger.child({endpoint: "/api/obs/generateToken", channelLogin});
