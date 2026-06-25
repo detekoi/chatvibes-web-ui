@@ -13,6 +13,7 @@ import { secrets, config } from "../config";
 import { logger, redactSensitive } from "../logger";
 import { RELEASED_VOICES } from "../services/voice-list";
 import { getUserIdFromUsername } from "../services/twitch";
+import { loadGlobalUserPreferences } from "../services/preferences";
 
 // Separate routers for API endpoints and public redirects
 const apiRouter: Router = express.Router();
@@ -26,13 +27,7 @@ interface ShortlinkData {
   lastClickedAt?: Date;
 }
 
-interface UserPreferences {
-  voiceId?: string | null;
-  emotion?: string | null;
-  pitch?: number | null;
-  speed?: number | null;
-  languageBoost?: string | null;
-}
+
 
 interface ChannelDefaults {
   voiceId?: string | null;
@@ -250,8 +245,7 @@ apiRouter.post("/tts/test", ttsTestLimiter, authenticateApiRequest, async (req: 
 
     try {
       // Load viewer global preferences
-      const userDoc = await db.collection(COLLECTIONS.TTS_USER_PREFS).doc(channelLogin).get();
-      const userPrefs: UserPreferences = userDoc.exists ? (userDoc.data() || {}) : {};
+      const userPrefs = await loadGlobalUserPreferences(req.user.userId, channelLogin);
 
       // Optionally load channel defaults if a channel is provided
       let channelDefaults: ChannelDefaults = {};

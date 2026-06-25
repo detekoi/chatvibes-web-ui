@@ -5,21 +5,13 @@
 import express, { Request, Response, Router } from "express";
 import { db, COLLECTIONS } from "../services/firestore";
 import { validateSpeed, validatePitch, validateEmotion, validateLanguageBoost, normalizeEmotion } from "../services/utils";
+import { loadGlobalUserPreferences, ViewerPreferences } from "../services/preferences";
 import { authenticateApiRequest, assertAuthenticated } from "../middleware/auth";
 import { logger } from "../logger";
 
 const router: Router = express.Router();
 
-// Type definitions for viewer preferences
-interface ViewerPreferences {
-  voiceId?: string | null;
-  pitch?: number | null;
-  speed?: number | null;
-  emotion?: string | null;
-  languageBoost?: string | null;
-  englishNormalization?: boolean;
-  emoteMode?: string | null;
-}
+
 
 interface PreferencesUpdate {
   voiceId?: string | null;
@@ -180,17 +172,7 @@ router.get("/preferences/:channel", authenticateApiRequest, async (req: Request,
     // Load GLOBAL user preferences
     let globalPrefs: ViewerPreferences = {};
     try {
-      // 1. Try fetching by User ID first
-      let userDoc = await db.collection("ttsUserPreferences").doc(req.user.userId).get();
-
-      // 2. Fallback to username for backward compatibility if ID doc doesn't exist
-      if (!userDoc.exists) {
-        userDoc = await db.collection("ttsUserPreferences").doc(username).get();
-      }
-
-      if (userDoc.exists) {
-        globalPrefs = (userDoc.data() as ViewerPreferences) || {};
-      }
+      globalPrefs = await loadGlobalUserPreferences(req.user.userId, username);
     } catch (e) {
       const err = e as Error;
       log.warn({ error: err.message }, "Failed to load global user prefs");
@@ -218,8 +200,8 @@ router.get("/preferences/:channel", authenticateApiRequest, async (req: Request,
       },
       channelDefaults: {
         voiceId: channelData.voiceId || null,
-        pitch: channelData.pitch || null,
-        speed: channelData.speed || null,
+        pitch: channelData.pitch !== undefined ? channelData.pitch : null,
+        speed: channelData.speed !== undefined ? channelData.speed : null,
         emotion: channelData.emotion || null,
         language: channelData.languageBoost || null,
         englishNormalization: channelData.englishNormalization,
@@ -275,7 +257,7 @@ router.put("/preferences/:channel", authenticateApiRequest, async (req: Request,
     if (!updateData) return;
 
     // Update global user preferences using User ID
-    await db.collection("ttsUserPreferences").doc(req.user.userId).set(updateData, { merge: true });
+    await db.collection(COLLECTIONS.TTS_USER_PREFS).doc(req.user.userId).set(updateData, { merge: true });
 
     log.info("Preferences updated");
     res.json({ success: true, message: "Preferences updated successfully" });
@@ -297,17 +279,7 @@ router.get("/preferences", authenticateApiRequest, async (req: Request, res: Res
     // Load GLOBAL user preferences
     let globalPrefs: ViewerPreferences = {};
     try {
-      // 1. Try fetching by User ID first
-      let userDoc = await db.collection("ttsUserPreferences").doc(req.user.userId).get();
-
-      // 2. Fallback to username for backward compatibility if ID doc doesn't exist
-      if (!userDoc.exists) {
-        userDoc = await db.collection("ttsUserPreferences").doc(username).get();
-      }
-
-      if (userDoc.exists) {
-        globalPrefs = (userDoc.data() as ViewerPreferences) || {};
-      }
+      globalPrefs = await loadGlobalUserPreferences(req.user.userId, username);
     } catch (e) {
       const err = e as Error;
       log.warn({ error: err.message }, "Failed to load global user prefs");
@@ -348,7 +320,7 @@ router.put("/preferences", authenticateApiRequest, async (req: Request, res: Res
     if (!updateData) return;
 
     // Update global user preferences using User ID
-    await db.collection("ttsUserPreferences").doc(req.user.userId).set(updateData, { merge: true });
+    await db.collection(COLLECTIONS.TTS_USER_PREFS).doc(req.user.userId).set(updateData, { merge: true });
 
     log.info("Global preferences updated");
     res.json({ success: true, message: "Global preferences updated successfully" });
