@@ -440,7 +440,7 @@ apiRouter.post("/tts/test", ttsTestLimiter, authenticateApiRequest, async (req: 
           log.error({ error: data.error }, "Wavespeed AI returned failed status");
 
           // Provide specific error messages based on the failure reason
-          if (data.error && data.error.includes("you don't have access to this voice_id")) {
+          if (data.error?.includes("you don't have access to this voice_id")) {
             res.status(403).json({
               success: false,
               error: `Voice access denied: The voice "${effective.voiceId}" requires special access permissions. Please try a different voice.`,
@@ -448,7 +448,7 @@ apiRouter.post("/tts/test", ttsTestLimiter, authenticateApiRequest, async (req: 
             return;
           }
 
-          if (data.error && data.error.includes("voice_id")) {
+          if (data.error?.includes("voice_id")) {
             res.status(400).json({
               success: false,
               error: `Invalid voice: "${effective.voiceId}" is not available. Please check the voice ID and try again.`,

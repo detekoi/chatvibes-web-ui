@@ -131,7 +131,7 @@ export function initBotManagement(
         if (data.success) {
           showToast(data.message || 'TTS Service activated!', 'success');
           updateBotStatusUI(true);
-        } else if (res.status === 403 || (data.error && data.error.includes('https://parfaitfair.com/#contact'))) {
+        } else if (res.status === 403 || data.error?.includes('https://parfaitfair.com/#contact')) {
           const errorText = data.details || data.error || data.message || 'Channel not authorized.';
           const html = errorText.includes('https://parfaitfair.com/#contact')
             ? errorText.replace('https://parfaitfair.com/#contact', '<a href="https://parfaitfair.com/#contact" target="_blank" class="link-light">this link</a>')

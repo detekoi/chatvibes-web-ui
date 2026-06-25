@@ -1,6 +1,6 @@
 
 // Voices supported locally by 302.ai (speech-2.8-turbo)
-export const T302_VOICES = [
+const T302_VOICES = [
     "English_expressive_narrator", "English_radiant_girl", "English_magnetic_voiced_man",
     "English_compelling_lady1", "English_Aussie_Bloke", "English_captivating_female1",
     "English_Upbeat_Woman", "English_Trustworth_Man", "English_CalmWoman", "English_UpsetGirl",
@@ -129,7 +129,7 @@ export const T302_VOICES = [
 ];
 
 // Voices supported by Wavespeed AI (minimax/speech-02-turbo) - including legacy voices
-export const WAVESPEED_VOICES = [
+const WAVESPEED_VOICES = [
     "Wise_Woman", "Friendly_Person", "Inspirational_girl", "Deep_Voice_Man", "Calm_Woman",
     "Casual_Guy", "Lively_Girl", "Patient_Man", "Young_Knight", "Determined_Man", "Lovely_Girl",
     "Decent_Boy", "Imposing_Manner", "Elegant_Man", "Abbess", "Sweet_Girl_2", "Exuberant_Girl",

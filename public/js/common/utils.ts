@@ -28,6 +28,11 @@ export function formatNumberCompact(n: number): string {
   return s.replace(/\.0+$/, '').replace(/(\.\d*[1-9])0+$/, '$1');
 }
 
+/**
+ * Hardcoded display names for specific voice IDs.
+ * TODO: Ensure the voice list API response includes display names so the frontend doesn't need local overrides.
+ * Until then, this map needs to be manually synchronized with the voice-list source of truth on the backend.
+ */
 const VOICE_NAME_OVERRIDES: Record<string, string> = {
   "moss_audio_6dc281eb-713c-11f0-a447-9613c873494c": "Female Senior - Sweet Granny",
   "moss_audio_c12a59b9-7115-11f0-a447-9613c873494c": "Female Young - Expressive",
