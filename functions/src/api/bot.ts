@@ -8,6 +8,7 @@ import { getValidTwitchTokenForUser, getUserIdFromUsername, addModerator } from 
 import { authenticateApiRequest, assertAuthenticated } from "../middleware/auth";
 import { secrets, config, secretsLoadedPromise } from "../config";
 import { logger, redactSensitive } from "../logger";
+import { errorResponse } from "./utils";
 
 const router: Router = express.Router();
 
@@ -20,7 +21,7 @@ router.get("/status", authenticateApiRequest, async (req: Request, res: Response
 
   if (!db) {
     log.error("Firestore (db) not initialized!");
-    res.status(500).json({ success: false, message: "Firestore not available." });
+    errorResponse(res, 500, "Firestore not available.");
     return;
   }
 
@@ -57,7 +58,7 @@ router.get("/status", authenticateApiRequest, async (req: Request, res: Response
   } catch (error) {
     const err = error as Error;
     log.error({ error: err.message }, "Error getting status");
-    res.status(500).json({ success: false, message: "Error fetching bot status." });
+    errorResponse(res, 500, "Error fetching bot status.");
   }
 });
 
@@ -73,7 +74,7 @@ router.post("/add", authenticateApiRequest, async (req: Request, res: Response):
 
   if (!db) {
     log.error("Firestore (db) not initialized!");
-    res.status(500).json({ success: false, message: "Firestore not available." });
+    errorResponse(res, 500, "Firestore not available.");
     return;
   }
 
@@ -89,10 +90,7 @@ router.post("/add", authenticateApiRequest, async (req: Request, res: Response):
     const existingDoc = await docRef.get();
     if (!existingDoc.exists) {
       log.warn("Channel not approved in Firestore");
-      res.status(403).json({
-        success: false,
-        message: "Your channel is not authorized to use this bot. Contact me for access: https://parfaitfair.com/#contact",
-      });
+      errorResponse(res, 403, "Your channel is not authorized to use this bot. Contact me for access: https://parfaitfair.com/#contact");
       return;
     }
 
@@ -154,16 +152,9 @@ router.post("/add", authenticateApiRequest, async (req: Request, res: Response):
     const err = error as Error;
     log.error({ error: err.message }, "Error adding bot");
     if (err.message.includes("re-authenticate")) {
-      res.status(401).json({
-        success: false,
-        message: "Please re-authenticate with Twitch to add the bot.",
-        needsReauth: true,
-      });
+      errorResponse(res, 401, "Please re-authenticate with Twitch to add the bot.", { needsReauth: true });
     } else {
-      res.status(500).json({
-        success: false,
-        message: "Failed to add bot to your channel. Please try again.",
-      });
+      errorResponse(res, 500, "Failed to add bot to your channel. Please try again.");
     }
   }
 });
@@ -177,7 +168,7 @@ router.post("/remove", authenticateApiRequest, async (req: Request, res: Respons
 
   if (!db) {
     log.error("Firestore (db) not initialized!");
-    res.status(500).json({ success: false, message: "Firestore not available." });
+    errorResponse(res, 500, "Firestore not available.");
     return;
   }
 
@@ -199,10 +190,7 @@ router.post("/remove", authenticateApiRequest, async (req: Request, res: Respons
   } catch (error) {
     const err = error as Error;
     log.error({ error: err.message }, "Error removing bot");
-    res.status(500).json({
-      success: false,
-      message: "Failed to remove bot from your channel. Please try again.",
-    });
+    errorResponse(res, 500, "Failed to remove bot from your channel. Please try again.");
   }
 });
 

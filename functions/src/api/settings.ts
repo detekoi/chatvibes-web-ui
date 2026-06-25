@@ -6,6 +6,7 @@ import express, { Response, Router, RequestHandler } from "express";
 import { db, COLLECTIONS, FieldValue } from "../services/firestore";
 import { authenticateApiRequest, authorizeChannelAccess, AuthenticatedRequest } from "../middleware/auth";
 import { logger } from "../logger";
+import { errorResponse } from "./utils";
 
 const router: Router = express.Router();
 
@@ -28,7 +29,7 @@ router.get("/tts/settings/channel/:channelName", authenticateApiRequest, authori
         }
     } catch (error) {
         logger.error({ error, channelName }, "Error fetching TTS settings");
-        res.status(500).json({ error: "Failed to fetch TTS settings" });
+        errorResponse(res, 500, "Failed to fetch TTS settings");
     }
 }) as RequestHandler);
 
@@ -38,7 +39,7 @@ router.put("/tts/settings/channel/:channelName", authenticateApiRequest, authori
     const { key, value } = req.body;
 
     if (!key) {
-        res.status(400).json({ error: "Key is required" });
+        errorResponse(res, 400, "Key is required");
         return;
     }
 
@@ -51,7 +52,7 @@ router.put("/tts/settings/channel/:channelName", authenticateApiRequest, authori
         res.json({ success: true, message: "Setting updated" });
     } catch (error) {
         logger.error({ error, channelName, key }, "Error updating TTS settings");
-        res.status(500).json({ error: "Failed to update TTS setting" });
+        errorResponse(res, 500, "Failed to update TTS setting");
     }
 }) as RequestHandler);
 
@@ -65,13 +66,13 @@ router.post("/tts/ignore/channel/:channelName", authenticateApiRequest, authoriz
     const { username } = req.body;
 
     if (!username || typeof username !== "string") {
-        res.status(400).json({ error: "Username is required" });
+        errorResponse(res, 400, "Username is required");
         return;
     }
 
     const normalizedUsername = username.toLowerCase().trim();
     if (!normalizedUsername) {
-        res.status(400).json({ error: "Invalid username" });
+        errorResponse(res, 400, "Invalid username");
         return;
     }
 
@@ -83,7 +84,7 @@ router.post("/tts/ignore/channel/:channelName", authenticateApiRequest, authoriz
         res.json({ success: true, message: "User added to ignore list" });
     } catch (error) {
         logger.error({ error, channelName, username }, "Error adding user to ignore list");
-        res.status(500).json({ error: "Failed to add user to ignore list" });
+        errorResponse(res, 500, "Failed to add user to ignore list");
     }
 }) as RequestHandler);
 
@@ -93,13 +94,13 @@ router.delete("/tts/ignore/channel/:channelName", authenticateApiRequest, author
     const { username } = req.body;
 
     if (!username || typeof username !== "string") {
-        res.status(400).json({ error: "Username is required" });
+        errorResponse(res, 400, "Username is required");
         return;
     }
 
     const normalizedUsername = username.toLowerCase().trim();
     if (!normalizedUsername) {
-        res.status(400).json({ error: "Invalid username" });
+        errorResponse(res, 400, "Invalid username");
         return;
     }
 
@@ -111,7 +112,7 @@ router.delete("/tts/ignore/channel/:channelName", authenticateApiRequest, author
         res.json({ success: true, message: "User removed from ignore list" });
     } catch (error) {
         logger.error({ error, channelName, username }, "Error removing user from ignore list");
-        res.status(500).json({ error: "Failed to remove user from ignore list" });
+        errorResponse(res, 500, "Failed to remove user from ignore list");
     }
 }) as RequestHandler);
 
@@ -125,13 +126,13 @@ router.post("/tts/banned-words/channel/:channelName", authenticateApiRequest, au
     const { word } = req.body;
 
     if (!word || typeof word !== "string") {
-        res.status(400).json({ error: "Word or phrase is required" });
+        errorResponse(res, 400, "Word or phrase is required");
         return;
     }
 
     const normalizedWord = word.toLowerCase().trim();
     if (!normalizedWord) {
-        res.status(400).json({ error: "Invalid word or phrase" });
+        errorResponse(res, 400, "Invalid word or phrase");
         return;
     }
 
@@ -143,7 +144,7 @@ router.post("/tts/banned-words/channel/:channelName", authenticateApiRequest, au
         res.json({ success: true, message: "Word added to banned list" });
     } catch (error) {
         logger.error({ error, channelName, word }, "Error adding word to banned list");
-        res.status(500).json({ error: "Failed to add word to banned list" });
+        errorResponse(res, 500, "Failed to add word to banned list");
     }
 }) as RequestHandler);
 
@@ -153,13 +154,13 @@ router.delete("/tts/banned-words/channel/:channelName", authenticateApiRequest, 
     const { word } = req.body;
 
     if (!word || typeof word !== "string") {
-        res.status(400).json({ error: "Word or phrase is required" });
+        errorResponse(res, 400, "Word or phrase is required");
         return;
     }
 
     const normalizedWord = word.toLowerCase().trim();
     if (!normalizedWord) {
-        res.status(400).json({ error: "Invalid word or phrase" });
+        errorResponse(res, 400, "Invalid word or phrase");
         return;
     }
 
@@ -171,7 +172,7 @@ router.delete("/tts/banned-words/channel/:channelName", authenticateApiRequest, 
         res.json({ success: true, message: "Word removed from banned list" });
     } catch (error) {
         logger.error({ error, channelName, word }, "Error removing word from banned list");
-        res.status(500).json({ error: "Failed to remove word from banned list" });
+        errorResponse(res, 500, "Failed to remove word from banned list");
     }
 }) as RequestHandler);
 

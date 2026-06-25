@@ -28,7 +28,7 @@ const VALID_EMOTE_MODES = ["read", "skip", "describe"];
 
 async function getChannelIdFromName(channelName: string): Promise<string | null> {
   try {
-    const snapshot = await db.collection('managedChannels')
+    const snapshot = await db.collection(COLLECTIONS.MANAGED_CHANNELS)
       .where('channelName', '==', channelName.toLowerCase())
       .limit(1)
       .get();

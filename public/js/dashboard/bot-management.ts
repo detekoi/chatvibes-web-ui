@@ -32,6 +32,7 @@ interface BotStatusResponse {
   success: boolean;
   isActive: boolean;
   message?: string;
+  error?: string;
 }
 
 /**
@@ -40,6 +41,7 @@ interface BotStatusResponse {
 interface BotActionResponse {
   success: boolean;
   message?: string;
+  error?: string;
   code?: string;
   details?: string;
 }
@@ -100,7 +102,7 @@ export function initBotManagement(
         const isActive = statusData.isActive;
         updateBotStatusUI(isActive);
       } else {
-        showToast(`Error: ${statusData.message}`, 'error');
+        showToast(`Error: ${statusData.error || statusData.message || 'Unknown error'}`, 'error');
         if (botStatusEl) botStatusEl.textContent = 'Error';
       }
     } catch (error) {
@@ -129,14 +131,14 @@ export function initBotManagement(
         if (data.success) {
           showToast(data.message || 'TTS Service activated!', 'success');
           updateBotStatusUI(true);
-        } else if (data.code === 'not_allowed') {
-          const errorText = data.details || data.message || 'Channel not authorized.';
+        } else if (res.status === 403 || (data.error && data.error.includes('https://parfaitfair.com/#contact'))) {
+          const errorText = data.details || data.error || data.message || 'Channel not authorized.';
           const html = errorText.includes('https://parfaitfair.com/#contact')
             ? errorText.replace('https://parfaitfair.com/#contact', '<a href="https://parfaitfair.com/#contact" target="_blank" class="link-light">this link</a>')
             : `${errorText} <a href="https://parfaitfair.com/#contact" target="_blank" class="link-light">Request access here</a>.`;
           showToast(html, 'error');
         } else {
-          showToast(data.message || 'Failed to activate TTS Service.', 'error');
+          showToast(data.error || data.message || 'Failed to activate TTS Service.', 'error');
         }
       } catch (error) {
         console.error('Error activating TTS Service:', error);
@@ -160,7 +162,7 @@ export function initBotManagement(
       try {
         const res = await fetchWithAuth(`${apiBaseUrl}/api/bot/remove`, { method: 'POST' });
         const data = await res.json() as BotActionResponse;
-        showToast(data.message || 'TTS Service deactivated.', data.success ? 'success' : 'error');
+        showToast(data.error || data.message || (data.success ? 'TTS Service deactivated.' : 'Failed to deactivate TTS Service.'), data.success ? 'success' : 'error');
         if (data.success) updateBotStatusUI(false);
       } catch (error) {
         console.error('Error deactivating TTS Service:', error);

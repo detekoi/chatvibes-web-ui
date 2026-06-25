@@ -9,6 +9,7 @@ import { getValidTwitchTokenForUser } from "../services/twitch";
 import { authenticateApiRequest, assertAuthenticated } from "../middleware/auth";
 import { secrets } from "../config";
 import { logger, redactSensitive } from "../logger";
+import { errorResponse } from "./utils";
 
 const router: Router = express.Router();
 
@@ -309,7 +310,7 @@ router.get("/tts", authenticateApiRequest, async (req: Request, res: Response): 
   } catch (error) {
     const err = error as Error;
     log.error({ error: err.message }, "Error getting reward config");
-    res.status(500).json({ success: false, error: "Failed to load reward config" });
+    errorResponse(res, 500, "Failed to load reward config");
   }
 });
 
@@ -419,11 +420,7 @@ async function handleUpsertTtsReward(req: Request, res: Response): Promise<void>
           } catch (createError) {
             const createErr = createError as Error;
             log.error({ error: createErr.message }, "Failed to create new reward");
-            res.status(500).json({
-              success: false,
-              error: "Failed to create new Channel Points reward",
-              details: createErr.message,
-            });
+            errorResponse(res, 500, "Failed to create new Channel Points reward", createErr.message);
             return;
           }
         } else {
@@ -434,11 +431,7 @@ async function handleUpsertTtsReward(req: Request, res: Response): Promise<void>
           }
 
           // Return error to frontend so user knows the update failed
-          res.status(errorStatus || 500).json({
-            success: false,
-            error: userFriendlyMessage,
-            details: err.response?.data,
-          });
+          errorResponse(res, errorStatus || 500, userFriendlyMessage, err.response?.data);
           return;
         }
       }
@@ -479,20 +472,11 @@ async function handleUpsertTtsReward(req: Request, res: Response): Promise<void>
     log.error({ error: err.message }, "Error in handleUpsertTtsReward");
 
     if (err.message.includes("re-authenticate")) {
-      res.status(401).json({
-        success: false,
-        error: "Authentication required",
-        needsReauth: true,
-        message: "Please re-authenticate with Twitch to manage channel point rewards",
-      });
+      errorResponse(res, 401, "Authentication required", { needsReauth: true, message: "Please re-authenticate with Twitch to manage channel point rewards" });
       return;
     }
 
-    res.status(500).json({
-      success: false,
-      error: "Failed to configure channel point reward",
-      message: err.message,
-    });
+    errorResponse(res, 500, "Failed to configure channel point reward", { message: err.message });
   }
 }
 
@@ -565,10 +549,7 @@ router.delete("/tts", authenticateApiRequest, async (req: Request, res: Response
   } catch (error) {
     const err = error as Error;
     log.error({ error: err.message }, "Error deleting TTS reward");
-    res.status(500).json({
-      success: false,
-      error: "Failed to disable/delete TTS reward",
-    });
+    errorResponse(res, 500, "Failed to disable/delete TTS reward");
   }
 });
 
@@ -586,7 +567,7 @@ router.post("/tts/test", authenticateApiRequest, async (req: Request, res: Respo
     log.info("Test requested");
 
     if (!result.ok) {
-      res.status(400).json({ success: false, error: result.reason });
+      errorResponse(res, 400, result.reason || "Validation failed");
       return;
     }
 
@@ -594,10 +575,7 @@ router.post("/tts/test", authenticateApiRequest, async (req: Request, res: Respo
   } catch (error) {
     const err = error as Error;
     log.error({ error: err.message }, "Error testing TTS reward");
-    res.status(500).json({
-      success: false,
-      error: "Failed to test TTS reward",
-    });
+    errorResponse(res, 500, "Failed to test TTS reward");
   }
 });
 
@@ -613,14 +591,14 @@ router.post("/tts:test", authenticateApiRequest, async (req: Request, res: Respo
     const result = await validateChannelPointsTestMessage(channelLogin, req.user.userId, text);
     log.info("Test requested (legacy alias)");
     if (!result.ok) {
-      res.status(400).json({ success: false, error: result.reason });
+      errorResponse(res, 400, result.reason || "Validation failed");
       return;
     }
     res.json({ success: true, message: "TTS test validated" });
   } catch (error) {
     const err = error as Error;
     log.error({ error: err.message }, "Error testing TTS reward (legacy)");
-    res.status(500).json({ success: false, error: "Failed to test TTS reward" });
+    errorResponse(res, 500, "Failed to test TTS reward");
   }
 });
 
