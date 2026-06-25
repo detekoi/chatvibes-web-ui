@@ -94,11 +94,34 @@ export function assertAuthenticated(req: Request): asserts req is Request & { us
   }
 }
 
+export interface AuthenticatedRequest extends Request {
+  user: AuthenticatedUser;
+}
+
+/**
+ * Middleware to verify the authenticated user owns the :channelName param.
+ * Must be placed after authenticateApiRequest in the middleware chain.
+ */
+const authorizeChannelAccess = (req: Request, res: Response, next: NextFunction): void => {
+  if (!req.user) {
+    res.status(401).json({ success: false, message: "Unauthorized: Token not found." });
+    return;
+  }
+  const channelName = req.params.channelName;
+  if (!channelName || req.user.userLogin.toLowerCase() !== channelName.toLowerCase()) {
+    res.status(403).json({ error: "Unauthorized access to channel settings" });
+    return;
+  }
+  next();
+};
+
 export {
   authenticateApiRequest,
+  authorizeChannelAccess,
 };
 
 export type {
   JwtPayload,
   AuthenticatedUser,
 };
+
