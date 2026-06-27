@@ -1707,3 +1707,15 @@ details[open] > .obs-step-summary::after { content: '−'; }
 }
 .btn-obs:hover { background: var(--accent-focus); }
 .btn-obs.is-open { background: var(--accent-primary); color: #fff; }
+
+.btn-header-logout {
+  padding: 5px 12px;
+  font-weight: 700;
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  display: inline-flex;
+  align-items: center;
+  border-width: 2px !important;
+  line-height: 1.2;
+}
