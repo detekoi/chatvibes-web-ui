@@ -221,7 +221,7 @@ export function initSettingsModule(
       });
     }
 
-    if (defaultLanguageSelect) defaultLanguageSelect.addEventListener('change', () => saveSettingWrapper('languageBoost', defaultLanguageSelect.value || 'Automatic', 'Default Language'));
+    if (defaultLanguageSelect) defaultLanguageSelect.addEventListener('change', () => { saveSettingWrapper('languageBoost', defaultLanguageSelect.value || 'Automatic', 'Default Language'); updateSidebarPreview(); });
     if (englishNormalizationCheckbox) englishNormalizationCheckbox.addEventListener('change', () => { saveSettingWrapper('englishNormalization', !!englishNormalizationCheckbox.checked, 'English Normalization'); updateSidebarPreview(); });
     if (emoteModeSelect) emoteModeSelect.addEventListener('change', () => saveSettingWrapper('emoteMode', emoteModeSelect.value || 'describe', 'Emote Mode'));
 
@@ -276,13 +276,17 @@ export function initSettingsModule(
     const pitchValEl = document.getElementById('sidebar-pitch-val');
     const speedValEl = document.getElementById('sidebar-speed-val');
     const volumeValEl = document.getElementById('sidebar-volume-val');
+    const languageValEl = document.getElementById('sidebar-language-val');
     const engNormValEl = document.getElementById('sidebar-eng-norm-val');
+
+    const languageBoost = defaultLanguageSelect?.value || 'Automatic';
 
     if (voiceNameEl) voiceNameEl.textContent = formatVoiceName(voiceId);
     if (voiceTagEl) voiceTagEl.textContent = emotion === 'auto' ? 'Auto' : emotion.charAt(0).toUpperCase() + emotion.slice(1);
     if (pitchValEl) pitchValEl.textContent = String(pitch);
     if (speedValEl) speedValEl.textContent = speed.toFixed(1) + '×';
     if (volumeValEl) volumeValEl.textContent = volume.toFixed(1);
+    if (languageValEl) languageValEl.textContent = languageBoost === 'Automatic' ? 'Automatic' : (defaultLanguageSelect?.options[defaultLanguageSelect?.selectedIndex]?.text || 'Automatic');
     if (engNormValEl) engNormValEl.textContent = englishNormalizationCheckbox?.checked ? 'On' : 'Off';
   }
 

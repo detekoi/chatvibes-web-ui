@@ -808,11 +808,15 @@ export function initPreferencesModule(
     const engNormHasOverride = state.currentPreferences?.englishNormalization !== undefined && state.currentPreferences?.englishNormalization !== null;
     const engNorm = engNormHasOverride ? (englishNormalizationCheckbox?.checked ?? false) : (cd.englishNormalization !== undefined ? cd.englishNormalization : false);
 
+    const languageHasOverride = state.currentPreferences?.language !== undefined && state.currentPreferences?.language !== null && state.currentPreferences?.language !== '';
+    const language = languageHasOverride ? (elements.languageSelect?.value || 'auto') : (cd.language !== undefined ? cd.language : 'auto');
+
     const voiceNameEl = document.getElementById('sidebar-voice-name');
     const voiceTagEl = document.getElementById('sidebar-voice-tag');
     const pitchValEl = document.getElementById('sidebar-pitch-val');
     const speedValEl = document.getElementById('sidebar-speed-val');
     const emotionValEl = document.getElementById('sidebar-emotion-val');
+    const languageValEl = document.getElementById('sidebar-language-val');
     const engNormValEl = document.getElementById('sidebar-eng-norm-val');
 
     if (voiceNameEl) voiceNameEl.textContent = formatVoiceName(voiceId);
@@ -820,6 +824,7 @@ export function initPreferencesModule(
     if (pitchValEl) pitchValEl.textContent = String(pitch);
     if (speedValEl) speedValEl.textContent = speed.toFixed(2) + '×';
     if (emotionValEl) emotionValEl.textContent = emotion === 'auto' ? 'Auto' : emotion.charAt(0).toUpperCase() + emotion.slice(1);
+    if (languageValEl) languageValEl.textContent = language === 'auto' ? 'Automatic' : language;
     if (engNormValEl) engNormValEl.textContent = engNorm ? 'On' : 'Off';
   }
 
