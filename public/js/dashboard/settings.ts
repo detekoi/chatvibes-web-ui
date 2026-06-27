@@ -451,12 +451,14 @@ export function initSettingsModule(
       defaultPitchSlider.value = '0';
       pitchValueSpan.textContent = '0';
       saveSettingWrapper('pitch', 0, 'Default Pitch');
+      updateSidebarPreview();
     });
     resetSpeedBtn?.addEventListener('click', () => {
       if (!defaultSpeedSlider || !speedValueSpan) return;
       defaultSpeedSlider.value = '1.0';
       speedValueSpan.textContent = '1.0';
       saveSettingWrapper('speed', 1.0, 'Default Speed');
+      updateSidebarPreview();
     });
     resetVolumeBtn?.addEventListener('click', () => {
       if (!defaultVolumeSlider || !volumeValueSpan || !defaultVoiceDropdown) return;
@@ -466,6 +468,7 @@ export function initSettingsModule(
       currentVoiceVolumes[voiceId] = 1.0;
       voiceCalibration?.updateVolumes(currentVoiceVolumes);
       saveSettingWrapper(`voiceVolumes.\${voiceId}`, 1.0, 'Voice Volume');
+      updateSidebarPreview();
     });
 
     // Load Voices
