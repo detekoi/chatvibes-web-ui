@@ -147,13 +147,14 @@ export class VoiceDropdown {
             if (this.onPlaySample) {
                 const button = document.createElement('button');
                 button.type = 'button';
-                button.className = 'btn btn-sm btn-outline-primary voice-play-btn';
+                button.className = 'voice-play-btn';
                 button.dataset.voiceId = voice;
+                button.setAttribute('aria-label', `Preview ${voice}`);
                 button.innerHTML = `
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M8 5v14l11-7z"/>
-          </svg>
-        `;
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                `;
                 button.addEventListener('click', (e) => {
                     e.stopPropagation();
                     this.onPlaySample!(voice, button);
