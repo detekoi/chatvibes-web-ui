@@ -26,7 +26,7 @@
     <!-- Apply theme early to prevent flash -->
     <script>
         (function () {
-            const theme = localStorage.getItem('chatvibes-theme') ||
+            const theme = localStorage.getItem('wildcat-tts-theme') ||
                 (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
             if (theme === 'dark') {
                 document.documentElement.setAttribute('data-theme', 'dark');
@@ -117,7 +117,7 @@
     <script>
         // Initialize dark mode toggle
         const darkModeToggle = document.getElementById('darkModeToggle');
-        const currentTheme = localStorage.getItem('chatvibes-theme') ||
+        const currentTheme = localStorage.getItem('wildcat-tts-theme') ||
             (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 
         darkModeToggle.checked = currentTheme === 'dark';
@@ -125,10 +125,10 @@
         darkModeToggle.addEventListener('change', function () {
             if (this.checked) {
                 document.documentElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('chatvibes-theme', 'dark');
+                localStorage.setItem('wildcat-tts-theme', 'dark');
             } else {
                 document.documentElement.removeAttribute('data-theme');
-                localStorage.setItem('chatvibes-theme', 'light');
+                localStorage.setItem('wildcat-tts-theme', 'light');
             }
         });
     </script>

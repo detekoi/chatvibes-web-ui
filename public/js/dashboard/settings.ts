@@ -272,21 +272,21 @@ export function initSettingsModule(
     const volume = parseFloat(defaultVolumeSlider?.value || '1.0');
 
     const voiceNameEl = document.getElementById('sidebar-voice-name');
-    const voiceTagEl = document.getElementById('sidebar-voice-tag');
     const pitchValEl = document.getElementById('sidebar-pitch-val');
     const speedValEl = document.getElementById('sidebar-speed-val');
     const volumeValEl = document.getElementById('sidebar-volume-val');
+    const emotionValEl = document.getElementById('sidebar-emotion-val');
     const languageValEl = document.getElementById('sidebar-language-val');
     const engNormValEl = document.getElementById('sidebar-eng-norm-val');
 
     const languageBoost = defaultLanguageSelect?.value || 'Automatic';
 
     if (voiceNameEl) voiceNameEl.textContent = formatVoiceName(voiceId);
-    if (voiceTagEl) voiceTagEl.textContent = emotion === 'auto' ? 'Auto' : emotion.charAt(0).toUpperCase() + emotion.slice(1);
     if (pitchValEl) pitchValEl.textContent = String(pitch);
     if (speedValEl) speedValEl.textContent = speed.toFixed(1) + '×';
     if (volumeValEl) volumeValEl.textContent = volume.toFixed(1);
-    if (languageValEl) languageValEl.textContent = languageBoost === 'Automatic' ? 'Automatic' : (defaultLanguageSelect?.options[defaultLanguageSelect?.selectedIndex]?.text || 'Automatic');
+    if (emotionValEl) emotionValEl.textContent = emotion === 'auto' ? 'Auto' : emotion.charAt(0).toUpperCase() + emotion.slice(1);
+    if (languageValEl) languageValEl.textContent = languageBoost;
     if (engNormValEl) engNormValEl.textContent = englishNormalizationCheckbox?.checked ? 'On' : 'Off';
   }
 

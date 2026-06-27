@@ -59,6 +59,17 @@ class ThemeManager {
         }
     }
 
+    setTheme(theme: Theme): void {
+        localStorage.setItem(THEME_KEY, theme);
+        this.applyTheme(theme);
+    }
+
+    toggleTheme(): void {
+        const current = this.getCurrentTheme();
+        const newTheme = current === DARK_THEME ? LIGHT_THEME : DARK_THEME;
+        this.setTheme(newTheme);
+    }
+
     applyStoredTheme(): void {
         const theme = this.getCurrentTheme();
         this.applyTheme(theme);

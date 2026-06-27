@@ -250,15 +250,15 @@ export function initPreferencesModule(
       elements.pitchSlider.addEventListener('input', () => {
         if (elements.pitchSlider && elements.pitchValue) {
           elements.pitchValue.textContent = elements.pitchSlider.value;
-          updateSidebarMeta();
+          updateSidebarMeta({ pitch: Number(elements.pitchSlider.value) });
         }
       });
     }
     if (elements.speedSlider && elements.speedValue) {
       elements.speedSlider.addEventListener('input', () => {
         if (elements.speedSlider && elements.speedValue) {
-          elements.speedValue.textContent = Number(elements.speedSlider.value).toFixed(2);
-          updateSidebarMeta();
+          elements.speedValue.textContent = Number(elements.speedSlider.value).toFixed(1);
+          updateSidebarMeta({ speed: Number(elements.speedSlider.value) });
         }
       });
     }
@@ -737,6 +737,16 @@ export function initPreferencesModule(
     return String(value);
   }
 
+  function revertDOMElement(key: PreferenceKey, value: PreferenceValue): void {
+    const { voiceSelect, pitchSlider, speedSlider, emotionSelect, languageSelect, englishNormalizationCheckbox } = elements;
+    if (key === 'voiceId' && voiceSelect) voiceSelect.value = String(value ?? '');
+    if (key === 'pitch' && pitchSlider) pitchSlider.value = String(value ?? 0);
+    if (key === 'speed' && speedSlider) speedSlider.value = String(value ?? 1);
+    if (key === 'emotion' && emotionSelect) emotionSelect.value = String(value ?? '');
+    if (key === 'language' && languageSelect) languageSelect.value = String(value ?? '');
+    if (key === 'englishNormalization' && englishNormalizationCheckbox) englishNormalizationCheckbox.checked = Boolean(value ?? false);
+  }
+
   async function savePreference(key: PreferenceKey, value: PreferenceValue): Promise<void> {
     const previous = state.currentPreferences ? state.currentPreferences[key] : undefined;
     if (state.currentPreferences) {
@@ -759,6 +769,7 @@ export function initPreferencesModule(
     } catch (error) {
       if (state.currentPreferences) {
         (state.currentPreferences as Record<string, PreferenceValue>)[key] = previous as PreferenceValue;
+        revertDOMElement(key, previous as PreferenceValue);
         updateHints([key]);
         updateSidebarMeta();
       }
@@ -784,35 +795,47 @@ export function initPreferencesModule(
     if (element instanceof HTMLInputElement && element.type === 'range') {
       const output = document.getElementById(element.id.replace('-slider', '-value'));
       if (output) {
-        const outVal = element.id === 'speed-slider' ? Number(defaultValue ?? 1).toFixed(2) : String(defaultValue ?? 0);
+        const outVal = element.id === 'speed-slider' ? Number(defaultValue ?? 1).toFixed(1) : String(defaultValue ?? 0);
         output.textContent = outVal;
       }
     }
     await savePreference(key, null);
   }
 
-  function updateSidebarMeta(): void {
-    const { voiceSelect, pitchSlider, speedSlider, emotionSelect, englishNormalizationCheckbox } = elements;
-    const cd = state.currentPreferences?.channelDefaults || {};
+  function updateSidebarMeta(liveOverrides: { pitch?: number, speed?: number } = {}): void {
+    const prefs = state.currentPreferences || {};
+    const cd = prefs.channelDefaults || {};
 
-    const voiceId = voiceSelect?.value || cd.voiceId || 'Friendly_Person';
+    const hasVoice = prefs.voiceId !== undefined && prefs.voiceId !== null && prefs.voiceId !== '';
+    const voiceId = hasVoice ? String(prefs.voiceId) : (cd.voiceId || 'Friendly_Person');
     
-    const pitchHasOverride = state.currentPreferences?.pitch !== undefined && state.currentPreferences?.pitch !== null;
-    const pitch = pitchHasOverride ? Number(pitchSlider?.value ?? 0) : (cd.pitch !== undefined ? cd.pitch : 0);
+    let pitch: number;
+    if (liveOverrides.pitch !== undefined) {
+      pitch = liveOverrides.pitch;
+    } else {
+      const hasOverride = prefs.pitch !== undefined && prefs.pitch !== null;
+      pitch = hasOverride ? Number(prefs.pitch) : (cd.pitch !== undefined ? cd.pitch : 0);
+    }
 
-    const speedHasOverride = state.currentPreferences?.speed !== undefined && state.currentPreferences?.speed !== null;
-    const speed = speedHasOverride ? Number(speedSlider?.value ?? 1) : (cd.speed !== undefined ? cd.speed : 1.0);
+    let speed: number;
+    if (liveOverrides.speed !== undefined) {
+      speed = liveOverrides.speed;
+    } else {
+      const hasOverride = prefs.speed !== undefined && prefs.speed !== null;
+      speed = hasOverride ? Number(prefs.speed) : (cd.speed !== undefined ? cd.speed : 1.0);
+    }
 
-    const emotion = emotionSelect?.value || cd.emotion || 'neutral';
+    const hasEmotion = prefs.emotion !== undefined && prefs.emotion !== null && prefs.emotion !== '';
+    const emotion = hasEmotion ? String(prefs.emotion) : (cd.emotion || 'neutral');
 
-    const engNormHasOverride = state.currentPreferences?.englishNormalization !== undefined && state.currentPreferences?.englishNormalization !== null;
-    const engNorm = engNormHasOverride ? (englishNormalizationCheckbox?.checked ?? false) : (cd.englishNormalization !== undefined ? cd.englishNormalization : false);
+    const hasEngNorm = prefs.englishNormalization !== undefined && prefs.englishNormalization !== null;
+    const engNorm = hasEngNorm ? Boolean(prefs.englishNormalization) : (cd.englishNormalization !== undefined ? cd.englishNormalization : false);
 
-    const languageHasOverride = state.currentPreferences?.language !== undefined && state.currentPreferences?.language !== null && state.currentPreferences?.language !== '';
-    const language = languageHasOverride ? (elements.languageSelect?.value || 'auto') : (cd.language !== undefined ? cd.language : 'auto');
+    const hasLanguage = prefs.language !== undefined && prefs.language !== null && prefs.language !== '';
+    let language = hasLanguage ? String(prefs.language) : (cd.language !== undefined ? cd.language : 'auto');
+    if (language === 'Automatic') language = 'auto'; // Normalize backend channel default mismatch
 
     const voiceNameEl = document.getElementById('sidebar-voice-name');
-    const voiceTagEl = document.getElementById('sidebar-voice-tag');
     const pitchValEl = document.getElementById('sidebar-pitch-val');
     const speedValEl = document.getElementById('sidebar-speed-val');
     const emotionValEl = document.getElementById('sidebar-emotion-val');
@@ -820,9 +843,8 @@ export function initPreferencesModule(
     const engNormValEl = document.getElementById('sidebar-eng-norm-val');
 
     if (voiceNameEl) voiceNameEl.textContent = formatVoiceName(voiceId);
-    if (voiceTagEl) voiceTagEl.textContent = emotion === 'auto' ? 'Auto' : emotion.charAt(0).toUpperCase() + emotion.slice(1);
     if (pitchValEl) pitchValEl.textContent = String(pitch);
-    if (speedValEl) speedValEl.textContent = speed.toFixed(2) + '×';
+    if (speedValEl) speedValEl.textContent = speed.toFixed(1) + '×';
     if (emotionValEl) emotionValEl.textContent = emotion === 'auto' ? 'Auto' : emotion.charAt(0).toUpperCase() + emotion.slice(1);
     if (languageValEl) languageValEl.textContent = language === 'auto' ? 'Automatic' : language;
     if (engNormValEl) engNormValEl.textContent = engNorm ? 'On' : 'Off';
