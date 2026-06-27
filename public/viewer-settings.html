@@ -45,11 +45,6 @@
         <div class="d-flex align-items-center justify-content-between mb-3">
             <h1 class="h3 mb-0">Viewer TTS Preferences</h1>
             <div class="d-flex align-items-center gap-3">
-                <div class="form-check form-switch d-none d-lg-block">
-                    <input class="form-check-input" type="checkbox" id="darkModeToggle">
-                    <label class="form-check-label" for="darkModeToggle">Dark Mode</label>
-                </div>
-                <a href="dashboard.html" class="btn btn-outline-primary btn-sm">Streamer Settings</a>
                 <a href="#" id="logout-link" class="btn btn-outline-danger btn-sm">Logout</a>
             </div>
         </div>
@@ -98,34 +93,6 @@
                             <div id="prefs-disabled-note" class="alert alert-warning d-none mt-3 mb-0">
                                 The streamer has disabled personal voice settings for this channel. Your changes will
                                 not be used here; the channel default voice will be applied.
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Voice Preview - Mobile/Tablet (visible on lg and below) -->
-                    <div class="d-lg-none mb-4">
-                        <div class="card voice-preview-card">
-                            <div class="card-header">Voice Preview</div>
-                            <div class="card-body">
-                                <label for="preview-text-mobile" class="form-label">Test Message</label>
-                                <textarea id="preview-text-mobile" class="form-control mb-2" maxlength="500"
-                                    rows="3">Chat is this real?</textarea>
-                                <div class="d-grid">
-                                    <button type="button" id="preview-btn-mobile" class="btn btn-primary">Send
-                                        Preview</button>
-                                </div>
-                                <!-- Audio Player Container -->
-                                <div id="voice-preview-player-mobile" class="voice-preview-player mt-3"
-                                    style="display: none;">
-                                    <audio controls class="w-100">
-                                        <source id="voice-preview-source-mobile" type="audio/mpeg">
-                                        Your browser does not support the audio element.
-                                    </audio>
-                                    <small id="voice-preview-hint-mobile"
-                                        class="settings-changed-hint text-warning mt-1" style="display: none;">
-                                        <i><i data-lucide="triangle-alert" class="inline-icon"></i> Settings changed - regenerate for updated preview</i>
-                                    </small>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -338,26 +305,58 @@
                 </div>
 
                 <!-- Sidebar column -->
-                <div class="col-12 col-lg-4 d-none d-lg-block">
-                    <div class="card sticky-top sticky-aside mb-4">
-                        <div class="card-header">Voice Preview</div>
-                        <div class="card-body">
-                            <label for="preview-text" class="form-label">Test Message</label>
-                            <textarea id="preview-text" class="form-control mb-2" maxlength="500"
-                                rows="3">Chat is this real?</textarea>
-                            <div class="d-grid">
-                                <button type="button" id="preview-btn" class="btn btn-primary">Send Preview</button>
+                <div class="col-12 col-lg-4 order-first order-lg-0">
+                    <div class="sticky-top sticky-aside">
+                        <div class="card mb-4">
+                            <div class="card-header">Voice Preview</div>
+                            <div class="card-body">
+                                <div id="sidebar-voice-name" class="sidebar-voice-name">—</div>
+                                <div id="sidebar-voice-tag" class="sidebar-voice-tag">—</div>
+                                <div class="obs-steps-label mb-1">Test Message</div>
+                                <textarea id="preview-text" class="form-control mb-2" maxlength="500"
+                                    rows="3">Chat is this real?</textarea>
+                                <div class="d-grid">
+                                    <button type="button" id="preview-btn" class="btn btn-primary">Send Preview</button>
+                                </div>
+                                <!-- Audio Player Container -->
+                                <div id="voice-preview-player" class="voice-preview-player mt-3" style="display: none;">
+                                    <audio controls class="w-100">
+                                        <source id="voice-preview-source" type="audio/mpeg">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                    <small id="voice-preview-hint" class="settings-changed-hint text-warning mt-1"
+                                        style="display: none;">
+                                        <i><i data-lucide="triangle-alert" class="inline-icon"></i> Settings changed - regenerate for updated preview</i>
+                                    </small>
+                                </div>
+                                <!-- Current voice settings display -->
+                                <div class="sidebar-voice-meta mt-3">
+                                    <div class="d-flex justify-content-between"><span>Pitch</span> <strong id="sidebar-pitch-val">0</strong></div>
+                                    <div class="d-flex justify-content-between"><span>Speed</span> <strong id="sidebar-speed-val">1.0×</strong></div>
+                                    <div class="d-flex justify-content-between"><span>Emotion</span> <strong id="sidebar-emotion-val">—</strong></div>
+                                    <div class="d-flex justify-content-between"><span>Eng. Normalization</span> <strong id="sidebar-eng-norm-val">Off</strong></div>
+                                </div>
                             </div>
-                            <!-- Audio Player Container -->
-                            <div id="voice-preview-player" class="voice-preview-player mt-3" style="display: none;">
-                                <audio controls class="w-100">
-                                    <source id="voice-preview-source" type="audio/mpeg">
-                                    Your browser does not support the audio element.
-                                </audio>
-                                <small id="voice-preview-hint" class="settings-changed-hint text-warning mt-1"
-                                    style="display: none;">
-                                    <i><i data-lucide="triangle-alert" class="inline-icon"></i> Settings changed - regenerate for updated preview</i>
-                                </small>
+                        </div>
+
+                        <!-- Quick Links -->
+                        <div class="card mb-4">
+                            <div class="card-body" style="padding: 14px 18px;">
+                                <div class="obs-steps-label mb-2">Quick Links</div>
+                                <div class="d-flex flex-column quick-links-list" style="gap: 6px;">
+                                    <a href="https://docs.wildcat.chat" target="_blank" class="d-flex align-items-center text-decoration-none text-muted">
+                                        <i data-lucide="book" class="inline-icon" style="margin-right: 6px; width: 14px; height: 14px;"></i>
+                                        Documentation
+                                    </a>
+                                    <a href="dashboard.html" class="d-flex align-items-center text-decoration-none text-muted">
+                                        <i data-lucide="radio" class="inline-icon" style="margin-right: 6px; width: 14px; height: 14px;"></i>
+                                        Streamer Settings
+                                    </a>
+                                    <a href="https://wildcat.chat" target="_blank" class="d-flex align-items-center text-decoration-none text-muted">
+                                        <i data-lucide="external-link" class="inline-icon" style="margin-right: 6px; width: 14px; height: 14px;"></i>
+                                        Wildcat Chat
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -468,6 +468,14 @@ hr {
     color: var(--accent-primary-hover) !important;
 }
 
+.quick-links-list a {
+    transition: color 0.15s ease;
+}
+
+.quick-links-list a:hover {
+    color: var(--accent-primary) !important;
+}
+
 /* Buttons inside alerts */
 .alert .btn {
     border-width: 2px;

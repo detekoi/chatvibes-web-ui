@@ -1,5 +1,5 @@
 import { fetchWithAuth } from '../common/api.js';
-import { showToast, syncTextareas } from '../common/ui.js';
+import { showToast } from '../common/ui.js';
 import { formatNumberCompact, formatVoiceName } from '../common/utils.js';
 import { performVoiceTest, TTSPayload, PlayerElements, HintElements } from '../common/voice-preview.js';
 
@@ -100,14 +100,9 @@ interface PreferencesElements {
   hintEnglishNorm: HTMLElement | null;
   previewText: HTMLTextAreaElement | null;
   previewBtn: HTMLButtonElement | null;
-  previewTextMobile: HTMLTextAreaElement | null;
-  previewBtnMobile: HTMLButtonElement | null;
   previewPlayer: HTMLElement | null;
-  previewPlayerMobile: HTMLElement | null;
   previewSource: HTMLSourceElement | null;
-  previewSourceMobile: HTMLSourceElement | null;
   previewHint: HTMLElement | null;
-  previewHintMobile: HTMLElement | null;
   prefsDisabledNote: HTMLElement | null;
 }
 
@@ -201,14 +196,9 @@ export function initPreferencesModule(
     hintEnglishNorm: document.getElementById('hint-englishNormalization'),
     previewText: document.getElementById('preview-text') as HTMLTextAreaElement | null,
     previewBtn: document.getElementById('preview-btn') as HTMLButtonElement | null,
-    previewTextMobile: document.getElementById('preview-text-mobile') as HTMLTextAreaElement | null,
-    previewBtnMobile: document.getElementById('preview-btn-mobile') as HTMLButtonElement | null,
     previewPlayer: document.getElementById('voice-preview-player'),
-    previewPlayerMobile: document.getElementById('voice-preview-player-mobile'),
     previewSource: document.getElementById('voice-preview-source') as HTMLSourceElement | null,
-    previewSourceMobile: document.getElementById('voice-preview-source-mobile') as HTMLSourceElement | null,
     previewHint: document.getElementById('voice-preview-hint'),
-    previewHintMobile: document.getElementById('voice-preview-hint-mobile'),
     prefsDisabledNote: document.getElementById('prefs-disabled-note'),
   };
 
@@ -236,7 +226,6 @@ export function initPreferencesModule(
     currentlyPlayingVoiceId: null,
   };
 
-  syncTextareas(elements.previewText, elements.previewTextMobile);
 
   attachSliderOutputs();
   attachResetButtons();
@@ -261,6 +250,7 @@ export function initPreferencesModule(
       elements.pitchSlider.addEventListener('input', () => {
         if (elements.pitchSlider && elements.pitchValue) {
           elements.pitchValue.textContent = elements.pitchSlider.value;
+          updateSidebarMeta();
         }
       });
     }
@@ -268,6 +258,7 @@ export function initPreferencesModule(
       elements.speedSlider.addEventListener('input', () => {
         if (elements.speedSlider && elements.speedValue) {
           elements.speedValue.textContent = Number(elements.speedSlider.value).toFixed(2);
+          updateSidebarMeta();
         }
       });
     }
@@ -316,7 +307,7 @@ export function initPreferencesModule(
   }
 
   function attachPreviewHandlers(): void {
-    const { previewBtn, previewBtnMobile, previewText, previewTextMobile, voiceSelect, pitchSlider, speedSlider, emotionSelect, languageSelect, englishNormalizationCheckbox } = elements;
+    const { previewBtn, previewText, voiceSelect, pitchSlider, speedSlider, emotionSelect, languageSelect, englishNormalizationCheckbox } = elements;
 
     const changeElements = [voiceSelect, pitchSlider, speedSlider, emotionSelect, languageSelect, englishNormalizationCheckbox];
     changeElements.forEach(el => {
@@ -324,7 +315,6 @@ export function initPreferencesModule(
     });
 
     if (previewBtn) previewBtn.addEventListener('click', () => testVoice());
-    if (previewBtnMobile) previewBtnMobile.addEventListener('click', () => testVoice());
 
     window.addEventListener('beforeunload', () => {
       if (state.cachedAudioUrl) URL.revokeObjectURL(state.cachedAudioUrl);
@@ -333,11 +323,10 @@ export function initPreferencesModule(
     function markSettingsAsDirty(): void {
       state.isDirty = true;
       if (elements.previewHint && state.cachedAudioUrl) elements.previewHint.style.display = 'block';
-      if (elements.previewHintMobile && state.cachedAudioUrl) elements.previewHintMobile.style.display = 'block';
     }
 
     async function testVoice(): Promise<void> {
-      const text = (previewText?.value || previewTextMobile?.value || '').trim();
+      const text = (previewText?.value || '').trim();
       if (!text) {
         showToast('Please enter some text to test', 'warning');
         return;
@@ -363,17 +352,14 @@ export function initPreferencesModule(
 
       const playerElements: PlayerElements = {
         playerEl: elements.previewPlayer,
-        playerElMobile: elements.previewPlayerMobile,
         sourceEl: elements.previewSource,
-        sourceElMobile: elements.previewSourceMobile,
       };
 
       const hintElements: HintElements = {
         hintEl: elements.previewHint,
-        hintElMobile: elements.previewHintMobile,
       };
 
-      const buttons = [previewBtn, previewBtnMobile].filter((btn): btn is HTMLButtonElement => btn !== null);
+      const buttons = [previewBtn].filter((btn): btn is HTMLButtonElement => btn !== null);
 
       const onAudioGenerated = (audioUrl: string, settings: TTSPayload): void => {
         if (state.cachedAudioUrl) URL.revokeObjectURL(state.cachedAudioUrl);
@@ -381,7 +367,6 @@ export function initPreferencesModule(
         state.cachedSettings = settings;
         state.isDirty = false;
         if (elements.previewHint) elements.previewHint.style.display = 'none';
-        if (elements.previewHintMobile) elements.previewHintMobile.style.display = 'none';
       };
 
       await performVoiceTest(payload, buttons, {
@@ -712,6 +697,7 @@ export function initPreferencesModule(
     if (prefsDisabledNote) {
       prefsDisabledNote.classList.toggle('d-none', allowViewerPrefs);
     }
+    updateSidebarMeta();
   }
 
   function updateHints(keys?: PreferenceKey[]): void {
@@ -756,6 +742,7 @@ export function initPreferencesModule(
     if (state.currentPreferences) {
       (state.currentPreferences as Record<string, PreferenceValue>)[key] = value;
       updateHints([key]);
+      updateSidebarMeta();
     }
     if (testMode) {
       showToast('Preference updated (test mode)', 'success');
@@ -773,6 +760,7 @@ export function initPreferencesModule(
       if (state.currentPreferences) {
         (state.currentPreferences as Record<string, PreferenceValue>)[key] = previous as PreferenceValue;
         updateHints([key]);
+        updateSidebarMeta();
       }
       console.error(`Failed to save ${key}:`, error);
       const err = error as Error;
@@ -803,6 +791,38 @@ export function initPreferencesModule(
     await savePreference(key, null);
   }
 
+  function updateSidebarMeta(): void {
+    const { voiceSelect, pitchSlider, speedSlider, emotionSelect, englishNormalizationCheckbox } = elements;
+    const cd = state.currentPreferences?.channelDefaults || {};
+
+    const voiceId = voiceSelect?.value || cd.voiceId || 'Friendly_Person';
+    
+    const pitchHasOverride = state.currentPreferences?.pitch !== undefined && state.currentPreferences?.pitch !== null;
+    const pitch = pitchHasOverride ? Number(pitchSlider?.value ?? 0) : (cd.pitch !== undefined ? cd.pitch : 0);
+
+    const speedHasOverride = state.currentPreferences?.speed !== undefined && state.currentPreferences?.speed !== null;
+    const speed = speedHasOverride ? Number(speedSlider?.value ?? 1) : (cd.speed !== undefined ? cd.speed : 1.0);
+
+    const emotion = emotionSelect?.value || cd.emotion || 'neutral';
+
+    const engNormHasOverride = state.currentPreferences?.englishNormalization !== undefined && state.currentPreferences?.englishNormalization !== null;
+    const engNorm = engNormHasOverride ? (englishNormalizationCheckbox?.checked ?? false) : (cd.englishNormalization !== undefined ? cd.englishNormalization : false);
+
+    const voiceNameEl = document.getElementById('sidebar-voice-name');
+    const voiceTagEl = document.getElementById('sidebar-voice-tag');
+    const pitchValEl = document.getElementById('sidebar-pitch-val');
+    const speedValEl = document.getElementById('sidebar-speed-val');
+    const emotionValEl = document.getElementById('sidebar-emotion-val');
+    const engNormValEl = document.getElementById('sidebar-eng-norm-val');
+
+    if (voiceNameEl) voiceNameEl.textContent = formatVoiceName(voiceId);
+    if (voiceTagEl) voiceTagEl.textContent = emotion === 'auto' ? 'Auto' : emotion.charAt(0).toUpperCase() + emotion.slice(1);
+    if (pitchValEl) pitchValEl.textContent = String(pitch);
+    if (speedValEl) speedValEl.textContent = speed.toFixed(2) + '×';
+    if (emotionValEl) emotionValEl.textContent = emotion === 'auto' ? 'Auto' : emotion.charAt(0).toUpperCase() + emotion.slice(1);
+    if (engNormValEl) engNormValEl.textContent = engNorm ? 'On' : 'Off';
+  }
+
   function clearCachedAudio(): void {
     if (state.cachedAudioUrl) {
       URL.revokeObjectURL(state.cachedAudioUrl);
@@ -810,9 +830,7 @@ export function initPreferencesModule(
     }
     state.cachedSettings = null;
     if (elements.previewPlayer) elements.previewPlayer.style.display = 'none';
-    if (elements.previewPlayerMobile) elements.previewPlayerMobile.style.display = 'none';
     if (elements.previewBtn) elements.previewBtn.textContent = 'Send Preview';
-    if (elements.previewBtnMobile) elements.previewBtnMobile.textContent = 'Send Preview';
     state.isDirty = false;
   }
 }

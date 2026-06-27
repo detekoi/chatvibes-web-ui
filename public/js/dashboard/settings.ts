@@ -222,7 +222,7 @@ export function initSettingsModule(
     }
 
     if (defaultLanguageSelect) defaultLanguageSelect.addEventListener('change', () => saveSettingWrapper('languageBoost', defaultLanguageSelect.value || 'Automatic', 'Default Language'));
-    if (englishNormalizationCheckbox) englishNormalizationCheckbox.addEventListener('change', () => saveSettingWrapper('englishNormalization', !!englishNormalizationCheckbox.checked, 'English Normalization'));
+    if (englishNormalizationCheckbox) englishNormalizationCheckbox.addEventListener('change', () => { saveSettingWrapper('englishNormalization', !!englishNormalizationCheckbox.checked, 'English Normalization'); updateSidebarPreview(); });
     if (emoteModeSelect) emoteModeSelect.addEventListener('change', () => saveSettingWrapper('emoteMode', emoteModeSelect.value || 'describe', 'Emote Mode'));
 
     // YouTube integration auto-save
@@ -276,12 +276,14 @@ export function initSettingsModule(
     const pitchValEl = document.getElementById('sidebar-pitch-val');
     const speedValEl = document.getElementById('sidebar-speed-val');
     const volumeValEl = document.getElementById('sidebar-volume-val');
+    const engNormValEl = document.getElementById('sidebar-eng-norm-val');
 
     if (voiceNameEl) voiceNameEl.textContent = formatVoiceName(voiceId);
     if (voiceTagEl) voiceTagEl.textContent = emotion === 'auto' ? 'Auto' : emotion.charAt(0).toUpperCase() + emotion.slice(1);
     if (pitchValEl) pitchValEl.textContent = String(pitch);
     if (speedValEl) speedValEl.textContent = speed.toFixed(1) + '×';
     if (volumeValEl) volumeValEl.textContent = volume.toFixed(1);
+    if (engNormValEl) engNormValEl.textContent = englishNormalizationCheckbox?.checked ? 'On' : 'Off';
   }
 
 
