@@ -177,14 +177,17 @@ export function initSettingsModule(
       bitsAmountInput.addEventListener('change', () => saveSettingWrapper('bitsMinimumAmount', parseInt(bitsAmountInput.value || '100', 10), 'Minimum Bits'));
     }
 
-    if (defaultEmotionSelect) defaultEmotionSelect.addEventListener('change', () => saveSettingWrapper('emotion', defaultEmotionSelect.value || 'auto', 'Default Emotion'));
+    if (defaultEmotionSelect) defaultEmotionSelect.addEventListener('change', () => {
+      saveSettingWrapper('emotion', defaultEmotionSelect.value || 'auto', 'Default Emotion');
+      updateSidebarPreview();
+    });
 
     if (defaultPitchSlider) {
       const debouncedPitchSave = debounce(
         () => saveSettingWrapper('pitch', parseInt(defaultPitchSlider.value || '0', 10), 'Default Pitch'),
         400
       );
-      defaultPitchSlider.addEventListener('input', () => { if (!isInitializing) debouncedPitchSave(); });
+      defaultPitchSlider.addEventListener('input', () => { if (!isInitializing) debouncedPitchSave(); updateSidebarPreview(); });
       defaultPitchSlider.addEventListener('change', () => saveSettingWrapper('pitch', parseInt(defaultPitchSlider.value || '0', 10), 'Default Pitch'));
     }
 
@@ -193,7 +196,7 @@ export function initSettingsModule(
         () => saveSettingWrapper('speed', parseFloat(defaultSpeedSlider.value || '1.0'), 'Default Speed'),
         400
       );
-      defaultSpeedSlider.addEventListener('input', () => { if (!isInitializing) debouncedSpeedSave(); });
+      defaultSpeedSlider.addEventListener('input', () => { if (!isInitializing) debouncedSpeedSave(); updateSidebarPreview(); });
       defaultSpeedSlider.addEventListener('change', () => saveSettingWrapper('speed', parseFloat(defaultSpeedSlider.value || '1.0'), 'Default Speed'));
     }
 
@@ -208,7 +211,7 @@ export function initSettingsModule(
         },
         400
       );
-      defaultVolumeSlider.addEventListener('input', () => { if (!isInitializing) debouncedVolumeSave(); });
+      defaultVolumeSlider.addEventListener('input', () => { if (!isInitializing) debouncedVolumeSave(); updateSidebarPreview(); });
       defaultVolumeSlider.addEventListener('change', () => {
         const voiceId = defaultVoiceDropdown?.getValue() || 'Friendly_Person';
         const vol = parseFloat(defaultVolumeSlider.value || '1.0');
@@ -259,6 +262,26 @@ export function initSettingsModule(
     const volume = parseFloat(defaultVolumeSlider?.value || '1.0');
     const languageBoost = defaultLanguageSelect?.value || 'Automatic';
     return { voiceId, emotion, pitch, speed, volume, languageBoost };
+  }
+
+  function updateSidebarPreview(): void {
+    const voiceId = defaultVoiceDropdown?.getValue() || 'Friendly_Person';
+    const emotion = defaultEmotionSelect?.value || 'auto';
+    const pitch = parseInt(defaultPitchSlider?.value || '0', 10);
+    const speed = parseFloat(defaultSpeedSlider?.value || '1.0');
+    const volume = parseFloat(defaultVolumeSlider?.value || '1.0');
+
+    const voiceNameEl = document.getElementById('sidebar-voice-name');
+    const voiceTagEl = document.getElementById('sidebar-voice-tag');
+    const pitchValEl = document.getElementById('sidebar-pitch-val');
+    const speedValEl = document.getElementById('sidebar-speed-val');
+    const volumeValEl = document.getElementById('sidebar-volume-val');
+
+    if (voiceNameEl) voiceNameEl.textContent = formatVoiceName(voiceId);
+    if (voiceTagEl) voiceTagEl.textContent = emotion === 'auto' ? 'Auto' : emotion.charAt(0).toUpperCase() + emotion.slice(1);
+    if (pitchValEl) pitchValEl.textContent = String(pitch);
+    if (speedValEl) speedValEl.textContent = speed.toFixed(1) + '×';
+    if (volumeValEl) volumeValEl.textContent = volume.toFixed(1);
   }
 
 
@@ -454,9 +477,9 @@ export function initSettingsModule(
       onSelect: (voiceId) => {
         if (!isInitializing) updateVolumeSlider(voiceId);
         saveSettingWrapper('voiceId', voiceId, 'Default Voice');
-        // Clear preview cache if voice changed
         const hintEl = document.getElementById('voice-preview-hint');
         if (hintEl) hintEl.style.display = 'block';
+        updateSidebarPreview();
       },
       onPlaySample: playVoiceSample
     });
@@ -684,5 +707,7 @@ export function initSettingsModule(
     // YouTube integration
     if (youtubeEnabledCheckbox) youtubeEnabledCheckbox.checked = settings.youtubeEnabled || false;
     if (youtubeHandleInput) youtubeHandleInput.value = settings.youtubeHandle || '';
+
+    updateSidebarPreview();
   }
 }

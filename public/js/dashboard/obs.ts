@@ -8,6 +8,9 @@ interface ObsElements {
   ttsUrlField: HTMLInputElement | null;
   copyTtsUrlBtn: HTMLButtonElement | null;
   regenerateTtsUrlBtn: (HTMLAnchorElement | HTMLButtonElement) | null;
+  obsToggleBtn?: HTMLButtonElement | null;
+  obsPopover?: HTMLDivElement | null;
+  obsCloseBtn?: HTMLButtonElement | null;
 }
 
 /**
@@ -46,7 +49,7 @@ export interface ObsModule {
  * OBS setup helpers (browser source URL management).
  */
 export function initObsModule(
-  { ttsUrlField, copyTtsUrlBtn, regenerateTtsUrlBtn }: ObsElements,
+  { ttsUrlField, copyTtsUrlBtn, regenerateTtsUrlBtn, obsToggleBtn, obsPopover, obsCloseBtn }: ObsElements,
   context: ObsContext,
   services: ObsServices
 ): ObsModule {
@@ -132,7 +135,11 @@ export function initObsModule(
           showToast('Copied to clipboard!', 'success');
           const original = copyTtsUrlBtn.textContent;
           copyTtsUrlBtn.textContent = 'Copied!';
-          setTimeout(() => { copyTtsUrlBtn.textContent = original; }, 2000);
+          copyTtsUrlBtn.classList.add('copied');
+          setTimeout(() => { 
+            copyTtsUrlBtn.textContent = original; 
+            copyTtsUrlBtn.classList.remove('copied');
+          }, 2000);
         } else {
           showToast('Copy failed.', 'error');
         }
@@ -169,6 +176,36 @@ export function initObsModule(
       } finally {
         regenerateTtsUrlBtn.style.pointerEvents = 'auto';
         regenerateTtsUrlBtn.textContent = originalText;
+      }
+    });
+  }
+
+  if (obsToggleBtn && obsPopover) {
+    obsToggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = obsPopover.classList.contains('open');
+      if (isOpen) {
+        obsPopover.classList.remove('open');
+        obsToggleBtn.classList.remove('is-open');
+      } else {
+        obsPopover.classList.add('open');
+        obsToggleBtn.classList.add('is-open');
+      }
+    });
+
+    if (obsCloseBtn) {
+      obsCloseBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        obsPopover.classList.remove('open');
+        obsToggleBtn.classList.remove('is-open');
+      });
+    }
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!obsPopover.contains(e.target as Node) && !obsToggleBtn.contains(e.target as Node)) {
+        obsPopover.classList.remove('open');
+        obsToggleBtn.classList.remove('is-open');
       }
     });
   }

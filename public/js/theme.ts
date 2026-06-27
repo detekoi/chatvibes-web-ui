@@ -27,13 +27,7 @@ class ThemeManager {
     }
 
     init(): void {
-        // Set initial theme on page load
         this.applyStoredTheme();
-
-        // Initialize toggle if present
-        this.initToggle();
-
-        // Listen for system theme changes
         this.listenForSystemThemeChanges();
     }
 
@@ -63,40 +57,11 @@ class ThemeManager {
         } else {
             document.documentElement.removeAttribute('data-theme');
         }
-        this.updateToggleState();
-    }
-
-    setTheme(theme: Theme): void {
-        localStorage.setItem(THEME_KEY, theme);
-        this.applyTheme(theme);
-    }
-
-    toggleTheme(): void {
-        const currentTheme = this.getCurrentTheme();
-        const newTheme: Theme = currentTheme === DARK_THEME ? LIGHT_THEME : DARK_THEME;
-        this.setTheme(newTheme);
     }
 
     applyStoredTheme(): void {
         const theme = this.getCurrentTheme();
         this.applyTheme(theme);
-    }
-
-    initToggle(): void {
-        const toggle = document.getElementById('darkModeToggle') as HTMLInputElement | null;
-        if (toggle) {
-            toggle.addEventListener('change', () => {
-                this.toggleTheme();
-            });
-            this.updateToggleState();
-        }
-    }
-
-    updateToggleState(): void {
-        const toggle = document.getElementById('darkModeToggle') as HTMLInputElement | null;
-        if (toggle) {
-            toggle.checked = this.getCurrentTheme() === DARK_THEME;
-        }
     }
 
     listenForSystemThemeChanges(): void {

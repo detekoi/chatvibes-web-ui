@@ -64,7 +64,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const ttsUrlField = document.getElementById('tts-url-field') as HTMLInputElement | null;
   const copyTtsUrlBtn = document.getElementById('copy-tts-url-btn') as HTMLButtonElement | null;
   const regenerateTtsUrlBtn = document.getElementById('regenerate-tts-url-btn') as HTMLButtonElement | null;
-
+  const obsToggleBtn = document.getElementById('obs-toggle-btn') as HTMLButtonElement | null;
+  const obsPopover = document.getElementById('obs-popover') as HTMLDivElement | null;
+  const obsCloseBtn = document.getElementById('obs-close-btn') as HTMLButtonElement | null;
   const apiBaseUrl = getApiBaseUrl();
   const botApiBaseUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
     ? 'http://localhost:8080/api'
@@ -90,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
   bannedWordsModule.setOnChange(() => settingsModule.loadSettings());
 
   const botModule: BotManagementModule = initBotManagement({ botStatusEl, addBotBtn, removeBotBtn }, { apiBaseUrl, testMode }, services);
-  const obsModule: ObsModule = initObsModule({ ttsUrlField, copyTtsUrlBtn, regenerateTtsUrlBtn }, { apiBaseUrl, testMode }, services);
+  const obsModule: ObsModule = initObsModule({ ttsUrlField, copyTtsUrlBtn, regenerateTtsUrlBtn, obsToggleBtn, obsPopover, obsCloseBtn }, { apiBaseUrl, testMode }, services);
   const channelPointsModule: ChannelPointsModule = initChannelPointsModule({ apiBaseUrl, testMode }, services, {
     onSettingsRefresh: () => settingsModule.loadSettings(),
   });

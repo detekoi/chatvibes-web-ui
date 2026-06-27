@@ -47,6 +47,74 @@
         <div class="d-flex align-items-center justify-content-between mb-3">
             <h1 class="h3 mb-0">WildcatTTS Dashboard</h1>
             <div class="d-flex align-items-center gap-3">
+                <!-- OBS Setup Button & Popover -->
+                <div class="obs-anchor">
+                    <button class="btn btn-obs" type="button" id="obs-toggle-btn">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"><rect x="2" y="3" width="20" height="14" rx="0"/><path d="M8 21h8M12 17v4"/></svg>
+                        OBS Setup
+                    </button>
+                    <!-- POPOVER -->
+                    <div class="obs-popover" id="obs-popover">
+                        <div class="obs-pop-header">
+                            <div class="obs-pop-title">
+                                <div class="obs-pop-dot"></div>
+                                OBS Browser Source
+                            </div>
+                            <button class="obs-close" type="button" id="obs-close-btn">✕</button>
+                        </div>
+                        <div class="obs-pop-body">
+                            <!-- URL + Copy -->
+                            <div>
+                                <div class="obs-steps-label">Your Browser Source URL</div>
+                                <div class="obs-url-group">
+                                    <input class="obs-url-input" type="text" readonly value="" id="tts-url-field">
+                                    <button class="obs-copy-btn" type="button" id="copy-tts-url-btn">Copy</button>
+                                </div>
+                            </div>
+                            <!-- Regenerate warning -->
+                            <div class="regen-box">
+                                <svg class="regen-warn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                                <div class="regen-text">
+                                    <p>Regenerating creates a new URL — your current OBS source will stop working until updated.</p>
+                                    <button class="btn-regen" type="button" id="regenerate-tts-url-btn">Regenerate URL</button>
+                                </div>
+                            </div>
+                            <!-- Steps -->
+                            <div>
+                                <div class="obs-steps-label">Setup Instructions</div>
+                                <div class="obs-steps-scroll">
+                                    <details class="obs-step-group" open="">
+                                        <summary class="obs-step-summary">
+                                            <div class="step-num-sm">1</div>
+                                            Add Browser Source
+                                        </summary>
+                                        <div class="obs-step-content">
+                                            <p>In OBS, add a new <strong>Browser Source</strong>. Name it "ChatVibes TTS". Paste the URL copied above. You can ignore Width/Height.</p>
+                                        </div>
+                                    </details>
+                                    <details class="obs-step-group" open="">
+                                        <summary class="obs-step-summary">
+                                            <div class="step-num-sm">2</div>
+                                            Control Audio via OBS
+                                        </summary>
+                                        <div class="obs-step-content">
+                                            <p>Check the box that says <strong>"Control audio via OBS"</strong>. Ensure "Shutdown source when not visible" is unchecked.</p>
+                                        </div>
+                                    </details>
+                                    <details class="obs-step-group" open="">
+                                        <summary class="obs-step-summary">
+                                            <div class="step-num-sm">3</div>
+                                            Monitor and Output
+                                        </summary>
+                                        <div class="obs-step-content">
+                                            <p>In your OBS Audio Mixer, find "ChatVibes TTS". Click the gear icon > Advanced Audio Properties. Set Audio Monitoring to <strong>"Monitor and Output"</strong> so both you and stream can hear it.</p>
+                                        </div>
+                                    </details>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="form-check form-switch d-none d-lg-block">
                     <input class="form-check-input" type="checkbox" id="darkModeToggle">
                     <label class="form-check-label" for="darkModeToggle">Dark Mode</label>
@@ -72,7 +140,7 @@
 
         <div class="row g-4" id="dashboard-content" style="display: none;">
             <!-- Main column -->
-            <div class="col-12 col-md-8">
+            <div class="col-12 col-lg-8">
                 <!-- Tabs -->
                 <ul class="nav nav-tabs mb-3" role="tablist">
                     <li class="nav-item" role="presentation">
@@ -80,12 +148,8 @@
                             type="button" role="tab"><i data-lucide="radio" class="inline-icon" style="margin-right: 6px;"></i>Broadcaster</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-viewer-defaults"
-                            type="button" role="tab"><i data-lucide="settings-2" class="inline-icon" style="margin-right: 6px;"></i>Voice Defaults</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-integrations" type="button"
-                            role="tab"><i data-lucide="monitor-play" class="inline-icon" style="margin-right: 6px;"></i>OBS Setup</button>
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-viewer-defaults" type="button"
+                            role="tab"><i data-lucide="sliders-horizontal" class="inline-icon" style="margin-right: 6px;"></i>Voice Defaults</button>
                     </li>
                 </ul>
 
@@ -738,109 +802,21 @@
                             </div>
                         </div>
 
-                        <!-- Voice Preview - Mobile (visible on md and below) -->
-                        <div class="d-md-none mb-4">
-                            <div class="card voice-preview-card">
-                                <div class="card-header">Voice Preview</div>
-                                <div class="card-body">
-                                    <label for="voice-test-text-mobile" class="form-label">Test Message</label>
-                                    <textarea id="voice-test-text-mobile" class="form-control mb-2" rows="3"
-                                        maxlength="500">Welcome, everyone, to the stream!</textarea>
-                                    <div class="d-grid">
-                                        <button id="voice-test-btn-mobile" class="btn btn-primary" type="button">Send
-                                            Preview</button>
-                                    </div>
-                                    <!-- Audio Player Container -->
-                                    <div id="voice-preview-player-mobile" class="voice-preview-player mt-3"
-                                        style="display: none;">
-                                        <audio controls class="w-100">
-                                            <source id="voice-preview-source-mobile" type="audio/mpeg">
-                                            Your browser does not support the audio element.
-                                        </audio>
-                                        <small id="voice-preview-hint-mobile"
-                                            class="settings-changed-hint text-warning mt-1" style="display: none;">
-                                            <i><i data-lucide="triangle-alert" class="inline-icon"></i> Settings changed - regenerate for updated preview</i>
-                                        </small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
 
-                    <!-- OBS Setup Tab -->
-                    <div class="tab-pane fade" id="tab-integrations" role="tabpanel">
-                        <div class="card mb-4 shadow">
-                            <div class="card-header">ChatVibes OBS Setup</div>
-                            <div class="card-body">
-                                <p class="mb-3">To hear ChatVibes TTS alerts in your stream and for yourself, add it as
-                                    a Browser Source in OBS (or Streamlabs, etc.) and configure audio monitoring. The
-                                    URL below is a secure Browser Source URL with authentication tokens. For usage
-                                    instructions, visit the <a href="https://docs.wildcat.chat/wildcatttsdocs.html"
-                                        target="_blank">documentation page</a>.</p>
 
-                                <div class="row g-2 align-items-center tts-url-container mb-1">
-                                    <div class="col-12 col-md-9">
-                                        <input type="text" id="tts-url-field" class="form-control" readonly
-                                            placeholder="Your TTS URL will appear here...">
-                                    </div>
-                                    <div class="col-12 col-md-3 d-grid">
-                                        <button id="copy-tts-url-btn" class="btn btn-outline-primary" type="button">Copy
-                                            URL</button>
-                                    </div>
-                                </div>
-                                <p class="mb-3"><a href="#" id="regenerate-tts-url-btn"
-                                        class="link-secondary">Regenerate URL</a></p>
-
-                                <h6>Step 1: Add Browser Source</h6>
-                                <ol>
-                                    <li>In OBS, under 'Sources', click the '+' button.</li>
-                                    <li>Select 'Browser'.</li>
-                                    <li>Give it a name (e.g., "ChatVibes TTS").</li>
-                                    <li>In the properties window:
-                                        <ul>
-                                            <li><strong>URL:</strong> Paste the URL copied from above.</li>
-                                            <li><strong>Width &amp; Height:</strong> You can safely ignore these
-                                                settings, or set them to something small (e.g., 300x100), as this source
-                                                is for audio only.</li>
-                                            <li>Ensure "Control audio via OBS" is CHECKED.</li>
-                                            <li>For persistent audio, it's recommended to UNCHECK "Shutdown source when
-                                                not visible" and "Refresh browser when scene becomes active".</li>
-                                        </ul>
-                                    </li>
-                                    <li>Click 'OK'.</li>
-                                </ol>
-
-                                <h6 class="mt-3">Step 2: Enable Audio Monitoring</h6>
-                                <ol>
-                                    <li>In OBS, find your audio mixer (usually at the bottom).</li>
-                                    <li>Locate the audio source for "ChatVibes TTS" (or whatever you named it).</li>
-                                    <li>Click the gear icon (<i data-lucide="settings" class="inline-icon"></i>) next to its volume bar and select 'Advanced Audio
-                                        Properties'.</li>
-                                    <li>In the Advanced Audio Properties window, find your "ChatVibes TTS" source.</li>
-                                    <li>Under 'Audio Monitoring', select:
-                                        <ul>
-                                            <li><strong>"Monitor and Output"</strong> if you want to hear the TTS alerts
-                                                yourself AND have your stream hear them.</li>
-                                            <li><strong>"Monitor Only (mute output)"</strong> if you only want to hear
-                                                them yourself.</li>
-                                        </ul>
-                                    </li>
-                                    <li>Close the Advanced Audio Properties window.</li>
-                                </ol>
-                                <p class="fw-semibold">Important: Make sure the ChatVibes TTS browser source is unmuted
-                                    in your OBS audio mixer and the volume is at an appropriate level.</p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
 
             <!-- Sidebar column -->
-            <div class="col-12 col-md-4 d-none d-md-block">
+            <div class="col-12 col-md-4">
                 <div class="card sticky-top sticky-aside mb-4">
                     <div class="card-header">Voice Preview</div>
                     <div class="card-body">
-                        <label for="voice-test-text" class="form-label">Test Message</label>
+                        <div id="sidebar-voice-name" class="sidebar-voice-name">Friendly Person</div>
+                        <div id="sidebar-voice-tag" class="sidebar-voice-tag">Auto</div>
+                        <div class="obs-steps-label mb-1">Test Message</div>
                         <textarea id="voice-test-text" class="form-control mb-2" rows="3"
                             maxlength="500">Welcome, everyone, to the stream!</textarea>
                         <div class="d-grid">
@@ -856,6 +832,33 @@
                                 style="display: none;">
                                 <i><i data-lucide="triangle-alert" class="inline-icon"></i> Settings changed - regenerate for updated preview</i>
                             </small>
+                        </div>
+                        <!-- Current voice settings display -->
+                        <div class="sidebar-voice-meta mt-3">
+                            <div class="d-flex justify-content-between"><span>Pitch</span> <strong id="sidebar-pitch-val">0</strong></div>
+                            <div class="d-flex justify-content-between"><span>Speed</span> <strong id="sidebar-speed-val">1.0×</strong></div>
+                            <div class="d-flex justify-content-between"><span>Volume</span> <strong id="sidebar-volume-val">1.0</strong></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="card mb-4">
+                    <div class="card-body" style="padding: 14px 18px;">
+                        <div class="obs-steps-label mb-2">Quick Links</div>
+                        <div class="d-flex flex-column" style="gap: 6px;">
+                            <a href="https://wildcat.chat" target="_blank" class="d-flex align-items-center text-decoration-none text-muted">
+                                <i data-lucide="external-link" class="inline-icon" style="margin-right: 6px; width: 14px; height: 14px;"></i>
+                                Wildcat Chat
+                            </a>
+                            <a href="https://docs.wildcat.chat" target="_blank" class="d-flex align-items-center text-decoration-none text-muted">
+                                <i data-lucide="book" class="inline-icon" style="margin-right: 6px; width: 14px; height: 14px;"></i>
+                                Documentation
+                            </a>
+                            <a href="https://discord.gg/wildcat" target="_blank" class="d-flex align-items-center text-decoration-none text-muted">
+                                <i data-lucide="message-square" class="inline-icon" style="margin-right: 6px; width: 14px; height: 14px;"></i>
+                                Discord Community
+                            </a>
                         </div>
                     </div>
                 </div>
