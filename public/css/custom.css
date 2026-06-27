@@ -1601,6 +1601,23 @@ dialog.modal::backdrop {
     .voice-preview-player audio {
         height: 36px;
     }
+
+    /* Dashboard header: stack title above buttons on mobile */
+    .container > .d-flex.justify-content-between {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    /* OBS popover: full-width overlay on mobile */
+    .obs-popover {
+        position: fixed;
+        top: auto;
+        right: 12px;
+        left: 12px;
+        width: auto;
+        max-height: 80vh;
+        overflow-y: auto;
+    }
 }
 
 /* ===== OBS POPOVER ===== */
