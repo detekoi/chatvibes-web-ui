@@ -1712,7 +1712,7 @@ details[open] > .obs-step-summary::after { content: '−'; }
 .obs-note { font-size: .78rem; padding: 10px 12px; background: var(--bg-primary); border: 1px solid var(--border-color); line-height: 1.5; color: var(--text-primary); }
 .btn-obs {
   background: transparent; color: var(--accent-primary); border-color: var(--accent-primary);
-  padding: 5px 12px; font-weight: 700; font-size: .72rem; text-transform: uppercase; letter-spacing: .07em; display: inline-flex; align-items: center; gap: 5px; border: 2px solid; cursor: pointer; line-height: 1.2;
+  padding: 8px 14px; font-weight: 700; font-size: .72rem; text-transform: uppercase; letter-spacing: .07em; display: inline-flex; align-items: center; gap: 5px; border: 2px solid; cursor: pointer; line-height: 1.2;
   transition: background .12s, color .12s, border-color .12s;
   white-space: nowrap;
 }
@@ -1720,7 +1720,7 @@ details[open] > .obs-step-summary::after { content: '−'; }
 .btn-obs.is-open { background: var(--accent-primary); color: #fff; }
 
 .btn-header-logout {
-  padding: 5px 12px;
+  padding: 8px 14px;
   font-weight: 700;
   font-size: .72rem;
   text-transform: uppercase;
