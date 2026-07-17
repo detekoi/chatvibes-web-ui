@@ -30,6 +30,7 @@ interface Config {
   OBS_BROWSER_BASE_URL: string;
   GCLOUD_PROJECT: string | undefined;
   TWITCH_BOT_USERNAME: string;
+  TTS_BOT_URL: string;
 }
 
 // Load secrets directly from environment variables (mounted from Secret Manager)
@@ -49,6 +50,7 @@ const config: Config = {
   OBS_BROWSER_BASE_URL: process.env.OBS_BROWSER_BASE_URL || "https://tts.wildcat.chat",
   GCLOUD_PROJECT: process.env.GCLOUD_PROJECT,
   TWITCH_BOT_USERNAME: process.env.TWITCH_BOT_USERNAME || "",
+  TTS_BOT_URL: process.env.TTS_BOT_URL || "https://chatvibes-tts-service-h7kj56ct4q-uc.a.run.app",
 };
 
 // For local dev/emulator, provide defaults if secrets are not set

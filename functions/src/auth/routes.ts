@@ -366,9 +366,36 @@ router.get("/twitch/callback", async (req: Request, res: Response): Promise<void
         logger.error("Firestore (db) or SecretManagerServiceClient not initialized. Cannot store Twitch tokens.");
       }
 
-      // EventSub subscriptions for the authenticated streamer are handled automatically
-      // by the TTS backend's Firestore listener whenever the user document is modified.
-      logger.info({ userLogin: twitchUser.login }, "[AuthCallback] Delegating EventSub setup to backend via Firestore");
+      // Explicitly trigger EventSub subscription setup on the TTS backend.
+      // We cannot rely solely on the Firestore listener because Cloud Run may
+      // be scaled to zero when the user authenticates, meaning no listener is
+      // running to react to the document change.
+      try {
+        const ttsBotUrl = config.TTS_BOT_URL;
+        if (ttsBotUrl) {
+          logger.info({ userLogin: twitchUser.login, ttsBotUrl }, "[AuthCallback] Calling TTS backend to set up EventSub subscriptions");
+          const eventSubResponse = await axios.post(`${ttsBotUrl}/api/setup-eventsub`, {
+            channelLogin: twitchUser.login,
+            userId: twitchUser.id,
+          }, { timeout: 15000 });
+          logger.info({
+            userLogin: twitchUser.login,
+            successful: eventSubResponse.data?.successful?.length ?? 0,
+            failed: eventSubResponse.data?.failed?.length ?? 0,
+          }, "[AuthCallback] EventSub setup completed via TTS backend");
+        } else {
+          logger.warn("[AuthCallback] TTS_BOT_URL not configured — skipping explicit EventSub setup");
+        }
+      } catch (eventSubError) {
+        // Best-effort: don't block the auth flow if EventSub setup fails.
+        // The Firestore listener will eventually pick it up when the backend is running.
+        const esErr = eventSubError as { message: string; response?: { data?: unknown } };
+        logger.warn({
+          userLogin: twitchUser.login,
+          error: esErr.message,
+          responseData: esErr.response?.data,
+        }, "[AuthCallback] EventSub setup call failed (best-effort) — Firestore listener will retry");
+      }
 
       return res.redirect(frontendAuthCompleteUrl.toString());
     } else {
