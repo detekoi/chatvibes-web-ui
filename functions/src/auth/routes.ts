@@ -366,6 +366,54 @@ router.get("/twitch/callback", async (req: Request, res: Response): Promise<void
         logger.error("Firestore (db) or SecretManagerServiceClient not initialized. Cannot store Twitch tokens.");
       }
 
+      // Auto-mod: add the bot as a moderator in the broadcaster's channel.
+      // This ensures the bot can send chat messages without needing `channel:bot`
+      // and appears in the channel's mod list immediately after onboarding.
+      try {
+        const botUsername = config.TWITCH_BOT_USERNAME;
+        if (botUsername && accessToken) {
+          // Resolve bot login → user ID
+          const botLookup = await axios.get<TwitchUsersResponse>(
+            `https://api.twitch.tv/helix/users?login=${botUsername}`, {
+              headers: {
+                "Authorization": `Bearer ${accessToken}`,
+                "Client-Id": secrets.TWITCH_CLIENT_ID,
+              },
+            },
+          );
+          const botUserId = botLookup.data.data[0]?.id;
+          if (botUserId) {
+            await axios.post(
+              `https://api.twitch.tv/helix/moderation/moderators?broadcaster_id=${twitchUser.id}&user_id=${botUserId}`,
+              null,
+              {
+                headers: {
+                  "Authorization": `Bearer ${accessToken}`,
+                  "Client-Id": secrets.TWITCH_CLIENT_ID,
+                },
+                timeout: 10000,
+              },
+            );
+            logger.info({ userLogin: twitchUser.login, botUsername, botUserId },
+              "[AuthCallback] Bot added as moderator in channel");
+          } else {
+            logger.warn({ botUsername }, "[AuthCallback] Could not resolve bot user ID — skipping auto-mod");
+          }
+        }
+      } catch (modError) {
+        // 422 = already a mod, which is fine. Any other error is best-effort.
+        const mErr = modError as { message: string; response?: { status?: number; data?: unknown } };
+        if (mErr.response?.status === 422) {
+          logger.info({ userLogin: twitchUser.login }, "[AuthCallback] Bot is already a moderator in channel");
+        } else {
+          logger.warn({
+            userLogin: twitchUser.login,
+            error: mErr.message,
+            status: mErr.response?.status,
+          }, "[AuthCallback] Failed to auto-mod bot (best-effort)");
+        }
+      }
+
       // Explicitly trigger EventSub subscription setup on the TTS backend.
       // We cannot rely solely on the Firestore listener because Cloud Run may
       // be scaled to zero when the user authenticates, meaning no listener is
