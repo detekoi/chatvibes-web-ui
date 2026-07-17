@@ -7,7 +7,7 @@ import { db, COLLECTIONS } from "../services/firestore";
 import { getValidTwitchTokenForUser, getUserIdFromUsername, addModerator } from "../services/twitch";
 import { authenticateApiRequest, assertAuthenticated } from "../middleware/auth";
 import { secrets, config, secretsLoadedPromise } from "../config";
-import { logger, redactSensitive } from "../logger";
+import { logger } from "../logger";
 import { errorResponse } from "./utils";
 
 const router: Router = express.Router();
@@ -118,7 +118,7 @@ router.post("/add", authenticateApiRequest, async (req: Request, res: Response):
 
     if (config.TWITCH_BOT_USERNAME) {
       try {
-        log.debug({ botUsername: redactSensitive(config.TWITCH_BOT_USERNAME) }, "Attempting to add bot as moderator");
+        log.debug({ botUsername: config.TWITCH_BOT_USERNAME }, "Attempting to add bot as moderator");
         const botUserId = await getUserIdFromUsername(config.TWITCH_BOT_USERNAME, secrets);
 
         if (botUserId) {
@@ -129,7 +129,7 @@ router.post("/add", authenticateApiRequest, async (req: Request, res: Response):
             log.warn({ error: modStatus.error }, "Failed to add bot as moderator");
           }
         } else {
-          log.warn({ botUsername: redactSensitive(config.TWITCH_BOT_USERNAME) }, "Could not find user ID for bot username");
+          log.warn({ botUsername: config.TWITCH_BOT_USERNAME }, "Could not find user ID for bot username");
           modStatus = { success: false, error: "Bot user not found" };
         }
       } catch (modError) {
