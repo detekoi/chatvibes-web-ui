@@ -422,10 +422,14 @@ router.get("/twitch/callback", async (req: Request, res: Response): Promise<void
         const ttsBotUrl = config.TTS_BOT_URL;
         if (ttsBotUrl) {
           logger.info({ userLogin: twitchUser.login, ttsBotUrl }, "[AuthCallback] Calling TTS backend to set up EventSub subscriptions");
+          // The endpoint requires a session token whose userLogin matches
+          // channelLogin; it resolves the Twitch user ID itself.
           const eventSubResponse = await axios.post(`${ttsBotUrl}/api/setup-eventsub`, {
             channelLogin: twitchUser.login,
-            userId: twitchUser.id,
-          }, { timeout: 15000 });
+          }, {
+            timeout: 15000,
+            headers: { Authorization: `Bearer ${appSessionToken}` },
+          });
           logger.info({
             userLogin: twitchUser.login,
             successful: eventSubResponse.data?.successful?.length ?? 0,
