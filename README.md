@@ -4,27 +4,27 @@ Web interface for the WildcatTTS Twitch bot.
 
 ## Description
 
-WildcatTTS Bot Management is a web application that allows approved Twitch streamers to manage the [WildcatTTS **Text-to-Speech (TTS)** bot](https://github.com/detekoi/chatvibes) for their channel. Users can log in with their Twitch account to add or remove the bot, and view its current status. The application features a dynamic, animated background.
+WildcatTTS Web UI is a web application for Twitch streamers to manage the [WildcatTTS Text-to-Speech (TTS) bot](https://github.com/detekoi/chatvibes). Streamers can log in with a Twitch account to add or remove the bot and check its status. The application features an animated background.
 
-> **Important:** Access to WildcatTTS is currently invite-only. The management interface will show an access denied message for unapproved channels. If you'd like to request access, please contact me via [this contact form](https://parfaitfair.com/#contact).
+> **Note:** Access to WildcatTTS is invite-only. The web management interface shows an access denied message for unapproved channels. If you want to request access, submit [this contact form](https://parfaitfair.com/#contact).
 
-Currently, the WildcatTTS web UI is hosted [here](https://tts.wildcat.chat/) *(invite-only access)*.
+The WildcatTTS web UI is hosted at [https://tts.wildcat.chat/](https://tts.wildcat.chat/) *(invite-only access)*.
 
 ## Features
 
-* **Twitch Authentication:** Users can log in securely using their Twitch account.
-* **Bot Management:** Add or remove the ChatVibes bot from your Twitch channel through a simple interface (for approved channels only).
-* **Bot Status:** View the current status (active/inactive) of the bot for your channel.
-* **Dynamic Background:** An animated static-like background enhances the user interface.
-* **Firebase Integration:** Utilizes Firebase for backend functions and hosting.
-* **OBS Setup Guidance:** Instructions on how to integrate ChatVibes TTS audio into their streaming software.
+* **Twitch Authentication:** Users can log in securely with their Twitch account.
+* **Bot Management:** Add or remove the WildcatTTS bot on approved Twitch channels.
+* **Bot Status:** View the active or inactive status of the bot for your channel.
+* **Dynamic Background:** Animated background for the user interface.
+* **Firebase Integration:** Uses Firebase Cloud Functions and Firebase Hosting for backend operations.
+* **OBS Setup Guidance:** Setup instructions to integrate WildcatTTS audio into streaming software.
 
 ## Technologies Used
 
 * **Frontend:**
     * HTML
     * CSS
-    * TypeScript (compiled to JavaScript)
+    * TypeScript (compiles to JavaScript)
     * Bootstrap 5.3.3
 * **Backend:**
     * Node.js
@@ -32,10 +32,10 @@ Currently, the WildcatTTS web UI is hosted [here](https://tts.wildcat.chat/) *(i
     * Firebase Cloud Functions
     * Firebase Hosting
 * **Authentication:**
-    * Twitch API (OAuth)
+    * Twitch API (OAuth 2.0)
     * JWT (JSON Web Tokens)
 * **Database:**
-    * Firestore (Google Cloud Firestore)
+    * Google Cloud Firestore
 * **Development Tools:**
     * npm
     * ESLint
@@ -45,75 +45,74 @@ Currently, the WildcatTTS web UI is hosted [here](https://tts.wildcat.chat/) *(i
 
 ### Frontend Development
 
-**⚠️ IMPORTANT: Always edit TypeScript source files, not compiled JavaScript!**
+CAUTION: Edit TypeScript source files in `/public/js/**/*.ts`. Do not edit compiled JavaScript files in `/public/js/**/*.js` directly because future builds overwrite them.
 
-- TypeScript source files are located in `/public/js/**/*.ts`
-- Compiled JavaScript files in `/public/js/**/*.js` are generated automatically
-- After editing TypeScript files, compile with:
+- TypeScript source files are located in `/public/js/**/*.ts`.
+- Compiled JavaScript files in `/public/js/**/*.js` generate automatically.
+- To compile TypeScript files once, run:
   ```bash
   npm run build:frontend
   ```
-- For automatic recompilation during development:
+- To compile TypeScript files automatically during development, run:
   ```bash
   npm run watch:frontend
   ```
-- **Never edit `.js` files directly** - they will be overwritten on the next build
 
-## OAuth Scopes & Permissions
+## OAuth Scopes and Permissions
 
-### Broadcaster/Streamer OAuth Scopes
+### Broadcaster OAuth Scopes
 
-ChatVibes requires the following scopes for full bot functionality:
+WildcatTTS requires these OAuth scopes for complete bot functionality:
 
-* **`user:read:email`** - Access user email for account identification
-* **`user:read:chat`** - Read chat messages via EventSub
-* **`user:write:chat`** - Send chat messages and TTS responses via EventSub
-* **`channel:read:redemptions`** - Read channel point redemptions
-* **`channel:manage:redemptions`** - Refund channel points for rejected TTS messages
-* **`channel:read:subscriptions`** - Detect subscription events for TTS announcements
-* **`bits:read`** - Detect bits/cheer events for TTS requirements and announcements
-* **`moderator:read:followers`** - Detect follow events for TTS announcements
-* **`channel:manage:moderators`** - Add the bot as a moderator automatically
+* **`user:read:email`** - Reads user email for account identification.
+* **`user:read:chat`** - Reads chat messages through Twitch EventSub.
+* **`user:write:chat`** - Sends chat messages and TTS responses through Twitch EventSub.
+* **`channel:read:redemptions`** - Reads Channel Point redemptions.
+* **`channel:manage:redemptions`** - Refunds Channel Points for rejected TTS messages.
+* **`channel:read:subscriptions`** - Detects subscription events for TTS announcements.
+* **`bits:read`** - Detects Bit cheer events for TTS requirements and announcements.
+* **`moderator:read:followers`** - Detects follower events for TTS announcements.
+* **`channel:manage:moderators`** - Adds the bot as a channel moderator automatically.
 
-These scopes enable the ChatVibes bot to:
-- Monitor the broadcaster's chat via Twitch EventSub
-- Read and respond to TTS commands
-- Announce subscription, bits, and follower events
-- Support bits-gated TTS modes
-- Integrate with channel point redemptions
+These scopes permit the WildcatTTS bot to perform these actions:
+- Monitor chat through Twitch EventSub.
+- Read and respond to `!tts` commands.
+- Announce subscription, Bit cheer, and follower events.
+- Enforce Bit minimum requirements for TTS.
+- Process Channel Point redemptions.
 
 ### Viewer OAuth Scopes
 
-Viewers who authenticate to set personal TTS preferences do not require any special OAuth scopes beyond basic Twitch authentication. Viewer authentication uses an empty scope list to minimize permissions.
+Viewers who log in to set personal TTS preferences require no special OAuth scopes beyond basic Twitch authentication. Viewer authentication uses an empty scope list to minimize permissions.
 
 ## Setup
 
-1.  **Prerequisites:**
-    * Node.js and npm installed.
-    * Firebase CLI installed and configured.
-2.  **Firebase Project:**
-    * Set up a Firebase project.
-    * Enable Firestore and Authentication.
-    * Configure Firebase Hosting and Cloud Functions.
-3.  **Environment Variables:**
-    * **For Local Development (Firebase Emulator):** Create a `.env.<YOUR_PROJECT_ID>` file (e.g., `.env.chatvibestts`) in the `functions` directory. Add your variables here (e.g., `TWITCH_CLIENT_ID=your_local_test_id`). The Firebase Emulator will load these automatically when running locally.
-    * **For Deployed Functions (Live Environment):** Environment variables must be set directly in the Google Cloud Console for your Cloud Function. Navigate to your function in GCP, edit it, and add the variables under "Runtime environment variables." (Note: `.env` files are not deployed with the function code for runtime configuration).
-4.  **Install Dependencies:**
-    * Navigate to the `functions` directory.
-    * Run `npm install` to install backend dependencies.
-5.  **Deploy:**
-    * Deploy Firebase Hosting and Cloud Functions using the Firebase CLI: `firebase deploy`.
+1. **Prerequisites:**
+   * Install Node.js and npm.
+   * Install and configure the Firebase CLI.
+2. **Firebase Project:**
+   * Create a Firebase project.
+   * Enable Cloud Firestore and Authentication.
+   * Configure Firebase Hosting and Cloud Functions.
+3. **Environment Variables:**
+   * **For Local Development (Firebase Emulator):** Create a `.env.<YOUR_PROJECT_ID>` file (for example, `.env.chatvibestts`) in the `functions/` directory. Add local variables to this file.
+   * **For Deployed Functions:** Set runtime environment variables directly in Google Cloud Console under "Runtime environment variables".
+4. **Install Dependencies:**
+   * Open the `functions/` directory in your terminal.
+   * Run `npm install` to install backend dependencies.
+5. **Deploy:**
+   * Run `firebase deploy` to deploy Firebase Hosting and Cloud Functions.
 
 ## Usage
 
-**Note:** Access is restricted to approved channels only. If your channel is not on the allow-list, you'll see an access denied message. [Request access via this contact form](https://parfaitfair.com/#contact).
+**Note:** Access is restricted to approved channels. If your channel is not approved, the application displays an access denied message. [Request access through this contact form](https://parfaitfair.com/#contact).
 
-1.  Access the hosted application URL.
-2.  Click on the "Login with Twitch" button to authenticate.
-3.  Once authenticated, you will be redirected to the dashboard.
-4.  On the dashboard (for approved channels), you can:
-    * View the current status of the ChatVibes bot for your channel.
-    * Add the bot to your channel if it's not already active.
-    * Remove the bot from your channel if it is active.
-    * Access instructions for setting up ChatVibes in OBS.
-    * Logout from the application.
+1. Open the hosted application URL.
+2. Select **Login with Twitch** to authenticate.
+3. After authentication completes, the dashboard loads.
+4. On approved channel dashboards, you can perform these actions:
+    * View the active or inactive status of the WildcatTTS bot for your channel.
+    * Add the bot to your channel.
+    * Remove the bot from your channel.
+    * Read instructions for OBS audio setup.
+    * Log out of the application.
