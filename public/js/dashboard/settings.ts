@@ -53,14 +53,18 @@ export function initSettingsModule(
   const defaultLanguageSelect = document.getElementById('default-language') as HTMLSelectElement | null;
 
   if (defaultLanguageSelect) {
-    const options = [
-      "Automatic", "Chinese", "Chinese,Yue", "English", "Arabic", "Russian", "Spanish", "French", "Portuguese",
-      "German", "Turkish", "Dutch", "Ukrainian", "Vietnamese", "Indonesian", "Japanese", "Italian",
-      "Korean", "Thai", "Polish", "Romanian", "Greek", "Czech", "Finnish", "Hindi", "Bulgarian",
-      "Danish", "Hebrew", "Malay", "Persian", "Slovak", "Swedish", "Croatian", "Filipino",
-      "Hungarian", "Norwegian", "Slovenian", "Catalan", "Nynorsk", "Tamil", "Afrikaans"
+    // "auto" is the value MiniMax's language_boost enum actually takes — the
+    // viewer page already sends it. "Automatic" is only a display label.
+    const options: { value: string; label: string }[] = [
+      { value: "auto", label: "Automatic" },
+      ...["Chinese", "Chinese,Yue", "English", "Arabic", "Russian", "Spanish", "French", "Portuguese",
+        "German", "Turkish", "Dutch", "Ukrainian", "Vietnamese", "Indonesian", "Japanese", "Italian",
+        "Korean", "Thai", "Polish", "Romanian", "Greek", "Czech", "Finnish", "Hindi", "Bulgarian",
+        "Danish", "Hebrew", "Malay", "Persian", "Slovak", "Swedish", "Croatian", "Filipino",
+        "Hungarian", "Norwegian", "Slovenian", "Catalan", "Nynorsk", "Tamil", "Afrikaans"
+      ].map(lang => ({ value: lang, label: lang }))
     ];
-    defaultLanguageSelect.innerHTML = options.map(opt => `<option value="${opt}">${opt}</option>`).join('');
+    defaultLanguageSelect.innerHTML = options.map(opt => `<option value="${opt.value}">${opt.label}</option>`).join('');
   }
   const englishNormalizationCheckbox = document.getElementById('english-normalization') as HTMLInputElement | null;
   const emoteModeSelect = document.getElementById('emote-mode') as HTMLSelectElement | null;
@@ -221,7 +225,7 @@ export function initSettingsModule(
       });
     }
 
-    if (defaultLanguageSelect) defaultLanguageSelect.addEventListener('change', () => { saveSettingWrapper('languageBoost', defaultLanguageSelect.value || 'Automatic', 'Default Language'); updateSidebarPreview(); });
+    if (defaultLanguageSelect) defaultLanguageSelect.addEventListener('change', () => { saveSettingWrapper('languageBoost', defaultLanguageSelect.value || 'auto', 'Default Language'); updateSidebarPreview(); });
     if (englishNormalizationCheckbox) englishNormalizationCheckbox.addEventListener('change', () => { saveSettingWrapper('englishNormalization', !!englishNormalizationCheckbox.checked, 'English Normalization'); updateSidebarPreview(); });
     if (emoteModeSelect) emoteModeSelect.addEventListener('change', () => saveSettingWrapper('emoteMode', emoteModeSelect.value || 'describe', 'Emote Mode'));
 
@@ -260,7 +264,7 @@ export function initSettingsModule(
     const pitch = parseInt(defaultPitchSlider?.value || '0', 10);
     const speed = parseFloat(defaultSpeedSlider?.value || '1.0');
     const volume = parseFloat(defaultVolumeSlider?.value || '1.0');
-    const languageBoost = defaultLanguageSelect?.value || 'Automatic';
+    const languageBoost = defaultLanguageSelect?.value || 'auto';
     return { voiceId, emotion, pitch, speed, volume, languageBoost };
   }
 
@@ -279,14 +283,14 @@ export function initSettingsModule(
     const languageValEl = document.getElementById('sidebar-language-val');
     const engNormValEl = document.getElementById('sidebar-eng-norm-val');
 
-    const languageBoost = defaultLanguageSelect?.value || 'Automatic';
+    const languageBoost = defaultLanguageSelect?.value || 'auto';
 
     if (voiceNameEl) voiceNameEl.textContent = formatVoiceName(voiceId);
     if (pitchValEl) pitchValEl.textContent = String(pitch);
     if (speedValEl) speedValEl.textContent = speed.toFixed(1) + '×';
     if (volumeValEl) volumeValEl.textContent = volume.toFixed(1);
     if (emotionValEl) emotionValEl.textContent = emotion === 'auto' ? 'Auto' : emotion.charAt(0).toUpperCase() + emotion.slice(1);
-    if (languageValEl) languageValEl.textContent = languageBoost;
+    if (languageValEl) languageValEl.textContent = languageBoost === 'auto' ? 'Automatic' : languageBoost;
     if (engNormValEl) engNormValEl.textContent = englishNormalizationCheckbox?.checked ? 'On' : 'Off';
   }
 
@@ -627,7 +631,7 @@ export function initSettingsModule(
         emotion: 'auto',
         pitch: 0,
         speed: 1.0,
-        languageBoost: 'Automatic',
+        languageBoost: 'auto',
         englishNormalization: false,
         ignoredUsers: ['spammer1', 'troll2']
       };
@@ -699,7 +703,12 @@ export function initSettingsModule(
 
     if (settings.voiceId) updateVolumeSlider(settings.voiceId);
 
-    if (defaultLanguageSelect) defaultLanguageSelect.value = settings.languageBoost || 'Automatic';
+    // Channels saved before the dropdown used "auto" still store the old
+    // "Automatic"/"None" spellings; map them so the right option stays selected.
+    if (defaultLanguageSelect) {
+      const stored = settings.languageBoost || 'auto';
+      defaultLanguageSelect.value = (stored === 'Automatic' || stored === 'None') ? 'auto' : stored;
+    }
     if (englishNormalizationCheckbox) englishNormalizationCheckbox.checked = settings.englishNormalization || false;
     if (emoteModeSelect) emoteModeSelect.value = settings.emoteMode || 'describe';
 
