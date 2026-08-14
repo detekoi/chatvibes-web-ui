@@ -499,6 +499,38 @@ describe('Settings API Integration Tests (Mocked Firestore)', () => {
       );
     });
 
+    it('should not let "constructor" slip past the cap', async () => {
+      // It is a legal match key and an Object.prototype member, so an `in`
+      // check would report it as already present and skip the cap.
+      const full: Record<string, string> = {};
+      for (let i = 0; i < 100; i++) full[`word${i}`] = 'thing';
+      mockExisting(full);
+
+      await request(app)
+        .post(`/api/tts/pronunciations/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ match: 'constructor', say: 'con struct or' })
+        .expect(400);
+
+      expect((db as any).set).not.toHaveBeenCalled();
+    });
+
+    it('should accept "constructor" as an ordinary entry under the cap', async () => {
+      mockExisting({});
+      ((db as any).set as any).mockResolvedValueOnce({} as any);
+
+      await request(app)
+        .post(`/api/tts/pronunciations/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ match: 'constructor', say: 'con struct or' })
+        .expect(200);
+
+      expect((db as any).set).toHaveBeenCalledWith(
+        { pronunciations: { constructor: 'con struct or' } },
+        { merge: true }
+      );
+    });
+
     it('should handle a channel with no pronunciations field yet', async () => {
       mockExisting(null);
       ((db as any).set as any).mockResolvedValueOnce({} as any);

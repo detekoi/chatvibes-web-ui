@@ -289,10 +289,12 @@ router.post("/tts/pronunciations/channel/:channelName", authenticateApiRequest, 
         const docRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(req.user.userId);
 
         // The cap counts stored entries, so updating an existing key is always
-        // allowed even at the limit.
+        // allowed even at the limit. hasOwn rather than `in`, which also sees
+        // Object.prototype members: "constructor" is a legal match key and would
+        // otherwise look like an existing entry and skip the cap check.
         const snap = await docRef.get();
         const existing = (snap.exists ? snap.data()?.pronunciations : null) || {};
-        const isNew = !(normalizedMatch in existing);
+        const isNew = !Object.hasOwn(existing, normalizedMatch);
         if (isNew && Object.keys(existing).length >= PRONUNCIATION_LIMITS.MAX_CUSTOM_ENTRIES) {
             errorResponse(res, 400, `Limit of ${PRONUNCIATION_LIMITS.MAX_CUSTOM_ENTRIES} custom pronunciations reached. Remove one first.`);
             return;
