@@ -489,14 +489,13 @@ export function initSettingsModule(
     });
     defaultVoiceDropdown.setVoices(allVoices);
 
-    // Init Calibration Dropdown
+    // Init Calibration Dropdown. VoiceCalibration only handles "Edit" clicks in
+    // the list, which set the dropdown value programmatically — picking a voice
+    // from the dropdown directly has to update the slider itself. voiceCalibration
+    // is assigned just below and the callback only fires on user interaction.
     calibrationVoiceDropdown = new VoiceDropdown({
       containerId: 'calibration',
-      onSelect: () => { }, // Handled by VoiceCalibration wrapper usually, but VoiceCalibration sets logic?
-      // Actually VoiceCalibration doesn't control the dropdown selection event, the dropdown does.
-      // VoiceCalibration only listens to clicks on "Edit" in the list, which sets the dropdown value programmatically.
-      // But user CAN select from dropdown manually to calibrate.
-      // So we need a callback here to update the slider to the selected voice's current volume.
+      onSelect: (voiceId) => voiceCalibration?.selectVoice(voiceId),
     });
     calibrationVoiceDropdown.setVoices(allVoices);
 
@@ -522,20 +521,6 @@ export function initSettingsModule(
       saveBtnId: 'calibration-save-btn',
       listId: 'calibrated-voices-list'
     });
-
-    // Fix Calibration Dropdown onSelect
-    // We need to inject the logic to update slider when user picks a voice from list
-    // But VoiceDropdown is already created. We passed an empty onSelect.
-    // We can't change it easily unless we expose a setter or recreate.
-    // Wait, VoiceDropdown just calls `this.onSelect(voice)`.
-    // I should have passed the logic in the constructor.
-    // Let's create a wrapper function.
-    const handleCalibrationVoiceSelect = (voiceId: string) => {
-      voiceCalibration?.selectVoice(voiceId); // Re-use selectVoice to update slider state
-    };
-    // Re-create or hack?
-    // JS class properties are mutable.
-    (calibrationVoiceDropdown as any).onSelect = handleCalibrationVoiceSelect;
 
     attachVoicePreview();
     setupAutoSaveListeners();
@@ -575,7 +560,17 @@ export function initSettingsModule(
         lookupResult.style.display = 'block';
         if (data.voiceId) {
           lookupResult.className = 'mt-3 alert alert-success';
-          lookupResult.innerHTML = `<div>User <strong>${data.username}</strong> has set custom voice: <strong>${data.voiceId}</strong></div>`;
+          // Both values are attacker-controlled — the username is echoed back
+          // from the lookup and the voice ID is whatever the viewer stored — so
+          // build the node instead of interpolating into innerHTML.
+          const strong = (text: string): HTMLElement => {
+            const el = document.createElement('strong');
+            el.textContent = text;
+            return el;
+          };
+          const summary = document.createElement('div');
+          summary.append('User ', strong(data.username), ' has set custom voice: ', strong(data.voiceId));
+          lookupResult.replaceChildren(summary);
 
           if (allVoices.includes(data.voiceId)) {
             const calibrateBtn = document.createElement('button');

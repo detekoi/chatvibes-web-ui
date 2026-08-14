@@ -6,8 +6,11 @@ import express, { Request, Response, Router } from "express";
 import { db, COLLECTIONS } from "../services/firestore";
 import { validateSpeed, validatePitch, validateEmotion, validateLanguageBoost, normalizeEmotion } from "../services/utils";
 import { loadGlobalUserPreferences, ViewerPreferences } from "../services/preferences";
+import { RELEASED_VOICES } from "../services/voice-list";
 import { authenticateApiRequest, assertAuthenticated } from "../middleware/auth";
 import { logger } from "../logger";
+
+const VOICE_IDS = new Set(RELEASED_VOICES);
 
 const router: Router = express.Router();
 
@@ -51,7 +54,14 @@ function validateAndBuildUpdateData(
   const updateData: Partial<ViewerPreferences> = {};
 
   if (updates.voiceId !== undefined) {
-    updateData.voiceId = updates.voiceId || null;
+    // Unlike its siblings this used to accept any string, which let a viewer
+    // store arbitrary text that the broadcaster's dashboard later renders.
+    if (!updates.voiceId || VOICE_IDS.has(updates.voiceId)) {
+      updateData.voiceId = updates.voiceId || null;
+    } else {
+      res.status(400).json({ error: "Invalid voiceId value" });
+      return null;
+    }
   }
   if (updates.pitch !== undefined) {
     if (updates.pitch === null || validatePitch(updates.pitch)) {

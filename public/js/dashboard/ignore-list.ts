@@ -124,8 +124,6 @@ export function initIgnoreListModule(
       if (response.ok) {
         inputEl.value = '';
         onChangeCallback?.();
-      } else if (response.status === 500 || response.status === 404) {
-        showToast('Settings management is not available yet. The bot needs the latest REST API endpoints.', 'warning');
       } else {
         const errorData = await response.json().catch(() => ({ error: 'Unknown error' })) as IgnoreListErrorResponse;
         showToast(`Failed to add user: ${errorData.error}`, 'error');
@@ -164,8 +162,6 @@ export function initIgnoreListModule(
       });
       if (response.ok) {
         onChangeCallback?.();
-      } else if (response.status === 500 || response.status === 404) {
-        showToast('Settings management is not available yet. The bot needs the latest REST API endpoints.', 'warning');
       } else {
         const errorData = await response.json().catch(() => ({ error: 'Unknown error' })) as IgnoreListErrorResponse;
         showToast(`Failed to remove user: ${errorData.error}`, 'error');

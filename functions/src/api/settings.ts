@@ -8,8 +8,11 @@ import { authenticateApiRequest, authorizeChannelAccess, AuthenticatedRequest } 
 import { logger } from "../logger";
 import { errorResponse } from "./utils";
 import { validateSpeed, validatePitch, validateEmotion, validateLanguageBoost } from "../services/utils";
+import { RELEASED_VOICES } from "../services/voice-list";
 
 const router: Router = express.Router();
+
+const VOICE_IDS = new Set(RELEASED_VOICES);
 
 // ==========================================
 // TTS SETTINGS
@@ -62,14 +65,16 @@ function validateTtsSetting(key: string, value: unknown): boolean {
     case "bitsMinimumAmount":
         return typeof value === "number" && Number.isInteger(value) && value >= 0;
     case "voiceId":
-        return typeof value === "string" && value.length > 0;
+        return typeof value === "string" && VOICE_IDS.has(value);
     case "youtubeHandle":
         return typeof value === "string" && value.length <= 100;
-    case "bannedWords":
-        return Array.isArray(value) && value.every((w) => typeof w === "string");
     default:
-        if (/^voiceVolumes\.[A-Za-z0-9_]+$/.test(key)) {
-            return typeof value === "number" && value > 0 && value <= 10;
+        // Voice IDs are not restricted to a simple charset — many contain
+        // hyphens, spaces and parentheses ("Chinese (Mandarin)_News_Anchor") —
+        // so match the prefix and check the remainder against the voice list.
+        if (key.startsWith("voiceVolumes.")) {
+            return VOICE_IDS.has(key.slice("voiceVolumes.".length)) &&
+                typeof value === "number" && value > 0 && value <= 10;
         }
         return false;
     }

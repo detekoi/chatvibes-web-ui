@@ -108,7 +108,7 @@ describe('Settings API Integration Tests (Mocked Firestore)', () => {
     it('should return 401 without authentication', async () => {
       await request(app)
         .put(`/api/tts/settings/channel/${channelName}`)
-        .send({ key: 'voiceId', value: 'test-voice' })
+        .send({ key: 'voiceId', value: 'Friendly_Person' })
         .expect(401);
     });
 
@@ -116,7 +116,7 @@ describe('Settings API Integration Tests (Mocked Firestore)', () => {
       await request(app)
         .put(`/api/tts/settings/channel/${channelName}`)
         .set('Authorization', `Bearer ${authToken}`)
-        .send({ value: 'test-voice' })
+        .send({ value: 'Friendly_Person' })
         .expect(400);
     });
 
@@ -126,13 +126,13 @@ describe('Settings API Integration Tests (Mocked Firestore)', () => {
       const response = await request(app)
         .put(`/api/tts/settings/channel/${channelName}`)
         .set('Authorization', `Bearer ${authToken}`)
-        .send({ key: 'voiceId', value: 'test-voice' })
+        .send({ key: 'voiceId', value: 'Friendly_Person' })
         .expect(200);
 
       expect(response.body).toEqual({ success: true, message: 'Setting updated' });
       expect(db.collection).toHaveBeenCalledWith('ttsChannelConfigs');
       expect(db.doc).toHaveBeenCalledWith(testUser.userId);
-      expect((db as any).set).toHaveBeenCalledWith({ voiceId: 'test-voice' }, { merge: true });
+      expect((db as any).set).toHaveBeenCalledWith({ voiceId: 'Friendly_Person' }, { merge: true });
     });
 
     it.each([
@@ -141,6 +141,8 @@ describe('Settings API Integration Tests (Mocked Firestore)', () => {
       ['an out-of-range speed', { key: 'speed', value: 99 }],
       ['an unknown emote mode', { key: 'emoteMode', value: 'shout' }],
       ['a negative bits minimum', { key: 'bitsMinimumAmount', value: -1 }],
+      ['an unknown voice', { key: 'voiceId', value: 'Not_A_Real_Voice' }],
+      ['a volume for an unknown voice', { key: 'voiceVolumes.Not_A_Real_Voice', value: 2 }],
     ])('should reject %s without writing', async (_label, body) => {
       await request(app)
         .put(`/api/tts/settings/channel/${channelName}`)
@@ -178,6 +180,26 @@ describe('Settings API Integration Tests (Mocked Firestore)', () => {
 
       expect((db as any).set).toHaveBeenCalledWith(
         { voiceVolumes: { Friendly_Person: 2.5 } },
+        { merge: true }
+      );
+    });
+
+    // Voice IDs are not plain identifiers: many contain hyphens, spaces and
+    // parentheses, and a charset-based check silently rejects ~14% of the catalogue.
+    it.each([
+      'English_Gentle-voiced_man',
+      'Chinese (Mandarin)_News_Anchor',
+    ])('should accept a volume for voice %s', async (voiceId) => {
+      ((db as any).set as any).mockResolvedValueOnce({} as any);
+
+      await request(app)
+        .put(`/api/tts/settings/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ key: `voiceVolumes.${voiceId}`, value: 2.5 })
+        .expect(200);
+
+      expect((db as any).set).toHaveBeenCalledWith(
+        { voiceVolumes: { [voiceId]: 2.5 } },
         { merge: true }
       );
     });
