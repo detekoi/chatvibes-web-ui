@@ -6,7 +6,7 @@ export interface BannedWordsModule {
 }
 
 interface BannedWordsConfig {
-    botApiBaseUrl: string;
+    apiPrefix: string;
     testMode: boolean;
 }
 
@@ -19,7 +19,7 @@ export function initBannedWordsModule(
     config: BannedWordsConfig,
     services: BannedWordsServices
 ): BannedWordsModule {
-    const { botApiBaseUrl, testMode } = config;
+    const { apiPrefix, testMode } = config;
     let onChange: (() => void) | null = null;
 
     const listEl = document.getElementById('tts-banned-words-list') as HTMLUListElement | null;
@@ -68,7 +68,7 @@ export function initBannedWordsModule(
         }
 
         try {
-            const response = await fetch(`${botApiBaseUrl}/tts/banned-words/channel/${user.login}`, {
+            const response = await fetch(`${apiPrefix}/tts/banned-words/channel/${user.login}`, {
                 method: 'POST',
                 headers: authHeaders(),
                 body: JSON.stringify({ word })
@@ -97,7 +97,7 @@ export function initBannedWordsModule(
         }
 
         try {
-            const response = await fetch(`${botApiBaseUrl}/tts/banned-words/channel/${user.login}`, {
+            const response = await fetch(`${apiPrefix}/tts/banned-words/channel/${user.login}`, {
                 method: 'DELETE',
                 headers: authHeaders(),
                 body: JSON.stringify({ word })

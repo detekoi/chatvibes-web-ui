@@ -68,9 +68,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const obsPopover = document.getElementById('obs-popover') as HTMLDivElement | null;
   const obsCloseBtn = document.getElementById('obs-close-btn') as HTMLButtonElement | null;
   const apiBaseUrl = getApiBaseUrl();
-  const botApiBaseUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-    ? 'http://localhost:8080/api'
-    : '/api';
+  // Settings, ignore list and banned words are all served by the webUi function
+  // behind the /api hosting rewrite — in local dev too, via the hosting emulator.
+  const apiPrefix = `${apiBaseUrl}/api`;
 
   const state: DashboardState = {
     sessionToken: getStoredSessionToken(),
@@ -82,9 +82,9 @@ document.addEventListener('DOMContentLoaded', () => {
     getLoggedInUser: () => state.loggedInUser,
   };
 
-  const ignoreModule: IgnoreListModule = initIgnoreListModule({ botApiBaseUrl, testMode }, services);
-  const bannedWordsModule: BannedWordsModule = initBannedWordsModule({ botApiBaseUrl, testMode }, services);
-  const settingsModule: SettingsModule = initSettingsModule({ botApiBaseUrl, testMode }, services, {
+  const ignoreModule: IgnoreListModule = initIgnoreListModule({ apiPrefix, testMode }, services);
+  const bannedWordsModule: BannedWordsModule = initBannedWordsModule({ apiPrefix, testMode }, services);
+  const settingsModule: SettingsModule = initSettingsModule({ apiPrefix, testMode }, services, {
     displayIgnoreList: ignoreModule.displayIgnoreList,
     displayBannedWords: bannedWordsModule.displayBannedWords,
   });

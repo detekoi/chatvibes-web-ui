@@ -7,12 +7,73 @@ import { db, COLLECTIONS, FieldValue } from "../services/firestore";
 import { authenticateApiRequest, authorizeChannelAccess, AuthenticatedRequest } from "../middleware/auth";
 import { logger } from "../logger";
 import { errorResponse } from "./utils";
+import { validateSpeed, validatePitch, validateEmotion, validateLanguageBoost } from "../services/utils";
 
 const router: Router = express.Router();
 
 // ==========================================
 // TTS SETTINGS
 // ==========================================
+
+const BOOLEAN_SETTINGS = [
+    "engineEnabled",
+    "speakEvents",
+    "speakCheerEvents",
+    "speakRedemptionEvents",
+    "speakWatchStreakEvents",
+    "anonymizeFollowers",
+    "bitsModeEnabled",
+    "readFullUrls",
+    "allowViewerPreferences",
+    "botRespondsInChat",
+    "englishNormalization",
+    "youtubeEnabled",
+];
+
+/**
+ * Validates a single channel setting before it is merged into the channel's
+ * config document. This is the only writer for these keys, so anything not
+ * listed here is rejected rather than silently stored.
+ * @param key - The setting key being written
+ * @param value - The proposed value
+ * @return True if the key is known and the value is well-formed
+ */
+function validateTtsSetting(key: string, value: unknown): boolean {
+    if (BOOLEAN_SETTINGS.includes(key)) return typeof value === "boolean";
+
+    switch (key) {
+    case "mode":
+        return ["all", "command", "bits_points_only"].includes(value as string);
+    case "ttsPermissionLevel":
+        return ["everyone", "subs", "mods", "vip"].includes(value as string);
+    case "emoteMode":
+        return ["read", "skip", "describe"].includes(value as string);
+    case "emotion":
+        // "auto" means "send no emotion override"; the bot handles it explicitly.
+        return value === "auto" || (typeof value === "string" && validateEmotion(value));
+    case "languageBoost":
+        // The dashboard dropdown offers "Automatic"; the bot maps that (and the
+        // legacy "None") onto "auto" before calling the TTS API.
+        return value === "Automatic" || value === "None" || validateLanguageBoost(value as string);
+    case "pitch":
+        return validatePitch(value as number);
+    case "speed":
+        return validateSpeed(value as number);
+    case "bitsMinimumAmount":
+        return typeof value === "number" && Number.isInteger(value) && value >= 0;
+    case "voiceId":
+        return typeof value === "string" && value.length > 0;
+    case "youtubeHandle":
+        return typeof value === "string" && value.length <= 100;
+    case "bannedWords":
+        return Array.isArray(value) && value.every((w) => typeof w === "string");
+    default:
+        if (/^voiceVolumes\.[A-Za-z0-9_]+$/.test(key)) {
+            return typeof value === "number" && value > 0 && value <= 10;
+        }
+        return false;
+    }
+}
 
 // GET /tts/settings/channel/:channelName
 router.get("/tts/settings/channel/:channelName", authenticateApiRequest, authorizeChannelAccess, (async (req: AuthenticatedRequest, res: Response): Promise<void> => {
@@ -43,10 +104,23 @@ router.put("/tts/settings/channel/:channelName", authenticateApiRequest, authori
         return;
     }
 
+    if (!validateTtsSetting(key, value)) {
+        logger.warn({ channelName, key, value }, "Rejected invalid TTS setting");
+        errorResponse(res, 400, `Invalid setting: ${key}`);
+        return;
+    }
+
     try {
         const docRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(req.user.userId);
 
-        await docRef.set({ [key]: value }, { merge: true });
+        // set() treats a dotted key as a literal field name, not a path, so
+        // "voiceVolumes.<voiceId>" has to be written as a nested map for the bot
+        // to find it under config.voiceVolumes. merge:true keeps sibling voices.
+        const update = key.startsWith("voiceVolumes.") ?
+            { voiceVolumes: { [key.slice("voiceVolumes.".length)]: value } } :
+            { [key]: value };
+
+        await docRef.set(update, { merge: true });
 
         logger.info({ channelName, key, value }, "Updated TTS setting");
         res.json({ success: true, message: "Setting updated" });

@@ -14,7 +14,7 @@ const previewState = {
 };
 
 export interface SettingsModuleContext {
-  botApiBaseUrl: string;
+  apiPrefix: string;
   testMode: boolean;
 }
 
@@ -33,11 +33,11 @@ export function initSettingsModule(
   services: DashboardServices,
   dependencies: SettingsModuleDependencies
 ): SettingsModule {
-  const { botApiBaseUrl, testMode } = context;
+  const { apiPrefix, testMode } = context;
   const { getLoggedInUser, getSessionToken } = services;
   const { displayIgnoreList } = dependencies;
 
-  const api = new SettingsApi(botApiBaseUrl, getSessionToken);
+  const api = new SettingsApi(apiPrefix, getSessionToken);
 
   // Settings Panel Elements
   const defaultEmotionSelect = document.getElementById('default-emotion') as HTMLSelectElement | null;
@@ -178,7 +178,7 @@ export function initSettingsModule(
     }
 
     if (defaultEmotionSelect) defaultEmotionSelect.addEventListener('change', () => {
-      saveSettingWrapper('emotion', defaultEmotionSelect.value || 'auto', 'Default Emotion');
+      saveSettingWrapper('emotion', defaultEmotionSelect.value || 'neutral', 'Default Emotion');
       updateSidebarPreview();
     });
 
@@ -467,18 +467,13 @@ export function initSettingsModule(
       const voiceId = defaultVoiceDropdown.getValue() || 'Friendly_Person';
       currentVoiceVolumes[voiceId] = 1.0;
       voiceCalibration?.updateVolumes(currentVoiceVolumes);
-      saveSettingWrapper(`voiceVolumes.\${voiceId}`, 1.0, 'Voice Volume');
+      saveSettingWrapper(`voiceVolumes.${voiceId}`, 1.0, 'Voice Volume');
       updateSidebarPreview();
     });
 
     // Load Voices
     const voicesResponse = await api.getVoices();
-    const fallbackVoices = [
-      'Friendly_Person', 'Professional_Woman', 'Casual_Male', 'Energetic_Youth',
-      'Warm_Grandmother', 'Confident_Leader', 'Soothing_Narrator', 'Cheerful_Assistant',
-      'Deep_Narrator', 'Bright_Assistant', 'Calm_Guide', 'Energetic_Host'
-    ];
-    allVoices = voicesResponse.voices && voicesResponse.voices.length > 0 ? voicesResponse.voices : fallbackVoices;
+    allVoices = voicesResponse.voices || [];
 
     // Init Default Voice Dropdown
     defaultVoiceDropdown = new VoiceDropdown({

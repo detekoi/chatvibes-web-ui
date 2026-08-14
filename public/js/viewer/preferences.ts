@@ -379,23 +379,18 @@ export function initPreferencesModule(
   }
 
   async function loadVoices(): Promise<void> {
-    const fallback = [
-      'Friendly_Person', 'Professional_Woman', 'Casual_Male', 'Energetic_Youth',
-      'Warm_Grandmother', 'Confident_Leader', 'Soothing_Narrator', 'Cheerful_Assistant',
-      'Deep_Narrator', 'Bright_Assistant', 'Calm_Guide', 'Energetic_Host'
-    ];
-
-    let voices = fallback;
+    // Same source the dashboard uses, so both pages offer the same voice IDs.
+    let voices: string[] = testMode ? ['Friendly_Person', 'Wise_Woman', 'Deep_Voice_Man'] : [];
 
     if (!testMode) {
       try {
-        const response = await fetch('https://chatvibes-tts-service-h7kj56ct4q-uc.a.run.app/api/voices');
+        const response = await fetch(`${apiBaseUrl}/api/voices`);
         if (response.ok) {
           const data = await response.json() as { voices?: string[] };
-          voices = data.voices || fallback;
+          voices = data.voices || [];
         }
       } catch (error) {
-        console.error('Failed to load voices, using fallback:', error);
+        console.error('Failed to load voices:', error);
       }
     }
 

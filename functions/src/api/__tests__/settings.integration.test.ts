@@ -134,6 +134,53 @@ describe('Settings API Integration Tests (Mocked Firestore)', () => {
       expect(db.doc).toHaveBeenCalledWith(testUser.userId);
       expect((db as any).set).toHaveBeenCalledWith({ voiceId: 'test-voice' }, { merge: true });
     });
+
+    it.each([
+      ['an unknown key', { key: 'notASetting', value: true }],
+      ['a boolean setting given a string', { key: 'engineEnabled', value: 'yes' }],
+      ['an out-of-range speed', { key: 'speed', value: 99 }],
+      ['an unknown emote mode', { key: 'emoteMode', value: 'shout' }],
+      ['a negative bits minimum', { key: 'bitsMinimumAmount', value: -1 }],
+    ])('should reject %s without writing', async (_label, body) => {
+      await request(app)
+        .put(`/api/tts/settings/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send(body)
+        .expect(400);
+
+      expect((db as any).set).not.toHaveBeenCalled();
+    });
+
+    it.each([
+      ['auto', 'languageBoost', 'auto'],
+      ['the dashboard\'s "Automatic" alias', 'languageBoost', 'Automatic'],
+      ['a canonical emotion', 'emotion', 'happy'],
+    ])('should accept %s', async (_label, key, value) => {
+      ((db as any).set as any).mockResolvedValueOnce({} as any);
+
+      await request(app)
+        .put(`/api/tts/settings/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ key, value })
+        .expect(200);
+
+      expect((db as any).set).toHaveBeenCalledWith({ [key]: value }, { merge: true });
+    });
+
+    it('should write a per-voice volume as a nested map, not a dotted field', async () => {
+      ((db as any).set as any).mockResolvedValueOnce({} as any);
+
+      await request(app)
+        .put(`/api/tts/settings/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ key: 'voiceVolumes.Friendly_Person', value: 2.5 })
+        .expect(200);
+
+      expect((db as any).set).toHaveBeenCalledWith(
+        { voiceVolumes: { Friendly_Person: 2.5 } },
+        { merge: true }
+      );
+    });
   });
 
   describe('POST /api/tts/ignore/channel/:channelName', () => {

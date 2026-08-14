@@ -9,7 +9,7 @@ export type IgnoreListType = 'tts';
  * Ignore list module context
  */
 interface IgnoreListContext {
-  botApiBaseUrl: string;
+  apiPrefix: string;
   testMode: boolean;
 }
 
@@ -43,7 +43,7 @@ export function initIgnoreListModule(
   context: IgnoreListContext,
   services: IgnoreListServices
 ): IgnoreListModule {
-  const { botApiBaseUrl, testMode } = context;
+  const { apiPrefix, testMode } = context;
   const { getLoggedInUser, getSessionToken } = services;
   let onChangeCallback: (() => void) | null = null;
 
@@ -116,7 +116,7 @@ export function initIgnoreListModule(
 
     try {
       const channelName = user.login.toLowerCase();
-      const response = await fetch(`${botApiBaseUrl}/${type}/ignore/channel/${channelName}`, {
+      const response = await fetch(`${apiPrefix}/${type}/ignore/channel/${channelName}`, {
         method: 'POST',
         headers: authHeaders(),
         body: JSON.stringify({ username })
@@ -157,7 +157,7 @@ export function initIgnoreListModule(
 
     try {
       const channelName = user.login.toLowerCase();
-      const response = await fetch(`${botApiBaseUrl}/${type}/ignore/channel/${channelName}`, {
+      const response = await fetch(`${apiPrefix}/${type}/ignore/channel/${channelName}`, {
         method: 'DELETE',
         headers: authHeaders(),
         body: JSON.stringify({ username })
