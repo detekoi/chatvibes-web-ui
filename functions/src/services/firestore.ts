@@ -3,7 +3,7 @@
  * Handles database initialization and collection constants
  */
 
-import { Firestore, FieldValue } from "@google-cloud/firestore";
+import { Firestore, FieldValue, FieldPath } from "@google-cloud/firestore";
 import { createLogger } from "../logger";
 
 const logger = createLogger({ module: "firestore" });
@@ -29,5 +29,9 @@ const COLLECTIONS = {
 export {
   db,
   FieldValue,
+  // Needed to delete a pronunciation entry: its segments are taken literally,
+  // whereas a dotted string path is parsed and would mis-target any key
+  // containing a space, hyphen or dot.
+  FieldPath,
   COLLECTIONS,
 };

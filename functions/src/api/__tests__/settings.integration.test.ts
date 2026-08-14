@@ -10,9 +10,19 @@ jest.mock('../../services/firestore', () => {
     doc: jest.fn(),
     get: jest.fn(),
     set: jest.fn(),
+    update: jest.fn(),
   };
   mockDbInstance.collection.mockReturnValue(mockDbInstance);
   mockDbInstance.doc.mockReturnValue(mockDbInstance);
+
+  // Segments are kept as an array so assertions can inspect them; the real
+  // FieldPath treats them literally, which is the whole point of using it.
+  class MockFieldPath {
+    segments: string[];
+    constructor(...segments: string[]) {
+      this.segments = segments;
+    }
+  }
 
   return {
     db: mockDbInstance,
@@ -22,7 +32,9 @@ jest.mock('../../services/firestore', () => {
     FieldValue: {
       arrayUnion: jest.fn((val: any) => ({ type: 'arrayUnion', value: val })),
       arrayRemove: jest.fn((val: any) => ({ type: 'arrayRemove', value: val })),
+      delete: jest.fn(() => ({ type: 'delete' })),
     },
+    FieldPath: MockFieldPath,
   };
 });
 
@@ -52,6 +64,7 @@ describe('Settings API Integration Tests (Mocked Firestore)', () => {
     ((db as any).doc as any).mockReturnValue(db);
     (FieldValue.arrayUnion as any).mockImplementation((val: any) => ({ type: 'arrayUnion', value: val }));
     (FieldValue.arrayRemove as any).mockImplementation((val: any) => ({ type: 'arrayRemove', value: val }));
+    (FieldValue.delete as any).mockImplementation(() => ({ type: 'delete' }));
   });
 
   describe('GET /api/tts/settings/channel/:channelName', () => {
@@ -322,6 +335,248 @@ describe('Settings API Integration Tests (Mocked Firestore)', () => {
         { bannedWords: { type: 'arrayRemove', value: 'badword' } },
         { merge: true }
       );
+    });
+  });
+
+  describe('PUT /api/tts/settings/channel/:channelName (new toggles)', () => {
+    it.each(['profanityFilterEnabled', 'pronunciationEnabled'])(
+      'should accept a boolean for %s',
+      async (key) => {
+        ((db as any).set as any).mockResolvedValueOnce({} as any);
+
+        await request(app)
+          .put(`/api/tts/settings/channel/${channelName}`)
+          .set('Authorization', `Bearer ${authToken}`)
+          .send({ key, value: true })
+          .expect(200);
+
+        expect((db as any).set).toHaveBeenCalledWith({ [key]: true }, { merge: true });
+      }
+    );
+
+    it.each(['profanityFilterEnabled', 'pronunciationEnabled'])(
+      'should reject a non-boolean for %s',
+      async (key) => {
+        await request(app)
+          .put(`/api/tts/settings/channel/${channelName}`)
+          .set('Authorization', `Bearer ${authToken}`)
+          .send({ key, value: 'yes' })
+          .expect(400);
+      }
+    );
+  });
+
+  describe('POST /api/tts/pronunciations/channel/:channelName', () => {
+    /** The read-before-write that enforces the entry cap. */
+    const mockExisting = (pronunciations: Record<string, string> | null) => {
+      ((db as any).get as any).mockResolvedValueOnce({
+        exists: pronunciations !== null,
+        data: () => ({ pronunciations }),
+      } as any);
+    };
+
+    it('should return 401 without authentication', async () => {
+      await request(app)
+        .post(`/api/tts/pronunciations/channel/${channelName}`)
+        .send({ match: 'lfg', say: 'lets go' })
+        .expect(401);
+    });
+
+    it('should return 403 for a different channel', async () => {
+      await request(app)
+        .post('/api/tts/pronunciations/channel/someoneelse')
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ match: 'lfg', say: 'lets go' })
+        .expect(403);
+    });
+
+    it('should store the entry as a nested map (happy path)', async () => {
+      mockExisting({});
+      ((db as any).set as any).mockResolvedValueOnce({} as any);
+
+      const response = await request(app)
+        .post(`/api/tts/pronunciations/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ match: '  LFG  ', say: '  lets   go  ' })
+        .expect(200);
+
+      expect(response.body).toMatchObject({ success: true, match: 'lfg', say: 'lets go' });
+      expect((db as any).set).toHaveBeenCalledWith(
+        { pronunciations: { lfg: 'lets go' } },
+        { merge: true }
+      );
+    });
+
+    it('should reject a match containing a dot', async () => {
+      // Firestore splits field paths on ".", so such a key would write to the
+      // wrong nesting.
+      await request(app)
+        .post(`/api/tts/pronunciations/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ match: 'a.b', say: 'ay bee' })
+        .expect(400);
+    });
+
+    it('should reject the Firestore reserved prefix', async () => {
+      await request(app)
+        .post(`/api/tts/pronunciations/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ match: '__proto', say: 'proto' })
+        .expect(400);
+    });
+
+    it('should reject a missing match', async () => {
+      await request(app)
+        .post(`/api/tts/pronunciations/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ say: 'lets go' })
+        .expect(400);
+    });
+
+    it('should reject an empty say', async () => {
+      // An empty value would let a message reduce to "", which the bot drops
+      // instead of speaking.
+      await request(app)
+        .post(`/api/tts/pronunciations/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ match: 'lfg', say: '   ' })
+        .expect(400);
+    });
+
+    it('should reject an over-length match', async () => {
+      await request(app)
+        .post(`/api/tts/pronunciations/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ match: 'x'.repeat(41), say: 'ex' })
+        .expect(400);
+    });
+
+    it('should reject an over-length say', async () => {
+      await request(app)
+        .post(`/api/tts/pronunciations/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ match: 'lfg', say: 'x'.repeat(121) })
+        .expect(400);
+    });
+
+    it('should reject a say containing a link', async () => {
+      await request(app)
+        .post(`/api/tts/pronunciations/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ match: 'site', say: 'go to example.com' })
+        .expect(400);
+    });
+
+    it('should reject a new entry once the cap is reached', async () => {
+      const full: Record<string, string> = {};
+      for (let i = 0; i < 100; i++) full[`word${i}`] = 'thing';
+      mockExisting(full);
+
+      await request(app)
+        .post(`/api/tts/pronunciations/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ match: 'brandnew', say: 'brand new' })
+        .expect(400);
+
+      expect((db as any).set).not.toHaveBeenCalled();
+    });
+
+    it('should still allow updating an existing entry at the cap', async () => {
+      const full: Record<string, string> = {};
+      for (let i = 0; i < 100; i++) full[`word${i}`] = 'thing';
+      mockExisting(full);
+      ((db as any).set as any).mockResolvedValueOnce({} as any);
+
+      await request(app)
+        .post(`/api/tts/pronunciations/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ match: 'word5', say: 'updated' })
+        .expect(200);
+
+      expect((db as any).set).toHaveBeenCalledWith(
+        { pronunciations: { word5: 'updated' } },
+        { merge: true }
+      );
+    });
+
+    it('should handle a channel with no pronunciations field yet', async () => {
+      mockExisting(null);
+      ((db as any).set as any).mockResolvedValueOnce({} as any);
+
+      await request(app)
+        .post(`/api/tts/pronunciations/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ match: 'lfg', say: 'lets go' })
+        .expect(200);
+    });
+  });
+
+  describe('DELETE /api/tts/pronunciations/channel/:channelName', () => {
+    it('should return 401 without authentication', async () => {
+      await request(app)
+        .delete(`/api/tts/pronunciations/channel/${channelName}`)
+        .send({ match: 'lfg' })
+        .expect(401);
+    });
+
+    it('should delete via a FieldPath, not a dotted string', async () => {
+      ((db as any).update as any).mockResolvedValueOnce({} as any);
+
+      await request(app)
+        .delete(`/api/tts/pronunciations/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ match: ' LFG ' })
+        .expect(200);
+
+      const [path, sentinel] = ((db as any).update as any).mock.calls[0];
+      expect(path.segments).toEqual(['pronunciations', 'lfg']);
+      expect(sentinel).toEqual({ type: 'delete' });
+    });
+
+    it('should handle a key containing a space or hyphen', async () => {
+      ((db as any).update as any).mockResolvedValueOnce({} as any);
+
+      await request(app)
+        .delete(`/api/tts/pronunciations/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ match: 'e-girl gamer' })
+        .expect(200);
+
+      const [path] = ((db as any).update as any).mock.calls[0];
+      expect(path.segments).toEqual(['pronunciations', 'e-girl gamer']);
+    });
+
+    it('should reject a missing match', async () => {
+      await request(app)
+        .delete(`/api/tts/pronunciations/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({})
+        .expect(400);
+    });
+
+    it('should report success when the entry is already gone', async () => {
+      // NOT_FOUND means the desired end state already holds.
+      const notFound: any = new Error('NOT_FOUND');
+      notFound.code = 5;
+      ((db as any).update as any).mockRejectedValueOnce(notFound);
+
+      const response = await request(app)
+        .delete(`/api/tts/pronunciations/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ match: 'nothinghere' })
+        .expect(200);
+
+      expect(response.body).toEqual({ success: true, message: 'Pronunciation removed' });
+    });
+
+    it('should return 500 on an unexpected Firestore error', async () => {
+      ((db as any).update as any).mockRejectedValueOnce(new Error('boom'));
+
+      await request(app)
+        .delete(`/api/tts/pronunciations/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ match: 'lfg' })
+        .expect(500);
     });
   });
 });

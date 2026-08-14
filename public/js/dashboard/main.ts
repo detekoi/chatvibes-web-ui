@@ -7,6 +7,7 @@ import { initSettingsModule } from './settings.js';
 import { initChannelPointsModule, ChannelPointsModule } from './channel-points.js';
 import { initIgnoreListModule, IgnoreListModule } from './ignore-list.js';
 import { initBannedWordsModule, BannedWordsModule } from './banned-words.js';
+import { initPronunciationsModule, PronunciationsModule } from './pronunciations.js';
 
 /**
  * Dashboard application state
@@ -84,12 +85,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const ignoreModule: IgnoreListModule = initIgnoreListModule({ apiPrefix, testMode }, services);
   const bannedWordsModule: BannedWordsModule = initBannedWordsModule({ apiPrefix, testMode }, services);
+  const pronunciationsModule: PronunciationsModule = initPronunciationsModule({ apiPrefix, testMode }, services);
   const settingsModule: SettingsModule = initSettingsModule({ apiPrefix, testMode }, services, {
     displayIgnoreList: ignoreModule.displayIgnoreList,
     displayBannedWords: bannedWordsModule.displayBannedWords,
+    displayPronunciations: pronunciationsModule.displayPronunciations,
   });
   ignoreModule.setOnChange(() => settingsModule.loadSettings());
   bannedWordsModule.setOnChange(() => settingsModule.loadSettings());
+  pronunciationsModule.setOnChange(() => settingsModule.loadSettings());
 
   const botModule: BotManagementModule = initBotManagement({ botStatusEl, addBotBtn, removeBotBtn }, { apiBaseUrl, testMode }, services);
   const obsModule: ObsModule = initObsModule({ ttsUrlField, copyTtsUrlBtn, regenerateTtsUrlBtn, obsToggleBtn, obsPopover, obsCloseBtn }, { apiBaseUrl, testMode }, services);

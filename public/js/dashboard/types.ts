@@ -56,6 +56,10 @@ export interface TtsSettings {
   voiceVolumes?: Record<string, number>;
   youtubeEnabled?: boolean;
   youtubeHandle?: string;
+  /** Channel overrides for the built-in acronym dictionary, keyed by lowercased match. */
+  pronunciations?: Record<string, string>;
+  pronunciationEnabled?: boolean;
+  profanityFilterEnabled?: boolean;
 }
 
 /**

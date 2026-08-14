@@ -21,6 +21,7 @@ export interface SettingsModuleContext {
 export interface SettingsModuleDependencies {
   displayIgnoreList: (type: 'tts', users: string[]) => void;
   displayBannedWords: (words: string[]) => void;
+  displayPronunciations: (entries: Record<string, string>) => void;
 }
 
 export interface SettingsModule {
@@ -76,6 +77,8 @@ export function initSettingsModule(
   const eventsEnabledCheckbox = document.getElementById('events-enabled') as HTMLInputElement | null;
   const allowViewerPreferencesCheckbox = document.getElementById('allow-viewer-preferences') as HTMLInputElement | null;
   const readFullUrlsCheckbox = document.getElementById('read-full-urls') as HTMLInputElement | null;
+  const pronunciationEnabledCheckbox = document.getElementById('pronunciation-enabled') as HTMLInputElement | null;
+  const profanityFilterCheckbox = document.getElementById('profanity-filter-enabled') as HTMLInputElement | null;
   const bitsEnabledCheckbox = document.getElementById('bits-enabled') as HTMLInputElement | null;
   const bitsAmountInput = document.getElementById('bits-amount') as HTMLInputElement | null;
   const anonymizeFollowersCheckbox = document.getElementById('anonymize-followers') as HTMLInputElement | null;
@@ -171,6 +174,8 @@ export function initSettingsModule(
     if (anonymizeFollowersCheckbox) anonymizeFollowersCheckbox.addEventListener('change', () => saveSettingWrapper('anonymizeFollowers', anonymizeFollowersCheckbox.checked !== false, 'Anonymize Followers'));
     if (allowViewerPreferencesCheckbox) allowViewerPreferencesCheckbox.addEventListener('change', () => saveSettingWrapper('allowViewerPreferences', !!allowViewerPreferencesCheckbox.checked, 'Allow Viewer Voice Preferences'));
     if (readFullUrlsCheckbox) readFullUrlsCheckbox.addEventListener('change', () => saveSettingWrapper('readFullUrls', !!readFullUrlsCheckbox.checked, 'Read Full URLs'));
+    if (pronunciationEnabledCheckbox) pronunciationEnabledCheckbox.addEventListener('change', () => saveSettingWrapper('pronunciationEnabled', !!pronunciationEnabledCheckbox.checked, 'Expand Chat Acronyms'));
+    if (profanityFilterCheckbox) profanityFilterCheckbox.addEventListener('change', () => saveSettingWrapper('profanityFilterEnabled', !!profanityFilterCheckbox.checked, 'Profanity Filter'));
     if (bitsEnabledCheckbox) bitsEnabledCheckbox.addEventListener('change', () => saveSettingWrapper('bitsModeEnabled', !!bitsEnabledCheckbox.checked, 'Bits for TTS'));
     if (bitsAmountInput) {
       const debouncedBitsAmountSave = debounce(
@@ -633,11 +638,15 @@ export function initSettingsModule(
         speed: 1.0,
         languageBoost: 'auto',
         englishNormalization: false,
-        ignoredUsers: ['spammer1', 'troll2']
+        ignoredUsers: ['spammer1', 'troll2'],
+        pronunciationEnabled: true,
+        profanityFilterEnabled: false,
+        pronunciations: { wcat: 'wildcat', lfg: '' }
       };
       applyTtsSettings(demoTts);
       displayIgnoreList('tts', demoTts.ignoredUsers || []);
       dependencies.displayBannedWords(['testbadword', 'naughtyword']);
+      dependencies.displayPronunciations(demoTts.pronunciations || {});
       return;
     }
 
@@ -651,6 +660,7 @@ export function initSettingsModule(
       applyTtsSettings(response.settings || {});
       displayIgnoreList('tts', response.settings?.ignoredUsers || []);
       dependencies.displayBannedWords(response.settings?.bannedWords || []);
+      dependencies.displayPronunciations(response.settings?.pronunciations || {});
     }
   }
 
@@ -684,6 +694,10 @@ export function initSettingsModule(
     if (anonymizeFollowersCheckbox) anonymizeFollowersCheckbox.checked = settings.anonymizeFollowers !== false;
     if (allowViewerPreferencesCheckbox) allowViewerPreferencesCheckbox.checked = settings.allowViewerPreferences !== false;
     if (readFullUrlsCheckbox) readFullUrlsCheckbox.checked = settings.readFullUrls || false;
+    // Acronym expansion defaults ON, the profanity filter defaults OFF, so the
+    // two undefined cases resolve in opposite directions.
+    if (pronunciationEnabledCheckbox) pronunciationEnabledCheckbox.checked = settings.pronunciationEnabled !== false;
+    if (profanityFilterCheckbox) profanityFilterCheckbox.checked = settings.profanityFilterEnabled || false;
     if (bitsEnabledCheckbox) bitsEnabledCheckbox.checked = settings.bitsModeEnabled || false;
     if (bitsAmountInput) bitsAmountInput.value = String(settings.bitsMinimumAmount ?? 100);
 

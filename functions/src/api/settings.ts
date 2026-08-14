@@ -3,12 +3,13 @@
  */
 
 import express, { Response, Router, RequestHandler } from "express";
-import { db, COLLECTIONS, FieldValue } from "../services/firestore";
+import { db, COLLECTIONS, FieldValue, FieldPath } from "../services/firestore";
 import { authenticateApiRequest, authorizeChannelAccess, AuthenticatedRequest } from "../middleware/auth";
 import { logger } from "../logger";
 import { errorResponse } from "./utils";
 import { validateSpeed, validatePitch, validateEmotion, validateLanguageBoost } from "../services/utils";
 import { RELEASED_VOICES } from "../services/voice-list";
+import { normalizeMatchKey, validateSay, PRONUNCIATION_LIMITS } from "../services/pronunciation";
 
 const router: Router = express.Router();
 
@@ -31,6 +32,8 @@ const BOOLEAN_SETTINGS = [
     "botRespondsInChat",
     "englishNormalization",
     "youtubeEnabled",
+    "pronunciationEnabled",
+    "profanityFilterEnabled",
 ];
 
 /**
@@ -252,6 +255,87 @@ router.delete("/tts/banned-words/channel/:channelName", authenticateApiRequest, 
     } catch (error) {
         logger.error({ error, channelName, word }, "Error removing word from banned list");
         errorResponse(res, 500, "Failed to remove word from banned list");
+    }
+}) as RequestHandler);
+
+// ==========================================
+// PRONUNCIATION DICTIONARY
+// ==========================================
+//
+// A map field rather than an array, so the arrayUnion/arrayRemove shape used by
+// the ignore and banned-word lists does not apply. These get dedicated routes
+// rather than riding on PUT /tts/settings because that path cannot express a
+// delete, cannot read-before-write to enforce the entry cap, and can only
+// report "Invalid setting: <key>" where a form needs an actionable message.
+
+// POST /tts/pronunciations/channel/:channelName - Add or update an entry
+router.post("/tts/pronunciations/channel/:channelName", authenticateApiRequest, authorizeChannelAccess, (async (req: AuthenticatedRequest, res: Response): Promise<void> => {
+    const { channelName } = req.params;
+    const { match, say } = req.body;
+
+    const normalizedMatch = normalizeMatchKey(match);
+    if (!normalizedMatch) {
+        errorResponse(res, 400, `Word must be 1-${PRONUNCIATION_LIMITS.MAX_MATCH_LENGTH} characters using letters, digits, apostrophes or hyphens, and cannot contain a dot`);
+        return;
+    }
+
+    const normalizedSay = validateSay(say);
+    if (!normalizedSay.ok) {
+        errorResponse(res, 400, `Pronunciation ${normalizedSay.reason}`);
+        return;
+    }
+
+    try {
+        const docRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(req.user.userId);
+
+        // The cap counts stored entries, so updating an existing key is always
+        // allowed even at the limit.
+        const snap = await docRef.get();
+        const existing = (snap.exists ? snap.data()?.pronunciations : null) || {};
+        const isNew = !(normalizedMatch in existing);
+        if (isNew && Object.keys(existing).length >= PRONUNCIATION_LIMITS.MAX_CUSTOM_ENTRIES) {
+            errorResponse(res, 400, `Limit of ${PRONUNCIATION_LIMITS.MAX_CUSTOM_ENTRIES} custom pronunciations reached. Remove one first.`);
+            return;
+        }
+
+        // merge:true deep-merges nested maps, so this touches only this key.
+        await docRef.set({ pronunciations: { [normalizedMatch]: normalizedSay.value } }, { merge: true });
+
+        logger.info({ channelName, match: normalizedMatch }, "Set TTS pronunciation");
+        res.json({ success: true, message: "Pronunciation saved", match: normalizedMatch, say: normalizedSay.value });
+    } catch (error) {
+        logger.error({ error, channelName, match }, "Error setting TTS pronunciation");
+        errorResponse(res, 500, "Failed to save pronunciation");
+    }
+}) as RequestHandler);
+
+// DELETE /tts/pronunciations/channel/:channelName - Remove an entry
+router.delete("/tts/pronunciations/channel/:channelName", authenticateApiRequest, authorizeChannelAccess, (async (req: AuthenticatedRequest, res: Response): Promise<void> => {
+    const { channelName } = req.params;
+    const { match } = req.body;
+
+    const normalizedMatch = normalizeMatchKey(match);
+    if (!normalizedMatch) {
+        errorResponse(res, 400, "Word is required");
+        return;
+    }
+
+    try {
+        const docRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(req.user.userId);
+        // FieldPath segments are literal. A dotted string would be parsed, so a
+        // key containing a space or hyphen would need backtick quoting.
+        await docRef.update(new FieldPath("pronunciations", normalizedMatch), FieldValue.delete());
+
+        logger.info({ channelName, match: normalizedMatch }, "Removed TTS pronunciation");
+        res.json({ success: true, message: "Pronunciation removed" });
+    } catch (error) {
+        // 5 is NOT_FOUND: the entry is already gone, which is the desired state.
+        if ((error as { code?: number }).code === 5) {
+            res.json({ success: true, message: "Pronunciation removed" });
+            return;
+        }
+        logger.error({ error, channelName, match }, "Error removing TTS pronunciation");
+        errorResponse(res, 500, "Failed to remove pronunciation");
     }
 }) as RequestHandler);
 
