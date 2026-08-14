@@ -28,6 +28,9 @@ functions/lib/**/*.js
 functions/lib/**/*.js.map
 functions/lib/**/*.d.ts
 functions/lib/**/*.d.ts.map
+# resolveJsonModule copies imported JSON into lib/ as well. tsc runs at
+# predeploy, so a committed copy is only ever a stale duplicate of src/.
+functions/lib/**/*.json
 
 
 # Runtime data
