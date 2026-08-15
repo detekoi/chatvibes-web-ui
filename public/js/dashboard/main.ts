@@ -1,5 +1,5 @@
 import { getApiBaseUrl } from '../common/api.js';
-import { getStoredSessionToken, getStoredUser, logout, StoredUser } from '../common/auth.js';
+import { decodeJwtPayload, getStoredSessionToken, getStoredUser, logout, StoredUser } from '../common/auth.js';
 import { showToast } from '../common/ui.js';
 import { initBotManagement, BotManagementModule } from './bot-management.js';
 import { initObsModule, ObsModule } from './obs.js';
@@ -159,13 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function isViewerToken(token: string): boolean {
-    try {
-      const payload = JSON.parse(atob(token.split('.')[1])) as JwtPayload;
-      return payload.scope === 'viewer';
-    } catch (error) {
-      console.error('Error decoding token:', error);
-      return false;
-    }
+    return decodeJwtPayload<JwtPayload>(token)?.scope === 'viewer';
   }
 
   function showDashboard(): void {

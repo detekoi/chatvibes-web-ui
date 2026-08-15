@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=Cabin+Condensed:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Public+Sans:wght@400;600&family=DM+Mono:wght@400;500&display=swap"
         rel="stylesheet">
 
     <!-- Bootstrap 5 CSS -->
@@ -19,6 +19,7 @@
 
     <!-- Custom overrides -->
     <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/design-system.css">
 
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="apple-touch-icon" href="/logo192.png">
@@ -40,100 +41,131 @@
 </head>
 
 <body>
-    <video id="staticVideo" autoplay loop muted playsinline
-        style="width:100vw; height:100vh; position:fixed; top:0; left:0; z-index:-1; object-fit:cover;">
-        <source src="assets/video/Pixelated_static_pattern_web_balanced.mp4" type="video/mp4">
+    <video id="staticVideo" class="wc-stage-video" autoplay loop muted playsinline aria-hidden="true">
+        <source src="assets/video/Pixelated_static_pattern_web_ultralight.mp4" type="video/mp4">
     </video>
-    <!-- Light mode video overlay -->
-    <div class="video-overlay"></div>
+    <div class="wc-stage-dim"></div>
 
-    <!-- Dark mode toggle in top-right corner -->
-    <div class="position-fixed top-0 end-0 p-3 d-none d-lg-block" style="z-index: 1050;">
-        <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" id="darkModeToggle">
-            <label class="form-check-label" for="darkModeToggle">Dark Mode</label>
-        </div>
-    </div>
-
-    <div class="container" style="max-width: 600px; margin-top: 10vh;">
-        <div class="card shadow-lg" style="border-color: var(--accent-primary);">
-            <div class="card-body text-center p-4">
-                <h1 class="h2 mb-3">Text-to-Speech Bot Management</h1>
-                <p class="mb-3">Manage <a href="https://docs.wildcat.chat/wildcatttsdocs.html" target="_blank"
-                        class="link-primary">WildcatTTS</a> Text-to-Speech for your Twitch channel.</p>
-
-                <div class="alert alert-warning text-start mb-4" role="alert">
-                    <strong>Note:</strong> Access is currently invite-only. Unapproved channels will see an access
-                    denied message. <a href="https://parfaitfair.com/#contact" target="_blank"
-                        class="alert-link">Request access here</a>.
-                </div>
-
-                <h5 class="section-header mb-2">For Streamers</h5>
-                <p class="section-subheader">Manage your channel's TTS settings</p>
-
-                <div class="d-grid gap-3 mb-4">
-                    <div class="button-wrapper">
-                        <a href="#" id="streamerLoginBtn" class="button-3d btn-primary"><i data-lucide="mic" class="inline-icon" style="margin-right: 4px;"></i> Streamer Login</a>
-                        <div class="tooltip-wrapper">
-                            <span class="help-icon"
-                                data-tooltip="Access TTS settings • Toggle bot chat responses • Configure channel points • Customize voice preferences"><i data-lucide="circle-help" class="inline-icon"></i></span>
-                        </div>
-                    </div>
-                </div>
-
-                <hr class="section-divider">
-
-                <h5 class="section-header mb-2">For Viewers</h5>
-                <p class="section-subheader">Customize your TTS voice preferences</p>
-
-                <div class="d-grid gap-3 mb-3">
-                    <div class="button-wrapper">
-                        <a href="#" id="viewerPrefsBtn" class="button-3d btn-success"><i data-lucide="headphones" class="inline-icon" style="margin-right: 4px;"></i> Viewer Preferences</a>
-                        <div class="tooltip-wrapper">
-                            <span class="help-icon"
-                                data-tooltip="Customize how YOUR messages sound when read by TTS in any channel you visit."><i data-lucide="circle-help" class="inline-icon"></i></span>
-                        </div>
-                    </div>
-                </div>
-
-                <p class="mb-0"><a href="https://docs.wildcat.chat/wildcatttsdocs.html" target="_blank"
-                        class="link-primary">Documentation</a></p>
-                <p id="loginError" class="text-danger mt-3 mb-0"></p>
+    <main class="wc-stage">
+        <div style="width:100%; max-width:620px; display:flex; justify-content:flex-end;">
+            <div class="wc-themeswitch" role="group" aria-label="Colour theme">
+                <button type="button" id="themeLightBtn" aria-pressed="false">Light</button>
+                <button type="button" id="themeDarkBtn" aria-pressed="false">Dark</button>
             </div>
         </div>
-    </div>
 
-    <!-- Dark mode toggle functionality -->
+        <div class="wc-frame">
+            <div class="wc-frame-head">
+                <span class="wc-lockup">Wildcat<b>TTS</b></span>
+                <span class="wc-readout">Invite-only</span>
+            </div>
+
+            <div style="padding:28px 20px 0; display:flex; flex-direction:column; gap:12px;">
+                <h1 class="wc-title">
+                    <span class="wc-title-brand">Wildcat</span><span class="wc-title-suffix">TTS</span>
+                    <span class="wc-title-line">Text-to-speech bot management</span>
+                </h1>
+                <p class="wc-lede">Text-to-speech for your Twitch channel, for the people who run it and the people who
+                    watch it.</p>
+            </div>
+
+            <div class="wc-note" style="margin:22px 20px 0;">
+                <span class="wc-note-label">Access</span>
+                <p>Access is currently invite-only. Unapproved channels will see an access denied message.
+                    <a class="wc-link wc-link--underline" href="https://parfaitfair.com/#contact" target="_blank" rel="noopener">Request access here</a>.
+                </p>
+            </div>
+
+            <div class="wc-frame-body">
+                <div class="wc-actions">
+                    <div class="wc-action">
+                        <div class="wc-rule"><span class="wc-rule-name">I run the channel</span></div>
+                        <button type="button" id="streamerLoginBtn" class="wc-btn">
+                            <i data-lucide="mic" aria-hidden="true"></i>Manage my channel
+                        </button>
+                        <p class="wc-help">Access TTS settings • Toggle bot chat responses • Configure channel points •
+                            Customize voice preferences</p>
+                    </div>
+
+                    <div class="wc-action">
+                        <div class="wc-rule"><span class="wc-rule-name">I'm a viewer</span></div>
+                        <button type="button" id="viewerPrefsBtn" class="wc-btn wc-btn--ghost">
+                            <i data-lucide="headphones" aria-hidden="true"></i>Set my own voice
+                        </button>
+                        <p class="wc-help">Customize how your messages sound when read by TTS in any channel you visit.
+                        </p>
+                    </div>
+                </div>
+
+                <p id="loginError" class="wc-code-value" role="alert" aria-live="assertive"
+                    style="color:var(--wc-danger); margin:0;"></p>
+            </div>
+
+            <div class="wc-frame-foot">
+                <a class="wc-link" href="https://docs.wildcat.chat/wildcatttsdocs.html" target="_blank" rel="noopener">Documentation</a>
+                <span>tts.wildcat.chat</span>
+            </div>
+        </div>
+    </main>
+
+    <!-- Theme Management -->
+    <script src="js/theme.js"></script>
+
+    <!-- Segmented light/dark switch -->
     <script>
-        // Initialize dark mode toggle
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        const currentTheme = localStorage.getItem('wildcat-tts-theme') ||
-            (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        (function () {
+            const lightBtn = document.getElementById('themeLightBtn');
+            const darkBtn = document.getElementById('themeDarkBtn');
 
-        darkModeToggle.checked = currentTheme === 'dark';
-
-        darkModeToggle.addEventListener('change', function () {
-            if (this.checked) {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('wildcat-tts-theme', 'dark');
-            } else {
-                document.documentElement.removeAttribute('data-theme');
-                localStorage.setItem('wildcat-tts-theme', 'light');
+            function sync() {
+                const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+                darkBtn.setAttribute('aria-pressed', String(isDark));
+                lightBtn.setAttribute('aria-pressed', String(!isDark));
             }
-        });
+
+            function pick(theme) {
+                if (window.themeManager) {
+                    window.themeManager.setTheme(theme);
+                } else {
+                    localStorage.setItem('wildcat-tts-theme', theme);
+                    if (theme === 'dark') {
+                        document.documentElement.setAttribute('data-theme', 'dark');
+                    } else {
+                        document.documentElement.removeAttribute('data-theme');
+                    }
+                }
+                sync();
+            }
+
+            lightBtn.addEventListener('click', () => pick('light'));
+            darkBtn.addEventListener('click', () => pick('dark'));
+            sync();
+        })();
     </script>
 
     <!-- Authentication functionality -->
     <script>
-        // Streamer Login
-        document.getElementById('streamerLoginBtn').addEventListener('click', async (event) => {
-            event.preventDefault();
-            const loginErrorEl = document.getElementById('loginError');
+        const loginErrorEl = document.getElementById('loginError');
+
+        function resetButton(button) {
+            button.disabled = false;
+            button.classList.remove('is-busy');
+        }
+
+        async function startOAuth(endpoint, button) {
+            // .is-busy sets pointer-events:none, which stops a second mouse click
+            // but not a second keyboard activation. Two in-flight requests would
+            // each write oauth_csrf_state, so the redirect could carry a state the
+            // callback no longer recognises.
+            if (button.disabled) return;
+            button.disabled = true;
+
             loginErrorEl.textContent = '';
+            button.classList.add('is-busy');
             try {
                 // Use Firebase Hosting rewrites to reach Functions in both local and prod
                 const apiBaseUrl = '';
-                const response = await fetch(`${apiBaseUrl}/auth/twitch/initiate`);
+                const response = await fetch(`${apiBaseUrl}${endpoint}`);
                 if (!response.ok) {
                     throw new Error(`Failed to initiate auth: ${response.statusText}`);
                 }
@@ -145,50 +177,34 @@
                 } else {
                     console.error("Failed to get auth URL or state from backend:", data.error);
                     loginErrorEl.textContent = data.error || "Could not initiate login with Twitch.";
+                    resetButton(button);
                 }
             } catch (error) {
                 console.error("Error during login initiation:", error);
                 loginErrorEl.textContent = "Error initiating login. Check console.";
+                resetButton(button);
             }
+        }
+
+        // Streamer login
+        document.getElementById('streamerLoginBtn').addEventListener('click', (event) => {
+            startOAuth('/auth/twitch/initiate', event.currentTarget);
         });
 
-        // Viewer Preferences Access - Direct login
-        document.getElementById('viewerPrefsBtn').addEventListener('click', async (event) => {
-            event.preventDefault();
-            const loginErrorEl = document.getElementById('loginError');
-            loginErrorEl.textContent = '';
-
-            // Check if user has existing session
+        // Viewer preferences — skip OAuth when a session already exists
+        document.getElementById('viewerPrefsBtn').addEventListener('click', (event) => {
             const appSessionToken = localStorage.getItem('app_session_token');
             const twitchUserLogin = localStorage.getItem('twitch_user_login');
 
             if (appSessionToken && twitchUserLogin) {
-                // User is already logged in, take them directly to viewer settings
                 window.location.href = 'viewer-settings.html';
                 return;
             }
 
-            // User needs to log in - use viewer OAuth
-            try {
-                // Use Firebase Hosting rewrites to reach Functions in both local and prod
-                const apiBaseUrl = '';
-                const response = await fetch(`${apiBaseUrl}/auth/twitch/viewer`);
-                if (!response.ok) {
-                    throw new Error(`Failed to initiate auth: ${response.statusText}`);
-                }
-                const data = await response.json();
-
-                if (data.success && data.twitchAuthUrl && data.state) {
-                    sessionStorage.setItem('oauth_csrf_state', data.state);
-                    window.location.href = data.twitchAuthUrl;
-                } else {
-                    console.error("Failed to get auth URL or state from backend:", data.error);
-                    loginErrorEl.textContent = data.error || "Could not initiate login with Twitch.";
-                }
-            } catch (error) {
-                console.error("Error during login initiation:", error);
-                loginErrorEl.textContent = "Error initiating login. Check console.";
-            }
+            // auth-complete.html reads this to route back here rather than to the
+            // broadcaster dashboard, which rejects a viewer-scope token.
+            sessionStorage.setItem('viewer_prefs_intent', 'true');
+            startOAuth('/auth/twitch/viewer', event.currentTarget);
         });
     </script>
 

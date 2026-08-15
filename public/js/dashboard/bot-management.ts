@@ -73,13 +73,15 @@ export function initBotManagement(
         botStatusEl.className = 'fw-semibold text-success';
       }
       if (addBotBtn) addBotBtn.style.display = 'none';
-      if (removeBotBtn) removeBotBtn.style.display = 'inline-block';
+      // Empty string restores the stylesheet's display so button layout is
+      // owned by CSS, not hardcoded here.
+      if (removeBotBtn) removeBotBtn.style.display = '';
     } else {
       if (botStatusEl) {
         botStatusEl.textContent = 'Inactive';
         botStatusEl.className = 'fw-semibold text-secondary';
       }
-      if (addBotBtn) addBotBtn.style.display = 'inline-block';
+      if (addBotBtn) addBotBtn.style.display = '';
       if (removeBotBtn) removeBotBtn.style.display = 'none';
     }
   }

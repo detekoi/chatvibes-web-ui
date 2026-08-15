@@ -153,6 +153,14 @@ export function initChannelContextModule(
         onChannelChange?.(channelName);
     }
 
+    // Mirrors the loaded channel into the header stat strip.
+    function setContextStat(channelName: string | null): void {
+        const stat = document.getElementById('stat-channel-context');
+        if (!stat) return;
+        stat.textContent = channelName || 'None loaded';
+        stat.classList.toggle('is-muted', !channelName);
+    }
+
     function setChannelUI(channelName: string): void {
         if (!channelName) {
             clearChannelUI();
@@ -162,6 +170,7 @@ export function initChannelContextModule(
         if (elements.channelContextCard) elements.channelContextCard.classList.remove('d-none');
         if (elements.addChannelContextCard) elements.addChannelContextCard.classList.add('d-none');
         if (elements.channelContextNameEl) elements.channelContextNameEl.textContent = channelName;
+        setContextStat(channelName);
         if (elements.channelHint) {
             elements.channelHint.textContent = testMode ? 'Channel found ✓ (test mode)' : 'Channel found ✓';
             elements.channelHint.className = 'form-text text-success';
@@ -172,6 +181,7 @@ export function initChannelContextModule(
         if (elements.channelContextCard) elements.channelContextCard.classList.add('d-none');
         if (elements.addChannelContextCard) elements.addChannelContextCard.classList.remove('d-none');
         if (elements.channelContextNameEl) elements.channelContextNameEl.textContent = '';
+        setContextStat(null);
         if (elements.channelHint) {
             elements.channelHint.textContent = 'Load a channel to view its defaults';
             elements.channelHint.className = 'form-text';

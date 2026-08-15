@@ -1,5 +1,5 @@
 import { getApiBaseUrl, fetchWithAuth } from '../common/api.js';
-import { logout, getStoredSessionToken } from '../common/auth.js';
+import { logout, getStoredSessionToken, decodeJwtPayload } from '../common/auth.js';
 import {
     initPreferencesModule,
     type PreferencesModule,
@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 state.sessionToken = 'TEST_SESSION_TOKEN';
                 showAuthStatus('', 'info');
                 revealPreferencesPanel();
-                if (elements.loggedInStatus) elements.loggedInStatus.style.display = 'block';
+                if (elements.loggedInStatus) elements.loggedInStatus.style.display = '';
                 if (elements.loggedInUsername) elements.loggedInUsername.textContent = 'Test User';
                 if (state.currentChannel) {
                     channelContextModule.setChannelUI(state.currentChannel);
@@ -238,10 +238,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (sessionTokenParam && validatedParam) {
                 try {
                     services.setSessionToken(sessionTokenParam);
-                    const tokenParts = sessionTokenParam.split('.');
                     let userDisplayName: string | null = null;
-                    if (tokenParts.length === 3) {
-                        const payload: JWTPayload = JSON.parse(atob(tokenParts[1]));
+                    const payload = decodeJwtPayload<JWTPayload>(sessionTokenParam);
+                    if (payload) {
                         localStorage.setItem('twitch_user_login', payload.userLogin);
                         localStorage.setItem('token_user', payload.tokenUser || '');
                         localStorage.setItem('token_channel', payload.tokenChannel || '');
@@ -250,7 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     state.isAuthenticated = true;
                     revealPreferencesPanel();
                     showAuthStatus('', 'info');
-                    if (elements.loggedInStatus) elements.loggedInStatus.style.display = 'block';
+                    if (elements.loggedInStatus) elements.loggedInStatus.style.display = '';
                     if (elements.loggedInUsername) elements.loggedInUsername.textContent = userDisplayName || 'User';
                     if (state.currentChannel) {
                         channelContextModule.setChannelUI(state.currentChannel);
@@ -299,7 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     state.isAuthenticated = true;
                     revealPreferencesPanel();
                     showAuthStatus('', 'info');
-                    if (elements.loggedInStatus) elements.loggedInStatus.style.display = 'block';
+                    if (elements.loggedInStatus) elements.loggedInStatus.style.display = '';
                     if (elements.loggedInUsername && data.user) {
                         elements.loggedInUsername.textContent = data.user.displayName || data.user.login;
                     }
@@ -374,7 +373,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     state.isAuthenticated = true;
                     revealPreferencesPanel();
                     showAuthStatus('', 'info');
-                    if (elements.loggedInStatus) elements.loggedInStatus.style.display = 'block';
+                    if (elements.loggedInStatus) elements.loggedInStatus.style.display = '';
                     if (elements.loggedInUsername) {
                         elements.loggedInUsername.textContent = data.user.displayName || data.user.userLogin || data.user.login || 'User';
                     }

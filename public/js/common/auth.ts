@@ -11,6 +11,29 @@ const STORAGE_KEYS = {
 } as const;
 
 /**
+ * Decode a JWT's payload.
+ *
+ * JWT parts are base64url, not base64: they use - and _ in place of + and /,
+ * and drop the trailing padding. atob() rejects those two characters outright,
+ * so the segment has to be normalised first. Returns null when the token is
+ * malformed rather than throwing.
+ */
+export function decodeJwtPayload<T = Record<string, unknown>>(token: string): T | null {
+  const segment = token.split('.')[1];
+  if (!segment) return null;
+
+  let base64 = segment.replace(/-/g, '+').replace(/_/g, '/');
+  base64 += '='.repeat((4 - (base64.length % 4)) % 4);
+
+  try {
+    return JSON.parse(atob(base64)) as T;
+  } catch (error) {
+    console.warn('Could not decode JWT payload:', error);
+    return null;
+  }
+}
+
+/**
  * Clear session-related tokens and redirect to the landing page.
  */
 export function logout(redirectTo: string = 'index.html'): void {

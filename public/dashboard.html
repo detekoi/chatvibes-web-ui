@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=Cabin+Condensed:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Public+Sans:wght@400;600&family=DM+Mono:wght@400;500&display=swap"
         rel="stylesheet">
 
     <!-- Bootstrap 5 CSS -->
@@ -19,6 +19,7 @@
 
     <!-- Custom overrides -->
     <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/design-system.css">
 
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="apple-touch-icon" href="/logo192.png">
@@ -40,16 +41,16 @@
 </head>
 
 <body>
-    <!-- Light mode video overlay -->
-    <div class="video-overlay"></div>
-
-    <div class="container my-4">
-        <div class="d-flex align-items-center justify-content-between mb-3">
-            <h1 class="h3 mb-0">WildcatTTS Dashboard</h1>
-            <div class="d-flex align-items-center gap-3">
+    <header class="wc-appbar">
+        <div class="wc-appbar-brand">
+            <span class="wc-lockup">Wildcat<b>TTS</b></span>
+            <span class="wc-sep"></span>
+            <span class="wc-appbar-page">Dashboard</span>
+        </div>
+        <div class="wc-appbar-actions">
                 <!-- OBS Setup Button & Popover -->
                 <div class="obs-anchor">
-                    <button class="btn btn-obs" type="button" id="obs-toggle-btn">
+                    <button class="wc-chipbtn" type="button" id="obs-toggle-btn">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"><rect x="2" y="3" width="20" height="14" rx="0"/><path d="M8 21h8M12 17v4"/></svg>
                         OBS Setup
                     </button>
@@ -115,14 +116,20 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-outline-secondary btn-sm" type="button" id="darkModeToggle" title="Toggle Dark Mode">
-                    <i data-lucide="moon" class="inline-icon"></i>
+                <button class="wc-iconbtn" type="button" id="darkModeToggle" title="Toggle dark mode"
+                    aria-label="Toggle dark mode">
+                    <i data-lucide="moon" aria-hidden="true"></i>
                 </button>
-                <a href="#" id="logout-link" class="btn btn-outline-danger btn-header-logout">Logout</a>
-            </div>
+                <a href="#" id="logout-link" class="wc-chipbtn wc-chipbtn--danger">Logout</a>
         </div>
+    </header>
 
+    <div class="wc-page-head">
+        <h1>Channel dashboard</h1>
+        <p>Text-to-speech settings for your channel. Changes save as you make them.</p>
+    </div>
 
+    <div class="wc-main">
         <div id="auth-status" class="alert alert-info text-center" role="status" style="display: none;"></div>
 
         <!-- Loading Overlay -->
@@ -133,11 +140,25 @@
             <p class="text-muted">Loading dashboard settings...</p>
         </div>
 
-        <div class="row g-4" id="dashboard-content" style="display: none;">
-            <!-- Main column -->
-            <div class="col-12 col-lg-8">
-                <!-- Tabs -->
-                <ul class="nav nav-tabs mb-3" role="tablist">
+        <div id="dashboard-content" style="display: none;">
+            <!-- Stat strip -->
+            <dl class="wc-stats">
+                <div class="wc-stat">
+                    <dt>Service</dt>
+                    <dd><span id="bot-status">Loading…</span></dd>
+                </div>
+                <div class="wc-stat">
+                    <dt>Channel</dt>
+                    <dd><span id="channel-name-status">your channel</span></dd>
+                </div>
+                <div class="wc-stat">
+                    <dt>Signed in as</dt>
+                    <dd><span id="twitch-username">loading…</span></dd>
+                </div>
+            </dl>
+
+            <!-- Tabs -->
+            <ul class="nav nav-tabs" role="tablist">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-broadcaster"
                             type="button" role="tab"><i data-lucide="radio" class="inline-icon" style="margin-right: 6px;"></i>Broadcaster</button>
@@ -146,26 +167,13 @@
                         <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-viewer-defaults" type="button"
                             role="tab"><i data-lucide="sliders-horizontal" class="inline-icon" style="margin-right: 6px;"></i>Voice Defaults</button>
                     </li>
-                </ul>
+            </ul>
 
+            <div class="wc-shell">
+                <div class="wc-shell-main">
                 <div class="tab-content">
                     <!-- Broadcaster Tab -->
                     <div class="tab-pane fade show active" id="tab-broadcaster" role="tabpanel">
-                        <!-- TTS Service Status & Control -->
-                        <div class="card mb-4 shadow">
-                            <div class="card-body">
-                                <p class="mb-1">Welcome, <span id="twitch-username">loading...</span>!</p>
-                                <p class="mb-2">TTS Service status for <strong id="channel-name-status">your
-                                        channel</strong>: <strong id="bot-status">Loading...</strong></p>
-                                <div class="d-flex gap-2 flex-wrap">
-                                    <button id="add-bot-btn" class="btn btn-outline-primary" style="display:none;"
-                                        type="button">Activate TTS Service</button>
-                                    <button id="remove-bot-btn" class="btn btn-outline-danger" style="display:none;"
-                                        type="button">Deactivate TTS Service</button>
-                                </div>
-                            </div>
-                        </div>
-
                         <!-- Engine & Mode -->
                         <div class="settings-section">
                             <h5 class="settings-section-title">Engine &amp; Mode</h5>
@@ -859,23 +867,35 @@
 
 
                 </div>
-            </div>
+                </div>
 
             <!-- Sidebar column -->
-            <div class="col-12 col-lg-4">
-                <div class="sticky-top sticky-aside">
-                    <div class="card mb-4">
-                    <div class="card-header">Voice Preview</div>
-                    <div class="card-body">
-                        <div id="sidebar-voice-name" class="sidebar-voice-name">Friendly Person</div>
-                        <div class="obs-steps-label mb-1">Test Message</div>
-                        <textarea id="voice-test-text" class="form-control mb-2" rows="3"
+            <aside class="wc-shell-aside">
+                <!-- Channel service: a once-a-year action, kept beside the
+                     status readouts it changes rather than in the header. -->
+                <section class="wc-aside-card">
+                    <header>Channel service</header>
+                    <div class="wc-aside-body">
+                        <span class="wc-aside-headline" id="service-headline">TTS service</span>
+                        <button id="add-bot-btn" class="wc-btn wc-btn--aside" style="display:none;"
+                            type="button">Activate TTS service</button>
+                        <button id="remove-bot-btn" class="wc-btn wc-btn--aside wc-btn--danger" style="display:none;"
+                            type="button">Deactivate TTS service</button>
+                        <p class="wc-aside-note">Deactivating stops the bot reading messages in your channel and leaves
+                            your settings untouched. You can reactivate any time.</p>
+                    </div>
+                </section>
+
+                <section class="wc-aside-card">
+                    <header>Voice preview</header>
+                    <div class="wc-aside-body">
+                        <span id="sidebar-voice-name" class="wc-aside-headline">Friendly Person</span>
+                        <label class="wc-code-label" for="voice-test-text">Test message</label>
+                        <textarea id="voice-test-text" class="form-control" rows="3"
                             maxlength="500">Welcome, everyone, to the stream!</textarea>
-                        <div class="d-grid">
-                            <button id="voice-test-btn" class="btn btn-primary" type="button">Send Preview</button>
-                        </div>
+                        <button id="voice-test-btn" class="wc-btn wc-btn--aside" type="button">Send preview</button>
                         <!-- Audio Player Container -->
-                        <div id="voice-preview-player" class="voice-preview-player mt-3" style="display: none;">
+                        <div id="voice-preview-player" class="voice-preview-player" style="display: none;">
                             <audio controls class="w-100">
                                 <source id="voice-preview-source" type="audio/mpeg">
                                 Your browser does not support the audio element.
@@ -886,39 +906,36 @@
                             </small>
                         </div>
                         <!-- Current voice settings display -->
-                        <div class="sidebar-voice-meta mt-3">
-                            <div class="d-flex justify-content-between"><span>Pitch</span> <strong id="sidebar-pitch-val">0</strong></div>
-                            <div class="d-flex justify-content-between"><span>Speed</span> <strong id="sidebar-speed-val">1.0×</strong></div>
-                            <div class="d-flex justify-content-between"><span>Volume</span> <strong id="sidebar-volume-val">1.0</strong></div>
-                            <div class="d-flex justify-content-between"><span>Emotion</span> <strong id="sidebar-emotion-val">—</strong></div>
-                            <div class="d-flex justify-content-between"><span>Language</span> <strong id="sidebar-language-val">Automatic</strong></div>
-                            <div class="d-flex justify-content-between"><span>Eng. Normalization</span> <strong id="sidebar-eng-norm-val">Off</strong></div>
-                        </div>
+                        <dl class="wc-kv">
+                            <div><dt>Pitch</dt><dd id="sidebar-pitch-val">0</dd></div>
+                            <div><dt>Speed</dt><dd id="sidebar-speed-val">1.0×</dd></div>
+                            <div><dt>Volume</dt><dd id="sidebar-volume-val">1.0</dd></div>
+                            <div><dt>Emotion</dt><dd id="sidebar-emotion-val">—</dd></div>
+                            <div><dt>Language</dt><dd id="sidebar-language-val">Automatic</dd></div>
+                            <div><dt>Eng. normalization</dt><dd id="sidebar-eng-norm-val">Off</dd></div>
+                        </dl>
                     </div>
-                </div>
+                </section>
 
                 <!-- Quick Links -->
-                <div class="card mb-4">
-                    <div class="card-body" style="padding: 14px 18px;">
-                        <div class="obs-steps-label mb-2">Quick Links</div>
-                        <div class="d-flex flex-column quick-links-list" style="gap: 6px;">
-                            <a href="https://docs.wildcat.chat/wildcatttsdocs.html" target="_blank" class="d-flex align-items-center text-decoration-none text-muted">
-                                <i data-lucide="book" class="inline-icon" style="margin-right: 6px; width: 14px; height: 14px;"></i>
-                                Documentation
+                <section class="wc-aside-card">
+                    <header>Quick links</header>
+                    <div class="wc-aside-body">
+                        <div class="wc-links">
+                            <a class="wc-link wc-link--muted" href="https://docs.wildcat.chat/wildcatttsdocs.html" target="_blank" rel="noopener">
+                                <i data-lucide="book" aria-hidden="true"></i>Documentation
                             </a>
-                            <a href="viewer-settings.html" class="d-flex align-items-center text-decoration-none text-muted">
-                                <i data-lucide="settings" class="inline-icon" style="margin-right: 6px; width: 14px; height: 14px;"></i>
-                                Viewer Settings
+                            <a class="wc-link wc-link--muted" href="viewer-settings.html">
+                                <i data-lucide="settings" aria-hidden="true"></i>Viewer settings
                             </a>
-                            <a href="https://wildcat.chat" target="_blank" class="d-flex align-items-center text-decoration-none text-muted">
-                                <i data-lucide="external-link" class="inline-icon" style="margin-right: 6px; width: 14px; height: 14px;"></i>
-                                Wildcat Chat
+                            <a class="wc-link wc-link--muted" href="https://wildcat.chat" target="_blank" rel="noopener">
+                                <i data-lucide="external-link" aria-hidden="true"></i>Wildcat Chat
                             </a>
                         </div>
                     </div>
-                </div>
-                </div>
-            </div>
+                </section>
+            </aside>
+        </div>
         </div>
     </div>
 
@@ -942,6 +959,19 @@
             if (window.themeManager) {
                 window.themeManager.toggleTheme();
             }
+        });
+
+        // Section headers carry a mono count on the right. Derived from the DOM
+        // so it can't drift as settings are added or removed.
+        document.querySelectorAll('.settings-section').forEach((section) => {
+            const title = section.querySelector('.settings-section-title');
+            if (!title || title.querySelector('.wc-card-meta')) return;
+            const count = section.querySelectorAll('.list-group > .list-group-item').length;
+            if (!count) return;
+            const meta = document.createElement('span');
+            meta.className = 'wc-card-meta';
+            meta.textContent = count === 1 ? '1 setting' : `${count} settings`;
+            title.appendChild(meta);
         });
     </script>
 </body>

@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=Cabin+Condensed:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Public+Sans:wght@400;600&family=DM+Mono:wght@400;500&display=swap"
         rel="stylesheet">
 
     <!-- Bootstrap 5 CSS -->
@@ -19,6 +19,7 @@
 
     <!-- Custom overrides -->
     <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/design-system.css">
 
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="apple-touch-icon" href="/logo192.png">
@@ -38,25 +39,44 @@
 </head>
 
 <body>
-    <!-- Light mode video overlay -->
-    <div class="video-overlay"></div>
-
-    <div class="container my-4">
-        <div class="d-flex align-items-center justify-content-between mb-3">
-            <h1 class="h3 mb-0">Viewer TTS Preferences</h1>
-            <div class="d-flex align-items-center gap-3">
-                <button class="btn btn-outline-secondary btn-sm" type="button" id="darkModeToggle" title="Toggle Dark Mode">
-                    <i data-lucide="moon" class="inline-icon"></i>
-                </button>
-                <a href="#" id="logout-link" class="btn btn-outline-danger btn-sm">Logout</a>
-            </div>
+    <header class="wc-appbar">
+        <div class="wc-appbar-brand">
+            <span class="wc-lockup">Wildcat<b>TTS</b></span>
+            <span class="wc-sep"></span>
+            <span class="wc-appbar-page">Viewer settings</span>
         </div>
-        <p class="text-muted">Customize how your messages sound when read by WildcatTTS</p>
+        <div class="wc-appbar-actions">
+            <button class="wc-iconbtn" type="button" id="darkModeToggle" title="Toggle dark mode"
+                aria-label="Toggle dark mode">
+                <i data-lucide="moon" aria-hidden="true"></i>
+            </button>
+            <a href="#" id="logout-link" class="wc-chipbtn wc-chipbtn--danger">Logout</a>
+        </div>
+    </header>
 
+    <div class="wc-page-head">
+        <h1>Viewer TTS preferences</h1>
+        <p>Customize how your messages sound when read by Wildcat TTS. Your preferences are global and follow you
+            between channels.</p>
+    </div>
+
+    <div class="wc-main">
         <div id="auth-status" class="alert alert-info text-center" role="status" style="display: none;"></div>
 
-        <p id="logged-in-status" class="text-muted text-center" style="display: none;">Logged in as: <strong
-                id="logged-in-username"></strong></p>
+        <dl class="wc-stats" id="logged-in-status" style="display: none;">
+            <div class="wc-stat">
+                <dt>Logged in as</dt>
+                <dd><span id="logged-in-username"></span></dd>
+            </div>
+            <div class="wc-stat">
+                <dt>Scope</dt>
+                <dd>Global</dd>
+            </div>
+            <div class="wc-stat">
+                <dt>Channel context</dt>
+                <dd class="is-muted" id="stat-channel-context">None loaded</dd>
+            </div>
+        </dl>
 
         <!-- Loading Overlay -->
         <div id="loading-overlay" class="text-center py-5" style="display: none;">
@@ -67,9 +87,9 @@
         </div>
 
         <div id="preferences-panel" style="display: none;">
-            <div class="row g-4">
+            <div class="wc-shell">
                 <!-- Main column -->
-                <div class="col-12 col-lg-8">
+                <div class="wc-shell-main">
                     <!-- Channel Context (optional) -->
                     <div class="card mb-3" id="add-channel-context-card">
                         <div class="card-body d-flex justify-content-between align-items-center">
@@ -308,20 +328,17 @@
                 </div>
 
                 <!-- Sidebar column -->
-                <div class="col-12 col-lg-4 order-first order-lg-0">
-                    <div class="sticky-top sticky-aside">
-                        <div class="card mb-4">
-                            <div class="card-header">Voice Preview</div>
-                            <div class="card-body">
-                                <div id="sidebar-voice-name" class="sidebar-voice-name">—</div>
-                                <div class="obs-steps-label mb-1">Test Message</div>
-                                <textarea id="preview-text" class="form-control mb-2" maxlength="500"
+                <aside class="wc-shell-aside">
+                        <section class="wc-aside-card">
+                            <header>Voice preview</header>
+                            <div class="wc-aside-body">
+                                <span id="sidebar-voice-name" class="wc-aside-headline">—</span>
+                                <label class="wc-code-label" for="preview-text">Test message</label>
+                                <textarea id="preview-text" class="form-control" maxlength="500"
                                     rows="3">Chat is this real?</textarea>
-                                <div class="d-grid">
-                                    <button type="button" id="preview-btn" class="btn btn-primary">Send Preview</button>
-                                </div>
+                                <button type="button" id="preview-btn" class="wc-btn wc-btn--aside">Send preview</button>
                                 <!-- Audio Player Container -->
-                                <div id="voice-preview-player" class="voice-preview-player mt-3" style="display: none;">
+                                <div id="voice-preview-player" class="voice-preview-player" style="display: none;">
                                     <audio controls class="w-100">
                                         <source id="voice-preview-source" type="audio/mpeg">
                                         Your browser does not support the audio element.
@@ -332,38 +349,34 @@
                                     </small>
                                 </div>
                                 <!-- Current voice settings display -->
-                                <div class="sidebar-voice-meta mt-3">
-                                    <div class="d-flex justify-content-between"><span>Pitch</span> <strong id="sidebar-pitch-val">0</strong></div>
-                                    <div class="d-flex justify-content-between"><span>Speed</span> <strong id="sidebar-speed-val">1.0×</strong></div>
-                                    <div class="d-flex justify-content-between"><span>Emotion</span> <strong id="sidebar-emotion-val">—</strong></div>
-                                    <div class="d-flex justify-content-between"><span>Language</span> <strong id="sidebar-language-val">Automatic</strong></div>
-                                    <div class="d-flex justify-content-between"><span>Eng. Normalization</span> <strong id="sidebar-eng-norm-val">Off</strong></div>
-                                </div>
+                                <dl class="wc-kv">
+                                    <div><dt>Pitch</dt><dd id="sidebar-pitch-val">0</dd></div>
+                                    <div><dt>Speed</dt><dd id="sidebar-speed-val">1.0×</dd></div>
+                                    <div><dt>Emotion</dt><dd id="sidebar-emotion-val">—</dd></div>
+                                    <div><dt>Language</dt><dd id="sidebar-language-val">Automatic</dd></div>
+                                    <div><dt>Eng. normalization</dt><dd id="sidebar-eng-norm-val">Off</dd></div>
+                                </dl>
                             </div>
-                        </div>
+                        </section>
 
                         <!-- Quick Links -->
-                        <div class="card mb-4">
-                            <div class="card-body" style="padding: 14px 18px;">
-                                <div class="obs-steps-label mb-2">Quick Links</div>
-                                <div class="d-flex flex-column quick-links-list" style="gap: 6px;">
-                                    <a href="https://docs.wildcat.chat/wildcatttsdocs.html" target="_blank" class="d-flex align-items-center text-decoration-none text-muted">
-                                        <i data-lucide="book" class="inline-icon" style="margin-right: 6px; width: 14px; height: 14px;"></i>
-                                        Documentation
+                        <section class="wc-aside-card">
+                            <header>Quick links</header>
+                            <div class="wc-aside-body">
+                                <div class="wc-links">
+                                    <a class="wc-link wc-link--muted" href="https://docs.wildcat.chat/wildcatttsdocs.html" target="_blank" rel="noopener">
+                                        <i data-lucide="book" aria-hidden="true"></i>Documentation
                                     </a>
-                                    <a href="dashboard.html" class="d-flex align-items-center text-decoration-none text-muted">
-                                        <i data-lucide="radio" class="inline-icon" style="margin-right: 6px; width: 14px; height: 14px;"></i>
-                                        Streamer Settings
+                                    <a class="wc-link wc-link--muted" href="dashboard.html">
+                                        <i data-lucide="radio" aria-hidden="true"></i>Streamer settings
                                     </a>
-                                    <a href="https://wildcat.chat" target="_blank" class="d-flex align-items-center text-decoration-none text-muted">
-                                        <i data-lucide="external-link" class="inline-icon" style="margin-right: 6px; width: 14px; height: 14px;"></i>
-                                        Wildcat Chat
+                                    <a class="wc-link wc-link--muted" href="https://wildcat.chat" target="_blank" rel="noopener">
+                                        <i data-lucide="external-link" aria-hidden="true"></i>Wildcat Chat
                                     </a>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
+                        </section>
+                </aside>
             </div>
         </div>
     </div>
@@ -388,6 +401,19 @@
             if (window.themeManager) {
                 window.themeManager.toggleTheme();
             }
+        });
+
+        // Section headers carry a mono count on the right. Derived from the DOM
+        // so it can't drift as settings are added or removed.
+        document.querySelectorAll('.settings-section').forEach((section) => {
+            const title = section.querySelector('.settings-section-title');
+            if (!title || title.querySelector('.wc-card-meta')) return;
+            const count = section.querySelectorAll('.list-group > .list-group-item').length;
+            if (!count) return;
+            const meta = document.createElement('span');
+            meta.className = 'wc-card-meta';
+            meta.textContent = count === 1 ? '1 setting' : `${count} settings`;
+            title.appendChild(meta);
         });
     </script>
 </body>
