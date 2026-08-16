@@ -140,5 +140,6 @@ export {
   secretsLoadedPromise,
   config,
   secretManagerClient,
+  isEmulator,
 };
 export type { Secrets, Config };

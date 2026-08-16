@@ -8,3 +8,8 @@ process.env.FIRESTORE_EMULATOR_HOST = process.env.FIRESTORE_EMULATOR_HOST || "lo
 process.env.GCLOUD_PROJECT = process.env.GCLOUD_PROJECT || "test-project";
 process.env.FUNCTIONS_EMULATOR = "true";
 process.env.USE_ENV_SECRETS = "1";
+
+// Non-secret OAuth config. appHelper.ts sets the same values with `||`
+// defaults; these cover suites that mount a router directly instead.
+process.env.CALLBACK_URL = process.env.CALLBACK_URL || "http://localhost:5001/test-project/us-central1/webUi/auth/twitch/callback";
+process.env.FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:5002";

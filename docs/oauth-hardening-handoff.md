@@ -2,7 +2,9 @@
 
 **Repos in scope (both required):**
 - `/Users/henry/Dev/chatvibes-web-ui` — WildcatTTS, frontend `tts.wildcat.chat`
-- `/Users/henry/Dev/chatsage-web-ui` — WildcatSage, frontend `bot.wildcat.chat`
+- `/Users/henry/Dev/chatsage-web-ui` — WildcatSage. Hosts: `app.wildcat.chat`
+  (frontend + API) and `api.wildcat.chat` (API). See the trap section — the
+  split between them is the thing that breaks login.
 
 Read this whole document before touching code. It contains findings that are
 not obvious from reading the source, and at least one comment in the codebase
@@ -20,7 +22,7 @@ cookie is set, in either app.
 
 | | TTS (`chatvibes`) | Sage |
 |---|---|---|
-| Client starts flow | `fetch('/auth/twitch/initiate')` → `{twitchAuthUrl, state}` → client saves `state` to `sessionStorage` → redirects | `location.href = 'https://api.wildcat.chat/auth/twitch'` — server does everything |
+| Client starts flow | `fetch('/auth/twitch/initiate')` → `{twitchAuthUrl, state}` → client saves `state` to `sessionStorage` → redirects | `location.href = 'https://api.wildcat.chat/auth/twitch'` — server does everything (but the callback lands on `app.wildcat.chat`; see the trap section) |
 | `state` generated | `randomBytes(16)` (broadcaster); base64 JSON incl. `randomBytes(8)` (viewer) | `crypto.randomBytes(16)` nonce inside JSON |
 | State bound to browser | ❌ none | ❌ none |
 | Where state is checked | Client, in `auth-complete.html`, vs `sessionStorage` | Server — **presence check only** |
@@ -61,27 +63,81 @@ attacker cannot write to the victim's `sessionStorage`), so TTS is genuinely
 safer than Sage today. But the token exists in browser history and `Referer`
 regardless of whether the page decides to store it.
 
-### Finding 3 — the documented intent was never implemented
+### Finding 3 — the documented intent was never implemented, and is imprecise
 
 `chatvibes-web-ui/CLAUDE.md` says *"Use signed cookies for OAuth state
-security."* Neither backend calls `res.cookie` for state. Sage already mounts
-`cookie-parser` (`functions/src/config/middleware.ts:169`) and does not use it
-for this.
+security."* Neither backend calls `res.cookie` for state at all. Sage mounts
+`cookie-parser` (`functions/src/config/middleware.ts:169`) but passes it no
+secret, so signed cookies do not work there either.
+
+Two separate problems, and the second is the interesting one: **no state cookie
+exists**, and **"signed" is the wrong requirement anyway**. There is no cookie
+signing key in either repo, and the design in this document does not need one.
+See "Do not sign the cookie" below before treating that CLAUDE.md line as a
+spec.
 
 ---
 
 ## ⚠️ The trap that will break a naive implementation
 
 **The two apps do not share an origin topology. A single copy-pasted cookie
-config will not work for both.**
+config will not work for both — and for TTS, a state cookie cannot work at all
+until a config change is made first.**
 
-- **TTS is same-origin.** `firebase.json` rewrites `/auth/**` and `/api/**` to
-  the `webUi` function, so the browser only ever talks to `tts.wildcat.chat`.
-  A host-only cookie is fine.
-- **Sage is cross-origin.** The frontend is `bot.wildcat.chat`; the API is
-  `https://api.wildcat.chat` (hardcoded in `public/index.html` and
-  `public/js/api.js`). They share the parent domain `wildcat.chat`, so a state
-  cookie must be scoped `Domain=.wildcat.chat` to survive the round trip.
+**TTS: the two endpoints are on different registrable domains.** This is the
+single most important fact in this document. From `chatvibes-web-ui/functions/.env`:
+
+```
+CALLBACK_URL=https://us-central1-chatvibestts.cloudfunctions.net/webUi/auth/twitch/callback
+FRONTEND_URL=https://chatvibestts.web.app
+```
+
+- `/auth/twitch/initiate` is reached through the Firebase Hosting rewrite, so
+  it runs on the **Hosting** origin (`chatvibestts.web.app` / `tts.wildcat.chat`).
+- Twitch redirects to `/auth/twitch/callback` on
+  **`us-central1-chatvibestts.cloudfunctions.net`** — a different registrable
+  domain entirely.
+
+A cookie set by `/initiate` will **never** be sent to the callback. Setting a
+state cookie and comparing it on the callback is a no-op for TTS as currently
+deployed. See Phase 0 below.
+
+**Sage has the same split, in the other direction.** Verified from
+`chatsage-web-ui/firebase.json`, which defines **two Hosting targets in one
+repo, both rewriting to the same `webUi` function**:
+
+| target | serves | rewrites |
+|---|---|---|
+| `app` (`app.wildcat.chat`) | `public/` static **and** the API | `/auth/**`, `/api/**` → `webUi` |
+| `api` (`api.wildcat.chat`) | API only | `/**` → `webUi` |
+
+The client hardcodes `https://api.wildcat.chat` (`public/index.html`,
+`public/js/api.js`) so the flow *starts* on `api`, but the deployed
+`CALLBACK_URL` is on `app.wildcat.chat` — so a host-only state cookie set at
+the start is never sent back to the callback, and login breaks on deploy.
+
+**Fix: point the client at `app.wildcat.chat`.** One line in `public/js/api.js`.
+Because `app` already rewrites `/api/**` to the same function, no API call
+changes backend, and because `app` also serves the frontend, the whole flow
+collapses onto a single origin. No Twitch console change, no Secret Manager
+change, nothing deploy-coupled.
+
+Do **not** reach for `Domain=.wildcat.chat` instead. That sends the state cookie
+to every sibling subdomain including `tts.wildcat.chat`, which is a different
+application, and permanently forecloses `__Host-`.
+
+`bot.wildcat.chat` is also a live origin (`ALLOWED_ORIGINS` in
+`config/constants.ts:44`), so users may arrive there. The flow still works from
+it — the whole OAuth round trip happens on `app` as a top-level navigation —
+but include it in the live verification.
+
+⚠️ **Both Sage hosts are Firebase Hosting**, so the `__session`-only cookie
+stripping described under Phase 0 applies to Sage too, not just TTS.
+
+**How to check this for yourself:** host topology in these repos lives in
+`firebase.json` targets and `functions/.env` — *not* in client code, and not in
+UI copy. The `bot.wildcat.chat` in the page footers came from a design spec and
+is not evidence of anything. Read the config, not the strings.
 
 `SameSite=Lax` is correct for both — the Twitch → callback hop is a top-level
 GET navigation, so a Lax cookie is sent. **`SameSite=Strict` will break the
@@ -91,46 +147,164 @@ Sage already sets `Access-Control-Allow-Credentials: true` against an origin
 allowlist (`functions/src/config/middleware.ts:54-65`,
 `ALLOWED_ORIGINS` in `config/constants.ts:44`) and has a
 `csrfProtectionMiddleware` mounted at line 172. Read both before adding
-anything new — some of the work may already exist.
+anything new.
+
+⚠️ Note that `cookieParser()` at line 169 is mounted **without a secret**, so
+signed cookies are not actually available in Sage — see "Do not sign the
+cookie" below. Do not read the bare presence of `cookie-parser` as the work
+being half done.
 
 ---
 
-## Target shape
+## Target shape (the end state — NOT all of Phase 1)
 
-Standardize on **Sage's client shape** (plain redirect; the server owns the
+The destination is **Sage's client shape** (plain redirect; the server owns the
 whole flow) with **real server-side state binding**. TTS's extra round-trip and
 client-side state juggling exists only to support a check that should not be
 happening in the browser.
 
-One handler shape, both repos:
+⚠️ **Converging the client shape is Phase 2, not Phase 1.** Phase 1 is the
+server-side binding only, and it needs no frontend change in either repo — TTS
+can set and compare the cookie inside its existing `/initiate` + `/callback`
+pair, leaving `public/index.html` untouched. Read the phasing section before
+starting.
 
-1. `GET /auth/twitch` — generate a random nonce, set it in an **HttpOnly,
-   Secure, SameSite=Lax, signed** cookie (short max-age, ~10 min), redirect to
-   Twitch with that nonce as `state`.
-2. `GET /auth/twitch/callback` — compare `req.query.state` to the signed
-   cookie, **clear the cookie**, and reject on mismatch **before** exchanging
-   the code. Preserve today's structured error redirects
-   (`redirectToFrontendWithError`) so the existing `auth-error.html` pages keep
-   working — they render `?error=` and `?error_description=`.
-3. Keep the extra payloads TTS carries in `state` today (viewer-vs-broadcaster
-   marker `t`, optional channel `c`) and Sage's `frontendRedirect`. **Do not
-   move these into the cookie value blindly** — decide deliberately whether
-   they belong in the signed cookie or stay in `state` alongside the nonce.
-   Whichever you choose, the nonce comparison is what must be authoritative.
+The server-side handler shape, both repos:
+
+1. `GET /auth/twitch` — generate a high-entropy random nonce, set it in an
+   **HttpOnly, Secure, SameSite=Lax, Path=/, host-only** cookie (short max-age,
+   ~10 min), redirect to Twitch with that nonce as `state`.
+2. `GET /auth/twitch/callback` — compare `req.query.state` to the cookie with a
+   **timing-safe** comparison (`crypto.timingSafeEqual`, which requires equal
+   buffer lengths — check length first and bail rather than letting it throw),
+   **clear the cookie**, and reject on mismatch **before** exchanging the code.
+   Preserve today's structured error redirects (`redirectToFrontendWithError`)
+   so the existing `auth-error.html` pages keep working — they render `?error=`
+   and `?error_description=`.
+3. Put the routing payload in the **cookie**, not in `state`. TTS today carries
+   a viewer-vs-broadcaster marker `t` and optional channel `c` in `state`;
+   Sage carries `frontendRedirect`. Move them into the cookie value alongside
+   the nonce and send **only the opaque nonce** as `state`. The cookie is
+   server-set and HttpOnly, so its contents can be trusted; `state` round-trips
+   through Twitch and the browser and cannot be.
+
+   This matters more than it looks: `t` selects which callback handler runs,
+   and therefore which token scope is issued. Reading that from an
+   attacker-supplied `state` is a decision you do not want to make.
+
+### Do not sign the cookie — and you do not need a key
+
+`chatvibes-web-ui/functions/src/config.ts` exposes exactly five secrets
+(`TWITCH_CLIENT_ID`, `TWITCH_CLIENT_SECRET`, `JWT_SECRET`, `WAVESPEED_API_KEY`,
+`302_KEY`) and `firebase.json` binds only those. Sage mounts `cookieParser()`
+**with no secret**, so `req.signedCookies` is permanently empty there and
+`res.cookie(..., { signed: true })` would throw. There is no cookie signing key
+in either repo.
+
+**You do not need one.** A signature proves our server minted the value. It
+does not help here, because an attacker can simply run their own legitimate
+flow, obtain a *validly signed* cookie and its matching `state`, and then try
+to plant that pair on a victim. The signature is genuine, so it blocks nothing.
+Signing matters when a cookie carries semantic data you will trust without
+further checking — it does not add anything to an opaque nonce compared for
+equality, and step 3 above keeps the semantic payload in the same server-set
+cookie rather than in attacker-reachable `state`.
+
+What actually defends this cookie: high entropy, `HttpOnly`, `Secure`,
+`SameSite=Lax`, `Path=/`, **no `Domain` attribute** (host-only — do not scope
+the state cookie to `.wildcat.chat`), a short max-age, clearing it after one
+use, and a timing-safe comparison.
+
+Use the **`__Host-` prefix** where you can. Browsers reject a `__Host-` cookie
+that sets `Domain`, or that is not `Secure` with `Path=/`, which is what stops
+a sibling subdomain planting one (cookie tossing) — the residual risk a
+signature would not have covered either.
+
+- **Sage** can use it: `__Host-oauth-state`.
+- **TTS cannot**, because Firebase Hosting forwards only `__session` (Phase 0).
+  Use `__session`, host-only, and note the residual cookie-tossing exposure
+  when you report back rather than papering over it.
+
+`chatvibes-web-ui/CLAUDE.md` says *"Use signed cookies for OAuth state
+security."* That line is the origin of the word "signed" in earlier drafts of
+this document. Treat it as imprecise rather than as a requirement: update it to
+describe what you actually built.
+
+**If you nonetheless conclude a new secret is genuinely required, stop and ask
+the human.** Do not derive a key from `JWT_SECRET`, and do not invent one. Key
+separation by ad-hoc derivation is exactly the kind of decision that should not
+be made silently inside a handoff.
 
 ---
 
 ## Phasing — do NOT do this all at once
 
-### Phase 1 (do this first, ship it alone)
-State binding only, as described above. Small, contained, no frontend API
-changes. Session delivery stays exactly as it is today.
+### Phase 0 — TTS only: make a state cookie possible at all (blocking)
 
-**Phase 1 is the whole assignment unless the human says otherwise.**
+Phase 1 cannot work for TTS until `/initiate` and `/callback` share an origin.
+Today they do not (see the trap section above).
 
-### Phase 2 (separate change, only if asked)
-Get the session JWT out of the URL — deliver it as an HttpOnly cookie or a
-one-time exchange code.
+Repoint TTS's `CALLBACK_URL` from the raw Cloud Functions host to the Hosting
+origin, so the callback arrives through the same `/auth/**` rewrite the rest of
+the flow uses:
+
+```
+CALLBACK_URL=https://tts.wildcat.chat/auth/twitch/callback
+```
+
+Two consequences you must handle:
+
+1. **The redirect URI must also be updated in the Twitch developer console** to
+   the exact same string, or Twitch rejects the authorization request. That is
+   a human action outside both repos — you cannot do it. Surface it explicitly
+   when you hand back.
+2. ⚠️ **Firebase Hosting strips every cookie except `__session`** before
+   forwarding a request to a Function. Once the callback comes through Hosting,
+   a state cookie named anything else will silently not arrive. Name it
+   `__session` (or namespace inside a `__session` payload). **Verify this
+   against current Firebase Hosting docs before building on it** — it is
+   long-standing documented behaviour, but confirm rather than trust this note.
+
+Confirm which host TTS actually serves in production (`chatvibestts.web.app`
+and `tts.wildcat.chat` both appear in config) and use the one the redirect URI
+will name.
+
+If Phase 0 turns out to be unacceptable — e.g. the human does not want to touch
+the Twitch console — **stop and report back** rather than reaching for a
+stateless signed-state scheme as a substitute. HMAC-signing the state proves
+integrity but not browser binding, so it does not stop an attacker replaying
+their own validly-signed state. That is a different, weaker guarantee and it
+should be an explicit human decision, not a silent downgrade.
+
+**Sage needs a Phase 0 too**, but a cheaper one: repoint the client's
+`API_BASE_URL` from `api.wildcat.chat` to `app.wildcat.chat` so the flow starts
+on the host the callback already lands on. See the trap section. This is a
+frontend one-liner and is the one frontend change Phase 1 legitimately needs —
+it is config, not behaviour.
+
+### Phase 1 — state binding, server-side only (the assignment)
+
+The handler shape described under "Target shape". **No frontend changes in
+either repo.** TTS keeps its `/initiate` + `sessionStorage` round-trip exactly
+as-is; the cookie is set in the existing `/initiate` JSON response and compared
+in `/callback`. The client-side `sessionStorage` comparison stays where it is
+and simply becomes redundant belt-and-braces — leave it.
+
+Session delivery stays exactly as it is today.
+
+**Phase 0 + Phase 1 are the whole assignment unless the human says otherwise.**
+
+### Phase 2 (separate change, only if asked) — converge the client shape
+
+Collapse TTS's `/initiate` round-trip into a plain redirect matching Sage, and
+delete the then-redundant client-side `sessionStorage` check from
+`public/index.html` / `auth-complete.html`. This is a consistency change, not a
+security one — once Phase 1 lands, the server-side cookie is authoritative and
+TTS's extra hop is merely surplus, not unsafe.
+
+### Phase 3 (separate change, only if asked) — get the token out of the URL
+
+Deliver the session JWT as an HttpOnly cookie or a one-time exchange code.
 
 This is much larger than it looks. It touches **every authenticated call site**
 in both frontends:
@@ -140,7 +314,7 @@ in both frontends:
 
 It is also a **breaking change for already-signed-in users**, and other
 consumers may read `app_session_token`. Audit before starting. Do not begin
-Phase 2 in the same commit as Phase 1.
+Phase 3 in the same commit as Phase 1.
 
 ---
 
@@ -171,6 +345,11 @@ Phase 2 in the same commit as Phase 1.
 
 ## Definition of done
 
+- [ ] TTS's `CALLBACK_URL` and the Twitch console redirect URI match, and the
+      callback now arrives through the Hosting rewrite (Phase 0).
+- [ ] The TTS state cookie survives Firebase Hosting — i.e. it is named
+      `__session`, confirmed by an actual round trip through the emulator or a
+      deployed preview, not by reading the code.
 - [ ] A callback with a `state` that does not match the cookie is **rejected**,
       and no session token is minted — assert this in a test, in both repos.
 - [ ] A callback with a **missing** cookie is rejected.
@@ -185,7 +364,16 @@ Phase 2 in the same commit as Phase 1.
       shows no *new* errors.
 - [ ] The stale comment in `chatsage-web-ui/public/auth-complete.html` claiming
       the server already validated state is corrected or removed.
-- [ ] `chatvibes-web-ui/CLAUDE.md`'s signed-cookie line is now true.
+- [ ] `chatvibes-web-ui/CLAUDE.md`'s cookie line describes what was actually
+      built (it currently says "signed cookies"; the design here is not signed).
+- [ ] The state cookie sets no `Domain` attribute in either repo, and the
+      `state` query parameter carries **only** the opaque nonce.
+- [ ] Comparison is timing-safe and length-checked before `timingSafeEqual`.
+- [ ] Phase 1 changed no frontend **behaviour** in either repo. TTS keeps its
+      `/initiate` round-trip and its `sessionStorage` comparison; Sage keeps its
+      plain redirect. Comment and doc corrections in frontend files are fine and
+      expected — the item above requires one. If you changed what a page *does*,
+      you have drifted into Phase 2: stop and say so.
 
 ## Out of scope — do not do these
 
@@ -194,7 +382,9 @@ Phase 2 in the same commit as Phase 1.
 - Do not change Twitch scopes, JWT claims, expiry, or `JWT_SECRET`.
 - Do not refactor unrelated auth code, rename routes, or "tidy" adjacent files.
 - Do not deploy. Do not run `firebase deploy`.
-- Do not commit secrets or add new ones.
+- Do not commit secrets. Do not add new ones or derive keys from existing
+  secrets — the design below needs neither. If you become convinced a new
+  secret is unavoidable, stop and ask rather than improvising one.
 
 ## Verification the agent cannot do alone
 

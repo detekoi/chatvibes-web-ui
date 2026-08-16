@@ -3,13 +3,13 @@
  */
 
 import express, { Request, Response, Router } from "express";
-import { randomBytes } from "crypto";
 import axios from "axios";
 import jwt from "jsonwebtoken";
 import { secrets, config } from "../config";
 import { db, COLLECTIONS, FieldValue } from "../services/firestore";
 import { validateTwitchToken } from "../services/twitch";
 import { logger, redactSensitive } from "../logger";
+import { issueState, consumeState, OAuthStatePayload } from "./state";
 
 const router: Router = express.Router();
 
@@ -52,13 +52,6 @@ interface TwitchUsersResponse {
   data: TwitchUserData[];
 }
 
-interface ViewerStatePayload {
-  t: string; // type
-  r?: string; // random
-  c?: string; // channel
-  channel?: string;
-}
-
 /**
  * Helper function to redirect to frontend with error
  * @param res - Express response object
@@ -88,10 +81,10 @@ function redirectToFrontendWithError(res: Response, errorCode: string, errorDesc
  * Helper function to handle viewer OAuth callback
  * @param req - Express request object
  * @param res - Express response object
- * @param decodedState - Decoded OAuth state
+ * @param statePayload - Routing context recovered from the state cookie
  * @return JSON response
  */
-async function handleViewerCallback(req: Request, res: Response, decodedState: ViewerStatePayload | null): Promise<Response> {
+async function handleViewerCallback(req: Request, res: Response, statePayload: OAuthStatePayload): Promise<Response> {
   logger.info("Handling viewer OAuth callback");
   const { code, error: twitchError, error_description: twitchErrorDescription } = req.query;
 
@@ -150,12 +143,9 @@ async function handleViewerCallback(req: Request, res: Response, decodedState: V
     redirectUrl.pathname = "/viewer-settings.html";
     redirectUrl.searchParams.set("session_token", viewerSessionToken);
     redirectUrl.searchParams.set("validated", "1");
-    // Preserve optional channel context if present in state
-    if (decodedState && (decodedState.c || decodedState.channel)) {
-      const channel = decodedState.c || decodedState.channel;
-      if (channel) {
-        redirectUrl.searchParams.set("channel", channel);
-      }
+    // Preserve optional channel context if the initiating request carried one
+    if (statePayload.c) {
+      redirectUrl.searchParams.set("channel", statePayload.c);
     }
 
     res.redirect(redirectUrl.toString());
@@ -181,7 +171,10 @@ router.get("/twitch/initiate", (_req: Request, res: Response): void => {
     return;
   }
 
-  const state = randomBytes(16).toString("hex");
+  // Binds the flow to this browser. The client still stores the returned state
+  // in sessionStorage and re-checks it on auth-complete.html; that check is now
+  // belt-and-braces on top of the authoritative server-side one.
+  const state = issueState(res, { t: "broadcaster" });
 
   const params = new URLSearchParams({
     client_id: secrets.TWITCH_CLIENT_ID,
@@ -209,24 +202,31 @@ router.get("/twitch/callback", async (req: Request, res: Response): Promise<void
   logger.debug({ query: redactSensitive(req.query) }, "Callback Request Query Params");
   const { code, state: twitchQueryState, error: twitchError, error_description: twitchErrorDescription } = req.query;
 
-  // Try to decode state parameter to detect viewer auth
-  let isViewerAuth = false;
-  let decodedState: ViewerStatePayload | null = null;
-  try {
-    if (typeof twitchQueryState === "string") {
-      decodedState = JSON.parse(Buffer.from(twitchQueryState, "base64").toString()) as ViewerStatePayload;
-      if (decodedState && decodedState.t === "viewer") {
-        isViewerAuth = true;
-        logger.info("Detected viewer auth from state parameter");
-      }
+  // Bind this callback to the browser that started the flow, before the
+  // authorization code is exchanged and before any token is minted. The cookie
+  // is consumed and cleared here on every path, so a state cannot be replayed.
+  const stateResult = consumeState(req, res);
+
+  if (!stateResult.ok) {
+    // A genuine Twitch error is the more useful thing to report, and that flow
+    // was never going to succeed anyway.
+    if (twitchError) {
+      logger.error({ twitchError, twitchErrorDescription, reason: stateResult.reason }, "Twitch OAuth error on an unbound callback");
+      return redirectToFrontendWithError(res, twitchError as string, twitchErrorDescription as string, twitchQueryState as string);
     }
-  } catch (error) {
-    logger.debug("State is not viewer JSON format, treating as regular auth");
+
+    logger.error({ reason: stateResult.reason }, "OAuth state binding failed — rejecting callback");
+    return redirectToFrontendWithError(
+      res,
+      "invalid_state",
+      "Could not verify that this login started in your browser. Please try logging in again from the main page.",
+      twitchQueryState as string,
+    );
   }
 
-  if (isViewerAuth) {
+  if (stateResult.payload.t === "viewer") {
     logger.info("Detected viewer OAuth callback, delegating to viewer handler");
-    return handleViewerCallback(req, res, decodedState);
+    return handleViewerCallback(req, res, stateResult.payload);
   }
 
   if (twitchError) {
@@ -475,14 +475,14 @@ router.get("/twitch/viewer", (req: Request, res: Response): void => {
     return;
   }
 
-  // Create state parameter with viewer type marker
+  // The viewer marker and channel context go in the cookie, not in `state`.
+  // `t` decides which callback handler runs and therefore which token scope is
+  // issued, so it must not be readable back out of an attacker-supplied value.
   const { channel } = req.query || {};
-  const statePayload: ViewerStatePayload = {
-    t: "viewer", // type: viewer
-    r: randomBytes(8).toString("hex"), // random component
-    c: (channel as string) || undefined, // optional channel context
-  };
-  const state = Buffer.from(JSON.stringify(statePayload)).toString("base64");
+  const state = issueState(res, {
+    t: "viewer",
+    c: (channel as string) || undefined,
+  });
 
   const params = new URLSearchParams({
     client_id: secrets.TWITCH_CLIENT_ID,
