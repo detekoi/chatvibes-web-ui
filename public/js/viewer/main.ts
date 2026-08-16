@@ -63,12 +63,6 @@ interface AuthResponse {
     error?: string;
 }
 
-interface TwitchAuthInitResponse {
-    success: boolean;
-    twitchAuthUrl?: string;
-    state?: string;
-}
-
 interface AuthStatusResponse {
     success: boolean;
     user?: {
@@ -333,24 +327,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const loginButton = document.createElement('button');
             loginButton.textContent = 'Sign in with Twitch';
             loginButton.className = 'btn btn-primary mt-2';
-            loginButton.onclick = async () => {
-                try {
-                    showAuthStatus('Redirecting to Twitch for authentication...', 'info');
-                    const authUrl = tokenParam && state.currentChannel
-                        ? `${apiBaseUrl}/auth/twitch/viewer?token=${encodeURIComponent(tokenParam)}&channel=${encodeURIComponent(state.currentChannel)}`
-                        : `${apiBaseUrl}/auth/twitch/viewer`;
-                    const response = await fetch(authUrl);
-                    const data: TwitchAuthInitResponse = await response.json();
-                    if (data.success && data.twitchAuthUrl && data.state) {
-                        sessionStorage.setItem('oauth_csrf_state', data.state);
-                        window.location.href = data.twitchAuthUrl;
-                    } else {
-                        throw new Error('Failed to initiate Twitch authentication');
-                    }
-                } catch (error) {
-                    console.error('Failed to initiate Twitch auth:', error);
-                    showAuthStatus('Failed to start Twitch authentication. Please try again.', 'error');
-                }
+            // The server mints the state cookie and issues the redirect, so
+            // this just navigates. The channel rides along as a query param
+            // and the server stores it in the cookie for the callback.
+            loginButton.onclick = () => {
+                showAuthStatus('Redirecting to Twitch for authentication...', 'info');
+                window.location.href = tokenParam && state.currentChannel
+                    ? `${apiBaseUrl}/auth/twitch/viewer?token=${encodeURIComponent(tokenParam)}&channel=${encodeURIComponent(state.currentChannel)}`
+                    : `${apiBaseUrl}/auth/twitch/viewer`;
             };
             if (elements.authStatus) {
                 elements.authStatus.appendChild(loginButton);

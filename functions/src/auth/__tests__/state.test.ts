@@ -32,7 +32,9 @@ function createApp() {
 async function startFlow(app: express.Express, endpoint: string) {
   const res = await request(app).get(endpoint);
 
-  const authUrl = new URL(res.body.twitchAuthUrl);
+  // /auth/twitch and /auth/twitch/viewer redirect the browser; the deprecated
+  // /auth/twitch/initiate still answers with JSON for stale clients.
+  const authUrl = new URL(res.status === 302 ? res.headers.location : res.body.twitchAuthUrl);
   const nonce = authUrl.searchParams.get('state') as string;
 
   const setCookie = res.headers['set-cookie'] as unknown as string[];
@@ -52,7 +54,60 @@ describe('OAuth state binding', () => {
     (axios.get as jest.Mock).mockReset();
   });
 
-  describe('GET /auth/twitch/initiate', () => {
+  describe('GET /auth/twitch', () => {
+    it('redirects straight to Twitch, with no round trip for the page to make', async () => {
+      const res = await request(createApp()).get('/auth/twitch');
+
+      expect(res.status).toBe(302);
+      expect(res.headers.location).toContain('id.twitch.tv/oauth2/authorize');
+    });
+
+    it('sends only an opaque nonce as state', async () => {
+      const { nonce } = await startFlow(createApp(), '/auth/twitch');
+
+      expect(nonce).toMatch(/^[0-9a-f]{64}$/);
+    });
+
+    it('sets the same host-only state cookie the deprecated route set', async () => {
+      const { setCookie } = await startFlow(createApp(), '/auth/twitch');
+
+      expect(setCookie.startsWith('__session=')).toBe(true);
+      expect(setCookie).toContain('HttpOnly');
+      expect(setCookie).toContain('SameSite=Lax');
+      expect(setCookie).toContain('Path=/');
+      expect(setCookie).not.toContain('Domain=');
+    });
+
+    it('requests the broadcaster scopes', async () => {
+      const res = await request(createApp()).get('/auth/twitch');
+      const scope = new URL(res.headers.location).searchParams.get('scope') as string;
+
+      expect(scope).toContain('channel:manage:redemptions');
+      expect(scope).toContain('moderator:read:followers');
+    });
+
+    it('marks the flow as broadcaster in the cookie', async () => {
+      const { setCookie } = await startFlow(createApp(), '/auth/twitch');
+
+      expect(decodeURIComponent(setCookie)).toContain('broadcaster');
+    });
+
+    it('completes a callback started from it', async () => {
+      const app = createApp();
+      const { nonce, cookie } = await startFlow(app, '/auth/twitch');
+
+      const res = await request(app)
+        .get('/auth/twitch/callback')
+        .set('Cookie', cookie)
+        .query({ code: 'test-code', state: nonce });
+
+      expect(axios.post).toHaveBeenCalled();
+      expect(res.headers.location).not.toContain('error=invalid_state');
+    });
+  });
+
+  // Superseded by GET /auth/twitch, kept until cached clients roll over.
+  describe('GET /auth/twitch/initiate (deprecated)', () => {
     it('sends only an opaque nonce as state', async () => {
       const { nonce } = await startFlow(createApp(), '/auth/twitch/initiate');
 
@@ -79,16 +134,20 @@ describe('OAuth state binding', () => {
   });
 
   describe('GET /auth/twitch/viewer', () => {
-    it('keeps the viewer marker and channel out of state', async () => {
+    it('redirects the browser rather than answering with JSON', async () => {
       const app = createApp();
       const res = await request(app).get('/auth/twitch/viewer').query({ channel: 'somechannel' });
 
-      const authUrl = new URL(res.body.twitchAuthUrl);
-      const state = authUrl.searchParams.get('state') as string;
+      expect(res.status).toBe(302);
+      expect(res.headers.location).toContain('id.twitch.tv/oauth2/authorize');
+    });
 
-      expect(state).toMatch(/^[0-9a-f]{64}$/);
-      expect(state).not.toContain('viewer');
-      expect(state).not.toContain('somechannel');
+    it('keeps the viewer marker and channel out of state', async () => {
+      const { nonce } = await startFlow(createApp(), '/auth/twitch/viewer?channel=somechannel');
+
+      expect(nonce).toMatch(/^[0-9a-f]{64}$/);
+      expect(nonce).not.toContain('viewer');
+      expect(nonce).not.toContain('somechannel');
     });
 
     it('carries the channel context through in the cookie instead', async () => {
@@ -144,8 +203,7 @@ describe('OAuth state binding', () => {
 
     it('rejects a viewer callback that has no cookie, rather than issuing a viewer token', async () => {
       const app = createApp();
-      const res = await request(app).get('/auth/twitch/viewer').query({ channel: 'somechannel' });
-      const nonce = new URL(res.body.twitchAuthUrl).searchParams.get('state') as string;
+      const { nonce } = await startFlow(app, '/auth/twitch/viewer?channel=somechannel');
 
       const callback = await request(app)
         .get('/auth/twitch/callback')
@@ -203,10 +261,7 @@ describe('OAuth state binding', () => {
 
     it('routes to the viewer handler based on the cookie, not on state', async () => {
       const app = createApp();
-      const res = await request(app).get('/auth/twitch/viewer').query({ channel: 'somechannel' });
-      const nonce = new URL(res.body.twitchAuthUrl).searchParams.get('state') as string;
-      const setCookie = res.headers['set-cookie'] as unknown as string[];
-      const cookie = (setCookie.find((c) => c.startsWith(`${STATE_COOKIE_NAME}=`)) as string).split(';')[0];
+      const { nonce, cookie } = await startFlow(app, '/auth/twitch/viewer?channel=somechannel');
 
       (axios.post as jest.Mock).mockRejectedValue(new Error('exchange failed') as never);
 
@@ -225,10 +280,7 @@ describe('OAuth state binding', () => {
 
     it('carries the channel context from the cookie into the viewer-settings redirect', async () => {
       const app = createApp();
-      const res = await request(app).get('/auth/twitch/viewer').query({ channel: 'somechannel' });
-      const nonce = new URL(res.body.twitchAuthUrl).searchParams.get('state') as string;
-      const setCookie = res.headers['set-cookie'] as unknown as string[];
-      const cookie = (setCookie.find((c) => c.startsWith(`${STATE_COOKIE_NAME}=`)) as string).split(';')[0];
+      const { nonce, cookie } = await startFlow(app, '/auth/twitch/viewer?channel=somechannel');
 
       (axios.post as jest.Mock).mockResolvedValue({
         data: { access_token: 'test-access-token' },
@@ -253,10 +305,7 @@ describe('OAuth state binding', () => {
 
     it('omits channel from the redirect when the flow started without one', async () => {
       const app = createApp();
-      const res = await request(app).get('/auth/twitch/viewer');
-      const nonce = new URL(res.body.twitchAuthUrl).searchParams.get('state') as string;
-      const setCookie = res.headers['set-cookie'] as unknown as string[];
-      const cookie = (setCookie.find((c) => c.startsWith(`${STATE_COOKIE_NAME}=`)) as string).split(';')[0];
+      const { nonce, cookie } = await startFlow(app, '/auth/twitch/viewer');
 
       (axios.post as jest.Mock).mockResolvedValue({
         data: { access_token: 'test-access-token' },
@@ -277,10 +326,7 @@ describe('OAuth state binding', () => {
 
     it('sends a denied viewer to the error page, not a raw JSON body', async () => {
       const app = createApp();
-      const res = await request(app).get('/auth/twitch/viewer').query({ channel: 'somechannel' });
-      const nonce = new URL(res.body.twitchAuthUrl).searchParams.get('state') as string;
-      const setCookie = res.headers['set-cookie'] as unknown as string[];
-      const cookie = (setCookie.find((c) => c.startsWith(`${STATE_COOKIE_NAME}=`)) as string).split(';')[0];
+      const { nonce, cookie } = await startFlow(app, '/auth/twitch/viewer?channel=somechannel');
 
       const callback = await request(app)
         .get('/auth/twitch/callback')
@@ -295,10 +341,7 @@ describe('OAuth state binding', () => {
 
     it('encodes the viewer error message exactly once', async () => {
       const app = createApp();
-      const res = await request(app).get('/auth/twitch/viewer');
-      const nonce = new URL(res.body.twitchAuthUrl).searchParams.get('state') as string;
-      const setCookie = res.headers['set-cookie'] as unknown as string[];
-      const cookie = (setCookie.find((c) => c.startsWith(`${STATE_COOKIE_NAME}=`)) as string).split(';')[0];
+      const { nonce, cookie } = await startFlow(app, '/auth/twitch/viewer');
 
       const callback = await request(app)
         .get('/auth/twitch/callback')

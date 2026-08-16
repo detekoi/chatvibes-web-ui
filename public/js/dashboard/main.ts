@@ -41,16 +41,6 @@ interface JwtPayload {
   [key: string]: unknown;
 }
 
-/**
- * Auth initiate API response
- */
-interface AuthInitiateResponse {
-  success: boolean;
-  twitchAuthUrl?: string;
-  state?: string;
-  error?: string;
-}
-
 document.addEventListener('DOMContentLoaded', () => {
   const testMode = new URLSearchParams(window.location.search).has('test');
   const authStatus = document.getElementById('auth-status') as HTMLDivElement | null;
@@ -216,24 +206,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  async function redirectToTwitch(): Promise<void> {
+  // The server mints the state cookie and issues the redirect, so this just
+  // navigates. Nothing to fetch, no state for the browser to hold.
+  function redirectToTwitch(): void {
     if (!authStatus) return;
     authStatus.innerHTML = '<p>Redirecting to Twitch for authentication...</p>';
-    try {
-      const response = await fetch(`${apiBaseUrl}/auth/twitch/initiate`);
-      if (!response.ok) {
-        throw new Error(`Failed to initiate auth: ${response.statusText}`);
-      }
-      const data = await response.json() as AuthInitiateResponse;
-      if (data.success && data.twitchAuthUrl && data.state) {
-        sessionStorage.setItem('oauth_csrf_state', data.state);
-        window.location.href = data.twitchAuthUrl;
-      } else {
-        throw new Error(data.error || 'Could not initiate login with Twitch');
-      }
-    } catch (error) {
-      console.error('Error during login initiation:', error);
-      authStatus.innerHTML = '<p class="text-danger">Failed to start authentication. Please try again.</p>';
-    }
+    window.location.href = `${apiBaseUrl}/auth/twitch`;
   }
 });

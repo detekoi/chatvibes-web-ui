@@ -167,9 +167,63 @@ async function handleViewerCallback(req: Request, res: Response, statePayload: O
   }
 }
 
-// Route: /auth/twitch/initiate
+/**
+ * Mints the state cookie and builds the Twitch authorization URL to send the
+ * browser to. Shared by every entry point so the broadcaster and viewer flows
+ * cannot drift apart.
+ * @param res - Express response object, for the state cookie
+ * @param payload - Routing context to recover on the callback
+ * @param scope - Space-separated Twitch scopes; empty for the viewer flow
+ * @return The Twitch authorization URL
+ */
+function buildTwitchAuthUrl(res: Response, payload: OAuthStatePayload, scope: string): string {
+  const state = issueState(res, payload);
+
+  const params = new URLSearchParams({
+    client_id: secrets.TWITCH_CLIENT_ID,
+    redirect_uri: config.CALLBACK_URL as string,
+    response_type: "code",
+    scope,
+    state,
+    force_verify: "true",
+  });
+
+  return `${TWITCH_AUTH_URL}?${params.toString()}`;
+}
+
+/**
+ * Reports missing OAuth configuration the same way for every entry point.
+ * @param res - Express response object
+ * @return True when the request cannot proceed
+ */
+function oauthConfigMissing(res: Response): boolean {
+  if (secrets.TWITCH_CLIENT_ID && config.CALLBACK_URL) return false;
+
+  logger.error("Config missing: TWITCH_CLIENT_ID or CALLBACK_URL not found.");
+  redirectToFrontendWithError(
+    res,
+    "server_error",
+    "Sign-in is not configured correctly right now. Please try again later.",
+    undefined,
+  );
+  return true;
+}
+
+// Route: /auth/twitch — broadcaster sign-in
+// The server owns the whole flow: no round trip, nothing for the page to hold.
+router.get("/twitch", (_req: Request, res: Response): void => {
+  logger.info("--- /auth/twitch HIT ---");
+  if (oauthConfigMissing(res)) return;
+
+  res.redirect(buildTwitchAuthUrl(res, { t: "broadcaster" }, OAUTH_SCOPES));
+});
+
+// Route: /auth/twitch/initiate — DEPRECATED
+// Superseded by GET /auth/twitch. Kept only so browsers still running HTML and
+// JS cached before that change (Firebase Hosting serves it with max-age=3600)
+// can finish signing in. Delete once those caches have rolled over.
 router.get("/twitch/initiate", (_req: Request, res: Response): void => {
-  logger.info("--- /auth/twitch/initiate HIT --- Version 2.0 (Single OAuth Flow) ---");
+  logger.info("--- /auth/twitch/initiate HIT (deprecated, superseded by /auth/twitch) ---");
 
   if (!secrets.TWITCH_CLIENT_ID || !config.CALLBACK_URL) {
     logger.error("Config missing for /auth/twitch/initiate: TWITCH_CLIENT_ID or CALLBACK_URL not found.");
@@ -177,23 +231,8 @@ router.get("/twitch/initiate", (_req: Request, res: Response): void => {
     return;
   }
 
-  // Binds the flow to this browser. The client still stores the returned state
-  // in sessionStorage and re-checks it on auth-complete.html; that check is now
-  // belt-and-braces on top of the authoritative server-side one.
-  const state = issueState(res, { t: "broadcaster" });
-
-  const params = new URLSearchParams({
-    client_id: secrets.TWITCH_CLIENT_ID,
-    redirect_uri: config.CALLBACK_URL,
-    response_type: "code",
-    scope: OAUTH_SCOPES,
-    state: state,
-    force_verify: "true",
-  });
-  const twitchAuthUrl = `${TWITCH_AUTH_URL}?${params.toString()}`;
-
-  logger.info({ state, scope: OAUTH_SCOPES }, "Generated state for OAuth");
-  logger.debug({ twitchAuthUrl }, "Twitch Auth URL to be sent to frontend");
+  const twitchAuthUrl = buildTwitchAuthUrl(res, { t: "broadcaster" }, OAUTH_SCOPES);
+  const state = new URL(twitchAuthUrl).searchParams.get("state");
 
   res.json({
     success: true,
@@ -474,39 +513,18 @@ router.get("/twitch/callback", async (req: Request, res: Response): Promise<void
 // Route: /auth/twitch/viewer
 router.get("/twitch/viewer", (req: Request, res: Response): void => {
   logger.info("--- /auth/twitch/viewer HIT ---");
-
-  if (!secrets.TWITCH_CLIENT_ID || !config.CALLBACK_URL) {
-    logger.error("Config missing: TWITCH_CLIENT_ID or CALLBACK_URL not found.");
-    res.status(500).json({ success: false, error: "Server configuration error for Twitch viewer auth." });
-    return;
-  }
+  if (oauthConfigMissing(res)) return;
 
   // The viewer marker and channel context go in the cookie, not in `state`.
   // `t` decides which callback handler runs and therefore which token scope is
   // issued, so it must not be readable back out of an attacker-supplied value.
   const { channel } = req.query || {};
-  const state = issueState(res, {
+
+  // No scopes: this flow only establishes who the viewer is.
+  res.redirect(buildTwitchAuthUrl(res, {
     t: "viewer",
     c: (channel as string) || undefined,
-  });
-
-  const params = new URLSearchParams({
-    client_id: secrets.TWITCH_CLIENT_ID,
-    redirect_uri: config.CALLBACK_URL,
-    response_type: "code",
-    scope: "",
-    state: state,
-    force_verify: "true",
-  });
-
-  const twitchAuthUrl = `${TWITCH_AUTH_URL}?${params.toString()}`;
-  logger.debug({ twitchAuthUrl }, "Generated viewer auth URL");
-
-  res.json({
-    success: true,
-    twitchAuthUrl: twitchAuthUrl,
-    state: state,
-  });
+  }, ""));
 });
 
 // Route: /auth/logout
