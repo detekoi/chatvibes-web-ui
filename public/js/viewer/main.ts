@@ -225,16 +225,18 @@ document.addEventListener('DOMContentLoaded', () => {
             const errorParam = urlParams.get('error');
             const messageParam = urlParams.get('message');
 
+            // messageParam is already decoded by URLSearchParams. Decoding it a
+            // second time throws URIError on any literal "%" in the text.
             if (errorParam) {
-                let errorMessage = 'Authentication failed';
+                let errorMessage = 'Something went wrong signing you in. Please try again.';
                 if (errorParam === 'access_denied') {
-                    errorMessage = messageParam ? decodeURIComponent(messageParam) : 'Access denied: You can only access your own preferences';
+                    errorMessage = 'Sign-in canceled. You need to sign in with Twitch to change your TTS preferences.';
                 } else if (errorParam === 'oauth_failed') {
-                    errorMessage = 'Twitch OAuth authentication failed';
+                    errorMessage = 'Twitch could not complete the sign-in. Please try again.';
                 } else if (errorParam === 'state_mismatch') {
-                    errorMessage = 'Security validation failed';
-                } else if (errorParam === 'auth_failed') {
-                    errorMessage = messageParam ? decodeURIComponent(messageParam) : 'Authentication failed';
+                    errorMessage = 'Could not verify that this sign-in started in your browser. Please try again.';
+                } else if (messageParam) {
+                    errorMessage = messageParam;
                 }
                 showAuthStatus(errorMessage, 'error');
                 setTimeout(() => { window.location.href = '/'; }, 5000);

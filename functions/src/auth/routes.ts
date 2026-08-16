@@ -83,10 +83,6 @@ function redirectToFrontendWithError(res: Response, errorCode: string, errorDesc
  *
  * The viewer callback is a top-level navigation from Twitch, so answering with
  * a JSON body would show the user raw text in their browser window.
- *
- * The message is encoded here on purpose: viewer-settings.html reads it with
- * `urlParams.get()` (one decode) and then calls `decodeURIComponent()` on the
- * result (a second), so the value has to survive being decoded twice.
  * @param res - Express response object
  * @param errorCode - Code viewer-settings.html switches on
  * @param message - Optional human-readable detail
@@ -103,7 +99,7 @@ function redirectToViewerWithError(res: Response, errorCode: string, message?: s
   viewerErrorUrl.pathname = "/viewer-settings.html";
   viewerErrorUrl.searchParams.set("error", errorCode);
   if (message) {
-    viewerErrorUrl.searchParams.set("message", encodeURIComponent(message));
+    viewerErrorUrl.searchParams.set("message", message);
   }
 
   logger.info({ errorCode }, "Redirecting viewer to preferences page with error");
@@ -124,10 +120,14 @@ async function handleViewerCallback(req: Request, res: Response, statePayload: O
 
   if (twitchError) {
     logger.error({ twitchError, twitchErrorDescription }, "Viewer OAuth error");
+    // Twitch's description for a cancellation is "The user denied you access",
+    // which is written from our side of the transaction, not the viewer's. The
+    // page has better copy for that case, so pass a description only when the
+    // error is one the page has nothing specific to say about.
     return redirectToViewerWithError(
       res,
       twitchError as string,
-      twitchErrorDescription as string | undefined,
+      twitchError === "access_denied" ? undefined : (twitchErrorDescription as string | undefined),
     );
   }
 

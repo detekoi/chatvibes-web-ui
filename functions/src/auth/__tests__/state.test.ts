@@ -292,7 +292,7 @@ describe('OAuth state binding', () => {
       expect(redirect.searchParams.get('error')).toBe('access_denied');
     });
 
-    it('encodes the viewer error message so it survives being decoded twice', async () => {
+    it('leaves the cancellation message to the page rather than passing Twitch copy', async () => {
       const app = createApp();
       const res = await request(app).get('/auth/twitch/viewer');
       const nonce = new URL(res.body.twitchAuthUrl).searchParams.get('state') as string;
@@ -302,12 +302,31 @@ describe('OAuth state binding', () => {
       const callback = await request(app)
         .get('/auth/twitch/callback')
         .set('Cookie', cookie)
-        .query({ error: 'access_denied', error_description: '100% denied', state: nonce });
+        .query({ error: 'access_denied', error_description: 'The user denied you access', state: nonce });
 
-      // viewer-settings.html reads this with urlParams.get() and then calls
-      // decodeURIComponent() on the result. A bare "%" would throw there.
-      const raw = new URL(callback.headers.location).searchParams.get('message') as string;
-      expect(decodeURIComponent(raw)).toBe('100% denied');
+      // "The user denied you access" reads from our side of the transaction,
+      // not the viewer's, so the page supplies its own wording.
+      const redirect = new URL(callback.headers.location);
+      expect(redirect.searchParams.has('message')).toBe(false);
+    });
+
+    it('encodes the viewer error message exactly once', async () => {
+      const app = createApp();
+      const res = await request(app).get('/auth/twitch/viewer');
+      const nonce = new URL(res.body.twitchAuthUrl).searchParams.get('state') as string;
+      const setCookie = res.headers['set-cookie'] as unknown as string[];
+      const cookie = (setCookie.find((c) => c.startsWith(`${STATE_COOKIE_NAME}=`)) as string).split(';')[0];
+
+      const callback = await request(app)
+        .get('/auth/twitch/callback')
+        .set('Cookie', cookie)
+        .query({ error: 'server_error', error_description: '100% broken', state: nonce });
+
+      // viewer-settings.html reads this with URLSearchParams, which decodes
+      // once. Encoding twice here would surface %2520 in the address bar.
+      const location = callback.headers.location as string;
+      expect(location).not.toContain('%2520');
+      expect(new URL(location).searchParams.get('message')).toBe('100% broken');
     });
 
     it('still reports a genuine Twitch error rather than masking it as bad state', async () => {
