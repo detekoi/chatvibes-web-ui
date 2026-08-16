@@ -73,7 +73,7 @@ export async function performVoiceTest(
 
   safeButtons.forEach(btn => {
     btn.disabled = true;
-    btn.textContent = 'Generating...';
+    btn.textContent = 'Generating…';
   });
 
   try {
@@ -212,7 +212,7 @@ async function handleAudioPlayer(
         await audioElement.play();
       } catch (err) {
         console.error('Error playing audio:', err);
-        showToast('Error playing audio sample', 'error');
+        showToast('Cannot play audio sample.', 'error');
       }
     }
     playerEl.style.display = 'block';

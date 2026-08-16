@@ -110,7 +110,7 @@ export function initBotManagement(
     } catch (error) {
       console.error('Error fetching bot status:', error);
       const err = error as Error;
-      showToast(`Failed to load bot status. ${err.message}`, 'error');
+      showToast(`Cannot load bot status: ${err.message}`, 'error');
       if (botStatusEl) botStatusEl.textContent = 'Error';
     }
   }
@@ -118,20 +118,20 @@ export function initBotManagement(
   if (addBotBtn) {
     addBotBtn.addEventListener('click', async () => {
       if (testMode) {
-        showToast('TTS Service activated! (test mode)', 'success');
+        showToast('TTS service activated (test mode).', 'success');
         updateBotStatusUI(true);
         return;
       }
       if (!getSessionToken()) {
-        showToast('Authentication token missing. Please log in again.', 'error');
+        showToast('Authentication token is missing. Sign in again.', 'error');
         return;
       }
-      showToast('Activating TTS Service...', 'info');
+      showToast('Activating TTS service…', 'info');
       try {
         const res = await fetchWithAuth(`${apiBaseUrl}/api/bot/add`, { method: 'POST' });
         const data = await res.json() as BotActionResponse;
         if (data.success) {
-          showToast(data.message || 'TTS Service activated!', 'success');
+          showToast(data.message || 'TTS service activated.', 'success');
           updateBotStatusUI(true);
         } else if (res.status === 403 || data.error?.includes('https://parfaitfair.com/#contact')) {
           const errorText = data.details || data.error || data.message || 'Channel not authorized.';
@@ -140,11 +140,11 @@ export function initBotManagement(
             : `${errorText} <a href="https://parfaitfair.com/#contact" target="_blank" class="link-light">Request access here</a>.`;
           showToast(html, 'error');
         } else {
-          showToast(data.error || data.message || 'Failed to activate TTS Service.', 'error');
+          showToast(data.error || data.message || 'Cannot activate TTS service.', 'error');
         }
       } catch (error) {
         console.error('Error activating TTS Service:', error);
-        showToast('Failed to activate TTS Service.', 'error');
+        showToast('Cannot activate TTS service.', 'error');
       }
     });
   }
@@ -152,23 +152,23 @@ export function initBotManagement(
   if (removeBotBtn) {
     removeBotBtn.addEventListener('click', async () => {
       if (testMode) {
-        showToast('TTS Service deactivated. (test mode)', 'success');
+        showToast('TTS service deactivated (test mode).', 'success');
         updateBotStatusUI(false);
         return;
       }
       if (!getSessionToken()) {
-        showToast('Authentication token missing. Please log in again.', 'error');
+        showToast('Authentication token is missing. Sign in again.', 'error');
         return;
       }
-      showToast('Deactivating TTS Service...', 'info');
+      showToast('Deactivating TTS service…', 'info');
       try {
         const res = await fetchWithAuth(`${apiBaseUrl}/api/bot/remove`, { method: 'POST' });
         const data = await res.json() as BotActionResponse;
-        showToast(data.error || data.message || (data.success ? 'TTS Service deactivated.' : 'Failed to deactivate TTS Service.'), data.success ? 'success' : 'error');
+        showToast(data.error || data.message || (data.success ? 'TTS service deactivated.' : 'Cannot deactivate TTS service.'), data.success ? 'success' : 'error');
         if (data.success) updateBotStatusUI(false);
       } catch (error) {
         console.error('Error deactivating TTS Service:', error);
-        showToast('Failed to deactivate TTS Service.', 'error');
+        showToast('Cannot deactivate TTS service.', 'error');
       }
     });
   }

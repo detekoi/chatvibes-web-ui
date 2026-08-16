@@ -129,7 +129,7 @@ export class VoiceDropdown {
         if (!voicesToRender.length) {
             const empty = document.createElement('div');
             empty.className = 'voice-dropdown-empty';
-            empty.textContent = 'No voices found';
+            empty.textContent = 'No voices found.';
             this.list.appendChild(empty);
             return;
         }

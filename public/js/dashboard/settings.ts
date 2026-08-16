@@ -140,7 +140,7 @@ export function initSettingsModule(
       return;
     }
     if (!channelName) {
-      showToast('Not logged in', 'error');
+      showToast('You are not signed in.', 'error');
       return;
     }
     try {
@@ -237,8 +237,8 @@ export function initSettingsModule(
     // YouTube integration auto-save
     if (youtubeEnabledCheckbox) {
       youtubeEnabledCheckbox.addEventListener('change', () => {
-        if (youtubeEnabledCheckbox.checked && youtubeHandleInput && !youtubeHandleInput.value.trim()) {
-          showToast('Please enter a YouTube handle before enabling', 'warning');
+        if (youtubeEnabledCheckbox?.checked && !youtubeHandleInput?.value?.trim()) {
+          showToast('Enter a YouTube handle before you turn on YouTube TTS.', 'warning');
           youtubeEnabledCheckbox.checked = false;
           return;
         }
@@ -315,11 +315,11 @@ export function initSettingsModule(
       const text = textInput?.value?.trim() || '';
 
       if (!text) {
-        showToast('Please enter some text to test', 'warning');
+        showToast('Enter text to test.', 'warning');
         return;
       }
       if (text.length > 500) {
-        showToast('Text must be 500 characters or less', 'error');
+        showToast('Text must be 500 characters or less.', 'error');
         return;
       }
       if (testMode) {
@@ -402,7 +402,7 @@ export function initSettingsModule(
     try {
       const response = await fetch(preMadeUrl);
       if (!response.ok) {
-        showToast('No preview available for this voice yet', 'info');
+        showToast('No preview available.', 'info');
         return;
       }
 
@@ -556,11 +556,11 @@ export function initSettingsModule(
 
     const performLookup = async (): Promise<void> => {
       const username = lookupInput.value.trim();
-      if (!username) { showToast('Please enter a username', 'warning'); return; }
+      if (!username) { showToast('Enter a username.', 'warning'); return; }
 
       lookupBtn.disabled = true;
       const originalBtnText = lookupBtn.textContent;
-      lookupBtn.textContent = 'Searching...';
+      lookupBtn.textContent = 'Searching…';
       lookupResult.style.display = 'none';
       lookupResult.className = 'mt-3';
 
@@ -578,7 +578,7 @@ export function initSettingsModule(
             return el;
           };
           const summary = document.createElement('div');
-          summary.append('User ', strong(data.username), ' has set custom voice: ', strong(data.voiceId));
+          summary.append('User ', strong(data.username), ' set custom voice: ', strong(data.voiceId));
           lookupResult.replaceChildren(summary);
 
           if (allVoices.includes(data.voiceId)) {
@@ -592,12 +592,12 @@ export function initSettingsModule(
           } else {
             const warning = document.createElement('div');
             warning.className = 'text-warning small mt-1';
-            warning.textContent = 'This voice ID is not in the current available list.';
+            warning.textContent = 'This voice is not in the list of available voices.';
             lookupResult.appendChild(warning);
           }
         } else {
           lookupResult.className = 'mt-3 alert alert-info';
-          lookupResult.textContent = `User ${data.username} has not set a custom voice.`;
+          lookupResult.textContent = `User ${data.username} has no custom voice set.`;
         }
       } catch (e) {
         const err = e as Error;
@@ -651,8 +651,8 @@ export function initSettingsModule(
     }
 
     const response = await api.getSettings(user.login);
-    if ('error' in response) {
-      showToast(`Failed to load settings: ${response.error}`, 'error');
+    if ('error' in response && response.error) {
+      showToast(`Cannot load settings: ${response.error}`, 'error');
       return;
     }
 

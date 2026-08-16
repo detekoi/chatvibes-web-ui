@@ -100,7 +100,7 @@ export class VoiceCalibration {
         const calibratedIds = Object.keys(this.currentVoiceVolumes).filter(id => this.currentVoiceVolumes[id] !== 1.0);
 
         if (calibratedIds.length === 0) {
-            this.list.innerHTML = '<li class="list-group-item text-center text-muted py-3">No voices calibrated yet</li>';
+            this.list.innerHTML = '<li class="list-group-item text-center text-muted py-3">No voices calibrated yet.</li>';
             return;
         }
 

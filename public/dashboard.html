@@ -76,7 +76,7 @@
                             <div class="regen-box">
                                 <svg class="regen-warn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
                                 <div class="regen-text">
-                                    <p>Regenerating creates a new URL — your current OBS source will stop working until updated.</p>
+                                    <p>CAUTION: A new URL stops your current OBS source until you update the URL in OBS.</p>
                                     <button class="btn-regen" type="button" id="regenerate-tts-url-btn">Regenerate URL</button>
                                 </div>
                             </div>
@@ -90,7 +90,7 @@
                                             Add Browser Source
                                         </summary>
                                         <div class="obs-step-content">
-                                            <p>In OBS, add a new <strong>Browser Source</strong>. Name it "Wildcat TTS". Paste the URL copied above. You can ignore Width/Height.</p>
+                                            <p>In OBS, add a new <strong>Browser Source</strong>. Name the source "Wildcat TTS" and paste the copied URL. You can keep the default width and height.</p>
                                         </div>
                                     </details>
                                     <details class="obs-step-group">
@@ -99,7 +99,7 @@
                                             Control Audio via OBS
                                         </summary>
                                         <div class="obs-step-content">
-                                            <p>Check the box that says <strong>"Control audio via OBS"</strong>. Ensure "Shutdown source when not visible" is unchecked.</p>
+                                            <p>Select <strong>Control audio via OBS</strong>. Make sure that <strong>Shutdown source when not visible</strong> is not selected.</p>
                                         </div>
                                     </details>
                                     <details class="obs-step-group">
@@ -108,7 +108,7 @@
                                             Monitor and Output
                                         </summary>
                                         <div class="obs-step-content">
-                                            <p>In your OBS Audio Mixer, find "Wildcat TTS". Click the gear icon > Advanced Audio Properties. Set Audio Monitoring to <strong>"Monitor and Output"</strong> so both you and stream can hear it.</p>
+                                            <p>In the OBS Audio Mixer, find "Wildcat TTS". Click the gear icon and select <strong>Advanced Audio Properties</strong>. Set Audio Monitoring to <strong>Monitor and Output</strong>.</p>
                                         </div>
                                     </details>
                                 </div>
@@ -175,13 +175,13 @@
                         <!-- Engine & Mode -->
                         <div class="settings-section">
                             <h5 class="settings-section-title">Engine &amp; Mode</h5>
-                            <p class="settings-section-description">Configure TTS engine settings and who can use it</p>
+                            <p class="settings-section-description">Configure TTS engine settings and permissions</p>
                             <div class="list-group mb-4 shadow">
                                 <div class="list-group-item">
                                     <div class="row align-items-center">
                                         <div class="col">
                                             <strong class="mb-0">TTS Engine Enabled</strong>
-                                            <p class="text-muted mb-0">Enable or disable the text-to-speech engine</p>
+                                            <p class="text-muted mb-0">Turn on or turn off the text-to-speech engine</p>
                                         </div>
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
@@ -195,7 +195,7 @@
                                     <div class="row align-items-center">
                                         <div class="col">
                                             <strong class="mb-0">Announce Events</strong>
-                                            <p class="text-muted mb-0">Announce events like subs, raids, etc.</p>
+                                            <p class="text-muted mb-0">Announce events such as subscriptions and raids</p>
                                         </div>
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
@@ -225,7 +225,7 @@
                                     <div class="row align-items-center">
                                         <div class="col">
                                             <strong class="mb-0">Announce Cheers</strong>
-                                            <p class="text-muted mb-0">Announce when someone cheers bits</p>
+                                            <p class="text-muted mb-0">Announce when a viewer cheers bits</p>
                                         </div>
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
@@ -240,7 +240,7 @@
                                     <div class="row align-items-center">
                                         <div class="col">
                                             <strong class="mb-0">Announce Reward Redeems</strong>
-                                            <p class="text-muted mb-0">Announce when someone redeems a channel point
+                                            <p class="text-muted mb-0">Announce when a viewer redeems a channel point
                                                 reward</p>
                                         </div>
                                         <div class="col-auto">
@@ -256,7 +256,7 @@
                                     <div class="row align-items-center">
                                         <div class="col">
                                             <strong class="mb-0">Announce Watch Streaks</strong>
-                                            <p class="text-muted mb-0">Announce when a viewer hits a watch streak
+                                            <p class="text-muted mb-0">Announce when a viewer reaches a watch streak
                                                 milestone</p>
                                         </div>
                                         <div class="col-auto">
@@ -272,8 +272,8 @@
                                     <div class="row align-items-center">
                                         <div class="col">
                                             <strong class="mb-0">Bot Responds in Chat</strong>
-                                            <p class="text-muted mb-0">Enable bot to respond to commands (!myvoice,
-                                                etc.)</p>
+                                            <p class="text-muted mb-0">Allow the bot to respond to chat commands such as
+                                                !myvoice</p>
                                         </div>
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
@@ -321,7 +321,7 @@
                                     <div class="row align-items-center">
                                         <div class="col">
                                             <strong class="mb-0">Allow Viewer Voice Preferences</strong>
-                                            <p class="text-muted mb-0">If off, the channel default voice is used for all
+                                            <p class="text-muted mb-0">If this setting is off, TTS uses the channel default voice for all
                                                 messages</p>
                                         </div>
                                         <div class="col-auto">
@@ -337,8 +337,7 @@
                                     <div class="row align-items-center">
                                         <div class="col">
                                             <strong class="mb-0">Read Full URLs</strong>
-                                            <p class="text-muted mb-0">If on, reads full URLs as-is. If off, only reads
-                                                domain names for better listening</p>
+                                            <p class="text-muted mb-0">If on, TTS reads full URLs. If off, TTS reads only domain names</p>
                                         </div>
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
@@ -352,9 +351,9 @@
                                     <div class="row align-items-center">
                                         <div class="col">
                                             <strong class="mb-0">Expand Chat Acronyms</strong>
-                                            <p class="text-muted mb-0">Reads common Twitch acronyms as words &mdash;
-                                                &ldquo;ngl&rdquo; becomes &ldquo;not gonna lie&rdquo;. Turn off to have
-                                                them spelled out letter by letter.</p>
+                                            <p class="text-muted mb-0">TTS expands common Twitch acronyms into words.
+                                                For example, &ldquo;ngl&rdquo; becomes &ldquo;not gonna lie&rdquo;. Turn off to
+                                                spell out each letter.</p>
                                         </div>
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
@@ -369,11 +368,9 @@
                                     <div class="row align-items-center">
                                         <div class="col">
                                             <strong class="mb-0">Profanity Filter</strong>
-                                            <p class="text-muted mb-0">Swaps profanity for milder words before speaking.
-                                                Uses the channel&rsquo;s language, and a viewer&rsquo;s own language too
-                                                when it differs. With language set to Automatic the English list is
-                                                used. Note that Banned Words still skips a message entirely rather than
-                                                softening it.</p>
+                                            <p class="text-muted mb-0">TTS replaces profanity with milder words before speaking.
+                                                The filter uses the channel language and the viewer language. If language is set to Automatic, the filter uses
+                                                the English list. Banned words still skip the full message.</p>
                                         </div>
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
@@ -389,7 +386,7 @@
                                         <div class="col">
                                             <label for="emote-mode" class="form-label mb-1"><strong>Emote
                                                     Mode</strong></label>
-                                            <p class="text-muted mb-0">How emotes are handled in TTS messages</p>
+                                            <p class="text-muted mb-0">Controls how TTS handles emotes in chat messages</p>
                                         </div>
                                         <div class="col-auto">
                                             <select id="emote-mode" class="form-select">
@@ -412,7 +409,7 @@
                                     <div class="row align-items-center">
                                         <div class="col">
                                             <strong class="mb-0">Require Bits for TTS</strong>
-                                            <p class="text-muted mb-0">Users must spend bits to use text-to-speech</p>
+                                            <p class="text-muted mb-0">Viewers must cheer bits to use text-to-speech</p>
                                         </div>
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
@@ -427,7 +424,7 @@
                                         <div class="col">
                                             <label for="bits-amount" class="form-label mb-1"><strong>Minimum Bits
                                                     Required</strong></label>
-                                            <p class="text-muted mb-0">How many bits users must spend for TTS</p>
+                                            <p class="text-muted mb-0">Minimum number of bits required to trigger TTS</p>
                                         </div>
                                         <div class="col-auto">
                                             <input type="number" id="bits-amount" class="form-control" min="0"
@@ -467,7 +464,7 @@
                                             <label class="form-label" for="cp-title">Reward title</label>
                                             <input id="cp-title" class="form-control"
                                                 placeholder="Text-to-Speech Message">
-                                            <div class="form-text">Must be unique in your channel.</div>
+                                            <div class="form-text">The title must be unique in your channel.</div>
                                         </div>
                                         <div class="col-12 col-md-6">
                                             <label class="form-label" for="cp-cost">Cost (points)</label>
@@ -546,13 +543,11 @@
                         <!-- Ignored Users -->
                         <div class="settings-section">
                             <h5 class="settings-section-title">Ignored Users</h5>
-                            <p class="settings-section-description">Manage users who are ignored by TTS
-                                commands</p>
+                            <p class="settings-section-description">Manage users that TTS ignores</p>
 
                             <div class="mb-4">
                                 <h6 class="mb-2"><strong>TTS Ignore List</strong></h6>
-                                <p class="text-muted small mb-2">Users on this list will not have their messages read by
-                                    TTS</p>
+                                <p class="text-muted small mb-2">TTS does not read messages from users on this list.</p>
                                 <div class="card shadow">
                                     <div class="card-body">
                                         <div class="input-group mb-2">
@@ -568,8 +563,7 @@
 
                             <div class="mb-4">
                                 <h6 class="mb-2"><strong>Banned Words / Phrases</strong></h6>
-                                <p class="text-muted small mb-2">Messages containing these words or phrases will be
-                                    silently skipped by TTS</p>
+                                <p class="text-muted small mb-2">TTS skips messages that contain these words or phrases.</p>
                                 <div class="card shadow">
                                     <div class="card-body">
                                         <div class="input-group mb-2">
@@ -585,9 +579,9 @@
 
                             <div class="mb-4">
                                 <h6 class="mb-2"><strong>Pronunciation Dictionary</strong></h6>
-                                <p class="text-muted small mb-2">Control how TTS says specific words. Common Twitch
-                                    acronyms are already handled &mdash; add an entry here to override a built-in or
-                                    teach it something new, like a channel name.</p>
+                                <p class="text-muted small mb-2">Control how TTS pronounces specific words. Common Twitch
+                                    acronyms are handled by default. Add an entry to override a default
+                                    pronunciation or add a new word.</p>
                                 <div class="card shadow">
                                     <div class="card-body">
                                         <div class="row g-2 mb-2">
@@ -615,13 +609,13 @@
                         <!-- YouTube Integration -->
                         <div class="settings-section">
                             <h5 class="settings-section-title"><i data-lucide="youtube" class="inline-icon" style="margin-right: 6px; color: #ff0000;"></i>YouTube Integration</h5>
-                            <p class="settings-section-description">Read YouTube live chat messages through TTS. Requires an active YouTube livestream.</p>
+                            <p class="settings-section-description">Read YouTube live chat messages through TTS. This feature requires an active YouTube livestream.</p>
                             <div class="list-group mb-4 shadow">
                                 <div class="list-group-item">
                                     <div class="row align-items-center">
                                         <div class="col">
                                             <strong class="mb-0">YouTube TTS Enabled</strong>
-                                            <p class="text-muted mb-0">Enable reading YouTube live chat messages aloud</p>
+                                            <p class="text-muted mb-0">Read YouTube live chat messages aloud</p>
                                         </div>
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
@@ -656,7 +650,7 @@
                     <div class="tab-pane fade" id="tab-viewer-defaults" role="tabpanel">
                         <div class="settings-section">
                             <h5 class="settings-section-title">Default Voice Settings</h5>
-                            <p class="settings-section-description">Define default voice parameters for your channel</p>
+                            <p class="settings-section-description">Set default voice settings for your channel</p>
                             <div class="list-group mb-4 shadow">
                                 <div class="list-group-item">
                                     <div class="row align-items-center">
@@ -702,7 +696,7 @@
                                         <div class="col">
                                             <label for="default-pitch" class="form-label mb-1"><strong>Default Pitch
                                                     (-12 to +12): <span id="pitch-value">0</span></strong></label>
-                                            <p class="text-muted mb-0">Adjust overall pitch for the default voice</p>
+                                            <p class="text-muted mb-0">Adjust the pitch for the default voice</p>
                                         </div>
                                         <div class="col-auto d-flex align-items-center"
                                             style="gap:8px; min-width: 260px;">
@@ -734,8 +728,8 @@
                                         <div class="col">
                                             <label for="default-volume" class="form-label mb-1"><strong>Voice Volume
                                                     (0.1 to 10): <span id="volume-value">1.0</span></strong></label>
-                                            <p class="text-muted mb-0">Adjust volume for the selected voice. Warning:
-                                                Values over 1.0 may be loud or distorted.</p>
+                                            <p class="text-muted mb-0">Adjust the volume for the selected voice. CAUTION:
+                                                Values greater than 1.0 can cause distortion.</p>
                                         </div>
                                         <div class="col-auto d-flex align-items-center"
                                             style="gap:8px; min-width: 260px;">
@@ -788,7 +782,7 @@
                                     <div class="row align-items-center">
                                         <div class="col">
                                             <strong class="mb-0">English Normalization</strong>
-                                            <p class="text-muted mb-0">Improve number and text pronunciation</p>
+                                            <p class="text-muted mb-0">Improve the pronunciation of numbers and text</p>
                                         </div>
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
@@ -806,8 +800,8 @@
                         <!-- Voice Calibration -->
                         <div class="settings-section">
                             <h5 class="settings-section-title">Voice Calibration</h5>
-                            <p class="settings-section-description">Calibrate volume for specific voices. Warning:
-                                Values over 1.0 may be loud or distorted.</p>
+                            <p class="settings-section-description">Calibrate volume for specific voices. CAUTION:
+                                Values greater than 1.0 can cause distortion.</p>
 
                             <!-- User Voice Lookup -->
                             <div class="card mb-4 shadow">
@@ -854,12 +848,12 @@
 
                             <div class="mb-4">
                                 <h6 class="mb-2"><strong>Calibrated Voices</strong></h6>
-                                <p class="text-muted small mb-2">Voices with custom volume settings</p>
+                                <p class="text-muted small mb-2">Voices with custom volume settings.</p>
                                 <div class="card shadow">
                                     <div class="card-body p-0">
                                         <ul id="calibrated-voices-list" class="list-group list-group-flush rounded-3">
                                             <li class="list-group-item text-center text-muted py-3">No voices calibrated
-                                                yet</li>
+                                                yet.</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -885,8 +879,8 @@
                             type="button">Activate TTS service</button>
                         <button id="remove-bot-btn" class="wc-btn wc-btn--aside wc-btn--danger" style="display:none;"
                             type="button">Deactivate TTS service</button>
-                        <p class="wc-aside-note">Deactivating stops the bot reading messages in your channel and leaves
-                            your settings untouched. You can reactivate any time.</p>
+                        <p class="wc-aside-note">Deactivation stops the bot from reading chat messages. Your settings
+                            remain saved. You can activate the service again at any time.</p>
                     </div>
                 </section>
 
@@ -906,7 +900,7 @@
                             </audio>
                             <small id="voice-preview-hint" class="settings-changed-hint text-warning mt-1"
                                 style="display: none;">
-                                <i><i data-lucide="triangle-alert" class="inline-icon"></i> Settings changed - regenerate for updated preview</i>
+                                <i><i data-lucide="triangle-alert" class="inline-icon"></i> Settings changed. Generate a new preview.</i>
                             </small>
                         </div>
                         <!-- Current voice settings display -->

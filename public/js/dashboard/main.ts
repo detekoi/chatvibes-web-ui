@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (state.loggedInUser?.login) {
       showDashboard();
       if (!state.sessionToken) {
-        showToast('Authentication token missing. Please log in again.', 'error');
+        showToast('Authentication token is missing. Sign in again.', 'error');
         return;
       }
       showLoading();
@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
       authStatus.style.display = 'block';
 
       const message = document.createElement('p');
-      message.textContent = 'Please sign in with your broadcaster account to access streamer settings.';
+      message.textContent = 'Sign in with your broadcaster account to access streamer settings.';
       message.style.marginBottom = '1.5rem';
       authStatus.appendChild(message);
 
@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
       authStatus.style.display = 'block';
 
       const message = document.createElement('p');
-      message.textContent = 'Please sign in with your Twitch account to access the dashboard.';
+      message.textContent = 'Sign in with your Twitch account to access the dashboard.';
       message.style.marginBottom = '1.5rem';
       authStatus.appendChild(message);
 
@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // navigates. Nothing to fetch, no state for the browser to hold.
   function redirectToTwitch(): void {
     if (!authStatus) return;
-    authStatus.innerHTML = '<p>Redirecting to Twitch for authentication...</p>';
+    authStatus.innerHTML = '<p>Redirecting to Twitch for authentication…</p>';
     window.location.href = `${apiBaseUrl}/auth/twitch`;
   }
 });

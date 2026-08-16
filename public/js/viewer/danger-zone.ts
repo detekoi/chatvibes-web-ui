@@ -147,7 +147,7 @@ export function initDangerZoneModule(
 
     if (testMode) {
       checkbox.disabled = true;
-      showToast(`You have been opted out of ${type.toUpperCase()} (test mode)`, 'success');
+      showToast(`You opted out of ${type.toUpperCase()} (test mode).`, 'success');
       return;
     }
 
@@ -169,7 +169,7 @@ export function initDangerZoneModule(
         },
       });
     } else {
-      showToast('Please select a channel first.', 'warning');
+      showToast('Select a channel first.', 'warning');
       checkbox.checked = false;
     }
   }
@@ -177,7 +177,7 @@ export function initDangerZoneModule(
   function showConfirmModal(type: 'tts', channelName: string): void {
     if (!elements.confirmModal) return;
     if (elements.confirmText) {
-      elements.confirmText.textContent = `Are you absolutely sure you want to opt out of ${type.toUpperCase()} in #${channelName}? Only a moderator can undo this action.`;
+      elements.confirmText.textContent = `Do you want to opt out of ${type.toUpperCase()} in #${channelName}? CAUTION: Only a channel moderator can undo this action.`;
     }
     openDialog(elements.confirmModal);
   }
@@ -188,7 +188,7 @@ export function initDangerZoneModule(
     try {
       if (testMode) {
         checkbox.disabled = true;
-        showToast(`You have been opted out of ${type.toUpperCase()} (test mode)`, 'success');
+        showToast(`You opted out of ${type.toUpperCase()} (test mode).`, 'success');
         closeDialog(elements.confirmModal);
         pendingAction = null;
         pendingChannel = null;
@@ -196,7 +196,7 @@ export function initDangerZoneModule(
       }
       const targetChannel = pendingChannel || getCurrentChannel();
       if (!targetChannel) {
-        showToast('Please specify a channel', 'error');
+        showToast('Specify a channel.', 'error');
         checkbox.checked = false;
         closeDialog(elements.confirmModal);
         pendingAction = null;
@@ -205,11 +205,11 @@ export function initDangerZoneModule(
       }
       await fetchWithAuth(`${apiBaseUrl}/api/viewer/ignore/${type}/${encodeURIComponent(targetChannel)}`, { method: 'POST' });
       checkbox.disabled = true;
-      showToast(`You have been opted out of ${type.toUpperCase()}`, 'success');
+      showToast(`You opted out of ${type.toUpperCase()}.`, 'success');
     } catch (error) {
       console.error(`Failed to opt out of ${type}:`, error);
       checkbox.checked = false;
-      showToast(`Failed to opt out of ${type.toUpperCase()}`, 'error');
+      showToast(`Cannot opt out of ${type.toUpperCase()}.`, 'error');
     }
     closeDialog(elements.confirmModal);
     pendingAction = null;

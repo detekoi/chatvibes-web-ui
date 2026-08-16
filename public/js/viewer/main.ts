@@ -242,7 +242,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     return true;
                 } catch (error) {
                     console.error('Failed to process validated session token:', error);
-                    showAuthStatus('Authentication failed. Please try again.', 'error');
+                    showAuthStatus('Authentication failed. Sign in again.', 'error');
                     return false;
                 }
             }
@@ -278,7 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const data = await response.json().catch(() => ({}));
                 if (!response.ok || !data.success || !data.session_token) {
-                    throw new Error(data.error || 'Could not complete sign-in.');
+                    throw new Error(data.error || 'Cannot complete sign-in.');
                 }
 
                 services.setSessionToken(data.session_token);
@@ -303,7 +303,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // A code is single-use, so reloading cannot retry this.
                 console.error('Failed to redeem exchange code:', error);
                 showAuthStatus(
-                    'Could not finish signing you in. Please try again from the main page.',
+                    'Cannot complete sign-in. Try again from the main page.',
                     'error',
                 );
                 return false;
@@ -311,7 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         async function requireTwitchAuth(): Promise<boolean> {
-            showAuthStatus('Please verify your Twitch identity to access viewer preferences.', 'info');
+            showAuthStatus('Verify your Twitch account to access viewer preferences.', 'info');
             const loginButton = document.createElement('button');
             loginButton.textContent = 'Sign in with Twitch';
             loginButton.className = 'btn btn-primary mt-2';
@@ -319,7 +319,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // this just navigates. The channel rides along as a query param
             // and the server stores it in the cookie for the callback.
             loginButton.onclick = () => {
-                showAuthStatus('Redirecting to Twitch for authentication...', 'info');
+                showAuthStatus('Redirecting to Twitch for authentication…', 'info');
 
                 window.location.href = state.currentChannel
                     ? `${apiBaseUrl}/auth/twitch/viewer?channel=${encodeURIComponent(state.currentChannel)}`

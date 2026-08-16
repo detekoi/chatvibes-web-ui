@@ -167,7 +167,7 @@
 
             if (storedState && receivedState !== storedState) {
                 console.error("CSRF state mismatch. Received:", receivedState, "Stored:", storedState);
-                fail("Invalid state. This could be a security issue or a browser problem. Please try logging in again from the main page.");
+                fail("Invalid state. A security check or a browser error failed. Sign in again from the main page.");
                 setTimeout(() => { window.location.href = 'index.html'; }, 5000);
                 return;
             }
@@ -187,7 +187,7 @@
 
                 const data = await response.json().catch(() => ({}));
                 if (!response.ok || !data.success || !data.session_token) {
-                    throw new Error(data.error || 'Could not complete sign-in.');
+                    throw new Error(data.error || 'Cannot complete sign-in.');
                 }
                 return data.session_token;
             }
@@ -227,7 +227,7 @@
                         .then(completeSignIn)
                         .catch((error) => {
                             console.error('Exchange failed:', error);
-                            fail(`${error.message} Please try signing in again.`);
+                            fail(`${error.message} Sign in again.`);
                             setTimeout(() => { window.location.href = 'index.html'; }, 4000);
                         });
                 } else {
@@ -235,7 +235,7 @@
                 }
             } else {
                 console.error("Missing authentication information:", { userLogin, userId, code: exchangeCode ? 'present' : 'missing' });
-                fail("Missing authentication information from the Twitch callback. Please try again.");
+                fail("Authentication information from the Twitch callback is missing. Sign in again.");
                 setTimeout(() => { window.location.href = 'index.html'; }, 5000);
             }
         });

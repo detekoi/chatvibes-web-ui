@@ -328,12 +328,12 @@ export function initPreferencesModule(
     async function testVoice(): Promise<void> {
       const text = (previewText?.value || '').trim();
       if (!text) {
-        showToast('Please enter some text to test', 'warning');
+        showToast('Enter text to test.', 'warning');
         return;
       }
 
       if (testMode) {
-        showToast('Test validated ✓ (test mode)', 'success');
+        showToast('Test completed (test mode).', 'success');
         return;
       }
 
@@ -540,7 +540,7 @@ export function initPreferencesModule(
     try {
       const response = await fetch(preMadeUrl);
       if (!response.ok) {
-        showToast('No preview available for this voice yet', 'info');
+        showToast('No preview available.', 'info');
         return;
       }
       const blob = await response.blob();
@@ -632,7 +632,7 @@ export function initPreferencesModule(
       };
     } catch (error) {
       console.error('Failed to load preferences:', error);
-      showToast('Failed to load preferences', 'error');
+      showToast('Cannot load preferences.', 'error');
       throw error;
     }
   }
@@ -750,7 +750,7 @@ export function initPreferencesModule(
       updateSidebarMeta();
     }
     if (testMode) {
-      showToast('Preference updated (test mode)', 'success');
+      showToast('Preference updated (test mode).', 'success');
       return;
     }
     try {
@@ -760,7 +760,7 @@ export function initPreferencesModule(
         ? `${apiBaseUrl}/api/viewer/preferences/${encodeURIComponent(currentChannel)}`
         : `${apiBaseUrl}/api/viewer/preferences`;
       await fetchWithAuth(url, { method: 'PUT', body: JSON.stringify(body) });
-      showToast('Preference updated', 'success');
+      showToast('Preference updated.', 'success');
     } catch (error) {
       if (state.currentPreferences) {
         (state.currentPreferences as Record<string, PreferenceValue>)[key] = previous as PreferenceValue;
@@ -770,7 +770,7 @@ export function initPreferencesModule(
       }
       console.error(`Failed to save ${key}:`, error);
       const err = error as Error;
-      showToast(`Failed to save ${key}: ${err.message}`, 'error');
+      showToast(`Cannot save ${key}: ${err.message}`, 'error');
     }
   }
 

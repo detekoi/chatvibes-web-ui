@@ -164,12 +164,12 @@ export function initChannelPointsModule(
 
   async function saveChannelPointsConfig(isAuto: boolean = false): Promise<void> {
     if (testMode) {
-      showToast('Channel Points saved ✓ (test mode)', 'success');
+      showToast('Channel Points settings saved (test mode).', 'success');
       if (cpStatusLine) cpStatusLine.textContent = 'No reward created · Last synced: ' + new Date().toLocaleTimeString();
       return;
     }
     if (!getSessionToken()) {
-      showToast('Authentication required', 'error');
+      showToast('Authentication is required.', 'error');
       return;
     }
 
@@ -204,13 +204,13 @@ export function initChannelPointsModule(
       });
       const data = await res.json().catch(() => ({})) as SaveResponse;
       if (!res.ok) {
-        showToast(data.error || 'Failed to save Channel Points config', 'error');
+        showToast(data.error || 'Cannot save Channel Points settings.', 'error');
         return;
       }
       if (isAuto) {
-        showToast('Channel Points saved ✓', 'success');
+        showToast('Channel Points settings saved.', 'success');
       } else {
-        showToast('Channel Points saved ✓', 'success');
+        showToast('Channel Points settings saved.', 'success');
       }
       if (cpStatusLine) {
         const rewardId = data.channelPoints?.rewardId || data.rewardId;
@@ -221,24 +221,24 @@ export function initChannelPointsModule(
       await onSettingsRefresh?.();
     } catch (error) {
       console.error('Failed to save Channel Points config:', error);
-      showToast('Failed to save Channel Points config', 'error');
+      showToast('Cannot save Channel Points settings.', 'error');
     }
   }
 
   async function testChannelPointsRedeem(): Promise<void> {
     if (testMode) {
       const text = prompt('Enter a test message to simulate a redemption:');
-      if (text) showToast('Test validated ✓ (test mode)', 'success');
+      if (text) showToast('Test completed (test mode).', 'success');
       return;
     }
     if (!getSessionToken()) {
-      showToast('Authentication required', 'error');
+      showToast('Authentication is required.', 'error');
       return;
     }
     const text = prompt('Enter a test message to simulate a redemption:');
     if (!text) return;
     try {
-      showToast('Testing redeem…', 'info');
+      showToast('Testing redemption…', 'info');
       const res = await fetchWithAuth(`${apiBaseUrl}/api/rewards/tts/test`, {
         method: 'POST',
         credentials: 'include',
@@ -246,12 +246,12 @@ export function initChannelPointsModule(
       });
       const data = await res.json().catch(() => ({})) as TestResponse;
       if (!res.ok) {
-        showToast(data.error || 'Test failed', 'error');
+        showToast(data.error || 'Test failed.', 'error');
         return;
       }
-      showToast(`Test validated ✓ (${data.status || 'ok'})`, 'success');
+      showToast(`Test completed (${data.status || 'ok'}).`, 'success');
     } catch (e) {
-      showToast('Test failed', 'error');
+      showToast('Test failed.', 'error');
     }
   }
 
@@ -259,14 +259,14 @@ export function initChannelPointsModule(
     if (testMode) {
       if (cpEnabled) cpEnabled.checked = false;
       if (cpStatusLine) cpStatusLine.textContent = 'No reward created · Last synced: ' + new Date().toLocaleTimeString();
-      showToast('Disabled & deleted ✓ (test mode)', 'success');
+      showToast('Reward deleted (test mode).', 'success');
       return;
     }
     if (!getSessionToken()) {
-      showToast('Authentication required', 'error');
+      showToast('Authentication is required.', 'error');
       return;
     }
-    if (!confirm('Disable & delete the Channel Points TTS reward?')) return;
+    if (!confirm('Delete the Channel Points TTS reward?')) return;
     try {
       showToast('Deleting…', 'info');
       const res = await fetchWithAuth(`${apiBaseUrl}/api/rewards/tts`, {
@@ -275,16 +275,16 @@ export function initChannelPointsModule(
       });
       const data = await res.json().catch(() => ({})) as DeleteResponse;
       if (!res.ok) {
-        showToast(data.error || 'Delete failed', 'error');
+        showToast(data.error || 'Delete failed.', 'error');
         return;
       }
       if (cpEnabled) cpEnabled.checked = false;
       if (cpStatusLine) cpStatusLine.textContent = 'No reward created · Last synced: ' + new Date().toLocaleTimeString();
-      showToast('Disabled & deleted ✓', 'success');
+      showToast('Reward deleted.', 'success');
       await loadChannelPointsConfig();
       await onSettingsRefresh?.();
     } catch (e) {
-      showToast('Delete failed', 'error');
+      showToast('Delete failed.', 'error');
     }
   }
 

@@ -51,9 +51,23 @@ export function initPronunciationsModule(
         if (matches.length === 0) {
             const emptyLi = document.createElement('li');
             emptyLi.className = 'list-group-item text-center text-muted py-3';
-            emptyLi.textContent = 'No custom pronunciations yet — the built-in list is still active';
+            emptyLi.textContent = 'No custom pronunciations added yet.';
             listEl.appendChild(emptyLi);
             return;
+        }
+
+        // Optional badge if master switch is off
+        const acronymsToggle = document.getElementById('pronunciation-enabled') as HTMLInputElement | null;
+        const acronymsOff = acronymsToggle && !acronymsToggle.checked;
+        if (acronymsOff) {
+            const warnLi = document.createElement('li');
+            warnLi.className = 'list-group-item list-group-item-warning small py-1 text-center';
+            const badge = document.createElement('span');
+            badge.className = 'text-warning';
+            badge.textContent = 'Acronyms are disabled';
+            badge.title = 'Turn on "Expand Chat Acronyms" above for these settings to take effect.';
+            warnLi.appendChild(badge);
+            listEl.appendChild(warnLi);
         }
 
         matches.forEach(match => {
@@ -94,11 +108,18 @@ export function initPronunciationsModule(
     }
 
     async function addPronunciation(match: string, say: string): Promise<void> {
+        if (!match || !say) {
+            showToast('Enter both the word and the pronunciation.', 'warning');
+            return;
+        }
+
         const user = services.getLoggedInUser();
         if (!user?.login) return;
 
         if (testMode) {
-            showToast(`[Test] Added pronunciation: ${match} → ${say}`, 'success');
+            showToast(`[Test] Added pronunciation: ${match} -> ${say}.`, 'success');
+            if (matchEl) matchEl.value = '';
+            if (sayEl) sayEl.value = '';
             if (onChange) onChange();
             return;
         }
@@ -111,14 +132,16 @@ export function initPronunciationsModule(
             });
             const data = await response.json();
             if (data.success) {
-                showToast(`"${data.match}" will be said as "${data.say}"`, 'success');
+                showToast(`Added pronunciation: ${match} -> ${say}.`, 'success');
+                if (matchEl) matchEl.value = '';
+                if (sayEl) sayEl.value = '';
                 if (onChange) onChange();
             } else {
-                showToast(data.error || 'Failed to save pronunciation', 'error');
+                showToast(data.error || 'Cannot add pronunciation.', 'error');
             }
         } catch (error) {
             console.error('Error adding pronunciation:', error);
-            showToast('Failed to save pronunciation', 'error');
+            showToast('Cannot add pronunciation.', 'error');
         }
     }
 
@@ -127,7 +150,7 @@ export function initPronunciationsModule(
         if (!user?.login) return;
 
         if (testMode) {
-            showToast(`[Test] Removed pronunciation: ${match}`, 'success');
+            showToast(`[Test] Removed pronunciation: ${match}.`, 'success');
             if (onChange) onChange();
             return;
         }
@@ -140,14 +163,14 @@ export function initPronunciationsModule(
             });
             const data = await response.json();
             if (data.success) {
-                showToast(`Removed "${match}"`, 'success');
+                showToast(`Removed pronunciation: ${match}.`, 'success');
                 if (onChange) onChange();
             } else {
-                showToast(data.error || 'Failed to remove pronunciation', 'error');
+                showToast(data.error || 'Cannot remove pronunciation.', 'error');
             }
         } catch (error) {
             console.error('Error removing pronunciation:', error);
-            showToast('Failed to remove pronunciation', 'error');
+            showToast('Cannot remove pronunciation.', 'error');
         }
     }
 
@@ -157,7 +180,7 @@ export function initPronunciationsModule(
             const match = matchEl.value.trim();
             const say = sayEl.value.trim();
             if (!match || !say) {
-                showToast('Enter both the word and how it should be said', 'error');
+                showToast('Enter both the word and the pronunciation.', 'error');
                 return;
             }
             addPronunciation(match, say);

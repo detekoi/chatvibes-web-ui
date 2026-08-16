@@ -73,7 +73,7 @@ export function initIgnoreListModule(
     if (sorted.length === 0) {
       const li = document.createElement('li');
       li.className = 'list-group-item';
-      li.innerHTML = '<span class="text-muted fst-italic">No ignored users</span>';
+      li.innerHTML = '<span class="text-muted fst-italic">No ignored users.</span>';
       listEl.appendChild(li);
       return;
     }
@@ -103,7 +103,7 @@ export function initIgnoreListModule(
     const inputEl = document.getElementById(`${type}-ignore-username`) as HTMLInputElement | null;
     const username = inputEl?.value?.trim();
     if (!inputEl || !username) {
-      showToast('Please enter a username', 'warning');
+      showToast('Enter a username.', 'warning');
       return;
     }
 
@@ -126,7 +126,7 @@ export function initIgnoreListModule(
 
     const user = getLoggedInUser();
     if (!user?.login) {
-      showToast('Not logged in', 'error');
+      showToast('You are not signed in.', 'error');
       return;
     }
 
@@ -145,11 +145,11 @@ export function initIgnoreListModule(
         // A 404 means the name resolved to no Twitch account, and the message
         // already says so — prefixing it would read as a server failure.
         showToast(response.status === 404 ? (errorData.error || 'No such Twitch account') :
-          `Failed to add user: ${errorData.error}`, 'error');
+          `Cannot add user: ${errorData.error}`, 'error');
       }
     } catch (error) {
       console.error(`Failed to add user to ${type} ignore list:`, error);
-      showToast('Failed to add user to ignore list', 'error');
+      showToast('Cannot add user to ignore list.', 'error');
     }
   }
 
@@ -170,7 +170,7 @@ export function initIgnoreListModule(
 
     const user = getLoggedInUser();
     if (!user?.login) {
-      showToast('Not logged in', 'error');
+      showToast('You are not signed in.', 'error');
       return;
     }
 
@@ -185,11 +185,11 @@ export function initIgnoreListModule(
         onChangeCallback?.();
       } else {
         const errorData = await response.json().catch(() => ({ error: 'Unknown error' })) as IgnoreListErrorResponse;
-        showToast(`Failed to remove ${label}: ${errorData.error}`, 'error');
+        showToast(`Cannot remove ${label}: ${errorData.error}`, 'error');
       }
     } catch (error) {
       console.error(`Failed to remove ${label} from ${type} ignore list:`, error);
-      showToast('Failed to remove user from ignore list', 'error');
+      showToast('Cannot remove user from ignore list.', 'error');
     }
   }
 

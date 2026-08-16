@@ -39,7 +39,7 @@ export function initBannedWordsModule(
         if (!words || words.length === 0) {
             const emptyLi = document.createElement('li');
             emptyLi.className = 'list-group-item text-center text-muted py-3';
-            emptyLi.textContent = 'No banned words added yet';
+            emptyLi.textContent = 'No banned words added yet.';
             listEl.appendChild(emptyLi);
             return;
         }
@@ -62,7 +62,7 @@ export function initBannedWordsModule(
         if (!user?.login) return;
 
         if (testMode) {
-            showToast(`[Test] Added banned word: ${word}`, 'success');
+            showToast(`[Test] Added banned word: ${word}.`, 'success');
             if (onChange) onChange();
             return;
         }
@@ -75,14 +75,14 @@ export function initBannedWordsModule(
             });
             const data = await response.json();
             if (data.success) {
-                showToast(`Added "${word}" to banned words`, 'success');
+                showToast(`Added "${word}" to banned words.`, 'success');
                 if (onChange) onChange();
             } else {
-                showToast(data.error || 'Failed to add banned word', 'error');
+                showToast(data.error || 'Cannot add banned word.', 'error');
             }
         } catch (error) {
             console.error('Error adding banned word:', error);
-            showToast('Failed to add banned word', 'error');
+            showToast('Cannot add banned word.', 'error');
         }
     }
 
@@ -91,7 +91,7 @@ export function initBannedWordsModule(
         if (!user?.login) return;
 
         if (testMode) {
-            showToast(`[Test] Removed banned word: ${word}`, 'success');
+            showToast(`[Test] Removed banned word: ${word}.`, 'success');
             if (onChange) onChange();
             return;
         }
@@ -104,14 +104,14 @@ export function initBannedWordsModule(
             });
             const data = await response.json();
             if (data.success) {
-                showToast(`Removed "${word}" from banned words`, 'success');
+                showToast(`Removed "${word}" from banned words.`, 'success');
                 if (onChange) onChange();
             } else {
-                showToast(data.error || 'Failed to remove banned word', 'error');
+                showToast(data.error || 'Cannot remove banned word.', 'error');
             }
         } catch (error) {
             console.error('Error removing banned word:', error);
-            showToast('Failed to remove banned word', 'error');
+            showToast('Cannot remove banned word.', 'error');
         }
     }
 
