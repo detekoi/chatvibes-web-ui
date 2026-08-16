@@ -1215,6 +1215,7 @@ a[href][target="_blank"]:not([class*="wc-"]):hover {
 }
 
 .settings-section-title {
+    font-size: 1.25rem;
     color: var(--text-primary);
     font-weight: 600;
     margin-bottom: 0.5rem;
