@@ -15,7 +15,10 @@ const defaultIpKey: Options["keyGenerator"] = (req, _res) => req.ip ?? "unknown"
  */
 export const authLimiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 20,
+    // Keyed by IP, and these routes carry no credential to brute-force — they
+    // build a Twitch redirect and exchange a single-use code. The old limit of
+    // 20 locked out everyone sharing a NAT (offices, dorms, carrier CGNAT).
+    max: 60,
     message: "Too many authentication attempts, please try again later.",
     standardHeaders: true,
     legacyHeaders: false,

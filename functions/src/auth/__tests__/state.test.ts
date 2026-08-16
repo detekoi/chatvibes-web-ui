@@ -220,6 +220,58 @@ describe('OAuth state binding', () => {
       expect(callback.body.error).toBe('auth_failed');
     });
 
+    it('carries the channel context from the cookie into the viewer-settings redirect', async () => {
+      const app = createApp();
+      const res = await request(app).get('/auth/twitch/viewer').query({ channel: 'somechannel' });
+      const nonce = new URL(res.body.twitchAuthUrl).searchParams.get('state') as string;
+      const setCookie = res.headers['set-cookie'] as unknown as string[];
+      const cookie = (setCookie.find((c) => c.startsWith(`${STATE_COOKIE_NAME}=`)) as string).split(';')[0];
+
+      (axios.post as jest.Mock).mockResolvedValue({
+        data: { access_token: 'test-access-token' },
+      } as never);
+      // validateTwitchToken calls axios.get under the hood.
+      (axios.get as jest.Mock).mockResolvedValue({
+        data: { login: 'SomeViewer', user_id: '12345' },
+      } as never);
+
+      const callback = await request(app)
+        .get('/auth/twitch/callback')
+        .set('Cookie', cookie)
+        .query({ code: 'test-code', state: nonce });
+
+      // `channel` used to ride in `state`; it now comes back out of the cookie.
+      const redirect = new URL(callback.headers.location);
+      expect(redirect.pathname).toBe('/viewer-settings.html');
+      expect(redirect.searchParams.get('channel')).toBe('somechannel');
+      expect(redirect.searchParams.get('validated')).toBe('1');
+      expect(redirect.searchParams.get('session_token')).toBeTruthy();
+    });
+
+    it('omits channel from the redirect when the flow started without one', async () => {
+      const app = createApp();
+      const res = await request(app).get('/auth/twitch/viewer');
+      const nonce = new URL(res.body.twitchAuthUrl).searchParams.get('state') as string;
+      const setCookie = res.headers['set-cookie'] as unknown as string[];
+      const cookie = (setCookie.find((c) => c.startsWith(`${STATE_COOKIE_NAME}=`)) as string).split(';')[0];
+
+      (axios.post as jest.Mock).mockResolvedValue({
+        data: { access_token: 'test-access-token' },
+      } as never);
+      (axios.get as jest.Mock).mockResolvedValue({
+        data: { login: 'SomeViewer', user_id: '12345' },
+      } as never);
+
+      const callback = await request(app)
+        .get('/auth/twitch/callback')
+        .set('Cookie', cookie)
+        .query({ code: 'test-code', state: nonce });
+
+      const redirect = new URL(callback.headers.location);
+      expect(redirect.pathname).toBe('/viewer-settings.html');
+      expect(redirect.searchParams.has('channel')).toBe(false);
+    });
+
     it('still reports a genuine Twitch error rather than masking it as bad state', async () => {
       const app = createApp();
       const { cookie } = await startFlow(app, '/auth/twitch/initiate');
