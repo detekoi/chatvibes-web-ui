@@ -1,5 +1,6 @@
 import { getApiBaseUrl, fetchWithAuth } from '../common/api.js';
 import { logout, getStoredSessionToken, decodeJwtPayload } from '../common/auth.js';
+import { setProgress } from '../common/ui.js';
 import {
     initPreferencesModule,
     type PreferencesModule,
@@ -26,6 +27,7 @@ interface JWTPayload {
 interface ViewerElements {
     authStatus: HTMLElement | null;
     loadingOverlay: HTMLElement | null;
+    loadingBar: HTMLElement | null;
     loggedInStatus: HTMLElement | null;
     loggedInUsername: HTMLElement | null;
     preferencesPanel: HTMLElement | null;
@@ -90,6 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const elements: ViewerElements = {
             authStatus: document.getElementById('auth-status'),
             loadingOverlay: document.getElementById('loading-overlay'),
+            loadingBar: document.getElementById('loading-bar'),
             loggedInStatus: document.getElementById('logged-in-status'),
             loggedInUsername: document.getElementById('logged-in-username'),
             preferencesPanel: document.getElementById('preferences-panel'),
@@ -166,7 +169,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         showLoading();
+        setProgress(elements.loadingBar, 0, 2);
         await preferencesModule.loadVoices();
+        setProgress(elements.loadingBar, 1, 2);
 
         // Ensure initial channel context is reflected in UI
         if (state.currentChannel) {
@@ -176,6 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         await handleChannelChange(state.currentChannel);
+        setProgress(elements.loadingBar, 2, 2);
         hideLoading();
 
         async function handleChannelChange(channelName: string | null): Promise<void> {
@@ -402,7 +408,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function showLoading(): void {
-            if (elements.loadingOverlay) elements.loadingOverlay.style.display = 'block';
+            if (elements.loadingOverlay) elements.loadingOverlay.style.display = '';
             if (elements.preferencesPanel) elements.preferencesPanel.style.display = 'none';
         }
 

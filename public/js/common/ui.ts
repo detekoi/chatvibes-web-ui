@@ -27,6 +27,79 @@ function getToastContainer(): HTMLElement {
 }
 
 /**
+ * Drive a .wc-bar from real completed work.
+ *
+ * Only call this where the total is genuinely known — a fixed set of load
+ * tasks, or a fixed set of steps. Everywhere else leave the bar alone and let
+ * it run its indeterminate loop; a bar advanced by a timer is a lie about
+ * progress, which is worse than admitting the duration is unknown.
+ *
+ * Pass done >= total to finish. Setting total to 0 returns the bar to
+ * indeterminate.
+ */
+export function setProgress(bar: HTMLElement | null, done: number, total: number): void {
+  if (!bar) return;
+  const fill = bar.querySelector('span');
+  if (!fill) return;
+
+  if (total <= 0) {
+    bar.removeAttribute('data-progress');
+    bar.removeAttribute('aria-valuenow');
+    bar.removeAttribute('aria-valuemin');
+    bar.removeAttribute('aria-valuemax');
+    fill.style.width = '';
+    return;
+  }
+
+  const pct = Math.round((Math.min(done, total) / total) * 100);
+  bar.setAttribute('data-progress', String(pct));
+  // A progressbar with no aria-valuenow reads as indeterminate, so these are
+  // only set once there is a real number behind them.
+  bar.setAttribute('aria-valuemin', '0');
+  bar.setAttribute('aria-valuemax', '100');
+  bar.setAttribute('aria-valuenow', String(pct));
+  fill.style.width = `${pct}%`;
+}
+
+/**
+ * Run tasks in parallel, advancing a .wc-bar as each settles.
+ *
+ * Mirrors Promise.allSettled semantics: one failing task still advances the
+ * bar and does not reject the whole batch, so a partial failure cannot leave
+ * the bar stuck at 60% forever.
+ */
+export async function trackProgress(
+  bar: HTMLElement | null,
+  tasks: Array<Promise<unknown> | (() => Promise<unknown>)>
+): Promise<PromiseSettledResult<unknown>[]> {
+  const total = tasks.length;
+  let done = 0;
+  setProgress(bar, 0, total);
+
+  return Promise.allSettled(
+    tasks.map(task => {
+      // Two hazards to contain here, both of which would otherwise escape the
+      // map before allSettled exists — aborting the remaining tasks and
+      // rejecting the whole call, so the caller never reaches hideLoading():
+      //   1. a thunk that throws synchronously rather than returning a promise
+      //   2. a thunk that returns a non-promise, which has no .finally
+      // Promise.resolve normalises (2); the try/catch turns (1) into a
+      // rejection that allSettled can report. Tasks still start eagerly.
+      let promise: Promise<unknown>;
+      try {
+        promise = Promise.resolve(typeof task === 'function' ? task() : task);
+      } catch (error) {
+        promise = Promise.reject(error);
+      }
+      return promise.finally(() => {
+        done += 1;
+        setProgress(bar, done, total);
+      });
+    })
+  );
+}
+
+/**
  * Toast notification types
  */
 export type ToastType = 'success' | 'error' | 'danger' | 'warning' | 'info';

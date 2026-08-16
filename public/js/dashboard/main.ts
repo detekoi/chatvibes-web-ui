@@ -1,6 +1,6 @@
 import { getApiBaseUrl } from '../common/api.js';
 import { decodeJwtPayload, getStoredSessionToken, getStoredUser, logout, StoredUser } from '../common/auth.js';
-import { showToast } from '../common/ui.js';
+import { showToast, trackProgress } from '../common/ui.js';
 import { initBotManagement, BotManagementModule } from './bot-management.js';
 import { initObsModule, ObsModule } from './obs.js';
 import { initSettingsModule } from './settings.js';
@@ -55,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const testMode = new URLSearchParams(window.location.search).has('test');
   const authStatus = document.getElementById('auth-status') as HTMLDivElement | null;
   const loadingOverlay = document.getElementById('loading-overlay') as HTMLDivElement | null;
+  const loadingBar = document.getElementById('loading-bar');
   const dashboardContent = document.getElementById('dashboard-content') as HTMLDivElement | null;
   const twitchUsernameEl = document.getElementById('twitch-username') as HTMLElement | null;
   const channelNameStatusEl = document.getElementById('channel-name-status') as HTMLElement | null;
@@ -121,10 +122,12 @@ document.addEventListener('DOMContentLoaded', () => {
       state.loggedInUser = { login: 'demostreamer', id: '123456', displayName: 'Demo Streamer' };
       showDashboard();
       showLoading();
-      await obsModule.loadExistingTtsUrl(state.loggedInUser.login);
       botModule.updateBotStatusUI(false);
-      await settingsModule.initialize();
-      await channelPointsModule.load();
+      await trackProgress(loadingBar, [
+        () => obsModule.loadExistingTtsUrl(state.loggedInUser!.login),
+        () => settingsModule.initialize(),
+        () => channelPointsModule.load(),
+      ]);
       hideLoading();
       return;
     }
@@ -136,11 +139,11 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
       showLoading();
-      await Promise.all([
-        obsModule.loadExistingTtsUrl(state.loggedInUser.login),
-        botModule.refreshStatus(),
-        settingsModule.initialize(),
-        channelPointsModule.load(),
+      await trackProgress(loadingBar, [
+        () => obsModule.loadExistingTtsUrl(state.loggedInUser!.login),
+        () => botModule.refreshStatus(),
+        () => settingsModule.initialize(),
+        () => channelPointsModule.load(),
       ]);
       hideLoading();
     } else {
@@ -149,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function showLoading(): void {
-    if (loadingOverlay) loadingOverlay.style.display = 'block';
+    if (loadingOverlay) loadingOverlay.style.display = '';
     if (dashboardContent) dashboardContent.style.display = 'none';
   }
 
