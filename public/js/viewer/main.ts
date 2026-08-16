@@ -216,26 +216,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const urlParams = new URLSearchParams(window.location.search);
             const sessionTokenParam = urlParams.get('session_token');
             const validatedParam = urlParams.get('validated');
-            const errorParam = urlParams.get('error');
-            const messageParam = urlParams.get('message');
-
-            // messageParam is already decoded by URLSearchParams. Decoding it a
-            // second time throws URIError on any literal "%" in the text.
-            if (errorParam) {
-                let errorMessage = 'Something went wrong signing you in. Please try again.';
-                if (errorParam === 'access_denied') {
-                    errorMessage = 'Sign-in canceled. You need to sign in with Twitch to change your TTS preferences.';
-                } else if (errorParam === 'oauth_failed') {
-                    errorMessage = 'Twitch could not complete the sign-in. Please try again.';
-                } else if (errorParam === 'state_mismatch') {
-                    errorMessage = 'Could not verify that this sign-in started in your browser. Please try again.';
-                } else if (messageParam) {
-                    errorMessage = messageParam;
-                }
-                showAuthStatus(errorMessage, 'error');
-                setTimeout(() => { window.location.href = '/'; }, 5000);
-                return false;
-            }
+            // No `?error=` handling here on purpose: every OAuth failure now
+            // redirects to auth-error.html, so nothing reaches this page with
+            // an error to render.
 
             if (sessionTokenParam && validatedParam) {
                 try {
@@ -332,8 +315,18 @@ document.addEventListener('DOMContentLoaded', () => {
             // and the server stores it in the cookie for the callback.
             loginButton.onclick = () => {
                 showAuthStatus('Redirecting to Twitch for authentication...', 'info');
-                window.location.href = tokenParam && state.currentChannel
-                    ? `${apiBaseUrl}/auth/twitch/viewer?token=${encodeURIComponent(tokenParam)}&channel=${encodeURIComponent(state.currentChannel)}`
+
+                // Built independently: requiring a token before sending the
+                // channel dropped the channel for anyone arriving at
+                // viewer-settings.html?channel=... without an invite token,
+                // so they came back from Twitch with no channel context.
+                const params = new URLSearchParams();
+                if (tokenParam) params.set('token', tokenParam);
+                if (state.currentChannel) params.set('channel', state.currentChannel);
+
+                const query = params.toString();
+                window.location.href = query
+                    ? `${apiBaseUrl}/auth/twitch/viewer?${query}`
                     : `${apiBaseUrl}/auth/twitch/viewer`;
             };
             if (elements.authStatus) {

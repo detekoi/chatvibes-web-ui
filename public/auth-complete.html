@@ -188,21 +188,15 @@
                     return;
                 }
 
-                // Check if user came here for viewer preferences
-                const viewerPrefsIntent = sessionStorage.getItem('viewer_prefs_intent');
-                sessionStorage.removeItem('viewer_prefs_intent'); // Clean up
-
+                // Only the broadcaster flow reaches this page. The server sends
+                // viewers straight to viewer-settings.html from the callback,
+                // routing on the `t` marker in the state cookie rather than on
+                // anything the browser remembered.
                 titleEl.textContent = `Welcome, ${userLogin}`;
                 markStep('redirect');
 
-                if (viewerPrefsIntent === 'true') {
-                    document.querySelector('.wc-step[data-step="redirect"]').textContent = 'Loading viewer settings';
-                    messageEl.textContent = 'Redirecting to your viewer settings.';
-                    window.location.href = 'viewer-settings.html';
-                } else {
-                    messageEl.textContent = 'Redirecting to your dashboard.';
-                    window.location.href = 'dashboard.html';
-                }
+                messageEl.textContent = 'Redirecting to your dashboard.';
+                window.location.href = 'dashboard.html';
             } else {
                 fail("Missing user information from the Twitch callback. Please try again.");
                 setTimeout(() => { window.location.href = 'index.html'; }, 5000);

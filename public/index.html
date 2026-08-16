@@ -97,8 +97,6 @@
                     </div>
                 </div>
 
-                <p id="loginError" class="wc-code-value" role="alert" aria-live="assertive"
-                    style="color:var(--wc-danger); margin:0;"></p>
             </div>
 
             <div class="wc-frame-foot">
@@ -145,16 +143,10 @@
 
     <!-- Authentication functionality -->
     <script>
-        const loginErrorEl = document.getElementById('loginError');
-
-        function resetButton(button) {
-            button.disabled = false;
-            button.classList.remove('is-busy');
-        }
-
         // The server owns the whole flow: it mints the state cookie and issues
         // the redirect, so the page just navigates. There is nothing to fetch
-        // and no state for the browser to hold on to.
+        // and no state for the browser to hold on to, and any failure is
+        // rendered by auth-error.html rather than reported back here.
         function startOAuth(endpoint, button) {
             // .is-busy sets pointer-events:none, which stops a second mouse
             // click but not a second keyboard activation. A second navigation
@@ -162,7 +154,6 @@
             if (button.disabled) return;
             button.disabled = true;
 
-            loginErrorEl.textContent = '';
             button.classList.add('is-busy');
 
             // Relative, so Firebase Hosting rewrites reach Functions in both
@@ -185,9 +176,6 @@
                 return;
             }
 
-            // auth-complete.html reads this to route back here rather than to the
-            // broadcaster dashboard, which rejects a viewer-scope token.
-            sessionStorage.setItem('viewer_prefs_intent', 'true');
             startOAuth('/auth/twitch/viewer', event.currentTarget);
         });
     </script>
