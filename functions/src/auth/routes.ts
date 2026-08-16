@@ -78,6 +78,40 @@ function redirectToFrontendWithError(res: Response, errorCode: string, errorDesc
 }
 
 /**
+ * Redirects a failed viewer auth back to the viewer preferences page, which
+ * renders `?error=` inline and then returns the user home.
+ *
+ * The viewer callback is a top-level navigation from Twitch, so answering with
+ * a JSON body would show the user raw text in their browser window.
+ *
+ * The message is encoded here on purpose: viewer-settings.html reads it with
+ * `urlParams.get()` (one decode) and then calls `decodeURIComponent()` on the
+ * result (a second), so the value has to survive being decoded twice.
+ * @param res - Express response object
+ * @param errorCode - Code viewer-settings.html switches on
+ * @param message - Optional human-readable detail
+ * @return Express response
+ */
+function redirectToViewerWithError(res: Response, errorCode: string, message?: string): Response {
+  if (!config.FRONTEND_URL) {
+    logger.error("FRONTEND_URL not configured");
+    res.status(500).send("Server configuration error");
+    return res;
+  }
+
+  const viewerErrorUrl = new URL(config.FRONTEND_URL);
+  viewerErrorUrl.pathname = "/viewer-settings.html";
+  viewerErrorUrl.searchParams.set("error", errorCode);
+  if (message) {
+    viewerErrorUrl.searchParams.set("message", encodeURIComponent(message));
+  }
+
+  logger.info({ errorCode }, "Redirecting viewer to preferences page with error");
+  res.redirect(viewerErrorUrl.toString());
+  return res;
+}
+
+/**
  * Helper function to handle viewer OAuth callback
  * @param req - Express request object
  * @param res - Express response object
@@ -90,11 +124,11 @@ async function handleViewerCallback(req: Request, res: Response, statePayload: O
 
   if (twitchError) {
     logger.error({ twitchError, twitchErrorDescription }, "Viewer OAuth error");
-    return res.status(400).json({
-      success: false,
-      error: twitchError,
-      error_description: twitchErrorDescription,
-    });
+    return redirectToViewerWithError(
+      res,
+      twitchError as string,
+      twitchErrorDescription as string | undefined,
+    );
   }
 
   try {
@@ -153,11 +187,11 @@ async function handleViewerCallback(req: Request, res: Response, statePayload: O
   } catch (error) {
     const err = error as Error;
     logger.error({ error: err.message }, "Viewer OAuth callback error");
-    return res.status(500).json({
-      success: false,
-      error: "auth_failed",
-      error_description: "Failed to complete viewer authentication",
-    });
+    return redirectToViewerWithError(
+      res,
+      "auth_failed",
+      "Failed to complete viewer authentication. Please try again.",
+    );
   }
 }
 

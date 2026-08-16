@@ -215,9 +215,11 @@ describe('OAuth state binding', () => {
         .set('Cookie', cookie)
         .query({ code: 'test-code', state: nonce });
 
-      // The viewer handler answers with JSON; the broadcaster handler redirects.
-      expect(callback.status).toBe(500);
-      expect(callback.body.error).toBe('auth_failed');
+      // The viewer handler sends failures to viewer-settings.html; the
+      // broadcaster handler sends them to auth-error.html.
+      const redirect = new URL(callback.headers.location);
+      expect(redirect.pathname).toBe('/viewer-settings.html');
+      expect(redirect.searchParams.get('error')).toBe('auth_failed');
     });
 
     it('carries the channel context from the cookie into the viewer-settings redirect', async () => {
@@ -270,6 +272,42 @@ describe('OAuth state binding', () => {
       const redirect = new URL(callback.headers.location);
       expect(redirect.pathname).toBe('/viewer-settings.html');
       expect(redirect.searchParams.has('channel')).toBe(false);
+    });
+
+    it('sends a denied viewer to the preferences page, not a raw JSON body', async () => {
+      const app = createApp();
+      const res = await request(app).get('/auth/twitch/viewer').query({ channel: 'somechannel' });
+      const nonce = new URL(res.body.twitchAuthUrl).searchParams.get('state') as string;
+      const setCookie = res.headers['set-cookie'] as unknown as string[];
+      const cookie = (setCookie.find((c) => c.startsWith(`${STATE_COOKIE_NAME}=`)) as string).split(';')[0];
+
+      const callback = await request(app)
+        .get('/auth/twitch/callback')
+        .set('Cookie', cookie)
+        .query({ error: 'access_denied', error_description: 'The user denied you access', state: nonce });
+
+      expect(callback.status).toBe(302);
+      const redirect = new URL(callback.headers.location);
+      expect(redirect.pathname).toBe('/viewer-settings.html');
+      expect(redirect.searchParams.get('error')).toBe('access_denied');
+    });
+
+    it('encodes the viewer error message so it survives being decoded twice', async () => {
+      const app = createApp();
+      const res = await request(app).get('/auth/twitch/viewer');
+      const nonce = new URL(res.body.twitchAuthUrl).searchParams.get('state') as string;
+      const setCookie = res.headers['set-cookie'] as unknown as string[];
+      const cookie = (setCookie.find((c) => c.startsWith(`${STATE_COOKIE_NAME}=`)) as string).split(';')[0];
+
+      const callback = await request(app)
+        .get('/auth/twitch/callback')
+        .set('Cookie', cookie)
+        .query({ error: 'access_denied', error_description: '100% denied', state: nonce });
+
+      // viewer-settings.html reads this with urlParams.get() and then calls
+      // decodeURIComponent() on the result. A bare "%" would throw there.
+      const raw = new URL(callback.headers.location).searchParams.get('message') as string;
+      expect(decodeURIComponent(raw)).toBe('100% denied');
     });
 
     it('still reports a genuine Twitch error rather than masking it as bad state', async () => {
