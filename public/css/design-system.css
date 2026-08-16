@@ -645,6 +645,17 @@ a[target="_blank"].no-arrow::after {
     background-color: transparent;
 }
 
+:root :is(.settings-section, .wc-card) .btn:not(.btn-sm):not(.wc-btn):not(.wc-chipbtn):not(.wc-iconbtn) {
+    height: var(--wc-control-h);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11.5px;
+    font-family: var(--wc-font-name);
+    letter-spacing: 0.05em;
+    line-height: 1;
+}
+
 /* Segmented light/dark indicator on the login card. */
 .wc-themeswitch {
     display: flex;
@@ -1018,6 +1029,11 @@ a[target="_blank"].no-arrow::after {
     color: var(--wc-text-1);
 }
 
+:root :is(.settings-section, .wc-card) .list-group-item.text-center {
+    justify-content: center;
+    text-align: center;
+}
+
 /* Label + description left, control right at a fixed width, so the
    controls line up in a column down the card. */
 :root :is(.settings-section, .wc-card) .list-group-item > .row {
@@ -1068,9 +1084,11 @@ a[target="_blank"].no-arrow::after {
 }
 
 /* Section cards also host free-form blocks — ignore lists, the channel-point
-   reward form. Pad and rule them so they sit inside the card like rows do. */
+   reward form. Pad and rule them so they sit inside the card like rows do.
+   .list-group and .stream-events-form are row stacks, not blocks: their rows
+   carry their own padding, so padding here would inset them a second time. */
 :root .settings-section > *:not(.settings-section-title):not(.settings-section-description):not(.list-group):not(:empty),
-:root .wc-card > .card-body > *:not(.list-group):not(:empty) {
+:root .wc-card > .card-body > *:not(.list-group):not(.stream-events-form):not(:empty) {
     margin: 0;
     padding: 14px 16px;
     border-top: 1px solid var(--wc-hairline);
@@ -1254,8 +1272,7 @@ a[target="_blank"].no-arrow::after {
     line-height: var(--wc-control-h);
 }
 
-:root :is(.settings-section, .wc-card) .list-group-item > .row > .col-auto :is(.form-select, .form-control:not(textarea)),
-.wc-field {
+:root :is(.settings-section, .wc-card) .list-group-item > .row > .col-auto :is(.form-select, .form-control:not(textarea):not([type="number"]):not([inputmode="numeric"]), .wc-field:not(.wc-field--number)) {
     min-width: 172px;
 }
 
@@ -1580,7 +1597,7 @@ a[target="_blank"].no-arrow::after {
         justify-content: space-between;
         width: 100%;
     }
-    :root :is(.settings-section, .wc-card) .list-group-item > .row > .col-auto > :is(.btn, button) {
+    :root :is(.settings-section, .wc-card) .list-group-item > .row > .col-auto > :is(.btn, button, .form-switch) {
         margin-left: auto;
     }
 

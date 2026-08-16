@@ -590,14 +590,20 @@
                                     teach it something new, like a channel name.</p>
                                 <div class="card shadow">
                                     <div class="card-body">
-                                        <div class="input-group mb-2">
-                                            <input type="text" id="tts-pronunciation-match-input" class="form-control"
-                                                placeholder="Word (e.g. wcat)" aria-label="Word to replace">
-                                            <input type="text" id="tts-pronunciation-say-input" class="form-control"
-                                                placeholder="How to say it (e.g. wildcat)"
-                                                aria-label="How it should be said">
-                                            <button id="add-tts-pronunciation-btn" class="btn btn-secondary"
-                                                type="button">Add</button>
+                                        <div class="row g-2 mb-2">
+                                            <div class="col-12 col-md-5">
+                                                <input type="text" id="tts-pronunciation-match-input" class="form-control"
+                                                    placeholder="Word (e.g. wcat)" aria-label="Word to replace">
+                                            </div>
+                                            <div class="col-12 col-md-5">
+                                                <input type="text" id="tts-pronunciation-say-input" class="form-control"
+                                                    placeholder="How to say it (e.g. wildcat)"
+                                                    aria-label="How it should be said">
+                                            </div>
+                                            <div class="col-12 col-md-2">
+                                                <button id="add-tts-pronunciation-btn" class="btn btn-secondary w-100"
+                                                    type="button">Add</button>
+                                            </div>
                                         </div>
                                         <ul id="tts-pronunciations-list" class="ignore-list list-group"></ul>
                                     </div>
