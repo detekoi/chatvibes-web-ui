@@ -10,6 +10,7 @@ import { db, COLLECTIONS, FieldValue } from "../services/firestore";
 import { validateTwitchToken } from "../services/twitch";
 import { logger, redactSensitive } from "../logger";
 import { issueState, consumeState, OAuthStatePayload } from "./state";
+import { createExchangeCode, redeemExchangeCode, EXCHANGE_CODE_PATTERN } from "./exchange";
 
 const router: Router = express.Router();
 
@@ -142,10 +143,18 @@ async function handleViewerCallback(req: Request, res: Response, statePayload: O
       throw new Error("FRONTEND_URL not configured");
     }
 
-    // Redirect viewers back to the preferences page with a validated session token
+    if (!db) {
+      throw new Error("Firestore not initialised — cannot mint an exchange code");
+    }
+
+    // The redirect carries a single-use code, not the token. The token itself
+    // would otherwise sit in browser history and in the Referer of anything
+    // the preferences page loads.
+    const exchangeCode = await createExchangeCode(db, viewerSessionToken);
+
     const redirectUrl = new URL(config.FRONTEND_URL);
     redirectUrl.pathname = "/viewer-settings.html";
-    redirectUrl.searchParams.set("session_token", viewerSessionToken);
+    redirectUrl.searchParams.set("code", exchangeCode);
     redirectUrl.searchParams.set("validated", "1");
     // Preserve optional channel context if the initiating request carried one
     if (statePayload.c) {
@@ -351,7 +360,16 @@ router.get("/twitch/callback", async (req: Request, res: Response): Promise<void
       frontendAuthCompleteUrl.searchParams.append("user_login", twitchUser.login);
       frontendAuthCompleteUrl.searchParams.append("user_id", twitchUser.id);
       frontendAuthCompleteUrl.searchParams.append("state", twitchQueryState as string);
-      frontendAuthCompleteUrl.searchParams.append("session_token", appSessionToken);
+
+      // A single-use code stands in for the token, which would otherwise sit in
+      // browser history and in the Referer of anything auth-complete.html loads.
+      if (!db) {
+        throw new Error("Firestore not initialised — cannot mint an exchange code");
+      }
+      frontendAuthCompleteUrl.searchParams.append(
+        "code",
+        await createExchangeCode(db, appSessionToken),
+      );
 
       logger.info({ userLogin: twitchUser.login }, "Redirecting to frontend auth-complete page");
 
@@ -525,6 +543,47 @@ router.get("/twitch/viewer", (req: Request, res: Response): void => {
     t: "viewer",
     c: (channel as string) || undefined,
   }, ""));
+});
+
+// Route: /auth/exchange
+// Trades the single-use code from the callback redirect for the session token.
+//
+// Unauthenticated by necessity — this is how a session is obtained in the first
+// place. Its only credential is the code, which is high-entropy, one-minute,
+// single-use, and stored only as a hash.
+router.post("/exchange", async (req: Request, res: Response): Promise<void> => {
+  const { code } = req.body ?? {};
+
+  // Shape-check before hashing and hitting Firestore.
+  if (typeof code !== "string" || !EXCHANGE_CODE_PATTERN.test(code)) {
+    res.status(400).json({ success: false, error: "Missing or malformed exchange code" });
+    return;
+  }
+
+  if (!db) {
+    logger.error("Firestore not initialised — cannot redeem an exchange code");
+    res.status(500).json({ success: false, error: "Could not complete sign-in. Please try again." });
+    return;
+  }
+
+  try {
+    const result = await redeemExchangeCode(db, code);
+
+    if (!result.ok) {
+      logger.warn({ reason: result.reason }, "Exchange code refused");
+      res.status(400).json({
+        success: false,
+        error: "This sign-in link has already been used or has expired. Please sign in again.",
+      });
+      return;
+    }
+
+    logger.info("Exchange code redeemed");
+    res.json({ success: true, session_token: result.sessionToken });
+  } catch (error) {
+    logger.error({ error: (error as Error).message }, "Exchange code redemption failed");
+    res.status(500).json({ success: false, error: "Could not complete sign-in. Please try again." });
+  }
 });
 
 // Route: /auth/logout

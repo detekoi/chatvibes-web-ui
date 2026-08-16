@@ -31,20 +31,28 @@
     </script>
 
     <!-- Runs first, synchronously, and stays above the analytics tag below.
-         The callback hands this page a seven-day session JWT in the query
-         string. A deferred script still executes before DOMContentLoaded, so
-         analytics would observe that URL long before the sign-in code further
-         down gets to read it. Take the token out of the URL immediately and
-         pass it along in memory instead. -->
+         The callback hands this page a one-time exchange code in the query
+         string (and, for anyone mid-flow across the deploy, possibly still a
+         session JWT). A deferred script still executes before DOMContentLoaded,
+         so the analytics request would carry whichever of those is in the URL
+         as its Referer. Take both out of the URL here and pass them on in
+         memory instead. -->
     <script>
         (function () {
             var params = new URLSearchParams(window.location.search);
             var token = params.get('session_token');
-            if (!token) return;
+            var code = params.get('code');
+            if (!token && !code) return;
 
-            window.__sessionToken = token;
+            if (token) {
+                window.__sessionToken = token;
+                params.delete('session_token');
+            }
+            if (code) {
+                window.__exchangeCode = code;
+                params.delete('code');
+            }
 
-            params.delete('session_token');
             var query = params.toString();
             window.history.replaceState({}, '',
                 window.location.pathname + (query ? '?' + query : '') + window.location.hash);
@@ -153,10 +161,16 @@
             const userLogin = queryParams.get('user_login');
             const userId = queryParams.get('user_id');
             const receivedState = queryParams.get('state');
-            // Handed over in memory by the head script, which already removed
-            // it from the URL. The query fallback only covers that script not
-            // having run; it should normally be null by now.
-            const sessionToken = window.__sessionToken || queryParams.get('session_token');
+            // Both handed over in memory by the head script, which already took
+            // them out of the URL; the query reads only cover that script not
+            // having run. `__sessionToken` is the old shape, still accepted for
+            // anyone mid-flow across the deploy.
+            const exchangeCode = window.__exchangeCode || queryParams.get('code');
+            const legacyToken = window.__sessionToken || queryParams.get('session_token');
+
+            // Nothing below needs them on the global object.
+            delete window.__exchangeCode;
+            delete window.__sessionToken;
 
             // The server binds `state` to a one-use HttpOnly cookie and rejects
             // the callback before minting a token, so reaching this page means
@@ -177,55 +191,75 @@
                 return;
             }
 
-            if (userLogin && userId) {
-                markStep('authorized');
+            /**
+             * Trades the one-time code for the session token.
+             */
+            async function redeemCode(code) {
+                // Relative on purpose: this page is served from the same host
+                // that rewrites /auth/** to the function, so the exchange is
+                // same-origin and needs no CORS.
+                const response = await fetch('/auth/exchange', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ code })
+                });
 
-                // Store user info more permanently
-                localStorage.setItem('twitch_user_login', userLogin);
-                localStorage.setItem('twitch_user_id', userId);
+                const data = await response.json().catch(() => ({}));
+                if (!response.ok || !data.success || !data.session_token) {
+                    throw new Error(data.error || 'Could not complete sign-in.');
+                }
+                return data.session_token;
+            }
 
-                if (sessionToken) {
-                    // Store the session token for both app and viewer usage
-                    localStorage.setItem('app_session_token', sessionToken);
+            /**
+             * Stores the session and moves the user on to the dashboard.
+             */
+            function completeSignIn(sessionToken) {
+                localStorage.setItem('app_session_token', sessionToken);
 
-                    // For viewer tokens, also store specific viewer auth info if available
-                    try {
-                        const payload = decodeJwtPayload(sessionToken);
-                        if (payload) {
-                            if (payload.scope === 'viewer') {
-                                localStorage.setItem('token_user', payload.userLogin);
-                                console.log("Viewer session token stored for user:", payload.userLogin);
-                            } else {
-                                // Streamer token - clear any old viewer-specific tokens
-                                localStorage.removeItem('token_user');
-                                localStorage.removeItem('token_channel');
-                                console.log("Streamer session token stored, cleared viewer-specific tokens");
-                            }
-                        }
-                    } catch (e) {
-                        console.warn("Could not parse JWT payload:", e);
-                    }
-
-                    console.log("Session token stored in localStorage");
-                    markStep('token');
-                    sessionStateEl.textContent = 'Session established';
+                // A viewer-scope token would carry its own extra keys; a
+                // streamer token must not inherit stale ones from an earlier
+                // viewer session in this browser.
+                const payload = decodeJwtPayload(sessionToken);
+                if (payload && payload.scope === 'viewer') {
+                    localStorage.setItem('token_user', payload.userLogin);
                 } else {
-                    console.warn("No session_token received in auth-complete.html query params!");
-                    fail("Login complete, but the session token is missing. API calls would fail. Please try logging in again.");
-                    return;
+                    localStorage.removeItem('token_user');
+                    localStorage.removeItem('token_channel');
                 }
 
-                // Only the broadcaster flow reaches this page. The server sends
-                // viewers straight to viewer-settings.html from the callback,
-                // routing on the `t` marker in the state cookie rather than on
-                // anything the browser remembered.
+                markStep('token');
+                sessionStateEl.textContent = 'Session established';
+
                 titleEl.textContent = `Welcome, ${userLogin}`;
                 markStep('redirect');
 
                 messageEl.textContent = 'Redirecting to your dashboard.';
                 window.location.href = 'dashboard.html';
+            }
+
+            if (userLogin && userId && (exchangeCode || legacyToken)) {
+                markStep('authorized');
+
+                localStorage.setItem('twitch_user_login', userLogin);
+                localStorage.setItem('twitch_user_id', userId);
+
+                if (exchangeCode) {
+                    // A code is single-use, so a failure here cannot be retried
+                    // by reloading — send the user back to sign in again.
+                    redeemCode(exchangeCode)
+                        .then(completeSignIn)
+                        .catch((error) => {
+                            console.error('Exchange failed:', error);
+                            fail(`${error.message} Please try signing in again.`);
+                            setTimeout(() => { window.location.href = 'index.html'; }, 4000);
+                        });
+                } else {
+                    completeSignIn(legacyToken);
+                }
             } else {
-                fail("Missing user information from the Twitch callback. Please try again.");
+                console.error("Missing authentication information:", { userLogin, userId, code: exchangeCode ? 'present' : 'missing' });
+                fail("Missing authentication information from the Twitch callback. Please try again.");
                 setTimeout(() => { window.location.href = 'index.html'; }, 5000);
             }
         });

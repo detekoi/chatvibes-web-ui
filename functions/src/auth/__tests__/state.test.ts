@@ -300,7 +300,9 @@ describe('OAuth state binding', () => {
       expect(redirect.pathname).toBe('/viewer-settings.html');
       expect(redirect.searchParams.get('channel')).toBe('somechannel');
       expect(redirect.searchParams.get('validated')).toBe('1');
-      expect(redirect.searchParams.get('session_token')).toBeTruthy();
+      // A single-use code stands in for the token, which never enters the URL.
+      expect(redirect.searchParams.get('code')).toMatch(/^[0-9a-f]{64}$/);
+      expect(redirect.searchParams.get('session_token')).toBeNull();
     });
 
     it('omits channel from the redirect when the flow started without one', async () => {

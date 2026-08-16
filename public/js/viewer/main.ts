@@ -214,12 +214,22 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const urlParams = new URLSearchParams(window.location.search);
+            const exchangeCodeParam = urlParams.get('code');
             const sessionTokenParam = urlParams.get('session_token');
             const validatedParam = urlParams.get('validated');
             // No `?error=` handling here on purpose: every OAuth failure now
             // redirects to auth-error.html, so nothing reaches this page with
             // an error to render.
 
+            // The callback hands over a single-use code, not the token, so the
+            // token never appears in the URL. Strip the code first: it is spent
+            // by the exchange below, and should not survive in history either.
+            if (exchangeCodeParam && validatedParam) {
+                cleanAuthParamsFromUrl();
+                return await redeemExchangeCode(exchangeCodeParam);
+            }
+
+            // The old shape, still accepted for anyone mid-flow across a deploy.
             if (sessionTokenParam && validatedParam) {
                 try {
                     services.setSessionToken(sessionTokenParam);
@@ -239,10 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (state.currentChannel) {
                         channelContextModule.setChannelUI(state.currentChannel);
                     }
-                    const cleanUrl = new URL(window.location.href);
-                    cleanUrl.searchParams.delete('session_token');
-                    cleanUrl.searchParams.delete('validated');
-                    window.history.replaceState({}, '', cleanUrl.toString());
+                    cleanAuthParamsFromUrl();
                     return true;
                 } catch (error) {
                     console.error('Failed to process validated session token:', error);
@@ -256,6 +263,68 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             return await checkExistingSession();
+        }
+
+        /**
+         * Removes the sign-in parameters from the address bar, leaving the
+         * channel context in place. Keeps a spent code out of history.
+         */
+        function cleanAuthParamsFromUrl(): void {
+            const cleanUrl = new URL(window.location.href);
+            cleanUrl.searchParams.delete('code');
+            cleanUrl.searchParams.delete('session_token');
+            cleanUrl.searchParams.delete('validated');
+            window.history.replaceState({}, '', cleanUrl.toString());
+        }
+
+        /**
+         * Trades the one-time code from the callback for the session token and
+         * establishes the viewer session.
+         * @param code - The single-use code from the callback redirect
+         * @return Whether a session was established
+         */
+        async function redeemExchangeCode(code: string): Promise<boolean> {
+            try {
+                const response = await fetch(`${apiBaseUrl}/auth/exchange`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ code }),
+                });
+
+                const data = await response.json().catch(() => ({}));
+                if (!response.ok || !data.success || !data.session_token) {
+                    throw new Error(data.error || 'Could not complete sign-in.');
+                }
+
+                services.setSessionToken(data.session_token);
+
+                let userDisplayName: string | null = null;
+                const payload = decodeJwtPayload<JWTPayload>(data.session_token);
+                if (payload) {
+                    localStorage.setItem('twitch_user_login', payload.userLogin);
+                    localStorage.setItem('token_user', payload.tokenUser || '');
+                    localStorage.setItem('token_channel', payload.tokenChannel || '');
+                    userDisplayName = payload.displayName || payload.userLogin;
+                }
+
+                state.isAuthenticated = true;
+                revealPreferencesPanel();
+                showAuthStatus('', 'info');
+                if (elements.loggedInStatus) elements.loggedInStatus.style.display = '';
+                if (elements.loggedInUsername) elements.loggedInUsername.textContent = userDisplayName || 'User';
+                if (state.currentChannel) {
+                    channelContextModule.setChannelUI(state.currentChannel);
+                }
+                return true;
+            } catch (error) {
+                // A code is single-use, so reloading cannot retry this.
+                console.error('Failed to redeem exchange code:', error);
+                showAuthStatus(
+                    'Could not finish signing you in. Please try again from the main page.',
+                    'error',
+                );
+                return false;
+            }
         }
 
         async function exchangeInviteToken(tokenParam: string): Promise<boolean> {
