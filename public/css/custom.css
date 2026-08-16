@@ -1563,57 +1563,15 @@ dialog.modal::backdrop {
     fill: currentColor;
 }
 
-/* =====================================================
-   RESPONSIVE ADJUSTMENTS
-   ===================================================== */
-@media (max-width: 767.98px) {
-    .button-3d {
-        padding: 10px 20px;
-        font-size: 0.9rem;
-    }
-
-    .tooltip-wrapper {
-        left: calc(50% + 200px);
-    }
-
-    .help-icon::after {
-        max-width: 180px;
-        font-size: 12px;
-    }
-
-    .voice-preview-player {
-        padding: 0.5rem;
-    }
-
-    .voice-preview-player audio {
-        height: 36px;
-    }
-
-    /* Dashboard header: stack title above buttons on mobile */
-    .container > .d-flex.justify-content-between {
-        flex-wrap: wrap;
-        gap: 8px;
-    }
-
-    /* OBS popover: full-width overlay on mobile */
-    .obs-popover {
-        position: fixed;
-        top: auto;
-        right: 12px;
-        left: 12px;
-        width: auto;
-        max-height: 80vh;
-        overflow-y: auto;
-    }
-}
-
 /* ===== OBS POPOVER ===== */
 .obs-anchor { position: relative; }
 .obs-popover {
   position: absolute;
   top: calc(100% + 8px);
   right: 0;
+  left: auto;
   width: 420px;
+  max-width: calc(100vw - 24px);
   background: var(--bg-secondary);
   border: 2px solid var(--text-primary);
   box-shadow: 0 8px 32px rgba(0,0,0,.14), 0 2px 8px rgba(0,0,0,.08);
@@ -1734,4 +1692,54 @@ details[open] > .obs-step-summary::after { content: '−'; }
   border-width: 2px !important;
   line-height: 1.2;
   white-space: nowrap;
+}
+
+/* =====================================================
+   RESPONSIVE ADJUSTMENTS
+   ===================================================== */
+@media (max-width: 767.98px) {
+    .button-3d {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .tooltip-wrapper {
+        left: calc(50% + 200px);
+    }
+
+    .help-icon::after {
+        max-width: 180px;
+        font-size: 12px;
+    }
+
+    .voice-preview-player {
+        padding: 0.5rem;
+    }
+
+    .voice-preview-player audio {
+        height: 36px;
+    }
+
+    /* Dashboard header: stack title above buttons on mobile */
+    .container > .d-flex.justify-content-between {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    /* OBS popover: full-width overlay anchored below appbar on mobile */
+    .obs-anchor {
+        position: static;
+    }
+
+    .obs-popover {
+        position: absolute;
+        top: calc(100% + 8px);
+        right: 12px;
+        left: 12px;
+        width: auto;
+        max-width: none;
+        max-height: calc(100vh - 80px);
+        max-height: calc(100dvh - 80px);
+        overflow-y: auto;
+    }
 }
