@@ -215,10 +215,11 @@ describe('OAuth state binding', () => {
         .set('Cookie', cookie)
         .query({ code: 'test-code', state: nonce });
 
-      // The viewer handler sends failures to viewer-settings.html; the
-      // broadcaster handler sends them to auth-error.html.
+      // Both flows share auth-error.html on failure, so the proof that routing
+      // came from the cookie lives in the success-path tests below, which land
+      // on viewer-settings.html rather than auth-complete.html.
       const redirect = new URL(callback.headers.location);
-      expect(redirect.pathname).toBe('/viewer-settings.html');
+      expect(redirect.pathname).toBe('/auth-error.html');
       expect(redirect.searchParams.get('error')).toBe('auth_failed');
     });
 
@@ -274,7 +275,7 @@ describe('OAuth state binding', () => {
       expect(redirect.searchParams.has('channel')).toBe(false);
     });
 
-    it('sends a denied viewer to the preferences page, not a raw JSON body', async () => {
+    it('sends a denied viewer to the error page, not a raw JSON body', async () => {
       const app = createApp();
       const res = await request(app).get('/auth/twitch/viewer').query({ channel: 'somechannel' });
       const nonce = new URL(res.body.twitchAuthUrl).searchParams.get('state') as string;
@@ -288,26 +289,8 @@ describe('OAuth state binding', () => {
 
       expect(callback.status).toBe(302);
       const redirect = new URL(callback.headers.location);
-      expect(redirect.pathname).toBe('/viewer-settings.html');
+      expect(redirect.pathname).toBe('/auth-error.html');
       expect(redirect.searchParams.get('error')).toBe('access_denied');
-    });
-
-    it('leaves the cancellation message to the page rather than passing Twitch copy', async () => {
-      const app = createApp();
-      const res = await request(app).get('/auth/twitch/viewer');
-      const nonce = new URL(res.body.twitchAuthUrl).searchParams.get('state') as string;
-      const setCookie = res.headers['set-cookie'] as unknown as string[];
-      const cookie = (setCookie.find((c) => c.startsWith(`${STATE_COOKIE_NAME}=`)) as string).split(';')[0];
-
-      const callback = await request(app)
-        .get('/auth/twitch/callback')
-        .set('Cookie', cookie)
-        .query({ error: 'access_denied', error_description: 'The user denied you access', state: nonce });
-
-      // "The user denied you access" reads from our side of the transaction,
-      // not the viewer's, so the page supplies its own wording.
-      const redirect = new URL(callback.headers.location);
-      expect(redirect.searchParams.has('message')).toBe(false);
     });
 
     it('encodes the viewer error message exactly once', async () => {
@@ -322,11 +305,12 @@ describe('OAuth state binding', () => {
         .set('Cookie', cookie)
         .query({ error: 'server_error', error_description: '100% broken', state: nonce });
 
-      // viewer-settings.html reads this with URLSearchParams, which decodes
-      // once. Encoding twice here would surface %2520 in the address bar.
+      // auth-error.html reads this with URLSearchParams, which decodes once.
+      // Encoding twice here would surface %2520 in the address bar, and a
+      // literal "%" would throw URIError if the page decoded again.
       const location = callback.headers.location as string;
       expect(location).not.toContain('%2520');
-      expect(new URL(location).searchParams.get('message')).toBe('100% broken');
+      expect(new URL(location).searchParams.get('error_description')).toBe('100% broken');
     });
 
     it('still reports a genuine Twitch error rather than masking it as bad state', async () => {

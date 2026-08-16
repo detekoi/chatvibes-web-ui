@@ -78,36 +78,6 @@ function redirectToFrontendWithError(res: Response, errorCode: string, errorDesc
 }
 
 /**
- * Redirects a failed viewer auth back to the viewer preferences page, which
- * renders `?error=` inline and then returns the user home.
- *
- * The viewer callback is a top-level navigation from Twitch, so answering with
- * a JSON body would show the user raw text in their browser window.
- * @param res - Express response object
- * @param errorCode - Code viewer-settings.html switches on
- * @param message - Optional human-readable detail
- * @return Express response
- */
-function redirectToViewerWithError(res: Response, errorCode: string, message?: string): Response {
-  if (!config.FRONTEND_URL) {
-    logger.error("FRONTEND_URL not configured");
-    res.status(500).send("Server configuration error");
-    return res;
-  }
-
-  const viewerErrorUrl = new URL(config.FRONTEND_URL);
-  viewerErrorUrl.pathname = "/viewer-settings.html";
-  viewerErrorUrl.searchParams.set("error", errorCode);
-  if (message) {
-    viewerErrorUrl.searchParams.set("message", message);
-  }
-
-  logger.info({ errorCode }, "Redirecting viewer to preferences page with error");
-  res.redirect(viewerErrorUrl.toString());
-  return res;
-}
-
-/**
  * Helper function to handle viewer OAuth callback
  * @param req - Express request object
  * @param res - Express response object
@@ -120,15 +90,15 @@ async function handleViewerCallback(req: Request, res: Response, statePayload: O
 
   if (twitchError) {
     logger.error({ twitchError, twitchErrorDescription }, "Viewer OAuth error");
-    // Twitch's description for a cancellation is "The user denied you access",
-    // which is written from our side of the transaction, not the viewer's. The
-    // page has better copy for that case, so pass a description only when the
-    // error is one the page has nothing specific to say about.
-    return redirectToViewerWithError(
+    // Viewer failures land on the same error page as broadcaster failures, so
+    // there is one place that renders a Twitch failure and one Try again path.
+    redirectToFrontendWithError(
       res,
       twitchError as string,
-      twitchError === "access_denied" ? undefined : (twitchErrorDescription as string | undefined),
+      twitchErrorDescription as string,
+      req.query.state as string | undefined,
     );
+    return res;
   }
 
   try {
@@ -187,11 +157,13 @@ async function handleViewerCallback(req: Request, res: Response, statePayload: O
   } catch (error) {
     const err = error as Error;
     logger.error({ error: err.message }, "Viewer OAuth callback error");
-    return redirectToViewerWithError(
+    redirectToFrontendWithError(
       res,
       "auth_failed",
-      "Failed to complete viewer authentication. Please try again.",
+      "Could not finish signing you in for viewer preferences. Please try again.",
+      req.query.state as string | undefined,
     );
+    return res;
   }
 }
 
