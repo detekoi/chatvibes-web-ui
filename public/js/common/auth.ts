@@ -6,8 +6,6 @@ const STORAGE_KEYS = {
   login: 'twitch_user_login',
   userId: 'twitch_user_id',
   sessionToken: 'app_session_token',
-  tokenUser: 'token_user',
-  tokenChannel: 'token_channel',
 } as const;
 
 /**
@@ -81,17 +79,13 @@ export interface SessionData {
   login?: string;
   id?: string;
   sessionToken?: string;
-  tokenUser?: string;
-  tokenChannel?: string;
 }
 
 /**
  * Persist Twitch user information and session token to localStorage.
  */
-export function storeSessionData({ login, id, sessionToken, tokenUser, tokenChannel }: SessionData): void {
+export function storeSessionData({ login, id, sessionToken }: SessionData): void {
   if (login) localStorage.setItem(STORAGE_KEYS.login, login);
   if (id) localStorage.setItem(STORAGE_KEYS.userId, id);
   if (sessionToken) localStorage.setItem(STORAGE_KEYS.sessionToken, sessionToken);
-  if (tokenUser) localStorage.setItem(STORAGE_KEYS.tokenUser, tokenUser);
-  if (tokenChannel) localStorage.setItem(STORAGE_KEYS.tokenChannel, tokenChannel);
 }

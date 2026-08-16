@@ -244,8 +244,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     const payload = decodeJwtPayload<JWTPayload>(sessionTokenParam);
                     if (payload) {
                         localStorage.setItem('twitch_user_login', payload.userLogin);
-                        localStorage.setItem('token_user', payload.tokenUser || '');
-                        localStorage.setItem('token_channel', payload.tokenChannel || '');
                         userDisplayName = payload.displayName || payload.userLogin;
                     }
                     state.isAuthenticated = true;
@@ -309,8 +307,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 const payload = decodeJwtPayload<JWTPayload>(data.session_token);
                 if (payload) {
                     localStorage.setItem('twitch_user_login', payload.userLogin);
-                    localStorage.setItem('token_user', payload.tokenUser || '');
-                    localStorage.setItem('token_channel', payload.tokenChannel || '');
                     userDisplayName = payload.displayName || payload.userLogin;
                 }
 
@@ -351,10 +347,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                     if (data.user?.login) {
                         localStorage.setItem('twitch_user_login', data.user.login);
-                    }
-                    if (data.tokenUser && data.tokenChannel) {
-                        localStorage.setItem('token_user', data.tokenUser);
-                        localStorage.setItem('token_channel', data.tokenChannel);
                     }
                     state.isAuthenticated = true;
                     revealPreferencesPanel();
@@ -413,18 +405,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         async function checkExistingSession(): Promise<boolean> {
             const storedToken = services.getSessionToken();
-            const tokenUser = localStorage.getItem('token_user');
-            const currentUser = localStorage.getItem('twitch_user_login');
 
             if (!storedToken) {
                 return requireTwitchAuth();
-            }
-
-            if (tokenUser && currentUser && tokenUser !== currentUser) {
-                showAuthStatus('Access denied: You can only access your own preferences.', 'error');
-                localStorage.clear();
-                setTimeout(() => { window.location.href = '/'; }, 3000);
-                return false;
             }
 
             try {

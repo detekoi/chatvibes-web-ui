@@ -97,28 +97,9 @@
     <script src="js/theme.js"></script>
 
     <script>
-        // JWT parts are base64url, not base64: - and _ replace + and /, and the
-        // padding is dropped. atob() rejects those two characters, so the segment
-        // has to be normalised first. Mirrors decodeJwtPayload in common/auth.ts —
-        // this page is a standalone script and cannot import the module.
-        function decodeJwtPayload(token) {
-            const segment = token.split('.')[1];
-            if (!segment) return null;
-
-            let base64 = segment.replace(/-/g, '+').replace(/_/g, '/');
-            base64 += '='.repeat((4 - (base64.length % 4)) % 4);
-
-            try {
-                const binary = atob(base64);
-                const bytes = Uint8Array.from(binary, c => c.charCodeAt(0));
-                const json = new TextDecoder().decode(bytes);
-                return JSON.parse(json);
-            } catch (error) {
-                console.warn('Could not decode JWT payload:', error);
-                return null;
-            }
-        }
-
+        // This page does not inspect the JWT. Its only reason to was the
+        // token_user guard, which is gone; the equivalent decoder still lives
+        // in common/auth.ts for the pages that do need it.
         document.addEventListener('DOMContentLoaded', () => {
             const messageEl = document.getElementById('auth-message');
             const titleEl = document.getElementById('auth-title');
@@ -217,16 +198,11 @@
             function completeSignIn(sessionToken) {
                 localStorage.setItem('app_session_token', sessionToken);
 
-                // A viewer-scope token would carry its own extra keys; a
-                // streamer token must not inherit stale ones from an earlier
-                // viewer session in this browser.
-                const payload = decodeJwtPayload(sessionToken);
-                if (payload && payload.scope === 'viewer') {
-                    localStorage.setItem('token_user', payload.userLogin);
-                } else {
-                    localStorage.removeItem('token_user');
-                    localStorage.removeItem('token_channel');
-                }
+                // Anything left over from the retired token_user guard is inert
+                // now that nothing reads it, so clear it out of browsers that
+                // still carry it.
+                localStorage.removeItem('token_user');
+                localStorage.removeItem('token_channel');
 
                 markStep('token');
                 sessionStateEl.textContent = 'Session established';
