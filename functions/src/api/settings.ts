@@ -10,6 +10,8 @@ import { errorResponse } from "./utils";
 import { validateSpeed, validatePitch, validateEmotion, validateLanguageBoost } from "../services/utils";
 import { RELEASED_VOICES } from "../services/voice-list";
 import { normalizeMatchKey, validateSay, PRONUNCIATION_LIMITS } from "../services/pronunciation";
+import { getUserByUsername } from "../services/twitch";
+import { secrets } from "../config";
 
 const router: Router = express.Router();
 
@@ -141,6 +143,12 @@ router.put("/tts/settings/channel/:channelName", authenticateApiRequest, authori
 // ==========================================
 // TTS IGNORE LIST MANAGEMENT
 // ==========================================
+//
+// Entries are keyed by immutable Twitch user ID ("twitch:<id>") rather than by
+// login, so renaming an account does not shed its entry and reclaiming a
+// released login does not inherit one. The stored value is a display name, kept
+// only so the list has something readable to render. The bot writes the same
+// map; see src/lib/ignoreList.js in the tts-twitch repo for the key format.
 
 // POST /tts/ignore/channel/:channelName - Add user to ignore list
 router.post("/tts/ignore/channel/:channelName", authenticateApiRequest, authorizeChannelAccess, (async (req: AuthenticatedRequest, res: Response): Promise<void> => {
@@ -152,18 +160,35 @@ router.post("/tts/ignore/channel/:channelName", authenticateApiRequest, authoriz
         return;
     }
 
-    const normalizedUsername = username.toLowerCase().trim();
+    const normalizedUsername = username.toLowerCase().trim().replace(/^@/, "");
     if (!normalizedUsername) {
         errorResponse(res, 400, "Invalid username");
         return;
     }
 
     try {
-        const docRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(req.user.userId);
-        await docRef.set({ ignoredUsers: FieldValue.arrayUnion(normalizedUsername) }, { merge: true });
+        // Resolving here is what makes the entry durable. A name that does not
+        // resolve is rejected outright rather than stored — a stored name that
+        // matches no account would sit in the list looking effective forever.
+        const account = await getUserByUsername(normalizedUsername, secrets);
+        if (!account) {
+            errorResponse(res, 404, `No Twitch account named "${normalizedUsername}" exists`);
+            return;
+        }
 
-        logger.info({ channelName, username: normalizedUsername }, "Added user to TTS ignore list");
-        res.json({ success: true, message: "User added to ignore list" });
+        const docRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(req.user.userId);
+        // merge:true deep-merges nested maps key by key, so this touches only
+        // the one entry and leaves the rest of the list alone.
+        await docRef.set({
+            ignoredUserIds: { [`twitch:${account.id}`]: account.displayName },
+        }, { merge: true });
+
+        logger.info({ channelName, userId: account.id, username: account.login }, "Added user to TTS ignore list");
+        res.json({
+            success: true,
+            message: "User added to ignore list",
+            entry: { key: `twitch:${account.id}`, label: account.displayName },
+        });
     } catch (error) {
         logger.error({ error, channelName, username }, "Error adding user to ignore list");
         errorResponse(res, 500, "Failed to add user to ignore list");
@@ -173,27 +198,28 @@ router.post("/tts/ignore/channel/:channelName", authenticateApiRequest, authoriz
 // DELETE /tts/ignore/channel/:channelName - Remove user from ignore list
 router.delete("/tts/ignore/channel/:channelName", authenticateApiRequest, authorizeChannelAccess, (async (req: AuthenticatedRequest, res: Response): Promise<void> => {
     const { channelName } = req.params;
-    const { username } = req.body;
+    const { key } = req.body;
 
-    if (!username || typeof username !== "string") {
-        errorResponse(res, 400, "Username is required");
-        return;
-    }
-
-    const normalizedUsername = username.toLowerCase().trim();
-    if (!normalizedUsername) {
-        errorResponse(res, 400, "Invalid username");
+    if (!key || typeof key !== "string") {
+        errorResponse(res, 400, "Entry key is required");
         return;
     }
 
     try {
         const docRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(req.user.userId);
-        await docRef.set({ ignoredUsers: FieldValue.arrayRemove(normalizedUsername) }, { merge: true });
+        // FieldPath segments are taken literally. A dotted string would be parsed
+        // as a path instead, and these keys contain a colon separator.
+        await docRef.update(new FieldPath("ignoredUserIds", key), FieldValue.delete());
 
-        logger.info({ channelName, username: normalizedUsername }, "Removed user from TTS ignore list");
+        logger.info({ channelName, key }, "Removed user from TTS ignore list");
         res.json({ success: true, message: "User removed from ignore list" });
     } catch (error) {
-        logger.error({ error, channelName, username }, "Error removing user from ignore list");
+        // 5 is NOT_FOUND: the entry was already gone, which is the desired end state.
+        if ((error as { code?: number }).code === 5) {
+            res.json({ success: true, message: "User removed from ignore list" });
+            return;
+        }
+        logger.error({ error, channelName, key }, "Error removing user from ignore list");
         errorResponse(res, 500, "Failed to remove user from ignore list");
     }
 }) as RequestHandler);
@@ -263,7 +289,7 @@ router.delete("/tts/banned-words/channel/:channelName", authenticateApiRequest, 
 // ==========================================
 //
 // A map field rather than an array, so the arrayUnion/arrayRemove shape used by
-// the ignore and banned-word lists does not apply. These get dedicated routes
+// the banned-word list does not apply. These get dedicated routes
 // rather than riding on PUT /tts/settings because that path cannot express a
 // delete, cannot read-before-write to enforce the entry cap, and can only
 // report "Invalid setting: <key>" where a form needs an actionable message.

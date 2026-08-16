@@ -38,6 +38,13 @@ jest.mock('../../services/firestore', () => {
   };
 });
 
+// The ignore list keys on immutable Twitch user IDs, so adding an entry resolves
+// the typed name through Helix first. Mocked here so the tests stay offline.
+const mockGetUserByUsername = jest.fn<any>();
+jest.mock('../../services/twitch', () => ({
+  getUserByUsername: mockGetUserByUsername,
+}));
+
 import request from 'supertest';
 import { createTestApp } from './appHelper';
 import { createTestToken } from './testHelpers';
@@ -234,7 +241,8 @@ describe('Settings API Integration Tests (Mocked Firestore)', () => {
         .expect(400);
     });
 
-    it('should atomically add user to ignore list (happy path)', async () => {
+    it('should store the resolved user ID, not the typed name (happy path)', async () => {
+      mockGetUserByUsername.mockResolvedValueOnce({ id: '52343457', login: 'spammer', displayName: 'Spammer' });
       ((db as any).set as any).mockResolvedValueOnce({} as any);
 
       const response = await request(app)
@@ -243,14 +251,45 @@ describe('Settings API Integration Tests (Mocked Firestore)', () => {
         .send({ username: 'Spammer' })
         .expect(200);
 
-      expect(response.body).toEqual({ success: true, message: 'User added to ignore list' });
+      expect(response.body).toEqual({
+        success: true,
+        message: 'User added to ignore list',
+        entry: { key: 'twitch:52343457', label: 'Spammer' },
+      });
       expect(db.collection).toHaveBeenCalledWith('ttsChannelConfigs');
       expect(db.doc).toHaveBeenCalledWith(testUser.userId);
-      expect(FieldValue.arrayUnion).toHaveBeenCalledWith('spammer');
+      // A nested map, not a dotted key: set() would otherwise create a literal
+      // field named "ignoredUserIds.twitch:52343457".
       expect((db as any).set).toHaveBeenCalledWith(
-        { ignoredUsers: { type: 'arrayUnion', value: 'spammer' } },
+        { ignoredUserIds: { 'twitch:52343457': 'Spammer' } },
         { merge: true }
       );
+    });
+
+    it('should strip a leading @ before resolving', async () => {
+      mockGetUserByUsername.mockResolvedValueOnce({ id: '1', login: 'spammer', displayName: 'Spammer' });
+      ((db as any).set as any).mockResolvedValueOnce({} as any);
+
+      await request(app)
+        .post(`/api/tts/ignore/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ username: '@Spammer' })
+        .expect(200);
+
+      expect(mockGetUserByUsername).toHaveBeenCalledWith('spammer', expect.anything());
+    });
+
+    it('should reject a name that resolves to no Twitch account', async () => {
+      // Storing it anyway would leave an entry in the list that can never match.
+      mockGetUserByUsername.mockResolvedValueOnce(null);
+
+      await request(app)
+        .post(`/api/tts/ignore/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ username: 'nosuchaccount' })
+        .expect(404);
+
+      expect((db as any).set).not.toHaveBeenCalled();
     });
   });
 
@@ -258,27 +297,46 @@ describe('Settings API Integration Tests (Mocked Firestore)', () => {
     it('should return 401 without authentication', async () => {
       await request(app)
         .delete(`/api/tts/ignore/channel/${channelName}`)
-        .send({ username: 'spammer' })
+        .send({ key: 'twitch:52343457' })
         .expect(401);
     });
 
-    it('should atomically remove user from ignore list (happy path)', async () => {
-      ((db as any).set as any).mockResolvedValueOnce({} as any);
+    it('should delete the entry by key via a FieldPath', async () => {
+      ((db as any).update as any).mockResolvedValueOnce({} as any);
 
       const response = await request(app)
         .delete(`/api/tts/ignore/channel/${channelName}`)
         .set('Authorization', `Bearer ${authToken}`)
-        .send({ username: 'Spammer' })
+        .send({ key: 'twitch:52343457' })
         .expect(200);
 
       expect(response.body).toEqual({ success: true, message: 'User removed from ignore list' });
       expect(db.collection).toHaveBeenCalledWith('ttsChannelConfigs');
       expect(db.doc).toHaveBeenCalledWith(testUser.userId);
-      expect(FieldValue.arrayRemove).toHaveBeenCalledWith('spammer');
-      expect((db as any).set).toHaveBeenCalledWith(
-        { ignoredUsers: { type: 'arrayRemove', value: 'spammer' } },
-        { merge: true }
-      );
+
+      // The colon in the key is why this must not be a dotted string path.
+      const [path, sentinel] = ((db as any).update as any).mock.calls[0];
+      expect(path.segments).toEqual(['ignoredUserIds', 'twitch:52343457']);
+      expect(sentinel).toEqual({ type: 'delete' });
+    });
+
+    it('should require a key', async () => {
+      await request(app)
+        .delete(`/api/tts/ignore/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ username: 'Spammer' })
+        .expect(400);
+    });
+
+    it('should report success when the entry is already gone', async () => {
+      // NOT_FOUND means the desired end state already holds.
+      ((db as any).update as any).mockRejectedValueOnce(Object.assign(new Error('not found'), { code: 5 }));
+
+      await request(app)
+        .delete(`/api/tts/ignore/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ key: 'twitch:nobody' })
+        .expect(200);
     });
   });
 

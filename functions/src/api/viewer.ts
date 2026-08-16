@@ -3,7 +3,7 @@
  */
 
 import express, { Request, Response, Router } from "express";
-import { db, COLLECTIONS } from "../services/firestore";
+import { db, COLLECTIONS, FieldValue, FieldPath } from "../services/firestore";
 import { validateSpeed, validatePitch, validateEmotion, validateLanguageBoost, normalizeEmotion } from "../services/utils";
 import { loadGlobalUserPreferences, ViewerPreferences } from "../services/preferences";
 import { RELEASED_VOICES } from "../services/voice-list";
@@ -153,8 +153,9 @@ router.get("/preferences/:channel", authenticateApiRequest, async (req: Request,
       log.warn({ error: err.message }, "Failed to load global user prefs");
     }
 
-    // Check if user is ignored
-    const ttsIgnored = (channelData.ignoredUsers || []).includes(username);
+    // Check if user is ignored, by immutable user ID rather than by login
+    const ttsIgnored = Object.prototype.hasOwnProperty.call(
+      channelData.ignoredUserIds || {}, `twitch:${req.user.userId}`);
 
 
     // Map global prefs to UI schema (languageBoost -> language)
@@ -333,21 +334,21 @@ router.post("/ignore/tts/:channel", authenticateApiRequest, async (req: Request,
       return;
     }
 
-    const ignoredUsers: string[] = channelData.ignoredUsers || [];
-    const isCurrentlyIgnored = ignoredUsers.includes(username);
+    // The viewer is authenticated, so their immutable user ID is already in hand —
+    // no Helix lookup needed to key their own entry.
+    const entryKey = `twitch:${req.user.userId}`;
+    const isCurrentlyIgnored = Object.prototype.hasOwnProperty.call(channelData.ignoredUserIds || {}, entryKey);
 
     if (isCurrentlyIgnored) {
       // Remove from ignore list
-      await channelDocRef.update({
-        ignoredUsers: ignoredUsers.filter((user) => user !== username),
-      });
+      await channelDocRef.update(new FieldPath("ignoredUserIds", entryKey), FieldValue.delete());
       log.info("Removed user from TTS ignore list");
       res.json({ success: true, ignored: false, message: "Removed from TTS ignore list" });
     } else {
       // Add to ignore list
-      await channelDocRef.update({
-        ignoredUsers: [...ignoredUsers, username],
-      });
+      await channelDocRef.set({
+        ignoredUserIds: { [entryKey]: username },
+      }, { merge: true });
       log.info("Added user to TTS ignore list");
       res.json({ success: true, ignored: true, message: "Added to TTS ignore list" });
     }

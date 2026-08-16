@@ -48,6 +48,13 @@ interface ModeratorResult {
   error?: string;
 }
 
+/** A Twitch account as returned by Helix /users. `id` is immutable; `login` is not. */
+interface TwitchAccount {
+  id: string;
+  login: string;
+  displayName: string;
+}
+
 /**
  * Refreshes a Twitch access token using the refresh token
  * @param currentRefreshToken - The current refresh token
@@ -281,12 +288,12 @@ async function getAppAccessToken(secrets: Secrets): Promise<string> {
 }
 
 /**
- * Gets a Twitch user ID from a username (login)
+ * Looks up a Twitch account by username (login)
  * @param username - The Twitch username
  * @param secrets - The loaded secrets object
- * @return The user ID or null if not found
+ * @return The account's id, login and display name, or null if no such account
  */
-async function getUserIdFromUsername(username: string, secrets: Secrets): Promise<string | null> {
+async function getUserByUsername(username: string, secrets: Secrets): Promise<TwitchAccount | null> {
   try {
     // Use app access token for this lookup (doesn't require user context)
     const appToken = await getAppAccessToken(secrets);
@@ -304,19 +311,29 @@ async function getUserIdFromUsername(username: string, secrets: Secrets): Promis
       timeout: 15000,
     });
 
-    if (response.data?.data && response.data.data.length > 0) {
-      return response.data.data[0].id;
-    }
-    return null;
+    const user = response.data?.data?.[0];
+    if (!user) return null;
+    return { id: user.id, login: user.login, displayName: user.display_name || user.login };
   } catch (error) {
     const err = error as { message: string; response?: { data: unknown } };
     logger.error({
       username: redactSensitive(username),
       error: err.message,
       responseData: redactSensitive(err.response?.data),
-    }, "[getUserIdFromUsername] Error getting user ID");
+    }, "[getUserByUsername] Error looking up account");
     return null;
   }
+}
+
+/**
+ * Gets a Twitch user ID from a username (login)
+ * @param username - The Twitch username
+ * @param secrets - The loaded secrets object
+ * @return The user ID or null if not found
+ */
+async function getUserIdFromUsername(username: string, secrets: Secrets): Promise<string | null> {
+  const user = await getUserByUsername(username, secrets);
+  return user?.id ?? null;
 }
 
 /**
@@ -399,6 +416,7 @@ export {
   validateTwitchToken,
   makeTwitchApiRequest,
   getAppAccessToken,
+  getUserByUsername,
   getUserIdFromUsername,
   addModerator,
   TWITCH_TOKEN_URL,
@@ -412,4 +430,5 @@ export type {
   TwitchUserData,
   RefreshTokenResult,
   ModeratorResult,
+  TwitchAccount,
 };

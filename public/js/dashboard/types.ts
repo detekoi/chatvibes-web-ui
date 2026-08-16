@@ -51,7 +51,11 @@ export interface TtsSettings {
   languageBoost?: string;
   englishNormalization?: boolean;
   emoteMode?: string;
-  ignoredUsers?: string[];
+  /**
+   * TTS ignore list, keyed by immutable platform account ID ("twitch:<id>").
+   * The value is a display label for rendering only — nothing matches on it.
+   */
+  ignoredUserIds?: Record<string, string>;
   bannedWords?: string[];
   voiceVolumes?: Record<string, number>;
   youtubeEnabled?: boolean;

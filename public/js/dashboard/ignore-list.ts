@@ -25,7 +25,12 @@ interface IgnoreListServices {
  * Ignore list module return type
  */
 export interface IgnoreListModule {
-  displayIgnoreList: (type: IgnoreListType, users: string[]) => void;
+  /**
+   * Render the list. Entries are keyed by immutable account ID
+   * ("twitch:<id>"); the value is the display label. Removal sends the key, so
+   * an entry whose label has gone stale still deletes the right account.
+   */
+  displayIgnoreList: (type: IgnoreListType, entries: Record<string, string>) => void;
   setOnChange: (fn: () => void) => void;
 }
 
@@ -56,12 +61,16 @@ export function initIgnoreListModule(
     return headers;
   }
 
-  function displayIgnoreList(type: IgnoreListType, users: string[]): void {
+  function displayIgnoreList(type: IgnoreListType, entries: Record<string, string>): void {
     const listEl = document.getElementById(`${type}-ignore-list`);
     if (!listEl) return;
 
     listEl.innerHTML = '';
-    if (!users || users.length === 0) {
+    const sorted = Object.entries(entries || {})
+      .map(([key, label]) => ({ key, label: label || key }))
+      .sort((a, b) => a.label.localeCompare(b.label));
+
+    if (sorted.length === 0) {
       const li = document.createElement('li');
       li.className = 'list-group-item';
       li.innerHTML = '<span class="text-muted fst-italic">No ignored users</span>';
@@ -69,18 +78,20 @@ export function initIgnoreListModule(
       return;
     }
 
-    users.forEach(username => {
+    sorted.forEach(({ key, label }) => {
       const li = document.createElement('li');
       li.className = 'list-group-item d-flex justify-content-between align-items-center';
+      li.dataset.ignoreKey = key;
 
       const nameSpan = document.createElement('span');
-      nameSpan.textContent = username;
+      nameSpan.textContent = label;
 
       const btn = document.createElement('button');
       btn.className = 'btn btn-outline-danger btn-sm';
       btn.type = 'button';
+      btn.setAttribute('aria-label', `Remove ${label} from the ignore list`);
       btn.textContent = 'Remove';
-      btn.addEventListener('click', () => removeFromIgnoreList(type, username));
+      btn.addEventListener('click', () => removeFromIgnoreList(type, key, label));
 
       li.appendChild(nameSpan);
       li.appendChild(btn);
@@ -99,8 +110,13 @@ export function initIgnoreListModule(
     if (testMode) {
       const listEl = document.getElementById(`${type}-ignore-list`);
       if (listEl) {
-        const current = Array.from(listEl.querySelectorAll('li span')).map(s => s.textContent || '');
-        current.push(username);
+        // No Helix lookup in test mode, so stand in a synthetic key. It only has
+        // to be unique within the rendered list.
+        const current: Record<string, string> = {};
+        listEl.querySelectorAll<HTMLElement>('li[data-ignore-key]').forEach(el => {
+          current[el.dataset.ignoreKey as string] = el.querySelector('span')?.textContent || '';
+        });
+        current[`twitch:demo-${username.toLowerCase()}`] = username;
         displayIgnoreList(type, current);
       }
       inputEl.value = '';
@@ -126,7 +142,10 @@ export function initIgnoreListModule(
         onChangeCallback?.();
       } else {
         const errorData = await response.json().catch(() => ({ error: 'Unknown error' })) as IgnoreListErrorResponse;
-        showToast(`Failed to add user: ${errorData.error}`, 'error');
+        // A 404 means the name resolved to no Twitch account, and the message
+        // already says so — prefixing it would read as a server failure.
+        showToast(response.status === 404 ? (errorData.error || 'No such Twitch account') :
+          `Failed to add user: ${errorData.error}`, 'error');
       }
     } catch (error) {
       console.error(`Failed to add user to ${type} ignore list:`, error);
@@ -134,13 +153,15 @@ export function initIgnoreListModule(
     }
   }
 
-  async function removeFromIgnoreList(type: IgnoreListType, username: string): Promise<void> {
+  async function removeFromIgnoreList(type: IgnoreListType, key: string, label: string): Promise<void> {
     if (testMode) {
       const listEl = document.getElementById(`${type}-ignore-list`);
       if (listEl) {
-        const remaining = Array.from(listEl.querySelectorAll('li span'))
-          .map(s => s.textContent || '')
-          .filter(u => u !== username);
+        const remaining: Record<string, string> = {};
+        listEl.querySelectorAll<HTMLElement>('li[data-ignore-key]').forEach(el => {
+          if (el.dataset.ignoreKey === key) return;
+          remaining[el.dataset.ignoreKey as string] = el.querySelector('span')?.textContent || '';
+        });
         displayIgnoreList(type, remaining);
       }
       onChangeCallback?.();
@@ -158,16 +179,16 @@ export function initIgnoreListModule(
       const response = await fetch(`${apiPrefix}/${type}/ignore/channel/${channelName}`, {
         method: 'DELETE',
         headers: authHeaders(),
-        body: JSON.stringify({ username })
+        body: JSON.stringify({ key })
       });
       if (response.ok) {
         onChangeCallback?.();
       } else {
         const errorData = await response.json().catch(() => ({ error: 'Unknown error' })) as IgnoreListErrorResponse;
-        showToast(`Failed to remove user: ${errorData.error}`, 'error');
+        showToast(`Failed to remove ${label}: ${errorData.error}`, 'error');
       }
     } catch (error) {
-      console.error(`Failed to remove user from ${type} ignore list:`, error);
+      console.error(`Failed to remove ${label} from ${type} ignore list:`, error);
       showToast('Failed to remove user from ignore list', 'error');
     }
   }

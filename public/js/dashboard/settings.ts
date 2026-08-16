@@ -19,7 +19,7 @@ export interface SettingsModuleContext {
 }
 
 export interface SettingsModuleDependencies {
-  displayIgnoreList: (type: 'tts', users: string[]) => void;
+  displayIgnoreList: (type: 'tts', entries: Record<string, string>) => void;
   displayBannedWords: (words: string[]) => void;
   displayPronunciations: (entries: Record<string, string>) => void;
 }
@@ -638,13 +638,13 @@ export function initSettingsModule(
         speed: 1.0,
         languageBoost: 'auto',
         englishNormalization: false,
-        ignoredUsers: ['spammer1', 'troll2'],
+        ignoredUserIds: { 'twitch:52343457': 'Spammer1', 'twitch:19571641': 'Troll2' },
         pronunciationEnabled: true,
         profanityFilterEnabled: false,
         pronunciations: { wcat: 'wildcat', lfg: '' }
       };
       applyTtsSettings(demoTts);
-      displayIgnoreList('tts', demoTts.ignoredUsers || []);
+      displayIgnoreList('tts', demoTts.ignoredUserIds || {});
       dependencies.displayBannedWords(['testbadword', 'naughtyword']);
       dependencies.displayPronunciations(demoTts.pronunciations || {});
       return;
@@ -658,7 +658,7 @@ export function initSettingsModule(
 
     if ('settings' in response) {
       applyTtsSettings(response.settings || {});
-      displayIgnoreList('tts', response.settings?.ignoredUsers || []);
+      displayIgnoreList('tts', response.settings?.ignoredUserIds || {});
       dependencies.displayBannedWords(response.settings?.bannedWords || []);
       dependencies.displayPronunciations(response.settings?.pronunciations || {});
     }
