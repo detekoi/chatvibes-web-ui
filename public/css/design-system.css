@@ -1063,6 +1063,20 @@ a[target="_blank"].no-arrow::after {
     justify-content: flex-end;
 }
 
+/* Ignore/banned-word/pronunciation rows pair a user-supplied label with a
+   Remove button. A username is one unbreakable word, so the label's automatic
+   minimum size can exceed the space left over and shove the button past the
+   row's padding — the buttons then stop lining up. overflow-wrap: anywhere
+   lets the label break, which lowers its min-content size; it inherits, so it
+   also reaches the bare text node banned-words.ts sets on the row itself. */
+:root .list-group-item.justify-content-between {
+    overflow-wrap: anywhere;
+}
+
+:root .list-group-item.justify-content-between > :is(.btn, button) {
+    flex: none;
+}
+
 :root :is(.settings-section, .wc-card) .list-group-item strong,
 .wc-row-label {
     font-family: var(--wc-font-body);
