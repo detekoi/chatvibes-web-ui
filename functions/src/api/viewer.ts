@@ -111,35 +111,6 @@ function validateAndBuildUpdateData(
   return updateData;
 }
 
-// Route: /api/viewer/auth - Viewer authentication
-
-router.post("/auth", async (req: Request, res: Response): Promise<void> => {
-  const log = logger.child({ endpoint: "/api/viewer/auth" });
-  try {
-    const { token } = req.body;
-
-    if (!token) {
-      res.status(400).json({ error: "Token is required" });
-      return;
-    }
-
-    // For viewer auth, we might validate against a different service
-    // or use a simpler token scheme
-    log.info("Authenticating viewer token");
-
-    // This would typically validate the token with your main TTS service
-    // For now, we'll return a simple response
-    res.json({
-      success: true,
-      message: "Viewer authenticated successfully",
-    });
-  } catch (error) {
-    const err = error as Error;
-    log.error({ error: err.message }, "Error authenticating viewer");
-    res.status(500).json({ error: "Authentication failed" });
-  }
-});
-
 // Route: /api/viewer/preferences/:channel - Get viewer preferences for a specific channel
 router.get("/preferences/:channel", authenticateApiRequest, async (req: Request, res: Response): Promise<void> => {
   const { channel } = req.params;
@@ -154,12 +125,6 @@ router.get("/preferences/:channel", authenticateApiRequest, async (req: Request,
       return;
     }
 
-    // Security check: ensure the authenticated user matches the token user
-    if (req.user.scope === "viewer" && req.user.tokenUser && req.user.tokenUser !== username) {
-      log.warn({ tokenUser: req.user.tokenUser }, "SECURITY VIOLATION BLOCKED: User trying to access other user preferences in GET");
-      res.status(403).json({ error: "Access denied: token user mismatch" });
-      return;
-    }
     const channelId = await getChannelIdFromName(channel);
     if (!channelId) {
       res.status(404).json({ error: "Channel not found" });
@@ -244,12 +209,6 @@ router.put("/preferences/:channel", authenticateApiRequest, async (req: Request,
       return;
     }
 
-    // Security check
-    if (req.user.scope === "viewer" && req.user.tokenUser && req.user.tokenUser !== username) {
-      log.warn({ tokenUser: req.user.tokenUser }, "SECURITY VIOLATION BLOCKED: User trying to access other user preferences in PUT");
-      res.status(403).json({ error: "Access denied: token user mismatch" });
-      return;
-    }
     const channelId = await getChannelIdFromName(channel);
     if (!channelId) {
       res.status(404).json({ error: "Channel not found" });

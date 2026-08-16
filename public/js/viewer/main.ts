@@ -19,8 +19,6 @@ import {
 interface JWTPayload {
     userLogin: string;
     displayName?: string;
-    tokenUser?: string;
-    tokenChannel?: string;
 }
 
 // DOM elements interface
@@ -50,19 +48,6 @@ interface ViewerServices {
 }
 
 // API response types
-interface AuthResponse {
-    success?: boolean;
-    requiresTwitchAuth?: boolean;
-    sessionToken?: string;
-    user?: {
-        login: string;
-        displayName?: string;
-    };
-    tokenUser?: string;
-    tokenChannel?: string;
-    error?: string;
-}
-
 interface AuthStatusResponse {
     success: boolean;
     user?: {
@@ -79,7 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const TEST_MODE = new URLSearchParams(window.location.search).has('test');
         const urlParams = new URLSearchParams(window.location.search);
         const initialChannel = urlParams.get('channel');
-        const token = urlParams.get('token');
 
         const apiBaseUrl = getApiBaseUrl();
 
@@ -157,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        const authenticated = await initializeAuth(token);
+        const authenticated = await initializeAuth();
         if (!authenticated) {
             return;
         }
@@ -199,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        async function initializeAuth(tokenParam: string | null): Promise<boolean> {
+        async function initializeAuth(): Promise<boolean> {
             if (TEST_MODE) {
                 state.isAuthenticated = true;
                 state.sessionToken = 'TEST_SESSION_TOKEN';
@@ -261,10 +245,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     showAuthStatus('Authentication failed. Please try again.', 'error');
                     return false;
                 }
-            }
-
-            if (tokenParam) {
-                return await exchangeInviteToken(tokenParam);
             }
 
             return await checkExistingSession();
@@ -330,50 +310,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        async function exchangeInviteToken(tokenParam: string): Promise<boolean> {
-            try {
-                const response = await fetch(`${apiBaseUrl}/api/viewer/auth`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ token: tokenParam, channel: state.currentChannel }),
-                });
-                if (response.ok) {
-                    const data: AuthResponse = await response.json();
-                    if (data.requiresTwitchAuth) {
-                        return await requireTwitchAuth(tokenParam);
-                    }
-                    if (data.sessionToken) {
-                        services.setSessionToken(data.sessionToken);
-                    }
-                    if (data.user?.login) {
-                        localStorage.setItem('twitch_user_login', data.user.login);
-                    }
-                    state.isAuthenticated = true;
-                    revealPreferencesPanel();
-                    showAuthStatus('', 'info');
-                    if (elements.loggedInStatus) elements.loggedInStatus.style.display = '';
-                    if (elements.loggedInUsername && data.user) {
-                        elements.loggedInUsername.textContent = data.user.displayName || data.user.login;
-                    }
-                    if (state.currentChannel) {
-                        channelContextModule.setChannelUI(state.currentChannel);
-                    }
-                    return true;
-                } else if (response.status === 403) {
-                    const data: AuthResponse = await response.json();
-                    showAuthStatus(data.error || 'Access denied', 'error');
-                    setTimeout(() => { window.location.href = '/'; }, 5000);
-                    return false;
-                } else {
-                    throw new Error('Invalid or expired token');
-                }
-            } catch (error) {
-                console.error('Token authentication failed:', error);
-                return checkExistingSession();
-            }
-        }
-
-        async function requireTwitchAuth(tokenParam?: string): Promise<boolean> {
+        async function requireTwitchAuth(): Promise<boolean> {
             showAuthStatus('Please verify your Twitch identity to access viewer preferences.', 'info');
             const loginButton = document.createElement('button');
             loginButton.textContent = 'Sign in with Twitch';
@@ -384,17 +321,8 @@ document.addEventListener('DOMContentLoaded', () => {
             loginButton.onclick = () => {
                 showAuthStatus('Redirecting to Twitch for authentication...', 'info');
 
-                // Built independently: requiring a token before sending the
-                // channel dropped the channel for anyone arriving at
-                // viewer-settings.html?channel=... without an invite token,
-                // so they came back from Twitch with no channel context.
-                const params = new URLSearchParams();
-                if (tokenParam) params.set('token', tokenParam);
-                if (state.currentChannel) params.set('channel', state.currentChannel);
-
-                const query = params.toString();
-                window.location.href = query
-                    ? `${apiBaseUrl}/auth/twitch/viewer?${query}`
+                window.location.href = state.currentChannel
+                    ? `${apiBaseUrl}/auth/twitch/viewer?channel=${encodeURIComponent(state.currentChannel)}`
                     : `${apiBaseUrl}/auth/twitch/viewer`;
             };
             if (elements.authStatus) {

@@ -91,7 +91,7 @@ export function initIgnoreListModule(
   async function addToIgnoreList(type: IgnoreListType): Promise<void> {
     const inputEl = document.getElementById(`${type}-ignore-username`) as HTMLInputElement | null;
     const username = inputEl?.value?.trim();
-    if (!username) {
+    if (!inputEl || !username) {
       showToast('Please enter a username', 'warning');
       return;
     }

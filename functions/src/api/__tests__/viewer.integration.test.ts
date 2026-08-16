@@ -24,23 +24,14 @@ describe('Viewer API Integration Tests', () => {
   });
 
   describe('POST /api/viewer/auth', () => {
-    it('should return 400 when token is missing', async () => {
-      const response = await request(app)
+    it('is gone, so an invite token grants nothing', async () => {
+      // The endpoint validated nothing and returned no session, but the page
+      // revealed the preferences panel on its 200 anyway. Both are removed;
+      // viewers authenticate through Twitch like everyone else.
+      await request(app)
         .post('/api/viewer/auth')
-        .send({})
-        .expect(400);
-
-      expect(response.body.error).toBe('Token is required');
-    });
-
-    it('should return success when token is provided', async () => {
-      const response = await request(app)
-        .post('/api/viewer/auth')
-        .send({ token: 'test-token' })
-        .expect(200);
-
-      expect(response.body.success).toBe(true);
-      expect(response.body.message).toContain('authenticated');
+        .send({ token: 'any-token-at-all' })
+        .expect(404);
     });
   });
 

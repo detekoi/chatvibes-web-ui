@@ -13,7 +13,6 @@ interface JwtPayload {
   userLogin: string;
   displayName: string;
   scope?: string;
-  tokenUser?: string;
 }
 
 // Define authenticated user structure
@@ -22,7 +21,6 @@ interface AuthenticatedUser {
   userLogin: string;
   displayName: string;
   scope?: string;
-  tokenUser?: string;
 }
 
 // Extend Express Request to include authenticated user
@@ -71,13 +69,11 @@ const authenticateApiRequest = (req: Request, res: Response, next: NextFunction)
       audience: ["wildcat-tts-api", "chatvibes-api"],
       issuer: ["wildcat-tts-auth", "chatvibes-auth"],
     }) as JwtPayload;
-    // Preserve primary fields and important claims for viewer flows
     req.user = {
       userId: decoded.userId,
       userLogin: decoded.userLogin,
       displayName: decoded.displayName,
       scope: decoded.scope,
-      tokenUser: decoded.tokenUser,
     };
     log.info({ userLogin: req.user.userLogin }, "User authenticated successfully");
     next();
