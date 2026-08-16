@@ -1073,8 +1073,16 @@ a[target="_blank"].no-arrow::after {
     overflow-wrap: anywhere;
 }
 
-:root .list-group-item.justify-content-between > :is(.btn, button) {
+/* The action side holds our own strings, not user data, so it neither breaks
+   mid-word nor absorbs the shrink. The :has() arm covers voice-calibration.ts,
+   which groups its Edit and Reset buttons in a wrapper div. */
+:root .list-group-item.justify-content-between > :is(.btn, button),
+:root .list-group-item.justify-content-between > :has(> :is(.btn, button)) {
     flex: none;
+}
+
+:root .list-group-item.justify-content-between :is(.btn, button) {
+    overflow-wrap: normal;
 }
 
 :root :is(.settings-section, .wc-card) .list-group-item strong,
