@@ -26,7 +26,10 @@ export function decodeJwtPayload<T = Record<string, unknown>>(token: string): T 
   base64 += '='.repeat((4 - (base64.length % 4)) % 4);
 
   try {
-    return JSON.parse(atob(base64)) as T;
+    const binary = atob(base64);
+    const bytes = Uint8Array.from(binary, c => c.charCodeAt(0));
+    const json = new TextDecoder().decode(bytes);
+    return JSON.parse(json) as T;
   } catch (error) {
     console.warn('Could not decode JWT payload:', error);
     return null;
