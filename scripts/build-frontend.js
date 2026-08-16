@@ -1,19 +1,21 @@
 #!/usr/bin/env node
 /**
- * Frontend TypeScript build script using esbuild
- * Compiles all .ts files in public/js to .js files in the same location
+ * Frontend TypeScript & CSS build script using esbuild
+ * Compiles all .ts files in public/js to minified modern JS files
+ * and bundles/minifies CSS in public/css
  */
 
 import * as esbuild from 'esbuild';
 import { fileURLToPath } from 'url';
 import { dirname, join, relative } from 'path';
-import { readdir, stat } from 'fs/promises';
+import { readdir, readFile, writeFile } from 'fs/promises';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const rootDir = join(__dirname, '..');
 const publicDir = join(rootDir, 'public');
 const jsDir = join(publicDir, 'js');
+const cssDir = join(publicDir, 'css');
 
 const watchMode = process.argv.includes('--watch');
 
@@ -40,19 +42,126 @@ async function findTypeScriptFiles(dir) {
 }
 
 /**
- * Build all TypeScript files
+ * Build CSS bundle
+ */
+async function buildCss() {
+  try {
+    const cssFiles = ['vendor/bootstrap.min.css', 'reset.css', 'custom.css', 'design-system.css'];
+    let combined = '';
+    for (const f of cssFiles) {
+      const content = await readFile(join(cssDir, f), 'utf8');
+      combined += `\n/* --- ${f} --- */\n` + content;
+    }
+
+    const result = await esbuild.transform(combined, {
+      loader: 'css',
+      minify: true,
+      sourcemap: true,
+    });
+
+    await writeFile(join(cssDir, 'app.min.css'), result.code);
+    if (result.map) {
+      await writeFile(join(cssDir, 'app.min.css.map'), result.map);
+    }
+    console.log(`  ✓ Built public/css/app.min.css (${(result.code.length / 1024).toFixed(1)} KB)`);
+  } catch (error) {
+    console.error('❌ CSS build failed:', error);
+  }
+}
+
+/**
+ * Build Lucide minimal icon bundle
+ */
+async function buildLucide() {
+  try {
+    const tempFile = join(rootDir, 'scripts/temp-lucide-entry.js');
+    const outFile = join(publicDir, 'js/vendor/lucide.min.js');
+    const entryCode = `
+import {
+  createIcons,
+  Radio,
+  SlidersHorizontal,
+  Sun,
+  Moon,
+  Play,
+  Square,
+  Plus,
+  Trash2,
+  Volume2,
+  Mic,
+  Headphones,
+  AlertTriangle,
+  ArrowLeft,
+  Globe,
+  Sparkles,
+  ArrowRight,
+  LogIn
+} from 'lucide';
+
+window.lucide = {
+  createIcons: (options = {}) => {
+    return createIcons({
+      icons: {
+        Radio,
+        SlidersHorizontal,
+        Sun,
+        Moon,
+        Play,
+        Square,
+        Plus,
+        Trash2,
+        Volume2,
+        Mic,
+        Headphones,
+        AlertTriangle,
+        ArrowLeft,
+        Globe,
+        Sparkles,
+        ArrowRight,
+        LogIn
+      },
+      ...options
+    });
+  }
+};
+`;
+    await writeFile(tempFile, entryCode, 'utf8');
+    await esbuild.build({
+      entryPoints: [tempFile],
+      outfile: outFile,
+      bundle: true,
+      minify: true,
+      target: 'es2022',
+      platform: 'browser',
+    });
+    const { unlink } = await import('fs/promises');
+    await unlink(tempFile);
+    console.log('  ✓ Built public/js/vendor/lucide.min.js');
+  } catch (error) {
+    console.error('❌ Lucide build failed:', error);
+  }
+}
+
+/**
+ * Build all TypeScript files and CSS
  */
 async function build() {
   try {
+    console.log('🎨 Building CSS bundle...');
+    await buildCss();
+
+    console.log('✨ Building Lucide icons bundle...');
+    await buildLucide();
+
     console.log('🔍 Finding TypeScript files in public/js...');
     const tsFiles = await findTypeScriptFiles(jsDir);
 
     if (tsFiles.length === 0) {
-      console.log('✅ No TypeScript files found yet.');
+      console.log('✅ No TypeScript files found.');
       return;
     }
 
-    console.log(`📦 Building ${tsFiles.length} TypeScript files...`);
+    console.log(`📦 Building ${tsFiles.length} TypeScript files with modern ES2022 target...`);
 
     // Build each file individually to maintain directory structure
     for (const tsFile of tsFiles) {
@@ -63,10 +172,10 @@ async function build() {
         entryPoints: [tsFile],
         outfile: outfile,
         format: 'esm',
-        target: 'es2020',
+        target: 'es2022',
         sourcemap: true,
         bundle: false,
-        minify: false,
+        minify: true,
         platform: 'browser',
       });
 
@@ -84,7 +193,7 @@ async function build() {
  * Start watch mode
  */
 async function watch() {
-  console.log('👀 Watching for TypeScript file changes...');
+  console.log('👀 Watching for TypeScript and CSS changes...');
 
   // Initial build
   await build();
@@ -105,10 +214,10 @@ async function watch() {
         entryPoints: [tsFile],
         outfile: outfile,
         format: 'esm',
-        target: 'es2020',
+        target: 'es2022',
         sourcemap: true,
         bundle: false,
-        minify: false,
+        minify: true,
         platform: 'browser',
       });
     })

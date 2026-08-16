@@ -4,22 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="WildcatTTS Streamer Dashboard - Configure text-to-speech settings, permissions, bot responses, and channel points.">
     <title>WildcatTTS Dashboard</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Public+Sans:wght@400;600&family=DM+Mono:wght@400;500&display=swap"
-        rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Public+Sans:wght@400;600&family=DM+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Public+Sans:wght@400;600&family=DM+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Public+Sans:wght@400;600&family=DM+Mono:wght@400;500&display=swap">
+    </noscript>
 
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-    <!-- Custom overrides -->
-    <link rel="stylesheet" href="css/custom.css">
-    <link rel="stylesheet" href="css/design-system.css">
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/app.min.css">
 
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="apple-touch-icon" href="/logo192.png">
@@ -37,10 +35,12 @@
 
     <script src="https://app.rybbit.io/api/script.js" data-site-id="780" defer></script>
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@0.473.0/dist/umd/lucide.min.js"></script>
+    <script src="js/vendor/lucide.min.js" defer></script>
 </head>
 
 <body>
+    <a href="#main-content" class="wc-skip-link">Skip to main content</a>
+
     <header class="wc-appbar">
         <div class="wc-appbar-brand">
             <span class="wc-lockup">Wildcat<b>TTS</b></span>
@@ -50,7 +50,7 @@
         <div class="wc-appbar-actions">
                 <!-- OBS Setup Button & Popover -->
                 <div class="obs-anchor">
-                    <button class="wc-chipbtn" type="button" id="obs-toggle-btn">
+                    <button class="wc-chipbtn" type="button" id="obs-toggle-btn" aria-expanded="false" aria-controls="obs-popover">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"><rect x="2" y="3" width="20" height="14" rx="0"/><path d="M8 21h8M12 17v4"/></svg>
                         OBS Setup
                     </button>
@@ -61,15 +61,15 @@
                                 <div class="obs-pop-dot"></div>
                                 OBS Browser Source
                             </div>
-                            <button class="obs-close" type="button" id="obs-close-btn">✕</button>
+                            <button class="obs-close" type="button" id="obs-close-btn" aria-label="Close OBS setup">✕</button>
                         </div>
                         <div class="obs-pop-body">
                             <!-- URL + Copy -->
                             <div>
-                                <div class="obs-steps-label">Your Browser Source URL</div>
+                                <label for="tts-url-field" class="obs-steps-label">Your Browser Source URL</label>
                                 <div class="obs-url-group">
-                                    <input class="obs-url-input" type="text" readonly value="" id="tts-url-field">
-                                    <button class="obs-copy-btn" type="button" id="copy-tts-url-btn">Copy</button>
+                                    <input class="obs-url-input" type="text" readonly value="" id="tts-url-field" aria-label="Your Browser Source URL">
+                                    <button class="obs-copy-btn" type="button" id="copy-tts-url-btn" aria-label="Copy browser source URL">Copy</button>
                                 </div>
                             </div>
                             <!-- Regenerate warning -->
@@ -77,7 +77,7 @@
                                 <svg class="regen-warn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
                                 <div class="regen-text">
                                     <p>CAUTION: A new URL stops your current OBS source until you update the URL in OBS.</p>
-                                    <button class="btn-regen" type="button" id="regenerate-tts-url-btn">Regenerate URL</button>
+                                    <button class="btn-regen" type="button" id="regenerate-tts-url-btn" aria-label="Regenerate browser source URL">Regenerate URL</button>
                                 </div>
                             </div>
                             <!-- Steps -->
@@ -129,7 +129,7 @@
         <p>Text-to-speech settings for your channel. Changes save as you make them.</p>
     </div>
 
-    <div class="wc-main">
+    <main id="main-content" class="wc-main">
         <div id="auth-status" class="alert alert-info text-center" role="status" style="display: none;"></div>
 
         <!-- Loading Overlay -->
@@ -156,14 +156,14 @@
             </dl>
 
             <!-- Tabs -->
-            <ul class="nav nav-tabs" role="tablist">
+            <ul class="nav nav-tabs" role="tablist" aria-label="Dashboard configuration tabs">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-broadcaster"
-                            type="button" role="tab"><i data-lucide="radio" class="inline-icon" style="margin-right: 6px;"></i>Broadcaster</button>
+                            type="button" role="tab" id="tab-btn-broadcaster" aria-selected="true" aria-controls="tab-broadcaster"><i data-lucide="radio" class="inline-icon" style="margin-right: 6px;"></i>Broadcaster</button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-viewer-defaults" type="button"
-                            role="tab"><i data-lucide="sliders-horizontal" class="inline-icon" style="margin-right: 6px;"></i>Voice Defaults</button>
+                            role="tab" id="tab-btn-viewer-defaults" aria-selected="false" aria-controls="tab-viewer-defaults"><i data-lucide="sliders-horizontal" class="inline-icon" style="margin-right: 6px;"></i>Voice Defaults</button>
                     </li>
             </ul>
 
@@ -171,7 +171,7 @@
                 <div class="wc-shell-main">
                 <div class="tab-content">
                     <!-- Broadcaster Tab -->
-                    <div class="tab-pane fade show active" id="tab-broadcaster" role="tabpanel">
+                    <div class="tab-pane fade show active" id="tab-broadcaster" role="tabpanel" aria-labelledby="tab-btn-broadcaster">
                         <!-- Engine & Mode -->
                         <div class="settings-section">
                             <h5 class="settings-section-title">Engine &amp; Mode</h5>
@@ -185,7 +185,7 @@
                                         </div>
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox" id="tts-enabled">
+                                                <input class="form-check-input" type="checkbox" id="tts-enabled" aria-label="TTS Engine Enabled">
                                                 <span class="form-check-label"></span>
                                             </div>
                                         </div>
@@ -199,7 +199,7 @@
                                         </div>
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox" id="events-enabled">
+                                                <input class="form-check-input" type="checkbox" id="events-enabled" aria-label="Announce Events">
                                                 <span class="form-check-label"></span>
                                             </div>
                                         </div>
@@ -215,7 +215,7 @@
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
                                                 <input class="form-check-input" type="checkbox" id="anonymize-followers"
-                                                    checked>
+                                                    checked aria-label="Anonymize New Followers">
                                                 <span class="form-check-label"></span>
                                             </div>
                                         </div>
@@ -230,7 +230,7 @@
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
                                                 <input class="form-check-input" type="checkbox"
-                                                    id="cheer-events-enabled">
+                                                    id="cheer-events-enabled" aria-label="Announce Cheers">
                                                 <span class="form-check-label"></span>
                                             </div>
                                         </div>
@@ -246,7 +246,7 @@
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
                                                 <input class="form-check-input" type="checkbox"
-                                                    id="redemption-events-enabled">
+                                                    id="redemption-events-enabled" aria-label="Announce Reward Redeems">
                                                 <span class="form-check-label"></span>
                                             </div>
                                         </div>
@@ -262,7 +262,7 @@
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
                                                 <input class="form-check-input" type="checkbox"
-                                                    id="watch-streak-events-enabled">
+                                                    id="watch-streak-events-enabled" aria-label="Announce Watch Streaks">
                                                 <span class="form-check-label"></span>
                                             </div>
                                         </div>
@@ -278,7 +278,7 @@
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
                                                 <input class="form-check-input" type="checkbox"
-                                                    id="bot-responds-in-chat">
+                                                    id="bot-responds-in-chat" aria-label="Bot Responds in Chat">
                                                 <span class="form-check-label"></span>
                                             </div>
                                         </div>
@@ -327,7 +327,7 @@
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
                                                 <input class="form-check-input" type="checkbox"
-                                                    id="allow-viewer-preferences">
+                                                    id="allow-viewer-preferences" aria-label="Allow Viewer Voice Preferences">
                                                 <span class="form-check-label"></span>
                                             </div>
                                         </div>
@@ -341,7 +341,7 @@
                                         </div>
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox" id="read-full-urls">
+                                                <input class="form-check-input" type="checkbox" id="read-full-urls" aria-label="Read Full URLs">
                                                 <span class="form-check-label"></span>
                                             </div>
                                         </div>
@@ -358,7 +358,7 @@
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
                                                 <input class="form-check-input" type="checkbox"
-                                                    id="pronunciation-enabled">
+                                                    id="pronunciation-enabled" aria-label="Expand Chat Acronyms">
                                                 <span class="form-check-label"></span>
                                             </div>
                                         </div>
@@ -375,7 +375,7 @@
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
                                                 <input class="form-check-input" type="checkbox"
-                                                    id="profanity-filter-enabled">
+                                                    id="profanity-filter-enabled" aria-label="Profanity Filter">
                                                 <span class="form-check-label"></span>
                                             </div>
                                         </div>
@@ -413,7 +413,7 @@
                                         </div>
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox" id="bits-enabled">
+                                                <input class="form-check-input" type="checkbox" id="bits-enabled" aria-label="Require Bits for TTS">
                                                 <span class="form-check-label"></span>
                                             </div>
                                         </div>
@@ -449,7 +449,7 @@
                                         </div>
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox" id="cp-enabled">
+                                                <input class="form-check-input" type="checkbox" id="cp-enabled" aria-label="Enable Channel Points TTS">
                                                 <span class="form-check-label"></span>
                                             </div>
                                         </div>
@@ -619,7 +619,7 @@
                                         </div>
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox" id="youtube-enabled">
+                                                <input class="form-check-input" type="checkbox" id="youtube-enabled" aria-label="YouTube TTS Enabled">
                                                 <span class="form-check-label"></span>
                                             </div>
                                         </div>
@@ -647,7 +647,7 @@
                     </div>
 
                     <!-- Voice Defaults Tab -->
-                    <div class="tab-pane fade" id="tab-viewer-defaults" role="tabpanel">
+                    <div class="tab-pane fade" id="tab-viewer-defaults" role="tabpanel" aria-labelledby="tab-btn-viewer-defaults">
                         <div class="settings-section">
                             <h5 class="settings-section-title">Default Voice Settings</h5>
                             <p class="settings-section-description">Set default voice settings for your channel</p>
@@ -655,14 +655,14 @@
                                 <div class="list-group-item">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <label for="default-voice" class="form-label mb-1"><strong>Default
+                                            <label for="default-voice-search" class="form-label mb-1"><strong>Default
                                                     Voice</strong></label>
                                             <p class="text-muted mb-0">Select the default TTS voice for the channel</p>
                                         </div>
                                         <div class="col-auto d-flex align-items-center" style="gap:8px;">
                                             <div class="custom-voice-dropdown" id="default-voice-dropdown">
                                                 <input type="text" id="default-voice-search" class="form-control"
-                                                    placeholder="Search voices..." readonly>
+                                                    placeholder="Search voices..." aria-label="Search default voices" readonly>
                                                 <input type="hidden" id="default-voice" value="Friendly_Person">
                                                 <div class="voice-dropdown-menu" id="default-voice-menu">
                                                     <div class="voice-dropdown-list"></div>
@@ -701,9 +701,9 @@
                                         <div class="col-auto d-flex align-items-center"
                                             style="gap:8px; min-width: 260px;">
                                             <input type="range" id="default-pitch" class="form-range" min="-12" max="12"
-                                                value="0">
+                                                value="0" aria-label="Default Pitch (-12 to +12)">
                                             <button id="reset-pitch-btn" class="btn btn-outline-secondary btn-sm"
-                                                type="button">Reset</button>
+                                                type="button" aria-label="Reset default pitch to 0">Reset</button>
                                         </div>
                                     </div>
                                 </div>
@@ -717,9 +717,9 @@
                                         <div class="col-auto d-flex align-items-center"
                                             style="gap:8px; min-width: 260px;">
                                             <input type="range" id="default-speed" class="form-range" min="0.5"
-                                                max="2.0" step="0.1" value="1.0">
+                                                max="2.0" step="0.1" value="1.0" aria-label="Default Speed (0.5 to 2.0)">
                                             <button id="reset-speed-btn" class="btn btn-outline-secondary btn-sm"
-                                                type="button">Reset</button>
+                                                type="button" aria-label="Reset default speed to 1.0">Reset</button>
                                         </div>
                                     </div>
                                 </div>
@@ -734,9 +734,9 @@
                                         <div class="col-auto d-flex align-items-center"
                                             style="gap:8px; min-width: 260px;">
                                             <input type="range" id="default-volume" class="form-range" min="0.1"
-                                                max="10.0" step="0.1" value="1.0">
+                                                max="10.0" step="0.1" value="1.0" aria-label="Voice Volume (0.1 to 10)">
                                             <button id="reset-volume-btn" class="btn btn-outline-secondary btn-sm"
-                                                type="button">Reset</button>
+                                                type="button" aria-label="Reset voice volume to 1.0">Reset</button>
                                         </div>
                                     </div>
                                 </div>
@@ -787,7 +787,7 @@
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
                                                 <input class="form-check-input" type="checkbox"
-                                                    id="english-normalization">
+                                                    id="english-normalization" aria-label="English Normalization">
                                                 <span class="form-check-label"></span>
                                             </div>
                                         </div>
@@ -933,30 +933,52 @@
                     </div>
                 </section>
             </aside>
+                  </div>
         </div>
-        </div>
-    </div>
+    </main>
 
     <!-- Toasts -->
     <div id="toast-container" class="toast-container position-fixed bottom-0 end-0 p-3"></div>
 
     <!-- Bootstrap 5 Bundle JS (with Popper) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+    <script src="js/vendor/bootstrap.bundle.min.js" defer></script>
 
     <!-- Theme Management -->
-    <script src="js/theme.js"></script>
+    <script src="js/theme.js" defer></script>
 
     <script type="module" src="js/dashboard/main.js"></script>
 
     <!-- Initialize Lucide Icons -->
     <script>
-        lucide.createIcons();
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.lucide) {
+                window.lucide.createIcons();
+            }
+        });
         document.getElementById('darkModeToggle')?.addEventListener('click', () => {
             if (window.themeManager) {
                 window.themeManager.toggleTheme();
             }
+        });
+
+        // Native accessible tab switching
+        document.querySelectorAll('[data-bs-toggle="tab"]').forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const target = btn.getAttribute('data-bs-target');
+                document.querySelectorAll('[data-bs-toggle="tab"]').forEach((b) => {
+                    b.classList.remove('active');
+                    b.setAttribute('aria-selected', 'false');
+                });
+                document.querySelectorAll('.tab-pane').forEach((p) => {
+                    p.classList.remove('show', 'active');
+                });
+                btn.classList.add('active');
+                btn.setAttribute('aria-selected', 'true');
+                if (target) {
+                    const panel = document.querySelector(target);
+                    if (panel) panel.classList.add('show', 'active');
+                }
+            });
         });
 
         // Section headers carry a mono count on the right. Derived from the DOM

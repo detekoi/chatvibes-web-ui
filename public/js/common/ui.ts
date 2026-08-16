@@ -139,9 +139,22 @@ export function showToast(message: string, type: ToastType = 'success'): void {
   toastEl.appendChild(inner);
   toastContainer.appendChild(toastEl);
 
-  const bsToast = new window.bootstrap.Toast(toastEl, { delay: 5000 });
-  bsToast.show();
-  toastEl.addEventListener('hidden.bs.toast', () => toastEl.remove());
+  if (window.bootstrap?.Toast) {
+    const bsToast = new window.bootstrap.Toast(toastEl, { delay: 5000 });
+    bsToast.show();
+    toastEl.addEventListener('hidden.bs.toast', () => toastEl.remove());
+  } else {
+    toastEl.classList.add('show');
+    const timer = setTimeout(() => {
+      toastEl.classList.remove('show');
+      setTimeout(() => toastEl.remove(), 300);
+    }, 5000);
+    btn.addEventListener('click', () => {
+      clearTimeout(timer);
+      toastEl.classList.remove('show');
+      setTimeout(() => toastEl.remove(), 300);
+    });
+  }
 }
 
 /**
