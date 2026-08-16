@@ -1242,7 +1242,8 @@ a[target="_blank"].no-arrow::after {
 :root :is(.settings-section, .wc-card) .form-control:not(textarea),
 .wc-field {
     height: var(--wc-control-h);
-    min-width: 172px;
+    min-width: 0;
+    max-width: 100%;
     padding: 0 11px;
     border: 1px solid var(--wc-border-strong);
     border-radius: var(--wc-radius-field);
@@ -1253,10 +1254,14 @@ a[target="_blank"].no-arrow::after {
     line-height: var(--wc-control-h);
 }
 
-:root :is(.settings-section, .wc-card) input[type="number"],
+:root :is(.settings-section, .wc-card) .list-group-item > .row > .col-auto :is(.form-select, .form-control:not(textarea)),
+.wc-field {
+    min-width: 172px;
+}
+
+:root :is(.settings-section, .wc-card) :is(input[type="number"], input[inputmode="numeric"]),
 .wc-field--number {
     min-width: 0;
-    width: 112px;
     font-family: var(--wc-font-mono);
 }
 
@@ -1285,7 +1290,7 @@ a[target="_blank"].no-arrow::after {
     width: 100%;
 }
 
-:root .input-group > .form-control:not(textarea) {
+:root .input-group > :is(.form-control, .form-select):not(textarea) {
     min-width: 0;
     height: var(--wc-control-h);
 }
