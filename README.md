@@ -4,7 +4,7 @@ Web interface for the WildcatTTS Twitch bot.
 
 ## Description
 
-WildcatTTS Web UI is a web application for Twitch streamers to manage the [WildcatTTS Text-to-Speech (TTS) bot](https://github.com/detekoi/chatvibes). Streamers can log in with a Twitch account to add or remove the bot and check its status. The application features an animated background.
+WildcatTTS Web UI is a web application for Twitch streamers and viewers to manage the [WildcatTTS Text-to-Speech (TTS) bot](https://github.com/detekoi/chatvibes). Streamers can sign in with a Twitch account to activate or deactivate the TTS service and check its status. The application features an animated background.
 
 > **Note:** Access to WildcatTTS is invite-only. The web management interface shows an access denied message for unapproved channels. If you want to request access, submit [this contact form](https://parfaitfair.com/#contact).
 
@@ -12,9 +12,9 @@ The WildcatTTS web UI is hosted at [https://tts.wildcat.chat/](https://tts.wildc
 
 ## Features
 
-* **Twitch Authentication:** Users can log in securely with their Twitch account.
-* **Bot Management:** Add or remove the WildcatTTS bot on approved Twitch channels.
-* **Bot Status:** View the active or inactive status of the bot for your channel.
+* **Twitch Authentication:** Users can sign in securely with their Twitch account.
+* **Service Management:** Activate or deactivate the WildcatTTS service on approved Twitch channels.
+* **Service Status:** View the active or inactive status of the TTS service for your channel.
 * **Dynamic Background:** Animated background for the user interface.
 * **Firebase Integration:** Uses Firebase Cloud Functions and Firebase Hosting for backend operations.
 * **OBS Setup Guidance:** Setup instructions to integrate WildcatTTS audio into streaming software.
@@ -83,7 +83,7 @@ These scopes permit the WildcatTTS bot to perform these actions:
 
 ### Viewer OAuth Scopes
 
-Viewers who log in to set personal TTS preferences require no special OAuth scopes beyond basic Twitch authentication. Viewer authentication uses an empty scope list to minimize permissions.
+Viewers who sign in to set personal TTS preferences require no special OAuth scopes beyond basic Twitch authentication. Viewer authentication uses an empty scope list to minimize permissions.
 
 ## Setup
 
@@ -108,11 +108,11 @@ Viewers who log in to set personal TTS preferences require no special OAuth scop
 **Note:** Access is restricted to approved channels. If your channel is not approved, the application displays an access denied message. [Request access through this contact form](https://parfaitfair.com/#contact).
 
 1. Open the hosted application URL.
-2. Select **Login with Twitch** to authenticate.
-3. After authentication completes, the dashboard loads.
+2. Select **Manage my channel** or **Set my own voice** to sign in with Twitch.
+3. After authentication completes, the dashboard or preferences page loads.
 4. On approved channel dashboards, you can perform these actions:
-    * View the active or inactive status of the WildcatTTS bot for your channel.
-    * Add the bot to your channel.
-    * Remove the bot from your channel.
+    * View the active or inactive status of the TTS service for your channel.
+    * Activate the TTS service for your channel.
+    * Deactivate the TTS service for your channel.
     * Read instructions for OBS audio setup.
-    * Log out of the application.
+    * Sign out of the application.
