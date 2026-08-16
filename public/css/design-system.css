@@ -1583,6 +1583,18 @@ a[target="_blank"].no-arrow::after {
     :root :is(.settings-section, .wc-card) .list-group-item > .row > .col-auto > :is(.btn, button) {
         margin-left: auto;
     }
+
+    /* Stacking earns its keep for wide controls, but a lone toggle is 40px —
+       keep those rows inline so the switches hold one column down every card.
+       A cell pairing the switch with a button is wide again, so it still stacks. */
+    :root :is(.settings-section, .wc-card) .list-group-item > .row:has(> .col-auto > .form-check.form-switch:only-child) {
+        flex-direction: row;
+        align-items: center;
+    }
+    :root :is(.settings-section, .wc-card) .list-group-item > .row > .col-auto:has(> .form-check.form-switch:only-child) {
+        width: auto;
+        justify-content: flex-end;
+    }
     .wc-tags { justify-content: flex-start; max-width: none; }
     .wc-stage { padding: 16px 16px 40px; }
     .wc-title { font-size: 24px; }
