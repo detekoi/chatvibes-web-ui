@@ -34,6 +34,34 @@
             }
         })();
     </script>
+    <!-- Runs first, synchronously, and stays above the third-party tag below.
+         After viewer sign-in the callback lands here with a one-time exchange
+         code in the query string. viewer/main.ts clears it, but not until
+         DOMContentLoaded, by which point the script below has already run with
+         full access to location.href. Take the credential out of the URL here
+         and hand it over in memory instead. -->
+    <script>
+        (function () {
+            var params = new URLSearchParams(window.location.search);
+            var token = params.get('session_token');
+            var code = params.get('code');
+            if (!token && !code) return;
+
+            if (token) {
+                window.__sessionToken = token;
+                params.delete('session_token');
+            }
+            if (code) {
+                window.__exchangeCode = code;
+                params.delete('code');
+            }
+
+            var query = params.toString();
+            window.history.replaceState({}, '',
+                window.location.pathname + (query ? '?' + query : '') + window.location.hash);
+        })();
+    </script>
+
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@0.473.0/dist/umd/lucide.min.js"></script>
 </head>

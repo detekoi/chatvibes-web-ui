@@ -214,9 +214,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const urlParams = new URLSearchParams(window.location.search);
-            const exchangeCodeParam = urlParams.get('code');
-            const sessionTokenParam = urlParams.get('session_token');
             const validatedParam = urlParams.get('validated');
+
+            // Both handed over in memory by the head script of this page, which
+            // already took them out of the URL before the third-party tag there
+            // could run. The query reads only cover that script not having run.
+            const globals = window as unknown as { __exchangeCode?: string; __sessionToken?: string };
+            const exchangeCodeParam = globals.__exchangeCode || urlParams.get('code');
+            const sessionTokenParam = globals.__sessionToken || urlParams.get('session_token');
+            delete globals.__exchangeCode;
+            delete globals.__sessionToken;
             // No `?error=` handling here on purpose: every OAuth failure now
             // redirects to auth-error.html, so nothing reaches this page with
             // an error to render.
