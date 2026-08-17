@@ -145,7 +145,6 @@
 
             const userLogin = queryParams.get('user_login');
             const userId = queryParams.get('user_id');
-            const receivedState = queryParams.get('state');
             // Both handed over in memory by the head script, which already took
             // them out of the URL; the query reads only cover that script not
             // having run. `__sessionToken` is the old shape, still accepted for
@@ -156,25 +155,6 @@
             // Nothing below needs them on the global object.
             delete window.__exchangeCode;
             delete window.__sessionToken;
-
-            // The server binds `state` to a one-use HttpOnly cookie and rejects
-            // the callback before minting a token, so reaching this page means
-            // that check already passed. This comparison is leftover
-            // belt-and-braces from when the browser owned the check.
-            //
-            // It only runs when a stored state exists. Sign-in no longer writes
-            // one, so a browser holding this page from cache cannot reject a
-            // login that the server already accepted. Safe to delete once those
-            // caches have rolled over.
-            const storedState = sessionStorage.getItem('oauth_csrf_state');
-            sessionStorage.removeItem('oauth_csrf_state'); // Clean up
-
-            if (storedState && receivedState !== storedState) {
-                console.error("CSRF state mismatch. Received:", receivedState, "Stored:", storedState);
-                fail("Invalid state. A security check or a browser error failed. Sign in again from the main page.");
-                setTimeout(() => { window.location.href = 'index.html'; }, 5000);
-                return;
-            }
 
             /**
              * Trades the one-time code for the session token.

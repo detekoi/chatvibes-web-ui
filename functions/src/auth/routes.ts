@@ -227,29 +227,6 @@ router.get("/twitch", (_req: Request, res: Response): void => {
   res.redirect(buildTwitchAuthUrl(res, { t: "broadcaster" }, OAUTH_SCOPES));
 });
 
-// Route: /auth/twitch/initiate — DEPRECATED
-// Superseded by GET /auth/twitch. Kept only so browsers still running HTML and
-// JS cached before that change (Firebase Hosting serves it with max-age=3600)
-// can finish signing in. Delete once those caches have rolled over.
-router.get("/twitch/initiate", (_req: Request, res: Response): void => {
-  logger.info("--- /auth/twitch/initiate HIT (deprecated, superseded by /auth/twitch) ---");
-
-  if (!secrets.TWITCH_CLIENT_ID || !config.CALLBACK_URL) {
-    logger.error("Config missing for /auth/twitch/initiate: TWITCH_CLIENT_ID or CALLBACK_URL not found.");
-    res.status(500).json({ success: false, error: "Server configuration error for Twitch auth." });
-    return;
-  }
-
-  const twitchAuthUrl = buildTwitchAuthUrl(res, { t: "broadcaster" }, OAUTH_SCOPES);
-  const state = new URL(twitchAuthUrl).searchParams.get("state");
-
-  res.json({
-    success: true,
-    twitchAuthUrl: twitchAuthUrl,
-    state: state,
-  });
-});
-
 // Route: /auth/twitch/callback
 router.get("/twitch/callback", async (req: Request, res: Response): Promise<void | Response> => {
   logger.info("--- /auth/twitch/callback HIT ---");

@@ -26,15 +26,13 @@ function createApp() {
  * Runs a real initiation request and returns the nonce Twitch would echo back
  * along with the state cookie the browser would hold.
  * @param app - Express app under test
- * @param endpoint - Which initiation route to start from
+ * @param endpoint - Which route to start the flow from
  * @return The `state` nonce and the matching Cookie header value
  */
 async function startFlow(app: express.Express, endpoint: string) {
   const res = await request(app).get(endpoint);
 
-  // /auth/twitch and /auth/twitch/viewer redirect the browser; the deprecated
-  // /auth/twitch/initiate still answers with JSON for stale clients.
-  const authUrl = new URL(res.status === 302 ? res.headers.location : res.body.twitchAuthUrl);
+  const authUrl = new URL(res.headers.location);
   const nonce = authUrl.searchParams.get('state') as string;
 
   const setCookie = res.headers['set-cookie'] as unknown as string[];
@@ -42,7 +40,6 @@ async function startFlow(app: express.Express, endpoint: string) {
 
   return {
     nonce,
-    stateInBody: res.body.state as string,
     cookie: stateCookie.split(';')[0],
     setCookie: stateCookie,
   };
@@ -68,7 +65,7 @@ describe('OAuth state binding', () => {
       expect(nonce).toMatch(/^[0-9a-f]{64}$/);
     });
 
-    it('sets the same host-only state cookie the deprecated route set', async () => {
+    it('sets a host-only HttpOnly SameSite=Lax cookie named __session', async () => {
       const { setCookie } = await startFlow(createApp(), '/auth/twitch');
 
       expect(setCookie.startsWith('__session=')).toBe(true);
@@ -106,33 +103,6 @@ describe('OAuth state binding', () => {
     });
   });
 
-  // Superseded by GET /auth/twitch, kept until cached clients roll over.
-  describe('GET /auth/twitch/initiate (deprecated)', () => {
-    it('sends only an opaque nonce as state', async () => {
-      const { nonce } = await startFlow(createApp(), '/auth/twitch/initiate');
-
-      expect(nonce).toMatch(/^[0-9a-f]{64}$/);
-    });
-
-    it('returns the same nonce to the client for its own sessionStorage check', async () => {
-      const { nonce, stateInBody } = await startFlow(createApp(), '/auth/twitch/initiate');
-
-      expect(stateInBody).toBe(nonce);
-    });
-
-    it('sets a host-only HttpOnly SameSite=Lax cookie named __session', async () => {
-      const { setCookie } = await startFlow(createApp(), '/auth/twitch/initiate');
-
-      // The name is forced: Firebase Hosting drops every other cookie before
-      // the request reaches the Function.
-      expect(setCookie.startsWith('__session=')).toBe(true);
-      expect(setCookie).toContain('HttpOnly');
-      expect(setCookie).toContain('SameSite=Lax');
-      expect(setCookie).toContain('Path=/');
-      expect(setCookie).not.toContain('Domain=');
-    });
-  });
-
   describe('GET /auth/twitch/viewer', () => {
     it('redirects the browser rather than answering with JSON', async () => {
       const app = createApp();
@@ -165,7 +135,7 @@ describe('OAuth state binding', () => {
   describe('GET /auth/twitch/callback', () => {
     it('rejects a callback whose state does not match the cookie', async () => {
       const app = createApp();
-      const { cookie } = await startFlow(app, '/auth/twitch/initiate');
+      const { cookie } = await startFlow(app, '/auth/twitch');
 
       const res = await request(app)
         .get('/auth/twitch/callback')
@@ -179,7 +149,7 @@ describe('OAuth state binding', () => {
 
     it('exchanges no authorization code on a state mismatch', async () => {
       const app = createApp();
-      const { cookie } = await startFlow(app, '/auth/twitch/initiate');
+      const { cookie } = await startFlow(app, '/auth/twitch');
 
       await request(app)
         .get('/auth/twitch/callback')
@@ -191,7 +161,7 @@ describe('OAuth state binding', () => {
 
     it('rejects a callback with a valid state but no cookie', async () => {
       const app = createApp();
-      const { nonce } = await startFlow(app, '/auth/twitch/initiate');
+      const { nonce } = await startFlow(app, '/auth/twitch');
 
       const res = await request(app)
         .get('/auth/twitch/callback')
@@ -215,7 +185,7 @@ describe('OAuth state binding', () => {
 
     it('clears the state cookie so it cannot be replayed', async () => {
       const app = createApp();
-      const { nonce, cookie } = await startFlow(app, '/auth/twitch/initiate');
+      const { nonce, cookie } = await startFlow(app, '/auth/twitch');
 
       const res = await request(app)
         .get('/auth/twitch/callback')
@@ -231,7 +201,7 @@ describe('OAuth state binding', () => {
 
     it('clears the state cookie even when the state did not match', async () => {
       const app = createApp();
-      const { cookie } = await startFlow(app, '/auth/twitch/initiate');
+      const { cookie } = await startFlow(app, '/auth/twitch');
 
       const res = await request(app)
         .get('/auth/twitch/callback')
@@ -246,7 +216,7 @@ describe('OAuth state binding', () => {
 
     it('gets past state binding and on to the code exchange on a match', async () => {
       const app = createApp();
-      const { nonce, cookie } = await startFlow(app, '/auth/twitch/initiate');
+      const { nonce, cookie } = await startFlow(app, '/auth/twitch');
 
       const res = await request(app)
         .get('/auth/twitch/callback')
@@ -360,7 +330,7 @@ describe('OAuth state binding', () => {
 
     it('still reports a genuine Twitch error rather than masking it as bad state', async () => {
       const app = createApp();
-      const { cookie } = await startFlow(app, '/auth/twitch/initiate');
+      const { cookie } = await startFlow(app, '/auth/twitch');
 
       const res = await request(app)
         .get('/auth/twitch/callback')

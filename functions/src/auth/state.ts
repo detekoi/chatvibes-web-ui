@@ -15,7 +15,7 @@
  *
  * The cookie name is forced on us: Firebase Hosting strips every cookie except
  * `__session` before forwarding a request to a Function, and both
- * /auth/twitch/initiate and /auth/twitch/callback are reached through the
+ * /auth/twitch and /auth/twitch/callback are reached through the
  * `/auth/**` Hosting rewrite. That rules out the `__Host-` prefix, so a sibling
  * subdomain planting a cookie (cookie tossing) is not structurally blocked.
  */
