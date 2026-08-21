@@ -261,9 +261,38 @@ describe('Settings API Integration Tests (Mocked Firestore)', () => {
       // A nested map, not a dotted key: set() would otherwise create a literal
       // field named "ignoredUserIds.twitch:52343457".
       expect((db as any).set).toHaveBeenCalledWith(
-        { ignoredUserIds: { 'twitch:52343457': 'Spammer' } },
+        {
+          ignoredUserIds: {
+            'twitch:52343457': expect.objectContaining({
+              label: 'Spammer',
+              // Added by the broadcaster, so the target cannot lift it from the
+              // viewer settings page.
+              source: 'moderator',
+              by: `twitch:${testUser.userId}`,
+            }),
+          },
+        },
         { merge: true }
       );
+    });
+
+    it('should write every provenance field, so a merge cannot inherit a stale source', async () => {
+      // set() with merge:true deep-merges into the entry object too. A partial
+      // write over someone's existing self-opt-out would leave it marked self,
+      // and the viewer could clear the moderator's mute a moment later.
+      mockGetUserByUsername.mockResolvedValueOnce({ id: '52343457', login: 'spammer', displayName: 'Spammer' });
+      ((db as any).set as any).mockResolvedValueOnce({} as any);
+
+      await request(app)
+        .post(`/api/tts/ignore/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ username: 'spammer' })
+        .expect(200);
+
+      const [payload] = ((db as any).set as any).mock.calls[0];
+      const entry = payload.ignoredUserIds['twitch:52343457'];
+      expect(Object.keys(entry).sort()).toEqual(['at', 'by', 'label', 'source']);
+      expect(Date.parse(entry.at)).not.toBeNaN();
     });
 
     it('should strip a leading @ before resolving', async () => {

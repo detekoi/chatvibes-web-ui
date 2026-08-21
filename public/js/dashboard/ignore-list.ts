@@ -1,4 +1,9 @@
 import { showToast } from '../common/ui.js';
+import {
+  normalizeIgnoreEntry,
+  IGNORE_SOURCE_SELF,
+  type StoredIgnoreValue,
+} from '../common/ignoreEntries.js';
 
 /**
  * Ignore list type
@@ -27,10 +32,11 @@ interface IgnoreListServices {
 export interface IgnoreListModule {
   /**
    * Render the list. Entries are keyed by immutable account ID
-   * ("twitch:<id>"); the value is the display label. Removal sends the key, so
-   * an entry whose label has gone stale still deletes the right account.
+   * ("twitch:<id>"); the value records who imposed the entry and carries a
+   * display label. Removal sends the key, so an entry whose label has gone stale
+   * still deletes the right account.
    */
-  displayIgnoreList: (type: IgnoreListType, entries: Record<string, string>) => void;
+  displayIgnoreList: (type: IgnoreListType, entries: Record<string, StoredIgnoreValue>) => void;
   setOnChange: (fn: () => void) => void;
 }
 
@@ -61,13 +67,13 @@ export function initIgnoreListModule(
     return headers;
   }
 
-  function displayIgnoreList(type: IgnoreListType, entries: Record<string, string>): void {
+  function displayIgnoreList(type: IgnoreListType, entries: Record<string, StoredIgnoreValue>): void {
     const listEl = document.getElementById(`${type}-ignore-list`);
     if (!listEl) return;
 
     listEl.innerHTML = '';
     const sorted = Object.entries(entries || {})
-      .map(([key, label]) => ({ key, label: label || key }))
+      .map(([key, value]) => ({ key, ...normalizeIgnoreEntry(value, key) }))
       .sort((a, b) => a.label.localeCompare(b.label));
 
     if (sorted.length === 0) {
@@ -78,18 +84,28 @@ export function initIgnoreListModule(
       return;
     }
 
-    sorted.forEach(({ key, label }) => {
+    sorted.forEach(({ key, label, source }) => {
       const li = document.createElement('li');
       li.className = 'list-group-item d-flex justify-content-between align-items-center';
       li.dataset.ignoreKey = key;
 
+      // Who imposed the entry decides who can lift it, so it belongs on the row:
+      // removing someone's own opt-out reads very differently from removing a
+      // mute you placed, and only one of the two can come back on its own.
+      const isSelf = source === IGNORE_SOURCE_SELF;
       const nameSpan = document.createElement('span');
       nameSpan.textContent = label;
+
+      const sourceSpan = document.createElement('span');
+      sourceSpan.className = `badge ms-2 ${isSelf ? 'text-bg-secondary' : 'text-bg-danger'}`;
+      sourceSpan.textContent = isSelf ? 'Opted out' : 'Muted by you';
+      nameSpan.appendChild(sourceSpan);
 
       const btn = document.createElement('button');
       btn.className = 'btn btn-outline-danger btn-sm';
       btn.type = 'button';
-      btn.setAttribute('aria-label', `Remove ${label} from the ignore list`);
+      btn.setAttribute('aria-label',
+        `Remove ${label} from the ignore list (${isSelf ? 'opted out themselves' : 'muted by you'})`);
       btn.textContent = 'Remove';
       btn.addEventListener('click', () => removeFromIgnoreList(type, key, label));
 

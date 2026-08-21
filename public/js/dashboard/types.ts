@@ -2,6 +2,8 @@
  * Shared TypeScript types for dashboard modules
  */
 
+import type { StoredIgnoreValue } from '../common/ignoreEntries.js';
+
 /**
  * User information stored in session
  */
@@ -53,9 +55,11 @@ export interface TtsSettings {
   emoteMode?: string;
   /**
    * TTS ignore list, keyed by immutable platform account ID ("twitch:<id>").
-   * The value is a display label for rendering only — nothing matches on it.
+   * The value records who imposed the entry, with a display label for rendering
+   * only — nothing matches on it. A bare string is the pre-provenance shape and
+   * reads as moderator-imposed; see common/ignoreEntries.ts.
    */
-  ignoredUserIds?: Record<string, string>;
+  ignoredUserIds?: Record<string, StoredIgnoreValue>;
   bannedWords?: string[];
   voiceVolumes?: Record<string, number>;
   youtubeEnabled?: boolean;

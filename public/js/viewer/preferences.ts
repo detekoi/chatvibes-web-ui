@@ -2,6 +2,7 @@ import { fetchWithAuth } from '../common/api.js';
 import { showToast } from '../common/ui.js';
 import { formatNumberCompact, formatVoiceName } from '../common/utils.js';
 import { performVoiceTest, TTSPayload, PlayerElements, HintElements } from '../common/voice-preview.js';
+import type { IgnoreStatus } from './danger-zone.js';
 
 /**
  * Viewer voice preferences module.
@@ -39,12 +40,10 @@ export interface ChannelPolicy {
   allowViewerPreferences: boolean;
 }
 
-/**
- * Ignore status for TTS
- */
-export interface IgnoreStatus {
-  tts?: boolean;
-}
+// The ignore status carries who imposed the opt-out, not just whether one
+// exists, because that is what decides whether the viewer can lift it. Defined
+// alongside the toggle that consumes it so the two cannot drift apart.
+export type { IgnoreStatus } from './danger-zone.js';
 
 /**
  * Full preferences data structure from API

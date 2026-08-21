@@ -9,6 +9,7 @@ import { loadGlobalUserPreferences, ViewerPreferences } from "../services/prefer
 import { RELEASED_VOICES } from "../services/voice-list";
 import { authenticateApiRequest, assertAuthenticated } from "../middleware/auth";
 import { logger } from "../logger";
+import { getIgnoreEntry, buildIgnoreEntry, canSelfUnignore, IGNORE_SOURCE_SELF } from "../services/ignoreEntries";
 
 const VOICE_IDS = new Set(RELEASED_VOICES);
 
@@ -153,9 +154,11 @@ router.get("/preferences/:channel", authenticateApiRequest, async (req: Request,
       log.warn({ error: err.message }, "Failed to load global user prefs");
     }
 
-    // Check if user is ignored, by immutable user ID rather than by login
-    const ttsIgnored = Object.prototype.hasOwnProperty.call(
-      channelData.ignoredUserIds || {}, `twitch:${req.user.userId}`);
+    // Check if user is ignored, by immutable user ID rather than by login.
+    // The entry carries who imposed it, which is what tells the page whether to
+    // offer the viewer a way back out or explain that a moderator set it.
+    const ttsEntry = getIgnoreEntry(channelData.ignoredUserIds, `twitch:${req.user.userId}`);
+    const ttsIgnored = ttsEntry !== null;
 
 
     // Map global prefs to UI schema (languageBoost -> language)
@@ -169,6 +172,8 @@ router.get("/preferences/:channel", authenticateApiRequest, async (req: Request,
       emoteMode: globalPrefs.emoteMode ?? null,
       ignoreStatus: {
         tts: ttsIgnored,
+        ttsSource: ttsEntry?.source ?? null,
+        ttsCanSelfUndo: canSelfUnignore(ttsEntry),
       },
       channelExists: true,
       channelPolicy: {
@@ -337,17 +342,34 @@ router.post("/ignore/tts/:channel", authenticateApiRequest, async (req: Request,
     // The viewer is authenticated, so their immutable user ID is already in hand —
     // no Helix lookup needed to key their own entry.
     const entryKey = `twitch:${req.user.userId}`;
-    const isCurrentlyIgnored = Object.prototype.hasOwnProperty.call(channelData.ignoredUserIds || {}, entryKey);
+    const existing = getIgnoreEntry(channelData.ignoredUserIds, entryKey);
 
-    if (isCurrentlyIgnored) {
-      // Remove from ignore list
+    if (existing && !canSelfUnignore(existing)) {
+      // A moderator put them here, so they do not get to leave. This endpoint used
+      // to delete whatever it found, which made a moderator's mute one authenticated
+      // request away from being cleared by the account it was aimed at — the
+      // disabled checkbox in the UI was the only thing standing in the way.
+      // Legacy string entries land here too: unknown provenance is never lifted.
+      log.info({ source: existing.source }, "Refused self-undo of a moderator-imposed ignore");
+      res.status(403).json({
+        error: "A channel moderator opted you out of TTS here, so only a moderator can undo it.",
+        reason: "moderator_imposed",
+        ignored: true,
+      });
+      return;
+    }
+
+    if (existing) {
+      // Their own opt-out, so they may lift it.
       await channelDocRef.update(new FieldPath("ignoredUserIds", entryKey), FieldValue.delete());
       log.info("Removed user from TTS ignore list");
       res.json({ success: true, ignored: false, message: "Removed from TTS ignore list" });
     } else {
-      // Add to ignore list
+      // Add to ignore list, recorded as self-imposed so it stays reversible.
       await channelDocRef.set({
-        ignoredUserIds: { [entryKey]: username },
+        ignoredUserIds: {
+          [entryKey]: buildIgnoreEntry({ label: username, source: IGNORE_SOURCE_SELF, by: entryKey }),
+        },
       }, { merge: true });
       log.info("Added user to TTS ignore list");
       res.json({ success: true, ignored: true, message: "Added to TTS ignore list" });

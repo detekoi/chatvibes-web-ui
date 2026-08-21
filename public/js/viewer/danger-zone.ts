@@ -35,10 +35,16 @@ export interface DangerZoneDeps {
 }
 
 /**
- * Status of whether a user is ignored for TTS.
+ * Status of whether a user is ignored for TTS, and whether they may undo it.
+ *
+ * A viewer can lift their own opt-out but not a moderator's mute, so the page
+ * needs the provenance, not just the boolean. `ttsSource` is null when the
+ * viewer is not on the list at all.
  */
 export interface IgnoreStatus {
   tts?: boolean;
+  ttsSource?: 'self' | 'moderator' | null;
+  ttsCanSelfUndo?: boolean;
 }
 
 /**
@@ -48,6 +54,7 @@ interface DangerZoneElements {
   dangerZoneSection: HTMLElement | null;
   dangerTtsToggle: HTMLElement | null;
   ignoreTtsCheckbox: HTMLInputElement | null;
+  ignoreTtsNote: HTMLElement | null;
   confirmModal: HTMLDialogElement | null;
   confirmText: HTMLElement | null;
   confirmYes: HTMLButtonElement | null;
@@ -61,6 +68,10 @@ interface PendingAction {
   type: 'tts';
   checkbox: HTMLInputElement;
 }
+
+/** Copy shown under the toggle, which depends on who put the viewer on the list. */
+const MODERATOR_NOTE = 'A channel moderator opted you out of TTS here. Only a moderator can undo this.';
+const SELF_NOTE = 'You opted out of TTS here. You can turn this back on at any time.';
 
 /**
  * Return type of the danger zone module.
@@ -86,6 +97,7 @@ export function initDangerZoneModule(
     dangerZoneSection: document.getElementById('danger-zone-section'),
     dangerTtsToggle: document.getElementById('danger-tts-toggle'),
     ignoreTtsCheckbox: document.getElementById('ignore-tts') as HTMLInputElement | null,
+    ignoreTtsNote: document.getElementById('ignore-tts-note'),
     confirmModal: document.getElementById('confirm-modal') as HTMLDialogElement | null,
     confirmText: document.getElementById('confirm-text'),
     confirmYes: document.getElementById('confirm-yes') as HTMLButtonElement | null,
@@ -112,7 +124,11 @@ export function initDangerZoneModule(
   function attachListeners(): void {
     if (elements.ignoreTtsCheckbox) {
       elements.ignoreTtsCheckbox.addEventListener('change', () => {
+        // Unchecking used to be unreachable — the box was disabled the moment the
+        // viewer was ignored. It is now the way back out of their own opt-out,
+        // and needs no confirmation: turning TTS back on is not destructive.
         if (elements.ignoreTtsCheckbox?.checked) handleIgnoreAction('tts');
+        else handleUnignoreAction('tts');
       });
     }
     if (elements.confirmYes) {
@@ -133,11 +149,63 @@ export function initDangerZoneModule(
   }
 
   function updateIgnoreCheckboxes(ignoreStatus: IgnoreStatus): void {
-    const { ignoreTtsCheckbox } = elements;
-    if (ignoreTtsCheckbox) {
-      const disabled = ignoreStatus.tts === true;
-      ignoreTtsCheckbox.checked = disabled;
-      ignoreTtsCheckbox.disabled = disabled;
+    const { ignoreTtsCheckbox, ignoreTtsNote } = elements;
+    if (!ignoreTtsCheckbox) return;
+
+    const ignored = ignoreStatus.tts === true;
+    // Being ignored is no longer reason enough to freeze the control — only being
+    // ignored by somebody else is. A viewer who opted themselves out can undo it,
+    // which is the whole point; the backend enforces the same rule, so a viewer
+    // who re-enables the input by hand still gets a 403.
+    const moderatorImposed = ignored && ignoreStatus.ttsCanSelfUndo !== true;
+
+    ignoreTtsCheckbox.checked = ignored;
+    ignoreTtsCheckbox.disabled = moderatorImposed;
+
+    if (ignoreTtsNote) {
+      ignoreTtsNote.textContent = !ignored ? '' : (moderatorImposed ? MODERATOR_NOTE : SELF_NOTE);
+      ignoreTtsNote.classList.toggle('d-none', !ignored);
+    }
+  }
+
+  /**
+   * Turn TTS back on for this viewer. Only ever reachable for an opt-out they
+   * imposed themselves; a moderator's mute leaves the control disabled, and the
+   * server refuses it regardless.
+   */
+  async function handleUnignoreAction(type: 'tts'): Promise<void> {
+    const checkbox = elements.ignoreTtsCheckbox;
+    if (!checkbox) return;
+
+    const targetChannel = getCurrentChannel();
+    if (testMode) {
+      updateIgnoreCheckboxes({ tts: false });
+      showToast(`You opted back in to ${type.toUpperCase()} (test mode).`, 'success');
+      return;
+    }
+    if (!targetChannel) {
+      showToast('Select a channel first.', 'warning');
+      checkbox.checked = true;
+      return;
+    }
+
+    try {
+      await fetchWithAuth(`${apiBaseUrl}/api/viewer/ignore/${type}/${encodeURIComponent(targetChannel)}`, { method: 'POST' });
+      updateIgnoreCheckboxes({ tts: false });
+      showToast(`You opted back in to ${type.toUpperCase()}.`, 'success');
+    } catch (error) {
+      // Either way the viewer is still opted out, so the toggle goes back on. Only
+      // a real 403 means a moderator took the entry over while the page was open
+      // and the control should lock; a network blip or a 500 must not tell someone
+      // they were muted. fetchWithAuth folds the status into the message, which is
+      // the only signal it passes through.
+      console.error(`Failed to opt back in to ${type}:`, error);
+      const message = error instanceof Error ? error.message : String(error);
+      const moderatorImposed = message.includes('API Error: 403');
+      updateIgnoreCheckboxes(moderatorImposed ?
+        { tts: true, ttsSource: 'moderator', ttsCanSelfUndo: false } :
+        { tts: true, ttsSource: 'self', ttsCanSelfUndo: true });
+      showToast(moderatorImposed ? MODERATOR_NOTE : `Cannot opt back in to ${type.toUpperCase()}.`, 'error');
     }
   }
 
@@ -146,7 +214,7 @@ export function initDangerZoneModule(
     if (!checkbox) return;
 
     if (testMode) {
-      checkbox.disabled = true;
+      updateIgnoreCheckboxes({ tts: true, ttsSource: 'self', ttsCanSelfUndo: true });
       showToast(`You opted out of ${type.toUpperCase()} (test mode).`, 'success');
       return;
     }
@@ -177,7 +245,7 @@ export function initDangerZoneModule(
   function showConfirmModal(type: 'tts', channelName: string): void {
     if (!elements.confirmModal) return;
     if (elements.confirmText) {
-      elements.confirmText.textContent = `Do you want to opt out of ${type.toUpperCase()} in #${channelName}? CAUTION: Only a channel moderator can undo this action.`;
+      elements.confirmText.textContent = `Do you want to opt out of ${type.toUpperCase()} in #${channelName}? Your messages will not be read aloud. You can turn this back on at any time.`;
     }
     openDialog(elements.confirmModal);
   }
@@ -187,7 +255,7 @@ export function initDangerZoneModule(
     const { type, checkbox } = pendingAction;
     try {
       if (testMode) {
-        checkbox.disabled = true;
+        updateIgnoreCheckboxes({ tts: true, ttsSource: 'self', ttsCanSelfUndo: true });
         showToast(`You opted out of ${type.toUpperCase()} (test mode).`, 'success');
         closeDialog(elements.confirmModal);
         pendingAction = null;
@@ -204,7 +272,8 @@ export function initDangerZoneModule(
         return;
       }
       await fetchWithAuth(`${apiBaseUrl}/api/viewer/ignore/${type}/${encodeURIComponent(targetChannel)}`, { method: 'POST' });
-      checkbox.disabled = true;
+      // Self-imposed, so it stays reversible from here.
+      updateIgnoreCheckboxes({ tts: true, ttsSource: 'self', ttsCanSelfUndo: true });
       showToast(`You opted out of ${type.toUpperCase()}.`, 'success');
     } catch (error) {
       console.error(`Failed to opt out of ${type}:`, error);

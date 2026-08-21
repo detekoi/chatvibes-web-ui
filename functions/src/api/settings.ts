@@ -12,6 +12,7 @@ import { RELEASED_VOICES } from "../services/voice-list";
 import { normalizeMatchKey, validateSay, PRONUNCIATION_LIMITS } from "../services/pronunciation";
 import { getUserByUsername } from "../services/twitch";
 import { secrets } from "../config";
+import { buildIgnoreEntry, IGNORE_SOURCE_MODERATOR } from "../services/ignoreEntries";
 
 const router: Router = express.Router();
 
@@ -146,9 +147,15 @@ router.put("/tts/settings/channel/:channelName", authenticateApiRequest, authori
 //
 // Entries are keyed by immutable Twitch user ID ("twitch:<id>") rather than by
 // login, so renaming an account does not shed its entry and reclaiming a
-// released login does not inherit one. The stored value is a display name, kept
-// only so the list has something readable to render. The bot writes the same
-// map; see src/lib/ignoreList.js in the tts-twitch repo for the key format.
+// released login does not inherit one. The stored value is a record of who
+// imposed the entry, with a display name kept only so the list has something
+// readable to render. The bot writes the same map; see src/lib/ignoreList.js in
+// the tts-twitch repo for the format, mirrored here in services/ignoreEntries.ts.
+//
+// Everything added through here is moderator-imposed: authorizeChannelAccess
+// requires req.user.userLogin to equal the channel name, so the caller is always
+// the broadcaster acting on someone else. That is what stops the target lifting
+// it themselves from the viewer settings page.
 
 // POST /tts/ignore/channel/:channelName - Add user to ignore list
 router.post("/tts/ignore/channel/:channelName", authenticateApiRequest, authorizeChannelAccess, (async (req: AuthenticatedRequest, res: Response): Promise<void> => {
@@ -180,7 +187,13 @@ router.post("/tts/ignore/channel/:channelName", authenticateApiRequest, authoriz
         // merge:true deep-merges nested maps key by key, so this touches only
         // the one entry and leaves the rest of the list alone.
         await docRef.set({
-            ignoredUserIds: { [`twitch:${account.id}`]: account.displayName },
+            ignoredUserIds: {
+                [`twitch:${account.id}`]: buildIgnoreEntry({
+                    label: account.displayName,
+                    source: IGNORE_SOURCE_MODERATOR,
+                    by: `twitch:${req.user.userId}`,
+                }),
+            },
         }, { merge: true });
 
         logger.info({ channelName, userId: account.id, username: account.login }, "Added user to TTS ignore list");

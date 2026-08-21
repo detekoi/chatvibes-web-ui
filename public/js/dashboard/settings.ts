@@ -5,6 +5,7 @@ import { DashboardServices, TtsSettings } from './types.js';
 import { SettingsApi } from './services/settings-api.js';
 import { VoiceDropdown } from './components/voice-dropdown.js';
 import { VoiceCalibration } from './components/voice-calibration.js';
+import type { StoredIgnoreValue } from '../common/ignoreEntries.js';
 
 const previewState = {
   currentlyPlayingAudio: null as HTMLAudioElement | null,
@@ -19,7 +20,7 @@ export interface SettingsModuleContext {
 }
 
 export interface SettingsModuleDependencies {
-  displayIgnoreList: (type: 'tts', entries: Record<string, string>) => void;
+  displayIgnoreList: (type: 'tts', entries: Record<string, StoredIgnoreValue>) => void;
   displayBannedWords: (words: string[]) => void;
   displayPronunciations: (entries: Record<string, string>) => void;
 }
@@ -638,7 +639,12 @@ export function initSettingsModule(
         speed: 1.0,
         languageBoost: 'auto',
         englishNormalization: false,
-        ignoredUserIds: { 'twitch:52343457': 'Spammer1', 'twitch:19571641': 'Troll2' },
+        // One of each shape, so test mode exercises both provenance badges: a
+        // viewer who opted out themselves and someone the broadcaster muted.
+        ignoredUserIds: {
+          'twitch:52343457': { label: 'Spammer1', source: 'moderator', by: 'twitch:1', at: null },
+          'twitch:19571641': { label: 'Troll2', source: 'self', by: 'twitch:19571641', at: null },
+        },
         pronunciationEnabled: true,
         profanityFilterEnabled: false,
         pronunciations: { wcat: 'wildcat', lfg: '' }
