@@ -269,7 +269,7 @@ Confirm which host TTS actually serves in production (`chatvibestts.web.app`
 and `tts.wildcat.chat` both appear in config) and use the one the redirect URI
 will name.
 
-If Phase 0 turns out to be unacceptable — e.g. the human does not want to touch
+If Phase 0 turns out to be unacceptable — for example, the human does not want to touch
 the Twitch console — **stop and report back** rather than reaching for a
 stateless signed-state scheme as a substitute. HMAC-signing the state proves
 integrity but not browser binding, so it does not stop an attacker replaying
@@ -347,7 +347,7 @@ Phase 3 in the same commit as Phase 1.
 
 - [ ] TTS's `CALLBACK_URL` and the Twitch console redirect URI match, and the
       callback now arrives through the Hosting rewrite (Phase 0).
-- [ ] The TTS state cookie survives Firebase Hosting — i.e. it is named
+- [ ] The TTS state cookie survives Firebase Hosting — that is, it is named
       `__session`, confirmed by an actual round trip through the emulator or a
       deployed preview, not by reading the code.
 - [ ] A callback with a `state` that does not match the cookie is **rejected**,

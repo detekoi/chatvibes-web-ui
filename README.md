@@ -4,7 +4,7 @@ Web interface for the WildcatTTS Twitch bot.
 
 ## Description
 
-WildcatTTS Web UI is a web application for Twitch streamers and viewers to manage the [WildcatTTS Text-to-Speech (TTS) bot](https://github.com/detekoi/chatvibes). Streamers can sign in with a Twitch account to activate or deactivate the TTS service and check its status. The application features an animated background.
+WildcatTTS Web UI is a web application for Twitch streamers and viewers to manage the [WildcatTTS Text-to-Speech (TTS) bot](https://github.com/detekoi/chatvibes). Streamers can sign in with a Twitch account to activate or deactivate the TTS service and view its status. The application features an animated background.
 
 > **Note:** Access to WildcatTTS is invite-only. The web management interface shows an access denied message for unapproved channels. If you want to request access, submit [this contact form](https://parfaitfair.com/#contact).
 
@@ -62,7 +62,7 @@ CAUTION: Edit TypeScript source files in `/public/js/**/*.ts`. Do not edit compi
 
 ### Broadcaster OAuth Scopes
 
-WildcatTTS requires these OAuth scopes for complete bot functionality:
+WildcatTTS requires these OAuth scopes for all bot features:
 
 * **`user:read:email`** - Reads user email for account identification.
 * **`user:read:chat`** - Reads chat messages through Twitch EventSub.
@@ -74,7 +74,7 @@ WildcatTTS requires these OAuth scopes for complete bot functionality:
 * **`moderator:read:followers`** - Detects follower events for TTS announcements.
 * **`channel:manage:moderators`** - Adds the bot as a channel moderator automatically.
 
-These scopes permit the WildcatTTS bot to perform these actions:
+With these scopes, the WildcatTTS bot can perform these actions:
 - Monitor chat through Twitch EventSub.
 - Read and respond to `!tts` commands.
 - Announce subscription, Bit cheer, and follower events.

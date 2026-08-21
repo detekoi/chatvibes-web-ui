@@ -4,13 +4,13 @@ Integration tests for ChatVibes Web UI API endpoints using Firebase emulator.
 
 ## Prerequisites
 
-1. **Firebase Emulator Suite** must be installed:
+1. Install the **Firebase Emulator Suite**:
    ```bash
    npm install -g firebase-tools
    firebase init emulators
    ```
 
-2. **Firestore Emulator** should be configured in `firebase.json`:
+2. Configure the **Firestore Emulator** in `firebase.json`:
    ```json
    {
      "emulators": {
@@ -37,7 +37,7 @@ Integration tests for ChatVibes Web UI API endpoints using Firebase emulator.
 
 ### Option 2: Run without Emulator
 
-Tests can run without the emulator, but tests that interact with Firestore will be skipped or may timeout.
+Tests can run without the emulator. However, tests that interact with Firestore skip or stop with a timeout.
 
 ```bash
 npm run test:integration
@@ -92,8 +92,8 @@ describe('My API Integration Tests', () => {
 
 ## Notes
 
-- Tests use `supertest` for HTTP request testing
-- JWT tokens are automatically generated for authenticated endpoints
-- Firestore data is cleared between tests when emulator is running
-- Environment variables are automatically set for test mode
+- Tests use `supertest` for HTTP request tests.
+- Authenticated endpoints generate JWT tokens automatically.
+- When the emulator runs, Firestore data clears between tests.
+- Test mode sets environment variables automatically.
 

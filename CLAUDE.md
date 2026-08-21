@@ -43,8 +43,8 @@ WildcatTTS TTS bot management web application with:
 - Use 2nd gen Cloud Functions patterns
 - Handle Twitch API rate limiting in token refresh
 - Bind the OAuth `state` to the browser with the one-use `__session` cookie set
-  in `functions/src/auth/state.ts`. The cookie is not signed and needs no key —
-  it holds an opaque nonce compared in constant time, plus the routing payload
-  (`t`, `c`) that used to travel in `state`. It must stay host-only with no
-  `Domain`, and `CALLBACK_URL` must stay on the Hosting origin so the cookie
-  comes back. Firebase Hosting drops every cookie except `__session`.
+  in `functions/src/auth/state.ts`. The cookie is not signed and needs no key.
+  It holds an opaque nonce compared in constant time, plus the routing payload
+  (`t`, `c`) that previously traveled in `state`. It must stay host-only with no
+  `Domain`. Keep `CALLBACK_URL` on the Hosting origin so that the cookie
+  returns. Firebase Hosting drops every cookie except `__session`.
