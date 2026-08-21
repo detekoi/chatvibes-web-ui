@@ -170,6 +170,8 @@ export function initSettingsModule(
     if (cheerEventsEnabledCheckbox) cheerEventsEnabledCheckbox.addEventListener('change', () => saveSettingWrapper('speakCheerEvents', cheerEventsEnabledCheckbox.checked !== false, 'Cheer Announcements'));
     const redemptionEventsEnabledCheckbox = document.getElementById('redemption-events-enabled') as HTMLInputElement | null;
     if (redemptionEventsEnabledCheckbox) redemptionEventsEnabledCheckbox.addEventListener('change', () => saveSettingWrapper('speakRedemptionEvents', redemptionEventsEnabledCheckbox.checked !== false, 'Redemption Announcements'));
+    const announceUnfulfilledCheckbox = document.getElementById('announce-unfulfilled-redemptions') as HTMLInputElement | null;
+    if (announceUnfulfilledCheckbox) announceUnfulfilledCheckbox.addEventListener('change', () => saveSettingWrapper('announceUnfulfilledRedemptions', !!announceUnfulfilledCheckbox.checked, 'Announce Queued Redeems'));
     const watchStreakEventsEnabledCheckbox = document.getElementById('watch-streak-events-enabled') as HTMLInputElement | null;
     if (watchStreakEventsEnabledCheckbox) watchStreakEventsEnabledCheckbox.addEventListener('change', () => saveSettingWrapper('speakWatchStreakEvents', !!watchStreakEventsEnabledCheckbox.checked, 'Watch Streak Announcements'));
     if (anonymizeFollowersCheckbox) anonymizeFollowersCheckbox.addEventListener('change', () => saveSettingWrapper('anonymizeFollowers', anonymizeFollowersCheckbox.checked !== false, 'Anonymize Followers'));
@@ -692,6 +694,9 @@ export function initSettingsModule(
       const defaultRedemptionState = settings.speakEvents !== false;
       redemptionEventsEnabledCheckbox.checked = settings.speakRedemptionEvents !== undefined ? settings.speakRedemptionEvents : defaultRedemptionState;
     }
+    const announceUnfulfilledCheckbox = document.getElementById('announce-unfulfilled-redemptions') as HTMLInputElement | null;
+    // Off unless the channel opted in — the announcement is irreversible once spoken.
+    if (announceUnfulfilledCheckbox) announceUnfulfilledCheckbox.checked = settings.announceUnfulfilledRedemptions === true;
     const watchStreakEventsEnabledCheckbox = document.getElementById('watch-streak-events-enabled') as HTMLInputElement | null;
     if (watchStreakEventsEnabledCheckbox) {
       const defaultWatchStreakState = settings.speakEvents !== false;

@@ -27,6 +27,7 @@ const BOOLEAN_SETTINGS = [
     "speakEvents",
     "speakCheerEvents",
     "speakRedemptionEvents",
+    "announceUnfulfilledRedemptions",
     "speakWatchStreakEvents",
     "anonymizeFollowers",
     "bitsModeEnabled",

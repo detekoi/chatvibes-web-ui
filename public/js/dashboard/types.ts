@@ -40,6 +40,7 @@ export interface TtsSettings {
   speakEvents?: boolean;
   speakCheerEvents?: boolean; // Granular toggle for cheer events specifically
   speakRedemptionEvents?: boolean; // Announce channel point reward redemptions via TTS
+  announceUnfulfilledRedemptions?: boolean; // Announce queued redemptions on redeem instead of waiting for the streamer to accept them
   speakWatchStreakEvents?: boolean; // Announce watch streak milestones via TTS
   anonymizeFollowers?: boolean; // Hide follower names in TTS announcements (default: true)
   allowViewerPreferences?: boolean;
