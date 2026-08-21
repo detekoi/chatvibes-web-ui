@@ -137,6 +137,13 @@ export function initDangerZoneModule(
     if (elements.confirmNo) {
       elements.confirmNo.addEventListener('click', cancelIgnoreAction);
     }
+    if (elements.confirmModal) {
+      // showModal() lets Escape close the dialog natively, which fires 'cancel'
+      // and never reaches the Cancel button. Without this the box stays checked
+      // after an abort, and unchecking it then POSTs to a toggle endpoint that
+      // opts the viewer out — the exact thing they just backed out of.
+      elements.confirmModal.addEventListener('cancel', cancelIgnoreAction);
+    }
   }
 
   function toggleVisibility(visible: boolean): void {
@@ -286,9 +293,10 @@ export function initDangerZoneModule(
   }
 
   function cancelIgnoreAction(): void {
-    if (pendingAction?.checkbox) {
-      pendingAction.checkbox.checked = false;
-    }
+    // Nothing was written, so the viewer is back to not being ignored at all.
+    // Going through updateIgnoreCheckboxes rather than setting `checked` directly
+    // keeps the note and the disabled state in step with the box.
+    if (pendingAction) updateIgnoreCheckboxes({ tts: false });
     pendingAction = null;
     pendingChannel = null;
     if (elements.confirmModal) closeDialog(elements.confirmModal);

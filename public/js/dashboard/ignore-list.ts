@@ -2,6 +2,7 @@ import { showToast } from '../common/ui.js';
 import {
   normalizeIgnoreEntry,
   IGNORE_SOURCE_SELF,
+  IGNORE_SOURCE_MODERATOR,
   type StoredIgnoreValue,
 } from '../common/ignoreEntries.js';
 
@@ -67,6 +68,18 @@ export function initIgnoreListModule(
     return headers;
   }
 
+  /**
+   * Read one rendered row back into a stored entry. Test mode has no server to
+   * re-read, so it rebuilds the list from the DOM — which has to round-trip the
+   * provenance too, or every redraw would demote self opt-outs to moderator.
+   */
+  function readRenderedEntry(el: HTMLElement): StoredIgnoreValue {
+    const label = el.querySelector<HTMLElement>('[data-ignore-label]')?.textContent || '';
+    const source = el.querySelector('.badge')?.textContent === 'Opted out' ?
+      IGNORE_SOURCE_SELF : IGNORE_SOURCE_MODERATOR;
+    return { label, source, by: null, at: null };
+  }
+
   function displayIgnoreList(type: IgnoreListType, entries: Record<string, StoredIgnoreValue>): void {
     const listEl = document.getElementById(`${type}-ignore-list`);
     if (!listEl) return;
@@ -93,13 +106,22 @@ export function initIgnoreListModule(
       // removing someone's own opt-out reads very differently from removing a
       // mute you placed, and only one of the two can come back on its own.
       const isSelf = source === IGNORE_SOURCE_SELF;
+
+      // The label is marked so test mode can read it back without picking up the
+      // badge text. Nesting the badge inside the label span made
+      // querySelector('span').textContent return "Spammer1Muted by you", which
+      // then went back through the list as a bare string — losing the provenance
+      // and growing another badge on every render.
+      const cell = document.createElement('span');
       const nameSpan = document.createElement('span');
+      nameSpan.dataset.ignoreLabel = '';
       nameSpan.textContent = label;
 
       const sourceSpan = document.createElement('span');
       sourceSpan.className = `badge ms-2 ${isSelf ? 'text-bg-secondary' : 'text-bg-danger'}`;
       sourceSpan.textContent = isSelf ? 'Opted out' : 'Muted by you';
-      nameSpan.appendChild(sourceSpan);
+      cell.appendChild(nameSpan);
+      cell.appendChild(sourceSpan);
 
       const btn = document.createElement('button');
       btn.className = 'btn btn-outline-danger btn-sm';
@@ -109,7 +131,7 @@ export function initIgnoreListModule(
       btn.textContent = 'Remove';
       btn.addEventListener('click', () => removeFromIgnoreList(type, key, label));
 
-      li.appendChild(nameSpan);
+      li.appendChild(cell);
       li.appendChild(btn);
       listEl.appendChild(li);
     });
@@ -128,11 +150,15 @@ export function initIgnoreListModule(
       if (listEl) {
         // No Helix lookup in test mode, so stand in a synthetic key. It only has
         // to be unique within the rendered list.
-        const current: Record<string, string> = {};
+        const current: Record<string, StoredIgnoreValue> = {};
         listEl.querySelectorAll<HTMLElement>('li[data-ignore-key]').forEach(el => {
-          current[el.dataset.ignoreKey as string] = el.querySelector('span')?.textContent || '';
+          current[el.dataset.ignoreKey as string] = readRenderedEntry(el);
         });
-        current[`twitch:demo-${username.toLowerCase()}`] = username;
+        // Anything added from this page is broadcaster-imposed, matching what the
+        // real POST route writes.
+        current[`twitch:demo-${username.toLowerCase()}`] = {
+          label: username, source: IGNORE_SOURCE_MODERATOR, by: null, at: null,
+        };
         displayIgnoreList(type, current);
       }
       inputEl.value = '';
@@ -173,10 +199,10 @@ export function initIgnoreListModule(
     if (testMode) {
       const listEl = document.getElementById(`${type}-ignore-list`);
       if (listEl) {
-        const remaining: Record<string, string> = {};
+        const remaining: Record<string, StoredIgnoreValue> = {};
         listEl.querySelectorAll<HTMLElement>('li[data-ignore-key]').forEach(el => {
           if (el.dataset.ignoreKey === key) return;
-          remaining[el.dataset.ignoreKey as string] = el.querySelector('span')?.textContent || '';
+          remaining[el.dataset.ignoreKey as string] = readRenderedEntry(el);
         });
         displayIgnoreList(type, remaining);
       }
