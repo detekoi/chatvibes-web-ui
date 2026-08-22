@@ -695,7 +695,7 @@ export function initSettingsModule(
       redemptionEventsEnabledCheckbox.checked = settings.speakRedemptionEvents !== undefined ? settings.speakRedemptionEvents : defaultRedemptionState;
     }
     const announceUnfulfilledCheckbox = document.getElementById('announce-unfulfilled-redemptions') as HTMLInputElement | null;
-    // Off unless the channel opted in — the announcement is irreversible once spoken.
+    // Disabled by default. An announcement cannot be undone after the bot speaks it.
     if (announceUnfulfilledCheckbox) announceUnfulfilledCheckbox.checked = settings.announceUnfulfilledRedemptions === true;
     const watchStreakEventsEnabledCheckbox = document.getElementById('watch-streak-events-enabled') as HTMLInputElement | null;
     if (watchStreakEventsEnabledCheckbox) {
