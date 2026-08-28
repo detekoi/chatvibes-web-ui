@@ -635,15 +635,31 @@ a[target="_blank"].no-arrow::after {
 .wc-langselect {
     height: 32px;
     max-width: 9.5rem;
-    padding: 0 8px;
+    padding: 0 26px 0 10px;
+    padding-inline: 10px 26px;
     border-radius: var(--wc-radius-card);
-    background: transparent;
+    background-color: transparent;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23495057' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 9px center;
+    background-size: 13px 10px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     border: 1px solid var(--wc-border-strong);
     color: var(--wc-text-1);
     font-family: var(--wc-font-mono);
     font-size: 11px;
     cursor: pointer;
     transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+[data-theme="dark"] .wc-langselect {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23adb5bd' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+}
+
+[dir="rtl"] .wc-langselect {
+    background-position: left 9px center;
 }
 
 .wc-langselect:hover {
@@ -1346,6 +1362,10 @@ a[target="_blank"].no-arrow::after {
     font-family: var(--wc-font-body);
     font-size: 12.5px;
     line-height: var(--wc-control-h);
+}
+
+:root :is(.settings-section, .wc-card) .form-select {
+    padding-inline-end: 28px;
 }
 
 :root :is(.settings-section, .wc-card) .list-group-item > .row > .col-auto :is(.form-select, .form-control:not(textarea):not([type="number"]):not([inputmode="numeric"]), .wc-field:not(.wc-field--number)) {
