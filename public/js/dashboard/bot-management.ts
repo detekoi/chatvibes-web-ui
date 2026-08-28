@@ -44,6 +44,8 @@ interface BotActionResponse {
   error?: string;
   code?: string;
   details?: string;
+  /** Values the message interpolates, so the client can render its own copy. */
+  params?: Record<string, string>;
 }
 
 

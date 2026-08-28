@@ -108,12 +108,6 @@ export class SettingsApi {
             errorText = errorData.details || errorData.message || errorData.error || errorText;
         } catch { }
 
-        // Not-authorized is surfaced as-is for the caller to present. Keyed on
-        // the error code rather than on spotting a URL inside the sentence, so
-        // rewording the message cannot silently change the behaviour.
-        if (response.status === 403) {
-            throw new Error(errorText);
-        }
 
         throw new Error(errorText);
     }

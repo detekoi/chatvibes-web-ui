@@ -98,7 +98,10 @@ router.post("/add", authenticateApiRequest, async (req: Request, res: Response):
         res,
         403,
         "channel_not_authorized",
-        "Your channel is not authorized to use this bot. Contact me for access: https://parfaitfair.com/#contact",
+        // No URL in the sentence: the client appends it as a link from params,
+        // and leaving it here too showed it to the user twice. auth/routes.ts
+        // sends the same message without it.
+        "Your channel is not authorized to use this bot. Contact me for access.",
         { contactUrl: "https://parfaitfair.com/#contact" },
       );
       return;
