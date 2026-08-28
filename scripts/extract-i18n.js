@@ -79,8 +79,18 @@ const DO_NOT_TRANSLATE = new Set([
 ]);
 
 const hasLetter = (s) => /\p{L}/u.test(s);
-const stripTags = (s) => s.replace(/<[^>]*>/g, '');
-const isDnt = (s) => DO_NOT_TRANSLATE.has(stripTags(s).replace(/\s+/g, ' ').trim());
+
+/**
+ * Is this string one the do-not-translate list holds?
+ *
+ * Takes the *text*, never the source, so the caller has to hand over something
+ * parse5 already produced rather than markup: comparing `Wildcat<b>TTS</b>` to
+ * `WildcatTTS` needs the tags gone, and stripping them with a regex here is both
+ * wrong on real HTML (attribute values containing `>`, comments) and the shape
+ * every scanner flags as a broken sanitizer. The document is already parsed;
+ * use the parse.
+ */
+const isDnt = (text) => DO_NOT_TRANSLATE.has(text.replace(/\s+/g, ' ').trim());
 
 /** camelCase identifier from arbitrary text, capped so keys stay readable. */
 function slugify(text, maxWords = 5) {
@@ -235,7 +245,9 @@ function extract(fileName, source) {
         const hasMarkup = child.childNodes.some(isElement);
         const raw = hasMarkup ? innerSource(child, source) : getText(child);
         const text = raw === null ? null : normalize(raw);
-        if (text && hasLetter(text) && !isDnt(text)) {
+        // The do-not-translate test gets parse5's text either way; `text` above
+        // may still carry the inline markup that belongs in the message.
+        if (text && hasLetter(text) && !isDnt(getText(child))) {
           annotate(child, 'data-i18n', childSection, text);
         }
         continue;
