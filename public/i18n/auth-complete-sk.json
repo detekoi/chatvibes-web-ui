@@ -1,0 +1,39 @@
+{
+  "authBar": {
+    "signInProgress": "Priebeh prihlasovania"
+  },
+  "authMessage": {
+    "pleaseWait": "Počkajte, prosím."
+  },
+  "authSteps": {
+    "loadingDashboard": "Načítava sa dashboard",
+    "sessionTokenStored": "Token relácie bol uložený",
+    "twitchAuthorized": "Twitch autorizovaný"
+  },
+  "authTitle": {
+    "signingYouIn": "Prihlasujeme vás"
+  },
+  "meta": {
+    "completingWildcatttsTwitchSignIn": "Dokončuje sa prihlásenie cez Twitch do WildcatTTS.",
+    "wildcatttsCompletingSignIn": "WildcatTTS – Dokončovanie prihlásenia"
+  },
+  "msg": {
+    "authComplete": {
+      "cannotComplete": "Nemožno dokončiť prihlásenie.",
+      "failedReadout": "Zlyhalo",
+      "failedTitle": "Prihlásenie zlyhalo",
+      "missingInfo": "Chýbajú autentifikačné údaje zo spätného volania Twitch. Prihláste sa znova.",
+      "noSession": "Žiadna relácia",
+      "redirecting": "Presmerovanie na váš panel.",
+      "retrySignIn": "{reason} Prihláste sa znova.",
+      "sessionEstablished": "Relácia nadviazaná",
+      "welcome": "Vitajte, {user}"
+    }
+  },
+  "sessionState": {
+    "establishingSession": "Nadväzuje sa relácia"
+  },
+  "statusReadout": {
+    "working": "<span class=\"wc-dot\"></span>Spracováva sa"
+  }
+}

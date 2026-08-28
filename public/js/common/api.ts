@@ -1,6 +1,7 @@
 /**
  * Shared API helpers for WildcatTTS Web UI.
  */
+import { apiErrorMessage, t } from './i18n.js';
 
 /**
  * Returns the base URL for the API based on the current environment.
@@ -19,7 +20,7 @@ export function getApiBaseUrl(): string {
 export async function fetchWithAuth(url: string, options: RequestInit = {}): Promise<Response> {
   const appSessionToken = localStorage.getItem('app_session_token');
   if (!appSessionToken) {
-    throw new Error('Not authenticated');
+    throw new Error(t('msg.api.notAuthenticated'));
   }
 
   const headers: HeadersInit = {
@@ -32,19 +33,22 @@ export async function fetchWithAuth(url: string, options: RequestInit = {}): Pro
 
   if (!response.ok) {
     if (response.status === 401) {
-      throw new Error('Authentication failed. Please log in again.');
+      throw new Error(t('msg.api.authFailed'));
     }
 
+    // Translated here rather than at each call site: every module surfaces this
+    // as `err.message`, so resolving the API's `code` once is what gets the
+    // whole failure path out of English.
     let errorMessage = response.statusText;
     try {
-      const errorData = await response.json() as { error?: string };
-      if (errorData.error) {
-        errorMessage = errorData.error;
-      }
+      errorMessage = apiErrorMessage(await response.json(), 'msg.api.requestFailed');
     } catch (_) {
       // Ignore JSON parse errors and fall back to statusText.
     }
 
+    // The `API Error: <status> ` prefix is load-bearing: voice-preview.ts strips
+    // it back off for display and danger-zone.ts tests for "API Error: 403" to
+    // tell a moderator mute from a network blip. Keep the shape.
     throw new Error(`API Error: ${response.status} ${errorMessage}`);
   }
 

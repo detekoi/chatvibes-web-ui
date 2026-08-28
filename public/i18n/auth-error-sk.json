@@ -1,0 +1,41 @@
+{
+  "errorAction": {
+    "tryAgain": "Skúsiť znova"
+  },
+  "errorCode": {
+    "unknown": "neznámy"
+  },
+  "errorCodeBlock": {
+    "error": "Chyba"
+  },
+  "errorMessageDetails": {
+    "twitchAuthenticationFailed": "Autentifikácia cez Twitch zlyhala."
+  },
+  "errorReadout": {
+    "authenticationFailed": "Autentifikácia zlyhala"
+  },
+  "errorTitle": {
+    "authenticationFailed": "Autentifikácia zlyhala"
+  },
+  "mainContent": {
+    "requestAccessTtsWildcatChat": "<a class=\"wc-link\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">Požiadať o prístup</a> <span>tts.wildcat.chat</span>"
+  },
+  "meta": {
+    "wildcatttsAuthenticationError": "WildcatTTS - Chyba autentifikácie",
+    "wildcatttsAuthenticationErrorAndSign": "Chyba autentifikácie WildcatTTS a obnovenie prihlásenia."
+  },
+  "msg": {
+    "authError": {
+      "backToSignIn": "Späť na prihlásenie",
+      "canceledBody": "Nedošlo k žiadnym zmenám. Môžete sa prihlásiť, keď budete pripravení.",
+      "canceledReadout": "Zrušené",
+      "canceledTitle": "WildcatTTS – Prihlásenie zrušené",
+      "canceledTitleShort": "Prihlásenie zrušené",
+      "notPermitted": "Prístup nie je povolený",
+      "requestAccess": "Požiadať o prístup",
+      "twitchError": "Twitch vrátil chybu počas overovania.",
+      "unspecified": "Vyskytla sa nešpecifikovaná chyba.",
+      "unspecifiedCode": "nešpecifikované"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "errorAction": {
+    "tryAgain": "أعد المحاولة"
+  },
+  "errorCode": {
+    "unknown": "غير معروف"
+  },
+  "errorCodeBlock": {
+    "error": "خطأ"
+  },
+  "errorMessageDetails": {
+    "twitchAuthenticationFailed": "فشلت المصادقة عبر Twitch."
+  },
+  "errorReadout": {
+    "authenticationFailed": "فشلت المصادقة"
+  },
+  "errorTitle": {
+    "authenticationFailed": "فشلت المصادقة"
+  },
+  "mainContent": {
+    "requestAccessTtsWildcatChat": "<a class=\"wc-link\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">طلب الوصول</a> <span>tts.wildcat.chat</span>"
+  },
+  "meta": {
+    "wildcatttsAuthenticationError": "WildcatTTS - خطأ في المصادقة",
+    "wildcatttsAuthenticationErrorAndSign": "خطأ في مصادقة WildcatTTS واستعادة تسجيل الدخول."
+  },
+  "msg": {
+    "authError": {
+      "backToSignIn": "العودة إلى تسجيل الدخول",
+      "canceledBody": "لم يتم إجراء أي تغييرات. يمكنك تسجيل الدخول عندما تكون مستعدًا.",
+      "canceledReadout": "تم الإلغاء",
+      "canceledTitle": "WildcatTTS - تم إلغاء تسجيل الدخول",
+      "canceledTitleShort": "تم إلغاء تسجيل الدخول",
+      "notPermitted": "الوصول غير مسموح به",
+      "requestAccess": "طلب الوصول",
+      "twitchError": "أرجع Twitch خطأً أثناء المصادقة.",
+      "unspecified": "حدث خطأ غير محدد.",
+      "unspecifiedCode": "غير محدد"
+    }
+  }
+}

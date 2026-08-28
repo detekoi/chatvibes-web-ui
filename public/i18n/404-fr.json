@@ -1,0 +1,11 @@
+{
+  "mainContent": {
+    "pageNotFound": "Page introuvable",
+    "returnToLogin": "Retour à la connexion",
+    "thatUrlIsNotPart": "Cette URL ne fait pas partie de ce site. Vérifiez que l'adresse est correcte ou retournez à la page de connexion."
+  },
+  "meta": {
+    "pageNotFoundOnWildcattts": "Page introuvable sur WildcatTTS.",
+    "pageNotFoundWildcattts": "Page introuvable — WildcatTTS"
+  }
+}

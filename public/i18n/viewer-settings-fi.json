@@ -1,0 +1,212 @@
+{
+  "addChannelContextCard": {
+    "loadAChannelToSee": "Lataa kanava nähdäksesi sen oletusasetukset ja hallitaksesi kieltäytymisiä. Asetuksesi pysyvät yleisinä."
+  },
+  "channelContextCard": {
+    "changesHereUpdateYourGlobal": "Täällä tehdyt muutokset päivittävät <strong>sinun</strong> yleisiä asetuksiasi. Striimaajan asetukset eivät muutu.",
+    "channelContext": "Kanavakonteksti",
+    "clearButtonsSetYourGlobal": "<strong>Tyhjennä-painikkeet:</strong> Aseta yleiset asetuksesi vastaamaan tämän kanavan oletusasetuksia."
+  },
+  "channelHint": {
+    "channelFound": "Kanava löytyi"
+  },
+  "channelInputCancel": {
+    "cancel": "Peruuta"
+  },
+  "channelInputConfirm": {
+    "load": "Lataa"
+  },
+  "channelInputDesc": {
+    "enterTheChannelNameTo": "Kirjoita kanavan nimi nähdäksesi sen oletusasetukset ja hallitaksesi kieltäytymisiä:"
+  },
+  "channelInputModal": {
+    "streamerUsername": "Striimaajan käyttäjänimi"
+  },
+  "channelInputModalText": {
+    "streamerUsername": "Striimaajan käyttäjänimi"
+  },
+  "channelInputTitle": {
+    "loadChannelContext": "Lataa kanavakonteksti"
+  },
+  "clearChannelContextBtn": {
+    "clear": "Tyhjennä"
+  },
+  "confirmNo": {
+    "cancel": "Peruuta"
+  },
+  "confirmText": {
+    "yourMessagesWillNotBe": "Viestejäsi ei lueta ääneen. Voit ottaa tämän milloin vain takaisin käyttöön."
+  },
+  "confirmTitle": {
+    "confirmAction": "Vahvista toiminto"
+  },
+  "confirmYes": {
+    "confirm": "Vahvista"
+  },
+  "dangerTtsToggle": {
+    "optOutOfTtsIn": "Kieltäydy TTS:stä tällä kanavalla",
+    "ttsWillNotReadYour": "TTS ei lue viestejäsi tällä kanavalla"
+  },
+  "dangerZoneSection": {
+    "dangerZone": "Vaara-alue",
+    "theseSettingsStopTheBot": "Nämä asetukset estävät bottia lukemasta viestejäsi kanavalla. Voit kumota minkä tahansa itse valitsemasi asetuksen. Jos moderaattori esti viestiesi lukemisen, vain moderaattori voi kumota sen."
+  },
+  "emotionReset": {
+    "clear": "Tyhjennä",
+    "resetEmotionToDefault": "Palauta tunnetila oletukseen"
+  },
+  "emotionSelect": {
+    "angry": "Vihainen",
+    "disgusted": "Inhostunut",
+    "fearful": "Pelokas",
+    "happy": "Iloinen",
+    "neutral": "Neutraali",
+    "sad": "Surullinen",
+    "surprised": "Yllättynyt",
+    "useChannelDefault": "Käytä kanavan oletusta"
+  },
+  "englishNormalizationCheckbox": {
+    "englishNormalization": "Englannin normalisointi"
+  },
+  "englishNormalizationReset": {
+    "clear": "Tyhjennä",
+    "resetEnglishNormalizationToDefault": "Palauta englannin normalisointi oletukseen"
+  },
+  "ignoreTts": {
+    "optOutOfTtsIn": "Kieltäydy TTS:stä tällä kanavalla"
+  },
+  "languageReset": {
+    "clear": "Tyhjennä",
+    "resetLanguageToDefault": "Palauta kieli oletukseen"
+  },
+  "loadingBar": {
+    "loadingYourPreferences": "Ladataan asetuksiasi"
+  },
+  "loadingOverlay": {
+    "loadingYourPreferences": "Ladataan asetuksiasi…"
+  },
+  "loggedInStatus": {
+    "channelContext": "Kanavakonteksti",
+    "global": "Globaali",
+    "loggedInAs": "Kirjautuneena:",
+    "scope": "Laajuus"
+  },
+  "meta": {
+    "wildcatttsViewerSettings": "WildcatTTS – Katsojan asetukset",
+    "wildcatttsViewerSettingsSetYour": "WildcatTTS – Katsojan asetukset – Määritä henkilökohtainen TTS-äänesi, äänenkorkeutesi ja -nopeutesi Twitch-kanavilla."
+  },
+  "msg": {
+    "auth": {
+      "exchangeFailed": "Sisäänkirjautumista ei voi suorittaa loppuun. Yritä uudelleen pääsivulta.",
+      "testUser": "Testikäyttäjä"
+    },
+    "channel": {
+      "cleared": "Kanavakonteksti tyhjennetty.",
+      "clearedTestMode": "Kanavakonteksti tyhjennetty (testitila).",
+      "enterName": "Anna kanavan nimi.",
+      "found": "Kanava löytyi",
+      "foundTestMode": "Kanava löytyi (testitila)",
+      "hint": "Lataa kanava nähdäksesi sen oletusasetukset.",
+      "loaded": "Kanavakonteksti ladattu.",
+      "loadedTestMode": "Kanavakonteksti ladattu (testitila).",
+      "noneLoaded": "Ei ladattu",
+      "promptConfirm": "Lataa",
+      "promptDescription": "Kirjoita kanavan nimi nähdäksesi sen oletusasetukset ja hallitaksesi kieltäytymisiä:",
+      "promptTitle": "Lataa kanavan konteksti",
+      "viewingDefaults": "Tarkastelet kanavan {channel} oletusasetuksia."
+    },
+    "optout": {
+      "confirm": "Haluatko poistaa TTS:n käytöstä kanavalla #{channel}? Viestejäsi ei lueta ääneen. Voit ottaa sen milloin vain takaisin käyttöön.",
+      "confirmDescription": "Jatka kirjoittamalla kanavan nimi:",
+      "confirmTitle": "Vahvista kanava TTS-kieltäytymistä varten",
+      "continue": "Jatka",
+      "moderatorNote": "Kanavan moderaattori on estänyt sinulta TTS:n käytön täällä. Vain moderaattori voi kumota tämän.",
+      "optInFailed": "TTS:ää ei voi ottaa takaisin käyttöön.",
+      "optOutFailed": "TTS-lukemisesta kieltäytyminen epäonnistui.",
+      "optedIn": "Otit TTS:n takaisin käyttöön.",
+      "optedInTestMode": "Otit TTS:n takaisin käyttöön (testitila).",
+      "optedOut": "Kieltäydyit TTS:stä.",
+      "optedOutTestMode": "Kieltäydyit TTS:stä (testitila).",
+      "selectChannel": "Valitse ensin kanava.",
+      "selfNote": "Olet kieltäytynyt TTS:stä täällä. Voit ottaa sen takaisin käyttöön milloin tahansa.",
+      "specifyChannel": "Määritä kanava."
+    },
+    "prefs": {
+      "hintChannel": "Käytetään kanavan oletusta: {value}",
+      "hintSystem": "Käytetään järjestelmän oletusta",
+      "hintUser": "Käytetään yleistä asetustasi: {value}",
+      "loadFailed": "Asetuksia ei voi ladata.",
+      "noVoicesFound": "Ääniä ei löytynyt",
+      "saveFailed": "Kohteen {key} tallennus epäonnistui: {reason}",
+      "sendPreview": "Lähetä esikatselu",
+      "testCompletedTestMode": "Testi suoritettu (testitila).",
+      "updated": "Asetus päivitetty.",
+      "updatedTestMode": "Asetus päivitetty (testitila)."
+    }
+  },
+  "openChannelContextModalBtn": {
+    "loadChannel": "Lataa kanava…"
+  },
+  "page": {
+    "setHowYourMessagesSound": "Määritä, miltä viestisi kuulostavat, kun Wildcat TTS lukee ne. Asetuksesi ovat yleisiä ja koskevat kaikkia kanavia.",
+    "viewerTtsPreferences": "Katsojan TTS-asetukset",
+    "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Katsojan asetukset</span>"
+  },
+  "pitchReset": {
+    "clear": "Tyhjennä",
+    "resetPitchToDefault": "Palauta oletussävelkorkeus"
+  },
+  "pitchSlider": {
+    "pitchAdjustment12To12": "Sävelkorkeuden säätö (-12 – +12)"
+  },
+  "preferencesPanel": {
+    "adjustTheVoicePitchHigher": "Säädä äänen sävelkorkeutta korkeammaksi tai matalammaksi",
+    "controlHowFastTheVoice": "Säädä äänen puhenopeutta",
+    "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentaatio </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Striimaajan asetukset </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "<strong>Tunnetila</strong>",
+    "emotion2": "Tunnetila",
+    "englishNormalization": "Englanninkielinen normalisointi",
+    "engNormalization": "Engl. normalisointi",
+    "ifTtsReadsNumbersIncorrectly": "Jos TTS lukee numeroita väärin, ota englanninkielisen tekstin normalisointi käyttöön. Tämä asetus lisää viivettä hieman.",
+    "improvePronunciationForSpecificLanguages": "Paranna ääntämistä tietyillä kielillä",
+    "improveThePronunciationOfNumbers": "Paranna numeroiden ja tekstin ääntämistä",
+    "language": "Kieli",
+    "languageBoost": "<strong>Language Boost</strong>",
+    "pitch": "Sävelkorkeus",
+    "pitch12To12": "Äänenkorkeus (-12 – +12):",
+    "quickLinks": "Pikalinkit",
+    "selectYourPreferredTtsVoice": "Valitse haluamasi TTS-ääni",
+    "setHowYourMessagesSound": "Määritä, miltä viestisi kuulostavat, kun TTS lukee ne",
+    "setTheEmotionalToneOf": "Aseta äänen tunnesävy",
+    "speed": "Nopeus",
+    "speed05To2": "Nopeus (0,5 – 2,0):",
+    "testMessage": "Testiviesti",
+    "voice": "<strong>Ääni</strong>",
+    "voicePreview": "Äänen esikuuntelu",
+    "voiceSettings": "Ääniasetukset"
+  },
+  "prefsDisabledNote": {
+    "theStreamerDisabledPersonalVoice": "Striimaaja on poistanut henkilökohtaiset ääniasetukset käytöstä tällä kanavalla. Kanava käyttää oletusääntään omien asetustesi sijaan."
+  },
+  "previewBtn": {
+    "sendPreview": "Lähetä esikuuntelu"
+  },
+  "speedReset": {
+    "clear": "Tyhjennä",
+    "resetSpeedToDefault": "Palauta nopeus oletukseksi"
+  },
+  "speedSlider": {
+    "speedAdjustment05To": "Nopeuden säätö (0,5–2,0)"
+  },
+  "statChannelContext": {
+    "noneLoaded": "Ei ladattu"
+  },
+  "voiceReset": {
+    "clear": "Tyhjennä",
+    "resetVoiceToDefault": "Palauta ääni oletukseksi"
+  },
+  "voiceSearch": {
+    "searchVoices": "Hae ääniä",
+    "searchVoices2": "Hae ääniä..."
+  }
+}

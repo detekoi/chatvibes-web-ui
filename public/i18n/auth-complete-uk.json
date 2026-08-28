@@ -1,0 +1,39 @@
+{
+  "authBar": {
+    "signInProgress": "Прогрес входу"
+  },
+  "authMessage": {
+    "pleaseWait": "Зачекайте, будь ласка."
+  },
+  "authSteps": {
+    "loadingDashboard": "Завантаження панелі керування",
+    "sessionTokenStored": "Токен сесії збережено",
+    "twitchAuthorized": "Twitch авторизовано"
+  },
+  "authTitle": {
+    "signingYouIn": "Виконується вхід"
+  },
+  "meta": {
+    "completingWildcatttsTwitchSignIn": "Завершення входу у WildcatTTS через Twitch.",
+    "wildcatttsCompletingSignIn": "WildcatTTS - Завершення входу"
+  },
+  "msg": {
+    "authComplete": {
+      "cannotComplete": "Не вдалося завершити вхід.",
+      "failedReadout": "Не вдалося",
+      "failedTitle": "Помилка входу",
+      "missingInfo": "Дані автентифікації з відповіді Twitch відсутні. Увійдіть знову.",
+      "noSession": "Немає сесії",
+      "redirecting": "Перенаправлення на вашу панель керування.",
+      "retrySignIn": "{reason} Увійдіть знову.",
+      "sessionEstablished": "Сесію встановлено",
+      "welcome": "Вітаємо, {user}"
+    }
+  },
+  "sessionState": {
+    "establishingSession": "Встановлення сесії"
+  },
+  "statusReadout": {
+    "working": "<span class=\"wc-dot\"></span>Обробка"
+  }
+}

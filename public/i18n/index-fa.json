@@ -1,0 +1,50 @@
+{
+  "kofiClose": {
+    "closeSupportDialog": "بستن پنجره حمایت"
+  },
+  "kofiModal": {
+    "openInNewTabOn": "<a href=\"https://ko-fi.com/parfaitfair\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"kofi-direct-link\">باز کردن در برگه جدید در Ko-fi.com</a>"
+  },
+  "kofiOpen": {
+    "supportMe": "حمایت از من"
+  },
+  "kofiTitle": {
+    "supportParfaitfair": "حمایت از parfaitfair"
+  },
+  "mainContent": {
+    "access": "دسترسی",
+    "accessIsInviteOnlyUnapproved": "دسترسی فقط با دعوت است. کانال‌های تأییدنشده پیام عدم دسترسی دریافت می‌کنند. <a class=\"wc-link wc-link--underline\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">درخواست دسترسی از اینجا</a>.",
+    "changeTtsSettingsControlBot": "تغییر تنظیمات TTS • کنترل پاسخ‌های چت ربات • پیکربندی Channel Points • تنظیم اولویت‌های صدا",
+    "colorTheme": "تم رنگی",
+    "iAmAViewer": "<span class=\"wc-rule-name\">من بیننده هستم</span>",
+    "iRunTheChannel": "<span class=\"wc-rule-name\">من مدیر کانال هستم</span>",
+    "setHowYourMessagesSound": "تنظیم نحوه خوانده شدن پیام‌هایتان با TTS در هر کانالی که بازدید می‌کنید.",
+    "textToSpeechForYour": "تبدیل متن به گفتار برای کانال Twitch شما، برای استریمرها و بینندگان.",
+    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">فقط با دعوت</span>",
+    "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">مدیریت ربات تبدیل متن به گفتار</span>"
+  },
+  "meta": {
+    "wildcatttsBotManagement": "مدیریت ربات WildcatTTS",
+    "wildcatttsTextToSpeechBot": "مدیریت ربات تبدیل متن به گفتار WildcatTTS برای کانال‌های Twitch، استریمرها و بینندگان."
+  },
+  "msg": {
+    "kofi": {
+      "iframeTitle": "حمایت از parfaitfair در Ko-fi"
+    }
+  },
+  "page": {
+    "support": "حمایت"
+  },
+  "streamerLoginBtn": {
+    "manageMyChannel": "<i data-lucide=\"mic\" aria-hidden=\"true\"></i>مدیریت کانال من"
+  },
+  "themeDarkBtn": {
+    "dark": "تیره"
+  },
+  "themeLightBtn": {
+    "light": "روشن"
+  },
+  "viewerPrefsBtn": {
+    "setMyOwnVoice": "<i data-lucide=\"headphones\" aria-hidden=\"true\"></i>تنظیم صدای خودم"
+  }
+}

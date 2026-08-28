@@ -1,0 +1,164 @@
+{
+  "darkModeToggle": {
+    "toggleDarkMode": "Togol mod gelap"
+  },
+  "err": {
+    "banned_add_failed": "Gagal menambah perkataan itu ke senarai disekat.",
+    "banned_remove_failed": "Gagal membuang perkataan itu daripada senarai disekat.",
+    "bot_add_failed": "Tidak dapat mengaktifkan bot pada saluran anda. Cuba lagi.",
+    "bot_remove_failed": "Tidak dapat menyahaktifkan bot pada saluran anda. Cuba lagi.",
+    "bot_status_failed": "Tidak dapat memuatkan status bot.",
+    "channel_data_not_found": "Tiada tetapan ditemui untuk saluran tersebut.",
+    "channel_not_authorized": "Saluran anda tidak dibenarkan menggunakan bot ini. Hubungi saya untuk akses.",
+    "channel_not_found": "Saluran tersebut tidak ditemui.",
+    "channel_required": "Saluran diperlukan.",
+    "channel_tts_disabled": "Saluran tersebut tidak ditemui, atau TTS tidak diaktifkan.",
+    "entry_key_required": "Kunci entri diperlukan.",
+    "exchange_code_invalid": "Pautan log masuk tiada atau tidak sah.",
+    "exchange_code_used": "Pautan log masuk telah digunakan atau telah tamat tempoh. Log masuk semula.",
+    "exchange_failed": "Tidak dapat melengkapkan log masuk. Cuba lagi.",
+    "ignore_add_failed": "Gagal menambah pengguna itu ke senarai abai.",
+    "ignore_moderator_imposed": "Penyederhana saluran telah mengecualikan anda daripada TTS di sini, jadi hanya penyederhana boleh membatalkannya.",
+    "ignore_remove_failed": "Gagal membuang pengguna itu daripada senarai abai.",
+    "ignore_update_failed": "Tidak dapat menukar tetapan pengecualian anda.",
+    "key_required": "Nama tetapan diperlukan.",
+    "match_key_invalid": "Perkataan mestilah 1 hingga {max} aksara huruf, digit, tanda koma atas atau tanda sempang, dan tidak boleh mengandungi titik.",
+    "network_error": "Tidak dapat menghubungi pelayan. Periksa sambungan anda.",
+    "obs_token_fetch_failed": "Tidak dapat memuatkan token OBS.",
+    "obs_token_generate_failed": "Tidak dapat menjana token OBS baharu.",
+    "obs_token_store_failed": "Tidak dapat menyimpan token OBS. Cuba lagi.",
+    "prefs_fetch_failed": "Tidak dapat memuatkan keutamaan anda.",
+    "prefs_global_fetch_failed": "Tidak dapat memuatkan keutamaan global anda.",
+    "prefs_global_update_failed": "Tidak dapat menyimpan keutamaan global anda.",
+    "prefs_invalid_emote_mode": "Pengendalian emot mestilah baca, langkau atau huraikan.",
+    "prefs_invalid_emotion": "Emosi tersebut tidak sah.",
+    "prefs_invalid_language": "Bahasa tersebut tidak sah.",
+    "prefs_invalid_pitch": "Pic tersebut tidak sah.",
+    "prefs_invalid_speed": "Kelajuan tersebut tidak sah.",
+    "prefs_invalid_voice": "Suara tersebut tidak sah.",
+    "prefs_missing_data": "Tiada perubahan dihantar.",
+    "prefs_update_failed": "Tidak dapat menyimpan keutamaan anda.",
+    "pronunciation_limit_reached": "Anda telah mencapai had {max} sebutan tersuai. Buang satu terlebih dahulu.",
+    "pronunciation_remove_failed": "Gagal membuang sebutan.",
+    "pronunciation_save_failed": "Gagal menyimpan sebutan.",
+    "reward_banned_word": "Mesej mengandungi perkataan yang disekat: \"{word}\".",
+    "reward_create_failed": "Tidak dapat mencipta ganjaran Channel Points.",
+    "reward_delete_failed": "Tidak dapat memadamkan ganjaran Channel Points.",
+    "reward_links_blocked": "Pautan tidak dibenarkan dalam ganjaran ini.",
+    "reward_load_failed": "Tidak dapat memuatkan ganjaran Channel Points.",
+    "reward_message_empty": "Mesej kosong.",
+    "reward_save_failed": "Tidak dapat menyimpan ganjaran Channel Points.",
+    "reward_test_failed": "Tidak dapat menguji ganjaran Channel Points.",
+    "reward_twitch_error": "Twitch menolak perubahan ganjaran.",
+    "reward_validation_failed": "Mesej tersebut tidak dibenarkan.",
+    "say_contains_link": "Sebutan tidak boleh mengandungi pautan.",
+    "say_empty": "Sebutan tidak boleh kosong.",
+    "say_must_be_text": "Sebutan mestilah teks.",
+    "say_too_long": "Sebutan mestilah {max} aksara atau kurang.",
+    "server_misconfigured": "Pelayan salah dikonfigurasikan.",
+    "setting_invalid": "Itu bukan nilai yang sah untuk {key}.",
+    "setting_update_failed": "Gagal mengemas kini tetapan TTS.",
+    "settings_fetch_failed": "Gagal memuatkan tetapan TTS.",
+    "shortlink_failed": "Tidak dapat mencipta pautan pendek.",
+    "storage_unavailable": "Storan tidak tersedia.",
+    "tts_generation_failed": "Penjanaan pertuturan gagal: {reason}",
+    "tts_no_audio": "Penyedia pertuturan tidak mengembalikan sebarang audio.",
+    "tts_not_configured": "Tiada penyedia pertuturan dikonfigurasikan.",
+    "tts_provider_failed": "Penyedia pertuturan tidak dapat menjana audio.",
+    "tts_test_failed": "Ujian pertuturan gagal.",
+    "tts_text_required": "Masukkan teks untuk diuji.",
+    "twitch_reauth_required": "Log masuk Twitch anda telah tamat tempoh. Sambung semula akaun anda.",
+    "twitch_user_not_found": "Tiada akaun Twitch bernama \"{username}\" wujud.",
+    "url_required": "URL diperlukan.",
+    "username_invalid": "Nama pengguna itu tidak sah.",
+    "username_required": "Nama pengguna diperlukan.",
+    "voice_access_denied": "Suara \"{voice}\" memerlukan akses khas. Cuba suara lain.",
+    "voice_invalid": "Suara \"{voice}\" tidak tersedia. Semak suara tersebut dan cuba lagi.",
+    "voice_lookup_failed": "Tidak dapat mencari suara pengguna tersebut.",
+    "word_invalid": "Perkataan atau frasa itu tidak sah.",
+    "word_required": "Perkataan atau frasa diperlukan."
+  },
+  "logoutLink": {
+    "logout": "Log keluar"
+  },
+  "mainContent": {
+    "documentationTtsWildcatChat": "<a class=\"wc-link\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\">Dokumentasi</a> <span>tts.wildcat.chat</span>"
+  },
+  "msg": {
+    "action": {
+      "close": "Tutup",
+      "remove": "Buang",
+      "saved": "Disimpan"
+    },
+    "api": {
+      "authFailed": "Pengesahan gagal. Log masuk semula.",
+      "notAuthenticated": "Anda belum log masuk.",
+      "requestFailed": "Permintaan gagal."
+    },
+    "auth": {
+      "genericUser": "Pengguna",
+      "loading": "memuatkan…",
+      "needViewerSignIn": "Sahkan akaun Twitch anda untuk mengakses keutamaan penonton.",
+      "redirecting": "Mengarahkan ke Twitch untuk pengesahan…",
+      "required": "Pengesahan diperlukan.",
+      "signInFailed": "Tidak dapat melengkapkan log masuk.",
+      "signInWithTwitch": "Log masuk dengan Twitch",
+      "signedOut": "Anda belum log masuk.",
+      "tokenMissing": "Token pengesahan tiada. Log masuk semula."
+    },
+    "emotion": {
+      "angry": "Marah",
+      "auto": "Auto",
+      "disgusted": "Jijik",
+      "fearful": "Takut",
+      "happy": "Gembira",
+      "neutral": "Neutral",
+      "sad": "Sedih",
+      "surprised": "Terkejut"
+    },
+    "ignore": {
+      "enterUsername": "Masukkan nama pengguna."
+    },
+    "lang": {
+      "automatic": "Automatik"
+    },
+    "prefs": {
+      "useChannelDefault": "Gunakan lalai saluran"
+    },
+    "preview": {
+      "enterText": "Masukkan teks untuk diuji.",
+      "unavailable": "Tiada pratonton tersedia."
+    },
+    "value": {
+      "off": "Mati",
+      "on": "Hidup"
+    },
+    "voice": {
+      "cannotPlay": "Tidak dapat memainkan sampel audio.",
+      "generating": "Menjana…",
+      "noAudio": "Pelayan tidak mengembalikan sebarang audio.",
+      "noneFound": "Tiada suara ditemui.",
+      "preview": "Pradengar {voice}",
+      "regenerate": "Jana semula",
+      "testFailed": "Ujian gagal: {reason}"
+    }
+  },
+  "page": {
+    "skipToMainContent": "Langkau ke kandungan utama"
+  },
+  "sidebarEngNormVal": {
+    "off": "Mati"
+  },
+  "sidebarLanguageVal": {
+    "automatic": "Automatik"
+  },
+  "ui": {
+    "language": "Bahasa"
+  },
+  "voicePreviewHint": {
+    "settingsChangedGenerateANew": "<i><i data-lucide=\"triangle-alert\" class=\"inline-icon\"></i> Tetapan berubah. Jana pradengar baharu.</i>"
+  },
+  "voicePreviewPlayer": {
+    "yourBrowserDoesNotSupport": "Pelayar anda tidak menyokong elemen audio."
+  }
+}

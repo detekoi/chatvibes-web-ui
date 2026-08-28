@@ -1,0 +1,39 @@
+{
+  "authBar": {
+    "signInProgress": "Innloggingsfremdrift"
+  },
+  "authMessage": {
+    "pleaseWait": "Vennligst vent."
+  },
+  "authSteps": {
+    "loadingDashboard": "Laster kontrollpanel",
+    "sessionTokenStored": "Økttoken lagret",
+    "twitchAuthorized": "Twitch autorisert"
+  },
+  "authTitle": {
+    "signingYouIn": "Logger deg inn"
+  },
+  "meta": {
+    "completingWildcatttsTwitchSignIn": "Fullfører Twitch-innlogging for WildcatTTS.",
+    "wildcatttsCompletingSignIn": "WildcatTTS – Fullfører innlogging"
+  },
+  "msg": {
+    "authComplete": {
+      "cannotComplete": "Kan ikke fullføre innloggingen.",
+      "failedReadout": "Mislyktes",
+      "failedTitle": "Innlogging mislyktes",
+      "missingInfo": "Autentiseringsinformasjon fra Twitch-tilbakekallet mangler. Logg inn på nytt.",
+      "noSession": "Ingen økt",
+      "redirecting": "Omdirigerer til kontrollpanelet ditt.",
+      "retrySignIn": "{reason} Logg inn på nytt.",
+      "sessionEstablished": "Økt opprettet",
+      "welcome": "Velkommen, {user}"
+    }
+  },
+  "sessionState": {
+    "establishingSession": "Oppretter økt"
+  },
+  "statusReadout": {
+    "working": "<span class=\"wc-dot\"></span>Arbeider"
+  }
+}

@@ -1,0 +1,212 @@
+{
+  "addChannelContextCard": {
+    "loadAChannelToSee": "Tölts be egy csatornát az alapbeállítások megtekintéséhez és a kizárások kezeléséhez. A beállításaid globálisak maradnak."
+  },
+  "channelContextCard": {
+    "changesHereUpdateYourGlobal": "Az itt végzett módosítások a <strong>saját</strong> globális beállításaidat frissítik. A streamer beállításai nem változnak.",
+    "channelContext": "Csatornakörnyezet",
+    "clearButtonsSetYourGlobal": "<strong>Törlés gombok:</strong> A globális beállításodat a csatorna alapértelmezett beállításához igazítják."
+  },
+  "channelHint": {
+    "channelFound": "Csatorna megtalálva"
+  },
+  "channelInputCancel": {
+    "cancel": "Mégse"
+  },
+  "channelInputConfirm": {
+    "load": "Betöltés"
+  },
+  "channelInputDesc": {
+    "enterTheChannelNameTo": "Add meg a csatorna nevét az alapbeállítások megtekintéséhez és a kizárások kezeléséhez:"
+  },
+  "channelInputModal": {
+    "streamerUsername": "Streamer felhasználóneve"
+  },
+  "channelInputModalText": {
+    "streamerUsername": "Streamer felhasználóneve"
+  },
+  "channelInputTitle": {
+    "loadChannelContext": "Csatornakörnyezet betöltése"
+  },
+  "clearChannelContextBtn": {
+    "clear": "Törlés"
+  },
+  "confirmNo": {
+    "cancel": "Mégse"
+  },
+  "confirmText": {
+    "yourMessagesWillNotBe": "Az üzeneteid nem lesznek hangosan felolvasva. Ezt bármikor visszakapcsolhatod."
+  },
+  "confirmTitle": {
+    "confirmAction": "Művelet megerősítése"
+  },
+  "confirmYes": {
+    "confirm": "Megerősítés"
+  },
+  "dangerTtsToggle": {
+    "optOutOfTtsIn": "TTS felolvasás letiltása ezen a csatornán",
+    "ttsWillNotReadYour": "A TTS nem olvassa fel az üzeneteidet ezen a csatornán"
+  },
+  "dangerZoneSection": {
+    "dangerZone": "Veszélyes zóna",
+    "theseSettingsStopTheBot": "Ezek a beállítások megakadályozzák, hogy a bot felolvassa az üzeneteidet egy csatornán. A saját beállításaidat bármikor módosíthatod. Ha egy moderátor tiltott le, azt csak egy moderátor vonhatja vissza."
+  },
+  "emotionReset": {
+    "clear": "Törlés",
+    "resetEmotionToDefault": "Érzelem visszaállítása alapértelmezettre"
+  },
+  "emotionSelect": {
+    "angry": "Dühös",
+    "disgusted": "Undorodó",
+    "fearful": "Rémült",
+    "happy": "Boldog",
+    "neutral": "Semleges",
+    "sad": "Szomorú",
+    "surprised": "Meglepett",
+    "useChannelDefault": "Csatorna alapértelmezése"
+  },
+  "englishNormalizationCheckbox": {
+    "englishNormalization": "Angol normalizáció"
+  },
+  "englishNormalizationReset": {
+    "clear": "Törlés",
+    "resetEnglishNormalizationToDefault": "Angol normalizáció visszaállítása alapértelmezettre"
+  },
+  "ignoreTts": {
+    "optOutOfTtsIn": "TTS felolvasás letiltása ezen a csatornán"
+  },
+  "languageReset": {
+    "clear": "Törlés",
+    "resetLanguageToDefault": "Nyelv visszaállítása alapértelmezettre"
+  },
+  "loadingBar": {
+    "loadingYourPreferences": "Beállításaid betöltése"
+  },
+  "loadingOverlay": {
+    "loadingYourPreferences": "Beállításaid betöltése…"
+  },
+  "loggedInStatus": {
+    "channelContext": "Csatornakontextus",
+    "global": "Globális",
+    "loggedInAs": "Bejelentkezve mint",
+    "scope": "Hatókör"
+  },
+  "meta": {
+    "wildcatttsViewerSettings": "WildcatTTS nézői beállítások",
+    "wildcatttsViewerSettingsSetYour": "WildcatTTS nézői beállítások – Állítsd be a saját szövegfelolvasási hangodat, hangmagasságodat és sebességedet a Twitch-csatornákon."
+  },
+  "msg": {
+    "auth": {
+      "exchangeFailed": "Nem sikerült a bejelentkezés. Próbáld újra a főoldalról.",
+      "testUser": "Tesztfelhasználó"
+    },
+    "channel": {
+      "cleared": "Csatornakontextus törölve.",
+      "clearedTestMode": "Csatornakontextus törölve (tesztmód).",
+      "enterName": "Adj meg egy csatornanevet.",
+      "found": "Csatorna megtalálva",
+      "foundTestMode": "Csatorna megtalálva (teszt üzemmód)",
+      "hint": "Tölts be egy csatornát az alapértelmezett beállításai megtekintéséhez.",
+      "loaded": "Csatornakontextus betöltve.",
+      "loadedTestMode": "Csatornakontextus betöltve (tesztmód).",
+      "noneLoaded": "Nincs betöltve",
+      "promptConfirm": "Betöltés",
+      "promptDescription": "Add meg a csatorna nevét az alapértelmezett beállítások megtekintéséhez és a leiratkozások kezeléséhez:",
+      "promptTitle": "Csatornakontextus betöltése",
+      "viewingDefaults": "A(z) {channel} csatorna alapértelmezett beállításait látod."
+    },
+    "optout": {
+      "confirm": "Szeretnél leiratkozni a TTS-ről a(z) #{channel} csatornán? Az üzeneteid nem lesznek felolvasva. Ezt bármikor visszakapcsolhatod.",
+      "confirmDescription": "A folytatáshoz add meg a csatorna nevét:",
+      "confirmTitle": "Csatorna megerősítése a TTS-leiratkozáshoz",
+      "continue": "Folytatás",
+      "moderatorNote": "A csatorna egyik moderátora leiratkoztatott a TTS-ről itt. Ezt csak egy moderátor vonhatja vissza.",
+      "optInFailed": "Nem sikerült visszakapcsolni a TTS-t.",
+      "optOutFailed": "Nem sikerült leiratkozni a TTS-ről.",
+      "optedIn": "Visszakapcsoltad a TTS-t.",
+      "optedInTestMode": "Visszakapcsoltad a TTS-t (tesztmód).",
+      "optedOut": "Letiltottad a TTS-t.",
+      "optedOutTestMode": "Letiltottad a TTS-t (tesztmód).",
+      "selectChannel": "Előbb válassz ki egy csatornát.",
+      "selfNote": "Itt letiltottad a TTS-t. Bármikor visszakapcsolhatod.",
+      "specifyChannel": "Adj meg egy csatornát."
+    },
+    "prefs": {
+      "hintChannel": "Csatorna alapértelmezése: {value}",
+      "hintSystem": "Rendszer alapértelmezése",
+      "hintUser": "Globális beállításod: {value}",
+      "loadFailed": "Nem sikerült betölteni a beállításokat.",
+      "noVoicesFound": "Nem található hang",
+      "saveFailed": "A(z) {key} mentése sikertelen: {reason}",
+      "sendPreview": "Előnézet küldése",
+      "testCompletedTestMode": "Teszt befejezve (tesztmód).",
+      "updated": "Beállítás frissítve.",
+      "updatedTestMode": "Beállítás frissítve (tesztmód)."
+    }
+  },
+  "openChannelContextModalBtn": {
+    "loadChannel": "Csatorna betöltése…"
+  },
+  "page": {
+    "setHowYourMessagesSound": "Állítsd be, hogyan hangzanak az üzeneteid, amikor a Wildcat TTS felolvassa őket. A beállításaid globálisak, és minden csatornára érvényesek.",
+    "viewerTtsPreferences": "Nézői TTS-beállítások",
+    "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Nézői beállítások</span>"
+  },
+  "pitchReset": {
+    "clear": "Törlés",
+    "resetPitchToDefault": "Hangmagasság visszaállítása alapértelmezettre"
+  },
+  "pitchSlider": {
+    "pitchAdjustment12To12": "Hangmagasság módosítása (-12 és +12 között)"
+  },
+  "preferencesPanel": {
+    "adjustTheVoicePitchHigher": "Állítsd a hangmagasságot magasabbra vagy mélyebbre",
+    "controlHowFastTheVoice": "A beszéd sebességének szabályozása",
+    "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentáció </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Streamer-beállítások </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "<strong>Érzelem</strong>",
+    "emotion2": "Érzelem",
+    "englishNormalization": "Angol szövegnormalizálás",
+    "engNormalization": "Angol normalizálás",
+    "ifTtsReadsNumbersIncorrectly": "Ha a TTS helytelenül olvassa a számokat, kapcsold be az angol szövegnormalizálást. Ez a beállítás kissé növeli a késleltetést.",
+    "improvePronunciationForSpecificLanguages": "Kiejtés javítása adott nyelvekhez",
+    "improveThePronunciationOfNumbers": "Számok és szöveg kiejtésének javítása",
+    "language": "Nyelv",
+    "languageBoost": "<strong>Language Boost</strong>",
+    "pitch": "Hangmagasság",
+    "pitch12To12": "Hangmagasság (-12-től +12-ig):",
+    "quickLinks": "Gyorshivatkozások",
+    "selectYourPreferredTtsVoice": "Válaszd ki a kívánt TTS-hangot",
+    "setHowYourMessagesSound": "Állítsd be, hogyan hangzanak az üzeneteid a TTS felolvasásakor",
+    "setTheEmotionalToneOf": "A hang érzelmi tónusának beállítása",
+    "speed": "Sebesség",
+    "speed05To2": "Sebesség (0,5-től 2,0-ig):",
+    "testMessage": "Tesztüzenet",
+    "voice": "<strong>Hang</strong>",
+    "voicePreview": "Hang előnézete",
+    "voiceSettings": "Hangbeállítások"
+  },
+  "prefsDisabledNote": {
+    "theStreamerDisabledPersonalVoice": "A streamer kikapcsolta az egyéni hangbeállításokat ezen a csatornán. A csatorna az alapértelmezett hangját fogja használni a beállításaid helyett."
+  },
+  "previewBtn": {
+    "sendPreview": "Előnézet küldése"
+  },
+  "speedReset": {
+    "clear": "Visszaállítás",
+    "resetSpeedToDefault": "Sebesség visszaállítása alapértelmezettre"
+  },
+  "speedSlider": {
+    "speedAdjustment05To": "Sebesség beállítása (0,5–2,0)"
+  },
+  "statChannelContext": {
+    "noneLoaded": "Nincs betöltve"
+  },
+  "voiceReset": {
+    "clear": "Visszaállítás",
+    "resetVoiceToDefault": "Hang visszaállítása alapértelmezettre"
+  },
+  "voiceSearch": {
+    "searchVoices": "Hangok keresése",
+    "searchVoices2": "Hangok keresése..."
+  }
+}

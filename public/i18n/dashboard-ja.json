@@ -1,0 +1,501 @@
+{
+  "addBotBtn": {
+    "activateTtsService": "TTSサービスを有効化"
+  },
+  "addTtsBannedWordBtn": {
+    "add": "追加"
+  },
+  "addTtsIgnoreBtn": {
+    "add": "追加"
+  },
+  "addTtsPronunciationBtn": {
+    "add": "追加"
+  },
+  "allowViewerPreferences": {
+    "allowViewerVoicePreferences": "視聴者のボイス設定を許可"
+  },
+  "announceUnfulfilledRedemptions": {
+    "announceQueuedRedeemsImmediately": "キュー内の引き換えをすぐに通知"
+  },
+  "announceUnfulfilledRedemptionsHelp": {
+    "aRewardThatDoesNot": "リワードリクエストのキューをスキップしないリワードは、後でリクエストを拒否した場合でも引き換え時に通知されます。これをオフにすると、リクエストを承認するまで通知を保留します。承認しなかったリワードは通知されません。"
+  },
+  "anonymizeFollowers": {
+    "anonymizeNewFollowers": "新規フォロワーを匿名化"
+  },
+  "bitsEnabled": {
+    "requireBitsForTts": "TTSにBitsを必須にする"
+  },
+  "botRespondsInChat": {
+    "botRespondsInChat": "Botがチャットで応答"
+  },
+  "botStatus": {
+    "loading": "読み込み中…"
+  },
+  "calibratedVoicesList": {
+    "noVoicesCalibratedYet": "調整済みのボイスはまだありません。"
+  },
+  "calibrationSaveBtn": {
+    "save": "保存"
+  },
+  "calibrationVoiceSearch": {
+    "searchVoicesToCalibrate": "調整するボイスを検索..."
+  },
+  "channelNameStatus": {
+    "yourChannel": "あなたのチャンネル"
+  },
+  "cheerEventsEnabled": {
+    "announceCheers": "Cheerを通知"
+  },
+  "copyTtsUrlBtn": {
+    "copy": "コピー",
+    "copyBrowserSourceUrl": "Browser Source URLをコピー"
+  },
+  "cpDelete": {
+    "disableDelete": "無効化して削除"
+  },
+  "cpEnabled": {
+    "enableChannelPointsTts": "Channel Points TTSを有効化"
+  },
+  "cpPerStream": {
+    "enterAmount": "数量を入力"
+  },
+  "cpPerUser": {
+    "enterAmount": "数量を入力"
+  },
+  "cpSave": {
+    "save": "保存"
+  },
+  "cpTest": {
+    "testRedeem": "テスト引き換え"
+  },
+  "dashboardContent": {
+    "channel": "チャンネル",
+    "channelService": "チャンネルサービス",
+    "dashboardConfigurationTabs": "ダッシュボード設定タブ",
+    "deactivationStopsTheBotFrom": "無効化するとBotがチャットメッセージを読み上げなくなります。設定は保存されたまま残り、いつでもサービスを再開できます。",
+    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>ドキュメント </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>視聴者設定 </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "感情",
+    "engNormalization": "英語の正規化",
+    "language": "言語",
+    "pitch": "ピッチ",
+    "quickLinks": "クイックリンク",
+    "service": "サービス",
+    "signedInAs": "ログイン中:",
+    "speed": "速度",
+    "testMessage": "テストメッセージ",
+    "voicePreview": "ボイスプレビュー",
+    "volume": "音量"
+  },
+  "defaultEmotion": {
+    "angry": "怒り",
+    "disgusted": "嫌悪",
+    "fearful": "恐怖",
+    "happy": "喜び",
+    "neutral": "ニュートラル",
+    "sad": "悲しみ",
+    "surprised": "驚き"
+  },
+  "defaultPitch": {
+    "defaultPitch12To12": "デフォルトピッチ（-12～+12）"
+  },
+  "defaultSpeed": {
+    "defaultSpeed05To": "デフォルト速度（0.5～2.0）"
+  },
+  "defaultVoiceSearch": {
+    "searchDefaultVoices": "デフォルトボイスを検索",
+    "searchVoices": "ボイスを検索..."
+  },
+  "defaultVolume": {
+    "voiceVolume01To": "ボイス音量（0.1～10）"
+  },
+  "emoteMode": {
+    "describeEmotes": "エモートを読み上げる",
+    "readEmoteNames": "エモート名を読み上げる",
+    "skipEmotes": "エモートをスキップ"
+  },
+  "englishNormalization": {
+    "englishNormalization": "英語の正規化"
+  },
+  "eventsEnabled": {
+    "announceEvents": "イベントを通知"
+  },
+  "loadingBar": {
+    "loadingDashboardSettings": "ダッシュボード設定を読み込み中"
+  },
+  "loadingOverlay": {
+    "loadingDashboardSettings": "ダッシュボード設定を読み込み中…"
+  },
+  "lookupUsername": {
+    "enterTwitchViewerUsername": "Twitch視聴者のユーザー名を入力"
+  },
+  "lookupVoiceBtn": {
+    "lookupVoice": "ボイスを検索"
+  },
+  "meta": {
+    "wildcatttsDashboard": "WildcatTTS ダッシュボード",
+    "wildcatttsStreamerDashboardConfigureText": "WildcatTTS 配信者ダッシュボード - TTS設定、権限、ボット応答、Channel Pointsの設定。"
+  },
+  "msg": {
+    "auth": {
+      "demoStreamer": "デモ配信者",
+      "needBroadcaster": "配信者設定にアクセスするには、配信者アカウントでログインしてください。",
+      "needSignIn": "ダッシュボードにアクセスするには、Twitchアカウントでログインしてください。"
+    },
+    "bannedWords": {
+      "addFailed": "禁止ワードを追加できません。",
+      "added": "「{word}」を禁止ワードに追加しました。",
+      "addedTestMode": "[テスト] 禁止ワードを追加しました: {word}",
+      "empty": "禁止ワードはまだ追加されていません。",
+      "removeFailed": "禁止ワードを削除できません。",
+      "removed": "「{word}」を禁止ワードから削除しました。",
+      "removedTestMode": "[テスト] 禁止ワードを削除しました: {word}"
+    },
+    "bot": {
+      "activateFailed": "TTSサービスを有効化できません。",
+      "activated": "TTSサービスを有効化しました。",
+      "activatedTestMode": "TTSサービスを有効化しました（テストモード）。",
+      "activating": "TTSサービスを有効化中…",
+      "active": "有効",
+      "deactivateFailed": "TTSサービスを無効化できません。",
+      "deactivated": "TTSサービスを無効化しました。",
+      "deactivatedTestMode": "TTSサービスを無効化しました（テストモード）。",
+      "deactivating": "TTSサービスを無効化中…",
+      "inactive": "無効",
+      "notAuthenticated": "未認証",
+      "notAuthorized": "チャンネルが承認されていません。",
+      "requestAccess": "ここからアクセスをリクエスト",
+      "statusError": "エラー",
+      "statusFailed": "エラー: {reason}",
+      "statusLoadFailed": "ボットの状態を読み込めません: {reason}",
+      "unknownError": "不明なエラー"
+    },
+    "calibration": {
+      "confirmReset": "{voice}のキャリブレーションをリセットしますか？",
+      "edit": "編集",
+      "empty": "キャリブレーション済みのボイスはまだありません。",
+      "reset": "リセット",
+      "row": "{voice} ({volume})"
+    },
+    "cp": {
+      "confirmDelete": "Channel PointsのTTSリワードを削除しますか？",
+      "deleteFailed": "削除に失敗しました。",
+      "deleted": "リワードを削除しました。",
+      "deletedTestMode": "リワードを削除しました（テストモード）。",
+      "deleting": "削除中…",
+      "lastSynced": "{reward} · 最終同期: {time}",
+      "never": "なし",
+      "noReward": "リワードが作成されていません",
+      "noRewardTestMode": "リワードが作成されていません（テストモード）",
+      "rewardId": "リワードID: {id}",
+      "saveFailed": "Channel Pointsの設定を保存できません。",
+      "saved": "Channel Pointsの設定を保存しました。",
+      "savedTestMode": "Channel Pointsの設定を保存しました（テストモード）。",
+      "saving": "Channel Pointsの設定を保存中…",
+      "testCompleted": "テスト完了（{status}）。",
+      "testCompletedTestMode": "テスト完了（テストモード）。",
+      "testFailed": "テストに失敗しました。",
+      "testPrompt": "引き換えをシミュレートするテストメッセージを入力:",
+      "testing": "引き換えをテスト中…"
+    },
+    "ignore": {
+      "addFailed": "ユーザーを無視リストに追加できません。",
+      "addFailedReason": "ユーザーを追加できません: {reason}",
+      "badgeModerator": "あなたがミュート",
+      "badgeSelf": "オプトアウト",
+      "empty": "無視しているユーザーはいません。",
+      "noSuchAccount": "該当するTwitchアカウントがありません",
+      "removeFailed": "ユーザーを無視リストから削除できません。",
+      "removeFailedReason": "{label}を削除できません: {reason}",
+      "removeLabel": "{label}を無視リストから削除（{source, select, self {本人がオプトアウト} other {あなたがミュート}}）"
+    },
+    "lookup": {
+      "button": "ボイスを検索",
+      "calibrate": "「{voice}」をキャリブレーション",
+      "error": "エラー: {reason}",
+      "failed": "そのユーザーを検索できません。",
+      "hasVoice": "ユーザー {user} はカスタムボイスを設定しています: {voice}",
+      "noVoice": "ユーザー {user} はカスタムボイスを設定していません。",
+      "searching": "検索中…",
+      "voiceUnknown": "このボイスは利用可能なボイス一覧にありません。"
+    },
+    "obs": {
+      "cannotCopy": "URLをコピーできません。",
+      "cannotDetermine": "TTS URLを特定できません。",
+      "copied": "クリップボードにコピーしました。",
+      "copiedButton": "コピー完了！",
+      "copyFailed": "コピーに失敗しました。",
+      "generateFailed": "OBSのURLを生成できません。再試行してください。",
+      "generating": "生成中…",
+      "generatingUrl": "安全なURLを生成中…",
+      "loadingUrl": "既存のURLを読み込み中…",
+      "pressRegenerate": "OBSのBrowser Source URLを生成するには「URLを再生成」をクリックしてください。",
+      "refreshPage": "URLを生成できません。ページを更新してください。",
+      "testModeUrl": "テストモードURL",
+      "urlGenerated": "新しいURLを生成しました。",
+      "urlGeneratedTestMode": "新しいURLを生成しました（テストモード）。",
+      "urlNotReady": "URLはまだ利用できません。",
+      "yourUrl": "OBS Browser Source URL"
+    },
+    "preview": {
+      "playingTestMode": "プレビューを再生中…（テストモード）",
+      "tooLong": "テキストは500文字以内で入力してください。"
+    },
+    "pron": {
+      "acronymsDisabled": "略語の展開は無効です",
+      "acronymsOffHint": "これらの設定を有効にするには、上の「チャットの略語を展開」をオンにしてください。",
+      "addFailed": "読み方を追加できません。",
+      "added": "読み方を追加しました: {match} -> {say}",
+      "addedTestMode": "[テスト] 読み方を追加しました: {match} -> {say}",
+      "builtinOff": " — 組み込みは無効",
+      "empty": "カスタムの読み方はまだ追加されていません。",
+      "expansion": " → {say}",
+      "needBoth": "単語と読み方の両方を入力してください。",
+      "removeFailed": "読み方を削除できません。",
+      "removed": "読み方を削除しました: {match}",
+      "removedTestMode": "[テスト] 読み方を削除しました: {match}"
+    },
+    "setting": {
+      "allowViewerPreferences": "視聴者の音声設定を許可",
+      "announceQueuedRedeems": "キューに入った引き換えを通知",
+      "anonymizeFollowers": "フォロワーを匿名化",
+      "bitsForTts": "TTS用Bits",
+      "botRespondsInChat": "ボットがチャットで応答",
+      "cheerAnnouncements": "Cheer通知",
+      "defaultEmotion": "デフォルトの感情",
+      "defaultLanguage": "デフォルトの言語",
+      "defaultPitch": "デフォルトのピッチ",
+      "defaultSpeed": "デフォルトの速度",
+      "defaultVoice": "デフォルトの音声",
+      "emoteMode": "エモートモード",
+      "englishNormalization": "英語の正規化",
+      "eventAnnouncements": "イベント通知",
+      "expandAcronyms": "チャットの略語を展開",
+      "minimumBits": "最小Bits",
+      "profanityFilter": "不適切表現フィルター",
+      "readFullUrls": "URLを最後まで読み上げる",
+      "redemptionAnnouncements": "引き換え通知",
+      "ttsEngine": "TTSエンジン",
+      "ttsMode": "TTSモード",
+      "ttsPermission": "TTS権限",
+      "voiceVolume": "音声の音量",
+      "watchStreakAnnouncements": "連続視聴通知",
+      "youtubeHandle": "YouTubeハンドル",
+      "youtubeTts": "YouTube TTS"
+    },
+    "settings": {
+      "loadFailed": "設定を読み込めません。",
+      "saveFailed": "{label}: {reason}",
+      "youtubeHandleRequired": "YouTube TTSを有効にする前にYouTubeハンドルを入力してください。"
+    }
+  },
+  "obsCloseBtn": {
+    "closeObsSetup": "OBS設定を閉じる"
+  },
+  "obsPopover": {
+    "addBrowserSource": "Browser Sourceを追加",
+    "cautionANewUrlStops": "注意: OBS側でURLを更新するまで、新しいURLを発行すると現在のOBSソースが停止します。",
+    "controlAudioViaObs": "OBS経由で音声を制御",
+    "inObsAddANew": "OBSで新規の<strong>Browser Source</strong>を追加します。ソース名を「Wildcat TTS」にして、コピーしたURLを貼り付けます。幅と高さはデフォルトのままで問題ありません。",
+    "inTheObsAudioMixer": "OBSの音声ミキサーで「Wildcat TTS」を見つけます。歯車アイコンをクリックして<strong>オーディオの詳細プロパティ</strong>を選択し、音声モニタリングを<strong>モニターと出力</strong>に設定します。",
+    "monitorAndOutput": "モニターと出力",
+    "obsBrowserSource": "OBS Browser Source",
+    "selectControlAudioViaObs": "<strong>OBS経由で音声を制御する</strong>を選択します。<strong>表示されていないときはソースを閉じる</strong>のチェックが外れていることを確認してください。",
+    "setupInstructions": "設定手順",
+    "yourBrowserSourceUrl": "Browser SourceのURL"
+  },
+  "obsToggleBtn": {
+    "obsSetup": "OBS設定"
+  },
+  "page": {
+    "channelDashboard": "チャンネルダッシュボード",
+    "textToSpeechSettingsFor": "チャンネルのTTS設定。変更は自動的に保存されます。",
+    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">ダッシュボード</span>"
+  },
+  "profanityFilterEnabled": {
+    "profanityFilter": "不適切表現フィルター"
+  },
+  "pronunciationEnabled": {
+    "expandChatAcronyms": "チャット略語の展開"
+  },
+  "readFullUrls": {
+    "readFullUrls": "URLを省略せず読み上げる"
+  },
+  "redemptionEventsEnabled": {
+    "announceRewardRedeems": "リワード引き換えの通知"
+  },
+  "regenerateTtsUrlBtn": {
+    "regenerateBrowserSourceUrl": "Browser SourceのURLを再生成",
+    "regenerateUrl": "URLを再生成"
+  },
+  "removeBotBtn": {
+    "deactivateTtsService": "TTSサービスを無効化"
+  },
+  "resetPitchBtn": {
+    "reset": "リセット",
+    "resetDefaultPitchTo0": "デフォルトのピッチを0にリセット"
+  },
+  "resetSpeedBtn": {
+    "reset": "リセット",
+    "resetDefaultSpeedTo1": "デフォルトの速度を1.0にリセット"
+  },
+  "resetVolumeBtn": {
+    "reset": "リセット",
+    "resetVoiceVolumeTo1": "ボイス音量を1.0にリセット"
+  },
+  "saveSettingsBtn": {
+    "saveAllSettings": "すべての設定を保存"
+  },
+  "serviceHeadline": {
+    "ttsService": "TTSサービス"
+  },
+  "sidebarVoiceName": {
+    "friendlyPerson": "フレンドリーな人物"
+  },
+  "tabBroadcaster": {
+    "allowTheBotToRespond": "!myvoiceなどのチャットコマンドへのボットの応答を許可",
+    "allowViewersToUseChannel": "視聴者によるTTSへのChannel Pointsの使用を許可",
+    "allowViewerVoicePreferences": "視聴者のボイス設定を許可",
+    "announceCheers": "Cheerをアナウンス",
+    "announceEvents": "イベントをアナウンス",
+    "announceEventsSuchAsSubscriptions": "サブスクやレイドなどのイベントをアナウンス",
+    "announceQueuedRedeemsImmediately": "キューに入った引き換えを即座にアナウンス",
+    "announceRewardRedeems": "リワード引き換えをアナウンス",
+    "announceWatchStreaks": "連続視聴記録をアナウンス",
+    "announceWhenAViewerCheers": "視聴者がbitsでCheerしたときにアナウンス",
+    "announceWhenAViewerReaches": "視聴者が連続視聴のマイルストーンに達したときにアナウンス",
+    "announceWhenAViewerRedeems": "視聴者がChannel Pointsリワードを引き換えたときにアナウンス",
+    "anonymizeNewFollowers": "新規フォロワーを匿名化",
+    "bannedWordsCommaSeparated": "禁止ワード（カンマ区切り）",
+    "bannedWordsPhrases": "<strong>禁止ワード / フレーズ</strong>",
+    "bitsTts": "Bits → TTS",
+    "blockLinks": "リンクをブロック",
+    "botRespondsInChat": "ボットがチャットで応答",
+    "channelPointsTts": "Channel Points → TTS",
+    "chooseWhichMessagesTriggerTts": "TTSをトリガーするメッセージを選択",
+    "configureBitsRequirementsForText": "TTSのbits要件を設定",
+    "configureChannelPointsRewardsFor": "TTSのChannel Pointsリワードを設定",
+    "configureTtsEngineSettingsAnd": "TTSエンジンの設定と権限を設定",
+    "controlHowTtsPronouncesSpecific": "特定の単語のTTSでの発音を管理します。一般的なTwitchの略語はデフォルトで処理されます。エントリを追加してデフォルトの発音を上書きするか、新しい単語を追加してください。",
+    "controlsHowTtsHandlesEmotes": "チャットメッセージ内のエモートのTTS処理方法を設定",
+    "cooldownsAndModeration": "クールダウンとモデレーション",
+    "costPoints": "コスト（ポイント）",
+    "emoteMode": "<strong>エモートモード</strong>",
+    "enableChannelPointsTts": "Channel Points TTSを有効化",
+    "enableCooldownsLimits": "クールダウンと上限を有効化",
+    "engineMode": "エンジン＆モード",
+    "expandChatAcronyms": "チャットの略語を展開",
+    "globalCooldownSec": "全体クールダウン（秒）",
+    "hideFollowerNamesInTts": "プライバシー保護のためTTSアナウンスでフォロワー名を非表示にする",
+    "ifOnTtsReadsFull": "有効にするとTTSはURL全体を読み上げます。無効にするとドメイン名のみを読み上げます。",
+    "ifThisSettingIsOff": "この設定が無効の場合、TTSはすべてのメッセージにチャンネルのデフォルトボイスを使用します",
+    "ignoredUsers": "無視するユーザー",
+    "manageUsersThatTtsIgnores": "TTSが無視するユーザーを管理",
+    "minimumBitsRequired": "<strong>必要な最小Bits数</strong>",
+    "minimumNumberOfBitsRequired": "TTSをトリガーするために必要な最小Bits数",
+    "perStreamLimit": "配信ごとの上限",
+    "perUserPerStream": "ユーザーごと・配信ごとの上限",
+    "profanityFilter": "不適切な表現のフィルター",
+    "pronunciationDictionary": "<strong>発音辞書</strong>",
+    "readFullUrls": "URL全体を読み上げる",
+    "readYoutubeLiveChatMessages": "YouTubeライブチャットのメッセージをTTSで読み上げます。この機能には進行中のYouTubeライブ配信が必要です。",
+    "readYoutubeLiveChatMessages2": "YouTubeライブチャットのメッセージを読み上げる",
+    "requireBitsForTts": "TTSにBitsを必須にする",
+    "rewardTitle": "リワード名",
+    "skipTheRewardQueue": "リワードキューをスキップ",
+    "theTitleMustBeUnique": "タイトルはチャンネル内で一意である必要があります。",
+    "ttsDoesNotReadMessages": "TTSはこのリストに含まれるユーザーからのメッセージを読み上げません。",
+    "ttsEngineEnabled": "TTSエンジン有効",
+    "ttsExpandsCommonTwitchAcronyms": "TTSは一般的なTwitchの略語を単語に展開して読み上げます（例: 「ngl」→「not gonna lie」）。無効にすると1文字ずつ読み上げます。",
+    "ttsIgnoreList": "<strong>TTS無視リスト</strong>",
+    "ttsMode": "<strong>TTSモード</strong>",
+    "ttsPermission": "<strong>TTS権限</strong>",
+    "ttsReplacesProfanityWithMilder": "TTSは不適切な表現をマイルドな言葉に置き換えて読み上げます。フィルターにはチャンネル言語と視聴者言語が使用されます。言語が「自動」に設定されている場合は英語リストが適用されます。禁止ワードを含むメッセージは全体がスキップされます。",
+    "ttsSkipsMessagesThatContain": "TTSはこれらの単語やフレーズを含むメッセージをスキップします。",
+    "turnOnOrTurnOff": "音声読み上げエンジンのオン/オフを切り替える",
+    "viewerPrompt": "視聴者へのプロンプト",
+    "viewersMustCheerBitsTo": "視聴者が音声読み上げを使用するにはBitsをCheerする必要があります",
+    "whoCanUseTextTo": "音声読み上げを使用できるユーザー",
+    "yourYoutubeChannelHandleFor": "YouTubeチャンネルハンドル（例: <code>@yourhandle</code>）",
+    "youtubeHandle": "<strong>YouTubeハンドル</strong>",
+    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>YouTube連携",
+    "youtubeTtsEnabled": "YouTube TTS有効"
+  },
+  "tabBtnBroadcaster": {
+    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>配信者"
+  },
+  "tabBtnViewerDefaults": {
+    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>デフォルトボイス設定"
+  },
+  "tabViewerDefaults": {
+    "adjustThePitchForThe": "デフォルトボイスのピッチを調整",
+    "adjustTheVolumeForThe": "選択したボイスの音量を調整します。注意: 1.0より大きい値にすると音割れの原因になります。",
+    "calibratedVoices": "<strong>調整済みボイス</strong>",
+    "calibrateVolumeForSpecificVoices": "特定のボイスの音量を調整します。注意: 1.0より大きい値にすると音割れの原因になります。",
+    "controlHowFastTheDefault": "デフォルト音声の読み上げ速度を調整",
+    "defaultEmotion": "<strong>デフォルトの感情</strong>",
+    "defaultLanguage": "<strong>デフォルトの言語</strong>",
+    "defaultPitch12To12": "デフォルトのピッチ (-12〜+12):",
+    "defaultSpeed05To": "デフォルトの速度 (0.5〜2.0):",
+    "defaultVoice": "<strong>デフォルトの音声</strong>",
+    "defaultVoiceSettings": "デフォルト音声設定",
+    "englishNormalization": "英語の正規化",
+    "improvePronunciationForSpecificLanguages": "特定の言語の発音を改善",
+    "improveThePronunciationOfNumbers": "数字やテキストの発音を改善",
+    "selectTheDefaultTtsVoice": "チャンネルのデフォルトTTS音声を選択",
+    "selectVoice": "音声を選択",
+    "setDefaultVoiceSettingsFor": "チャンネルのデフォルト音声設定",
+    "setTheEmotionalToneOf": "デフォルト音声の感情トーンを設定",
+    "viewerVoiceLookup": "視聴者音声の検索",
+    "voiceCalibration": "音声キャリブレーション",
+    "voicesWithCustomVolumeSettings": "音量がカスタム設定されている音声。",
+    "voiceVolume01To": "ボイスの音量 (0.1〜10):",
+    "volumeOverride": "音量の上書き:"
+  },
+  "ttsBannedWordInput": {
+    "wordOrPhraseToBan": "禁止する単語またはフレーズ"
+  },
+  "ttsEnabled": {
+    "ttsEngineEnabled": "TTSエンジン有効"
+  },
+  "ttsIgnoreUsername": {
+    "usernameToIgnore": "無視するユーザー名"
+  },
+  "ttsMode": {
+    "allMessages": "すべてのメッセージ",
+    "bitsPointsOnly": "Bits/Pointsのみ",
+    "ttsCommandOnly": "!ttsコマンドのみ"
+  },
+  "ttsPermission": {
+    "everyone": "全員",
+    "moderatorsOnly": "モデレーターのみ",
+    "subscribersOnly": "サブスクライバーのみ",
+    "vipsOnly": "VIPのみ"
+  },
+  "ttsPronunciationMatchInput": {
+    "wordForExampleWcat": "単語（例: wcat）",
+    "wordToReplace": "置き換える単語"
+  },
+  "ttsPronunciationSayInput": {
+    "howToSayItFor": "読み方（例: wildcat）",
+    "pronunciation": "発音"
+  },
+  "ttsUrlField": {
+    "yourBrowserSourceUrl": "Browser SourceのURL"
+  },
+  "twitchUsername": {
+    "loading": "読み込み中…"
+  },
+  "voiceTestBtn": {
+    "sendPreview": "プレビューを送信"
+  },
+  "watchStreakEventsEnabled": {
+    "announceWatchStreaks": "連続視聴ストリークを通知"
+  },
+  "youtubeEnabled": {
+    "youtubeTtsEnabled": "YouTube TTS有効"
+  },
+  "youtubeHandle": {
+    "yourhandle": "@yourhandle"
+  }
+}

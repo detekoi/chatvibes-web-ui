@@ -1,0 +1,81 @@
+{
+  "_README": "Drives ../tts-twitch/scripts/translate-catalogs.js, which is shared between the two repos. Run it from the bot checkout: `node scripts/translate-catalogs.js --config ../chatvibes-web-ui/i18n.config.json`.",
+  "sourceLocale": "en",
+  "promptVersion": 1,
+  "_spoken": "These strings are read off a screen, not synthesised, so the never-abbreviate rule the bot needs is dropped here.",
+  "spoken": false,
+  "nested": true,
+  "localesFile": "public/i18n/locales.json",
+  "catalogs": [
+    {
+      "id": "common",
+      "source": "public/i18n/common-en.json",
+      "out": "public/i18n/common-{locale}.json"
+    },
+    {
+      "id": "index",
+      "source": "public/i18n/index-en.json",
+      "out": "public/i18n/index-{locale}.json"
+    },
+    {
+      "id": "dashboard",
+      "source": "public/i18n/dashboard-en.json",
+      "out": "public/i18n/dashboard-{locale}.json"
+    },
+    {
+      "id": "viewer-settings",
+      "source": "public/i18n/viewer-settings-en.json",
+      "out": "public/i18n/viewer-settings-{locale}.json"
+    },
+    {
+      "id": "auth-complete",
+      "source": "public/i18n/auth-complete-en.json",
+      "out": "public/i18n/auth-complete-{locale}.json"
+    },
+    {
+      "id": "auth-error",
+      "source": "public/i18n/auth-error-en.json",
+      "out": "public/i18n/auth-error-{locale}.json"
+    },
+    {
+      "id": "404",
+      "source": "public/i18n/404-en.json",
+      "out": "public/i18n/404-{locale}.json"
+    }
+  ],
+  "_sidecar": "Outside public/, because everything under it is served to the browser and this is build bookkeeping.",
+  "sidecar": ".i18n-translation-hashes.json",
+  "maxChatLength": 0,
+  "role": "You translate the web dashboard of a Twitch text-to-speech bot.",
+  "context": "Interface strings for a streamer dashboard and a viewer preferences page: button labels, form labels, help text, toast notifications and error messages. Register is plain and direct, addressing the reader as \"you\". Labels and buttons compete for space, so prefer the shorter of two correct phrasings. Some strings are accessible names announced by a screen reader and must describe the control they name, not merely repeat its icon.",
+  "doNotTranslate": [
+    "WildcatTTS",
+    "Wildcat.chat",
+    "tts.wildcat.chat",
+    "docs.wildcat.chat",
+    "Twitch",
+    "YouTube",
+    "OBS",
+    "Ko-fi",
+    "Channel Points",
+    "Browser Source",
+    "TTS",
+    "URL",
+    "Tier",
+    "MiniMax",
+    "Welcome, everyone, to the stream!",
+    "Chat is this real?"
+  ],
+  "glossary": {
+    "TTS": "text to speech. Keep the English abbreviation; it is the product's own name for the feature and appears in the interface the streamer configures.",
+    "Channel Points": "Twitch's on-platform reward currency. Keep Twitch's own localized name for it if one exists in the target language, otherwise keep the English.",
+    "Browser Source": "the name of an OBS input type. Keep OBS's own localized name if one exists, otherwise keep the English.",
+    "redeem": "spend Channel Points on a reward",
+    "bits": "Twitch virtual currency; keep the English word",
+    "voice": "a synthetic speaking voice the streamer picks for the bot",
+    "calibration": "per-voice volume adjustment, so voices sound equally loud",
+    "pronunciation dictionary": "a per-channel list of words and how the bot should say them",
+    "opt out": "a viewer choosing that their own chat messages are never read aloud",
+    "overlay": "the browser page OBS loads to play the bot's audio"
+  }
+}

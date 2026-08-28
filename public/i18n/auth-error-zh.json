@@ -1,0 +1,41 @@
+{
+  "errorAction": {
+    "tryAgain": "重试"
+  },
+  "errorCode": {
+    "unknown": "未知"
+  },
+  "errorCodeBlock": {
+    "error": "错误"
+  },
+  "errorMessageDetails": {
+    "twitchAuthenticationFailed": "Twitch 身份验证失败。"
+  },
+  "errorReadout": {
+    "authenticationFailed": "身份验证失败"
+  },
+  "errorTitle": {
+    "authenticationFailed": "身份验证失败"
+  },
+  "mainContent": {
+    "requestAccessTtsWildcatChat": "<a class=\"wc-link\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">申请访问权限</a> <span>tts.wildcat.chat</span>"
+  },
+  "meta": {
+    "wildcatttsAuthenticationError": "WildcatTTS - 身份验证错误",
+    "wildcatttsAuthenticationErrorAndSign": "WildcatTTS 身份验证错误与登录恢复。"
+  },
+  "msg": {
+    "authError": {
+      "backToSignIn": "返回登录",
+      "canceledBody": "未进行任何更改。准备好后即可登录。",
+      "canceledReadout": "已取消",
+      "canceledTitle": "WildcatTTS - 登录已取消",
+      "canceledTitleShort": "登录已取消",
+      "notPermitted": "无权访问",
+      "requestAccess": "申请访问权限",
+      "twitchError": "Twitch 在身份验证期间返回了错误。",
+      "unspecified": "发生了未指明的错误。",
+      "unspecifiedCode": "未指明"
+    }
+  }
+}

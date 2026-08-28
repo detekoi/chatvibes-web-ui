@@ -1,0 +1,501 @@
+{
+  "addBotBtn": {
+    "activateTtsService": "Kích hoạt dịch vụ TTS"
+  },
+  "addTtsBannedWordBtn": {
+    "add": "Thêm"
+  },
+  "addTtsIgnoreBtn": {
+    "add": "Thêm"
+  },
+  "addTtsPronunciationBtn": {
+    "add": "Thêm"
+  },
+  "allowViewerPreferences": {
+    "allowViewerVoicePreferences": "Cho phép tùy chọn giọng của người xem"
+  },
+  "announceUnfulfilledRedemptions": {
+    "announceQueuedRedeemsImmediately": "Thông báo ngay các lượt đổi đang chờ"
+  },
+  "announceUnfulfilledRedemptionsHelp": {
+    "aRewardThatDoesNot": "Phần thưởng không bỏ qua hàng chờ yêu cầu sẽ được thông báo ngay khi được đổi, ngay cả khi sau đó bạn từ chối yêu cầu. Tắt tính năng này để giữ thông báo cho đến khi bạn chấp nhận yêu cầu — các phần thưởng bạn không bao giờ chấp nhận sẽ không bao giờ được thông báo."
+  },
+  "anonymizeFollowers": {
+    "anonymizeNewFollowers": "Ẩn danh người theo dõi mới"
+  },
+  "bitsEnabled": {
+    "requireBitsForTts": "Yêu cầu Bits cho TTS"
+  },
+  "botRespondsInChat": {
+    "botRespondsInChat": "Bot phản hồi trong chat"
+  },
+  "botStatus": {
+    "loading": "Đang tải…"
+  },
+  "calibratedVoicesList": {
+    "noVoicesCalibratedYet": "Chưa có giọng nào được cân chỉnh."
+  },
+  "calibrationSaveBtn": {
+    "save": "Lưu"
+  },
+  "calibrationVoiceSearch": {
+    "searchVoicesToCalibrate": "Tìm giọng để cân chỉnh..."
+  },
+  "channelNameStatus": {
+    "yourChannel": "kênh của bạn"
+  },
+  "cheerEventsEnabled": {
+    "announceCheers": "Thông báo Cheer"
+  },
+  "copyTtsUrlBtn": {
+    "copy": "Sao chép",
+    "copyBrowserSourceUrl": "Sao chép URL Browser Source"
+  },
+  "cpDelete": {
+    "disableDelete": "Tắt & Xóa"
+  },
+  "cpEnabled": {
+    "enableChannelPointsTts": "Bật TTS bằng Channel Points"
+  },
+  "cpPerStream": {
+    "enterAmount": "Nhập số lượng"
+  },
+  "cpPerUser": {
+    "enterAmount": "Nhập số lượng"
+  },
+  "cpSave": {
+    "save": "Lưu"
+  },
+  "cpTest": {
+    "testRedeem": "Thử đổi thưởng"
+  },
+  "dashboardContent": {
+    "channel": "Kênh",
+    "channelService": "Dịch vụ kênh",
+    "dashboardConfigurationTabs": "Các tab cấu hình bảng điều khiển",
+    "deactivationStopsTheBotFrom": "Việc hủy kích hoạt sẽ dừng bot đọc tin nhắn chat. Cài đặt của bạn vẫn được lưu. Bạn có thể kích hoạt lại dịch vụ bất kỳ lúc nào.",
+    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Tài liệu </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>Cài đặt người xem </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "Cảm xúc",
+    "engNormalization": "Chuẩn hóa tiếng Anh",
+    "language": "Ngôn ngữ",
+    "pitch": "Cao độ",
+    "quickLinks": "Liên kết nhanh",
+    "service": "Dịch vụ",
+    "signedInAs": "Đã đăng nhập với tên",
+    "speed": "Tốc độ",
+    "testMessage": "Tin nhắn thử nghiệm",
+    "voicePreview": "Nghe thử giọng",
+    "volume": "Âm lượng"
+  },
+  "defaultEmotion": {
+    "angry": "Tức giận",
+    "disgusted": "Ghê tởm",
+    "fearful": "Sợ hãi",
+    "happy": "Vui vẻ",
+    "neutral": "Trung tính",
+    "sad": "Buồn",
+    "surprised": "Ngạc nhiên"
+  },
+  "defaultPitch": {
+    "defaultPitch12To12": "Cao độ mặc định (-12 đến +12)"
+  },
+  "defaultSpeed": {
+    "defaultSpeed05To": "Tốc độ mặc định (0.5 đến 2.0)"
+  },
+  "defaultVoiceSearch": {
+    "searchDefaultVoices": "Tìm giọng mặc định",
+    "searchVoices": "Tìm giọng nói..."
+  },
+  "defaultVolume": {
+    "voiceVolume01To": "Âm lượng giọng (0.1 đến 10)"
+  },
+  "emoteMode": {
+    "describeEmotes": "Mô tả emote",
+    "readEmoteNames": "Đọc tên emote",
+    "skipEmotes": "Bỏ qua emote"
+  },
+  "englishNormalization": {
+    "englishNormalization": "Chuẩn hóa tiếng Anh"
+  },
+  "eventsEnabled": {
+    "announceEvents": "Thông báo sự kiện"
+  },
+  "loadingBar": {
+    "loadingDashboardSettings": "Đang tải cài đặt bảng điều khiển"
+  },
+  "loadingOverlay": {
+    "loadingDashboardSettings": "Đang tải cài đặt bảng điều khiển…"
+  },
+  "lookupUsername": {
+    "enterTwitchViewerUsername": "Nhập tên người xem Twitch"
+  },
+  "lookupVoiceBtn": {
+    "lookupVoice": "Tra cứu giọng"
+  },
+  "meta": {
+    "wildcatttsDashboard": "Bảng điều khiển WildcatTTS",
+    "wildcatttsStreamerDashboardConfigureText": "Bảng điều khiển streamer WildcatTTS - Cấu hình cài đặt TTS, quyền hạn, phản hồi của bot và Channel Points."
+  },
+  "msg": {
+    "auth": {
+      "demoStreamer": "Streamer demo",
+      "needBroadcaster": "Đăng nhập bằng tài khoản phát sóng của bạn để truy cập cài đặt streamer.",
+      "needSignIn": "Đăng nhập bằng tài khoản Twitch của bạn để truy cập bảng điều khiển."
+    },
+    "bannedWords": {
+      "addFailed": "Không thể thêm từ bị cấm.",
+      "added": "Đã thêm \"{word}\" vào từ bị cấm.",
+      "addedTestMode": "[Test] Đã thêm từ bị cấm: {word}.",
+      "empty": "Chưa có từ bị cấm nào.",
+      "removeFailed": "Không thể xóa từ bị cấm.",
+      "removed": "Đã xóa \"{word}\" khỏi từ bị cấm.",
+      "removedTestMode": "[Test] Đã xóa từ bị cấm: {word}."
+    },
+    "bot": {
+      "activateFailed": "Không thể kích hoạt dịch vụ TTS.",
+      "activated": "Đã kích hoạt dịch vụ TTS.",
+      "activatedTestMode": "Đã kích hoạt dịch vụ TTS (chế độ thử nghiệm).",
+      "activating": "Đang kích hoạt dịch vụ TTS…",
+      "active": "Đang hoạt động",
+      "deactivateFailed": "Không thể hủy kích hoạt dịch vụ TTS.",
+      "deactivated": "Đã hủy kích hoạt dịch vụ TTS.",
+      "deactivatedTestMode": "Đã hủy kích hoạt dịch vụ TTS (chế độ thử nghiệm).",
+      "deactivating": "Đang hủy kích hoạt dịch vụ TTS…",
+      "inactive": "Không hoạt động",
+      "notAuthenticated": "Chưa xác thực",
+      "notAuthorized": "Kênh chưa được ủy quyền.",
+      "requestAccess": "Yêu cầu quyền truy cập tại đây",
+      "statusError": "Lỗi",
+      "statusFailed": "Lỗi: {reason}",
+      "statusLoadFailed": "Không thể tải trạng thái bot: {reason}",
+      "unknownError": "Lỗi không xác định"
+    },
+    "calibration": {
+      "confirmReset": "Đặt lại hiệu chuẩn cho {voice}?",
+      "edit": "Chỉnh sửa",
+      "empty": "Chưa có giọng nào được hiệu chuẩn.",
+      "reset": "Đặt lại",
+      "row": "{voice} ({volume})"
+    },
+    "cp": {
+      "confirmDelete": "Xóa phần thưởng Channel Points TTS?",
+      "deleteFailed": "Xóa thất bại.",
+      "deleted": "Đã xóa phần thưởng.",
+      "deletedTestMode": "Đã xóa phần thưởng (chế độ thử nghiệm).",
+      "deleting": "Đang xóa…",
+      "lastSynced": "{reward} · Đồng bộ lần cuối: {time}",
+      "never": "chưa bao giờ",
+      "noReward": "Chưa tạo phần thưởng",
+      "noRewardTestMode": "Chưa tạo phần thưởng (chế độ thử nghiệm)",
+      "rewardId": "ID phần thưởng: {id}",
+      "saveFailed": "Không thể lưu cài đặt Channel Points.",
+      "saved": "Đã lưu cài đặt Channel Points.",
+      "savedTestMode": "Đã lưu cài đặt Channel Points (chế độ thử nghiệm).",
+      "saving": "Đang lưu cài đặt Channel Points…",
+      "testCompleted": "Kiểm tra hoàn tất ({status}).",
+      "testCompletedTestMode": "Kiểm tra hoàn tất (chế độ thử nghiệm).",
+      "testFailed": "Kiểm tra thất bại.",
+      "testPrompt": "Nhập tin nhắn thử nghiệm để mô phỏng đổi thưởng:",
+      "testing": "Đang kiểm tra đổi thưởng…"
+    },
+    "ignore": {
+      "addFailed": "Không thể thêm người dùng vào danh sách bỏ qua.",
+      "addFailedReason": "Không thể thêm người dùng: {reason}",
+      "badgeModerator": "Bạn đã tắt tiếng",
+      "badgeSelf": "Đã chọn bỏ qua",
+      "empty": "Không có người dùng nào bị bỏ qua.",
+      "noSuchAccount": "Không có tài khoản Twitch này",
+      "removeFailed": "Không thể xóa người dùng khỏi danh sách bỏ qua.",
+      "removeFailedReason": "Không thể xóa {label}: {reason}",
+      "removeLabel": "Xóa {label} khỏi danh sách bỏ qua ({source, select, self {tự chọn bỏ qua} other {bạn đã tắt tiếng}})"
+    },
+    "lookup": {
+      "button": "Tra cứu giọng nói",
+      "calibrate": "Hiệu chuẩn \"{voice}\"",
+      "error": "Lỗi: {reason}",
+      "failed": "Không thể tìm kiếm người dùng đó.",
+      "hasVoice": "Người dùng {user} đã đặt giọng nói tùy chỉnh: {voice}",
+      "noVoice": "Người dùng {user} chưa đặt giọng nói tùy chỉnh.",
+      "searching": "Đang tìm kiếm…",
+      "voiceUnknown": "Giọng nói này không có trong danh sách giọng nói khả dụng."
+    },
+    "obs": {
+      "cannotCopy": "Không thể sao chép URL.",
+      "cannotDetermine": "Không thể xác định URL TTS.",
+      "copied": "Đã sao chép vào khay nhớ tạm.",
+      "copiedButton": "Đã sao chép!",
+      "copyFailed": "Sao chép thất bại.",
+      "generateFailed": "Không thể tạo URL OBS. Hãy thử lại.",
+      "generating": "Đang tạo…",
+      "generatingUrl": "Đang tạo URL bảo mật…",
+      "loadingUrl": "Đang tải URL hiện có…",
+      "pressRegenerate": "Nhấp vào \"Tạo lại URL\" để tạo URL OBS Browser Source.",
+      "refreshPage": "Không thể tạo URL. Hãy tải lại trang.",
+      "testModeUrl": "URL chế độ thử nghiệm",
+      "urlGenerated": "Đã tạo URL mới.",
+      "urlGeneratedTestMode": "Đã tạo URL mới (chế độ thử nghiệm).",
+      "urlNotReady": "URL chưa sẵn sàng.",
+      "yourUrl": "URL OBS Browser Source của bạn"
+    },
+    "preview": {
+      "playingTestMode": "Đang phát bản xem trước… (chế độ thử nghiệm)",
+      "tooLong": "Văn bản phải từ 500 ký tự trở xuống."
+    },
+    "pron": {
+      "acronymsDisabled": "Từ viết tắt đã bị tắt",
+      "acronymsOffHint": "Bật \"Mở rộng từ viết tắt trong chat\" ở trên để áp dụng các cài đặt này.",
+      "addFailed": "Không thể thêm cách phát âm.",
+      "added": "Đã thêm cách phát âm: {match} -> {say}.",
+      "addedTestMode": "[Thử nghiệm] Đã thêm cách phát âm: {match} -> {say}.",
+      "builtinOff": " — tính năng tích hợp sẵn đã tắt",
+      "empty": "Chưa có cách phát âm tùy chỉnh nào được thêm.",
+      "expansion": " → {say}",
+      "needBoth": "Nhập cả từ và cách phát âm.",
+      "removeFailed": "Không thể xóa cách phát âm.",
+      "removed": "Đã xóa cách phát âm: {match}.",
+      "removedTestMode": "[Thử nghiệm] Đã xóa cách phát âm: {match}."
+    },
+    "setting": {
+      "allowViewerPreferences": "Cho phép người xem tùy chỉnh giọng đọc",
+      "announceQueuedRedeems": "Thông báo đổi thưởng trong hàng đợi",
+      "anonymizeFollowers": "Ẩn danh người theo dõi",
+      "bitsForTts": "Bits cho TTS",
+      "botRespondsInChat": "Bot phản hồi trong chat",
+      "cheerAnnouncements": "Thông báo Cheer",
+      "defaultEmotion": "Cảm xúc mặc định",
+      "defaultLanguage": "Ngôn ngữ mặc định",
+      "defaultPitch": "Cao độ mặc định",
+      "defaultSpeed": "Tốc độ mặc định",
+      "defaultVoice": "Giọng đọc mặc định",
+      "emoteMode": "Chế độ Emote",
+      "englishNormalization": "Chuẩn hóa tiếng Anh",
+      "eventAnnouncements": "Thông báo sự kiện",
+      "expandAcronyms": "Mở rộng từ viết tắt trong chat",
+      "minimumBits": "Số Bits tối thiểu",
+      "profanityFilter": "Bộ lọc từ ngữ phản cảm",
+      "readFullUrls": "Đọc toàn bộ URL",
+      "redemptionAnnouncements": "Thông báo đổi thưởng",
+      "ttsEngine": "Công cụ TTS",
+      "ttsMode": "Chế độ TTS",
+      "ttsPermission": "Quyền sử dụng TTS",
+      "voiceVolume": "Âm lượng giọng đọc",
+      "watchStreakAnnouncements": "Thông báo chuỗi xem",
+      "youtubeHandle": "Tên người dùng YouTube",
+      "youtubeTts": "YouTube TTS"
+    },
+    "settings": {
+      "loadFailed": "Không thể tải cài đặt của bạn.",
+      "saveFailed": "{label}: {reason}",
+      "youtubeHandleRequired": "Nhập tên người dùng YouTube trước khi bật YouTube TTS."
+    }
+  },
+  "obsCloseBtn": {
+    "closeObsSetup": "Đóng thiết lập OBS"
+  },
+  "obsPopover": {
+    "addBrowserSource": "Thêm Browser Source",
+    "cautionANewUrlStops": "LƯU Ý: URL mới sẽ làm dừng nguồn OBS hiện tại cho đến khi bạn cập nhật URL trong OBS.",
+    "controlAudioViaObs": "Điều khiển âm thanh qua OBS",
+    "inObsAddANew": "Trong OBS, hãy thêm <strong>Browser Source</strong> mới. Đặt tên nguồn là \"Wildcat TTS\" và dán URL đã sao chép. Bạn có thể giữ nguyên chiều rộng và chiều cao mặc định.",
+    "inTheObsAudioMixer": "Trong OBS Audio Mixer, tìm \"Wildcat TTS\". Nhấp vào biểu tượng bánh răng và chọn <strong>Advanced Audio Properties</strong>. Đặt Audio Monitoring thành <strong>Monitor and Output</strong>.",
+    "monitorAndOutput": "Giám sát và xuất âm thanh",
+    "obsBrowserSource": "OBS Browser Source",
+    "selectControlAudioViaObs": "Chọn <strong>Control audio via OBS</strong>. Đảm bảo rằng <strong>Shutdown source when not visible</strong> không được chọn.",
+    "setupInstructions": "Hướng dẫn thiết lập",
+    "yourBrowserSourceUrl": "URL Browser Source của bạn"
+  },
+  "obsToggleBtn": {
+    "obsSetup": "Thiết lập OBS"
+  },
+  "page": {
+    "channelDashboard": "Bảng điều khiển kênh",
+    "textToSpeechSettingsFor": "Cài đặt chuyển văn bản thành giọng nói cho kênh của bạn. Thay đổi sẽ được lưu ngay khi bạn thực hiện.",
+    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Bảng điều khiển</span>"
+  },
+  "profanityFilterEnabled": {
+    "profanityFilter": "Bộ lọc ngôn từ tục tĩu"
+  },
+  "pronunciationEnabled": {
+    "expandChatAcronyms": "Mở rộng từ viết tắt trong chat"
+  },
+  "readFullUrls": {
+    "readFullUrls": "Đọc toàn bộ URL"
+  },
+  "redemptionEventsEnabled": {
+    "announceRewardRedeems": "Thông báo đổi phần thưởng"
+  },
+  "regenerateTtsUrlBtn": {
+    "regenerateBrowserSourceUrl": "Tạo lại URL Browser Source",
+    "regenerateUrl": "Tạo lại URL"
+  },
+  "removeBotBtn": {
+    "deactivateTtsService": "Hủy kích hoạt dịch vụ TTS"
+  },
+  "resetPitchBtn": {
+    "reset": "Đặt lại",
+    "resetDefaultPitchTo0": "Đặt lại cao độ mặc định về 0"
+  },
+  "resetSpeedBtn": {
+    "reset": "Đặt lại",
+    "resetDefaultSpeedTo1": "Đặt lại tốc độ mặc định về 1.0"
+  },
+  "resetVolumeBtn": {
+    "reset": "Đặt lại",
+    "resetVoiceVolumeTo1": "Đặt lại âm lượng giọng về 1.0"
+  },
+  "saveSettingsBtn": {
+    "saveAllSettings": "Lưu tất cả cài đặt"
+  },
+  "serviceHeadline": {
+    "ttsService": "Dịch vụ TTS"
+  },
+  "sidebarVoiceName": {
+    "friendlyPerson": "Người thân thiện"
+  },
+  "tabBroadcaster": {
+    "allowTheBotToRespond": "Cho phép bot phản hồi các lệnh chat như !myvoice",
+    "allowViewersToUseChannel": "Cho phép người xem dùng Channel Points cho TTS",
+    "allowViewerVoicePreferences": "Cho phép tùy chọn giọng của người xem",
+    "announceCheers": "Thông báo Cheer",
+    "announceEvents": "Thông báo sự kiện",
+    "announceEventsSuchAsSubscriptions": "Thông báo các sự kiện như gói đăng ký và raid",
+    "announceQueuedRedeemsImmediately": "Thông báo ngay các lượt đổi thưởng trong hàng đợi",
+    "announceRewardRedeems": "Thông báo lượt đổi phần thưởng",
+    "announceWatchStreaks": "Thông báo chuỗi xem liên tục",
+    "announceWhenAViewerCheers": "Thông báo khi người xem cheer bits",
+    "announceWhenAViewerReaches": "Thông báo khi người xem đạt cột mốc chuỗi xem",
+    "announceWhenAViewerRedeems": "Thông báo khi người xem đổi phần thưởng Channel Points",
+    "anonymizeNewFollowers": "Ẩn danh người theo dõi mới",
+    "bannedWordsCommaSeparated": "Từ bị cấm (phân cách bằng dấu phẩy)",
+    "bannedWordsPhrases": "<strong>Từ / Cụm từ bị cấm</strong>",
+    "bitsTts": "Bits → TTS",
+    "blockLinks": "Chặn liên kết",
+    "botRespondsInChat": "Bot phản hồi trong chat",
+    "channelPointsTts": "Channel Points → TTS",
+    "chooseWhichMessagesTriggerTts": "Chọn tin nhắn kích hoạt TTS",
+    "configureBitsRequirementsForText": "Thiết lập yêu cầu bits cho TTS",
+    "configureChannelPointsRewardsFor": "Thiết lập phần thưởng Channel Points cho TTS",
+    "configureTtsEngineSettingsAnd": "Thiết lập công cụ TTS và phân quyền",
+    "controlHowTtsPronouncesSpecific": "Kiểm soát cách TTS phát âm các từ cụ thể. Các từ viết tắt Twitch phổ biến được xử lý theo mặc định. Thêm mục để ghi đè cách phát âm mặc định hoặc thêm từ mới.",
+    "controlsHowTtsHandlesEmotes": "Kiểm soát cách TTS xử lý biểu cảm trong tin nhắn chat",
+    "cooldownsAndModeration": "Thời gian hồi & Kiểm duyệt",
+    "costPoints": "Chi phí (điểm)",
+    "emoteMode": "<strong>Chế độ biểu cảm</strong>",
+    "enableChannelPointsTts": "Bật Channel Points TTS",
+    "enableCooldownsLimits": "Bật thời gian hồi & Giới hạn",
+    "engineMode": "Công cụ & Chế độ",
+    "expandChatAcronyms": "Mở rộng từ viết tắt trong chat",
+    "globalCooldownSec": "Thời gian hồi chung (giây)",
+    "hideFollowerNamesInTts": "Ẩn tên người theo dõi trong thông báo TTS vì quyền riêng tư",
+    "ifOnTtsReadsFull": "Nếu bật, TTS sẽ đọc toàn bộ URL. Nếu tắt, TTS chỉ đọc tên miền",
+    "ifThisSettingIsOff": "Nếu tắt cài đặt này, TTS sẽ dùng giọng mặc định của kênh cho mọi tin nhắn",
+    "ignoredUsers": "Người dùng bị bỏ qua",
+    "manageUsersThatTtsIgnores": "Quản lý người dùng mà TTS bỏ qua",
+    "minimumBitsRequired": "<strong>Số Bits tối thiểu bắt buộc</strong>",
+    "minimumNumberOfBitsRequired": "Số lượng bits tối thiểu để kích hoạt TTS",
+    "perStreamLimit": "Giới hạn mỗi buổi stream",
+    "perUserPerStream": "Mỗi người dùng/buổi stream",
+    "profanityFilter": "Bộ lọc từ tục tĩu",
+    "pronunciationDictionary": "<strong>Từ điển phát âm</strong>",
+    "readFullUrls": "Đọc toàn bộ URL",
+    "readYoutubeLiveChatMessages": "Đọc tin nhắn trò chuyện trực tiếp trên YouTube qua TTS. Tính năng này yêu cầu luồng trực tiếp YouTube đang hoạt động.",
+    "readYoutubeLiveChatMessages2": "Đọc thành tiếng tin nhắn trò chuyện trực tiếp trên YouTube",
+    "requireBitsForTts": "Yêu cầu Bits để dùng TTS",
+    "rewardTitle": "Tiêu đề phần thưởng",
+    "skipTheRewardQueue": "Bỏ qua hàng chờ phần thưởng",
+    "theTitleMustBeUnique": "Tiêu đề không được trùng lặp trong kênh của bạn.",
+    "ttsDoesNotReadMessages": "TTS không đọc tin nhắn từ người dùng trong danh sách này.",
+    "ttsEngineEnabled": "Đã bật công cụ TTS",
+    "ttsExpandsCommonTwitchAcronyms": "TTS mở rộng các từ viết tắt phổ biến trên Twitch thành từ đầy đủ. Ví dụ: “ngl” sẽ thành “not gonna lie”. Tắt tùy chọn này để đánh vần từng chữ cái.",
+    "ttsIgnoreList": "<strong>Danh sách bỏ qua của TTS</strong>",
+    "ttsMode": "<strong>Chế độ TTS</strong>",
+    "ttsPermission": "<strong>Quyền hạn TTS</strong>",
+    "ttsReplacesProfanityWithMilder": "TTS thay thế từ tục tĩu bằng từ nhẹ nhàng hơn trước khi đọc. Bộ lọc sử dụng ngôn ngữ của kênh và ngôn ngữ của người xem. Nếu ngôn ngữ được đặt thành Tự động, bộ lọc sẽ dùng danh sách tiếng Anh. Các từ bị cấm vẫn sẽ khiến toàn bộ tin nhắn bị bỏ qua.",
+    "ttsSkipsMessagesThatContain": "TTS bỏ qua các tin nhắn chứa những từ hoặc cụm từ này.",
+    "turnOnOrTurnOff": "Bật hoặc tắt công cụ chuyển văn bản thành giọng nói",
+    "viewerPrompt": "Lời nhắc cho người xem",
+    "viewersMustCheerBitsTo": "Người xem phải cheer bits để sử dụng tính năng chuyển văn bản thành giọng nói",
+    "whoCanUseTextTo": "Ai có thể dùng tính năng chuyển văn bản thành giọng nói",
+    "yourYoutubeChannelHandleFor": "Tên người dùng kênh YouTube của bạn (ví dụ: <code>@yourhandle</code>)",
+    "youtubeHandle": "<strong>Tên người dùng YouTube</strong>",
+    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>Tích hợp YouTube",
+    "youtubeTtsEnabled": "Đã bật YouTube TTS"
+  },
+  "tabBtnBroadcaster": {
+    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Người phát sóng"
+  },
+  "tabBtnViewerDefaults": {
+    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Giọng đọc mặc định"
+  },
+  "tabViewerDefaults": {
+    "adjustThePitchForThe": "Điều chỉnh cao độ cho giọng đọc mặc định",
+    "adjustTheVolumeForThe": "Điều chỉnh âm lượng cho giọng đọc đã chọn. LƯU Ý: Giá trị lớn hơn 1.0 có thể gây méo tiếng.",
+    "calibratedVoices": "<strong>Giọng đọc đã hiệu chỉnh</strong>",
+    "calibrateVolumeForSpecificVoices": "Hiệu chỉnh âm lượng cho từng giọng đọc cụ thể. LƯU Ý: Giá trị lớn hơn 1.0 có thể gây méo tiếng.",
+    "controlHowFastTheDefault": "Chỉnh tốc độ đọc của giọng mặc định",
+    "defaultEmotion": "<strong>Cảm xúc mặc định</strong>",
+    "defaultLanguage": "<strong>Ngôn ngữ mặc định</strong>",
+    "defaultPitch12To12": "Cao độ mặc định (-12 đến +12):",
+    "defaultSpeed05To": "Tốc độ mặc định (0.5 đến 2.0):",
+    "defaultVoice": "<strong>Giọng đọc mặc định</strong>",
+    "defaultVoiceSettings": "Cài đặt giọng đọc mặc định",
+    "englishNormalization": "Chuẩn hóa tiếng Anh",
+    "improvePronunciationForSpecificLanguages": "Cải thiện phát âm cho các ngôn ngữ cụ thể",
+    "improveThePronunciationOfNumbers": "Cải thiện phát âm số và văn bản",
+    "selectTheDefaultTtsVoice": "Chọn giọng đọc TTS mặc định cho kênh",
+    "selectVoice": "Chọn giọng đọc",
+    "setDefaultVoiceSettingsFor": "Cài đặt giọng đọc mặc định cho kênh của bạn",
+    "setTheEmotionalToneOf": "Đặt tông cảm xúc cho giọng mặc định",
+    "viewerVoiceLookup": "Tra cứu giọng người xem",
+    "voiceCalibration": "Hiệu chỉnh giọng đọc",
+    "voicesWithCustomVolumeSettings": "Các giọng có cài đặt âm lượng tùy chỉnh.",
+    "voiceVolume01To": "Âm lượng giọng (0.1 đến 10):",
+    "volumeOverride": "Ghi đè âm lượng:"
+  },
+  "ttsBannedWordInput": {
+    "wordOrPhraseToBan": "Từ hoặc cụm từ cần cấm"
+  },
+  "ttsEnabled": {
+    "ttsEngineEnabled": "Đã bật công cụ TTS"
+  },
+  "ttsIgnoreUsername": {
+    "usernameToIgnore": "Tên người dùng cần bỏ qua"
+  },
+  "ttsMode": {
+    "allMessages": "Tất cả tin nhắn",
+    "bitsPointsOnly": "Chỉ Bits/Points",
+    "ttsCommandOnly": "Chỉ lệnh !tts"
+  },
+  "ttsPermission": {
+    "everyone": "Mọi người",
+    "moderatorsOnly": "Chỉ người kiểm duyệt",
+    "subscribersOnly": "Chỉ người đăng ký",
+    "vipsOnly": "Chỉ VIP"
+  },
+  "ttsPronunciationMatchInput": {
+    "wordForExampleWcat": "Từ (ví dụ: wcat)",
+    "wordToReplace": "Từ cần thay thế"
+  },
+  "ttsPronunciationSayInput": {
+    "howToSayItFor": "Cách đọc (ví dụ: wildcat)",
+    "pronunciation": "Cách phát âm"
+  },
+  "ttsUrlField": {
+    "yourBrowserSourceUrl": "URL Browser Source của bạn"
+  },
+  "twitchUsername": {
+    "loading": "đang tải…"
+  },
+  "voiceTestBtn": {
+    "sendPreview": "Gửi bản nghe thử"
+  },
+  "watchStreakEventsEnabled": {
+    "announceWatchStreaks": "Thông báo chuỗi ngày xem"
+  },
+  "youtubeEnabled": {
+    "youtubeTtsEnabled": "Đã bật YouTube TTS"
+  },
+  "youtubeHandle": {
+    "yourhandle": "@yourhandle"
+  }
+}

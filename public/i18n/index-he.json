@@ -1,0 +1,50 @@
+{
+  "kofiClose": {
+    "closeSupportDialog": "סגירת חלון התמיכה"
+  },
+  "kofiModal": {
+    "openInNewTabOn": "<a href=\"https://ko-fi.com/parfaitfair\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"kofi-direct-link\">פתיחה בכרטיסייה חדשה ב-Ko-fi.com</a>"
+  },
+  "kofiOpen": {
+    "supportMe": "תמיכה בי"
+  },
+  "kofiTitle": {
+    "supportParfaitfair": "תמיכה ב-parfaitfair"
+  },
+  "mainContent": {
+    "access": "גישה",
+    "accessIsInviteOnlyUnapproved": "הגישה היא בהזמנה בלבד. ערוצים שלא אושרו מקבלים הודעה שהגישה נדחתה. <a class=\"wc-link wc-link--underline\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">בקשו גישה כאן</a>.",
+    "changeTtsSettingsControlBot": "שינוי הגדרות TTS • שליטה בתגובות הצ'אט של הבוט • הגדרת Channel Points • קביעת העדפות קול",
+    "colorTheme": "ערכת צבעים",
+    "iAmAViewer": "<span class=\"wc-rule-name\">אני צופה</span>",
+    "iRunTheChannel": "<span class=\"wc-rule-name\">אני מנהל/ת את הערוץ</span>",
+    "setHowYourMessagesSound": "קבעו כיצד ההודעות שלכם יישמעו כאשר TTS יקריא אותן בכל ערוץ שבו תבקרו.",
+    "textToSpeechForYour": "המרת טקסט לדיבור לערוץ ה-Twitch שלכם, לסטרימרים ולצופים.",
+    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">בהזמנה בלבד</span>",
+    "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">ניהול בוט להמרת טקסט לדיבור</span>"
+  },
+  "meta": {
+    "wildcatttsBotManagement": "ניהול בוט WildcatTTS",
+    "wildcatttsTextToSpeechBot": "ניהול בוט המרת טקסט לדיבור WildcatTTS לערוצי Twitch, לסטרימרים ולצופים."
+  },
+  "msg": {
+    "kofi": {
+      "iframeTitle": "תמיכה ב-parfaitfair ב-Ko-fi"
+    }
+  },
+  "page": {
+    "support": "תמיכה"
+  },
+  "streamerLoginBtn": {
+    "manageMyChannel": "<i data-lucide=\"mic\" aria-hidden=\"true\"></i>ניהול הערוץ שלי"
+  },
+  "themeDarkBtn": {
+    "dark": "כהה"
+  },
+  "themeLightBtn": {
+    "light": "בהיר"
+  },
+  "viewerPrefsBtn": {
+    "setMyOwnVoice": "<i data-lucide=\"headphones\" aria-hidden=\"true\"></i>הגדרת הקול שלי"
+  }
+}

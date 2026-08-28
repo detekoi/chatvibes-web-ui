@@ -1,0 +1,41 @@
+{
+  "errorAction": {
+    "tryAgain": "Spróbuj ponownie"
+  },
+  "errorCode": {
+    "unknown": "nieznany"
+  },
+  "errorCodeBlock": {
+    "error": "Błąd"
+  },
+  "errorMessageDetails": {
+    "twitchAuthenticationFailed": "Uwierzytelnianie Twitch nie powiodło się."
+  },
+  "errorReadout": {
+    "authenticationFailed": "Uwierzytelnianie nie powiodło się"
+  },
+  "errorTitle": {
+    "authenticationFailed": "Uwierzytelnianie nie powiodło się"
+  },
+  "mainContent": {
+    "requestAccessTtsWildcatChat": "<a class=\"wc-link\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">Poproś o dostęp</a> <span>tts.wildcat.chat</span>"
+  },
+  "meta": {
+    "wildcatttsAuthenticationError": "WildcatTTS – Błąd uwierzytelniania",
+    "wildcatttsAuthenticationErrorAndSign": "Błąd uwierzytelniania WildcatTTS i odzyskiwanie logowania."
+  },
+  "msg": {
+    "authError": {
+      "backToSignIn": "Wróć do logowania",
+      "canceledBody": "Nie wprowadzono żadnych zmian. Możesz się zalogować, kiedy zechcesz.",
+      "canceledReadout": "Anulowano",
+      "canceledTitle": "WildcatTTS - Logowanie anulowane",
+      "canceledTitleShort": "Logowanie anulowane",
+      "notPermitted": "Brak dostępu",
+      "requestAccess": "Poproś o dostęp",
+      "twitchError": "Twitch zwrócił błąd podczas uwierzytelniania.",
+      "unspecified": "Wystąpił nieokreślony błąd.",
+      "unspecifiedCode": "nieokreślony"
+    }
+  }
+}

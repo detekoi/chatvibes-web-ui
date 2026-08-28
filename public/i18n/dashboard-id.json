@@ -1,0 +1,501 @@
+{
+  "addBotBtn": {
+    "activateTtsService": "Aktifkan layanan TTS"
+  },
+  "addTtsBannedWordBtn": {
+    "add": "Tambah"
+  },
+  "addTtsIgnoreBtn": {
+    "add": "Tambah"
+  },
+  "addTtsPronunciationBtn": {
+    "add": "Tambah"
+  },
+  "allowViewerPreferences": {
+    "allowViewerVoicePreferences": "Izinkan Preferensi Suara Penonton"
+  },
+  "announceUnfulfilledRedemptions": {
+    "announceQueuedRedeemsImmediately": "Langsung Umumkan Penukaran dalam Antrean"
+  },
+  "announceUnfulfilledRedemptionsHelp": {
+    "aRewardThatDoesNot": "Hadiah yang tidak melewati antrean permintaan hadiah akan diumumkan segera setelah ditukarkan, bahkan jika Anda menolaknya nanti. Nonaktifkan opsi ini untuk menunda pengumuman hingga Anda menyetujui permintaan — hadiah yang tidak pernah Anda setujui tidak akan pernah diumumkan."
+  },
+  "anonymizeFollowers": {
+    "anonymizeNewFollowers": "Anonimkan Pengikut Baru"
+  },
+  "bitsEnabled": {
+    "requireBitsForTts": "Wajibkan Bits untuk TTS"
+  },
+  "botRespondsInChat": {
+    "botRespondsInChat": "Bot Merespons di Obrolan"
+  },
+  "botStatus": {
+    "loading": "Memuat…"
+  },
+  "calibratedVoicesList": {
+    "noVoicesCalibratedYet": "Belum ada suara yang dikalibrasi."
+  },
+  "calibrationSaveBtn": {
+    "save": "Simpan"
+  },
+  "calibrationVoiceSearch": {
+    "searchVoicesToCalibrate": "Cari suara untuk dikalibrasi..."
+  },
+  "channelNameStatus": {
+    "yourChannel": "saluran Anda"
+  },
+  "cheerEventsEnabled": {
+    "announceCheers": "Umumkan Cheer"
+  },
+  "copyTtsUrlBtn": {
+    "copy": "Salin",
+    "copyBrowserSourceUrl": "Salin URL Browser Source"
+  },
+  "cpDelete": {
+    "disableDelete": "Nonaktifkan & Hapus"
+  },
+  "cpEnabled": {
+    "enableChannelPointsTts": "Aktifkan TTS Channel Points"
+  },
+  "cpPerStream": {
+    "enterAmount": "Masukkan jumlah"
+  },
+  "cpPerUser": {
+    "enterAmount": "Masukkan jumlah"
+  },
+  "cpSave": {
+    "save": "Simpan"
+  },
+  "cpTest": {
+    "testRedeem": "Uji penukaran"
+  },
+  "dashboardContent": {
+    "channel": "Saluran",
+    "channelService": "Layanan saluran",
+    "dashboardConfigurationTabs": "Tab konfigurasi dasbor",
+    "deactivationStopsTheBotFrom": "Penonaktifan akan menghentikan bot membaca pesan obrolan. Pengaturan Anda tetap tersimpan. Anda dapat mengaktifkan kembali layanan ini kapan saja.",
+    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentasi </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>Pengaturan penonton </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "Emosi",
+    "engNormalization": "Normalisasi bhs. Inggris",
+    "language": "Bahasa",
+    "pitch": "Nada",
+    "quickLinks": "Tautan cepat",
+    "service": "Layanan",
+    "signedInAs": "Masuk sebagai",
+    "speed": "Kecepatan",
+    "testMessage": "Pesan uji",
+    "voicePreview": "Pratinjau suara",
+    "volume": "Volume"
+  },
+  "defaultEmotion": {
+    "angry": "Marah",
+    "disgusted": "Jijik",
+    "fearful": "Takut",
+    "happy": "Senang",
+    "neutral": "Netral",
+    "sad": "Sedih",
+    "surprised": "Terkejut"
+  },
+  "defaultPitch": {
+    "defaultPitch12To12": "Pitch Default (-12 hingga +12)"
+  },
+  "defaultSpeed": {
+    "defaultSpeed05To": "Kecepatan Default (0,5 hingga 2,0)"
+  },
+  "defaultVoiceSearch": {
+    "searchDefaultVoices": "Cari suara default",
+    "searchVoices": "Cari suara..."
+  },
+  "defaultVolume": {
+    "voiceVolume01To": "Volume Suara (0,1 hingga 10)"
+  },
+  "emoteMode": {
+    "describeEmotes": "Deskripsikan emote",
+    "readEmoteNames": "Baca nama emote",
+    "skipEmotes": "Lewati emote"
+  },
+  "englishNormalization": {
+    "englishNormalization": "Normalisasi Bahasa Inggris"
+  },
+  "eventsEnabled": {
+    "announceEvents": "Umumkan Acara"
+  },
+  "loadingBar": {
+    "loadingDashboardSettings": "Memuat pengaturan dasbor"
+  },
+  "loadingOverlay": {
+    "loadingDashboardSettings": "Memuat pengaturan dasbor…"
+  },
+  "lookupUsername": {
+    "enterTwitchViewerUsername": "Masukkan nama pengguna penonton Twitch"
+  },
+  "lookupVoiceBtn": {
+    "lookupVoice": "Cari Suara"
+  },
+  "meta": {
+    "wildcatttsDashboard": "Dasbor WildcatTTS",
+    "wildcatttsStreamerDashboardConfigureText": "Dasbor Streamer WildcatTTS - Konfigurasikan pengaturan text-to-speech, izin, respons bot, dan Channel Points."
+  },
+  "msg": {
+    "auth": {
+      "demoStreamer": "Streamer Demo",
+      "needBroadcaster": "Masuk dengan akun broadcaster Anda untuk mengakses pengaturan streamer.",
+      "needSignIn": "Masuk dengan akun Twitch Anda untuk mengakses dasbor."
+    },
+    "bannedWords": {
+      "addFailed": "Gagal menambahkan kata terlarang.",
+      "added": "Menambahkan \"{word}\" ke kata terlarang.",
+      "addedTestMode": "[Uji] Menambahkan kata terlarang: {word}.",
+      "empty": "Belum ada kata terlarang yang ditambahkan.",
+      "removeFailed": "Gagal menghapus kata terlarang.",
+      "removed": "Menghapus \"{word}\" dari kata terlarang.",
+      "removedTestMode": "[Uji] Menghapus kata terlarang: {word}."
+    },
+    "bot": {
+      "activateFailed": "Gagal mengaktifkan layanan TTS.",
+      "activated": "Layanan TTS diaktifkan.",
+      "activatedTestMode": "Layanan TTS diaktifkan (mode uji).",
+      "activating": "Mengaktifkan layanan TTS…",
+      "active": "Aktif",
+      "deactivateFailed": "Gagal menonaktifkan layanan TTS.",
+      "deactivated": "Layanan TTS dinonaktifkan.",
+      "deactivatedTestMode": "Layanan TTS dinonaktifkan (mode uji).",
+      "deactivating": "Menonaktifkan layanan TTS…",
+      "inactive": "Tidak aktif",
+      "notAuthenticated": "Tidak terautentikasi",
+      "notAuthorized": "Saluran tidak diizinkan.",
+      "requestAccess": "Minta akses di sini",
+      "statusError": "Error",
+      "statusFailed": "Error: {reason}",
+      "statusLoadFailed": "Gagal memuat status bot: {reason}",
+      "unknownError": "Kesalahan tidak diketahui"
+    },
+    "calibration": {
+      "confirmReset": "Reset kalibrasi untuk {voice}?",
+      "edit": "Edit",
+      "empty": "Belum ada suara yang dikalibrasi.",
+      "reset": "Reset",
+      "row": "{voice} ({volume})"
+    },
+    "cp": {
+      "confirmDelete": "Hapus reward TTS Channel Points?",
+      "deleteFailed": "Gagal menghapus.",
+      "deleted": "Reward dihapus.",
+      "deletedTestMode": "Reward dihapus (mode uji).",
+      "deleting": "Menghapus…",
+      "lastSynced": "{reward} · Terakhir disinkronkan: {time}",
+      "never": "tidak pernah",
+      "noReward": "Tidak ada reward yang dibuat",
+      "noRewardTestMode": "Tidak ada reward yang dibuat (mode uji)",
+      "rewardId": "ID Reward: {id}",
+      "saveFailed": "Tidak dapat menyimpan pengaturan Channel Points.",
+      "saved": "Pengaturan Channel Points disimpan.",
+      "savedTestMode": "Pengaturan Channel Points disimpan (mode uji).",
+      "saving": "Menyimpan pengaturan Channel Points…",
+      "testCompleted": "Uji coba selesai ({status}).",
+      "testCompletedTestMode": "Uji coba selesai (mode uji).",
+      "testFailed": "Uji coba gagal.",
+      "testPrompt": "Masukkan pesan uji untuk menyimulasikan penukaran:",
+      "testing": "Menguji penukaran…"
+    },
+    "ignore": {
+      "addFailed": "Tidak dapat menambahkan pengguna ke daftar abaikan.",
+      "addFailedReason": "Tidak dapat menambahkan pengguna: {reason}",
+      "badgeModerator": "Dibisukan oleh Anda",
+      "badgeSelf": "Memilih keluar",
+      "empty": "Tidak ada pengguna yang diabaikan.",
+      "noSuchAccount": "Akun Twitch tidak ditemukan",
+      "removeFailed": "Tidak dapat menghapus pengguna dari daftar abaikan.",
+      "removeFailedReason": "Tidak dapat menghapus {label}: {reason}",
+      "removeLabel": "Hapus {label} dari daftar abaikan ({source, select, self {memilih keluar sendiri} other {dibisukan oleh Anda}})"
+    },
+    "lookup": {
+      "button": "Cari Suara",
+      "calibrate": "Kalibrasi \"{voice}\"",
+      "error": "Kesalahan: {reason}",
+      "failed": "Tidak dapat menemukan pengguna tersebut.",
+      "hasVoice": "Pengguna {user} menyetel suara khusus: {voice}",
+      "noVoice": "Pengguna {user} tidak menyetel suara khusus.",
+      "searching": "Mencari…",
+      "voiceUnknown": "Suara ini tidak ada dalam daftar suara yang tersedia."
+    },
+    "obs": {
+      "cannotCopy": "Tidak dapat menyalin URL.",
+      "cannotDetermine": "Tidak dapat menentukan URL TTS.",
+      "copied": "Disalin ke papan klip.",
+      "copiedButton": "Tersalin!",
+      "copyFailed": "Gagal menyalin.",
+      "generateFailed": "Tidak dapat membuat URL OBS. Coba lagi.",
+      "generating": "Membuat…",
+      "generatingUrl": "Membuat URL aman…",
+      "loadingUrl": "Memuat URL yang ada…",
+      "pressRegenerate": "Klik \"Buat Ulang URL\" untuk membuat URL Browser Source OBS.",
+      "refreshPage": "Tidak dapat membuat URL. Muat ulang halaman.",
+      "testModeUrl": "URL mode uji",
+      "urlGenerated": "URL baru berhasil dibuat.",
+      "urlGeneratedTestMode": "URL baru berhasil dibuat (mode uji).",
+      "urlNotReady": "URL belum tersedia.",
+      "yourUrl": "URL Browser Source OBS Anda"
+    },
+    "preview": {
+      "playingTestMode": "Memutar pratinjau… (mode uji)",
+      "tooLong": "Teks harus 500 karakter atau kurang."
+    },
+    "pron": {
+      "acronymsDisabled": "Akronim dinonaktifkan",
+      "acronymsOffHint": "Aktifkan \"Perluas Akronim Obrolan\" di atas agar pengaturan ini berlaku.",
+      "addFailed": "Tidak dapat menambahkan pengucapan.",
+      "added": "Pengucapan ditambahkan: {match} -> {say}.",
+      "addedTestMode": "[Uji] Pengucapan ditambahkan: {match} -> {say}.",
+      "builtinOff": " — bawaan dinonaktifkan",
+      "empty": "Belum ada pengucapan kustom yang ditambahkan.",
+      "expansion": " → {say}",
+      "needBoth": "Masukkan kata dan pengucapannya.",
+      "removeFailed": "Tidak dapat menghapus pengucapan.",
+      "removed": "Pengucapan dihapus: {match}.",
+      "removedTestMode": "[Uji] Pengucapan dihapus: {match}."
+    },
+    "setting": {
+      "allowViewerPreferences": "Izinkan Preferensi Suara Penonton",
+      "announceQueuedRedeems": "Umumkan Penukaran dalam Antrean",
+      "anonymizeFollowers": "Anonimkan Pengikut",
+      "bitsForTts": "Bits untuk TTS",
+      "botRespondsInChat": "Bot Merespons di Obrolan",
+      "cheerAnnouncements": "Pengumuman Cheer",
+      "defaultEmotion": "Emosi Default",
+      "defaultLanguage": "Bahasa Default",
+      "defaultPitch": "Pitch Default",
+      "defaultSpeed": "Kecepatan Default",
+      "defaultVoice": "Suara Default",
+      "emoteMode": "Mode Emote",
+      "englishNormalization": "Normalisasi Bahasa Inggris",
+      "eventAnnouncements": "Pengumuman Acara",
+      "expandAcronyms": "Perluas Akronim Obrolan",
+      "minimumBits": "Bits Minimum",
+      "profanityFilter": "Filter Kata Kasar",
+      "readFullUrls": "Baca URL Lengkap",
+      "redemptionAnnouncements": "Pengumuman Penukaran",
+      "ttsEngine": "Mesin TTS",
+      "ttsMode": "Mode TTS",
+      "ttsPermission": "Izin TTS",
+      "voiceVolume": "Volume Suara",
+      "watchStreakAnnouncements": "Pengumuman Watch Streak",
+      "youtubeHandle": "Handle YouTube",
+      "youtubeTts": "YouTube TTS"
+    },
+    "settings": {
+      "loadFailed": "Tidak dapat memuat pengaturan Anda.",
+      "saveFailed": "{label}: {reason}",
+      "youtubeHandleRequired": "Masukkan handle YouTube sebelum mengaktifkan YouTube TTS."
+    }
+  },
+  "obsCloseBtn": {
+    "closeObsSetup": "Tutup penyiapan OBS"
+  },
+  "obsPopover": {
+    "addBrowserSource": "Tambahkan Browser Source",
+    "cautionANewUrlStops": "PERHATIAN: URL baru akan menghentikan sumber OBS Anda saat ini hingga Anda memperbarui URL di OBS.",
+    "controlAudioViaObs": "Kontrol Audio via OBS",
+    "inObsAddANew": "Di OBS, tambahkan <strong>Browser Source</strong> baru. Beri nama sumber \"Wildcat TTS\" dan tempel URL yang disalin. Anda dapat mempertahankan lebar dan tinggi default.",
+    "inTheObsAudioMixer": "Di Mixer Audio OBS, cari \"Wildcat TTS\". Klik ikon roda gigi lalu pilih <strong>Advanced Audio Properties</strong>. Atur Audio Monitoring ke <strong>Monitor and Output</strong>.",
+    "monitorAndOutput": "Monitor and Output",
+    "obsBrowserSource": "OBS Browser Source",
+    "selectControlAudioViaObs": "Pilih <strong>Control audio via OBS</strong>. Pastikan <strong>Shutdown source when not visible</strong> tidak dicentang.",
+    "setupInstructions": "Petunjuk Penyiapan",
+    "yourBrowserSourceUrl": "URL Browser Source Anda"
+  },
+  "obsToggleBtn": {
+    "obsSetup": "Penyiapan OBS"
+  },
+  "page": {
+    "channelDashboard": "Dasbor channel",
+    "textToSpeechSettingsFor": "Pengaturan text-to-speech untuk channel Anda. Perubahan langsung disimpan otomatis.",
+    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Dasbor</span>"
+  },
+  "profanityFilterEnabled": {
+    "profanityFilter": "Filter Kata Kasar"
+  },
+  "pronunciationEnabled": {
+    "expandChatAcronyms": "Uraikan Akronim Obrolan"
+  },
+  "readFullUrls": {
+    "readFullUrls": "Baca URL Lengkap"
+  },
+  "redemptionEventsEnabled": {
+    "announceRewardRedeems": "Umumkan Penukaran Hadiah"
+  },
+  "regenerateTtsUrlBtn": {
+    "regenerateBrowserSourceUrl": "Buat ulang URL browser source",
+    "regenerateUrl": "Buat ulang URL"
+  },
+  "removeBotBtn": {
+    "deactivateTtsService": "Nonaktifkan layanan TTS"
+  },
+  "resetPitchBtn": {
+    "reset": "Atur ulang",
+    "resetDefaultPitchTo0": "Atur ulang nada default ke 0"
+  },
+  "resetSpeedBtn": {
+    "reset": "Reset",
+    "resetDefaultSpeedTo1": "Reset kecepatan default ke 1.0"
+  },
+  "resetVolumeBtn": {
+    "reset": "Reset",
+    "resetVoiceVolumeTo1": "Reset volume suara ke 1.0"
+  },
+  "saveSettingsBtn": {
+    "saveAllSettings": "Simpan Semua Pengaturan"
+  },
+  "serviceHeadline": {
+    "ttsService": "Layanan TTS"
+  },
+  "sidebarVoiceName": {
+    "friendlyPerson": "Orang Ramah"
+  },
+  "tabBroadcaster": {
+    "allowTheBotToRespond": "Izinkan bot merespons perintah chat seperti !myvoice",
+    "allowViewersToUseChannel": "Izinkan penonton menggunakan Channel Points untuk TTS",
+    "allowViewerVoicePreferences": "Izinkan Preferensi Suara Penonton",
+    "announceCheers": "Umumkan Cheer",
+    "announceEvents": "Umumkan Acara",
+    "announceEventsSuchAsSubscriptions": "Umumkan acara seperti langganan dan raid",
+    "announceQueuedRedeemsImmediately": "Umumkan Penukaran Antrean Segera",
+    "announceRewardRedeems": "Umumkan Penukaran Hadiah",
+    "announceWatchStreaks": "Umumkan Watch Streak",
+    "announceWhenAViewerCheers": "Umumkan saat penonton mengirim cheer bits",
+    "announceWhenAViewerReaches": "Umumkan saat penonton mencapai pencapaian watch streak",
+    "announceWhenAViewerRedeems": "Umumkan saat penonton menukarkan hadiah Channel Points",
+    "anonymizeNewFollowers": "Anonimkan Pengikut Baru",
+    "bannedWordsCommaSeparated": "Kata yang diblokir (pisahkan dengan koma)",
+    "bannedWordsPhrases": "<strong>Kata / Frasa yang Diblokir</strong>",
+    "bitsTts": "Bits → TTS",
+    "blockLinks": "Blokir tautan",
+    "botRespondsInChat": "Bot Merespons di Chat",
+    "channelPointsTts": "Channel Points → TTS",
+    "chooseWhichMessagesTriggerTts": "Pilih pesan mana yang memicu TTS",
+    "configureBitsRequirementsForText": "Konfigurasikan persyaratan bits untuk text-to-speech",
+    "configureChannelPointsRewardsFor": "Konfigurasikan hadiah Channel Points untuk text-to-speech",
+    "configureTtsEngineSettingsAnd": "Konfigurasikan pengaturan dan izin mesin TTS",
+    "controlHowTtsPronouncesSpecific": "Kontrol cara TTS melafalkan kata tertentu. Singkatan umum Twitch ditangani secara default. Tambahkan entri untuk mengganti pelafalan default atau menambahkan kata baru.",
+    "controlsHowTtsHandlesEmotes": "Mengontrol cara TTS menangani emote dalam pesan chat",
+    "cooldownsAndModeration": "Cooldown dan Moderasi",
+    "costPoints": "Biaya (poin)",
+    "emoteMode": "<strong>Mode Emote</strong>",
+    "enableChannelPointsTts": "Aktifkan TTS Channel Points",
+    "enableCooldownsLimits": "Aktifkan Cooldown & Batasan",
+    "engineMode": "Mesin & Mode",
+    "expandChatAcronyms": "Uraikan Singkatan Chat",
+    "globalCooldownSec": "Cooldown global (dtk)",
+    "hideFollowerNamesInTts": "Sembunyikan nama pengikut dalam pengumuman TTS demi privasi",
+    "ifOnTtsReadsFull": "Jika aktif, TTS membaca URL lengkap. Jika nonaktif, TTS hanya membaca nama domain",
+    "ifThisSettingIsOff": "Jika pengaturan ini nonaktif, TTS menggunakan suara default saluran untuk semua pesan",
+    "ignoredUsers": "Pengguna yang Diabaikan",
+    "manageUsersThatTtsIgnores": "Kelola pengguna yang diabaikan TTS",
+    "minimumBitsRequired": "<strong>Minimum Bits yang Diperlukan</strong>",
+    "minimumNumberOfBitsRequired": "Jumlah minimum bits yang diperlukan untuk memicu TTS",
+    "perStreamLimit": "Batas per stream",
+    "perUserPerStream": "Per pengguna per stream",
+    "profanityFilter": "Filter Kata Kasar",
+    "pronunciationDictionary": "<strong>Kamus Pengucapan</strong>",
+    "readFullUrls": "Baca URL Lengkap",
+    "readYoutubeLiveChatMessages": "Baca pesan live chat YouTube melalui TTS. Fitur ini memerlukan livestream YouTube yang sedang aktif.",
+    "readYoutubeLiveChatMessages2": "Baca pesan live chat YouTube dengan lantang",
+    "requireBitsForTts": "Wajibkan Bits untuk TTS",
+    "rewardTitle": "Judul hadiah",
+    "skipTheRewardQueue": "Lewati Antrean Hadiah",
+    "theTitleMustBeUnique": "Judul harus unik di saluran Anda.",
+    "ttsDoesNotReadMessages": "TTS tidak membaca pesan dari pengguna di daftar ini.",
+    "ttsEngineEnabled": "Mesin TTS Diaktifkan",
+    "ttsExpandsCommonTwitchAcronyms": "TTS mengeja akronim umum Twitch menjadi kata. Contohnya, “ngl” menjadi “not gonna lie”. Nonaktifkan untuk mengeja tiap huruf.",
+    "ttsIgnoreList": "<strong>Daftar Abaikan TTS</strong>",
+    "ttsMode": "<strong>Mode TTS</strong>",
+    "ttsPermission": "<strong>Izin TTS</strong>",
+    "ttsReplacesProfanityWithMilder": "TTS mengganti kata kasar dengan kata yang lebih sopan sebelum diucapkan. Filter menggunakan bahasa saluran dan bahasa penonton. Jika bahasa diatur ke Otomatis, filter menggunakan daftar bahasa Inggris. Kata terlarang akan tetap melewatkan seluruh pesan.",
+    "ttsSkipsMessagesThatContain": "TTS melewatkan pesan yang mengandung kata atau frasa ini.",
+    "turnOnOrTurnOff": "Aktifkan atau nonaktifkan mesin text-to-speech",
+    "viewerPrompt": "Perintah untuk penonton",
+    "viewersMustCheerBitsTo": "Penonton harus cheer bits untuk menggunakan text-to-speech",
+    "whoCanUseTextTo": "Siapa yang dapat menggunakan text-to-speech",
+    "yourYoutubeChannelHandleFor": "Handle saluran YouTube Anda (misalnya, <code>@handleanda</code>)",
+    "youtubeHandle": "<strong>Handle YouTube</strong>",
+    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>Integrasi YouTube",
+    "youtubeTtsEnabled": "TTS YouTube Diaktifkan"
+  },
+  "tabBtnBroadcaster": {
+    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Penyiar"
+  },
+  "tabBtnViewerDefaults": {
+    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Default Suara"
+  },
+  "tabViewerDefaults": {
+    "adjustThePitchForThe": "Sesuaikan titinada (pitch) untuk suara default",
+    "adjustTheVolumeForThe": "Sesuaikan volume untuk suara yang dipilih. PERHATIAN: Nilai lebih dari 1.0 dapat menyebabkan distorsi.",
+    "calibratedVoices": "<strong>Suara Terkalibrasi</strong>",
+    "calibrateVolumeForSpecificVoices": "Kalibrasi volume untuk suara tertentu. PERHATIAN: Nilai lebih dari 1.0 dapat menyebabkan distorsi.",
+    "controlHowFastTheDefault": "Atur kecepatan bicara suara default",
+    "defaultEmotion": "<strong>Emosi Default</strong>",
+    "defaultLanguage": "<strong>Bahasa Default</strong>",
+    "defaultPitch12To12": "Pitch Bawaan (-12 hingga +12):",
+    "defaultSpeed05To": "Kecepatan Bawaan (0.5 hingga 2.0):",
+    "defaultVoice": "<strong>Suara Default</strong>",
+    "defaultVoiceSettings": "Pengaturan Suara Default",
+    "englishNormalization": "Normalisasi Bahasa Inggris",
+    "improvePronunciationForSpecificLanguages": "Tingkatkan pengucapan untuk bahasa tertentu",
+    "improveThePronunciationOfNumbers": "Tingkatkan pengucapan angka dan teks",
+    "selectTheDefaultTtsVoice": "Pilih suara TTS default untuk channel",
+    "selectVoice": "Pilih Suara",
+    "setDefaultVoiceSettingsFor": "Atur pengaturan suara default untuk channel Anda",
+    "setTheEmotionalToneOf": "Atur nada emosi suara default",
+    "viewerVoiceLookup": "Pencarian Suara Penonton",
+    "voiceCalibration": "Kalibrasi Suara",
+    "voicesWithCustomVolumeSettings": "Suara dengan pengaturan volume kustom.",
+    "voiceVolume01To": "Volume Suara (0.1 hingga 10):",
+    "volumeOverride": "Penggantian Volume:"
+  },
+  "ttsBannedWordInput": {
+    "wordOrPhraseToBan": "Kata atau frasa yang diblokir"
+  },
+  "ttsEnabled": {
+    "ttsEngineEnabled": "Mesin TTS Diaktifkan"
+  },
+  "ttsIgnoreUsername": {
+    "usernameToIgnore": "Username yang diabaikan"
+  },
+  "ttsMode": {
+    "allMessages": "Semua Pesan",
+    "bitsPointsOnly": "Hanya Bits/Poin",
+    "ttsCommandOnly": "Hanya Perintah !tts"
+  },
+  "ttsPermission": {
+    "everyone": "Semua Orang",
+    "moderatorsOnly": "Hanya Moderator",
+    "subscribersOnly": "Hanya Pelanggan",
+    "vipsOnly": "Hanya VIP"
+  },
+  "ttsPronunciationMatchInput": {
+    "wordForExampleWcat": "Kata (contoh: wcat)",
+    "wordToReplace": "Kata yang diganti"
+  },
+  "ttsPronunciationSayInput": {
+    "howToSayItFor": "Cara pengucapan (contoh: wildcat)",
+    "pronunciation": "Pengucapan"
+  },
+  "ttsUrlField": {
+    "yourBrowserSourceUrl": "URL Browser Source Anda"
+  },
+  "twitchUsername": {
+    "loading": "memuat…"
+  },
+  "voiceTestBtn": {
+    "sendPreview": "Kirim pratinjau"
+  },
+  "watchStreakEventsEnabled": {
+    "announceWatchStreaks": "Umumkan Watch Streak"
+  },
+  "youtubeEnabled": {
+    "youtubeTtsEnabled": "YouTube TTS Diaktifkan"
+  },
+  "youtubeHandle": {
+    "yourhandle": "@handleanda"
+  }
+}

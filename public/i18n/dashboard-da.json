@@ -1,0 +1,501 @@
+{
+  "addBotBtn": {
+    "activateTtsService": "Aktivér TTS-tjeneste"
+  },
+  "addTtsBannedWordBtn": {
+    "add": "Tilføj"
+  },
+  "addTtsIgnoreBtn": {
+    "add": "Tilføj"
+  },
+  "addTtsPronunciationBtn": {
+    "add": "Tilføj"
+  },
+  "allowViewerPreferences": {
+    "allowViewerVoicePreferences": "Tillad seernes stemmepræferencer"
+  },
+  "announceUnfulfilledRedemptions": {
+    "announceQueuedRedeemsImmediately": "Annoncér indløsninger i kø med det samme"
+  },
+  "announceUnfulfilledRedemptionsHelp": {
+    "aRewardThatDoesNot": "En belønning, der ikke springer anmodningskøen over, annonceres, så snart den indløses, også selvom du afviser anmodningen senere. Slå dette fra for at tilbageholde annonceringen, indtil du accepterer anmodningen – belønninger, du aldrig accepterer, annonceres så aldrig."
+  },
+  "anonymizeFollowers": {
+    "anonymizeNewFollowers": "Anonymiser nye følgere"
+  },
+  "bitsEnabled": {
+    "requireBitsForTts": "Kræv Bits til TTS"
+  },
+  "botRespondsInChat": {
+    "botRespondsInChat": "Bot svarer i chatten"
+  },
+  "botStatus": {
+    "loading": "Indlæser…"
+  },
+  "calibratedVoicesList": {
+    "noVoicesCalibratedYet": "Ingen stemmer er kalibreret endnu."
+  },
+  "calibrationSaveBtn": {
+    "save": "Gem"
+  },
+  "calibrationVoiceSearch": {
+    "searchVoicesToCalibrate": "Søg efter stemmer til kalibrering..."
+  },
+  "channelNameStatus": {
+    "yourChannel": "din kanal"
+  },
+  "cheerEventsEnabled": {
+    "announceCheers": "Annoncér Cheers"
+  },
+  "copyTtsUrlBtn": {
+    "copy": "Kopiér",
+    "copyBrowserSourceUrl": "Kopiér Browser Source-URL"
+  },
+  "cpDelete": {
+    "disableDelete": "Deaktivér og slet"
+  },
+  "cpEnabled": {
+    "enableChannelPointsTts": "Aktivér Channel Points-TTS"
+  },
+  "cpPerStream": {
+    "enterAmount": "Indtast antal"
+  },
+  "cpPerUser": {
+    "enterAmount": "Indtast antal"
+  },
+  "cpSave": {
+    "save": "Gem"
+  },
+  "cpTest": {
+    "testRedeem": "Test indløsning"
+  },
+  "dashboardContent": {
+    "channel": "Kanal",
+    "channelService": "Kanaltjeneste",
+    "dashboardConfigurationTabs": "Faner til dashboardkonfiguration",
+    "deactivationStopsTheBotFrom": "Deaktivering stopper botten i at læse chatbeskeder. Dine indstillinger forbliver gemt. Du kan aktivere tjenesten igen når som helst.",
+    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentation </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>Seerindstillinger </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "Følelse",
+    "engNormalization": "Eng. normalisering",
+    "language": "Sprog",
+    "pitch": "Tonehøjde",
+    "quickLinks": "Hurtige links",
+    "service": "Tjeneste",
+    "signedInAs": "Logget ind som",
+    "speed": "Hastighed",
+    "testMessage": "Testbesked",
+    "voicePreview": "Forhåndsvisning af stemme",
+    "volume": "Lydstyrke"
+  },
+  "defaultEmotion": {
+    "angry": "Vred",
+    "disgusted": "Væmmet",
+    "fearful": "Frygtsom",
+    "happy": "Glad",
+    "neutral": "Neutral",
+    "sad": "Trist",
+    "surprised": "Overrasket"
+  },
+  "defaultPitch": {
+    "defaultPitch12To12": "Standardtonehøjde (-12 til +12)"
+  },
+  "defaultSpeed": {
+    "defaultSpeed05To": "Standardhastighed (0,5 til 2,0)"
+  },
+  "defaultVoiceSearch": {
+    "searchDefaultVoices": "Søg i standardstemmer",
+    "searchVoices": "Søg efter stemmer..."
+  },
+  "defaultVolume": {
+    "voiceVolume01To": "Stemmelydstyrke (0,1 til 10)"
+  },
+  "emoteMode": {
+    "describeEmotes": "Beskriv emotes",
+    "readEmoteNames": "Læs emote-navne",
+    "skipEmotes": "Spring emotes over"
+  },
+  "englishNormalization": {
+    "englishNormalization": "Engelsk normalisering"
+  },
+  "eventsEnabled": {
+    "announceEvents": "Annoncer begivenheder"
+  },
+  "loadingBar": {
+    "loadingDashboardSettings": "Indlæser dashboard-indstillinger"
+  },
+  "loadingOverlay": {
+    "loadingDashboardSettings": "Indlæser dashboard-indstillinger…"
+  },
+  "lookupUsername": {
+    "enterTwitchViewerUsername": "Indtast Twitch-seerens brugernavn"
+  },
+  "lookupVoiceBtn": {
+    "lookupVoice": "Slå stemme op"
+  },
+  "meta": {
+    "wildcatttsDashboard": "WildcatTTS Dashboard",
+    "wildcatttsStreamerDashboardConfigureText": "WildcatTTS Streamer Dashboard – Konfigurer tekst-til-tale-indstillinger, tilladelser, bot-svar og Channel Points."
+  },
+  "msg": {
+    "auth": {
+      "demoStreamer": "Demostreamer",
+      "needBroadcaster": "Log ind med din broadcaster-konto for at få adgang til streamer-indstillinger.",
+      "needSignIn": "Log ind med din Twitch-konto for at få adgang til dashboardet."
+    },
+    "bannedWords": {
+      "addFailed": "Kan ikke tilføje blokeret ord.",
+      "added": "Føjede \"{word}\" til blokerede ord.",
+      "addedTestMode": "[Test] Tilføjede blokeret ord: {word}.",
+      "empty": "Ingen blokerede ord tilføjet endnu.",
+      "removeFailed": "Kan ikke fjerne blokeret ord.",
+      "removed": "Fjernede \"{word}\" fra blokerede ord.",
+      "removedTestMode": "[Test] Fjernede blokeret ord: {word}."
+    },
+    "bot": {
+      "activateFailed": "Kan ikke aktivere TTS-tjeneste.",
+      "activated": "TTS-tjeneste aktiveret.",
+      "activatedTestMode": "TTS-tjeneste aktiveret (testtilstand).",
+      "activating": "Aktiverer TTS-tjeneste…",
+      "active": "Aktiv",
+      "deactivateFailed": "Kan ikke deaktivere TTS-tjeneste.",
+      "deactivated": "TTS-tjeneste deaktiveret.",
+      "deactivatedTestMode": "TTS-tjeneste deaktiveret (testtilstand).",
+      "deactivating": "Deaktiverer TTS-tjeneste…",
+      "inactive": "Inaktiv",
+      "notAuthenticated": "Ikke godkendt",
+      "notAuthorized": "Kanalen er ikke autoriseret.",
+      "requestAccess": "Anmod om adgang her",
+      "statusError": "Fejl",
+      "statusFailed": "Fejl: {reason}",
+      "statusLoadFailed": "Kan ikke indlæse bot-status: {reason}",
+      "unknownError": "Ukendt fejl"
+    },
+    "calibration": {
+      "confirmReset": "Nulstil kalibrering for {voice}?",
+      "edit": "Rediger",
+      "empty": "Ingen stemmer er kalibreret endnu.",
+      "reset": "Nulstil",
+      "row": "{voice} ({volume})"
+    },
+    "cp": {
+      "confirmDelete": "Slet Channel Points TTS-belønningen?",
+      "deleteFailed": "Sletning mislykkedes.",
+      "deleted": "Belønning slettet.",
+      "deletedTestMode": "Belønning slettet (testtilstand).",
+      "deleting": "Sletter…",
+      "lastSynced": "{reward} · Sidst synkroniseret: {time}",
+      "never": "aldrig",
+      "noReward": "Ingen belønning oprettet",
+      "noRewardTestMode": "Ingen belønning oprettet (testtilstand)",
+      "rewardId": "Belønnings-ID: {id}",
+      "saveFailed": "Kan ikke gemme indstillinger for Channel Points.",
+      "saved": "Indstillinger for Channel Points gemt.",
+      "savedTestMode": "Indstillinger for Channel Points gemt (testtilstand).",
+      "saving": "Gemmer indstillinger for Channel Points…",
+      "testCompleted": "Test fuldført ({status}).",
+      "testCompletedTestMode": "Test fuldført (testtilstand).",
+      "testFailed": "Test mislykkedes.",
+      "testPrompt": "Indtast en testbesked for at simulere en indløsning:",
+      "testing": "Tester indløsning…"
+    },
+    "ignore": {
+      "addFailed": "Kan ikke tilføje bruger til ignoreringslisten.",
+      "addFailedReason": "Kan ikke tilføje bruger: {reason}",
+      "badgeModerator": "Slået fra af dig",
+      "badgeSelf": "Frameldt",
+      "empty": "Ingen ignorerede brugere.",
+      "noSuchAccount": "Twitch-kontoen findes ikke",
+      "removeFailed": "Kan ikke fjerne brugeren fra ignoreringslisten.",
+      "removeFailedReason": "Kan ikke fjerne {label}: {reason}",
+      "removeLabel": "Fjern {label} fra ignoreringslisten ({source, select, self {har selv frameldt} other {slået fra af dig}})"
+    },
+    "lookup": {
+      "button": "Slå stemme op",
+      "calibrate": "Kalibrer \"{voice}\"",
+      "error": "Fejl: {reason}",
+      "failed": "Kan ikke slå brugeren op.",
+      "hasVoice": "Brugeren {user} har valgt brugerdefineret stemme: {voice}",
+      "noVoice": "Brugeren {user} har ikke indstillet en brugerdefineret stemme.",
+      "searching": "Søger…",
+      "voiceUnknown": "Denne stemme er ikke på listen over tilgængelige stemmer."
+    },
+    "obs": {
+      "cannotCopy": "Kan ikke kopiere URL.",
+      "cannotDetermine": "Kan ikke bestemme TTS-URL.",
+      "copied": "Kopieret til udklipsholderen.",
+      "copiedButton": "Kopieret!",
+      "copyFailed": "Kopiering mislykkedes.",
+      "generateFailed": "Kan ikke generere OBS-URL. Prøv igen.",
+      "generating": "Genererer…",
+      "generatingUrl": "Genererer sikker URL…",
+      "loadingUrl": "Indlæser eksisterende URL…",
+      "pressRegenerate": "Klik på \"Generer URL igen\" for at oprette en OBS Browser Source-URL.",
+      "refreshPage": "Kan ikke generere URL. Genindlæs siden.",
+      "testModeUrl": "URL til testtilstand",
+      "urlGenerated": "Genererede en ny URL.",
+      "urlGeneratedTestMode": "Genererede en ny URL (testtilstand).",
+      "urlNotReady": "URL'en er ikke tilgængelig endnu.",
+      "yourUrl": "Din OBS Browser Source-URL"
+    },
+    "preview": {
+      "playingTestMode": "Afspiller forhåndsvisning… (testtilstand)",
+      "tooLong": "Tekst må højst være 500 tegn."
+    },
+    "pron": {
+      "acronymsDisabled": "Akronymer er deaktiveret",
+      "acronymsOffHint": "Aktivér \"Udvid chatforkortelser\" ovenfor, for at disse indstillinger træder i kraft.",
+      "addFailed": "Kan ikke tilføje udtale.",
+      "added": "Tilføjede udtale: {match} -> {say}.",
+      "addedTestMode": "[Test] Tilføjede udtale: {match} -> {say}.",
+      "builtinOff": " — indbygget slået fra",
+      "empty": "Ingen brugerdefinerede udtaler tilføjet endnu.",
+      "expansion": " → {say}",
+      "needBoth": "Indtast både ordet og udtalen.",
+      "removeFailed": "Kan ikke fjerne udtale.",
+      "removed": "Fjernede udtale: {match}.",
+      "removedTestMode": "[Test] Fjernede udtale: {match}."
+    },
+    "setting": {
+      "allowViewerPreferences": "Tillad seeres stemmepræferencer",
+      "announceQueuedRedeems": "Annoncér indløsninger i kø",
+      "anonymizeFollowers": "Anonymiser følgere",
+      "bitsForTts": "Bits til TTS",
+      "botRespondsInChat": "Bot svarer i chatten",
+      "cheerAnnouncements": "Cheer-annonceringer",
+      "defaultEmotion": "Standardfølelse",
+      "defaultLanguage": "Standardsprog",
+      "defaultPitch": "Standardtonehøjde",
+      "defaultSpeed": "Standardhastighed",
+      "defaultVoice": "Standardstemme",
+      "emoteMode": "Emote-tilstand",
+      "englishNormalization": "Engelsk normalisering",
+      "eventAnnouncements": "Begivenhedsannonceringer",
+      "expandAcronyms": "Udvid chatforkortelser",
+      "minimumBits": "Minimum bits",
+      "profanityFilter": "Bandeordsfilter",
+      "readFullUrls": "Læs hele URL'er",
+      "redemptionAnnouncements": "Indløsningsannonceringer",
+      "ttsEngine": "TTS-motor",
+      "ttsMode": "TTS-tilstand",
+      "ttsPermission": "TTS-tilladelse",
+      "voiceVolume": "Stemmelydstyrke",
+      "watchStreakAnnouncements": "Watch Streak-annonceringer",
+      "youtubeHandle": "YouTube-handle",
+      "youtubeTts": "YouTube TTS"
+    },
+    "settings": {
+      "loadFailed": "Kan ikke indlæse dine indstillinger.",
+      "saveFailed": "{label}: {reason}",
+      "youtubeHandleRequired": "Indtast et YouTube-handle, før du aktiverer YouTube-TTS."
+    }
+  },
+  "obsCloseBtn": {
+    "closeObsSetup": "Luk OBS-opsætning"
+  },
+  "obsPopover": {
+    "addBrowserSource": "Tilføj Browser Source",
+    "cautionANewUrlStops": "FORSIGTIG: En ny URL stopper din nuværende OBS-kilde, indtil du opdaterer URL'en i OBS.",
+    "controlAudioViaObs": "Styr lyd via OBS",
+    "inObsAddANew": "I OBS skal du tilføje en ny <strong>Browser Source</strong>. Giv kilden navnet \"Wildcat TTS\", og indsæt den kopierede URL. Du kan beholde standardbredden og -højden.",
+    "inTheObsAudioMixer": "I OBS-lydmixeren skal du finde \"Wildcat TTS\". Klik på tandhjulsikonet, og vælg <strong>Avancerede lydegenskaber</strong>. Indstil Lydovervågning til <strong>Overvågning og output</strong>.",
+    "monitorAndOutput": "Monitorering og output",
+    "obsBrowserSource": "OBS Browser Source",
+    "selectControlAudioViaObs": "Vælg <strong>Styr lyd via OBS</strong>. Sørg for, at <strong>Luk kilde, når den ikke er synlig</strong> ikke er markeret.",
+    "setupInstructions": "Opsætningsvejledning",
+    "yourBrowserSourceUrl": "Din Browser Source-URL"
+  },
+  "obsToggleBtn": {
+    "obsSetup": "OBS-opsætning"
+  },
+  "page": {
+    "channelDashboard": "Kanaldashboard",
+    "textToSpeechSettingsFor": "Tekst-til-tale-indstillinger for din kanal. Ændringer gemmes løbende.",
+    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Dashboard</span>"
+  },
+  "profanityFilterEnabled": {
+    "profanityFilter": "Bandeordsfilter"
+  },
+  "pronunciationEnabled": {
+    "expandChatAcronyms": "Udvid chat-akronymer"
+  },
+  "readFullUrls": {
+    "readFullUrls": "Læs fulde URL'er"
+  },
+  "redemptionEventsEnabled": {
+    "announceRewardRedeems": "Annoncer indløsninger af belønninger"
+  },
+  "regenerateTtsUrlBtn": {
+    "regenerateBrowserSourceUrl": "Generer ny Browser Source-URL",
+    "regenerateUrl": "Generer ny URL"
+  },
+  "removeBotBtn": {
+    "deactivateTtsService": "Deaktiver TTS-tjeneste"
+  },
+  "resetPitchBtn": {
+    "reset": "Nulstil",
+    "resetDefaultPitchTo0": "Nulstil standardtonehøjde til 0"
+  },
+  "resetSpeedBtn": {
+    "reset": "Nulstil",
+    "resetDefaultSpeedTo1": "Nulstil standardhastighed til 1,0"
+  },
+  "resetVolumeBtn": {
+    "reset": "Nulstil",
+    "resetVoiceVolumeTo1": "Nulstil stemmelydstyrke til 1,0"
+  },
+  "saveSettingsBtn": {
+    "saveAllSettings": "Gem alle indstillinger"
+  },
+  "serviceHeadline": {
+    "ttsService": "TTS-tjeneste"
+  },
+  "sidebarVoiceName": {
+    "friendlyPerson": "Venlig person"
+  },
+  "tabBroadcaster": {
+    "allowTheBotToRespond": "Tillad botten at svare på chatkommandoer som f.eks. !myvoice",
+    "allowViewersToUseChannel": "Tillad seere at bruge Channel Points til TTS",
+    "allowViewerVoicePreferences": "Tillad seernes stemmeindstillinger",
+    "announceCheers": "Annoncer cheers",
+    "announceEvents": "Annoncer begivenheder",
+    "announceEventsSuchAsSubscriptions": "Annoncer begivenheder som f.eks. abonnementer og raids",
+    "announceQueuedRedeemsImmediately": "Annoncer indløsninger i kø med det samme",
+    "announceRewardRedeems": "Annoncer indløsning af belønninger",
+    "announceWatchStreaks": "Annoncer seerstimer",
+    "announceWhenAViewerCheers": "Annoncer, når en seer cheerer bits",
+    "announceWhenAViewerReaches": "Annoncer, når en seer når en milepæl for seerstimer",
+    "announceWhenAViewerRedeems": "Annoncer, når en seer indløser en Channel Points-belønning",
+    "anonymizeNewFollowers": "Anonymiser nye følgere",
+    "bannedWordsCommaSeparated": "Forbudte ord (kommasepareret)",
+    "bannedWordsPhrases": "<strong>Forbudte ord/fraser</strong>",
+    "bitsTts": "Bits → TTS",
+    "blockLinks": "Bloker links",
+    "botRespondsInChat": "Bot svarer i chatten",
+    "channelPointsTts": "Channel Points → TTS",
+    "chooseWhichMessagesTriggerTts": "Vælg, hvilke beskeder der udløser TTS",
+    "configureBitsRequirementsForText": "Konfigurer bits-krav til tekst-til-tale",
+    "configureChannelPointsRewardsFor": "Konfigurer Channel Points-belønninger til tekst-til-tale",
+    "configureTtsEngineSettingsAnd": "Konfigurer TTS-motorindstillinger og tilladelser",
+    "controlHowTtsPronouncesSpecific": "Styr, hvordan TTS udtaler specifikke ord. Almindelige Twitch-akronymer håndteres som standard. Tilføj et punkt for at tilsidesætte en standardudtale eller tilføje et nyt ord.",
+    "controlsHowTtsHandlesEmotes": "Styrer, hvordan TTS håndterer emotes i chatbeskeder",
+    "cooldownsAndModeration": "Cooldowns og moderation",
+    "costPoints": "Pris (point)",
+    "emoteMode": "<strong>Emote-tilstand</strong>",
+    "enableChannelPointsTts": "Aktivér Channel Points-TTS",
+    "enableCooldownsLimits": "Aktivér cooldowns og grænser",
+    "engineMode": "Motor og tilstand",
+    "expandChatAcronyms": "Udvid chat-akronymer",
+    "globalCooldownSec": "Global cooldown (sek.)",
+    "hideFollowerNamesInTts": "Skjul følgernavne i TTS-annonceringer af hensyn til privatlivet",
+    "ifOnTtsReadsFull": "Hvis slået til, læser TTS hele URL'er. Hvis slået fra, læser TTS kun domænenavne",
+    "ifThisSettingIsOff": "Hvis denne indstilling er slået fra, bruger TTS kanalens standardstemme til alle beskeder",
+    "ignoredUsers": "Ignorerede brugere",
+    "manageUsersThatTtsIgnores": "Administrer brugere, som TTS ignorerer",
+    "minimumBitsRequired": "<strong>Minimum bits påkrævet</strong>",
+    "minimumNumberOfBitsRequired": "Minimum antal bits påkrævet for at aktivere TTS",
+    "perStreamLimit": "Grænse pr. stream",
+    "perUserPerStream": "Pr. bruger pr. stream",
+    "profanityFilter": "Bandeordsfilter",
+    "pronunciationDictionary": "<strong>Udtaleordbog</strong>",
+    "readFullUrls": "Læs hele URL'er",
+    "readYoutubeLiveChatMessages": "Læs YouTube-livechatbeskeder via TTS. Denne funktion kræver et aktivt YouTube-livestream.",
+    "readYoutubeLiveChatMessages2": "Læs YouTube-livechatbeskeder højt",
+    "requireBitsForTts": "Kræv bits for TTS",
+    "rewardTitle": "Belønningstitel",
+    "skipTheRewardQueue": "Spring belønningskøen over",
+    "theTitleMustBeUnique": "Titlen skal være unik for din kanal.",
+    "ttsDoesNotReadMessages": "TTS læser ikke beskeder fra brugere på denne liste.",
+    "ttsEngineEnabled": "TTS-motor aktiveret",
+    "ttsExpandsCommonTwitchAcronyms": "TTS udvider almindelige Twitch-akronymer til ord. For eksempel bliver “ngl” til “not gonna lie”. Slå fra for at stave hvert bogstav.",
+    "ttsIgnoreList": "<strong>TTS-ignoreringsliste</strong>",
+    "ttsMode": "<strong>TTS-tilstand</strong>",
+    "ttsPermission": "<strong>TTS-tilladelse</strong>",
+    "ttsReplacesProfanityWithMilder": "TTS erstatter bandeord med mildere ord før oplæsning. Filtret bruger kanalsproget og seerens sprog. Hvis sprog er sat til Automatisk, bruger filtret den engelske liste. Udelukkede ord springer stadig hele beskeden over.",
+    "ttsSkipsMessagesThatContain": "TTS springer beskeder over, der indeholder disse ord eller fraser.",
+    "turnOnOrTurnOff": "Slå tekst-til-tale-motoren til eller fra",
+    "viewerPrompt": "Seerprompt",
+    "viewersMustCheerBitsTo": "Seere skal cheere bits for at bruge tekst-til-tale",
+    "whoCanUseTextTo": "Hvem der kan bruge tekst-til-tale",
+    "yourYoutubeChannelHandleFor": "Dit YouTube-kanal-handle (f.eks. <code>@dithandle</code>)",
+    "youtubeHandle": "<strong>YouTube-handle</strong>",
+    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>YouTube-integration",
+    "youtubeTtsEnabled": "YouTube-TTS aktiveret"
+  },
+  "tabBtnBroadcaster": {
+    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Streamer"
+  },
+  "tabBtnViewerDefaults": {
+    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Stemme-standarder"
+  },
+  "tabViewerDefaults": {
+    "adjustThePitchForThe": "Juster tonehøjden for standardstemmen",
+    "adjustTheVolumeForThe": "Juster lydstyrken for den valgte stemme. ADVARSEL: Værdier over 1,0 kan forårsage forvrængning.",
+    "calibratedVoices": "<strong>Kalibrerede stemmer</strong>",
+    "calibrateVolumeForSpecificVoices": "Kalibrer lydstyrke for specifikke stemmer. ADVARSEL: Værdier over 1,0 kan forårsage forvrængning.",
+    "controlHowFastTheDefault": "Styr, hvor hurtigt standardstemmen taler",
+    "defaultEmotion": "<strong>Standardfølelse</strong>",
+    "defaultLanguage": "<strong>Standardsprog</strong>",
+    "defaultPitch12To12": "Standardtonehøjde (-12 til +12):",
+    "defaultSpeed05To": "Standardhastighed (0,5 til 2,0):",
+    "defaultVoice": "<strong>Standardstemme</strong>",
+    "defaultVoiceSettings": "Standardstemmeindstillinger",
+    "englishNormalization": "Engelsk normalisering",
+    "improvePronunciationForSpecificLanguages": "Forbedr udtalen for specifikke sprog",
+    "improveThePronunciationOfNumbers": "Forbedr udtalen af tal og tekst",
+    "selectTheDefaultTtsVoice": "Vælg standard-TTS-stemmen for kanalen",
+    "selectVoice": "Vælg stemme",
+    "setDefaultVoiceSettingsFor": "Angiv standardstemmeindstillinger for din kanal",
+    "setTheEmotionalToneOf": "Indstil den følelsesmæssige tone for standardstemmen",
+    "viewerVoiceLookup": "Opslag af seerstemme",
+    "voiceCalibration": "Stemmekalibrering",
+    "voicesWithCustomVolumeSettings": "Stemmer med tilpassede lydstyrkeindstillinger.",
+    "voiceVolume01To": "Stemmelydstyrke (0,1 til 10):",
+    "volumeOverride": "Overstyring af lydstyrke:"
+  },
+  "ttsBannedWordInput": {
+    "wordOrPhraseToBan": "Ord eller udtryk, der skal blokeres"
+  },
+  "ttsEnabled": {
+    "ttsEngineEnabled": "TTS-motor aktiveret"
+  },
+  "ttsIgnoreUsername": {
+    "usernameToIgnore": "Brugernavn, der skal ignoreres"
+  },
+  "ttsMode": {
+    "allMessages": "Alle beskeder",
+    "bitsPointsOnly": "Kun bits/point",
+    "ttsCommandOnly": "Kun !tts-kommando"
+  },
+  "ttsPermission": {
+    "everyone": "Alle",
+    "moderatorsOnly": "Kun moderatorer",
+    "subscribersOnly": "Kun abonnenter",
+    "vipsOnly": "Kun VIP'er"
+  },
+  "ttsPronunciationMatchInput": {
+    "wordForExampleWcat": "Ord (for eksempel wcat)",
+    "wordToReplace": "Ord, der skal erstattes"
+  },
+  "ttsPronunciationSayInput": {
+    "howToSayItFor": "Hvordan det udtales (for eksempel wildcat)",
+    "pronunciation": "Udtale"
+  },
+  "ttsUrlField": {
+    "yourBrowserSourceUrl": "Din Browser Source-URL"
+  },
+  "twitchUsername": {
+    "loading": "indlæser…"
+  },
+  "voiceTestBtn": {
+    "sendPreview": "Send forhåndsvisning"
+  },
+  "watchStreakEventsEnabled": {
+    "announceWatchStreaks": "Annoncer Watch Streaks"
+  },
+  "youtubeEnabled": {
+    "youtubeTtsEnabled": "YouTube TTS aktiveret"
+  },
+  "youtubeHandle": {
+    "yourhandle": "@ditbrugernavn"
+  }
+}

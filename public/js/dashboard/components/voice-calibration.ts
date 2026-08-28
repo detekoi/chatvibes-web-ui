@@ -1,5 +1,6 @@
 import { formatVoiceName } from '../../common/utils.js';
 import { VoiceDropdown } from './voice-dropdown.js';
+import { t } from '../../common/i18n.js';
 
 export interface VoiceCalibrationOptions {
     voiceDropdown: VoiceDropdown;
@@ -100,7 +101,10 @@ export class VoiceCalibration {
         const calibratedIds = Object.keys(this.currentVoiceVolumes).filter(id => this.currentVoiceVolumes[id] !== 1.0);
 
         if (calibratedIds.length === 0) {
-            this.list.innerHTML = '<li class="list-group-item text-center text-muted py-3">No voices calibrated yet.</li>';
+            const empty = document.createElement('li');
+            empty.className = 'list-group-item text-center text-muted py-3';
+            empty.textContent = t('msg.calibration.empty');
+            this.list.appendChild(empty);
             return;
         }
 
@@ -110,22 +114,22 @@ export class VoiceCalibration {
             li.className = 'list-group-item d-flex justify-content-between align-items-center';
 
             const nameSpan = document.createElement('span');
-            nameSpan.textContent = `${formatVoiceName(voiceId)} (${vol})`;
+            nameSpan.textContent = t('msg.calibration.row', { voice: formatVoiceName(voiceId), volume: vol });
 
             const actionsDiv = document.createElement('div');
 
             const editBtn = document.createElement('button');
             editBtn.className = 'btn btn-sm btn-outline-secondary me-2';
-            editBtn.textContent = 'Edit';
+            editBtn.textContent = t('msg.calibration.edit');
             editBtn.onclick = () => {
                 this.selectVoice(voiceId);
             };
 
             const resetBtn = document.createElement('button');
             resetBtn.className = 'btn btn-sm btn-outline-danger';
-            resetBtn.textContent = 'Reset';
+            resetBtn.textContent = t('msg.calibration.reset');
             resetBtn.onclick = async () => {
-                if (confirm(`Reset calibration for ${formatVoiceName(voiceId)}?`)) {
+                if (confirm(t('msg.calibration.confirmReset', { voice: formatVoiceName(voiceId) }))) {
                     // Optimistic update
                     this.currentVoiceVolumes[voiceId] = 1.0;
                     this.renderList();

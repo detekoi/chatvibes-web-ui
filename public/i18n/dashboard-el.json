@@ -1,0 +1,501 @@
+{
+  "addBotBtn": {
+    "activateTtsService": "Ενεργοποίηση υπηρεσίας TTS"
+  },
+  "addTtsBannedWordBtn": {
+    "add": "Προσθήκη"
+  },
+  "addTtsIgnoreBtn": {
+    "add": "Προσθήκη"
+  },
+  "addTtsPronunciationBtn": {
+    "add": "Προσθήκη"
+  },
+  "allowViewerPreferences": {
+    "allowViewerVoicePreferences": "Να επιτρέπονται οι προτιμήσεις φωνής θεατών"
+  },
+  "announceUnfulfilledRedemptions": {
+    "announceQueuedRedeemsImmediately": "Άμεση ανακοίνωση εξαργυρώσεων σε ουρά"
+  },
+  "announceUnfulfilledRedemptionsHelp": {
+    "aRewardThatDoesNot": "Μια ανταμοιβή που δεν παρακάμπτει την ουρά αιτημάτων ανακοινώνεται μόλις εξαργυρωθεί, ακόμη και αν απορρίψετε το αίτημα αργότερα. Απενεργοποιήστε το για να αναβάλλεται η ανακοίνωση μέχρι να αποδεχτείτε το αίτημα — οι ανταμοιβές που δεν αποδέχεστε δεν θα ανακοινωθούν ποτέ."
+  },
+  "anonymizeFollowers": {
+    "anonymizeNewFollowers": "Ανωνυμοποίηση νέων ακολούθων"
+  },
+  "bitsEnabled": {
+    "requireBitsForTts": "Απαίτηση Bits για TTS"
+  },
+  "botRespondsInChat": {
+    "botRespondsInChat": "Το bot απαντά στη συνομιλία"
+  },
+  "botStatus": {
+    "loading": "Φόρτωση…"
+  },
+  "calibratedVoicesList": {
+    "noVoicesCalibratedYet": "Δεν έχουν βαθμονομηθεί φωνές ακόμα."
+  },
+  "calibrationSaveBtn": {
+    "save": "Αποθήκευση"
+  },
+  "calibrationVoiceSearch": {
+    "searchVoicesToCalibrate": "Αναζήτηση φωνών για βαθμονόμηση..."
+  },
+  "channelNameStatus": {
+    "yourChannel": "το κανάλι σας"
+  },
+  "cheerEventsEnabled": {
+    "announceCheers": "Ανακοίνωση Cheers"
+  },
+  "copyTtsUrlBtn": {
+    "copy": "Αντιγραφή",
+    "copyBrowserSourceUrl": "Αντιγραφή URL Browser Source"
+  },
+  "cpDelete": {
+    "disableDelete": "Απενεργοποίηση & Διαγραφή"
+  },
+  "cpEnabled": {
+    "enableChannelPointsTts": "Ενεργοποίηση TTS για Channel Points"
+  },
+  "cpPerStream": {
+    "enterAmount": "Εισαγάγετε ποσό"
+  },
+  "cpPerUser": {
+    "enterAmount": "Εισαγάγετε ποσό"
+  },
+  "cpSave": {
+    "save": "Αποθήκευση"
+  },
+  "cpTest": {
+    "testRedeem": "Δοκιμή εξαργύρωσης"
+  },
+  "dashboardContent": {
+    "channel": "Κανάλι",
+    "channelService": "Υπηρεσία καναλιού",
+    "dashboardConfigurationTabs": "Καρτέλες ρυθμίσεων πίνακα ελέγχου",
+    "deactivationStopsTheBotFrom": "Η απενεργοποίηση εμποδίζει το bot να διαβάζει μηνύματα συνομιλίας. Οι ρυθμίσεις σας παραμένουν αποθηκευμένες. Μπορείτε να ενεργοποιήσετε ξανά την υπηρεσία ανά πάσα στιγμή.",
+    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Τεκμηρίωση </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>Ρυθμίσεις θεατή </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "Συναίσθημα",
+    "engNormalization": "Κανονικοποίηση αγγλικών",
+    "language": "Γλώσσα",
+    "pitch": "Τόνος",
+    "quickLinks": "Γρήγοροι σύνδεσμοι",
+    "service": "Υπηρεσία",
+    "signedInAs": "Σύνδεση ως",
+    "speed": "Ταχύτητα",
+    "testMessage": "Δοκιμαστικό μήνυμα",
+    "voicePreview": "Προεπισκόπηση φωνής",
+    "volume": "Ένταση"
+  },
+  "defaultEmotion": {
+    "angry": "Θυμωμένος",
+    "disgusted": "Αηδιασμένος",
+    "fearful": "Φοβισμένος",
+    "happy": "Χαρούμενος",
+    "neutral": "Ουδέτερος",
+    "sad": "Λυπημένος",
+    "surprised": "Έκπληκτος"
+  },
+  "defaultPitch": {
+    "defaultPitch12To12": "Προεπιλεγμένος τόνος (-12 έως +12)"
+  },
+  "defaultSpeed": {
+    "defaultSpeed05To": "Προεπιλεγμένη ταχύτητα (0.5 έως 2.0)"
+  },
+  "defaultVoiceSearch": {
+    "searchDefaultVoices": "Αναζήτηση προεπιλεγμένων φωνών",
+    "searchVoices": "Αναζήτηση φωνών..."
+  },
+  "defaultVolume": {
+    "voiceVolume01To": "Ένταση φωνής (0.1 έως 10)"
+  },
+  "emoteMode": {
+    "describeEmotes": "Περιγραφή emotes",
+    "readEmoteNames": "Ανάγνωση ονομάτων emote",
+    "skipEmotes": "Παράλειψη emote"
+  },
+  "englishNormalization": {
+    "englishNormalization": "Κανονικοποίηση αγγλικών"
+  },
+  "eventsEnabled": {
+    "announceEvents": "Ανακοίνωση συμβάντων"
+  },
+  "loadingBar": {
+    "loadingDashboardSettings": "Φόρτωση ρυθμίσεων πίνακα ελέγχου"
+  },
+  "loadingOverlay": {
+    "loadingDashboardSettings": "Φόρτωση ρυθμίσεων πίνακα ελέγχου…"
+  },
+  "lookupUsername": {
+    "enterTwitchViewerUsername": "Εισαγάγετε το όνομα χρήστη θεατή Twitch"
+  },
+  "lookupVoiceBtn": {
+    "lookupVoice": "Αναζήτηση φωνής"
+  },
+  "meta": {
+    "wildcatttsDashboard": "Πίνακας ελέγχου WildcatTTS",
+    "wildcatttsStreamerDashboardConfigureText": "WildcatTTS Streamer Dashboard - Διαμορφώστε ρυθμίσεις text-to-speech, δικαιώματα, απαντήσεις bot και Channel Points."
+  },
+  "msg": {
+    "auth": {
+      "demoStreamer": "Demo Streamer",
+      "needBroadcaster": "Συνδεθείτε με τον λογαριασμό broadcaster σας για πρόσβαση στις ρυθμίσεις streamer.",
+      "needSignIn": "Συνδεθείτε με τον λογαριασμό σας στο Twitch για πρόσβαση στον πίνακα ελέγχου."
+    },
+    "bannedWords": {
+      "addFailed": "Αδυναμία προσθήκης απαγορευμένης λέξης.",
+      "added": "Προστέθηκε το \"{word}\" στις απαγορευμένες λέξεις.",
+      "addedTestMode": "[Δοκιμή] Προστέθηκε απαγορευμένη λέξη: {word}.",
+      "empty": "Δεν έχουν προστεθεί απαγορευμένες λέξεις ακόμα.",
+      "removeFailed": "Αδυναμία αφαίρεσης απαγορευμένης λέξης.",
+      "removed": "Αφαιρέθηκε το \"{word}\" από τις απαγορευμένες λέξεις.",
+      "removedTestMode": "[Δοκιμή] Αφαιρέθηκε απαγορευμένη λέξη: {word}."
+    },
+    "bot": {
+      "activateFailed": "Αδυναμία ενεργοποίησης της υπηρεσίας TTS.",
+      "activated": "Η υπηρεσία TTS ενεργοποιήθηκε.",
+      "activatedTestMode": "Η υπηρεσία TTS ενεργοποιήθηκε (δοκιμαστική λειτουργία).",
+      "activating": "Ενεργοποίηση υπηρεσίας TTS…",
+      "active": "Ενεργό",
+      "deactivateFailed": "Αδυναμία απενεργοποίησης της υπηρεσίας TTS.",
+      "deactivated": "Η υπηρεσία TTS απενεργοποιήθηκε.",
+      "deactivatedTestMode": "Η υπηρεσία TTS απενεργοποιήθηκε (δοκιμαστική λειτουργία).",
+      "deactivating": "Απενεργοποίηση υπηρεσίας TTS…",
+      "inactive": "Ανενεργό",
+      "notAuthenticated": "Χωρίς έλεγχο ταυτότητας",
+      "notAuthorized": "Το κανάλι δεν είναι εξουσιοδοτημένο.",
+      "requestAccess": "Ζητήστε πρόσβαση εδώ",
+      "statusError": "Σφάλμα",
+      "statusFailed": "Σφάλμα: {reason}",
+      "statusLoadFailed": "Αδυναμία φόρτωσης κατάστασης bot: {reason}",
+      "unknownError": "Άγνωστο σφάλμα"
+    },
+    "calibration": {
+      "confirmReset": "Επαναφορά βαθμονόμησης για {voice};",
+      "edit": "Επεξεργασία",
+      "empty": "Δεν έχουν βαθμονομηθεί φωνές ακόμα.",
+      "reset": "Επαναφορά",
+      "row": "{voice} ({volume})"
+    },
+    "cp": {
+      "confirmDelete": "Διαγραφή της ανταμοιβής TTS Channel Points;",
+      "deleteFailed": "Η διαγραφή απέτυχε.",
+      "deleted": "Η ανταμοιβή διαγράφηκε.",
+      "deletedTestMode": "Η ανταμοιβή διαγράφηκε (λειτουργία δοκιμής).",
+      "deleting": "Διαγραφή…",
+      "lastSynced": "{reward} · Τελευταίος συγχρονισμός: {time}",
+      "never": "ποτέ",
+      "noReward": "Δεν έχει δημιουργηθεί ανταμοιβή",
+      "noRewardTestMode": "Δεν έχει δημιουργηθεί ανταμοιβή (λειτουργία δοκιμής)",
+      "rewardId": "ID ανταμοιβής: {id}",
+      "saveFailed": "Αδυναμία αποθήκευσης ρυθμίσεων Channel Points.",
+      "saved": "Οι ρυθμίσεις Channel Points αποθηκεύτηκαν.",
+      "savedTestMode": "Οι ρυθμίσεις Channel Points αποθηκεύτηκαν (λειτουργία δοκιμής).",
+      "saving": "Αποθήκευση ρυθμίσεων Channel Points…",
+      "testCompleted": "Η δοκιμή ολοκληρώθηκε ({status}).",
+      "testCompletedTestMode": "Η δοκιμή ολοκληρώθηκε (λειτουργία δοκιμής).",
+      "testFailed": "Η δοκιμή απέτυχε.",
+      "testPrompt": "Εισαγάγετε ένα δοκιμαστικό μήνυμα για προσομοίωση εξαργύρωσης:",
+      "testing": "Δοκιμή εξαργύρωσης…"
+    },
+    "ignore": {
+      "addFailed": "Αδυναμία προσθήκης χρήστη στη λίστα αγνόησης.",
+      "addFailedReason": "Αδυναμία προσθήκης χρήστη: {reason}",
+      "badgeModerator": "Σε σίγαση από εσάς",
+      "badgeSelf": "Εξαιρέθηκε οικειοθελώς",
+      "empty": "Δεν υπάρχουν χρήστες σε αγνόηση.",
+      "noSuchAccount": "Δεν υπάρχει τέτοιος λογαριασμός Twitch",
+      "removeFailed": "Αδυναμία αφαίρεσης χρήστη από τη λίστα αγνόησης.",
+      "removeFailedReason": "Αδυναμία αφαίρεσης {label}: {reason}",
+      "removeLabel": "Αφαίρεση {label} από τη λίστα αγνόησης ({source, select, self {εξαιρέθηκε οικειοθελώς} other {σε σίγαση από εσάς}})"
+    },
+    "lookup": {
+      "button": "Αναζήτηση φωνής",
+      "calibrate": "Βαθμονόμηση \"{voice}\"",
+      "error": "Σφάλμα: {reason}",
+      "failed": "Δεν είναι δυνατή η εύρεση αυτού του χρήστη.",
+      "hasVoice": "Ο χρήστης {user} όρισε προσαρμοσμένη φωνή: {voice}",
+      "noVoice": "Ο χρήστης {user} δεν έχει ορίσει προσαρμοσμένη φωνή.",
+      "searching": "Αναζήτηση…",
+      "voiceUnknown": "Αυτή η φωνή δεν βρίσκεται στη λίστα διαθέσιμων φωνών."
+    },
+    "obs": {
+      "cannotCopy": "Αδυναμία αντιγραφής URL.",
+      "cannotDetermine": "Δεν είναι δυνατός ο προσδιορισμός του URL του TTS.",
+      "copied": "Αντιγράφηκε στο πρόχειρο.",
+      "copiedButton": "Αντιγράφηκε!",
+      "copyFailed": "Η αντιγραφή απέτυχε.",
+      "generateFailed": "Δεν είναι δυνατή η δημιουργία του URL του OBS. Δοκιμάστε ξανά.",
+      "generating": "Δημιουργία…",
+      "generatingUrl": "Δημιουργία ασφαλούς URL…",
+      "loadingUrl": "Φόρτωση υπάρχοντος URL…",
+      "pressRegenerate": "Κάντε κλικ στο «Επαναδημιουργία URL» για να δημιουργήσετε ένα URL για OBS Browser Source.",
+      "refreshPage": "Αδυναμία δημιουργίας URL. Ανανεώστε τη σελίδα.",
+      "testModeUrl": "URL δοκιμαστικής λειτουργίας",
+      "urlGenerated": "Δημιουργήθηκε νέο URL.",
+      "urlGeneratedTestMode": "Δημιουργήθηκε νέο URL (λειτουργία δοκιμής).",
+      "urlNotReady": "Το URL δεν είναι ακόμα διαθέσιμο.",
+      "yourUrl": "Το URL σας για OBS Browser Source"
+    },
+    "preview": {
+      "playingTestMode": "Αναπαραγωγή προεπισκόπησης… (λειτουργία δοκιμής)",
+      "tooLong": "Το κείμενο πρέπει να είναι έως 500 χαρακτήρες."
+    },
+    "pron": {
+      "acronymsDisabled": "Τα ακρωνύμια είναι απενεργοποιημένα",
+      "acronymsOffHint": "Ενεργοποιήστε την «Ανάπτυξη ακρωνυμίων chat» παραπάνω για να εφαρμοστούν αυτές οι ρυθμίσεις.",
+      "addFailed": "Δεν είναι δυνατή η προσθήκη προφοράς.",
+      "added": "Προστέθηκε προφορά: {match} -> {say}.",
+      "addedTestMode": "[Δοκιμή] Προστέθηκε προφορά: {match} -> {say}.",
+      "builtinOff": " — η ενσωματωμένη είναι απενεργοποιημένη",
+      "empty": "Δεν έχουν προστεθεί προσαρμοσμένες προφορές ακόμα.",
+      "expansion": " → {say}",
+      "needBoth": "Εισαγάγετε τόσο τη λέξη όσο και την προφορά.",
+      "removeFailed": "Δεν είναι δυνατή η αφαίρεση της προφοράς.",
+      "removed": "Αφαιρέθηκε η προφορά: {match}.",
+      "removedTestMode": "[Δοκιμή] Αφαιρέθηκε η προφορά: {match}."
+    },
+    "setting": {
+      "allowViewerPreferences": "Να επιτρέπονται οι προτιμήσεις φωνής θεατών",
+      "announceQueuedRedeems": "Ανακοίνωση εξαργυρώσεων σε ουρά",
+      "anonymizeFollowers": "Ανωνυμοποίηση ακολούθων",
+      "bitsForTts": "Bits για TTS",
+      "botRespondsInChat": "Το bot απαντά στο chat",
+      "cheerAnnouncements": "Ανακοινώσεις Cheer",
+      "defaultEmotion": "Προεπιλεγμένο συναίσθημα",
+      "defaultLanguage": "Προεπιλεγμένη γλώσσα",
+      "defaultPitch": "Προεπιλεγμένος τόνος",
+      "defaultSpeed": "Προεπιλεγμένη ταχύτητα",
+      "defaultVoice": "Προεπιλεγμένη φωνή",
+      "emoteMode": "Λειτουργία Emote",
+      "englishNormalization": "Κανονικοποίηση αγγλικών",
+      "eventAnnouncements": "Ανακοινώσεις συμβάντων",
+      "expandAcronyms": "Ανάπτυξη ακρωνυμίων chat",
+      "minimumBits": "Ελάχιστα bits",
+      "profanityFilter": "Φίλτρο βωμολοχιών",
+      "readFullUrls": "Ανάγνωση πλήρων URL",
+      "redemptionAnnouncements": "Ανακοινώσεις εξαργυρώσεων",
+      "ttsEngine": "Μηχανή TTS",
+      "ttsMode": "Λειτουργία TTS",
+      "ttsPermission": "Δικαιώματα TTS",
+      "voiceVolume": "Ένταση φωνής",
+      "watchStreakAnnouncements": "Ανακοινώσεις Watch Streak",
+      "youtubeHandle": "YouTube Handle",
+      "youtubeTts": "YouTube TTS"
+    },
+    "settings": {
+      "loadFailed": "Αδυναμία φόρτωσης των ρυθμίσεών σας.",
+      "saveFailed": "{label}: {reason}",
+      "youtubeHandleRequired": "Εισαγάγετε ένα YouTube handle πριν ενεργοποιήσετε το YouTube TTS."
+    }
+  },
+  "obsCloseBtn": {
+    "closeObsSetup": "Κλείσιμο ρύθμισης OBS"
+  },
+  "obsPopover": {
+    "addBrowserSource": "Προσθήκη Browser Source",
+    "cautionANewUrlStops": "ΠΡΟΣΟΧΗ: Ένα νέο URL διακόπτει την τρέχουσα πηγή του OBS μέχρι να ενημερώσετε το URL στο OBS.",
+    "controlAudioViaObs": "Έλεγχος ήχου μέσω OBS",
+    "inObsAddANew": "Στο OBS, προσθέστε μια νέα <strong>Browser Source</strong>. Ονομάστε την πηγή «Wildcat TTS» και επικολλήστε το αντιγραμμένο URL. Μπορείτε να διατηρήσετε το προεπιλεγμένο πλάτος και ύψος.",
+    "inTheObsAudioMixer": "Στο Audio Mixer του OBS, βρείτε το «Wildcat TTS». Κάντε κλικ στο εικονίδιο γραναζιού και επιλέξτε <strong>Advanced Audio Properties</strong>. Ορίστε το Audio Monitoring σε <strong>Monitor and Output</strong>.",
+    "monitorAndOutput": "Παρακολούθηση και έξοδος",
+    "obsBrowserSource": "OBS Browser Source",
+    "selectControlAudioViaObs": "Επιλέξτε <strong>Control audio via OBS</strong>. Βεβαιωθείτε ότι η επιλογή <strong>Shutdown source when not visible</strong> δεν είναι επιλεγμένη.",
+    "setupInstructions": "Οδηγίες ρύθμισης",
+    "yourBrowserSourceUrl": "Το URL του Browser Source σας"
+  },
+  "obsToggleBtn": {
+    "obsSetup": "Ρύθμιση OBS"
+  },
+  "page": {
+    "channelDashboard": "Πίνακας ελέγχου καναλιού",
+    "textToSpeechSettingsFor": "Ρυθμίσεις Text-to-speech για το κανάλι σας. Οι αλλαγές αποθηκεύονται αυτόματα.",
+    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Πίνακας ελέγχου</span>"
+  },
+  "profanityFilterEnabled": {
+    "profanityFilter": "Φίλτρο βωμολοχιών"
+  },
+  "pronunciationEnabled": {
+    "expandChatAcronyms": "Ανάπτυξη ακρωνυμίων συνομιλίας"
+  },
+  "readFullUrls": {
+    "readFullUrls": "Ανάγνωση πλήρων URL"
+  },
+  "redemptionEventsEnabled": {
+    "announceRewardRedeems": "Ανακοίνωση εξαργυρώσεων ανταμοιβών"
+  },
+  "regenerateTtsUrlBtn": {
+    "regenerateBrowserSourceUrl": "Επαναδημιουργία URL του Browser Source",
+    "regenerateUrl": "Επαναδημιουργία URL"
+  },
+  "removeBotBtn": {
+    "deactivateTtsService": "Απενεργοποίηση υπηρεσίας TTS"
+  },
+  "resetPitchBtn": {
+    "reset": "Επαναφορά",
+    "resetDefaultPitchTo0": "Επαναφορά προεπιλεγμένου τονικού ύψους στο 0"
+  },
+  "resetSpeedBtn": {
+    "reset": "Επαναφορά",
+    "resetDefaultSpeedTo1": "Επαναφορά προεπιλεγμένης ταχύτητας σε 1.0"
+  },
+  "resetVolumeBtn": {
+    "reset": "Επαναφορά",
+    "resetVoiceVolumeTo1": "Επαναφορά έντασης φωνής σε 1.0"
+  },
+  "saveSettingsBtn": {
+    "saveAllSettings": "Αποθήκευση όλων των ρυθμίσεων"
+  },
+  "serviceHeadline": {
+    "ttsService": "Υπηρεσία TTS"
+  },
+  "sidebarVoiceName": {
+    "friendlyPerson": "Φιλικό άτομο"
+  },
+  "tabBroadcaster": {
+    "allowTheBotToRespond": "Να επιτρέπεται στο bot να απαντά σε εντολές chat όπως !myvoice",
+    "allowViewersToUseChannel": "Να επιτρέπεται στους θεατές να χρησιμοποιούν Channel Points για TTS",
+    "allowViewerVoicePreferences": "Αποδοχή προτιμήσεων φωνής θεατών",
+    "announceCheers": "Ανακοίνωση Cheers",
+    "announceEvents": "Ανακοίνωση συμβάντων",
+    "announceEventsSuchAsSubscriptions": "Ανακοίνωση συμβάντων όπως συνδρομές και raids",
+    "announceQueuedRedeemsImmediately": "Άμεση ανακοίνωση εξαργυρώσεων στην ουρά",
+    "announceRewardRedeems": "Ανακοίνωση εξαργύρωσης ανταμοιβών",
+    "announceWatchStreaks": "Ανακοίνωση σερί παρακολούθησης",
+    "announceWhenAViewerCheers": "Ανακοίνωση όταν ένας θεατής στέλνει bits (cheer)",
+    "announceWhenAViewerReaches": "Ανακοίνωση όταν ένας θεατής φτάνει σε ορόσημο σερί παρακολούθησης",
+    "announceWhenAViewerRedeems": "Ανακοίνωση όταν ένας θεατής εξαργυρώνει ανταμοιβή Channel Points",
+    "anonymizeNewFollowers": "Ανωνυμοποίηση νέων ακολούθων",
+    "bannedWordsCommaSeparated": "Αποκλεισμένες λέξεις (διαχωρισμένες με κόμμα)",
+    "bannedWordsPhrases": "<strong>Αποκλεισμένες λέξεις / φράσεις</strong>",
+    "bitsTts": "Bits → TTS",
+    "blockLinks": "Αποκλεισμός συνδέσμων",
+    "botRespondsInChat": "Απόκριση bot στο chat",
+    "channelPointsTts": "Channel Points → TTS",
+    "chooseWhichMessagesTriggerTts": "Επιλέξτε ποια μηνύματα ενεργοποιούν το TTS",
+    "configureBitsRequirementsForText": "Διαμόρφωση απαιτήσεων bits για μετατροπή κειμένου σε ομιλία",
+    "configureChannelPointsRewardsFor": "Διαμόρφωση ανταμοιβών Channel Points για μετατροπή κειμένου σε ομιλία",
+    "configureTtsEngineSettingsAnd": "Διαμόρφωση ρυθμίσεων μηχανής TTS και δικαιωμάτων",
+    "controlHowTtsPronouncesSpecific": "Ελέγξτε πώς προφέρει το TTS συγκεκριμένες λέξεις. Τα συνήθη ακρωνύμια του Twitch υποστηρίζονται από προεπιλογή. Προσθέστε μια καταχώριση για να αλλάξετε μια προεπιλεγμένη προφορά ή να προσθέσετε νέα λέξη.",
+    "controlsHowTtsHandlesEmotes": "Ελέγχει τον τρόπο με τον οποίο το TTS διαχειρίζεται τα emotes στα μηνύματα chat",
+    "cooldownsAndModeration": "Χρόνοι αναμονής και εποπτεία",
+    "costPoints": "Κόστος (πόντοι)",
+    "emoteMode": "<strong>Λειτουργία emotes</strong>",
+    "enableChannelPointsTts": "Ενεργοποίηση Channel Points TTS",
+    "enableCooldownsLimits": "Ενεργοποίηση χρόνων αναμονής & ορίων",
+    "engineMode": "Μηχανή & λειτουργία",
+    "expandChatAcronyms": "Ανάπτυξη ακρωνυμίων chat",
+    "globalCooldownSec": "Γενικός χρόνος αναμονής (δευτ.)",
+    "hideFollowerNamesInTts": "Απόκρυψη ονομάτων ακολούθων στις ανακοινώσεις TTS για λόγους απορρήτου",
+    "ifOnTtsReadsFull": "Αν είναι ενεργό, το TTS διαβάζει ολόκληρα τα URL. Αν είναι ανενεργό, διαβάζει μόνο τα ονόματα τομέα",
+    "ifThisSettingIsOff": "Αν αυτή η ρύθμιση είναι ανενεργή, το TTS χρησιμοποιεί την προεπιλεγμένη φωνή του καναλιού για όλα τα μηνύματα",
+    "ignoredUsers": "Αγνοημένοι χρήστες",
+    "manageUsersThatTtsIgnores": "Διαχείριση χρηστών που αγνοεί το TTS",
+    "minimumBitsRequired": "<strong>Ελάχιστα απαιτούμενα Bits</strong>",
+    "minimumNumberOfBitsRequired": "Ελάχιστος αριθμός bits που απαιτείται για ενεργοποίηση του TTS",
+    "perStreamLimit": "Όριο ανά stream",
+    "perUserPerStream": "Ανά χρήστη ανά stream",
+    "profanityFilter": "Φίλτρο βωμολοχιών",
+    "pronunciationDictionary": "<strong>Λεξικό προφοράς</strong>",
+    "readFullUrls": "Ανάγνωση πλήρων URL",
+    "readYoutubeLiveChatMessages": "Ανάγνωση μηνυμάτων ζωντανής συνομιλίας YouTube μέσω TTS. Αυτή η λειτουργία απαιτεί ενεργό livestream στο YouTube.",
+    "readYoutubeLiveChatMessages2": "Εκφώνηση μηνυμάτων ζωντανής συνομιλίας YouTube",
+    "requireBitsForTts": "Απαίτηση Bits για TTS",
+    "rewardTitle": "Τίτλος ανταμοιβής",
+    "skipTheRewardQueue": "Παράκαμψη ουράς ανταμοιβών",
+    "theTitleMustBeUnique": "Ο τίτλος πρέπει να είναι μοναδικός στο κανάλι σας.",
+    "ttsDoesNotReadMessages": "Το TTS δεν διαβάζει μηνύματα από χρήστες σε αυτήν τη λίστα.",
+    "ttsEngineEnabled": "Μηχανή TTS ενεργοποιημένη",
+    "ttsExpandsCommonTwitchAcronyms": "Το TTS αναπτύσσει κοινά ακρωνύμια του Twitch σε λέξεις. Για παράδειγμα, το «ngl» γίνεται «not gonna lie». Απενεργοποιήστε το για να εκφωνείται κάθε γράμμα ξεχωριστά.",
+    "ttsIgnoreList": "<strong>Λίστα αγνόησης TTS</strong>",
+    "ttsMode": "<strong>Λειτουργία TTS</strong>",
+    "ttsPermission": "<strong>Άδεια TTS</strong>",
+    "ttsReplacesProfanityWithMilder": "Το TTS αντικαθιστά τις βωμολοχίες με ηπιότερες λέξεις πριν από την εκφώνηση. Το φίλτρο χρησιμοποιεί τη γλώσσα του καναλιού και του θεατή. Αν η γλώσσα οριστεί σε Αυτόματη, χρησιμοποιείται η αγγλική λίστα. Οι απαγορευμένες λέξεις εξακολουθούν να παραλείπουν ολόκληρο το μήνυμα.",
+    "ttsSkipsMessagesThatContain": "Το TTS παραλείπει μηνύματα που περιέχουν αυτές τις λέξεις ή φράσεις.",
+    "turnOnOrTurnOff": "Ενεργοποίηση ή απενεργοποίηση της μηχανής text-to-speech",
+    "viewerPrompt": "Προτροπή θεατή",
+    "viewersMustCheerBitsTo": "Οι θεατές πρέπει να κάνουν cheer με bits για να χρησιμοποιήσουν το text-to-speech",
+    "whoCanUseTextTo": "Ποιος μπορεί να χρησιμοποιήσει το text-to-speech",
+    "yourYoutubeChannelHandleFor": "Το handle του καναλιού σας στο YouTube (π.χ. <code>@yourhandle</code>)",
+    "youtubeHandle": "<strong>YouTube Handle</strong>",
+    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>Ενσωμάτωση YouTube",
+    "youtubeTtsEnabled": "YouTube TTS ενεργοποιημένο"
+  },
+  "tabBtnBroadcaster": {
+    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Broadcaster"
+  },
+  "tabBtnViewerDefaults": {
+    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Προεπιλογές φωνής"
+  },
+  "tabViewerDefaults": {
+    "adjustThePitchForThe": "Ρύθμιση του τόνου για την προεπιλεγμένη φωνή",
+    "adjustTheVolumeForThe": "Ρύθμιση έντασης για την επιλεγμένη φωνή. ΠΡΟΣΟΧΗ: Τιμές άνω του 1.0 μπορεί να προκαλέσουν παραμόρφωση.",
+    "calibratedVoices": "<strong>Βαθμονομημένες φωνές</strong>",
+    "calibrateVolumeForSpecificVoices": "Βαθμονόμηση έντασης για συγκεκριμένες φωνές. ΠΡΟΣΟΧΗ: Τιμές άνω του 1.0 μπορεί να προκαλέσουν παραμόρφωση.",
+    "controlHowFastTheDefault": "Ρυθμίστε πόσο γρήγορα μιλάει η προεπιλεγμένη φωνή",
+    "defaultEmotion": "<strong>Προεπιλεγμένο συναίσθημα</strong>",
+    "defaultLanguage": "<strong>Προεπιλεγμένη γλώσσα</strong>",
+    "defaultPitch12To12": "Προεπιλεγμένο τονικό ύψος (-12 έως +12):",
+    "defaultSpeed05To": "Προεπιλεγμένη ταχύτητα (0.5 έως 2.0):",
+    "defaultVoice": "<strong>Προεπιλεγμένη φωνή</strong>",
+    "defaultVoiceSettings": "Προεπιλεγμένες ρυθμίσεις φωνής",
+    "englishNormalization": "Κανονικοποίηση αγγλικών",
+    "improvePronunciationForSpecificLanguages": "Βελτίωση προφοράς για συγκεκριμένες γλώσσες",
+    "improveThePronunciationOfNumbers": "Βελτίωση προφοράς αριθμών και κειμένου",
+    "selectTheDefaultTtsVoice": "Επιλέξτε την προεπιλεγμένη φωνή TTS για το κανάλι",
+    "selectVoice": "Επιλογή φωνής",
+    "setDefaultVoiceSettingsFor": "Ορίστε προεπιλεγμένες ρυθμίσεις φωνής για το κανάλι σας",
+    "setTheEmotionalToneOf": "Ορίστε τον συναισθηματικό τόνο της προεπιλεγμένης φωνής",
+    "viewerVoiceLookup": "Αναζήτηση φωνής θεατή",
+    "voiceCalibration": "Βαθμονόμηση φωνής",
+    "voicesWithCustomVolumeSettings": "Φωνές με προσαρμοσμένες ρυθμίσεις έντασης.",
+    "voiceVolume01To": "Ένταση φωνής (0.1 έως 10):",
+    "volumeOverride": "Παράκαμψη έντασης:"
+  },
+  "ttsBannedWordInput": {
+    "wordOrPhraseToBan": "Λέξη ή φράση προς αποκλεισμό"
+  },
+  "ttsEnabled": {
+    "ttsEngineEnabled": "Μηχανή TTS ενεργοποιημένη"
+  },
+  "ttsIgnoreUsername": {
+    "usernameToIgnore": "Όνομα χρήστη προς παράβλεψη"
+  },
+  "ttsMode": {
+    "allMessages": "Όλα τα μηνύματα",
+    "bitsPointsOnly": "Μόνο Bits/Πόντοι",
+    "ttsCommandOnly": "Μόνο εντολή !tts"
+  },
+  "ttsPermission": {
+    "everyone": "Όλοι",
+    "moderatorsOnly": "Μόνο συντονιστές",
+    "subscribersOnly": "Μόνο συνδρομητές",
+    "vipsOnly": "Μόνο VIP"
+  },
+  "ttsPronunciationMatchInput": {
+    "wordForExampleWcat": "Λέξη (π.χ. wcat)",
+    "wordToReplace": "Λέξη προς αντικατάσταση"
+  },
+  "ttsPronunciationSayInput": {
+    "howToSayItFor": "Πώς προφέρεται (π.χ. wildcat)",
+    "pronunciation": "Προφορά"
+  },
+  "ttsUrlField": {
+    "yourBrowserSourceUrl": "Το Browser Source URL σας"
+  },
+  "twitchUsername": {
+    "loading": "φόρτωση…"
+  },
+  "voiceTestBtn": {
+    "sendPreview": "Αποστολή προεπισκόπησης"
+  },
+  "watchStreakEventsEnabled": {
+    "announceWatchStreaks": "Ανακοίνωση σερί παρακολούθησης"
+  },
+  "youtubeEnabled": {
+    "youtubeTtsEnabled": "YouTube TTS ενεργοποιημένο"
+  },
+  "youtubeHandle": {
+    "yourhandle": "@yourhandle"
+  }
+}

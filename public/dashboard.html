@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="WildcatTTS Streamer Dashboard - Configure text-to-speech settings, permissions, bot responses, and channel points.">
-    <title>WildcatTTS Dashboard</title>
+    <meta data-i18n-content="meta.wildcatttsStreamerDashboardConfigureText" name="description" content="WildcatTTS Streamer Dashboard - Configure text-to-speech settings, permissions, bot responses, and channel points.">
+    <title data-i18n="meta.wildcatttsDashboard">WildcatTTS Dashboard</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,10 +39,10 @@
 </head>
 
 <body>
-    <a href="#main-content" class="wc-skip-link">Skip to main content</a>
+    <a data-i18n="page.skipToMainContent" href="#main-content" class="wc-skip-link">Skip to main content</a>
 
     <header class="wc-appbar">
-        <div class="wc-appbar-brand">
+        <div data-i18n="page.wildcatTtsDashboard" class="wc-appbar-brand">
             <span class="wc-lockup">Wildcat<b>TTS</b></span>
             <span class="wc-sep"></span>
             <span class="wc-appbar-page">Dashboard</span>
@@ -52,63 +52,63 @@
                 <div class="obs-anchor">
                     <button class="wc-chipbtn" type="button" id="obs-toggle-btn" aria-expanded="false" aria-controls="obs-popover">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"><rect x="2" y="3" width="20" height="14" rx="0"/><path d="M8 21h8M12 17v4"/></svg>
-                        OBS Setup
+                        <span data-i18n="obsToggleBtn.obsSetup">OBS Setup</span>
                     </button>
                     <!-- POPOVER -->
                     <div class="obs-popover" id="obs-popover">
                         <div class="obs-pop-header">
                             <div class="obs-pop-title">
                                 <div class="obs-pop-dot"></div>
-                                OBS Browser Source
+                                <span data-i18n="obsPopover.obsBrowserSource">OBS Browser Source</span>
                             </div>
-                            <button class="obs-close" type="button" id="obs-close-btn" aria-label="Close OBS setup">✕</button>
+                            <button data-i18n-aria-label="obsCloseBtn.closeObsSetup" class="obs-close" type="button" id="obs-close-btn" aria-label="Close OBS setup">✕</button>
                         </div>
                         <div class="obs-pop-body">
                             <!-- URL + Copy -->
                             <div>
-                                <label for="tts-url-field" class="obs-steps-label">Your Browser Source URL</label>
+                                <label data-i18n="obsPopover.yourBrowserSourceUrl" for="tts-url-field" class="obs-steps-label">Your Browser Source URL</label>
                                 <div class="obs-url-group">
-                                    <input class="obs-url-input" type="text" readonly value="" id="tts-url-field" aria-label="Your Browser Source URL">
-                                    <button class="obs-copy-btn" type="button" id="copy-tts-url-btn" aria-label="Copy browser source URL">Copy</button>
+                                    <input data-i18n-aria-label="ttsUrlField.yourBrowserSourceUrl" class="obs-url-input" type="text" readonly value="" id="tts-url-field" aria-label="Your Browser Source URL">
+                                    <button data-i18n="copyTtsUrlBtn.copy" data-i18n-aria-label="copyTtsUrlBtn.copyBrowserSourceUrl" class="obs-copy-btn" type="button" id="copy-tts-url-btn" aria-label="Copy browser source URL">Copy</button>
                                 </div>
                             </div>
                             <!-- Regenerate warning -->
                             <div class="regen-box">
                                 <svg class="regen-warn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
                                 <div class="regen-text">
-                                    <p>CAUTION: A new URL stops your current OBS source until you update the URL in OBS.</p>
-                                    <button class="btn-regen" type="button" id="regenerate-tts-url-btn" aria-label="Regenerate browser source URL">Regenerate URL</button>
+                                    <p data-i18n="obsPopover.cautionANewUrlStops">CAUTION: A new URL stops your current OBS source until you update the URL in OBS.</p>
+                                    <button data-i18n="regenerateTtsUrlBtn.regenerateUrl" data-i18n-aria-label="regenerateTtsUrlBtn.regenerateBrowserSourceUrl" class="btn-regen" type="button" id="regenerate-tts-url-btn" aria-label="Regenerate browser source URL">Regenerate URL</button>
                                 </div>
                             </div>
                             <!-- Steps -->
                             <div>
-                                <div class="obs-steps-label">Setup Instructions</div>
+                                <div data-i18n="obsPopover.setupInstructions" class="obs-steps-label">Setup Instructions</div>
                                 <div class="obs-steps-scroll">
                                     <details class="obs-step-group">
                                         <summary class="obs-step-summary">
                                             <div class="step-num-sm">1</div>
-                                            Add Browser Source
+                                            <span data-i18n="obsPopover.addBrowserSource">Add Browser Source</span>
                                         </summary>
                                         <div class="obs-step-content">
-                                            <p>In OBS, add a new <strong>Browser Source</strong>. Name the source "Wildcat TTS" and paste the copied URL. You can keep the default width and height.</p>
+                                            <p data-i18n="obsPopover.inObsAddANew">In OBS, add a new <strong>Browser Source</strong>. Name the source "Wildcat TTS" and paste the copied URL. You can keep the default width and height.</p>
                                         </div>
                                     </details>
                                     <details class="obs-step-group">
                                         <summary class="obs-step-summary">
                                             <div class="step-num-sm">2</div>
-                                            Control Audio via OBS
+                                            <span data-i18n="obsPopover.controlAudioViaObs">Control Audio via OBS</span>
                                         </summary>
                                         <div class="obs-step-content">
-                                            <p>Select <strong>Control audio via OBS</strong>. Make sure that <strong>Shutdown source when not visible</strong> is not selected.</p>
+                                            <p data-i18n="obsPopover.selectControlAudioViaObs">Select <strong>Control audio via OBS</strong>. Make sure that <strong>Shutdown source when not visible</strong> is not selected.</p>
                                         </div>
                                     </details>
                                     <details class="obs-step-group">
                                         <summary class="obs-step-summary">
                                             <div class="step-num-sm">3</div>
-                                            Monitor and Output
+                                            <span data-i18n="obsPopover.monitorAndOutput">Monitor and Output</span>
                                         </summary>
                                         <div class="obs-step-content">
-                                            <p>In the OBS Audio Mixer, find "Wildcat TTS". Click the gear icon and select <strong>Advanced Audio Properties</strong>. Set Audio Monitoring to <strong>Monitor and Output</strong>.</p>
+                                            <p data-i18n="obsPopover.inTheObsAudioMixer">In the OBS Audio Mixer, find "Wildcat TTS". Click the gear icon and select <strong>Advanced Audio Properties</strong>. Set Audio Monitoring to <strong>Monitor and Output</strong>.</p>
                                         </div>
                                     </details>
                                 </div>
@@ -116,17 +116,20 @@
                         </div>
                     </div>
                 </div>
-                <button class="wc-iconbtn" type="button" id="darkModeToggle" title="Toggle dark mode"
+                <select data-i18n-aria-label="ui.language" class="wc-langselect" id="page-language-select" aria-label="Language">
+                    <option data-i18n-skip value="en">English</option>
+                </select>
+                <button data-i18n-title="darkModeToggle.toggleDarkMode" data-i18n-aria-label="darkModeToggle.toggleDarkMode" class="wc-iconbtn" type="button" id="darkModeToggle" title="Toggle dark mode"
                     aria-label="Toggle dark mode">
                     <i data-lucide="moon" aria-hidden="true"></i>
                 </button>
-                <a href="#" id="logout-link" class="wc-chipbtn wc-chipbtn--danger">Logout</a>
+                <a data-i18n="logoutLink.logout" href="#" id="logout-link" class="wc-chipbtn wc-chipbtn--danger">Logout</a>
         </div>
     </header>
 
     <div class="wc-page-head">
-        <h1>Channel dashboard</h1>
-        <p>Text-to-speech settings for your channel. Changes save as you make them.</p>
+        <h1 data-i18n="page.channelDashboard">Channel dashboard</h1>
+        <p data-i18n="page.textToSpeechSettingsFor">Text-to-speech settings for your channel. Changes save as you make them.</p>
     </div>
 
     <main id="main-content" class="wc-main">
@@ -134,35 +137,35 @@
 
         <!-- Loading Overlay -->
         <div id="loading-overlay" class="wc-loading wc-loading--page" style="display: none;">
-            <div class="wc-bar" id="loading-bar" role="progressbar" aria-label="Loading dashboard settings"><span></span></div>
-            <p class="wc-loading-label">Loading dashboard settings…</p>
+            <div data-i18n-aria-label="loadingBar.loadingDashboardSettings" class="wc-bar" id="loading-bar" role="progressbar" aria-label="Loading dashboard settings"><span></span></div>
+            <p data-i18n="loadingOverlay.loadingDashboardSettings" class="wc-loading-label">Loading dashboard settings…</p>
         </div>
 
         <div id="dashboard-content" style="display: none;">
             <!-- Stat strip -->
             <dl class="wc-stats">
                 <div class="wc-stat">
-                    <dt>Service</dt>
-                    <dd><span id="bot-status">Loading…</span></dd>
+                    <dt data-i18n="dashboardContent.service">Service</dt>
+                    <dd><span data-i18n="botStatus.loading" id="bot-status">Loading…</span></dd>
                 </div>
                 <div class="wc-stat">
-                    <dt>Channel</dt>
-                    <dd><span id="channel-name-status">your channel</span></dd>
+                    <dt data-i18n="dashboardContent.channel">Channel</dt>
+                    <dd><span data-i18n="channelNameStatus.yourChannel" id="channel-name-status">your channel</span></dd>
                 </div>
                 <div class="wc-stat">
-                    <dt>Signed in as</dt>
-                    <dd><span id="twitch-username">loading…</span></dd>
+                    <dt data-i18n="dashboardContent.signedInAs">Signed in as</dt>
+                    <dd><span data-i18n="twitchUsername.loading" id="twitch-username">loading…</span></dd>
                 </div>
             </dl>
 
             <!-- Tabs -->
-            <ul class="nav nav-tabs" role="tablist" aria-label="Dashboard configuration tabs">
+            <ul data-i18n-aria-label="dashboardContent.dashboardConfigurationTabs" class="nav nav-tabs" role="tablist" aria-label="Dashboard configuration tabs">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-broadcaster"
+                        <button data-i18n="tabBtnBroadcaster.broadcaster" class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-broadcaster"
                             type="button" role="tab" id="tab-btn-broadcaster" aria-selected="true" aria-controls="tab-broadcaster"><i data-lucide="radio" class="inline-icon" style="margin-right: 6px;"></i>Broadcaster</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-viewer-defaults" type="button"
+                        <button data-i18n="tabBtnViewerDefaults.voiceDefaults" class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-viewer-defaults" type="button"
                             role="tab" id="tab-btn-viewer-defaults" aria-selected="false" aria-controls="tab-viewer-defaults"><i data-lucide="sliders-horizontal" class="inline-icon" style="margin-right: 6px;"></i>Voice Defaults</button>
                     </li>
             </ul>
@@ -174,18 +177,18 @@
                     <div class="tab-pane fade show active" id="tab-broadcaster" role="tabpanel" aria-labelledby="tab-btn-broadcaster">
                         <!-- Engine & Mode -->
                         <div class="settings-section">
-                            <h2 class="settings-section-title">Engine &amp; Mode</h2>
-                            <p class="settings-section-description">Configure TTS engine settings and permissions</p>
+                            <h2 data-i18n="tabBroadcaster.engineMode" class="settings-section-title">Engine &amp; Mode</h2>
+                            <p data-i18n="tabBroadcaster.configureTtsEngineSettingsAnd" class="settings-section-description">Configure TTS engine settings and permissions</p>
                             <div class="list-group mb-4 shadow">
                                 <div class="list-group-item">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <strong class="mb-0">TTS Engine Enabled</strong>
-                                            <p class="text-muted mb-0">Turn on or turn off the text-to-speech engine</p>
+                                            <strong data-i18n="tabBroadcaster.ttsEngineEnabled" class="mb-0">TTS Engine Enabled</strong>
+                                            <p data-i18n="tabBroadcaster.turnOnOrTurnOff" class="text-muted mb-0">Turn on or turn off the text-to-speech engine</p>
                                         </div>
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox" id="tts-enabled" aria-label="TTS Engine Enabled">
+                                                <input data-i18n-aria-label="ttsEnabled.ttsEngineEnabled" class="form-check-input" type="checkbox" id="tts-enabled" aria-label="TTS Engine Enabled">
                                                 <span class="form-check-label"></span>
                                             </div>
                                         </div>
@@ -194,12 +197,12 @@
                                 <div class="list-group-item">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <strong class="mb-0">Announce Events</strong>
-                                            <p class="text-muted mb-0">Announce events such as subscriptions and raids</p>
+                                            <strong data-i18n="tabBroadcaster.announceEvents" class="mb-0">Announce Events</strong>
+                                            <p data-i18n="tabBroadcaster.announceEventsSuchAsSubscriptions" class="text-muted mb-0">Announce events such as subscriptions and raids</p>
                                         </div>
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox" id="events-enabled" aria-label="Announce Events">
+                                                <input data-i18n-aria-label="eventsEnabled.announceEvents" class="form-check-input" type="checkbox" id="events-enabled" aria-label="Announce Events">
                                                 <span class="form-check-label"></span>
                                             </div>
                                         </div>
@@ -208,13 +211,13 @@
                                 <div class="list-group-item">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <strong class="mb-0">Anonymize New Followers</strong>
-                                            <p class="text-muted mb-0">Hide follower names in TTS announcements for
+                                            <strong data-i18n="tabBroadcaster.anonymizeNewFollowers" class="mb-0">Anonymize New Followers</strong>
+                                            <p data-i18n="tabBroadcaster.hideFollowerNamesInTts" class="text-muted mb-0">Hide follower names in TTS announcements for
                                                 privacy</p>
                                         </div>
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox" id="anonymize-followers"
+                                                <input data-i18n-aria-label="anonymizeFollowers.anonymizeNewFollowers" class="form-check-input" type="checkbox" id="anonymize-followers"
                                                     checked aria-label="Anonymize New Followers">
                                                 <span class="form-check-label"></span>
                                             </div>
@@ -224,12 +227,12 @@
                                 <div class="list-group-item">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <strong class="mb-0">Announce Cheers</strong>
-                                            <p class="text-muted mb-0">Announce when a viewer cheers bits</p>
+                                            <strong data-i18n="tabBroadcaster.announceCheers" class="mb-0">Announce Cheers</strong>
+                                            <p data-i18n="tabBroadcaster.announceWhenAViewerCheers" class="text-muted mb-0">Announce when a viewer cheers bits</p>
                                         </div>
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox"
+                                                <input data-i18n-aria-label="cheerEventsEnabled.announceCheers" class="form-check-input" type="checkbox"
                                                     id="cheer-events-enabled" aria-label="Announce Cheers">
                                                 <span class="form-check-label"></span>
                                             </div>
@@ -239,13 +242,13 @@
                                 <div class="list-group-item">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <strong class="mb-0">Announce Reward Redeems</strong>
-                                            <p class="text-muted mb-0">Announce when a viewer redeems a channel point
+                                            <strong data-i18n="tabBroadcaster.announceRewardRedeems" class="mb-0">Announce Reward Redeems</strong>
+                                            <p data-i18n="tabBroadcaster.announceWhenAViewerRedeems" class="text-muted mb-0">Announce when a viewer redeems a channel point
                                                 reward</p>
                                         </div>
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox"
+                                                <input data-i18n-aria-label="redemptionEventsEnabled.announceRewardRedeems" class="form-check-input" type="checkbox"
                                                     id="redemption-events-enabled" aria-label="Announce Reward Redeems">
                                                 <span class="form-check-label"></span>
                                             </div>
@@ -255,8 +258,8 @@
                                 <div class="list-group-item">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <strong class="mb-0">Announce Queued Redeems Immediately</strong>
-                                            <p class="text-muted mb-0" id="announce-unfulfilled-redemptions-help">A reward
+                                            <strong data-i18n="tabBroadcaster.announceQueuedRedeemsImmediately" class="mb-0">Announce Queued Redeems Immediately</strong>
+                                            <p data-i18n="announceUnfulfilledRedemptionsHelp.aRewardThatDoesNot" class="text-muted mb-0" id="announce-unfulfilled-redemptions-help">A reward
                                                 that does not skip the reward requests queue is announced as soon as it is
                                                 redeemed, even if you reject the request later. Turn this off to hold the
                                                 announcement until you accept the request &mdash; rewards you never accept
@@ -264,7 +267,7 @@
                                         </div>
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox"
+                                                <input data-i18n-aria-label="announceUnfulfilledRedemptions.announceQueuedRedeemsImmediately" class="form-check-input" type="checkbox"
                                                     id="announce-unfulfilled-redemptions"
                                                     aria-label="Announce Queued Redeems Immediately"
                                                     aria-describedby="announce-unfulfilled-redemptions-help">
@@ -276,13 +279,13 @@
                                 <div class="list-group-item">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <strong class="mb-0">Announce Watch Streaks</strong>
-                                            <p class="text-muted mb-0">Announce when a viewer reaches a watch streak
+                                            <strong data-i18n="tabBroadcaster.announceWatchStreaks" class="mb-0">Announce Watch Streaks</strong>
+                                            <p data-i18n="tabBroadcaster.announceWhenAViewerReaches" class="text-muted mb-0">Announce when a viewer reaches a watch streak
                                                 milestone</p>
                                         </div>
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox"
+                                                <input data-i18n-aria-label="watchStreakEventsEnabled.announceWatchStreaks" class="form-check-input" type="checkbox"
                                                     id="watch-streak-events-enabled" aria-label="Announce Watch Streaks">
                                                 <span class="form-check-label"></span>
                                             </div>
@@ -292,13 +295,13 @@
                                 <div class="list-group-item">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <strong class="mb-0">Bot Responds in Chat</strong>
-                                            <p class="text-muted mb-0">Allow the bot to respond to chat commands such as
+                                            <strong data-i18n="tabBroadcaster.botRespondsInChat" class="mb-0">Bot Responds in Chat</strong>
+                                            <p data-i18n="tabBroadcaster.allowTheBotToRespond" class="text-muted mb-0">Allow the bot to respond to chat commands such as
                                                 !myvoice</p>
                                         </div>
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox"
+                                                <input data-i18n-aria-label="botRespondsInChat.botRespondsInChat" class="form-check-input" type="checkbox"
                                                     id="bot-responds-in-chat" aria-label="Bot Responds in Chat">
                                                 <span class="form-check-label"></span>
                                             </div>
@@ -308,15 +311,15 @@
                                 <div class="list-group-item">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <label for="tts-mode" class="form-label mb-1"><strong>TTS
+                                            <label data-i18n="tabBroadcaster.ttsMode" for="tts-mode" class="form-label mb-1"><strong>TTS
                                                     Mode</strong></label>
-                                            <p class="text-muted mb-0">Choose which messages trigger TTS</p>
+                                            <p data-i18n="tabBroadcaster.chooseWhichMessagesTriggerTts" class="text-muted mb-0">Choose which messages trigger TTS</p>
                                         </div>
                                         <div class="col-auto">
                                             <select id="tts-mode" class="form-select">
-                                                <option value="all">All Messages</option>
-                                                <option value="command">!tts Command Only</option>
-                                                <option value="bits_points_only">Bits/Points Only</option>
+                                                <option data-i18n="ttsMode.allMessages" value="all">All Messages</option>
+                                                <option data-i18n="ttsMode.ttsCommandOnly" value="command">!tts Command Only</option>
+                                                <option data-i18n="ttsMode.bitsPointsOnly" value="bits_points_only">Bits/Points Only</option>
                                             </select>
                                         </div>
                                     </div>
@@ -324,16 +327,16 @@
                                 <div class="list-group-item">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <label for="tts-permission" class="form-label mb-1"><strong>TTS
+                                            <label data-i18n="tabBroadcaster.ttsPermission" for="tts-permission" class="form-label mb-1"><strong>TTS
                                                     Permission</strong></label>
-                                            <p class="text-muted mb-0">Who can use text-to-speech</p>
+                                            <p data-i18n="tabBroadcaster.whoCanUseTextTo" class="text-muted mb-0">Who can use text-to-speech</p>
                                         </div>
                                         <div class="col-auto">
                                             <select id="tts-permission" class="form-select">
-                                                <option value="everyone">Everyone</option>
-                                                <option value="subs">Subscribers Only</option>
-                                                <option value="vip">VIPs Only</option>
-                                                <option value="mods">Moderators Only</option>
+                                                <option data-i18n="ttsPermission.everyone" value="everyone">Everyone</option>
+                                                <option data-i18n="ttsPermission.subscribersOnly" value="subs">Subscribers Only</option>
+                                                <option data-i18n="ttsPermission.vipsOnly" value="vip">VIPs Only</option>
+                                                <option data-i18n="ttsPermission.moderatorsOnly" value="mods">Moderators Only</option>
                                             </select>
                                         </div>
                                     </div>
@@ -341,13 +344,13 @@
                                 <div class="list-group-item">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <strong class="mb-0">Allow Viewer Voice Preferences</strong>
-                                            <p class="text-muted mb-0">If this setting is off, TTS uses the channel default voice for all
+                                            <strong data-i18n="tabBroadcaster.allowViewerVoicePreferences" class="mb-0">Allow Viewer Voice Preferences</strong>
+                                            <p data-i18n="tabBroadcaster.ifThisSettingIsOff" class="text-muted mb-0">If this setting is off, TTS uses the channel default voice for all
                                                 messages</p>
                                         </div>
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox"
+                                                <input data-i18n-aria-label="allowViewerPreferences.allowViewerVoicePreferences" class="form-check-input" type="checkbox"
                                                     id="allow-viewer-preferences" aria-label="Allow Viewer Voice Preferences">
                                                 <span class="form-check-label"></span>
                                             </div>
@@ -357,12 +360,12 @@
                                 <div class="list-group-item">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <strong class="mb-0">Read Full URLs</strong>
-                                            <p class="text-muted mb-0">If on, TTS reads full URLs. If off, TTS reads only domain names</p>
+                                            <strong data-i18n="tabBroadcaster.readFullUrls" class="mb-0">Read Full URLs</strong>
+                                            <p data-i18n="tabBroadcaster.ifOnTtsReadsFull" class="text-muted mb-0">If on, TTS reads full URLs. If off, TTS reads only domain names</p>
                                         </div>
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox" id="read-full-urls" aria-label="Read Full URLs">
+                                                <input data-i18n-aria-label="readFullUrls.readFullUrls" class="form-check-input" type="checkbox" id="read-full-urls" aria-label="Read Full URLs">
                                                 <span class="form-check-label"></span>
                                             </div>
                                         </div>
@@ -371,14 +374,14 @@
                                 <div class="list-group-item">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <strong class="mb-0">Expand Chat Acronyms</strong>
-                                            <p class="text-muted mb-0">TTS expands common Twitch acronyms into words.
+                                            <strong data-i18n="tabBroadcaster.expandChatAcronyms" class="mb-0">Expand Chat Acronyms</strong>
+                                            <p data-i18n="tabBroadcaster.ttsExpandsCommonTwitchAcronyms" class="text-muted mb-0">TTS expands common Twitch acronyms into words.
                                                 For example, &ldquo;ngl&rdquo; becomes &ldquo;not gonna lie&rdquo;. Turn off to
                                                 spell out each letter.</p>
                                         </div>
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox"
+                                                <input data-i18n-aria-label="pronunciationEnabled.expandChatAcronyms" class="form-check-input" type="checkbox"
                                                     id="pronunciation-enabled" aria-label="Expand Chat Acronyms">
                                                 <span class="form-check-label"></span>
                                             </div>
@@ -388,14 +391,14 @@
                                 <div class="list-group-item">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <strong class="mb-0">Profanity Filter</strong>
-                                            <p class="text-muted mb-0">TTS replaces profanity with milder words before speaking.
+                                            <strong data-i18n="tabBroadcaster.profanityFilter" class="mb-0">Profanity Filter</strong>
+                                            <p data-i18n="tabBroadcaster.ttsReplacesProfanityWithMilder" class="text-muted mb-0">TTS replaces profanity with milder words before speaking.
                                                 The filter uses the channel language and the viewer language. If language is set to Automatic, the filter uses
                                                 the English list. Banned words still skip the full message.</p>
                                         </div>
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox"
+                                                <input data-i18n-aria-label="profanityFilterEnabled.profanityFilter" class="form-check-input" type="checkbox"
                                                     id="profanity-filter-enabled" aria-label="Profanity Filter">
                                                 <span class="form-check-label"></span>
                                             </div>
@@ -405,15 +408,15 @@
                                 <div class="list-group-item">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <label for="emote-mode" class="form-label mb-1"><strong>Emote
+                                            <label data-i18n="tabBroadcaster.emoteMode" for="emote-mode" class="form-label mb-1"><strong>Emote
                                                     Mode</strong></label>
-                                            <p class="text-muted mb-0">Controls how TTS handles emotes in chat messages</p>
+                                            <p data-i18n="tabBroadcaster.controlsHowTtsHandlesEmotes" class="text-muted mb-0">Controls how TTS handles emotes in chat messages</p>
                                         </div>
                                         <div class="col-auto">
                                             <select id="emote-mode" class="form-select">
-                                                <option value="describe">Describe emotes</option>
-                                                <option value="read">Read emote names</option>
-                                                <option value="skip">Skip emotes</option>
+                                                <option data-i18n="emoteMode.describeEmotes" value="describe">Describe emotes</option>
+                                                <option data-i18n="emoteMode.readEmoteNames" value="read">Read emote names</option>
+                                                <option data-i18n="emoteMode.skipEmotes" value="skip">Skip emotes</option>
                                             </select>
                                         </div>
                                     </div>
@@ -423,18 +426,18 @@
 
                         <!-- Bits -> TTS -->
                         <div class="settings-section">
-                            <h2 class="settings-section-title">Bits → TTS</h2>
-                            <p class="settings-section-description">Configure bits requirements for text-to-speech</p>
+                            <h2 data-i18n="tabBroadcaster.bitsTts" class="settings-section-title">Bits → TTS</h2>
+                            <p data-i18n="tabBroadcaster.configureBitsRequirementsForText" class="settings-section-description">Configure bits requirements for text-to-speech</p>
                             <div class="list-group mb-4 shadow">
                                 <div class="list-group-item">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <strong class="mb-0">Require Bits for TTS</strong>
-                                            <p class="text-muted mb-0">Viewers must cheer bits to use text-to-speech</p>
+                                            <strong data-i18n="tabBroadcaster.requireBitsForTts" class="mb-0">Require Bits for TTS</strong>
+                                            <p data-i18n="tabBroadcaster.viewersMustCheerBitsTo" class="text-muted mb-0">Viewers must cheer bits to use text-to-speech</p>
                                         </div>
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox" id="bits-enabled" aria-label="Require Bits for TTS">
+                                                <input data-i18n-aria-label="bitsEnabled.requireBitsForTts" class="form-check-input" type="checkbox" id="bits-enabled" aria-label="Require Bits for TTS">
                                                 <span class="form-check-label"></span>
                                             </div>
                                         </div>
@@ -443,9 +446,9 @@
                                 <div class="list-group-item">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <label for="bits-amount" class="form-label mb-1"><strong>Minimum Bits
+                                            <label data-i18n="tabBroadcaster.minimumBitsRequired" for="bits-amount" class="form-label mb-1"><strong>Minimum Bits
                                                     Required</strong></label>
-                                            <p class="text-muted mb-0">Minimum number of bits required to trigger TTS</p>
+                                            <p data-i18n="tabBroadcaster.minimumNumberOfBitsRequired" class="text-muted mb-0">Minimum number of bits required to trigger TTS</p>
                                         </div>
                                         <div class="col-auto">
                                             <input type="number" id="bits-amount" class="form-control" min="0"
@@ -458,19 +461,19 @@
 
                         <!-- Channel Points -> TTS -->
                         <div class="settings-section">
-                            <h2 class="settings-section-title">Channel Points → TTS</h2>
-                            <p class="settings-section-description">Configure channel points rewards for text-to-speech
+                            <h2 data-i18n="tabBroadcaster.channelPointsTts" class="settings-section-title">Channel Points → TTS</h2>
+                            <p data-i18n="tabBroadcaster.configureChannelPointsRewardsFor" class="settings-section-description">Configure channel points rewards for text-to-speech
                             </p>
                             <div class="list-group mb-4 shadow">
                                 <div class="list-group-item">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <strong class="mb-0">Enable Channel Points TTS</strong>
-                                            <p class="text-muted mb-0">Allow viewers to use channel points for TTS</p>
+                                            <strong data-i18n="tabBroadcaster.enableChannelPointsTts" class="mb-0">Enable Channel Points TTS</strong>
+                                            <p data-i18n="tabBroadcaster.allowViewersToUseChannel" class="text-muted mb-0">Allow viewers to use channel points for TTS</p>
                                         </div>
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox" id="cp-enabled" aria-label="Enable Channel Points TTS">
+                                                <input data-i18n-aria-label="cpEnabled.enableChannelPointsTts" class="form-check-input" type="checkbox" id="cp-enabled" aria-label="Enable Channel Points TTS">
                                                 <span class="form-check-label"></span>
                                             </div>
                                         </div>
@@ -482,62 +485,62 @@
                                 <div class="card-body">
                                     <div class="row g-3">
                                         <div class="col-12 col-md-6">
-                                            <label class="form-label" for="cp-title">Reward title</label>
-                                            <input id="cp-title" class="form-control"
+                                            <label data-i18n="tabBroadcaster.rewardTitle" class="form-label" for="cp-title">Reward title</label>
+                                            <input data-i18n-skip id="cp-title" class="form-control"
                                                 placeholder="Text-to-Speech Message">
-                                            <div class="form-text">The title must be unique in your channel.</div>
+                                            <div data-i18n="tabBroadcaster.theTitleMustBeUnique" class="form-text">The title must be unique in your channel.</div>
                                         </div>
                                         <div class="col-12 col-md-6">
-                                            <label class="form-label" for="cp-cost">Cost (points)</label>
+                                            <label data-i18n="tabBroadcaster.costPoints" class="form-label" for="cp-cost">Cost (points)</label>
                                             <input id="cp-cost" type="number" min="1" class="form-control"
                                                 placeholder="500">
                                         </div>
                                         <div class="col-12">
-                                            <label class="form-label" for="cp-prompt">Viewer prompt</label>
-                                            <input id="cp-prompt" class="form-control"
+                                            <label data-i18n="tabBroadcaster.viewerPrompt" class="form-label" for="cp-prompt">Viewer prompt</label>
+                                            <input data-i18n-skip id="cp-prompt" class="form-control"
                                                 placeholder="Enter a message to be read aloud">
                                         </div>
                                         <div class="col-12">
                                             <div class="form-check">
                                                 <input id="cp-skip-queue" type="checkbox" class="form-check-input"
                                                     checked>
-                                                <label for="cp-skip-queue" class="form-check-label">Skip the Reward
+                                                <label data-i18n="tabBroadcaster.skipTheRewardQueue" for="cp-skip-queue" class="form-check-label">Skip the Reward
                                                     Queue</label>
                                             </div>
                                         </div>
                                     </div>
 
                                     <details class="mt-3">
-                                        <summary class="fw-semibold">Cooldowns and Moderation</summary>
+                                        <summary data-i18n="tabBroadcaster.cooldownsAndModeration" class="fw-semibold">Cooldowns and Moderation</summary>
                                         <div class="row g-3 mt-2">
                                             <div class="col-12 d-flex align-items-center" style="gap:8px;">
                                                 <input id="cp-limits-enabled" type="checkbox" class="form-check-input">
-                                                <label for="cp-limits-enabled" class="form-check-label">Enable Cooldowns
+                                                <label data-i18n="tabBroadcaster.enableCooldownsLimits" for="cp-limits-enabled" class="form-check-label">Enable Cooldowns
                                                     &amp; Limits</label>
                                             </div>
                                             <div class="col-12 col-md-4">
-                                                <label class="form-label" for="cp-cooldown">Global cooldown
+                                                <label data-i18n="tabBroadcaster.globalCooldownSec" class="form-label" for="cp-cooldown">Global cooldown
                                                     (sec)</label>
                                                 <input id="cp-cooldown" type="number" min="0" max="3600"
                                                     class="form-control" placeholder="0">
                                             </div>
                                             <div class="col-12 col-md-4">
-                                                <label class="form-label" for="cp-per-stream">Per-stream limit</label>
-                                                <input id="cp-per-stream" type="number" min="1" max="1000"
+                                                <label data-i18n="tabBroadcaster.perStreamLimit" class="form-label" for="cp-per-stream">Per-stream limit</label>
+                                                <input data-i18n-placeholder="cpPerStream.enterAmount" id="cp-per-stream" type="number" min="1" max="1000"
                                                     class="form-control" placeholder="Enter amount">
                                             </div>
                                             <div class="col-12 col-md-4">
-                                                <label class="form-label" for="cp-per-user">Per-user per stream</label>
-                                                <input id="cp-per-user" type="number" min="1" max="1000"
+                                                <label data-i18n="tabBroadcaster.perUserPerStream" class="form-label" for="cp-per-user">Per-user per stream</label>
+                                                <input data-i18n-placeholder="cpPerUser.enterAmount" id="cp-per-user" type="number" min="1" max="1000"
                                                     class="form-control" placeholder="Enter amount">
                                             </div>
                                             <div class="col-12 col-md-4 d-flex align-items-center" style="gap:8px;">
                                                 <input id="cp-block-links" type="checkbox" class="form-check-input me-2"
                                                     checked>
-                                                <label for="cp-block-links" class="form-check-label">Block links</label>
+                                                <label data-i18n="tabBroadcaster.blockLinks" for="cp-block-links" class="form-check-label">Block links</label>
                                             </div>
                                             <div class="col-12">
-                                                <label class="form-label" for="cp-banned-words">Banned words
+                                                <label data-i18n="tabBroadcaster.bannedWordsCommaSeparated" class="form-label" for="cp-banned-words">Banned words
                                                     (comma-separated)</label>
                                                 <input id="cp-banned-words" class="form-control" placeholder="">
                                             </div>
@@ -546,10 +549,10 @@
 
                                     <div class="mt-3">
                                         <div class="d-flex flex-wrap gap-2 mb-2">
-                                            <button id="cp-save" class="btn btn-primary" type="button">Save</button>
-                                            <button id="cp-test" class="btn btn-outline-secondary" type="button">Test
+                                            <button data-i18n="cpSave.save" id="cp-save" class="btn btn-primary" type="button">Save</button>
+                                            <button data-i18n="cpTest.testRedeem" id="cp-test" class="btn btn-outline-secondary" type="button">Test
                                                 redeem</button>
-                                            <button id="cp-delete" class="btn btn-outline-danger" type="button">Disable
+                                            <button data-i18n="cpDelete.disableDelete" id="cp-delete" class="btn btn-outline-danger" type="button">Disable
                                                 &amp; Delete</button>
                                         </div>
                                         <div class="small text-muted">
@@ -563,18 +566,18 @@
 
                         <!-- Ignored Users -->
                         <div class="settings-section">
-                            <h2 class="settings-section-title">Ignored Users</h2>
-                            <p class="settings-section-description">Manage users that TTS ignores</p>
+                            <h2 data-i18n="tabBroadcaster.ignoredUsers" class="settings-section-title">Ignored Users</h2>
+                            <p data-i18n="tabBroadcaster.manageUsersThatTtsIgnores" class="settings-section-description">Manage users that TTS ignores</p>
 
                             <div class="mb-4">
-                                <h3 class="mb-2"><strong>TTS Ignore List</strong></h3>
-                                <p class="text-muted small mb-2">TTS does not read messages from users on this list.</p>
+                                <h3 data-i18n="tabBroadcaster.ttsIgnoreList" class="mb-2"><strong>TTS Ignore List</strong></h3>
+                                <p data-i18n="tabBroadcaster.ttsDoesNotReadMessages" class="text-muted small mb-2">TTS does not read messages from users on this list.</p>
                                 <div class="card shadow">
                                     <div class="card-body">
                                         <div class="input-group mb-2">
-                                            <input type="text" id="tts-ignore-username" class="form-control"
+                                            <input data-i18n-placeholder="ttsIgnoreUsername.usernameToIgnore" type="text" id="tts-ignore-username" class="form-control"
                                                 placeholder="Username to ignore">
-                                            <button id="add-tts-ignore-btn" class="btn btn-secondary"
+                                            <button data-i18n="addTtsIgnoreBtn.add" id="add-tts-ignore-btn" class="btn btn-secondary"
                                                 type="button">Add</button>
                                         </div>
                                         <ul id="tts-ignore-list" class="ignore-list list-group"></ul>
@@ -583,14 +586,14 @@
                             </div>
 
                             <div class="mb-4">
-                                <h3 class="mb-2"><strong>Banned Words / Phrases</strong></h3>
-                                <p class="text-muted small mb-2">TTS skips messages that contain these words or phrases.</p>
+                                <h3 data-i18n="tabBroadcaster.bannedWordsPhrases" class="mb-2"><strong>Banned Words / Phrases</strong></h3>
+                                <p data-i18n="tabBroadcaster.ttsSkipsMessagesThatContain" class="text-muted small mb-2">TTS skips messages that contain these words or phrases.</p>
                                 <div class="card shadow">
                                     <div class="card-body">
                                         <div class="input-group mb-2">
-                                            <input type="text" id="tts-banned-word-input" class="form-control"
+                                            <input data-i18n-placeholder="ttsBannedWordInput.wordOrPhraseToBan" type="text" id="tts-banned-word-input" class="form-control"
                                                 placeholder="Word or phrase to ban">
-                                            <button id="add-tts-banned-word-btn" class="btn btn-secondary"
+                                            <button data-i18n="addTtsBannedWordBtn.add" id="add-tts-banned-word-btn" class="btn btn-secondary"
                                                 type="button">Add</button>
                                         </div>
                                         <ul id="tts-banned-words-list" class="ignore-list list-group"></ul>
@@ -599,24 +602,24 @@
                             </div>
 
                             <div class="mb-4">
-                                <h3 class="mb-2"><strong>Pronunciation Dictionary</strong></h3>
-                                <p class="text-muted small mb-2">Control how TTS pronounces specific words. Common Twitch
+                                <h3 data-i18n="tabBroadcaster.pronunciationDictionary" class="mb-2"><strong>Pronunciation Dictionary</strong></h3>
+                                <p data-i18n="tabBroadcaster.controlHowTtsPronouncesSpecific" class="text-muted small mb-2">Control how TTS pronounces specific words. Common Twitch
                                     acronyms are handled by default. Add an entry to override a default
                                     pronunciation or add a new word.</p>
                                 <div class="card shadow">
                                     <div class="card-body">
                                         <div class="row g-2 mb-2">
                                             <div class="col-12 col-md-5">
-                                                <input type="text" id="tts-pronunciation-match-input" class="form-control"
+                                                <input data-i18n-placeholder="ttsPronunciationMatchInput.wordForExampleWcat" data-i18n-aria-label="ttsPronunciationMatchInput.wordToReplace" type="text" id="tts-pronunciation-match-input" class="form-control"
                                                     placeholder="Word (for example, wcat)" aria-label="Word to replace">
                                             </div>
                                             <div class="col-12 col-md-5">
-                                                <input type="text" id="tts-pronunciation-say-input" class="form-control"
+                                                <input data-i18n-placeholder="ttsPronunciationSayInput.howToSayItFor" data-i18n-aria-label="ttsPronunciationSayInput.pronunciation" type="text" id="tts-pronunciation-say-input" class="form-control"
                                                     placeholder="How to say it (for example, wildcat)"
                                                     aria-label="Pronunciation">
                                             </div>
                                             <div class="col-12 col-md-2">
-                                                <button id="add-tts-pronunciation-btn" class="btn btn-secondary w-100"
+                                                <button data-i18n="addTtsPronunciationBtn.add" id="add-tts-pronunciation-btn" class="btn btn-secondary w-100"
                                                     type="button">Add</button>
                                             </div>
                                         </div>
@@ -629,18 +632,18 @@
 
                         <!-- YouTube Integration -->
                         <div class="settings-section">
-                            <h2 class="settings-section-title"><i data-lucide="youtube" class="inline-icon" style="margin-right: 6px; color: #ff0000;"></i>YouTube Integration</h2>
-                            <p class="settings-section-description">Read YouTube live chat messages through TTS. This feature requires an active YouTube livestream.</p>
+                            <h2 data-i18n="tabBroadcaster.youtubeIntegration" class="settings-section-title"><i data-lucide="youtube" class="inline-icon" style="margin-right: 6px; color: #ff0000;"></i>YouTube Integration</h2>
+                            <p data-i18n="tabBroadcaster.readYoutubeLiveChatMessages" class="settings-section-description">Read YouTube live chat messages through TTS. This feature requires an active YouTube livestream.</p>
                             <div class="list-group mb-4 shadow">
                                 <div class="list-group-item">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <strong class="mb-0">YouTube TTS Enabled</strong>
-                                            <p class="text-muted mb-0">Read YouTube live chat messages aloud</p>
+                                            <strong data-i18n="tabBroadcaster.youtubeTtsEnabled" class="mb-0">YouTube TTS Enabled</strong>
+                                            <p data-i18n="tabBroadcaster.readYoutubeLiveChatMessages2" class="text-muted mb-0">Read YouTube live chat messages aloud</p>
                                         </div>
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox" id="youtube-enabled" aria-label="YouTube TTS Enabled">
+                                                <input data-i18n-aria-label="youtubeEnabled.youtubeTtsEnabled" class="form-check-input" type="checkbox" id="youtube-enabled" aria-label="YouTube TTS Enabled">
                                                 <span class="form-check-label"></span>
                                             </div>
                                         </div>
@@ -649,11 +652,11 @@
                                 <div class="list-group-item">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <label for="youtube-handle" class="form-label mb-1"><strong>YouTube Handle</strong></label>
-                                            <p class="text-muted mb-0">Your YouTube channel handle (for example, <code>@yourhandle</code>)</p>
+                                            <label data-i18n="tabBroadcaster.youtubeHandle" for="youtube-handle" class="form-label mb-1"><strong>YouTube Handle</strong></label>
+                                            <p data-i18n="tabBroadcaster.yourYoutubeChannelHandleFor" class="text-muted mb-0">Your YouTube channel handle (for example, <code>@yourhandle</code>)</p>
                                         </div>
                                         <div class="col-auto">
-                                            <input type="text" id="youtube-handle" class="form-control"
+                                            <input data-i18n-placeholder="youtubeHandle.yourhandle" type="text" id="youtube-handle" class="form-control"
                                                 placeholder="@yourhandle" style="width: 200px;">
                                         </div>
                                     </div>
@@ -662,7 +665,7 @@
                         </div>
 
                         <div class="d-grid">
-                            <button id="save-settings-btn" class="btn btn-primary" type="button">Save All
+                            <button data-i18n="saveSettingsBtn.saveAllSettings" id="save-settings-btn" class="btn btn-primary" type="button">Save All
                                 Settings</button>
                         </div>
                     </div>
@@ -670,19 +673,19 @@
                     <!-- Voice Defaults Tab -->
                     <div class="tab-pane fade" id="tab-viewer-defaults" role="tabpanel" aria-labelledby="tab-btn-viewer-defaults">
                         <div class="settings-section">
-                            <h2 class="settings-section-title">Default Voice Settings</h2>
-                            <p class="settings-section-description">Set default voice settings for your channel</p>
+                            <h2 data-i18n="tabViewerDefaults.defaultVoiceSettings" class="settings-section-title">Default Voice Settings</h2>
+                            <p data-i18n="tabViewerDefaults.setDefaultVoiceSettingsFor" class="settings-section-description">Set default voice settings for your channel</p>
                             <div class="list-group mb-4 shadow">
                                 <div class="list-group-item">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <label for="default-voice-search" class="form-label mb-1"><strong>Default
+                                            <label data-i18n="tabViewerDefaults.defaultVoice" for="default-voice-search" class="form-label mb-1"><strong>Default
                                                     Voice</strong></label>
-                                            <p class="text-muted mb-0">Select the default TTS voice for the channel</p>
+                                            <p data-i18n="tabViewerDefaults.selectTheDefaultTtsVoice" class="text-muted mb-0">Select the default TTS voice for the channel</p>
                                         </div>
                                         <div class="col-auto d-flex align-items-center" style="gap:8px;">
                                             <div class="custom-voice-dropdown" id="default-voice-dropdown">
-                                                <input type="text" id="default-voice-search" class="form-control"
+                                                <input data-i18n-placeholder="defaultVoiceSearch.searchVoices" data-i18n-aria-label="defaultVoiceSearch.searchDefaultVoices" type="text" id="default-voice-search" class="form-control"
                                                     placeholder="Search voices..." aria-label="Search default voices" readonly>
                                                 <input type="hidden" id="default-voice" value="Friendly_Person">
                                                 <div class="voice-dropdown-menu" id="default-voice-menu">
@@ -695,19 +698,19 @@
                                 <div class="list-group-item">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <label for="default-emotion" class="form-label mb-1"><strong>Default
+                                            <label data-i18n="tabViewerDefaults.defaultEmotion" for="default-emotion" class="form-label mb-1"><strong>Default
                                                     Emotion</strong></label>
-                                            <p class="text-muted mb-0">Set the emotional tone of the default voice</p>
+                                            <p data-i18n="tabViewerDefaults.setTheEmotionalToneOf" class="text-muted mb-0">Set the emotional tone of the default voice</p>
                                         </div>
                                         <div class="col-auto d-flex align-items-center" style="gap:8px;">
                                             <select id="default-emotion" class="form-select">
-                                                <option value="neutral">Neutral</option>
-                                                <option value="happy">Happy</option>
-                                                <option value="sad">Sad</option>
-                                                <option value="angry">Angry</option>
-                                                <option value="fearful">Fearful</option>
-                                                <option value="disgusted">Disgusted</option>
-                                                <option value="surprised">Surprised</option>
+                                                <option data-i18n="defaultEmotion.neutral" value="neutral">Neutral</option>
+                                                <option data-i18n="defaultEmotion.happy" value="happy">Happy</option>
+                                                <option data-i18n="defaultEmotion.sad" value="sad">Sad</option>
+                                                <option data-i18n="defaultEmotion.angry" value="angry">Angry</option>
+                                                <option data-i18n="defaultEmotion.fearful" value="fearful">Fearful</option>
+                                                <option data-i18n="defaultEmotion.disgusted" value="disgusted">Disgusted</option>
+                                                <option data-i18n="defaultEmotion.surprised" value="surprised">Surprised</option>
                                             </select>
                                         </div>
                                     </div>
@@ -715,15 +718,14 @@
                                 <div class="list-group-item">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <label for="default-pitch" class="form-label mb-1"><strong>Default Pitch
-                                                    (-12 to +12): <span id="pitch-value">0</span></strong></label>
-                                            <p class="text-muted mb-0">Adjust the pitch for the default voice</p>
+                                            <label for="default-pitch" class="form-label mb-1"><strong><span data-i18n="tabViewerDefaults.defaultPitch12To12">Default Pitch (-12 to +12):</span> <span id="pitch-value">0</span></strong></label>
+                                            <p data-i18n="tabViewerDefaults.adjustThePitchForThe" class="text-muted mb-0">Adjust the pitch for the default voice</p>
                                         </div>
                                         <div class="col-auto d-flex align-items-center"
                                             style="gap:8px; min-width: 260px;">
-                                            <input type="range" id="default-pitch" class="form-range" min="-12" max="12"
+                                            <input data-i18n-aria-label="defaultPitch.defaultPitch12To12" type="range" id="default-pitch" class="form-range" min="-12" max="12"
                                                 value="0" aria-label="Default Pitch (-12 to +12)">
-                                            <button id="reset-pitch-btn" class="btn btn-outline-secondary btn-sm"
+                                            <button data-i18n="resetPitchBtn.reset" data-i18n-aria-label="resetPitchBtn.resetDefaultPitchTo0" id="reset-pitch-btn" class="btn btn-outline-secondary btn-sm"
                                                 type="button" aria-label="Reset default pitch to 0">Reset</button>
                                         </div>
                                     </div>
@@ -731,15 +733,14 @@
                                 <div class="list-group-item">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <label for="default-speed" class="form-label mb-1"><strong>Default Speed
-                                                    (0.5 to 2.0): <span id="speed-value">1.0</span></strong></label>
-                                            <p class="text-muted mb-0">Control how fast the default voice speaks</p>
+                                            <label for="default-speed" class="form-label mb-1"><strong><span data-i18n="tabViewerDefaults.defaultSpeed05To">Default Speed (0.5 to 2.0):</span> <span id="speed-value">1.0</span></strong></label>
+                                            <p data-i18n="tabViewerDefaults.controlHowFastTheDefault" class="text-muted mb-0">Control how fast the default voice speaks</p>
                                         </div>
                                         <div class="col-auto d-flex align-items-center"
                                             style="gap:8px; min-width: 260px;">
-                                            <input type="range" id="default-speed" class="form-range" min="0.5"
+                                            <input data-i18n-aria-label="defaultSpeed.defaultSpeed05To" type="range" id="default-speed" class="form-range" min="0.5"
                                                 max="2.0" step="0.1" value="1.0" aria-label="Default Speed (0.5 to 2.0)">
-                                            <button id="reset-speed-btn" class="btn btn-outline-secondary btn-sm"
+                                            <button data-i18n="resetSpeedBtn.reset" data-i18n-aria-label="resetSpeedBtn.resetDefaultSpeedTo1" id="reset-speed-btn" class="btn btn-outline-secondary btn-sm"
                                                 type="button" aria-label="Reset default speed to 1.0">Reset</button>
                                         </div>
                                     </div>
@@ -747,16 +748,15 @@
                                 <div class="list-group-item">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <label for="default-volume" class="form-label mb-1"><strong>Voice Volume
-                                                    (0.1 to 10): <span id="volume-value">1.0</span></strong></label>
-                                            <p class="text-muted mb-0">Adjust the volume for the selected voice. CAUTION:
+                                            <label for="default-volume" class="form-label mb-1"><strong><span data-i18n="tabViewerDefaults.voiceVolume01To">Voice Volume (0.1 to 10):</span> <span id="volume-value">1.0</span></strong></label>
+                                            <p data-i18n="tabViewerDefaults.adjustTheVolumeForThe" class="text-muted mb-0">Adjust the volume for the selected voice. CAUTION:
                                                 Values greater than 1.0 can cause distortion.</p>
                                         </div>
                                         <div class="col-auto d-flex align-items-center"
                                             style="gap:8px; min-width: 260px;">
-                                            <input type="range" id="default-volume" class="form-range" min="0.1"
+                                            <input data-i18n-aria-label="defaultVolume.voiceVolume01To" type="range" id="default-volume" class="form-range" min="0.1"
                                                 max="10.0" step="0.1" value="1.0" aria-label="Voice Volume (0.1 to 10)">
-                                            <button id="reset-volume-btn" class="btn btn-outline-secondary btn-sm"
+                                            <button data-i18n="resetVolumeBtn.reset" data-i18n-aria-label="resetVolumeBtn.resetVoiceVolumeTo1" id="reset-volume-btn" class="btn btn-outline-secondary btn-sm"
                                                 type="button" aria-label="Reset voice volume to 1.0">Reset</button>
                                         </div>
                                     </div>
@@ -764,37 +764,17 @@
                                 <div class="list-group-item">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <label for="default-language" class="form-label mb-1"><strong>Default
+                                            <label data-i18n="tabViewerDefaults.defaultLanguage" for="default-language" class="form-label mb-1"><strong>Default
                                                     Language</strong></label>
-                                            <p class="text-muted mb-0">Improve pronunciation for specific languages</p>
+                                            <p data-i18n="tabViewerDefaults.improvePronunciationForSpecificLanguages" class="text-muted mb-0">Improve pronunciation for specific languages</p>
                                         </div>
                                         <div class="col-auto d-flex align-items-center" style="gap:8px;">
                                             <select id="default-language" class="form-select">
-                                                <option value="auto">Automatic</option>
-                                                <option value="Chinese">Chinese</option>
-                                                <option value="Chinese,Yue">Chinese, Yue (Cantonese)</option>
-                                                <option value="English">English</option>
-                                                <option value="Arabic">Arabic</option>
-                                                <option value="Russian">Russian</option>
-                                                <option value="Spanish">Spanish</option>
-                                                <option value="French">French</option>
-                                                <option value="Portuguese">Portuguese</option>
-                                                <option value="German">German</option>
-                                                <option value="Turkish">Turkish</option>
-                                                <option value="Dutch">Dutch</option>
-                                                <option value="Ukrainian">Ukrainian</option>
-                                                <option value="Vietnamese">Vietnamese</option>
-                                                <option value="Indonesian">Indonesian</option>
-                                                <option value="Japanese">Japanese</option>
-                                                <option value="Italian">Italian</option>
-                                                <option value="Korean">Korean</option>
-                                                <option value="Thai">Thai</option>
-                                                <option value="Polish">Polish</option>
-                                                <option value="Romanian">Romanian</option>
-                                                <option value="Greek">Greek</option>
-                                                <option value="Czech">Czech</option>
-                                                <option value="Finnish">Finnish</option>
-                                                <option value="Hindi">Hindi</option>
+                                                <!-- Filled at runtime by fillLanguageSelect() from locales.json, which is the
+                                                     single source of truth for the 40 languages and labels each in its own
+                                                     script. This markup held 25 hardcoded English names that had already
+                                                     drifted from the 41 the code offers, and every one of them was dead. -->
+                                                <option data-i18n-skip value="auto">Automatic</option>
                                             </select>
                                         </div>
                                     </div>
@@ -802,12 +782,12 @@
                                 <div class="list-group-item">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <strong class="mb-0">English Normalization</strong>
-                                            <p class="text-muted mb-0">Improve the pronunciation of numbers and text</p>
+                                            <strong data-i18n="tabViewerDefaults.englishNormalization" class="mb-0">English Normalization</strong>
+                                            <p data-i18n="tabViewerDefaults.improveThePronunciationOfNumbers" class="text-muted mb-0">Improve the pronunciation of numbers and text</p>
                                         </div>
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox"
+                                                <input data-i18n-aria-label="englishNormalization.englishNormalization" class="form-check-input" type="checkbox"
                                                     id="english-normalization" aria-label="English Normalization">
                                                 <span class="form-check-label"></span>
                                             </div>
@@ -820,19 +800,19 @@
 
                         <!-- Voice Calibration -->
                         <div class="settings-section">
-                            <h2 class="settings-section-title">Voice Calibration</h2>
-                            <p class="settings-section-description">Calibrate volume for specific voices. CAUTION:
+                            <h2 data-i18n="tabViewerDefaults.voiceCalibration" class="settings-section-title">Voice Calibration</h2>
+                            <p data-i18n="tabViewerDefaults.calibrateVolumeForSpecificVoices" class="settings-section-description">Calibrate volume for specific voices. CAUTION:
                                 Values greater than 1.0 can cause distortion.</p>
 
                             <!-- User Voice Lookup -->
                             <div class="card mb-4 shadow">
                                 <div class="card-body">
-                                    <h3 class="card-title text-muted text-uppercase small fw-bold mb-3">Viewer Voice
+                                    <h3 data-i18n="tabViewerDefaults.viewerVoiceLookup" class="card-title text-muted text-uppercase small fw-bold mb-3">Viewer Voice
                                         Lookup</h3>
                                     <div class="input-group">
-                                        <input type="text" id="lookup-username" class="form-control"
+                                        <input data-i18n-placeholder="lookupUsername.enterTwitchViewerUsername" type="text" id="lookup-username" class="form-control"
                                             placeholder="Enter Twitch viewer username">
-                                        <button class="btn btn-outline-secondary" type="button"
+                                        <button data-i18n="lookupVoiceBtn.lookupVoice" class="btn btn-outline-secondary" type="button"
                                             id="lookup-voice-btn">Lookup Voice</button>
                                     </div>
                                     <div id="lookup-result" class="mt-3" style="display:none;"></div>
@@ -843,9 +823,9 @@
                                 <div class="card-body">
                                     <div class="row g-3 align-items-end">
                                         <div class="col-12 col-md-5">
-                                            <label for="calibration-voice-search" class="form-label">Select Voice</label>
+                                            <label data-i18n="tabViewerDefaults.selectVoice" for="calibration-voice-search" class="form-label">Select Voice</label>
                                             <div class="custom-voice-dropdown" id="calibration-voice-dropdown">
-                                                <input type="text" id="calibration-voice-search" class="form-control"
+                                                <input data-i18n-placeholder="calibrationVoiceSearch.searchVoicesToCalibrate" type="text" id="calibration-voice-search" class="form-control"
                                                     placeholder="Search voices to calibrate..." readonly>
                                                 <input type="hidden" id="calibration-voice" value="">
                                                 <div class="voice-dropdown-menu" id="calibration-voice-menu">
@@ -854,13 +834,13 @@
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-4">
-                                            <label for="calibration-volume" class="form-label">Volume Override: <span
+                                            <label for="calibration-volume" class="form-label"><span data-i18n="tabViewerDefaults.volumeOverride">Volume Override:</span> <span
                                                     id="calibration-volume-value">1.0</span></label>
                                             <input type="range" id="calibration-volume" class="form-range" min="0.1"
                                                 max="10.0" step="0.1" value="1.0">
                                         </div>
                                         <div class="col-12 col-md-3">
-                                            <button id="calibration-save-btn" class="btn btn-outline-primary w-100"
+                                            <button data-i18n="calibrationSaveBtn.save" id="calibration-save-btn" class="btn btn-outline-primary w-100"
                                                 type="button" disabled>Save</button>
                                         </div>
                                     </div>
@@ -868,12 +848,12 @@
                             </div>
 
                             <div class="mb-4">
-                                <h3 class="mb-2"><strong>Calibrated Voices</strong></h3>
-                                <p class="text-muted small mb-2">Voices with custom volume settings.</p>
+                                <h3 data-i18n="tabViewerDefaults.calibratedVoices" class="mb-2"><strong>Calibrated Voices</strong></h3>
+                                <p data-i18n="tabViewerDefaults.voicesWithCustomVolumeSettings" class="text-muted small mb-2">Voices with custom volume settings.</p>
                                 <div class="card shadow">
                                     <div class="card-body p-0">
                                         <ul id="calibrated-voices-list" class="list-group list-group-flush rounded-3">
-                                            <li class="list-group-item text-center text-muted py-3">No voices calibrated
+                                            <li data-i18n="calibratedVoicesList.noVoicesCalibratedYet" class="list-group-item text-center text-muted py-3">No voices calibrated
                                                 yet.</li>
                                         </ul>
                                     </div>
@@ -893,54 +873,54 @@
                 <!-- Channel service: a once-a-year action, kept beside the
                      status readouts it changes rather than in the header. -->
                 <section class="wc-aside-card">
-                    <header>Channel service</header>
+                    <header data-i18n="dashboardContent.channelService">Channel service</header>
                     <div class="wc-aside-body">
-                        <span class="wc-aside-headline" id="service-headline">TTS service</span>
-                        <button id="add-bot-btn" class="wc-btn wc-btn--aside" style="display:none;"
+                        <span data-i18n="serviceHeadline.ttsService" class="wc-aside-headline" id="service-headline">TTS service</span>
+                        <button data-i18n="addBotBtn.activateTtsService" id="add-bot-btn" class="wc-btn wc-btn--aside" style="display:none;"
                             type="button">Activate TTS service</button>
-                        <button id="remove-bot-btn" class="wc-btn wc-btn--aside wc-btn--danger" style="display:none;"
+                        <button data-i18n="removeBotBtn.deactivateTtsService" id="remove-bot-btn" class="wc-btn wc-btn--aside wc-btn--danger" style="display:none;"
                             type="button">Deactivate TTS service</button>
-                        <p class="wc-aside-note">Deactivation stops the bot from reading chat messages. Your settings
+                        <p data-i18n="dashboardContent.deactivationStopsTheBotFrom" class="wc-aside-note">Deactivation stops the bot from reading chat messages. Your settings
                             remain saved. You can activate the service again at any time.</p>
                     </div>
                 </section>
 
                 <section class="wc-aside-card">
-                    <header>Voice preview</header>
+                    <header data-i18n="dashboardContent.voicePreview">Voice preview</header>
                     <div class="wc-aside-body">
-                        <span id="sidebar-voice-name" class="wc-aside-headline">Friendly Person</span>
-                        <label class="wc-code-label" for="voice-test-text">Test message</label>
+                        <span data-i18n="sidebarVoiceName.friendlyPerson" id="sidebar-voice-name" class="wc-aside-headline">Friendly Person</span>
+                        <label data-i18n="dashboardContent.testMessage" class="wc-code-label" for="voice-test-text">Test message</label>
                         <textarea id="voice-test-text" class="form-control" rows="3"
                             maxlength="500">Welcome, everyone, to the stream!</textarea>
-                        <button id="voice-test-btn" class="wc-btn wc-btn--aside" type="button">Send preview</button>
+                        <button data-i18n="voiceTestBtn.sendPreview" id="voice-test-btn" class="wc-btn wc-btn--aside" type="button">Send preview</button>
                         <!-- Audio Player Container -->
                         <div id="voice-preview-player" class="voice-preview-player" style="display: none;">
                             <audio controls class="w-100">
                                 <source id="voice-preview-source" type="audio/mpeg">
-                                Your browser does not support the audio element.
+                                <span data-i18n="voicePreviewPlayer.yourBrowserDoesNotSupport">Your browser does not support the audio element.</span>
                             </audio>
-                            <small id="voice-preview-hint" class="settings-changed-hint text-warning mt-1"
+                            <small data-i18n="voicePreviewHint.settingsChangedGenerateANew" id="voice-preview-hint" class="settings-changed-hint text-warning mt-1"
                                 style="display: none;">
                                 <i><i data-lucide="triangle-alert" class="inline-icon"></i> Settings changed. Generate a new preview.</i>
                             </small>
                         </div>
                         <!-- Current voice settings display -->
                         <dl class="wc-kv">
-                            <div><dt>Pitch</dt><dd id="sidebar-pitch-val">0</dd></div>
-                            <div><dt>Speed</dt><dd id="sidebar-speed-val">1.0×</dd></div>
-                            <div><dt>Volume</dt><dd id="sidebar-volume-val">1.0</dd></div>
-                            <div><dt>Emotion</dt><dd id="sidebar-emotion-val">—</dd></div>
-                            <div><dt>Language</dt><dd id="sidebar-language-val">Automatic</dd></div>
-                            <div><dt>Eng. normalization</dt><dd id="sidebar-eng-norm-val">Off</dd></div>
+                            <div><dt data-i18n="dashboardContent.pitch">Pitch</dt><dd id="sidebar-pitch-val">0</dd></div>
+                            <div><dt data-i18n="dashboardContent.speed">Speed</dt><dd id="sidebar-speed-val">1.0×</dd></div>
+                            <div><dt data-i18n="dashboardContent.volume">Volume</dt><dd id="sidebar-volume-val">1.0</dd></div>
+                            <div><dt data-i18n="dashboardContent.emotion">Emotion</dt><dd id="sidebar-emotion-val">—</dd></div>
+                            <div><dt data-i18n="dashboardContent.language">Language</dt><dd data-i18n="sidebarLanguageVal.automatic" id="sidebar-language-val">Automatic</dd></div>
+                            <div><dt data-i18n="dashboardContent.engNormalization">Eng. normalization</dt><dd data-i18n="sidebarEngNormVal.off" id="sidebar-eng-norm-val">Off</dd></div>
                         </dl>
                     </div>
                 </section>
 
                 <!-- Quick Links -->
                 <section class="wc-aside-card">
-                    <header>Quick links</header>
+                    <header data-i18n="dashboardContent.quickLinks">Quick links</header>
                     <div class="wc-aside-body">
-                        <div class="wc-links">
+                        <div data-i18n="dashboardContent.documentationViewerSettingsWildcatChat" class="wc-links">
                             <a class="wc-link wc-link--muted" href="https://docs.wildcat.chat/wildcatttsdocs.html" target="_blank" rel="noopener">
                                 <i data-lucide="book" aria-hidden="true"></i>Documentation
                             </a>

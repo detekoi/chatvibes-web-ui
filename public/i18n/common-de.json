@@ -1,0 +1,164 @@
+{
+  "darkModeToggle": {
+    "toggleDarkMode": "Dunkelmodus umschalten"
+  },
+  "err": {
+    "banned_add_failed": "Wort kann nicht zur Sperrliste hinzugefügt werden.",
+    "banned_remove_failed": "Wort kann nicht von der Sperrliste entfernt werden.",
+    "bot_add_failed": "Bot kann auf deinem Kanal nicht aktiviert werden. Versuche es erneut.",
+    "bot_remove_failed": "Bot kann auf deinem Kanal nicht deaktiviert werden. Versuche es erneut.",
+    "bot_status_failed": "Bot-Status kann nicht geladen werden.",
+    "channel_data_not_found": "Keine Einstellungen für diesen Kanal gefunden.",
+    "channel_not_authorized": "Dein Kanal ist nicht zur Nutzung dieses Bots berechtigt. Kontaktiere mich für Zugriff.",
+    "channel_not_found": "Dieser Kanal wurde nicht gefunden.",
+    "channel_required": "Ein Kanal ist erforderlich.",
+    "channel_tts_disabled": "Dieser Kanal wurde nicht gefunden oder hat TTS nicht aktiviert.",
+    "entry_key_required": "Ein Eintragsschlüssel ist erforderlich.",
+    "exchange_code_invalid": "Dieser Anmeldelink fehlt oder ist ungültig.",
+    "exchange_code_used": "Dieser Anmeldelink wurde bereits verwendet oder ist abgelaufen. Melde dich erneut an.",
+    "exchange_failed": "Anmeldung konnte nicht abgeschlossen werden. Versuche es erneut.",
+    "ignore_add_failed": "Benutzer kann nicht zur Ignorierliste hinzugefügt werden.",
+    "ignore_moderator_imposed": "Ein Kanalmoderator hat dich hier von TTS abgemeldet, daher kann dies nur ein Moderator rückgängig machen.",
+    "ignore_remove_failed": "Benutzer kann nicht von der Ignorierliste entfernt werden.",
+    "ignore_update_failed": "Deine Opt-out-Einstellung kann nicht geändert werden.",
+    "key_required": "Ein Einstellungsname ist erforderlich.",
+    "match_key_invalid": "Das Wort muss 1 bis {max} Zeichen lang sein (Buchstaben, Ziffern, Apostrophe oder Bindestriche) und darf keinen Punkt enthalten.",
+    "network_error": "Server kann nicht erreicht werden. Überprüfe deine Verbindung.",
+    "obs_token_fetch_failed": "OBS-Token kann nicht geladen werden.",
+    "obs_token_generate_failed": "Neues OBS-Token kann nicht generiert werden.",
+    "obs_token_store_failed": "OBS-Token kann nicht gespeichert werden. Versuche es erneut.",
+    "prefs_fetch_failed": "Deine Einstellungen können nicht geladen werden.",
+    "prefs_global_fetch_failed": "Deine globalen Einstellungen können nicht geladen werden.",
+    "prefs_global_update_failed": "Deine globalen Einstellungen können nicht gespeichert werden.",
+    "prefs_invalid_emote_mode": "Emote-Handhabung muss vorlesen, überspringen oder beschreiben sein.",
+    "prefs_invalid_emotion": "Das ist keine gültige Emotion.",
+    "prefs_invalid_language": "Das ist keine gültige Sprache.",
+    "prefs_invalid_pitch": "Das ist keine gültige Tonhöhe.",
+    "prefs_invalid_speed": "Das ist keine gültige Geschwindigkeit.",
+    "prefs_invalid_voice": "Das ist keine gültige Stimme.",
+    "prefs_missing_data": "Es wurden keine Änderungen gesendet.",
+    "prefs_update_failed": "Deine Einstellungen können nicht gespeichert werden.",
+    "pronunciation_limit_reached": "Du hast das Limit von {max} benutzerdefinierten Aussprachen erreicht. Entferne zuerst eine.",
+    "pronunciation_remove_failed": "Aussprache kann nicht entfernt werden.",
+    "pronunciation_save_failed": "Aussprache kann nicht gespeichert werden.",
+    "reward_banned_word": "Die Nachricht enthält ein gesperrtes Wort: \"{word}\".",
+    "reward_create_failed": "Channel Points-Belohnung kann nicht erstellt werden.",
+    "reward_delete_failed": "Channel Points-Belohnung kann nicht gelöscht werden.",
+    "reward_links_blocked": "Links sind in dieser Belohnung nicht erlaubt.",
+    "reward_load_failed": "Channel Points-Belohnung kann nicht geladen werden.",
+    "reward_message_empty": "Die Nachricht ist leer.",
+    "reward_save_failed": "Channel Points-Belohnung kann nicht gespeichert werden.",
+    "reward_test_failed": "Channel Points-Belohnung kann nicht getestet werden.",
+    "reward_twitch_error": "Twitch hat die Änderung der Belohnung abgelehnt.",
+    "reward_validation_failed": "Diese Nachricht ist nicht erlaubt.",
+    "say_contains_link": "Die Aussprache darf keinen Link enthalten.",
+    "say_empty": "Die Aussprache darf nicht leer sein.",
+    "say_must_be_text": "Die Aussprache muss Text sein.",
+    "say_too_long": "Die Aussprache darf höchstens {max} Zeichen lang sein.",
+    "server_misconfigured": "Der Server ist falsch konfiguriert.",
+    "setting_invalid": "Das ist kein gültiger Wert für {key}.",
+    "setting_update_failed": "TTS-Einstellung kann nicht aktualisiert werden.",
+    "settings_fetch_failed": "TTS-Einstellungen können nicht geladen werden.",
+    "shortlink_failed": "Kurzlink kann nicht erstellt werden.",
+    "storage_unavailable": "Speicher ist nicht verfügbar.",
+    "tts_generation_failed": "Sprachgenerierung fehlgeschlagen: {reason}",
+    "tts_no_audio": "Der Sprachanbieter hat kein Audio zurückgegeben.",
+    "tts_not_configured": "Es ist kein Sprachanbieter konfiguriert.",
+    "tts_provider_failed": "Der Sprachanbieter konnte kein Audio generieren.",
+    "tts_test_failed": "Der Sprachtest ist fehlgeschlagen.",
+    "tts_text_required": "Gib Text zum Testen ein.",
+    "twitch_reauth_required": "Deine Twitch-Anmeldung ist abgelaufen. Verbinde dein Konto erneut.",
+    "twitch_user_not_found": "Es gibt kein Twitch-Konto namens „{username}“.",
+    "url_required": "Eine URL ist erforderlich.",
+    "username_invalid": "Dieser Benutzername ist ungültig.",
+    "username_required": "Ein Benutzername ist erforderlich.",
+    "voice_access_denied": "Die Stimme \"{voice}\" erfordert besonderen Zugriff. Wähle eine andere Stimme.",
+    "voice_invalid": "Die Stimme \"{voice}\" ist nicht verfügbar. Überprüfe die Stimme und versuche es erneut.",
+    "voice_lookup_failed": "Die Stimme dieses Nutzers kann nicht ermittelt werden.",
+    "word_invalid": "Dieses Wort oder dieser Begriff ist ungültig.",
+    "word_required": "Ein Wort oder ein Begriff ist erforderlich."
+  },
+  "logoutLink": {
+    "logout": "Abmelden"
+  },
+  "mainContent": {
+    "documentationTtsWildcatChat": "<a class=\"wc-link\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\">Dokumentation</a> <span>tts.wildcat.chat</span>"
+  },
+  "msg": {
+    "action": {
+      "close": "Schließen",
+      "remove": "Entfernen",
+      "saved": "Gespeichert"
+    },
+    "api": {
+      "authFailed": "Authentifizierung fehlgeschlagen. Melde dich erneut an.",
+      "notAuthenticated": "Du bist nicht angemeldet.",
+      "requestFailed": "Die Anfrage ist fehlgeschlagen."
+    },
+    "auth": {
+      "genericUser": "Benutzer",
+      "loading": "Wird geladen…",
+      "needViewerSignIn": "Bestätige dein Twitch-Konto, um auf die Zuschauereinstellungen zuzugreifen.",
+      "redirecting": "Weiterleitung zu Twitch zur Authentifizierung…",
+      "required": "Authentifizierung erforderlich.",
+      "signInFailed": "Anmeldung konnte nicht abgeschlossen werden.",
+      "signInWithTwitch": "Mit Twitch anmelden",
+      "signedOut": "Du bist nicht angemeldet.",
+      "tokenMissing": "Authentifizierungstoken fehlt. Melde dich erneut an."
+    },
+    "emotion": {
+      "angry": "Wütend",
+      "auto": "Automatisch",
+      "disgusted": "Angeekelt",
+      "fearful": "Ängstlich",
+      "happy": "Glücklich",
+      "neutral": "Neutral",
+      "sad": "Traurig",
+      "surprised": "Überrascht"
+    },
+    "ignore": {
+      "enterUsername": "Gib einen Benutzernamen ein."
+    },
+    "lang": {
+      "automatic": "Automatisch"
+    },
+    "prefs": {
+      "useChannelDefault": "Kanalstandard verwenden"
+    },
+    "preview": {
+      "enterText": "Text zum Testen eingeben.",
+      "unavailable": "Keine Vorschau verfügbar."
+    },
+    "value": {
+      "off": "Aus",
+      "on": "Ein"
+    },
+    "voice": {
+      "cannotPlay": "Hörprobe kann nicht abgespielt werden.",
+      "generating": "Wird generiert…",
+      "noAudio": "Der Server hat kein Audio zurückgegeben.",
+      "noneFound": "Keine Stimmen gefunden.",
+      "preview": "Vorschau für {voice}",
+      "regenerate": "Neu generieren",
+      "testFailed": "Test fehlgeschlagen: {reason}"
+    }
+  },
+  "page": {
+    "skipToMainContent": "Zum Hauptinhalt springen"
+  },
+  "sidebarEngNormVal": {
+    "off": "Aus"
+  },
+  "sidebarLanguageVal": {
+    "automatic": "Automatisch"
+  },
+  "ui": {
+    "language": "Sprache"
+  },
+  "voicePreviewHint": {
+    "settingsChangedGenerateANew": "<i><i data-lucide=\"triangle-alert\" class=\"inline-icon\"></i> Einstellungen geändert. Neue Vorschau generieren.</i>"
+  },
+  "voicePreviewPlayer": {
+    "yourBrowserDoesNotSupport": "Dein Browser unterstützt das Audio-Element nicht."
+  }
+}

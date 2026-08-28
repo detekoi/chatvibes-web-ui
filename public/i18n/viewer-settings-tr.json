@@ -1,0 +1,212 @@
+{
+  "addChannelContextCard": {
+    "loadAChannelToSee": "Varsayılan ayarlarını görmek ve muafiyetleri yönetmek için bir kanal yükleyin. Tercihleriniz genel kalır."
+  },
+  "channelContextCard": {
+    "changesHereUpdateYourGlobal": "Buradaki değişiklikler <strong>senin</strong> genel tercihlerini günceller. Yayıncı ayarları değişmez.",
+    "channelContext": "Kanal Bağlamı",
+    "clearButtonsSetYourGlobal": "<strong>Temizle düğmeleri:</strong> Genel tercihinizi bu kanalın varsayılan ayarıyla eşleşecek şekilde ayarlar."
+  },
+  "channelHint": {
+    "channelFound": "Kanal bulundu"
+  },
+  "channelInputCancel": {
+    "cancel": "İptal"
+  },
+  "channelInputConfirm": {
+    "load": "Yükle"
+  },
+  "channelInputDesc": {
+    "enterTheChannelNameTo": "Varsayılan ayarlarını görmek ve muafiyetleri yönetmek için kanal adını girin:"
+  },
+  "channelInputModal": {
+    "streamerUsername": "Yayıncı Kullanıcı Adı"
+  },
+  "channelInputModalText": {
+    "streamerUsername": "Yayıncı Kullanıcı Adı"
+  },
+  "channelInputTitle": {
+    "loadChannelContext": "Kanal Bağlamını Yükle"
+  },
+  "clearChannelContextBtn": {
+    "clear": "Temizle"
+  },
+  "confirmNo": {
+    "cancel": "İptal"
+  },
+  "confirmText": {
+    "yourMessagesWillNotBe": "Mesajlarınız sesli okunmayacak. Bunu istediğiniz zaman tekrar açabilirsiniz."
+  },
+  "confirmTitle": {
+    "confirmAction": "İşlemi onayla"
+  },
+  "confirmYes": {
+    "confirm": "Onayla"
+  },
+  "dangerTtsToggle": {
+    "optOutOfTtsIn": "Bu kanalda TTS kapsamı dışına çık",
+    "ttsWillNotReadYour": "TTS bu kanalda mesajlarınızı okumayacak"
+  },
+  "dangerZoneSection": {
+    "dangerZone": "Tehlike Bölgesi",
+    "theseSettingsStopTheBot": "Bu ayarlar, botun bir kanalda mesajlarınızı okumasını engeller. Seçtiğiniz herhangi bir ayarı geri alabilirsiniz. Bir moderatör sizi kapsam dışı bıraktıysa, bunu yalnızca bir moderatör geri alabilir."
+  },
+  "emotionReset": {
+    "clear": "Temizle",
+    "resetEmotionToDefault": "Duyguyu varsayılana sıfırla"
+  },
+  "emotionSelect": {
+    "angry": "Kızgın",
+    "disgusted": "İğrenmiş",
+    "fearful": "Korkmuş",
+    "happy": "Mutlu",
+    "neutral": "Nötr",
+    "sad": "Üzgün",
+    "surprised": "Şaşırmış",
+    "useChannelDefault": "Kanal varsayılanını kullan"
+  },
+  "englishNormalizationCheckbox": {
+    "englishNormalization": "İngilizce Normalizasyonu"
+  },
+  "englishNormalizationReset": {
+    "clear": "Temizle",
+    "resetEnglishNormalizationToDefault": "İngilizce normalizasyonunu varsayılana sıfırla"
+  },
+  "ignoreTts": {
+    "optOutOfTtsIn": "Bu kanalda TTS kapsamı dışına çık"
+  },
+  "languageReset": {
+    "clear": "Temizle",
+    "resetLanguageToDefault": "Dili varsayılana sıfırla"
+  },
+  "loadingBar": {
+    "loadingYourPreferences": "Tercihleriniz yükleniyor"
+  },
+  "loadingOverlay": {
+    "loadingYourPreferences": "Tercihleriniz yükleniyor…"
+  },
+  "loggedInStatus": {
+    "channelContext": "Kanal bağlamı",
+    "global": "Genel",
+    "loggedInAs": "Giriş yapılan hesap",
+    "scope": "Kapsam"
+  },
+  "meta": {
+    "wildcatttsViewerSettings": "WildcatTTS İzleyici Ayarları",
+    "wildcatttsViewerSettingsSetYour": "WildcatTTS İzleyici Ayarları - Twitch kanallarında kişisel metin okuma sesinizi, perdenizi ve hızınızı ayarlayın."
+  },
+  "msg": {
+    "auth": {
+      "exchangeFailed": "Giriş tamamlanamıyor. Ana sayfadan tekrar deneyin.",
+      "testUser": "Test Kullanıcısı"
+    },
+    "channel": {
+      "cleared": "Kanal bağlamı temizlendi.",
+      "clearedTestMode": "Kanal bağlamı temizlendi (test modu).",
+      "enterName": "Bir kanal adı girin.",
+      "found": "Kanal bulundu",
+      "foundTestMode": "Kanal bulundu (test modu)",
+      "hint": "Varsayılan ayarlarını görmek için bir kanal yükleyin.",
+      "loaded": "Kanal bağlamı yüklendi.",
+      "loadedTestMode": "Kanal bağlamı yüklendi (test modu).",
+      "noneLoaded": "Hiçbiri yüklenmedi",
+      "promptConfirm": "Yükle",
+      "promptDescription": "Varsayılan ayarlarını görmek ve muafiyetleri yönetmek için kanal adını girin:",
+      "promptTitle": "Kanal Bağlamını Yükle",
+      "viewingDefaults": "{channel} için varsayılan ayarları görüntülüyorsunuz."
+    },
+    "optout": {
+      "confirm": "#{channel} kanalında TTS'den çıkmak istiyor musunuz? Mesajlarınız sesli okunmayacaktır. Bunu istediğiniz zaman tekrar açabilirsiniz.",
+      "confirmDescription": "Devam etmek için kanal adını girin:",
+      "confirmTitle": "TTS muafiyeti için kanalı onaylayın",
+      "continue": "Devam Et",
+      "moderatorNote": "Bir kanal moderatörü burada sizi TTS'den çıkardı. Bunu yalnızca bir moderatör geri alabilir.",
+      "optInFailed": "TTS'e tekrar dahil olunamıyor.",
+      "optOutFailed": "TTS devre dışı bırakılamıyor.",
+      "optedIn": "TTS'i tekrar etkinleştirdin.",
+      "optedInTestMode": "TTS'i tekrar etkinleştirdin (test modu).",
+      "optedOut": "TTS'i devre dışı bıraktın.",
+      "optedOutTestMode": "TTS'i devre dışı bıraktın (test modu).",
+      "selectChannel": "Önce bir kanal seç.",
+      "selfNote": "Burada TTS'i devre dışı bıraktın. İstediğin zaman tekrar açabilirsin.",
+      "specifyChannel": "Bir kanal belirt."
+    },
+    "prefs": {
+      "hintChannel": "Kanal varsayılanı kullanılıyor: {value}",
+      "hintSystem": "Sistem varsayılanı kullanılıyor",
+      "hintUser": "Genel tercihiniz kullanılıyor: {value}",
+      "loadFailed": "Tercihler yüklenemiyor.",
+      "noVoicesFound": "Ses bulunamadı",
+      "saveFailed": "{key} kaydedilemiyor: {reason}",
+      "sendPreview": "Önizleme Gönder",
+      "testCompletedTestMode": "Test tamamlandı (test modu).",
+      "updated": "Tercih güncellendi.",
+      "updatedTestMode": "Tercih güncellendi (test modu)."
+    }
+  },
+  "openChannelContextModalBtn": {
+    "loadChannel": "Kanalı Yükle…"
+  },
+  "page": {
+    "setHowYourMessagesSound": "Mesajların Wildcat TTS tarafından okunduğunda nasıl duyulacağını ayarla. Tercihlerin geneldir ve tüm kanallara uygulanır.",
+    "viewerTtsPreferences": "İzleyici TTS tercihleri",
+    "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">İzleyici ayarları</span>"
+  },
+  "pitchReset": {
+    "clear": "Temizle",
+    "resetPitchToDefault": "Ses perdesini varsayılana sıfırla"
+  },
+  "pitchSlider": {
+    "pitchAdjustment12To12": "Ses perdesi ayarı (-12 ila +12)"
+  },
+  "preferencesPanel": {
+    "adjustTheVoicePitchHigher": "Ses perdesini yükselt veya alçalt",
+    "controlHowFastTheVoice": "Sesin ne kadar hızlı konuşacağını kontrol et",
+    "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokümantasyon </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Yayıncı ayarları </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "<strong>Duygu</strong>",
+    "emotion2": "Duygu",
+    "englishNormalization": "İngilizce Normalizasyonu",
+    "engNormalization": "İng. normalizasyonu",
+    "ifTtsReadsNumbersIncorrectly": "TTS sayıları yanlış okuyorsa İngilizce metin normalizasyonunu açın. Bu ayar gecikmeyi biraz artırır.",
+    "improvePronunciationForSpecificLanguages": "Belirli diller için telaffuzu iyileştir",
+    "improveThePronunciationOfNumbers": "Sayıların ve metinlerin telaffuzunu iyileştir",
+    "language": "Dil",
+    "languageBoost": "<strong>Dil Güçlendirme</strong>",
+    "pitch": "Ses Perdesi",
+    "pitch12To12": "Ses Perdesi (-12 ila +12):",
+    "quickLinks": "Hızlı bağlantılar",
+    "selectYourPreferredTtsVoice": "Tercih ettiğin TTS sesini seç",
+    "setHowYourMessagesSound": "Mesajların TTS tarafından okunduğunda nasıl duyulacağını ayarla",
+    "setTheEmotionalToneOf": "Sesin duygu tonunu ayarla",
+    "speed": "Hız",
+    "speed05To2": "Hız (0.5 ila 2.0):",
+    "testMessage": "Test mesajı",
+    "voice": "<strong>Ses</strong>",
+    "voicePreview": "Ses önizlemesi",
+    "voiceSettings": "Ses Ayarları"
+  },
+  "prefsDisabledNote": {
+    "theStreamerDisabledPersonalVoice": "Yayıncı, bu kanal için kişisel ses ayarlarını devre dışı bıraktı. Bu kanal tercihleriniz yerine varsayılan sesini kullanacak."
+  },
+  "previewBtn": {
+    "sendPreview": "Önizleme gönder"
+  },
+  "speedReset": {
+    "clear": "Temizle",
+    "resetSpeedToDefault": "Hızı varsayılana sıfırla"
+  },
+  "speedSlider": {
+    "speedAdjustment05To": "Hız ayarı (0,5 - 2,0)"
+  },
+  "statChannelContext": {
+    "noneLoaded": "Hiçbiri yüklenmedi"
+  },
+  "voiceReset": {
+    "clear": "Temizle",
+    "resetVoiceToDefault": "Sesi varsayılana sıfırla"
+  },
+  "voiceSearch": {
+    "searchVoices": "Sesleri ara",
+    "searchVoices2": "Sesleri ara..."
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "errorAction": {
+    "tryAgain": "Pokušaj ponovno"
+  },
+  "errorCode": {
+    "unknown": "nepoznato"
+  },
+  "errorCodeBlock": {
+    "error": "Pogreška"
+  },
+  "errorMessageDetails": {
+    "twitchAuthenticationFailed": "Twitch autentifikacija nije uspjela."
+  },
+  "errorReadout": {
+    "authenticationFailed": "Autentifikacija nije uspjela"
+  },
+  "errorTitle": {
+    "authenticationFailed": "Autentifikacija nije uspjela"
+  },
+  "mainContent": {
+    "requestAccessTtsWildcatChat": "<a class=\"wc-link\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">Zatraži pristup</a> <span>tts.wildcat.chat</span>"
+  },
+  "meta": {
+    "wildcatttsAuthenticationError": "WildcatTTS - Pogreška pri autentifikaciji",
+    "wildcatttsAuthenticationErrorAndSign": "WildcatTTS pogreška pri autentifikaciji i oporavak prijave."
+  },
+  "msg": {
+    "authError": {
+      "backToSignIn": "Natrag na prijavu",
+      "canceledBody": "Nije bilo promjena. Možeš se prijaviti kada budeš spreman.",
+      "canceledReadout": "Otkazano",
+      "canceledTitle": "WildcatTTS – Prijava otkazana",
+      "canceledTitleShort": "Prijava otkazana",
+      "notPermitted": "Pristup nije dopušten",
+      "requestAccess": "Zatraži pristup",
+      "twitchError": "Twitch je vratio pogrešku tijekom autentifikacije.",
+      "unspecified": "Došlo je do neodređene pogreške.",
+      "unspecifiedCode": "neodređeno"
+    }
+  }
+}

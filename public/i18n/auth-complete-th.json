@@ -1,0 +1,39 @@
+{
+  "authBar": {
+    "signInProgress": "ความคืบหน้าการเข้าสู่ระบบ"
+  },
+  "authMessage": {
+    "pleaseWait": "โปรดรอสักครู่"
+  },
+  "authSteps": {
+    "loadingDashboard": "กำลังโหลดแดชบอร์ด",
+    "sessionTokenStored": "บันทึกโทเค็นเซสชันแล้ว",
+    "twitchAuthorized": "อนุญาต Twitch แล้ว"
+  },
+  "authTitle": {
+    "signingYouIn": "กำลังนำคุณเข้าสู่ระบบ"
+  },
+  "meta": {
+    "completingWildcatttsTwitchSignIn": "กำลังดำเนินการเข้าสู่ระบบ Twitch ของ WildcatTTS ให้เสร็จสมบูรณ์",
+    "wildcatttsCompletingSignIn": "WildcatTTS - กำลังดำเนินการเข้าสู่ระบบให้เสร็จสิ้น"
+  },
+  "msg": {
+    "authComplete": {
+      "cannotComplete": "ไม่สามารถเข้าสู่ระบบให้เสร็จสมบูรณ์ได้",
+      "failedReadout": "ล้มเหลว",
+      "failedTitle": "เข้าสู่ระบบไม่สำเร็จ",
+      "missingInfo": "ข้อมูลยืนยันตัวตนจาก Twitch callback ขาดหายไป โปรดเข้าสู่ระบบอีกครั้ง",
+      "noSession": "ไม่มีเซสชัน",
+      "redirecting": "กำลังนำคุณไปยังแดชบอร์ด",
+      "retrySignIn": "{reason} โปรดเข้าสู่ระบบอีกครั้ง",
+      "sessionEstablished": "สร้างเซสชันแล้ว",
+      "welcome": "ยินดีต้อนรับ {user}"
+    }
+  },
+  "sessionState": {
+    "establishingSession": "กำลังสร้างเซสชัน"
+  },
+  "statusReadout": {
+    "working": "<span class=\"wc-dot\"></span>กำลังทำงาน"
+  }
+}

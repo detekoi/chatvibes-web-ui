@@ -1,0 +1,164 @@
+{
+  "darkModeToggle": {
+    "toggleDarkMode": "สลับโหมดมืด"
+  },
+  "err": {
+    "banned_add_failed": "ไม่สามารถเพิ่มคำนั้นไปยังรายการที่แบนได้",
+    "banned_remove_failed": "ไม่สามารถลบคำนั้นออกจากรายการที่แบนได้",
+    "bot_add_failed": "ไม่สามารถเปิดใช้งานบอทในช่องของคุณได้ โปรดลองอีกครั้ง",
+    "bot_remove_failed": "ไม่สามารถปิดใช้งานบอทในช่องของคุณได้ โปรดลองอีกครั้ง",
+    "bot_status_failed": "ไม่สามารถโหลดสถานะบอทได้",
+    "channel_data_not_found": "ไม่พบการตั้งค่าสำหรับช่องนั้น",
+    "channel_not_authorized": "ช่องของคุณไม่ได้รับอนุญาตให้ใช้บอทนี้ โปรดติดต่อฉันเพื่อขอสิทธิ์การเข้าถึง",
+    "channel_not_found": "ไม่พบช่องนั้น",
+    "channel_required": "จำเป็นต้องระบุช่อง",
+    "channel_tts_disabled": "ไม่พบช่องนั้น หรือช่องไม่ได้เปิดใช้งาน TTS",
+    "entry_key_required": "ต้องระบุคีย์ของรายการ",
+    "exchange_code_invalid": "ลิงก์เข้าสู่ระบบไม่ถูกต้องหรือไม่สมบูรณ์",
+    "exchange_code_used": "ลิงก์เข้าสู่ระบบนี้ถูกใช้งานแล้วหรือหมดอายุ โปรดเข้าสู่ระบบอีกครั้ง",
+    "exchange_failed": "ไม่สามารถเข้าสู่ระบบได้ โปรดลองอีกครั้ง",
+    "ignore_add_failed": "ไม่สามารถเพิ่มผู้ใช้นั้นไปยังรายการละเว้นได้",
+    "ignore_moderator_imposed": "ผู้ดูแลช่องได้ตั้งค่าไม่ให้คุณใช้ TTS ที่นี่ มีเพียงผู้ดูแลเท่านั้นที่ยกเลิกได้",
+    "ignore_remove_failed": "ไม่สามารถลบผู้ใช้นั้นออกจากรายการละเว้นได้",
+    "ignore_update_failed": "ไม่สามารถเปลี่ยนการตั้งค่าเลือกไม่เข้าร่วมของคุณได้",
+    "key_required": "ต้องระบุชื่อการตั้งค่า",
+    "match_key_invalid": "คำต้องมีความยาว 1 ถึง {max} ตัวอักษร ประกอบด้วยตัวอักษร ตัวเลข เครื่องหมายอะพอสทรอฟี หรือยัติภังค์ และต้องไม่มีจุด",
+    "network_error": "ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้ โปรดตรวจสอบการเชื่อมต่อของคุณ",
+    "obs_token_fetch_failed": "ไม่สามารถโหลดโทเค็น OBS ได้",
+    "obs_token_generate_failed": "ไม่สามารถสร้างโทเค็น OBS ใหม่ได้",
+    "obs_token_store_failed": "ไม่สามารถบันทึกโทเค็น OBS ได้ โปรดลองอีกครั้ง",
+    "prefs_fetch_failed": "ไม่สามารถโหลดการตั้งค่าของคุณได้",
+    "prefs_global_fetch_failed": "ไม่สามารถโหลดการตั้งค่าส่วนกลางของคุณได้",
+    "prefs_global_update_failed": "ไม่สามารถบันทึกการตั้งค่าส่วนกลางของคุณได้",
+    "prefs_invalid_emote_mode": "การจัดการอีโมตต้องเป็น read, skip หรือ describe",
+    "prefs_invalid_emotion": "อารมณ์ไม่ถูกต้อง",
+    "prefs_invalid_language": "ภาษาไม่ถูกต้อง",
+    "prefs_invalid_pitch": "ระดับเสียงสูงต่ำไม่ถูกต้อง",
+    "prefs_invalid_speed": "ความเร็วไม่ถูกต้อง",
+    "prefs_invalid_voice": "เสียงไม่ถูกต้อง",
+    "prefs_missing_data": "ไม่มีการส่งการเปลี่ยนแปลงใด ๆ",
+    "prefs_update_failed": "ไม่สามารถบันทึกการตั้งค่าของคุณได้",
+    "pronunciation_limit_reached": "คุณใช้การกำหนดการออกเสียงเองครบขีดจำกัด {max} รายการแล้ว โปรดลบออกหนึ่งรายการก่อน",
+    "pronunciation_remove_failed": "ไม่สามารถลบการออกเสียงได้",
+    "pronunciation_save_failed": "ไม่สามารถบันทึกการออกเสียงได้",
+    "reward_banned_word": "ข้อความมีคำที่ถูกแบน: \"{word}\"",
+    "reward_create_failed": "ไม่สามารถสร้างรางวัล Channel Points ได้",
+    "reward_delete_failed": "ไม่สามารถลบรางวัล Channel Points ได้",
+    "reward_links_blocked": "ไม่อนุญาตให้ใส่ลิงก์ในรางวัลนี้",
+    "reward_load_failed": "ไม่สามารถโหลดรางวัล Channel Points ได้",
+    "reward_message_empty": "ข้อความว่างเปล่า",
+    "reward_save_failed": "ไม่สามารถบันทึกรางวัล Channel Points ได้",
+    "reward_test_failed": "ไม่สามารถทดสอบรางวัล Channel Points ได้",
+    "reward_twitch_error": "Twitch ปฏิเสธการเปลี่ยนแปลงรางวัล",
+    "reward_validation_failed": "ไม่อนุญาตให้ใช้ข้อความนั้น",
+    "say_contains_link": "การออกเสียงต้องไม่มีลิงก์",
+    "say_empty": "การออกเสียงต้องไม่เว้นว่าง",
+    "say_must_be_text": "การออกเสียงต้องเป็นข้อความ",
+    "say_too_long": "การออกเสียงต้องมีความยาวไม่เกิน {max} ตัวอักษร",
+    "server_misconfigured": "เซิร์ฟเวอร์ได้รับการกำหนดค่าไม่ถูกต้อง",
+    "setting_invalid": "ค่าดังกล่าวไม่ถูกต้องสำหรับ {key}",
+    "setting_update_failed": "ไม่สามารถอัปเดตการตั้งค่า TTS ได้",
+    "settings_fetch_failed": "ไม่สามารถโหลดการตั้งค่า TTS ได้",
+    "shortlink_failed": "ไม่สามารถสร้างลิงก์สั้นได้",
+    "storage_unavailable": "พื้นที่จัดเก็บข้อมูลไม่พร้อมใช้งาน",
+    "tts_generation_failed": "สร้างเสียงพูดไม่สำเร็จ: {reason}",
+    "tts_no_audio": "ผู้ให้บริการเสียงพูดไม่ได้ส่งข้อมูลเสียงกลับมา",
+    "tts_not_configured": "ยังไม่ได้กำหนดค่าผู้ให้บริการเสียงพูด",
+    "tts_provider_failed": "ผู้ให้บริการเสียงพูดไม่สามารถสร้างเสียงได้",
+    "tts_test_failed": "ทดสอบเสียงพูดไม่สำเร็จ",
+    "tts_text_required": "ป้อนข้อความเพื่อทดสอบ",
+    "twitch_reauth_required": "การเข้าสู่ระบบ Twitch ของคุณหมดอายุแล้ว โปรดเชื่อมต่อบัญชีอีกครั้ง",
+    "twitch_user_not_found": "ไม่พบบัญชี Twitch ชื่อ \"{username}\"",
+    "url_required": "จำเป็นต้องระบุ URL",
+    "username_invalid": "ชื่อผู้ใช้นั้นไม่ถูกต้อง",
+    "username_required": "ต้องระบุชื่อผู้ใช้",
+    "voice_access_denied": "เสียง \"{voice}\" ต้องใช้สิทธิ์พิเศษ โปรดลองใช้เสียงอื่น",
+    "voice_invalid": "ไม่มีเสียง \"{voice}\" ให้ใช้งาน โปรดตรวจสอบเสียงแล้วลองใหม่อีกครั้ง",
+    "voice_lookup_failed": "ไม่สามารถค้นหาเสียงของผู้ใช้รายนั้นได้",
+    "word_invalid": "คำหรือวลีนั้นไม่ถูกต้อง",
+    "word_required": "ต้องระบุคำหรือวลี"
+  },
+  "logoutLink": {
+    "logout": "ออกจากระบบ"
+  },
+  "mainContent": {
+    "documentationTtsWildcatChat": "<a class=\"wc-link\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\">เอกสารคู่มือ</a> <span>tts.wildcat.chat</span>"
+  },
+  "msg": {
+    "action": {
+      "close": "ปิด",
+      "remove": "ลบ",
+      "saved": "บันทึกแล้ว"
+    },
+    "api": {
+      "authFailed": "ยืนยันตัวตนไม่สำเร็จ โปรดเข้าสู่ระบบอีกครั้ง",
+      "notAuthenticated": "คุณยังไม่ได้เข้าสู่ระบบ",
+      "requestFailed": "คำขอไม่สำเร็จ"
+    },
+    "auth": {
+      "genericUser": "ผู้ใช้",
+      "loading": "กำลังโหลด…",
+      "needViewerSignIn": "ยืนยันบัญชี Twitch ของคุณเพื่อเข้าถึงการตั้งค่าสำหรับผู้ชม",
+      "redirecting": "กำลังนำทางไปยัง Twitch เพื่อยืนยันตัวตน…",
+      "required": "จำเป็นต้องยืนยันตัวตน",
+      "signInFailed": "ไม่สามารถเข้าสู่ระบบได้",
+      "signInWithTwitch": "เข้าสู่ระบบด้วย Twitch",
+      "signedOut": "คุณยังไม่ได้เข้าสู่ระบบ",
+      "tokenMissing": "ไม่มีโทเค็นการยืนยันตัวตน โปรดเข้าสู่ระบบอีกครั้ง"
+    },
+    "emotion": {
+      "angry": "โกรธ",
+      "auto": "อัตโนมัติ",
+      "disgusted": "รังเกียจ",
+      "fearful": "หวาดกลัว",
+      "happy": "มีความสุข",
+      "neutral": "เป็นกลาง",
+      "sad": "เศร้า",
+      "surprised": "ประหลาดใจ"
+    },
+    "ignore": {
+      "enterUsername": "ป้อนชื่อผู้ใช้"
+    },
+    "lang": {
+      "automatic": "อัตโนมัติ"
+    },
+    "prefs": {
+      "useChannelDefault": "ใช้ค่าเริ่มต้นของช่อง"
+    },
+    "preview": {
+      "enterText": "ป้อนข้อความเพื่อทดสอบ",
+      "unavailable": "ไม่มีตัวอย่าง"
+    },
+    "value": {
+      "off": "ปิด",
+      "on": "เปิด"
+    },
+    "voice": {
+      "cannotPlay": "ไม่สามารถเล่นตัวอย่างเสียงได้",
+      "generating": "กำลังสร้าง…",
+      "noAudio": "เซิร์ฟเวอร์ไม่ได้ส่งข้อมูลเสียงกลับมา",
+      "noneFound": "ไม่พบเสียง",
+      "preview": "ทดลองฟัง {voice}",
+      "regenerate": "สร้างใหม่",
+      "testFailed": "การทดสอบล้มเหลว: {reason}"
+    }
+  },
+  "page": {
+    "skipToMainContent": "ข้ามไปยังเนื้อหาหลัก"
+  },
+  "sidebarEngNormVal": {
+    "off": "ปิด"
+  },
+  "sidebarLanguageVal": {
+    "automatic": "อัตโนมัติ"
+  },
+  "ui": {
+    "language": "ภาษา"
+  },
+  "voicePreviewHint": {
+    "settingsChangedGenerateANew": "<i><i data-lucide=\"triangle-alert\" class=\"inline-icon\"></i> มีการเปลี่ยนการตั้งค่า โปรดสร้างตัวอย่างใหม่</i>"
+  },
+  "voicePreviewPlayer": {
+    "yourBrowserDoesNotSupport": "เบราว์เซอร์ของคุณไม่รองรับ audio element"
+  }
+}

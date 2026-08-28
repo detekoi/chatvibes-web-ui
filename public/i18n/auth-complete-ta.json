@@ -1,0 +1,39 @@
+{
+  "authBar": {
+    "signInProgress": "உள்நுழைவு முன்னேற்றம்"
+  },
+  "authMessage": {
+    "pleaseWait": "காத்திருக்கவும்."
+  },
+  "authSteps": {
+    "loadingDashboard": "டாஷ்போர்டு ஏற்றப்படுகிறது",
+    "sessionTokenStored": "அமர்வு டோக்கன் சேமிக்கப்பட்டது",
+    "twitchAuthorized": "Twitch அங்கீகரிக்கப்பட்டது"
+  },
+  "authTitle": {
+    "signingYouIn": "உங்களை உள்நுழைகிறது"
+  },
+  "meta": {
+    "completingWildcatttsTwitchSignIn": "WildcatTTS Twitch உள்நுழைவை நிறைவுசெய்கிறது.",
+    "wildcatttsCompletingSignIn": "WildcatTTS - உள்நுழைவை நிறைவுசெய்கிறது"
+  },
+  "msg": {
+    "authComplete": {
+      "cannotComplete": "உள்நுழைவை முடிக்க முடியவில்லை.",
+      "failedReadout": "தோல்வியடைந்தது",
+      "failedTitle": "உள்நுழைவு தோல்வியடைந்தது",
+      "missingInfo": "Twitch கால்பேக்கில் இருந்து அங்கீகாரத் தகவல் விடுபட்டுள்ளது. மீண்டும் உள்நுழையவும்.",
+      "noSession": "அமர்வு இல்லை",
+      "redirecting": "உங்கள் டாஷ்போர்டிற்குத் திருப்பிவிடப்படுகிறீர்கள்.",
+      "retrySignIn": "{reason} மீண்டும் உள்நுழையவும்.",
+      "sessionEstablished": "அமர்வு நிறுவப்பட்டது",
+      "welcome": "வரவேற்கிறோம், {user}"
+    }
+  },
+  "sessionState": {
+    "establishingSession": "அமர்வு நிறுவப்படுகிறது"
+  },
+  "statusReadout": {
+    "working": "<span class=\"wc-dot\"></span>செயல்படுகிறது"
+  }
+}

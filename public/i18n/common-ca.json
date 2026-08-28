@@ -1,0 +1,164 @@
+{
+  "darkModeToggle": {
+    "toggleDarkMode": "Commuta el mode fosc"
+  },
+  "err": {
+    "banned_add_failed": "No es pot afegir aquesta paraula a la llista de paraules blocades.",
+    "banned_remove_failed": "No es pot suprimir aquesta paraula de la llista de paraules blocades.",
+    "bot_add_failed": "No es pot activar el bot al teu canal. Torna-ho a provar.",
+    "bot_remove_failed": "No es pot desactivar el bot al teu canal. Torna-ho a provar.",
+    "bot_status_failed": "No es pot carregar l'estat del bot.",
+    "channel_data_not_found": "No s'ha trobat cap configuració per a aquest canal.",
+    "channel_not_authorized": "El teu canal no té autorització per utilitzar aquest bot. Posa't en contacte amb mi per obtenir-hi accés.",
+    "channel_not_found": "No s'ha trobat aquest canal.",
+    "channel_required": "Cal indicar un canal.",
+    "channel_tts_disabled": "No s'ha trobat aquest canal o no té el TTS activat.",
+    "entry_key_required": "Cal una clau d'entrada.",
+    "exchange_code_invalid": "Aquest enllaç d'inici de sessió no existeix o no és vàlid.",
+    "exchange_code_used": "Aquest enllaç d'inici de sessió ja s'ha utilitzat o ha caducat. Torna a iniciar la sessió.",
+    "exchange_failed": "No s'ha pogut iniciar la sessió. Torna-ho a provar.",
+    "ignore_add_failed": "No es pot afegir aquest usuari a la llista d'ignorats.",
+    "ignore_moderator_imposed": "Un moderador del canal t'ha desactivat el TTS aquí, de manera que només un moderador pot desfer-ho.",
+    "ignore_remove_failed": "No es pot suprimir aquest usuari de la llista d'ignorats.",
+    "ignore_update_failed": "No es pot canviar la configuració d'exclusió.",
+    "key_required": "Cal un nom de paràmetre.",
+    "match_key_invalid": "La paraula ha de tenir entre 1 i {max} caràcters (lletres, dígits, apòstrofs o guionets) i no pot contenir cap punt.",
+    "network_error": "No es pot connectar amb el servidor. Comprova la teva connexió.",
+    "obs_token_fetch_failed": "No es pot carregar el token d'OBS.",
+    "obs_token_generate_failed": "No es pot generar un nou token d'OBS.",
+    "obs_token_store_failed": "No es pot desar el token d'OBS. Torna-ho a provar.",
+    "prefs_fetch_failed": "No es poden carregar les teves preferències.",
+    "prefs_global_fetch_failed": "No es poden carregar les teves preferències globals.",
+    "prefs_global_update_failed": "No es poden desar les teves preferències globals.",
+    "prefs_invalid_emote_mode": "El tractament de les emoticones ha de ser llegir, ometre o descriure.",
+    "prefs_invalid_emotion": "Aquesta emoció no és vàlida.",
+    "prefs_invalid_language": "Aquest idioma no és vàlid.",
+    "prefs_invalid_pitch": "Aquest to no és vàlid.",
+    "prefs_invalid_speed": "Aquesta velocitat no és vàlida.",
+    "prefs_invalid_voice": "Aquesta veu no és vàlida.",
+    "prefs_missing_data": "No s'ha enviat cap canvi.",
+    "prefs_update_failed": "No es poden desar les teves preferències.",
+    "pronunciation_limit_reached": "Has assolit el límit de {max} pronunciacions personalitzades. Suprimeix-ne una primer.",
+    "pronunciation_remove_failed": "No es pot suprimir la pronunciació.",
+    "pronunciation_save_failed": "No es pot desar la pronunciació.",
+    "reward_banned_word": "El missatge conté una paraula prohibida: \"{word}\".",
+    "reward_create_failed": "No es pot crear la recompensa de Channel Points.",
+    "reward_delete_failed": "No es pot eliminar la recompensa de Channel Points.",
+    "reward_links_blocked": "No es permeten enllaços en aquesta recompensa.",
+    "reward_load_failed": "No es pot carregar la recompensa de Channel Points.",
+    "reward_message_empty": "El missatge està buit.",
+    "reward_save_failed": "No es pot desar la recompensa de Channel Points.",
+    "reward_test_failed": "No es pot provar la recompensa de Channel Points.",
+    "reward_twitch_error": "Twitch ha rebutjat el canvi de la recompensa.",
+    "reward_validation_failed": "Aquest missatge no està permès.",
+    "say_contains_link": "La pronunciació no pot contenir cap enllaç.",
+    "say_empty": "La pronunciació no pot estar buida.",
+    "say_must_be_text": "La pronunciació ha de ser text.",
+    "say_too_long": "La pronunciació ha de tenir {max} caràcters o menys.",
+    "server_misconfigured": "El servidor està mal configurat.",
+    "setting_invalid": "Aquest no és un valor vàlid per a {key}.",
+    "setting_update_failed": "No es pot actualitzar el paràmetre de TTS.",
+    "settings_fetch_failed": "No es poden carregar els paràmetres de TTS.",
+    "shortlink_failed": "No es pot crear l'enllaç curt.",
+    "storage_unavailable": "L'emmagatzematge no està disponible.",
+    "tts_generation_failed": "Ha fallat la generació de veu: {reason}",
+    "tts_no_audio": "El proveïdor de veu no ha retornat cap àudio.",
+    "tts_not_configured": "No hi ha cap proveïdor de veu configurat.",
+    "tts_provider_failed": "El proveïdor de veu no ha pogut generar l'àudio.",
+    "tts_test_failed": "Ha fallat la prova de veu.",
+    "tts_text_required": "Introdueix un text per fer la prova.",
+    "twitch_reauth_required": "La teva sessió de Twitch ha caducat. Torna a connectar el teu compte.",
+    "twitch_user_not_found": "No existeix cap compte de Twitch anomenat \"{username}\".",
+    "url_required": "Cal un URL.",
+    "username_invalid": "Aquest nom d'usuari no és vàlid.",
+    "username_required": "Cal un nom d'usuari.",
+    "voice_access_denied": "La veu \"{voice}\" requereix accés especial. Prova una altra veu.",
+    "voice_invalid": "La veu \"{voice}\" no està disponible. Comprova la veu i torna-ho a provar.",
+    "voice_lookup_failed": "No es pot consultar la veu d'aquest usuari.",
+    "word_invalid": "Aquesta paraula o frase no és vàlida.",
+    "word_required": "Cal una paraula o frase."
+  },
+  "logoutLink": {
+    "logout": "Tanca la sessió"
+  },
+  "mainContent": {
+    "documentationTtsWildcatChat": "<a class=\"wc-link\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\">Documentació</a> <span>tts.wildcat.chat</span>"
+  },
+  "msg": {
+    "action": {
+      "close": "Tanca",
+      "remove": "Suprimeix",
+      "saved": "Desat"
+    },
+    "api": {
+      "authFailed": "Ha fallat l'autenticació. Torna a iniciar sessió.",
+      "notAuthenticated": "No has iniciat sessió.",
+      "requestFailed": "La sol·licitud ha fallat."
+    },
+    "auth": {
+      "genericUser": "Usuari",
+      "loading": "s'està carregant…",
+      "needViewerSignIn": "Verifica el teu compte de Twitch per accedir a les preferències d'espectador.",
+      "redirecting": "S'està redirigint a Twitch per a l'autenticació…",
+      "required": "Cal autenticació.",
+      "signInFailed": "No s'ha pogut iniciar la sessió.",
+      "signInWithTwitch": "Inicia la sessió amb Twitch",
+      "signedOut": "No has iniciat la sessió.",
+      "tokenMissing": "Falta el testimoni d'autenticació. Torna a iniciar la sessió."
+    },
+    "emotion": {
+      "angry": "Enfadat",
+      "auto": "Auto",
+      "disgusted": "Disgustat",
+      "fearful": "Espantat",
+      "happy": "Content",
+      "neutral": "Neutral",
+      "sad": "Trist",
+      "surprised": "Sorprès"
+    },
+    "ignore": {
+      "enterUsername": "Introdueix un nom d'usuari."
+    },
+    "lang": {
+      "automatic": "Automàtic"
+    },
+    "prefs": {
+      "useChannelDefault": "Utilitza el valor per defecte del canal"
+    },
+    "preview": {
+      "enterText": "Introdueix text per provar.",
+      "unavailable": "No hi ha cap previsualització disponible."
+    },
+    "value": {
+      "off": "Desactivat",
+      "on": "Activat"
+    },
+    "voice": {
+      "cannotPlay": "No es pot reproduir la mostra d'àudio.",
+      "generating": "Generant…",
+      "noAudio": "El servidor no ha retornat cap àudio.",
+      "noneFound": "No s'han trobat veus.",
+      "preview": "Previsualitza {voice}",
+      "regenerate": "Regenera",
+      "testFailed": "Ha fallat la prova: {reason}"
+    }
+  },
+  "page": {
+    "skipToMainContent": "Salta al contingut principal"
+  },
+  "sidebarEngNormVal": {
+    "off": "Desactivat"
+  },
+  "sidebarLanguageVal": {
+    "automatic": "Automàtic"
+  },
+  "ui": {
+    "language": "Idioma"
+  },
+  "voicePreviewHint": {
+    "settingsChangedGenerateANew": "<i><i data-lucide=\"triangle-alert\" class=\"inline-icon\"></i> S'ha canviat la configuració. Genera una nova previsualització.</i>"
+  },
+  "voicePreviewPlayer": {
+    "yourBrowserDoesNotSupport": "El teu navegador no admet l'element d'àudio."
+  }
+}

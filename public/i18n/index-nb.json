@@ -1,0 +1,50 @@
+{
+  "kofiClose": {
+    "closeSupportDialog": "Lukk støttedialog"
+  },
+  "kofiModal": {
+    "openInNewTabOn": "<a href=\"https://ko-fi.com/parfaitfair\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"kofi-direct-link\">Åpne i ny fane på Ko-fi.com</a>"
+  },
+  "kofiOpen": {
+    "supportMe": "Støtt meg"
+  },
+  "kofiTitle": {
+    "supportParfaitfair": "Støtt parfaitfair"
+  },
+  "mainContent": {
+    "access": "Tilgang",
+    "accessIsInviteOnlyUnapproved": "Tilgang er kun etter invitasjon. Ikke-godkjente kanaler mottar en melding om nektet tilgang. <a class=\"wc-link wc-link--underline\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">Be om tilgang her</a>.",
+    "changeTtsSettingsControlBot": "Endre TTS-innstillinger • Kontroller botens chat-svar • Konfigurer Channel Points • Angi stemmepreferanser",
+    "colorTheme": "Fargetema",
+    "iAmAViewer": "<span class=\"wc-rule-name\">Jeg er en seer</span>",
+    "iRunTheChannel": "<span class=\"wc-rule-name\">Jeg driver kanalen</span>",
+    "setHowYourMessagesSound": "Angi hvordan meldingene dine høres ut når TTS leser dem opp i kanaler du besøker.",
+    "textToSpeechForYour": "Tekst-til-tale for Twitch-kanalen din, for streamere og seere.",
+    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">Kun for inviterte</span>",
+    "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">Administrasjon av tekst-til-tale-bot</span>"
+  },
+  "meta": {
+    "wildcatttsBotManagement": "WildcatTTS Bot-administrasjon",
+    "wildcatttsTextToSpeechBot": "WildcatTTS tekst-til-tale-botadministrasjon for Twitch-kanaler, streamere og seere."
+  },
+  "msg": {
+    "kofi": {
+      "iframeTitle": "Støtt parfaitfair på Ko-fi"
+    }
+  },
+  "page": {
+    "support": "Støtte"
+  },
+  "streamerLoginBtn": {
+    "manageMyChannel": "<i data-lucide=\"mic\" aria-hidden=\"true\"></i>Administrer kanalen min"
+  },
+  "themeDarkBtn": {
+    "dark": "Mørk"
+  },
+  "themeLightBtn": {
+    "light": "Lys"
+  },
+  "viewerPrefsBtn": {
+    "setMyOwnVoice": "<i data-lucide=\"headphones\" aria-hidden=\"true\"></i>Velg min egen stemme"
+  }
+}

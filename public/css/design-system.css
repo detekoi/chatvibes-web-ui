@@ -176,7 +176,7 @@ a[target="_blank"]::after {
     display: inline-block;
     width: 0.75em;
     height: 0.75em;
-    margin-left: 0.25em;
+    margin-inline-start: 0.25em;
     background-color: currentColor;
     -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cline x1='7' y1='17' x2='17' y2='7' stroke='black' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3C/line%3E%3Cpolyline points='7 7 17 7 17 17' fill='none' stroke='black' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3C/polyline%3E%3C/svg%3E");
     mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cline x1='7' y1='17' x2='17' y2='7' stroke='black' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3C/line%3E%3Cpolyline points='7 7 17 7 17 17' fill='none' stroke='black' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3C/polyline%3E%3C/svg%3E");
@@ -245,7 +245,7 @@ a[target="_blank"].no-arrow::after {
 .wc-lockup b {
     font-weight: 600;
     color: var(--wc-text-1);
-    margin-left: 0.16em;
+    margin-inline-start: 0.16em;
 }
 
 .wc-readout {
@@ -371,7 +371,7 @@ a[target="_blank"].no-arrow::after {
 }
 
 .wc-title .wc-title-brand { color: var(--wc-text-3); }
-.wc-title .wc-title-suffix { margin-left: 0.14em; }
+.wc-title .wc-title-suffix { margin-inline-start: 0.14em; }
 .wc-title .wc-title-line { display: block; }
 
 .wc-title--sm { font-size: 24px; }
@@ -629,6 +629,35 @@ a[target="_blank"].no-arrow::after {
     color: var(--wc-danger);
 }
 
+/* Language picker. Shares the chip geometry but not its uppercasing: the
+   options are endonyms, and upper-casing them is wrong in scripts that have no
+   case and actively misleading in Turkish, where i/I do not pair. */
+.wc-langselect {
+    height: 32px;
+    max-width: 9.5rem;
+    padding: 0 8px;
+    border-radius: var(--wc-radius-card);
+    background: transparent;
+    border: 1px solid var(--wc-border-strong);
+    color: var(--wc-text-1);
+    font-family: var(--wc-font-mono);
+    font-size: 11px;
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.wc-langselect:hover {
+    border-color: var(--wc-accent);
+    color: var(--wc-accent);
+}
+
+/* The popup list is painted by the OS, which does not inherit the page colors;
+   without this the options are black-on-black in dark mode on Windows. */
+.wc-langselect option {
+    background: var(--wc-surface-1);
+    color: var(--wc-text-1);
+}
+
 .wc-iconbtn i, .wc-iconbtn svg { width: 14px; height: 14px; }
 .wc-chipbtn i, .wc-chipbtn svg { width: 13px; height: 13px; }
 
@@ -789,7 +818,7 @@ a[target="_blank"].no-arrow::after {
 .wc-skip-link {
     position: absolute;
     top: -9999px;
-    left: 16px;
+    inset-inline-start: 16px;
     z-index: 99999;
     padding: 10px 18px;
     background: var(--wc-accent);
@@ -914,13 +943,13 @@ a[target="_blank"].no-arrow::after {
     flex: 1;
     min-width: 150px;
     padding: 11px 16px;
-    border-right: 1px solid var(--wc-border);
+    border-inline-end: 1px solid var(--wc-border);
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
 
-.wc-stat:last-child { border-right: 0; }
+.wc-stat:last-child { border-inline-end: 0; }
 
 .wc-stat dt {
     font-family: var(--wc-font-mono);
@@ -1444,7 +1473,7 @@ a[target="_blank"].no-arrow::after {
 /* Readout beside a slider. */
 .wc-slider-value {
     width: 44px;
-    text-align: right;
+    text-align: end;
     font-family: var(--wc-font-mono);
     font-size: 12.5px;
     color: var(--wc-text-1);
@@ -1617,14 +1646,14 @@ a[target="_blank"].no-arrow::after {
    ===================================================== */
 @media (max-width: 767.98px) {
     .wc-appbar { padding: 10px 16px; }
-    .wc-page-head { padding-left: 16px; padding-right: 16px; }
+    .wc-page-head { padding-inline: 16px; }
     .wc-stats {
         flex-direction: column;
-        margin-left: 16px;
-        margin-right: 16px;
+        margin-inline-start: 16px;
+        margin-inline-end: 16px;
     }
     .wc-stat {
-        border-right: 0;
+        border-inline-end: 0;
         border-bottom: 1px solid var(--wc-border);
     }
     .wc-stat:last-child {
@@ -1645,7 +1674,7 @@ a[target="_blank"].no-arrow::after {
         width: 100%;
     }
     :root :is(.settings-section, .wc-card) .list-group-item > .row > .col-auto > :is(.btn, button, .form-switch) {
-        margin-left: auto;
+        margin-inline-start: auto;
     }
 
     /* Stacking earns its keep for wide controls, but a lone toggle is 40px —
@@ -1670,7 +1699,7 @@ a[target="_blank"].no-arrow::after {
 .floating-support {
     position: fixed;
     bottom: clamp(1rem, 2.5vw, 1.5rem);
-    left: clamp(1rem, 2.5vw, 1.5rem);
+    inset-inline-start: clamp(1rem, 2.5vw, 1.5rem);
     z-index: 90;
 }
 

@@ -1,0 +1,164 @@
+{
+  "darkModeToggle": {
+    "toggleDarkMode": "Превключване на тъмен режим"
+  },
+  "err": {
+    "banned_add_failed": "Думата не може да се добави към списъка със забранени.",
+    "banned_remove_failed": "Думата не може да се премахне от списъка със забранени.",
+    "bot_add_failed": "Ботът не може да се активира за канала ви. Опитайте отново.",
+    "bot_remove_failed": "Ботът не може да се деактивира от канала ви. Опитайте отново.",
+    "bot_status_failed": "Статусът на бота не може да се зареди.",
+    "channel_data_not_found": "Не бяха намерени настройки за този канал.",
+    "channel_not_authorized": "Каналът ти няма разрешение да използва този бот. Свържи се с мен за достъп.",
+    "channel_not_found": "Каналът не е намерен.",
+    "channel_required": "Изисква се канал.",
+    "channel_tts_disabled": "Каналът не е намерен или TTS не е включен.",
+    "entry_key_required": "Изисква се ключ за записа.",
+    "exchange_code_invalid": "Връзката за вход липсва или е невалидна.",
+    "exchange_code_used": "Връзката за вход вече е използвана или е изтекла. Влезте отново.",
+    "exchange_failed": "Входът не можа да завърши. Опитайте отново.",
+    "ignore_add_failed": "Потребителят не може да се добави към списъка с игнорирани.",
+    "ignore_moderator_imposed": "Модератор на канала изключи TTS за вас, така че само модератор може да го включи отново.",
+    "ignore_remove_failed": "Потребителят не може да се премахне от списъка с игнорирани.",
+    "ignore_update_failed": "Настройката за отказване не може да се промени.",
+    "key_required": "Изисква се име на настройката.",
+    "match_key_invalid": "Думата трябва да съдържа от 1 до {max} знака (букви, цифри, апострофи или тирета) и не може да съдържа точка.",
+    "network_error": "Няма връзка със сървъра. Проверете връзката си.",
+    "obs_token_fetch_failed": "Токенът за OBS не може да се зареди.",
+    "obs_token_generate_failed": "Не може да се генерира нов токен за OBS.",
+    "obs_token_store_failed": "Токенът за OBS не може да се запази. Опитайте отново.",
+    "prefs_fetch_failed": "Предпочитанията ви не могат да се заредят.",
+    "prefs_global_fetch_failed": "Глобалните ви предпочитания не могат да се заредят.",
+    "prefs_global_update_failed": "Глобалните ви предпочитания не могат да се запазят.",
+    "prefs_invalid_emote_mode": "Обработката на емотикони трябва да бъде read, skip или describe.",
+    "prefs_invalid_emotion": "Невалидна емоция.",
+    "prefs_invalid_language": "Невалиден език.",
+    "prefs_invalid_pitch": "Невалидна височина на гласа.",
+    "prefs_invalid_speed": "Невалидна скорост.",
+    "prefs_invalid_voice": "Невалиден глас.",
+    "prefs_missing_data": "Не са изпратени промени.",
+    "prefs_update_failed": "Предпочитанията ви не могат да се запазят.",
+    "pronunciation_limit_reached": "Достигна лимита от {max} персонализирани произношения. Първо премахни някое.",
+    "pronunciation_remove_failed": "Произношението не може да се премахне.",
+    "pronunciation_save_failed": "Произношението не може да се запази.",
+    "reward_banned_word": "Съобщението съдържа забранена дума: \"{word}\".",
+    "reward_create_failed": "Наградата с Channel Points не може да се създаде.",
+    "reward_delete_failed": "Наградата с Channel Points не може да се изтрие.",
+    "reward_links_blocked": "В тази награда не са разрешени връзки.",
+    "reward_load_failed": "Наградата с Channel Points не може да се зареди.",
+    "reward_message_empty": "Съобщението е празно.",
+    "reward_save_failed": "Наградата с Channel Points не може да се запази.",
+    "reward_test_failed": "Наградата с Channel Points не може да се тества.",
+    "reward_twitch_error": "Twitch отхвърли промяната на наградата.",
+    "reward_validation_failed": "Това съобщение не е разрешено.",
+    "say_contains_link": "Произношението не може да съдържа връзка.",
+    "say_empty": "Произношението не може да е празно.",
+    "say_must_be_text": "Произношението трябва да е текст.",
+    "say_too_long": "Произношението трябва да е до {max} знака.",
+    "server_misconfigured": "Сървърът е конфигуриран неправилно.",
+    "setting_invalid": "Стойността за {key} е невалидна.",
+    "setting_update_failed": "Настройката за TTS не може да се актуализира.",
+    "settings_fetch_failed": "Настройките за TTS не могат да се заредят.",
+    "shortlink_failed": "Кратката връзка не може да се създаде.",
+    "storage_unavailable": "Хранилището не е достъпно.",
+    "tts_generation_failed": "Неуспешно генериране на говор: {reason}",
+    "tts_no_audio": "Доставчикът на говор не върна аудио.",
+    "tts_not_configured": "Няма конфигуриран доставчик на говор.",
+    "tts_provider_failed": "Доставчикът на говор не успя да генерира аудио.",
+    "tts_test_failed": "Тестът на говора бе неуспешен.",
+    "tts_text_required": "Въведете текст за тестване.",
+    "twitch_reauth_required": "Входът ви в Twitch е изтекъл. Свържете профила си отново.",
+    "twitch_user_not_found": "Не съществува Twitch акаунт с име „{username}“.",
+    "url_required": "Изисква се URL.",
+    "username_invalid": "Потребителското име е невалидно.",
+    "username_required": "Изисква се потребителско име.",
+    "voice_access_denied": "Гласът „{voice}“ изисква специален достъп. Опитайте с друг глас.",
+    "voice_invalid": "Гласът „{voice}“ не е наличен. Проверете гласа и опитайте отново.",
+    "voice_lookup_failed": "Гласът на този потребител не може да бъде намерен.",
+    "word_invalid": "Думата или фразата е невалидна.",
+    "word_required": "Изисква се дума или фраза."
+  },
+  "logoutLink": {
+    "logout": "Изход"
+  },
+  "mainContent": {
+    "documentationTtsWildcatChat": "<a class=\"wc-link\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\">Документация</a> <span>tts.wildcat.chat</span>"
+  },
+  "msg": {
+    "action": {
+      "close": "Затваряне",
+      "remove": "Премахване",
+      "saved": "Запазено"
+    },
+    "api": {
+      "authFailed": "Неуспешно удостоверяване. Влезте отново.",
+      "notAuthenticated": "Не сте влезли в профила си.",
+      "requestFailed": "Заявката бе неуспешна."
+    },
+    "auth": {
+      "genericUser": "Потребител",
+      "loading": "зареждане…",
+      "needViewerSignIn": "Потвърдете профила си в Twitch за достъп до предпочитанията на зрителя.",
+      "redirecting": "Пренасочване към Twitch за удостоверяване…",
+      "required": "Изисква се удостоверяване.",
+      "signInFailed": "Влизането не може да бъде завършено.",
+      "signInWithTwitch": "Вход с Twitch",
+      "signedOut": "Не си влязъл.",
+      "tokenMissing": "Липсва токен за удостоверяване. Влез отново."
+    },
+    "emotion": {
+      "angry": "Ядосан",
+      "auto": "Автоматично",
+      "disgusted": "Отвратен",
+      "fearful": "Уплашен",
+      "happy": "Щастлив",
+      "neutral": "Неутрален",
+      "sad": "Тъжен",
+      "surprised": "Изненадан"
+    },
+    "ignore": {
+      "enterUsername": "Въведи потребителско име."
+    },
+    "lang": {
+      "automatic": "Автоматично"
+    },
+    "prefs": {
+      "useChannelDefault": "По подразбиране за канала"
+    },
+    "preview": {
+      "enterText": "Въведи текст за проба.",
+      "unavailable": "Няма наличен предварителен преглед."
+    },
+    "value": {
+      "off": "Изкл.",
+      "on": "Вкл."
+    },
+    "voice": {
+      "cannotPlay": "Аудио мострата не може да се възпроизведе.",
+      "generating": "Генериране…",
+      "noAudio": "Сървърът не върна аудио.",
+      "noneFound": "Няма намерени гласове.",
+      "preview": "Прослушване на {voice}",
+      "regenerate": "Генерирай отново",
+      "testFailed": "Неуспешен тест: {reason}"
+    }
+  },
+  "page": {
+    "skipToMainContent": "Към основното съдържание"
+  },
+  "sidebarEngNormVal": {
+    "off": "Изключено"
+  },
+  "sidebarLanguageVal": {
+    "automatic": "Автоматично"
+  },
+  "ui": {
+    "language": "Език"
+  },
+  "voicePreviewHint": {
+    "settingsChangedGenerateANew": "<i><i data-lucide=\"triangle-alert\" class=\"inline-icon\"></i> Настройките са променени. Генерирайте нов преглед.</i>"
+  },
+  "voicePreviewPlayer": {
+    "yourBrowserDoesNotSupport": "Браузърът ви не поддържа аудио елемента."
+  }
+}

@@ -1,5 +1,6 @@
 import { fetchWithAuth } from '../common/api.js';
 import { showToast, openDialog, closeDialog } from '../common/ui.js';
+import { t } from '../common/i18n.js';
 
 /**
  * Context object passed to the danger zone module.
@@ -70,8 +71,11 @@ interface PendingAction {
 }
 
 /** Copy shown under the toggle, which depends on who put the viewer on the list. */
-const MODERATOR_NOTE = 'A channel moderator opted you out of TTS here. Only a moderator can undo this.';
-const SELF_NOTE = 'You opted out of TTS here. You can turn this back on at any time.';
+// Resolved per call rather than at module load: these are read after the
+// catalogs are in, and a constant captured at import time would freeze the
+// English copy in place for the whole session.
+const moderatorNote = (): string => t('msg.optout.moderatorNote');
+const selfNote = (): string => t('msg.optout.selfNote');
 
 /**
  * Return type of the danger zone module.
@@ -170,7 +174,7 @@ export function initDangerZoneModule(
     ignoreTtsCheckbox.disabled = moderatorImposed;
 
     if (ignoreTtsNote) {
-      ignoreTtsNote.textContent = !ignored ? '' : (moderatorImposed ? MODERATOR_NOTE : SELF_NOTE);
+      ignoreTtsNote.textContent = !ignored ? '' : (moderatorImposed ? moderatorNote() : selfNote());
       ignoreTtsNote.classList.toggle('d-none', !ignored);
     }
   }
@@ -187,11 +191,11 @@ export function initDangerZoneModule(
     const targetChannel = getCurrentChannel();
     if (testMode) {
       updateIgnoreCheckboxes({ tts: false });
-      showToast(`You opted back in to ${type.toUpperCase()} (test mode).`, 'success');
+      showToast(t('msg.optout.optedInTestMode'), 'success');
       return;
     }
     if (!targetChannel) {
-      showToast('Select a channel first.', 'warning');
+      showToast(t('msg.optout.selectChannel'), 'warning');
       checkbox.checked = true;
       return;
     }
@@ -199,7 +203,7 @@ export function initDangerZoneModule(
     try {
       await fetchWithAuth(`${apiBaseUrl}/api/viewer/ignore/${type}/${encodeURIComponent(targetChannel)}`, { method: 'POST' });
       updateIgnoreCheckboxes({ tts: false });
-      showToast(`You opted back in to ${type.toUpperCase()}.`, 'success');
+      showToast(t('msg.optout.optedIn'), 'success');
     } catch (error) {
       // Either way the viewer is still opted out, so the toggle goes back on. Only
       // a real 403 means a moderator took the entry over while the page was open
@@ -212,7 +216,7 @@ export function initDangerZoneModule(
       updateIgnoreCheckboxes(moderatorImposed ?
         { tts: true, ttsSource: 'moderator', ttsCanSelfUndo: false } :
         { tts: true, ttsSource: 'self', ttsCanSelfUndo: true });
-      showToast(moderatorImposed ? MODERATOR_NOTE : `Cannot opt back in to ${type.toUpperCase()}.`, 'error');
+      showToast(moderatorImposed ? moderatorNote() : t('msg.optout.optInFailed'), 'error');
     }
   }
 
@@ -222,7 +226,7 @@ export function initDangerZoneModule(
 
     if (testMode) {
       updateIgnoreCheckboxes({ tts: true, ttsSource: 'self', ttsCanSelfUndo: true });
-      showToast(`You opted out of ${type.toUpperCase()} (test mode).`, 'success');
+      showToast(t('msg.optout.optedOutTestMode'), 'success');
       return;
     }
 
@@ -230,29 +234,33 @@ export function initDangerZoneModule(
     if (currentChannel) {
       pendingAction = { type, checkbox };
       pendingChannel = currentChannel;
-      showConfirmModal(type, currentChannel);
+      showConfirmModal(currentChannel);
     } else if (typeof requestChannel === 'function') {
       requestChannel({
-        title: `Confirm channel for ${type.toUpperCase()} opt-out`,
-        description: 'Enter the channel name to continue:',
-        confirmLabel: 'Continue',
+        title: t('msg.optout.confirmTitle'),
+        description: t('msg.optout.confirmDescription'),
+        confirmLabel: t('msg.optout.continue'),
         confirmClass: 'btn-danger',
         onConfirm: (channelName: string) => {
           pendingAction = { type, checkbox };
           pendingChannel = channelName;
-          showConfirmModal(type, channelName);
+          showConfirmModal(channelName);
         },
       });
     } else {
-      showToast('Select a channel first.', 'warning');
+      showToast(t('msg.optout.selectChannel'), 'warning');
       checkbox.checked = false;
     }
   }
 
-  function showConfirmModal(type: 'tts', channelName: string): void {
+  // `type` is gone from the signature along with the sentence that
+  // interpolated it: the union has exactly one member, so `type.toUpperCase()`
+  // could only ever produce "TTS", and an opaque placeholder in a message that
+  // always renders the same word is worse for a translator than the word.
+  function showConfirmModal(channelName: string): void {
     if (!elements.confirmModal) return;
     if (elements.confirmText) {
-      elements.confirmText.textContent = `Do you want to opt out of ${type.toUpperCase()} in #${channelName}? Your messages will not be read aloud. You can turn this back on at any time.`;
+      elements.confirmText.textContent = t('msg.optout.confirm', { channel: channelName });
     }
     openDialog(elements.confirmModal);
   }
@@ -263,7 +271,7 @@ export function initDangerZoneModule(
     try {
       if (testMode) {
         updateIgnoreCheckboxes({ tts: true, ttsSource: 'self', ttsCanSelfUndo: true });
-        showToast(`You opted out of ${type.toUpperCase()} (test mode).`, 'success');
+        showToast(t('msg.optout.optedOutTestMode'), 'success');
         closeDialog(elements.confirmModal);
         pendingAction = null;
         pendingChannel = null;
@@ -271,7 +279,7 @@ export function initDangerZoneModule(
       }
       const targetChannel = pendingChannel || getCurrentChannel();
       if (!targetChannel) {
-        showToast('Specify a channel.', 'error');
+        showToast(t('msg.optout.specifyChannel'), 'error');
         checkbox.checked = false;
         closeDialog(elements.confirmModal);
         pendingAction = null;
@@ -281,11 +289,11 @@ export function initDangerZoneModule(
       await fetchWithAuth(`${apiBaseUrl}/api/viewer/ignore/${type}/${encodeURIComponent(targetChannel)}`, { method: 'POST' });
       // Self-imposed, so it stays reversible from here.
       updateIgnoreCheckboxes({ tts: true, ttsSource: 'self', ttsCanSelfUndo: true });
-      showToast(`You opted out of ${type.toUpperCase()}.`, 'success');
+      showToast(t('msg.optout.optedOut'), 'success');
     } catch (error) {
       console.error(`Failed to opt out of ${type}:`, error);
       checkbox.checked = false;
-      showToast(`Cannot opt out of ${type.toUpperCase()}.`, 'error');
+      showToast(t('msg.optout.optOutFailed'), 'error');
     }
     closeDialog(elements.confirmModal);
     pendingAction = null;

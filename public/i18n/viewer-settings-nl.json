@@ -1,0 +1,212 @@
+{
+  "addChannelContextCard": {
+    "loadAChannelToSee": "Laad een kanaal om de standaardinstellingen te bekijken en opt-outs te beheren. Je voorkeuren blijven globaal gelden."
+  },
+  "channelContextCard": {
+    "changesHereUpdateYourGlobal": "Wijzigingen hier werken <strong>jouw</strong> globale voorkeuren bij. Streamer-instellingen veranderen niet.",
+    "channelContext": "Kanaalcontext",
+    "clearButtonsSetYourGlobal": "<strong>Knoppen Wissen:</strong> Stel je globale voorkeur in op de standaardinstelling van dit kanaal."
+  },
+  "channelHint": {
+    "channelFound": "Kanaal gevonden"
+  },
+  "channelInputCancel": {
+    "cancel": "Annuleren"
+  },
+  "channelInputConfirm": {
+    "load": "Laden"
+  },
+  "channelInputDesc": {
+    "enterTheChannelNameTo": "Voer de kanaalnaam in om de standaardinstellingen te bekijken en opt-outs te beheren:"
+  },
+  "channelInputModal": {
+    "streamerUsername": "Gebruikersnaam streamer"
+  },
+  "channelInputModalText": {
+    "streamerUsername": "Gebruikersnaam streamer"
+  },
+  "channelInputTitle": {
+    "loadChannelContext": "Kanaalcontext laden"
+  },
+  "clearChannelContextBtn": {
+    "clear": "Wissen"
+  },
+  "confirmNo": {
+    "cancel": "Annuleren"
+  },
+  "confirmText": {
+    "yourMessagesWillNotBe": "Je berichten worden niet voorgelezen. Je kunt dit op elk moment weer inschakelen."
+  },
+  "confirmTitle": {
+    "confirmAction": "Actie bevestigen"
+  },
+  "confirmYes": {
+    "confirm": "Bevestigen"
+  },
+  "dangerTtsToggle": {
+    "optOutOfTtsIn": "Afmelden voor TTS in dit kanaal",
+    "ttsWillNotReadYour": "TTS leest je berichten in dit kanaal niet voor"
+  },
+  "dangerZoneSection": {
+    "dangerZone": "Gevarenzone",
+    "theseSettingsStopTheBot": "Deze instellingen zorgen ervoor dat de bot je berichten in een kanaal niet voorleest. Je kunt elke zelfgekozen instelling ongedaan maken. Als een moderator je heeft afgemeld, kan alleen een moderator dat ongedaan maken."
+  },
+  "emotionReset": {
+    "clear": "Wissen",
+    "resetEmotionToDefault": "Emotie herstellen naar standaard"
+  },
+  "emotionSelect": {
+    "angry": "Boos",
+    "disgusted": "Walgend",
+    "fearful": "Angstig",
+    "happy": "Blij",
+    "neutral": "Neutraal",
+    "sad": "Verdrietig",
+    "surprised": "Verrast",
+    "useChannelDefault": "Kanaalstandaard gebruiken"
+  },
+  "englishNormalizationCheckbox": {
+    "englishNormalization": "Engelse normalisatie"
+  },
+  "englishNormalizationReset": {
+    "clear": "Wissen",
+    "resetEnglishNormalizationToDefault": "Engelse normalisatie herstellen naar standaard"
+  },
+  "ignoreTts": {
+    "optOutOfTtsIn": "Afmelden voor TTS in dit kanaal"
+  },
+  "languageReset": {
+    "clear": "Wissen",
+    "resetLanguageToDefault": "Taal herstellen naar standaard"
+  },
+  "loadingBar": {
+    "loadingYourPreferences": "Je voorkeuren laden"
+  },
+  "loadingOverlay": {
+    "loadingYourPreferences": "Je voorkeuren laden…"
+  },
+  "loggedInStatus": {
+    "channelContext": "Kanaalcontext",
+    "global": "Globaal",
+    "loggedInAs": "Ingelogd als",
+    "scope": "Bereik"
+  },
+  "meta": {
+    "wildcatttsViewerSettings": "WildcatTTS-kijkerinstellingen",
+    "wildcatttsViewerSettingsSetYour": "WildcatTTS-kijkerinstellingen - Stel je persoonlijke text-to-speech-stem, toonhoogte en snelheid in voor Twitch-kanalen."
+  },
+  "msg": {
+    "auth": {
+      "exchangeFailed": "Kan inloggen niet voltooien. Probeer het opnieuw vanaf de hoofdpagina.",
+      "testUser": "Testgebruiker"
+    },
+    "channel": {
+      "cleared": "Kanaalcontext gewist.",
+      "clearedTestMode": "Kanaalcontext gewist (testmodus).",
+      "enterName": "Voer een kanaalnaam in.",
+      "found": "Kanaal gevonden",
+      "foundTestMode": "Kanaal gevonden (testmodus)",
+      "hint": "Laad een kanaal om de standaardinstellingen te bekijken.",
+      "loaded": "Kanaalcontext geladen.",
+      "loadedTestMode": "Kanaalcontext geladen (testmodus).",
+      "noneLoaded": "Geen geladen",
+      "promptConfirm": "Laden",
+      "promptDescription": "Voer de kanaalnaam in om de standaardinstellingen te bekijken en opt-outs te beheren:",
+      "promptTitle": "Kanaalcontext laden",
+      "viewingDefaults": "Je bekijkt de standaardinstellingen voor {channel}."
+    },
+    "optout": {
+      "confirm": "Wil je je afmelden voor TTS in #{channel}? Je berichten worden niet voorgelezen. Je kunt dit op elk moment weer inschakelen.",
+      "confirmDescription": "Voer de kanaalnaam in om door te gaan:",
+      "confirmTitle": "Kanaal bevestigen voor TTS-opt-out",
+      "continue": "Doorgaan",
+      "moderatorNote": "Een kanaalmoderator heeft TTS voor jou hier uitgeschakeld. Alleen een moderator kan dit ongedaan maken.",
+      "optInFailed": "Kan niet opnieuw aanmelden voor TTS.",
+      "optOutFailed": "Kan niet afmelden voor TTS.",
+      "optedIn": "Je hebt je weer aangemeld voor TTS.",
+      "optedInTestMode": "Je hebt je weer aangemeld voor TTS (testmodus).",
+      "optedOut": "Je hebt je afgemeld voor TTS.",
+      "optedOutTestMode": "Je hebt je afgemeld voor TTS (testmodus).",
+      "selectChannel": "Selecteer eerst een kanaal.",
+      "selfNote": "Je hebt je hier afgemeld voor TTS. Je kunt dit op elk gewenst moment weer inschakelen.",
+      "specifyChannel": "Geef een kanaal op."
+    },
+    "prefs": {
+      "hintChannel": "Gebruikt kanaalstandaard: {value}",
+      "hintSystem": "Gebruikt systeemstandaard",
+      "hintUser": "Gebruikt je algemene voorkeur: {value}",
+      "loadFailed": "Kan voorkeuren niet laden.",
+      "noVoicesFound": "Geen stemmen gevonden",
+      "saveFailed": "Kan {key} niet opslaan: {reason}",
+      "sendPreview": "Voorbeeld verzenden",
+      "testCompletedTestMode": "Test voltooid (testmodus).",
+      "updated": "Voorkeur bijgewerkt.",
+      "updatedTestMode": "Voorkeur bijgewerkt (testmodus)."
+    }
+  },
+  "openChannelContextModalBtn": {
+    "loadChannel": "Kanaal laden…"
+  },
+  "page": {
+    "setHowYourMessagesSound": "Stel in hoe je berichten klinken wanneer Wildcat TTS ze voorleest. Je voorkeuren zijn globaal en gelden voor alle kanalen.",
+    "viewerTtsPreferences": "TTS-voorkeuren voor kijkers",
+    "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Kijkersinstellingen</span>"
+  },
+  "pitchReset": {
+    "clear": "Wissen",
+    "resetPitchToDefault": "Toonhoogte herstellen naar standaard"
+  },
+  "pitchSlider": {
+    "pitchAdjustment12To12": "Toonhoogteaanpassing (-12 tot +12)"
+  },
+  "preferencesPanel": {
+    "adjustTheVoicePitchHigher": "Pas de toonhoogte van de stem hoger of lager aan",
+    "controlHowFastTheVoice": "Bepaal hoe snel de stem spreekt",
+    "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Documentatie </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Streamer-instellingen </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "<strong>Emotie</strong>",
+    "emotion2": "Emotie",
+    "englishNormalization": "Engelse normalisatie",
+    "engNormalization": "Eng. normalisatie",
+    "ifTtsReadsNumbersIncorrectly": "Schakel Engelse tekstnormalisatie in als TTS getallen verkeerd voorleest. Deze instelling verhoogt de vertraging enigszins.",
+    "improvePronunciationForSpecificLanguages": "Verbeter de uitspraak voor specifieke talen",
+    "improveThePronunciationOfNumbers": "Verbeter de uitspraak van getallen en tekst",
+    "language": "Taal",
+    "languageBoost": "<strong>Taalboost</strong>",
+    "pitch": "Toonhoogte",
+    "pitch12To12": "Toonhoogte (-12 tot +12):",
+    "quickLinks": "Snelle links",
+    "selectYourPreferredTtsVoice": "Selecteer je gewenste TTS-stem",
+    "setHowYourMessagesSound": "Stel in hoe je berichten klinken wanneer TTS ze voorleest",
+    "setTheEmotionalToneOf": "Stel de emotionele toon van de stem in",
+    "speed": "Snelheid",
+    "speed05To2": "Snelheid (0,5 tot 2,0):",
+    "testMessage": "Testbericht",
+    "voice": "<strong>Stem</strong>",
+    "voicePreview": "Stemvoorbeeld",
+    "voiceSettings": "Steminstellingen"
+  },
+  "prefsDisabledNote": {
+    "theStreamerDisabledPersonalVoice": "De streamer heeft persoonlijke steminstellingen uitgeschakeld voor dit kanaal. Dit kanaal gebruikt de standaardstem in plaats van je voorkeuren."
+  },
+  "previewBtn": {
+    "sendPreview": "Voorbeeld versturen"
+  },
+  "speedReset": {
+    "clear": "Wissen",
+    "resetSpeedToDefault": "Snelheid herstellen naar standaard"
+  },
+  "speedSlider": {
+    "speedAdjustment05To": "Snelheidsaanpassing (0,5 tot 2,0)"
+  },
+  "statChannelContext": {
+    "noneLoaded": "Geen geladen"
+  },
+  "voiceReset": {
+    "clear": "Wissen",
+    "resetVoiceToDefault": "Stem herstellen naar standaard"
+  },
+  "voiceSearch": {
+    "searchVoices": "Stemmen zoeken",
+    "searchVoices2": "Stemmen zoeken..."
+  }
+}

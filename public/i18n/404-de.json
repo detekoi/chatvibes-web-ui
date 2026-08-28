@@ -1,0 +1,11 @@
+{
+  "mainContent": {
+    "pageNotFound": "Seite nicht gefunden",
+    "returnToLogin": "Zurück zum Login",
+    "thatUrlIsNotPart": "Diese URL ist nicht Teil dieser Website. Stelle sicher, dass die Adresse korrekt ist, oder kehre zur Login-Seite zurück."
+  },
+  "meta": {
+    "pageNotFoundOnWildcattts": "Seite auf WildcatTTS nicht gefunden.",
+    "pageNotFoundWildcattts": "Seite nicht gefunden — WildcatTTS"
+  }
+}

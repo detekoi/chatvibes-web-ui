@@ -1,0 +1,39 @@
+{
+  "authBar": {
+    "signInProgress": "Inloggningsförlopp"
+  },
+  "authMessage": {
+    "pleaseWait": "Vänligen vänta."
+  },
+  "authSteps": {
+    "loadingDashboard": "Laddar kontrollpanelen",
+    "sessionTokenStored": "Sessionstoken sparad",
+    "twitchAuthorized": "Twitch auktoriserad"
+  },
+  "authTitle": {
+    "signingYouIn": "Loggar in dig"
+  },
+  "meta": {
+    "completingWildcatttsTwitchSignIn": "Slutför Twitch-inloggning för WildcatTTS.",
+    "wildcatttsCompletingSignIn": "WildcatTTS - Slutför inloggning"
+  },
+  "msg": {
+    "authComplete": {
+      "cannotComplete": "Kan inte slutföra inloggningen.",
+      "failedReadout": "Misslyckades",
+      "failedTitle": "Inloggningen misslyckades",
+      "missingInfo": "Autentiseringsinformation från Twitch saknas. Logga in igen.",
+      "noSession": "Ingen session",
+      "redirecting": "Omdirigerar till din översikt.",
+      "retrySignIn": "{reason} Logga in igen.",
+      "sessionEstablished": "Session upprättad",
+      "welcome": "Välkommen, {user}"
+    }
+  },
+  "sessionState": {
+    "establishingSession": "Upprättar session"
+  },
+  "statusReadout": {
+    "working": "<span class=\"wc-dot\"></span>Arbetar"
+  }
+}

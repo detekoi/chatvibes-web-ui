@@ -1,0 +1,11 @@
+{
+  "mainContent": {
+    "pageNotFound": "Stránka nenalezena",
+    "returnToLogin": "Zpět na přihlášení",
+    "thatUrlIsNotPart": "Tato URL není součástí tohoto webu. Zkontrolujte správnost adresy, nebo se vraťte na přihlašovací stránku."
+  },
+  "meta": {
+    "pageNotFoundOnWildcattts": "Stránka na WildcatTTS nebyla nalezena.",
+    "pageNotFoundWildcattts": "Stránka nenalezena — WildcatTTS"
+  }
+}

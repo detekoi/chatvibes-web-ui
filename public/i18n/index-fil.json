@@ -1,0 +1,50 @@
+{
+  "kofiClose": {
+    "closeSupportDialog": "Isara ang dialog ng suporta"
+  },
+  "kofiModal": {
+    "openInNewTabOn": "<a href=\"https://ko-fi.com/parfaitfair\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"kofi-direct-link\">Buksan sa bagong tab sa Ko-fi.com</a>"
+  },
+  "kofiOpen": {
+    "supportMe": "Suportahan ako"
+  },
+  "kofiTitle": {
+    "supportParfaitfair": "Suportahan ang parfaitfair"
+  },
+  "mainContent": {
+    "access": "Access",
+    "accessIsInviteOnlyUnapproved": "Invite-only ang access. Makakatanggap ng mensaheng access denied ang mga hindi naaprubahang channel. <a class=\"wc-link wc-link--underline\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">Humiling ng access dito</a>.",
+    "changeTtsSettingsControlBot": "Baguhin ang mga setting ng TTS • Kontrolin ang mga sagot ng bot sa chat • I-configure ang Channel Points • Itakda ang mga kagustuhan sa boses",
+    "colorTheme": "Tema ng kulay",
+    "iAmAViewer": "<span class=\"wc-rule-name\">Isa akong viewer</span>",
+    "iRunTheChannel": "<span class=\"wc-rule-name\">Ako ang nagpapatakbo ng channel</span>",
+    "setHowYourMessagesSound": "Itakda kung paano tutunog ang iyong mga mensahe kapag binasa ng TTS sa anumang channel na binibisita mo.",
+    "textToSpeechForYour": "Text-to-speech para sa iyong Twitch channel, para sa mga streamer at viewer.",
+    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">Invite-only</span>",
+    "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">Pamamahala ng text-to-speech bot</span>"
+  },
+  "meta": {
+    "wildcatttsBotManagement": "Pamamahala ng WildcatTTS Bot",
+    "wildcatttsTextToSpeechBot": "Pamamahala ng WildcatTTS text-to-speech bot para sa mga Twitch channel, streamer, at viewer."
+  },
+  "msg": {
+    "kofi": {
+      "iframeTitle": "Suportahan si parfaitfair sa Ko-fi"
+    }
+  },
+  "page": {
+    "support": "Suporta"
+  },
+  "streamerLoginBtn": {
+    "manageMyChannel": "<i data-lucide=\"mic\" aria-hidden=\"true\"></i>Pamahalaan ang aking channel"
+  },
+  "themeDarkBtn": {
+    "dark": "Madilim"
+  },
+  "themeLightBtn": {
+    "light": "Maliwanag"
+  },
+  "viewerPrefsBtn": {
+    "setMyOwnVoice": "<i data-lucide=\"headphones\" aria-hidden=\"true\"></i>Itakda ang aking boses"
+  }
+}

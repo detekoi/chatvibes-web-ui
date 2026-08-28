@@ -1,0 +1,501 @@
+{
+  "addBotBtn": {
+    "activateTtsService": "Активиране на услугата за TTS"
+  },
+  "addTtsBannedWordBtn": {
+    "add": "Добавяне"
+  },
+  "addTtsIgnoreBtn": {
+    "add": "Добавяне"
+  },
+  "addTtsPronunciationBtn": {
+    "add": "Добавяне"
+  },
+  "allowViewerPreferences": {
+    "allowViewerVoicePreferences": "Разрешаване на гласови предпочитания на зрителите"
+  },
+  "announceUnfulfilledRedemptions": {
+    "announceQueuedRedeemsImmediately": "Незабавно оповестяване на заявените награди на опашка"
+  },
+  "announceUnfulfilledRedemptionsHelp": {
+    "aRewardThatDoesNot": "Награда, която не прескача опашката за заявки, се оповестява веднага щом бъде изискана, дори ако по-късно отхвърлиш заявката. Изключи това, за да задържиш оповестяването, докато не приемеш заявката — наградите, които никога не приемеш, няма да бъдат оповестени."
+  },
+  "anonymizeFollowers": {
+    "anonymizeNewFollowers": "Анонимизиране на новите последователи"
+  },
+  "bitsEnabled": {
+    "requireBitsForTts": "Изискване на Bits за TTS"
+  },
+  "botRespondsInChat": {
+    "botRespondsInChat": "Ботът отговаря в чата"
+  },
+  "botStatus": {
+    "loading": "Зареждане…"
+  },
+  "calibratedVoicesList": {
+    "noVoicesCalibratedYet": "Все още няма калибрирани гласове."
+  },
+  "calibrationSaveBtn": {
+    "save": "Запазване"
+  },
+  "calibrationVoiceSearch": {
+    "searchVoicesToCalibrate": "Търсене на гласове за калибриране..."
+  },
+  "channelNameStatus": {
+    "yourChannel": "твоят канал"
+  },
+  "cheerEventsEnabled": {
+    "announceCheers": "Оповестяване на Cheers"
+  },
+  "copyTtsUrlBtn": {
+    "copy": "Копиране",
+    "copyBrowserSourceUrl": "Копиране на URL за Browser Source"
+  },
+  "cpDelete": {
+    "disableDelete": "Деактивиране и изтриване"
+  },
+  "cpEnabled": {
+    "enableChannelPointsTts": "Активиране на Channel Points TTS"
+  },
+  "cpPerStream": {
+    "enterAmount": "Въведи стойност"
+  },
+  "cpPerUser": {
+    "enterAmount": "Въведи стойност"
+  },
+  "cpSave": {
+    "save": "Запазване"
+  },
+  "cpTest": {
+    "testRedeem": "Тестово изискване"
+  },
+  "dashboardContent": {
+    "channel": "Канал",
+    "channelService": "Услуга за канал",
+    "dashboardConfigurationTabs": "Раздели за конфигурация на таблото",
+    "deactivationStopsTheBotFrom": "Деактивирането спира бота да чете съобщения от чата. Настройките ти се запазват. Можеш да активираш услугата отново по всяко време.",
+    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Документация </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>Настройки за зрители </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "Емоция",
+    "engNormalization": "Нормализация на англ.",
+    "language": "Език",
+    "pitch": "Височина",
+    "quickLinks": "Бързи връзки",
+    "service": "Услуга",
+    "signedInAs": "Вход като",
+    "speed": "Скорост",
+    "testMessage": "Тестово съобщение",
+    "voicePreview": "Преглед на гласа",
+    "volume": "Сила на звука"
+  },
+  "defaultEmotion": {
+    "angry": "Ядосан",
+    "disgusted": "Отвратен",
+    "fearful": "Уплашен",
+    "happy": "Щастлив",
+    "neutral": "Неутрален",
+    "sad": "Тъжен",
+    "surprised": "Изненадан"
+  },
+  "defaultPitch": {
+    "defaultPitch12To12": "Височина на тона по подразбиране (-12 до +12)"
+  },
+  "defaultSpeed": {
+    "defaultSpeed05To": "Скорост по подразбиране (0.5 до 2.0)"
+  },
+  "defaultVoiceSearch": {
+    "searchDefaultVoices": "Търсене на гласове по подразбиране",
+    "searchVoices": "Търсене на гласове..."
+  },
+  "defaultVolume": {
+    "voiceVolume01To": "Сила на гласа (0.1 до 10)"
+  },
+  "emoteMode": {
+    "describeEmotes": "Описване на емотиконите",
+    "readEmoteNames": "Четене на имената на емотикони",
+    "skipEmotes": "Пропускане на емотикони"
+  },
+  "englishNormalization": {
+    "englishNormalization": "Нормализация на английски"
+  },
+  "eventsEnabled": {
+    "announceEvents": "Обявяване на събития"
+  },
+  "loadingBar": {
+    "loadingDashboardSettings": "Зареждане на настройките на таблото"
+  },
+  "loadingOverlay": {
+    "loadingDashboardSettings": "Зареждане на настройките на таблото…"
+  },
+  "lookupUsername": {
+    "enterTwitchViewerUsername": "Въведете потребителско име на зрител в Twitch"
+  },
+  "lookupVoiceBtn": {
+    "lookupVoice": "Търсене на глас"
+  },
+  "meta": {
+    "wildcatttsDashboard": "WildcatTTS Табло",
+    "wildcatttsStreamerDashboardConfigureText": "WildcatTTS Табло за стриймъри – Конфигурирайте настройките за TTS, разрешения, отговори на бота и Channel Points."
+  },
+  "msg": {
+    "auth": {
+      "demoStreamer": "Демо стриймър",
+      "needBroadcaster": "Влезте с акаунта си на стриймър, за да получите достъп до настройките.",
+      "needSignIn": "Влезте с акаунта си в Twitch, за да получите достъп до таблото."
+    },
+    "bannedWords": {
+      "addFailed": "Забранената дума не може да бъде добавена.",
+      "added": "„{word}“ е добавена към забранените думи.",
+      "addedTestMode": "[Тест] Добавена забранена дума: {word}.",
+      "empty": "Все още няма добавени забранени думи.",
+      "removeFailed": "Забранената дума не може да бъде премахната.",
+      "removed": "„{word}“ е премахната от забранените думи.",
+      "removedTestMode": "[Тест] Премахната забранена дума: {word}."
+    },
+    "bot": {
+      "activateFailed": "TTS услугата не може да бъде активирана.",
+      "activated": "TTS услугата е активирана.",
+      "activatedTestMode": "TTS услугата е активирана (тестов режим).",
+      "activating": "Активиране на TTS услугата…",
+      "active": "Активен",
+      "deactivateFailed": "TTS услугата не може да бъде деактивирана.",
+      "deactivated": "TTS услугата е деактивирана.",
+      "deactivatedTestMode": "TTS услугата е деактивирана (тестов режим).",
+      "deactivating": "Деактивиране на TTS услугата…",
+      "inactive": "Неактивен",
+      "notAuthenticated": "Няма удостоверяване",
+      "notAuthorized": "Каналът не е оторизиран.",
+      "requestAccess": "Заявете достъп тук",
+      "statusError": "Грешка",
+      "statusFailed": "Грешка: {reason}",
+      "statusLoadFailed": "Състоянието на бота не може да бъде заредено: {reason}",
+      "unknownError": "Неизвестна грешка"
+    },
+    "calibration": {
+      "confirmReset": "Нулиране на калибрирането за {voice}?",
+      "edit": "Редактиране",
+      "empty": "Все още няма калибрирани гласове.",
+      "reset": "Нулиране",
+      "row": "{voice} ({volume})"
+    },
+    "cp": {
+      "confirmDelete": "Изтриване на TTS наградата с Channel Points?",
+      "deleteFailed": "Неуспешно изтриване.",
+      "deleted": "Наградата е изтрита.",
+      "deletedTestMode": "Наградата е изтрита (тестов режим).",
+      "deleting": "Изтриване…",
+      "lastSynced": "{reward} · Последно синхронизирано: {time}",
+      "never": "никога",
+      "noReward": "Няма създадена награда",
+      "noRewardTestMode": "Няма създадена награда (тестов режим)",
+      "rewardId": "ID на награда: {id}",
+      "saveFailed": "Настройките за Channel Points не могат да се запазят.",
+      "saved": "Настройките за Channel Points са запазени.",
+      "savedTestMode": "Настройките за Channel Points са запазени (тестов режим).",
+      "saving": "Запазване на настройките за Channel Points…",
+      "testCompleted": "Тестът завърши ({status}).",
+      "testCompletedTestMode": "Тестът завърши (тестов режим).",
+      "testFailed": "Неуспешен тест.",
+      "testPrompt": "Въведете тестово съобщение за симулиране на използване:",
+      "testing": "Тестване на използването…"
+    },
+    "ignore": {
+      "addFailed": "Потребителят не може да бъде добавен към списъка с игнорирани.",
+      "addFailedReason": "Потребителят не може да бъде добавен: {reason}",
+      "badgeModerator": "Заглушен от вас",
+      "badgeSelf": "Сам се е отказал",
+      "empty": "Няма игнорирани потребители.",
+      "noSuchAccount": "Няма такъв акаунт в Twitch",
+      "removeFailed": "Потребителят не може да бъде премахнат от списъка с игнорирани.",
+      "removeFailedReason": "{label} не може да се премахне: {reason}",
+      "removeLabel": "Премахване на {label} от списъка с игнорирани ({source, select, self {сам се е отказал} other {заглушен от вас}})"
+    },
+    "lookup": {
+      "button": "Търсене на глас",
+      "calibrate": "Калибриране на \"{voice}\"",
+      "error": "Грешка: {reason}",
+      "failed": "Потребителят не може да бъде намерен.",
+      "hasVoice": "Потребителят {user} е задал персонализиран глас: {voice}",
+      "noVoice": "Потребителят {user} няма зададен персонализиран глас.",
+      "searching": "Търсене…",
+      "voiceUnknown": "Този глас не е в списъка с налични гласове."
+    },
+    "obs": {
+      "cannotCopy": "URL адресът не може да се копира.",
+      "cannotDetermine": "Не може да се определи TTS URL.",
+      "copied": "Копирано в клипборда.",
+      "copiedButton": "Копирано!",
+      "copyFailed": "Неуспешно копиране.",
+      "generateFailed": "OBS URL адресът не може да се генерира. Опитай отново.",
+      "generating": "Генериране…",
+      "generatingUrl": "Генериране на защитен URL…",
+      "loadingUrl": "Зареждане на съществуващ URL…",
+      "pressRegenerate": "Кликнете върху „Прегенериране на URL“, за да генерирате OBS Browser Source URL.",
+      "refreshPage": "Не може да се генерира URL. Презаредете страницата.",
+      "testModeUrl": "URL за тестов режим",
+      "urlGenerated": "Генериран е нов URL.",
+      "urlGeneratedTestMode": "Генериран е нов URL (тестов режим).",
+      "urlNotReady": "URL адресът все още не е наличен.",
+      "yourUrl": "Вашият OBS Browser Source URL"
+    },
+    "preview": {
+      "playingTestMode": "Възпроизвеждане на предварителен преглед… (тестов режим)",
+      "tooLong": "Текстът трябва да бъде до 500 знака."
+    },
+    "pron": {
+      "acronymsDisabled": "Акронимите са деактивирани",
+      "acronymsOffHint": "Включете „Разширяване на съкращенията в чата“ по-горе, за да влязат в сила тези настройки.",
+      "addFailed": "Произношението не може да се добави.",
+      "added": "Добавено произношение: {match} -> {say}.",
+      "addedTestMode": "[Тест] Добавено произношение: {match} -> {say}.",
+      "builtinOff": " — вградените са изключени",
+      "empty": "Все още няма добавени персонализирани произношения.",
+      "expansion": " → {say}",
+      "needBoth": "Въведи и думата, и произношението.",
+      "removeFailed": "Произношението не може да се премахне.",
+      "removed": "Премахнато произношение: {match}.",
+      "removedTestMode": "[Тест] Премахнато произношение: {match}."
+    },
+    "setting": {
+      "allowViewerPreferences": "Разрешаване на гласови предпочитания на зрителите",
+      "announceQueuedRedeems": "Обявяване на чакащи активирания",
+      "anonymizeFollowers": "Анонимизиране на последователи",
+      "bitsForTts": "Bits за TTS",
+      "botRespondsInChat": "Ботът отговаря в чата",
+      "cheerAnnouncements": "Обявяване на Cheer",
+      "defaultEmotion": "Емоция по подразбиране",
+      "defaultLanguage": "Език по подразбиране",
+      "defaultPitch": "Височина на гласа по подразбиране",
+      "defaultSpeed": "Скорост по подразбиране",
+      "defaultVoice": "Глас по подразбиране",
+      "emoteMode": "Режим на емотикони",
+      "englishNormalization": "Нормализация на английски",
+      "eventAnnouncements": "Обявяване на събития",
+      "expandAcronyms": "Разширяване на съкращенията в чата",
+      "minimumBits": "Минимум bits",
+      "profanityFilter": "Филтър за нецензурен език",
+      "readFullUrls": "Изчитане на пълни URL адреси",
+      "redemptionAnnouncements": "Обявяване на активирани награди",
+      "ttsEngine": "TTS система",
+      "ttsMode": "TTS режим",
+      "ttsPermission": "Права за TTS",
+      "voiceVolume": "Сила на гласа",
+      "watchStreakAnnouncements": "Обявяване на поредици от гледания",
+      "youtubeHandle": "YouTube потребителско име",
+      "youtubeTts": "YouTube TTS"
+    },
+    "settings": {
+      "loadFailed": "Настройките ви не могат да се заредят.",
+      "saveFailed": "{label}: {reason}",
+      "youtubeHandleRequired": "Въведи YouTube потребителско име, преди да включиш YouTube TTS."
+    }
+  },
+  "obsCloseBtn": {
+    "closeObsSetup": "Затваряне на настройката на OBS"
+  },
+  "obsPopover": {
+    "addBrowserSource": "Добавяне на Browser Source",
+    "cautionANewUrlStops": "ВНИМАНИЕ: Новият URL спира текущия ти OBS източник, докато не го обновиш в OBS.",
+    "controlAudioViaObs": "Управление на звука чрез OBS",
+    "inObsAddANew": "В OBS добави нов <strong>Browser Source</strong>. Преименувай източника на \"Wildcat TTS\" и постави копирания URL. Можеш да запазиш стандартните ширина и височина.",
+    "inTheObsAudioMixer": "В OBS Audio Mixer намери \"Wildcat TTS\". Кликни върху зъбното колело и избери <strong>Advanced Audio Properties</strong>. Задай Audio Monitoring на <strong>Monitor and Output</strong>.",
+    "monitorAndOutput": "Мониторинг и изход",
+    "obsBrowserSource": "OBS Browser Source",
+    "selectControlAudioViaObs": "Избери <strong>Control audio via OBS</strong>. Увери се, че опцията <strong>Shutdown source when not visible</strong> не е отметната.",
+    "setupInstructions": "Инструкции за настройка",
+    "yourBrowserSourceUrl": "Твоят Browser Source URL"
+  },
+  "obsToggleBtn": {
+    "obsSetup": "Настройка на OBS"
+  },
+  "page": {
+    "channelDashboard": "Табло на канала",
+    "textToSpeechSettingsFor": "Настройки за преобразуване на текст в реч за твоя канал. Промените се запазват автоматично.",
+    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Табло</span>"
+  },
+  "profanityFilterEnabled": {
+    "profanityFilter": "Филтър за вулгарен език"
+  },
+  "pronunciationEnabled": {
+    "expandChatAcronyms": "Разширяване на акроними от чата"
+  },
+  "readFullUrls": {
+    "readFullUrls": "Изчитане на пълни URL адреси"
+  },
+  "redemptionEventsEnabled": {
+    "announceRewardRedeems": "Обявяване при вземане на награди"
+  },
+  "regenerateTtsUrlBtn": {
+    "regenerateBrowserSourceUrl": "Генериране на нов Browser Source URL",
+    "regenerateUrl": "Генериране на нов URL"
+  },
+  "removeBotBtn": {
+    "deactivateTtsService": "Деактивиране на услугата TTS"
+  },
+  "resetPitchBtn": {
+    "reset": "Нулиране",
+    "resetDefaultPitchTo0": "Връщане на тоналността по подразбиране на 0"
+  },
+  "resetSpeedBtn": {
+    "reset": "Нулиране",
+    "resetDefaultSpeedTo1": "Връщане на скоростта по подразбиране на 1.0"
+  },
+  "resetVolumeBtn": {
+    "reset": "Нулиране",
+    "resetVoiceVolumeTo1": "Връщане силата на звука на гласа на 1.0"
+  },
+  "saveSettingsBtn": {
+    "saveAllSettings": "Запазване на всички настройки"
+  },
+  "serviceHeadline": {
+    "ttsService": "TTS услуга"
+  },
+  "sidebarVoiceName": {
+    "friendlyPerson": "Любезен човек"
+  },
+  "tabBroadcaster": {
+    "allowTheBotToRespond": "Позволете на бота да отговаря на команди в чата като например !myvoice",
+    "allowViewersToUseChannel": "Позволете на зрителите да използват Channel Points за TTS",
+    "allowViewerVoicePreferences": "Разрешаване на гласови предпочитания на зрителите",
+    "announceCheers": "Оповестяване на cheers",
+    "announceEvents": "Оповестяване на събития",
+    "announceEventsSuchAsSubscriptions": "Оповестяване на събития като абонаменти и рейдове",
+    "announceQueuedRedeemsImmediately": "Незабавно оповестяване на наградите на опашка",
+    "announceRewardRedeems": "Оповестяване при взети награди",
+    "announceWatchStreaks": "Оповестяване на поредици от гледания",
+    "announceWhenAViewerCheers": "Оповестяване, когато зрител изпрати bits",
+    "announceWhenAViewerReaches": "Оповестяване, когато зрител достигне етап от поредица на гледане",
+    "announceWhenAViewerRedeems": "Оповестяване, когато зрител използва Channel Points за награда",
+    "anonymizeNewFollowers": "Анонимизиране на новите последователи",
+    "bannedWordsCommaSeparated": "Забранени думи (разделени със запетая)",
+    "bannedWordsPhrases": "<strong>Забранени думи / фрази</strong>",
+    "bitsTts": "Bits → TTS",
+    "blockLinks": "Блокиране на връзки",
+    "botRespondsInChat": "Ботът отговаря в чата",
+    "channelPointsTts": "Channel Points → TTS",
+    "chooseWhichMessagesTriggerTts": "Изберете кои съобщения да задействат TTS",
+    "configureBitsRequirementsForText": "Конфигуриране на изискванията за bits за TTS",
+    "configureChannelPointsRewardsFor": "Конфигуриране на наградите с Channel Points за TTS",
+    "configureTtsEngineSettingsAnd": "Конфигуриране на настройките и разрешенията за TTS системата",
+    "controlHowTtsPronouncesSpecific": "Контролирайте как TTS произнася определени думи. Често срещаните съкращения в Twitch се обработват по подразбиране. Добавете запис, за да замените произношение по подразбиране или да добавите нова дума.",
+    "controlsHowTtsHandlesEmotes": "Контролира как TTS обработва емотиконите в съобщенията в чата",
+    "cooldownsAndModeration": "Периоди на изчакване и модерация",
+    "costPoints": "Цена (точки)",
+    "emoteMode": "<strong>Режим за емотикони</strong>",
+    "enableChannelPointsTts": "Активиране на Channel Points TTS",
+    "enableCooldownsLimits": "Активиране на изчаквания и лимити",
+    "engineMode": "Система и режим",
+    "expandChatAcronyms": "Разгръщане на съкращения от чата",
+    "globalCooldownSec": "Глобално изчакване (сек)",
+    "hideFollowerNamesInTts": "Скриване на имената на последователите в TTS известията за поверителност",
+    "ifOnTtsReadsFull": "Ако е включено, TTS чете пълните URL адреси. Ако е изключено, TTS чете само имената на домейните",
+    "ifThisSettingIsOff": "Ако тази настройка е изключена, TTS използва гласа по подразбиране за канала за всички съобщения",
+    "ignoredUsers": "Игнорирани потребители",
+    "manageUsersThatTtsIgnores": "Управление на потребителите, които TTS игнорира",
+    "minimumBitsRequired": "<strong>Минимум изисквани bits</strong>",
+    "minimumNumberOfBitsRequired": "Минимален брой bits, необходими за задействане на TTS",
+    "perStreamLimit": "Лимит за стрийм",
+    "perUserPerStream": "На потребител за стрийм",
+    "profanityFilter": "Филтър за вулгаризми",
+    "pronunciationDictionary": "<strong>Речник за произношение</strong>",
+    "readFullUrls": "Четене на пълни URL адреси",
+    "readYoutubeLiveChatMessages": "Четете съобщенията от чата на живо в YouTube чрез TTS. Тази функция изисква активен стрийм в YouTube.",
+    "readYoutubeLiveChatMessages2": "Четене на глас на съобщенията от чата на живо в YouTube",
+    "requireBitsForTts": "Изискване на bits за TTS",
+    "rewardTitle": "Заглавие на наградата",
+    "skipTheRewardQueue": "Пропускане на опашката за награди",
+    "theTitleMustBeUnique": "Заглавието трябва да е уникално за вашия канал.",
+    "ttsDoesNotReadMessages": "TTS не чете съобщения от потребители в този списък.",
+    "ttsEngineEnabled": "TTS модулът е активиран",
+    "ttsExpandsCommonTwitchAcronyms": "TTS разгръща често срещани акроними в Twitch до цели думи. Например „ngl“ става „not gonna lie“. Изключете, за да се изговаря буква по буква.",
+    "ttsIgnoreList": "<strong>Списък за игнориране на TTS</strong>",
+    "ttsMode": "<strong>Режим на TTS</strong>",
+    "ttsPermission": "<strong>Разрешения за TTS</strong>",
+    "ttsReplacesProfanityWithMilder": "TTS заменя вулгаризмите с по-меки думи преди изговаряне. Филтърът използва езика на канала и езика на зрителя. Ако езикът е зададен на Автоматично, филтърът използва списъка на английски. Забранените думи все пак ще пропускат цялото съобщение.",
+    "ttsSkipsMessagesThatContain": "TTS пропуска съобщения, съдържащи тези думи или фрази.",
+    "turnOnOrTurnOff": "Включване или изключване на модула за преобразуване на текст в реч",
+    "viewerPrompt": "Подкана за зрителя",
+    "viewersMustCheerBitsTo": "Зрителите трябва да изпратят bits, за да използват преобразуване на текст в реч",
+    "whoCanUseTextTo": "Кой може да използва преобразуване на текст в реч",
+    "yourYoutubeChannelHandleFor": "Идентификатор на канала ви в YouTube (например <code>@yourhandle</code>)",
+    "youtubeHandle": "<strong>Идентификатор в YouTube</strong>",
+    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>Интеграция с YouTube",
+    "youtubeTtsEnabled": "YouTube TTS е активиран"
+  },
+  "tabBtnBroadcaster": {
+    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Стриймър"
+  },
+  "tabBtnViewerDefaults": {
+    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Гласове по подразбиране"
+  },
+  "tabViewerDefaults": {
+    "adjustThePitchForThe": "Регулиране на височината на гласа по подразбиране",
+    "adjustTheVolumeForThe": "Регулирайте силата на звука за избрания глас. ВНИМАНИЕ: Стойности над 1.0 могат да доведат до изкривяване.",
+    "calibratedVoices": "<strong>Калибрирани гласове</strong>",
+    "calibrateVolumeForSpecificVoices": "Калибрирайте силата на звука за отделни гласове. ВНИМАНИЕ: Стойности над 1.0 могат да доведат до изкривяване.",
+    "controlHowFastTheDefault": "Управлявайте скоростта на говор на гласа по подразбиране",
+    "defaultEmotion": "<strong>Емоция по подразбиране</strong>",
+    "defaultLanguage": "<strong>Език по подразбиране</strong>",
+    "defaultPitch12To12": "Височина на тона по подразбиране (-12 до +12):",
+    "defaultSpeed05To": "Скорост по подразбиране (0.5 до 2.0):",
+    "defaultVoice": "<strong>Глас по подразбиране</strong>",
+    "defaultVoiceSettings": "Настройки на гласа по подразбиране",
+    "englishNormalization": "Нормализация на английски",
+    "improvePronunciationForSpecificLanguages": "Подобряване на произношението за конкретни езици",
+    "improveThePronunciationOfNumbers": "Подобряване на произношението на числа и текст",
+    "selectTheDefaultTtsVoice": "Изберете гласа на TTS по подразбиране за канала",
+    "selectVoice": "Изберете глас",
+    "setDefaultVoiceSettingsFor": "Задайте настройки на гласа по подразбиране за канала си",
+    "setTheEmotionalToneOf": "Задайте емоционалния тон на гласа по подразбиране",
+    "viewerVoiceLookup": "Търсене на глас на зрител",
+    "voiceCalibration": "Калибриране на гласа",
+    "voicesWithCustomVolumeSettings": "Гласове с персонализирани настройки на силата на звука.",
+    "voiceVolume01To": "Сила на гласа (0.1 до 10):",
+    "volumeOverride": "Заместване на силата на звука:"
+  },
+  "ttsBannedWordInput": {
+    "wordOrPhraseToBan": "Дума или фраза за забрана"
+  },
+  "ttsEnabled": {
+    "ttsEngineEnabled": "TTS е активиран"
+  },
+  "ttsIgnoreUsername": {
+    "usernameToIgnore": "Потребителско име за игнориране"
+  },
+  "ttsMode": {
+    "allMessages": "Всички съобщения",
+    "bitsPointsOnly": "Само bits/точки",
+    "ttsCommandOnly": "Само команда !tts"
+  },
+  "ttsPermission": {
+    "everyone": "Всички",
+    "moderatorsOnly": "Само модератори",
+    "subscribersOnly": "Само абонати",
+    "vipsOnly": "Само VIP"
+  },
+  "ttsPronunciationMatchInput": {
+    "wordForExampleWcat": "Дума (например wcat)",
+    "wordToReplace": "Дума за замяна"
+  },
+  "ttsPronunciationSayInput": {
+    "howToSayItFor": "Как се произнася (например wildcat)",
+    "pronunciation": "Произношение"
+  },
+  "ttsUrlField": {
+    "yourBrowserSourceUrl": "Вашият Browser Source URL"
+  },
+  "twitchUsername": {
+    "loading": "зареждане…"
+  },
+  "voiceTestBtn": {
+    "sendPreview": "Изпрати преглед"
+  },
+  "watchStreakEventsEnabled": {
+    "announceWatchStreaks": "Обявяване на поредици от гледане"
+  },
+  "youtubeEnabled": {
+    "youtubeTtsEnabled": "YouTube TTS е активиран"
+  },
+  "youtubeHandle": {
+    "yourhandle": "@yourhandle"
+  }
+}

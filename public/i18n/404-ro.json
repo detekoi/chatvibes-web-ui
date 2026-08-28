@@ -1,0 +1,11 @@
+{
+  "mainContent": {
+    "pageNotFound": "Pagina nu a fost găsită",
+    "returnToLogin": "Înapoi la autentificare",
+    "thatUrlIsNotPart": "Acel URL nu face parte din acest site. Asigură-te că adresa este corectă sau revino la pagina de autentificare."
+  },
+  "meta": {
+    "pageNotFoundOnWildcattts": "Pagina nu a fost găsită pe WildcatTTS.",
+    "pageNotFoundWildcattts": "Pagina nu a fost găsită — WildcatTTS"
+  }
+}

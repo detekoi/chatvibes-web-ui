@@ -1,6 +1,7 @@
 /**
  * Shared UI helpers for WildcatTTS Web UI.
  */
+import { t } from './i18n.js';
 
 // Extend window for Bootstrap types
 declare global {
@@ -153,7 +154,7 @@ export function showToast(
   btn.type = 'button';
   btn.className = 'btn-close btn-close-white me-2 m-auto';
   btn.setAttribute('data-bs-dismiss', 'toast');
-  btn.setAttribute('aria-label', 'Close');
+  btn.setAttribute('aria-label', t('msg.action.close'));
 
   inner.appendChild(body);
   inner.appendChild(btn);

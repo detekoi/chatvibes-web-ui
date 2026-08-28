@@ -1,0 +1,11 @@
+{
+  "mainContent": {
+    "pageNotFound": "பக்கம் கிடைக்கவில்லை",
+    "returnToLogin": "உள்நுழைவுக்குத் திரும்பு",
+    "thatUrlIsNotPart": "அந்த URL இந்த தளத்தின் பகுதி அல்ல. முகவரி சரியாக உள்ளதா என உறுதிப்படுத்தவும், அல்லது உள்நுழைவுப் பக்கத்திற்குத் திரும்பவும்."
+  },
+  "meta": {
+    "pageNotFoundOnWildcattts": "WildcatTTS-இல் பக்கம் கிடைக்கவில்லை.",
+    "pageNotFoundWildcattts": "பக்கம் கிடைக்கவில்லை — WildcatTTS"
+  }
+}

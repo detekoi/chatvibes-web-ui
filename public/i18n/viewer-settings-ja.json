@@ -1,0 +1,212 @@
+{
+  "addChannelContextCard": {
+    "loadAChannelToSee": "チャンネルを読み込むと、デフォルト設定の確認や読み上げ除外の管理ができます。個人設定はグローバルに保持されます。"
+  },
+  "channelContextCard": {
+    "changesHereUpdateYourGlobal": "ここでの変更は<strong>あなた</strong>のグローバル設定に反映されます。配信者の設定は変更されません。",
+    "channelContext": "チャンネルコンテキスト",
+    "clearButtonsSetYourGlobal": "<strong>クリアボタン:</strong> グローバル設定をこのチャンネルのデフォルト設定に合わせます。"
+  },
+  "channelHint": {
+    "channelFound": "チャンネルが見つかりました"
+  },
+  "channelInputCancel": {
+    "cancel": "キャンセル"
+  },
+  "channelInputConfirm": {
+    "load": "読み込む"
+  },
+  "channelInputDesc": {
+    "enterTheChannelNameTo": "チャンネル名を入力して、デフォルト設定の確認や読み上げ除外を管理します:"
+  },
+  "channelInputModal": {
+    "streamerUsername": "配信者のユーザー名"
+  },
+  "channelInputModalText": {
+    "streamerUsername": "配信者のユーザー名"
+  },
+  "channelInputTitle": {
+    "loadChannelContext": "チャンネルコンテキストを読み込む"
+  },
+  "clearChannelContextBtn": {
+    "clear": "クリア"
+  },
+  "confirmNo": {
+    "cancel": "キャンセル"
+  },
+  "confirmText": {
+    "yourMessagesWillNotBe": "あなたのメッセージは読み上げられなくなります。この設定はいつでも元に戻せます。"
+  },
+  "confirmTitle": {
+    "confirmAction": "操作の確認"
+  },
+  "confirmYes": {
+    "confirm": "確認"
+  },
+  "dangerTtsToggle": {
+    "optOutOfTtsIn": "このチャンネルでTTS読み上げから除外する",
+    "ttsWillNotReadYour": "このチャンネルではTTSがメッセージを読み上げません"
+  },
+  "dangerZoneSection": {
+    "dangerZone": "デンジャーゾーン",
+    "theseSettingsStopTheBot": "これらの設定により、Botがチャンネル内であなたのメッセージを読み上げなくなります。自分で選択した設定は元に戻せます。モデレーターによって除外された場合は、モデレーターのみが解除できます。"
+  },
+  "emotionReset": {
+    "clear": "クリア",
+    "resetEmotionToDefault": "感情をデフォルトにリセット"
+  },
+  "emotionSelect": {
+    "angry": "怒り",
+    "disgusted": "嫌悪",
+    "fearful": "恐怖",
+    "happy": "喜び",
+    "neutral": "ニュートラル",
+    "sad": "悲しみ",
+    "surprised": "驚き",
+    "useChannelDefault": "チャンネルのデフォルトを使用"
+  },
+  "englishNormalizationCheckbox": {
+    "englishNormalization": "英語の正規化"
+  },
+  "englishNormalizationReset": {
+    "clear": "クリア",
+    "resetEnglishNormalizationToDefault": "英語の正規化をデフォルトにリセット"
+  },
+  "ignoreTts": {
+    "optOutOfTtsIn": "このチャンネルでTTS読み上げから除外する"
+  },
+  "languageReset": {
+    "clear": "クリア",
+    "resetLanguageToDefault": "言語をデフォルトにリセット"
+  },
+  "loadingBar": {
+    "loadingYourPreferences": "設定を読み込み中"
+  },
+  "loadingOverlay": {
+    "loadingYourPreferences": "設定を読み込み中…"
+  },
+  "loggedInStatus": {
+    "channelContext": "チャンネルコンテキスト",
+    "global": "グローバル",
+    "loggedInAs": "ログイン中:",
+    "scope": "スコープ"
+  },
+  "meta": {
+    "wildcatttsViewerSettings": "WildcatTTS 視聴者設定",
+    "wildcatttsViewerSettingsSetYour": "WildcatTTS 視聴者設定 - Twitchチャンネル全体で適用される個人用のTTS音声、ピッチ、速度を設定します。"
+  },
+  "msg": {
+    "auth": {
+      "exchangeFailed": "サインインを完了できません。メインページからやり直してください。",
+      "testUser": "テストユーザー"
+    },
+    "channel": {
+      "cleared": "チャンネルコンテキストをクリアしました。",
+      "clearedTestMode": "チャンネルコンテキストをクリアしました（テストモード）。",
+      "enterName": "チャンネル名を入力してください。",
+      "found": "チャンネルが見つかりました",
+      "foundTestMode": "チャンネルが見つかりました（テストモード）",
+      "hint": "チャンネルを読み込んでデフォルト設定を表示します。",
+      "loaded": "チャンネルコンテキストを読み込みました。",
+      "loadedTestMode": "チャンネルコンテキストを読み込みました（テストモード）。",
+      "noneLoaded": "読み込まれていません",
+      "promptConfirm": "読み込む",
+      "promptDescription": "チャンネル名を入力して、デフォルト設定の確認やオプトアウトの管理を行います:",
+      "promptTitle": "チャンネル情報の読み込み",
+      "viewingDefaults": "{channel} のデフォルト設定を表示しています。"
+    },
+    "optout": {
+      "confirm": "#{channel} でTTSをオプトアウトしますか？メッセージが読み上げられなくなります。いつでも元に戻すことができます。",
+      "confirmDescription": "続行するにはチャンネル名を入力してください:",
+      "confirmTitle": "TTSオプトアウト対象チャンネルの確認",
+      "continue": "続行",
+      "moderatorNote": "チャンネルのモデレーターによってTTSからオプトアウトされました。解除できるのはモデレーターのみです。",
+      "optInFailed": "TTSに再度オプトインできません。",
+      "optOutFailed": "TTSをオプトアウトできません。",
+      "optedIn": "TTSの読み上げを再度有効にしました。",
+      "optedInTestMode": "TTSの読み上げを再度有効にしました（テストモード）。",
+      "optedOut": "TTSをオプトアウトしました。",
+      "optedOutTestMode": "TTSをオプトアウトしました（テストモード）。",
+      "selectChannel": "最初にチャンネルを選択してください。",
+      "selfNote": "ここでTTSをオプトアウトしました。いつでも元に戻せます。",
+      "specifyChannel": "チャンネルを指定してください。"
+    },
+    "prefs": {
+      "hintChannel": "チャンネルのデフォルトを使用中: {value}",
+      "hintSystem": "システムデフォルトを使用中",
+      "hintUser": "グローバル設定を使用中: {value}",
+      "loadFailed": "設定を読み込めません。",
+      "noVoicesFound": "ボイスが見つかりません",
+      "saveFailed": "{key} を保存できません: {reason}",
+      "sendPreview": "プレビューを送信",
+      "testCompletedTestMode": "テスト完了（テストモード）。",
+      "updated": "設定を更新しました。",
+      "updatedTestMode": "設定を更新しました（テストモード）。"
+    }
+  },
+  "openChannelContextModalBtn": {
+    "loadChannel": "チャンネルを読み込む…"
+  },
+  "page": {
+    "setHowYourMessagesSound": "WildcatTTSで読み上げられるメッセージの音声をカスタマイズします。設定は全体に適用され、全チャンネルで有効です。",
+    "viewerTtsPreferences": "視聴者TTS設定",
+    "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">視聴者設定</span>"
+  },
+  "pitchReset": {
+    "clear": "クリア",
+    "resetPitchToDefault": "ピッチをデフォルトにリセット"
+  },
+  "pitchSlider": {
+    "pitchAdjustment12To12": "ピッチ調整（-12〜+12）"
+  },
+  "preferencesPanel": {
+    "adjustTheVoicePitchHigher": "声の高さを調整",
+    "controlHowFastTheVoice": "読み上げ速度を調整",
+    "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>ドキュメント </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>配信者設定 </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "<strong>感情</strong>",
+    "emotion2": "感情",
+    "englishNormalization": "英語テキストの正規化",
+    "engNormalization": "英語正規化",
+    "ifTtsReadsNumbersIncorrectly": "TTSが数字を正しく読み上げない場合は、英語テキストの正規化を有効にしてください。この設定により遅延がわずかに増加します。",
+    "improvePronunciationForSpecificLanguages": "特定言語の発音を向上",
+    "improveThePronunciationOfNumbers": "数字やテキストの発音を向上",
+    "language": "言語",
+    "languageBoost": "<strong>言語ブースト</strong>",
+    "pitch": "ピッチ",
+    "pitch12To12": "ピッチ (-12〜+12):",
+    "quickLinks": "クイックリンク",
+    "selectYourPreferredTtsVoice": "お好みのTTSボイスを選択",
+    "setHowYourMessagesSound": "TTSがメッセージを読み上げる際の設定を調整",
+    "setTheEmotionalToneOf": "声の感情トーンを設定",
+    "speed": "速度",
+    "speed05To2": "速度 (0.5〜2.0):",
+    "testMessage": "テストメッセージ",
+    "voice": "<strong>ボイス</strong>",
+    "voicePreview": "ボイスプレビュー",
+    "voiceSettings": "ボイス設定"
+  },
+  "prefsDisabledNote": {
+    "theStreamerDisabledPersonalVoice": "配信者がこのチャンネルの個別ボイス設定を無効にしました。あなたの設定ではなく、デフォルトのボイスが使用されます。"
+  },
+  "previewBtn": {
+    "sendPreview": "プレビューを送信"
+  },
+  "speedReset": {
+    "clear": "クリア",
+    "resetSpeedToDefault": "速度をデフォルトに戻す"
+  },
+  "speedSlider": {
+    "speedAdjustment05To": "速度調整（0.5〜2.0）"
+  },
+  "statChannelContext": {
+    "noneLoaded": "読み込みなし"
+  },
+  "voiceReset": {
+    "clear": "クリア",
+    "resetVoiceToDefault": "ボイスをデフォルトに戻す"
+  },
+  "voiceSearch": {
+    "searchVoices": "ボイスを検索",
+    "searchVoices2": "ボイスを検索..."
+  }
+}

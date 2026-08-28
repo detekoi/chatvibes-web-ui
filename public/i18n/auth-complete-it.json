@@ -1,0 +1,39 @@
+{
+  "authBar": {
+    "signInProgress": "Avanzamento accesso"
+  },
+  "authMessage": {
+    "pleaseWait": "Attendi."
+  },
+  "authSteps": {
+    "loadingDashboard": "Caricamento dashboard",
+    "sessionTokenStored": "Token di sessione salvato",
+    "twitchAuthorized": "Twitch autorizzato"
+  },
+  "authTitle": {
+    "signingYouIn": "Accesso in corso"
+  },
+  "meta": {
+    "completingWildcatttsTwitchSignIn": "Completamento dell'accesso con Twitch a WildcatTTS.",
+    "wildcatttsCompletingSignIn": "WildcatTTS - Completamento dell'accesso"
+  },
+  "msg": {
+    "authComplete": {
+      "cannotComplete": "Impossibile completare l'accesso.",
+      "failedReadout": "Non riuscito",
+      "failedTitle": "Accesso non riuscito",
+      "missingInfo": "Informazioni di autenticazione mancanti dal callback di Twitch. Accedi di nuovo.",
+      "noSession": "Nessuna sessione",
+      "redirecting": "Reindirizzamento alla tua dashboard.",
+      "retrySignIn": "{reason} Accedi di nuovo.",
+      "sessionEstablished": "Sessione stabilita",
+      "welcome": "Benvenuto, {user}"
+    }
+  },
+  "sessionState": {
+    "establishingSession": "Creazione della sessione"
+  },
+  "statusReadout": {
+    "working": "<span class=\"wc-dot\"></span>In corso"
+  }
+}

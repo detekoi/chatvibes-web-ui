@@ -1,0 +1,41 @@
+{
+  "errorAction": {
+    "tryAgain": "Subukan muli"
+  },
+  "errorCode": {
+    "unknown": "hindi alam"
+  },
+  "errorCodeBlock": {
+    "error": "Error"
+  },
+  "errorMessageDetails": {
+    "twitchAuthenticationFailed": "Nabigo ang pagpapatunay sa Twitch."
+  },
+  "errorReadout": {
+    "authenticationFailed": "Nabigo ang pagpapatunay"
+  },
+  "errorTitle": {
+    "authenticationFailed": "Nabigo ang pagpapatunay"
+  },
+  "mainContent": {
+    "requestAccessTtsWildcatChat": "<a class=\"wc-link\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">Humiling ng access</a> <span>tts.wildcat.chat</span>"
+  },
+  "meta": {
+    "wildcatttsAuthenticationError": "WildcatTTS - Error sa Pagpapatunay",
+    "wildcatttsAuthenticationErrorAndSign": "Error sa pagpapatunay ng WildcatTTS at pagbawi sa pag-sign in."
+  },
+  "msg": {
+    "authError": {
+      "backToSignIn": "Bumalik sa pag-sign in",
+      "canceledBody": "Walang nagbago. Puwede kang mag-sign in kapag handa ka na.",
+      "canceledReadout": "Kinansela",
+      "canceledTitle": "WildcatTTS - Kinansela ang pag-log in",
+      "canceledTitleShort": "Kinansela ang pag-log in",
+      "notPermitted": "Hindi pinapayagan ang access",
+      "requestAccess": "Humiling ng access",
+      "twitchError": "Nagbalik ng error ang Twitch habang nag-a-authenticate.",
+      "unspecified": "May naganap na hindi natukoy na error.",
+      "unspecifiedCode": "hindi natukoy"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "mainContent": {
+    "pageNotFound": "Sayfa bulunamadı",
+    "returnToLogin": "Giriş sayfasına dön",
+    "thatUrlIsNotPart": "Bu URL bu siteye ait değil. Adresin doğru olduğundan emin olun veya giriş sayfasına dönün."
+  },
+  "meta": {
+    "pageNotFoundOnWildcattts": "WildcatTTS'te sayfa bulunamadı.",
+    "pageNotFoundWildcattts": "Sayfa bulunamadı — WildcatTTS"
+  }
+}

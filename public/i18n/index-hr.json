@@ -1,0 +1,50 @@
+{
+  "kofiClose": {
+    "closeSupportDialog": "Zatvori prozor za podršku"
+  },
+  "kofiModal": {
+    "openInNewTabOn": "<a href=\"https://ko-fi.com/parfaitfair\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"kofi-direct-link\">Otvori u novoj kartici na Ko-fi.com</a>"
+  },
+  "kofiOpen": {
+    "supportMe": "Podrži me"
+  },
+  "kofiTitle": {
+    "supportParfaitfair": "Podrži parfaitfair"
+  },
+  "mainContent": {
+    "access": "Pristup",
+    "accessIsInviteOnlyUnapproved": "Pristup je moguć samo uz pozivnicu. Neodobreni kanali dobit će poruku o odbijenom pristupu. <a class=\"wc-link wc-link--underline\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">Zatražite pristup ovdje</a>.",
+    "changeTtsSettingsControlBot": "Promijenite TTS postavke • Upravljajte odgovorima bota u chatu • Konfigurirajte Channel Points • Postavite glasovne postavke",
+    "colorTheme": "Tema boja",
+    "iAmAViewer": "<span class=\"wc-rule-name\">Gledatelj sam</span>",
+    "iRunTheChannel": "<span class=\"wc-rule-name\">Vodim kanal</span>",
+    "setHowYourMessagesSound": "Postavite kako vaše poruke zvuče kada ih TTS čita na bilo kojem kanalu koji posjetite.",
+    "textToSpeechForYour": "Text-to-speech za vaš Twitch kanal, za streamere i gledatelje.",
+    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">Samo uz pozivnicu</span>",
+    "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">Upravljanje text-to-speech botom</span>"
+  },
+  "meta": {
+    "wildcatttsBotManagement": "WildcatTTS – upravljanje botom",
+    "wildcatttsTextToSpeechBot": "WildcatTTS upravljanje text-to-speech botom za Twitch kanale, streamere i gledatelje."
+  },
+  "msg": {
+    "kofi": {
+      "iframeTitle": "Podrži parfaitfair na Ko-fi"
+    }
+  },
+  "page": {
+    "support": "Podrška"
+  },
+  "streamerLoginBtn": {
+    "manageMyChannel": "<i data-lucide=\"mic\" aria-hidden=\"true\"></i>Upravljaj mojim kanalom"
+  },
+  "themeDarkBtn": {
+    "dark": "Tamna"
+  },
+  "themeLightBtn": {
+    "light": "Svijetla"
+  },
+  "viewerPrefsBtn": {
+    "setMyOwnVoice": "<i data-lucide=\"headphones\" aria-hidden=\"true\"></i>Postavi vlastiti glas"
+  }
+}

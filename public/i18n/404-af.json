@@ -1,0 +1,11 @@
+{
+  "mainContent": {
+    "pageNotFound": "Bladsy nie gevind nie",
+    "returnToLogin": "Terug na aanmelding",
+    "thatUrlIsNotPart": "Daardie URL is nie deel van hierdie werf nie. Maak seker dat die adres korrek is, of gaan terug na die aanmeldbladsy."
+  },
+  "meta": {
+    "pageNotFoundOnWildcattts": "Bladsy nie gevind op WildcatTTS nie.",
+    "pageNotFoundWildcattts": "Bladsy nie gevind nie — WildcatTTS"
+  }
+}

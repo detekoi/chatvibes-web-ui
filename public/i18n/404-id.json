@@ -1,0 +1,11 @@
+{
+  "mainContent": {
+    "pageNotFound": "Halaman tidak ditemukan",
+    "returnToLogin": "Kembali ke login",
+    "thatUrlIsNotPart": "URL tersebut bukan bagian dari situs ini. Pastikan alamatnya benar, atau kembali ke halaman login."
+  },
+  "meta": {
+    "pageNotFoundOnWildcattts": "Halaman tidak ditemukan di WildcatTTS.",
+    "pageNotFoundWildcattts": "Halaman tidak ditemukan — WildcatTTS"
+  }
+}

@@ -1,0 +1,501 @@
+{
+  "addBotBtn": {
+    "activateTtsService": "TTS 서비스 활성화"
+  },
+  "addTtsBannedWordBtn": {
+    "add": "추가"
+  },
+  "addTtsIgnoreBtn": {
+    "add": "추가"
+  },
+  "addTtsPronunciationBtn": {
+    "add": "추가"
+  },
+  "allowViewerPreferences": {
+    "allowViewerVoicePreferences": "시청자 음성 설정 허용"
+  },
+  "announceUnfulfilledRedemptions": {
+    "announceQueuedRedeemsImmediately": "대기 중인 사용 즉시 알림"
+  },
+  "announceUnfulfilledRedemptionsHelp": {
+    "aRewardThatDoesNot": "요청 대기열을 건너뛰지 않는 보상은 나중에 요청을 거절하더라도 사용 즉시 알립니다. 요청을 수락할 때까지 알림을 보류하려면 이 설정을 끄세요. 수락하지 않은 보상은 알림이 전송되지 않습니다."
+  },
+  "anonymizeFollowers": {
+    "anonymizeNewFollowers": "새 팔로워 익명화"
+  },
+  "bitsEnabled": {
+    "requireBitsForTts": "TTS에 Bits 필요"
+  },
+  "botRespondsInChat": {
+    "botRespondsInChat": "봇이 채팅으로 응답"
+  },
+  "botStatus": {
+    "loading": "로딩 중…"
+  },
+  "calibratedVoicesList": {
+    "noVoicesCalibratedYet": "아직 보정된 음성이 없습니다."
+  },
+  "calibrationSaveBtn": {
+    "save": "저장"
+  },
+  "calibrationVoiceSearch": {
+    "searchVoicesToCalibrate": "보정할 음성 검색..."
+  },
+  "channelNameStatus": {
+    "yourChannel": "내 채널"
+  },
+  "cheerEventsEnabled": {
+    "announceCheers": "응원 알림"
+  },
+  "copyTtsUrlBtn": {
+    "copy": "복사",
+    "copyBrowserSourceUrl": "Browser Source URL 복사"
+  },
+  "cpDelete": {
+    "disableDelete": "비활성화 및 삭제"
+  },
+  "cpEnabled": {
+    "enableChannelPointsTts": "Channel Points TTS 활성화"
+  },
+  "cpPerStream": {
+    "enterAmount": "수량 입력"
+  },
+  "cpPerUser": {
+    "enterAmount": "수량 입력"
+  },
+  "cpSave": {
+    "save": "저장"
+  },
+  "cpTest": {
+    "testRedeem": "사용 테스트"
+  },
+  "dashboardContent": {
+    "channel": "채널",
+    "channelService": "채널 서비스",
+    "dashboardConfigurationTabs": "대시보드 설정 탭",
+    "deactivationStopsTheBotFrom": "비활성화하면 봇이 채팅 메시지를 읽지 않습니다. 설정은 저장된 상태로 유지됩니다. 언제든지 서비스를 다시 활성화할 수 있습니다.",
+    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>문서 </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>시청자 설정 </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "감정",
+    "engNormalization": "영어 정규화",
+    "language": "언어",
+    "pitch": "음높이",
+    "quickLinks": "빠른 링크",
+    "service": "서비스",
+    "signedInAs": "로그인 계정:",
+    "speed": "속도",
+    "testMessage": "테스트 메시지",
+    "voicePreview": "음성 미리듣기",
+    "volume": "음량"
+  },
+  "defaultEmotion": {
+    "angry": "분노",
+    "disgusted": "혐오",
+    "fearful": "공포",
+    "happy": "행복",
+    "neutral": "중립",
+    "sad": "슬픔",
+    "surprised": "놀람"
+  },
+  "defaultPitch": {
+    "defaultPitch12To12": "기본 음높이 (-12 ~ +12)"
+  },
+  "defaultSpeed": {
+    "defaultSpeed05To": "기본 속도 (0.5 ~ 2.0)"
+  },
+  "defaultVoiceSearch": {
+    "searchDefaultVoices": "기본 음성 검색",
+    "searchVoices": "음성 검색..."
+  },
+  "defaultVolume": {
+    "voiceVolume01To": "음성 음량 (0.1 ~ 10)"
+  },
+  "emoteMode": {
+    "describeEmotes": "이모티콘 설명",
+    "readEmoteNames": "이모티콘 이름 읽기",
+    "skipEmotes": "이모티콘 건너뛰기"
+  },
+  "englishNormalization": {
+    "englishNormalization": "영어 정규화"
+  },
+  "eventsEnabled": {
+    "announceEvents": "이벤트 알리기"
+  },
+  "loadingBar": {
+    "loadingDashboardSettings": "대시보드 설정 불러오는 중"
+  },
+  "loadingOverlay": {
+    "loadingDashboardSettings": "대시보드 설정 불러오는 중…"
+  },
+  "lookupUsername": {
+    "enterTwitchViewerUsername": "Twitch 시청자 사용자명 입력"
+  },
+  "lookupVoiceBtn": {
+    "lookupVoice": "음성 조회"
+  },
+  "meta": {
+    "wildcatttsDashboard": "WildcatTTS 대시보드",
+    "wildcatttsStreamerDashboardConfigureText": "WildcatTTS 스트리머 대시보드 - TTS 설정, 권한, 봇 응답 및 Channel Points 설정."
+  },
+  "msg": {
+    "auth": {
+      "demoStreamer": "데모 스트리머",
+      "needBroadcaster": "스트리머 설정에 접근하려면 방송인 계정으로 로그인하세요.",
+      "needSignIn": "대시보드에 접근하려면 Twitch 계정으로 로그인하세요."
+    },
+    "bannedWords": {
+      "addFailed": "금지어를 추가할 수 없습니다.",
+      "added": "\"{word}\"을(를) 금지어에 추가했습니다.",
+      "addedTestMode": "[테스트] 금지어 추가됨: {word}.",
+      "empty": "추가된 금지어가 없습니다.",
+      "removeFailed": "금지어를 삭제할 수 없습니다.",
+      "removed": "\"{word}\"을(를) 금지어에서 삭제했습니다.",
+      "removedTestMode": "[테스트] 금지어 삭제됨: {word}."
+    },
+    "bot": {
+      "activateFailed": "TTS 서비스를 활성화할 수 없습니다.",
+      "activated": "TTS 서비스가 활성화되었습니다.",
+      "activatedTestMode": "TTS 서비스가 활성화되었습니다(테스트 모드).",
+      "activating": "TTS 서비스 활성화 중…",
+      "active": "활성",
+      "deactivateFailed": "TTS 서비스를 비활성화할 수 없습니다.",
+      "deactivated": "TTS 서비스가 비활성화되었습니다.",
+      "deactivatedTestMode": "TTS 서비스가 비활성화되었습니다(테스트 모드).",
+      "deactivating": "TTS 서비스 비활성화 중…",
+      "inactive": "비활성",
+      "notAuthenticated": "인증되지 않음",
+      "notAuthorized": "승인되지 않은 채널입니다.",
+      "requestAccess": "여기에서 접근 권한 요청",
+      "statusError": "오류",
+      "statusFailed": "오류: {reason}",
+      "statusLoadFailed": "봇 상태를 불러올 수 없습니다: {reason}",
+      "unknownError": "알 수 없는 오류"
+    },
+    "calibration": {
+      "confirmReset": "{voice}의 보정을 초기화하시겠습니까?",
+      "edit": "편집",
+      "empty": "보정된 음성이 없습니다.",
+      "reset": "초기화",
+      "row": "{voice} ({volume})"
+    },
+    "cp": {
+      "confirmDelete": "Channel Points TTS 보상을 삭제하시겠습니까?",
+      "deleteFailed": "삭제에 실패했습니다.",
+      "deleted": "보상이 삭제되었습니다.",
+      "deletedTestMode": "보상이 삭제되었습니다(테스트 모드).",
+      "deleting": "삭제 중…",
+      "lastSynced": "{reward} · 마지막 동기화: {time}",
+      "never": "없음",
+      "noReward": "생성된 보상 없음",
+      "noRewardTestMode": "생성된 보상 없음(테스트 모드)",
+      "rewardId": "보상 ID: {id}",
+      "saveFailed": "Channel Points 설정을 저장할 수 없습니다.",
+      "saved": "Channel Points 설정이 저장되었습니다.",
+      "savedTestMode": "Channel Points 설정이 저장되었습니다(테스트 모드).",
+      "saving": "Channel Points 설정 저장 중…",
+      "testCompleted": "테스트 완료 ({status}).",
+      "testCompletedTestMode": "테스트 완료(테스트 모드).",
+      "testFailed": "테스트에 실패했습니다.",
+      "testPrompt": "보상 교환을 시뮬레이션할 테스트 메시지를 입력하세요:",
+      "testing": "보상 교환 테스트 중…"
+    },
+    "ignore": {
+      "addFailed": "무시 목록에 사용자를 추가할 수 없습니다.",
+      "addFailedReason": "사용자를 추가할 수 없음: {reason}",
+      "badgeModerator": "직접 음소거함",
+      "badgeSelf": "직접 제외함",
+      "empty": "무시된 사용자가 없습니다.",
+      "noSuchAccount": "해당 Twitch 계정이 없습니다",
+      "removeFailed": "무시 목록에서 사용자를 삭제할 수 없습니다.",
+      "removeFailedReason": "{label}을(를) 삭제할 수 없음: {reason}",
+      "removeLabel": "무시 목록에서 {label} 삭제 ({source, select, self {직접 제외함} other {내가 음소거함}})"
+    },
+    "lookup": {
+      "button": "음성 조회",
+      "calibrate": "\"{voice}\" 캘리브레이션",
+      "error": "오류: {reason}",
+      "failed": "해당 사용자를 찾을 수 없습니다.",
+      "hasVoice": "{user} 사용자의 맞춤 음성: {voice}",
+      "noVoice": "{user} 사용자가 설정한 맞춤 음성이 없습니다.",
+      "searching": "검색 중…",
+      "voiceUnknown": "사용 가능한 음성 목록에 없는 음성입니다."
+    },
+    "obs": {
+      "cannotCopy": "URL을 복사할 수 없습니다.",
+      "cannotDetermine": "TTS URL을 확인할 수 없습니다.",
+      "copied": "클립보드에 복사되었습니다.",
+      "copiedButton": "복사됨!",
+      "copyFailed": "복사에 실패했습니다.",
+      "generateFailed": "OBS URL을 생성할 수 없습니다. 다시 시도하세요.",
+      "generating": "생성 중…",
+      "generatingUrl": "보안 URL 생성 중…",
+      "loadingUrl": "기존 URL 불러오는 중…",
+      "pressRegenerate": "\"URL 재생성\"을 클릭하여 OBS Browser Source URL을 생성하세요.",
+      "refreshPage": "URL을 생성할 수 없습니다. 페이지를 새로고침하세요.",
+      "testModeUrl": "테스트 모드 URL",
+      "urlGenerated": "새 URL이 생성되었습니다.",
+      "urlGeneratedTestMode": "새 URL이 생성되었습니다(테스트 모드).",
+      "urlNotReady": "아직 URL을 사용할 수 없습니다.",
+      "yourUrl": "내 OBS Browser Source URL"
+    },
+    "preview": {
+      "playingTestMode": "미리듣기 재생 중… (테스트 모드)",
+      "tooLong": "텍스트는 500자 이하여야 합니다."
+    },
+    "pron": {
+      "acronymsDisabled": "약어 기능이 비활성화되었습니다",
+      "acronymsOffHint": "이 설정을 적용하려면 위의 \"채팅 약어 확장\"을 켜세요.",
+      "addFailed": "발음을 추가할 수 없습니다.",
+      "added": "발음 추가됨: {match} -> {say}.",
+      "addedTestMode": "[테스트] 발음 추가됨: {match} -> {say}.",
+      "builtinOff": " — 기본 제공 꺼짐",
+      "empty": "아직 추가된 사용자 지정 발음이 없습니다.",
+      "expansion": " → {say}",
+      "needBoth": "단어와 발음을 모두 입력하세요.",
+      "removeFailed": "발음을 삭제할 수 없습니다.",
+      "removed": "발음 삭제됨: {match}.",
+      "removedTestMode": "[테스트] 발음 삭제됨: {match}."
+    },
+    "setting": {
+      "allowViewerPreferences": "시청자 음성 설정 허용",
+      "announceQueuedRedeems": "대기 중인 리워드 수령 알림",
+      "anonymizeFollowers": "팔로워 익명화",
+      "bitsForTts": "TTS용 Bits",
+      "botRespondsInChat": "봇 채팅 응답 활성화",
+      "cheerAnnouncements": "응원 알림",
+      "defaultEmotion": "기본 감정",
+      "defaultLanguage": "기본 언어",
+      "defaultPitch": "기본 음높이",
+      "defaultSpeed": "기본 속도",
+      "defaultVoice": "기본 음성",
+      "emoteMode": "이모티콘 모드",
+      "englishNormalization": "영어 정규화",
+      "eventAnnouncements": "이벤트 알림",
+      "expandAcronyms": "채팅 약어 확장",
+      "minimumBits": "최소 Bits",
+      "profanityFilter": "비속어 필터",
+      "readFullUrls": "전체 URL 읽기",
+      "redemptionAnnouncements": "리워드 수령 알림",
+      "ttsEngine": "TTS 엔진",
+      "ttsMode": "TTS 모드",
+      "ttsPermission": "TTS 권한",
+      "voiceVolume": "음성 음량",
+      "watchStreakAnnouncements": "연속 시청 알림",
+      "youtubeHandle": "YouTube 핸들",
+      "youtubeTts": "YouTube TTS"
+    },
+    "settings": {
+      "loadFailed": "설정을 불러올 수 없습니다.",
+      "saveFailed": "{label}: {reason}",
+      "youtubeHandleRequired": "YouTube TTS를 켜기 전에 YouTube 핸들을 입력하세요."
+    }
+  },
+  "obsCloseBtn": {
+    "closeObsSetup": "OBS 설정 닫기"
+  },
+  "obsPopover": {
+    "addBrowserSource": "Browser Source 추가",
+    "cautionANewUrlStops": "주의: OBS에서 URL을 업데이트할 때까지 새 URL로 인해 현재 OBS 소스가 작동을 멈춥니다.",
+    "controlAudioViaObs": "OBS를 통해 오디오 제어",
+    "inObsAddANew": "OBS에서 새 <strong>Browser Source</strong>를 추가하세요. 소스 이름을 \"Wildcat TTS\"로 지정하고 복사한 URL을 붙여넣습니다. 너비와 높이는 기본값으로 두어도 됩니다.",
+    "inTheObsAudioMixer": "OBS 오디오 믹서에서 \"Wildcat TTS\"를 찾으세요. 톱니바퀴 아이콘을 클릭하고 <strong>고급 오디오 속성</strong>을 선택합니다. 오디오 모니터링을 <strong>모니터링 및 출력</strong>으로 설정하세요.",
+    "monitorAndOutput": "모니터링 및 출력",
+    "obsBrowserSource": "OBS Browser Source",
+    "selectControlAudioViaObs": "<strong>OBS를 통해 오디오 제어</strong>를 선택하세요. <strong>소스가 보이지 않는 경우 종료</strong>는 선택 해제되어 있는지 확인하세요.",
+    "setupInstructions": "설정 안내",
+    "yourBrowserSourceUrl": "내 Browser Source URL"
+  },
+  "obsToggleBtn": {
+    "obsSetup": "OBS 설정"
+  },
+  "page": {
+    "channelDashboard": "채널 대시보드",
+    "textToSpeechSettingsFor": "채널용 TTS 설정입니다. 변경 사항은 즉시 저장됩니다.",
+    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">대시보드</span>"
+  },
+  "profanityFilterEnabled": {
+    "profanityFilter": "비속어 필터"
+  },
+  "pronunciationEnabled": {
+    "expandChatAcronyms": "채팅 약어 확장"
+  },
+  "readFullUrls": {
+    "readFullUrls": "전체 URL 읽기"
+  },
+  "redemptionEventsEnabled": {
+    "announceRewardRedeems": "보상 사용 알림"
+  },
+  "regenerateTtsUrlBtn": {
+    "regenerateBrowserSourceUrl": "Browser Source URL 재생성",
+    "regenerateUrl": "URL 재생성"
+  },
+  "removeBotBtn": {
+    "deactivateTtsService": "TTS 서비스 비활성화"
+  },
+  "resetPitchBtn": {
+    "reset": "재설정",
+    "resetDefaultPitchTo0": "기본 음높이를 0으로 재설정"
+  },
+  "resetSpeedBtn": {
+    "reset": "초기화",
+    "resetDefaultSpeedTo1": "기본 속도를 1.0으로 초기화"
+  },
+  "resetVolumeBtn": {
+    "reset": "초기화",
+    "resetVoiceVolumeTo1": "음성 볼륨을 1.0으로 초기화"
+  },
+  "saveSettingsBtn": {
+    "saveAllSettings": "모든 설정 저장"
+  },
+  "serviceHeadline": {
+    "ttsService": "TTS 서비스"
+  },
+  "sidebarVoiceName": {
+    "friendlyPerson": "친근한 음성"
+  },
+  "tabBroadcaster": {
+    "allowTheBotToRespond": "!myvoice 등 채팅 명령어에 봇이 응답하도록 허용",
+    "allowViewersToUseChannel": "시청자의 TTS에 Channel Points 사용 허용",
+    "allowViewerVoicePreferences": "시청자 음성 설정 허용",
+    "announceCheers": "비트 후원 알림",
+    "announceEvents": "이벤트 알림",
+    "announceEventsSuchAsSubscriptions": "구독 및 레이드 등의 이벤트 알림",
+    "announceQueuedRedeemsImmediately": "대기 중인 보상 사용 즉시 알림",
+    "announceRewardRedeems": "보상 사용 알림",
+    "announceWatchStreaks": "연속 시청 알림",
+    "announceWhenAViewerCheers": "시청자가 비트를 후원했을 때 알림",
+    "announceWhenAViewerReaches": "시청자가 연속 시청 기록을 달성했을 때 알림",
+    "announceWhenAViewerRedeems": "시청자가 Channel Points 보상을 사용했을 때 알림",
+    "anonymizeNewFollowers": "새 팔로워 익명 처리",
+    "bannedWordsCommaSeparated": "금지어 (쉼표로 구분)",
+    "bannedWordsPhrases": "<strong>금지 단어 / 문구</strong>",
+    "bitsTts": "Bits → TTS",
+    "blockLinks": "링크 차단",
+    "botRespondsInChat": "봇의 채팅 응답",
+    "channelPointsTts": "Channel Points → TTS",
+    "chooseWhichMessagesTriggerTts": "TTS를 실행할 메시지 선택",
+    "configureBitsRequirementsForText": "TTS용 Bits 조건 설정",
+    "configureChannelPointsRewardsFor": "TTS용 Channel Points 보상 설정",
+    "configureTtsEngineSettingsAnd": "TTS 엔진 설정 및 권한 구성",
+    "controlHowTtsPronouncesSpecific": "TTS가 특정 단어를 발음하는 방식을 설정합니다. 자주 쓰는 Twitch 줄임말은 기본으로 지원됩니다. 기본 발음을 변경하거나 새 단어를 추가하려면 항목을 등록하세요.",
+    "controlsHowTtsHandlesEmotes": "TTS가 채팅 메시지의 이모티콘을 처리하는 방식을 설정합니다",
+    "cooldownsAndModeration": "쿨다운 및 관리",
+    "costPoints": "비용 (포인트)",
+    "emoteMode": "<strong>이모티콘 모드</strong>",
+    "enableChannelPointsTts": "Channel Points TTS 활성화",
+    "enableCooldownsLimits": "쿨다운 및 제한 활성화",
+    "engineMode": "엔진 및 모드",
+    "expandChatAcronyms": "채팅 줄임말 풀어서 읽기",
+    "globalCooldownSec": "전역 쿨다운 (초)",
+    "hideFollowerNamesInTts": "개인정보 보호를 위해 TTS 알림에서 팔로워 이름 숨기기",
+    "ifOnTtsReadsFull": "켜면 TTS가 전체 URL을 읽습니다. 끄면 도메인 이름만 읽습니다.",
+    "ifThisSettingIsOff": "이 설정을 끄면 TTS가 모든 메시지에 채널 기본 음성을 사용합니다.",
+    "ignoredUsers": "무시된 사용자",
+    "manageUsersThatTtsIgnores": "TTS가 무시할 사용자 관리",
+    "minimumBitsRequired": "<strong>최소 필요 Bits</strong>",
+    "minimumNumberOfBitsRequired": "TTS를 실행하는 데 필요한 최소 Bits 수",
+    "perStreamLimit": "방송당 제한",
+    "perUserPerStream": "사용자별 방송당 제한",
+    "profanityFilter": "비속어 필터",
+    "pronunciationDictionary": "<strong>발음 사전</strong>",
+    "readFullUrls": "전체 URL 읽기",
+    "readYoutubeLiveChatMessages": "TTS로 YouTube 실시간 채팅 메시지를 읽습니다. 이 기능을 사용하려면 YouTube 라이브 스트림이 활성화되어 있어야 합니다.",
+    "readYoutubeLiveChatMessages2": "YouTube 실시간 채팅 메시지 소리 내어 읽기",
+    "requireBitsForTts": "TTS에 Bits 필요",
+    "rewardTitle": "보상 제목",
+    "skipTheRewardQueue": "보상 대기열 건너뛰기",
+    "theTitleMustBeUnique": "채널 내에서 중복되지 않는 고유한 제목이어야 합니다.",
+    "ttsDoesNotReadMessages": "TTS는 이 목록에 있는 사용자의 메시지를 읽지 않습니다.",
+    "ttsEngineEnabled": "TTS 엔진 활성화됨",
+    "ttsExpandsCommonTwitchAcronyms": "TTS가 자주 쓰이는 Twitch 축약어를 단어로 풀어 읽습니다. 예를 들어 “ngl”은 “not gonna lie”로 읽힙니다. 각 글자대로 읽게 하려면 끄세요.",
+    "ttsIgnoreList": "<strong>TTS 무시 목록</strong>",
+    "ttsMode": "<strong>TTS 모드</strong>",
+    "ttsPermission": "<strong>TTS 권한</strong>",
+    "ttsReplacesProfanityWithMilder": "TTS가 음성을 출력하기 전에 비속어를 순화된 단어로 대체합니다. 필터는 채널 언어와 시청자 언어를 사용합니다. 언어가 '자동'으로 설정되어 있으면 영어 목록을 사용합니다. 금지 단어가 포함된 전체 메시지는 계속 건너뜁니다.",
+    "ttsSkipsMessagesThatContain": "TTS가 이 단어나 문구가 포함된 메시지를 건너뜁니다.",
+    "turnOnOrTurnOff": "TTS 엔진 켜기 또는 끄기",
+    "viewerPrompt": "시청자 입력 안내 문구",
+    "viewersMustCheerBitsTo": "시청자가 TTS를 사용하려면 Bits를 후원해야 합니다",
+    "whoCanUseTextTo": "TTS를 사용할 수 있는 대상",
+    "yourYoutubeChannelHandleFor": "YouTube 채널 핸들(예: <code>@yourhandle</code>)",
+    "youtubeHandle": "<strong>YouTube 핸들</strong>",
+    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>YouTube 연동",
+    "youtubeTtsEnabled": "YouTube TTS 활성화됨"
+  },
+  "tabBtnBroadcaster": {
+    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>스트리머"
+  },
+  "tabBtnViewerDefaults": {
+    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>기본 음성 설정"
+  },
+  "tabViewerDefaults": {
+    "adjustThePitchForThe": "기본 음성의 음높이 조정",
+    "adjustTheVolumeForThe": "선택한 음성의 음량을 조정합니다. 주의: 1.0보다 큰 값은 음왜곡을 일으킬 수 있습니다.",
+    "calibratedVoices": "<strong>보정된 음성</strong>",
+    "calibrateVolumeForSpecificVoices": "특정 음성의 음량을 보정합니다. 주의: 1.0보다 큰 값은 음왜곡을 일으킬 수 있습니다.",
+    "controlHowFastTheDefault": "기본 음성의 말하기 속도를 조절합니다",
+    "defaultEmotion": "<strong>기본 감정</strong>",
+    "defaultLanguage": "<strong>기본 언어</strong>",
+    "defaultPitch12To12": "기본 피치(-12 ~ +12):",
+    "defaultSpeed05To": "기본 속도(0.5 ~ 2.0):",
+    "defaultVoice": "<strong>기본 음성</strong>",
+    "defaultVoiceSettings": "기본 음성 설정",
+    "englishNormalization": "영어 정규화",
+    "improvePronunciationForSpecificLanguages": "특정 언어의 발음 개선",
+    "improveThePronunciationOfNumbers": "숫자 및 텍스트 발음 개선",
+    "selectTheDefaultTtsVoice": "채널의 기본 TTS 음성을 선택하세요",
+    "selectVoice": "음성 선택",
+    "setDefaultVoiceSettingsFor": "채널의 기본 음성 설정을 지정하세요",
+    "setTheEmotionalToneOf": "기본 음성의 감정 톤을 설정합니다",
+    "viewerVoiceLookup": "시청자 음성 조회",
+    "voiceCalibration": "음성 보정",
+    "voicesWithCustomVolumeSettings": "맞춤 음량 설정이 적용된 음성 목록입니다.",
+    "voiceVolume01To": "음성 볼륨(0.1 ~ 10):",
+    "volumeOverride": "볼륨 재지정:"
+  },
+  "ttsBannedWordInput": {
+    "wordOrPhraseToBan": "금지할 단어 또는 문구"
+  },
+  "ttsEnabled": {
+    "ttsEngineEnabled": "TTS 엔진 활성화됨"
+  },
+  "ttsIgnoreUsername": {
+    "usernameToIgnore": "무시할 사용자 이름"
+  },
+  "ttsMode": {
+    "allMessages": "모든 메시지",
+    "bitsPointsOnly": "Bits/포인트 전용",
+    "ttsCommandOnly": "!tts 명령어 전용"
+  },
+  "ttsPermission": {
+    "everyone": "모든 사용자",
+    "moderatorsOnly": "매니저 전용",
+    "subscribersOnly": "구독자 전용",
+    "vipsOnly": "VIP 전용"
+  },
+  "ttsPronunciationMatchInput": {
+    "wordForExampleWcat": "단어(예: wcat)",
+    "wordToReplace": "대체할 단어"
+  },
+  "ttsPronunciationSayInput": {
+    "howToSayItFor": "읽는 방법(예: wildcat)",
+    "pronunciation": "발음"
+  },
+  "ttsUrlField": {
+    "yourBrowserSourceUrl": "Browser Source URL"
+  },
+  "twitchUsername": {
+    "loading": "로딩 중…"
+  },
+  "voiceTestBtn": {
+    "sendPreview": "미리듣기 전송"
+  },
+  "watchStreakEventsEnabled": {
+    "announceWatchStreaks": "연속 시청 알림"
+  },
+  "youtubeEnabled": {
+    "youtubeTtsEnabled": "YouTube TTS 활성화됨"
+  },
+  "youtubeHandle": {
+    "yourhandle": "@yourhandle"
+  }
+}

@@ -1,0 +1,212 @@
+{
+  "addChannelContextCard": {
+    "loadAChannelToSee": "טען ערוץ כדי לראות את הגדרות ברירת המחדל שלו ולנהל ביטולי השתתפות. ההעדפות שלך נשארות גלובליות."
+  },
+  "channelContextCard": {
+    "changesHereUpdateYourGlobal": "שינויים כאן מעדכנים את ההעדפות הגלובליות <strong>שלך</strong>. הגדרות הסטרימר אינן משתנות.",
+    "channelContext": "הקשר ערוץ",
+    "clearButtonsSetYourGlobal": "<strong>כפתורי ניקוי:</strong> מגדירים את ההעדפה הגלובלית שלך בהתאם להגדרת ברירת המחדל של ערוץ זה."
+  },
+  "channelHint": {
+    "channelFound": "הערוץ נמצא"
+  },
+  "channelInputCancel": {
+    "cancel": "ביטול"
+  },
+  "channelInputConfirm": {
+    "load": "טעינה"
+  },
+  "channelInputDesc": {
+    "enterTheChannelNameTo": "הזן את שם הערוץ כדי להציג את הגדרות ברירת המחדל שלו ולנהל ביטולי השתתפות:"
+  },
+  "channelInputModal": {
+    "streamerUsername": "שם משתמש של הסטרימר"
+  },
+  "channelInputModalText": {
+    "streamerUsername": "שם משתמש של הסטרימר"
+  },
+  "channelInputTitle": {
+    "loadChannelContext": "טעינת הקשר ערוץ"
+  },
+  "clearChannelContextBtn": {
+    "clear": "ניקוי"
+  },
+  "confirmNo": {
+    "cancel": "ביטול"
+  },
+  "confirmText": {
+    "yourMessagesWillNotBe": "ההודעות שלך לא יוקראו בקול. תוכל להפעיל זאת מחדש בכל עת."
+  },
+  "confirmTitle": {
+    "confirmAction": "אישור פעולה"
+  },
+  "confirmYes": {
+    "confirm": "אישור"
+  },
+  "dangerTtsToggle": {
+    "optOutOfTtsIn": "ביטול TTS בערוץ זה",
+    "ttsWillNotReadYour": "ה-TTS לא יקריא את ההודעות שלך בערוץ זה"
+  },
+  "dangerZoneSection": {
+    "dangerZone": "אזור סכנה",
+    "theseSettingsStopTheBot": "הגדרות אלה מונעות מהבוט להקריא את ההודעות שלך בערוץ. תוכל לשנות בחזרה כל הגדרה שתבחר. אם מנהל ביטל את השתתפותך, רק מנהל יוכל לבטל זאת."
+  },
+  "emotionReset": {
+    "clear": "ניקוי",
+    "resetEmotionToDefault": "איפוס הרגש לברירת המחדל"
+  },
+  "emotionSelect": {
+    "angry": "כועס",
+    "disgusted": "נגעל",
+    "fearful": "מפחד",
+    "happy": "שמח",
+    "neutral": "ניטרלי",
+    "sad": "עצוב",
+    "surprised": "מופתע",
+    "useChannelDefault": "השתמש בברירת המחדל של הערוץ"
+  },
+  "englishNormalizationCheckbox": {
+    "englishNormalization": "נורמליזציה לאנגלית"
+  },
+  "englishNormalizationReset": {
+    "clear": "ניקוי",
+    "resetEnglishNormalizationToDefault": "איפוס נורמליזציה לאנגלית לברירת המחדל"
+  },
+  "ignoreTts": {
+    "optOutOfTtsIn": "ביטול TTS בערוץ זה"
+  },
+  "languageReset": {
+    "clear": "ניקוי",
+    "resetLanguageToDefault": "איפוס שפה לברירת המחדל"
+  },
+  "loadingBar": {
+    "loadingYourPreferences": "טוען את ההעדפות שלך"
+  },
+  "loadingOverlay": {
+    "loadingYourPreferences": "טוען את ההעדפות שלך…"
+  },
+  "loggedInStatus": {
+    "channelContext": "הקשר ערוץ",
+    "global": "גלובלי",
+    "loggedInAs": "מחובר בתור",
+    "scope": "היקף"
+  },
+  "meta": {
+    "wildcatttsViewerSettings": "הגדרות צופה ב-WildcatTTS",
+    "wildcatttsViewerSettingsSetYour": "הגדרות צופה ב-WildcatTTS - הגדר את הקול, גובה הצליל ומהירות ה-TTS האישיים שלך בערוצי Twitch שונים."
+  },
+  "msg": {
+    "auth": {
+      "exchangeFailed": "לא ניתן להשלים את ההתחברות. נסה שוב מהדף הראשי.",
+      "testUser": "משתמש בדיקה"
+    },
+    "channel": {
+      "cleared": "הקשר הערוץ נוקה.",
+      "clearedTestMode": "הקשר הערוץ נוקה (מצב בדיקה).",
+      "enterName": "הזן שם ערוץ.",
+      "found": "הערוץ נמצא",
+      "foundTestMode": "הערוץ נמצא (מצב בדיקה)",
+      "hint": "טען ערוץ כדי לצפות בהגדרות ברירת המחדל שלו.",
+      "loaded": "הקשר הערוץ נטען.",
+      "loadedTestMode": "הקשר הערוץ נטען (מצב בדיקה).",
+      "noneLoaded": "לא נטען",
+      "promptConfirm": "טען",
+      "promptDescription": "הזן את שם הערוץ כדי להציג את הגדרות ברירת המחדל שלו ולנהל החרגות:",
+      "promptTitle": "טעינת נתוני ערוץ",
+      "viewingDefaults": "אתה צופה בהגדרות ברירת המחדל עבור {channel}."
+    },
+    "optout": {
+      "confirm": "האם ברצונך לבטל את השימוש ב-TTS ב-#{channel}? ההודעות שלך לא יוקראו בקול. ניתן להפעיל זאת מחדש בכל עת.",
+      "confirmDescription": "הזן את שם הערוץ כדי להמשיך:",
+      "confirmTitle": "אישור ערוץ להחרגה מ-TTS",
+      "continue": "המשך",
+      "moderatorNote": "מנהל ערוץ ביטל עבורך את ה-TTS כאן. רק מנהל יכול לבטל זאת.",
+      "optInFailed": "לא ניתן להפעיל מחדש את ה-TTS.",
+      "optOutFailed": "לא ניתן לבטל את ההצטרפות ל-TTS.",
+      "optedIn": "הצטרפת מחדש ל-TTS.",
+      "optedInTestMode": "הצטרפת מחדש ל-TTS (מצב בדיקה).",
+      "optedOut": "ביטלת את ההצטרפות ל-TTS.",
+      "optedOutTestMode": "ביטלת את ההצטרפות ל-TTS (מצב בדיקה).",
+      "selectChannel": "יש לבחור ערוץ תחילה.",
+      "selfNote": "ביטלת כאן את ההצטרפות ל-TTS. באפשרותך להפעיל זאת מחדש בכל עת.",
+      "specifyChannel": "נא לציין ערוץ."
+    },
+    "prefs": {
+      "hintChannel": "שימוש בברירת המחדל של הערוץ: {value}",
+      "hintSystem": "שימוש בברירת המחדל של המערכת",
+      "hintUser": "שימוש בהעדפה הגלובלית שלך: {value}",
+      "loadFailed": "לא ניתן לטעון את ההעדפות.",
+      "noVoicesFound": "לא נמצאו קולות",
+      "saveFailed": "לא ניתן לשמור את {key}: {reason}",
+      "sendPreview": "שליחת תצוגה מקדימה",
+      "testCompletedTestMode": "הבדיקה הושלמה (מצב בדיקה).",
+      "updated": "ההעדפה עודכנה.",
+      "updatedTestMode": "ההעדפה עודכנה (מצב בדיקה)."
+    }
+  },
+  "openChannelContextModalBtn": {
+    "loadChannel": "טעינת ערוץ…"
+  },
+  "page": {
+    "setHowYourMessagesSound": "קבע כיצד ההודעות שלך יישמעו כאשר Wildcat TTS מקריא אותן. ההעדפות שלך הן גלובליות וחלות על כל הערוצים.",
+    "viewerTtsPreferences": "העדפות TTS לצופה",
+    "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">הגדרות צופה</span>"
+  },
+  "pitchReset": {
+    "clear": "איפוס",
+    "resetPitchToDefault": "איפוס גובה הקול לברירת המחדל"
+  },
+  "pitchSlider": {
+    "pitchAdjustment12To12": "כוונון גובה קול (-12 עד +12)"
+  },
+  "preferencesPanel": {
+    "adjustTheVoicePitchHigher": "כוונון גובה הקול לגבוה או לנמוך יותר",
+    "controlHowFastTheVoice": "שליטה במהירות הדיבור של הקול",
+    "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>תיעוד </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>הגדרות סטרימר </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "<strong>רגש</strong>",
+    "emotion2": "רגש",
+    "englishNormalization": "נרמול אנגלית",
+    "engNormalization": "נרמול אנגלית",
+    "ifTtsReadsNumbersIncorrectly": "אם TTS מקריא מספרים באופן שגוי, הפעל נרמול טקסט באנגלית. הגדרה זו מגדילה מעט את זמן ההשהיה.",
+    "improvePronunciationForSpecificLanguages": "שיפור ההגייה עבור שפות מסוימות",
+    "improveThePronunciationOfNumbers": "שיפור הגיית מספרים וטקסט",
+    "language": "שפה",
+    "languageBoost": "<strong>Language Boost</strong>",
+    "pitch": "גובה קול",
+    "pitch12To12": "גובה קול (-12 עד +12):",
+    "quickLinks": "קישורים מהירים",
+    "selectYourPreferredTtsVoice": "בחירת קול ה-TTS המועדף עליך",
+    "setHowYourMessagesSound": "הגדרת האופן שבו ההודעות שלך יישמעו כאשר TTS מקריא אותן",
+    "setTheEmotionalToneOf": "הגדרת הטון הרגשי של הקול",
+    "speed": "מהירות",
+    "speed05To2": "מהירות (0.5 עד 2.0):",
+    "testMessage": "הודעת בדיקה",
+    "voice": "<strong>קול</strong>",
+    "voicePreview": "תצוגה מקדימה של הקול",
+    "voiceSettings": "הגדרות קול"
+  },
+  "prefsDisabledNote": {
+    "theStreamerDisabledPersonalVoice": "הסטרימר השבית את הגדרות הקול האישיות בערוץ זה. הערוץ ישתמש בקול ברירת המחדל שלו במקום בהעדפות שלך."
+  },
+  "previewBtn": {
+    "sendPreview": "שלח תצוגה מקדימה"
+  },
+  "speedReset": {
+    "clear": "נקה",
+    "resetSpeedToDefault": "איפוס המהירות לברירת המחדל"
+  },
+  "speedSlider": {
+    "speedAdjustment05To": "כוונון מהירות (0.5 עד 2.0)"
+  },
+  "statChannelContext": {
+    "noneLoaded": "לא נטען דבר"
+  },
+  "voiceReset": {
+    "clear": "נקה",
+    "resetVoiceToDefault": "איפוס הקול לברירת המחדל"
+  },
+  "voiceSearch": {
+    "searchVoices": "חיפוש קולות",
+    "searchVoices2": "חיפוש קולות..."
+  }
+}

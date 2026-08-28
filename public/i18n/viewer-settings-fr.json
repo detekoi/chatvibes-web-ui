@@ -1,0 +1,212 @@
+{
+  "addChannelContextCard": {
+    "loadAChannelToSee": "Chargez une chaîne pour voir ses paramètres par défaut et gérer vos exclusions. Vos préférences restent globales."
+  },
+  "channelContextCard": {
+    "changesHereUpdateYourGlobal": "Les modifications ici mettent à jour <strong>vos</strong> préférences globales. Les paramètres du streamer ne changent pas.",
+    "channelContext": "Contexte de la chaîne",
+    "clearButtonsSetYourGlobal": "<strong>Boutons Effacer :</strong> définissent votre préférence globale sur le paramètre par défaut de cette chaîne."
+  },
+  "channelHint": {
+    "channelFound": "Chaîne trouvée"
+  },
+  "channelInputCancel": {
+    "cancel": "Annuler"
+  },
+  "channelInputConfirm": {
+    "load": "Charger"
+  },
+  "channelInputDesc": {
+    "enterTheChannelNameTo": "Entrez le nom de la chaîne pour voir ses paramètres par défaut et gérer vos exclusions :"
+  },
+  "channelInputModal": {
+    "streamerUsername": "Nom d'utilisateur du streamer"
+  },
+  "channelInputModalText": {
+    "streamerUsername": "Nom d'utilisateur du streamer"
+  },
+  "channelInputTitle": {
+    "loadChannelContext": "Charger le contexte de la chaîne"
+  },
+  "clearChannelContextBtn": {
+    "clear": "Effacer"
+  },
+  "confirmNo": {
+    "cancel": "Annuler"
+  },
+  "confirmText": {
+    "yourMessagesWillNotBe": "Vos messages ne seront pas lus à voix haute. Vous pouvez réactiver cette option à tout moment."
+  },
+  "confirmTitle": {
+    "confirmAction": "Confirmer l'action"
+  },
+  "confirmYes": {
+    "confirm": "Confirmer"
+  },
+  "dangerTtsToggle": {
+    "optOutOfTtsIn": "Désactiver le TTS pour vous sur cette chaîne",
+    "ttsWillNotReadYour": "Le TTS ne lira pas vos messages sur cette chaîne"
+  },
+  "dangerZoneSection": {
+    "dangerZone": "Zone de danger",
+    "theseSettingsStopTheBot": "Ces paramètres empêchent le bot de lire vos messages sur une chaîne. Vous pouvez annuler vos propres choix. Si un modérateur vous a exclu, seul un modérateur peut annuler cette action."
+  },
+  "emotionReset": {
+    "clear": "Effacer",
+    "resetEmotionToDefault": "Rétablir l'émotion par défaut"
+  },
+  "emotionSelect": {
+    "angry": "En colère",
+    "disgusted": "Dégoûté",
+    "fearful": "Effrayé",
+    "happy": "Joyeux",
+    "neutral": "Neutre",
+    "sad": "Triste",
+    "surprised": "Surpris",
+    "useChannelDefault": "Par défaut de la chaîne"
+  },
+  "englishNormalizationCheckbox": {
+    "englishNormalization": "Normalisation de l'anglais"
+  },
+  "englishNormalizationReset": {
+    "clear": "Effacer",
+    "resetEnglishNormalizationToDefault": "Rétablir la normalisation de l'anglais par défaut"
+  },
+  "ignoreTts": {
+    "optOutOfTtsIn": "Désactiver le TTS pour vous sur cette chaîne"
+  },
+  "languageReset": {
+    "clear": "Effacer",
+    "resetLanguageToDefault": "Rétablir la langue par défaut"
+  },
+  "loadingBar": {
+    "loadingYourPreferences": "Chargement de vos préférences"
+  },
+  "loadingOverlay": {
+    "loadingYourPreferences": "Chargement de vos préférences…"
+  },
+  "loggedInStatus": {
+    "channelContext": "Contexte de chaîne",
+    "global": "Global",
+    "loggedInAs": "Connecté en tant que",
+    "scope": "Portée"
+  },
+  "meta": {
+    "wildcatttsViewerSettings": "Paramètres spectateur WildcatTTS",
+    "wildcatttsViewerSettingsSetYour": "Paramètres spectateur WildcatTTS - Définissez votre voix, hauteur et vitesse de TTS sur les chaînes Twitch."
+  },
+  "msg": {
+    "auth": {
+      "exchangeFailed": "Impossible de terminer la connexion. Réessayez depuis la page principale.",
+      "testUser": "Utilisateur de test"
+    },
+    "channel": {
+      "cleared": "Contexte de chaîne effacé.",
+      "clearedTestMode": "Contexte de chaîne effacé (mode test).",
+      "enterName": "Entrez un nom de chaîne.",
+      "found": "Chaîne trouvée",
+      "foundTestMode": "Chaîne trouvée (mode test)",
+      "hint": "Chargez une chaîne pour afficher ses paramètres par défaut.",
+      "loaded": "Contexte de chaîne chargé.",
+      "loadedTestMode": "Contexte de chaîne chargé (mode test).",
+      "noneLoaded": "Aucune chargée",
+      "promptConfirm": "Charger",
+      "promptDescription": "Entrez le nom de la chaîne pour voir ses paramètres par défaut et gérer les exclusions :",
+      "promptTitle": "Charger le contexte de la chaîne",
+      "viewingDefaults": "Vous consultez les paramètres par défaut de {channel}."
+    },
+    "optout": {
+      "confirm": "Voulez-vous désactiver le TTS dans #{channel} ? Vos messages ne seront plus lus à voix haute. Vous pouvez réactiver cette option à tout moment.",
+      "confirmDescription": "Entrez le nom de la chaîne pour continuer :",
+      "confirmTitle": "Confirmer la chaîne pour l'exclusion du TTS",
+      "continue": "Continuer",
+      "moderatorNote": "Un modérateur de la chaîne a désactivé le TTS pour vous ici. Seul un modérateur peut annuler cette action.",
+      "optInFailed": "Impossible de réactiver le TTS.",
+      "optOutFailed": "Impossible de désactiver le TTS.",
+      "optedIn": "Vous avez réactivé le TTS.",
+      "optedInTestMode": "Vous avez réactivé le TTS (mode test).",
+      "optedOut": "Vous avez désactivé le TTS.",
+      "optedOutTestMode": "Vous avez désactivé le TTS (mode test).",
+      "selectChannel": "Sélectionnez d'abord une chaîne.",
+      "selfNote": "Vous avez désactivé le TTS ici. Vous pouvez le réactiver à tout moment.",
+      "specifyChannel": "Indiquez une chaîne."
+    },
+    "prefs": {
+      "hintChannel": "Utilise la valeur par défaut de la chaîne : {value}",
+      "hintSystem": "Utilise la valeur par défaut du système",
+      "hintUser": "Utilise votre préférence globale : {value}",
+      "loadFailed": "Impossible de charger les préférences.",
+      "noVoicesFound": "Aucune voix trouvée",
+      "saveFailed": "Impossible d'enregistrer {key} : {reason}",
+      "sendPreview": "Envoyer un aperçu",
+      "testCompletedTestMode": "Test terminé (mode test).",
+      "updated": "Préférence mise à jour.",
+      "updatedTestMode": "Préférence mise à jour (mode test)."
+    }
+  },
+  "openChannelContextModalBtn": {
+    "loadChannel": "Charger la chaîne…"
+  },
+  "page": {
+    "setHowYourMessagesSound": "Configurez la voix de vos messages lorsqu'ils sont lus par Wildcat TTS. Vos préférences sont globales et s'appliquent à toutes les chaînes.",
+    "viewerTtsPreferences": "Préférences TTS spectateur",
+    "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Paramètres spectateur</span>"
+  },
+  "pitchReset": {
+    "clear": "Réinitialiser",
+    "resetPitchToDefault": "Réinitialiser la hauteur par défaut"
+  },
+  "pitchSlider": {
+    "pitchAdjustment12To12": "Ajustement de la hauteur (-12 à +12)"
+  },
+  "preferencesPanel": {
+    "adjustTheVoicePitchHigher": "Ajustez la hauteur de la voix plus haut ou plus bas",
+    "controlHowFastTheVoice": "Contrôlez la vitesse de la voix",
+    "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Documentation </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Paramètres streamer </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "<strong>Émotion</strong>",
+    "emotion2": "Émotion",
+    "englishNormalization": "Normalisation de l'anglais",
+    "engNormalization": "Normalisation angl.",
+    "ifTtsReadsNumbersIncorrectly": "Si le TTS lit mal les nombres, activez la normalisation du texte anglais. Ce paramètre augmente légèrement la latence.",
+    "improvePronunciationForSpecificLanguages": "Améliorez la prononciation pour certaines langues",
+    "improveThePronunciationOfNumbers": "Améliorez la prononciation des nombres et du texte",
+    "language": "Langue",
+    "languageBoost": "<strong>Language Boost</strong>",
+    "pitch": "Hauteur",
+    "pitch12To12": "Hauteur (-12 à +12) :",
+    "quickLinks": "Liens rapides",
+    "selectYourPreferredTtsVoice": "Sélectionnez votre voix TTS préférée",
+    "setHowYourMessagesSound": "Définissez le son de vos messages lorsqu'ils sont lus par le TTS",
+    "setTheEmotionalToneOf": "Définissez le ton émotionnel de la voix",
+    "speed": "Vitesse",
+    "speed05To2": "Vitesse (0,5 à 2,0) :",
+    "testMessage": "Message de test",
+    "voice": "<strong>Voix</strong>",
+    "voicePreview": "Aperçu de la voix",
+    "voiceSettings": "Paramètres de voix"
+  },
+  "prefsDisabledNote": {
+    "theStreamerDisabledPersonalVoice": "Le streamer a désactivé les paramètres de voix personnalisés pour cette chaîne. Cette chaîne utilisera sa voix par défaut au lieu de vos préférences."
+  },
+  "previewBtn": {
+    "sendPreview": "Envoyer l'aperçu"
+  },
+  "speedReset": {
+    "clear": "Effacer",
+    "resetSpeedToDefault": "Réinitialiser la vitesse par défaut"
+  },
+  "speedSlider": {
+    "speedAdjustment05To": "Réglage de la vitesse (0,5 à 2,0)"
+  },
+  "statChannelContext": {
+    "noneLoaded": "Aucun chargé"
+  },
+  "voiceReset": {
+    "clear": "Effacer",
+    "resetVoiceToDefault": "Réinitialiser la voix par défaut"
+  },
+  "voiceSearch": {
+    "searchVoices": "Rechercher des voix",
+    "searchVoices2": "Rechercher des voix..."
+  }
+}

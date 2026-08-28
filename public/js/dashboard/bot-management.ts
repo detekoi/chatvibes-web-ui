@@ -1,5 +1,6 @@
 import { fetchWithAuth } from '../common/api.js';
 import { showToast } from '../common/ui.js';
+import { apiErrorMessage, t } from '../common/i18n.js';
 
 /**
  * Bot management module parameters
@@ -71,7 +72,7 @@ export function initBotManagement(
   function updateBotStatusUI(isActive: boolean): void {
     if (isActive) {
       if (botStatusEl) {
-        botStatusEl.textContent = 'Active';
+        botStatusEl.textContent = t('msg.bot.active');
         botStatusEl.className = 'fw-semibold text-success';
       }
       if (addBotBtn) addBotBtn.style.display = 'none';
@@ -80,7 +81,7 @@ export function initBotManagement(
       if (removeBotBtn) removeBotBtn.style.display = '';
     } else {
       if (botStatusEl) {
-        botStatusEl.textContent = 'Inactive';
+        botStatusEl.textContent = t('msg.bot.inactive');
         botStatusEl.className = 'fw-semibold text-secondary';
       }
       if (addBotBtn) addBotBtn.style.display = '';
@@ -95,7 +96,7 @@ export function initBotManagement(
     }
 
     if (!getSessionToken()) {
-      if (botStatusEl) botStatusEl.textContent = 'Not authenticated';
+      if (botStatusEl) botStatusEl.textContent = t('msg.bot.notAuthenticated');
       return;
     }
 
@@ -106,49 +107,50 @@ export function initBotManagement(
         const isActive = statusData.isActive;
         updateBotStatusUI(isActive);
       } else {
-        showToast(`Error: ${statusData.error || statusData.message || 'Unknown error'}`, 'error');
-        if (botStatusEl) botStatusEl.textContent = 'Error';
+        showToast(t('msg.bot.statusFailed', { reason: statusData.error || statusData.message || t('msg.bot.unknownError') }), 'error');
+        if (botStatusEl) botStatusEl.textContent = t('msg.bot.statusError');
       }
     } catch (error) {
       console.error('Error fetching bot status:', error);
       const err = error as Error;
-      showToast(`Cannot load bot status: ${err.message}`, 'error');
-      if (botStatusEl) botStatusEl.textContent = 'Error';
+      showToast(t('msg.bot.statusLoadFailed', { reason: err.message }), 'error');
+      if (botStatusEl) botStatusEl.textContent = t('msg.bot.statusError');
     }
   }
 
   if (addBotBtn) {
     addBotBtn.addEventListener('click', async () => {
       if (testMode) {
-        showToast('TTS service activated (test mode).', 'success');
+        showToast(t('msg.bot.activatedTestMode'), 'success');
         updateBotStatusUI(true);
         return;
       }
       if (!getSessionToken()) {
-        showToast('Authentication token is missing. Sign in again.', 'error');
+        showToast(t('msg.auth.tokenMissing'), 'error');
         return;
       }
-      showToast('Activating TTS service…', 'info');
+      showToast(t('msg.bot.activating'), 'info');
       try {
         const res = await fetchWithAuth(`${apiBaseUrl}/api/bot/add`, { method: 'POST' });
         const data = await res.json() as BotActionResponse;
         if (data.success) {
-          showToast(data.message || 'TTS service activated.', 'success');
+          showToast(data.message || t('msg.bot.activated'), 'success');
           updateBotStatusUI(true);
         } else if (res.status === 403 || data.code === 'channel_not_authorized') {
           // Keyed on the error code, not on finding a URL inside the prose. The
           // link is appended as a real element rather than spliced into the
           // string: the toast body is set with textContent, so the markup this
           // used to build was displayed to the user as literal angle brackets.
-          const errorText = data.details || data.error || data.message || 'Channel not authorized.';
+          const errorText = data.details || apiErrorMessage(data, 'msg.bot.notAuthorized');
           const contactUrl = data.params?.contactUrl;
-          showToast(errorText, 'error', contactUrl ? { href: contactUrl, text: 'Request access here' } : undefined);
+          showToast(errorText, 'error',
+            contactUrl ? { href: contactUrl, text: t('msg.bot.requestAccess') } : undefined);
         } else {
-          showToast(data.error || data.message || 'Cannot activate TTS service.', 'error');
+          showToast(apiErrorMessage(data, 'msg.bot.activateFailed'), 'error');
         }
       } catch (error) {
         console.error('Error activating TTS Service:', error);
-        showToast('Cannot activate TTS service.', 'error');
+        showToast(t('msg.bot.activateFailed'), 'error');
       }
     });
   }
@@ -156,23 +158,28 @@ export function initBotManagement(
   if (removeBotBtn) {
     removeBotBtn.addEventListener('click', async () => {
       if (testMode) {
-        showToast('TTS service deactivated (test mode).', 'success');
+        showToast(t('msg.bot.deactivatedTestMode'), 'success');
         updateBotStatusUI(false);
         return;
       }
       if (!getSessionToken()) {
-        showToast('Authentication token is missing. Sign in again.', 'error');
+        showToast(t('msg.auth.tokenMissing'), 'error');
         return;
       }
-      showToast('Deactivating TTS service…', 'info');
+      showToast(t('msg.bot.deactivating'), 'info');
       try {
         const res = await fetchWithAuth(`${apiBaseUrl}/api/bot/remove`, { method: 'POST' });
         const data = await res.json() as BotActionResponse;
-        showToast(data.error || data.message || (data.success ? 'TTS service deactivated.' : 'Cannot deactivate TTS service.'), data.success ? 'success' : 'error');
+        showToast(
+          data.success
+            ? (data.message || t('msg.bot.deactivated'))
+            : apiErrorMessage(data, 'msg.bot.deactivateFailed'),
+          data.success ? 'success' : 'error',
+        );
         if (data.success) updateBotStatusUI(false);
       } catch (error) {
         console.error('Error deactivating TTS Service:', error);
-        showToast('Cannot deactivate TTS service.', 'error');
+        showToast(t('msg.bot.deactivateFailed'), 'error');
       }
     });
   }

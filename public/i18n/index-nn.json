@@ -1,0 +1,50 @@
+{
+  "kofiClose": {
+    "closeSupportDialog": "Lukk støttedialogen"
+  },
+  "kofiModal": {
+    "openInNewTabOn": "<a href=\"https://ko-fi.com/parfaitfair\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"kofi-direct-link\">Opna i ny fane på Ko-fi.com</a>"
+  },
+  "kofiOpen": {
+    "supportMe": "Støtt meg"
+  },
+  "kofiTitle": {
+    "supportParfaitfair": "Støtt parfaitfair"
+  },
+  "mainContent": {
+    "access": "Tilgang",
+    "accessIsInviteOnlyUnapproved": "Tilgang er berre for inviterte. Ugodkjende kanalar får ei melding om nekta tilgang. <a class=\"wc-link wc-link--underline\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">Be om tilgang her</a>.",
+    "changeTtsSettingsControlBot": "Endre TTS-innstillingar • Styr botsvar i chatten • Konfigurer Channel Points • Vel stemmepreferansar",
+    "colorTheme": "Fargetema",
+    "iAmAViewer": "<span class=\"wc-rule-name\">Eg er sjåar</span>",
+    "iRunTheChannel": "<span class=\"wc-rule-name\">Eg driv kanalen</span>",
+    "setHowYourMessagesSound": "Vel korleis meldingane dine skal høyrast ut når TTS les dei i kanalar du vitjar.",
+    "textToSpeechForYour": "Tekst-til-tale for Twitch-kanalen din, for strøymarar og sjåarar.",
+    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">Berre for inviterte</span>",
+    "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">Administrasjon av tekst-til-tale-bot</span>"
+  },
+  "meta": {
+    "wildcatttsBotManagement": "WildcatTTS botadministrasjon",
+    "wildcatttsTextToSpeechBot": "WildcatTTS tekst-til-tale-botadministrasjon for Twitch-kanalar, strøymarar og sjåarar."
+  },
+  "msg": {
+    "kofi": {
+      "iframeTitle": "Støtt parfaitfair på Ko-fi"
+    }
+  },
+  "page": {
+    "support": "Støtte"
+  },
+  "streamerLoginBtn": {
+    "manageMyChannel": "<i data-lucide=\"mic\" aria-hidden=\"true\"></i>Administrer kanalen min"
+  },
+  "themeDarkBtn": {
+    "dark": "Mørk"
+  },
+  "themeLightBtn": {
+    "light": "Lys"
+  },
+  "viewerPrefsBtn": {
+    "setMyOwnVoice": "<i data-lucide=\"headphones\" aria-hidden=\"true\"></i>Vel mi eiga stemme"
+  }
+}

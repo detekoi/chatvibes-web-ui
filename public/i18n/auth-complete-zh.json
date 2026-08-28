@@ -1,0 +1,39 @@
+{
+  "authBar": {
+    "signInProgress": "登录进度"
+  },
+  "authMessage": {
+    "pleaseWait": "请稍候。"
+  },
+  "authSteps": {
+    "loadingDashboard": "正在加载仪表盘",
+    "sessionTokenStored": "已存储会话令牌",
+    "twitchAuthorized": "Twitch 已授权"
+  },
+  "authTitle": {
+    "signingYouIn": "正在为您登录"
+  },
+  "meta": {
+    "completingWildcatttsTwitchSignIn": "正在完成 WildcatTTS 的 Twitch 登录。",
+    "wildcatttsCompletingSignIn": "WildcatTTS - 正在完成登录"
+  },
+  "msg": {
+    "authComplete": {
+      "cannotComplete": "无法完成登录。",
+      "failedReadout": "失败",
+      "failedTitle": "登录失败",
+      "missingInfo": "缺少来自 Twitch 回调的身份验证信息。请重新登录。",
+      "noSession": "无会话",
+      "redirecting": "正在跳转至控制面板。",
+      "retrySignIn": "{reason}请重新登录。",
+      "sessionEstablished": "会话已建立",
+      "welcome": "欢迎，{user}"
+    }
+  },
+  "sessionState": {
+    "establishingSession": "正在建立会话"
+  },
+  "statusReadout": {
+    "working": "<span class=\"wc-dot\"></span>处理中"
+  }
+}

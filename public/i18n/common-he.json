@@ -1,0 +1,164 @@
+{
+  "darkModeToggle": {
+    "toggleDarkMode": "החלפת מצב כהה"
+  },
+  "err": {
+    "banned_add_failed": "לא ניתן להוסיף את המילה לרשימת החסומים.",
+    "banned_remove_failed": "לא ניתן להסיר את המילה מרשימת החסומים.",
+    "bot_add_failed": "לא ניתן להפעיל את הבוט בערוץ שלך. נסו שוב.",
+    "bot_remove_failed": "לא ניתן להשבית את הבוט בערוץ שלך. נסו שוב.",
+    "bot_status_failed": "לא ניתן לטעון את סטטוס הבוט.",
+    "channel_data_not_found": "לא נמצאו הגדרות עבור ערוץ זה.",
+    "channel_not_authorized": "הערוץ שלך אינו מורשה להשתמש בבוט זה. יש ליצור איתי קשר לקבלת גישה.",
+    "channel_not_found": "הערוץ לא נמצא.",
+    "channel_required": "נדרש ערוץ.",
+    "channel_tts_disabled": "הערוץ לא נמצא, או ש-TTS אינו מופעל בו.",
+    "entry_key_required": "חובה להזין מפתח ערך.",
+    "exchange_code_invalid": "קישור ההתחברות חסר או לא תקין.",
+    "exchange_code_used": "קישור ההתחברות כבר נוצל או שפג תוקפו. התחברו שוב.",
+    "exchange_failed": "לא ניתן להשלים את ההתחברות. נסו שוב.",
+    "ignore_add_failed": "לא ניתן להוסיף את המשתמש לרשימת ההתעלמות.",
+    "ignore_moderator_imposed": "מנהל ערוץ ביטל את הקראת ה-TTS שלך כאן, לכן רק מנהל יכול לבטל זאת.",
+    "ignore_remove_failed": "לא ניתן להסיר את המשתמש מרשימת ההתעלמות.",
+    "ignore_update_failed": "לא ניתן לשנות את הגדרת ביטול ההקראה שלך.",
+    "key_required": "חובה להזין שם הגדרה.",
+    "match_key_invalid": "המילה חייבת להכיל בין תו 1 ל-{max} תווים של אותיות, ספרות, גרשים או מקפים, ולא יכולה להכיל נקודה.",
+    "network_error": "לא ניתן לגשת לשרת. בדקו את החיבור לרשת.",
+    "obs_token_fetch_failed": "לא ניתן לטעון את אסימון ה-OBS.",
+    "obs_token_generate_failed": "לא ניתן ליצור אסימון OBS חדש.",
+    "obs_token_store_failed": "לא ניתן לשמור את אסימון ה-OBS. נסו שוב.",
+    "prefs_fetch_failed": "לא ניתן לטעון את ההעדפות שלך.",
+    "prefs_global_fetch_failed": "לא ניתן לטעון את ההעדפות הגלובליות שלך.",
+    "prefs_global_update_failed": "לא ניתן לשמור את ההעדפות הגלובליות שלך.",
+    "prefs_invalid_emote_mode": "הטיפול באימוטים חייב להיות קריאה, דילוג או תיאור.",
+    "prefs_invalid_emotion": "הרגש שנבחר אינו תקין.",
+    "prefs_invalid_language": "השפה שנבחרה אינה תקינה.",
+    "prefs_invalid_pitch": "גובה הקול אינו תקין.",
+    "prefs_invalid_speed": "המהירות אינה תקינה.",
+    "prefs_invalid_voice": "הקול שנבחר אינו תקין.",
+    "prefs_missing_data": "לא נשלחו שינויים.",
+    "prefs_update_failed": "לא ניתן לשמור את ההעדפות שלך.",
+    "pronunciation_limit_reached": "הגעת למגבלה של {max} הגיות מותאמות אישית. יש להסיר אחת תחילה.",
+    "pronunciation_remove_failed": "לא ניתן להסיר את ההגייה.",
+    "pronunciation_save_failed": "לא ניתן לשמור את ההגייה.",
+    "reward_banned_word": "ההודעה מכילה מילה אסורה: \"{word}\".",
+    "reward_create_failed": "לא ניתן ליצור את פרס ה-Channel Points.",
+    "reward_delete_failed": "לא ניתן למחוק את פרס ה-Channel Points.",
+    "reward_links_blocked": "קישורים אינם מורשים בפרס זה.",
+    "reward_load_failed": "לא ניתן לטעון את פרס ה-Channel Points.",
+    "reward_message_empty": "ההודעה ריקה.",
+    "reward_save_failed": "לא ניתן לשמור את פרס ה-Channel Points.",
+    "reward_test_failed": "לא ניתן לבדוק את פרס ה-Channel Points.",
+    "reward_twitch_error": "Twitch דחתה את השינוי בפרס.",
+    "reward_validation_failed": "הודעה זו אינה מורשית.",
+    "say_contains_link": "ההגייה אינה יכולה להכיל קישור.",
+    "say_empty": "ההגייה אינה יכולה להיות ריקה.",
+    "say_must_be_text": "ההגייה חייבת להיות טקסט.",
+    "say_too_long": "ההגייה חייבת להכיל {max} תווים לכל היותר.",
+    "server_misconfigured": "השרת אינו מוגדר כהלכה.",
+    "setting_invalid": "זהו אינו ערך תקין עבור {key}.",
+    "setting_update_failed": "לא ניתן לעדכן את הגדרת ה-TTS.",
+    "settings_fetch_failed": "לא ניתן לטעון את הגדרות ה-TTS.",
+    "shortlink_failed": "לא ניתן ליצור את הקישור המקוצר.",
+    "storage_unavailable": "האחסון אינו זמין.",
+    "tts_generation_failed": "יצירת הדיבור נכשלה: {reason}",
+    "tts_no_audio": "ספק הדיבור לא החזיר שמע.",
+    "tts_not_configured": "לא הוגדר ספק דיבור.",
+    "tts_provider_failed": "ספק הדיבור לא הצליח להפיק שמע.",
+    "tts_test_failed": "בדיקת הדיבור נכשלה.",
+    "tts_text_required": "יש להזין טקסט לבדיקה.",
+    "twitch_reauth_required": "ההתחברות שלך ל-Twitch פגה. יש לחבר מחדש את החשבון.",
+    "twitch_user_not_found": "לא קיים חשבון Twitch בשם \"{username}\".",
+    "url_required": "נדרש URL.",
+    "username_invalid": "שם משתמש זה אינו תקין.",
+    "username_required": "חובה להזין שם משתמש.",
+    "voice_access_denied": "הקול \"{voice}\" דורש גישה מיוחדת. יש לנסות קול אחר.",
+    "voice_invalid": "הקול \"{voice}\" אינו זמין. יש לבדוק את הקול ולנסות שוב.",
+    "voice_lookup_failed": "לא ניתן לאתר את הקול של משתמש זה.",
+    "word_invalid": "מילה או ביטוי אלה אינם תקינים.",
+    "word_required": "חובה להזין מילה או ביטוי."
+  },
+  "logoutLink": {
+    "logout": "התנתקות"
+  },
+  "mainContent": {
+    "documentationTtsWildcatChat": "<a class=\"wc-link\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\">תיעוד</a> <span>tts.wildcat.chat</span>"
+  },
+  "msg": {
+    "action": {
+      "close": "סגירה",
+      "remove": "הסרה",
+      "saved": "נשמר"
+    },
+    "api": {
+      "authFailed": "האימות נכשל. יש להתחבר מחדש.",
+      "notAuthenticated": "אינך מחובר.",
+      "requestFailed": "הבקשה נכשלה."
+    },
+    "auth": {
+      "genericUser": "משתמש",
+      "loading": "בטעינה…",
+      "needViewerSignIn": "יש לאמת את חשבון ה-Twitch שלך כדי לגשת להעדפות הצופה.",
+      "redirecting": "מעביר ל-Twitch לצורך אימות…",
+      "required": "נדרש אימות.",
+      "signInFailed": "לא ניתן להשלים את ההתחברות.",
+      "signInWithTwitch": "התחברות באמצעות Twitch",
+      "signedOut": "אינך מחובר.",
+      "tokenMissing": "אסימון האימות חסר. יש להתחבר מחדש."
+    },
+    "emotion": {
+      "angry": "כועס",
+      "auto": "אוטומטי",
+      "disgusted": "נגעל",
+      "fearful": "מפוחד",
+      "happy": "שמח",
+      "neutral": "ניטרלי",
+      "sad": "עצוב",
+      "surprised": "מופתע"
+    },
+    "ignore": {
+      "enterUsername": "יש להזין שם משתמש."
+    },
+    "lang": {
+      "automatic": "אוטומטי"
+    },
+    "prefs": {
+      "useChannelDefault": "שימוש בברירת המחדל של הערוץ"
+    },
+    "preview": {
+      "enterText": "יש להזין טקסט לבדיקה.",
+      "unavailable": "אין תצוגה מקדימה זמינה."
+    },
+    "value": {
+      "off": "כבוי",
+      "on": "פעיל"
+    },
+    "voice": {
+      "cannotPlay": "לא ניתן להשמיע דגימת שמע.",
+      "generating": "מייצר…",
+      "noAudio": "השרת לא החזיר שמע.",
+      "noneFound": "לא נמצאו קולות.",
+      "preview": "השמעת דוגמה של {voice}",
+      "regenerate": "צור מחדש",
+      "testFailed": "הבדיקה נכשלה: {reason}"
+    }
+  },
+  "page": {
+    "skipToMainContent": "דילוג לתוכן הראשי"
+  },
+  "sidebarEngNormVal": {
+    "off": "כבוי"
+  },
+  "sidebarLanguageVal": {
+    "automatic": "אוטומטי"
+  },
+  "ui": {
+    "language": "שפה"
+  },
+  "voicePreviewHint": {
+    "settingsChangedGenerateANew": "<i><i data-lucide=\"triangle-alert\" class=\"inline-icon\"></i> ההגדרות השתנו. צור תצוגה מקדימה חדשה.</i>"
+  },
+  "voicePreviewPlayer": {
+    "yourBrowserDoesNotSupport": "הדפדפן שלך אינו תומך ברכיב שמע."
+  }
+}

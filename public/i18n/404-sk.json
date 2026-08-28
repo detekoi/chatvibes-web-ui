@@ -1,0 +1,11 @@
+{
+  "mainContent": {
+    "pageNotFound": "Stránka sa nenašla",
+    "returnToLogin": "Späť na prihlásenie",
+    "thatUrlIsNotPart": "Táto URL nie je súčasťou tejto stránky. Uistite sa, že adresa je správna, alebo sa vráťte na prihlasovaciu stránku."
+  },
+  "meta": {
+    "pageNotFoundOnWildcattts": "Stránka sa na WildcatTTS nenašla.",
+    "pageNotFoundWildcattts": "Stránka sa nenašla — WildcatTTS"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "kofiClose": {
+    "closeSupportDialog": "후원 창 닫기"
+  },
+  "kofiModal": {
+    "openInNewTabOn": "<a href=\"https://ko-fi.com/parfaitfair\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"kofi-direct-link\">Ko-fi.com에서 새 탭으로 열기</a>"
+  },
+  "kofiOpen": {
+    "supportMe": "후원하기"
+  },
+  "kofiTitle": {
+    "supportParfaitfair": "parfaitfair 후원"
+  },
+  "mainContent": {
+    "access": "액세스",
+    "accessIsInviteOnlyUnapproved": "초대 전용으로 운영됩니다. 승인되지 않은 채널에는 액세스 거부 메시지가 표시됩니다. <a class=\"wc-link wc-link--underline\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">여기에서 액세스를 요청하세요</a>.",
+    "changeTtsSettingsControlBot": "TTS 설정 변경 • 봇 채팅 응답 제어 • Channel Points 구성 • 음성 환경설정 지정",
+    "colorTheme": "색상 테마",
+    "iAmAViewer": "<span class=\"wc-rule-name\">시청자입니다</span>",
+    "iRunTheChannel": "<span class=\"wc-rule-name\">채널 운영자입니다</span>",
+    "setHowYourMessagesSound": "방문하는 모든 채널에서 TTS가 내 메시지를 읽을 때 들리는 음성을 설정합니다.",
+    "textToSpeechForYour": "스트리머와 시청자를 위한 Twitch 채널용 TTS입니다.",
+    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">초대 전용</span>",
+    "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">TTS 봇 관리</span>"
+  },
+  "meta": {
+    "wildcatttsBotManagement": "WildcatTTS 봇 관리",
+    "wildcatttsTextToSpeechBot": "Twitch 채널, 스트리머 및 시청자를 위한 WildcatTTS 봇 관리."
+  },
+  "msg": {
+    "kofi": {
+      "iframeTitle": "Ko-fi에서 parfaitfair 후원하기"
+    }
+  },
+  "page": {
+    "support": "후원"
+  },
+  "streamerLoginBtn": {
+    "manageMyChannel": "<i data-lucide=\"mic\" aria-hidden=\"true\"></i>내 채널 관리"
+  },
+  "themeDarkBtn": {
+    "dark": "다크"
+  },
+  "themeLightBtn": {
+    "light": "라이트"
+  },
+  "viewerPrefsBtn": {
+    "setMyOwnVoice": "<i data-lucide=\"headphones\" aria-hidden=\"true\"></i>내 음성 설정"
+  }
+}

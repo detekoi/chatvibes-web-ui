@@ -1,0 +1,50 @@
+{
+  "kofiClose": {
+    "closeSupportDialog": "關閉贊助對話框"
+  },
+  "kofiModal": {
+    "openInNewTabOn": "<a href=\"https://ko-fi.com/parfaitfair\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"kofi-direct-link\">喺 Ko-fi.com 嘅新分頁開啟</a>"
+  },
+  "kofiOpen": {
+    "supportMe": "贊助我"
+  },
+  "kofiTitle": {
+    "supportParfaitfair": "贊助 parfaitfair"
+  },
+  "mainContent": {
+    "access": "使用權限",
+    "accessIsInviteOnlyUnapproved": "目前只限受邀使用。未獲批准嘅頻道會收到拒絕存取嘅訊息。<a class=\"wc-link wc-link--underline\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">喺呢度申請使用權限</a>。",
+    "changeTtsSettingsControlBot": "更改 TTS 設定 • 控制 Bot 聊天室回覆 • 設定 Channel Points • 自訂語音偏好",
+    "colorTheme": "顏色主題",
+    "iAmAViewer": "<span class=\"wc-rule-name\">我係觀眾</span>",
+    "iRunTheChannel": "<span class=\"wc-rule-name\">我係台主</span>",
+    "setHowYourMessagesSound": "設定你去親任何頻道，TTS 讀出你嘅訊息時嘅聲音。",
+    "textToSpeechForYour": "專為你嘅 Twitch 頻道而設嘅 TTS 語音功能，實況主同觀眾都適用。",
+    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">只限受邀</span>",
+    "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">TTS Bot 管理</span>"
+  },
+  "meta": {
+    "wildcatttsBotManagement": "WildcatTTS Bot 管理",
+    "wildcatttsTextToSpeechBot": "專為 Twitch 頻道、實況主同觀眾而設嘅 WildcatTTS 語音 Bot 管理。"
+  },
+  "msg": {
+    "kofi": {
+      "iframeTitle": "喺 Ko-fi 支持 parfaitfair"
+    }
+  },
+  "page": {
+    "support": "贊助"
+  },
+  "streamerLoginBtn": {
+    "manageMyChannel": "<i data-lucide=\"mic\" aria-hidden=\"true\"></i>管理我嘅頻道"
+  },
+  "themeDarkBtn": {
+    "dark": "深色"
+  },
+  "themeLightBtn": {
+    "light": "淺色"
+  },
+  "viewerPrefsBtn": {
+    "setMyOwnVoice": "<i data-lucide=\"headphones\" aria-hidden=\"true\"></i>設定我嘅語音"
+  }
+}

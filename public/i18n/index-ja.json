@@ -1,0 +1,50 @@
+{
+  "kofiClose": {
+    "closeSupportDialog": "サポートダイアログを閉じる"
+  },
+  "kofiModal": {
+    "openInNewTabOn": "<a href=\"https://ko-fi.com/parfaitfair\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"kofi-direct-link\">Ko-fi.comを新しいタブで開く</a>"
+  },
+  "kofiOpen": {
+    "supportMe": "サポートする"
+  },
+  "kofiTitle": {
+    "supportParfaitfair": "parfaitfairをサポート"
+  },
+  "mainContent": {
+    "access": "アクセス",
+    "accessIsInviteOnlyUnapproved": "招待制です。未承認のチャンネルにはアクセス拒否メッセージが表示されます。<a class=\"wc-link wc-link--underline\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">アクセスのリクエストはこちら</a>。",
+    "changeTtsSettingsControlBot": "TTS設定の変更 • ボットのチャット応答を管理 • Channel Pointsの設定 • 音声設定",
+    "colorTheme": "カラーテーマ",
+    "iAmAViewer": "<span class=\"wc-rule-name\">視聴者</span>",
+    "iRunTheChannel": "<span class=\"wc-rule-name\">チャンネル運営者</span>",
+    "setHowYourMessagesSound": "訪れたチャンネルでTTSがメッセージを読み上げる際の声を設定します。",
+    "textToSpeechForYour": "配信者と視聴者のための、Twitchチャンネル向けテキスト読み上げ（TTS）。",
+    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">招待制</span>",
+    "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">テキスト読み上げボット管理</span>"
+  },
+  "meta": {
+    "wildcatttsBotManagement": "WildcatTTS ボット管理",
+    "wildcatttsTextToSpeechBot": "Twitchチャンネル、配信者、視聴者のためのWildcatTTSテキスト読み上げボット管理。"
+  },
+  "msg": {
+    "kofi": {
+      "iframeTitle": "Ko-fiでparfaitfairをサポート"
+    }
+  },
+  "page": {
+    "support": "サポート"
+  },
+  "streamerLoginBtn": {
+    "manageMyChannel": "<i data-lucide=\"mic\" aria-hidden=\"true\"></i>自分のチャンネルを管理"
+  },
+  "themeDarkBtn": {
+    "dark": "ダーク"
+  },
+  "themeLightBtn": {
+    "light": "ライト"
+  },
+  "viewerPrefsBtn": {
+    "setMyOwnVoice": "<i data-lucide=\"headphones\" aria-hidden=\"true\"></i>自分の音声を設定"
+  }
+}

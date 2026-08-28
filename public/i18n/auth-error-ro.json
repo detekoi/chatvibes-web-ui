@@ -1,0 +1,41 @@
+{
+  "errorAction": {
+    "tryAgain": "Reîncearcă"
+  },
+  "errorCode": {
+    "unknown": "necunoscut"
+  },
+  "errorCodeBlock": {
+    "error": "Eroare"
+  },
+  "errorMessageDetails": {
+    "twitchAuthenticationFailed": "Autentificarea Twitch a eșuat."
+  },
+  "errorReadout": {
+    "authenticationFailed": "Autentificarea a eșuat"
+  },
+  "errorTitle": {
+    "authenticationFailed": "Autentificarea a eșuat"
+  },
+  "mainContent": {
+    "requestAccessTtsWildcatChat": "<a class=\"wc-link\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">Solicită acces</a> <span>tts.wildcat.chat</span>"
+  },
+  "meta": {
+    "wildcatttsAuthenticationError": "WildcatTTS - Eroare de autentificare",
+    "wildcatttsAuthenticationErrorAndSign": "Eroare de autentificare WildcatTTS și recuperarea conectării."
+  },
+  "msg": {
+    "authError": {
+      "backToSignIn": "Înapoi la autentificare",
+      "canceledBody": "Nu s-au efectuat modificări. Te poți autentifica când ești gata.",
+      "canceledReadout": "Anulat",
+      "canceledTitle": "WildcatTTS - Autentificare anulată",
+      "canceledTitleShort": "Autentificare anulată",
+      "notPermitted": "Acces nepermis",
+      "requestAccess": "Solicită acces",
+      "twitchError": "Twitch a returnat o eroare în timpul autentificării.",
+      "unspecified": "A apărut o eroare nespecificată.",
+      "unspecifiedCode": "nespecificat"
+    }
+  }
+}

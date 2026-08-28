@@ -1,0 +1,212 @@
+{
+  "addChannelContextCard": {
+    "loadAChannelToSee": "Laai 'n kanaal om sy verstekinstellings te sien en uitsluitings te bestuur. Jou voorkeure bly globaal."
+  },
+  "channelContextCard": {
+    "changesHereUpdateYourGlobal": "Wysigings hier werk <strong>jou</strong> globale voorkeure by. Stromer-instellings verander nie.",
+    "channelContext": "Kanaalkonteks",
+    "clearButtonsSetYourGlobal": "<strong>Vee uit-knoppies:</strong> Stel jou globale voorkeur om by die verstekinstelling van hierdie kanaal te pas."
+  },
+  "channelHint": {
+    "channelFound": "Kanaal gevind"
+  },
+  "channelInputCancel": {
+    "cancel": "Kanselleer"
+  },
+  "channelInputConfirm": {
+    "load": "Laai"
+  },
+  "channelInputDesc": {
+    "enterTheChannelNameTo": "Voer die kanaalnaam in om sy verstekinstellings te sien en uitsluitings te bestuur:"
+  },
+  "channelInputModal": {
+    "streamerUsername": "Stromer-gebruikersnaam"
+  },
+  "channelInputModalText": {
+    "streamerUsername": "Stromer-gebruikersnaam"
+  },
+  "channelInputTitle": {
+    "loadChannelContext": "Laai kanaalkonteks"
+  },
+  "clearChannelContextBtn": {
+    "clear": "Vee uit"
+  },
+  "confirmNo": {
+    "cancel": "Kanselleer"
+  },
+  "confirmText": {
+    "yourMessagesWillNotBe": "Jou boodskappe sal nie hardop gelees word nie. Jy kan dit enige tyd weer aanskakel."
+  },
+  "confirmTitle": {
+    "confirmAction": "Bevestig aksie"
+  },
+  "confirmYes": {
+    "confirm": "Bevestig"
+  },
+  "dangerTtsToggle": {
+    "optOutOfTtsIn": "Onttrek van TTS in hierdie kanaal",
+    "ttsWillNotReadYour": "TTS sal nie jou boodskappe in hierdie kanaal lees nie"
+  },
+  "dangerZoneSection": {
+    "dangerZone": "Gevaarsone",
+    "theseSettingsStopTheBot": "Hierdie instellings keer dat die bot jou boodskappe in 'n kanaal lees. Jy kan enige instelling wat jy kies, terugstel. As 'n moderator jou onttrek het, kan net 'n moderator dit ongedaan maak."
+  },
+  "emotionReset": {
+    "clear": "Vee uit",
+    "resetEmotionToDefault": "Stel emosie terug na verstek"
+  },
+  "emotionSelect": {
+    "angry": "Kwaad",
+    "disgusted": "Gevalg",
+    "fearful": "Bang",
+    "happy": "Gelukkig",
+    "neutral": "Neutraal",
+    "sad": "Hartseer",
+    "surprised": "Verras",
+    "useChannelDefault": "Gebruik kanaalverstek"
+  },
+  "englishNormalizationCheckbox": {
+    "englishNormalization": "Engelse normalisering"
+  },
+  "englishNormalizationReset": {
+    "clear": "Vee uit",
+    "resetEnglishNormalizationToDefault": "Stel Engelse normalisering terug na verstek"
+  },
+  "ignoreTts": {
+    "optOutOfTtsIn": "Onttrek van TTS in hierdie kanaal"
+  },
+  "languageReset": {
+    "clear": "Vee uit",
+    "resetLanguageToDefault": "Stel taal terug na verstek"
+  },
+  "loadingBar": {
+    "loadingYourPreferences": "Laai jou voorkeure"
+  },
+  "loadingOverlay": {
+    "loadingYourPreferences": "Laai jou voorkeure…"
+  },
+  "loggedInStatus": {
+    "channelContext": "Kanaalkonteks",
+    "global": "Globaal",
+    "loggedInAs": "Aangemeld as",
+    "scope": "Omvang"
+  },
+  "meta": {
+    "wildcatttsViewerSettings": "WildcatTTS Kykerinstellings",
+    "wildcatttsViewerSettingsSetYour": "WildcatTTS Kykerinstellings - Stel jou persoonlike teks-na-spraak-stem, toonhoogte en spoed oor Twitch-kanale in."
+  },
+  "msg": {
+    "auth": {
+      "exchangeFailed": "Kan nie aanmelding voltooi nie. Probeer weer vanaf die hoofbladsy.",
+      "testUser": "Toetsgebruiker"
+    },
+    "channel": {
+      "cleared": "Kanaalkonteks skoongemaak.",
+      "clearedTestMode": "Kanaalkonteks skoongemaak (toetsmodus).",
+      "enterName": "Voer 'n kanaalnaam in.",
+      "found": "Kanaal gevind",
+      "foundTestMode": "Kanaal gevind (toetsmodus)",
+      "hint": "Laai 'n kanaal om sy verstekinstellings te sien.",
+      "loaded": "Kanaalkonteks gelaai.",
+      "loadedTestMode": "Kanaalkonteks gelaai (toetsmodus).",
+      "noneLoaded": "Geen gelaai nie",
+      "promptConfirm": "Laai",
+      "promptDescription": "Voer die kanaalnaam in om die verstekinstellings te sien en opt-outs te bestuur:",
+      "promptTitle": "Laai kanaalkonteks",
+      "viewingDefaults": "Jy bekyk tans verstekinstellings vir {channel}."
+    },
+    "optout": {
+      "confirm": "Wil jy jou aan TTS in #{channel} onttrek? Jou boodskappe sal nie hardop gelees word nie. Jy kan dit enige tyd weer aanskakel.",
+      "confirmDescription": "Voer die kanaalnaam in om voort te gaan:",
+      "confirmTitle": "Bevestig kanaal vir TTS-opt-out",
+      "continue": "Gaan voort",
+      "moderatorNote": "'n Kanaalmoderator het jou hier van TTS onttrek. Slegs 'n moderator kan dit ongedaan maak.",
+      "optInFailed": "Kan nie weer by TTS aansluit nie.",
+      "optOutFailed": "Kan nie van TTS onttrek nie.",
+      "optedIn": "Jy het weer by TTS aangesluit.",
+      "optedInTestMode": "Jy het weer by TTS aangesluit (toetsmodus).",
+      "optedOut": "Jy het van TTS onttrek.",
+      "optedOutTestMode": "Jy het van TTS onttrek (toetsmodus).",
+      "selectChannel": "Kies eers 'n kanaal.",
+      "selfNote": "Jy het hier van TTS onttrek. Jy kan dit enige tyd weer aanskakel.",
+      "specifyChannel": "Spesifiseer 'n kanaal."
+    },
+    "prefs": {
+      "hintChannel": "Gebruik kanaalverstek: {value}",
+      "hintSystem": "Gebruik stelselverstek",
+      "hintUser": "Gebruik jou globale voorkeur: {value}",
+      "loadFailed": "Kan nie voorkeure laai nie.",
+      "noVoicesFound": "Geen stemme gevind nie",
+      "saveFailed": "Kan nie {key} stoor nie: {reason}",
+      "sendPreview": "Stuur voorskou",
+      "testCompletedTestMode": "Toets voltooi (toetsmodus).",
+      "updated": "Voorkeur opgedateer.",
+      "updatedTestMode": "Voorkeur opgedateer (toetsmodus)."
+    }
+  },
+  "openChannelContextModalBtn": {
+    "loadChannel": "Laai kanaal…"
+  },
+  "page": {
+    "setHowYourMessagesSound": "Stel hoe jou boodskappe klink wanneer Wildcat TTS dit lees. Jou voorkeure is globaal en geld vir alle kanale.",
+    "viewerTtsPreferences": "Kyker-TTS-voorkeure",
+    "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Kykerinstellings</span>"
+  },
+  "pitchReset": {
+    "clear": "Maak skoon",
+    "resetPitchToDefault": "Stel toonhoogte terug na verstek"
+  },
+  "pitchSlider": {
+    "pitchAdjustment12To12": "Toonhoogteverstelling (-12 tot +12)"
+  },
+  "preferencesPanel": {
+    "adjustTheVoicePitchHigher": "Verstel die stem se toonhoogte hoër of laer",
+    "controlHowFastTheVoice": "Beheer hoe vinnig die stem praat",
+    "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentasie </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Stroomerinstellings </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "<strong>Emosie</strong>",
+    "emotion2": "Emosie",
+    "englishNormalization": "Engelse normalisering",
+    "engNormalization": "Eng. normalisering",
+    "ifTtsReadsNumbersIncorrectly": "As TTS getalle verkeerd lees, skakel Engelse teksnormalisering aan. Hierdie instelling verhoog latensie effens.",
+    "improvePronunciationForSpecificLanguages": "Verbeter uitspraak vir spesifieke tale",
+    "improveThePronunciationOfNumbers": "Verbeter die uitspraak van getalle en teks",
+    "language": "Taal",
+    "languageBoost": "<strong>Taalversterking</strong>",
+    "pitch": "Toonhoogte",
+    "pitch12To12": "Toonhoogte (-12 tot +12):",
+    "quickLinks": "Vinnige skakels",
+    "selectYourPreferredTtsVoice": "Kies jou voorkeur-TTS-stem",
+    "setHowYourMessagesSound": "Stel hoe jou boodskappe klink wanneer TTS dit lees",
+    "setTheEmotionalToneOf": "Stel die emosionele toon van die stem",
+    "speed": "Spoed",
+    "speed05To2": "Spoed (0.5 tot 2.0):",
+    "testMessage": "Toetsboodskap",
+    "voice": "<strong>Stem</strong>",
+    "voicePreview": "Stemvoorskou",
+    "voiceSettings": "Steminstellings"
+  },
+  "prefsDisabledNote": {
+    "theStreamerDisabledPersonalVoice": "Die streamer het persoonlike steminstellings vir hierdie kanaal gedeaktiveer. Hierdie kanaal sal sy verstekstem in plaas van jou voorkeure gebruik."
+  },
+  "previewBtn": {
+    "sendPreview": "Stuur voorskou"
+  },
+  "speedReset": {
+    "clear": "Herstel",
+    "resetSpeedToDefault": "Herstel spoed na verstek"
+  },
+  "speedSlider": {
+    "speedAdjustment05To": "Spoedverstelling (0.5 tot 2.0)"
+  },
+  "statChannelContext": {
+    "noneLoaded": "Geen gelaai nie"
+  },
+  "voiceReset": {
+    "clear": "Herstel",
+    "resetVoiceToDefault": "Herstel stem na verstek"
+  },
+  "voiceSearch": {
+    "searchVoices": "Soek stemme",
+    "searchVoices2": "Soek stemme..."
+  }
+}

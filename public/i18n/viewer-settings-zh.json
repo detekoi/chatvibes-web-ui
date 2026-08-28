@@ -1,0 +1,212 @@
+{
+  "addChannelContextCard": {
+    "loadAChannelToSee": "加载频道以查看其默认设置并管理退出选项。你的偏好设置仍为全局通用。"
+  },
+  "channelContextCard": {
+    "changesHereUpdateYourGlobal": "此处的更改将更新<strong>你的</strong>全局偏好设置。主播设置不会改变。",
+    "channelContext": "频道上下文",
+    "clearButtonsSetYourGlobal": "<strong>清除按钮：</strong>将你的全局偏好设置为与该频道的默认设置一致。"
+  },
+  "channelHint": {
+    "channelFound": "已找到频道"
+  },
+  "channelInputCancel": {
+    "cancel": "取消"
+  },
+  "channelInputConfirm": {
+    "load": "加载"
+  },
+  "channelInputDesc": {
+    "enterTheChannelNameTo": "输入频道名称以查看其默认设置并管理退出选项："
+  },
+  "channelInputModal": {
+    "streamerUsername": "主播用户名"
+  },
+  "channelInputModalText": {
+    "streamerUsername": "主播用户名"
+  },
+  "channelInputTitle": {
+    "loadChannelContext": "加载频道上下文"
+  },
+  "clearChannelContextBtn": {
+    "clear": "清除"
+  },
+  "confirmNo": {
+    "cancel": "取消"
+  },
+  "confirmText": {
+    "yourMessagesWillNotBe": "系统将不会朗读你的消息。你可以随时重新开启。"
+  },
+  "confirmTitle": {
+    "confirmAction": "确认操作"
+  },
+  "confirmYes": {
+    "confirm": "确认"
+  },
+  "dangerTtsToggle": {
+    "optOutOfTtsIn": "在此频道停用 TTS",
+    "ttsWillNotReadYour": "TTS 不会在此频道朗读你的消息"
+  },
+  "dangerZoneSection": {
+    "dangerZone": "危险区域",
+    "theseSettingsStopTheBot": "这些设置会阻止机器人朗读你在频道中的消息。你可以随时恢复自己更改的设置。如果是由房管为你停用，则只有房管才能撤销。"
+  },
+  "emotionReset": {
+    "clear": "清除",
+    "resetEmotionToDefault": "重置情感为默认"
+  },
+  "emotionSelect": {
+    "angry": "愤怒",
+    "disgusted": "厌恶",
+    "fearful": "恐惧",
+    "happy": "开心",
+    "neutral": "中性",
+    "sad": "悲伤",
+    "surprised": "惊讶",
+    "useChannelDefault": "使用频道默认"
+  },
+  "englishNormalizationCheckbox": {
+    "englishNormalization": "英语规范化"
+  },
+  "englishNormalizationReset": {
+    "clear": "清除",
+    "resetEnglishNormalizationToDefault": "重置英语规范化为默认"
+  },
+  "ignoreTts": {
+    "optOutOfTtsIn": "在此频道停用 TTS"
+  },
+  "languageReset": {
+    "clear": "清除",
+    "resetLanguageToDefault": "重置语言为默认"
+  },
+  "loadingBar": {
+    "loadingYourPreferences": "正在加载你的偏好设置"
+  },
+  "loadingOverlay": {
+    "loadingYourPreferences": "正在加载你的偏好设置…"
+  },
+  "loggedInStatus": {
+    "channelContext": "频道上下文",
+    "global": "全局",
+    "loggedInAs": "登录身份：",
+    "scope": "范围"
+  },
+  "meta": {
+    "wildcatttsViewerSettings": "WildcatTTS 观众设置",
+    "wildcatttsViewerSettingsSetYour": "WildcatTTS 观众设置 - 在各个 Twitch 频道中设置你的个人 TTS 语音、音调和语速。"
+  },
+  "msg": {
+    "auth": {
+      "exchangeFailed": "无法完成登录。请从主页重试。",
+      "testUser": "测试用户"
+    },
+    "channel": {
+      "cleared": "频道上下文已清除。",
+      "clearedTestMode": "频道上下文已清除（测试模式）。",
+      "enterName": "输入频道名称。",
+      "found": "已找到频道",
+      "foundTestMode": "已找到频道（测试模式）",
+      "hint": "加载频道以查看其默认设置。",
+      "loaded": "频道上下文已加载。",
+      "loadedTestMode": "频道上下文已加载（测试模式）。",
+      "noneLoaded": "未加载",
+      "promptConfirm": "加载",
+      "promptDescription": "输入频道名称以查看其默认设置并管理停用选项：",
+      "promptTitle": "加载频道上下文",
+      "viewingDefaults": "你正在查看 {channel} 的默认设置。"
+    },
+    "optout": {
+      "confirm": "是否要在 #{channel} 中停用 TTS？你的消息将不会被朗读。你可以随时重新开启。",
+      "confirmDescription": "输入频道名称以继续：",
+      "confirmTitle": "确认停用 TTS 的频道",
+      "continue": "继续",
+      "moderatorNote": "频道管理员已在此处为你停用 TTS。只有管理员可以撤销此操作。",
+      "optInFailed": "无法重新启用 TTS。",
+      "optOutFailed": "无法退出 TTS。",
+      "optedIn": "你已重新加入 TTS。",
+      "optedInTestMode": "你已重新加入 TTS（测试模式）。",
+      "optedOut": "你已退出 TTS。",
+      "optedOutTestMode": "你已退出 TTS（测试模式）。",
+      "selectChannel": "请先选择频道。",
+      "selfNote": "你已在此停用 TTS。你可以随时重新开启。",
+      "specifyChannel": "指定频道。"
+    },
+    "prefs": {
+      "hintChannel": "正在使用频道默认值：{value}",
+      "hintSystem": "正在使用系统默认值",
+      "hintUser": "正在使用你的全局偏好设置：{value}",
+      "loadFailed": "无法加载偏好设置。",
+      "noVoicesFound": "未找到语音",
+      "saveFailed": "无法保存 {key}：{reason}",
+      "sendPreview": "发送预览",
+      "testCompletedTestMode": "测试完成（测试模式）。",
+      "updated": "偏好设置已更新。",
+      "updatedTestMode": "偏好设置已更新（测试模式）。"
+    }
+  },
+  "openChannelContextModalBtn": {
+    "loadChannel": "加载频道…"
+  },
+  "page": {
+    "setHowYourMessagesSound": "设置 Wildcat TTS 朗读你的消息时的声音效果。你的偏好设置为全局设置，适用于所有频道。",
+    "viewerTtsPreferences": "观众 TTS 偏好设置",
+    "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">观众设置</span>"
+  },
+  "pitchReset": {
+    "clear": "清除",
+    "resetPitchToDefault": "将音调重置为默认值"
+  },
+  "pitchSlider": {
+    "pitchAdjustment12To12": "音调调整（-12 到 +12）"
+  },
+  "preferencesPanel": {
+    "adjustTheVoicePitchHigher": "调高或调低语音音调",
+    "controlHowFastTheVoice": "控制语音语速",
+    "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>文档 </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>主播设置 </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "<strong>情绪</strong>",
+    "emotion2": "情绪",
+    "englishNormalization": "英文规范化",
+    "engNormalization": "英文规范化",
+    "ifTtsReadsNumbersIncorrectly": "如果 TTS 朗读数字有误，请开启英文文本规范化。此设置会略微增加延迟。",
+    "improvePronunciationForSpecificLanguages": "改善特定语言的发音",
+    "improveThePronunciationOfNumbers": "改善数字与文本的发音",
+    "language": "语言",
+    "languageBoost": "<strong>语言增强</strong>",
+    "pitch": "音调",
+    "pitch12To12": "音调 (-12 到 +12)：",
+    "quickLinks": "快捷链接",
+    "selectYourPreferredTtsVoice": "选择你偏好的 TTS 语音",
+    "setHowYourMessagesSound": "设置 TTS 朗读你的消息时的声音效果",
+    "setTheEmotionalToneOf": "设置语音的情绪基调",
+    "speed": "语速",
+    "speed05To2": "语速 (0.5 到 2.0)：",
+    "testMessage": "测试消息",
+    "voice": "<strong>语音</strong>",
+    "voicePreview": "声音预览",
+    "voiceSettings": "声音设置"
+  },
+  "prefsDisabledNote": {
+    "theStreamerDisabledPersonalVoice": "主播已禁用此频道的个人声音设置。该频道将使用默认声音，而非你的偏好设置。"
+  },
+  "previewBtn": {
+    "sendPreview": "发送试听"
+  },
+  "speedReset": {
+    "clear": "清除",
+    "resetSpeedToDefault": "将语速重置为默认值"
+  },
+  "speedSlider": {
+    "speedAdjustment05To": "语速调整（0.5 到 2.0）"
+  },
+  "statChannelContext": {
+    "noneLoaded": "未加载"
+  },
+  "voiceReset": {
+    "clear": "清除",
+    "resetVoiceToDefault": "将声音重置为默认值"
+  },
+  "voiceSearch": {
+    "searchVoices": "搜索声音",
+    "searchVoices2": "搜索声音..."
+  }
+}

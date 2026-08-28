@@ -1,0 +1,41 @@
+{
+  "errorAction": {
+    "tryAgain": "Δοκιμάστε ξανά"
+  },
+  "errorCode": {
+    "unknown": "άγνωστο"
+  },
+  "errorCodeBlock": {
+    "error": "Σφάλμα"
+  },
+  "errorMessageDetails": {
+    "twitchAuthenticationFailed": "Η ταυτοποίηση Twitch απέτυχε."
+  },
+  "errorReadout": {
+    "authenticationFailed": "Αποτυχία ταυτοποίησης"
+  },
+  "errorTitle": {
+    "authenticationFailed": "Αποτυχία ταυτοποίησης"
+  },
+  "mainContent": {
+    "requestAccessTtsWildcatChat": "<a class=\"wc-link\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">Αίτημα πρόσβασης</a> <span>tts.wildcat.chat</span>"
+  },
+  "meta": {
+    "wildcatttsAuthenticationError": "WildcatTTS - Σφάλμα ταυτοποίησης",
+    "wildcatttsAuthenticationErrorAndSign": "Σφάλμα ταυτοποίησης WildcatTTS και ανάκτηση σύνδεσης."
+  },
+  "msg": {
+    "authError": {
+      "backToSignIn": "Επιστροφή στη σύνδεση",
+      "canceledBody": "Δεν έγιναν αλλαγές. Μπορείς να συνδεθείς όταν είσαι έτοιμος.",
+      "canceledReadout": "Ακυρώθηκε",
+      "canceledTitle": "WildcatTTS - Η σύνδεση ακυρώθηκε",
+      "canceledTitleShort": "Η σύνδεση ακυρώθηκε",
+      "notPermitted": "Δεν επιτρέπεται η πρόσβαση",
+      "requestAccess": "Αίτημα πρόσβασης",
+      "twitchError": "Το Twitch επέστρεψε σφάλμα κατά τον έλεγχο ταυτότητας.",
+      "unspecified": "Παρουσιάστηκε απροσδιόριστο σφάλμα.",
+      "unspecifiedCode": "απροσδιόριστο"
+    }
+  }
+}

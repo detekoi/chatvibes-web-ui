@@ -1,0 +1,212 @@
+{
+  "addChannelContextCard": {
+    "loadAChannelToSee": "Indlæs en kanal for at se dens standardindstillinger og administrere fravalg. Dine præferencer forbliver globale."
+  },
+  "channelContextCard": {
+    "changesHereUpdateYourGlobal": "Ændringer her opdaterer <strong>dine</strong> globale præferencer. Streamerens indstillinger ændres ikke.",
+    "channelContext": "Kanalkontekst",
+    "clearButtonsSetYourGlobal": "<strong>Nulstil-knapper:</strong> Sætter din globale præference til at matche denne kanals standardindstilling."
+  },
+  "channelHint": {
+    "channelFound": "Kanal fundet"
+  },
+  "channelInputCancel": {
+    "cancel": "Annuller"
+  },
+  "channelInputConfirm": {
+    "load": "Indlæs"
+  },
+  "channelInputDesc": {
+    "enterTheChannelNameTo": "Indtast kanalnavnet for at se dens standardindstillinger og administrere fravalg:"
+  },
+  "channelInputModal": {
+    "streamerUsername": "Streamerens brugernavn"
+  },
+  "channelInputModalText": {
+    "streamerUsername": "Streamerens brugernavn"
+  },
+  "channelInputTitle": {
+    "loadChannelContext": "Indlæs kanalkontekst"
+  },
+  "clearChannelContextBtn": {
+    "clear": "Ryd"
+  },
+  "confirmNo": {
+    "cancel": "Annuller"
+  },
+  "confirmText": {
+    "yourMessagesWillNotBe": "Dine beskeder vil ikke blive læst højt. Du kan altid slå dette til igen."
+  },
+  "confirmTitle": {
+    "confirmAction": "Bekræft handling"
+  },
+  "confirmYes": {
+    "confirm": "Bekræft"
+  },
+  "dangerTtsToggle": {
+    "optOutOfTtsIn": "Fravælg TTS på denne kanal",
+    "ttsWillNotReadYour": "TTS vil ikke læse dine beskeder på denne kanal"
+  },
+  "dangerZoneSection": {
+    "dangerZone": "Farezone",
+    "theseSettingsStopTheBot": "Disse indstillinger forhindrer botten i at læse dine beskeder på en kanal. Du kan ændre enhver indstilling, du selv vælger. Hvis en moderator har fravalgt dig, kan kun en moderator fortryde det."
+  },
+  "emotionReset": {
+    "clear": "Nulstil",
+    "resetEmotionToDefault": "Nulstil følelse til standard"
+  },
+  "emotionSelect": {
+    "angry": "Vred",
+    "disgusted": "Væmmet",
+    "fearful": "Bange",
+    "happy": "Glad",
+    "neutral": "Neutral",
+    "sad": "Trist",
+    "surprised": "Overrasket",
+    "useChannelDefault": "Brug kanalens standard"
+  },
+  "englishNormalizationCheckbox": {
+    "englishNormalization": "Engelsk normalisering"
+  },
+  "englishNormalizationReset": {
+    "clear": "Nulstil",
+    "resetEnglishNormalizationToDefault": "Nulstil engelsk normalisering til standard"
+  },
+  "ignoreTts": {
+    "optOutOfTtsIn": "Fravælg TTS på denne kanal"
+  },
+  "languageReset": {
+    "clear": "Nulstil",
+    "resetLanguageToDefault": "Nulstil sprog til standard"
+  },
+  "loadingBar": {
+    "loadingYourPreferences": "Indlæser dine præferencer"
+  },
+  "loadingOverlay": {
+    "loadingYourPreferences": "Indlæser dine præferencer…"
+  },
+  "loggedInStatus": {
+    "channelContext": "Kanalkontekst",
+    "global": "Global",
+    "loggedInAs": "Logget ind som",
+    "scope": "Omfang"
+  },
+  "meta": {
+    "wildcatttsViewerSettings": "WildcatTTS Seerindstillinger",
+    "wildcatttsViewerSettingsSetYour": "WildcatTTS Seerindstillinger - Vælg din personlige text-to-speech-stemme, tonehøjde og hastighed på tværs af Twitch-kanaler."
+  },
+  "msg": {
+    "auth": {
+      "exchangeFailed": "Kan ikke fuldføre login. Prøv igen fra forsiden.",
+      "testUser": "Testbruger"
+    },
+    "channel": {
+      "cleared": "Kanalkontekst ryddet.",
+      "clearedTestMode": "Kanalkontekst ryddet (testtilstand).",
+      "enterName": "Indtast et kanalnavn.",
+      "found": "Kanal fundet",
+      "foundTestMode": "Kanal fundet (testtilstand)",
+      "hint": "Indlæs en kanal for at se dens standardindstillinger.",
+      "loaded": "Kanalkontekst indlæst.",
+      "loadedTestMode": "Kanalkontekst indlæst (testtilstand).",
+      "noneLoaded": "Ingen indlæst",
+      "promptConfirm": "Indlæs",
+      "promptDescription": "Indtast kanalnavnet for at se standardindstillinger og administrere fravalg:",
+      "promptTitle": "Indlæs kanalkontekst",
+      "viewingDefaults": "Du ser standardindstillingerne for {channel}."
+    },
+    "optout": {
+      "confirm": "Vil du fravælge TTS i #{channel}? Dine beskeder bliver ikke læst højt. Du kan altid slå det til igen.",
+      "confirmDescription": "Indtast kanalnavnet for at fortsætte:",
+      "confirmTitle": "Bekræft kanal til TTS-fravalg",
+      "continue": "Fortsæt",
+      "moderatorNote": "En kanalmoderator har fravalgt TTS for dig her. Kun en moderator kan fortryde dette.",
+      "optInFailed": "Kan ikke tilvælge TTS igen.",
+      "optOutFailed": "Kan ikke fravælge TTS.",
+      "optedIn": "Du har tilvalgt TTS igen.",
+      "optedInTestMode": "Du har tilvalgt TTS igen (testtilstand).",
+      "optedOut": "Du har fravalgt TTS.",
+      "optedOutTestMode": "Du har fravalgt TTS (testtilstand).",
+      "selectChannel": "Vælg en kanal først.",
+      "selfNote": "Du har fravalgt TTS her. Du kan altid slå det til igen.",
+      "specifyChannel": "Angiv en kanal."
+    },
+    "prefs": {
+      "hintChannel": "Bruger kanalstandard: {value}",
+      "hintSystem": "Bruger systemstandard",
+      "hintUser": "Bruger din globale præference: {value}",
+      "loadFailed": "Kan ikke indlæse præferencer.",
+      "noVoicesFound": "Ingen stemmer fundet",
+      "saveFailed": "Kan ikke gemme {key}: {reason}",
+      "sendPreview": "Send forhåndsvisning",
+      "testCompletedTestMode": "Test fuldført (testtilstand).",
+      "updated": "Præference opdateret.",
+      "updatedTestMode": "Præference opdateret (testtilstand)."
+    }
+  },
+  "openChannelContextModalBtn": {
+    "loadChannel": "Indlæs kanal…"
+  },
+  "page": {
+    "setHowYourMessagesSound": "Indstil, hvordan dine beskeder lyder, når Wildcat TTS læser dem op. Dine præferencer er globale og gælder for alle kanaler.",
+    "viewerTtsPreferences": "TTS-præferencer for seere",
+    "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Seerindstillinger</span>"
+  },
+  "pitchReset": {
+    "clear": "Ryd",
+    "resetPitchToDefault": "Nulstil tonehøjde til standard"
+  },
+  "pitchSlider": {
+    "pitchAdjustment12To12": "Tonehøjdejustering (-12 til +12)"
+  },
+  "preferencesPanel": {
+    "adjustTheVoicePitchHigher": "Juster stemmens tonehøjde højere eller lavere",
+    "controlHowFastTheVoice": "Styr, hvor hurtigt stemmen taler",
+    "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentation </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Streamerindstillinger </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "<strong>Følelse</strong>",
+    "emotion2": "Følelse",
+    "englishNormalization": "Engelsk normalisering",
+    "engNormalization": "Eng. normalisering",
+    "ifTtsReadsNumbersIncorrectly": "Hvis TTS læser tal forkert, kan du slå engelsk tekstnormalisering til. Denne indstilling øger latenstiden en smule.",
+    "improvePronunciationForSpecificLanguages": "Forbedr udtale for specifikke sprog",
+    "improveThePronunciationOfNumbers": "Forbedr udtalen af tal og tekst",
+    "language": "Sprog",
+    "languageBoost": "<strong>Language Boost</strong>",
+    "pitch": "Tonehøjde",
+    "pitch12To12": "Tonehøjde (-12 til +12):",
+    "quickLinks": "Hurtige links",
+    "selectYourPreferredTtsVoice": "Vælg din foretrukne TTS-stemme",
+    "setHowYourMessagesSound": "Indstil, hvordan dine beskeder lyder, når TTS læser dem op",
+    "setTheEmotionalToneOf": "Indstil stemmens følelsesmæssige tone",
+    "speed": "Hastighed",
+    "speed05To2": "Hastighed (0,5 til 2,0):",
+    "testMessage": "Testbesked",
+    "voice": "<strong>Stemme</strong>",
+    "voicePreview": "Forhåndsvisning af stemme",
+    "voiceSettings": "Stemmeindstillinger"
+  },
+  "prefsDisabledNote": {
+    "theStreamerDisabledPersonalVoice": "Streameren har deaktiveret personlige stemmeindstillinger for denne kanal. Kanalen bruger sin standardstemme i stedet for dine præferencer."
+  },
+  "previewBtn": {
+    "sendPreview": "Send forhåndsvisning"
+  },
+  "speedReset": {
+    "clear": "Ryd",
+    "resetSpeedToDefault": "Nulstil hastighed til standard"
+  },
+  "speedSlider": {
+    "speedAdjustment05To": "Hastighedsjustering (0,5 til 2,0)"
+  },
+  "statChannelContext": {
+    "noneLoaded": "Ingen indlæst"
+  },
+  "voiceReset": {
+    "clear": "Ryd",
+    "resetVoiceToDefault": "Nulstil stemme til standard"
+  },
+  "voiceSearch": {
+    "searchVoices": "Søg efter stemmer",
+    "searchVoices2": "Søg efter stemmer..."
+  }
+}

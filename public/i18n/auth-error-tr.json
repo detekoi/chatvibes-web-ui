@@ -1,0 +1,41 @@
+{
+  "errorAction": {
+    "tryAgain": "Tekrar dene"
+  },
+  "errorCode": {
+    "unknown": "bilinmiyor"
+  },
+  "errorCodeBlock": {
+    "error": "Hata"
+  },
+  "errorMessageDetails": {
+    "twitchAuthenticationFailed": "Twitch kimlik doğrulaması başarısız oldu."
+  },
+  "errorReadout": {
+    "authenticationFailed": "Kimlik doğrulama başarısız oldu"
+  },
+  "errorTitle": {
+    "authenticationFailed": "Kimlik doğrulama başarısız oldu"
+  },
+  "mainContent": {
+    "requestAccessTtsWildcatChat": "<a class=\"wc-link\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">Erişim talep et</a> <span>tts.wildcat.chat</span>"
+  },
+  "meta": {
+    "wildcatttsAuthenticationError": "WildcatTTS - Kimlik Doğrulama Hatası",
+    "wildcatttsAuthenticationErrorAndSign": "WildcatTTS kimlik doğrulama hatası ve oturum açma kurtarma."
+  },
+  "msg": {
+    "authError": {
+      "backToSignIn": "Giriş yapmaya dön",
+      "canceledBody": "Hiçbir değişiklik yapılmadı. Hazır olduğunda giriş yapabilirsin.",
+      "canceledReadout": "İptal edildi",
+      "canceledTitle": "WildcatTTS - Giriş iptal edildi",
+      "canceledTitleShort": "Giriş iptal edildi",
+      "notPermitted": "Erişim izni yok",
+      "requestAccess": "Erişim talep et",
+      "twitchError": "Kimlik doğrulama sırasında Twitch bir hata döndürdü.",
+      "unspecified": "Belirtilmemiş bir hata oluştu.",
+      "unspecifiedCode": "belirtilmemiş"
+    }
+  }
+}

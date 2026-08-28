@@ -1,0 +1,501 @@
+{
+  "addBotBtn": {
+    "activateTtsService": "TTS सेवा सक्रिय करें"
+  },
+  "addTtsBannedWordBtn": {
+    "add": "जोड़ें"
+  },
+  "addTtsIgnoreBtn": {
+    "add": "जोड़ें"
+  },
+  "addTtsPronunciationBtn": {
+    "add": "जोड़ें"
+  },
+  "allowViewerPreferences": {
+    "allowViewerVoicePreferences": "दर्शकों की आवाज़ प्राथमिकताओं की अनुमति दें"
+  },
+  "announceUnfulfilledRedemptions": {
+    "announceQueuedRedeemsImmediately": "कतारबद्ध रिडीम की तुरंत घोषणा करें"
+  },
+  "announceUnfulfilledRedemptionsHelp": {
+    "aRewardThatDoesNot": "जो रिवॉर्ड अनुरोध कतार को स्किप नहीं करता, उसके रिडीम होते ही घोषणा हो जाती है, भले ही आप बाद में अनुरोध अस्वीकार कर दें। जब तक आप अनुरोध स्वीकार न कर लें तब तक घोषणा रोकने के लिए इसे बंद करें — जिन्हें आप कभी स्वीकार नहीं करते उनकी कभी घोषणा नहीं होगी।"
+  },
+  "anonymizeFollowers": {
+    "anonymizeNewFollowers": "नए फ़ॉलोअर्स को गुमनाम रखें"
+  },
+  "bitsEnabled": {
+    "requireBitsForTts": "TTS के लिए Bits आवश्यक करें"
+  },
+  "botRespondsInChat": {
+    "botRespondsInChat": "बॉट चैट में जवाब दे"
+  },
+  "botStatus": {
+    "loading": "लोड हो रहा है…"
+  },
+  "calibratedVoicesList": {
+    "noVoicesCalibratedYet": "अभी तक कोई आवाज़ कैलिब्रेट नहीं की गई है।"
+  },
+  "calibrationSaveBtn": {
+    "save": "सहेजें"
+  },
+  "calibrationVoiceSearch": {
+    "searchVoicesToCalibrate": "कैलिब्रेट करने के लिए आवाज़ें खोजें..."
+  },
+  "channelNameStatus": {
+    "yourChannel": "आपका चैनल"
+  },
+  "cheerEventsEnabled": {
+    "announceCheers": "Cheers की घोषणा करें"
+  },
+  "copyTtsUrlBtn": {
+    "copy": "कॉपी करें",
+    "copyBrowserSourceUrl": "Browser Source URL कॉपी करें"
+  },
+  "cpDelete": {
+    "disableDelete": "अक्षम करें और हटाएं"
+  },
+  "cpEnabled": {
+    "enableChannelPointsTts": "Channel Points TTS सक्षम करें"
+  },
+  "cpPerStream": {
+    "enterAmount": "राशि दर्ज करें"
+  },
+  "cpPerUser": {
+    "enterAmount": "राशि दर्ज करें"
+  },
+  "cpSave": {
+    "save": "सहेजें"
+  },
+  "cpTest": {
+    "testRedeem": "टेस्ट रिडीम"
+  },
+  "dashboardContent": {
+    "channel": "चैनल",
+    "channelService": "चैनल सेवा",
+    "dashboardConfigurationTabs": "डैशबोर्ड कॉन्फ़िगरेशन टैब",
+    "deactivationStopsTheBotFrom": "निष्क्रिय करने पर बॉट चैट संदेश पढ़ना बंद कर देता है। आपकी सेटिंग्स सहेजी रहेंगी। आप किसी भी समय सेवा को फिर से सक्रिय कर सकते हैं।",
+    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>दस्तावेज़ </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>दर्शक सेटिंग्स </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "भाव",
+    "engNormalization": "Eng. सामान्यीकरण",
+    "language": "भाषा",
+    "pitch": "पिच",
+    "quickLinks": "त्वरित लिंक",
+    "service": "सेवा",
+    "signedInAs": "के रूप में साइन इन हैं",
+    "speed": "गति",
+    "testMessage": "परीक्षण संदेश",
+    "voicePreview": "आवाज़ पूर्वावलोकन",
+    "volume": "वॉल्यूम"
+  },
+  "defaultEmotion": {
+    "angry": "क्रोधित",
+    "disgusted": "घृणा",
+    "fearful": "भयभीत",
+    "happy": "खुश",
+    "neutral": "तटस्थ",
+    "sad": "उदास",
+    "surprised": "हैरान"
+  },
+  "defaultPitch": {
+    "defaultPitch12To12": "डिफ़ॉल्ट पिच (-12 से +12)"
+  },
+  "defaultSpeed": {
+    "defaultSpeed05To": "डिफ़ॉल्ट गति (0.5 से 2.0)"
+  },
+  "defaultVoiceSearch": {
+    "searchDefaultVoices": "डिफ़ॉल्ट आवाज़ें खोजें",
+    "searchVoices": "आवाज़ें खोजें..."
+  },
+  "defaultVolume": {
+    "voiceVolume01To": "आवाज़ का वॉल्यूम (0.1 से 10)"
+  },
+  "emoteMode": {
+    "describeEmotes": "इमोट्स का वर्णन करें",
+    "readEmoteNames": "इमोट नाम पढ़ें",
+    "skipEmotes": "इमोट छोड़ें"
+  },
+  "englishNormalization": {
+    "englishNormalization": "अंग्रेज़ी सामान्यीकरण"
+  },
+  "eventsEnabled": {
+    "announceEvents": "इवेंट्स की घोषणा करें"
+  },
+  "loadingBar": {
+    "loadingDashboardSettings": "डैशबोर्ड सेटिंग्स लोड हो रही हैं"
+  },
+  "loadingOverlay": {
+    "loadingDashboardSettings": "डैशबोर्ड सेटिंग्स लोड हो रही हैं…"
+  },
+  "lookupUsername": {
+    "enterTwitchViewerUsername": "Twitch दर्शक का यूज़रनेम दर्ज करें"
+  },
+  "lookupVoiceBtn": {
+    "lookupVoice": "आवाज़ खोजें"
+  },
+  "meta": {
+    "wildcatttsDashboard": "WildcatTTS डैशबोर्ड",
+    "wildcatttsStreamerDashboardConfigureText": "WildcatTTS स्ट्रीमर डैशबोर्ड - टेक्स्ट-टू-स्पीच सेटिंग्स, अनुमतियाँ, बॉट प्रतिक्रियाएँ और Channel Points कॉन्फ़िगर करें।"
+  },
+  "msg": {
+    "auth": {
+      "demoStreamer": "डेमो स्ट्रीमर",
+      "needBroadcaster": "स्ट्रीमर सेटिंग्स ऐक्सेस करने के लिए अपने ब्रॉडकास्टर खाते से साइन इन करें।",
+      "needSignIn": "डैशबोर्ड ऐक्सेस करने के लिए अपने Twitch खाते से साइन इन करें।"
+    },
+    "bannedWords": {
+      "addFailed": "प्रतिबंधित शब्द नहीं जोड़ा जा सका।",
+      "added": "\"{word}\" को प्रतिबंधित शब्दों में जोड़ा गया।",
+      "addedTestMode": "[टेस्ट] प्रतिबंधित शब्द जोड़ा गया: {word}।",
+      "empty": "अभी तक कोई प्रतिबंधित शब्द नहीं जोड़ा गया है।",
+      "removeFailed": "प्रतिबंधित शब्द नहीं हटाया जा सका।",
+      "removed": "\"{word}\" को प्रतिबंधित शब्दों से हटाया गया।",
+      "removedTestMode": "[टेस्ट] प्रतिबंधित शब्द हटाया गया: {word}।"
+    },
+    "bot": {
+      "activateFailed": "TTS सेवा सक्रिय नहीं की जा सकी।",
+      "activated": "TTS सेवा सक्रिय हो गई।",
+      "activatedTestMode": "TTS सेवा सक्रिय हो गई (टेस्ट मोड)।",
+      "activating": "TTS सेवा सक्रिय की जा रही है…",
+      "active": "सक्रिय",
+      "deactivateFailed": "TTS सेवा निष्क्रिय नहीं की जा सकी।",
+      "deactivated": "TTS सेवा निष्क्रिय हो गई।",
+      "deactivatedTestMode": "TTS सेवा निष्क्रिय हो गई (टेस्ट मोड)।",
+      "deactivating": "TTS सेवा निष्क्रिय की जा रही है…",
+      "inactive": "निष्क्रिय",
+      "notAuthenticated": "प्रमाणीकृत नहीं है",
+      "notAuthorized": "चैनल अधिकृत नहीं है।",
+      "requestAccess": "यहाँ ऐक्सेस का अनुरोध करें",
+      "statusError": "त्रुटि",
+      "statusFailed": "त्रुटि: {reason}",
+      "statusLoadFailed": "बॉट स्टेटस लोड नहीं किया जा सका: {reason}",
+      "unknownError": "अज्ञात त्रुटि"
+    },
+    "calibration": {
+      "confirmReset": "{voice} के लिए कैलिब्रेशन रीसेट करें?",
+      "edit": "संपादित करें",
+      "empty": "अभी तक किसी आवाज़ का कैलिब्रेशन नहीं किया गया है।",
+      "reset": "रीसेट करें",
+      "row": "{voice} ({volume})"
+    },
+    "cp": {
+      "confirmDelete": "Channel Points TTS रिवॉर्ड हटाएं?",
+      "deleteFailed": "हटाना विफल रहा।",
+      "deleted": "रिवॉर्ड हटा दिया गया।",
+      "deletedTestMode": "रिवॉर्ड हटा दिया गया (टेस्ट मोड)।",
+      "deleting": "हटाया जा रहा है…",
+      "lastSynced": "{reward} · अंतिम सिंक: {time}",
+      "never": "कभी नहीं",
+      "noReward": "कोई रिवॉर्ड नहीं बनाया गया",
+      "noRewardTestMode": "कोई रिवॉर्ड नहीं बनाया गया (टेस्ट मोड)",
+      "rewardId": "रिवॉर्ड ID: {id}",
+      "saveFailed": "Channel Points सेटिंग्स सहेजी नहीं जा सकीं।",
+      "saved": "Channel Points सेटिंग्स सहेजी गईं।",
+      "savedTestMode": "Channel Points सेटिंग्स सहेजी गईं (टेस्ट मोड)।",
+      "saving": "Channel Points सेटिंग्स सहेजी जा रही हैं…",
+      "testCompleted": "टेस्ट पूरा हुआ ({status})।",
+      "testCompletedTestMode": "टेस्ट पूरा हुआ (टेस्ट मोड)।",
+      "testFailed": "टेस्ट विफल रहा।",
+      "testPrompt": "रिडेम्पशन सिम्युलेट करने के लिए एक टेस्ट संदेश दर्ज करें:",
+      "testing": "रिडेम्पशन का परीक्षण किया जा रहा है…"
+    },
+    "ignore": {
+      "addFailed": "उपयोगकर्ता को अनदेखा सूची में नहीं जोड़ा जा सका।",
+      "addFailedReason": "उपयोगकर्ता को जोड़ा नहीं जा सका: {reason}",
+      "badgeModerator": "आपके द्वारा म्यूट किया गया",
+      "badgeSelf": "ऑप्ट आउट किया",
+      "empty": "कोई अनदेखा उपयोगकर्ता नहीं है।",
+      "noSuchAccount": "ऐसा कोई Twitch खाता नहीं है",
+      "removeFailed": "उपयोगकर्ता को अनदेखा सूची से नहीं हटाया जा सका।",
+      "removeFailedReason": "{label} को हटाया नहीं जा सका: {reason}",
+      "removeLabel": "{label} को अनदेखा सूची से हटाएं ({source, select, self {खुद ऑप्ट आउट किया} other {आपके द्वारा म्यूट किया गया}})"
+    },
+    "lookup": {
+      "button": "Voice खोजें",
+      "calibrate": "\"{voice}\" कैलिब्रेट करें",
+      "error": "त्रुटि: {reason}",
+      "failed": "उस यूज़र को ढूँढ नहीं सकते।",
+      "hasVoice": "उपयोगकर्ता {user} ने कस्टम voice सेट की: {voice}",
+      "noVoice": "उपयोगकर्ता {user} की कोई कस्टम voice सेट नहीं है।",
+      "searching": "खोजा जा रहा है…",
+      "voiceUnknown": "यह voice उपलब्ध voices की सूची में नहीं है।"
+    },
+    "obs": {
+      "cannotCopy": "URL कॉपी नहीं किया जा सका।",
+      "cannotDetermine": "TTS URL का पता नहीं लगाया जा सका।",
+      "copied": "क्लिपबोर्ड पर कॉपी किया गया।",
+      "copiedButton": "कॉपी हो गया!",
+      "copyFailed": "कॉपी करना विफल रहा।",
+      "generateFailed": "OBS URL जनरेट नहीं किया जा सका। फिर से प्रयास करें।",
+      "generating": "जनरेट हो रहा है…",
+      "generatingUrl": "सुरक्षित URL जनरेट हो रहा है…",
+      "loadingUrl": "मौजूदा URL लोड हो रहा है…",
+      "pressRegenerate": "OBS Browser Source URL जनरेट करने के लिए \"URL फिर से जनरेट करें\" पर क्लिक करें।",
+      "refreshPage": "URL जनरेट नहीं हो सका। पेज रीफ़्रेश करें।",
+      "testModeUrl": "टेस्ट मोड URL",
+      "urlGenerated": "नया URL जनरेट किया गया।",
+      "urlGeneratedTestMode": "नया URL जनरेट किया गया (टेस्ट मोड)।",
+      "urlNotReady": "URL अभी उपलब्ध नहीं है।",
+      "yourUrl": "आपका OBS Browser Source URL"
+    },
+    "preview": {
+      "playingTestMode": "प्रीव्यू चल रहा है… (टेस्ट मोड)",
+      "tooLong": "टेक्स्ट 500 वर्ण या उससे कम का होना चाहिए।"
+    },
+    "pron": {
+      "acronymsDisabled": "Acronyms अक्षम हैं",
+      "acronymsOffHint": "इन सेटिंग्स को लागू करने के लिए ऊपर \"चैट संक्षिप्त रूप विस्तृत करें\" चालू करें।",
+      "addFailed": "उच्चारण नहीं जोड़ा जा सका।",
+      "added": "उच्चारण जोड़ा गया: {match} -> {say}।",
+      "addedTestMode": "[टेस्ट] उच्चारण जोड़ा गया: {match} -> {say}।",
+      "builtinOff": " — इन-बिल्ट बंद है",
+      "empty": "अभी तक कोई कस्टम उच्चारण नहीं जोड़ा गया।",
+      "expansion": " → {say}",
+      "needBoth": "शब्द और उच्चारण दोनों दर्ज करें।",
+      "removeFailed": "उच्चारण हटाया नहीं जा सका।",
+      "removed": "उच्चारण हटाया गया: {match}।",
+      "removedTestMode": "[टेस्ट] उच्चारण हटाया गया: {match}।"
+    },
+    "setting": {
+      "allowViewerPreferences": "दर्शकों की आवाज़ प्राथमिकताओं की अनुमति दें",
+      "announceQueuedRedeems": "कतार में मौजूद रिडीम की घोषणा करें",
+      "anonymizeFollowers": "फ़ॉलोअर्स को अनाम रखें",
+      "bitsForTts": "TTS के लिए Bits",
+      "botRespondsInChat": "बॉट चैट में जवाब दे",
+      "cheerAnnouncements": "Cheer घोषणाएँ",
+      "defaultEmotion": "डिफ़ॉल्ट भाव",
+      "defaultLanguage": "डिफ़ॉल्ट भाषा",
+      "defaultPitch": "डिफ़ॉल्ट पिच",
+      "defaultSpeed": "डिफ़ॉल्ट गति",
+      "defaultVoice": "डिफ़ॉल्ट आवाज़",
+      "emoteMode": "इमोट मोड",
+      "englishNormalization": "अंग्रेज़ी सामान्यीकरण",
+      "eventAnnouncements": "इवेंट घोषणाएँ",
+      "expandAcronyms": "चैट संक्षिप्त रूप विस्तृत करें",
+      "minimumBits": "न्यूनतम Bits",
+      "profanityFilter": "अपशब्द फ़िल्टर",
+      "readFullUrls": "पूरे URLs पढ़ें",
+      "redemptionAnnouncements": "रिडेम्पशन घोषणाएँ",
+      "ttsEngine": "TTS इंजन",
+      "ttsMode": "TTS मोड",
+      "ttsPermission": "TTS अनुमति",
+      "voiceVolume": "आवाज़ का वॉल्यूम",
+      "watchStreakAnnouncements": "वॉच स्ट्रीक घोषणाएँ",
+      "youtubeHandle": "YouTube हैंडल",
+      "youtubeTts": "YouTube TTS"
+    },
+    "settings": {
+      "loadFailed": "आपकी सेटिंग्स लोड नहीं की जा सकीं।",
+      "saveFailed": "{label}: {reason}",
+      "youtubeHandleRequired": "YouTube TTS चालू करने से पहले एक YouTube हैंडल दर्ज करें।"
+    }
+  },
+  "obsCloseBtn": {
+    "closeObsSetup": "OBS सेटअप बंद करें"
+  },
+  "obsPopover": {
+    "addBrowserSource": "Browser Source जोड़ें",
+    "cautionANewUrlStops": "सावधान: जब तक आप OBS में URL अपडेट नहीं करते, नया URL आपके मौजूदा OBS सोर्स को रोक देगा।",
+    "controlAudioViaObs": "OBS के ज़रिए ऑडियो नियंत्रित करें",
+    "inObsAddANew": "OBS में, नया <strong>Browser Source</strong> जोड़ें। सोर्स का नाम \"Wildcat TTS\" रखें और कॉपी किया गया URL पेस्ट करें। आप डिफ़ॉल्ट चौड़ाई और ऊंचाई रख सकते हैं।",
+    "inTheObsAudioMixer": "OBS ऑडियो मिक्सर में, \"Wildcat TTS\" ढूंढें। गियर आइकन पर क्लिक करें और <strong>Advanced Audio Properties</strong> चुनें। Audio Monitoring को <strong>Monitor and Output</strong> पर सेट करें।",
+    "monitorAndOutput": "मॉनिटर और आउटपुट",
+    "obsBrowserSource": "OBS Browser Source",
+    "selectControlAudioViaObs": "<strong>Control audio via OBS</strong> चुनें। पक्का करें कि <strong>Shutdown source when not visible</strong> नहीं चुना गया है।",
+    "setupInstructions": "सेटअप निर्देश",
+    "yourBrowserSourceUrl": "आपका Browser Source URL"
+  },
+  "obsToggleBtn": {
+    "obsSetup": "OBS सेटअप"
+  },
+  "page": {
+    "channelDashboard": "चैनल डैशबोर्ड",
+    "textToSpeechSettingsFor": "आपके चैनल के लिए टेक्स्ट-टू-स्पीच सेटिंग्स। बदलाव करने पर वे अपने आप सेव हो जाते हैं।",
+    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">डैशबोर्ड</span>"
+  },
+  "profanityFilterEnabled": {
+    "profanityFilter": "अपशब्द फ़िल्टर"
+  },
+  "pronunciationEnabled": {
+    "expandChatAcronyms": "चैट Acronyms का विस्तार करें"
+  },
+  "readFullUrls": {
+    "readFullUrls": "पूरे URL पढ़ें"
+  },
+  "redemptionEventsEnabled": {
+    "announceRewardRedeems": "इनाम रिडीम की घोषणा करें"
+  },
+  "regenerateTtsUrlBtn": {
+    "regenerateBrowserSourceUrl": "Browser Source URL फिर से जनरेट करें",
+    "regenerateUrl": "URL फिर से जनरेट करें"
+  },
+  "removeBotBtn": {
+    "deactivateTtsService": "TTS सेवा निष्क्रिय करें"
+  },
+  "resetPitchBtn": {
+    "reset": "रीसेट करें",
+    "resetDefaultPitchTo0": "डिफ़ॉल्ट पिच को 0 पर रीसेट करें"
+  },
+  "resetSpeedBtn": {
+    "reset": "रीसेट करें",
+    "resetDefaultSpeedTo1": "डिफ़ॉल्ट स्पीड को 1.0 पर रीसेट करें"
+  },
+  "resetVolumeBtn": {
+    "reset": "रीसेट करें",
+    "resetVoiceVolumeTo1": "आवाज़ का वॉल्यूम 1.0 पर रीसेट करें"
+  },
+  "saveSettingsBtn": {
+    "saveAllSettings": "सभी सेटिंग्स सहेजें"
+  },
+  "serviceHeadline": {
+    "ttsService": "TTS सेवा"
+  },
+  "sidebarVoiceName": {
+    "friendlyPerson": "Friendly Person"
+  },
+  "tabBroadcaster": {
+    "allowTheBotToRespond": "!myvoice जैसे चैट कमांड पर बॉट को जवाब देने की अनुमति दें",
+    "allowViewersToUseChannel": "दर्शकों को TTS के लिए Channel Points का उपयोग करने की अनुमति दें",
+    "allowViewerVoicePreferences": "दर्शकों की आवाज़ प्राथमिकताओं की अनुमति दें",
+    "announceCheers": "Cheers की घोषणा करें",
+    "announceEvents": "इवेंट्स की घोषणा करें",
+    "announceEventsSuchAsSubscriptions": "सब्सक्रिप्शन और रेड जैसे इवेंट्स की घोषणा करें",
+    "announceQueuedRedeemsImmediately": "कतार में मौजूद रिडीम की तुरंत घोषणा करें",
+    "announceRewardRedeems": "रिवॉर्ड रिडीम की घोषणा करें",
+    "announceWatchStreaks": "वॉच स्ट्रीक की घोषणा करें",
+    "announceWhenAViewerCheers": "जब कोई दर्शक bits चीयर करे तब घोषणा करें",
+    "announceWhenAViewerReaches": "जब कोई दर्शक वॉच स्ट्रीक माइलस्टोन पर पहुंचे तब घोषणा करें",
+    "announceWhenAViewerRedeems": "जब कोई दर्शक Channel Points रिवॉर्ड रिडीम करे तब घोषणा करें",
+    "anonymizeNewFollowers": "नए फ़ॉलोअर्स को अनाम रखें",
+    "bannedWordsCommaSeparated": "प्रतिबंधित शब्द (कॉमा से अलग किए गए)",
+    "bannedWordsPhrases": "<strong>प्रतिबंधित शब्द / वाक्यांश</strong>",
+    "bitsTts": "Bits → TTS",
+    "blockLinks": "लिंक ब्लॉक करें",
+    "botRespondsInChat": "बॉट चैट में जवाब दे",
+    "channelPointsTts": "Channel Points → TTS",
+    "chooseWhichMessagesTriggerTts": "चुनें कि कौन-से संदेश TTS ट्रिगर करेंगे",
+    "configureBitsRequirementsForText": "टेक्स्ट-टू-स्पीच के लिए bits आवश्यकताएं कॉन्फ़िगर करें",
+    "configureChannelPointsRewardsFor": "टेक्स्ट-टू-स्पीच के लिए Channel Points रिवॉर्ड कॉन्फ़िगर करें",
+    "configureTtsEngineSettingsAnd": "TTS इंजन सेटिंग्स और अनुमतियां कॉन्फ़िगर करें",
+    "controlHowTtsPronouncesSpecific": "नियंत्रित करें कि TTS विशिष्ट शब्दों का उच्चारण कैसे करे। Twitch के सामान्य संक्षिप्त रूपों को डिफ़ॉल्ट रूप से संभाला जाता है। डिफ़ॉल्ट उच्चारण बदलने या नया शब्द जोड़ने के लिए एक एंट्री जोड़ें।",
+    "controlsHowTtsHandlesEmotes": "नियंत्रित करता है कि TTS चैट संदेशों में इमोट्स को कैसे संभालता है",
+    "cooldownsAndModeration": "कूलडाउन और मॉडरेशन",
+    "costPoints": "लागत (पॉइंट्स)",
+    "emoteMode": "<strong>इमोट मोड</strong>",
+    "enableChannelPointsTts": "Channel Points TTS सक्षम करें",
+    "enableCooldownsLimits": "कूलडाउन और सीमाएं सक्षम करें",
+    "engineMode": "इंजन और मोड",
+    "expandChatAcronyms": "चैट के संक्षिप्त रूपों को पूरा पढ़ें",
+    "globalCooldownSec": "ग्लोबल कूलडाउन (सेकंड)",
+    "hideFollowerNamesInTts": "गोपनीयता के लिए TTS घोषणाओं में फ़ॉलोअर के नाम छिपाएं",
+    "ifOnTtsReadsFull": "चालू होने पर, TTS पूरे URL पढ़ेगा। बंद होने पर, TTS केवल डोमेन नाम पढ़ेगा",
+    "ifThisSettingIsOff": "यदि यह सेटिंग बंद है, तो TTS सभी संदेशों के लिए चैनल की डिफ़ॉल्ट वॉइस का उपयोग करेगा",
+    "ignoredUsers": "इग्नोर किए गए यूज़र",
+    "manageUsersThatTtsIgnores": "उन यूज़र्स को प्रबंधित करें जिन्हें TTS इग्नोर करता है",
+    "minimumBitsRequired": "<strong>न्यूनतम आवश्यक Bits</strong>",
+    "minimumNumberOfBitsRequired": "TTS ट्रिगर करने के लिए आवश्यक न्यूनतम bits की संख्या",
+    "perStreamLimit": "प्रति-स्ट्रीम सीमा",
+    "perUserPerStream": "प्रति-यूज़र प्रति-स्ट्रीम",
+    "profanityFilter": "अपशब्द फ़िल्टर",
+    "pronunciationDictionary": "<strong>उच्चारण डिक्शनरी</strong>",
+    "readFullUrls": "पूरे URL पढ़ें",
+    "readYoutubeLiveChatMessages": "TTS के ज़रिए YouTube लाइव चैट संदेश पढ़ें। इस सुविधा के लिए एक सक्रिय YouTube लाइवस्ट्रीम आवश्यक है।",
+    "readYoutubeLiveChatMessages2": "YouTube लाइव चैट संदेश बोलकर पढ़ें",
+    "requireBitsForTts": "TTS के लिए Bits आवश्यक करें",
+    "rewardTitle": "रिवॉर्ड शीर्षक",
+    "skipTheRewardQueue": "रिवॉर्ड कतार छोड़ें",
+    "theTitleMustBeUnique": "शीर्षक आपके चैनल में यूनीक होना चाहिए।",
+    "ttsDoesNotReadMessages": "TTS इस सूची के यूज़र्स के संदेश नहीं पढ़ता है।",
+    "ttsEngineEnabled": "TTS इंजन सक्षम",
+    "ttsExpandsCommonTwitchAcronyms": "TTS सामान्य Twitch संक्षेपों को पूरे शब्दों में बदलता है। उदाहरण के लिए, “ngl” बन जाता है “not gonna lie”। प्रत्येक अक्षर का उच्चारण करने के लिए इसे बंद करें।",
+    "ttsIgnoreList": "<strong>TTS इग्नोर सूची</strong>",
+    "ttsMode": "<strong>TTS मोड</strong>",
+    "ttsPermission": "<strong>TTS अनुमति</strong>",
+    "ttsReplacesProfanityWithMilder": "TTS बोलने से पहले अपशब्दों को सौम्य शब्दों से बदल देता है। यह फ़िल्टर चैनल की भाषा और दर्शक की भाषा का उपयोग करता है। यदि भाषा 'ऑटोमैटिक' पर सेट है, तो फ़िल्टर अंग्रेज़ी सूची का उपयोग करता है। प्रतिबंधित शब्दों वाले पूरे संदेश को छोड़ दिया जाएगा।",
+    "ttsSkipsMessagesThatContain": "TTS उन संदेशों को छोड़ देता है जिनमें ये शब्द या वाक्यांश होते हैं।",
+    "turnOnOrTurnOff": "टेक्स्ट-टू-स्पीच इंजन चालू या बंद करें",
+    "viewerPrompt": "दर्शक प्रॉम्प्ट",
+    "viewersMustCheerBitsTo": "टेक्स्ट-टू-स्पीच का उपयोग करने के लिए दर्शकों को bits चीयर करने होंगे",
+    "whoCanUseTextTo": "टेक्स्ट-टू-स्पीच का उपयोग कौन कर सकता है",
+    "yourYoutubeChannelHandleFor": "आपका YouTube चैनल हैंडल (उदाहरण के लिए, <code>@yourhandle</code>)",
+    "youtubeHandle": "<strong>YouTube हैंडल</strong>",
+    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>YouTube इंटीग्रेशन",
+    "youtubeTtsEnabled": "YouTube TTS सक्षम"
+  },
+  "tabBtnBroadcaster": {
+    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>ब्रॉडकास्टर"
+  },
+  "tabBtnViewerDefaults": {
+    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>डिफ़ॉल्ट वॉइस"
+  },
+  "tabViewerDefaults": {
+    "adjustThePitchForThe": "डिफ़ॉल्ट वॉइस के लिए पिच समायोजित करें",
+    "adjustTheVolumeForThe": "चुनी गई वॉइस के लिए वॉल्यूम समायोजित करें। सावधानी: 1.0 से अधिक मान डिस्टॉर्शन पैदा कर सकते हैं।",
+    "calibratedVoices": "<strong>कैलिब्रेट की गई आवाज़ें</strong>",
+    "calibrateVolumeForSpecificVoices": "विशिष्ट आवाज़ों के लिए वॉल्यूम कैलिब्रेट करें। सावधानी: 1.0 से अधिक मान डिस्टॉर्शन पैदा कर सकते हैं।",
+    "controlHowFastTheDefault": "डिफ़ॉल्ट आवाज़ की बोलने की गति नियंत्रित करें",
+    "defaultEmotion": "<strong>डिफ़ॉल्ट भावना</strong>",
+    "defaultLanguage": "<strong>डिफ़ॉल्ट भाषा</strong>",
+    "defaultPitch12To12": "डिफ़ॉल्ट पिच (-12 से +12):",
+    "defaultSpeed05To": "डिफ़ॉल्ट गति (0.5 से 2.0):",
+    "defaultVoice": "<strong>डिफ़ॉल्ट आवाज़</strong>",
+    "defaultVoiceSettings": "डिफ़ॉल्ट आवाज़ सेटिंग्स",
+    "englishNormalization": "अंग्रेज़ी नॉर्मलाइज़ेशन",
+    "improvePronunciationForSpecificLanguages": "विशिष्ट भाषाओं के लिए उच्चारण बेहतर बनाएं",
+    "improveThePronunciationOfNumbers": "संख्याओं और टेक्स्ट का उच्चारण बेहतर बनाएं",
+    "selectTheDefaultTtsVoice": "चैनल के लिए डिफ़ॉल्ट TTS आवाज़ चुनें",
+    "selectVoice": "आवाज़ चुनें",
+    "setDefaultVoiceSettingsFor": "अपने चैनल के लिए डिफ़ॉल्ट आवाज़ सेटिंग्स सेट करें",
+    "setTheEmotionalToneOf": "डिफ़ॉल्ट आवाज़ का भावनात्मक टोन सेट करें",
+    "viewerVoiceLookup": "दर्शक आवाज़ खोज",
+    "voiceCalibration": "आवाज़ कैलिब्रेशन",
+    "voicesWithCustomVolumeSettings": "कस्टम वॉल्यूम सेटिंग्स वाली आवाज़ें।",
+    "voiceVolume01To": "वॉइस वॉल्यूम (0.1 से 10):",
+    "volumeOverride": "वॉल्यूम ओवरराइड:"
+  },
+  "ttsBannedWordInput": {
+    "wordOrPhraseToBan": "प्रतिबंधित करने के लिए शब्द या वाक्यांश"
+  },
+  "ttsEnabled": {
+    "ttsEngineEnabled": "TTS इंजन सक्षम"
+  },
+  "ttsIgnoreUsername": {
+    "usernameToIgnore": "अनदेखा करने के लिए यूज़रनेम"
+  },
+  "ttsMode": {
+    "allMessages": "सभी संदेश",
+    "bitsPointsOnly": "केवल Bits/Points",
+    "ttsCommandOnly": "केवल !tts कमांड"
+  },
+  "ttsPermission": {
+    "everyone": "सभी",
+    "moderatorsOnly": "केवल मॉडरेटर",
+    "subscribersOnly": "केवल सब्सक्राइबर",
+    "vipsOnly": "केवल VIP"
+  },
+  "ttsPronunciationMatchInput": {
+    "wordForExampleWcat": "शब्द (उदाहरण के लिए, wcat)",
+    "wordToReplace": "बदलने के लिए शब्द"
+  },
+  "ttsPronunciationSayInput": {
+    "howToSayItFor": "इसे कैसे बोलें (उदाहरण के लिए, wildcat)",
+    "pronunciation": "उच्चारण"
+  },
+  "ttsUrlField": {
+    "yourBrowserSourceUrl": "आपका Browser Source URL"
+  },
+  "twitchUsername": {
+    "loading": "लोड हो रहा है…"
+  },
+  "voiceTestBtn": {
+    "sendPreview": "प्रीव्यू भेजें"
+  },
+  "watchStreakEventsEnabled": {
+    "announceWatchStreaks": "Watch Streaks की घोषणा करें"
+  },
+  "youtubeEnabled": {
+    "youtubeTtsEnabled": "YouTube TTS सक्षम"
+  },
+  "youtubeHandle": {
+    "yourhandle": "@yourhandle"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "authBar": {
+    "signInProgress": "Napredak prijave"
+  },
+  "authMessage": {
+    "pleaseWait": "Molimo pričekajte."
+  },
+  "authSteps": {
+    "loadingDashboard": "Učitavanje nadzorne ploče",
+    "sessionTokenStored": "Token sesije spremljen",
+    "twitchAuthorized": "Twitch autoriziran"
+  },
+  "authTitle": {
+    "signingYouIn": "Prijavljujemo vas"
+  },
+  "meta": {
+    "completingWildcatttsTwitchSignIn": "Dovršavanje WildcatTTS Twitch prijave.",
+    "wildcatttsCompletingSignIn": "WildcatTTS - Dovršavanje prijave"
+  },
+  "msg": {
+    "authComplete": {
+      "cannotComplete": "Nije moguće dovršiti prijavu.",
+      "failedReadout": "Neuspjelo",
+      "failedTitle": "Prijava nije uspjela",
+      "missingInfo": "Nedostaju podaci za provjeru autentičnosti iz Twitch povratnog poziva. Prijavi se ponovno.",
+      "noSession": "Nema sesije",
+      "redirecting": "Preusmjeravanje na tvoju nadzornu ploču.",
+      "retrySignIn": "{reason} Prijavi se ponovno.",
+      "sessionEstablished": "Sesija je uspostavljena",
+      "welcome": "Dobrodošli, {user}"
+    }
+  },
+  "sessionState": {
+    "establishingSession": "Uspostavljanje sesije"
+  },
+  "statusReadout": {
+    "working": "<span class=\"wc-dot\"></span>Obrada"
+  }
+}

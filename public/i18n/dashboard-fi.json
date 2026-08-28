@@ -1,0 +1,501 @@
+{
+  "addBotBtn": {
+    "activateTtsService": "Aktivoi TTS-palvelu"
+  },
+  "addTtsBannedWordBtn": {
+    "add": "Lisää"
+  },
+  "addTtsIgnoreBtn": {
+    "add": "Lisää"
+  },
+  "addTtsPronunciationBtn": {
+    "add": "Lisää"
+  },
+  "allowViewerPreferences": {
+    "allowViewerVoicePreferences": "Salli katsojien ääniasetukset"
+  },
+  "announceUnfulfilledRedemptions": {
+    "announceQueuedRedeemsImmediately": "Ilmoita jonossa olevat lunastukset heti"
+  },
+  "announceUnfulfilledRedemptionsHelp": {
+    "aRewardThatDoesNot": "Palkkio, joka ei ohita palkkiopyyntöjen jonoa, ilmoitetaan heti sen lunastamisen yhteydessä, vaikka hylkäisit pyynnön myöhemmin. Poista tämä käytöstä, jos haluat siirtää ilmoitusta siihen asti, kunnes hyväksyt pyynnön – hylättyjä palkkioita ei tällöin ilmoiteta koskaan."
+  },
+  "anonymizeFollowers": {
+    "anonymizeNewFollowers": "Anonymisoi uudet seuraajat"
+  },
+  "bitsEnabled": {
+    "requireBitsForTts": "Vaadi bitsejä TTS:ään"
+  },
+  "botRespondsInChat": {
+    "botRespondsInChat": "Botti vastaa chatissa"
+  },
+  "botStatus": {
+    "loading": "Ladataan…"
+  },
+  "calibratedVoicesList": {
+    "noVoicesCalibratedYet": "Ääniä ei ole vielä kalibroitu."
+  },
+  "calibrationSaveBtn": {
+    "save": "Tallenna"
+  },
+  "calibrationVoiceSearch": {
+    "searchVoicesToCalibrate": "Etsi kalibroitavia ääniä..."
+  },
+  "channelNameStatus": {
+    "yourChannel": "kanavasi"
+  },
+  "cheerEventsEnabled": {
+    "announceCheers": "Ilmoita cheerit"
+  },
+  "copyTtsUrlBtn": {
+    "copy": "Kopioi",
+    "copyBrowserSourceUrl": "Kopioi Browser Source -URL"
+  },
+  "cpDelete": {
+    "disableDelete": "Poista käytöstä ja poista"
+  },
+  "cpEnabled": {
+    "enableChannelPointsTts": "Ota Channel Points TTS käyttöön"
+  },
+  "cpPerStream": {
+    "enterAmount": "Syötä määrä"
+  },
+  "cpPerUser": {
+    "enterAmount": "Syötä määrä"
+  },
+  "cpSave": {
+    "save": "Tallenna"
+  },
+  "cpTest": {
+    "testRedeem": "Testaa lunastusta"
+  },
+  "dashboardContent": {
+    "channel": "Kanava",
+    "channelService": "Kanavapalvelu",
+    "dashboardConfigurationTabs": "Ohjauspaneelin asetusvälilehdet",
+    "deactivationStopsTheBotFrom": "Käytöstä poistaminen estää bottia lukemasta chat-viestejä. Asetuksesi säilyvät tallennettuina. Voit aktivoida palvelun uudelleen milloin tahansa.",
+    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentaatio </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>Katsojan asetukset </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "Tunne",
+    "engNormalization": "Engl. normalisointi",
+    "language": "Kieli",
+    "pitch": "Sävelkorkeus",
+    "quickLinks": "Pikalinkit",
+    "service": "Palvelu",
+    "signedInAs": "Kirjautuneena käyttäjänä",
+    "speed": "Nopeus",
+    "testMessage": "Testiviesti",
+    "voicePreview": "Äänen esikuuntelu",
+    "volume": "Äänenvoimakkuus"
+  },
+  "defaultEmotion": {
+    "angry": "Vihainen",
+    "disgusted": "Inhostunut",
+    "fearful": "Pelokas",
+    "happy": "Iloinen",
+    "neutral": "Neutraali",
+    "sad": "Surullinen",
+    "surprised": "Yllättynyt"
+  },
+  "defaultPitch": {
+    "defaultPitch12To12": "Oletussävelkorkeus (-12 – +12)"
+  },
+  "defaultSpeed": {
+    "defaultSpeed05To": "Oletusnopeus (0,5–2,0)"
+  },
+  "defaultVoiceSearch": {
+    "searchDefaultVoices": "Hae oletusääniä",
+    "searchVoices": "Hae ääniä..."
+  },
+  "defaultVolume": {
+    "voiceVolume01To": "Äänenvoimakkuus (0,1–10)"
+  },
+  "emoteMode": {
+    "describeEmotes": "Kuvaile hymiöt",
+    "readEmoteNames": "Lue hymiöiden nimet",
+    "skipEmotes": "Ohita hymiöt"
+  },
+  "englishNormalization": {
+    "englishNormalization": "Englannin normalisointi"
+  },
+  "eventsEnabled": {
+    "announceEvents": "Ilmoita tapahtumat"
+  },
+  "loadingBar": {
+    "loadingDashboardSettings": "Ladataan hallintapaneelin asetuksia"
+  },
+  "loadingOverlay": {
+    "loadingDashboardSettings": "Ladataan hallintapaneelin asetuksia…"
+  },
+  "lookupUsername": {
+    "enterTwitchViewerUsername": "Syötä Twitch-katsojan käyttäjänimi"
+  },
+  "lookupVoiceBtn": {
+    "lookupVoice": "Etsi ääni"
+  },
+  "meta": {
+    "wildcatttsDashboard": "WildcatTTS-hallintapaneeli",
+    "wildcatttsStreamerDashboardConfigureText": "WildcatTTS Streamer Dashboard - Määritä tekstistä puheeksi -asetukset, luvat, bottivastaukset ja Channel Points."
+  },
+  "msg": {
+    "auth": {
+      "demoStreamer": "Demostriimaaja",
+      "needBroadcaster": "Kirjaudu sisään striimaajatililläsi käyttääksesi striimaajan asetuksia.",
+      "needSignIn": "Kirjaudu sisään Twitch-tililläsi päästäksesi hallintapaneeliin."
+    },
+    "bannedWords": {
+      "addFailed": "Kiellettyä sanaa ei voitu lisätä.",
+      "added": "Lisätty \"{word}\" kiellettyihin sanoihin.",
+      "addedTestMode": "[Testi] Lisätty kielletty sana: {word}.",
+      "empty": "Kiellettyjä sanoja ei ole vielä lisätty.",
+      "removeFailed": "Kiellettyä sanaa ei voitu poistaa.",
+      "removed": "Poistettu \"{word}\" kielletyistä sanoista.",
+      "removedTestMode": "[Testi] Poistettu kielletty sana: {word}."
+    },
+    "bot": {
+      "activateFailed": "TTS-palvelua ei voitu aktivoida.",
+      "activated": "TTS-palvelu aktivoitu.",
+      "activatedTestMode": "TTS-palvelu aktivoitu (testitila).",
+      "activating": "Aktivoidaan TTS-palvelua…",
+      "active": "Aktiivinen",
+      "deactivateFailed": "TTS-palvelua ei voitu poistaa käytöstä.",
+      "deactivated": "TTS-palvelu poistettu käytöstä.",
+      "deactivatedTestMode": "TTS-palvelu poistettu käytöstä (testitila).",
+      "deactivating": "Poistetaan TTS-palvelua käytöstä…",
+      "inactive": "Ei aktiivinen",
+      "notAuthenticated": "Ei todennettu",
+      "notAuthorized": "Kanavaa ei ole valtuutettu.",
+      "requestAccess": "Pyydä käyttöoikeutta täältä",
+      "statusError": "Virhe",
+      "statusFailed": "Virhe: {reason}",
+      "statusLoadFailed": "Botin tilaa ei voitu ladata: {reason}",
+      "unknownError": "Tuntematon virhe"
+    },
+    "calibration": {
+      "confirmReset": "Nollataanko äänen {voice} kalibrointi?",
+      "edit": "Muokkaa",
+      "empty": "Ääniä ei ole vielä kalibroitu.",
+      "reset": "Nollaa",
+      "row": "{voice} ({volume})"
+    },
+    "cp": {
+      "confirmDelete": "Poistetaanko Channel Points TTS -palkinto?",
+      "deleteFailed": "Poisto epäonnistui.",
+      "deleted": "Palkinto poistettu.",
+      "deletedTestMode": "Palkinto poistettu (testitila).",
+      "deleting": "Poistetaan…",
+      "lastSynced": "{reward} · Viimeksi synkronoitu: {time}",
+      "never": "ei koskaan",
+      "noReward": "Palkintoa ei ole luotu",
+      "noRewardTestMode": "Palkintoa ei ole luotu (testitila)",
+      "rewardId": "Palkinnon tunnus: {id}",
+      "saveFailed": "Channel Points -asetuksia ei voi tallentaa.",
+      "saved": "Channel Points -asetukset tallennettu.",
+      "savedTestMode": "Channel Points -asetukset tallennettu (testitila).",
+      "saving": "Tallennetaan Channel Points -asetuksia…",
+      "testCompleted": "Testi valmis ({status}).",
+      "testCompletedTestMode": "Testi valmis (testitila).",
+      "testFailed": "Testi epäonnistui.",
+      "testPrompt": "Syötä testiviesti lunastuksen simuloimiseksi:",
+      "testing": "Testataan lunastusta…"
+    },
+    "ignore": {
+      "addFailed": "Käyttäjää ei voi lisätä ohituslistalle.",
+      "addFailedReason": "Käyttäjää ei voi lisätä: {reason}",
+      "badgeModerator": "Sinun mykistämäsi",
+      "badgeSelf": "Jättäytynyt pois",
+      "empty": "Ei ohitettuja käyttäjiä.",
+      "noSuchAccount": "Twitch-tiliä ei löydy",
+      "removeFailed": "Käyttäjää ei voi poistaa ohituslistalta.",
+      "removeFailedReason": "Kohdetta {label} ei voi poistaa: {reason}",
+      "removeLabel": "Poista {label} ohituslistalta ({source, select, self {jättäytynyt itse pois} other {sinun mykistämäsi}})"
+    },
+    "lookup": {
+      "button": "Hae ääni",
+      "calibrate": "Kalibroi \"{voice}\"",
+      "error": "Virhe: {reason}",
+      "failed": "Käyttäjää ei voi hakea.",
+      "hasVoice": "Käyttäjä {user} asetti mukautetun äänen: {voice}",
+      "noVoice": "Käyttäjällä {user} ei ole asetettu mukautettua ääntä.",
+      "searching": "Haetaan…",
+      "voiceUnknown": "Tämä ääni ei ole saatavilla olevien äänten luettelossa."
+    },
+    "obs": {
+      "cannotCopy": "URL-osoitetta ei voi kopioida.",
+      "cannotDetermine": "TTS-URL-osoitetta ei voi määrittää.",
+      "copied": "Kopioitu leikepöydälle.",
+      "copiedButton": "Kopioitu!",
+      "copyFailed": "Kopiointi epäonnistui.",
+      "generateFailed": "OBS-URL-osoitteen luominen epäonnistui. Yritä uudelleen.",
+      "generating": "Luodaan…",
+      "generatingUrl": "Luodaan suojattua URL-osoitetta…",
+      "loadingUrl": "Ladataan olemassa olevaa URL-osoitetta…",
+      "pressRegenerate": "Luo OBS Browser Source -URL-osoite napsauttamalla ”Luo URL uudelleen”.",
+      "refreshPage": "URL-osoitetta ei voi luoda. Päivitä sivu.",
+      "testModeUrl": "Testitilan URL-osoite",
+      "urlGenerated": "Uusi URL luotu.",
+      "urlGeneratedTestMode": "Uusi URL luotu (testitila).",
+      "urlNotReady": "URL ei ole vielä saatavilla.",
+      "yourUrl": "OBS Browser Source -URL-osoitteesi"
+    },
+    "preview": {
+      "playingTestMode": "Toistetaan esikatselua… (testitila)",
+      "tooLong": "Tekstissä saa olla enintään 500 merkkiä."
+    },
+    "pron": {
+      "acronymsDisabled": "Lyhenteet ovat pois käytöstä",
+      "acronymsOffHint": "Ota ”Laajenna chatin lyhenteet” käyttöön yltä, jotta nämä asetukset tulevat voimaan.",
+      "addFailed": "Ääntämisasun lisääminen epäonnistui.",
+      "added": "Lisätty ääntämisasu: {match} -> {say}.",
+      "addedTestMode": "[Testi] Lisätty ääntämisasu: {match} -> {say}.",
+      "builtinOff": " — sisäänrakennettu poistettu käytöstä",
+      "empty": "Omia ääntämisasuja ei ole vielä lisätty.",
+      "expansion": " → {say}",
+      "needBoth": "Syötä sekä sana että ääntämisasu.",
+      "removeFailed": "Ääntämisasun poistaminen epäonnistui.",
+      "removed": "Poistettu ääntämisasu: {match}.",
+      "removedTestMode": "[Testi] Poistettu ääntämisasu: {match}."
+    },
+    "setting": {
+      "allowViewerPreferences": "Salli katsojien ääniasetukset",
+      "announceQueuedRedeems": "Ilmoita jonossa olevat lunastukset",
+      "anonymizeFollowers": "Anonymisoi seuraajat",
+      "bitsForTts": "Bits-määrä TTS:lle",
+      "botRespondsInChat": "Botti vastaa chatissa",
+      "cheerAnnouncements": "Cheer-ilmoitukset",
+      "defaultEmotion": "Oletustunnetila",
+      "defaultLanguage": "Oletuskieli",
+      "defaultPitch": "Oletusäänenkorkeus",
+      "defaultSpeed": "Oletusnopeus",
+      "defaultVoice": "Oletusääni",
+      "emoteMode": "Emote-tila",
+      "englishNormalization": "Englannin normalisointi",
+      "eventAnnouncements": "Tapahtumailmoitukset",
+      "expandAcronyms": "Laajenna chatin lyhenteet",
+      "minimumBits": "Bits-vähimmäismäärä",
+      "profanityFilter": "Kirosanasuodatin",
+      "readFullUrls": "Lue täydet URL-osoitteet",
+      "redemptionAnnouncements": "Lunastusilmoitukset",
+      "ttsEngine": "TTS-moottori",
+      "ttsMode": "TTS-tila",
+      "ttsPermission": "TTS-käyttöoikeus",
+      "voiceVolume": "Äänenvoimakkuus",
+      "watchStreakAnnouncements": "Katseluputki-ilmoitukset",
+      "youtubeHandle": "YouTube-tunnus",
+      "youtubeTts": "YouTube TTS"
+    },
+    "settings": {
+      "loadFailed": "Asetuksiasi ei voi ladata.",
+      "saveFailed": "{label}: {reason}",
+      "youtubeHandleRequired": "Anna YouTube-tunnus ennen kuin otat YouTube TTS -toiminnon käyttöön."
+    }
+  },
+  "obsCloseBtn": {
+    "closeObsSetup": "Sulje OBS-määritys"
+  },
+  "obsPopover": {
+    "addBrowserSource": "Lisää Browser Source",
+    "cautionANewUrlStops": "VAROITUS: Uusi URL pysäyttää nykyisen OBS-lähteesi, kunnes päivität URL-osoitteen OBS-sovelluksessa.",
+    "controlAudioViaObs": "Hallitse ääntä OBS:n kautta",
+    "inObsAddANew": "Lisää OBS:ssä uusi <strong>Browser Source</strong>. Nimeä lähteeksi \"Wildcat TTS\" ja liitä kopioitu URL. Voit pitää oletusleveyden ja -korkeuden.",
+    "inTheObsAudioMixer": "Etsi OBS:n Audio Mixeristä \"Wildcat TTS\". Napsauta rataskuvaketta ja valitse <strong>Advanced Audio Properties</strong>. Aseta Audio Monitoring -asetukseksi <strong>Monitor and Output</strong>.",
+    "monitorAndOutput": "Monitorointi ja ulostulo",
+    "obsBrowserSource": "OBS Browser Source",
+    "selectControlAudioViaObs": "Valitse <strong>Control audio via OBS</strong>. Varmista, että <strong>Shutdown source when not visible</strong> ei ole valittuna.",
+    "setupInstructions": "Käyttöönotto-ohjeet",
+    "yourBrowserSourceUrl": "Browser Source -URL-osoitteesi"
+  },
+  "obsToggleBtn": {
+    "obsSetup": "OBS-määritys"
+  },
+  "page": {
+    "channelDashboard": "Kanavan hallintapaneeli",
+    "textToSpeechSettingsFor": "Kanavasi puhesynteesiasetukset. Muutokset tallentuvat sitä mukaa kuin teet niitä.",
+    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Hallintapaneeli</span>"
+  },
+  "profanityFilterEnabled": {
+    "profanityFilter": "Kiroilusuodatin"
+  },
+  "pronunciationEnabled": {
+    "expandChatAcronyms": "Avaa chatin lyhenteet"
+  },
+  "readFullUrls": {
+    "readFullUrls": "Lue koko URL-osoitteet"
+  },
+  "redemptionEventsEnabled": {
+    "announceRewardRedeems": "Ilmoita palkintojen lunastukset"
+  },
+  "regenerateTtsUrlBtn": {
+    "regenerateBrowserSourceUrl": "Luo Browser Source -URL uudelleen",
+    "regenerateUrl": "Luo URL uudelleen"
+  },
+  "removeBotBtn": {
+    "deactivateTtsService": "Poista TTS-palvelu käytöstä"
+  },
+  "resetPitchBtn": {
+    "reset": "Palauta",
+    "resetDefaultPitchTo0": "Palauta oletussävelkorkeus arvoon 0"
+  },
+  "resetSpeedBtn": {
+    "reset": "Palauta",
+    "resetDefaultSpeedTo1": "Palauta oletusnopeus arvoon 1.0"
+  },
+  "resetVolumeBtn": {
+    "reset": "Palauta",
+    "resetVoiceVolumeTo1": "Palauta äänenvoimakkuus arvoon 1.0"
+  },
+  "saveSettingsBtn": {
+    "saveAllSettings": "Tallenna kaikki asetukset"
+  },
+  "serviceHeadline": {
+    "ttsService": "TTS-palvelu"
+  },
+  "sidebarVoiceName": {
+    "friendlyPerson": "Ystävällinen henkilö"
+  },
+  "tabBroadcaster": {
+    "allowTheBotToRespond": "Salli botin vastata chat-komentoihin, kuten !myvoice",
+    "allowViewersToUseChannel": "Salli katsojien käyttää Channel Points -pisteitä TTS:ään",
+    "allowViewerVoicePreferences": "Salli katsojien ääniasetukset",
+    "announceCheers": "Ilmoita cheerit",
+    "announceEvents": "Ilmoita tapahtumat",
+    "announceEventsSuchAsSubscriptions": "Ilmoita tapahtumat, kuten tilaukset ja raidit",
+    "announceQueuedRedeemsImmediately": "Ilmoita jonossa olevat lunastukset heti",
+    "announceRewardRedeems": "Ilmoita palkintojen lunastukset",
+    "announceWatchStreaks": "Ilmoita katseluputket",
+    "announceWhenAViewerCheers": "Ilmoita, kun katsoja cheeraa bitsejä",
+    "announceWhenAViewerReaches": "Ilmoita, kun katsoja saavuttaa katseluputkimerkkipaalun",
+    "announceWhenAViewerRedeems": "Ilmoita, kun katsoja lunastaa Channel Points -palkinnon",
+    "anonymizeNewFollowers": "Anonymisoi uudet seuraajat",
+    "bannedWordsCommaSeparated": "Kielletyt sanat (pilkuin eroteltuna)",
+    "bannedWordsPhrases": "<strong>Kielletyt sanat / lausekkeet</strong>",
+    "bitsTts": "Bits → TTS",
+    "blockLinks": "Estä linkit",
+    "botRespondsInChat": "Botti vastaa chatissa",
+    "channelPointsTts": "Channel Points → TTS",
+    "chooseWhichMessagesTriggerTts": "Valitse, mitkä viestit käynnistävät TTS:n",
+    "configureBitsRequirementsForText": "Määritä bits-vaatimukset tekstistä puheeksi -toiminnolle",
+    "configureChannelPointsRewardsFor": "Määritä Channel Points -palkinnot tekstistä puheeksi -toiminnolle",
+    "configureTtsEngineSettingsAnd": "Määritä TTS-moottorin asetukset ja käyttöoikeudet",
+    "controlHowTtsPronouncesSpecific": "Määritä, miten TTS ääntää tietyt sanat. Tavalliset Twitch-lyhenteet käsitellään oletuksena. Lisää tietue korvataksesi oletusääntämyksen tai lisätäksesi uuden sanan.",
+    "controlsHowTtsHandlesEmotes": "Määrittää, miten TTS käsittelee chat-viestien emotet",
+    "cooldownsAndModeration": "Jäähyajat ja moderointi",
+    "costPoints": "Hinta (pistettä)",
+    "emoteMode": "<strong>Emote-tila</strong>",
+    "enableChannelPointsTts": "Ota Channel Points TTS käyttöön",
+    "enableCooldownsLimits": "Ota käyttöön jäähyajat ja rajoitukset",
+    "engineMode": "Moottori ja tila",
+    "expandChatAcronyms": "Laajenna chatin lyhenteet",
+    "globalCooldownSec": "Yleinen jäähyaika (s)",
+    "hideFollowerNamesInTts": "Piilota seuraajien nimet TTS-ilmoituksissa yksityisyyden vuoksi",
+    "ifOnTtsReadsFull": "Jos käytössä, TTS lukee koko URL-osoitteet. Jos poissa käytöstä, TTS lukee vain verkkotunnukset",
+    "ifThisSettingIsOff": "Jos tämä asetus on pois käytöstä, TTS käyttää kanavan oletusääntä kaikissa viesteissä",
+    "ignoredUsers": "Ohitetut käyttäjät",
+    "manageUsersThatTtsIgnores": "Hallitse käyttäjiä, jotka TTS ohittaa",
+    "minimumBitsRequired": "<strong>Vaadittu vähimmäismäärä bitsejä</strong>",
+    "minimumNumberOfBitsRequired": "TTS:n käynnistämiseen vaadittava bitsien vähimmäismäärä",
+    "perStreamLimit": "Rajoitus per lähetys",
+    "perUserPerStream": "Käyttäjäkohtainen per lähetys",
+    "profanityFilter": "Kiroilusuodatin",
+    "pronunciationDictionary": "<strong>Ääntämissanakirja</strong>",
+    "readFullUrls": "Lue koko URL-osoitteet",
+    "readYoutubeLiveChatMessages": "Lue YouTube-livelähetyksen chat-viestit TTS:llä. Tämä ominaisuus vaatii aktiivisen YouTube-livelähetyksen.",
+    "readYoutubeLiveChatMessages2": "Lue YouTube-livelähetyksen chat-viestit ääneen",
+    "requireBitsForTts": "Vaadi bitsejä TTS:lle",
+    "rewardTitle": "Palkinnon nimi",
+    "skipTheRewardQueue": "Ohita palkintojono",
+    "theTitleMustBeUnique": "Nimen on oltava uniikki kanavallasi.",
+    "ttsDoesNotReadMessages": "TTS ei lue viestejä tällä listalla olevilta käyttäjiltä.",
+    "ttsEngineEnabled": "TTS-moottori käytössä",
+    "ttsExpandsCommonTwitchAcronyms": "TTS laajentaa yleiset Twitch-lyhenteet sanoiksi. Esimerkiksi ”ngl” muuntuu muotoon ”not gonna lie”. Poista käytöstä, jos haluat lausua jokaisen kirjaimen erikseen.",
+    "ttsIgnoreList": "<strong>TTS:n ohituslista</strong>",
+    "ttsMode": "<strong>TTS-tila</strong>",
+    "ttsPermission": "<strong>TTS-käyttöoikeus</strong>",
+    "ttsReplacesProfanityWithMilder": "TTS korvaa kirosanat lievemmillä sanoilla ennen puhetta. Suodatin käyttää kanavan ja katsojan kieltä. Jos kieleksi on asetettu Automaattinen, suodatin käyttää englanninkielistä listaa. Kielletyt sanat ohittavat silti koko viestin.",
+    "ttsSkipsMessagesThatContain": "TTS ohittaa viestit, jotka sisältävät näitä sanoja tai lauseita.",
+    "turnOnOrTurnOff": "Ota puhesynteesi käyttöön tai poista se käytöstä",
+    "viewerPrompt": "Kehote katsojalle",
+    "viewersMustCheerBitsTo": "Katsojien on lähetettävä bitsejä käyttääkseen puhesynteesiä",
+    "whoCanUseTextTo": "Kuka voi käyttää puhesynteesiä",
+    "yourYoutubeChannelHandleFor": "YouTube-kanavasi tunnus (esimerkiksi <code>@tunnus</code>)",
+    "youtubeHandle": "<strong>YouTube-tunnus</strong>",
+    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>YouTube-integraatio",
+    "youtubeTtsEnabled": "YouTube-TTS käytössä"
+  },
+  "tabBtnBroadcaster": {
+    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Striimaaja"
+  },
+  "tabBtnViewerDefaults": {
+    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Äänen oletukset"
+  },
+  "tabViewerDefaults": {
+    "adjustThePitchForThe": "Säädä oletusäänen korkeutta",
+    "adjustTheVolumeForThe": "Säädä valitun äänen äänenvoimakkuutta. VAROITUS: Yli 1.0 arvot voivat aiheuttaa säröytymistä.",
+    "calibratedVoices": "<strong>Kalibroidut äänet</strong>",
+    "calibrateVolumeForSpecificVoices": "Kalibroi tiettyjen äänten äänenvoimakkuus. VAROITUS: Yli 1.0 arvot voivat aiheuttaa säröytymistä.",
+    "controlHowFastTheDefault": "Säädä oletusäänen puhenopeutta",
+    "defaultEmotion": "<strong>Oletustunnetila</strong>",
+    "defaultLanguage": "<strong>Oletuskieli</strong>",
+    "defaultPitch12To12": "Oletusäänenkorkeus (-12 – +12):",
+    "defaultSpeed05To": "Oletusnopeus (0,5–2,0):",
+    "defaultVoice": "<strong>Oletusääni</strong>",
+    "defaultVoiceSettings": "Oletusääniasetukset",
+    "englishNormalization": "Englannin kielen normalisointi",
+    "improvePronunciationForSpecificLanguages": "Paranna tiettyjen kielten ääntämistä",
+    "improveThePronunciationOfNumbers": "Paranna numeroiden ja tekstin ääntämistä",
+    "selectTheDefaultTtsVoice": "Valitse kanavan TTS-oletusääni",
+    "selectVoice": "Valitse ääni",
+    "setDefaultVoiceSettingsFor": "Määritä kanavasi oletusääniasetukset",
+    "setTheEmotionalToneOf": "Aseta oletusäänen tunnesävy",
+    "viewerVoiceLookup": "Katsojan äänen haku",
+    "voiceCalibration": "Äänen kalibrointi",
+    "voicesWithCustomVolumeSettings": "Äänet, joilla on mukautettu äänenvoimakkuus.",
+    "voiceVolume01To": "Äänenvoimakkuus (0,1–10):",
+    "volumeOverride": "Äänenvoimakkuuden ohitus:"
+  },
+  "ttsBannedWordInput": {
+    "wordOrPhraseToBan": "Estettävä sana tai lause"
+  },
+  "ttsEnabled": {
+    "ttsEngineEnabled": "TTS-moottori käytössä"
+  },
+  "ttsIgnoreUsername": {
+    "usernameToIgnore": "Ohitettava käyttäjänimi"
+  },
+  "ttsMode": {
+    "allMessages": "Kaikki viestit",
+    "bitsPointsOnly": "Vain bitit/pisteet",
+    "ttsCommandOnly": "Vain !tts-komento"
+  },
+  "ttsPermission": {
+    "everyone": "Kaikki",
+    "moderatorsOnly": "Vain moderaattorit",
+    "subscribersOnly": "Vain tilaajat",
+    "vipsOnly": "Vain VIPit"
+  },
+  "ttsPronunciationMatchInput": {
+    "wordForExampleWcat": "Sana (esim. wcat)",
+    "wordToReplace": "Korvattava sana"
+  },
+  "ttsPronunciationSayInput": {
+    "howToSayItFor": "Miten se lausutaan (esim. wildcat)",
+    "pronunciation": "Ääntäminen"
+  },
+  "ttsUrlField": {
+    "yourBrowserSourceUrl": "Browser Source -URL-osoitteesi"
+  },
+  "twitchUsername": {
+    "loading": "ladataan…"
+  },
+  "voiceTestBtn": {
+    "sendPreview": "Lähetä esikuuntelu"
+  },
+  "watchStreakEventsEnabled": {
+    "announceWatchStreaks": "Ilmoita katseluputket"
+  },
+  "youtubeEnabled": {
+    "youtubeTtsEnabled": "YouTube TTS käytössä"
+  },
+  "youtubeHandle": {
+    "yourhandle": "@käyttäjänimesi"
+  }
+}

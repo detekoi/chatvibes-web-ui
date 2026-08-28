@@ -1,0 +1,11 @@
+{
+  "mainContent": {
+    "pageNotFound": "Az oldal nem található",
+    "returnToLogin": "Vissza a bejelentkezéshez",
+    "thatUrlIsNotPart": "Ez az URL nem tartozik ehhez az oldalhoz. Ellenőrizd, hogy helyes-e a cím, vagy térj vissza a bejelentkezési oldalra."
+  },
+  "meta": {
+    "pageNotFoundOnWildcattts": "Az oldal nem található a WildcatTTS-en.",
+    "pageNotFoundWildcattts": "Az oldal nem található — WildcatTTS"
+  }
+}

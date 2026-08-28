@@ -1,0 +1,39 @@
+{
+  "authBar": {
+    "signInProgress": "Bejelentkezés folyamata"
+  },
+  "authMessage": {
+    "pleaseWait": "Kérlek, várj."
+  },
+  "authSteps": {
+    "loadingDashboard": "Vezérlőpult betöltése",
+    "sessionTokenStored": "Munkamenet-token elmentve",
+    "twitchAuthorized": "Twitch engedélyezve"
+  },
+  "authTitle": {
+    "signingYouIn": "Bejelentkeztetés"
+  },
+  "meta": {
+    "completingWildcatttsTwitchSignIn": "WildcatTTS Twitch-bejelentkezés befejezése.",
+    "wildcatttsCompletingSignIn": "WildcatTTS - Bejelentkezés befejezése"
+  },
+  "msg": {
+    "authComplete": {
+      "cannotComplete": "Nem sikerült befejezni a bejelentkezést.",
+      "failedReadout": "Sikertelen",
+      "failedTitle": "Sikertelen bejelentkezés",
+      "missingInfo": "Hiányoznak a Twitch visszahívásból származó hitelesítési adatok. Jelentkezz be újra.",
+      "noSession": "Nincs munkamenet",
+      "redirecting": "Átirányítás a vezérlőpultra.",
+      "retrySignIn": "{reason} Jelentkezz be újra.",
+      "sessionEstablished": "Munkamenet létrehozva",
+      "welcome": "Üdvözlünk, {user}!"
+    }
+  },
+  "sessionState": {
+    "establishingSession": "Munkamenet létrehozása"
+  },
+  "statusReadout": {
+    "working": "<span class=\"wc-dot\"></span>Folyamatban"
+  }
+}

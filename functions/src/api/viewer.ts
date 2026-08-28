@@ -10,6 +10,7 @@ import { RELEASED_VOICES } from "../services/voice-list";
 import { authenticateApiRequest, assertAuthenticated } from "../middleware/auth";
 import { logger } from "../logger";
 import { getIgnoreEntry, buildIgnoreEntry, canSelfUnignore, IGNORE_SOURCE_SELF } from "../services/ignoreEntries";
+import { apiError } from "./utils";
 
 const VOICE_IDS = new Set(RELEASED_VOICES);
 
@@ -49,7 +50,7 @@ function validateAndBuildUpdateData(
   res: Response
 ): Partial<ViewerPreferences> | null {
   if (!updates) {
-    res.status(400).json({ error: "Missing update data" });
+    apiError(res, 400, "prefs_missing_data", "Missing update data");
     return null;
   }
   const updateData: Partial<ViewerPreferences> = {};
@@ -60,7 +61,7 @@ function validateAndBuildUpdateData(
     if (!updates.voiceId || VOICE_IDS.has(updates.voiceId)) {
       updateData.voiceId = updates.voiceId || null;
     } else {
-      res.status(400).json({ error: "Invalid voiceId value" });
+      apiError(res, 400, "prefs_invalid_voice", "Invalid voiceId value");
       return null;
     }
   }
@@ -68,7 +69,7 @@ function validateAndBuildUpdateData(
     if (updates.pitch === null || validatePitch(updates.pitch)) {
       updateData.pitch = updates.pitch;
     } else {
-      res.status(400).json({ error: "Invalid pitch value" });
+      apiError(res, 400, "prefs_invalid_pitch", "Invalid pitch value");
       return null;
     }
   }
@@ -76,7 +77,7 @@ function validateAndBuildUpdateData(
     if (updates.speed === null || validateSpeed(updates.speed)) {
       updateData.speed = updates.speed;
     } else {
-      res.status(400).json({ error: "Invalid speed value" });
+      apiError(res, 400, "prefs_invalid_speed", "Invalid speed value");
       return null;
     }
   }
@@ -85,7 +86,7 @@ function validateAndBuildUpdateData(
     if (normalized === null || validateEmotion(normalized)) {
       updateData.emotion = normalized;
     } else {
-      res.status(400).json({ error: "Invalid emotion value" });
+      apiError(res, 400, "prefs_invalid_emotion", "Invalid emotion value");
       return null;
     }
   }
@@ -93,7 +94,7 @@ function validateAndBuildUpdateData(
     if (updates.language === null || validateLanguageBoost(updates.language)) {
       updateData.languageBoost = updates.language; // Map UI field to internal field
     } else {
-      res.status(400).json({ error: "Invalid language value" });
+      apiError(res, 400, "prefs_invalid_language", "Invalid language value");
       return null;
     }
   }
@@ -104,7 +105,7 @@ function validateAndBuildUpdateData(
     if (updates.emoteMode === null || VALID_EMOTE_MODES.includes(updates.emoteMode)) {
       updateData.emoteMode = updates.emoteMode;
     } else {
-      res.status(400).json({ error: "Invalid emoteMode value. Must be 'read', 'skip', or 'describe'." });
+      apiError(res, 400, "prefs_invalid_emote_mode", "Invalid emoteMode value. Must be 'read', 'skip', or 'describe'.");
       return null;
     }
   }
@@ -122,26 +123,26 @@ router.get("/preferences/:channel", authenticateApiRequest, async (req: Request,
 
   try {
     if (!channel) {
-      res.status(400).json({ error: "Channel is required" });
+      apiError(res, 400, "channel_required", "Channel is required");
       return;
     }
 
     const channelId = await getChannelIdFromName(channel);
     if (!channelId) {
-      res.status(404).json({ error: "Channel not found" });
+      apiError(res, 404, "channel_not_found", "Channel not found");
       return;
     }
     const channelDoc = await db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelId).get();
 
 
     if (!channelDoc.exists) {
-      res.status(404).json({ error: "Channel not found or TTS not enabled" });
+      apiError(res, 404, "channel_tts_disabled", "Channel not found or TTS not enabled");
       return;
     }
 
     const channelData = channelDoc.data();
     if (!channelData) {
-      res.status(404).json({ error: "Channel data not found" });
+      apiError(res, 404, "channel_data_not_found", "Channel data not found");
       return;
     }
 
@@ -195,7 +196,7 @@ router.get("/preferences/:channel", authenticateApiRequest, async (req: Request,
   } catch (error) {
     const err = error as Error;
     log.error({ error: err.message }, "Error retrieving preferences");
-    res.status(500).json({ error: "Failed to retrieve preferences" });
+    apiError(res, 500, "prefs_fetch_failed", "Failed to retrieve preferences");
   }
 });
 
@@ -211,19 +212,19 @@ router.put("/preferences/:channel", authenticateApiRequest, async (req: Request,
     const updates: PreferencesUpdate = req.body;
 
     if (!channel) {
-      res.status(400).json({ error: "Channel is required" });
+      apiError(res, 400, "channel_required", "Channel is required");
       return;
     }
 
     const channelId = await getChannelIdFromName(channel);
     if (!channelId) {
-      res.status(404).json({ error: "Channel not found" });
+      apiError(res, 404, "channel_not_found", "Channel not found");
       return;
     }
     const channelDoc = await db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelId).get();
 
     if (!channelDoc.exists) {
-      res.status(404).json({ error: "Channel not found or TTS not enabled" });
+      apiError(res, 404, "channel_tts_disabled", "Channel not found or TTS not enabled");
       return;
     }
 
@@ -239,7 +240,7 @@ router.put("/preferences/:channel", authenticateApiRequest, async (req: Request,
   } catch (error) {
     const err = error as Error;
     log.error({ error: err.message }, "Error updating preferences");
-    res.status(500).json({ error: "Failed to update preferences" });
+    apiError(res, 500, "prefs_update_failed", "Failed to update preferences");
   }
 });
 
@@ -276,7 +277,7 @@ router.get("/preferences", authenticateApiRequest, async (req: Request, res: Res
   } catch (error) {
     const err = error as Error;
     log.error({ error: err.message }, "Error retrieving global preferences");
-    res.status(500).json({ error: "Failed to retrieve global preferences" });
+    apiError(res, 500, "prefs_global_fetch_failed", "Failed to retrieve global preferences");
   }
 });
 
@@ -302,7 +303,7 @@ router.put("/preferences", authenticateApiRequest, async (req: Request, res: Res
   } catch (error) {
     const err = error as Error;
     log.error({ error: err.message }, "Error updating global preferences");
-    res.status(500).json({ error: "Failed to update global preferences" });
+    apiError(res, 500, "prefs_global_update_failed", "Failed to update global preferences");
   }
 });
 
@@ -316,12 +317,12 @@ router.post("/ignore/tts/:channel", authenticateApiRequest, async (req: Request,
 
   try {
     if (!channel) {
-      res.status(400).json({ error: "Channel is required" });
+      apiError(res, 400, "channel_required", "Channel is required");
       return;
     }
     const channelId = await getChannelIdFromName(channel);
     if (!channelId) {
-      res.status(404).json({ error: "Channel not found" });
+      apiError(res, 404, "channel_not_found", "Channel not found");
       return;
     }
     const channelDocRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channelId);
@@ -329,13 +330,13 @@ router.post("/ignore/tts/:channel", authenticateApiRequest, async (req: Request,
     const channelDoc = await channelDocRef.get();
 
     if (!channelDoc.exists) {
-      res.status(404).json({ error: "Channel not found" });
+      apiError(res, 404, "channel_not_found", "Channel not found");
       return;
     }
 
     const channelData = channelDoc.data();
     if (!channelData) {
-      res.status(404).json({ error: "Channel data not found" });
+      apiError(res, 404, "channel_data_not_found", "Channel data not found");
       return;
     }
 
@@ -351,11 +352,16 @@ router.post("/ignore/tts/:channel", authenticateApiRequest, async (req: Request,
       // disabled checkbox in the UI was the only thing standing in the way.
       // Legacy string entries land here too: unknown provenance is never lifted.
       log.info({ source: existing.source }, "Refused self-undo of a moderator-imposed ignore");
-      res.status(403).json({
-        error: "A channel moderator opted you out of TTS here, so only a moderator can undo it.",
-        reason: "moderator_imposed",
-        ignored: true,
-      });
+      apiError(
+        res,
+        403,
+        "ignore_moderator_imposed",
+        "A channel moderator opted you out of TTS here, so only a moderator can undo it.",
+        undefined,
+        // `reason` and `ignored` are read by the viewer page to lock the toggle,
+        // so they stay top-level fields rather than moving under `params`.
+        { reason: "moderator_imposed", ignored: true },
+      );
       return;
     }
 
@@ -377,7 +383,7 @@ router.post("/ignore/tts/:channel", authenticateApiRequest, async (req: Request,
   } catch (error) {
     const err = error as Error;
     log.error({ error: err.message }, "Error updating ignore status");
-    res.status(500).json({ error: "Failed to update ignore status" });
+    apiError(res, 500, "ignore_update_failed", "Failed to update ignore status");
   }
 });
 

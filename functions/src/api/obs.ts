@@ -9,6 +9,25 @@ import {getValidTwitchTokenForUser} from "../services/twitch";
 import {authenticateApiRequest, assertAuthenticated} from "../middleware/auth";
 import {secrets, config} from "../config";
 import {logger} from "../logger";
+import {apiError} from "./utils";
+
+/**
+ * An OBS failure.
+ *
+ * These endpoints have always put their prose in `message` rather than `error`,
+ * so both carry it: `code` is what a localized client reads, `error` is the
+ * shape every other endpoint uses, and `message` is the field this route's
+ * existing callers already look at.
+ */
+function fail(
+  res: Response,
+  status: number,
+  code: string,
+  message: string,
+  extra: Record<string, unknown> = {},
+) {
+  apiError(res, status, code, message, undefined, {...extra, message});
+}
 
 const router: Router = express.Router();
 
@@ -22,7 +41,7 @@ router.get("/getToken", authenticateApiRequest, async (req: Request, res: Respon
 
   if (!db) {
     log.error("Firestore client not initialized!");
-    res.status(500).json({success: false, message: "Server configuration error."});
+    fail(res, 500, "server_misconfigured", "Server configuration error.");
     return;
   }
 
@@ -34,11 +53,9 @@ router.get("/getToken", authenticateApiRequest, async (req: Request, res: Respon
     } catch (tokenError) {
       const err = tokenError as Error;
       log.error({error: err.message}, "Token validation failed");
-      res.status(403).json({
-        success: false,
-        needsReAuth: true,
-        message: "Your Twitch authentication has expired. Please reconnect your account.",
-      });
+      fail(res, 403, "twitch_reauth_required",
+        "Your Twitch authentication has expired. Please reconnect your account.",
+        {needsReAuth: true});
       return;
     }
 
@@ -80,18 +97,12 @@ router.get("/getToken", authenticateApiRequest, async (req: Request, res: Respon
     } catch (error) {
       const err = error as Error;
       log.error({error: err.message}, "Failed to store OBS token");
-      res.status(500).json({
-        success: false,
-        message: "Failed to generate OBS token. Please try again.",
-      });
+      fail(res, 500, "obs_token_store_failed", "Failed to generate OBS token. Please try again.");
     }
   } catch (error) {
     const err = error as Error;
     log.error({error: err.message}, "Error retrieving OBS token");
-    res.status(500).json({
-      success: false,
-      message: "Failed to retrieve OBS token.",
-    });
+    fail(res, 500, "obs_token_fetch_failed", "Failed to retrieve OBS token.");
   }
 });
 
@@ -105,7 +116,7 @@ router.post("/generateToken", authenticateApiRequest, async (req: Request, res: 
 
   if (!db) {
     log.error("Firestore client not initialized!");
-    res.status(500).json({success: false, message: "Server configuration error."});
+    fail(res, 500, "server_misconfigured", "Server configuration error.");
     return;
   }
 
@@ -114,11 +125,9 @@ router.post("/generateToken", authenticateApiRequest, async (req: Request, res: 
     try {
       await getValidTwitchTokenForUser(req.user.userId, secrets);
     } catch (tokenError) {
-      res.status(403).json({
-        success: false,
-        needsReAuth: true,
-        message: "Your Twitch authentication has expired. Please reconnect your account.",
-      });
+      fail(res, 403, "twitch_reauth_required",
+        "Your Twitch authentication has expired. Please reconnect your account.",
+        {needsReAuth: true});
       return;
     }
 
@@ -144,10 +153,7 @@ router.post("/generateToken", authenticateApiRequest, async (req: Request, res: 
   } catch (error) {
     const err = error as Error;
     log.error({error: err.message}, "Error generating OBS token");
-    res.status(500).json({
-      success: false,
-      message: "Failed to generate new OBS token.",
-    });
+    fail(res, 500, "obs_token_generate_failed", "Failed to generate new OBS token.");
   }
 });
 

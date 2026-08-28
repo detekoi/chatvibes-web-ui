@@ -1,0 +1,41 @@
+{
+  "errorAction": {
+    "tryAgain": "다시 시도"
+  },
+  "errorCode": {
+    "unknown": "알 수 없음"
+  },
+  "errorCodeBlock": {
+    "error": "오류"
+  },
+  "errorMessageDetails": {
+    "twitchAuthenticationFailed": "Twitch 인증에 실패했습니다."
+  },
+  "errorReadout": {
+    "authenticationFailed": "인증 실패"
+  },
+  "errorTitle": {
+    "authenticationFailed": "인증 실패"
+  },
+  "mainContent": {
+    "requestAccessTtsWildcatChat": "<a class=\"wc-link\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">액세스 요청</a> <span>tts.wildcat.chat</span>"
+  },
+  "meta": {
+    "wildcatttsAuthenticationError": "WildcatTTS - 인증 오류",
+    "wildcatttsAuthenticationErrorAndSign": "WildcatTTS 인증 오류 및 로그인 복구."
+  },
+  "msg": {
+    "authError": {
+      "backToSignIn": "로그인으로 돌아가기",
+      "canceledBody": "변경된 사항이 없습니다. 준비되면 언제든 로그인할 수 있습니다.",
+      "canceledReadout": "취소됨",
+      "canceledTitle": "WildcatTTS - 로그인 취소됨",
+      "canceledTitleShort": "로그인 취소됨",
+      "notPermitted": "접근 권한이 없습니다",
+      "requestAccess": "액세스 요청",
+      "twitchError": "인증 중 Twitch에서 오류가 발생했습니다.",
+      "unspecified": "알 수 없는 오류가 발생했습니다.",
+      "unspecifiedCode": "미지정"
+    }
+  }
+}

@@ -1,0 +1,164 @@
+{
+  "darkModeToggle": {
+    "toggleDarkMode": "Karanlık modu aç/kapat"
+  },
+  "err": {
+    "banned_add_failed": "Kelime yasaklı listesine eklenemedi.",
+    "banned_remove_failed": "Kelime yasaklı listesinden kaldırılamadı.",
+    "bot_add_failed": "Bot kanalında etkinleştirilemiyor. Tekrar dene.",
+    "bot_remove_failed": "Bot kanalında devre dışı bırakılamıyor. Tekrar dene.",
+    "bot_status_failed": "Bot durumu yüklenemiyor.",
+    "channel_data_not_found": "Bu kanal için ayar bulunamadı.",
+    "channel_not_authorized": "Kanalının bu botu kullanma yetkisi yok. Erişim için benimle iletişime geç.",
+    "channel_not_found": "Kanal bulunamadı.",
+    "channel_required": "Bir kanal gereklidir.",
+    "channel_tts_disabled": "Kanal bulunamadı veya TTS özelliği açık değil.",
+    "entry_key_required": "Girdi anahtarı gerekli.",
+    "exchange_code_invalid": "Giriş bağlantısı eksik veya geçersiz.",
+    "exchange_code_used": "Giriş bağlantısı zaten kullanılmış veya süresi dolmuş. Tekrar giriş yap.",
+    "exchange_failed": "Giriş tamamlanamadı. Tekrar dene.",
+    "ignore_add_failed": "Kullanıcı yoksayılanlar listesine eklenemedi.",
+    "ignore_moderator_imposed": "Bir kanal moderatörü seni TTS dışında bıraktı; bunu yalnızca bir moderatör geri alabilir.",
+    "ignore_remove_failed": "Kullanıcı yoksayılanlar listesinden kaldırılamadı.",
+    "ignore_update_failed": "TTS hariç tutma ayarın değiştirilemiyor.",
+    "key_required": "Ayar adı gerekli.",
+    "match_key_invalid": "Kelime harf, rakam, kesme işareti veya tireden oluşan 1 ila {max} karakter olmalı ve nokta içeremez.",
+    "network_error": "Sunucuya ulaşılamıyor. Bağlantını kontrol et.",
+    "obs_token_fetch_failed": "OBS token'ı yüklenemiyor.",
+    "obs_token_generate_failed": "Yeni bir OBS token'ı oluşturulamıyor.",
+    "obs_token_store_failed": "OBS token'ı kaydedilemiyor. Tekrar dene.",
+    "prefs_fetch_failed": "Tercihlerin yüklenemiyor.",
+    "prefs_global_fetch_failed": "Genel tercihlerin yüklenemiyor.",
+    "prefs_global_update_failed": "Genel tercihlerin kaydedilemiyor.",
+    "prefs_invalid_emote_mode": "İfade işleme; oku, atla veya açıkla olmalıdır.",
+    "prefs_invalid_emotion": "Bu geçerli bir duygu değil.",
+    "prefs_invalid_language": "Bu geçerli bir dil değil.",
+    "prefs_invalid_pitch": "Bu geçerli bir ses tonu değil.",
+    "prefs_invalid_speed": "Bu geçerli bir hız değil.",
+    "prefs_invalid_voice": "Bu geçerli bir ses değil.",
+    "prefs_missing_data": "Hiçbir değişiklik gönderilmedi.",
+    "prefs_update_failed": "Tercihlerin kaydedilemiyor.",
+    "pronunciation_limit_reached": "{max} özel telaffuz sınırına ulaştın. Önce birini kaldır.",
+    "pronunciation_remove_failed": "Telaffuz kaldırılamadı.",
+    "pronunciation_save_failed": "Telaffuz kaydedilemedi.",
+    "reward_banned_word": "Mesaj yasaklı bir kelime içeriyor: \"{word}\".",
+    "reward_create_failed": "Channel Points ödülü oluşturulamıyor.",
+    "reward_delete_failed": "Channel Points ödülü silinemiyor.",
+    "reward_links_blocked": "Bu ödülde bağlantılara izin verilmiyor.",
+    "reward_load_failed": "Channel Points ödülü yüklenemiyor.",
+    "reward_message_empty": "Mesaj boş.",
+    "reward_save_failed": "Channel Points ödülü kaydedilemiyor.",
+    "reward_test_failed": "Channel Points ödülü test edilemiyor.",
+    "reward_twitch_error": "Twitch ödül değişikliğini reddetti.",
+    "reward_validation_failed": "Bu mesaja izin verilmiyor.",
+    "say_contains_link": "Telaffuz bağlantı içeremez.",
+    "say_empty": "Telaffuz boş olamaz.",
+    "say_must_be_text": "Telaffuz metin olmalıdır.",
+    "say_too_long": "Telaffuz en fazla {max} karakter olmalıdır.",
+    "server_misconfigured": "Sunucu hatalı yapılandırılmış.",
+    "setting_invalid": "{key} için geçerli bir değer değil.",
+    "setting_update_failed": "TTS ayarı güncellenemedi.",
+    "settings_fetch_failed": "TTS ayarları yüklenemedi.",
+    "shortlink_failed": "Kısa bağlantı oluşturulamıyor.",
+    "storage_unavailable": "Depolama kullanılamıyor.",
+    "tts_generation_failed": "Konuşma oluşturulamadı: {reason}",
+    "tts_no_audio": "Konuşma sağlayıcısı ses döndürmedi.",
+    "tts_not_configured": "Yapılandırılmış bir konuşma sağlayıcısı yok.",
+    "tts_provider_failed": "Konuşma sağlayıcısı ses oluşturamadı.",
+    "tts_test_failed": "Konuşma testi başarısız oldu.",
+    "tts_text_required": "Test etmek için bir metin girin.",
+    "twitch_reauth_required": "Twitch oturumunuzun süresi doldu. Hesabınızı yeniden bağlayın.",
+    "twitch_user_not_found": "\"{username}\" adında bir Twitch hesabı bulunamadı.",
+    "url_required": "Bir URL gereklidir.",
+    "username_invalid": "Geçersiz kullanıcı adı.",
+    "username_required": "Kullanıcı adı gerekli.",
+    "voice_access_denied": "\"{voice}\" sesi özel erişim gerektiriyor. Farklı bir ses deneyin.",
+    "voice_invalid": "\"{voice}\" sesi kullanılamıyor. Sesi kontrol edip tekrar deneyin.",
+    "voice_lookup_failed": "Bu kullanıcının sesi bulunamıyor.",
+    "word_invalid": "Geçersiz kelime veya kelime öbeği.",
+    "word_required": "Kelime veya kelime öbeği gerekli."
+  },
+  "logoutLink": {
+    "logout": "Çıkış Yap"
+  },
+  "mainContent": {
+    "documentationTtsWildcatChat": "<a class=\"wc-link\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\">Dokümantasyon</a> <span>tts.wildcat.chat</span>"
+  },
+  "msg": {
+    "action": {
+      "close": "Kapat",
+      "remove": "Kaldır",
+      "saved": "Kaydedildi"
+    },
+    "api": {
+      "authFailed": "Kimlik doğrulama başarısız oldu. Tekrar giriş yapın.",
+      "notAuthenticated": "Giriş yapmadınız.",
+      "requestFailed": "İstek başarısız oldu."
+    },
+    "auth": {
+      "genericUser": "Kullanıcı",
+      "loading": "yükleniyor…",
+      "needViewerSignIn": "İzleyici tercihlerine erişmek için Twitch hesabınızı doğrulayın.",
+      "redirecting": "Kimlik doğrulama için Twitch'e yönlendiriliyor…",
+      "required": "Kimlik doğrulaması gerekli.",
+      "signInFailed": "Giriş işlemi tamamlanamıyor.",
+      "signInWithTwitch": "Twitch ile Giriş Yap",
+      "signedOut": "Giriş yapmadın.",
+      "tokenMissing": "Kimlik doğrulama jetonu eksik. Tekrar giriş yap."
+    },
+    "emotion": {
+      "angry": "Kızgın",
+      "auto": "Otomatik",
+      "disgusted": "İğrenmiş",
+      "fearful": "Korkmuş",
+      "happy": "Mutlu",
+      "neutral": "Nötr",
+      "sad": "Üzgün",
+      "surprised": "Şaşırmış"
+    },
+    "ignore": {
+      "enterUsername": "Bir kullanıcı adı gir."
+    },
+    "lang": {
+      "automatic": "Otomatik"
+    },
+    "prefs": {
+      "useChannelDefault": "Kanal varsayılanını kullan"
+    },
+    "preview": {
+      "enterText": "Test etmek için metin gir.",
+      "unavailable": "Önizleme yok."
+    },
+    "value": {
+      "off": "Kapalı",
+      "on": "Açık"
+    },
+    "voice": {
+      "cannotPlay": "Ses örneği oynatılamıyor.",
+      "generating": "Oluşturuluyor…",
+      "noAudio": "Sunucu ses döndürmedi.",
+      "noneFound": "Ses bulunamadı.",
+      "preview": "{voice} sesini önizle",
+      "regenerate": "Yeniden oluştur",
+      "testFailed": "Test başarısız oldu: {reason}"
+    }
+  },
+  "page": {
+    "skipToMainContent": "Ana içeriğe atla"
+  },
+  "sidebarEngNormVal": {
+    "off": "Kapalı"
+  },
+  "sidebarLanguageVal": {
+    "automatic": "Otomatik"
+  },
+  "ui": {
+    "language": "Dil"
+  },
+  "voicePreviewHint": {
+    "settingsChangedGenerateANew": "<i><i data-lucide=\"triangle-alert\" class=\"inline-icon\"></i> Ayarlar değişti. Yeni bir önizleme oluşturun.</i>"
+  },
+  "voicePreviewPlayer": {
+    "yourBrowserDoesNotSupport": "Tarayıcınız ses ögesini desteklemiyor."
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "errorAction": {
+    "tryAgain": "Poskusi znova"
+  },
+  "errorCode": {
+    "unknown": "neznano"
+  },
+  "errorCodeBlock": {
+    "error": "Napaka"
+  },
+  "errorMessageDetails": {
+    "twitchAuthenticationFailed": "Preverjanje pristnosti za Twitch ni uspelo."
+  },
+  "errorReadout": {
+    "authenticationFailed": "Preverjanje pristnosti ni uspelo"
+  },
+  "errorTitle": {
+    "authenticationFailed": "Preverjanje pristnosti ni uspelo"
+  },
+  "mainContent": {
+    "requestAccessTtsWildcatChat": "<a class=\"wc-link\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">Zahtevaj dostop</a> <span>tts.wildcat.chat</span>"
+  },
+  "meta": {
+    "wildcatttsAuthenticationError": "WildcatTTS - Napaka pri preverjanju pristnosti",
+    "wildcatttsAuthenticationErrorAndSign": "Napaka pri preverjanju pristnosti WildcatTTS in obnovitev prijave."
+  },
+  "msg": {
+    "authError": {
+      "backToSignIn": "Nazaj na prijavo",
+      "canceledBody": "Ni bilo sprememb. Prijaviš se lahko, ko boš pripravljen.",
+      "canceledReadout": "Preklicano",
+      "canceledTitle": "WildcatTTS - Prijava preklicana",
+      "canceledTitleShort": "Prijava preklicana",
+      "notPermitted": "Dostop ni dovoljen",
+      "requestAccess": "Zahtevaj dostop",
+      "twitchError": "Twitch je med preverjanjem pristnosti vrnil napako.",
+      "unspecified": "Prišlo je do nedoločene napake.",
+      "unspecifiedCode": "nedoločeno"
+    }
+  }
+}

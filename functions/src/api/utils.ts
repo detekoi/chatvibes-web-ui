@@ -19,20 +19,17 @@ export function apiError(
   code: string,
   error: string,
   params?: Record<string, unknown>,
+  extra?: Record<string, unknown>,
 ) {
   res.status(status).json({
     success: false as const,
     code,
     error,
     ...(params !== undefined && { params }),
+    // Top-level fields the client already reads — `needsReauth`, `details`,
+    // `ignored`. They are spread rather than nested so migrating a response to
+    // this helper changes what it carries only by adding `code`.
+    ...extra,
   });
 }
 
-/** @deprecated Prefer apiError, which also sends a stable code. */
-export function errorResponse(res: Response, status: number, error: string, details?: unknown) {
-  res.status(status).json({ 
-    success: false as const, 
-    error, 
-    ...(details !== undefined && { details }) 
-  });
-}

@@ -1,0 +1,39 @@
+{
+  "authBar": {
+    "signInProgress": "Progreso ng pag-sign in"
+  },
+  "authMessage": {
+    "pleaseWait": "Mangyaring maghintay."
+  },
+  "authSteps": {
+    "loadingDashboard": "Nilo-load ang dashboard",
+    "sessionTokenStored": "Nai-save ang session token",
+    "twitchAuthorized": "Na-authorize ang Twitch"
+  },
+  "authTitle": {
+    "signingYouIn": "Sina-sign in ka"
+  },
+  "meta": {
+    "completingWildcatttsTwitchSignIn": "Kinukumpleto ang pag-sign in sa WildcatTTS Twitch.",
+    "wildcatttsCompletingSignIn": "WildcatTTS - Kinukumpleto ang pag-sign in"
+  },
+  "msg": {
+    "authComplete": {
+      "cannotComplete": "Hindi makumpleto ang pag-sign in.",
+      "failedReadout": "Nabigo",
+      "failedTitle": "Nabigo ang pag-sign in",
+      "missingInfo": "Nawawala ang impormasyon ng authentication mula sa Twitch callback. Mag-sign in muli.",
+      "noSession": "Walang session",
+      "redirecting": "Nire-redirect sa iyong dashboard.",
+      "retrySignIn": "{reason} Mag-sign in muli.",
+      "sessionEstablished": "Naitatag ang session",
+      "welcome": "Maligayang pagdating, {user}"
+    }
+  },
+  "sessionState": {
+    "establishingSession": "Itinatatag ang session"
+  },
+  "statusReadout": {
+    "working": "<span class=\"wc-dot\"></span>Gumagana"
+  }
+}

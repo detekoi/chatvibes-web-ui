@@ -1,0 +1,39 @@
+{
+  "authBar": {
+    "signInProgress": "Progrés de l'inici de sessió"
+  },
+  "authMessage": {
+    "pleaseWait": "Espera, si us plau."
+  },
+  "authSteps": {
+    "loadingDashboard": "Carregant el tauler",
+    "sessionTokenStored": "Token de sessió desat",
+    "twitchAuthorized": "Twitch autoritzat"
+  },
+  "authTitle": {
+    "signingYouIn": "Iniciant la sessió"
+  },
+  "meta": {
+    "completingWildcatttsTwitchSignIn": "Completant l'inici de sessió a Twitch de WildcatTTS.",
+    "wildcatttsCompletingSignIn": "WildcatTTS - Completant l'inici de sessió"
+  },
+  "msg": {
+    "authComplete": {
+      "cannotComplete": "No es pot completar l'inici de sessió.",
+      "failedReadout": "Ha fallat",
+      "failedTitle": "L'inici de sessió ha fallat",
+      "missingInfo": "Falta la informació d'autenticació de la resposta de Twitch. Torna a iniciar sessió.",
+      "noSession": "Sense sessió",
+      "redirecting": "Redirigint al teu tauler de control.",
+      "retrySignIn": "{reason} Torna a iniciar sessió.",
+      "sessionEstablished": "Sessió establerta",
+      "welcome": "Et donem la benvinguda, {user}"
+    }
+  },
+  "sessionState": {
+    "establishingSession": "Establint la sessió"
+  },
+  "statusReadout": {
+    "working": "<span class=\"wc-dot\"></span>Treballant"
+  }
+}

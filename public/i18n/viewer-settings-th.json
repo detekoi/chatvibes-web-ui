@@ -1,0 +1,212 @@
+{
+  "addChannelContextCard": {
+    "loadAChannelToSee": "โหลดช่องเพื่อดูการตั้งค่าเริ่มต้นและจัดการการเลือกไม่ใช้ การตั้งค่าของคุณจะยังมีผลครอบคลุมทั้งหมด"
+  },
+  "channelContextCard": {
+    "changesHereUpdateYourGlobal": "การเปลี่ยนแปลงที่นี่จะอัปเดตการตั้งค่า<strong>ของคุณ</strong>โดยรวม และจะไม่เปลี่ยนการตั้งค่าของสตรีมเมอร์",
+    "channelContext": "บริบทช่อง",
+    "clearButtonsSetYourGlobal": "<strong>ปุ่มล้าง:</strong> ตั้งค่าโดยรวมของคุณให้ตรงกับค่าเริ่มต้นของช่องนี้"
+  },
+  "channelHint": {
+    "channelFound": "พบช่องแล้ว"
+  },
+  "channelInputCancel": {
+    "cancel": "ยกเลิก"
+  },
+  "channelInputConfirm": {
+    "load": "โหลด"
+  },
+  "channelInputDesc": {
+    "enterTheChannelNameTo": "ป้อนชื่อช่องเพื่อดูการตั้งค่าเริ่มต้นและจัดการการเลือกไม่ใช้:"
+  },
+  "channelInputModal": {
+    "streamerUsername": "ชื่อผู้ใช้ของสตรีมเมอร์"
+  },
+  "channelInputModalText": {
+    "streamerUsername": "ชื่อผู้ใช้ของสตรีมเมอร์"
+  },
+  "channelInputTitle": {
+    "loadChannelContext": "โหลดบริบทช่อง"
+  },
+  "clearChannelContextBtn": {
+    "clear": "ล้าง"
+  },
+  "confirmNo": {
+    "cancel": "ยกเลิก"
+  },
+  "confirmText": {
+    "yourMessagesWillNotBe": "ข้อความของคุณจะไม่ถูกอ่านออกเสียง คุณสามารถเปิดใช้งานอีกครั้งได้ทุกเมื่อ"
+  },
+  "confirmTitle": {
+    "confirmAction": "ยืนยันการดำเนินการ"
+  },
+  "confirmYes": {
+    "confirm": "ยืนยัน"
+  },
+  "dangerTtsToggle": {
+    "optOutOfTtsIn": "เลือกไม่ใช้ TTS ในช่องนี้",
+    "ttsWillNotReadYour": "TTS จะไม่อ่านข้อความของคุณในช่องนี้"
+  },
+  "dangerZoneSection": {
+    "dangerZone": "พื้นที่อันตราย",
+    "theseSettingsStopTheBot": "การตั้งค่าเหล่านี้จะหยุดไม่ให้บอทอ่านข้อความของคุณในช่อง คุณสามารถเปลี่ยนการตั้งค่าที่คุณเลือกกลับได้ แต่หากผู้ดูแลเป็นผู้ปิดให้ จะมีเพียงผู้ดูแลเท่านั้นที่ยกเลิกได้"
+  },
+  "emotionReset": {
+    "clear": "ล้าง",
+    "resetEmotionToDefault": "รีเซ็ตอารมณ์เป็นค่าเริ่มต้น"
+  },
+  "emotionSelect": {
+    "angry": "โกรธ",
+    "disgusted": "รังเกียจ",
+    "fearful": "หวาดกลัว",
+    "happy": "มีความสุข",
+    "neutral": "เป็นกลาง",
+    "sad": "เศร้า",
+    "surprised": "ประหลาดใจ",
+    "useChannelDefault": "ใช้ค่าเริ่มต้นของช่อง"
+  },
+  "englishNormalizationCheckbox": {
+    "englishNormalization": "การปรับมาตรฐานภาษาอังกฤษ"
+  },
+  "englishNormalizationReset": {
+    "clear": "ล้าง",
+    "resetEnglishNormalizationToDefault": "รีเซ็ตการปรับมาตรฐานภาษาอังกฤษเป็นค่าเริ่มต้น"
+  },
+  "ignoreTts": {
+    "optOutOfTtsIn": "เลือกไม่ใช้ TTS ในช่องนี้"
+  },
+  "languageReset": {
+    "clear": "ล้าง",
+    "resetLanguageToDefault": "รีเซ็ตภาษาเป็นค่าเริ่มต้น"
+  },
+  "loadingBar": {
+    "loadingYourPreferences": "กำลังโหลดการตั้งค่าของคุณ"
+  },
+  "loadingOverlay": {
+    "loadingYourPreferences": "กำลังโหลดการตั้งค่าของคุณ…"
+  },
+  "loggedInStatus": {
+    "channelContext": "บริบทช่อง",
+    "global": "ส่วนกลาง",
+    "loggedInAs": "เข้าสู่ระบบในชื่อ",
+    "scope": "ขอบเขต"
+  },
+  "meta": {
+    "wildcatttsViewerSettings": "การตั้งค่าผู้ชม WildcatTTS",
+    "wildcatttsViewerSettingsSetYour": "การตั้งค่าผู้ชม WildcatTTS - ตั้งค่าเสียง ระดับเสียง และความเร็ว TTS ส่วนตัวของคุณในทุกช่อง Twitch"
+  },
+  "msg": {
+    "auth": {
+      "exchangeFailed": "ไม่สามารถลงชื่อเข้าใช้ได้ โปรดลองอีกครั้งจากหน้าหลัก",
+      "testUser": "ผู้ใช้ทดสอบ"
+    },
+    "channel": {
+      "cleared": "ล้างบริบทช่องแล้ว",
+      "clearedTestMode": "ล้างบริบทช่องแล้ว (โหมดทดสอบ)",
+      "enterName": "ป้อนชื่อช่อง",
+      "found": "พบช่องแล้ว",
+      "foundTestMode": "พบช่องแล้ว (โหมดทดสอบ)",
+      "hint": "โหลดช่องเพื่อดูการตั้งค่าเริ่มต้น",
+      "loaded": "โหลดบริบทช่องแล้ว",
+      "loadedTestMode": "โหลดบริบทช่องแล้ว (โหมดทดสอบ)",
+      "noneLoaded": "ยังไม่ได้โหลด",
+      "promptConfirm": "โหลด",
+      "promptDescription": "ป้อนชื่อช่องเพื่อดูการตั้งค่าเริ่มต้นและจัดการการเลือกไม่ใช้งาน:",
+      "promptTitle": "โหลดข้อมูลช่อง",
+      "viewingDefaults": "คุณกำลังดูการตั้งค่าเริ่มต้นสำหรับ {channel}"
+    },
+    "optout": {
+      "confirm": "คุณต้องการเลือกไม่ใช้ TTS ใน #{channel} หรือไม่? ข้อความของคุณจะไม่ถูกอ่านออกเสียง คุณสามารถเปิดกลับมาได้ตลอดเวลา",
+      "confirmDescription": "ป้อนชื่อช่องเพื่อดำเนินการต่อ:",
+      "confirmTitle": "ยืนยันช่องเพื่อเลือกไม่ใช้ TTS",
+      "continue": "ดำเนินการต่อ",
+      "moderatorNote": "ผู้ดูแลช่องได้ตั้งค่าไม่ให้คุณใช้ TTS ในที่นี่ มีเพียงผู้ดูแลเท่านั้นที่สามารถยกเลิกได้",
+      "optInFailed": "ไม่สามารถกลับมาเปิดใช้ TTS ได้",
+      "optOutFailed": "ไม่สามารถเลือกไม่ใช้ TTS ได้",
+      "optedIn": "คุณเลือกกลับมาใช้ TTS แล้ว",
+      "optedInTestMode": "คุณเลือกกลับมาใช้ TTS แล้ว (โหมดทดสอบ)",
+      "optedOut": "คุณเลือกไม่ใช้ TTS แล้ว",
+      "optedOutTestMode": "คุณเลือกไม่ใช้ TTS แล้ว (โหมดทดสอบ)",
+      "selectChannel": "เลือกช่องก่อน",
+      "selfNote": "คุณเลือกไม่ใช้ TTS ที่นี่ คุณสามารถเปิดใช้งานอีกครั้งได้ตลอดเวลา",
+      "specifyChannel": "ระบุช่อง"
+    },
+    "prefs": {
+      "hintChannel": "ใช้ค่าเริ่มต้นของช่อง: {value}",
+      "hintSystem": "ใช้ค่าเริ่มต้นของระบบ",
+      "hintUser": "ใช้การตั้งค่าส่วนกลางของคุณ: {value}",
+      "loadFailed": "ไม่สามารถโหลดการตั้งค่าได้",
+      "noVoicesFound": "ไม่พบเสียง",
+      "saveFailed": "ไม่สามารถบันทึก {key} ได้: {reason}",
+      "sendPreview": "ส่งตัวอย่าง",
+      "testCompletedTestMode": "ทดสอบเสร็จสิ้น (โหมดทดสอบ)",
+      "updated": "อัปเดตการตั้งค่าแล้ว",
+      "updatedTestMode": "อัปเดตการตั้งค่าแล้ว (โหมดทดสอบ)"
+    }
+  },
+  "openChannelContextModalBtn": {
+    "loadChannel": "โหลดช่อง…"
+  },
+  "page": {
+    "setHowYourMessagesSound": "กำหนดเสียงข้อความของคุณเมื่อ Wildcat TTS อ่านออกเสียง การตั้งค่าของคุณเป็นแบบสากลและมีผลกับทุกช่อง",
+    "viewerTtsPreferences": "การตั้งค่า TTS ของผู้ชม",
+    "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">การตั้งค่าผู้ชม</span>"
+  },
+  "pitchReset": {
+    "clear": "ล้าง",
+    "resetPitchToDefault": "รีเซ็ตระดับเสียงเป็นค่าเริ่มต้น"
+  },
+  "pitchSlider": {
+    "pitchAdjustment12To12": "การปรับระดับเสียง (-12 ถึง +12)"
+  },
+  "preferencesPanel": {
+    "adjustTheVoicePitchHigher": "ปรับระดับเสียงให้สูงขึ้นหรือต่ำลง",
+    "controlHowFastTheVoice": "ควบคุมความเร็วในการพูดของเสียง",
+    "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>เอกสารประกอบ </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>การตั้งค่าสตรีมเมอร์ </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "<strong>อารมณ์</strong>",
+    "emotion2": "อารมณ์",
+    "englishNormalization": "การปรับมาตรฐานภาษาอังกฤษ",
+    "engNormalization": "การปรับมาตรฐานภาษาอังกฤษ",
+    "ifTtsReadsNumbersIncorrectly": "หาก TTS อ่านตัวเลขไม่ถูกต้อง ให้เปิดการปรับมาตรฐานข้อความภาษาอังกฤษ การตั้งค่านี้จะเพิ่มความหน่วงเล็กน้อย",
+    "improvePronunciationForSpecificLanguages": "ปรับปรุงการออกเสียงสำหรับบางภาษา",
+    "improveThePronunciationOfNumbers": "ปรับปรุงการออกเสียงตัวเลขและข้อความ",
+    "language": "ภาษา",
+    "languageBoost": "<strong>Language Boost</strong>",
+    "pitch": "ระดับเสียง",
+    "pitch12To12": "ระดับเสียง (-12 ถึง +12):",
+    "quickLinks": "ลิงก์ด่วน",
+    "selectYourPreferredTtsVoice": "เลือกเสียง TTS ที่คุณต้องการ",
+    "setHowYourMessagesSound": "กำหนดเสียงข้อความของคุณเมื่อ TTS อ่านออกเสียง",
+    "setTheEmotionalToneOf": "กำหนดโทนอารมณ์ของเสียง",
+    "speed": "ความเร็ว",
+    "speed05To2": "ความเร็ว (0.5 ถึง 2.0):",
+    "testMessage": "ข้อความทดสอบ",
+    "voice": "<strong>เสียง</strong>",
+    "voicePreview": "ตัวอย่างเสียง",
+    "voiceSettings": "การตั้งค่าเสียง"
+  },
+  "prefsDisabledNote": {
+    "theStreamerDisabledPersonalVoice": "สตรีมเมอร์ปิดการตั้งค่าเสียงส่วนบุคคลสำหรับช่องนี้ ช่องนี้จะใช้เสียงเริ่มต้นแทนค่าที่คุณตั้งไว้"
+  },
+  "previewBtn": {
+    "sendPreview": "ส่งตัวอย่าง"
+  },
+  "speedReset": {
+    "clear": "ล้างค่า",
+    "resetSpeedToDefault": "รีเซ็ตความเร็วเป็นค่าเริ่มต้น"
+  },
+  "speedSlider": {
+    "speedAdjustment05To": "ปรับความเร็ว (0.5 ถึง 2.0)"
+  },
+  "statChannelContext": {
+    "noneLoaded": "ยังไม่ได้โหลด"
+  },
+  "voiceReset": {
+    "clear": "ล้างค่า",
+    "resetVoiceToDefault": "รีเซ็ตเสียงเป็นค่าเริ่มต้น"
+  },
+  "voiceSearch": {
+    "searchVoices": "ค้นหาเสียง",
+    "searchVoices2": "ค้นหาเสียง..."
+  }
+}

@@ -1,0 +1,164 @@
+{
+  "darkModeToggle": {
+    "toggleDarkMode": "Εναλλαγή σκούρας λειτουργίας"
+  },
+  "err": {
+    "banned_add_failed": "Δεν είναι δυνατή η προσθήκη της λέξης στη λίστα αποκλεισμένων.",
+    "banned_remove_failed": "Δεν είναι δυνατή η αφαίρεση της λέξης από τη λίστα αποκλεισμένων.",
+    "bot_add_failed": "Αδυναμία ενεργοποίησης του bot στο κανάλι σου. Δοκίμασε ξανά.",
+    "bot_remove_failed": "Αδυναμία απενεργοποίησης του bot στο κανάλι σου. Δοκίμασε ξανά.",
+    "bot_status_failed": "Αδυναμία φόρτωσης της κατάστασης του bot.",
+    "channel_data_not_found": "Δεν βρέθηκαν ρυθμίσεις για αυτό το κανάλι.",
+    "channel_not_authorized": "Το κανάλι σας δεν είναι εξουσιοδοτημένο να χρησιμοποιεί αυτό το bot. Επικοινωνήστε μαζί μου για πρόσβαση.",
+    "channel_not_found": "Αυτό το κανάλι δεν βρέθηκε.",
+    "channel_required": "Απαιτείται κανάλι.",
+    "channel_tts_disabled": "Αυτό το κανάλι δεν βρέθηκε ή δεν έχει ενεργοποιημένο το TTS.",
+    "entry_key_required": "Απαιτείται κλειδί καταχώρισης.",
+    "exchange_code_invalid": "Ο σύνδεσμος σύνδεσης λείπει ή δεν είναι έγκυρος.",
+    "exchange_code_used": "Αυτός ο σύνδεσμος σύνδεσης έχει ήδη χρησιμοποιηθεί ή έχει λήξει. Συνδέσου ξανά.",
+    "exchange_failed": "Αδυναμία ολοκλήρωσης σύνδεσης. Δοκίμασε ξανά.",
+    "ignore_add_failed": "Δεν είναι δυνατή η προσθήκη του χρήστη στη λίστα αγνόησης.",
+    "ignore_moderator_imposed": "Ένας συντονιστής καναλιού σε εξαίρεσε από το TTS εδώ, επομένως μόνο ένας συντονιστής μπορεί να το αναιρέσει.",
+    "ignore_remove_failed": "Δεν είναι δυνατή η αφαίρεση του χρήστη από τη λίστα αγνόησης.",
+    "ignore_update_failed": "Αδυναμία αλλαγής της ρύθμισης εξαίρεσης.",
+    "key_required": "Απαιτείται όνομα ρύθμισης.",
+    "match_key_invalid": "Η λέξη πρέπει να αποτελείται από 1 έως {max} χαρακτήρες (γράμματα, ψηφία, αποστρόφους ή παύλες) και δεν μπορεί να περιέχει τελεία.",
+    "network_error": "Αδυναμία σύνδεσης με τον διακομιστή. Έλεγξε τη σύνδεσή σου.",
+    "obs_token_fetch_failed": "Αδυναμία φόρτωσης του OBS token.",
+    "obs_token_generate_failed": "Αδυναμία δημιουργίας νέου OBS token.",
+    "obs_token_store_failed": "Αδυναμία αποθήκευσης του OBS token. Δοκίμασε ξανά.",
+    "prefs_fetch_failed": "Αδυναμία φόρτωσης των προτιμήσεών σου.",
+    "prefs_global_fetch_failed": "Αδυναμία φόρτωσης των καθολικών προτιμήσεών σου.",
+    "prefs_global_update_failed": "Αδυναμία αποθήκευσης των καθολικών προτιμήσεών σου.",
+    "prefs_invalid_emote_mode": "Ο χειρισμός emote πρέπει να είναι: ανάγνωση, παράλειψη ή περιγραφή.",
+    "prefs_invalid_emotion": "Αυτό δεν είναι έγκυρο συναίσθημα.",
+    "prefs_invalid_language": "Αυτή δεν είναι έγκυρη γλώσσα.",
+    "prefs_invalid_pitch": "Αυτός δεν είναι έγκυρος τόνος.",
+    "prefs_invalid_speed": "Αυτή δεν είναι έγκυρη ταχύτητα.",
+    "prefs_invalid_voice": "Αυτή δεν είναι έγκυρη φωνή.",
+    "prefs_missing_data": "Δεν στάλθηκαν αλλαγές.",
+    "prefs_update_failed": "Αδυναμία αποθήκευσης των προτιμήσεών σου.",
+    "pronunciation_limit_reached": "Φτάσατε το όριο των {max} προσαρμοσμένων προφορών. Αφαιρέστε πρώτα μία.",
+    "pronunciation_remove_failed": "Δεν είναι δυνατή η αφαίρεση της προφοράς.",
+    "pronunciation_save_failed": "Δεν είναι δυνατή η αποθήκευση της προφοράς.",
+    "reward_banned_word": "Το μήνυμα περιέχει μια απαγορευμένη λέξη: \"{word}\".",
+    "reward_create_failed": "Αδυναμία δημιουργίας της ανταμοιβής Channel Points.",
+    "reward_delete_failed": "Αδυναμία διαγραφής της ανταμοιβής Channel Points.",
+    "reward_links_blocked": "Δεν επιτρέπονται σύνδεσμοι σε αυτή την ανταμοιβή.",
+    "reward_load_failed": "Αδυναμία φόρτωσης της ανταμοιβής Channel Points.",
+    "reward_message_empty": "Το μήνυμα είναι κενό.",
+    "reward_save_failed": "Αδυναμία αποθήκευσης της ανταμοιβής Channel Points.",
+    "reward_test_failed": "Αδυναμία δοκιμής της ανταμοιβής Channel Points.",
+    "reward_twitch_error": "Το Twitch απέρριψε την αλλαγή της ανταμοιβής.",
+    "reward_validation_failed": "Αυτό το μήνυμα δεν επιτρέπεται.",
+    "say_contains_link": "Η προφορά δεν μπορεί να περιέχει σύνδεσμο.",
+    "say_empty": "Η προφορά δεν μπορεί να είναι κενή.",
+    "say_must_be_text": "Η προφορά πρέπει να είναι κείμενο.",
+    "say_too_long": "Η προφορά πρέπει να περιέχει έως {max} χαρακτήρες.",
+    "server_misconfigured": "Ο διακομιστής δεν έχει ρυθμιστεί σωστά.",
+    "setting_invalid": "Μη έγκυρη τιμή για το {key}.",
+    "setting_update_failed": "Δεν είναι δυνατή η ενημέρωση της ρύθμισης TTS.",
+    "settings_fetch_failed": "Δεν είναι δυνατή η φόρτωση των ρυθμίσεων TTS.",
+    "shortlink_failed": "Αδυναμία δημιουργίας του σύντομου συνδέσμου.",
+    "storage_unavailable": "Ο χώρος αποθήκευσης δεν είναι διαθέσιμος.",
+    "tts_generation_failed": "Αποτυχία δημιουργίας ομιλίας: {reason}",
+    "tts_no_audio": "Ο πάροχος ομιλίας δεν επέστρεψε ήχο.",
+    "tts_not_configured": "Δεν έχει ρυθμιστεί πάροχος ομιλίας.",
+    "tts_provider_failed": "Ο πάροχος ομιλίας δεν μπόρεσε να δημιουργήσει ήχο.",
+    "tts_test_failed": "Η δοκιμή ομιλίας απέτυχε.",
+    "tts_text_required": "Εισαγάγετε κείμενο για δοκιμή.",
+    "twitch_reauth_required": "Η σύνδεσή σας στο Twitch έληξε. Επανασυνδέστε τον λογαριασμό σας.",
+    "twitch_user_not_found": "Δεν βρέθηκε λογαριασμός Twitch με το όνομα «{username}».",
+    "url_required": "Απαιτείται URL.",
+    "username_invalid": "Μη έγκυρο όνομα χρήστη.",
+    "username_required": "Απαιτείται όνομα χρήστη.",
+    "voice_access_denied": "Η φωνή \"{voice}\" απαιτεί ειδική πρόσβαση. Δοκιμάστε μια άλλη φωνή.",
+    "voice_invalid": "Η φωνή \"{voice}\" δεν είναι διαθέσιμη. Ελέγξτε τη φωνή και δοκιμάστε ξανά.",
+    "voice_lookup_failed": "Δεν είναι δυνατή η εύρεση της φωνής αυτού του χρήστη.",
+    "word_invalid": "Μη έγκυρη λέξη ή φράση.",
+    "word_required": "Απαιτείται λέξη ή φράση."
+  },
+  "logoutLink": {
+    "logout": "Αποσύνδεση"
+  },
+  "mainContent": {
+    "documentationTtsWildcatChat": "<a class=\"wc-link\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\">Τεκμηρίωση</a> <span>tts.wildcat.chat</span>"
+  },
+  "msg": {
+    "action": {
+      "close": "Κλείσιμο",
+      "remove": "Αφαίρεση",
+      "saved": "Αποθηκεύτηκε"
+    },
+    "api": {
+      "authFailed": "Ο έλεγχος ταυτότητας απέτυχε. Συνδεθείτε ξανά.",
+      "notAuthenticated": "Δεν είστε συνδεδεμένοι.",
+      "requestFailed": "Το αίτημα απέτυχε."
+    },
+    "auth": {
+      "genericUser": "Χρήστης",
+      "loading": "φόρτωση…",
+      "needViewerSignIn": "Επαληθεύστε τον λογαριασμό σας στο Twitch για πρόσβαση στις προτιμήσεις θεατή.",
+      "redirecting": "Ανακατεύθυνση στο Twitch για ταυτοποίηση…",
+      "required": "Απαιτείται ταυτοποίηση.",
+      "signInFailed": "Δεν είναι δυνατή η ολοκλήρωση της σύνδεσης.",
+      "signInWithTwitch": "Σύνδεση μέσω Twitch",
+      "signedOut": "Δεν είστε συνδεδεμένοι.",
+      "tokenMissing": "Λείπει το διακριτικό ταυτοποίησης. Συνδεθείτε ξανά."
+    },
+    "emotion": {
+      "angry": "Θυμωμένος",
+      "auto": "Αυτόματο",
+      "disgusted": "Αηδιασμένος",
+      "fearful": "Φοβισμένος",
+      "happy": "Χαρούμενος",
+      "neutral": "Ουδέτερος",
+      "sad": "Λυπημένος",
+      "surprised": "Έκπληκτος"
+    },
+    "ignore": {
+      "enterUsername": "Εισαγάγετε όνομα χρήστη."
+    },
+    "lang": {
+      "automatic": "Αυτόματο"
+    },
+    "prefs": {
+      "useChannelDefault": "Χρήση προεπιλογής καναλιού"
+    },
+    "preview": {
+      "enterText": "Εισαγάγετε κείμενο για δοκιμή.",
+      "unavailable": "Μη διαθέσιμη προεπισκόπηση."
+    },
+    "value": {
+      "off": "Ανενεργό",
+      "on": "Ενεργό"
+    },
+    "voice": {
+      "cannotPlay": "Δεν είναι δυνατή η αναπαραγωγή του δείγματος ήχου.",
+      "generating": "Δημιουργία…",
+      "noAudio": "Ο διακομιστής δεν επέστρεψε ήχο.",
+      "noneFound": "Δεν βρέθηκαν φωνές.",
+      "preview": "Προεπισκόπηση: {voice}",
+      "regenerate": "Επαναδημιουργία",
+      "testFailed": "Η δοκιμή απέτυχε: {reason}"
+    }
+  },
+  "page": {
+    "skipToMainContent": "Μετάβαση στο κύριο περιεχόμενο"
+  },
+  "sidebarEngNormVal": {
+    "off": "Ανενεργό"
+  },
+  "sidebarLanguageVal": {
+    "automatic": "Αυτόματο"
+  },
+  "ui": {
+    "language": "Γλώσσα"
+  },
+  "voicePreviewHint": {
+    "settingsChangedGenerateANew": "<i><i data-lucide=\"triangle-alert\" class=\"inline-icon\"></i> Οι ρυθμίσεις άλλαξαν. Δημιουργήστε νέα προεπισκόπηση.</i>"
+  },
+  "voicePreviewPlayer": {
+    "yourBrowserDoesNotSupport": "Το πρόγραμμα περιήγησής σας δεν υποστηρίζει το στοιχείο ήχου."
+  }
+}

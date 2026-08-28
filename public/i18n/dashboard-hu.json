@@ -1,0 +1,501 @@
+{
+  "addBotBtn": {
+    "activateTtsService": "TTS-szolgáltatás aktiválása"
+  },
+  "addTtsBannedWordBtn": {
+    "add": "Hozzáadás"
+  },
+  "addTtsIgnoreBtn": {
+    "add": "Hozzáadás"
+  },
+  "addTtsPronunciationBtn": {
+    "add": "Hozzáadás"
+  },
+  "allowViewerPreferences": {
+    "allowViewerVoicePreferences": "Nézői hangbeállítások engedélyezése"
+  },
+  "announceUnfulfilledRedemptions": {
+    "announceQueuedRedeemsImmediately": "Sorban álló beváltások azonnali bemondása"
+  },
+  "announceUnfulfilledRedemptionsHelp": {
+    "aRewardThatDoesNot": "Azokat a jutalmakat, amelyek nem kerülik meg a jutalomkérelmek sorát, azonnal bemondja a rendszer a beváltáskor, még akkor is, ha később elutasítod a kérelmet. Kapcsold ki ezt a beállítást, ha a bemondást a kérelem elfogadásáig várakoztatni szeretnéd — a soha el nem fogadott jutalmak így sosem kerülnek bemondásra."
+  },
+  "anonymizeFollowers": {
+    "anonymizeNewFollowers": "Új követők anonimizálása"
+  },
+  "bitsEnabled": {
+    "requireBitsForTts": "Bits megkövetelése a TTS-hez"
+  },
+  "botRespondsInChat": {
+    "botRespondsInChat": "Bot válaszoljon a csevegésben"
+  },
+  "botStatus": {
+    "loading": "Betöltés…"
+  },
+  "calibratedVoicesList": {
+    "noVoicesCalibratedYet": "Még nincsenek kalibrált hangok."
+  },
+  "calibrationSaveBtn": {
+    "save": "Mentés"
+  },
+  "calibrationVoiceSearch": {
+    "searchVoicesToCalibrate": "Kalibrálandó hangok keresése..."
+  },
+  "channelNameStatus": {
+    "yourChannel": "a csatornád"
+  },
+  "cheerEventsEnabled": {
+    "announceCheers": "Cheerek bemondása"
+  },
+  "copyTtsUrlBtn": {
+    "copy": "Másolás",
+    "copyBrowserSourceUrl": "Böngészőforrás URL-jének másolása"
+  },
+  "cpDelete": {
+    "disableDelete": "Letiltás és törlés"
+  },
+  "cpEnabled": {
+    "enableChannelPointsTts": "Channel Points TTS engedélyezése"
+  },
+  "cpPerStream": {
+    "enterAmount": "Add meg a mennyiséget"
+  },
+  "cpPerUser": {
+    "enterAmount": "Add meg a mennyiséget"
+  },
+  "cpSave": {
+    "save": "Mentés"
+  },
+  "cpTest": {
+    "testRedeem": "Beváltás tesztelése"
+  },
+  "dashboardContent": {
+    "channel": "Csatorna",
+    "channelService": "Csatornaszolgáltatás",
+    "dashboardConfigurationTabs": "Vezérlőpult-beállítási fülek",
+    "deactivationStopsTheBotFrom": "A kikapcsolás megállítja a botot a csevegési üzenetek felolvasásában. A beállításaid megmaradnak. A szolgáltatást bármikor újra aktiválhatod.",
+    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentáció </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>Nézői beállítások </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "Érzelem",
+    "engNormalization": "Angol normalizálás",
+    "language": "Nyelv",
+    "pitch": "Hangmagasság",
+    "quickLinks": "Gyorshivatkozások",
+    "service": "Szolgáltatás",
+    "signedInAs": "Bejelentkezve mint",
+    "speed": "Sebesség",
+    "testMessage": "Tesztüzenet",
+    "voicePreview": "Hang előhallgatása",
+    "volume": "Hangerő"
+  },
+  "defaultEmotion": {
+    "angry": "Dühös",
+    "disgusted": "Undorodó",
+    "fearful": "Rémült",
+    "happy": "Boldog",
+    "neutral": "Semleges",
+    "sad": "Szomorú",
+    "surprised": "Meglepett"
+  },
+  "defaultPitch": {
+    "defaultPitch12To12": "Alapértelmezett hangmagasság (-12-től +12-ig)"
+  },
+  "defaultSpeed": {
+    "defaultSpeed05To": "Alapértelmezett sebesség (0,5-től 2,0-ig)"
+  },
+  "defaultVoiceSearch": {
+    "searchDefaultVoices": "Alapértelmezett hangok keresése",
+    "searchVoices": "Hangok keresése..."
+  },
+  "defaultVolume": {
+    "voiceVolume01To": "Hang hangereje (0,1-től 10-ig)"
+  },
+  "emoteMode": {
+    "describeEmotes": "Emote-ok leírása",
+    "readEmoteNames": "Emote-nevek felolvasása",
+    "skipEmotes": "Emote-ok kihagyása"
+  },
+  "englishNormalization": {
+    "englishNormalization": "Angol normalizálás"
+  },
+  "eventsEnabled": {
+    "announceEvents": "Események bejelentése"
+  },
+  "loadingBar": {
+    "loadingDashboardSettings": "Irányítópult beállításainak betöltése"
+  },
+  "loadingOverlay": {
+    "loadingDashboardSettings": "Irányítópult beállításainak betöltése…"
+  },
+  "lookupUsername": {
+    "enterTwitchViewerUsername": "Add meg a Twitch-néző felhasználónevét"
+  },
+  "lookupVoiceBtn": {
+    "lookupVoice": "Hang keresése"
+  },
+  "meta": {
+    "wildcatttsDashboard": "WildcatTTS Irányítópult",
+    "wildcatttsStreamerDashboardConfigureText": "WildcatTTS Streamer Irányítópult – Szövegfelolvasási (TTS) beállítások, jogosultságok, botválaszok és Channel Points testreszabása."
+  },
+  "msg": {
+    "auth": {
+      "demoStreamer": "Demo Streamer",
+      "needBroadcaster": "A streameri beállítások eléréséhez jelentkezz be a műsorszóró fiókoddal.",
+      "needSignIn": "Az irányítópult eléréséhez jelentkezz be a Twitch-fiókoddal."
+    },
+    "bannedWords": {
+      "addFailed": "A tiltott szó hozzáadása sikertelen.",
+      "added": "\"{word}\" hozzáadva a tiltott szavakhoz.",
+      "addedTestMode": "[Teszt] Tiltott szó hozzáadva: {word}.",
+      "empty": "Még nincsenek tiltott szavak megadva.",
+      "removeFailed": "A tiltott szó eltávolítása sikertelen.",
+      "removed": "\"{word}\" eltávolítva a tiltott szavak közül.",
+      "removedTestMode": "[Teszt] Tiltott szó eltávolítva: {word}."
+    },
+    "bot": {
+      "activateFailed": "A TTS-szolgáltatás aktiválása sikertelen.",
+      "activated": "TTS-szolgáltatás aktiválva.",
+      "activatedTestMode": "TTS-szolgáltatás aktiválva (teszt mód).",
+      "activating": "TTS-szolgáltatás aktiválása…",
+      "active": "Aktív",
+      "deactivateFailed": "A TTS-szolgáltatás kikapcsolása sikertelen.",
+      "deactivated": "TTS-szolgáltatás kikapcsolva.",
+      "deactivatedTestMode": "TTS-szolgáltatás kikapcsolva (teszt mód).",
+      "deactivating": "TTS-szolgáltatás kikapcsolása…",
+      "inactive": "Inaktív",
+      "notAuthenticated": "Nincs hitelesítve",
+      "notAuthorized": "A csatorna nincs engedélyezve.",
+      "requestAccess": "Hozzáférés kérése itt",
+      "statusError": "Hiba",
+      "statusFailed": "Hiba: {reason}",
+      "statusLoadFailed": "A bot állapota nem tölthető be: {reason}",
+      "unknownError": "Ismeretlen hiba"
+    },
+    "calibration": {
+      "confirmReset": "Visszaállítod a(z) {voice} kalibrációját?",
+      "edit": "Szerkesztés",
+      "empty": "Még nincs kalibrált hang.",
+      "reset": "Visszaállítás",
+      "row": "{voice} ({volume})"
+    },
+    "cp": {
+      "confirmDelete": "Törlöd a Channel Points TTS jutalmat?",
+      "deleteFailed": "A törlés sikertelen.",
+      "deleted": "Jutalom törölve.",
+      "deletedTestMode": "Jutalom törölve (tesztmód).",
+      "deleting": "Törlés…",
+      "lastSynced": "{reward} · Utoljára szinkronizálva: {time}",
+      "never": "soha",
+      "noReward": "Nincs létrehozott jutalom",
+      "noRewardTestMode": "Nincs létrehozott jutalom (tesztmód)",
+      "rewardId": "Jutalomazonosító: {id}",
+      "saveFailed": "Nem sikerült menteni a Channel Points beállításokat.",
+      "saved": "Channel Points beállítások mentve.",
+      "savedTestMode": "Channel Points beállítások mentve (tesztmód).",
+      "saving": "Channel Points beállítások mentése…",
+      "testCompleted": "Teszt befejezve ({status}).",
+      "testCompletedTestMode": "Teszt befejezve (tesztmód).",
+      "testFailed": "A teszt sikertelen.",
+      "testPrompt": "Adj meg egy tesztüzenetet a beváltás szimulálásához:",
+      "testing": "Beváltás tesztelése…"
+    },
+    "ignore": {
+      "addFailed": "Nem sikerült hozzáadni a felhasználót a mellőzési listához.",
+      "addFailedReason": "Nem sikerült hozzáadni a felhasználót: {reason}",
+      "badgeModerator": "Általad némítva",
+      "badgeSelf": "Mellőzést kért",
+      "empty": "Nincsenek mellőzött felhasználók.",
+      "noSuchAccount": "Nincs ilyen Twitch-fiók",
+      "removeFailed": "Nem sikerült eltávolítani a felhasználót a mellőzési listáról.",
+      "removeFailedReason": "Nem sikerült eltávolítani a következőt: {label}: {reason}",
+      "removeLabel": "{label} eltávolítása a mellőzési listáról ({source, select, self {ő maga kérte} other {általad némítva}})"
+    },
+    "lookup": {
+      "button": "Hang keresése",
+      "calibrate": "\"{voice}\" kalibrálása",
+      "error": "Hiba: {reason}",
+      "failed": "A felhasználó nem található.",
+      "hasVoice": "{user} felhasználó egyedi hangja: {voice}",
+      "noVoice": "{user} felhasználónak nincs egyedi hangja beállítva.",
+      "searching": "Keresés…",
+      "voiceUnknown": "Ez a hang nem szerepel az elérhető hangok listáján."
+    },
+    "obs": {
+      "cannotCopy": "Nem sikerült kimásolni az URL-t.",
+      "cannotDetermine": "A TTS URL nem határozható meg.",
+      "copied": "Vágólapra másolva.",
+      "copiedButton": "Másolva!",
+      "copyFailed": "A másolás sikertelen.",
+      "generateFailed": "Nem sikerült létrehozni az OBS URL-t. Próbáld újra.",
+      "generating": "Létrehozás…",
+      "generatingUrl": "Biztonságos URL generálása…",
+      "loadingUrl": "Meglévő URL betöltése…",
+      "pressRegenerate": "Kattints az „URL újragenerálása” gombra egy OBS Browser Source URL létrehozásához.",
+      "refreshPage": "Nem sikerült létrehozni az URL-t. Frissítsd az oldalt.",
+      "testModeUrl": "Tesztmód URL",
+      "urlGenerated": "Új URL létrehozva.",
+      "urlGeneratedTestMode": "Új URL létrehozva (teszt mód).",
+      "urlNotReady": "Az URL még nem áll rendelkezésre.",
+      "yourUrl": "Saját OBS Browser Source URL"
+    },
+    "preview": {
+      "playingTestMode": "Előnézet lejátszása… (teszt mód)",
+      "tooLong": "A szöveg legfeljebb 500 karakter lehet."
+    },
+    "pron": {
+      "acronymsDisabled": "A mozaikszavak ki vannak kapcsolva",
+      "acronymsOffHint": "A beállítások érvénybe lépéséhez kapcsold be fent a „Csevegési mozaikszavak feloldása” lehetőséget.",
+      "addFailed": "Nem sikerült hozzáadni a kiejtést.",
+      "added": "Kiejtés hozzáadva: {match} -> {say}.",
+      "addedTestMode": "[Teszt] Kiejtés hozzáadva: {match} -> {say}.",
+      "builtinOff": " — beépített kikapcsolva",
+      "empty": "Még nincsenek egyéni kiejtések.",
+      "expansion": " → {say}",
+      "needBoth": "Add meg a szót és a kiejtést is.",
+      "removeFailed": "Nem sikerült eltávolítani a kiejtést.",
+      "removed": "Kiejtés eltávolítva: {match}.",
+      "removedTestMode": "[Teszt] Kiejtés eltávolítva: {match}."
+    },
+    "setting": {
+      "allowViewerPreferences": "Nézői hangbeállítások engedélyezése",
+      "announceQueuedRedeems": "Sorba állított beváltások bejelentése",
+      "anonymizeFollowers": "Követők anonimizálása",
+      "bitsForTts": "Bits a TTS-hez",
+      "botRespondsInChat": "A bot válaszol a csevegésben",
+      "cheerAnnouncements": "Cheer-bejelentések",
+      "defaultEmotion": "Alapértelmezett érzelem",
+      "defaultLanguage": "Alapértelmezett nyelv",
+      "defaultPitch": "Alapértelmezett hangmagasság",
+      "defaultSpeed": "Alapértelmezett sebesség",
+      "defaultVoice": "Alapértelmezett hang",
+      "emoteMode": "Emote-mód",
+      "englishNormalization": "Angol normalizálás",
+      "eventAnnouncements": "Eseménybejelentések",
+      "expandAcronyms": "Csevegési mozaikszavak feloldása",
+      "minimumBits": "Minimum bits",
+      "profanityFilter": "Káromkodásszűrő",
+      "readFullUrls": "Teljes URL-ek felolvasása",
+      "redemptionAnnouncements": "Beváltás-bejelentések",
+      "ttsEngine": "TTS-motor",
+      "ttsMode": "TTS-mód",
+      "ttsPermission": "TTS-jogosultság",
+      "voiceVolume": "Hangerő",
+      "watchStreakAnnouncements": "Megtekintési sorozat bejelentései",
+      "youtubeHandle": "YouTube-azonosító",
+      "youtubeTts": "YouTube TTS"
+    },
+    "settings": {
+      "loadFailed": "Nem sikerült betölteni a beállításaidat.",
+      "saveFailed": "{label}: {reason}",
+      "youtubeHandleRequired": "Add meg a YouTube-azonosítódat a YouTube TTS bekapcsolása előtt."
+    }
+  },
+  "obsCloseBtn": {
+    "closeObsSetup": "OBS-beállítás bezárása"
+  },
+  "obsPopover": {
+    "addBrowserSource": "Browser Source hozzáadása",
+    "cautionANewUrlStops": "FIGYELEM: Az új URL leállítja a jelenlegi OBS-forrást, amíg nem frissíted az URL-t az OBS-ben.",
+    "controlAudioViaObs": "Hang vezérlése az OBS-en keresztül",
+    "inObsAddANew": "Az OBS-ben adj hozzá egy új <strong>Browser Source</strong>-ot. Nevezd el a forrást \"Wildcat TTS\"-nek, és illeszd be a másolt URL-t. Az alapértelmezett szélesség és magasság maradhat.",
+    "inTheObsAudioMixer": "Az OBS Audiokeverőjében keresd meg a \"Wildcat TTS\" elemet. Kattints a fogaskerék ikonra, és válaszd a <strong>Speciális hangtulajdonságok</strong> menüpontot. Állítsd a Hangfigyelést a következőre: <strong>Megfigyelés és kimenet</strong>.",
+    "monitorAndOutput": "Megfigyelés és kimenet",
+    "obsBrowserSource": "OBS Browser Source",
+    "selectControlAudioViaObs": "Válaszd a <strong>Hang vezérlése OBS-sel</strong> lehetőséget. Ügyelj arra, hogy <strong>A forrás leállítása, ha nem látható</strong> ne legyen bejelölve.",
+    "setupInstructions": "Beállítási útmutató",
+    "yourBrowserSourceUrl": "A te Browser Source URL-ed"
+  },
+  "obsToggleBtn": {
+    "obsSetup": "OBS-beállítás"
+  },
+  "page": {
+    "channelDashboard": "Csatorna-vezérlőpult",
+    "textToSpeechSettingsFor": "Szövegfelolvasási beállítások a csatornádhoz. A módosítások azonnal mentésre kerülnek.",
+    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Vezérlőpult</span>"
+  },
+  "profanityFilterEnabled": {
+    "profanityFilter": "Káromkodásszűrő"
+  },
+  "pronunciationEnabled": {
+    "expandChatAcronyms": "Csevegési mozaikszavak feloldása"
+  },
+  "readFullUrls": {
+    "readFullUrls": "Teljes URL-ek felolvasása"
+  },
+  "redemptionEventsEnabled": {
+    "announceRewardRedeems": "Jutalombeváltások bemondása"
+  },
+  "regenerateTtsUrlBtn": {
+    "regenerateBrowserSourceUrl": "Browser Source URL újragenerálása",
+    "regenerateUrl": "URL újragenerálása"
+  },
+  "removeBotBtn": {
+    "deactivateTtsService": "TTS-szolgáltatás kikapcsolása"
+  },
+  "resetPitchBtn": {
+    "reset": "Visszaállítás",
+    "resetDefaultPitchTo0": "Alapértelmezett hangmagasság visszaállítása 0-ra"
+  },
+  "resetSpeedBtn": {
+    "reset": "Visszaállítás",
+    "resetDefaultSpeedTo1": "Alapértelmezett sebesség visszaállítása 1.0-ra"
+  },
+  "resetVolumeBtn": {
+    "reset": "Visszaállítás",
+    "resetVoiceVolumeTo1": "Hangerejének visszaállítása 1.0-ra"
+  },
+  "saveSettingsBtn": {
+    "saveAllSettings": "Összes beállítás mentése"
+  },
+  "serviceHeadline": {
+    "ttsService": "TTS-szolgáltatás"
+  },
+  "sidebarVoiceName": {
+    "friendlyPerson": "Barátságos személy"
+  },
+  "tabBroadcaster": {
+    "allowTheBotToRespond": "A bot válaszolhat olyan chatparancsokra, mint a !myvoice",
+    "allowViewersToUseChannel": "Nézők számára a Channel Points használatának engedélyezése TTS-hez",
+    "allowViewerVoicePreferences": "Nézői hangbeállítások engedélyezése",
+    "announceCheers": "Cheerek bemondása",
+    "announceEvents": "Események bemondása",
+    "announceEventsSuchAsSubscriptions": "Események (pl. feliratkozások és raidek) bemondása",
+    "announceQueuedRedeemsImmediately": "Sorban álló beváltások azonnali bemondása",
+    "announceRewardRedeems": "Jutalombeváltások bemondása",
+    "announceWatchStreaks": "Nézési sorozatok bemondása",
+    "announceWhenAViewerCheers": "Bemondás, amikor egy néző bitseket küld (cheer)",
+    "announceWhenAViewerReaches": "Bemondás, amikor egy néző nézési sorozat mérföldkövet ér el",
+    "announceWhenAViewerRedeems": "Bemondás, amikor egy néző Channel Points jutalmat vált be",
+    "anonymizeNewFollowers": "Új követők anonimizálása",
+    "bannedWordsCommaSeparated": "Tiltott szavak (vesszővel elválasztva)",
+    "bannedWordsPhrases": "<strong>Tiltott szavak / kifejezések</strong>",
+    "bitsTts": "Bits → TTS",
+    "blockLinks": "Hivatkozások letiltása",
+    "botRespondsInChat": "A bot válaszol a chatben",
+    "channelPointsTts": "Channel Points → TTS",
+    "chooseWhichMessagesTriggerTts": "Válaszd ki, mely üzenetek aktiválják a TTS-t",
+    "configureBitsRequirementsForText": "A szövegfelolvasás bits-követelményeinek beállítása",
+    "configureChannelPointsRewardsFor": "A szövegfelolvasás Channel Points jutalmainak beállítása",
+    "configureTtsEngineSettingsAnd": "A TTS-motor beállításainak és engedélyeinek konfigurálása",
+    "controlHowTtsPronouncesSpecific": "Szabályozd, hogyan ejtse ki a TTS az egyes szavakat. A gyakori Twitch-mozaikszavakat alapértelmezetten kezeli. Hozz létre egy bejegyzést az alapértelmezett kiejtés felülírásához vagy egy új szó hozzáadásához.",
+    "controlsHowTtsHandlesEmotes": "Meghatározza, hogyan kezelje a TTS a hangulatjeleket a chatüzenetekben",
+    "cooldownsAndModeration": "Türelmi idők és moderáció",
+    "costPoints": "Költség (pont)",
+    "emoteMode": "<strong>Hangulatjel mód</strong>",
+    "enableChannelPointsTts": "Channel Points TTS engedélyezése",
+    "enableCooldownsLimits": "Türelmi idők és korlátok engedélyezése",
+    "engineMode": "Motor és mód",
+    "expandChatAcronyms": "Chat-rövidítések feloldása",
+    "globalCooldownSec": "Globális türelmi idő (mp)",
+    "hideFollowerNamesInTts": "Követők nevének elrejtése a TTS-értesítésekben az adatvédelem érdekében",
+    "ifOnTtsReadsFull": "Bekapcsolva a TTS a teljes URL-eket felolvassa. Kikapcsolva csak a domainneveket olvassa fel",
+    "ifThisSettingIsOff": "Ha ez a beállítás ki van kapcsolva, a TTS az alapértelmezett csatornahangot használja minden üzenethez",
+    "ignoredUsers": "Mellőzött felhasználók",
+    "manageUsersThatTtsIgnores": "A TTS által figyelmen kívül hagyott felhasználók kezelése",
+    "minimumBitsRequired": "<strong>Szükséges minimális bits</strong>",
+    "minimumNumberOfBitsRequired": "A TTS aktiválásához szükséges minimális bits-mennyiség",
+    "perStreamLimit": "Streamenkénti korlát",
+    "perUserPerStream": "Felhasználónként és streamenként",
+    "profanityFilter": "Káromkodásszűrő",
+    "pronunciationDictionary": "<strong>Kiejtési szótár</strong>",
+    "readFullUrls": "Teljes URL-ek felolvasása",
+    "readYoutubeLiveChatMessages": "A YouTube élő csevegési üzeneteinek felolvasása TTS-sel. Ehhez a funkcióhoz aktív YouTube élő közvetítés szükséges.",
+    "readYoutubeLiveChatMessages2": "YouTube élő csevegési üzenetek felolvasása",
+    "requireBitsForTts": "Bits megkövetelése a TTS-hez",
+    "rewardTitle": "Jutalom neve",
+    "skipTheRewardQueue": "Jutalomsor kihagyása",
+    "theTitleMustBeUnique": "A címnek egyedinek kell lennie a csatornádon.",
+    "ttsDoesNotReadMessages": "A TTS nem olvassa fel a listán szereplő felhasználók üzeneteit.",
+    "ttsEngineEnabled": "TTS-motor engedélyezve",
+    "ttsExpandsCommonTwitchAcronyms": "A TTS feloldja a gyakori Twitch-mozaikszavakat szavakká. Például az „ngl” „not gonna lie”-ként hangzik el. Kapcsold ki a betűzéshez.",
+    "ttsIgnoreList": "<strong>TTS-mellőzési lista</strong>",
+    "ttsMode": "<strong>TTS-mód</strong>",
+    "ttsPermission": "<strong>TTS-jogosultság</strong>",
+    "ttsReplacesProfanityWithMilder": "A TTS enyhébb szavakkal helyettesíti a káromkodásokat a felolvasás előtt. A szűrő a csatorna és a néző nyelvét használja. Ha a nyelv Automatikusra van állítva, a szűrő az angol listát használja. A tiltott szavak esetén a teljes üzenet kimarad.",
+    "ttsSkipsMessagesThatContain": "A TTS kihagyja az ezeket a szavakat vagy kifejezéseket tartalmazó üzeneteket.",
+    "turnOnOrTurnOff": "Szövegfelolvasó (TTS) motor be- vagy kikapcsolása",
+    "viewerPrompt": "Nézői prompt",
+    "viewersMustCheerBitsTo": "A nézőknek bits-et kell küldeniük a szövegfelolvasás használatához",
+    "whoCanUseTextTo": "Ki használhatja a szövegfelolvasást",
+    "yourYoutubeChannelHandleFor": "A YouTube-csatornád azonosítója (például <code>@yourhandle</code>)",
+    "youtubeHandle": "<strong>YouTube-azonosító</strong>",
+    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>YouTube-integráció",
+    "youtubeTtsEnabled": "YouTube TTS engedélyezve"
+  },
+  "tabBtnBroadcaster": {
+    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Közvetítő"
+  },
+  "tabBtnViewerDefaults": {
+    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Alapértelmezett hangok"
+  },
+  "tabViewerDefaults": {
+    "adjustThePitchForThe": "Az alapértelmezett hang magasságának beállítása",
+    "adjustTheVolumeForThe": "A kiválasztott hang hangerejének beállítása. VIGYÁZAT: Az 1,0-nál nagyobb értékek torzítást okozhatnak.",
+    "calibratedVoices": "<strong>Kalibrált hangok</strong>",
+    "calibrateVolumeForSpecificVoices": "Hangerő kalibrálása adott hangokhoz. VIGYÁZAT: Az 1,0-nál nagyobb értékek torzítást okozhatnak.",
+    "controlHowFastTheDefault": "Az alapértelmezett hang beszédsebességének beállítása",
+    "defaultEmotion": "<strong>Alapértelmezett érzelem</strong>",
+    "defaultLanguage": "<strong>Alapértelmezett nyelv</strong>",
+    "defaultPitch12To12": "Alapértelmezett hangmagasság (-12 – +12):",
+    "defaultSpeed05To": "Alapértelmezett sebesség (0,5 – 2,0):",
+    "defaultVoice": "<strong>Alapértelmezett hang</strong>",
+    "defaultVoiceSettings": "Alapértelmezett hangbeállítások",
+    "englishNormalization": "Angol normalizálás",
+    "improvePronunciationForSpecificLanguages": "Kiejtés javítása adott nyelvekhez",
+    "improveThePronunciationOfNumbers": "Számok és szöveg kiejtésének javítása",
+    "selectTheDefaultTtsVoice": "Válaszd ki a csatorna alapértelmezett TTS hangját",
+    "selectVoice": "Hang kiválasztása",
+    "setDefaultVoiceSettingsFor": "Állíts be alapértelmezett hangbeállításokat a csatornádhoz",
+    "setTheEmotionalToneOf": "Állítsd be az alapértelmezett hang érzelmi tónusát",
+    "viewerVoiceLookup": "Nézői hang keresése",
+    "voiceCalibration": "Hang kalibrálása",
+    "voicesWithCustomVolumeSettings": "Egyéni hangerő-beállításokkal rendelkező hangok.",
+    "voiceVolume01To": "Hang hangereje (0,1 – 10):",
+    "volumeOverride": "Hangerő felülbírálása:"
+  },
+  "ttsBannedWordInput": {
+    "wordOrPhraseToBan": "Letiltandó szó vagy kifejezés"
+  },
+  "ttsEnabled": {
+    "ttsEngineEnabled": "TTS motor engedélyezve"
+  },
+  "ttsIgnoreUsername": {
+    "usernameToIgnore": "Mellőzendő felhasználónév"
+  },
+  "ttsMode": {
+    "allMessages": "Minden üzenet",
+    "bitsPointsOnly": "Csak Bits/Pontok",
+    "ttsCommandOnly": "Csak !tts parancs"
+  },
+  "ttsPermission": {
+    "everyone": "Mindenki",
+    "moderatorsOnly": "Csak moderátorok",
+    "subscribersOnly": "Csak feliratkozók",
+    "vipsOnly": "Csak VIP-k"
+  },
+  "ttsPronunciationMatchInput": {
+    "wordForExampleWcat": "Szó (például: wcat)",
+    "wordToReplace": "Lecserélendő szó"
+  },
+  "ttsPronunciationSayInput": {
+    "howToSayItFor": "Hogyan kell kiejteni (például: wildcat)",
+    "pronunciation": "Kiejtés"
+  },
+  "ttsUrlField": {
+    "yourBrowserSourceUrl": "A Browser Source URL-ed"
+  },
+  "twitchUsername": {
+    "loading": "betöltés…"
+  },
+  "voiceTestBtn": {
+    "sendPreview": "Előnézet küldése"
+  },
+  "watchStreakEventsEnabled": {
+    "announceWatchStreaks": "Nézési sorozatok bejelentése"
+  },
+  "youtubeEnabled": {
+    "youtubeTtsEnabled": "YouTube TTS engedélyezve"
+  },
+  "youtubeHandle": {
+    "yourhandle": "@yourhandle"
+  }
+}

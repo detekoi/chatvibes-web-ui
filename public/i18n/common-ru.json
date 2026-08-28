@@ -1,0 +1,164 @@
+{
+  "darkModeToggle": {
+    "toggleDarkMode": "Переключить тёмную тему"
+  },
+  "err": {
+    "banned_add_failed": "Не удалось добавить слово в список запрещённых.",
+    "banned_remove_failed": "Не удалось удалить слово из списка запрещённых.",
+    "bot_add_failed": "Не удалось активировать бота на вашем канале. Повторите попытку.",
+    "bot_remove_failed": "Не удалось деактивировать бота на вашем канале. Повторите попытку.",
+    "bot_status_failed": "Не удалось загрузить статус бота.",
+    "channel_data_not_found": "Настройки для этого канала не найдены.",
+    "channel_not_authorized": "Ваш канал не авторизован для использования этого бота. Свяжитесь со мной для получения доступа.",
+    "channel_not_found": "Этот канал не найден.",
+    "channel_required": "Необходимо указать канал.",
+    "channel_tts_disabled": "Канал не найден или на нём отключён TTS.",
+    "entry_key_required": "Требуется ключ записи.",
+    "exchange_code_invalid": "Ссылка для входа отсутствует или повреждена.",
+    "exchange_code_used": "Ссылка для входа уже использована или устарела. Войдите снова.",
+    "exchange_failed": "Не удалось выполнить вход. Повторите попытку.",
+    "ignore_add_failed": "Не удалось добавить пользователя в список игнорирования.",
+    "ignore_moderator_imposed": "Модератор канала отключил для вас TTS, поэтому отменить это может только модератор.",
+    "ignore_remove_failed": "Не удалось удалить пользователя из списка игнорирования.",
+    "ignore_update_failed": "Не удалось изменить настройки отказа от озвучки.",
+    "key_required": "Требуется название настройки.",
+    "match_key_invalid": "Слово должно содержать от 1 до {max} символов (буквы, цифры, апострофы или дефисы) и не может содержать точку.",
+    "network_error": "Не удалось связаться с сервером. Проверьте соединение.",
+    "obs_token_fetch_failed": "Не удалось загрузить токен OBS.",
+    "obs_token_generate_failed": "Не удалось сгенерировать новый токен OBS.",
+    "obs_token_store_failed": "Не удалось сохранить токен OBS. Повторите попытку.",
+    "prefs_fetch_failed": "Не удалось загрузить ваши настройки.",
+    "prefs_global_fetch_failed": "Не удалось загрузить ваши глобальные настройки.",
+    "prefs_global_update_failed": "Не удалось сохранить ваши глобальные настройки.",
+    "prefs_invalid_emote_mode": "Режим обработки смайлов должен быть read, skip или describe.",
+    "prefs_invalid_emotion": "Недопустимая эмоция.",
+    "prefs_invalid_language": "Недопустимый язык.",
+    "prefs_invalid_pitch": "Недопустимая высота тона.",
+    "prefs_invalid_speed": "Недопустимая скорость.",
+    "prefs_invalid_voice": "Недопустимый голос.",
+    "prefs_missing_data": "Изменения не были отправлены.",
+    "prefs_update_failed": "Не удалось сохранить ваши настройки.",
+    "pronunciation_limit_reached": "Достигнут лимит ({max}) пользовательских произношений. Сначала удалите одно.",
+    "pronunciation_remove_failed": "Не удалось удалить произношение.",
+    "pronunciation_save_failed": "Не удалось сохранить произношение.",
+    "reward_banned_word": "Сообщение содержит запрещённое слово: \"{word}\".",
+    "reward_create_failed": "Не удалось создать награду за Channel Points.",
+    "reward_delete_failed": "Не удалось удалить награду за Channel Points.",
+    "reward_links_blocked": "Ссылки запрещены для этой награды.",
+    "reward_load_failed": "Не удалось загрузить награду за Channel Points.",
+    "reward_message_empty": "Сообщение пустое.",
+    "reward_save_failed": "Не удалось сохранить награду за Channel Points.",
+    "reward_test_failed": "Не удалось протестировать награду за Channel Points.",
+    "reward_twitch_error": "Twitch отклонил изменение награды.",
+    "reward_validation_failed": "Это сообщение недопустимо.",
+    "say_contains_link": "Произношение не может содержать ссылку.",
+    "say_empty": "Произношение не может быть пустым.",
+    "say_must_be_text": "Произношение должно быть текстом.",
+    "say_too_long": "Произношение должно содержать не более {max} символов.",
+    "server_misconfigured": "Сервер настроен неправильно.",
+    "setting_invalid": "Недопустимое значение для {key}.",
+    "setting_update_failed": "Не удалось обновить настройку TTS.",
+    "settings_fetch_failed": "Не удалось загрузить настройки TTS.",
+    "shortlink_failed": "Не удалось создать короткую ссылку.",
+    "storage_unavailable": "Хранилище недоступно.",
+    "tts_generation_failed": "Не удалось сгенерировать речь: {reason}",
+    "tts_no_audio": "Провайдер речи не вернул аудио.",
+    "tts_not_configured": "Провайдер речи не настроен.",
+    "tts_provider_failed": "Провайдеру речи не удалось сгенерировать аудио.",
+    "tts_test_failed": "Тест речи не удался.",
+    "tts_text_required": "Введите текст для проверки.",
+    "twitch_reauth_required": "Сеанс входа в Twitch истек. Подключите аккаунт заново.",
+    "twitch_user_not_found": "Учётная запись Twitch с именем «{username}» не найдена.",
+    "url_required": "Требуется URL.",
+    "username_invalid": "Недопустимое имя пользователя.",
+    "username_required": "Требуется имя пользователя.",
+    "voice_access_denied": "Для голоса \"{voice}\" требуется специальный доступ. Выберите другой голос.",
+    "voice_invalid": "Голос \"{voice}\" недоступен. Проверьте выбранный голос и попробуйте снова.",
+    "voice_lookup_failed": "Не удалось найти голос этого пользователя.",
+    "word_invalid": "Недопустимое слово или фраза.",
+    "word_required": "Требуется слово или фраза."
+  },
+  "logoutLink": {
+    "logout": "Выйти"
+  },
+  "mainContent": {
+    "documentationTtsWildcatChat": "<a class=\"wc-link\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\">Документация</a> <span>tts.wildcat.chat</span>"
+  },
+  "msg": {
+    "action": {
+      "close": "Закрыть",
+      "remove": "Удалить",
+      "saved": "Сохранено"
+    },
+    "api": {
+      "authFailed": "Ошибка аутентификации. Войдите снова.",
+      "notAuthenticated": "Вы не вошли в систему.",
+      "requestFailed": "Не удалось выполнить запрос."
+    },
+    "auth": {
+      "genericUser": "Пользователь",
+      "loading": "загрузка…",
+      "needViewerSignIn": "Подтвердите свой аккаунт Twitch, чтобы настроить параметры зрителя.",
+      "redirecting": "Перенаправление на Twitch для авторизации…",
+      "required": "Требуется авторизация.",
+      "signInFailed": "Не удалось выполнить вход.",
+      "signInWithTwitch": "Войти через Twitch",
+      "signedOut": "Вы не вошли в систему.",
+      "tokenMissing": "Токен авторизации отсутствует. Войдите снова."
+    },
+    "emotion": {
+      "angry": "Сердитый",
+      "auto": "Авто",
+      "disgusted": "С отвращением",
+      "fearful": "Испуганный",
+      "happy": "Радостный",
+      "neutral": "Нейтральный",
+      "sad": "Грустный",
+      "surprised": "Удивленный"
+    },
+    "ignore": {
+      "enterUsername": "Введите имя пользователя."
+    },
+    "lang": {
+      "automatic": "Автоматически"
+    },
+    "prefs": {
+      "useChannelDefault": "По умолчанию для канала"
+    },
+    "preview": {
+      "enterText": "Введите текст для проверки.",
+      "unavailable": "Предпрослушивание недоступно."
+    },
+    "value": {
+      "off": "Выкл.",
+      "on": "Вкл."
+    },
+    "voice": {
+      "cannotPlay": "Не удалось воспроизвести образец аудио.",
+      "generating": "Генерация…",
+      "noAudio": "Сервер не вернул аудио.",
+      "noneFound": "Голоса не найдены.",
+      "preview": "Прослушать {voice}",
+      "regenerate": "Сгенерировать заново",
+      "testFailed": "Ошибка теста: {reason}"
+    }
+  },
+  "page": {
+    "skipToMainContent": "Перейти к основному содержимому"
+  },
+  "sidebarEngNormVal": {
+    "off": "Выкл."
+  },
+  "sidebarLanguageVal": {
+    "automatic": "Автоматически"
+  },
+  "ui": {
+    "language": "Язык"
+  },
+  "voicePreviewHint": {
+    "settingsChangedGenerateANew": "<i><i data-lucide=\"triangle-alert\" class=\"inline-icon\"></i> Настройки изменены. Сгенерируйте новый образец.</i>"
+  },
+  "voicePreviewPlayer": {
+    "yourBrowserDoesNotSupport": "Ваш браузер не поддерживает воспроизведение аудио."
+  }
+}

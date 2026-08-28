@@ -1,0 +1,11 @@
+{
+  "mainContent": {
+    "pageNotFound": "الصفحة غير موجودة",
+    "returnToLogin": "العودة إلى تسجيل الدخول",
+    "thatUrlIsNotPart": "عنوان URL هذا ليس جزءاً من هذا الموقع. تأكد من صحة العنوان، أو عد إلى صفحة تسجيل الدخول."
+  },
+  "meta": {
+    "pageNotFoundOnWildcattts": "الصفحة غير موجودة على WildcatTTS.",
+    "pageNotFoundWildcattts": "الصفحة غير موجودة — WildcatTTS"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "mainContent": {
+    "pageNotFound": "Sivua ei löytynyt",
+    "returnToLogin": "Palaa kirjautumiseen",
+    "thatUrlIsNotPart": "Kyseinen URL ei kuulu tälle sivustolle. Varmista, että osoite on oikein, tai palaa kirjautumissivulle."
+  },
+  "meta": {
+    "pageNotFoundOnWildcattts": "Sivua ei löytynyt palvelusta WildcatTTS.",
+    "pageNotFoundWildcattts": "Sivua ei löytynyt — WildcatTTS"
+  }
+}

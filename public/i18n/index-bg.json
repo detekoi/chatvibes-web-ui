@@ -1,0 +1,50 @@
+{
+  "kofiClose": {
+    "closeSupportDialog": "Затвори прозореца за подкрепа"
+  },
+  "kofiModal": {
+    "openInNewTabOn": "<a href=\"https://ko-fi.com/parfaitfair\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"kofi-direct-link\">Отвори в нов раздел в Ko-fi.com</a>"
+  },
+  "kofiOpen": {
+    "supportMe": "Подкрепи ме"
+  },
+  "kofiTitle": {
+    "supportParfaitfair": "Подкрепи parfaitfair"
+  },
+  "mainContent": {
+    "access": "Достъп",
+    "accessIsInviteOnlyUnapproved": "Достъпът е само с покана. Неодобрените канали получават съобщение за отказан достъп. <a class=\"wc-link wc-link--underline\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">Поискай достъп тук</a>.",
+    "changeTtsSettingsControlBot": "Променяй настройките на TTS • Управлявай отговорите на бота в чата • Конфигурирай Channel Points • Задай предпочитания за глас",
+    "colorTheme": "Цветова тема",
+    "iAmAViewer": "<span class=\"wc-rule-name\">Аз съм зрител</span>",
+    "iRunTheChannel": "<span class=\"wc-rule-name\">Управлявам канала</span>",
+    "setHowYourMessagesSound": "Настрой как да звучат съобщенията ти, когато TTS ги чете в каналите, които посещаваш.",
+    "textToSpeechForYour": "Текст към реч за твоя Twitch канал – за стриймъри и зрители.",
+    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">Само с покана</span>",
+    "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">Управление на бота за текст към реч</span>"
+  },
+  "meta": {
+    "wildcatttsBotManagement": "Управление на бота WildcatTTS",
+    "wildcatttsTextToSpeechBot": "Управление на бота за текст към реч WildcatTTS за Twitch канали, стриймъри и зрители."
+  },
+  "msg": {
+    "kofi": {
+      "iframeTitle": "Подкрепете parfaitfair в Ko-fi"
+    }
+  },
+  "page": {
+    "support": "Подкрепа"
+  },
+  "streamerLoginBtn": {
+    "manageMyChannel": "<i data-lucide=\"mic\" aria-hidden=\"true\"></i>Управлявай канала ми"
+  },
+  "themeDarkBtn": {
+    "dark": "Тъмна"
+  },
+  "themeLightBtn": {
+    "light": "Светла"
+  },
+  "viewerPrefsBtn": {
+    "setMyOwnVoice": "<i data-lucide=\"headphones\" aria-hidden=\"true\"></i>Задай своя глас"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "mainContent": {
+    "pageNotFound": "Siden blev ikke fundet",
+    "returnToLogin": "Tilbage til login",
+    "thatUrlIsNotPart": "Denne URL er ikke en del af dette websted. Tjek, at adressen er korrekt, eller gå tilbage til loginsiden."
+  },
+  "meta": {
+    "pageNotFoundOnWildcattts": "Siden blev ikke fundet på WildcatTTS.",
+    "pageNotFoundWildcattts": "Siden blev ikke fundet — WildcatTTS"
+  }
+}

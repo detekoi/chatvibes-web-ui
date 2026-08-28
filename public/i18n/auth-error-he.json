@@ -1,0 +1,41 @@
+{
+  "errorAction": {
+    "tryAgain": "נסה שוב"
+  },
+  "errorCode": {
+    "unknown": "לא ידוע"
+  },
+  "errorCodeBlock": {
+    "error": "שגיאה"
+  },
+  "errorMessageDetails": {
+    "twitchAuthenticationFailed": "אימות Twitch נכשל."
+  },
+  "errorReadout": {
+    "authenticationFailed": "האימות נכשל"
+  },
+  "errorTitle": {
+    "authenticationFailed": "האימות נכשל"
+  },
+  "mainContent": {
+    "requestAccessTtsWildcatChat": "<a class=\"wc-link\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">בקשת גישה</a> <span>tts.wildcat.chat</span>"
+  },
+  "meta": {
+    "wildcatttsAuthenticationError": "WildcatTTS - שגיאת אימות",
+    "wildcatttsAuthenticationErrorAndSign": "שגיאת אימות ושחזור התחברות ב-WildcatTTS."
+  },
+  "msg": {
+    "authError": {
+      "backToSignIn": "חזרה להתחברות",
+      "canceledBody": "לא בוצעו שינויים. אפשר להתחבר כשתרצה.",
+      "canceledReadout": "בוטל",
+      "canceledTitle": "WildcatTTS - ההתחברות בוטלה",
+      "canceledTitleShort": "ההתחברות בוטלה",
+      "notPermitted": "אין הרשאת גישה",
+      "requestAccess": "בקשת גישה",
+      "twitchError": "Twitch החזיר שגיאה במהלך האימות.",
+      "unspecified": "אירעה שגיאה לא ידועה.",
+      "unspecifiedCode": "לא צוין"
+    }
+  }
+}

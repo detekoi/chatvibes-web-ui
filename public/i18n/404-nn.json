@@ -1,0 +1,11 @@
+{
+  "mainContent": {
+    "pageNotFound": "Fann ikkje sida",
+    "returnToLogin": "Gå tilbake til innlogging",
+    "thatUrlIsNotPart": "Den URL-en er ikkje ein del av denne nettstaden. Sjekk at adressa er rett, eller gå tilbake til innloggingssida."
+  },
+  "meta": {
+    "pageNotFoundOnWildcattts": "Fann ikkje sida på WildcatTTS.",
+    "pageNotFoundWildcattts": "Fann ikkje sida — WildcatTTS"
+  }
+}

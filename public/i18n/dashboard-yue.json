@@ -1,0 +1,501 @@
+{
+  "addBotBtn": {
+    "activateTtsService": "啟用 TTS 服務"
+  },
+  "addTtsBannedWordBtn": {
+    "add": "新增"
+  },
+  "addTtsIgnoreBtn": {
+    "add": "新增"
+  },
+  "addTtsPronunciationBtn": {
+    "add": "新增"
+  },
+  "allowViewerPreferences": {
+    "allowViewerVoicePreferences": "允許觀眾自訂語音偏好"
+  },
+  "announceUnfulfilledRedemptions": {
+    "announceQueuedRedeemsImmediately": "即時播報排隊中嘅兌換"
+  },
+  "announceUnfulfilledRedemptionsHelp": {
+    "aRewardThatDoesNot": "唔會略過獎勵請求排隊嘅獎勵，只要一經兌換就會即時播報，就算你之後拒絕個請求都一樣。熄咗呢個設定就可以等接受請求嗰陣先播報——如果你冇接受個請求就永遠唔會播報。"
+  },
+  "anonymizeFollowers": {
+    "anonymizeNewFollowers": "將新追隨者匿名化"
+  },
+  "bitsEnabled": {
+    "requireBitsForTts": "使用 TTS 需要 Bits"
+  },
+  "botRespondsInChat": {
+    "botRespondsInChat": "Bot 喺聊天室回覆"
+  },
+  "botStatus": {
+    "loading": "載入緊…"
+  },
+  "calibratedVoicesList": {
+    "noVoicesCalibratedYet": "仲未有校準過嘅語音。"
+  },
+  "calibrationSaveBtn": {
+    "save": "儲存"
+  },
+  "calibrationVoiceSearch": {
+    "searchVoicesToCalibrate": "搜尋要校準嘅語音..."
+  },
+  "channelNameStatus": {
+    "yourChannel": "你嘅頻道"
+  },
+  "cheerEventsEnabled": {
+    "announceCheers": "播報 Cheers"
+  },
+  "copyTtsUrlBtn": {
+    "copy": "複製",
+    "copyBrowserSourceUrl": "複製 Browser Source URL"
+  },
+  "cpDelete": {
+    "disableDelete": "停用並刪除"
+  },
+  "cpEnabled": {
+    "enableChannelPointsTts": "啟用 Channel Points TTS"
+  },
+  "cpPerStream": {
+    "enterAmount": "輸入數量"
+  },
+  "cpPerUser": {
+    "enterAmount": "輸入數量"
+  },
+  "cpSave": {
+    "save": "儲存"
+  },
+  "cpTest": {
+    "testRedeem": "測試兌換"
+  },
+  "dashboardContent": {
+    "channel": "頻道",
+    "channelService": "頻道服務",
+    "dashboardConfigurationTabs": "控制台設定分頁",
+    "deactivationStopsTheBotFrom": "停用後 Bot 會停止朗讀聊天室訊息。你嘅設定會保留落嚟。你可以隨時重新啟用服務。",
+    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>說明文件 </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>觀眾設定 </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "情緒",
+    "engNormalization": "英文正規化",
+    "language": "語言",
+    "pitch": "音調",
+    "quickLinks": "快速連結",
+    "service": "服務",
+    "signedInAs": "已登入為",
+    "speed": "速度",
+    "testMessage": "測試訊息",
+    "voicePreview": "聲音試聽",
+    "volume": "音量"
+  },
+  "defaultEmotion": {
+    "angry": "憤怒",
+    "disgusted": "厭惡",
+    "fearful": "恐懼",
+    "happy": "開心",
+    "neutral": "中性",
+    "sad": "傷心",
+    "surprised": "驚訝"
+  },
+  "defaultPitch": {
+    "defaultPitch12To12": "預設音調 (-12 至 +12)"
+  },
+  "defaultSpeed": {
+    "defaultSpeed05To": "預設語速 (0.5 至 2.0)"
+  },
+  "defaultVoiceSearch": {
+    "searchDefaultVoices": "搜尋預設聲音",
+    "searchVoices": "搜尋聲音..."
+  },
+  "defaultVolume": {
+    "voiceVolume01To": "語音音量 (0.1 至 10)"
+  },
+  "emoteMode": {
+    "describeEmotes": "描述表情符號",
+    "readEmoteNames": "讀出表情符號名稱",
+    "skipEmotes": "略過表情符號"
+  },
+  "englishNormalization": {
+    "englishNormalization": "英文正規化"
+  },
+  "eventsEnabled": {
+    "announceEvents": "播報活動"
+  },
+  "loadingBar": {
+    "loadingDashboardSettings": "載入緊控制台設定"
+  },
+  "loadingOverlay": {
+    "loadingDashboardSettings": "載入緊控制台設定…"
+  },
+  "lookupUsername": {
+    "enterTwitchViewerUsername": "輸入 Twitch 觀眾用戶名稱"
+  },
+  "lookupVoiceBtn": {
+    "lookupVoice": "查詢語音"
+  },
+  "meta": {
+    "wildcatttsDashboard": "WildcatTTS 控制台",
+    "wildcatttsStreamerDashboardConfigureText": "WildcatTTS 實況主控制台 - 設定文字轉語音設定、權限、Bot 回應同埋 Channel Points。"
+  },
+  "msg": {
+    "auth": {
+      "demoStreamer": "示範實況主",
+      "needBroadcaster": "請用你嘅實況主帳戶登入以存取實況主設定。",
+      "needSignIn": "請用你嘅 Twitch 帳戶登入以存取控制台。"
+    },
+    "bannedWords": {
+      "addFailed": "無法新增違禁詞。",
+      "added": "已將「{word}」加入違禁詞。",
+      "addedTestMode": "[測試] 已新增違禁詞：{word}。",
+      "empty": "仲未新增任何違禁詞。",
+      "removeFailed": "無法移除違禁詞。",
+      "removed": "已從違禁詞移除「{word}」。",
+      "removedTestMode": "[測試] 已移除違禁詞：{word}。"
+    },
+    "bot": {
+      "activateFailed": "無法啟用 TTS 服務。",
+      "activated": "TTS 服務已啟用。",
+      "activatedTestMode": "TTS 服務已啟用（測試模式）。",
+      "activating": "啟用緊 TTS 服務…",
+      "active": "運作中",
+      "deactivateFailed": "無法停用 TTS 服務。",
+      "deactivated": "TTS 服務已停用。",
+      "deactivatedTestMode": "TTS 服務已停用（測試模式）。",
+      "deactivating": "停用緊 TTS 服務…",
+      "inactive": "已停用",
+      "notAuthenticated": "未驗證",
+      "notAuthorized": "頻道未獲授權。",
+      "requestAccess": "喺呢度申請權限",
+      "statusError": "錯誤",
+      "statusFailed": "錯誤：{reason}",
+      "statusLoadFailed": "無法載入 Bot 狀態：{reason}",
+      "unknownError": "不明錯誤"
+    },
+    "calibration": {
+      "confirmReset": "重設 {voice} 嘅校準？",
+      "edit": "編輯",
+      "empty": "仲未校準任何語音。",
+      "reset": "重設",
+      "row": "{voice} ({volume})"
+    },
+    "cp": {
+      "confirmDelete": "刪除 Channel Points 嘅 TTS 獎勵？",
+      "deleteFailed": "刪除失敗。",
+      "deleted": "獎勵已刪除。",
+      "deletedTestMode": "獎勵已刪除（測試模式）。",
+      "deleting": "刪除緊…",
+      "lastSynced": "{reward} · 上次同步時間：{time}",
+      "never": "從未",
+      "noReward": "未建立任何獎勵",
+      "noRewardTestMode": "未建立任何獎勵（測試模式）",
+      "rewardId": "獎勵 ID：{id}",
+      "saveFailed": "儲存唔到 Channel Points 設定。",
+      "saved": "Channel Points 設定已儲存。",
+      "savedTestMode": "Channel Points 設定已儲存（測試模式）。",
+      "saving": "儲存緊 Channel Points 設定…",
+      "testCompleted": "測試完成（{status}）。",
+      "testCompletedTestMode": "測試完成（測試模式）。",
+      "testFailed": "測試失敗。",
+      "testPrompt": "輸入測試訊息嚟模擬兌換：",
+      "testing": "測試緊兌換…"
+    },
+    "ignore": {
+      "addFailed": "無法將用戶加入忽略名單。",
+      "addFailedReason": "無法加入用戶：{reason}",
+      "badgeModerator": "被你靜音",
+      "badgeSelf": "已自行退出",
+      "empty": "無被忽略嘅用戶。",
+      "noSuchAccount": "搵唔到呢個 Twitch 帳號",
+      "removeFailed": "無法從忽略名單移除用戶。",
+      "removeFailedReason": "無法移除 {label}：{reason}",
+      "removeLabel": "從忽略名單移除 {label}（{source, select, self {自行退出} other {被你靜音}}）"
+    },
+    "lookup": {
+      "button": "查詢語音",
+      "calibrate": "校準「{voice}」",
+      "error": "錯誤：{reason}",
+      "failed": "搵唔到嗰個用戶。",
+      "hasVoice": "用戶 {user} 設定咗自訂語音：{voice}",
+      "noVoice": "用戶 {user} 未設定自訂語音。",
+      "searching": "搜尋緊…",
+      "voiceUnknown": "呢個語音唔喺可用語音名單入面。"
+    },
+    "obs": {
+      "cannotCopy": "複製唔到 URL。",
+      "cannotDetermine": "確定唔到 TTS URL。",
+      "copied": "已複製到剪貼簿。",
+      "copiedButton": "已複製！",
+      "copyFailed": "複製失敗。",
+      "generateFailed": "無法產生 OBS URL。請重試。",
+      "generating": "正在產生…",
+      "generatingUrl": "產生緊安全 URL…",
+      "loadingUrl": "載入緊現有 URL…",
+      "pressRegenerate": "撳「重新產生 URL」嚟產生 OBS Browser Source URL。",
+      "refreshPage": "產生唔到 URL。請重新載入頁面。",
+      "testModeUrl": "測試模式 URL",
+      "urlGenerated": "已產生新嘅 URL。",
+      "urlGeneratedTestMode": "已產生新嘅 URL（測試模式）。",
+      "urlNotReady": "URL 仲未準備好。",
+      "yourUrl": "你嘅 OBS Browser Source URL"
+    },
+    "preview": {
+      "playingTestMode": "正在播放預覽…（測試模式）",
+      "tooLong": "文字唔可以多過 500 個字元。"
+    },
+    "pron": {
+      "acronymsDisabled": "已停用縮寫",
+      "acronymsOffHint": "喺上面開啟「展開聊天室縮寫」，呢啲設定先會生效。",
+      "addFailed": "無法新增發音。",
+      "added": "已新增發音：{match} -> {say}。",
+      "addedTestMode": "[測試] 已新增發音：{match} -> {say}。",
+      "builtinOff": " — 已關閉內建功能",
+      "empty": "仲未新增任何自訂發音。",
+      "expansion": " → {say}",
+      "needBoth": "請輸入字詞同埋發音。",
+      "removeFailed": "無法移除發音。",
+      "removed": "已移除發音：{match}。",
+      "removedTestMode": "[測試] 已移除發音：{match}。"
+    },
+    "setting": {
+      "allowViewerPreferences": "允許觀眾語音偏好",
+      "announceQueuedRedeems": "播報排隊中嘅兌換",
+      "anonymizeFollowers": "匿名化追隨者",
+      "bitsForTts": "TTS 所需 Bits",
+      "botRespondsInChat": "Bot 喺聊天室回覆",
+      "cheerAnnouncements": "Cheer 播報",
+      "defaultEmotion": "預設情緒",
+      "defaultLanguage": "預設語言",
+      "defaultPitch": "預設音調",
+      "defaultSpeed": "預設速度",
+      "defaultVoice": "預設語音",
+      "emoteMode": "表情符號模式",
+      "englishNormalization": "英文標準化",
+      "eventAnnouncements": "活動播報",
+      "expandAcronyms": "展開聊天室縮寫",
+      "minimumBits": "最低 Bits 數",
+      "profanityFilter": "粗口過濾器",
+      "readFullUrls": "朗讀完整 URL",
+      "redemptionAnnouncements": "兌換播報",
+      "ttsEngine": "TTS 引擎",
+      "ttsMode": "TTS 模式",
+      "ttsPermission": "TTS 權限",
+      "voiceVolume": "語音音量",
+      "watchStreakAnnouncements": "連續觀看播報",
+      "youtubeHandle": "YouTube 帳號代碼",
+      "youtubeTts": "YouTube TTS"
+    },
+    "settings": {
+      "loadFailed": "載入唔到你嘅設定。",
+      "saveFailed": "{label}：{reason}",
+      "youtubeHandleRequired": "開啟 YouTube TTS 前請先輸入 YouTube handle。"
+    }
+  },
+  "obsCloseBtn": {
+    "closeObsSetup": "關閉 OBS 設定"
+  },
+  "obsPopover": {
+    "addBrowserSource": "新增 Browser Source",
+    "cautionANewUrlStops": "注意：新嘅 URL 會令你目前嘅 OBS 來源停止運作，直到你喺 OBS 更新 URL 為止。",
+    "controlAudioViaObs": "透過 OBS 控制音訊",
+    "inObsAddANew": "喺 OBS 新增一個 <strong>Browser Source</strong>。將來源命名為「Wildcat TTS」並貼上複製咗嘅 URL。你可以保留預設嘅闊度同高度。",
+    "inTheObsAudioMixer": "喺 OBS 音訊混音器搵「Wildcat TTS」。撳齒輪圖示並選擇<strong>進階音訊屬性</strong>。將音訊監聽設定為<strong>監聽並輸出</strong>。",
+    "monitorAndOutput": "監聽並輸出",
+    "obsBrowserSource": "OBS Browser Source",
+    "selectControlAudioViaObs": "勾選<strong>透過 OBS 控制音訊</strong>。請確保冇勾選<strong>非顯示時關閉來源</strong>。",
+    "setupInstructions": "設定教學",
+    "yourBrowserSourceUrl": "你嘅 Browser Source URL"
+  },
+  "obsToggleBtn": {
+    "obsSetup": "OBS 設定"
+  },
+  "page": {
+    "channelDashboard": "頻道控制面板",
+    "textToSpeechSettingsFor": "你頻道嘅語音合成設定。變更會即時儲存。",
+    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">控制面板</span>"
+  },
+  "profanityFilterEnabled": {
+    "profanityFilter": "粗口過濾器"
+  },
+  "pronunciationEnabled": {
+    "expandChatAcronyms": "展開聊天室縮寫"
+  },
+  "readFullUrls": {
+    "readFullUrls": "讀出完整 URL"
+  },
+  "redemptionEventsEnabled": {
+    "announceRewardRedeems": "播報獎勵兌換"
+  },
+  "regenerateTtsUrlBtn": {
+    "regenerateBrowserSourceUrl": "重新產生 Browser Source URL",
+    "regenerateUrl": "重新產生 URL"
+  },
+  "removeBotBtn": {
+    "deactivateTtsService": "停用 TTS 服務"
+  },
+  "resetPitchBtn": {
+    "reset": "重設",
+    "resetDefaultPitchTo0": "重設預設音調為 0"
+  },
+  "resetSpeedBtn": {
+    "reset": "重設",
+    "resetDefaultSpeedTo1": "重設預設速度為 1.0"
+  },
+  "resetVolumeBtn": {
+    "reset": "重設",
+    "resetVoiceVolumeTo1": "重設語音音量為 1.0"
+  },
+  "saveSettingsBtn": {
+    "saveAllSettings": "儲存所有設定"
+  },
+  "serviceHeadline": {
+    "ttsService": "TTS 服務"
+  },
+  "sidebarVoiceName": {
+    "friendlyPerson": "親切嘅人"
+  },
+  "tabBroadcaster": {
+    "allowTheBotToRespond": "允許 Bot 回應聊天室指令（例如 !myvoice）",
+    "allowViewersToUseChannel": "允許觀眾用 Channel Points 使用 TTS",
+    "allowViewerVoicePreferences": "允許觀眾自訂語音偏好",
+    "announceCheers": "宣讀 Cheers",
+    "announceEvents": "宣讀活動",
+    "announceEventsSuchAsSubscriptions": "宣讀訂閱同 Raid 等活動",
+    "announceQueuedRedeemsImmediately": "即時宣讀排隊中嘅兌換",
+    "announceRewardRedeems": "宣讀獎勵兌換",
+    "announceWatchStreaks": "宣讀連續觀看紀錄",
+    "announceWhenAViewerCheers": "當觀眾用 bits 進行 Cheer 嗰陣宣讀",
+    "announceWhenAViewerReaches": "當觀眾達到連續觀看里程碑嗰陣宣讀",
+    "announceWhenAViewerRedeems": "當觀眾兌換 Channel Points 獎勵嗰陣宣讀",
+    "anonymizeNewFollowers": "將新追隨者匿名化",
+    "bannedWordsCommaSeparated": "違禁詞（以逗號分隔）",
+    "bannedWordsPhrases": "<strong>違禁詞／短語</strong>",
+    "bitsTts": "Bits → TTS",
+    "blockLinks": "封鎖連結",
+    "botRespondsInChat": "Bot 喺聊天室回應",
+    "channelPointsTts": "Channel Points → TTS",
+    "chooseWhichMessagesTriggerTts": "選擇邊啲訊息會觸發 TTS",
+    "configureBitsRequirementsForText": "設定 TTS 嘅 bits 要求",
+    "configureChannelPointsRewardsFor": "設定 TTS 嘅 Channel Points 獎勵",
+    "configureTtsEngineSettingsAnd": "設定 TTS 引擎選項同權限",
+    "controlHowTtsPronouncesSpecific": "控制 TTS 點樣讀出特定字詞。系統預設會處理常見嘅 Twitch 縮寫。你可以新增項目去覆蓋預設讀音或者加入新字詞。",
+    "controlsHowTtsHandlesEmotes": "控制 TTS 點樣處理聊天室訊息入面嘅表情貼圖",
+    "cooldownsAndModeration": "冷卻時間同審查設定",
+    "costPoints": "費用（點數）",
+    "emoteMode": "<strong>表情貼圖模式</strong>",
+    "enableChannelPointsTts": "啟用 Channel Points TTS",
+    "enableCooldownsLimits": "啟用冷卻時間同上限",
+    "engineMode": "引擎同模式",
+    "expandChatAcronyms": "展開聊天室縮寫",
+    "globalCooldownSec": "全域冷卻時間（秒）",
+    "hideFollowerNamesInTts": "喺 TTS 播報中隱藏追隨者名稱以保護私隱",
+    "ifOnTtsReadsFull": "開啟後，TTS 會讀出完整 URL。關閉後，TTS 只會讀出網域名稱",
+    "ifThisSettingIsOff": "如果關閉呢個設定，TTS 會對所有訊息使用頻道預設語音",
+    "ignoredUsers": "已忽略使用者",
+    "manageUsersThatTtsIgnores": "管理 TTS 忽略嘅使用者",
+    "minimumBitsRequired": "<strong>最低所需 Bits 數量</strong>",
+    "minimumNumberOfBitsRequired": "觸發 TTS 所需嘅最低 bits 數量",
+    "perStreamLimit": "每次直播上限",
+    "perUserPerStream": "每位使用者每次直播上限",
+    "profanityFilter": "不雅用語過濾器",
+    "pronunciationDictionary": "<strong>發音字典</strong>",
+    "readFullUrls": "讀出完整 URL",
+    "readYoutubeLiveChatMessages": "透過 TTS 讀出 YouTube 直播聊天室訊息。呢個功能需要進行緊嘅 YouTube 直播。",
+    "readYoutubeLiveChatMessages2": "朗讀 YouTube 直播聊天室訊息",
+    "requireBitsForTts": "使用 TTS 需要 Bits",
+    "rewardTitle": "獎勵標題",
+    "skipTheRewardQueue": "跳過獎勵佇列",
+    "theTitleMustBeUnique": "標題喺你嘅頻道入面必須係唯一嘅。",
+    "ttsDoesNotReadMessages": "TTS 唔會讀出呢個名單入面使用者嘅訊息。",
+    "ttsEngineEnabled": "已啟用 TTS 引擎",
+    "ttsExpandsCommonTwitchAcronyms": "TTS 會將常見嘅 Twitch 縮寫展開為完整文字。例如「ngl」會變成「not gonna lie」。關閉後將會逐個字母讀出。",
+    "ttsIgnoreList": "<strong>TTS 忽略名單</strong>",
+    "ttsMode": "<strong>TTS 模式</strong>",
+    "ttsPermission": "<strong>TTS 權限</strong>",
+    "ttsReplacesProfanityWithMilder": "TTS 喺朗讀前會將不雅用語替換做較溫和嘅字詞。過濾器會根據頻道語言同觀眾語言運作。如果語言設為「自動」，過濾器會使用英文清單。禁用詞依然會直接跳過成條訊息。",
+    "ttsSkipsMessagesThatContain": "TTS 會跳過包含呢啲字詞或短語嘅訊息。",
+    "turnOnOrTurnOff": "開啟或關閉文字語音轉換 (TTS) 引擎",
+    "viewerPrompt": "觀眾提示文字",
+    "viewersMustCheerBitsTo": "觀眾必須 Cheer bits 先可以使用文字語音轉換 (TTS)",
+    "whoCanUseTextTo": "邊個可以使用文字語音轉換 (TTS)",
+    "yourYoutubeChannelHandleFor": "你嘅 YouTube 頻道代稱（例如 <code>@yourhandle</code>）",
+    "youtubeHandle": "<strong>YouTube 頻道代稱</strong>",
+    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>YouTube 整合",
+    "youtubeTtsEnabled": "已啟用 YouTube TTS"
+  },
+  "tabBtnBroadcaster": {
+    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>實況主"
+  },
+  "tabBtnViewerDefaults": {
+    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>預設語音"
+  },
+  "tabViewerDefaults": {
+    "adjustThePitchForThe": "調整預設語音嘅音調",
+    "adjustTheVolumeForThe": "調整所選語音嘅音量。注意：數值大於 1.0 可能會導致破音。",
+    "calibratedVoices": "<strong>已校準語音</strong>",
+    "calibrateVolumeForSpecificVoices": "校準特定語音嘅音量。注意：數值大於 1.0 可能會導致破音。",
+    "controlHowFastTheDefault": "控制預設聲音嘅說話速度",
+    "defaultEmotion": "<strong>預設情緒</strong>",
+    "defaultLanguage": "<strong>預設語言</strong>",
+    "defaultPitch12To12": "預設音調 (-12 至 +12)：",
+    "defaultSpeed05To": "預設語速 (0.5 至 2.0)：",
+    "defaultVoice": "<strong>預設聲音</strong>",
+    "defaultVoiceSettings": "預設聲音設定",
+    "englishNormalization": "英文正規化",
+    "improvePronunciationForSpecificLanguages": "改善特定語言嘅發音",
+    "improveThePronunciationOfNumbers": "改善數字同文字嘅發音",
+    "selectTheDefaultTtsVoice": "為頻道揀選預設 TTS 聲音",
+    "selectVoice": "揀選聲音",
+    "setDefaultVoiceSettingsFor": "為你嘅頻道指定預設聲音設定",
+    "setTheEmotionalToneOf": "設定預設聲音嘅情緒語調",
+    "viewerVoiceLookup": "觀眾聲音查詢",
+    "voiceCalibration": "聲音校準",
+    "voicesWithCustomVolumeSettings": "自訂咗音量嘅聲音。",
+    "voiceVolume01To": "語音音量 (0.1 至 10)：",
+    "volumeOverride": "覆寫音量："
+  },
+  "ttsBannedWordInput": {
+    "wordOrPhraseToBan": "要封鎖嘅詞語或短語"
+  },
+  "ttsEnabled": {
+    "ttsEngineEnabled": "已啟用 TTS 引擎"
+  },
+  "ttsIgnoreUsername": {
+    "usernameToIgnore": "要忽略嘅使用者名稱"
+  },
+  "ttsMode": {
+    "allMessages": "所有訊息",
+    "bitsPointsOnly": "只限 Bits／Channel Points",
+    "ttsCommandOnly": "只限 !tts 指令"
+  },
+  "ttsPermission": {
+    "everyone": "所有人",
+    "moderatorsOnly": "只限管理員",
+    "subscribersOnly": "只限訂閱者",
+    "vipsOnly": "只限 VIP"
+  },
+  "ttsPronunciationMatchInput": {
+    "wordForExampleWcat": "字詞（例如：wcat）",
+    "wordToReplace": "要替換嘅字詞"
+  },
+  "ttsPronunciationSayInput": {
+    "howToSayItFor": "點樣讀（例如：wildcat）",
+    "pronunciation": "發音"
+  },
+  "ttsUrlField": {
+    "yourBrowserSourceUrl": "你嘅 Browser Source URL"
+  },
+  "twitchUsername": {
+    "loading": "載入中…"
+  },
+  "voiceTestBtn": {
+    "sendPreview": "傳送試聽"
+  },
+  "watchStreakEventsEnabled": {
+    "announceWatchStreaks": "播報連續觀看紀錄"
+  },
+  "youtubeEnabled": {
+    "youtubeTtsEnabled": "已啟用 YouTube TTS"
+  },
+  "youtubeHandle": {
+    "yourhandle": "@yourhandle"
+  }
+}

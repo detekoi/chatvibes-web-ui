@@ -1,0 +1,501 @@
+{
+  "addBotBtn": {
+    "activateTtsService": "Activate TTS service"
+  },
+  "addTtsBannedWordBtn": {
+    "add": "Add"
+  },
+  "addTtsIgnoreBtn": {
+    "add": "Add"
+  },
+  "addTtsPronunciationBtn": {
+    "add": "Add"
+  },
+  "allowViewerPreferences": {
+    "allowViewerVoicePreferences": "Allow Viewer Voice Preferences"
+  },
+  "announceUnfulfilledRedemptions": {
+    "announceQueuedRedeemsImmediately": "Announce Queued Redeems Immediately"
+  },
+  "announceUnfulfilledRedemptionsHelp": {
+    "aRewardThatDoesNot": "A reward that does not skip the reward requests queue is announced as soon as it is redeemed, even if you reject the request later. Turn this off to hold the announcement until you accept the request — rewards you never accept are then never announced."
+  },
+  "anonymizeFollowers": {
+    "anonymizeNewFollowers": "Anonymize New Followers"
+  },
+  "bitsEnabled": {
+    "requireBitsForTts": "Require Bits for TTS"
+  },
+  "botRespondsInChat": {
+    "botRespondsInChat": "Bot Responds in Chat"
+  },
+  "botStatus": {
+    "loading": "Loading…"
+  },
+  "calibratedVoicesList": {
+    "noVoicesCalibratedYet": "No voices calibrated yet."
+  },
+  "calibrationSaveBtn": {
+    "save": "Save"
+  },
+  "calibrationVoiceSearch": {
+    "searchVoicesToCalibrate": "Search voices to calibrate..."
+  },
+  "channelNameStatus": {
+    "yourChannel": "your channel"
+  },
+  "cheerEventsEnabled": {
+    "announceCheers": "Announce Cheers"
+  },
+  "copyTtsUrlBtn": {
+    "copy": "Copy",
+    "copyBrowserSourceUrl": "Copy browser source URL"
+  },
+  "cpDelete": {
+    "disableDelete": "Disable & Delete"
+  },
+  "cpEnabled": {
+    "enableChannelPointsTts": "Enable Channel Points TTS"
+  },
+  "cpPerStream": {
+    "enterAmount": "Enter amount"
+  },
+  "cpPerUser": {
+    "enterAmount": "Enter amount"
+  },
+  "cpSave": {
+    "save": "Save"
+  },
+  "cpTest": {
+    "testRedeem": "Test redeem"
+  },
+  "dashboardContent": {
+    "channel": "Channel",
+    "channelService": "Channel service",
+    "dashboardConfigurationTabs": "Dashboard configuration tabs",
+    "deactivationStopsTheBotFrom": "Deactivation stops the bot from reading chat messages. Your settings remain saved. You can activate the service again at any time.",
+    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Documentation </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>Viewer settings </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "Emotion",
+    "engNormalization": "Eng. normalization",
+    "language": "Language",
+    "pitch": "Pitch",
+    "quickLinks": "Quick links",
+    "service": "Service",
+    "signedInAs": "Signed in as",
+    "speed": "Speed",
+    "testMessage": "Test message",
+    "voicePreview": "Voice preview",
+    "volume": "Volume"
+  },
+  "defaultEmotion": {
+    "angry": "Angry",
+    "disgusted": "Disgusted",
+    "fearful": "Fearful",
+    "happy": "Happy",
+    "neutral": "Neutral",
+    "sad": "Sad",
+    "surprised": "Surprised"
+  },
+  "defaultPitch": {
+    "defaultPitch12To12": "Default Pitch (-12 to +12)"
+  },
+  "defaultSpeed": {
+    "defaultSpeed05To": "Default Speed (0.5 to 2.0)"
+  },
+  "defaultVoiceSearch": {
+    "searchDefaultVoices": "Search default voices",
+    "searchVoices": "Search voices..."
+  },
+  "defaultVolume": {
+    "voiceVolume01To": "Voice Volume (0.1 to 10)"
+  },
+  "emoteMode": {
+    "describeEmotes": "Describe emotes",
+    "readEmoteNames": "Read emote names",
+    "skipEmotes": "Skip emotes"
+  },
+  "englishNormalization": {
+    "englishNormalization": "English Normalization"
+  },
+  "eventsEnabled": {
+    "announceEvents": "Announce Events"
+  },
+  "loadingBar": {
+    "loadingDashboardSettings": "Loading dashboard settings"
+  },
+  "loadingOverlay": {
+    "loadingDashboardSettings": "Loading dashboard settings…"
+  },
+  "lookupUsername": {
+    "enterTwitchViewerUsername": "Enter Twitch viewer username"
+  },
+  "lookupVoiceBtn": {
+    "lookupVoice": "Lookup Voice"
+  },
+  "meta": {
+    "wildcatttsDashboard": "WildcatTTS Dashboard",
+    "wildcatttsStreamerDashboardConfigureText": "WildcatTTS Streamer Dashboard - Configure text-to-speech settings, permissions, bot responses, and channel points."
+  },
+  "msg": {
+    "auth": {
+      "demoStreamer": "Demo Streamer",
+      "needBroadcaster": "Sign in with your broadcaster account to access streamer settings.",
+      "needSignIn": "Sign in with your Twitch account to access the dashboard."
+    },
+    "bannedWords": {
+      "addFailed": "Cannot add banned word.",
+      "added": "Added \"{word}\" to banned words.",
+      "addedTestMode": "[Test] Added banned word: {word}.",
+      "empty": "No banned words added yet.",
+      "removeFailed": "Cannot remove banned word.",
+      "removed": "Removed \"{word}\" from banned words.",
+      "removedTestMode": "[Test] Removed banned word: {word}."
+    },
+    "bot": {
+      "activateFailed": "Cannot activate TTS service.",
+      "activated": "TTS service activated.",
+      "activatedTestMode": "TTS service activated (test mode).",
+      "activating": "Activating TTS service…",
+      "active": "Active",
+      "deactivateFailed": "Cannot deactivate TTS service.",
+      "deactivated": "TTS service deactivated.",
+      "deactivatedTestMode": "TTS service deactivated (test mode).",
+      "deactivating": "Deactivating TTS service…",
+      "inactive": "Inactive",
+      "notAuthenticated": "Not authenticated",
+      "notAuthorized": "Channel not authorized.",
+      "requestAccess": "Request access here",
+      "statusError": "Error",
+      "statusFailed": "Error: {reason}",
+      "statusLoadFailed": "Cannot load bot status: {reason}",
+      "unknownError": "Unknown error"
+    },
+    "calibration": {
+      "confirmReset": "Reset calibration for {voice}?",
+      "edit": "Edit",
+      "empty": "No voices calibrated yet.",
+      "reset": "Reset",
+      "row": "{voice} ({volume})"
+    },
+    "cp": {
+      "confirmDelete": "Delete the Channel Points TTS reward?",
+      "deleteFailed": "Delete failed.",
+      "deleted": "Reward deleted.",
+      "deletedTestMode": "Reward deleted (test mode).",
+      "deleting": "Deleting…",
+      "lastSynced": "{reward} · Last synced: {time}",
+      "never": "never",
+      "noReward": "No reward created",
+      "noRewardTestMode": "No reward created (test mode)",
+      "rewardId": "Reward ID: {id}",
+      "saveFailed": "Cannot save Channel Points settings.",
+      "saved": "Channel Points settings saved.",
+      "savedTestMode": "Channel Points settings saved (test mode).",
+      "saving": "Saving Channel Points settings…",
+      "testCompleted": "Test completed ({status}).",
+      "testCompletedTestMode": "Test completed (test mode).",
+      "testFailed": "Test failed.",
+      "testPrompt": "Enter a test message to simulate a redemption:",
+      "testing": "Testing redemption…"
+    },
+    "ignore": {
+      "addFailed": "Cannot add user to ignore list.",
+      "addFailedReason": "Cannot add user: {reason}",
+      "badgeModerator": "Muted by you",
+      "badgeSelf": "Opted out",
+      "empty": "No ignored users.",
+      "noSuchAccount": "No such Twitch account",
+      "removeFailed": "Cannot remove user from ignore list.",
+      "removeFailedReason": "Cannot remove {label}: {reason}",
+      "removeLabel": "Remove {label} from the ignore list ({source, select, self {opted out themselves} other {muted by you}})"
+    },
+    "lookup": {
+      "button": "Lookup Voice",
+      "calibrate": "Calibrate \"{voice}\"",
+      "error": "Error: {reason}",
+      "failed": "Cannot look up that user.",
+      "hasVoice": "User {user} set custom voice: {voice}",
+      "noVoice": "User {user} has no custom voice set.",
+      "searching": "Searching…",
+      "voiceUnknown": "This voice is not in the list of available voices."
+    },
+    "obs": {
+      "cannotCopy": "Cannot copy URL.",
+      "cannotDetermine": "Cannot determine TTS URL.",
+      "copied": "Copied to clipboard.",
+      "copiedButton": "Copied!",
+      "copyFailed": "Copy failed.",
+      "generateFailed": "Cannot generate OBS URL. Try again.",
+      "generating": "Generating…",
+      "generatingUrl": "Generating secure URL…",
+      "loadingUrl": "Loading existing URL…",
+      "pressRegenerate": "Click \"Regenerate URL\" to generate an OBS Browser Source URL.",
+      "refreshPage": "Cannot generate URL. Refresh the page.",
+      "testModeUrl": "Test mode URL",
+      "urlGenerated": "Generated a new URL.",
+      "urlGeneratedTestMode": "Generated a new URL (test mode).",
+      "urlNotReady": "The URL is not available yet.",
+      "yourUrl": "Your OBS Browser Source URL"
+    },
+    "preview": {
+      "playingTestMode": "Playing preview… (test mode)",
+      "tooLong": "Text must be 500 characters or less."
+    },
+    "pron": {
+      "acronymsDisabled": "Acronyms are disabled",
+      "acronymsOffHint": "Turn on \"Expand Chat Acronyms\" above for these settings to take effect.",
+      "addFailed": "Cannot add pronunciation.",
+      "added": "Added pronunciation: {match} -> {say}.",
+      "addedTestMode": "[Test] Added pronunciation: {match} -> {say}.",
+      "builtinOff": " — built-in switched off",
+      "empty": "No custom pronunciations added yet.",
+      "expansion": " → {say}",
+      "needBoth": "Enter both the word and the pronunciation.",
+      "removeFailed": "Cannot remove pronunciation.",
+      "removed": "Removed pronunciation: {match}.",
+      "removedTestMode": "[Test] Removed pronunciation: {match}."
+    },
+    "setting": {
+      "allowViewerPreferences": "Allow Viewer Voice Preferences",
+      "announceQueuedRedeems": "Announce Queued Redeems",
+      "anonymizeFollowers": "Anonymize Followers",
+      "bitsForTts": "Bits for TTS",
+      "botRespondsInChat": "Bot Responds in Chat",
+      "cheerAnnouncements": "Cheer Announcements",
+      "defaultEmotion": "Default Emotion",
+      "defaultLanguage": "Default Language",
+      "defaultPitch": "Default Pitch",
+      "defaultSpeed": "Default Speed",
+      "defaultVoice": "Default Voice",
+      "emoteMode": "Emote Mode",
+      "englishNormalization": "English Normalization",
+      "eventAnnouncements": "Event Announcements",
+      "expandAcronyms": "Expand Chat Acronyms",
+      "minimumBits": "Minimum Bits",
+      "profanityFilter": "Profanity Filter",
+      "readFullUrls": "Read Full URLs",
+      "redemptionAnnouncements": "Redemption Announcements",
+      "ttsEngine": "TTS Engine",
+      "ttsMode": "TTS Mode",
+      "ttsPermission": "TTS Permission",
+      "voiceVolume": "Voice Volume",
+      "watchStreakAnnouncements": "Watch Streak Announcements",
+      "youtubeHandle": "YouTube Handle",
+      "youtubeTts": "YouTube TTS"
+    },
+    "settings": {
+      "loadFailed": "Cannot load your settings.",
+      "saveFailed": "{label}: {reason}",
+      "youtubeHandleRequired": "Enter a YouTube handle before you turn on YouTube TTS."
+    }
+  },
+  "obsCloseBtn": {
+    "closeObsSetup": "Close OBS setup"
+  },
+  "obsPopover": {
+    "addBrowserSource": "Add Browser Source",
+    "cautionANewUrlStops": "CAUTION: A new URL stops your current OBS source until you update the URL in OBS.",
+    "controlAudioViaObs": "Control Audio via OBS",
+    "inObsAddANew": "In OBS, add a new <strong>Browser Source</strong>. Name the source \"Wildcat TTS\" and paste the copied URL. You can keep the default width and height.",
+    "inTheObsAudioMixer": "In the OBS Audio Mixer, find \"Wildcat TTS\". Click the gear icon and select <strong>Advanced Audio Properties</strong>. Set Audio Monitoring to <strong>Monitor and Output</strong>.",
+    "monitorAndOutput": "Monitor and Output",
+    "obsBrowserSource": "OBS Browser Source",
+    "selectControlAudioViaObs": "Select <strong>Control audio via OBS</strong>. Make sure that <strong>Shutdown source when not visible</strong> is not selected.",
+    "setupInstructions": "Setup Instructions",
+    "yourBrowserSourceUrl": "Your Browser Source URL"
+  },
+  "obsToggleBtn": {
+    "obsSetup": "OBS Setup"
+  },
+  "page": {
+    "channelDashboard": "Channel dashboard",
+    "textToSpeechSettingsFor": "Text-to-speech settings for your channel. Changes save as you make them.",
+    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Dashboard</span>"
+  },
+  "profanityFilterEnabled": {
+    "profanityFilter": "Profanity Filter"
+  },
+  "pronunciationEnabled": {
+    "expandChatAcronyms": "Expand Chat Acronyms"
+  },
+  "readFullUrls": {
+    "readFullUrls": "Read Full URLs"
+  },
+  "redemptionEventsEnabled": {
+    "announceRewardRedeems": "Announce Reward Redeems"
+  },
+  "regenerateTtsUrlBtn": {
+    "regenerateBrowserSourceUrl": "Regenerate browser source URL",
+    "regenerateUrl": "Regenerate URL"
+  },
+  "removeBotBtn": {
+    "deactivateTtsService": "Deactivate TTS service"
+  },
+  "resetPitchBtn": {
+    "reset": "Reset",
+    "resetDefaultPitchTo0": "Reset default pitch to 0"
+  },
+  "resetSpeedBtn": {
+    "reset": "Reset",
+    "resetDefaultSpeedTo1": "Reset default speed to 1.0"
+  },
+  "resetVolumeBtn": {
+    "reset": "Reset",
+    "resetVoiceVolumeTo1": "Reset voice volume to 1.0"
+  },
+  "saveSettingsBtn": {
+    "saveAllSettings": "Save All Settings"
+  },
+  "serviceHeadline": {
+    "ttsService": "TTS service"
+  },
+  "sidebarVoiceName": {
+    "friendlyPerson": "Friendly Person"
+  },
+  "tabBroadcaster": {
+    "allowTheBotToRespond": "Allow the bot to respond to chat commands such as !myvoice",
+    "allowViewersToUseChannel": "Allow viewers to use channel points for TTS",
+    "allowViewerVoicePreferences": "Allow Viewer Voice Preferences",
+    "announceCheers": "Announce Cheers",
+    "announceEvents": "Announce Events",
+    "announceEventsSuchAsSubscriptions": "Announce events such as subscriptions and raids",
+    "announceQueuedRedeemsImmediately": "Announce Queued Redeems Immediately",
+    "announceRewardRedeems": "Announce Reward Redeems",
+    "announceWatchStreaks": "Announce Watch Streaks",
+    "announceWhenAViewerCheers": "Announce when a viewer cheers bits",
+    "announceWhenAViewerReaches": "Announce when a viewer reaches a watch streak milestone",
+    "announceWhenAViewerRedeems": "Announce when a viewer redeems a channel point reward",
+    "anonymizeNewFollowers": "Anonymize New Followers",
+    "bannedWordsCommaSeparated": "Banned words (comma-separated)",
+    "bannedWordsPhrases": "<strong>Banned Words / Phrases</strong>",
+    "bitsTts": "Bits → TTS",
+    "blockLinks": "Block links",
+    "botRespondsInChat": "Bot Responds in Chat",
+    "channelPointsTts": "Channel Points → TTS",
+    "chooseWhichMessagesTriggerTts": "Choose which messages trigger TTS",
+    "configureBitsRequirementsForText": "Configure bits requirements for text-to-speech",
+    "configureChannelPointsRewardsFor": "Configure channel points rewards for text-to-speech",
+    "configureTtsEngineSettingsAnd": "Configure TTS engine settings and permissions",
+    "controlHowTtsPronouncesSpecific": "Control how TTS pronounces specific words. Common Twitch acronyms are handled by default. Add an entry to override a default pronunciation or add a new word.",
+    "controlsHowTtsHandlesEmotes": "Controls how TTS handles emotes in chat messages",
+    "cooldownsAndModeration": "Cooldowns and Moderation",
+    "costPoints": "Cost (points)",
+    "emoteMode": "<strong>Emote Mode</strong>",
+    "enableChannelPointsTts": "Enable Channel Points TTS",
+    "enableCooldownsLimits": "Enable Cooldowns & Limits",
+    "engineMode": "Engine & Mode",
+    "expandChatAcronyms": "Expand Chat Acronyms",
+    "globalCooldownSec": "Global cooldown (sec)",
+    "hideFollowerNamesInTts": "Hide follower names in TTS announcements for privacy",
+    "ifOnTtsReadsFull": "If on, TTS reads full URLs. If off, TTS reads only domain names",
+    "ifThisSettingIsOff": "If this setting is off, TTS uses the channel default voice for all messages",
+    "ignoredUsers": "Ignored Users",
+    "manageUsersThatTtsIgnores": "Manage users that TTS ignores",
+    "minimumBitsRequired": "<strong>Minimum Bits Required</strong>",
+    "minimumNumberOfBitsRequired": "Minimum number of bits required to trigger TTS",
+    "perStreamLimit": "Per-stream limit",
+    "perUserPerStream": "Per-user per stream",
+    "profanityFilter": "Profanity Filter",
+    "pronunciationDictionary": "<strong>Pronunciation Dictionary</strong>",
+    "readFullUrls": "Read Full URLs",
+    "readYoutubeLiveChatMessages": "Read YouTube live chat messages through TTS. This feature requires an active YouTube livestream.",
+    "readYoutubeLiveChatMessages2": "Read YouTube live chat messages aloud",
+    "requireBitsForTts": "Require Bits for TTS",
+    "rewardTitle": "Reward title",
+    "skipTheRewardQueue": "Skip the Reward Queue",
+    "theTitleMustBeUnique": "The title must be unique in your channel.",
+    "ttsDoesNotReadMessages": "TTS does not read messages from users on this list.",
+    "ttsEngineEnabled": "TTS Engine Enabled",
+    "ttsExpandsCommonTwitchAcronyms": "TTS expands common Twitch acronyms into words. For example, “ngl” becomes “not gonna lie”. Turn off to spell out each letter.",
+    "ttsIgnoreList": "<strong>TTS Ignore List</strong>",
+    "ttsMode": "<strong>TTS Mode</strong>",
+    "ttsPermission": "<strong>TTS Permission</strong>",
+    "ttsReplacesProfanityWithMilder": "TTS replaces profanity with milder words before speaking. The filter uses the channel language and the viewer language. If language is set to Automatic, the filter uses the English list. Banned words still skip the full message.",
+    "ttsSkipsMessagesThatContain": "TTS skips messages that contain these words or phrases.",
+    "turnOnOrTurnOff": "Turn on or turn off the text-to-speech engine",
+    "viewerPrompt": "Viewer prompt",
+    "viewersMustCheerBitsTo": "Viewers must cheer bits to use text-to-speech",
+    "whoCanUseTextTo": "Who can use text-to-speech",
+    "yourYoutubeChannelHandleFor": "Your YouTube channel handle (for example, <code>@yourhandle</code>)",
+    "youtubeHandle": "<strong>YouTube Handle</strong>",
+    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>YouTube Integration",
+    "youtubeTtsEnabled": "YouTube TTS Enabled"
+  },
+  "tabBtnBroadcaster": {
+    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Broadcaster"
+  },
+  "tabBtnViewerDefaults": {
+    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Voice Defaults"
+  },
+  "tabViewerDefaults": {
+    "adjustThePitchForThe": "Adjust the pitch for the default voice",
+    "adjustTheVolumeForThe": "Adjust the volume for the selected voice. CAUTION: Values greater than 1.0 can cause distortion.",
+    "calibratedVoices": "<strong>Calibrated Voices</strong>",
+    "calibrateVolumeForSpecificVoices": "Calibrate volume for specific voices. CAUTION: Values greater than 1.0 can cause distortion.",
+    "controlHowFastTheDefault": "Control how fast the default voice speaks",
+    "defaultEmotion": "<strong>Default Emotion</strong>",
+    "defaultLanguage": "<strong>Default Language</strong>",
+    "defaultPitch12To12": "Default Pitch (-12 to +12):",
+    "defaultSpeed05To": "Default Speed (0.5 to 2.0):",
+    "defaultVoice": "<strong>Default Voice</strong>",
+    "defaultVoiceSettings": "Default Voice Settings",
+    "englishNormalization": "English Normalization",
+    "improvePronunciationForSpecificLanguages": "Improve pronunciation for specific languages",
+    "improveThePronunciationOfNumbers": "Improve the pronunciation of numbers and text",
+    "selectTheDefaultTtsVoice": "Select the default TTS voice for the channel",
+    "selectVoice": "Select Voice",
+    "setDefaultVoiceSettingsFor": "Set default voice settings for your channel",
+    "setTheEmotionalToneOf": "Set the emotional tone of the default voice",
+    "viewerVoiceLookup": "Viewer Voice Lookup",
+    "voiceCalibration": "Voice Calibration",
+    "voicesWithCustomVolumeSettings": "Voices with custom volume settings.",
+    "voiceVolume01To": "Voice Volume (0.1 to 10):",
+    "volumeOverride": "Volume Override:"
+  },
+  "ttsBannedWordInput": {
+    "wordOrPhraseToBan": "Word or phrase to ban"
+  },
+  "ttsEnabled": {
+    "ttsEngineEnabled": "TTS Engine Enabled"
+  },
+  "ttsIgnoreUsername": {
+    "usernameToIgnore": "Username to ignore"
+  },
+  "ttsMode": {
+    "allMessages": "All Messages",
+    "bitsPointsOnly": "Bits/Points Only",
+    "ttsCommandOnly": "!tts Command Only"
+  },
+  "ttsPermission": {
+    "everyone": "Everyone",
+    "moderatorsOnly": "Moderators Only",
+    "subscribersOnly": "Subscribers Only",
+    "vipsOnly": "VIPs Only"
+  },
+  "ttsPronunciationMatchInput": {
+    "wordForExampleWcat": "Word (for example, wcat)",
+    "wordToReplace": "Word to replace"
+  },
+  "ttsPronunciationSayInput": {
+    "howToSayItFor": "How to say it (for example, wildcat)",
+    "pronunciation": "Pronunciation"
+  },
+  "ttsUrlField": {
+    "yourBrowserSourceUrl": "Your Browser Source URL"
+  },
+  "twitchUsername": {
+    "loading": "loading…"
+  },
+  "voiceTestBtn": {
+    "sendPreview": "Send preview"
+  },
+  "watchStreakEventsEnabled": {
+    "announceWatchStreaks": "Announce Watch Streaks"
+  },
+  "youtubeEnabled": {
+    "youtubeTtsEnabled": "YouTube TTS Enabled"
+  },
+  "youtubeHandle": {
+    "yourhandle": "@yourhandle"
+  }
+}

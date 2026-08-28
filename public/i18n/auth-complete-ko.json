@@ -1,0 +1,39 @@
+{
+  "authBar": {
+    "signInProgress": "로그인 진행 상황"
+  },
+  "authMessage": {
+    "pleaseWait": "잠시만 기다려 주세요."
+  },
+  "authSteps": {
+    "loadingDashboard": "대시보드 로딩 중",
+    "sessionTokenStored": "세션 토큰 저장됨",
+    "twitchAuthorized": "Twitch 인증 완료"
+  },
+  "authTitle": {
+    "signingYouIn": "로그인 중"
+  },
+  "meta": {
+    "completingWildcatttsTwitchSignIn": "WildcatTTS Twitch 로그인을 완료하는 중입니다.",
+    "wildcatttsCompletingSignIn": "WildcatTTS - 로그인 완료 중"
+  },
+  "msg": {
+    "authComplete": {
+      "cannotComplete": "로그인을 완료할 수 없습니다.",
+      "failedReadout": "실패",
+      "failedTitle": "로그인 실패",
+      "missingInfo": "Twitch 콜백의 인증 정보가 누락되었습니다. 다시 로그인해 주세요.",
+      "noSession": "세션 없음",
+      "redirecting": "대시보드로 이동하는 중입니다.",
+      "retrySignIn": "{reason} 다시 로그인해 주세요.",
+      "sessionEstablished": "세션 연결됨",
+      "welcome": "환영합니다, {user}님"
+    }
+  },
+  "sessionState": {
+    "establishingSession": "세션 연결 중"
+  },
+  "statusReadout": {
+    "working": "<span class=\"wc-dot\"></span>처리 중"
+  }
+}

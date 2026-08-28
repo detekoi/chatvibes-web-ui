@@ -1,0 +1,41 @@
+{
+  "errorAction": {
+    "tryAgain": "Thử lại"
+  },
+  "errorCode": {
+    "unknown": "không xác định"
+  },
+  "errorCodeBlock": {
+    "error": "Lỗi"
+  },
+  "errorMessageDetails": {
+    "twitchAuthenticationFailed": "Xác thực Twitch thất bại."
+  },
+  "errorReadout": {
+    "authenticationFailed": "Xác thực thất bại"
+  },
+  "errorTitle": {
+    "authenticationFailed": "Xác thực thất bại"
+  },
+  "mainContent": {
+    "requestAccessTtsWildcatChat": "<a class=\"wc-link\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">Yêu cầu quyền truy cập</a> <span>tts.wildcat.chat</span>"
+  },
+  "meta": {
+    "wildcatttsAuthenticationError": "WildcatTTS - Lỗi xác thực",
+    "wildcatttsAuthenticationErrorAndSign": "Lỗi xác thực và khôi phục đăng nhập WildcatTTS."
+  },
+  "msg": {
+    "authError": {
+      "backToSignIn": "Quay lại đăng nhập",
+      "canceledBody": "Không có thay đổi nào. Bạn có thể đăng nhập khi đã sẵn sàng.",
+      "canceledReadout": "Đã hủy",
+      "canceledTitle": "WildcatTTS - Đã hủy đăng nhập",
+      "canceledTitleShort": "Đã hủy đăng nhập",
+      "notPermitted": "Không có quyền truy cập",
+      "requestAccess": "Yêu cầu quyền truy cập",
+      "twitchError": "Twitch đã trả về lỗi trong quá trình xác thực.",
+      "unspecified": "Đã xảy ra lỗi không xác định.",
+      "unspecifiedCode": "không xác định"
+    }
+  }
+}

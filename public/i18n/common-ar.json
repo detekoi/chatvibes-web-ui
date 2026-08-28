@@ -1,0 +1,164 @@
+{
+  "darkModeToggle": {
+    "toggleDarkMode": "تبديل الوضع الداكن"
+  },
+  "err": {
+    "banned_add_failed": "تعذر إضافة تلك الكلمة إلى قائمة الحظر.",
+    "banned_remove_failed": "تعذر إزالة تلك الكلمة من قائمة الحظر.",
+    "bot_add_failed": "تعذر تفعيل البوت على قناتك. حاول مجددًا.",
+    "bot_remove_failed": "تعذر إلغاء تفعيل البوت على قناتك. حاول مجددًا.",
+    "bot_status_failed": "تعذر تحميل حالة البوت.",
+    "channel_data_not_found": "لم يتم العثور على إعدادات لتلك القناة.",
+    "channel_not_authorized": "قناتك غير مصرح لها باستخدام هذا البوت. تواصل معي للحصول على إذن الوصول.",
+    "channel_not_found": "لم يتم العثور على تلك القناة.",
+    "channel_required": "اسم القناة مطلوب.",
+    "channel_tts_disabled": "لم يتم العثور على تلك القناة، أو أن خاصية TTS غير مفعّلة عليها.",
+    "entry_key_required": "مفتاح الإدخال مطلوب.",
+    "exchange_code_invalid": "رابط تسجيل الدخول غير موجود أو غير صالح.",
+    "exchange_code_used": "تم استخدام رابط تسجيل الدخول بالفعل أو انتهت صلاحيته. سجّل الدخول مجددًا.",
+    "exchange_failed": "تعذر إكمال تسجيل الدخول. حاول مجددًا.",
+    "ignore_add_failed": "تعذر إضافة ذلك المستخدم إلى قائمة التجاهل.",
+    "ignore_moderator_imposed": "قام مشرف القناة بإلغاء تفعيل TTS لك هنا، ولا يمكن إلغاء ذلك إلا بواسطة مشرف.",
+    "ignore_remove_failed": "تعذر إزالة ذلك المستخدم من قائمة التجاهل.",
+    "ignore_update_failed": "تعذر تغيير إعداد إلغاء الاشتراك.",
+    "key_required": "اسم الإعداد مطلوب.",
+    "match_key_invalid": "يجب أن تتكون الكلمة من 1 إلى {max} من الأحرف أو الأرقام أو الفواصل العليا أو الشرطات، ولا يمكن أن تحتوي على نقطة.",
+    "network_error": "تعذر الاتصال بالخادم. تحقق من اتصالك.",
+    "obs_token_fetch_failed": "تعذر تحميل رمز OBS.",
+    "obs_token_generate_failed": "تعذر إنشاء رمز OBS جديد.",
+    "obs_token_store_failed": "تعذر حفظ رمز OBS. حاول مجددًا.",
+    "prefs_fetch_failed": "تعذر تحميل تفضيلاتك.",
+    "prefs_global_fetch_failed": "تعذر تحميل تفضيلاتك العامة.",
+    "prefs_global_update_failed": "تعذر حفظ تفضيلاتك العامة.",
+    "prefs_invalid_emote_mode": "يجب أن تكون معالجة الرموز التعبيرية: قراءة أو تخطي أو وصف.",
+    "prefs_invalid_emotion": "هذا الانفعال غير صالح.",
+    "prefs_invalid_language": "هذه اللغة غير صالحة.",
+    "prefs_invalid_pitch": "طبقة الصوت هذه غير صالحة.",
+    "prefs_invalid_speed": "سرعة الصوت هذه غير صالحة.",
+    "prefs_invalid_voice": "هذا الصوت غير صالح.",
+    "prefs_missing_data": "لم يتم إرسال أي تغييرات.",
+    "prefs_update_failed": "تعذر حفظ تفضيلاتك.",
+    "pronunciation_limit_reached": "لقد وصلت إلى الحد الأقصى وهو {max} من طرق النطق المخصصة. أزِل واحدة أولاً.",
+    "pronunciation_remove_failed": "تعذر إزالة طريقة النطق.",
+    "pronunciation_save_failed": "تعذر حفظ طريقة النطق.",
+    "reward_banned_word": "تحتوي الرسالة على كلمة محظورة: \"{word}\".",
+    "reward_create_failed": "تعذر إنشاء مكافأة Channel Points.",
+    "reward_delete_failed": "تعذر حذف مكافأة Channel Points.",
+    "reward_links_blocked": "الروابط غير مسموح بها في هذه المكافأة.",
+    "reward_load_failed": "تعذر تحميل مكافأة Channel Points.",
+    "reward_message_empty": "الرسالة فارغة.",
+    "reward_save_failed": "تعذر حفظ مكافأة Channel Points.",
+    "reward_test_failed": "تعذر اختبار مكافأة Channel Points.",
+    "reward_twitch_error": "رفضت Twitch تغيير المكافأة.",
+    "reward_validation_failed": "هذه الرسالة غير مسموح بها.",
+    "say_contains_link": "لا يمكن أن تحتوي طريقة النطق على رابط.",
+    "say_empty": "لا يمكن أن تكون طريقة النطق فارغة.",
+    "say_must_be_text": "يجب أن تكون طريقة النطق نصاً.",
+    "say_too_long": "يجب أن تتكون طريقة النطق من {max} حرفاً أو أقل.",
+    "server_misconfigured": "الخادم غير مهيأ بشكل صحيح.",
+    "setting_invalid": "هذه ليست قيمة صالحة لـ {key}.",
+    "setting_update_failed": "تعذر تحديث إعداد TTS.",
+    "settings_fetch_failed": "تعذر تحميل إعدادات TTS.",
+    "shortlink_failed": "تعذر إنشاء الرابط القصير.",
+    "storage_unavailable": "وحدة التخزين غير متوفرة.",
+    "tts_generation_failed": "فشل توليد الكلام: {reason}",
+    "tts_no_audio": "لم يُرجع مزود الكلام أي صوت.",
+    "tts_not_configured": "لم يتم إعداد أي مزود كلام.",
+    "tts_provider_failed": "تعذر على مزود الكلام توليد الصوت.",
+    "tts_test_failed": "فشل اختبار الكلام.",
+    "tts_text_required": "أدخل نصًا للاختبار.",
+    "twitch_reauth_required": "انتهت صلاحية تسجيل دخولك إلى Twitch. أعد ربط حسابك.",
+    "twitch_user_not_found": "لا يوجد حساب Twitch باسم \"{username}\".",
+    "url_required": "عنوان URL مطلوب.",
+    "username_invalid": "اسم المستخدم هذا غير صالح.",
+    "username_required": "اسم المستخدم مطلوب.",
+    "voice_access_denied": "يتطلب الصوت \"{voice}\" إذن وصول خاص. جرب صوتًا آخر.",
+    "voice_invalid": "الصوت \"{voice}\" غير متاح. تحقق من الصوت وحاول مجددًا.",
+    "voice_lookup_failed": "تعذر البحث عن صوت هذا المستخدم.",
+    "word_invalid": "تلك الكلمة أو العبارة غير صالحة.",
+    "word_required": "الكلمة أو العبارة مطلوبة."
+  },
+  "logoutLink": {
+    "logout": "تسجيل الخروج"
+  },
+  "mainContent": {
+    "documentationTtsWildcatChat": "<a class=\"wc-link\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\">التوثيق</a> <span>tts.wildcat.chat</span>"
+  },
+  "msg": {
+    "action": {
+      "close": "إغلاق",
+      "remove": "إزالة",
+      "saved": "تم الحفظ"
+    },
+    "api": {
+      "authFailed": "فشلت المصادقة. سجّل دخولك مجددًا.",
+      "notAuthenticated": "لم تسجل دخولك.",
+      "requestFailed": "فشل الطلب."
+    },
+    "auth": {
+      "genericUser": "مستخدم",
+      "loading": "جارٍ التحميل…",
+      "needViewerSignIn": "أكّد حسابك على Twitch للوصول إلى تفضيلات المشاهد.",
+      "redirecting": "جارٍ إعادة التوجيه إلى Twitch للمصادقة…",
+      "required": "المصادقة مطلوبة.",
+      "signInFailed": "تعذر إكمال تسجيل الدخول.",
+      "signInWithTwitch": "تسجيل الدخول باستخدام Twitch",
+      "signedOut": "لم تقم بتسجيل الدخول.",
+      "tokenMissing": "رمز المصادقة مفقود. سجّل الدخول مرة أخرى."
+    },
+    "emotion": {
+      "angry": "غاضب",
+      "auto": "تلقائي",
+      "disgusted": "مشمئز",
+      "fearful": "خائف",
+      "happy": "سعيد",
+      "neutral": "محايد",
+      "sad": "حزين",
+      "surprised": "متفاجئ"
+    },
+    "ignore": {
+      "enterUsername": "أدخل اسم مستخدم."
+    },
+    "lang": {
+      "automatic": "تلقائي"
+    },
+    "prefs": {
+      "useChannelDefault": "استخدام الإعداد الافتراضي للقناة"
+    },
+    "preview": {
+      "enterText": "أدخل نصاً لاختباره.",
+      "unavailable": "المعاينة غير متوفرة."
+    },
+    "value": {
+      "off": "إيقاف",
+      "on": "تشغيل"
+    },
+    "voice": {
+      "cannotPlay": "تعذر تشغيل العينة الصوتية.",
+      "generating": "جارٍ التوليد…",
+      "noAudio": "لم يُرجع الخادم أي صوت.",
+      "noneFound": "لم يتم العثور على أصوات.",
+      "preview": "معاينة {voice}",
+      "regenerate": "إعادة التوليد",
+      "testFailed": "فشل الاختبار: {reason}"
+    }
+  },
+  "page": {
+    "skipToMainContent": "التخطي إلى المحتوى الرئيسي"
+  },
+  "sidebarEngNormVal": {
+    "off": "إيقاف"
+  },
+  "sidebarLanguageVal": {
+    "automatic": "تلقائي"
+  },
+  "ui": {
+    "language": "اللغة"
+  },
+  "voicePreviewHint": {
+    "settingsChangedGenerateANew": "<i><i data-lucide=\"triangle-alert\" class=\"inline-icon\"></i> تغيّرت الإعدادات. أنشئ معاينة جديدة.</i>"
+  },
+  "voicePreviewPlayer": {
+    "yourBrowserDoesNotSupport": "متصفحك لا يدعم عنصر الصوت."
+  }
+}

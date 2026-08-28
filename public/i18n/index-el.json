@@ -1,0 +1,50 @@
+{
+  "kofiClose": {
+    "closeSupportDialog": "Κλείσιμο παραθύρου υποστήριξης"
+  },
+  "kofiModal": {
+    "openInNewTabOn": "<a href=\"https://ko-fi.com/parfaitfair\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"kofi-direct-link\">Άνοιγμα σε νέα καρτέλα στο Ko-fi.com</a>"
+  },
+  "kofiOpen": {
+    "supportMe": "Υποστήριξέ με"
+  },
+  "kofiTitle": {
+    "supportParfaitfair": "Υποστήριξη parfaitfair"
+  },
+  "mainContent": {
+    "access": "Πρόσβαση",
+    "accessIsInviteOnlyUnapproved": "Η πρόσβαση γίνεται μόνο με πρόσκληση. Τα μη εγκεκριμένα κανάλια λαμβάνουν μήνυμα άρνησης πρόσβασης. <a class=\"wc-link wc-link--underline\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">Ζήτησε πρόσβαση εδώ</a>.",
+    "changeTtsSettingsControlBot": "Αλλαγή ρυθμίσεων TTS • Έλεγχος απαντήσεων chat του bot • Διαμόρφωση Channel Points • Ορισμός προτιμήσεων φωνής",
+    "colorTheme": "Χρωματικό θέμα",
+    "iAmAViewer": "<span class=\"wc-rule-name\">Είμαι θεατής</span>",
+    "iRunTheChannel": "<span class=\"wc-rule-name\">Διαχειρίζομαι το κανάλι</span>",
+    "setHowYourMessagesSound": "Όρισε πώς ακούγονται τα μηνύματά σου όταν τα διαβάζει το TTS σε κάθε κανάλι που επισκέπτεσαι.",
+    "textToSpeechForYour": "Μετατροπή κειμένου σε ομιλία για το κανάλι σου στο Twitch, για streamer και θεατές.",
+    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">Μόνο με πρόσκληση</span>",
+    "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">Διαχείριση bot μετατροπής κειμένου σε ομιλία</span>"
+  },
+  "meta": {
+    "wildcatttsBotManagement": "Διαχείριση bot WildcatTTS",
+    "wildcatttsTextToSpeechBot": "Διαχείριση bot μετατροπής κειμένου σε ομιλία WildcatTTS για κανάλια Twitch, streamer και θεατές."
+  },
+  "msg": {
+    "kofi": {
+      "iframeTitle": "Υποστηρίξτε το parfaitfair στο Ko-fi"
+    }
+  },
+  "page": {
+    "support": "Υποστήριξη"
+  },
+  "streamerLoginBtn": {
+    "manageMyChannel": "<i data-lucide=\"mic\" aria-hidden=\"true\"></i>Διαχείριση του καναλιού μου"
+  },
+  "themeDarkBtn": {
+    "dark": "Σκούρο"
+  },
+  "themeLightBtn": {
+    "light": "Φωτεινό"
+  },
+  "viewerPrefsBtn": {
+    "setMyOwnVoice": "<i data-lucide=\"headphones\" aria-hidden=\"true\"></i>Ορισμός της φωνής μου"
+  }
+}

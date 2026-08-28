@@ -1,0 +1,164 @@
+{
+  "darkModeToggle": {
+    "toggleDarkMode": "Перемкнути темну тему"
+  },
+  "err": {
+    "banned_add_failed": "Не вдалося додати це слово до списку заборонених.",
+    "banned_remove_failed": "Не вдалося вилучити це слово зі списку заборонених.",
+    "bot_add_failed": "Не вдалося активувати бота на вашому каналі. Спробуйте ще раз.",
+    "bot_remove_failed": "Не вдалося деактивувати бота на вашому каналі. Спробуйте ще раз.",
+    "bot_status_failed": "Не вдалося завантажити статус бота.",
+    "channel_data_not_found": "Налаштувань для цього каналу не знайдено.",
+    "channel_not_authorized": "Ваш канал не має дозволу на використання цього бота. Зв’яжіться зі мною для отримання доступу.",
+    "channel_not_found": "Цей канал не знайдено.",
+    "channel_required": "Потрібно вказати канал.",
+    "channel_tts_disabled": "Цей канал не знайдено або на ньому вимкнено TTS.",
+    "entry_key_required": "Потрібно вказати ключ запису.",
+    "exchange_code_invalid": "Посилання для входу відсутнє або неправильне.",
+    "exchange_code_used": "Це посилання для входу вже використано або його термін дії минув. Увійдіть знову.",
+    "exchange_failed": "Не вдалося увійти. Спробуйте ще раз.",
+    "ignore_add_failed": "Не вдалося додати цього користувача до списку ігнорування.",
+    "ignore_moderator_imposed": "Модератор каналу вимкнув для вас TTS, тому скасувати це може лише модератор.",
+    "ignore_remove_failed": "Не вдалося вилучити цього користувача зі списку ігнорування.",
+    "ignore_update_failed": "Не вдалося змінити налаштування відмови від озвучення.",
+    "key_required": "Потрібно вказати назву налаштування.",
+    "match_key_invalid": "Слово має містити від 1 до {max} символів (літери, цифри, апострофи або дефіси) і не може містити крапку.",
+    "network_error": "Не вдалося зв’язатися із сервером. Перевірте з’єднання.",
+    "obs_token_fetch_failed": "Не вдалося завантажити токен OBS.",
+    "obs_token_generate_failed": "Не вдалося згенерувати новий токен OBS.",
+    "obs_token_store_failed": "Не вдалося зберегти токен OBS. Спробуйте ще раз.",
+    "prefs_fetch_failed": "Не вдалося завантажити ваші налаштування.",
+    "prefs_global_fetch_failed": "Не вдалося завантажити ваші глобальні налаштування.",
+    "prefs_global_update_failed": "Не вдалося зберегти ваші глобальні налаштування.",
+    "prefs_invalid_emote_mode": "Обробка смайлів має бути read, skip або describe.",
+    "prefs_invalid_emotion": "Неприпустима емоція.",
+    "prefs_invalid_language": "Неприпустима мова.",
+    "prefs_invalid_pitch": "Неприпустима висота тону.",
+    "prefs_invalid_speed": "Неприпустима швидкість.",
+    "prefs_invalid_voice": "Неприпустимий голос.",
+    "prefs_missing_data": "Змін не надіслано.",
+    "prefs_update_failed": "Не вдалося зберегти ваші налаштування.",
+    "pronunciation_limit_reached": "Ви досягли ліміту в {max} власних вимов. Спершу вилучіть одну.",
+    "pronunciation_remove_failed": "Не вдалося вилучити вимову.",
+    "pronunciation_save_failed": "Не вдалося зберегти вимову.",
+    "reward_banned_word": "Повідомлення містить заборонене слово: \"{word}\".",
+    "reward_create_failed": "Не вдалося створити нагороду Channel Points.",
+    "reward_delete_failed": "Не вдалося видалити нагороду Channel Points.",
+    "reward_links_blocked": "Посилання заборонені в цій нагороді.",
+    "reward_load_failed": "Не вдалося завантажити нагороду Channel Points.",
+    "reward_message_empty": "Повідомлення порожнє.",
+    "reward_save_failed": "Не вдалося зберегти нагороду Channel Points.",
+    "reward_test_failed": "Не вдалося протестувати нагороду Channel Points.",
+    "reward_twitch_error": "Twitch відхилив зміну нагороди.",
+    "reward_validation_failed": "Це повідомлення недозволене.",
+    "say_contains_link": "Вимова не може містити посилання.",
+    "say_empty": "Вимова не може бути порожньою.",
+    "say_must_be_text": "Вимова має бути текстом.",
+    "say_too_long": "Вимова має містити не більше {max} символів.",
+    "server_misconfigured": "Сервер налаштовано неправильно.",
+    "setting_invalid": "Неприпустиме значення для {key}.",
+    "setting_update_failed": "Не вдалося оновити налаштування TTS.",
+    "settings_fetch_failed": "Не вдалося завантажити налаштування TTS.",
+    "shortlink_failed": "Не вдалося створити коротке посилання.",
+    "storage_unavailable": "Сховище недоступне.",
+    "tts_generation_failed": "Помилка генерації мовлення: {reason}",
+    "tts_no_audio": "Провайдер синтезу мовлення не повернув аудіо.",
+    "tts_not_configured": "Провайдер синтезу мовлення не налаштований.",
+    "tts_provider_failed": "Провайдеру синтезу мовлення не вдалося згенерувати аудіо.",
+    "tts_test_failed": "Тест синтезу мовлення не вдався.",
+    "tts_text_required": "Введіть текст для перевірки.",
+    "twitch_reauth_required": "Термін дії входу в Twitch закінчився. Підключіть обліковий запис повторно.",
+    "twitch_user_not_found": "Облікового запису Twitch з іменем «{username}» не існує.",
+    "url_required": "Потрібно вказати URL.",
+    "username_invalid": "Неприпустиме ім’я користувача.",
+    "username_required": "Потрібно вказати ім’я користувача.",
+    "voice_access_denied": "Голос «{voice}» потребує спеціального доступу. Спробуйте інший голос.",
+    "voice_invalid": "Голос «{voice}» недоступний. Перевірте голос і спробуйте знову.",
+    "voice_lookup_failed": "Не вдалося знайти голос цього користувача.",
+    "word_invalid": "Неприпустиме слово або фраза.",
+    "word_required": "Потрібно вказати слово або фразу."
+  },
+  "logoutLink": {
+    "logout": "Вийти"
+  },
+  "mainContent": {
+    "documentationTtsWildcatChat": "<a class=\"wc-link\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\">Документація</a> <span>tts.wildcat.chat</span>"
+  },
+  "msg": {
+    "action": {
+      "close": "Закрити",
+      "remove": "Вилучити",
+      "saved": "Збережено"
+    },
+    "api": {
+      "authFailed": "Помилка автентифікації. Увійдіть знову.",
+      "notAuthenticated": "Ви не увійшли.",
+      "requestFailed": "Помилка запиту."
+    },
+    "auth": {
+      "genericUser": "Користувач",
+      "loading": "завантаження…",
+      "needViewerSignIn": "Підтвердьте свій обліковий запис Twitch, щоб отримати доступ до налаштувань глядача.",
+      "redirecting": "Перенаправлення на Twitch для автентифікації…",
+      "required": "Потрібна автентифікація.",
+      "signInFailed": "Не вдалося увійти.",
+      "signInWithTwitch": "Увійти через Twitch",
+      "signedOut": "Ви не увійшли.",
+      "tokenMissing": "Токен автентифікації відсутній. Увійдіть знову."
+    },
+    "emotion": {
+      "angry": "Злий",
+      "auto": "Авто",
+      "disgusted": "З огидою",
+      "fearful": "Наляканий",
+      "happy": "Радісний",
+      "neutral": "Нейтральний",
+      "sad": "Сумний",
+      "surprised": "Здивований"
+    },
+    "ignore": {
+      "enterUsername": "Введіть ім’я користувача."
+    },
+    "lang": {
+      "automatic": "Автоматично"
+    },
+    "prefs": {
+      "useChannelDefault": "За замовчуванням для каналу"
+    },
+    "preview": {
+      "enterText": "Введіть текст для перевірки.",
+      "unavailable": "Попередній перегляд недоступний."
+    },
+    "value": {
+      "off": "Вимк.",
+      "on": "Увімк."
+    },
+    "voice": {
+      "cannotPlay": "Не вдалося відтворити аудіозразок.",
+      "generating": "Генерація…",
+      "noAudio": "Сервер не повернув аудіо.",
+      "noneFound": "Голосів не знайдено.",
+      "preview": "Прослухати {voice}",
+      "regenerate": "Згенерувати знову",
+      "testFailed": "Тест не вдався: {reason}"
+    }
+  },
+  "page": {
+    "skipToMainContent": "Перейти до основного вмісту"
+  },
+  "sidebarEngNormVal": {
+    "off": "Вимкнено"
+  },
+  "sidebarLanguageVal": {
+    "automatic": "Автоматично"
+  },
+  "ui": {
+    "language": "Мова"
+  },
+  "voicePreviewHint": {
+    "settingsChangedGenerateANew": "<i><i data-lucide=\"triangle-alert\" class=\"inline-icon\"></i> Налаштування змінено. Згенеруйте новий зразок.</i>"
+  },
+  "voicePreviewPlayer": {
+    "yourBrowserDoesNotSupport": "Ваш браузер не підтримує аудіоелемент."
+  }
+}

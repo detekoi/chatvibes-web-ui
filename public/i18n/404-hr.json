@@ -1,0 +1,11 @@
+{
+  "mainContent": {
+    "pageNotFound": "Stranica nije pronađena",
+    "returnToLogin": "Povratak na prijavu",
+    "thatUrlIsNotPart": "Taj URL nije dio ove stranice. Provjeri je li adresa točna ili se vrati na stranicu za prijavu."
+  },
+  "meta": {
+    "pageNotFoundOnWildcattts": "Stranica nije pronađena na WildcatTTS.",
+    "pageNotFoundWildcattts": "Stranica nije pronađena — WildcatTTS"
+  }
+}

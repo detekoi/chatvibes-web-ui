@@ -1,0 +1,41 @@
+{
+  "errorAction": {
+    "tryAgain": "Yritä uudelleen"
+  },
+  "errorCode": {
+    "unknown": "tuntematon"
+  },
+  "errorCodeBlock": {
+    "error": "Virhe"
+  },
+  "errorMessageDetails": {
+    "twitchAuthenticationFailed": "Twitch-todennus epäonnistui."
+  },
+  "errorReadout": {
+    "authenticationFailed": "Todennus epäonnistui"
+  },
+  "errorTitle": {
+    "authenticationFailed": "Todennus epäonnistui"
+  },
+  "mainContent": {
+    "requestAccessTtsWildcatChat": "<a class=\"wc-link\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">Pyydä pääsyä</a> <span>tts.wildcat.chat</span>"
+  },
+  "meta": {
+    "wildcatttsAuthenticationError": "WildcatTTS – Todennusvirhe",
+    "wildcatttsAuthenticationErrorAndSign": "WildcatTTS-todennusvirhe ja kirjautumisen palautus."
+  },
+  "msg": {
+    "authError": {
+      "backToSignIn": "Takaisin kirjautumiseen",
+      "canceledBody": "Muutoksia ei tehty. Voit kirjautua sisään, kun olet valmis.",
+      "canceledReadout": "Peruutettu",
+      "canceledTitle": "WildcatTTS - Kirjautuminen peruutettu",
+      "canceledTitleShort": "Kirjautuminen peruutettu",
+      "notPermitted": "Pääsy evätty",
+      "requestAccess": "Pyydä pääsyä",
+      "twitchError": "Twitch palautti virheen tunnistautumisen aikana.",
+      "unspecified": "Tapahtui määrittelemätön virhe.",
+      "unspecifiedCode": "määrittelemätön"
+    }
+  }
+}

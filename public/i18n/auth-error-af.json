@@ -1,0 +1,41 @@
+{
+  "errorAction": {
+    "tryAgain": "Probeer weer"
+  },
+  "errorCode": {
+    "unknown": "onbekend"
+  },
+  "errorCodeBlock": {
+    "error": "Fout"
+  },
+  "errorMessageDetails": {
+    "twitchAuthenticationFailed": "Twitch-verifikasie het misluk."
+  },
+  "errorReadout": {
+    "authenticationFailed": "Verifikasie het misluk"
+  },
+  "errorTitle": {
+    "authenticationFailed": "Verifikasie het misluk"
+  },
+  "mainContent": {
+    "requestAccessTtsWildcatChat": "<a class=\"wc-link\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">Versoek toegang</a> <span>tts.wildcat.chat</span>"
+  },
+  "meta": {
+    "wildcatttsAuthenticationError": "WildcatTTS - Verifikasiefout",
+    "wildcatttsAuthenticationErrorAndSign": "WildcatTTS-verifikasiefout en aanmeldherstel."
+  },
+  "msg": {
+    "authError": {
+      "backToSignIn": "Terug na aanteken",
+      "canceledBody": "Geen veranderinge het plaasgevind nie. Jy kan aanteken wanneer jy gereed is.",
+      "canceledReadout": "Gekanselleer",
+      "canceledTitle": "WildcatTTS - Aanmelding gekanselleer",
+      "canceledTitleShort": "Aanmelding gekanselleer",
+      "notPermitted": "Toegang nie toegelaat nie",
+      "requestAccess": "Versoek toegang",
+      "twitchError": "Twitch het 'n fout tydens stawing teruggestuur.",
+      "unspecified": "'n Ongespesifiseerde fout het voorgekom.",
+      "unspecifiedCode": "ongespesifiseer"
+    }
+  }
+}

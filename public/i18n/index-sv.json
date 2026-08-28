@@ -1,0 +1,50 @@
+{
+  "kofiClose": {
+    "closeSupportDialog": "Stäng stöddialogen"
+  },
+  "kofiModal": {
+    "openInNewTabOn": "<a href=\"https://ko-fi.com/parfaitfair\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"kofi-direct-link\">Öppna i en ny flik på Ko-fi.com</a>"
+  },
+  "kofiOpen": {
+    "supportMe": "Stöd mig"
+  },
+  "kofiTitle": {
+    "supportParfaitfair": "Stöd parfaitfair"
+  },
+  "mainContent": {
+    "access": "Åtkomst",
+    "accessIsInviteOnlyUnapproved": "Åtkomst kräver inbjudan. Kanaler som inte godkänts får ett meddelande om nekad åtkomst. <a class=\"wc-link wc-link--underline\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">Begär åtkomst här</a>.",
+    "changeTtsSettingsControlBot": "Ändra TTS-inställningar • Styr bottens chattsvar • Konfigurera Channel Points • Ange röstinställningar",
+    "colorTheme": "Färgtema",
+    "iAmAViewer": "<span class=\"wc-rule-name\">Jag är en tittare</span>",
+    "iRunTheChannel": "<span class=\"wc-rule-name\">Jag driver kanalen</span>",
+    "setHowYourMessagesSound": "Ställ in hur dina meddelanden låter när TTS läser upp dem i kanaler du besöker.",
+    "textToSpeechForYour": "Text-till-tal för din Twitch-kanal, för streamare och tittare.",
+    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">Endast inbjudan</span>",
+    "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">Hantering av text-till-tal-bot</span>"
+  },
+  "meta": {
+    "wildcatttsBotManagement": "WildcatTTS Bothantering",
+    "wildcatttsTextToSpeechBot": "WildcatTTS text-till-tal-bothantering för Twitch-kanaler, streamare och tittare."
+  },
+  "msg": {
+    "kofi": {
+      "iframeTitle": "Stöd parfaitfair på Ko-fi"
+    }
+  },
+  "page": {
+    "support": "Stöd"
+  },
+  "streamerLoginBtn": {
+    "manageMyChannel": "<i data-lucide=\"mic\" aria-hidden=\"true\"></i>Hantera min kanal"
+  },
+  "themeDarkBtn": {
+    "dark": "Mörkt"
+  },
+  "themeLightBtn": {
+    "light": "Ljust"
+  },
+  "viewerPrefsBtn": {
+    "setMyOwnVoice": "<i data-lucide=\"headphones\" aria-hidden=\"true\"></i>Välj min egen röst"
+  }
+}

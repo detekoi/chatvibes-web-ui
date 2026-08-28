@@ -1,0 +1,39 @@
+{
+  "authBar": {
+    "signInProgress": "Aanmeldvordering"
+  },
+  "authMessage": {
+    "pleaseWait": "Wag asseblief."
+  },
+  "authSteps": {
+    "loadingDashboard": "Laai tans kontroleskerm",
+    "sessionTokenStored": "Sessieteken gestoor",
+    "twitchAuthorized": "Twitch gemagtig"
+  },
+  "authTitle": {
+    "signingYouIn": "Meld jou tans aan"
+  },
+  "meta": {
+    "completingWildcatttsTwitchSignIn": "Voltooi tans WildcatTTS Twitch-aanmelding.",
+    "wildcatttsCompletingSignIn": "WildcatTTS - Voltooi tans aanmelding"
+  },
+  "msg": {
+    "authComplete": {
+      "cannotComplete": "Kan nie aanmelding voltooi nie.",
+      "failedReadout": "Misluk",
+      "failedTitle": "Aanmelding het misluk",
+      "missingInfo": "Verifikasie-inligting van die Twitch-terugbel ontbreek. Meld weer aan.",
+      "noSession": "Geen sessie",
+      "redirecting": "Herlei na jou kontroleskerm.",
+      "retrySignIn": "{reason} Meld weer aan.",
+      "sessionEstablished": "Sessie gevestig",
+      "welcome": "Welkom, {user}"
+    }
+  },
+  "sessionState": {
+    "establishingSession": "Stel tans sessie op"
+  },
+  "statusReadout": {
+    "working": "<span class=\"wc-dot\"></span>Besig"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "errorAction": {
+    "tryAgain": "Försök igen"
+  },
+  "errorCode": {
+    "unknown": "okänd"
+  },
+  "errorCodeBlock": {
+    "error": "Fel"
+  },
+  "errorMessageDetails": {
+    "twitchAuthenticationFailed": "Twitch-autentiseringen misslyckades."
+  },
+  "errorReadout": {
+    "authenticationFailed": "Autentiseringen misslyckades"
+  },
+  "errorTitle": {
+    "authenticationFailed": "Autentiseringen misslyckades"
+  },
+  "mainContent": {
+    "requestAccessTtsWildcatChat": "<a class=\"wc-link\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">Begär åtkomst</a> <span>tts.wildcat.chat</span>"
+  },
+  "meta": {
+    "wildcatttsAuthenticationError": "WildcatTTS - Autentiseringsfel",
+    "wildcatttsAuthenticationErrorAndSign": "WildcatTTS-autentiseringsfel och inloggningsåterställning."
+  },
+  "msg": {
+    "authError": {
+      "backToSignIn": "Tillbaka till inloggningen",
+      "canceledBody": "Inga ändringar gjordes. Du kan logga in när du är redo.",
+      "canceledReadout": "Avbröts",
+      "canceledTitle": "WildcatTTS - Inloggningen avbröts",
+      "canceledTitleShort": "Inloggningen avbröts",
+      "notPermitted": "Åtkomst inte tillåten",
+      "requestAccess": "Begär åtkomst",
+      "twitchError": "Twitch returnerade ett fel under autentiseringen.",
+      "unspecified": "Ett ospecificerat fel uppstod.",
+      "unspecifiedCode": "ospecificerat"
+    }
+  }
+}

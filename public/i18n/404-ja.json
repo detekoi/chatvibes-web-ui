@@ -1,0 +1,11 @@
+{
+  "mainContent": {
+    "pageNotFound": "ページが見つかりません",
+    "returnToLogin": "ログインに戻る",
+    "thatUrlIsNotPart": "指定されたURLはこのサイトのものではありません。アドレスが正しいか確認するか、ログインページに戻ってください。"
+  },
+  "meta": {
+    "pageNotFoundOnWildcattts": "WildcatTTSでページが見つかりません。",
+    "pageNotFoundWildcattts": "ページが見つかりません — WildcatTTS"
+  }
+}

@@ -1,0 +1,501 @@
+{
+  "addBotBtn": {
+    "activateTtsService": "فعال‌سازی سرویس TTS"
+  },
+  "addTtsBannedWordBtn": {
+    "add": "افزودن"
+  },
+  "addTtsIgnoreBtn": {
+    "add": "افزودن"
+  },
+  "addTtsPronunciationBtn": {
+    "add": "افزودن"
+  },
+  "allowViewerPreferences": {
+    "allowViewerVoicePreferences": "مجاز بودن انتخاب صدای بیننده"
+  },
+  "announceUnfulfilledRedemptions": {
+    "announceQueuedRedeemsImmediately": "اعلام فوری بازخریدهای در صف"
+  },
+  "announceUnfulfilledRedemptionsHelp": {
+    "aRewardThatDoesNot": "پاداشی که صف درخواست‌های پاداش را رد نمی‌کند، به محض بازخرید اعلام می‌شود، حتی اگر بعداً آن درخواست را رد کنید. برای نگه‌داشتن اعلام تا زمان پذیرش درخواست، این گزینه را غیرفعال کنید — پاداش‌هایی که هرگز نپذیرید، هرگز اعلام نخواهند شد."
+  },
+  "anonymizeFollowers": {
+    "anonymizeNewFollowers": "ناشناس کردن دنبال‌کنندگان جدید"
+  },
+  "bitsEnabled": {
+    "requireBitsForTts": "الزام Bits برای TTS"
+  },
+  "botRespondsInChat": {
+    "botRespondsInChat": "پاسخ دادن ربات در چت"
+  },
+  "botStatus": {
+    "loading": "در حال بارگذاری…"
+  },
+  "calibratedVoicesList": {
+    "noVoicesCalibratedYet": "هنوز صدایی کالیبره نشده است."
+  },
+  "calibrationSaveBtn": {
+    "save": "ذخیره"
+  },
+  "calibrationVoiceSearch": {
+    "searchVoicesToCalibrate": "جستجوی صداها برای کالیبره کردن..."
+  },
+  "channelNameStatus": {
+    "yourChannel": "کانال شما"
+  },
+  "cheerEventsEnabled": {
+    "announceCheers": "اعلام Cheerها"
+  },
+  "copyTtsUrlBtn": {
+    "copy": "کپی",
+    "copyBrowserSourceUrl": "کپی URL مربوط به Browser Source"
+  },
+  "cpDelete": {
+    "disableDelete": "غیرفعال‌سازی و حذف"
+  },
+  "cpEnabled": {
+    "enableChannelPointsTts": "فعال‌سازی TTS با Channel Points"
+  },
+  "cpPerStream": {
+    "enterAmount": "مقدار را وارد کنید"
+  },
+  "cpPerUser": {
+    "enterAmount": "مقدار را وارد کنید"
+  },
+  "cpSave": {
+    "save": "ذخیره"
+  },
+  "cpTest": {
+    "testRedeem": "تست بازخرید"
+  },
+  "dashboardContent": {
+    "channel": "کانال",
+    "channelService": "سرویس کانال",
+    "dashboardConfigurationTabs": "برگه‌های پیکربندی داشبورد",
+    "deactivationStopsTheBotFrom": "غیرفعال‌سازی مانع از خواندن پیام‌های چت توسط ربات می‌شود. تنظیمات شما ذخیره می‌ماند. می‌توانید هر زمان که بخواهید سرویس را دوباره فعال کنید.",
+    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>مستندات </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>تنظیمات بیننده </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "احساس",
+    "engNormalization": "نرمال‌سازی انگلیسی",
+    "language": "زبان",
+    "pitch": "زیروبمی صدا",
+    "quickLinks": "لینک‌های سریع",
+    "service": "سرویس",
+    "signedInAs": "واردشده با حساب",
+    "speed": "سرعت",
+    "testMessage": "پیام آزمایشی",
+    "voicePreview": "پیش‌نمایش صدا",
+    "volume": "بلندی صدا"
+  },
+  "defaultEmotion": {
+    "angry": "عصبانی",
+    "disgusted": "بیزار",
+    "fearful": "ترسیده",
+    "happy": "خوشحال",
+    "neutral": "خنثی",
+    "sad": "غمگین",
+    "surprised": "شگفت‌زده"
+  },
+  "defaultPitch": {
+    "defaultPitch12To12": "زیروبمی پیش‌فرض (-12 تا +12)"
+  },
+  "defaultSpeed": {
+    "defaultSpeed05To": "سرعت پیش‌فرض (0.5 تا 2.0)"
+  },
+  "defaultVoiceSearch": {
+    "searchDefaultVoices": "جستجوی صداهای پیش‌فرض",
+    "searchVoices": "جستجوی صداها..."
+  },
+  "defaultVolume": {
+    "voiceVolume01To": "بلندی صدا (0.1 تا 10)"
+  },
+  "emoteMode": {
+    "describeEmotes": "توصیف ایموت‌ها",
+    "readEmoteNames": "خواندن نام ایموت‌ها",
+    "skipEmotes": "رد کردن ایموت‌ها"
+  },
+  "englishNormalization": {
+    "englishNormalization": "استانداردسازی انگلیسی"
+  },
+  "eventsEnabled": {
+    "announceEvents": "اعلام رویدادها"
+  },
+  "loadingBar": {
+    "loadingDashboardSettings": "در حال بارگذاری تنظیمات داشبورد"
+  },
+  "loadingOverlay": {
+    "loadingDashboardSettings": "در حال بارگذاری تنظیمات داشبورد…"
+  },
+  "lookupUsername": {
+    "enterTwitchViewerUsername": "نام کاربری بیننده Twitch را وارد کنید"
+  },
+  "lookupVoiceBtn": {
+    "lookupVoice": "جستجوی صدا"
+  },
+  "meta": {
+    "wildcatttsDashboard": "داشبورد WildcatTTS",
+    "wildcatttsStreamerDashboardConfigureText": "داشبورد استریمر WildcatTTS - پیکربندی تنظیمات متن به گفتار، مجوزها، پاسخ‌های ربات و Channel Points."
+  },
+  "msg": {
+    "auth": {
+      "demoStreamer": "استریمر آزمایشی",
+      "needBroadcaster": "برای دسترسی به تنظیمات استریمر، با حساب پخش‌کننده خود وارد شوید.",
+      "needSignIn": "برای دسترسی به داشبورد، با حساب Twitch خود وارد شوید."
+    },
+    "bannedWords": {
+      "addFailed": "افزودن کلمه ممنوعه ناموفق بود.",
+      "added": "«{word}» به کلمات ممنوعه اضافه شد.",
+      "addedTestMode": "[آزمایشی] کلمه ممنوعه اضافه شد: {word}.",
+      "empty": "هنوز کلمه ممنوعه‌ای اضافه نشده است.",
+      "removeFailed": "حذف کلمه ممنوعه ناموفق بود.",
+      "removed": "«{word}» از کلمات ممنوعه حذف شد.",
+      "removedTestMode": "[آزمایشی] کلمه ممنوعه حذف شد: {word}."
+    },
+    "bot": {
+      "activateFailed": "فعال‌سازی سرویس TTS ناموفق بود.",
+      "activated": "سرویس TTS فعال شد.",
+      "activatedTestMode": "سرویس TTS فعال شد (حالت آزمایشی).",
+      "activating": "در حال فعال‌سازی سرویس TTS…",
+      "active": "فعال",
+      "deactivateFailed": "غیرفعال‌سازی سرویس TTS ناموفق بود.",
+      "deactivated": "سرویس TTS غیرفعال شد.",
+      "deactivatedTestMode": "سرویس TTS غیرفعال شد (حالت آزمایشی).",
+      "deactivating": "در حال غیرفعال‌سازی سرویس TTS…",
+      "inactive": "غیرفعال",
+      "notAuthenticated": "احراز هویت نشده",
+      "notAuthorized": "کانال مجاز نیست.",
+      "requestAccess": "درخواست دسترسی در اینجا",
+      "statusError": "خطا",
+      "statusFailed": "خطا: {reason}",
+      "statusLoadFailed": "بارگذاری وضعیت ربات ناموفق بود: {reason}",
+      "unknownError": "خطای ناشناخته"
+    },
+    "calibration": {
+      "confirmReset": "کالیبراسیون برای {voice} بازنشانی شود؟",
+      "edit": "ویرایش",
+      "empty": "هنوز صدایی کالیبره نشده است.",
+      "reset": "بازنشانی",
+      "row": "{voice} ({volume})"
+    },
+    "cp": {
+      "confirmDelete": "پاداش TTS در Channel Points حذف شود؟",
+      "deleteFailed": "حذف ناموفق بود.",
+      "deleted": "پاداش حذف شد.",
+      "deletedTestMode": "پاداش حذف شد (حالت آزمایشی).",
+      "deleting": "در حال حذف…",
+      "lastSynced": "{reward} · آخرین همگام‌سازی: {time}",
+      "never": "هرگز",
+      "noReward": "هیچ پاداشی ایجاد نشده است",
+      "noRewardTestMode": "هیچ پاداشی ایجاد نشده است (حالت آزمایشی)",
+      "rewardId": "شناسه پاداش: {id}",
+      "saveFailed": "ذخیره تنظیمات Channel Points امکان‌پذیر نیست.",
+      "saved": "تنظیمات Channel Points ذخیره شد.",
+      "savedTestMode": "تنظیمات Channel Points ذخیره شد (حالت آزمایشی).",
+      "saving": "در حال ذخیره تنظیمات Channel Points…",
+      "testCompleted": "آزمایش کامل شد ({status}).",
+      "testCompletedTestMode": "آزمایش کامل شد (حالت آزمایشی).",
+      "testFailed": "آزمایش ناموفق بود.",
+      "testPrompt": "برای شبیه‌سازی دریافت پاداش، یک پیام آزمایشی وارد کنید:",
+      "testing": "در حال آزمایش دریافت پاداش…"
+    },
+    "ignore": {
+      "addFailed": "افزودن کاربر به فهرست نادیده‌گرفته‌ها امکان‌پذیر نیست.",
+      "addFailedReason": "افزودن کاربر امکان‌پذیر نیست: {reason}",
+      "badgeModerator": "بی‌صدا شده توسط شما",
+      "badgeSelf": "انصراف‌داده",
+      "empty": "هیچ کاربر نادیده‌گرفته‌شده‌ای وجود ندارد.",
+      "noSuchAccount": "چنین حساب Twitch وجود ندارد",
+      "removeFailed": "حذف کاربر از فهرست نادیده‌گرفته‌ها امکان‌پذیر نیست.",
+      "removeFailedReason": "حذف {label} امکان‌پذیر نیست: {reason}",
+      "removeLabel": "حذف {label} از فهرست نادیده‌گرفته‌ها ({source, select, self {خودش انصراف داده} other {توسط شما بی‌صدا شده}})"
+    },
+    "lookup": {
+      "button": "جستجوی صدا",
+      "calibrate": "کالیبراسیون «{voice}»",
+      "error": "خطا: {reason}",
+      "failed": "یافتن این کاربر امکان‌پذیر نیست.",
+      "hasVoice": "کاربر {user} صدای سفارشی تعیین کرده است: {voice}",
+      "noVoice": "کاربر {user} هیچ صدای سفارشی‌ای تنظیم نکرده است.",
+      "searching": "در حال جستجو…",
+      "voiceUnknown": "این صدا در فهرست صداهای موجود نیست."
+    },
+    "obs": {
+      "cannotCopy": "کپی URL امکان‌پذیر نیست.",
+      "cannotDetermine": "تشخیص URL مربوط به TTS امکان‌پذیر نیست.",
+      "copied": "در حافظه موقت کپی شد.",
+      "copiedButton": "کپی شد!",
+      "copyFailed": "کپی ناموفق بود.",
+      "generateFailed": "امکان ایجاد URL برای OBS وجود ندارد. دوباره امتحان کنید.",
+      "generating": "در حال ایجاد…",
+      "generatingUrl": "در حال ایجاد URL امن…",
+      "loadingUrl": "در حال بارگذاری URL موجود…",
+      "pressRegenerate": "برای ایجاد URL برای Browser Source در OBS، روی «Regenerate URL» کلیک کنید.",
+      "refreshPage": "ایجاد URL امکان‌پذیر نیست. صفحه را بازخوانی کنید.",
+      "testModeUrl": "URL حالت آزمایشی",
+      "urlGenerated": "یک URL جدید ایجاد شد.",
+      "urlGeneratedTestMode": "یک URL جدید ایجاد شد (حالت آزمایشی).",
+      "urlNotReady": "URL هنوز در دسترس نیست.",
+      "yourUrl": "URL شما برای Browser Source در OBS"
+    },
+    "preview": {
+      "playingTestMode": "در حال پخش پیش‌نمایش… (حالت آزمایشی)",
+      "tooLong": "متن باید ۵۰۰ کاراکتر یا کمتر باشد."
+    },
+    "pron": {
+      "acronymsDisabled": "مخفف‌ها غیرفعال هستند",
+      "acronymsOffHint": "برای اعمال این تنظیمات، «Expand Chat Acronyms» را در بالا فعال کنید.",
+      "addFailed": "امکان افزودن تلفظ وجود ندارد.",
+      "added": "تلفظ اضافه شد: {match} -> {say}.",
+      "addedTestMode": "[آزمایشی] تلفظ اضافه شد: {match} -> {say}.",
+      "builtinOff": " — حالت پیش‌فرض غیرفعال شد",
+      "empty": "هنوز هیچ تلفظ سفارشی اضافه نشده است.",
+      "expansion": " → {say}",
+      "needBoth": "هم واژه و هم تلفظ را وارد کنید.",
+      "removeFailed": "امکان حذف تلفظ وجود ندارد.",
+      "removed": "تلفظ حذف شد: {match}.",
+      "removedTestMode": "[آزمایشی] تلفظ حذف شد: {match}."
+    },
+    "setting": {
+      "allowViewerPreferences": "اجازه به ترجیحات صدای بیننده",
+      "announceQueuedRedeems": "اعلام پاداش‌های در صف",
+      "anonymizeFollowers": "ناشناس کردن دنبال‌کنندگان",
+      "bitsForTts": "Bits برای TTS",
+      "botRespondsInChat": "پاسخ ربات در چت",
+      "cheerAnnouncements": "اعلام‌های Cheer",
+      "defaultEmotion": "حالت احساسی پیش‌فرض",
+      "defaultLanguage": "زبان پیش‌فرض",
+      "defaultPitch": "زیروبمی پیش‌فرض صدا",
+      "defaultSpeed": "سرعت پیش‌فرض",
+      "defaultVoice": "صدای پیش‌فرض",
+      "emoteMode": "حالت ایموت",
+      "englishNormalization": "نرمال‌سازی انگلیسی",
+      "eventAnnouncements": "اعلام رویدادها",
+      "expandAcronyms": "گسترش اختصارات چت",
+      "minimumBits": "حداقل Bits",
+      "profanityFilter": "فیلتر الفاظ رکیک",
+      "readFullUrls": "خواندن کامل URLها",
+      "redemptionAnnouncements": "اعلام دریافت‌های پاداش",
+      "ttsEngine": "موتور TTS",
+      "ttsMode": "حالت TTS",
+      "ttsPermission": "دسترسی TTS",
+      "voiceVolume": "بلندی صدا",
+      "watchStreakAnnouncements": "اعلام تداوم تماشا",
+      "youtubeHandle": "نام کاربری YouTube",
+      "youtubeTts": "TTS برای YouTube"
+    },
+    "settings": {
+      "loadFailed": "بارگذاری تنظیمات شما امکان‌پذیر نیست.",
+      "saveFailed": "{label}: {reason}",
+      "youtubeHandleRequired": "قبل از روشن کردن TTS برای YouTube، یک شناسه YouTube وارد کنید."
+    }
+  },
+  "obsCloseBtn": {
+    "closeObsSetup": "بستن راه‌اندازی OBS"
+  },
+  "obsPopover": {
+    "addBrowserSource": "افزودن Browser Source",
+    "cautionANewUrlStops": "احتیاط: URL جدید منبع فعلی OBS شما را تا زمان به‌روزرسانی URL در OBS متوقف می‌کند.",
+    "controlAudioViaObs": "کنترل صدا از طریق OBS",
+    "inObsAddANew": "در OBS، یک <strong>Browser Source</strong> جدید اضافه کنید. نام منبع را «Wildcat TTS» بگذارید و URL کپی‌شده را جای‌گذاری کنید. می‌توانید عرض و ارتفاع پیش‌فرض را تغییر ندهید.",
+    "inTheObsAudioMixer": "در Audio Mixer برنامه OBS، گزینه «Wildcat TTS» را پیدا کنید. روی نماد چرخ‌دنده کلیک کرده و <strong>Advanced Audio Properties</strong> را انتخاب کنید. Audio Monitoring را روی <strong>Monitor and Output</strong> قرار دهید.",
+    "monitorAndOutput": "Monitor and Output",
+    "obsBrowserSource": "Browser Source در OBS",
+    "selectControlAudioViaObs": "گزینه <strong>Control audio via OBS</strong> را انتخاب کنید. مطمئن شوید که <strong>Shutdown source when not visible</strong> انتخاب نشده باشد.",
+    "setupInstructions": "دستورالعمل‌های راه‌اندازی",
+    "yourBrowserSourceUrl": "URL مربوط به Browser Source شما"
+  },
+  "obsToggleBtn": {
+    "obsSetup": "راه‌اندازی OBS"
+  },
+  "page": {
+    "channelDashboard": "داشبورد کانال",
+    "textToSpeechSettingsFor": "تنظیمات تبدیل متن به گفتار برای کانال شما. تغییرات بلافاصله ذخیره می‌شوند.",
+    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">داشبورد</span>"
+  },
+  "profanityFilterEnabled": {
+    "profanityFilter": "فیلتر کلمات نامناسب"
+  },
+  "pronunciationEnabled": {
+    "expandChatAcronyms": "بسط مخفف‌های چت"
+  },
+  "readFullUrls": {
+    "readFullUrls": "خواندن کامل URLها"
+  },
+  "redemptionEventsEnabled": {
+    "announceRewardRedeems": "اعلام دریافت پاداش‌ها"
+  },
+  "regenerateTtsUrlBtn": {
+    "regenerateBrowserSourceUrl": "تولید مجدد URL منبع مرورگر",
+    "regenerateUrl": "تولید مجدد URL"
+  },
+  "removeBotBtn": {
+    "deactivateTtsService": "غیرفعال‌سازی سرویس TTS"
+  },
+  "resetPitchBtn": {
+    "reset": "بازنشانی",
+    "resetDefaultPitchTo0": "بازنشانی زیروبمی پیش‌فرض به ۰"
+  },
+  "resetSpeedBtn": {
+    "reset": "بازنشانی",
+    "resetDefaultSpeedTo1": "بازنشانی سرعت پیش‌فرض به ۱.۰"
+  },
+  "resetVolumeBtn": {
+    "reset": "بازنشانی",
+    "resetVoiceVolumeTo1": "بازنشانی بلندی صدا به ۱.۰"
+  },
+  "saveSettingsBtn": {
+    "saveAllSettings": "ذخیره همه تنظیمات"
+  },
+  "serviceHeadline": {
+    "ttsService": "سرویس TTS"
+  },
+  "sidebarVoiceName": {
+    "friendlyPerson": "شخص صمیمی"
+  },
+  "tabBroadcaster": {
+    "allowTheBotToRespond": "اجازه دادن به بات برای پاسخ به دستورات چت مانند ‎!myvoice",
+    "allowViewersToUseChannel": "اجازه به بینندگان برای استفاده از Channel Points جهت TTS",
+    "allowViewerVoicePreferences": "اجازه به اولویت‌های صدای بیننده",
+    "announceCheers": "اعلان Cheerها",
+    "announceEvents": "اعلان رویدادها",
+    "announceEventsSuchAsSubscriptions": "اعلان رویدادهایی مانند اشتراک‌ها و raidها",
+    "announceQueuedRedeemsImmediately": "اعلان فوری موارد در صف",
+    "announceRewardRedeems": "اعلان پاداش‌های دریافت‌شده",
+    "announceWatchStreaks": "اعلان تداوم تماشا (Watch Streaks)",
+    "announceWhenAViewerCheers": "اعلان هنگام cheer کردن bits توسط بیننده",
+    "announceWhenAViewerReaches": "اعلان هنگام رسیدن بیننده به حد نصاب تداوم تماشا",
+    "announceWhenAViewerRedeems": "اعلان هنگامی که بیننده پاداش Channel Points دریافت می‌کند",
+    "anonymizeNewFollowers": "ناشناس‌سازی دنبال‌کنندگان جدید",
+    "bannedWordsCommaSeparated": "کلمات ممنوعه (با کاما جدا کنید)",
+    "bannedWordsPhrases": "<strong>کلمات / عبارات ممنوعه</strong>",
+    "bitsTts": "Bits → TTS",
+    "blockLinks": "مسدود کردن لینک‌ها",
+    "botRespondsInChat": "پاسخ بات در چت",
+    "channelPointsTts": "Channel Points → TTS",
+    "chooseWhichMessagesTriggerTts": "انتخاب پیام‌هایی که TTS را فعال می‌کنند",
+    "configureBitsRequirementsForText": "پیکربندی نیازمندی‌های bits برای TTS",
+    "configureChannelPointsRewardsFor": "پیکربندی پاداش‌های Channel Points برای TTS",
+    "configureTtsEngineSettingsAnd": "پیکربندی تنظیمات و دسترسی‌های موتور TTS",
+    "controlHowTtsPronouncesSpecific": "کنترل نحوه تلفظ کلمات خاص توسط TTS. سرواژه‌های رایج Twitch به‌طور پیش‌فرض مدیریت می‌شوند. برای لغو یک تلفظ پیش‌فرض یا افزودن کلمه جدید، یک مورد اضافه کنید.",
+    "controlsHowTtsHandlesEmotes": "نحوه مدیریت ایموت‌ها در پیام‌های چت توسط TTS را کنترل می‌کند",
+    "cooldownsAndModeration": "زمان‌های انتظار و نظارت",
+    "costPoints": "هزینه (امتیاز)",
+    "emoteMode": "<strong>حالت ایموت</strong>",
+    "enableChannelPointsTts": "فعال‌سازی Channel Points TTS",
+    "enableCooldownsLimits": "فعال‌سازی زمان‌های انتظار و محدودیت‌ها",
+    "engineMode": "موتور و حالت",
+    "expandChatAcronyms": "بسط دادن مخفف‌های چت",
+    "globalCooldownSec": "زمان انتظار سراسری (ثانیه)",
+    "hideFollowerNamesInTts": "پنهان کردن نام دنبال‌کنندگان در اعلان‌های TTS برای حفظ حریم خصوصی",
+    "ifOnTtsReadsFull": "اگر روشن باشد، TTS نشانی‌های کامل (URL) را می‌خواند. اگر خاموش باشد، فقط نام دامنه را می‌خواند",
+    "ifThisSettingIsOff": "اگر این تنظیم خاموش باشد، TTS از صدای پیش‌فرض کانال برای همه پیام‌ها استفاده می‌کند",
+    "ignoredUsers": "کاربران نادیده‌گرفته‌شده",
+    "manageUsersThatTtsIgnores": "مدیریت کاربرانی که TTS نادیده می‌گیرد",
+    "minimumBitsRequired": "<strong>حداقل bits مورد نیاز</strong>",
+    "minimumNumberOfBitsRequired": "حداقل تعداد bits مورد نیاز برای اجرای TTS",
+    "perStreamLimit": "محدودیت در هر استریم",
+    "perUserPerStream": "به ازای هر کاربر در هر استریم",
+    "profanityFilter": "فیلتر کلمات رکیک",
+    "pronunciationDictionary": "<strong>فرهنگ تلفظ</strong>",
+    "readFullUrls": "خواندن کامل URLها",
+    "readYoutubeLiveChatMessages": "خواندن پیام‌های چت زنده YouTube با TTS. این قابلیت نیازمند پخش زنده فعال در YouTube است.",
+    "readYoutubeLiveChatMessages2": "خواندن پیام‌های چت زنده YouTube با صدای بلند",
+    "requireBitsForTts": "نیاز به Bits برای TTS",
+    "rewardTitle": "عنوان پاداش",
+    "skipTheRewardQueue": "رد کردن صف پاداش",
+    "theTitleMustBeUnique": "عنوان باید در کانال شما یکتا باشد.",
+    "ttsDoesNotReadMessages": "TTS پیام‌های کاربران این فهرست را نمی‌خواند.",
+    "ttsEngineEnabled": "موتور TTS فعال است",
+    "ttsExpandsCommonTwitchAcronyms": "TTS اختصارات رایج Twitch را به کلمات کامل تبدیل می‌کند. مثلاً «ngl» به «not gonna lie» تبدیل می‌شود. برای هجی کردن حروف، آن را خاموش کنید.",
+    "ttsIgnoreList": "<strong>فهرست نادیده‌گیری TTS</strong>",
+    "ttsMode": "<strong>حالت TTS</strong>",
+    "ttsPermission": "<strong>مجوز TTS</strong>",
+    "ttsReplacesProfanityWithMilder": "TTS کلمات رکیک را پیش از خواندن با واژه‌های ملایم‌تر جایگزین می‌کند. فیلتر از زبان کانال و زبان بیننده استفاده می‌کند. در حالت خودکار، فیلتر از فهرست انگلیسی استفاده خواهد کرد. کلمات ممنوعه همچنان کل پیام را رد می‌کنند.",
+    "ttsSkipsMessagesThatContain": "TTS پیام‌های حاوی این کلمات یا عبارات را رد می‌کند.",
+    "turnOnOrTurnOff": "روشن یا خاموش کردن موتور تبدیل متن به گفتار",
+    "viewerPrompt": "پیام راهنمای بیننده",
+    "viewersMustCheerBitsTo": "بینندگان برای استفاده از تبدیل متن به گفتار باید bits بفرستند",
+    "whoCanUseTextTo": "چه کسانی می‌توانند از تبدیل متن به گفتار استفاده کنند",
+    "yourYoutubeChannelHandleFor": "شناسه کانال YouTube شما (مثلاً <code>@yourhandle</code>)",
+    "youtubeHandle": "<strong>شناسه YouTube</strong>",
+    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>ادغام با YouTube",
+    "youtubeTtsEnabled": "TTS مربوط به YouTube فعال است"
+  },
+  "tabBtnBroadcaster": {
+    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>استریمر"
+  },
+  "tabBtnViewerDefaults": {
+    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>پیش‌فرض‌های صدا"
+  },
+  "tabViewerDefaults": {
+    "adjustThePitchForThe": "تنظیم زیروبمی برای صدای پیش‌فرض",
+    "adjustTheVolumeForThe": "تنظیم بلندی صدای انتخاب‌شده. احتیاط: مقادیر بیشتر از ۱٫۰ می‌توانند باعث اعوجاج صدا شوند.",
+    "calibratedVoices": "<strong>صداهای کالیبره‌شده</strong>",
+    "calibrateVolumeForSpecificVoices": "تنظیم بلندی صدا برای صداهای خاص. احتیاط: مقادیر بیشتر از ۱٫۰ می‌توانند باعث اعوجاج صدا شوند.",
+    "controlHowFastTheDefault": "کنترل سرعت خواندن صدای پیش‌فرض",
+    "defaultEmotion": "<strong>احساس پیش‌فرض</strong>",
+    "defaultLanguage": "<strong>زبان پیش‌فرض</strong>",
+    "defaultPitch12To12": "زیروبمی پیش‌فرض (-12 تا +12):",
+    "defaultSpeed05To": "سرعت پیش‌فرض (0.5 تا 2.0):",
+    "defaultVoice": "<strong>صدای پیش‌فرض</strong>",
+    "defaultVoiceSettings": "تنظیمات صدای پیش‌فرض",
+    "englishNormalization": "استانداردسازی انگلیسی",
+    "improvePronunciationForSpecificLanguages": "بهبود تلفظ برای زبان‌های خاص",
+    "improveThePronunciationOfNumbers": "بهبود تلفظ اعداد و متن",
+    "selectTheDefaultTtsVoice": "انتخاب صدای TTS پیش‌فرض برای کانال",
+    "selectVoice": "انتخاب صدا",
+    "setDefaultVoiceSettingsFor": "تنظیمات صدای پیش‌فرض را برای کانال خود تعیین کنید",
+    "setTheEmotionalToneOf": "تعیین لحن احساسی صدای پیش‌فرض",
+    "viewerVoiceLookup": "جستجوی صدای بیننده",
+    "voiceCalibration": "کالیبراسیون صدا",
+    "voicesWithCustomVolumeSettings": "صداهای دارای تنظیمات بلندی صدای سفارشی.",
+    "voiceVolume01To": "بلندی صدا (0.1 تا 10):",
+    "volumeOverride": "جایگزینی بلندی صدا:"
+  },
+  "ttsBannedWordInput": {
+    "wordOrPhraseToBan": "کلمه یا عبارت ممنوعه"
+  },
+  "ttsEnabled": {
+    "ttsEngineEnabled": "موتور TTS فعال است"
+  },
+  "ttsIgnoreUsername": {
+    "usernameToIgnore": "نام کاربری برای نادیده گرفتن"
+  },
+  "ttsMode": {
+    "allMessages": "همه پیام‌ها",
+    "bitsPointsOnly": "فقط Bits/Points",
+    "ttsCommandOnly": "فقط دستور !tts"
+  },
+  "ttsPermission": {
+    "everyone": "همه",
+    "moderatorsOnly": "فقط مدیران",
+    "subscribersOnly": "فقط مشترکین",
+    "vipsOnly": "فقط VIPها"
+  },
+  "ttsPronunciationMatchInput": {
+    "wordForExampleWcat": "کلمه (برای مثال، wcat)",
+    "wordToReplace": "کلمه برای جایگزینی"
+  },
+  "ttsPronunciationSayInput": {
+    "howToSayItFor": "نحوه تلفظ (برای مثال، wildcat)",
+    "pronunciation": "تلفظ"
+  },
+  "ttsUrlField": {
+    "yourBrowserSourceUrl": "URL مربوط به Browser Source شما"
+  },
+  "twitchUsername": {
+    "loading": "در حال بارگذاری…"
+  },
+  "voiceTestBtn": {
+    "sendPreview": "ارسال پیش‌نمایش"
+  },
+  "watchStreakEventsEnabled": {
+    "announceWatchStreaks": "اعلان Watch Streaks"
+  },
+  "youtubeEnabled": {
+    "youtubeTtsEnabled": "YouTube TTS فعال است"
+  },
+  "youtubeHandle": {
+    "yourhandle": "@yourhandle"
+  }
+}

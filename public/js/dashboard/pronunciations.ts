@@ -1,4 +1,5 @@
 import { showToast } from '../common/ui.js';
+import { apiErrorMessage, t } from '../common/i18n.js';
 
 export interface PronunciationsModule {
     displayPronunciations: (entries: Record<string, string>) => void;
@@ -51,7 +52,7 @@ export function initPronunciationsModule(
         if (matches.length === 0) {
             const emptyLi = document.createElement('li');
             emptyLi.className = 'list-group-item text-center text-muted py-3';
-            emptyLi.textContent = 'No custom pronunciations added yet.';
+            emptyLi.textContent = t('msg.pron.empty');
             listEl.appendChild(emptyLi);
             return;
         }
@@ -64,8 +65,8 @@ export function initPronunciationsModule(
             warnLi.className = 'list-group-item list-group-item-warning small py-1 text-center';
             const badge = document.createElement('span');
             badge.className = 'text-warning';
-            badge.textContent = 'Acronyms are disabled';
-            badge.title = 'Turn on "Expand Chat Acronyms" above for these settings to take effect.';
+            badge.textContent = t('msg.pron.acronymsDisabled');
+            badge.title = t('msg.pron.acronymsOffHint');
             warnLi.appendChild(badge);
             listEl.appendChild(warnLi);
         }
@@ -89,9 +90,9 @@ export function initPronunciationsModule(
             const saySpan = document.createElement('span');
             saySpan.className = 'text-muted';
             if (say === '') {
-                saySpan.textContent = ' — built-in switched off';
+                saySpan.textContent = t('msg.pron.builtinOff');
             } else {
-                saySpan.textContent = ` → ${say}`;
+                saySpan.textContent = t('msg.pron.expansion', { say });
             }
             text.appendChild(saySpan);
 
@@ -99,7 +100,7 @@ export function initPronunciationsModule(
 
             const removeBtn = document.createElement('button');
             removeBtn.className = 'btn btn-outline-danger btn-sm flex-shrink-0';
-            removeBtn.textContent = 'Remove';
+            removeBtn.textContent = t('msg.action.remove');
             removeBtn.addEventListener('click', () => removePronunciation(match));
             li.appendChild(removeBtn);
 
@@ -109,7 +110,7 @@ export function initPronunciationsModule(
 
     async function addPronunciation(match: string, say: string): Promise<void> {
         if (!match || !say) {
-            showToast('Enter both the word and the pronunciation.', 'warning');
+            showToast(t('msg.pron.needBoth'), 'warning');
             return;
         }
 
@@ -117,7 +118,7 @@ export function initPronunciationsModule(
         if (!user?.login) return;
 
         if (testMode) {
-            showToast(`[Test] Added pronunciation: ${match} -> ${say}.`, 'success');
+            showToast(t('msg.pron.addedTestMode', { match, say }), 'success');
             if (matchEl) matchEl.value = '';
             if (sayEl) sayEl.value = '';
             if (onChange) onChange();
@@ -132,16 +133,16 @@ export function initPronunciationsModule(
             });
             const data = await response.json();
             if (data.success) {
-                showToast(`Added pronunciation: ${match} -> ${say}.`, 'success');
+                showToast(t('msg.pron.added', { match, say }), 'success');
                 if (matchEl) matchEl.value = '';
                 if (sayEl) sayEl.value = '';
                 if (onChange) onChange();
             } else {
-                showToast(data.error || 'Cannot add pronunciation.', 'error');
+                showToast(apiErrorMessage(data, 'msg.pron.addFailed'), 'error');
             }
         } catch (error) {
             console.error('Error adding pronunciation:', error);
-            showToast('Cannot add pronunciation.', 'error');
+            showToast(t('msg.pron.addFailed'), 'error');
         }
     }
 
@@ -150,7 +151,7 @@ export function initPronunciationsModule(
         if (!user?.login) return;
 
         if (testMode) {
-            showToast(`[Test] Removed pronunciation: ${match}.`, 'success');
+            showToast(t('msg.pron.removedTestMode', { match }), 'success');
             if (onChange) onChange();
             return;
         }
@@ -163,14 +164,14 @@ export function initPronunciationsModule(
             });
             const data = await response.json();
             if (data.success) {
-                showToast(`Removed pronunciation: ${match}.`, 'success');
+                showToast(t('msg.pron.removed', { match }), 'success');
                 if (onChange) onChange();
             } else {
-                showToast(data.error || 'Cannot remove pronunciation.', 'error');
+                showToast(apiErrorMessage(data, 'msg.pron.removeFailed'), 'error');
             }
         } catch (error) {
             console.error('Error removing pronunciation:', error);
-            showToast('Cannot remove pronunciation.', 'error');
+            showToast(t('msg.pron.removeFailed'), 'error');
         }
     }
 
@@ -180,7 +181,7 @@ export function initPronunciationsModule(
             const match = matchEl.value.trim();
             const say = sayEl.value.trim();
             if (!match || !say) {
-                showToast('Enter both the word and the pronunciation.', 'error');
+                showToast(t('msg.pron.needBoth'), 'error');
                 return;
             }
             addPronunciation(match, say);

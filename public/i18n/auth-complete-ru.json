@@ -1,0 +1,39 @@
+{
+  "authBar": {
+    "signInProgress": "Прогресс входа"
+  },
+  "authMessage": {
+    "pleaseWait": "Пожалуйста, подождите."
+  },
+  "authSteps": {
+    "loadingDashboard": "Загрузка панели управления",
+    "sessionTokenStored": "Токен сессии сохранён",
+    "twitchAuthorized": "Twitch авторизован"
+  },
+  "authTitle": {
+    "signingYouIn": "Выполняется вход"
+  },
+  "meta": {
+    "completingWildcatttsTwitchSignIn": "Завершение входа в WildcatTTS через Twitch.",
+    "wildcatttsCompletingSignIn": "WildcatTTS — Завершение входа"
+  },
+  "msg": {
+    "authComplete": {
+      "cannotComplete": "Не удалось выполнить вход.",
+      "failedReadout": "Ошибка",
+      "failedTitle": "Ошибка входа",
+      "missingInfo": "Отсутствуют данные аутентификации от Twitch. Войдите снова.",
+      "noSession": "Нет сессии",
+      "redirecting": "Перенаправление в панель управления.",
+      "retrySignIn": "{reason} Войдите снова.",
+      "sessionEstablished": "Сессия установлена",
+      "welcome": "Добро пожаловать, {user}"
+    }
+  },
+  "sessionState": {
+    "establishingSession": "Установка сессии"
+  },
+  "statusReadout": {
+    "working": "<span class=\"wc-dot\"></span>Работает"
+  }
+}

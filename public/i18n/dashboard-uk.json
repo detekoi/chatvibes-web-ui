@@ -1,0 +1,501 @@
+{
+  "addBotBtn": {
+    "activateTtsService": "Активувати сервіс TTS"
+  },
+  "addTtsBannedWordBtn": {
+    "add": "Додати"
+  },
+  "addTtsIgnoreBtn": {
+    "add": "Додати"
+  },
+  "addTtsPronunciationBtn": {
+    "add": "Додати"
+  },
+  "allowViewerPreferences": {
+    "allowViewerVoicePreferences": "Дозволити вибір голосу для глядачів"
+  },
+  "announceUnfulfilledRedemptions": {
+    "announceQueuedRedeemsImmediately": "Озвучувати активації в черзі негайно"
+  },
+  "announceUnfulfilledRedemptionsHelp": {
+    "aRewardThatDoesNot": "Нагорода, яка не пропускає чергу запитів, озвучується щойно її активовано, навіть якщо пізніше ви відхилите запит. Вимкніть це, щоб озвучення відкладалося до схвалення запиту — нагороди, які ви не приймете, не озвучуватимуться взагалі."
+  },
+  "anonymizeFollowers": {
+    "anonymizeNewFollowers": "Анонімізувати нових підписників"
+  },
+  "bitsEnabled": {
+    "requireBitsForTts": "Вимагати Bits для TTS"
+  },
+  "botRespondsInChat": {
+    "botRespondsInChat": "Бот відповідає в чаті"
+  },
+  "botStatus": {
+    "loading": "Завантаження…"
+  },
+  "calibratedVoicesList": {
+    "noVoicesCalibratedYet": "Жодного голосу ще не відкалібровано."
+  },
+  "calibrationSaveBtn": {
+    "save": "Зберегти"
+  },
+  "calibrationVoiceSearch": {
+    "searchVoicesToCalibrate": "Пошук голосів для калібрування..."
+  },
+  "channelNameStatus": {
+    "yourChannel": "ваш канал"
+  },
+  "cheerEventsEnabled": {
+    "announceCheers": "Оголошувати Cheers"
+  },
+  "copyTtsUrlBtn": {
+    "copy": "Копіювати",
+    "copyBrowserSourceUrl": "Скопіювати URL для Browser Source"
+  },
+  "cpDelete": {
+    "disableDelete": "Вимкнути й видалити"
+  },
+  "cpEnabled": {
+    "enableChannelPointsTts": "Увімкнути TTS за Channel Points"
+  },
+  "cpPerStream": {
+    "enterAmount": "Введіть кількість"
+  },
+  "cpPerUser": {
+    "enterAmount": "Введіть кількість"
+  },
+  "cpSave": {
+    "save": "Зберегти"
+  },
+  "cpTest": {
+    "testRedeem": "Тест активації"
+  },
+  "dashboardContent": {
+    "channel": "Канал",
+    "channelService": "Сервіс каналу",
+    "dashboardConfigurationTabs": "Вкладки налаштувань панелі керування",
+    "deactivationStopsTheBotFrom": "Деактивація зупиняє читання ботом повідомлень чату. Ваші налаштування збережуться. Ви можете знову активувати сервіс будь-коли.",
+    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Документація </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>Налаштування глядача </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "Емоція",
+    "engNormalization": "Англ. нормалізація",
+    "language": "Мова",
+    "pitch": "Висота тону",
+    "quickLinks": "Швидкі посилання",
+    "service": "Сервіс",
+    "signedInAs": "Ви увійшли як",
+    "speed": "Швидкість",
+    "testMessage": "Тестове повідомлення",
+    "voicePreview": "Прослуховування голосу",
+    "volume": "Гучність"
+  },
+  "defaultEmotion": {
+    "angry": "Злий",
+    "disgusted": "З відразою",
+    "fearful": "Зляканий",
+    "happy": "Щасливий",
+    "neutral": "Нейтральний",
+    "sad": "Сумний",
+    "surprised": "Здивований"
+  },
+  "defaultPitch": {
+    "defaultPitch12To12": "Висота тону за замовчуванням (від -12 до +12)"
+  },
+  "defaultSpeed": {
+    "defaultSpeed05To": "Швидкість за замовчуванням (від 0.5 до 2.0)"
+  },
+  "defaultVoiceSearch": {
+    "searchDefaultVoices": "Пошук голосів за замовчуванням",
+    "searchVoices": "Пошук голосів..."
+  },
+  "defaultVolume": {
+    "voiceVolume01To": "Гучність голосу (від 0.1 до 10)"
+  },
+  "emoteMode": {
+    "describeEmotes": "Описувати емоути",
+    "readEmoteNames": "Читати назви емоутів",
+    "skipEmotes": "Пропускати емоути"
+  },
+  "englishNormalization": {
+    "englishNormalization": "Нормалізація англійської"
+  },
+  "eventsEnabled": {
+    "announceEvents": "Оголошувати події"
+  },
+  "loadingBar": {
+    "loadingDashboardSettings": "Завантаження налаштувань панелі керування"
+  },
+  "loadingOverlay": {
+    "loadingDashboardSettings": "Завантаження налаштувань панелі керування…"
+  },
+  "lookupUsername": {
+    "enterTwitchViewerUsername": "Введіть ім'я глядача Twitch"
+  },
+  "lookupVoiceBtn": {
+    "lookupVoice": "Пошук голосу"
+  },
+  "meta": {
+    "wildcatttsDashboard": "Панель керування WildcatTTS",
+    "wildcatttsStreamerDashboardConfigureText": "Панель керування стрімера WildcatTTS — налаштування TTS, дозволів, відповідей бота та Channel Points."
+  },
+  "msg": {
+    "auth": {
+      "demoStreamer": "Демо-стрімер",
+      "needBroadcaster": "Увійдіть через обліковий запис транслятора, щоб отримати доступ до налаштувань стрімера.",
+      "needSignIn": "Увійдіть через обліковий запис Twitch, щоб отримати доступ до панелі керування."
+    },
+    "bannedWords": {
+      "addFailed": "Не вдалося додати заборонене слово.",
+      "added": "Слово \"{word}\" додано до заборонених слів.",
+      "addedTestMode": "[Тест] Додано заборонене слово: {word}.",
+      "empty": "Заборонених слів ще не додано.",
+      "removeFailed": "Не вдалося вилучити заборонене слово.",
+      "removed": "Слово \"{word}\" вилучено із заборонених слів.",
+      "removedTestMode": "[Тест] Вилучено заборонене слово: {word}."
+    },
+    "bot": {
+      "activateFailed": "Не вдалося активувати сервіс TTS.",
+      "activated": "Сервіс TTS активовано.",
+      "activatedTestMode": "Сервіс TTS активовано (тестовий режим).",
+      "activating": "Активація сервісу TTS…",
+      "active": "Активний",
+      "deactivateFailed": "Не вдалося деактивувати сервіс TTS.",
+      "deactivated": "Сервіс TTS деактивовано.",
+      "deactivatedTestMode": "Сервіс TTS деактивовано (тестовий режим).",
+      "deactivating": "Деактивація сервісу TTS…",
+      "inactive": "Неактивний",
+      "notAuthenticated": "Не автентифіковано",
+      "notAuthorized": "Канал не авторизовано.",
+      "requestAccess": "Запитати доступ тут",
+      "statusError": "Помилка",
+      "statusFailed": "Помилка: {reason}",
+      "statusLoadFailed": "Не вдалося завантажити статус бота: {reason}",
+      "unknownError": "Невідома помилка"
+    },
+    "calibration": {
+      "confirmReset": "Скинути калібрування для {voice}?",
+      "edit": "Редагувати",
+      "empty": "Жодного голосу ще не відкалібровано.",
+      "reset": "Скинути",
+      "row": "{voice} ({volume})"
+    },
+    "cp": {
+      "confirmDelete": "Видалити нагороду Channel Points TTS?",
+      "deleteFailed": "Не вдалося видалити.",
+      "deleted": "Нагороду видалено.",
+      "deletedTestMode": "Нагороду видалено (тестовий режим).",
+      "deleting": "Видалення…",
+      "lastSynced": "{reward} · Остання синхронізація: {time}",
+      "never": "ніколи",
+      "noReward": "Нагороду не створено",
+      "noRewardTestMode": "Нагороду не створено (тестовий режим)",
+      "rewardId": "ID нагороди: {id}",
+      "saveFailed": "Не вдалося зберегти налаштування Channel Points.",
+      "saved": "Налаштування Channel Points збережено.",
+      "savedTestMode": "Налаштування Channel Points збережено (тестовий режим).",
+      "saving": "Збереження налаштувань Channel Points…",
+      "testCompleted": "Тест завершено ({status}).",
+      "testCompletedTestMode": "Тест завершено (тестовий режим).",
+      "testFailed": "Помилка тестування.",
+      "testPrompt": "Введіть тестове повідомлення для імітації активації:",
+      "testing": "Тестування активації…"
+    },
+    "ignore": {
+      "addFailed": "Не вдалося додати користувача до списку ігнорування.",
+      "addFailedReason": "Не вдалося додати користувача: {reason}",
+      "badgeModerator": "Заглушено вами",
+      "badgeSelf": "Самостійно вимкнено",
+      "empty": "Немає проігнорованих користувачів.",
+      "noSuchAccount": "Такого акаунта Twitch не існує",
+      "removeFailed": "Не вдалося вилучити користувача зі списку ігнорування.",
+      "removeFailedReason": "Не вдалося вилучити {label}: {reason}",
+      "removeLabel": "Вилучити {label} зі списку ігнорування ({source, select, self {самостійно вимкнено} other {заглушено вами}})"
+    },
+    "lookup": {
+      "button": "Знайти голос",
+      "calibrate": "Калібрувати \"{voice}\"",
+      "error": "Помилка: {reason}",
+      "failed": "Не вдалося знайти цього користувача.",
+      "hasVoice": "Користувач {user} встановив власний голос: {voice}",
+      "noVoice": "Користувач {user} не встановив власний голос.",
+      "searching": "Пошук…",
+      "voiceUnknown": "Цього голосу немає в списку доступних голосів."
+    },
+    "obs": {
+      "cannotCopy": "Не вдалося скопіювати URL.",
+      "cannotDetermine": "Не вдалося визначити URL для TTS.",
+      "copied": "Скопійовано в буфер обміну.",
+      "copiedButton": "Скопійовано!",
+      "copyFailed": "Не вдалося скопіювати.",
+      "generateFailed": "Не вдалося згенерувати URL для OBS. Спробуйте ще раз.",
+      "generating": "Генерація…",
+      "generatingUrl": "Створення безпечного URL…",
+      "loadingUrl": "Завантаження наявного URL…",
+      "pressRegenerate": "Натисніть «Згенерувати URL повторно», щоб створити URL для OBS Browser Source.",
+      "refreshPage": "Не вдалося згенерувати URL. Оновіть сторінку.",
+      "testModeUrl": "URL тестового режиму",
+      "urlGenerated": "Згенеровано новий URL.",
+      "urlGeneratedTestMode": "Згенеровано новий URL (тестовий режим).",
+      "urlNotReady": "URL ще не готовий.",
+      "yourUrl": "Ваш URL для OBS Browser Source"
+    },
+    "preview": {
+      "playingTestMode": "Відтворення… (тестовий режим)",
+      "tooLong": "Текст має містити не більше 500 символів."
+    },
+    "pron": {
+      "acronymsDisabled": "Акроніми вимкнено",
+      "acronymsOffHint": "Увімкніть «Розгортати скорочення з чату» вище, щоб ці налаштування набули чинності.",
+      "addFailed": "Не вдалося додати вимову.",
+      "added": "Додано вимову: {match} -> {say}.",
+      "addedTestMode": "[Тест] Додано вимову: {match} -> {say}.",
+      "builtinOff": " — вбудовані вимкнено",
+      "empty": "Власну вимову ще не додано.",
+      "expansion": " → {say}",
+      "needBoth": "Введіть і слово, і його вимову.",
+      "removeFailed": "Не вдалося видалити вимову.",
+      "removed": "Вимову видалено: {match}.",
+      "removedTestMode": "[Тест] Вимову видалено: {match}."
+    },
+    "setting": {
+      "allowViewerPreferences": "Дозволити глядачам вибирати голос",
+      "announceQueuedRedeems": "Оголошувати нагороди в черзі",
+      "anonymizeFollowers": "Анонімізувати підписників",
+      "bitsForTts": "Bits для TTS",
+      "botRespondsInChat": "Бот відповідає в чаті",
+      "cheerAnnouncements": "Оголошення Cheer",
+      "defaultEmotion": "Емоція за замовчуванням",
+      "defaultLanguage": "Мова за замовчуванням",
+      "defaultPitch": "Висота тону за замовчуванням",
+      "defaultSpeed": "Швидкість за замовчуванням",
+      "defaultVoice": "Голос за замовчуванням",
+      "emoteMode": "Режим емоутів",
+      "englishNormalization": "Нормалізація англійської",
+      "eventAnnouncements": "Оголошення подій",
+      "expandAcronyms": "Розгортати скорочення з чату",
+      "minimumBits": "Мінімум Bits",
+      "profanityFilter": "Фільтр ненормативної лексики",
+      "readFullUrls": "Читати повні URL",
+      "redemptionAnnouncements": "Оголошення про нагороди",
+      "ttsEngine": "Рушій TTS",
+      "ttsMode": "Режим TTS",
+      "ttsPermission": "Дозвіл на TTS",
+      "voiceVolume": "Гучність голосу",
+      "watchStreakAnnouncements": "Оголошення серій переглядів",
+      "youtubeHandle": "Хендл YouTube",
+      "youtubeTts": "YouTube TTS"
+    },
+    "settings": {
+      "loadFailed": "Не вдалося завантажити ваші налаштування.",
+      "saveFailed": "{label}: {reason}",
+      "youtubeHandleRequired": "Введіть хендл YouTube перед тим, як увімкнути YouTube TTS."
+    }
+  },
+  "obsCloseBtn": {
+    "closeObsSetup": "Закрити налаштування OBS"
+  },
+  "obsPopover": {
+    "addBrowserSource": "Додати Browser Source",
+    "cautionANewUrlStops": "УВАГА: новий URL зупинить роботу вашого поточного джерела OBS, доки ви не оновите URL в OBS.",
+    "controlAudioViaObs": "Керувати звуком через OBS",
+    "inObsAddANew": "В OBS додайте нове <strong>Browser Source</strong>. Назвіть джерело \"Wildcat TTS\" і вставте скопійований URL. Можна залишити стандартні значення ширини й висоти.",
+    "inTheObsAudioMixer": "У мікшері аудіо OBS знайдіть \"Wildcat TTS\". Натисніть піктограму шестерні та виберіть <strong>Розширені властивості аудіо</strong>. Установіть аудіомоніторинг на <strong>Моніторинг і виведення</strong>.",
+    "monitorAndOutput": "Моніторинг і виведення",
+    "obsBrowserSource": "OBS Browser Source",
+    "selectControlAudioViaObs": "Позначте <strong>Керувати аудіо через OBS</strong>. Переконайтеся, що опцію <strong>Вимикати джерело, коли воно невидиме</strong> не вибрано.",
+    "setupInstructions": "Інструкції з налаштування",
+    "yourBrowserSourceUrl": "Ваш URL для Browser Source"
+  },
+  "obsToggleBtn": {
+    "obsSetup": "Налаштування OBS"
+  },
+  "page": {
+    "channelDashboard": "Панель керування каналом",
+    "textToSpeechSettingsFor": "Налаштування синтезу мовлення для вашого каналу. Зміни зберігаються автоматично.",
+    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Панель керування</span>"
+  },
+  "profanityFilterEnabled": {
+    "profanityFilter": "Фільтр ненормативної лексики"
+  },
+  "pronunciationEnabled": {
+    "expandChatAcronyms": "Розгортати чат-акроніми"
+  },
+  "readFullUrls": {
+    "readFullUrls": "Читати URL повністю"
+  },
+  "redemptionEventsEnabled": {
+    "announceRewardRedeems": "Оголошувати обмін нагород"
+  },
+  "regenerateTtsUrlBtn": {
+    "regenerateBrowserSourceUrl": "Згенерувати заново URL для Browser Source",
+    "regenerateUrl": "Згенерувати URL заново"
+  },
+  "removeBotBtn": {
+    "deactivateTtsService": "Деактивувати службу TTS"
+  },
+  "resetPitchBtn": {
+    "reset": "Скинути",
+    "resetDefaultPitchTo0": "Скинути стандартну висоту тону на 0"
+  },
+  "resetSpeedBtn": {
+    "reset": "Скинути",
+    "resetDefaultSpeedTo1": "Скинути швидкість за замовчуванням до 1.0"
+  },
+  "resetVolumeBtn": {
+    "reset": "Скинути",
+    "resetVoiceVolumeTo1": "Скинути гучність голосу до 1.0"
+  },
+  "saveSettingsBtn": {
+    "saveAllSettings": "Зберегти всі налаштування"
+  },
+  "serviceHeadline": {
+    "ttsService": "Служба TTS"
+  },
+  "sidebarVoiceName": {
+    "friendlyPerson": "Привітна людина"
+  },
+  "tabBroadcaster": {
+    "allowTheBotToRespond": "Дозволити боту відповідати на команди в чаті, як-от !myvoice",
+    "allowViewersToUseChannel": "Дозволити глядачам використовувати Channel Points для TTS",
+    "allowViewerVoicePreferences": "Дозволити глядачам вибирати голос",
+    "announceCheers": "Озвучувати Cheers",
+    "announceEvents": "Озвучувати події",
+    "announceEventsSuchAsSubscriptions": "Озвучувати такі події, як підписки та рейди",
+    "announceQueuedRedeemsImmediately": "Озвучувати нагороди в черзі негайно",
+    "announceRewardRedeems": "Озвучувати активації нагород",
+    "announceWatchStreaks": "Озвучувати серії переглядів",
+    "announceWhenAViewerCheers": "Озвучувати, коли глядач надсилає bits",
+    "announceWhenAViewerReaches": "Озвучувати, коли глядач досягає мети серії переглядів",
+    "announceWhenAViewerRedeems": "Озвучувати, коли глядач активує нагороду за Channel Points",
+    "anonymizeNewFollowers": "Анонімізувати нових підписників",
+    "bannedWordsCommaSeparated": "Заборонені слова (через кому)",
+    "bannedWordsPhrases": "<strong>Заборонені слова / фрази</strong>",
+    "bitsTts": "Bits → TTS",
+    "blockLinks": "Блокувати посилання",
+    "botRespondsInChat": "Бот відповідає в чаті",
+    "channelPointsTts": "Channel Points → TTS",
+    "chooseWhichMessagesTriggerTts": "Виберіть, які повідомлення активують TTS",
+    "configureBitsRequirementsForText": "Налаштувати вимоги bits для TTS",
+    "configureChannelPointsRewardsFor": "Налаштувати нагороди за Channel Points для TTS",
+    "configureTtsEngineSettingsAnd": "Налаштувати рушій TTS і дозволи",
+    "controlHowTtsPronouncesSpecific": "Керуйте вимовою окремих слів у TTS. Поширені абревіатури Twitch підтримуються типово. Додайте запис, щоб змінити стандартну вимову або додати нове слово.",
+    "controlsHowTtsHandlesEmotes": "Визначає, як TTS обробляє емоції в чаті",
+    "cooldownsAndModeration": "Кулдауни та модерація",
+    "costPoints": "Вартість (бали)",
+    "emoteMode": "<strong>Режим емоцій</strong>",
+    "enableChannelPointsTts": "Увімкнути TTS за Channel Points",
+    "enableCooldownsLimits": "Увімкнути кулдауни та ліміти",
+    "engineMode": "Рушій і режим",
+    "expandChatAcronyms": "Розшифровувати абревіатури чату",
+    "globalCooldownSec": "Загальний кулдаун (сек)",
+    "hideFollowerNamesInTts": "Приховувати імена підписників в оголошеннях TTS для конфіденційності",
+    "ifOnTtsReadsFull": "Якщо увімкнено, TTS читає повні URL. Якщо вимкнено — лише доменні імена",
+    "ifThisSettingIsOff": "Якщо це налаштування вимкнено, TTS використовує стандартний голос каналу для всіх повідомлень",
+    "ignoredUsers": "Ігноровані користувачі",
+    "manageUsersThatTtsIgnores": "Керування користувачами, яких ігнорує TTS",
+    "minimumBitsRequired": "<strong>Мінімум bits</strong>",
+    "minimumNumberOfBitsRequired": "Мінімальна кількість bits, потрібна для активації TTS",
+    "perStreamLimit": "Ліміт на трансляцію",
+    "perUserPerStream": "На користувача за трансляцію",
+    "profanityFilter": "Фільтр ненормативної лексики",
+    "pronunciationDictionary": "<strong>Словник вимови</strong>",
+    "readFullUrls": "Читати повні URL",
+    "readYoutubeLiveChatMessages": "Озвучувати повідомлення чату YouTube за допомогою TTS. Для цієї функції потрібна активна пряма трансляція YouTube.",
+    "readYoutubeLiveChatMessages2": "Озвучувати повідомлення чату YouTube",
+    "requireBitsForTts": "Вимагати bits для TTS",
+    "rewardTitle": "Назва нагороди",
+    "skipTheRewardQueue": "Пропускати чергу нагород",
+    "theTitleMustBeUnique": "Назва має бути унікальною для вашого каналу.",
+    "ttsDoesNotReadMessages": "TTS не читає повідомлення від користувачів із цього списку.",
+    "ttsEngineEnabled": "Рушій TTS увімкнено",
+    "ttsExpandsCommonTwitchAcronyms": "TTS розшифровує поширені абревіатури Twitch як повні фрази. Наприклад, «ngl» озвучується як «not gonna lie». Вимкніть, щоб читати по літерах.",
+    "ttsIgnoreList": "<strong>Список ігнорування TTS</strong>",
+    "ttsMode": "<strong>Режим TTS</strong>",
+    "ttsPermission": "<strong>Дозволи TTS</strong>",
+    "ttsReplacesProfanityWithMilder": "TTS замінює ненормативну лексику м'якшими словами перед озвученням. Фільтр використовує мову каналу та мову глядача. Якщо встановлено значення «Автоматично», фільтр використовує англійський список. Повідомлення із забороненими словами все одно пропускаються повністю.",
+    "ttsSkipsMessagesThatContain": "TTS пропускає повідомлення, що містять ці слова або фрази.",
+    "turnOnOrTurnOff": "Увімкнути або вимкнути рушій перетворення тексту на мовлення",
+    "viewerPrompt": "Підказка для глядачів",
+    "viewersMustCheerBitsTo": "Глядачі мають надсилати bits, щоб скористатися озвученням тексту",
+    "whoCanUseTextTo": "Хто може користуватися озвученням тексту",
+    "yourYoutubeChannelHandleFor": "Хендл вашого каналу YouTube (наприклад, <code>@yourhandle</code>)",
+    "youtubeHandle": "<strong>Хендл YouTube</strong>",
+    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>Інтеграція з YouTube",
+    "youtubeTtsEnabled": "YouTube TTS увімкнено"
+  },
+  "tabBtnBroadcaster": {
+    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Стример"
+  },
+  "tabBtnViewerDefaults": {
+    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Стандартні параметри голосу"
+  },
+  "tabViewerDefaults": {
+    "adjustThePitchForThe": "Налаштувати висоту стандартного голосу",
+    "adjustTheVolumeForThe": "Налаштуйте гучність вибраного голосу. УВАГА: значення понад 1.0 можуть спричинити спотворення звуку.",
+    "calibratedVoices": "<strong>Калібровані голоси</strong>",
+    "calibrateVolumeForSpecificVoices": "Калібруйте гучність для окремих голосів. УВАГА: значення понад 1.0 можуть спричинити спотворення звуку.",
+    "controlHowFastTheDefault": "Керуйте швидкістю мовлення типового голосу",
+    "defaultEmotion": "<strong>Типова емоція</strong>",
+    "defaultLanguage": "<strong>Типова мова</strong>",
+    "defaultPitch12To12": "Стандартна висота тону (-12 до +12):",
+    "defaultSpeed05To": "Стандартна швидкість (0.5 до 2.0):",
+    "defaultVoice": "<strong>Типовий голос</strong>",
+    "defaultVoiceSettings": "Типові налаштування голосу",
+    "englishNormalization": "Нормалізація англійської",
+    "improvePronunciationForSpecificLanguages": "Покращення вимови для окремих мов",
+    "improveThePronunciationOfNumbers": "Покращення вимови чисел і тексту",
+    "selectTheDefaultTtsVoice": "Оберіть типовий голос TTS для каналу",
+    "selectVoice": "Обрати голос",
+    "setDefaultVoiceSettingsFor": "Установіть типові налаштування голосу для вашого каналу",
+    "setTheEmotionalToneOf": "Установіть емоційний тон типового голосу",
+    "viewerVoiceLookup": "Пошук голосу глядача",
+    "voiceCalibration": "Калібрування голосу",
+    "voicesWithCustomVolumeSettings": "Голоси з власними налаштуваннями гучності.",
+    "voiceVolume01To": "Гучність голосу (0.1 до 10):",
+    "volumeOverride": "Перевизначення гучності:"
+  },
+  "ttsBannedWordInput": {
+    "wordOrPhraseToBan": "Слово або фраза для блокування"
+  },
+  "ttsEnabled": {
+    "ttsEngineEnabled": "Рушій TTS увімкнено"
+  },
+  "ttsIgnoreUsername": {
+    "usernameToIgnore": "Ім'я користувача для ігнорування"
+  },
+  "ttsMode": {
+    "allMessages": "Усі повідомлення",
+    "bitsPointsOnly": "Лише Bits/Channel Points",
+    "ttsCommandOnly": "Лише команда !tts"
+  },
+  "ttsPermission": {
+    "everyone": "Усі",
+    "moderatorsOnly": "Лише модератори",
+    "subscribersOnly": "Лише підписники",
+    "vipsOnly": "Лише VIP"
+  },
+  "ttsPronunciationMatchInput": {
+    "wordForExampleWcat": "Слово (наприклад, wcat)",
+    "wordToReplace": "Слово для заміни"
+  },
+  "ttsPronunciationSayInput": {
+    "howToSayItFor": "Як вимовляти (наприклад, wildcat)",
+    "pronunciation": "Вимова"
+  },
+  "ttsUrlField": {
+    "yourBrowserSourceUrl": "Ваш URL Browser Source"
+  },
+  "twitchUsername": {
+    "loading": "завантаження…"
+  },
+  "voiceTestBtn": {
+    "sendPreview": "Надіслати зразок"
+  },
+  "watchStreakEventsEnabled": {
+    "announceWatchStreaks": "Оголошувати серії переглядів"
+  },
+  "youtubeEnabled": {
+    "youtubeTtsEnabled": "YouTube TTS увімкнено"
+  },
+  "youtubeHandle": {
+    "yourhandle": "@yourhandle"
+  }
+}

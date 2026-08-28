@@ -1,0 +1,164 @@
+{
+  "darkModeToggle": {
+    "toggleDarkMode": "Preklopi temni način"
+  },
+  "err": {
+    "banned_add_failed": "Te besede ni mogoče dodati na seznam prepovedanih.",
+    "banned_remove_failed": "Te besede ni mogoče odstraniti s seznama prepovedanih.",
+    "bot_add_failed": "Bota ni mogoče aktivirati na tvojem kanalu. Poskusi znova.",
+    "bot_remove_failed": "Bota ni mogoče deaktivirati na tvojem kanalu. Poskusi znova.",
+    "bot_status_failed": "Stanja bota ni mogoče naložiti.",
+    "channel_data_not_found": "Za ta kanal ni bilo najdenih nastavitev.",
+    "channel_not_authorized": "Tvoj kanal nima dovoljenja za uporabo tega bota. Za dostop stopi v stik z mano.",
+    "channel_not_found": "Ta kanal ni bil najden.",
+    "channel_required": "Kanal je obvezen.",
+    "channel_tts_disabled": "Ta kanal ni bil najden ali pa nima vklopljenega TTS.",
+    "entry_key_required": "Ključ vnosa je obvezen.",
+    "exchange_code_invalid": "Povezava za prijavo manjka ali je neveljavna.",
+    "exchange_code_used": "Povezava za prijavo je že bila uporabljena ali pa je potekla. Prijavi se znova.",
+    "exchange_failed": "Prijave ni bilo mogoče dokončati. Poskusi znova.",
+    "ignore_add_failed": "Tega uporabnika ni mogoče dodati na seznam prezrtih.",
+    "ignore_moderator_imposed": "Moderator kanala te je izključil iz TTS, zato lahko to razveljavi le moderator.",
+    "ignore_remove_failed": "Tega uporabnika ni mogoče odstraniti s seznama prezrtih.",
+    "ignore_update_failed": "Tvoje nastavitve izključitve ni mogoče spremeniti.",
+    "key_required": "Ime nastavitve je obvezno.",
+    "match_key_invalid": "Beseda mora vsebovati od 1 do {max} znakov (črke, števke, opuščaje ali vezaje) in ne sme vsebovati pike.",
+    "network_error": "Povezava s strežnikom ni mogoča. Preveri povezavo.",
+    "obs_token_fetch_failed": "Žetona OBS ni mogoče naložiti.",
+    "obs_token_generate_failed": "Novega žetona OBS ni mogoče ustvariti.",
+    "obs_token_store_failed": "Žetona OBS ni mogoče shraniti. Poskusi znova.",
+    "prefs_fetch_failed": "Tvojih nastavitev ni mogoče naložiti.",
+    "prefs_global_fetch_failed": "Tvojih globalnih nastavitev ni mogoče naložiti.",
+    "prefs_global_update_failed": "Tvojih globalnih nastavitev ni mogoče shraniti.",
+    "prefs_invalid_emote_mode": "Obravnava emotikonov mora biti: preberi, preskoči ali opiši.",
+    "prefs_invalid_emotion": "To ni veljavno čustvo.",
+    "prefs_invalid_language": "To ni veljaven jezik.",
+    "prefs_invalid_pitch": "To ni veljavna višina glasu.",
+    "prefs_invalid_speed": "To ni veljavna hitrost.",
+    "prefs_invalid_voice": "To ni veljaven glas.",
+    "prefs_missing_data": "Spremembe niso bile poslane.",
+    "prefs_update_failed": "Tvojih nastavitev ni mogoče shraniti.",
+    "pronunciation_limit_reached": "Dosegel si omejitev {max} izgovorjav po meri. Najprej eno odstrani.",
+    "pronunciation_remove_failed": "Izgovorjave ni mogoče odstraniti.",
+    "pronunciation_save_failed": "Izgovorjave ni mogoče shraniti.",
+    "reward_banned_word": "Sporočilo vsebuje prepovedano besedo: \"{word}\".",
+    "reward_create_failed": "Nagrade Channel Points ni mogoče ustvariti.",
+    "reward_delete_failed": "Nagrade Channel Points ni mogoče izbrisati.",
+    "reward_links_blocked": "Povezave v tej nagradi niso dovoljene.",
+    "reward_load_failed": "Nagrade Channel Points ni mogoče naložiti.",
+    "reward_message_empty": "Sporočilo je prazno.",
+    "reward_save_failed": "Nagrade Channel Points ni mogoče shraniti.",
+    "reward_test_failed": "Nagrade Channel Points ni mogoče preizkusiti.",
+    "reward_twitch_error": "Twitch je zavrnil spremembo nagrade.",
+    "reward_validation_failed": "To sporočilo ni dovoljeno.",
+    "say_contains_link": "Izgovorjava ne sme vsebovati povezave.",
+    "say_empty": "Izgovorjava ne sme biti prazna.",
+    "say_must_be_text": "Izgovorjava mora biti besedilo.",
+    "say_too_long": "Izgovorjava ima lahko največ {max} znakov.",
+    "server_misconfigured": "Strežnik je napačno konfiguriran.",
+    "setting_invalid": "To ni veljavna vrednost za {key}.",
+    "setting_update_failed": "Nastavitve TTS ni mogoče posodobiti.",
+    "settings_fetch_failed": "Nastavitev TTS ni mogoče naložiti.",
+    "shortlink_failed": "Kratke povezave ni mogoče ustvariti.",
+    "storage_unavailable": "Shramba ni na voljo.",
+    "tts_generation_failed": "Generiranje govora ni uspelo: {reason}",
+    "tts_no_audio": "Ponudnik govora ni vrnil zvoka.",
+    "tts_not_configured": "Noben ponudnik govora ni nastavljen.",
+    "tts_provider_failed": "Ponudnik govora ni mogel ustvariti zvoka.",
+    "tts_test_failed": "Preizkus govora ni uspel.",
+    "tts_text_required": "Vnesite besedilo za preizkus.",
+    "twitch_reauth_required": "Vaša prijava v Twitch je potekla. Znova povežite svoj račun.",
+    "twitch_user_not_found": "Twitch račun z imenom »{username}« ne obstaja.",
+    "url_required": "URL je obvezen.",
+    "username_invalid": "To uporabniško ime ni veljavno.",
+    "username_required": "Uporabniško ime je obvezno.",
+    "voice_access_denied": "Glas \"{voice}\" zahteva poseben dostop. Poskusite z drugim glasom.",
+    "voice_invalid": "Glas \"{voice}\" ni na voljo. Preverite glas in poskusite znova.",
+    "voice_lookup_failed": "Glasu tega uporabnika ni mogoče najti.",
+    "word_invalid": "Ta beseda ali fraza ni veljavna.",
+    "word_required": "Beseda ali fraza je obvezna."
+  },
+  "logoutLink": {
+    "logout": "Odjava"
+  },
+  "mainContent": {
+    "documentationTtsWildcatChat": "<a class=\"wc-link\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\">Dokumentacija</a> <span>tts.wildcat.chat</span>"
+  },
+  "msg": {
+    "action": {
+      "close": "Zapri",
+      "remove": "Odstrani",
+      "saved": "Shranjeno"
+    },
+    "api": {
+      "authFailed": "Preverjanje pristnosti ni uspelo. Znova se prijavite.",
+      "notAuthenticated": "Niste prijavljeni.",
+      "requestFailed": "Zahteva ni uspela."
+    },
+    "auth": {
+      "genericUser": "Uporabnik",
+      "loading": "nalaganje …",
+      "needViewerSignIn": "Potrdite svoj račun Twitch za dostop do nastavitev gledalca.",
+      "redirecting": "Preusmerjanje na Twitch za preverjanje pristnosti …",
+      "required": "Zahtevano je preverjanje pristnosti.",
+      "signInFailed": "Prijave ni mogoče dokončati.",
+      "signInWithTwitch": "Prijava z računom Twitch",
+      "signedOut": "Nisi prijavljen.",
+      "tokenMissing": "Žeton za preverjanje pristnosti manjka. Znova se prijavi."
+    },
+    "emotion": {
+      "angry": "Jezen",
+      "auto": "Samodejno",
+      "disgusted": "Zgrožen",
+      "fearful": "Prestrašen",
+      "happy": "Vesel",
+      "neutral": "Nevtralen",
+      "sad": "Žalosten",
+      "surprised": "Presenečen"
+    },
+    "ignore": {
+      "enterUsername": "Vnesi uporabniško ime."
+    },
+    "lang": {
+      "automatic": "Samodejno"
+    },
+    "prefs": {
+      "useChannelDefault": "Uporabi privzeto za kanal"
+    },
+    "preview": {
+      "enterText": "Vnesi besedilo za preizkus.",
+      "unavailable": "Predogled ni na voljo."
+    },
+    "value": {
+      "off": "Izklopljeno",
+      "on": "Vklopljeno"
+    },
+    "voice": {
+      "cannotPlay": "Zvočnega vzorca ni mogoče predvajati.",
+      "generating": "Generiranje …",
+      "noAudio": "Strežnik ni vrnil zvoka.",
+      "noneFound": "Ni najdenih glasov.",
+      "preview": "Predposlušaj {voice}",
+      "regenerate": "Ponovno ustvari",
+      "testFailed": "Preizkus ni uspel: {reason}"
+    }
+  },
+  "page": {
+    "skipToMainContent": "Preskoči na glavno vsebino"
+  },
+  "sidebarEngNormVal": {
+    "off": "Izklopljeno"
+  },
+  "sidebarLanguageVal": {
+    "automatic": "Samodejno"
+  },
+  "ui": {
+    "language": "Jezik"
+  },
+  "voicePreviewHint": {
+    "settingsChangedGenerateANew": "<i><i data-lucide=\"triangle-alert\" class=\"inline-icon\"></i> Nastavitve so se spremenile. Ustvarite nov predogled.</i>"
+  },
+  "voicePreviewPlayer": {
+    "yourBrowserDoesNotSupport": "Vaš brskalnik ne podpira zvočnega elementa."
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "errorAction": {
+    "tryAgain": "Opnieuw proberen"
+  },
+  "errorCode": {
+    "unknown": "onbekend"
+  },
+  "errorCodeBlock": {
+    "error": "Fout"
+  },
+  "errorMessageDetails": {
+    "twitchAuthenticationFailed": "Twitch-authenticatie mislukt."
+  },
+  "errorReadout": {
+    "authenticationFailed": "Authenticatie mislukt"
+  },
+  "errorTitle": {
+    "authenticationFailed": "Authenticatie mislukt"
+  },
+  "mainContent": {
+    "requestAccessTtsWildcatChat": "<a class=\"wc-link\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">Toegang aanvragen</a> <span>tts.wildcat.chat</span>"
+  },
+  "meta": {
+    "wildcatttsAuthenticationError": "WildcatTTS - Authenticatiefout",
+    "wildcatttsAuthenticationErrorAndSign": "WildcatTTS-authenticatiefout en inlogherstel."
+  },
+  "msg": {
+    "authError": {
+      "backToSignIn": "Terug naar inloggen",
+      "canceledBody": "Er is niets gewijzigd. Je kunt inloggen wanneer je er klaar voor bent.",
+      "canceledReadout": "Geannuleerd",
+      "canceledTitle": "WildcatTTS - Inloggen geannuleerd",
+      "canceledTitleShort": "Inloggen geannuleerd",
+      "notPermitted": "Toegang niet toegestaan",
+      "requestAccess": "Toegang aanvragen",
+      "twitchError": "Twitch heeft een fout geretourneerd tijdens de authenticatie.",
+      "unspecified": "Er is een ongespecificeerde fout opgetreden.",
+      "unspecifiedCode": "ongespecificeerd"
+    }
+  }
+}

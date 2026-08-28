@@ -1,0 +1,41 @@
+{
+  "errorAction": {
+    "tryAgain": "Coba lagi"
+  },
+  "errorCode": {
+    "unknown": "tidak diketahui"
+  },
+  "errorCodeBlock": {
+    "error": "Kesalahan"
+  },
+  "errorMessageDetails": {
+    "twitchAuthenticationFailed": "Autentikasi Twitch gagal."
+  },
+  "errorReadout": {
+    "authenticationFailed": "Autentikasi gagal"
+  },
+  "errorTitle": {
+    "authenticationFailed": "Autentikasi gagal"
+  },
+  "mainContent": {
+    "requestAccessTtsWildcatChat": "<a class=\"wc-link\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">Minta akses</a> <span>tts.wildcat.chat</span>"
+  },
+  "meta": {
+    "wildcatttsAuthenticationError": "WildcatTTS - Kesalahan Autentikasi",
+    "wildcatttsAuthenticationErrorAndSign": "Kesalahan autentikasi dan pemulihan proses masuk WildcatTTS."
+  },
+  "msg": {
+    "authError": {
+      "backToSignIn": "Kembali untuk masuk",
+      "canceledBody": "Tidak ada perubahan yang terjadi. Kamu bisa masuk saat sudah siap.",
+      "canceledReadout": "Dibatalkan",
+      "canceledTitle": "WildcatTTS - Masuk dibatalkan",
+      "canceledTitleShort": "Masuk dibatalkan",
+      "notPermitted": "Akses tidak diizinkan",
+      "requestAccess": "Minta akses",
+      "twitchError": "Twitch mengembalikan kesalahan saat autentikasi.",
+      "unspecified": "Terjadi kesalahan yang tidak ditentukan.",
+      "unspecifiedCode": "tidak ditentukan"
+    }
+  }
+}

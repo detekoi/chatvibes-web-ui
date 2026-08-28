@@ -1,0 +1,212 @@
+{
+  "addChannelContextCard": {
+    "loadAChannelToSee": "Naloži kanal, da vidiš njegove privzete nastavitve in upravljaš izključitve. Tvoje nastavitve ostanejo globalne."
+  },
+  "channelContextCard": {
+    "changesHereUpdateYourGlobal": "Spremembe tukaj posodobijo <strong>tvoje</strong> globalne nastavitve. Nastavitve streamerja se ne spremenijo.",
+    "channelContext": "Kontekst kanala",
+    "clearButtonsSetYourGlobal": "<strong>Gumbi za ponastavitev:</strong> Nastavijo tvojo globalno nastavitev tako, da ustreza privzeti nastavitvi tega kanala."
+  },
+  "channelHint": {
+    "channelFound": "Kanal najden"
+  },
+  "channelInputCancel": {
+    "cancel": "Prekliči"
+  },
+  "channelInputConfirm": {
+    "load": "Naloži"
+  },
+  "channelInputDesc": {
+    "enterTheChannelNameTo": "Vnesi ime kanala za ogled njegovih privzetih nastavitev in upravljanje izključitev:"
+  },
+  "channelInputModal": {
+    "streamerUsername": "Uporabniško ime streamerja"
+  },
+  "channelInputModalText": {
+    "streamerUsername": "Uporabniško ime streamerja"
+  },
+  "channelInputTitle": {
+    "loadChannelContext": "Naloži kontekst kanala"
+  },
+  "clearChannelContextBtn": {
+    "clear": "Počisti"
+  },
+  "confirmNo": {
+    "cancel": "Prekliči"
+  },
+  "confirmText": {
+    "yourMessagesWillNotBe": "Tvoja sporočila se ne bodo brala naglas. To lahko kadar koli ponovno vklopiš."
+  },
+  "confirmTitle": {
+    "confirmAction": "Potrdi dejanje"
+  },
+  "confirmYes": {
+    "confirm": "Potrdi"
+  },
+  "dangerTtsToggle": {
+    "optOutOfTtsIn": "Izklopi TTS zame na tem kanalu",
+    "ttsWillNotReadYour": "TTS ne bo bral tvojih sporočil na tem kanalu"
+  },
+  "dangerZoneSection": {
+    "dangerZone": "Nevarno območje",
+    "theseSettingsStopTheBot": "Te nastavitve botu preprečijo branje tvojih sporočil na kanalu. Vsako nastavitev, ki jo izbereš, lahko spremeniš. Če te je izključil moderator, lahko to razveljavi le moderator."
+  },
+  "emotionReset": {
+    "clear": "Počisti",
+    "resetEmotionToDefault": "Ponastavi čustvo na privzeto"
+  },
+  "emotionSelect": {
+    "angry": "Jezen",
+    "disgusted": "Zgrožen",
+    "fearful": "Prestrašen",
+    "happy": "Vesel",
+    "neutral": "Nevtralen",
+    "sad": "Žalosten",
+    "surprised": "Presenečen",
+    "useChannelDefault": "Uporabi privzeto za kanal"
+  },
+  "englishNormalizationCheckbox": {
+    "englishNormalization": "Normalizacija angleščine"
+  },
+  "englishNormalizationReset": {
+    "clear": "Počisti",
+    "resetEnglishNormalizationToDefault": "Ponastavi normalizacijo angleščine na privzeto"
+  },
+  "ignoreTts": {
+    "optOutOfTtsIn": "Izklopi TTS zame na tem kanalu"
+  },
+  "languageReset": {
+    "clear": "Počisti",
+    "resetLanguageToDefault": "Ponastavi jezik na privzeto"
+  },
+  "loadingBar": {
+    "loadingYourPreferences": "Nalaganje tvojih nastavitev"
+  },
+  "loadingOverlay": {
+    "loadingYourPreferences": "Nalaganje tvojih nastavitev…"
+  },
+  "loggedInStatus": {
+    "channelContext": "Kontekst kanala",
+    "global": "Globalno",
+    "loggedInAs": "Prijavljen kot",
+    "scope": "Obseg"
+  },
+  "meta": {
+    "wildcatttsViewerSettings": "Nastavitve za gledalce WildcatTTS",
+    "wildcatttsViewerSettingsSetYour": "Nastavitve za gledalce WildcatTTS – Nastavi svoj osebni glas, višino in hitrost TTS za kanale Twitch."
+  },
+  "msg": {
+    "auth": {
+      "exchangeFailed": "Prijave ni mogoče dokončati. Poskusite znova na glavni strani.",
+      "testUser": "Preizkusni uporabnik"
+    },
+    "channel": {
+      "cleared": "Kontekst kanala počiščen.",
+      "clearedTestMode": "Kontekst kanala počiščen (preizkusni način).",
+      "enterName": "Vnesi ime kanala.",
+      "found": "Kanal najden",
+      "foundTestMode": "Kanal najden (preizkusni način)",
+      "hint": "Naloži kanal za ogled njegovih privzetih nastavitev.",
+      "loaded": "Kontekst kanala naložen.",
+      "loadedTestMode": "Kontekst kanala naložen (preizkusni način).",
+      "noneLoaded": "Noben ni naložen",
+      "promptConfirm": "Naloži",
+      "promptDescription": "Vnesite ime kanala za ogled privzetih nastavitev in upravljanje odjav:",
+      "promptTitle": "Naloži kontekst kanala",
+      "viewingDefaults": "Ogledujete si privzete nastavitve za {channel}."
+    },
+    "optout": {
+      "confirm": "Se želiš odjaviti od TTS v #{channel}? Tvoja sporočila se ne bodo brala na glas. To lahko kadarkoli ponovno vklopiš.",
+      "confirmDescription": "Za nadaljevanje vnesite ime kanala:",
+      "confirmTitle": "Potrdite kanal za odjavo od TTS",
+      "continue": "Nadaljuj",
+      "moderatorNote": "Moderator kanala te je tukaj odjavil od TTS. To lahko razveljavi le moderator.",
+      "optInFailed": "Ponovni vklop TTS ni mogoč.",
+      "optOutFailed": "Odjava iz TTS ni uspela.",
+      "optedIn": "Znova ste omogočili TTS.",
+      "optedInTestMode": "Znova ste omogočili TTS (preizkusni način).",
+      "optedOut": "Odjavili ste se iz TTS.",
+      "optedOutTestMode": "Odjavili ste se iz TTS (preizkusni način).",
+      "selectChannel": "Najprej izberite kanal.",
+      "selfNote": "Tukaj ste onemogočili TTS. To lahko kadar koli znova vklopite.",
+      "specifyChannel": "Navedite kanal."
+    },
+    "prefs": {
+      "hintChannel": "Uporaba privzete nastavitve kanala: {value}",
+      "hintSystem": "Uporaba sistemsko privzete nastavitve",
+      "hintUser": "Uporaba vaše globalne nastavitve: {value}",
+      "loadFailed": "Nastavitev ni mogoče naložiti.",
+      "noVoicesFound": "Ni najdenih glasov",
+      "saveFailed": "Ni mogoče shraniti {key}: {reason}",
+      "sendPreview": "Pošlji predogled",
+      "testCompletedTestMode": "Preizkus zaključen (preizkusni način).",
+      "updated": "Nastavitev posodobljena.",
+      "updatedTestMode": "Nastavitev posodobljena (preizkusni način)."
+    }
+  },
+  "openChannelContextModalBtn": {
+    "loadChannel": "Naloži kanal …"
+  },
+  "page": {
+    "setHowYourMessagesSound": "Nastavite, kako naj zvenijo vaša sporočila, ko jih bere Wildcat TTS. Vaše nastavitve so globalne in veljajo za vse kanale.",
+    "viewerTtsPreferences": "Nastavitve TTS za gledalce",
+    "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Nastavitve za gledalce</span>"
+  },
+  "pitchReset": {
+    "clear": "Počisti",
+    "resetPitchToDefault": "Ponastavi višino tona na privzeto"
+  },
+  "pitchSlider": {
+    "pitchAdjustment12To12": "Prilagoditev višine tona (-12 do +12)"
+  },
+  "preferencesPanel": {
+    "adjustTheVoicePitchHigher": "Prilagodite višino glasu višje ali nižje",
+    "controlHowFastTheVoice": "Nadzorujte hitrost govorjenja glasu",
+    "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentacija </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Nastavitve za pretakalce </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "<strong>Čustvo</strong>",
+    "emotion2": "Čustvo",
+    "englishNormalization": "Normalizacija angleščine",
+    "engNormalization": "Angl. normalizacija",
+    "ifTtsReadsNumbersIncorrectly": "Če TTS nepravilno bere številke, vklopite normalizacijo angleškega besedila. Ta nastavitev nekoliko poveča zakasnitev.",
+    "improvePronunciationForSpecificLanguages": "Izboljšajte izgovorjavo za določene jezike",
+    "improveThePronunciationOfNumbers": "Izboljšajte izgovorjavo številk in besedila",
+    "language": "Jezik",
+    "languageBoost": "<strong>Language Boost</strong>",
+    "pitch": "Višina tona",
+    "pitch12To12": "Višina tona (-12 do +12):",
+    "quickLinks": "Hitre povezave",
+    "selectYourPreferredTtsVoice": "Izberite želeni TTS glas",
+    "setHowYourMessagesSound": "Nastavite, kako naj zvenijo vaša sporočila, ko jih bere TTS",
+    "setTheEmotionalToneOf": "Nastavite čustveni ton glasu",
+    "speed": "Hitrost",
+    "speed05To2": "Hitrost (0.5 do 2.0):",
+    "testMessage": "Preizkusno sporočilo",
+    "voice": "<strong>Glas</strong>",
+    "voicePreview": "Predogled glasu",
+    "voiceSettings": "Nastavitve glasu"
+  },
+  "prefsDisabledNote": {
+    "theStreamerDisabledPersonalVoice": "Streamer je onemogočil osebne nastavitve glasu za ta kanal. Ta kanal bo namesto vaših nastavitev uporabil privzeti glas."
+  },
+  "previewBtn": {
+    "sendPreview": "Pošlji predogled"
+  },
+  "speedReset": {
+    "clear": "Počisti",
+    "resetSpeedToDefault": "Ponastavi hitrost na privzeto"
+  },
+  "speedSlider": {
+    "speedAdjustment05To": "Prilagoditev hitrosti (0,5 do 2,0)"
+  },
+  "statChannelContext": {
+    "noneLoaded": "Nič ni naloženo"
+  },
+  "voiceReset": {
+    "clear": "Počisti",
+    "resetVoiceToDefault": "Ponastavi glas na privzeto"
+  },
+  "voiceSearch": {
+    "searchVoices": "Išči glasove",
+    "searchVoices2": "Išči glasove ..."
+  }
+}

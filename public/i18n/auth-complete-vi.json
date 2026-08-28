@@ -1,0 +1,39 @@
+{
+  "authBar": {
+    "signInProgress": "Tiến trình đăng nhập"
+  },
+  "authMessage": {
+    "pleaseWait": "Vui lòng đợi."
+  },
+  "authSteps": {
+    "loadingDashboard": "Đang tải bảng điều khiển",
+    "sessionTokenStored": "Đã lưu token phiên",
+    "twitchAuthorized": "Đã ủy quyền Twitch"
+  },
+  "authTitle": {
+    "signingYouIn": "Đang đăng nhập cho bạn"
+  },
+  "meta": {
+    "completingWildcatttsTwitchSignIn": "Đang hoàn tất đăng nhập Twitch cho WildcatTTS.",
+    "wildcatttsCompletingSignIn": "WildcatTTS - Đang hoàn tất đăng nhập"
+  },
+  "msg": {
+    "authComplete": {
+      "cannotComplete": "Không thể hoàn tất đăng nhập.",
+      "failedReadout": "Thất bại",
+      "failedTitle": "Đăng nhập thất bại",
+      "missingInfo": "Thiếu thông tin xác thực từ Twitch callback. Hãy đăng nhập lại.",
+      "noSession": "Không có phiên",
+      "redirecting": "Đang chuyển hướng đến trang tổng quan của bạn.",
+      "retrySignIn": "{reason} Hãy đăng nhập lại.",
+      "sessionEstablished": "Đã thiết lập phiên",
+      "welcome": "Chào mừng, {user}"
+    }
+  },
+  "sessionState": {
+    "establishingSession": "Đang thiết lập phiên"
+  },
+  "statusReadout": {
+    "working": "<span class=\"wc-dot\"></span>Đang xử lý"
+  }
+}

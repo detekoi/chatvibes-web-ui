@@ -1,0 +1,164 @@
+{
+  "darkModeToggle": {
+    "toggleDarkMode": "Slå mørk tilstand til/fra"
+  },
+  "err": {
+    "banned_add_failed": "Kan ikke føje ordet til blokeringslisten.",
+    "banned_remove_failed": "Kan ikke fjerne ordet fra blokeringslisten.",
+    "bot_add_failed": "Kan ikke aktivere botten på din kanal. Prøv igen.",
+    "bot_remove_failed": "Kan ikke deaktivere botten på din kanal. Prøv igen.",
+    "bot_status_failed": "Kan ikke indlæse bottens status.",
+    "channel_data_not_found": "Der blev ikke fundet nogen indstillinger for den kanal.",
+    "channel_not_authorized": "Din kanal har ikke tilladelse til at bruge denne bot. Kontakt mig for adgang.",
+    "channel_not_found": "Kanalen blev ikke fundet.",
+    "channel_required": "En kanal er påkrævet.",
+    "channel_tts_disabled": "Kanalen blev ikke fundet, eller den har ikke slået TTS til.",
+    "entry_key_required": "En postnøgle er påkrævet.",
+    "exchange_code_invalid": "Log ind-linket mangler eller er ugyldigt.",
+    "exchange_code_used": "Log ind-linket er allerede brugt eller udløbet. Log ind igen.",
+    "exchange_failed": "Kunne ikke fuldføre login. Prøv igen.",
+    "ignore_add_failed": "Kan ikke føje brugeren til ignoreringslisten.",
+    "ignore_moderator_imposed": "En kanalmoderator har fravalgt TTS for dig her, så kun en moderator kan fortryde det.",
+    "ignore_remove_failed": "Kan ikke fjerne brugeren fra ignoreringslisten.",
+    "ignore_update_failed": "Kan ikke ændre din opt-out-indstilling.",
+    "key_required": "Et indstillingsnavn er påkrævet.",
+    "match_key_invalid": "Ordet skal være på 1 til {max} tegn af bogstaver, tal, apostroffer eller bindestreger, og må ikke indeholde punktum.",
+    "network_error": "Kan ikke få forbindelse til serveren. Tjek din forbindelse.",
+    "obs_token_fetch_failed": "Kan ikke indlæse OBS-tokenet.",
+    "obs_token_generate_failed": "Kan ikke generere et nyt OBS-token.",
+    "obs_token_store_failed": "Kan ikke gemme OBS-tokenet. Prøv igen.",
+    "prefs_fetch_failed": "Kan ikke indlæse dine præferencer.",
+    "prefs_global_fetch_failed": "Kan ikke indlæse dine globale præferencer.",
+    "prefs_global_update_failed": "Kan ikke gemme dine globale præferencer.",
+    "prefs_invalid_emote_mode": "Emote-håndtering skal være læs, spring over eller beskriv.",
+    "prefs_invalid_emotion": "Det er ikke en gyldig følelse.",
+    "prefs_invalid_language": "Det er ikke et gyldigt sprog.",
+    "prefs_invalid_pitch": "Det er ikke en gyldig tonehøjde.",
+    "prefs_invalid_speed": "Det er ikke en gyldig hastighed.",
+    "prefs_invalid_voice": "Det er ikke en gyldig stemme.",
+    "prefs_missing_data": "Der blev ikke sendt nogen ændringer.",
+    "prefs_update_failed": "Kan ikke gemme dine præferencer.",
+    "pronunciation_limit_reached": "Du har nået grænsen på {max} brugerdefinerede udtaler. Fjern en først.",
+    "pronunciation_remove_failed": "Kan ikke fjerne udtalen.",
+    "pronunciation_save_failed": "Kan ikke gemme udtalen.",
+    "reward_banned_word": "Beskeden indeholder et forbudt ord: \"{word}\".",
+    "reward_create_failed": "Kan ikke oprette Channel Points-belønningen.",
+    "reward_delete_failed": "Kan ikke slette Channel Points-belønningen.",
+    "reward_links_blocked": "Links er ikke tilladt i denne belønning.",
+    "reward_load_failed": "Kan ikke indlæse Channel Points-belønningen.",
+    "reward_message_empty": "Beskeden er tom.",
+    "reward_save_failed": "Kan ikke gemme Channel Points-belønningen.",
+    "reward_test_failed": "Kan ikke teste Channel Points-belønningen.",
+    "reward_twitch_error": "Twitch afviste belønningsændringen.",
+    "reward_validation_failed": "Den besked er ikke tilladt.",
+    "say_contains_link": "Udtalen må ikke indeholde et link.",
+    "say_empty": "Udtalen må ikke være tom.",
+    "say_must_be_text": "Udtalen skal være tekst.",
+    "say_too_long": "Udtalen må højst være på {max} tegn.",
+    "server_misconfigured": "Serveren er fejlkonfigureret.",
+    "setting_invalid": "Det er ikke en gyldig værdi for {key}.",
+    "setting_update_failed": "Kan ikke opdatere TTS-indstillingen.",
+    "settings_fetch_failed": "Kan ikke indlæse TTS-indstillinger.",
+    "shortlink_failed": "Kan ikke oprette det korte link.",
+    "storage_unavailable": "Lagring er utilgængelig.",
+    "tts_generation_failed": "Generering af tale mislykkedes: {reason}",
+    "tts_no_audio": "Taleudbyderen returnerede ingen lyd.",
+    "tts_not_configured": "Ingen taleudbyder er konfigureret.",
+    "tts_provider_failed": "Taleudbyderen kunne ikke generere lyd.",
+    "tts_test_failed": "Taletesten mislykkedes.",
+    "tts_text_required": "Indtast noget tekst for at teste.",
+    "twitch_reauth_required": "Dit Twitch-login er udløbet. Tilslut din konto igen.",
+    "twitch_user_not_found": "Der findes ingen Twitch-konto med navnet \"{username}\".",
+    "url_required": "En URL er påkrævet.",
+    "username_invalid": "Brugernavnet er ugyldigt.",
+    "username_required": "Et brugernavn er påkrævet.",
+    "voice_access_denied": "Stemmen \"{voice}\" kræver særlig adgang. Prøv en anden stemme.",
+    "voice_invalid": "Stemmen \"{voice}\" er ikke tilgængelig. Tjek stemmen, og prøv igen.",
+    "voice_lookup_failed": "Kan ikke slå brugerens stemme op.",
+    "word_invalid": "Ordet eller udtrykket er ugyldigt.",
+    "word_required": "Et ord eller udtryk er påkrævet."
+  },
+  "logoutLink": {
+    "logout": "Log ud"
+  },
+  "mainContent": {
+    "documentationTtsWildcatChat": "<a class=\"wc-link\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\">Dokumentation</a> <span>tts.wildcat.chat</span>"
+  },
+  "msg": {
+    "action": {
+      "close": "Luk",
+      "remove": "Fjern",
+      "saved": "Gemt"
+    },
+    "api": {
+      "authFailed": "Godkendelse mislykkedes. Log ind igen.",
+      "notAuthenticated": "Du er ikke logget ind.",
+      "requestFailed": "Anmodningen mislykkedes."
+    },
+    "auth": {
+      "genericUser": "Bruger",
+      "loading": "indlæser…",
+      "needViewerSignIn": "Bekræft din Twitch-konto for at få adgang til seerindstillinger.",
+      "redirecting": "Omdirigerer til Twitch for godkendelse…",
+      "required": "Godkendelse er påkrævet.",
+      "signInFailed": "Kan ikke fuldføre login.",
+      "signInWithTwitch": "Log ind med Twitch",
+      "signedOut": "Du er ikke logget ind.",
+      "tokenMissing": "Godkendelsestoken mangler. Log ind igen."
+    },
+    "emotion": {
+      "angry": "Vred",
+      "auto": "Auto",
+      "disgusted": "Væmmet",
+      "fearful": "Bange",
+      "happy": "Glad",
+      "neutral": "Neutral",
+      "sad": "Trist",
+      "surprised": "Overrasket"
+    },
+    "ignore": {
+      "enterUsername": "Indtast et brugernavn."
+    },
+    "lang": {
+      "automatic": "Automatisk"
+    },
+    "prefs": {
+      "useChannelDefault": "Brug kanalstandard"
+    },
+    "preview": {
+      "enterText": "Indtast tekst for at teste.",
+      "unavailable": "Ingen forhåndsvisning tilgængelig."
+    },
+    "value": {
+      "off": "Fra",
+      "on": "Til"
+    },
+    "voice": {
+      "cannotPlay": "Kan ikke afspille lydprøve.",
+      "generating": "Genererer…",
+      "noAudio": "Serveren returnerede ingen lyd.",
+      "noneFound": "Ingen stemmer fundet.",
+      "preview": "Forhåndsvis {voice}",
+      "regenerate": "Generer igen",
+      "testFailed": "Test mislykkedes: {reason}"
+    }
+  },
+  "page": {
+    "skipToMainContent": "Spring til hovedindhold"
+  },
+  "sidebarEngNormVal": {
+    "off": "Fra"
+  },
+  "sidebarLanguageVal": {
+    "automatic": "Automatisk"
+  },
+  "ui": {
+    "language": "Sprog"
+  },
+  "voicePreviewHint": {
+    "settingsChangedGenerateANew": "<i><i data-lucide=\"triangle-alert\" class=\"inline-icon\"></i> Indstillingerne er ændret. Generer en ny forhåndsvisning.</i>"
+  },
+  "voicePreviewPlayer": {
+    "yourBrowserDoesNotSupport": "Din browser understøtter ikke lydelementet."
+  }
+}

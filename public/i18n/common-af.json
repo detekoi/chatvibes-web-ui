@@ -1,0 +1,164 @@
+{
+  "darkModeToggle": {
+    "toggleDarkMode": "Wissel donkermodus"
+  },
+  "err": {
+    "banned_add_failed": "Kan daardie woord nie by die verbode lys voeg nie.",
+    "banned_remove_failed": "Kan daardie woord nie van die verbode lys verwyder nie.",
+    "bot_add_failed": "Kan nie die bot op jou kanaal aktiveer nie. Probeer weer.",
+    "bot_remove_failed": "Kan nie die bot op jou kanaal deaktiveer nie. Probeer weer.",
+    "bot_status_failed": "Kan nie die botstatus laai nie.",
+    "channel_data_not_found": "Geen instellings is vir daardie kanaal gevind nie.",
+    "channel_not_authorized": "Jou kanaal is nie gemagtig om hierdie bot te gebruik nie. Kontak my vir toegang.",
+    "channel_not_found": "Daardie kanaal is nie gevind nie.",
+    "channel_required": "'n Kanaal word vereis.",
+    "channel_tts_disabled": "Daardie kanaal is nie gevind nie, of TTS is nie aangeskakel nie.",
+    "entry_key_required": "'n Inskrywingsleutel word vereis.",
+    "exchange_code_invalid": "Daardie aanmeldskakel ontbreek of is ongeldig.",
+    "exchange_code_used": "Daardie aanmeldskakel is reeds gebruik of het verval. Meld weer aan.",
+    "exchange_failed": "Kon nie aanmelding voltooi nie. Probeer weer.",
+    "ignore_add_failed": "Kan daardie gebruiker nie by die ignoreerlys voeg nie.",
+    "ignore_moderator_imposed": "'n Kanaalmoderator het jou hier van TTS uitgeteken, so net 'n moderator kan dit ongedaan maak.",
+    "ignore_remove_failed": "Kan daardie gebruiker nie van die ignoreerlys verwyder nie.",
+    "ignore_update_failed": "Kan nie jou uitteken-instelling verander nie.",
+    "key_required": "'n Instellingsnaam word vereis.",
+    "match_key_invalid": "Die woord moet 1 tot {max} karakters van letters, syfers, afkappingstekens of koppeltekens wees, en mag nie 'n punt bevat nie.",
+    "network_error": "Kan nie die bediener bereik nie. Gaan jou verbinding na.",
+    "obs_token_fetch_failed": "Kan nie die OBS-token laai nie.",
+    "obs_token_generate_failed": "Kan nie 'n nuwe OBS-token genereer nie.",
+    "obs_token_store_failed": "Kan nie die OBS-token stoor nie. Probeer weer.",
+    "prefs_fetch_failed": "Kan nie jou voorkeure laai nie.",
+    "prefs_global_fetch_failed": "Kan nie jou globale voorkeure laai nie.",
+    "prefs_global_update_failed": "Kan nie jou globale voorkeure stoor nie.",
+    "prefs_invalid_emote_mode": "Emote-hantering moet lees, oorslaan of beskryf wees.",
+    "prefs_invalid_emotion": "Dit is nie 'n geldige emosie nie.",
+    "prefs_invalid_language": "Dit is nie 'n geldige taal nie.",
+    "prefs_invalid_pitch": "Dit is nie 'n geldige toonhoogte nie.",
+    "prefs_invalid_speed": "Dit is nie 'n geldige spoed nie.",
+    "prefs_invalid_voice": "Dit is nie 'n geldige stem nie.",
+    "prefs_missing_data": "Geen veranderinge is gestuur nie.",
+    "prefs_update_failed": "Kan nie jou voorkeure stoor nie.",
+    "pronunciation_limit_reached": "Jy het die limiet van {max} pasgemaakte uitsprake bereik. Verwyder eers een.",
+    "pronunciation_remove_failed": "Kan die uitspraak nie verwyder nie.",
+    "pronunciation_save_failed": "Kan die uitspraak nie stoor nie.",
+    "reward_banned_word": "Die boodskap bevat 'n verbode woord: \"{word}\".",
+    "reward_create_failed": "Kan nie die Channel Points-beloning skep nie.",
+    "reward_delete_failed": "Kan nie die Channel Points-beloning verwyder nie.",
+    "reward_links_blocked": "Skakels word nie in hierdie beloning toegelaat nie.",
+    "reward_load_failed": "Kan nie die Channel Points-beloning laai nie.",
+    "reward_message_empty": "Die boodskap is leeg.",
+    "reward_save_failed": "Kan nie die Channel Points-beloning stoor nie.",
+    "reward_test_failed": "Kan nie die Channel Points-beloning toets nie.",
+    "reward_twitch_error": "Twitch het die beloningsverandering verwerp.",
+    "reward_validation_failed": "Daardie boodskap word nie toegelaat nie.",
+    "say_contains_link": "Die uitspraak mag nie 'n skakel bevat nie.",
+    "say_empty": "Die uitspraak mag nie leeg wees nie.",
+    "say_must_be_text": "Die uitspraak moet teks wees.",
+    "say_too_long": "Die uitspraak moet {max} karakters of minder wees.",
+    "server_misconfigured": "Die bediener is verkeerd opgestel.",
+    "setting_invalid": "Dit is nie 'n geldige waarde vir {key} nie.",
+    "setting_update_failed": "Kan die TTS-instelling nie bywerk nie.",
+    "settings_fetch_failed": "Kan TTS-instellings nie laai nie.",
+    "shortlink_failed": "Kan nie die kort skakel skep nie.",
+    "storage_unavailable": "Berging is nie beskikbaar nie.",
+    "tts_generation_failed": "Spraakgenerering het misluk: {reason}",
+    "tts_no_audio": "Die spraakverskaffer het geen oudio teruggestuur nie.",
+    "tts_not_configured": "Geen spraakverskaffer is opgestel nie.",
+    "tts_provider_failed": "Die spraakverskaffer kon nie oudio genereer nie.",
+    "tts_test_failed": "Die spraaktoets het misluk.",
+    "tts_text_required": "Voer teks in om te toets.",
+    "twitch_reauth_required": "Jou Twitch-aanmelding het verval. Koppel jou rekening weer.",
+    "twitch_user_not_found": "Geen Twitch-rekening genaamd \"{username}\" bestaan nie.",
+    "url_required": "'n URL word vereis.",
+    "username_invalid": "Daardie gebruikersnaam is ongeldig.",
+    "username_required": "'n Gebruikersnaam word vereis.",
+    "voice_access_denied": "Die stem \"{voice}\" benodig spesiale toegang. Probeer 'n ander stem.",
+    "voice_invalid": "Die stem \"{voice}\" is nie beskikbaar nie. Gaan die stem na en probeer weer.",
+    "voice_lookup_failed": "Kan nie daardie gebruiker se stem opsoek nie.",
+    "word_invalid": "Daardie woord of frase is ongeldig.",
+    "word_required": "'n Woord of frase word vereis."
+  },
+  "logoutLink": {
+    "logout": "Teken uit"
+  },
+  "mainContent": {
+    "documentationTtsWildcatChat": "<a class=\"wc-link\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\">Dokumentasie</a> <span>tts.wildcat.chat</span>"
+  },
+  "msg": {
+    "action": {
+      "close": "Sluit",
+      "remove": "Verwyder",
+      "saved": "Gestoor"
+    },
+    "api": {
+      "authFailed": "Stawing het misluk. Meld weer aan.",
+      "notAuthenticated": "Jy is nie aangemeld nie.",
+      "requestFailed": "Die versoek het misluk."
+    },
+    "auth": {
+      "genericUser": "Gebruiker",
+      "loading": "laai…",
+      "needViewerSignIn": "Verifieer jou Twitch-rekening om toegang tot kykervoorkeure te kry.",
+      "redirecting": "Herlei tans na Twitch vir verifikasie…",
+      "required": "Verifikasie word vereis.",
+      "signInFailed": "Kan nie aanmelding voltooi nie.",
+      "signInWithTwitch": "Teken in met Twitch",
+      "signedOut": "Jy is nie ingeteken nie.",
+      "tokenMissing": "Verifikasieteken ontbreek. Teken weer in."
+    },
+    "emotion": {
+      "angry": "Kwaad",
+      "auto": "Outo",
+      "disgusted": "Gevalg",
+      "fearful": "Bang",
+      "happy": "Bly",
+      "neutral": "Neutraal",
+      "sad": "Hartseer",
+      "surprised": "Verras"
+    },
+    "ignore": {
+      "enterUsername": "Voer 'n gebruikersnaam in."
+    },
+    "lang": {
+      "automatic": "Outomaties"
+    },
+    "prefs": {
+      "useChannelDefault": "Gebruik kanaalverstek"
+    },
+    "preview": {
+      "enterText": "Voer teks in om te toets.",
+      "unavailable": "Geen voorskou beskikbaar nie."
+    },
+    "value": {
+      "off": "Af",
+      "on": "Aan"
+    },
+    "voice": {
+      "cannotPlay": "Kan nie oudiomonster speel nie.",
+      "generating": "Genereer…",
+      "noAudio": "Die bediener het geen oudio teruggestuur nie.",
+      "noneFound": "Geen stemme gevind nie.",
+      "preview": "Voorskou {voice}",
+      "regenerate": "Hergenereer",
+      "testFailed": "Toets het misluk: {reason}"
+    }
+  },
+  "page": {
+    "skipToMainContent": "Slaan oor na hoofinhoud"
+  },
+  "sidebarEngNormVal": {
+    "off": "Af"
+  },
+  "sidebarLanguageVal": {
+    "automatic": "Outomaties"
+  },
+  "ui": {
+    "language": "Taal"
+  },
+  "voicePreviewHint": {
+    "settingsChangedGenerateANew": "<i><i data-lucide=\"triangle-alert\" class=\"inline-icon\"></i> Instellings het verander. Genereer 'n nuwe voorskou.</i>"
+  },
+  "voicePreviewPlayer": {
+    "yourBrowserDoesNotSupport": "Jou webblaaier ondersteun nie die oudio-element nie."
+  }
+}

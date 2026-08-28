@@ -1,0 +1,212 @@
+{
+  "addChannelContextCard": {
+    "loadAChannelToSee": "채널을 불러와 기본 설정을 확인하고 읽기 제외를 관리하세요. 환경설정은 전역으로 유지됩니다."
+  },
+  "channelContextCard": {
+    "changesHereUpdateYourGlobal": "여기서 변경한 사항은 <strong>내</strong> 전역 환경설정에 적용됩니다. 스트리머 설정은 변경되지 않습니다.",
+    "channelContext": "채널 컨텍스트",
+    "clearButtonsSetYourGlobal": "<strong>지우기 버튼:</strong> 전역 환경설정을 이 채널의 기본 설정과 동일하게 맞춥니다."
+  },
+  "channelHint": {
+    "channelFound": "채널 찾음"
+  },
+  "channelInputCancel": {
+    "cancel": "취소"
+  },
+  "channelInputConfirm": {
+    "load": "불러오기"
+  },
+  "channelInputDesc": {
+    "enterTheChannelNameTo": "채널 이름을 입력하여 기본 설정을 확인하고 읽기 제외를 관리하세요:"
+  },
+  "channelInputModal": {
+    "streamerUsername": "스트리머 사용자명"
+  },
+  "channelInputModalText": {
+    "streamerUsername": "스트리머 사용자명"
+  },
+  "channelInputTitle": {
+    "loadChannelContext": "채널 컨텍스트 불러오기"
+  },
+  "clearChannelContextBtn": {
+    "clear": "지우기"
+  },
+  "confirmNo": {
+    "cancel": "취소"
+  },
+  "confirmText": {
+    "yourMessagesWillNotBe": "메시지를 소리 내어 읽지 않습니다. 언제든지 다시 켤 수 있습니다."
+  },
+  "confirmTitle": {
+    "confirmAction": "작업 확인"
+  },
+  "confirmYes": {
+    "confirm": "확인"
+  },
+  "dangerTtsToggle": {
+    "optOutOfTtsIn": "이 채널에서 TTS 읽기 제외",
+    "ttsWillNotReadYour": "이 채널에서 TTS가 내 메시지를 읽지 않습니다"
+  },
+  "dangerZoneSection": {
+    "dangerZone": "위험 구역",
+    "theseSettingsStopTheBot": "이 설정은 봇이 채널에서 내 메시지를 읽지 않도록 차단합니다. 직접 설정한 항목은 언제든 되돌릴 수 있습니다. 매니저가 제외한 경우 매니저만 되돌릴 수 있습니다."
+  },
+  "emotionReset": {
+    "clear": "지우기",
+    "resetEmotionToDefault": "감정을 기본값으로 초기화"
+  },
+  "emotionSelect": {
+    "angry": "화남",
+    "disgusted": "혐오",
+    "fearful": "두려움",
+    "happy": "행복",
+    "neutral": "중립",
+    "sad": "슬픔",
+    "surprised": "놀람",
+    "useChannelDefault": "채널 기본값 사용"
+  },
+  "englishNormalizationCheckbox": {
+    "englishNormalization": "영어 텍스트 정규화"
+  },
+  "englishNormalizationReset": {
+    "clear": "지우기",
+    "resetEnglishNormalizationToDefault": "영어 텍스트 정규화를 기본값으로 초기화"
+  },
+  "ignoreTts": {
+    "optOutOfTtsIn": "이 채널에서 TTS 읽기 제외"
+  },
+  "languageReset": {
+    "clear": "지우기",
+    "resetLanguageToDefault": "언어를 기본값으로 초기화"
+  },
+  "loadingBar": {
+    "loadingYourPreferences": "설정 불러오는 중"
+  },
+  "loadingOverlay": {
+    "loadingYourPreferences": "설정을 불러오는 중…"
+  },
+  "loggedInStatus": {
+    "channelContext": "채널 컨텍스트",
+    "global": "전역",
+    "loggedInAs": "로그인 계정",
+    "scope": "적용 범위"
+  },
+  "meta": {
+    "wildcatttsViewerSettings": "WildcatTTS 시청자 설정",
+    "wildcatttsViewerSettingsSetYour": "WildcatTTS 시청자 설정 - 여러 Twitch 채널에서 사용할 나만의 TTS 음성, 음조, 속도를 설정하세요."
+  },
+  "msg": {
+    "auth": {
+      "exchangeFailed": "로그인을 완료할 수 없습니다. 메인 페이지에서 다시 시도해 주세요.",
+      "testUser": "테스트 사용자"
+    },
+    "channel": {
+      "cleared": "채널 컨텍스트가 초기화되었습니다.",
+      "clearedTestMode": "채널 컨텍스트가 초기화되었습니다(테스트 모드).",
+      "enterName": "채널 이름을 입력하세요.",
+      "found": "채널을 찾았습니다",
+      "foundTestMode": "채널을 찾았습니다(테스트 모드)",
+      "hint": "기본 설정을 확인하려면 채널을 불러오세요.",
+      "loaded": "채널 컨텍스트를 불러왔습니다.",
+      "loadedTestMode": "채널 컨텍스트를 불러왔습니다(테스트 모드).",
+      "noneLoaded": "로드된 채널 없음",
+      "promptConfirm": "불러오기",
+      "promptDescription": "기본 설정을 확인하고 TTS 제외 설정을 관리할 채널 이름을 입력하세요:",
+      "promptTitle": "채널 컨텍스트 불러오기",
+      "viewingDefaults": "{channel}의 기본 설정을 보고 있습니다."
+    },
+    "optout": {
+      "confirm": "#{channel}에서 TTS를 비활성화하시겠습니까? 메시지를 소리 내어 읽지 않습니다. 언제든지 다시 켤 수 있습니다.",
+      "confirmDescription": "계속하려면 채널 이름을 입력하세요:",
+      "confirmTitle": "TTS 제외 채널 확인",
+      "continue": "계속",
+      "moderatorNote": "채널 매니저가 이 채널의 TTS를 비활성화했습니다. 매니저만 이를 되돌릴 수 있습니다.",
+      "optInFailed": "TTS를 다시 활성화할 수 없습니다.",
+      "optOutFailed": "TTS 읽기에서 제외할 수 없습니다.",
+      "optedIn": "TTS 읽기를 다시 켰습니다.",
+      "optedInTestMode": "TTS 읽기를 다시 켰습니다(테스트 모드).",
+      "optedOut": "TTS 읽기에서 제외되었습니다.",
+      "optedOutTestMode": "TTS 읽기에서 제외되었습니다(테스트 모드).",
+      "selectChannel": "먼저 채널을 선택하세요.",
+      "selfNote": "여기서 TTS 읽기를 제외하도록 설정했습니다. 언제든지 다시 켤 수 있습니다.",
+      "specifyChannel": "채널을 지정하세요."
+    },
+    "prefs": {
+      "hintChannel": "채널 기본값 사용 중: {value}",
+      "hintSystem": "시스템 기본값 사용 중",
+      "hintUser": "내 전역 설정 사용 중: {value}",
+      "loadFailed": "설정을 불러올 수 없습니다.",
+      "noVoicesFound": "음성을 찾을 수 없음",
+      "saveFailed": "{key}을(를) 저장할 수 없습니다: {reason}",
+      "sendPreview": "미리듣기 전송",
+      "testCompletedTestMode": "테스트 완료(테스트 모드).",
+      "updated": "설정이 업데이트되었습니다.",
+      "updatedTestMode": "설정이 업데이트되었습니다(테스트 모드)."
+    }
+  },
+  "openChannelContextModalBtn": {
+    "loadChannel": "채널 불러오기…"
+  },
+  "page": {
+    "setHowYourMessagesSound": "Wildcat TTS가 메시지를 읽을 때의 음성을 설정합니다. 설정은 전역으로 적용되며 모든 채널에 반영됩니다.",
+    "viewerTtsPreferences": "시청자 TTS 설정",
+    "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">시청자 설정</span>"
+  },
+  "pitchReset": {
+    "clear": "초기화",
+    "resetPitchToDefault": "음높이 기본값으로 초기화"
+  },
+  "pitchSlider": {
+    "pitchAdjustment12To12": "음높이 조절(-12 ~ +12)"
+  },
+  "preferencesPanel": {
+    "adjustTheVoicePitchHigher": "음성 높낮이 조절",
+    "controlHowFastTheVoice": "음성 속도 조절",
+    "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>문서 </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>스트리머 설정 </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "<strong>감정</strong>",
+    "emotion2": "감정",
+    "englishNormalization": "영어 텍스트 정규화",
+    "engNormalization": "영어 정규화",
+    "ifTtsReadsNumbersIncorrectly": "TTS가 숫자를 잘못 읽는 경우 영어 텍스트 정규화를 켜세요. 이 설정을 사용하면 지연 시간이 약간 늘어납니다.",
+    "improvePronunciationForSpecificLanguages": "특정 언어의 발음 향상",
+    "improveThePronunciationOfNumbers": "숫자 및 텍스트 발음 향상",
+    "language": "언어",
+    "languageBoost": "<strong>Language Boost</strong>",
+    "pitch": "음높이",
+    "pitch12To12": "음높이(-12 ~ +12):",
+    "quickLinks": "빠른 링크",
+    "selectYourPreferredTtsVoice": "원하는 TTS 음성 선택",
+    "setHowYourMessagesSound": "TTS가 메시지를 읽을 때의 음성 설정",
+    "setTheEmotionalToneOf": "음성의 감정 톤 설정",
+    "speed": "속도",
+    "speed05To2": "속도(0.5 ~ 2.0):",
+    "testMessage": "테스트 메시지",
+    "voice": "<strong>음성</strong>",
+    "voicePreview": "음성 미리듣기",
+    "voiceSettings": "음성 설정"
+  },
+  "prefsDisabledNote": {
+    "theStreamerDisabledPersonalVoice": "스트리머가 이 채널의 개인 음성 설정을 비활성화했습니다. 개인 설정 대신 채널 기본 음성을 사용합니다."
+  },
+  "previewBtn": {
+    "sendPreview": "미리듣기 전송"
+  },
+  "speedReset": {
+    "clear": "초기화",
+    "resetSpeedToDefault": "속도를 기본값으로 초기화"
+  },
+  "speedSlider": {
+    "speedAdjustment05To": "속도 조절(0.5~2.0)"
+  },
+  "statChannelContext": {
+    "noneLoaded": "로드된 항목 없음"
+  },
+  "voiceReset": {
+    "clear": "초기화",
+    "resetVoiceToDefault": "음성을 기본값으로 초기화"
+  },
+  "voiceSearch": {
+    "searchVoices": "음성 검색",
+    "searchVoices2": "음성 검색..."
+  }
+}

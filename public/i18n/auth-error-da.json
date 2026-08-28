@@ -1,0 +1,41 @@
+{
+  "errorAction": {
+    "tryAgain": "Prøv igen"
+  },
+  "errorCode": {
+    "unknown": "ukendt"
+  },
+  "errorCodeBlock": {
+    "error": "Fejl"
+  },
+  "errorMessageDetails": {
+    "twitchAuthenticationFailed": "Twitch-godkendelse mislykkedes."
+  },
+  "errorReadout": {
+    "authenticationFailed": "Godkendelse mislykkedes"
+  },
+  "errorTitle": {
+    "authenticationFailed": "Godkendelse mislykkedes"
+  },
+  "mainContent": {
+    "requestAccessTtsWildcatChat": "<a class=\"wc-link\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">Anmod om adgang</a> <span>tts.wildcat.chat</span>"
+  },
+  "meta": {
+    "wildcatttsAuthenticationError": "WildcatTTS - Godkendelsesfejl",
+    "wildcatttsAuthenticationErrorAndSign": "WildcatTTS-godkendelsesfejl og gendannelse af login."
+  },
+  "msg": {
+    "authError": {
+      "backToSignIn": "Tilbage til login",
+      "canceledBody": "Der skete ingen ændringer. Du kan logge ind, når du er klar.",
+      "canceledReadout": "Annulleret",
+      "canceledTitle": "WildcatTTS - Login annulleret",
+      "canceledTitleShort": "Login annulleret",
+      "notPermitted": "Adgang ikke tilladt",
+      "requestAccess": "Anmod om adgang",
+      "twitchError": "Twitch returnerede en fejl under godkendelsen.",
+      "unspecified": "Der opstod en uspecificeret fejl.",
+      "unspecifiedCode": "uspecificeret"
+    }
+  }
+}

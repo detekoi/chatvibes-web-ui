@@ -1,0 +1,164 @@
+{
+  "darkModeToggle": {
+    "toggleDarkMode": "Toggle dark mode"
+  },
+  "err": {
+    "banned_add_failed": "Cannot add that word to the banned list.",
+    "banned_remove_failed": "Cannot remove that word from the banned list.",
+    "bot_add_failed": "Cannot activate the bot on your channel. Try again.",
+    "bot_remove_failed": "Cannot deactivate the bot on your channel. Try again.",
+    "bot_status_failed": "Cannot load the bot status.",
+    "channel_data_not_found": "No settings were found for that channel.",
+    "channel_not_authorized": "Your channel is not authorized to use this bot. Contact me for access.",
+    "channel_not_found": "That channel was not found.",
+    "channel_required": "A channel is required.",
+    "channel_tts_disabled": "That channel was not found, or it does not have TTS switched on.",
+    "entry_key_required": "An entry key is required.",
+    "exchange_code_invalid": "That sign-in link is missing or malformed.",
+    "exchange_code_used": "That sign-in link has already been used or has expired. Sign in again.",
+    "exchange_failed": "Could not complete sign-in. Try again.",
+    "ignore_add_failed": "Cannot add that user to the ignore list.",
+    "ignore_moderator_imposed": "A channel moderator opted you out of TTS here, so only a moderator can undo it.",
+    "ignore_remove_failed": "Cannot remove that user from the ignore list.",
+    "ignore_update_failed": "Cannot change your opt-out setting.",
+    "key_required": "A setting name is required.",
+    "match_key_invalid": "The word must be 1 to {max} characters of letters, digits, apostrophes or hyphens, and cannot contain a dot.",
+    "network_error": "Cannot reach the server. Check your connection.",
+    "obs_token_fetch_failed": "Cannot load the OBS token.",
+    "obs_token_generate_failed": "Cannot generate a new OBS token.",
+    "obs_token_store_failed": "Cannot save the OBS token. Try again.",
+    "prefs_fetch_failed": "Cannot load your preferences.",
+    "prefs_global_fetch_failed": "Cannot load your global preferences.",
+    "prefs_global_update_failed": "Cannot save your global preferences.",
+    "prefs_invalid_emote_mode": "Emote handling must be read, skip or describe.",
+    "prefs_invalid_emotion": "That is not a valid emotion.",
+    "prefs_invalid_language": "That is not a valid language.",
+    "prefs_invalid_pitch": "That is not a valid pitch.",
+    "prefs_invalid_speed": "That is not a valid speed.",
+    "prefs_invalid_voice": "That is not a valid voice.",
+    "prefs_missing_data": "No changes were sent.",
+    "prefs_update_failed": "Cannot save your preferences.",
+    "pronunciation_limit_reached": "You have reached the limit of {max} custom pronunciations. Remove one first.",
+    "pronunciation_remove_failed": "Cannot remove the pronunciation.",
+    "pronunciation_save_failed": "Cannot save the pronunciation.",
+    "reward_banned_word": "The message contains a banned word: \"{word}\".",
+    "reward_create_failed": "Cannot create the Channel Points reward.",
+    "reward_delete_failed": "Cannot delete the Channel Points reward.",
+    "reward_links_blocked": "Links are not allowed in this reward.",
+    "reward_load_failed": "Cannot load the Channel Points reward.",
+    "reward_message_empty": "The message is empty.",
+    "reward_save_failed": "Cannot save the Channel Points reward.",
+    "reward_test_failed": "Cannot test the Channel Points reward.",
+    "reward_twitch_error": "Twitch rejected the reward change.",
+    "reward_validation_failed": "That message is not allowed.",
+    "say_contains_link": "The pronunciation cannot contain a link.",
+    "say_empty": "The pronunciation cannot be empty.",
+    "say_must_be_text": "The pronunciation must be text.",
+    "say_too_long": "The pronunciation must be {max} characters or fewer.",
+    "server_misconfigured": "The server is misconfigured.",
+    "setting_invalid": "That is not a valid value for {key}.",
+    "setting_update_failed": "Cannot update the TTS setting.",
+    "settings_fetch_failed": "Cannot load TTS settings.",
+    "shortlink_failed": "Cannot create the short link.",
+    "storage_unavailable": "Storage is unavailable.",
+    "tts_generation_failed": "Speech generation failed: {reason}",
+    "tts_no_audio": "The speech provider returned no audio.",
+    "tts_not_configured": "No speech provider is configured.",
+    "tts_provider_failed": "The speech provider could not generate audio.",
+    "tts_test_failed": "The speech test failed.",
+    "tts_text_required": "Enter some text to test.",
+    "twitch_reauth_required": "Your Twitch sign-in has expired. Reconnect your account.",
+    "twitch_user_not_found": "No Twitch account named \"{username}\" exists.",
+    "url_required": "A URL is required.",
+    "username_invalid": "That username is not valid.",
+    "username_required": "A username is required.",
+    "voice_access_denied": "The voice \"{voice}\" needs special access. Try a different voice.",
+    "voice_invalid": "The voice \"{voice}\" is not available. Check the voice and try again.",
+    "voice_lookup_failed": "Cannot look up that user’s voice.",
+    "word_invalid": "That word or phrase is not valid.",
+    "word_required": "A word or phrase is required."
+  },
+  "logoutLink": {
+    "logout": "Logout"
+  },
+  "mainContent": {
+    "documentationTtsWildcatChat": "<a class=\"wc-link\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\">Documentation</a> <span>tts.wildcat.chat</span>"
+  },
+  "msg": {
+    "action": {
+      "close": "Close",
+      "remove": "Remove",
+      "saved": "Saved"
+    },
+    "api": {
+      "authFailed": "Authentication failed. Sign in again.",
+      "notAuthenticated": "You are not signed in.",
+      "requestFailed": "The request failed."
+    },
+    "auth": {
+      "genericUser": "User",
+      "loading": "loading…",
+      "needViewerSignIn": "Verify your Twitch account to access viewer preferences.",
+      "redirecting": "Redirecting to Twitch for authentication…",
+      "required": "Authentication is required.",
+      "signInFailed": "Cannot complete sign-in.",
+      "signInWithTwitch": "Sign in with Twitch",
+      "signedOut": "You are not signed in.",
+      "tokenMissing": "Authentication token is missing. Sign in again."
+    },
+    "emotion": {
+      "angry": "Angry",
+      "auto": "Auto",
+      "disgusted": "Disgusted",
+      "fearful": "Fearful",
+      "happy": "Happy",
+      "neutral": "Neutral",
+      "sad": "Sad",
+      "surprised": "Surprised"
+    },
+    "ignore": {
+      "enterUsername": "Enter a username."
+    },
+    "lang": {
+      "automatic": "Automatic"
+    },
+    "prefs": {
+      "useChannelDefault": "Use channel default"
+    },
+    "preview": {
+      "enterText": "Enter text to test.",
+      "unavailable": "No preview available."
+    },
+    "value": {
+      "off": "Off",
+      "on": "On"
+    },
+    "voice": {
+      "cannotPlay": "Cannot play audio sample.",
+      "generating": "Generating…",
+      "noAudio": "The server returned no audio.",
+      "noneFound": "No voices found.",
+      "preview": "Preview {voice}",
+      "regenerate": "Regenerate",
+      "testFailed": "Test failed: {reason}"
+    }
+  },
+  "page": {
+    "skipToMainContent": "Skip to main content"
+  },
+  "sidebarEngNormVal": {
+    "off": "Off"
+  },
+  "sidebarLanguageVal": {
+    "automatic": "Automatic"
+  },
+  "ui": {
+    "language": "Language"
+  },
+  "voicePreviewHint": {
+    "settingsChangedGenerateANew": "<i><i data-lucide=\"triangle-alert\" class=\"inline-icon\"></i> Settings changed. Generate a new preview.</i>"
+  },
+  "voicePreviewPlayer": {
+    "yourBrowserDoesNotSupport": "Your browser does not support the audio element."
+  }
+}

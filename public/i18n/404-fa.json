@@ -1,0 +1,11 @@
+{
+  "mainContent": {
+    "pageNotFound": "صفحه پیدا نشد",
+    "returnToLogin": "بازگشت به ورود",
+    "thatUrlIsNotPart": "این URL بخشی از این سایت نیست. مطمئن شوید آدرس درست است، یا به صفحه ورود بازگردید."
+  },
+  "meta": {
+    "pageNotFoundOnWildcattts": "صفحه در WildcatTTS پیدا نشد.",
+    "pageNotFoundWildcattts": "صفحه پیدا نشد — WildcatTTS"
+  }
+}

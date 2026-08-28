@@ -1,0 +1,164 @@
+{
+  "darkModeToggle": {
+    "toggleDarkMode": "I-toggle ang dark mode"
+  },
+  "err": {
+    "banned_add_failed": "Hindi maidagdag ang salitang iyon sa banned list.",
+    "banned_remove_failed": "Hindi maalis ang salitang iyon sa banned list.",
+    "bot_add_failed": "Hindi ma-activate ang bot sa iyong channel. Subukang muli.",
+    "bot_remove_failed": "Hindi ma-deactivate ang bot sa iyong channel. Subukang muli.",
+    "bot_status_failed": "Hindi mai-load ang status ng bot.",
+    "channel_data_not_found": "Walang nahanap na mga setting para sa channel na iyon.",
+    "channel_not_authorized": "Hindi awtorisado ang iyong channel na gamitin ang bot na ito. Makipag-ugnayan sa akin para sa access.",
+    "channel_not_found": "Hindi nahanap ang channel na iyon.",
+    "channel_required": "Kailangan ng channel.",
+    "channel_tts_disabled": "Hindi nahanap ang channel na iyon, o hindi naka-on ang TTS nito.",
+    "entry_key_required": "Kailangan ng entry key.",
+    "exchange_code_invalid": "Nawawala o sira ang link sa pag-sign in na iyon.",
+    "exchange_code_used": "Nagamit na o nag-expire na ang link sa pag-sign in na iyon. Mag-sign in muli.",
+    "exchange_failed": "Hindi makumpleto ang pag-sign in. Subukang muli.",
+    "ignore_add_failed": "Hindi maidagdag ang user na iyon sa ignore list.",
+    "ignore_moderator_imposed": "In-opt out ka ng moderator ng channel sa TTS dito, kaya moderator lang ang makakapagbago nito.",
+    "ignore_remove_failed": "Hindi maalis ang user na iyon sa ignore list.",
+    "ignore_update_failed": "Hindi mabago ang iyong opt-out setting.",
+    "key_required": "Kailangan ng pangalan ng setting.",
+    "match_key_invalid": "Dapat ay 1 hanggang {max} character ng mga titik, numero, kudlit, o gitling ang salita, at hindi puwedeng maglaman ng tuldok.",
+    "network_error": "Hindi makakonekta sa server. Suriin ang iyong koneksyon.",
+    "obs_token_fetch_failed": "Hindi mai-load ang OBS token.",
+    "obs_token_generate_failed": "Hindi makagawa ng bagong OBS token.",
+    "obs_token_store_failed": "Hindi mai-save ang OBS token. Subukang muli.",
+    "prefs_fetch_failed": "Hindi mai-load ang iyong mga kagustuhan.",
+    "prefs_global_fetch_failed": "Hindi mai-load ang iyong mga pangkalahatang kagustuhan.",
+    "prefs_global_update_failed": "Hindi mai-save ang iyong mga pangkalahatang kagustuhan.",
+    "prefs_invalid_emote_mode": "Dapat ay read, skip, o describe ang paghawak sa emote.",
+    "prefs_invalid_emotion": "Hindi iyon wastong emosyon.",
+    "prefs_invalid_language": "Hindi iyon wastong wika.",
+    "prefs_invalid_pitch": "Hindi iyon wastong pitch.",
+    "prefs_invalid_speed": "Hindi iyon wastong bilis.",
+    "prefs_invalid_voice": "Hindi iyon wastong voice.",
+    "prefs_missing_data": "Walang ipinadalang pagbabago.",
+    "prefs_update_failed": "Hindi mai-save ang iyong mga kagustuhan.",
+    "pronunciation_limit_reached": "Naabot mo na ang limitasyon na {max} custom na pagbigkas. Mag-alis muna ng isa.",
+    "pronunciation_remove_failed": "Hindi maalis ang pagbigkas.",
+    "pronunciation_save_failed": "Hindi mai-save ang pagbigkas.",
+    "reward_banned_word": "Naglalaman ang mensahe ng ipinagbabawal na salita: \"{word}\".",
+    "reward_create_failed": "Hindi magawa ang Channel Points reward.",
+    "reward_delete_failed": "Hindi mabura ang Channel Points reward.",
+    "reward_links_blocked": "Hindi pinapayagan ang mga link sa reward na ito.",
+    "reward_load_failed": "Hindi mai-load ang Channel Points reward.",
+    "reward_message_empty": "Walang laman ang mensahe.",
+    "reward_save_failed": "Hindi mai-save ang Channel Points reward.",
+    "reward_test_failed": "Hindi ma-test ang Channel Points reward.",
+    "reward_twitch_error": "Tinanggihan ng Twitch ang pagbabago sa reward.",
+    "reward_validation_failed": "Hindi pinapayagan ang mensaheng iyon.",
+    "say_contains_link": "Hindi puwedeng maglaman ng link ang pagbigkas.",
+    "say_empty": "Hindi puwedeng walang laman ang pagbigkas.",
+    "say_must_be_text": "Dapat ay text ang pagbigkas.",
+    "say_too_long": "Dapat ay {max} character o mas kaunti ang pagbigkas.",
+    "server_misconfigured": "Mali ang configuration ng server.",
+    "setting_invalid": "Hindi wastong value para sa {key}.",
+    "setting_update_failed": "Hindi ma-update ang setting ng TTS.",
+    "settings_fetch_failed": "Hindi ma-load ang mga setting ng TTS.",
+    "shortlink_failed": "Hindi magawa ang maikling link.",
+    "storage_unavailable": "Hindi available ang storage.",
+    "tts_generation_failed": "Nabigo ang pagbuo ng speech: {reason}",
+    "tts_no_audio": "Walang ibinalik na audio ang speech provider.",
+    "tts_not_configured": "Walang naka-configure na speech provider.",
+    "tts_provider_failed": "Hindi makabuo ng audio ang speech provider.",
+    "tts_test_failed": "Nabigo ang speech test.",
+    "tts_text_required": "Maglagay ng text para subukan.",
+    "twitch_reauth_required": "Nag-expire na ang iyong Twitch sign-in. Ikonekta muli ang iyong account.",
+    "twitch_user_not_found": "Walang Twitch account na nagngangalang \"{username}\".",
+    "url_required": "Kailangan ng URL.",
+    "username_invalid": "Hindi wasto ang username na iyon.",
+    "username_required": "Kailangan ng username.",
+    "voice_access_denied": "Kailangan ng espesyal na access ang boses na \"{voice}\". Sumubok ng ibang boses.",
+    "voice_invalid": "Hindi available ang boses na \"{voice}\". Suriin ang boses at subukang muli.",
+    "voice_lookup_failed": "Hindi mahanap ang boses ng user na iyon.",
+    "word_invalid": "Hindi wasto ang salita o pariralang iyon.",
+    "word_required": "Kailangan ng salita o parirala."
+  },
+  "logoutLink": {
+    "logout": "Mag-log out"
+  },
+  "mainContent": {
+    "documentationTtsWildcatChat": "<a class=\"wc-link\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\">Dokumentasyon</a> <span>tts.wildcat.chat</span>"
+  },
+  "msg": {
+    "action": {
+      "close": "Isara",
+      "remove": "Alisin",
+      "saved": "Nai-save"
+    },
+    "api": {
+      "authFailed": "Nabigo ang authentication. Mag-sign in muli.",
+      "notAuthenticated": "Hindi ka naka-sign in.",
+      "requestFailed": "Nabigo ang request."
+    },
+    "auth": {
+      "genericUser": "User",
+      "loading": "naglo-load…",
+      "needViewerSignIn": "I-verify ang iyong Twitch account para ma-access ang viewer preferences.",
+      "redirecting": "Nire-redirect sa Twitch para sa authentication…",
+      "required": "Kinakailangan ang authentication.",
+      "signInFailed": "Hindi makumpleto ang pag-sign in.",
+      "signInWithTwitch": "Mag-sign in gamit ang Twitch",
+      "signedOut": "Hindi ka naka-sign in.",
+      "tokenMissing": "Nawawala ang authentication token. Mag-sign in muli."
+    },
+    "emotion": {
+      "angry": "Galit",
+      "auto": "Auto",
+      "disgusted": "Nandidiri",
+      "fearful": "Natatakot",
+      "happy": "Masaya",
+      "neutral": "Neutral",
+      "sad": "Malungkot",
+      "surprised": "Nagulat"
+    },
+    "ignore": {
+      "enterUsername": "Maglagay ng username."
+    },
+    "lang": {
+      "automatic": "Awtomatiko"
+    },
+    "prefs": {
+      "useChannelDefault": "Gamitin ang default ng channel"
+    },
+    "preview": {
+      "enterText": "Maglagay ng text para subukan.",
+      "unavailable": "Walang available na preview."
+    },
+    "value": {
+      "off": "Naka-off",
+      "on": "Naka-on"
+    },
+    "voice": {
+      "cannotPlay": "Hindi ma-play ang audio sample.",
+      "generating": "Bumubuo…",
+      "noAudio": "Walang ibinalik na audio ang server.",
+      "noneFound": "Walang nakitang boses.",
+      "preview": "I-preview ang {voice}",
+      "regenerate": "Bumuo ulit",
+      "testFailed": "Nabigo ang pagsubok: {reason}"
+    }
+  },
+  "page": {
+    "skipToMainContent": "Lumaktaw sa pangunahing nilalaman"
+  },
+  "sidebarEngNormVal": {
+    "off": "Naka-off"
+  },
+  "sidebarLanguageVal": {
+    "automatic": "Awtomatiko"
+  },
+  "ui": {
+    "language": "Wika"
+  },
+  "voicePreviewHint": {
+    "settingsChangedGenerateANew": "<i><i data-lucide=\"triangle-alert\" class=\"inline-icon\"></i> Nagbago ang mga setting. Bumuo ng bagong preview.</i>"
+  },
+  "voicePreviewPlayer": {
+    "yourBrowserDoesNotSupport": "Hindi sinusuportahan ng iyong browser ang audio element."
+  }
+}

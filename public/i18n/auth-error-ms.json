@@ -1,0 +1,41 @@
+{
+  "errorAction": {
+    "tryAgain": "Cuba lagi"
+  },
+  "errorCode": {
+    "unknown": "tidak diketahui"
+  },
+  "errorCodeBlock": {
+    "error": "Ralat"
+  },
+  "errorMessageDetails": {
+    "twitchAuthenticationFailed": "Pengesahan Twitch gagal."
+  },
+  "errorReadout": {
+    "authenticationFailed": "Pengesahan gagal"
+  },
+  "errorTitle": {
+    "authenticationFailed": "Pengesahan gagal"
+  },
+  "mainContent": {
+    "requestAccessTtsWildcatChat": "<a class=\"wc-link\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">Minta akses</a> <span>tts.wildcat.chat</span>"
+  },
+  "meta": {
+    "wildcatttsAuthenticationError": "WildcatTTS - Ralat Pengesahan",
+    "wildcatttsAuthenticationErrorAndSign": "Ralat pengesahan WildcatTTS dan pemulihan log masuk."
+  },
+  "msg": {
+    "authError": {
+      "backToSignIn": "Kembali ke log masuk",
+      "canceledBody": "Tiada perubahan berlaku. Anda boleh log masuk apabila anda bersedia.",
+      "canceledReadout": "Dibatalkan",
+      "canceledTitle": "WildcatTTS - Log masuk dibatalkan",
+      "canceledTitleShort": "Log masuk dibatalkan",
+      "notPermitted": "Akses tidak dibenarkan",
+      "requestAccess": "Minta akses",
+      "twitchError": "Twitch mengembalikan ralat semasa pengesahan.",
+      "unspecified": "Ralat yang tidak ditentukan telah berlaku.",
+      "unspecifiedCode": "tidak ditentukan"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "errorAction": {
+    "tryAgain": "पुनः प्रयास करें"
+  },
+  "errorCode": {
+    "unknown": "अज्ञात"
+  },
+  "errorCodeBlock": {
+    "error": "त्रुटि"
+  },
+  "errorMessageDetails": {
+    "twitchAuthenticationFailed": "Twitch प्रमाणीकरण विफल रहा।"
+  },
+  "errorReadout": {
+    "authenticationFailed": "प्रमाणीकरण विफल रहा"
+  },
+  "errorTitle": {
+    "authenticationFailed": "प्रमाणीकरण विफल रहा"
+  },
+  "mainContent": {
+    "requestAccessTtsWildcatChat": "<a class=\"wc-link\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">एक्सेस का अनुरोध करें</a> <span>tts.wildcat.chat</span>"
+  },
+  "meta": {
+    "wildcatttsAuthenticationError": "WildcatTTS - प्रमाणीकरण त्रुटि",
+    "wildcatttsAuthenticationErrorAndSign": "WildcatTTS प्रमाणीकरण त्रुटि और साइन-इन पुनर्प्राप्ति।"
+  },
+  "msg": {
+    "authError": {
+      "backToSignIn": "साइन इन पर वापस जाएं",
+      "canceledBody": "कोई बदलाव नहीं हुआ। तैयार होने पर आप साइन इन कर सकते हैं।",
+      "canceledReadout": "रद्द किया गया",
+      "canceledTitle": "WildcatTTS - लॉगिन रद्द किया गया",
+      "canceledTitleShort": "लॉगिन रद्द किया गया",
+      "notPermitted": "एक्सेस की अनुमति नहीं है",
+      "requestAccess": "एक्सेस का अनुरोध करें",
+      "twitchError": "प्रमाणीकरण के दौरान Twitch से एक त्रुटि आई।",
+      "unspecified": "एक अनिर्दिष्ट त्रुटि हुई।",
+      "unspecifiedCode": "अनिर्दिष्ट"
+    }
+  }
+}

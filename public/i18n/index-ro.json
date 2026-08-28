@@ -1,0 +1,50 @@
+{
+  "kofiClose": {
+    "closeSupportDialog": "Închide dialogul de susținere"
+  },
+  "kofiModal": {
+    "openInNewTabOn": "<a href=\"https://ko-fi.com/parfaitfair\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"kofi-direct-link\">Deschide într-o filă nouă pe Ko-fi.com</a>"
+  },
+  "kofiOpen": {
+    "supportMe": "Susține-mă"
+  },
+  "kofiTitle": {
+    "supportParfaitfair": "Susține parfaitfair"
+  },
+  "mainContent": {
+    "access": "Acces",
+    "accessIsInviteOnlyUnapproved": "Accesul este doar pe bază de invitație. Canalele neaprobate primesc un mesaj de acces refuzat. <a class=\"wc-link wc-link--underline\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">Solicită acces aici</a>.",
+    "changeTtsSettingsControlBot": "Modifică setările TTS • Controlează răspunsurile botului în chat • Configurează Channel Points • Setează preferințele de voce",
+    "colorTheme": "Temă de culori",
+    "iAmAViewer": "<span class=\"wc-rule-name\">Sunt spectator</span>",
+    "iRunTheChannel": "<span class=\"wc-rule-name\">Gestionez canalul</span>",
+    "setHowYourMessagesSound": "Setează cum sună mesajele tale când TTS le citește în orice canal pe care îl vizitezi.",
+    "textToSpeechForYour": "Text-to-speech pentru canalul tău de Twitch, pentru streameri și spectatori.",
+    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">Doar pe bază de invitație</span>",
+    "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">Gestionare bot text-to-speech</span>"
+  },
+  "meta": {
+    "wildcatttsBotManagement": "Gestionare bot WildcatTTS",
+    "wildcatttsTextToSpeechBot": "Gestionare bot text-to-speech WildcatTTS pentru canale Twitch, streameri și spectatori."
+  },
+  "msg": {
+    "kofi": {
+      "iframeTitle": "Susține parfaitfair pe Ko-fi"
+    }
+  },
+  "page": {
+    "support": "Susținere"
+  },
+  "streamerLoginBtn": {
+    "manageMyChannel": "<i data-lucide=\"mic\" aria-hidden=\"true\"></i>Gestionează-mi canalul"
+  },
+  "themeDarkBtn": {
+    "dark": "Întunecat"
+  },
+  "themeLightBtn": {
+    "light": "Luminos"
+  },
+  "viewerPrefsBtn": {
+    "setMyOwnVoice": "<i data-lucide=\"headphones\" aria-hidden=\"true\"></i>Setează-mi propria voce"
+  }
+}

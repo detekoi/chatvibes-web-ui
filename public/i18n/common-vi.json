@@ -1,0 +1,164 @@
+{
+  "darkModeToggle": {
+    "toggleDarkMode": "Bật/tắt chế độ tối"
+  },
+  "err": {
+    "banned_add_failed": "Không thể thêm từ đó vào danh sách cấm.",
+    "banned_remove_failed": "Không thể xóa từ đó khỏi danh sách cấm.",
+    "bot_add_failed": "Không thể kích hoạt bot trên kênh của bạn. Hãy thử lại.",
+    "bot_remove_failed": "Không thể hủy kích hoạt bot trên kênh của bạn. Hãy thử lại.",
+    "bot_status_failed": "Không thể tải trạng thái bot.",
+    "channel_data_not_found": "Không tìm thấy cài đặt cho kênh đó.",
+    "channel_not_authorized": "Kênh của bạn chưa được cấp quyền dùng bot này. Hãy liên hệ với tôi để nhận quyền truy cập.",
+    "channel_not_found": "Không tìm thấy kênh đó.",
+    "channel_required": "Cần có một kênh.",
+    "channel_tts_disabled": "Không tìm thấy kênh đó hoặc kênh chưa bật TTS.",
+    "entry_key_required": "Cần có khóa mục nhập.",
+    "exchange_code_invalid": "Liên kết đăng nhập bị thiếu hoặc không hợp lệ.",
+    "exchange_code_used": "Liên kết đăng nhập đã được sử dụng hoặc đã hết hạn. Hãy đăng nhập lại.",
+    "exchange_failed": "Không thể hoàn tất đăng nhập. Hãy thử lại.",
+    "ignore_add_failed": "Không thể thêm người dùng đó vào danh sách bỏ qua.",
+    "ignore_moderator_imposed": "Người kiểm duyệt kênh đã tắt đọc TTS cho bạn tại đây, nên chỉ người kiểm duyệt mới có thể hoàn tác.",
+    "ignore_remove_failed": "Không thể xóa người dùng đó khỏi danh sách bỏ qua.",
+    "ignore_update_failed": "Không thể thay đổi cài đặt tắt đọc TTS của bạn.",
+    "key_required": "Cần có tên cài đặt.",
+    "match_key_invalid": "Từ phải dài từ 1 đến {max} ký tự gồm chữ cái, chữ số, dấu nháy đơn hoặc dấu gạch nối và không được chứa dấu chấm.",
+    "network_error": "Không thể kết nối với máy chủ. Hãy kiểm tra kết nối mạng.",
+    "obs_token_fetch_failed": "Không thể tải token OBS.",
+    "obs_token_generate_failed": "Không thể tạo token OBS mới.",
+    "obs_token_store_failed": "Không thể lưu token OBS. Hãy thử lại.",
+    "prefs_fetch_failed": "Không thể tải tùy chọn của bạn.",
+    "prefs_global_fetch_failed": "Không thể tải tùy chọn chung của bạn.",
+    "prefs_global_update_failed": "Không thể lưu tùy chọn chung của bạn.",
+    "prefs_invalid_emote_mode": "Cách xử lý biểu tượng cảm xúc phải là read, skip hoặc describe.",
+    "prefs_invalid_emotion": "Cảm xúc đó không hợp lệ.",
+    "prefs_invalid_language": "Ngôn ngữ đó không hợp lệ.",
+    "prefs_invalid_pitch": "Cao độ đó không hợp lệ.",
+    "prefs_invalid_speed": "Tốc độ đó không hợp lệ.",
+    "prefs_invalid_voice": "Giọng đọc đó không hợp lệ.",
+    "prefs_missing_data": "Chưa có thay đổi nào được gửi.",
+    "prefs_update_failed": "Không thể lưu tùy chọn của bạn.",
+    "pronunciation_limit_reached": "Bạn đã đạt giới hạn {max} cách phát âm tùy chỉnh. Hãy xóa bớt một mục trước.",
+    "pronunciation_remove_failed": "Không thể xóa cách phát âm.",
+    "pronunciation_save_failed": "Không thể lưu cách phát âm.",
+    "reward_banned_word": "Tin nhắn chứa từ bị cấm: \"{word}\".",
+    "reward_create_failed": "Không thể tạo phần thưởng Channel Points.",
+    "reward_delete_failed": "Không thể xóa phần thưởng Channel Points.",
+    "reward_links_blocked": "Không được phép chèn liên kết trong phần thưởng này.",
+    "reward_load_failed": "Không thể tải phần thưởng Channel Points.",
+    "reward_message_empty": "Tin nhắn đang để trống.",
+    "reward_save_failed": "Không thể lưu phần thưởng Channel Points.",
+    "reward_test_failed": "Không thể thử nghiệm phần thưởng Channel Points.",
+    "reward_twitch_error": "Twitch đã từ chối thay đổi phần thưởng.",
+    "reward_validation_failed": "Tin nhắn đó không được phép.",
+    "say_contains_link": "Cách phát âm không được chứa liên kết.",
+    "say_empty": "Cách phát âm không được để trống.",
+    "say_must_be_text": "Cách phát âm phải là văn bản.",
+    "say_too_long": "Cách phát âm phải có từ {max} ký tự trở xuống.",
+    "server_misconfigured": "Máy chủ bị cấu hình sai.",
+    "setting_invalid": "Đó không phải là giá trị hợp lệ cho {key}.",
+    "setting_update_failed": "Không thể cập nhật cài đặt TTS.",
+    "settings_fetch_failed": "Không thể tải cài đặt TTS.",
+    "shortlink_failed": "Không thể tạo liên kết rút gọn.",
+    "storage_unavailable": "Bộ lưu trữ hiện không khả dụng.",
+    "tts_generation_failed": "Tạo giọng nói thất bại: {reason}",
+    "tts_no_audio": "Nhà cung cấp giọng nói không trả về âm thanh.",
+    "tts_not_configured": "Chưa cấu hình nhà cung cấp giọng nói.",
+    "tts_provider_failed": "Nhà cung cấp giọng nói không thể tạo âm thanh.",
+    "tts_test_failed": "Kiểm tra giọng nói thất bại.",
+    "tts_text_required": "Nhập văn bản để thử nghiệm.",
+    "twitch_reauth_required": "Phiên đăng nhập Twitch đã hết hạn. Hãy kết nối lại tài khoản của bạn.",
+    "twitch_user_not_found": "Không có tài khoản Twitch nào tên \"{username}\".",
+    "url_required": "Cần có URL.",
+    "username_invalid": "Tên người dùng không hợp lệ.",
+    "username_required": "Cần có tên người dùng.",
+    "voice_access_denied": "Giọng đọc \"{voice}\" yêu cầu quyền truy cập đặc biệt. Hãy thử giọng khác.",
+    "voice_invalid": "Giọng đọc \"{voice}\" không khả dụng. Hãy kiểm tra lại giọng đọc và thử lại.",
+    "voice_lookup_failed": "Không thể tra cứu giọng đọc của người dùng đó.",
+    "word_invalid": "Từ hoặc cụm từ đó không hợp lệ.",
+    "word_required": "Cần có từ hoặc cụm từ."
+  },
+  "logoutLink": {
+    "logout": "Đăng xuất"
+  },
+  "mainContent": {
+    "documentationTtsWildcatChat": "<a class=\"wc-link\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\">Tài liệu</a> <span>tts.wildcat.chat</span>"
+  },
+  "msg": {
+    "action": {
+      "close": "Đóng",
+      "remove": "Xóa",
+      "saved": "Đã lưu"
+    },
+    "api": {
+      "authFailed": "Xác thực thất bại. Hãy đăng nhập lại.",
+      "notAuthenticated": "Bạn chưa đăng nhập.",
+      "requestFailed": "Yêu cầu thất bại."
+    },
+    "auth": {
+      "genericUser": "Người dùng",
+      "loading": "đang tải…",
+      "needViewerSignIn": "Xác minh tài khoản Twitch để truy cập tùy chọn người xem.",
+      "redirecting": "Đang chuyển hướng sang Twitch để xác thực…",
+      "required": "Yêu cầu xác thực.",
+      "signInFailed": "Không thể hoàn tất đăng nhập.",
+      "signInWithTwitch": "Đăng nhập bằng Twitch",
+      "signedOut": "Bạn chưa đăng nhập.",
+      "tokenMissing": "Thiếu mã xác thực. Hãy đăng nhập lại."
+    },
+    "emotion": {
+      "angry": "Tức giận",
+      "auto": "Tự động",
+      "disgusted": "Ghê tởm",
+      "fearful": "Sợ hãi",
+      "happy": "Vui vẻ",
+      "neutral": "Trung tính",
+      "sad": "Buồn",
+      "surprised": "Ngạc nhiên"
+    },
+    "ignore": {
+      "enterUsername": "Nhập tên người dùng."
+    },
+    "lang": {
+      "automatic": "Tự động"
+    },
+    "prefs": {
+      "useChannelDefault": "Dùng mặc định của kênh"
+    },
+    "preview": {
+      "enterText": "Nhập văn bản để nghe thử.",
+      "unavailable": "Không có bản nghe thử."
+    },
+    "value": {
+      "off": "Tắt",
+      "on": "Bật"
+    },
+    "voice": {
+      "cannotPlay": "Không thể phát mẫu âm thanh.",
+      "generating": "Đang tạo…",
+      "noAudio": "Máy chủ không trả về âm thanh.",
+      "noneFound": "Không tìm thấy giọng nào.",
+      "preview": "Nghe thử {voice}",
+      "regenerate": "Tạo lại",
+      "testFailed": "Kiểm tra thất bại: {reason}"
+    }
+  },
+  "page": {
+    "skipToMainContent": "Chuyển đến nội dung chính"
+  },
+  "sidebarEngNormVal": {
+    "off": "Tắt"
+  },
+  "sidebarLanguageVal": {
+    "automatic": "Tự động"
+  },
+  "ui": {
+    "language": "Ngôn ngữ"
+  },
+  "voicePreviewHint": {
+    "settingsChangedGenerateANew": "<i><i data-lucide=\"triangle-alert\" class=\"inline-icon\"></i> Cài đặt đã thay đổi. Hãy tạo bản nghe thử mới.</i>"
+  },
+  "voicePreviewPlayer": {
+    "yourBrowserDoesNotSupport": "Trình duyệt của bạn không hỗ trợ phần tử âm thanh."
+  }
+}
