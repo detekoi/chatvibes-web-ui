@@ -163,7 +163,6 @@
       "deactivating": "Dini-deactivate ang serbisyo ng TTS…",
       "inactive": "Hindi aktibo",
       "notAuthenticated": "Hindi naka-authenticate",
-      "notAuthorized": "Hindi awtorisado ang channel.",
       "requestAccess": "Humiling ng access dito",
       "statusError": "Error",
       "statusFailed": "Error: {reason}",
@@ -354,8 +353,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Payagan ang bot na sumagot sa mga chat command tulad ng !myvoice",
-    "allowViewersToUseChannel": "Payagan ang mga manonood na gumamit ng Channel Points para sa TTS",
     "allowViewerVoicePreferences": "Payagan ang Mga Kagustuhan sa Boses ng Manonood",
+    "allowViewersToUseChannel": "Payagan ang mga manonood na gumamit ng Channel Points para sa TTS",
     "announceCheers": "I-anunsyo ang mga Cheer",
     "announceEvents": "I-anunsyo ang mga Event",
     "announceEventsSuchAsSubscriptions": "I-anunsyo ang mga event tulad ng mga subscription at raid",
@@ -430,8 +429,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "I-adjust ang pitch para sa default na boses",
     "adjustTheVolumeForThe": "I-adjust ang volume para sa napiling boses. BABALA: Ang mga value na higit sa 1.0 ay maaaring magdulot ng distortion.",
-    "calibratedVoices": "<strong>Mga Na-calibrate na Boses</strong>",
     "calibrateVolumeForSpecificVoices": "I-calibrate ang volume para sa mga partikular na boses. BABALA: Ang mga value na higit sa 1.0 ay maaaring magdulot ng distortion.",
+    "calibratedVoices": "<strong>Mga Na-calibrate na Boses</strong>",
     "controlHowFastTheDefault": "Kontrolin kung gaano kabilis magsalita ang default na boses",
     "defaultEmotion": "<strong>Default na Emosyon</strong>",
     "defaultLanguage": "<strong>Default na Wika</strong>",
@@ -448,8 +447,8 @@
     "setTheEmotionalToneOf": "Itakda ang emosyonal na tono ng default na boses",
     "viewerVoiceLookup": "Paghahanap ng Boses ng Manonood",
     "voiceCalibration": "Voice Calibration",
-    "voicesWithCustomVolumeSettings": "Mga boses na may custom na setting ng volume.",
     "voiceVolume01To": "Volume ng Boses (0.1 hanggang 10):",
+    "voicesWithCustomVolumeSettings": "Mga boses na may custom na setting ng volume.",
     "volumeOverride": "Override sa Volume:"
   },
   "ttsBannedWordInput": {

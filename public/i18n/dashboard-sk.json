@@ -163,7 +163,6 @@
       "deactivating": "Deaktivuje sa služba TTS…",
       "inactive": "Neaktívne",
       "notAuthenticated": "Neoverené",
-      "notAuthorized": "Kanál nie je autorizovaný.",
       "requestAccess": "Požiadať o prístup tu",
       "statusError": "Chyba",
       "statusFailed": "Chyba: {reason}",
@@ -354,8 +353,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Povoliť botovi odpovedať na príkazy v chate, napríklad !myvoice",
-    "allowViewersToUseChannel": "Povoliť divákom používať Channel Points pre TTS",
     "allowViewerVoicePreferences": "Povoliť hlasové preferencie divákov",
+    "allowViewersToUseChannel": "Povoliť divákom používať Channel Points pre TTS",
     "announceCheers": "Ohlasovať Cheers",
     "announceEvents": "Ohlasovať udalosti",
     "announceEventsSuchAsSubscriptions": "Ohlasovať udalosti, ako sú odbery a raidy",
@@ -430,8 +429,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Upraviť výšku tónu predvoleného hlasu",
     "adjustTheVolumeForThe": "Upraviť hlasitosť vybraného hlasu. UPOZORNENIE: Hodnoty vyššie ako 1.0 môžu spôsobiť skreslenie.",
-    "calibratedVoices": "<strong>Nakalibrované hlasy</strong>",
     "calibrateVolumeForSpecificVoices": "Kalibrovať hlasitosť pre konkrétne hlasy. UPOZORNENIE: Hodnoty vyššie ako 1.0 môžu spôsobiť skreslenie.",
+    "calibratedVoices": "<strong>Nakalibrované hlasy</strong>",
     "controlHowFastTheDefault": "Nastavte, ako rýchlo hovorí predvolený hlas",
     "defaultEmotion": "<strong>Predvolená emócia</strong>",
     "defaultLanguage": "<strong>Predvolený jazyk</strong>",
@@ -448,8 +447,8 @@
     "setTheEmotionalToneOf": "Nastavte emocionálny tón predvoleného hlasu",
     "viewerVoiceLookup": "Vyhľadávanie hlasu diváka",
     "voiceCalibration": "Kalibrácia hlasu",
-    "voicesWithCustomVolumeSettings": "Hlasy s vlastným nastavením hlasitosti.",
     "voiceVolume01To": "Hlasitosť hlasu (0,1 až 10):",
+    "voicesWithCustomVolumeSettings": "Hlasy s vlastným nastavením hlasitosti.",
     "volumeOverride": "Prepísanie hlasitosti:"
   },
   "ttsBannedWordInput": {

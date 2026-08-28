@@ -109,8 +109,10 @@
     "emotion": {
       "angry": "Tức giận",
       "auto": "Tự động",
+      "calm": "Bình tĩnh",
       "disgusted": "Ghê tởm",
       "fearful": "Sợ hãi",
+      "fluent": "Lưu loát",
       "happy": "Vui vẻ",
       "neutral": "Trung tính",
       "sad": "Buồn",

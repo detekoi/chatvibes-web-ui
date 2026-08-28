@@ -109,8 +109,10 @@
     "emotion": {
       "angry": "Dühös",
       "auto": "Automatikus",
+      "calm": "Nyugodt",
       "disgusted": "Undorodó",
       "fearful": "Rémült",
+      "fluent": "Folyékony",
       "happy": "Boldog",
       "neutral": "Semleges",
       "sad": "Szomorú",

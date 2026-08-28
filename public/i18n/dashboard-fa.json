@@ -163,7 +163,6 @@
       "deactivating": "در حال غیرفعال‌سازی سرویس TTS…",
       "inactive": "غیرفعال",
       "notAuthenticated": "احراز هویت نشده",
-      "notAuthorized": "کانال مجاز نیست.",
       "requestAccess": "درخواست دسترسی در اینجا",
       "statusError": "خطا",
       "statusFailed": "خطا: {reason}",
@@ -354,8 +353,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "اجازه دادن به بات برای پاسخ به دستورات چت مانند ‎!myvoice",
-    "allowViewersToUseChannel": "اجازه به بینندگان برای استفاده از Channel Points جهت TTS",
     "allowViewerVoicePreferences": "اجازه به اولویت‌های صدای بیننده",
+    "allowViewersToUseChannel": "اجازه به بینندگان برای استفاده از Channel Points جهت TTS",
     "announceCheers": "اعلان Cheerها",
     "announceEvents": "اعلان رویدادها",
     "announceEventsSuchAsSubscriptions": "اعلان رویدادهایی مانند اشتراک‌ها و raidها",
@@ -430,8 +429,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "تنظیم زیروبمی برای صدای پیش‌فرض",
     "adjustTheVolumeForThe": "تنظیم بلندی صدای انتخاب‌شده. احتیاط: مقادیر بیشتر از ۱٫۰ می‌توانند باعث اعوجاج صدا شوند.",
-    "calibratedVoices": "<strong>صداهای کالیبره‌شده</strong>",
     "calibrateVolumeForSpecificVoices": "تنظیم بلندی صدا برای صداهای خاص. احتیاط: مقادیر بیشتر از ۱٫۰ می‌توانند باعث اعوجاج صدا شوند.",
+    "calibratedVoices": "<strong>صداهای کالیبره‌شده</strong>",
     "controlHowFastTheDefault": "کنترل سرعت خواندن صدای پیش‌فرض",
     "defaultEmotion": "<strong>احساس پیش‌فرض</strong>",
     "defaultLanguage": "<strong>زبان پیش‌فرض</strong>",
@@ -448,8 +447,8 @@
     "setTheEmotionalToneOf": "تعیین لحن احساسی صدای پیش‌فرض",
     "viewerVoiceLookup": "جستجوی صدای بیننده",
     "voiceCalibration": "کالیبراسیون صدا",
-    "voicesWithCustomVolumeSettings": "صداهای دارای تنظیمات بلندی صدای سفارشی.",
     "voiceVolume01To": "بلندی صدا (0.1 تا 10):",
+    "voicesWithCustomVolumeSettings": "صداهای دارای تنظیمات بلندی صدای سفارشی.",
     "volumeOverride": "جایگزینی بلندی صدا:"
   },
   "ttsBannedWordInput": {

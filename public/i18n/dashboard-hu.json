@@ -163,7 +163,6 @@
       "deactivating": "TTS-szolgáltatás kikapcsolása…",
       "inactive": "Inaktív",
       "notAuthenticated": "Nincs hitelesítve",
-      "notAuthorized": "A csatorna nincs engedélyezve.",
       "requestAccess": "Hozzáférés kérése itt",
       "statusError": "Hiba",
       "statusFailed": "Hiba: {reason}",
@@ -354,8 +353,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "A bot válaszolhat olyan chatparancsokra, mint a !myvoice",
-    "allowViewersToUseChannel": "Nézők számára a Channel Points használatának engedélyezése TTS-hez",
     "allowViewerVoicePreferences": "Nézői hangbeállítások engedélyezése",
+    "allowViewersToUseChannel": "Nézők számára a Channel Points használatának engedélyezése TTS-hez",
     "announceCheers": "Cheerek bemondása",
     "announceEvents": "Események bemondása",
     "announceEventsSuchAsSubscriptions": "Események (pl. feliratkozások és raidek) bemondása",
@@ -430,8 +429,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Az alapértelmezett hang magasságának beállítása",
     "adjustTheVolumeForThe": "A kiválasztott hang hangerejének beállítása. VIGYÁZAT: Az 1,0-nál nagyobb értékek torzítást okozhatnak.",
-    "calibratedVoices": "<strong>Kalibrált hangok</strong>",
     "calibrateVolumeForSpecificVoices": "Hangerő kalibrálása adott hangokhoz. VIGYÁZAT: Az 1,0-nál nagyobb értékek torzítást okozhatnak.",
+    "calibratedVoices": "<strong>Kalibrált hangok</strong>",
     "controlHowFastTheDefault": "Az alapértelmezett hang beszédsebességének beállítása",
     "defaultEmotion": "<strong>Alapértelmezett érzelem</strong>",
     "defaultLanguage": "<strong>Alapértelmezett nyelv</strong>",
@@ -448,8 +447,8 @@
     "setTheEmotionalToneOf": "Állítsd be az alapértelmezett hang érzelmi tónusát",
     "viewerVoiceLookup": "Nézői hang keresése",
     "voiceCalibration": "Hang kalibrálása",
-    "voicesWithCustomVolumeSettings": "Egyéni hangerő-beállításokkal rendelkező hangok.",
     "voiceVolume01To": "Hang hangereje (0,1 – 10):",
+    "voicesWithCustomVolumeSettings": "Egyéni hangerő-beállításokkal rendelkező hangok.",
     "volumeOverride": "Hangerő felülbírálása:"
   },
   "ttsBannedWordInput": {

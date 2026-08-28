@@ -109,8 +109,10 @@
     "emotion": {
       "angry": "Naštvaný",
       "auto": "Automaticky",
+      "calm": "Klidný",
       "disgusted": "Znechucený",
       "fearful": "Vystrašený",
+      "fluent": "Plynulý",
       "happy": "Šťastný",
       "neutral": "Neutrální",
       "sad": "Smutný",

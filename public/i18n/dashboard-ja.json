@@ -163,7 +163,6 @@
       "deactivating": "TTSサービスを無効化中…",
       "inactive": "無効",
       "notAuthenticated": "未認証",
-      "notAuthorized": "チャンネルが承認されていません。",
       "requestAccess": "ここからアクセスをリクエスト",
       "statusError": "エラー",
       "statusFailed": "エラー: {reason}",
@@ -354,8 +353,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "!myvoiceなどのチャットコマンドへのボットの応答を許可",
-    "allowViewersToUseChannel": "視聴者によるTTSへのChannel Pointsの使用を許可",
     "allowViewerVoicePreferences": "視聴者のボイス設定を許可",
+    "allowViewersToUseChannel": "視聴者によるTTSへのChannel Pointsの使用を許可",
     "announceCheers": "Cheerをアナウンス",
     "announceEvents": "イベントをアナウンス",
     "announceEventsSuchAsSubscriptions": "サブスクやレイドなどのイベントをアナウンス",
@@ -430,8 +429,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "デフォルトボイスのピッチを調整",
     "adjustTheVolumeForThe": "選択したボイスの音量を調整します。注意: 1.0より大きい値にすると音割れの原因になります。",
-    "calibratedVoices": "<strong>調整済みボイス</strong>",
     "calibrateVolumeForSpecificVoices": "特定のボイスの音量を調整します。注意: 1.0より大きい値にすると音割れの原因になります。",
+    "calibratedVoices": "<strong>調整済みボイス</strong>",
     "controlHowFastTheDefault": "デフォルト音声の読み上げ速度を調整",
     "defaultEmotion": "<strong>デフォルトの感情</strong>",
     "defaultLanguage": "<strong>デフォルトの言語</strong>",
@@ -448,8 +447,8 @@
     "setTheEmotionalToneOf": "デフォルト音声の感情トーンを設定",
     "viewerVoiceLookup": "視聴者音声の検索",
     "voiceCalibration": "音声キャリブレーション",
-    "voicesWithCustomVolumeSettings": "音量がカスタム設定されている音声。",
     "voiceVolume01To": "ボイスの音量 (0.1〜10):",
+    "voicesWithCustomVolumeSettings": "音量がカスタム設定されている音声。",
     "volumeOverride": "音量の上書き:"
   },
   "ttsBannedWordInput": {

@@ -109,8 +109,10 @@
     "emotion": {
       "angry": "분노",
       "auto": "자동",
+      "calm": "차분함",
       "disgusted": "혐오",
       "fearful": "두려움",
+      "fluent": "유창함",
       "happy": "기쁨",
       "neutral": "중립",
       "sad": "슬픔",

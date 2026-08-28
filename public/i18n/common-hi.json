@@ -109,8 +109,10 @@
     "emotion": {
       "angry": "गुस्सा",
       "auto": "ऑटो",
+      "calm": "शांत",
       "disgusted": "घृणा",
       "fearful": "भयभीत",
+      "fluent": "धाराप्रवाह",
       "happy": "खुश",
       "neutral": "तटस्थ",
       "sad": "उदास",

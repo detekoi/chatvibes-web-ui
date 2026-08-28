@@ -163,7 +163,6 @@
       "deactivating": "TTS 서비스 비활성화 중…",
       "inactive": "비활성",
       "notAuthenticated": "인증되지 않음",
-      "notAuthorized": "승인되지 않은 채널입니다.",
       "requestAccess": "여기에서 접근 권한 요청",
       "statusError": "오류",
       "statusFailed": "오류: {reason}",
@@ -354,8 +353,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "!myvoice 등 채팅 명령어에 봇이 응답하도록 허용",
-    "allowViewersToUseChannel": "시청자의 TTS에 Channel Points 사용 허용",
     "allowViewerVoicePreferences": "시청자 음성 설정 허용",
+    "allowViewersToUseChannel": "시청자의 TTS에 Channel Points 사용 허용",
     "announceCheers": "비트 후원 알림",
     "announceEvents": "이벤트 알림",
     "announceEventsSuchAsSubscriptions": "구독 및 레이드 등의 이벤트 알림",
@@ -430,8 +429,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "기본 음성의 음높이 조정",
     "adjustTheVolumeForThe": "선택한 음성의 음량을 조정합니다. 주의: 1.0보다 큰 값은 음왜곡을 일으킬 수 있습니다.",
-    "calibratedVoices": "<strong>보정된 음성</strong>",
     "calibrateVolumeForSpecificVoices": "특정 음성의 음량을 보정합니다. 주의: 1.0보다 큰 값은 음왜곡을 일으킬 수 있습니다.",
+    "calibratedVoices": "<strong>보정된 음성</strong>",
     "controlHowFastTheDefault": "기본 음성의 말하기 속도를 조절합니다",
     "defaultEmotion": "<strong>기본 감정</strong>",
     "defaultLanguage": "<strong>기본 언어</strong>",
@@ -448,8 +447,8 @@
     "setTheEmotionalToneOf": "기본 음성의 감정 톤을 설정합니다",
     "viewerVoiceLookup": "시청자 음성 조회",
     "voiceCalibration": "음성 보정",
-    "voicesWithCustomVolumeSettings": "맞춤 음량 설정이 적용된 음성 목록입니다.",
     "voiceVolume01To": "음성 볼륨(0.1 ~ 10):",
+    "voicesWithCustomVolumeSettings": "맞춤 음량 설정이 적용된 음성 목록입니다.",
     "volumeOverride": "볼륨 재지정:"
   },
   "ttsBannedWordInput": {

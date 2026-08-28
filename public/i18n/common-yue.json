@@ -109,8 +109,10 @@
     "emotion": {
       "angry": "憤怒",
       "auto": "自動",
+      "calm": "平靜",
       "disgusted": "厭惡",
       "fearful": "恐懼",
+      "fluent": "流暢",
       "happy": "開心",
       "neutral": "中性",
       "sad": "悲傷",

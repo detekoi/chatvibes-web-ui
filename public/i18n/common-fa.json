@@ -109,8 +109,10 @@
     "emotion": {
       "angry": "عصبانی",
       "auto": "خودکار",
+      "calm": "آرام",
       "disgusted": "منزجر",
       "fearful": "ترسان",
+      "fluent": "روان",
       "happy": "خوشحال",
       "neutral": "خنثی",
       "sad": "غمگین",

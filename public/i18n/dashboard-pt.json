@@ -163,7 +163,6 @@
       "deactivating": "Desativando serviço de TTS…",
       "inactive": "Inativo",
       "notAuthenticated": "Não autenticado",
-      "notAuthorized": "Canal não autorizado.",
       "requestAccess": "Solicite acesso aqui",
       "statusError": "Erro",
       "statusFailed": "Erro: {reason}",
@@ -354,8 +353,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Permitir que o bot responda a comandos do chat como !myvoice",
-    "allowViewersToUseChannel": "Permitir que espectadores usem Channel Points para TTS",
     "allowViewerVoicePreferences": "Permitir preferências de voz dos espectadores",
+    "allowViewersToUseChannel": "Permitir que espectadores usem Channel Points para TTS",
     "announceCheers": "Anunciar Cheers",
     "announceEvents": "Anunciar eventos",
     "announceEventsSuchAsSubscriptions": "Anunciar eventos como inscrições e raids",
@@ -430,8 +429,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Ajustar o tom da voz padrão",
     "adjustTheVolumeForThe": "Ajustar o volume da voz selecionada. ATENÇÃO: valores acima de 1,0 podem causar distorção.",
-    "calibratedVoices": "<strong>Vozes Calibradas</strong>",
     "calibrateVolumeForSpecificVoices": "Calibrar o volume para vozes específicas. ATENÇÃO: valores acima de 1,0 podem causar distorção.",
+    "calibratedVoices": "<strong>Vozes Calibradas</strong>",
     "controlHowFastTheDefault": "Controle a velocidade da voz padrão",
     "defaultEmotion": "<strong>Emoção padrão</strong>",
     "defaultLanguage": "<strong>Idioma padrão</strong>",
@@ -448,8 +447,8 @@
     "setTheEmotionalToneOf": "Defina o tom emocional da voz padrão",
     "viewerVoiceLookup": "Consulta de voz do espectador",
     "voiceCalibration": "Calibração de voz",
-    "voicesWithCustomVolumeSettings": "Vozes com configurações de volume personalizadas.",
     "voiceVolume01To": "Volume da voz (0,1 a 10):",
+    "voicesWithCustomVolumeSettings": "Vozes com configurações de volume personalizadas.",
     "volumeOverride": "Substituição de volume:"
   },
   "ttsBannedWordInput": {

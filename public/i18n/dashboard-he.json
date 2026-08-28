@@ -163,7 +163,6 @@
       "deactivating": "משבית את שירות ה-TTS…",
       "inactive": "לא פעיל",
       "notAuthenticated": "לא מאומת",
-      "notAuthorized": "הערוץ אינו מורשה.",
       "requestAccess": "בקש גישה כאן",
       "statusError": "שגיאה",
       "statusFailed": "שגיאה: {reason}",
@@ -354,8 +353,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "אפשר לבוט להגיב לפקודות בצ'אט כגון !myvoice",
-    "allowViewersToUseChannel": "אפשר לצופים להשתמש ב-Channel Points עבור TTS",
     "allowViewerVoicePreferences": "אפשר העדפות קול לצופים",
+    "allowViewersToUseChannel": "אפשר לצופים להשתמש ב-Channel Points עבור TTS",
     "announceCheers": "הכרזה על Cheers",
     "announceEvents": "הכרזה על אירועים",
     "announceEventsSuchAsSubscriptions": "הכרזה על אירועים כמו מינויים ו-Raids",
@@ -430,8 +429,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "כוונן את גובה הצליל עבור קול ברירת המחדל",
     "adjustTheVolumeForThe": "כוונן את עוצמת השמע עבור הקול שנבחר. זהירות: ערכים מעל 1.0 עלולים לגרום לעיוות.",
-    "calibratedVoices": "<strong>קולות מכוילים</strong>",
     "calibrateVolumeForSpecificVoices": "כיול עוצמת השמע עבור קולות ספציפיים. זהירות: ערכים מעל 1.0 עלולים לגרום לעיוות.",
+    "calibratedVoices": "<strong>קולות מכוילים</strong>",
     "controlHowFastTheDefault": "שליטה במהירות הדיבור של קול ברירת המחדל",
     "defaultEmotion": "<strong>רגש ברירת מחדל</strong>",
     "defaultLanguage": "<strong>שפת ברירת מחדל</strong>",
@@ -448,8 +447,8 @@
     "setTheEmotionalToneOf": "הגדרת הנימה הרגשית של קול ברירת המחדל",
     "viewerVoiceLookup": "חיפוש קול צופה",
     "voiceCalibration": "כיול קול",
-    "voicesWithCustomVolumeSettings": "קולות עם הגדרות עוצמת שמע מותאמות אישית.",
     "voiceVolume01To": "עוצמת קול (0.1 עד 10):",
+    "voicesWithCustomVolumeSettings": "קולות עם הגדרות עוצמת שמע מותאמות אישית.",
     "volumeOverride": "דריסת עוצמת קול:"
   },
   "ttsBannedWordInput": {

@@ -109,8 +109,10 @@
     "emotion": {
       "angry": "כועס",
       "auto": "אוטומטי",
+      "calm": "רגוע",
       "disgusted": "נגעל",
       "fearful": "מפוחד",
+      "fluent": "שוטף",
       "happy": "שמח",
       "neutral": "ניטרלי",
       "sad": "עצוב",

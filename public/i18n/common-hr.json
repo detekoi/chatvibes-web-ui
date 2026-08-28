@@ -109,8 +109,10 @@
     "emotion": {
       "angry": "Ljutito",
       "auto": "Automatski",
+      "calm": "Smireno",
       "disgusted": "Zgađeno",
       "fearful": "Uplašeno",
+      "fluent": "Tečno",
       "happy": "Sretno",
       "neutral": "Neutralno",
       "sad": "Tužno",

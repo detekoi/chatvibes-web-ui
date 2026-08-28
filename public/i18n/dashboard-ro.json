@@ -163,7 +163,6 @@
       "deactivating": "Se dezactivează serviciul TTS…",
       "inactive": "Inactiv",
       "notAuthenticated": "Neautentificat",
-      "notAuthorized": "Canal neautorizat.",
       "requestAccess": "Solicită acces aici",
       "statusError": "Eroare",
       "statusFailed": "Eroare: {reason}",
@@ -354,8 +353,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Permite botului să răspundă la comenzi din chat precum !myvoice",
-    "allowViewersToUseChannel": "Permite spectatorilor să folosească Channel Points pentru TTS",
     "allowViewerVoicePreferences": "Permite preferințele de voce ale spectatorilor",
+    "allowViewersToUseChannel": "Permite spectatorilor să folosească Channel Points pentru TTS",
     "announceCheers": "Anunță cheer-urile",
     "announceEvents": "Anunță evenimente",
     "announceEventsSuchAsSubscriptions": "Anunță evenimente precum abonamente și raiduri",
@@ -430,8 +429,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Ajustează tonalitatea pentru vocea implicită",
     "adjustTheVolumeForThe": "Ajustează volumul pentru vocea selectată. ATENȚIE: Valorile mai mari de 1,0 pot provoca distorsiuni.",
-    "calibratedVoices": "<strong>Voci calibrate</strong>",
     "calibrateVolumeForSpecificVoices": "Calibrează volumul pentru anumite voci. ATENȚIE: Valorile mai mari de 1,0 pot provoca distorsiuni.",
+    "calibratedVoices": "<strong>Voci calibrate</strong>",
     "controlHowFastTheDefault": "Controlează viteza vocii implicite",
     "defaultEmotion": "<strong>Emoție implicită</strong>",
     "defaultLanguage": "<strong>Limbă implicită</strong>",
@@ -448,8 +447,8 @@
     "setTheEmotionalToneOf": "Setează tonul emoțional al vocii implicite",
     "viewerVoiceLookup": "Căutare voce spectator",
     "voiceCalibration": "Calibrare voce",
-    "voicesWithCustomVolumeSettings": "Voci cu setări de volum personalizate.",
     "voiceVolume01To": "Volum voce (0.1 la 10):",
+    "voicesWithCustomVolumeSettings": "Voci cu setări de volum personalizate.",
     "volumeOverride": "Suprascriere volum:"
   },
   "ttsBannedWordInput": {

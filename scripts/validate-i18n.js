@@ -265,11 +265,31 @@ async function main() {
   };
   for (const file of await walkFunctions(functionsDir)) {
     const source = await readFile(file, 'utf8');
-    for (const [, code] of source.matchAll(/apiError\(\s*\w+\s*,\s*\d+\s*,\s*"([^"]+)"/g)) {
+    // The status is `[^,]+`, not `\d+`: one call passes `errorStatus || 500`, and
+    // a literal-only pattern skipped it silently — the check looked complete
+    // while covering 58 of 59 codes.
+    for (const [, code] of source.matchAll(/apiError\(\s*\w+\s*,\s*[^,]+,\s*"([^"]+)"/g)) {
       if (!commonKeys.has(`err.${code}`)) {
         fail(`${file.slice(rootDir.length + 1)}: API code "${code}" has no err.${code} message`);
       }
     }
+  }
+
+  // Every emotion the API accepts needs a label, or the sidebar renders the bare
+  // key. `VALID_EMOTIONS` is synced from the bot's tts-config.json and has grown
+  // before — it gained `calm` and `fluent` after the labels were written, and
+  // nothing noticed until someone set one.
+  try {
+    const ttsConfig = JSON.parse(
+      await readFile(join(rootDir, 'functions', 'src', 'services', 'tts-config.json'), 'utf8'),
+    );
+    for (const emotion of ttsConfig.VALID_EMOTIONS ?? []) {
+      if (!commonKeys.has(`msg.emotion.${emotion}`)) {
+        fail(`VALID_EMOTIONS has "${emotion}" but there is no msg.emotion.${emotion} label`);
+      }
+    }
+  } catch (error) {
+    fail(`cannot read tts-config.json for the emotion check: ${error.message}`);
   }
 
   if (errors.length) {

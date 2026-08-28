@@ -163,7 +163,6 @@
       "deactivating": "S'està desactivant el servei de TTS…",
       "inactive": "Inactiu",
       "notAuthenticated": "No autenticat",
-      "notAuthorized": "Canal no autoritzat.",
       "requestAccess": "Sol·licita accés aquí",
       "statusError": "Error",
       "statusFailed": "Error: {reason}",
@@ -354,8 +353,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Permet que el bot respongui a ordres del xat com ara !myvoice",
-    "allowViewersToUseChannel": "Permet que els espectadors utilitzin Channel Points per al TTS",
     "allowViewerVoicePreferences": "Permet les preferències de veu dels espectadors",
+    "allowViewersToUseChannel": "Permet que els espectadors utilitzin Channel Points per al TTS",
     "announceCheers": "Anuncia els cheers",
     "announceEvents": "Anuncia els esdeveniments",
     "announceEventsSuchAsSubscriptions": "Anuncia esdeveniments com ara subscripcions i raids",
@@ -430,8 +429,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Ajusta el to per a la veu per defecte",
     "adjustTheVolumeForThe": "Ajusta el volum per a la veu seleccionada. ATENCIÓ: Els valors superiors a 1.0 poden causar distorsió.",
-    "calibratedVoices": "<strong>Veus calibrades</strong>",
     "calibrateVolumeForSpecificVoices": "Calibra el volum per a veus específiques. ATENCIÓ: Els valors superiors a 1.0 poden causar distorsió.",
+    "calibratedVoices": "<strong>Veus calibrades</strong>",
     "controlHowFastTheDefault": "Controla la velocitat de la veu predeterminada",
     "defaultEmotion": "<strong>Emoció predeterminada</strong>",
     "defaultLanguage": "<strong>Idioma predeterminat</strong>",
@@ -448,8 +447,8 @@
     "setTheEmotionalToneOf": "Defineix el to emocional de la veu predeterminada",
     "viewerVoiceLookup": "Cerca de veu d'espectador",
     "voiceCalibration": "Calibració de veu",
-    "voicesWithCustomVolumeSettings": "Veus amb ajustos de volum personalitzats.",
     "voiceVolume01To": "Volum de la veu (0.1 a 10):",
+    "voicesWithCustomVolumeSettings": "Veus amb ajustos de volum personalitzats.",
     "volumeOverride": "Sobreescriptura de volum:"
   },
   "ttsBannedWordInput": {

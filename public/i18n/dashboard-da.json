@@ -163,7 +163,6 @@
       "deactivating": "Deaktiverer TTS-tjeneste…",
       "inactive": "Inaktiv",
       "notAuthenticated": "Ikke godkendt",
-      "notAuthorized": "Kanalen er ikke autoriseret.",
       "requestAccess": "Anmod om adgang her",
       "statusError": "Fejl",
       "statusFailed": "Fejl: {reason}",
@@ -354,8 +353,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Tillad botten at svare på chatkommandoer som f.eks. !myvoice",
-    "allowViewersToUseChannel": "Tillad seere at bruge Channel Points til TTS",
     "allowViewerVoicePreferences": "Tillad seernes stemmeindstillinger",
+    "allowViewersToUseChannel": "Tillad seere at bruge Channel Points til TTS",
     "announceCheers": "Annoncer cheers",
     "announceEvents": "Annoncer begivenheder",
     "announceEventsSuchAsSubscriptions": "Annoncer begivenheder som f.eks. abonnementer og raids",
@@ -430,8 +429,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Juster tonehøjden for standardstemmen",
     "adjustTheVolumeForThe": "Juster lydstyrken for den valgte stemme. ADVARSEL: Værdier over 1,0 kan forårsage forvrængning.",
-    "calibratedVoices": "<strong>Kalibrerede stemmer</strong>",
     "calibrateVolumeForSpecificVoices": "Kalibrer lydstyrke for specifikke stemmer. ADVARSEL: Værdier over 1,0 kan forårsage forvrængning.",
+    "calibratedVoices": "<strong>Kalibrerede stemmer</strong>",
     "controlHowFastTheDefault": "Styr, hvor hurtigt standardstemmen taler",
     "defaultEmotion": "<strong>Standardfølelse</strong>",
     "defaultLanguage": "<strong>Standardsprog</strong>",
@@ -448,8 +447,8 @@
     "setTheEmotionalToneOf": "Indstil den følelsesmæssige tone for standardstemmen",
     "viewerVoiceLookup": "Opslag af seerstemme",
     "voiceCalibration": "Stemmekalibrering",
-    "voicesWithCustomVolumeSettings": "Stemmer med tilpassede lydstyrkeindstillinger.",
     "voiceVolume01To": "Stemmelydstyrke (0,1 til 10):",
+    "voicesWithCustomVolumeSettings": "Stemmer med tilpassede lydstyrkeindstillinger.",
     "volumeOverride": "Overstyring af lydstyrke:"
   },
   "ttsBannedWordInput": {

@@ -109,8 +109,10 @@
     "emotion": {
       "angry": "Kızgın",
       "auto": "Otomatik",
+      "calm": "Sakin",
       "disgusted": "İğrenmiş",
       "fearful": "Korkmuş",
+      "fluent": "Akıcı",
       "happy": "Mutlu",
       "neutral": "Nötr",
       "sad": "Üzgün",

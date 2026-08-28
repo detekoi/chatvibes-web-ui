@@ -163,7 +163,6 @@
       "deactivating": "Deactivating TTS service…",
       "inactive": "Inactive",
       "notAuthenticated": "Not authenticated",
-      "notAuthorized": "Channel not authorized.",
       "requestAccess": "Request access here",
       "statusError": "Error",
       "statusFailed": "Error: {reason}",
@@ -354,8 +353,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Allow the bot to respond to chat commands such as !myvoice",
-    "allowViewersToUseChannel": "Allow viewers to use channel points for TTS",
     "allowViewerVoicePreferences": "Allow Viewer Voice Preferences",
+    "allowViewersToUseChannel": "Allow viewers to use channel points for TTS",
     "announceCheers": "Announce Cheers",
     "announceEvents": "Announce Events",
     "announceEventsSuchAsSubscriptions": "Announce events such as subscriptions and raids",
@@ -430,8 +429,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Adjust the pitch for the default voice",
     "adjustTheVolumeForThe": "Adjust the volume for the selected voice. CAUTION: Values greater than 1.0 can cause distortion.",
-    "calibratedVoices": "<strong>Calibrated Voices</strong>",
     "calibrateVolumeForSpecificVoices": "Calibrate volume for specific voices. CAUTION: Values greater than 1.0 can cause distortion.",
+    "calibratedVoices": "<strong>Calibrated Voices</strong>",
     "controlHowFastTheDefault": "Control how fast the default voice speaks",
     "defaultEmotion": "<strong>Default Emotion</strong>",
     "defaultLanguage": "<strong>Default Language</strong>",
@@ -448,8 +447,8 @@
     "setTheEmotionalToneOf": "Set the emotional tone of the default voice",
     "viewerVoiceLookup": "Viewer Voice Lookup",
     "voiceCalibration": "Voice Calibration",
-    "voicesWithCustomVolumeSettings": "Voices with custom volume settings.",
     "voiceVolume01To": "Voice Volume (0.1 to 10):",
+    "voicesWithCustomVolumeSettings": "Voices with custom volume settings.",
     "volumeOverride": "Volume Override:"
   },
   "ttsBannedWordInput": {

@@ -109,8 +109,10 @@
     "emotion": {
       "angry": "Marah",
       "auto": "Auto",
+      "calm": "Tenang",
       "disgusted": "Jijik",
       "fearful": "Takut",
+      "fluent": "Lancar",
       "happy": "Gembira",
       "neutral": "Neutral",
       "sad": "Sedih",

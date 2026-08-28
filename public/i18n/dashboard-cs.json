@@ -163,7 +163,6 @@
       "deactivating": "Deaktivace služby TTS…",
       "inactive": "Neaktivní",
       "notAuthenticated": "Neověřeno",
-      "notAuthorized": "Kanál není autorizován.",
       "requestAccess": "Požádat o přístup zde",
       "statusError": "Chyba",
       "statusFailed": "Chyba: {reason}",
@@ -354,8 +353,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Povolit botovi reagovat na příkazy v chatu, například !myvoice",
-    "allowViewersToUseChannel": "Povolit divákům používat Channel Points pro TTS",
     "allowViewerVoicePreferences": "Povolit předvolby hlasu pro diváky",
+    "allowViewersToUseChannel": "Povolit divákům používat Channel Points pro TTS",
     "announceCheers": "Oznamovat cheers",
     "announceEvents": "Oznamovat události",
     "announceEventsSuchAsSubscriptions": "Oznamovat události, jako jsou předplatná a raidy",
@@ -430,8 +429,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Upravit výšku tónu pro výchozí hlas",
     "adjustTheVolumeForThe": "Upravte hlasitost pro vybraný hlas. POZOR: Hodnoty vyšší než 1.0 mohou způsobit zkreslení.",
-    "calibratedVoices": "<strong>Kalibrované hlasy</strong>",
     "calibrateVolumeForSpecificVoices": "Kalibrace hlasitosti pro konkrétní hlasy. POZOR: Hodnoty vyšší než 1.0 mohou způsobit zkreslení.",
+    "calibratedVoices": "<strong>Kalibrované hlasy</strong>",
     "controlHowFastTheDefault": "Nastavte rychlost mluvení výchozího hlasu",
     "defaultEmotion": "<strong>Výchozí emoce</strong>",
     "defaultLanguage": "<strong>Výchozí jazyk</strong>",
@@ -448,8 +447,8 @@
     "setTheEmotionalToneOf": "Nastavte emoční tón výchozího hlasu",
     "viewerVoiceLookup": "Vyhledání hlasu diváka",
     "voiceCalibration": "Kalibrace hlasu",
-    "voicesWithCustomVolumeSettings": "Hlasy s vlastním nastavením hlasitosti.",
     "voiceVolume01To": "Hlasitost hlasu (0,1 až 10):",
+    "voicesWithCustomVolumeSettings": "Hlasy s vlastním nastavením hlasitosti.",
     "volumeOverride": "Přepsání hlasitosti:"
   },
   "ttsBannedWordInput": {

@@ -163,7 +163,6 @@
       "deactivating": "กำลังปิดใช้งานบริการ TTS…",
       "inactive": "ไม่ได้ใช้งาน",
       "notAuthenticated": "ไม่ได้ยืนยันตัวตน",
-      "notAuthorized": "ช่องไม่ได้รับอนุญาต",
       "requestAccess": "ขอสิทธิ์เข้าถึงที่นี่",
       "statusError": "ข้อผิดพลาด",
       "statusFailed": "ข้อผิดพลาด: {reason}",
@@ -354,8 +353,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "อนุญาตให้บอทตอบสนองต่อคำสั่งแชท เช่น !myvoice",
-    "allowViewersToUseChannel": "อนุญาตให้ผู้ชมใช้ Channel Points สำหรับ TTS",
     "allowViewerVoicePreferences": "อนุญาตการตั้งค่าเสียงของผู้ชม",
+    "allowViewersToUseChannel": "อนุญาตให้ผู้ชมใช้ Channel Points สำหรับ TTS",
     "announceCheers": "ประกาศ Cheers",
     "announceEvents": "ประกาศกิจกรรม",
     "announceEventsSuchAsSubscriptions": "ประกาศกิจกรรม เช่น การสมัครสมาชิกและการ Raid",
@@ -430,8 +429,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "ปรับระดับเสียงสูงต่ำสำหรับเสียงเริ่มต้น",
     "adjustTheVolumeForThe": "ปรับระดับเสียงสำหรับเสียงที่เลือก ข้อควรระวัง: ค่าที่มากกว่า 1.0 อาจทำให้เสียงแตกพร่าได้",
-    "calibratedVoices": "<strong>เสียงที่ปรับเทียบแล้ว</strong>",
     "calibrateVolumeForSpecificVoices": "ปรับเทียบระดับเสียงสำหรับแต่ละเสียง ข้อควรระวัง: ค่าที่มากกว่า 1.0 อาจทำให้เสียงแตกพร่าได้",
+    "calibratedVoices": "<strong>เสียงที่ปรับเทียบแล้ว</strong>",
     "controlHowFastTheDefault": "ควบคุมความเร็วเสียงพูดเริ่มต้น",
     "defaultEmotion": "<strong>อารมณ์เริ่มต้น</strong>",
     "defaultLanguage": "<strong>ภาษาเริ่มต้น</strong>",
@@ -448,8 +447,8 @@
     "setTheEmotionalToneOf": "กำหนดโทนอารมณ์ของเสียงเริ่มต้น",
     "viewerVoiceLookup": "ค้นหาเสียงของผู้ชม",
     "voiceCalibration": "การปรับเทียบระดับเสียง",
-    "voicesWithCustomVolumeSettings": "เสียงที่มีการปรับระดับเสียงแบบกำหนดเอง",
     "voiceVolume01To": "ระดับความดังเสียง (0.1 ถึง 10):",
+    "voicesWithCustomVolumeSettings": "เสียงที่มีการปรับระดับเสียงแบบกำหนดเอง",
     "volumeOverride": "แทนที่ระดับความดัง:"
   },
   "ttsBannedWordInput": {

@@ -163,7 +163,6 @@
       "deactivating": "Dezaktywowanie usługi TTS…",
       "inactive": "Nieaktywna",
       "notAuthenticated": "Nie uwierzytelniono",
-      "notAuthorized": "Kanał nie jest autoryzowany.",
       "requestAccess": "Poproś o dostęp tutaj",
       "statusError": "Błąd",
       "statusFailed": "Błąd: {reason}",
@@ -354,8 +353,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Zezwalaj botowi na odpowiadanie na polecenia czatu, np. !myvoice",
-    "allowViewersToUseChannel": "Zezwalaj widzom na używanie Channel Points do TTS",
     "allowViewerVoicePreferences": "Zezwalaj widzom na wybór głosu",
+    "allowViewersToUseChannel": "Zezwalaj widzom na używanie Channel Points do TTS",
     "announceCheers": "Ogłaszaj cheery",
     "announceEvents": "Ogłaszaj wydarzenia",
     "announceEventsSuchAsSubscriptions": "Ogłaszaj wydarzenia, takie jak subskrypcje i rajdy",
@@ -430,8 +429,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Dostosuj wysokość tonu domyślnego głosu",
     "adjustTheVolumeForThe": "Dostosuj głośność wybranego głosu. UWAGA: Wartości większe niż 1.0 mogą powodować zniekształcenia dźwięku.",
-    "calibratedVoices": "<strong>Skalibrowane głosy</strong>",
     "calibrateVolumeForSpecificVoices": "Skalibruj głośność dla poszczególnych głosów. UWAGA: Wartości większe niż 1.0 mogą powodować zniekształcenia dźwięku.",
+    "calibratedVoices": "<strong>Skalibrowane głosy</strong>",
     "controlHowFastTheDefault": "Dostosuj tempo domyślnego głosu",
     "defaultEmotion": "<strong>Domyślna emocja</strong>",
     "defaultLanguage": "<strong>Domyślny język</strong>",
@@ -448,8 +447,8 @@
     "setTheEmotionalToneOf": "Ustaw ton emocjonalny domyślnego głosu",
     "viewerVoiceLookup": "Wyszukiwanie głosu widza",
     "voiceCalibration": "Kalibracja głosu",
-    "voicesWithCustomVolumeSettings": "Głosy z niestandardowymi ustawieniami głośności.",
     "voiceVolume01To": "Głośność głosu (0,1 do 10):",
+    "voicesWithCustomVolumeSettings": "Głosy z niestandardowymi ustawieniami głośności.",
     "volumeOverride": "Nadpisanie głośności:"
   },
   "ttsBannedWordInput": {

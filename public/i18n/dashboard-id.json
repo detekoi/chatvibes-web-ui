@@ -163,7 +163,6 @@
       "deactivating": "Menonaktifkan layanan TTS…",
       "inactive": "Tidak aktif",
       "notAuthenticated": "Tidak terautentikasi",
-      "notAuthorized": "Saluran tidak diizinkan.",
       "requestAccess": "Minta akses di sini",
       "statusError": "Error",
       "statusFailed": "Error: {reason}",
@@ -354,8 +353,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Izinkan bot merespons perintah chat seperti !myvoice",
-    "allowViewersToUseChannel": "Izinkan penonton menggunakan Channel Points untuk TTS",
     "allowViewerVoicePreferences": "Izinkan Preferensi Suara Penonton",
+    "allowViewersToUseChannel": "Izinkan penonton menggunakan Channel Points untuk TTS",
     "announceCheers": "Umumkan Cheer",
     "announceEvents": "Umumkan Acara",
     "announceEventsSuchAsSubscriptions": "Umumkan acara seperti langganan dan raid",
@@ -430,8 +429,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Sesuaikan titinada (pitch) untuk suara default",
     "adjustTheVolumeForThe": "Sesuaikan volume untuk suara yang dipilih. PERHATIAN: Nilai lebih dari 1.0 dapat menyebabkan distorsi.",
-    "calibratedVoices": "<strong>Suara Terkalibrasi</strong>",
     "calibrateVolumeForSpecificVoices": "Kalibrasi volume untuk suara tertentu. PERHATIAN: Nilai lebih dari 1.0 dapat menyebabkan distorsi.",
+    "calibratedVoices": "<strong>Suara Terkalibrasi</strong>",
     "controlHowFastTheDefault": "Atur kecepatan bicara suara default",
     "defaultEmotion": "<strong>Emosi Default</strong>",
     "defaultLanguage": "<strong>Bahasa Default</strong>",
@@ -448,8 +447,8 @@
     "setTheEmotionalToneOf": "Atur nada emosi suara default",
     "viewerVoiceLookup": "Pencarian Suara Penonton",
     "voiceCalibration": "Kalibrasi Suara",
-    "voicesWithCustomVolumeSettings": "Suara dengan pengaturan volume kustom.",
     "voiceVolume01To": "Volume Suara (0.1 hingga 10):",
+    "voicesWithCustomVolumeSettings": "Suara dengan pengaturan volume kustom.",
     "volumeOverride": "Penggantian Volume:"
   },
   "ttsBannedWordInput": {

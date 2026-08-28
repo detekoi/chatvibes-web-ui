@@ -163,7 +163,6 @@
       "deactivating": "جارٍ تعطيل خدمة TTS…",
       "inactive": "غير نشط",
       "notAuthenticated": "غير مصادق عليه",
-      "notAuthorized": "القناة غير مصرح لها.",
       "requestAccess": "اطلب الوصول من هنا",
       "statusError": "خطأ",
       "statusFailed": "خطأ: {reason}",
@@ -354,8 +353,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "السماح للبوت بالرد على أوامر الدردشة مثل !myvoice",
-    "allowViewersToUseChannel": "السماح للمشاهدين باستخدام Channel Points لـ TTS",
     "allowViewerVoicePreferences": "السماح بتفضيلات صوت المشاهدين",
+    "allowViewersToUseChannel": "السماح للمشاهدين باستخدام Channel Points لـ TTS",
     "announceCheers": "الإعلان عن الـ Cheers",
     "announceEvents": "الإعلان عن الأحداث",
     "announceEventsSuchAsSubscriptions": "الإعلان عن أحداث مثل الاشتراكات و raids",
@@ -430,8 +429,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "ضبط طبقة الصوت للصوت الافتراضي",
     "adjustTheVolumeForThe": "ضبط مستوى الصوت للصوت المحدد. تنبيه: القيم الأكبر من 1.0 قد تؤدي إلى تشويش الصوت.",
-    "calibratedVoices": "<strong>الأصوات المعايرة</strong>",
     "calibrateVolumeForSpecificVoices": "معايرة مستوى الصوت لأصوات معينة. تنبيه: القيم الأكبر من 1.0 قد تؤدي إلى تشويش الصوت.",
+    "calibratedVoices": "<strong>الأصوات المعايرة</strong>",
     "controlHowFastTheDefault": "تحكّم في سرعة تحدث الصوت الافتراضي",
     "defaultEmotion": "<strong>الشعور الافتراضي</strong>",
     "defaultLanguage": "<strong>اللغة الافتراضية</strong>",
@@ -448,8 +447,8 @@
     "setTheEmotionalToneOf": "تحديد النبرة الشعورية للصوت الافتراضي",
     "viewerVoiceLookup": "البحث عن صوت المشاهد",
     "voiceCalibration": "معايرة الصوت",
-    "voicesWithCustomVolumeSettings": "أصوات بإعدادات مخصصة لمستوى الصوت.",
     "voiceVolume01To": "مستوى صوت المتحدث (0.1 إلى 10):",
+    "voicesWithCustomVolumeSettings": "أصوات بإعدادات مخصصة لمستوى الصوت.",
     "volumeOverride": "تجاوز مستوى الصوت:"
   },
   "ttsBannedWordInput": {

@@ -109,8 +109,10 @@
     "emotion": {
       "angry": "Zły",
       "auto": "Auto",
+      "calm": "Spokojny",
       "disgusted": "Zniesmaczony",
       "fearful": "Przestraszony",
+      "fluent": "Płynny",
       "happy": "Radosny",
       "neutral": "Neutralny",
       "sad": "Smutny",

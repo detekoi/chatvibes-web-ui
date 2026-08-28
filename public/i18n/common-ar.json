@@ -109,8 +109,10 @@
     "emotion": {
       "angry": "غاضب",
       "auto": "تلقائي",
+      "calm": "هادئ",
       "disgusted": "مشمئز",
       "fearful": "خائف",
+      "fluent": "سلس",
       "happy": "سعيد",
       "neutral": "محايد",
       "sad": "حزين",

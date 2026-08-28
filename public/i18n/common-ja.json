@@ -109,8 +109,10 @@
     "emotion": {
       "angry": "怒り",
       "auto": "自動",
+      "calm": "穏やか",
       "disgusted": "嫌悪",
       "fearful": "恐怖",
+      "fluent": "流暢",
       "happy": "喜び",
       "neutral": "ニュートラル",
       "sad": "悲しみ",

@@ -109,8 +109,10 @@
     "emotion": {
       "angry": "Boos",
       "auto": "Automatisch",
+      "calm": "Kalm",
       "disgusted": "Walgend",
       "fearful": "Angstig",
+      "fluent": "Vloeiend",
       "happy": "Blij",
       "neutral": "Neutraal",
       "sad": "Verdrietig",

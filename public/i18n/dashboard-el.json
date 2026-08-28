@@ -163,7 +163,6 @@
       "deactivating": "Απενεργοποίηση υπηρεσίας TTS…",
       "inactive": "Ανενεργό",
       "notAuthenticated": "Χωρίς έλεγχο ταυτότητας",
-      "notAuthorized": "Το κανάλι δεν είναι εξουσιοδοτημένο.",
       "requestAccess": "Ζητήστε πρόσβαση εδώ",
       "statusError": "Σφάλμα",
       "statusFailed": "Σφάλμα: {reason}",
@@ -354,8 +353,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Να επιτρέπεται στο bot να απαντά σε εντολές chat όπως !myvoice",
-    "allowViewersToUseChannel": "Να επιτρέπεται στους θεατές να χρησιμοποιούν Channel Points για TTS",
     "allowViewerVoicePreferences": "Αποδοχή προτιμήσεων φωνής θεατών",
+    "allowViewersToUseChannel": "Να επιτρέπεται στους θεατές να χρησιμοποιούν Channel Points για TTS",
     "announceCheers": "Ανακοίνωση Cheers",
     "announceEvents": "Ανακοίνωση συμβάντων",
     "announceEventsSuchAsSubscriptions": "Ανακοίνωση συμβάντων όπως συνδρομές και raids",
@@ -430,8 +429,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Ρύθμιση του τόνου για την προεπιλεγμένη φωνή",
     "adjustTheVolumeForThe": "Ρύθμιση έντασης για την επιλεγμένη φωνή. ΠΡΟΣΟΧΗ: Τιμές άνω του 1.0 μπορεί να προκαλέσουν παραμόρφωση.",
-    "calibratedVoices": "<strong>Βαθμονομημένες φωνές</strong>",
     "calibrateVolumeForSpecificVoices": "Βαθμονόμηση έντασης για συγκεκριμένες φωνές. ΠΡΟΣΟΧΗ: Τιμές άνω του 1.0 μπορεί να προκαλέσουν παραμόρφωση.",
+    "calibratedVoices": "<strong>Βαθμονομημένες φωνές</strong>",
     "controlHowFastTheDefault": "Ρυθμίστε πόσο γρήγορα μιλάει η προεπιλεγμένη φωνή",
     "defaultEmotion": "<strong>Προεπιλεγμένο συναίσθημα</strong>",
     "defaultLanguage": "<strong>Προεπιλεγμένη γλώσσα</strong>",
@@ -448,8 +447,8 @@
     "setTheEmotionalToneOf": "Ορίστε τον συναισθηματικό τόνο της προεπιλεγμένης φωνής",
     "viewerVoiceLookup": "Αναζήτηση φωνής θεατή",
     "voiceCalibration": "Βαθμονόμηση φωνής",
-    "voicesWithCustomVolumeSettings": "Φωνές με προσαρμοσμένες ρυθμίσεις έντασης.",
     "voiceVolume01To": "Ένταση φωνής (0.1 έως 10):",
+    "voicesWithCustomVolumeSettings": "Φωνές με προσαρμοσμένες ρυθμίσεις έντασης.",
     "volumeOverride": "Παράκαμψη έντασης:"
   },
   "ttsBannedWordInput": {

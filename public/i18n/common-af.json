@@ -109,8 +109,10 @@
     "emotion": {
       "angry": "Kwaad",
       "auto": "Outo",
+      "calm": "Kalm",
       "disgusted": "Gevalg",
       "fearful": "Bang",
+      "fluent": "Vlot",
       "happy": "Bly",
       "neutral": "Neutraal",
       "sad": "Hartseer",

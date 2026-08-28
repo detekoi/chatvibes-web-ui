@@ -163,7 +163,6 @@
       "deactivating": "Деактивиране на TTS услугата…",
       "inactive": "Неактивен",
       "notAuthenticated": "Няма удостоверяване",
-      "notAuthorized": "Каналът не е оторизиран.",
       "requestAccess": "Заявете достъп тук",
       "statusError": "Грешка",
       "statusFailed": "Грешка: {reason}",
@@ -354,8 +353,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Позволете на бота да отговаря на команди в чата като например !myvoice",
-    "allowViewersToUseChannel": "Позволете на зрителите да използват Channel Points за TTS",
     "allowViewerVoicePreferences": "Разрешаване на гласови предпочитания на зрителите",
+    "allowViewersToUseChannel": "Позволете на зрителите да използват Channel Points за TTS",
     "announceCheers": "Оповестяване на cheers",
     "announceEvents": "Оповестяване на събития",
     "announceEventsSuchAsSubscriptions": "Оповестяване на събития като абонаменти и рейдове",
@@ -430,8 +429,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Регулиране на височината на гласа по подразбиране",
     "adjustTheVolumeForThe": "Регулирайте силата на звука за избрания глас. ВНИМАНИЕ: Стойности над 1.0 могат да доведат до изкривяване.",
-    "calibratedVoices": "<strong>Калибрирани гласове</strong>",
     "calibrateVolumeForSpecificVoices": "Калибрирайте силата на звука за отделни гласове. ВНИМАНИЕ: Стойности над 1.0 могат да доведат до изкривяване.",
+    "calibratedVoices": "<strong>Калибрирани гласове</strong>",
     "controlHowFastTheDefault": "Управлявайте скоростта на говор на гласа по подразбиране",
     "defaultEmotion": "<strong>Емоция по подразбиране</strong>",
     "defaultLanguage": "<strong>Език по подразбиране</strong>",
@@ -448,8 +447,8 @@
     "setTheEmotionalToneOf": "Задайте емоционалния тон на гласа по подразбиране",
     "viewerVoiceLookup": "Търсене на глас на зрител",
     "voiceCalibration": "Калибриране на гласа",
-    "voicesWithCustomVolumeSettings": "Гласове с персонализирани настройки на силата на звука.",
     "voiceVolume01To": "Сила на гласа (0.1 до 10):",
+    "voicesWithCustomVolumeSettings": "Гласове с персонализирани настройки на силата на звука.",
     "volumeOverride": "Заместване на силата на звука:"
   },
   "ttsBannedWordInput": {

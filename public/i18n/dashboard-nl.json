@@ -163,7 +163,6 @@
       "deactivating": "TTS-service deactiveren…",
       "inactive": "Inactief",
       "notAuthenticated": "Niet geauthenticeerd",
-      "notAuthorized": "Kanaal niet geautoriseerd.",
       "requestAccess": "Vraag hier toegang aan",
       "statusError": "Fout",
       "statusFailed": "Fout: {reason}",
@@ -354,8 +353,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "De bot laten reageren op chatcommando's zoals !myvoice",
-    "allowViewersToUseChannel": "Kijkers toestaan Channel Points te gebruiken voor TTS",
     "allowViewerVoicePreferences": "Stemvoorkeuren van kijkers toestaan",
+    "allowViewersToUseChannel": "Kijkers toestaan Channel Points te gebruiken voor TTS",
     "announceCheers": "Cheers aankondigen",
     "announceEvents": "Gebeurtenissen aankondigen",
     "announceEventsSuchAsSubscriptions": "Gebeurtenissen zoals abonnementen en raids aankondigen",
@@ -430,8 +429,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Pas de toonhoogte aan voor de standaardstem",
     "adjustTheVolumeForThe": "Pas het volume aan voor de geselecteerde stem. LET OP: Waarden hoger dan 1,0 kunnen vervorming veroorzaken.",
-    "calibratedVoices": "<strong>Gekalibreerde stemmen</strong>",
     "calibrateVolumeForSpecificVoices": "Kalibreer het volume voor specifieke stemmen. LET OP: Waarden hoger dan 1,0 kunnen vervorming veroorzaken.",
+    "calibratedVoices": "<strong>Gekalibreerde stemmen</strong>",
     "controlHowFastTheDefault": "Stel in hoe snel de standaardstem spreekt",
     "defaultEmotion": "<strong>Standaardemotie</strong>",
     "defaultLanguage": "<strong>Standaardtaal</strong>",
@@ -448,8 +447,8 @@
     "setTheEmotionalToneOf": "Stel de emotionele toon van de standaardstem in",
     "viewerVoiceLookup": "Kijkersstem opzoeken",
     "voiceCalibration": "Stemkalibratie",
-    "voicesWithCustomVolumeSettings": "Stemmen met aangepaste volume-instellingen.",
     "voiceVolume01To": "Stemvolume (0,1 tot 10):",
+    "voicesWithCustomVolumeSettings": "Stemmen met aangepaste volume-instellingen.",
     "volumeOverride": "Volume overschrijven:"
   },
   "ttsBannedWordInput": {

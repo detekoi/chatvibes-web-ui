@@ -163,7 +163,6 @@
       "deactivating": "Đang hủy kích hoạt dịch vụ TTS…",
       "inactive": "Không hoạt động",
       "notAuthenticated": "Chưa xác thực",
-      "notAuthorized": "Kênh chưa được ủy quyền.",
       "requestAccess": "Yêu cầu quyền truy cập tại đây",
       "statusError": "Lỗi",
       "statusFailed": "Lỗi: {reason}",
@@ -354,8 +353,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Cho phép bot phản hồi các lệnh chat như !myvoice",
-    "allowViewersToUseChannel": "Cho phép người xem dùng Channel Points cho TTS",
     "allowViewerVoicePreferences": "Cho phép tùy chọn giọng của người xem",
+    "allowViewersToUseChannel": "Cho phép người xem dùng Channel Points cho TTS",
     "announceCheers": "Thông báo Cheer",
     "announceEvents": "Thông báo sự kiện",
     "announceEventsSuchAsSubscriptions": "Thông báo các sự kiện như gói đăng ký và raid",
@@ -430,8 +429,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Điều chỉnh cao độ cho giọng đọc mặc định",
     "adjustTheVolumeForThe": "Điều chỉnh âm lượng cho giọng đọc đã chọn. LƯU Ý: Giá trị lớn hơn 1.0 có thể gây méo tiếng.",
-    "calibratedVoices": "<strong>Giọng đọc đã hiệu chỉnh</strong>",
     "calibrateVolumeForSpecificVoices": "Hiệu chỉnh âm lượng cho từng giọng đọc cụ thể. LƯU Ý: Giá trị lớn hơn 1.0 có thể gây méo tiếng.",
+    "calibratedVoices": "<strong>Giọng đọc đã hiệu chỉnh</strong>",
     "controlHowFastTheDefault": "Chỉnh tốc độ đọc của giọng mặc định",
     "defaultEmotion": "<strong>Cảm xúc mặc định</strong>",
     "defaultLanguage": "<strong>Ngôn ngữ mặc định</strong>",
@@ -448,8 +447,8 @@
     "setTheEmotionalToneOf": "Đặt tông cảm xúc cho giọng mặc định",
     "viewerVoiceLookup": "Tra cứu giọng người xem",
     "voiceCalibration": "Hiệu chỉnh giọng đọc",
-    "voicesWithCustomVolumeSettings": "Các giọng có cài đặt âm lượng tùy chỉnh.",
     "voiceVolume01To": "Âm lượng giọng (0.1 đến 10):",
+    "voicesWithCustomVolumeSettings": "Các giọng có cài đặt âm lượng tùy chỉnh.",
     "volumeOverride": "Ghi đè âm lượng:"
   },
   "ttsBannedWordInput": {

@@ -163,7 +163,6 @@
       "deactivating": "Poistetaan TTS-palvelua käytöstä…",
       "inactive": "Ei aktiivinen",
       "notAuthenticated": "Ei todennettu",
-      "notAuthorized": "Kanavaa ei ole valtuutettu.",
       "requestAccess": "Pyydä käyttöoikeutta täältä",
       "statusError": "Virhe",
       "statusFailed": "Virhe: {reason}",
@@ -354,8 +353,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Salli botin vastata chat-komentoihin, kuten !myvoice",
-    "allowViewersToUseChannel": "Salli katsojien käyttää Channel Points -pisteitä TTS:ään",
     "allowViewerVoicePreferences": "Salli katsojien ääniasetukset",
+    "allowViewersToUseChannel": "Salli katsojien käyttää Channel Points -pisteitä TTS:ään",
     "announceCheers": "Ilmoita cheerit",
     "announceEvents": "Ilmoita tapahtumat",
     "announceEventsSuchAsSubscriptions": "Ilmoita tapahtumat, kuten tilaukset ja raidit",
@@ -430,8 +429,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Säädä oletusäänen korkeutta",
     "adjustTheVolumeForThe": "Säädä valitun äänen äänenvoimakkuutta. VAROITUS: Yli 1.0 arvot voivat aiheuttaa säröytymistä.",
-    "calibratedVoices": "<strong>Kalibroidut äänet</strong>",
     "calibrateVolumeForSpecificVoices": "Kalibroi tiettyjen äänten äänenvoimakkuus. VAROITUS: Yli 1.0 arvot voivat aiheuttaa säröytymistä.",
+    "calibratedVoices": "<strong>Kalibroidut äänet</strong>",
     "controlHowFastTheDefault": "Säädä oletusäänen puhenopeutta",
     "defaultEmotion": "<strong>Oletustunnetila</strong>",
     "defaultLanguage": "<strong>Oletuskieli</strong>",
@@ -448,8 +447,8 @@
     "setTheEmotionalToneOf": "Aseta oletusäänen tunnesävy",
     "viewerVoiceLookup": "Katsojan äänen haku",
     "voiceCalibration": "Äänen kalibrointi",
-    "voicesWithCustomVolumeSettings": "Äänet, joilla on mukautettu äänenvoimakkuus.",
     "voiceVolume01To": "Äänenvoimakkuus (0,1–10):",
+    "voicesWithCustomVolumeSettings": "Äänet, joilla on mukautettu äänenvoimakkuus.",
     "volumeOverride": "Äänenvoimakkuuden ohitus:"
   },
   "ttsBannedWordInput": {

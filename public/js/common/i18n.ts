@@ -288,9 +288,17 @@ function applyDocumentLocale(lang: string): void {
 
 async function loadCatalogs(lang: string): Promise<void> {
   const pageId = getCurrentPageId();
-  const [common, page] = await Promise.all([
+  const wantsFallback = lang !== DEFAULT_LANGUAGE;
+
+  // All four in one batch, not two. The English layer was fetched in a second
+  // `Promise.all` after the first resolved, which put an extra serial round trip
+  // in front of first paint for every non-English reader — and the two requests
+  // have no dependency on each other, only on `lang`.
+  const [common, page, commonEn, pageEn] = await Promise.all([
     fetchJson(`i18n/common-${lang}.json`),
     fetchJson(`i18n/${pageId}-${lang}.json`),
+    wantsFallback ? fetchJson(`i18n/common-${DEFAULT_LANGUAGE}.json`) : Promise.resolve(null),
+    wantsFallback ? fetchJson(`i18n/${pageId}-${DEFAULT_LANGUAGE}.json`) : Promise.resolve(null),
   ]);
 
   if (!common && !page && lang !== DEFAULT_LANGUAGE) {
@@ -312,11 +320,7 @@ async function loadCatalogs(lang: string): Promise<void> {
   //
   // The validator makes a committed catalog with a missing key impossible, so
   // this is a backstop for the window between adding a key and translating it.
-  if (lang !== DEFAULT_LANGUAGE) {
-    const [commonEn, pageEn] = await Promise.all([
-      fetchJson(`i18n/common-${DEFAULT_LANGUAGE}.json`),
-      fetchJson(`i18n/${pageId}-${DEFAULT_LANGUAGE}.json`),
-    ]);
+  if (wantsFallback) {
     if (!page) console.error(`i18n: no ${pageId}-${lang}.json, using ${DEFAULT_LANGUAGE}`);
     if (!common) console.error(`i18n: no common-${lang}.json, using ${DEFAULT_LANGUAGE}`);
     fallbackTranslations = mergeCatalogs(commonEn ?? {}, pageEn ?? {});

@@ -163,7 +163,6 @@
       "deactivating": "Деактивація сервісу TTS…",
       "inactive": "Неактивний",
       "notAuthenticated": "Не автентифіковано",
-      "notAuthorized": "Канал не авторизовано.",
       "requestAccess": "Запитати доступ тут",
       "statusError": "Помилка",
       "statusFailed": "Помилка: {reason}",
@@ -354,8 +353,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Дозволити боту відповідати на команди в чаті, як-от !myvoice",
-    "allowViewersToUseChannel": "Дозволити глядачам використовувати Channel Points для TTS",
     "allowViewerVoicePreferences": "Дозволити глядачам вибирати голос",
+    "allowViewersToUseChannel": "Дозволити глядачам використовувати Channel Points для TTS",
     "announceCheers": "Озвучувати Cheers",
     "announceEvents": "Озвучувати події",
     "announceEventsSuchAsSubscriptions": "Озвучувати такі події, як підписки та рейди",
@@ -430,8 +429,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Налаштувати висоту стандартного голосу",
     "adjustTheVolumeForThe": "Налаштуйте гучність вибраного голосу. УВАГА: значення понад 1.0 можуть спричинити спотворення звуку.",
-    "calibratedVoices": "<strong>Калібровані голоси</strong>",
     "calibrateVolumeForSpecificVoices": "Калібруйте гучність для окремих голосів. УВАГА: значення понад 1.0 можуть спричинити спотворення звуку.",
+    "calibratedVoices": "<strong>Калібровані голоси</strong>",
     "controlHowFastTheDefault": "Керуйте швидкістю мовлення типового голосу",
     "defaultEmotion": "<strong>Типова емоція</strong>",
     "defaultLanguage": "<strong>Типова мова</strong>",
@@ -448,8 +447,8 @@
     "setTheEmotionalToneOf": "Установіть емоційний тон типового голосу",
     "viewerVoiceLookup": "Пошук голосу глядача",
     "voiceCalibration": "Калібрування голосу",
-    "voicesWithCustomVolumeSettings": "Голоси з власними налаштуваннями гучності.",
     "voiceVolume01To": "Гучність голосу (0.1 до 10):",
+    "voicesWithCustomVolumeSettings": "Голоси з власними налаштуваннями гучності.",
     "volumeOverride": "Перевизначення гучності:"
   },
   "ttsBannedWordInput": {

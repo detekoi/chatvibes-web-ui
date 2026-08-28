@@ -163,7 +163,6 @@
       "deactivating": "Деактивация службы TTS…",
       "inactive": "Неактивен",
       "notAuthenticated": "Не авторизовано",
-      "notAuthorized": "Канал не авторизован.",
       "requestAccess": "Запросить доступ здесь",
       "statusError": "Ошибка",
       "statusFailed": "Ошибка: {reason}",
@@ -354,8 +353,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Разрешить боту отвечать на команды в чате, такие как !myvoice",
-    "allowViewersToUseChannel": "Разрешить зрителям использовать Channel Points для TTS",
     "allowViewerVoicePreferences": "Разрешить зрителям выбирать голоса",
+    "allowViewersToUseChannel": "Разрешить зрителям использовать Channel Points для TTS",
     "announceCheers": "Озвучивать Cheers",
     "announceEvents": "Озвучивать события",
     "announceEventsSuchAsSubscriptions": "Озвучивать события, такие как подписки и рейды",
@@ -430,8 +429,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Настройка высоты тона для голоса по умолчанию",
     "adjustTheVolumeForThe": "Настройка громкости для выбранного голоса. ВНИМАНИЕ: значения выше 1.0 могут вызывать искажения.",
-    "calibratedVoices": "<strong>Откалиброванные голоса</strong>",
     "calibrateVolumeForSpecificVoices": "Калибровка громкости для отдельных голосов. ВНИМАНИЕ: значения выше 1.0 могут вызывать искажения.",
+    "calibratedVoices": "<strong>Откалиброванные голоса</strong>",
     "controlHowFastTheDefault": "Настройте скорость стандартного голоса",
     "defaultEmotion": "<strong>Эмоция по умолчанию</strong>",
     "defaultLanguage": "<strong>Язык по умолчанию</strong>",
@@ -448,8 +447,8 @@
     "setTheEmotionalToneOf": "Задайте эмоциональный тон голоса по умолчанию",
     "viewerVoiceLookup": "Поиск голоса зрителя",
     "voiceCalibration": "Калибровка голоса",
-    "voicesWithCustomVolumeSettings": "Голоса с индивидуальной настройкой громкости.",
     "voiceVolume01To": "Громкость голоса (от 0.1 до 10):",
+    "voicesWithCustomVolumeSettings": "Голоса с индивидуальной настройкой громкости.",
     "volumeOverride": "Переопределение громкости:"
   },
   "ttsBannedWordInput": {

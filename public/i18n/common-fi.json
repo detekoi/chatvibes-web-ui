@@ -109,8 +109,10 @@
     "emotion": {
       "angry": "Vihainen",
       "auto": "Automaattinen",
+      "calm": "Rauhallinen",
       "disgusted": "Inhostunut",
       "fearful": "Pelokas",
+      "fluent": "Sujuva",
       "happy": "Iloinen",
       "neutral": "Neutraali",
       "sad": "Surullinen",

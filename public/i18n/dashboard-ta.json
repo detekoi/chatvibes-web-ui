@@ -163,7 +163,6 @@
       "deactivating": "TTS சேவை முடக்கப்படுகிறது…",
       "inactive": "செயலில் இல்லை",
       "notAuthenticated": "அங்கீகரிக்கப்படவில்லை",
-      "notAuthorized": "சேனலுக்கு அனுமதி இல்லை.",
       "requestAccess": "அணுகலை இங்கே கோரவும்",
       "statusError": "பிழை",
       "statusFailed": "பிழை: {reason}",
@@ -354,8 +353,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "!myvoice போன்ற அரட்டைக் கட்டளைகளுக்கு பாட் பதிலளிக்க அனுமதிக்கவும்",
-    "allowViewersToUseChannel": "பார்வையாளர்கள் TTS-க்கு Channel Points-ஐப் பயன்படுத்த அனுமதிக்கவும்",
     "allowViewerVoicePreferences": "பார்வையாளரின் குரல் விருப்பங்களை அனுமதி",
+    "allowViewersToUseChannel": "பார்வையாளர்கள் TTS-க்கு Channel Points-ஐப் பயன்படுத்த அனுமதிக்கவும்",
     "announceCheers": "Cheers-களை அறிவிக்க",
     "announceEvents": "நிகழ்வுகளை அறிவிக்க",
     "announceEventsSuchAsSubscriptions": "Subscriptions மற்றும் raids போன்ற நிகழ்வுகளை அறிவிக்க",
@@ -430,8 +429,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "இயல்புநிலைக் குரலுக்கான சுருதியைச் சரிசெய்யவும்",
     "adjustTheVolumeForThe": "தேர்ந்தெடுக்கப்பட்ட குரலுக்கான ஒலியளவைச் சரிசெய்யவும். எச்சரிக்கை: 1.0-ஐ விட அதிகமான மதிப்புகள் சிதைவை ஏற்படுத்தக்கூடும்.",
-    "calibratedVoices": "<strong>அளவீடு செய்யப்பட்ட குரல்கள்</strong>",
     "calibrateVolumeForSpecificVoices": "குறிப்பிட்ட குரல்களுக்கான ஒலியளவை அளவீடு செய்யவும். எச்சரிக்கை: 1.0-ஐ விட அதிகமான மதிப்புகள் சிதைவை ஏற்படுத்தக்கூடும்.",
+    "calibratedVoices": "<strong>அளவீடு செய்யப்பட்ட குரல்கள்</strong>",
     "controlHowFastTheDefault": "இயல்புநிலைக் குரலின் பேசும் வேகத்தைக் கட்டுப்படுத்தவும்",
     "defaultEmotion": "<strong>இயல்புநிலை உணர்ச்சி</strong>",
     "defaultLanguage": "<strong>இயல்புநிலை மொழி</strong>",
@@ -448,8 +447,8 @@
     "setTheEmotionalToneOf": "இயல்புநிலைக் குரலின் உணர்ச்சித் தொனியை அமைக்கவும்",
     "viewerVoiceLookup": "பார்வையாளர் குரல் தேடல்",
     "voiceCalibration": "குரல் அளவுத்திருத்தம்",
-    "voicesWithCustomVolumeSettings": "தனிப்பயன் ஒலி அமைப்புகளைக் கொண்ட குரல்கள்.",
     "voiceVolume01To": "குரல் ஒலியளவு (0.1 முதல் 10 வரை):",
+    "voicesWithCustomVolumeSettings": "தனிப்பயன் ஒலி அமைப்புகளைக் கொண்ட குரல்கள்.",
     "volumeOverride": "ஒலியளவு மேலெழுதீடு:"
   },
   "ttsBannedWordInput": {

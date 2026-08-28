@@ -1,4 +1,4 @@
-import { fetchWithAuth } from '../common/api.js';
+import { ApiError, fetchWithAuth } from '../common/api.js';
 import { showToast } from '../common/ui.js';
 import { apiErrorMessage, t } from '../common/i18n.js';
 
@@ -136,21 +136,23 @@ export function initBotManagement(
         if (data.success) {
           showToast(data.message || t('msg.bot.activated'), 'success');
           updateBotStatusUI(true);
-        } else if (res.status === 403 || data.code === 'channel_not_authorized') {
-          // Keyed on the error code, not on finding a URL inside the prose. The
-          // link is appended as a real element rather than spliced into the
-          // string: the toast body is set with textContent, so the markup this
-          // used to build was displayed to the user as literal angle brackets.
-          const errorText = data.details || apiErrorMessage(data, 'msg.bot.notAuthorized');
-          const contactUrl = data.params?.contactUrl;
-          showToast(errorText, 'error',
-            contactUrl ? { href: contactUrl, text: t('msg.bot.requestAccess') } : undefined);
         } else {
           showToast(apiErrorMessage(data, 'msg.bot.activateFailed'), 'error');
         }
       } catch (error) {
         console.error('Error activating TTS Service:', error);
-        showToast(t('msg.bot.activateFailed'), 'error');
+        // An unapproved channel is the one failure with something to do about
+        // it, and it arrives as a thrown 403 rather than a returned response —
+        // `fetchWithAuth` never returns a non-2xx. This used to be an
+        // `else if (res.status === 403)` beside the success branch, which could
+        // not run, so the streamer who most needed the link never saw it.
+        const body = error instanceof ApiError ? error.body : {};
+        const contactUrl = body.params?.contactUrl;
+        showToast(
+          body.details || apiErrorMessage(body, 'msg.bot.activateFailed'),
+          'error',
+          contactUrl ? { href: contactUrl, text: t('msg.bot.requestAccess') } : undefined,
+        );
       }
     });
   }

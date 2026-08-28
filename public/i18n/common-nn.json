@@ -109,8 +109,10 @@
     "emotion": {
       "angry": "Sint",
       "auto": "Auto",
+      "calm": "Roleg",
       "disgusted": "Fråstøytt",
       "fearful": "Redd",
+      "fluent": "Flytande",
       "happy": "Glad",
       "neutral": "Nøytral",
       "sad": "Trist",

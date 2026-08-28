@@ -109,8 +109,10 @@
     "emotion": {
       "angry": "Galit",
       "auto": "Auto",
+      "calm": "Kalmado",
       "disgusted": "Nandidiri",
       "fearful": "Natatakot",
+      "fluent": "Matatas",
       "happy": "Masaya",
       "neutral": "Neutral",
       "sad": "Malungkot",

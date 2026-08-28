@@ -163,7 +163,6 @@
       "deactivating": "停用緊 TTS 服務…",
       "inactive": "已停用",
       "notAuthenticated": "未驗證",
-      "notAuthorized": "頻道未獲授權。",
       "requestAccess": "喺呢度申請權限",
       "statusError": "錯誤",
       "statusFailed": "錯誤：{reason}",
@@ -354,8 +353,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "允許 Bot 回應聊天室指令（例如 !myvoice）",
-    "allowViewersToUseChannel": "允許觀眾用 Channel Points 使用 TTS",
     "allowViewerVoicePreferences": "允許觀眾自訂語音偏好",
+    "allowViewersToUseChannel": "允許觀眾用 Channel Points 使用 TTS",
     "announceCheers": "宣讀 Cheers",
     "announceEvents": "宣讀活動",
     "announceEventsSuchAsSubscriptions": "宣讀訂閱同 Raid 等活動",
@@ -430,8 +429,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "調整預設語音嘅音調",
     "adjustTheVolumeForThe": "調整所選語音嘅音量。注意：數值大於 1.0 可能會導致破音。",
-    "calibratedVoices": "<strong>已校準語音</strong>",
     "calibrateVolumeForSpecificVoices": "校準特定語音嘅音量。注意：數值大於 1.0 可能會導致破音。",
+    "calibratedVoices": "<strong>已校準語音</strong>",
     "controlHowFastTheDefault": "控制預設聲音嘅說話速度",
     "defaultEmotion": "<strong>預設情緒</strong>",
     "defaultLanguage": "<strong>預設語言</strong>",
@@ -448,8 +447,8 @@
     "setTheEmotionalToneOf": "設定預設聲音嘅情緒語調",
     "viewerVoiceLookup": "觀眾聲音查詢",
     "voiceCalibration": "聲音校準",
-    "voicesWithCustomVolumeSettings": "自訂咗音量嘅聲音。",
     "voiceVolume01To": "語音音量 (0.1 至 10)：",
+    "voicesWithCustomVolumeSettings": "自訂咗音量嘅聲音。",
     "volumeOverride": "覆寫音量："
   },
   "ttsBannedWordInput": {

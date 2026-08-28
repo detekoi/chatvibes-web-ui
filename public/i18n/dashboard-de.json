@@ -163,7 +163,6 @@
       "deactivating": "TTS-Dienst wird deaktiviert…",
       "inactive": "Inaktiv",
       "notAuthenticated": "Nicht authentifiziert",
-      "notAuthorized": "Kanal nicht autorisiert.",
       "requestAccess": "Hier Zugriff anfordern",
       "statusError": "Fehler",
       "statusFailed": "Fehler: {reason}",
@@ -354,8 +353,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Dem Bot erlauben, auf Chat-Befehle wie !myvoice zu antworten",
-    "allowViewersToUseChannel": "Zuschauern erlauben, Channel Points für TTS zu nutzen",
     "allowViewerVoicePreferences": "Stimmenauswahl für Zuschauer erlauben",
+    "allowViewersToUseChannel": "Zuschauern erlauben, Channel Points für TTS zu nutzen",
     "announceCheers": "Cheers ankündigen",
     "announceEvents": "Events ankündigen",
     "announceEventsSuchAsSubscriptions": "Events wie Abonnements und Raids ankündigen",
@@ -430,8 +429,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Tonhöhe für die Standardstimme anpassen",
     "adjustTheVolumeForThe": "Lautstärke für die ausgewählte Stimme anpassen. ACHTUNG: Werte über 1,0 können zu Verzerrungen führen.",
-    "calibratedVoices": "<strong>Kalibrierte Stimmen</strong>",
     "calibrateVolumeForSpecificVoices": "Lautstärke für bestimmte Stimmen kalibrieren. ACHTUNG: Werte über 1,0 können zu Verzerrungen führen.",
+    "calibratedVoices": "<strong>Kalibrierte Stimmen</strong>",
     "controlHowFastTheDefault": "Steuere, wie schnell die Standardstimme spricht",
     "defaultEmotion": "<strong>Standard-Emotion</strong>",
     "defaultLanguage": "<strong>Standardsprache</strong>",
@@ -448,8 +447,8 @@
     "setTheEmotionalToneOf": "Emotionalen Ton der Standardstimme festlegen",
     "viewerVoiceLookup": "Zuschauerstimmen-Suche",
     "voiceCalibration": "Stimmen-Kalibrierung",
-    "voicesWithCustomVolumeSettings": "Stimmen mit benutzerdefinierter Lautstärke.",
     "voiceVolume01To": "Stimmlautstärke (0,1 bis 10):",
+    "voicesWithCustomVolumeSettings": "Stimmen mit benutzerdefinierter Lautstärke.",
     "volumeOverride": "Lautstärke-Überschreibung:"
   },
   "ttsBannedWordInput": {

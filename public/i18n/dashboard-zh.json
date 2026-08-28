@@ -163,7 +163,6 @@
       "deactivating": "正在停用 TTS 服务…",
       "inactive": "未激活",
       "notAuthenticated": "未认证",
-      "notAuthorized": "频道未获得授权。",
       "requestAccess": "在此申请访问权限",
       "statusError": "错误",
       "statusFailed": "错误：{reason}",
@@ -354,8 +353,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "允许机器人响应聊天命令（如 !myvoice）",
-    "allowViewersToUseChannel": "允许观众使用 Channel Points 触发 TTS",
     "allowViewerVoicePreferences": "允许观众偏好语音",
+    "allowViewersToUseChannel": "允许观众使用 Channel Points 触发 TTS",
     "announceCheers": "播报 Cheers",
     "announceEvents": "播报事件",
     "announceEventsSuchAsSubscriptions": "播报订阅和 raid 等事件",
@@ -430,8 +429,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "调整默认语音的音调",
     "adjustTheVolumeForThe": "调整所选语音的音量。注意：大于 1.0 的值可能导致失真。",
-    "calibratedVoices": "<strong>已校准语音</strong>",
     "calibrateVolumeForSpecificVoices": "校准特定语音的音量。注意：大于 1.0 的值可能导致失真。",
+    "calibratedVoices": "<strong>已校准语音</strong>",
     "controlHowFastTheDefault": "控制默认语音的语速",
     "defaultEmotion": "<strong>默认情绪</strong>",
     "defaultLanguage": "<strong>默认语言</strong>",
@@ -448,8 +447,8 @@
     "setTheEmotionalToneOf": "设置默认语音的情感基调",
     "viewerVoiceLookup": "观众语音查询",
     "voiceCalibration": "语音校准",
-    "voicesWithCustomVolumeSettings": "已自定义音量设置的语音。",
     "voiceVolume01To": "语音音量 (0.1 到 10):",
+    "voicesWithCustomVolumeSettings": "已自定义音量设置的语音。",
     "volumeOverride": "音量覆盖:"
   },
   "ttsBannedWordInput": {

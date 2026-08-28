@@ -163,7 +163,6 @@
       "deactivating": "Desactivando servicio TTS…",
       "inactive": "Inactivo",
       "notAuthenticated": "No autenticado",
-      "notAuthorized": "Canal no autorizado.",
       "requestAccess": "Solicita acceso aquí",
       "statusError": "Error",
       "statusFailed": "Error: {reason}",
@@ -354,8 +353,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Permite que el bot responda a comandos del chat como !myvoice",
-    "allowViewersToUseChannel": "Permitir a los espectadores usar Channel Points para el TTS",
     "allowViewerVoicePreferences": "Permitir preferencias de voz de espectadores",
+    "allowViewersToUseChannel": "Permitir a los espectadores usar Channel Points para el TTS",
     "announceCheers": "Anunciar cheers",
     "announceEvents": "Anunciar eventos",
     "announceEventsSuchAsSubscriptions": "Anunciar eventos como suscripciones y raids",
@@ -430,8 +429,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Ajusta el tono de la voz predeterminada",
     "adjustTheVolumeForThe": "Ajusta el volumen de la voz seleccionada. PRECAUCIÓN: Valores superiores a 1.0 pueden causar distorsión.",
-    "calibratedVoices": "<strong>Voces calibradas</strong>",
     "calibrateVolumeForSpecificVoices": "Calibra el volumen para voces específicas. PRECAUCIÓN: Valores superiores a 1.0 pueden causar distorsión.",
+    "calibratedVoices": "<strong>Voces calibradas</strong>",
     "controlHowFastTheDefault": "Controla la velocidad de la voz predeterminada",
     "defaultEmotion": "<strong>Emoción predeterminada</strong>",
     "defaultLanguage": "<strong>Idioma predeterminado</strong>",
@@ -448,8 +447,8 @@
     "setTheEmotionalToneOf": "Define el tono emocional de la voz predeterminada",
     "viewerVoiceLookup": "Búsqueda de voz de espectador",
     "voiceCalibration": "Calibración de voz",
-    "voicesWithCustomVolumeSettings": "Voces con ajustes de volumen personalizados.",
     "voiceVolume01To": "Volumen de voz (0.1 a 10):",
+    "voicesWithCustomVolumeSettings": "Voces con ajustes de volumen personalizados.",
     "volumeOverride": "Anulación de volumen:"
   },
   "ttsBannedWordInput": {

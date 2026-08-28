@@ -163,7 +163,6 @@
       "deactivating": "Deaktiveer TTS-diens…",
       "inactive": "Onaktief",
       "notAuthenticated": "Nie geoutentiseer nie",
-      "notAuthorized": "Kanaal nie gemagtig nie.",
       "requestAccess": "Versoek toegang hier",
       "statusError": "Fout",
       "statusFailed": "Fout: {reason}",
@@ -354,8 +353,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Laat die bot toe om op kletsbevele soos !myvoice te reageer",
-    "allowViewersToUseChannel": "Laat kykers toe om Channel Points vir TTS te gebruik",
     "allowViewerVoicePreferences": "Laat kykerstemvoorkeure toe",
+    "allowViewersToUseChannel": "Laat kykers toe om Channel Points vir TTS te gebruik",
     "announceCheers": "Kondig cheers aan",
     "announceEvents": "Kondig gebeurtenisse aan",
     "announceEventsSuchAsSubscriptions": "Kondig gebeurtenisse soos intekeninge en raids aan",
@@ -430,8 +429,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Pas die toonhoogte vir die verstekstem aan",
     "adjustTheVolumeForThe": "Pas die volume vir die gekose stem aan. VERSIGTIG: Waardes hoër as 1.0 kan vervorming veroorsaak.",
-    "calibratedVoices": "<strong>Gekalibreerde stemme</strong>",
     "calibrateVolumeForSpecificVoices": "Kalibreer volume vir spesifieke stemme. VERSIGTIG: Waardes hoër as 1.0 kan vervorming veroorsaak.",
+    "calibratedVoices": "<strong>Gekalibreerde stemme</strong>",
     "controlHowFastTheDefault": "Beheer hoe vinnig die verstekstem praat",
     "defaultEmotion": "<strong>Verstek-emosie</strong>",
     "defaultLanguage": "<strong>Verstektaal</strong>",
@@ -448,8 +447,8 @@
     "setTheEmotionalToneOf": "Stel die emosionele toon van die verstekstem in",
     "viewerVoiceLookup": "Kykers-stemopsoek",
     "voiceCalibration": "Stemkalibrasie",
-    "voicesWithCustomVolumeSettings": "Stemme met pasgemaakte volume-instellings.",
     "voiceVolume01To": "Stemvolume (0.1 tot 10):",
+    "voicesWithCustomVolumeSettings": "Stemme met pasgemaakte volume-instellings.",
     "volumeOverride": "Volume-oorheersing:"
   },
   "ttsBannedWordInput": {

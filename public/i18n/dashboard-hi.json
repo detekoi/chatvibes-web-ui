@@ -163,7 +163,6 @@
       "deactivating": "TTS सेवा निष्क्रिय की जा रही है…",
       "inactive": "निष्क्रिय",
       "notAuthenticated": "प्रमाणीकृत नहीं है",
-      "notAuthorized": "चैनल अधिकृत नहीं है।",
       "requestAccess": "यहाँ ऐक्सेस का अनुरोध करें",
       "statusError": "त्रुटि",
       "statusFailed": "त्रुटि: {reason}",
@@ -354,8 +353,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "!myvoice जैसे चैट कमांड पर बॉट को जवाब देने की अनुमति दें",
-    "allowViewersToUseChannel": "दर्शकों को TTS के लिए Channel Points का उपयोग करने की अनुमति दें",
     "allowViewerVoicePreferences": "दर्शकों की आवाज़ प्राथमिकताओं की अनुमति दें",
+    "allowViewersToUseChannel": "दर्शकों को TTS के लिए Channel Points का उपयोग करने की अनुमति दें",
     "announceCheers": "Cheers की घोषणा करें",
     "announceEvents": "इवेंट्स की घोषणा करें",
     "announceEventsSuchAsSubscriptions": "सब्सक्रिप्शन और रेड जैसे इवेंट्स की घोषणा करें",
@@ -430,8 +429,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "डिफ़ॉल्ट वॉइस के लिए पिच समायोजित करें",
     "adjustTheVolumeForThe": "चुनी गई वॉइस के लिए वॉल्यूम समायोजित करें। सावधानी: 1.0 से अधिक मान डिस्टॉर्शन पैदा कर सकते हैं।",
-    "calibratedVoices": "<strong>कैलिब्रेट की गई आवाज़ें</strong>",
     "calibrateVolumeForSpecificVoices": "विशिष्ट आवाज़ों के लिए वॉल्यूम कैलिब्रेट करें। सावधानी: 1.0 से अधिक मान डिस्टॉर्शन पैदा कर सकते हैं।",
+    "calibratedVoices": "<strong>कैलिब्रेट की गई आवाज़ें</strong>",
     "controlHowFastTheDefault": "डिफ़ॉल्ट आवाज़ की बोलने की गति नियंत्रित करें",
     "defaultEmotion": "<strong>डिफ़ॉल्ट भावना</strong>",
     "defaultLanguage": "<strong>डिफ़ॉल्ट भाषा</strong>",
@@ -448,8 +447,8 @@
     "setTheEmotionalToneOf": "डिफ़ॉल्ट आवाज़ का भावनात्मक टोन सेट करें",
     "viewerVoiceLookup": "दर्शक आवाज़ खोज",
     "voiceCalibration": "आवाज़ कैलिब्रेशन",
-    "voicesWithCustomVolumeSettings": "कस्टम वॉल्यूम सेटिंग्स वाली आवाज़ें।",
     "voiceVolume01To": "वॉइस वॉल्यूम (0.1 से 10):",
+    "voicesWithCustomVolumeSettings": "कस्टम वॉल्यूम सेटिंग्स वाली आवाज़ें।",
     "volumeOverride": "वॉल्यूम ओवरराइड:"
   },
   "ttsBannedWordInput": {

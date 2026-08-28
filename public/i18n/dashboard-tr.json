@@ -163,7 +163,6 @@
       "deactivating": "TTS servisi devre dışı bırakılıyor…",
       "inactive": "Devre dışı",
       "notAuthenticated": "Kimlik doğrulanmadı",
-      "notAuthorized": "Kanal yetkilendirilmedi.",
       "requestAccess": "Buradan erişim talep edin",
       "statusError": "Hata",
       "statusFailed": "Hata: {reason}",
@@ -354,8 +353,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Botun !myvoice gibi sohbet komutlarına yanıt vermesine izin ver",
-    "allowViewersToUseChannel": "İzleyicilerin TTS için Channel Points kullanmasına izin ver",
     "allowViewerVoicePreferences": "İzleyici Ses Tercihlerine İzin Ver",
+    "allowViewersToUseChannel": "İzleyicilerin TTS için Channel Points kullanmasına izin ver",
     "announceCheers": "Cheer'ları Duyur",
     "announceEvents": "Etkinlikleri Duyur",
     "announceEventsSuchAsSubscriptions": "Abonelikler ve baskınlar gibi etkinlikleri duyur",
@@ -430,8 +429,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Varsayılan sesin tonunu ayarlayın",
     "adjustTheVolumeForThe": "Seçilen sesin düzeyini ayarlayın. DİKKAT: 1.0'dan büyük değerler seste bozulmaya neden olabilir.",
-    "calibratedVoices": "<strong>Kalibre Edilmiş Sesler</strong>",
     "calibrateVolumeForSpecificVoices": "Belirli seslerin düzeyini kalibre edin. DİKKAT: 1.0'dan büyük değerler seste bozulmaya neden olabilir.",
+    "calibratedVoices": "<strong>Kalibre Edilmiş Sesler</strong>",
     "controlHowFastTheDefault": "Varsayılan sesin konuşma hızını kontrol edin",
     "defaultEmotion": "<strong>Varsayılan Duygu</strong>",
     "defaultLanguage": "<strong>Varsayılan Dil</strong>",
@@ -448,8 +447,8 @@
     "setTheEmotionalToneOf": "Varsayılan sesin duygu tonunu ayarlayın",
     "viewerVoiceLookup": "İzleyici Sesi Arama",
     "voiceCalibration": "Ses Kalibrasyonu",
-    "voicesWithCustomVolumeSettings": "Özel ses düzeyi ayarları olan sesler.",
     "voiceVolume01To": "Ses Düzeyi (0.1 ila 10):",
+    "voicesWithCustomVolumeSettings": "Özel ses düzeyi ayarları olan sesler.",
     "volumeOverride": "Ses Düzeyi Geçersiz Kılma:"
   },
   "ttsBannedWordInput": {

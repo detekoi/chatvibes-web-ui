@@ -163,7 +163,6 @@
       "deactivating": "Inaktiverar TTS-tjänsten…",
       "inactive": "Inaktiv",
       "notAuthenticated": "Inte autentiserad",
-      "notAuthorized": "Kanalen är inte auktoriserad.",
       "requestAccess": "Begär åtkomst här",
       "statusError": "Fel",
       "statusFailed": "Fel: {reason}",
@@ -354,8 +353,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Tillåt boten att svara på chattkommandon som !myvoice",
-    "allowViewersToUseChannel": "Tillåt tittare att använda Channel Points för TTS",
     "allowViewerVoicePreferences": "Tillåt tittarnas röstinställningar",
+    "allowViewersToUseChannel": "Tillåt tittare att använda Channel Points för TTS",
     "announceCheers": "Avisera cheers",
     "announceEvents": "Avisera händelser",
     "announceEventsSuchAsSubscriptions": "Avisera händelser som prenumerationer och raids",
@@ -430,8 +429,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Justera tonhöjden för standardrösten",
     "adjustTheVolumeForThe": "Justera volymen för den valda rösten. VARNING: Värden över 1,0 kan orsaka distorsion.",
-    "calibratedVoices": "<strong>Kalibrerade röster</strong>",
     "calibrateVolumeForSpecificVoices": "Kalibrera volymen för specifika röster. VARNING: Värden över 1,0 kan orsaka distorsion.",
+    "calibratedVoices": "<strong>Kalibrerade röster</strong>",
     "controlHowFastTheDefault": "Ställ in hur snabbt standardrösten talar",
     "defaultEmotion": "<strong>Standardkänsla</strong>",
     "defaultLanguage": "<strong>Standardspråk</strong>",
@@ -448,8 +447,8 @@
     "setTheEmotionalToneOf": "Ställ in standardröstens känsla",
     "viewerVoiceLookup": "Sök tittarröst",
     "voiceCalibration": "Röstkalibrering",
-    "voicesWithCustomVolumeSettings": "Röster med anpassade volyminställningar.",
     "voiceVolume01To": "Röstvolym (0,1 till 10):",
+    "voicesWithCustomVolumeSettings": "Röster med anpassade volyminställningar.",
     "volumeOverride": "Åsidosätt volym:"
   },
   "ttsBannedWordInput": {

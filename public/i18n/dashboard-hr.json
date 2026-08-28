@@ -163,7 +163,6 @@
       "deactivating": "Deaktivacija TTS usluge…",
       "inactive": "Neaktivno",
       "notAuthenticated": "Nema autentifikacije",
-      "notAuthorized": "Kanal nije autoriziran.",
       "requestAccess": "Zatraži pristup ovdje",
       "statusError": "Pogreška",
       "statusFailed": "Pogreška: {reason}",
@@ -354,8 +353,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Dopusti botu da odgovara na naredbe u chatu poput !myvoice",
-    "allowViewersToUseChannel": "Dopusti gledateljima korištenje Channel Points za TTS",
     "allowViewerVoicePreferences": "Dopusti postavke glasa za gledatelje",
+    "allowViewersToUseChannel": "Dopusti gledateljima korištenje Channel Points za TTS",
     "announceCheers": "Najavi Cheerove",
     "announceEvents": "Najavi događaje",
     "announceEventsSuchAsSubscriptions": "Najavi događaje poput pretplata i raidova",
@@ -430,8 +429,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Prilagodi visinu tona zadanog glasa",
     "adjustTheVolumeForThe": "Prilagodi glasnoću za odabrani glas. OPREZ: Vrijednosti veće od 1.0 mogu uzrokovati izobličenje zvuka.",
-    "calibratedVoices": "<strong>Kalibrirani glasovi</strong>",
     "calibrateVolumeForSpecificVoices": "Kalibriraj glasnoću za pojedine glasove. OPREZ: Vrijednosti veće od 1.0 mogu uzrokovati izobličenje zvuka.",
+    "calibratedVoices": "<strong>Kalibrirani glasovi</strong>",
     "controlHowFastTheDefault": "Prilagodi brzinu zadanog glasa",
     "defaultEmotion": "<strong>Zadana emocija</strong>",
     "defaultLanguage": "<strong>Zadani jezik</strong>",
@@ -448,8 +447,8 @@
     "setTheEmotionalToneOf": "Postavi emocionalni ton zadanog glasa",
     "viewerVoiceLookup": "Pretraživanje glasa gledatelja",
     "voiceCalibration": "Kalibracija glasa",
-    "voicesWithCustomVolumeSettings": "Glasovi s prilagođenom glasnoćom.",
     "voiceVolume01To": "Glasnoća glasa (0.1 do 10):",
+    "voicesWithCustomVolumeSettings": "Glasovi s prilagođenom glasnoćom.",
     "volumeOverride": "Nadjačavanje glasnoće:"
   },
   "ttsBannedWordInput": {

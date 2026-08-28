@@ -163,7 +163,6 @@
       "deactivating": "Deaktiverer TTS-tenesta…",
       "inactive": "Inaktiv",
       "notAuthenticated": "Ikkje autentisert",
-      "notAuthorized": "Kanalen er ikkje autorisert.",
       "requestAccess": "Be om tilgang her",
       "statusError": "Feil",
       "statusFailed": "Feil: {reason}",
@@ -354,8 +353,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Lat boten svara på chat-kommandoar som !myvoice",
-    "allowViewersToUseChannel": "Lat sjåarar bruka Channel Points for TTS",
     "allowViewerVoicePreferences": "Tillat røystval for sjåarar",
+    "allowViewersToUseChannel": "Lat sjåarar bruka Channel Points for TTS",
     "announceCheers": "Kunngjer cheers",
     "announceEvents": "Kunngjer hendingar",
     "announceEventsSuchAsSubscriptions": "Kunngjer hendingar som abonnement og raids",
@@ -430,8 +429,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Juster tonehøgda for standardrøysta",
     "adjustTheVolumeForThe": "Juster lydstyrken for den valde røysta. ÅTVARING: Verdiar over 1,0 kan føre til forvrenging.",
-    "calibratedVoices": "<strong>Kalibrerte røyster</strong>",
     "calibrateVolumeForSpecificVoices": "Kalibrer lydstyrken for einskilde røyster. ÅTVARING: Verdiar over 1,0 kan føre til forvrenging.",
+    "calibratedVoices": "<strong>Kalibrerte røyster</strong>",
     "controlHowFastTheDefault": "Styr kor fort standardstemma snakkar",
     "defaultEmotion": "<strong>Standardkjensle</strong>",
     "defaultLanguage": "<strong>Standardspråk</strong>",
@@ -448,8 +447,8 @@
     "setTheEmotionalToneOf": "Vel kjensletonen for standardstemma",
     "viewerVoiceLookup": "Søk etter sjåarstemme",
     "voiceCalibration": "Stemmekalibrering",
-    "voicesWithCustomVolumeSettings": "Stemmer med tilpassa voluminnstillingar.",
     "voiceVolume01To": "Stemmevolum (0,1 til 10):",
+    "voicesWithCustomVolumeSettings": "Stemmer med tilpassa voluminnstillingar.",
     "volumeOverride": "Volumoverstyring:"
   },
   "ttsBannedWordInput": {

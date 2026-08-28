@@ -163,7 +163,6 @@
       "deactivating": "Désactivation du service TTS…",
       "inactive": "Inactif",
       "notAuthenticated": "Non authentifié",
-      "notAuthorized": "Chaîne non autorisée.",
       "requestAccess": "Demander l'accès ici",
       "statusError": "Erreur",
       "statusFailed": "Erreur : {reason}",
@@ -354,8 +353,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Autoriser le bot à répondre aux commandes du chat comme !myvoice",
-    "allowViewersToUseChannel": "Autoriser les viewers à utiliser les Channel Points pour le TTS",
     "allowViewerVoicePreferences": "Autoriser les préférences de voix des viewers",
+    "allowViewersToUseChannel": "Autoriser les viewers à utiliser les Channel Points pour le TTS",
     "announceCheers": "Annoncer les cheers",
     "announceEvents": "Annoncer les événements",
     "announceEventsSuchAsSubscriptions": "Annoncer les événements tels que les abonnements et les raids",
@@ -430,8 +429,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Ajuster la tonalité de la voix par défaut",
     "adjustTheVolumeForThe": "Ajuster le volume de la voix sélectionnée. ATTENTION : les valeurs supérieures à 1,0 peuvent provoquer des distorsions.",
-    "calibratedVoices": "<strong>Voix calibrées</strong>",
     "calibrateVolumeForSpecificVoices": "Calibrer le volume de voix spécifiques. ATTENTION : les valeurs supérieures à 1,0 peuvent provoquer des distorsions.",
+    "calibratedVoices": "<strong>Voix calibrées</strong>",
     "controlHowFastTheDefault": "Ajustez la vitesse d'élocution de la voix par défaut",
     "defaultEmotion": "<strong>Émotion par défaut</strong>",
     "defaultLanguage": "<strong>Langue par défaut</strong>",
@@ -448,8 +447,8 @@
     "setTheEmotionalToneOf": "Définissez le ton émotionnel de la voix par défaut",
     "viewerVoiceLookup": "Recherche de voix de spectateur",
     "voiceCalibration": "Calibrage de la voix",
-    "voicesWithCustomVolumeSettings": "Voix avec paramètres de volume personnalisés.",
     "voiceVolume01To": "Volume de la voix (0.1 à 10) :",
+    "voicesWithCustomVolumeSettings": "Voix avec paramètres de volume personnalisés.",
     "volumeOverride": "Remplacement du volume :"
   },
   "ttsBannedWordInput": {

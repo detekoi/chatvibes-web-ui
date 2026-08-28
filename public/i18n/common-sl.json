@@ -109,8 +109,10 @@
     "emotion": {
       "angry": "Jezen",
       "auto": "Samodejno",
+      "calm": "Umirjeno",
       "disgusted": "Zgrožen",
       "fearful": "Prestrašen",
+      "fluent": "Tekoče",
       "happy": "Vesel",
       "neutral": "Nevtralen",
       "sad": "Žalosten",
