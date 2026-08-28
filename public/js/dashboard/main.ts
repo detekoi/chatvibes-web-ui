@@ -8,6 +8,7 @@ import { initChannelPointsModule, ChannelPointsModule } from './channel-points.j
 import { initIgnoreListModule, IgnoreListModule } from './ignore-list.js';
 import { initBannedWordsModule, BannedWordsModule } from './banned-words.js';
 import { initPronunciationsModule, PronunciationsModule } from './pronunciations.js';
+import { initI18n, t } from '../common/i18n.js';
 
 /**
  * Dashboard application state
@@ -41,7 +42,12 @@ interface JwtPayload {
   [key: string]: unknown;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+  // Translate before anything renders. The catalog fetch was started at module
+  // evaluation, so this await is nearly free -- and skipping it would let the
+  // modules below build markup from `t()` against an empty catalog, which
+  // renders bare keys.
+  await initI18n();
   const testMode = new URLSearchParams(window.location.search).has('test');
   const authStatus = document.getElementById('auth-status') as HTMLDivElement | null;
   const loadingOverlay = document.getElementById('loading-overlay') as HTMLDivElement | null;
@@ -109,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (testMode) {
       state.sessionToken = 'TEST_SESSION_TOKEN';
-      state.loggedInUser = { login: 'demostreamer', id: '123456', displayName: 'Demo Streamer' };
+      state.loggedInUser = { login: 'demostreamer', id: '123456', displayName: t('msg.auth.demoStreamer') };
       showDashboard();
       showLoading();
       botModule.updateBotStatusUI(false);
@@ -125,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (state.loggedInUser?.login) {
       showDashboard();
       if (!state.sessionToken) {
-        showToast('Authentication token is missing. Sign in again.', 'error');
+        showToast(t('msg.auth.tokenMissing'), 'error');
         return;
       }
       showLoading();
@@ -162,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
       authStatus.style.display = 'none';
     }
     if (dashboardContent) dashboardContent.style.display = 'flex';
-    if (twitchUsernameEl) twitchUsernameEl.textContent = state.loggedInUser?.displayName || state.loggedInUser?.login || 'loading…';
+    if (twitchUsernameEl) twitchUsernameEl.textContent = state.loggedInUser?.displayName || state.loggedInUser?.login || t('msg.auth.loading');
     if (channelNameStatusEl) channelNameStatusEl.textContent = state.loggedInUser?.login || '';
   }
 
@@ -174,13 +180,13 @@ document.addEventListener('DOMContentLoaded', () => {
       authStatus.style.display = 'block';
 
       const message = document.createElement('p');
-      message.textContent = 'Sign in with your broadcaster account to access streamer settings.';
+      message.textContent = t('msg.auth.needBroadcaster');
       message.style.marginBottom = '1.5rem';
       authStatus.appendChild(message);
 
       const loginButton = document.createElement('button');
       loginButton.className = 'btn btn-primary';
-      loginButton.textContent = 'Sign in with Twitch';
+      loginButton.textContent = t('msg.auth.signInWithTwitch');
       loginButton.onclick = () => redirectToTwitch();
       authStatus.appendChild(loginButton);
     }
@@ -194,13 +200,13 @@ document.addEventListener('DOMContentLoaded', () => {
       authStatus.style.display = 'block';
 
       const message = document.createElement('p');
-      message.textContent = 'Sign in with your Twitch account to access the dashboard.';
+      message.textContent = t('msg.auth.needSignIn');
       message.style.marginBottom = '1.5rem';
       authStatus.appendChild(message);
 
       const loginButton = document.createElement('button');
       loginButton.className = 'btn btn-primary';
-      loginButton.textContent = 'Sign in with Twitch';
+      loginButton.textContent = t('msg.auth.signInWithTwitch');
       loginButton.onclick = () => redirectToTwitch();
       authStatus.appendChild(loginButton);
     }
@@ -210,7 +216,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // navigates. Nothing to fetch, no state for the browser to hold.
   function redirectToTwitch(): void {
     if (!authStatus) return;
-    authStatus.innerHTML = '<p>Redirecting to Twitch for authentication…</p>';
+    const notice = document.createElement('p');
+    notice.textContent = t('msg.auth.redirecting');
+    authStatus.replaceChildren(notice);
     window.location.href = `${apiBaseUrl}/auth/twitch`;
   }
 });

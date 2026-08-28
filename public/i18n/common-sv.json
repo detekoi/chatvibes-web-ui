@@ -1,0 +1,166 @@
+{
+  "darkModeToggle": {
+    "toggleDarkMode": "Växla mörkt läge"
+  },
+  "err": {
+    "banned_add_failed": "Kan inte lägga till det ordet i blockeringslistan.",
+    "banned_remove_failed": "Kan inte ta bort det ordet från blockeringslistan.",
+    "bot_add_failed": "Kan inte aktivera botten på din kanal. Försök igen.",
+    "bot_remove_failed": "Kan inte inaktivera botten på din kanal. Försök igen.",
+    "bot_status_failed": "Kan inte läsa in botstatusen.",
+    "channel_data_not_found": "Inga inställningar hittades för den kanalen.",
+    "channel_not_authorized": "Din kanal har inte behörighet att använda den här botten. Kontakta mig för åtkomst.",
+    "channel_not_found": "Kanalen hittades inte.",
+    "channel_required": "En kanal krävs.",
+    "channel_tts_disabled": "Kanalen hittades inte eller har inte TTS aktiverat.",
+    "entry_key_required": "En postnyckel krävs.",
+    "exchange_code_invalid": "Inloggningslänken saknas eller är ogiltig.",
+    "exchange_code_used": "Inloggningslänken har redan använts eller har gått ut. Logga in igen.",
+    "exchange_failed": "Kunde inte slutföra inloggningen. Försök igen.",
+    "ignore_add_failed": "Kan inte lägga till den användaren i ignoreringslistan.",
+    "ignore_moderator_imposed": "En kanalmoderator har valt bort TTS åt dig här, så bara en moderator kan ångra det.",
+    "ignore_remove_failed": "Kan inte ta bort den användaren från ignoreringslistan.",
+    "ignore_update_failed": "Kan inte ändra din inställning för bortval.",
+    "key_required": "Ett inställningsnamn krävs.",
+    "match_key_invalid": "Ordet måste bestå av 1 till {max} tecken (bokstäver, siffror, apostrofer eller bindestreck) och får inte innehålla någon punkt.",
+    "network_error": "Kan inte nå servern. Kontrollera din anslutning.",
+    "obs_token_fetch_failed": "Kan inte läsa in OBS-token.",
+    "obs_token_generate_failed": "Kan inte skapa en ny OBS-token.",
+    "obs_token_store_failed": "Kan inte spara OBS-token. Försök igen.",
+    "prefs_fetch_failed": "Kan inte läsa in dina inställningar.",
+    "prefs_global_fetch_failed": "Kan inte läsa in dina globala inställningar.",
+    "prefs_global_update_failed": "Kan inte spara dina globala inställningar.",
+    "prefs_invalid_emote_mode": "Emote-hantering måste vara läs, hoppa över eller beskriv.",
+    "prefs_invalid_emotion": "Det är inte en giltig sinnesstämning.",
+    "prefs_invalid_language": "Det är inte ett giltigt språk.",
+    "prefs_invalid_pitch": "Det är inte en giltig tonhöjd.",
+    "prefs_invalid_speed": "Det är inte en giltig hastighet.",
+    "prefs_invalid_voice": "Det är inte en giltig röst.",
+    "prefs_missing_data": "Inga ändringar skickades.",
+    "prefs_update_failed": "Kan inte spara dina inställningar.",
+    "pronunciation_limit_reached": "Du har nått gränsen på {max} anpassade uttal. Ta bort ett först.",
+    "pronunciation_remove_failed": "Kan inte ta bort uttalet.",
+    "pronunciation_save_failed": "Kan inte spara uttalet.",
+    "reward_banned_word": "Meddelandet innehåller ett förbjudet ord: \"{word}\".",
+    "reward_create_failed": "Kan inte skapa Channel Points-belöningen.",
+    "reward_delete_failed": "Kan inte ta bort Channel Points-belöningen.",
+    "reward_links_blocked": "Länkar är inte tillåtna i den här belöningen.",
+    "reward_load_failed": "Kan inte läsa in Channel Points-belöningen.",
+    "reward_message_empty": "Meddelandet är tomt.",
+    "reward_save_failed": "Kan inte spara Channel Points-belöningen.",
+    "reward_test_failed": "Kan inte testa Channel Points-belöningen.",
+    "reward_twitch_error": "Twitch avvisade ändringen av belöningen.",
+    "reward_validation_failed": "Det meddelandet är inte tillåtet.",
+    "say_contains_link": "Uttalet får inte innehålla en länk.",
+    "say_empty": "Uttalet får inte vara tomt.",
+    "say_must_be_text": "Uttalet måste vara text.",
+    "say_too_long": "Uttalet får vara högst {max} tecken.",
+    "server_misconfigured": "Servern är felkonfigurerad.",
+    "setting_invalid": "Det är inte ett giltigt värde för {key}.",
+    "setting_update_failed": "Kan inte uppdatera TTS-inställningen.",
+    "settings_fetch_failed": "Kan inte läsa in TTS-inställningar.",
+    "shortlink_failed": "Kan inte skapa kortlänken.",
+    "storage_unavailable": "Lagringen är inte tillgänglig.",
+    "tts_generation_failed": "Generering av tal misslyckades: {reason}",
+    "tts_no_audio": "Talleverantören returnerade inget ljud.",
+    "tts_not_configured": "Ingen talleverantör är konfigurerad.",
+    "tts_provider_failed": "Talleverantören kunde inte generera ljud.",
+    "tts_test_failed": "Taltestet misslyckades.",
+    "tts_text_required": "Ange text att testa.",
+    "twitch_reauth_required": "Din Twitch-inloggning har gått ut. Återanslut ditt konto.",
+    "twitch_user_not_found": "Det finns inget Twitch-konto med namnet \"{username}\".",
+    "url_required": "En URL krävs.",
+    "username_invalid": "Användarnamnet är inte giltigt.",
+    "username_required": "Ett användarnamn krävs.",
+    "voice_access_denied": "Rösten \"{voice}\" kräver särskild åtkomst. Välj en annan röst.",
+    "voice_invalid": "Rösten \"{voice}\" är inte tillgänglig. Kontrollera rösten och försök igen.",
+    "voice_lookup_failed": "Kunde inte slå upp den användarens röst.",
+    "word_invalid": "Ordet eller frasen är inte giltig.",
+    "word_required": "Ett ord eller en fras krävs."
+  },
+  "logoutLink": {
+    "logout": "Logga ut"
+  },
+  "mainContent": {
+    "documentationTtsWildcatChat": "<a class=\"wc-link\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\">Dokumentation</a> <span>tts.wildcat.chat</span>"
+  },
+  "msg": {
+    "action": {
+      "close": "Stäng",
+      "remove": "Ta bort",
+      "saved": "Sparat"
+    },
+    "api": {
+      "authFailed": "Autentiseringen misslyckades. Logga in igen.",
+      "notAuthenticated": "Du är inte inloggad.",
+      "requestFailed": "Begäran misslyckades."
+    },
+    "auth": {
+      "genericUser": "Användare",
+      "loading": "läser in…",
+      "needViewerSignIn": "Verifiera ditt Twitch-konto för att komma åt tittarinställningar.",
+      "redirecting": "Omdirigerar till Twitch för autentisering…",
+      "required": "Autentisering krävs.",
+      "signInFailed": "Kunde inte slutföra inloggningen.",
+      "signInWithTwitch": "Logga in med Twitch",
+      "signedOut": "Du är inte inloggad.",
+      "tokenMissing": "Autentiseringstoken saknas. Logga in igen."
+    },
+    "emotion": {
+      "angry": "Arg",
+      "auto": "Auto",
+      "calm": "Lugn",
+      "disgusted": "Äcklad",
+      "fearful": "Rädd",
+      "fluent": "Flytande",
+      "happy": "Glad",
+      "neutral": "Neutral",
+      "sad": "Ledsen",
+      "surprised": "Förvånad"
+    },
+    "ignore": {
+      "enterUsername": "Ange ett användarnamn."
+    },
+    "lang": {
+      "automatic": "Automatisk"
+    },
+    "prefs": {
+      "useChannelDefault": "Använd kanalens standard"
+    },
+    "preview": {
+      "enterText": "Ange text att testa.",
+      "unavailable": "Ingen förhandsgranskning tillgänglig."
+    },
+    "value": {
+      "off": "Av",
+      "on": "På"
+    },
+    "voice": {
+      "cannotPlay": "Kan inte spela upp ljudprov.",
+      "generating": "Genererar…",
+      "noAudio": "Servern returnerade inget ljud.",
+      "noneFound": "Inga röster hittades.",
+      "preview": "Förhandsgranska {voice}",
+      "regenerate": "Generera igen",
+      "testFailed": "Testet misslyckades: {reason}"
+    }
+  },
+  "page": {
+    "skipToMainContent": "Hoppa till huvudinnehåll"
+  },
+  "sidebarEngNormVal": {
+    "off": "Av"
+  },
+  "sidebarLanguageVal": {
+    "automatic": "Automatisk"
+  },
+  "ui": {
+    "language": "Språk"
+  },
+  "voicePreviewHint": {
+    "settingsChangedGenerateANew": "<i><i data-lucide=\"triangle-alert\" class=\"inline-icon\"></i> Inställningarna har ändrats. Generera en ny förhandsgranskning.</i>"
+  },
+  "voicePreviewPlayer": {
+    "yourBrowserDoesNotSupport": "Din webbläsare stöder inte ljudelementet."
+  }
+}

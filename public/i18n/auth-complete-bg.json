@@ -1,0 +1,39 @@
+{
+  "authBar": {
+    "signInProgress": "Напредък на вписването"
+  },
+  "authMessage": {
+    "pleaseWait": "Моля, изчакайте."
+  },
+  "authSteps": {
+    "loadingDashboard": "Зареждане на таблото",
+    "sessionTokenStored": "Сесийният токен е запазен",
+    "twitchAuthorized": "Twitch е оторизиран"
+  },
+  "authTitle": {
+    "signingYouIn": "Вписваме ви"
+  },
+  "meta": {
+    "completingWildcatttsTwitchSignIn": "Завършване на вписването с Twitch в WildcatTTS.",
+    "wildcatttsCompletingSignIn": "WildcatTTS – Завършване на вписването"
+  },
+  "msg": {
+    "authComplete": {
+      "cannotComplete": "Вписването не може да се завърши.",
+      "failedReadout": "Неуспешно",
+      "failedTitle": "Неуспешно вписване",
+      "missingInfo": "Липсва информация за удостоверяване от обратната връзка на Twitch. Впишете се отново.",
+      "noSession": "Няма сесия",
+      "redirecting": "Пренасочване към вашето табло за управление.",
+      "retrySignIn": "{reason} Впишете се отново.",
+      "sessionEstablished": "Сесията е установена",
+      "welcome": "Добре дошли, {user}"
+    }
+  },
+  "sessionState": {
+    "establishingSession": "Установяване на сесия"
+  },
+  "statusReadout": {
+    "working": "<span class=\"wc-dot\"></span>Обработва се"
+  }
+}

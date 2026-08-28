@@ -1,0 +1,11 @@
+{
+  "mainContent": {
+    "pageNotFound": "Page not found",
+    "returnToLogin": "Return to login",
+    "thatUrlIsNotPart": "That URL is not part of this site. Make sure that the address is correct, or return to the login page."
+  },
+  "meta": {
+    "pageNotFoundOnWildcattts": "Page not found on WildcatTTS.",
+    "pageNotFoundWildcattts": "Page not found — WildcatTTS"
+  }
+}

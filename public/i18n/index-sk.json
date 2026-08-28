@@ -1,0 +1,50 @@
+{
+  "kofiClose": {
+    "closeSupportDialog": "Zavrieť dialóg podpory"
+  },
+  "kofiModal": {
+    "openInNewTabOn": "<a href=\"https://ko-fi.com/parfaitfair\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"kofi-direct-link\">Otvoriť v novej karte na Ko-fi.com</a>"
+  },
+  "kofiOpen": {
+    "supportMe": "Podporiť ma"
+  },
+  "kofiTitle": {
+    "supportParfaitfair": "Podporiť parfaitfair"
+  },
+  "mainContent": {
+    "access": "Prístup",
+    "accessIsInviteOnlyUnapproved": "Prístup je len na pozvánku. Neschválené kanály dostanú správu o odmietnutí prístupu. <a class=\"wc-link wc-link--underline\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">Požiadaj o prístup tu</a>.",
+    "changeTtsSettingsControlBot": "Zmeň nastavenia TTS • Ovládaj odpovede bota v chate • Nastav Channel Points • Nastav predvoľby hlasu",
+    "colorTheme": "Farebný motív",
+    "iAmAViewer": "<span class=\"wc-rule-name\">Som divák</span>",
+    "iRunTheChannel": "<span class=\"wc-rule-name\">Spravujem kanál</span>",
+    "setHowYourMessagesSound": "Nastav si, ako budú tvoje správy znieť, keď ich TTS prečíta na akomkoľvek kanáli, ktorý navštíviš.",
+    "textToSpeechForYour": "Text-to-speech pre tvoj Twitch kanál, pre streamerov aj divákov.",
+    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">Len na pozvánku</span>",
+    "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">Správa text-to-speech bota</span>"
+  },
+  "meta": {
+    "wildcatttsBotManagement": "Správa bota WildcatTTS",
+    "wildcatttsTextToSpeechBot": "Správa text-to-speech bota WildcatTTS pre Twitch kanály, streamerov a divákov."
+  },
+  "msg": {
+    "kofi": {
+      "iframeTitle": "Podporte parfaitfair na Ko-fi"
+    }
+  },
+  "page": {
+    "support": "Podpora"
+  },
+  "streamerLoginBtn": {
+    "manageMyChannel": "<i data-lucide=\"mic\" aria-hidden=\"true\"></i>Spravovať môj kanál"
+  },
+  "themeDarkBtn": {
+    "dark": "Tmavý"
+  },
+  "themeLightBtn": {
+    "light": "Svetlý"
+  },
+  "viewerPrefsBtn": {
+    "setMyOwnVoice": "<i data-lucide=\"headphones\" aria-hidden=\"true\"></i>Nastaviť vlastný hlas"
+  }
+}

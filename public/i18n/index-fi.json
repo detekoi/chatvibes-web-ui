@@ -1,0 +1,50 @@
+{
+  "kofiClose": {
+    "closeSupportDialog": "Sulje tuki-ikkuna"
+  },
+  "kofiModal": {
+    "openInNewTabOn": "<a href=\"https://ko-fi.com/parfaitfair\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"kofi-direct-link\">Avaa uudessa välilehdessä sivustolla Ko-fi.com</a>"
+  },
+  "kofiOpen": {
+    "supportMe": "Tue minua"
+  },
+  "kofiTitle": {
+    "supportParfaitfair": "Tue käyttäjää parfaitfair"
+  },
+  "mainContent": {
+    "access": "Käyttöoikeus",
+    "accessIsInviteOnlyUnapproved": "Käyttöoikeus vaatii kutsun. Hyväksymättömät kanavat saavat pääsy estetty -viestin. <a class=\"wc-link wc-link--underline\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">Pyydä käyttöoikeutta täältä</a>.",
+    "changeTtsSettingsControlBot": "Muuta TTS-asetuksia • Hallitse botin chat-vastauksia • Määritä Channel Points • Valitse ääniasetukset",
+    "colorTheme": "Väriteema",
+    "iAmAViewer": "<span class=\"wc-rule-name\">Olen katsoja</span>",
+    "iRunTheChannel": "<span class=\"wc-rule-name\">Ylläpidän kanavaa</span>",
+    "setHowYourMessagesSound": "Määritä, miltä viestisi kuulostavat, kun TTS lukee ne vierailemillasi kanavilla.",
+    "textToSpeechForYour": "Puhesynteesi Twitch-kanavallesi, striimaajille ja katsojille.",
+    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">Vain kutsulla</span>",
+    "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">Puhesynteesibotin hallinta</span>"
+  },
+  "meta": {
+    "wildcatttsBotManagement": "WildcatTTS-botin hallinta",
+    "wildcatttsTextToSpeechBot": "WildcatTTS-puhesynteesibotin hallinta Twitch-kanaville, striimaajille ja katsojille."
+  },
+  "msg": {
+    "kofi": {
+      "iframeTitle": "Tue parfaitfairia Ko-fissa"
+    }
+  },
+  "page": {
+    "support": "Tuki"
+  },
+  "streamerLoginBtn": {
+    "manageMyChannel": "<i data-lucide=\"mic\" aria-hidden=\"true\"></i>Hallinnoi kanavaani"
+  },
+  "themeDarkBtn": {
+    "dark": "Tumma"
+  },
+  "themeLightBtn": {
+    "light": "Vaalea"
+  },
+  "viewerPrefsBtn": {
+    "setMyOwnVoice": "<i data-lucide=\"headphones\" aria-hidden=\"true\"></i>Aseta oma ääni"
+  }
+}

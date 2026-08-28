@@ -1,0 +1,166 @@
+{
+  "darkModeToggle": {
+    "toggleDarkMode": "Prepnúť tmavý režim"
+  },
+  "err": {
+    "banned_add_failed": "Toto slovo nemožno pridať do zoznamu zakázaných.",
+    "banned_remove_failed": "Toto slovo nemožno odstrániť zo zoznamu zakázaných.",
+    "bot_add_failed": "Bota sa na tvojom kanáli nepodarilo aktivovať. Skús to znova.",
+    "bot_remove_failed": "Bota sa na tvojom kanáli nepodarilo deaktivovať. Skús to znova.",
+    "bot_status_failed": "Nemožno načítať stav bota.",
+    "channel_data_not_found": "Pre tento kanál sa nenašli žiadne nastavenia.",
+    "channel_not_authorized": "Tvoj kanál nemá povolenie používať tohto bota. Kontaktuj ma pre prístup.",
+    "channel_not_found": "Tento kanál sa nenašiel.",
+    "channel_required": "Kanál je povinný.",
+    "channel_tts_disabled": "Tento kanál sa nenašiel alebo na ňom nie je zapnuté TTS.",
+    "entry_key_required": "Vyžaduje sa kľúč položky.",
+    "exchange_code_invalid": "Tento prihlasovací odkaz chýba alebo je neplatný.",
+    "exchange_code_used": "Tento prihlasovací odkaz už bol použitý alebo vypršal. Prihlás sa znova.",
+    "exchange_failed": "Prihlásenie sa nepodarilo dokončiť. Skús to znova.",
+    "ignore_add_failed": "Tohto používateľa nemožno pridať do zoznamu ignorovaných.",
+    "ignore_moderator_imposed": "Moderátor kanála ťa tu odhlásil z TTS, takže to môže zrušiť iba moderátor.",
+    "ignore_remove_failed": "Tohto používateľa nemožno odstrániť zo zoznamu ignorovaných.",
+    "ignore_update_failed": "Nemožno zmeniť tvoje nastavenie odhlásenia.",
+    "key_required": "Vyžaduje sa názov nastavenia.",
+    "match_key_invalid": "Slovo musí mať 1 až {max} znakov (písmená, číslice, apostrofy alebo spojovníky) a nesmie obsahovať bodku.",
+    "network_error": "Nemožno sa spojiť so serverom. Skontroluj svoje pripojenie.",
+    "obs_token_fetch_failed": "Nemožno načítať token OBS.",
+    "obs_token_generate_failed": "Nemožno vygenerovať nový token OBS.",
+    "obs_token_store_failed": "Nemožno uložiť token OBS. Skús to znova.",
+    "prefs_fetch_failed": "Nemožno načítať tvoje predvoľby.",
+    "prefs_global_fetch_failed": "Nemožno načítať tvoje globálne predvoľby.",
+    "prefs_global_update_failed": "Nemožno uložiť tvoje globálne predvoľby.",
+    "prefs_invalid_emote_mode": "Spracovanie emotov musí byť read, skip alebo describe.",
+    "prefs_invalid_emotion": "To nie je platná emócia.",
+    "prefs_invalid_language": "To nie je platný jazyk.",
+    "prefs_invalid_pitch": "To nie je platná výška hlasu.",
+    "prefs_invalid_speed": "To nie je platná rýchlosť.",
+    "prefs_invalid_voice": "To nie je platný hlas.",
+    "prefs_missing_data": "Neboli odoslané žiadne zmeny.",
+    "prefs_update_failed": "Nemožno uložiť tvoje predvoľby.",
+    "pronunciation_limit_reached": "Dosiahol si limit {max} vlastných výslovností. Najprv nejakú odstráň.",
+    "pronunciation_remove_failed": "Výslovnosť nemožno odstrániť.",
+    "pronunciation_save_failed": "Výslovnosť nemožno uložiť.",
+    "reward_banned_word": "Správa obsahuje zakázané slovo: \"{word}\".",
+    "reward_create_failed": "Nemožno vytvoriť odmenu za Channel Points.",
+    "reward_delete_failed": "Nemožno odstrániť odmenu za Channel Points.",
+    "reward_links_blocked": "Odkazy nie sú v tejto odmene povolené.",
+    "reward_load_failed": "Nemožno načítať odmenu za Channel Points.",
+    "reward_message_empty": "Správa je prázdna.",
+    "reward_save_failed": "Nemožno uložiť odmenu za Channel Points.",
+    "reward_test_failed": "Nemožno otestovať odmenu za Channel Points.",
+    "reward_twitch_error": "Twitch odmietol zmenu odmeny.",
+    "reward_validation_failed": "Táto správa nie je povolená.",
+    "say_contains_link": "Výslovnosť nesmie obsahovať odkaz.",
+    "say_empty": "Výslovnosť nesmie byť prázdna.",
+    "say_must_be_text": "Výslovnosť musí byť text.",
+    "say_too_long": "Výslovnosť môže mať najviac {max} znakov.",
+    "server_misconfigured": "Server je nesprávne nakonfigurovaný.",
+    "setting_invalid": "Toto nie je platná hodnota pre {key}.",
+    "setting_update_failed": "Nastavenie TTS nemožno aktualizovať.",
+    "settings_fetch_failed": "Nastavenia TTS nemožno načítať.",
+    "shortlink_failed": "Nemožno vytvoriť krátky odkaz.",
+    "storage_unavailable": "Úložisko nie je dostupné.",
+    "tts_generation_failed": "Generovanie TTS zlyhalo: {reason}",
+    "tts_no_audio": "Poskytovateľ TTS nevrátil žiadny zvuk.",
+    "tts_not_configured": "Nie je nastavený žiadny poskytovateľ TTS.",
+    "tts_provider_failed": "Poskytovateľ TTS nedokázal vygenerovať zvuk.",
+    "tts_test_failed": "Test TTS zlyhal.",
+    "tts_text_required": "Zadajte text na testovanie.",
+    "twitch_reauth_required": "Vaše prihlásenie do služby Twitch vypršalo. Znova pripojte svoj účet.",
+    "twitch_user_not_found": "Účet na Twitchi s názvom „{username}“ neexistuje.",
+    "url_required": "Vyžaduje sa URL.",
+    "username_invalid": "Toto používateľské meno nie je platné.",
+    "username_required": "Vyžaduje sa používateľské meno.",
+    "voice_access_denied": "Hlas \"{voice}\" vyžaduje špeciálny prístup. Skúste iný hlas.",
+    "voice_invalid": "Hlas \"{voice}\" nie je k dispozícii. Skontrolujte hlas a skúste to znova.",
+    "voice_lookup_failed": "Hlas tohto používateľa sa nepodarilo nájsť.",
+    "word_invalid": "Toto slovo alebo fráza nie je platná.",
+    "word_required": "Vyžaduje sa slovo alebo fráza."
+  },
+  "logoutLink": {
+    "logout": "Odhlásiť sa"
+  },
+  "mainContent": {
+    "documentationTtsWildcatChat": "<a class=\"wc-link\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\">Dokumentácia</a> <span>tts.wildcat.chat</span>"
+  },
+  "msg": {
+    "action": {
+      "close": "Zavrieť",
+      "remove": "Odstrániť",
+      "saved": "Uložené"
+    },
+    "api": {
+      "authFailed": "Overenie zlyhalo. Prihláste sa znova.",
+      "notAuthenticated": "Nie ste prihlásený.",
+      "requestFailed": "Požiadavka zlyhala."
+    },
+    "auth": {
+      "genericUser": "Používateľ",
+      "loading": "načítava sa…",
+      "needViewerSignIn": "Overte svoj účet Twitch na prístup k predvoľbám diváka.",
+      "redirecting": "Presmerovanie na Twitch na overenie…",
+      "required": "Vyžaduje sa overenie.",
+      "signInFailed": "Prihlásenie sa nepodarilo dokončiť.",
+      "signInWithTwitch": "Prihlásiť sa cez Twitch",
+      "signedOut": "Nie si prihlásený.",
+      "tokenMissing": "Chýba overovací token. Prihlás sa znova."
+    },
+    "emotion": {
+      "angry": "Nahnevaný",
+      "auto": "Automaticky",
+      "calm": "Pokojný",
+      "disgusted": "Znechutený",
+      "fearful": "Vystrašený",
+      "fluent": "Plynulý",
+      "happy": "Šťastný",
+      "neutral": "Neutrálny",
+      "sad": "Smutný",
+      "surprised": "Prekvapený"
+    },
+    "ignore": {
+      "enterUsername": "Zadaj používateľské meno."
+    },
+    "lang": {
+      "automatic": "Automaticky"
+    },
+    "prefs": {
+      "useChannelDefault": "Použiť predvolené pre kanál"
+    },
+    "preview": {
+      "enterText": "Zadaj text na otestovanie.",
+      "unavailable": "Náhľad nie je k dispozícii."
+    },
+    "value": {
+      "off": "Vypnuté",
+      "on": "Zapnuté"
+    },
+    "voice": {
+      "cannotPlay": "Nepodarilo sa prehrať zvukovú ukážku.",
+      "generating": "Generuje sa…",
+      "noAudio": "Server nevrátil žiadny zvuk.",
+      "noneFound": "Nenašli sa žiadne hlasy.",
+      "preview": "Prehrať ukážku: {voice}",
+      "regenerate": "Znova vygenerovať",
+      "testFailed": "Test zlyhal: {reason}"
+    }
+  },
+  "page": {
+    "skipToMainContent": "Preskočiť na hlavný obsah"
+  },
+  "sidebarEngNormVal": {
+    "off": "Vypnuté"
+  },
+  "sidebarLanguageVal": {
+    "automatic": "Automaticky"
+  },
+  "ui": {
+    "language": "Jazyk"
+  },
+  "voicePreviewHint": {
+    "settingsChangedGenerateANew": "<i><i data-lucide=\"triangle-alert\" class=\"inline-icon\"></i> Nastavenia sa zmenili. Vygenerujte novú ukážku.</i>"
+  },
+  "voicePreviewPlayer": {
+    "yourBrowserDoesNotSupport": "Váš prehliadač nepodporuje prvok audio."
+  }
+}

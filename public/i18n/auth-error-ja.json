@@ -1,0 +1,41 @@
+{
+  "errorAction": {
+    "tryAgain": "再試行"
+  },
+  "errorCode": {
+    "unknown": "不明"
+  },
+  "errorCodeBlock": {
+    "error": "エラー"
+  },
+  "errorMessageDetails": {
+    "twitchAuthenticationFailed": "Twitchの認証に失敗しました。"
+  },
+  "errorReadout": {
+    "authenticationFailed": "認証に失敗しました"
+  },
+  "errorTitle": {
+    "authenticationFailed": "認証に失敗しました"
+  },
+  "mainContent": {
+    "requestAccessTtsWildcatChat": "<a class=\"wc-link\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">アクセスをリクエスト</a> <span>tts.wildcat.chat</span>"
+  },
+  "meta": {
+    "wildcatttsAuthenticationError": "WildcatTTS - 認証エラー",
+    "wildcatttsAuthenticationErrorAndSign": "WildcatTTSの認証エラーとサインインの復旧。"
+  },
+  "msg": {
+    "authError": {
+      "backToSignIn": "サインインに戻る",
+      "canceledBody": "変更は行われませんでした。準備ができたらサインインしてください。",
+      "canceledReadout": "キャンセルされました",
+      "canceledTitle": "WildcatTTS - ログインがキャンセルされました",
+      "canceledTitleShort": "ログインがキャンセルされました",
+      "notPermitted": "アクセスが許可されていません",
+      "requestAccess": "アクセスをリクエスト",
+      "twitchError": "認証中にTwitchからエラーが返されました。",
+      "unspecified": "不明なエラーが発生しました。",
+      "unspecifiedCode": "不明"
+    }
+  }
+}

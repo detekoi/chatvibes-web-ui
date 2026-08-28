@@ -1,0 +1,41 @@
+{
+  "errorAction": {
+    "tryAgain": "ลองอีกครั้ง"
+  },
+  "errorCode": {
+    "unknown": "ไม่ทราบ"
+  },
+  "errorCodeBlock": {
+    "error": "ข้อผิดพลาด"
+  },
+  "errorMessageDetails": {
+    "twitchAuthenticationFailed": "การยืนยันตัวตน Twitch ล้มเหลว"
+  },
+  "errorReadout": {
+    "authenticationFailed": "การยืนยันตัวตนล้มเหลว"
+  },
+  "errorTitle": {
+    "authenticationFailed": "การยืนยันตัวตนล้มเหลว"
+  },
+  "mainContent": {
+    "requestAccessTtsWildcatChat": "<a class=\"wc-link\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">ขอสิทธิ์เข้าใช้งาน</a> <span>tts.wildcat.chat</span>"
+  },
+  "meta": {
+    "wildcatttsAuthenticationError": "WildcatTTS - ข้อผิดพลาดในการยืนยันตัวตน",
+    "wildcatttsAuthenticationErrorAndSign": "ข้อผิดพลาดในการยืนยันตัวตน WildcatTTS และการกู้คืนการลงชื่อเข้าใช้"
+  },
+  "msg": {
+    "authError": {
+      "backToSignIn": "กลับไปเข้าสู่ระบบ",
+      "canceledBody": "ไม่มีการเปลี่ยนแปลงใดๆ คุณสามารถเข้าสู่ระบบได้เมื่อพร้อม",
+      "canceledReadout": "ยกเลิกแล้ว",
+      "canceledTitle": "WildcatTTS - ยกเลิกการเข้าสู่ระบบ",
+      "canceledTitleShort": "ยกเลิกการเข้าสู่ระบบ",
+      "notPermitted": "ไม่ได้รับอนุญาตให้เข้าถึง",
+      "requestAccess": "ขอสิทธิ์เข้าถึง",
+      "twitchError": "Twitch เกิดข้อผิดพลาดระหว่างยืนยันตัวตน",
+      "unspecified": "เกิดข้อผิดพลาดที่ไม่ระบุ",
+      "unspecifiedCode": "ไม่ได้ระบุ"
+    }
+  }
+}

@@ -1,0 +1,212 @@
+{
+  "addChannelContextCard": {
+    "loadAChannelToSee": "Încarcă un canal pentru a-i vedea setările implicite și a gestiona opțiunile de excludere. Preferințele tale rămân globale."
+  },
+  "channelContextCard": {
+    "changesHereUpdateYourGlobal": "Modificările de aici actualizează preferințele <strong>tale</strong> globale. Setările streamerului nu se modifică.",
+    "channelContext": "Context canal",
+    "clearButtonsSetYourGlobal": "<strong>Butoane de ștergere:</strong> Setează preferința ta globală pentru a se potrivi cu setarea implicită a acestui canal."
+  },
+  "channelHint": {
+    "channelFound": "Canal găsit"
+  },
+  "channelInputCancel": {
+    "cancel": "Anulează"
+  },
+  "channelInputConfirm": {
+    "load": "Încarcă"
+  },
+  "channelInputDesc": {
+    "enterTheChannelNameTo": "Introdu numele canalului pentru a-i vedea setările implicite și a gestiona opțiunile de excludere:"
+  },
+  "channelInputModal": {
+    "streamerUsername": "Nume de utilizator streamer"
+  },
+  "channelInputModalText": {
+    "streamerUsername": "Nume de utilizator streamer"
+  },
+  "channelInputTitle": {
+    "loadChannelContext": "Încarcă context canal"
+  },
+  "clearChannelContextBtn": {
+    "clear": "Șterge"
+  },
+  "confirmNo": {
+    "cancel": "Anulează"
+  },
+  "confirmText": {
+    "yourMessagesWillNotBe": "Mesajele tale nu vor fi citite cu voce tare. Poți reactiva această opțiune oricând."
+  },
+  "confirmTitle": {
+    "confirmAction": "Confirmă acțiunea"
+  },
+  "confirmYes": {
+    "confirm": "Confirmă"
+  },
+  "dangerTtsToggle": {
+    "optOutOfTtsIn": "Dezactivează TTS pe acest canal",
+    "ttsWillNotReadYour": "TTS nu îți va citi mesajele pe acest canal"
+  },
+  "dangerZoneSection": {
+    "dangerZone": "Zonă periculoasă",
+    "theseSettingsStopTheBot": "Aceste setări împiedică botul să-ți citească mesajele pe un canal. Poți anula orice setare pe care o alegi. Dacă un moderator te-a exclus, doar un moderator poate anula asta."
+  },
+  "emotionReset": {
+    "clear": "Șterge",
+    "resetEmotionToDefault": "Resetează emoția la valoarea implicită"
+  },
+  "emotionSelect": {
+    "angry": "Furios",
+    "disgusted": "Dezgustat",
+    "fearful": "Speriat",
+    "happy": "Fericit",
+    "neutral": "Neutru",
+    "sad": "Trist",
+    "surprised": "Surprins",
+    "useChannelDefault": "Folosește valoarea implicită a canalului"
+  },
+  "englishNormalizationCheckbox": {
+    "englishNormalization": "Normalizare engleză"
+  },
+  "englishNormalizationReset": {
+    "clear": "Șterge",
+    "resetEnglishNormalizationToDefault": "Resetează normalizarea engleză la valoarea implicită"
+  },
+  "ignoreTts": {
+    "optOutOfTtsIn": "Dezactivează TTS pe acest canal"
+  },
+  "languageReset": {
+    "clear": "Șterge",
+    "resetLanguageToDefault": "Resetează limba la valoarea implicită"
+  },
+  "loadingBar": {
+    "loadingYourPreferences": "Se încarcă preferințele tale"
+  },
+  "loadingOverlay": {
+    "loadingYourPreferences": "Se încarcă preferințele tale…"
+  },
+  "loggedInStatus": {
+    "channelContext": "Context canal",
+    "global": "Global",
+    "loggedInAs": "Conectat ca",
+    "scope": "Domeniu"
+  },
+  "meta": {
+    "wildcatttsViewerSettings": "Setări spectator WildcatTTS",
+    "wildcatttsViewerSettingsSetYour": "Setări spectator WildcatTTS - Setează-ți vocea personală text-to-speech, tonalitatea și viteza pe canalele Twitch."
+  },
+  "msg": {
+    "auth": {
+      "exchangeFailed": "Autentificarea nu a putut fi finalizată. Încearcă din nou de pe pagina principală.",
+      "testUser": "Utilizator de test"
+    },
+    "channel": {
+      "cleared": "Contextul canalului a fost eliminat.",
+      "clearedTestMode": "Contextul canalului a fost eliminat (mod de testare).",
+      "enterName": "Introdu un nume de canal.",
+      "found": "Canal găsit",
+      "foundTestMode": "Canal găsit (mod test)",
+      "hint": "Încarcă un canal pentru a-i vedea setările implicite.",
+      "loaded": "Contextul canalului a fost încărcat.",
+      "loadedTestMode": "Contextul canalului a fost încărcat (mod de testare).",
+      "noneLoaded": "Niciunul încărcat",
+      "promptConfirm": "Încarcă",
+      "promptDescription": "Introdu numele canalului pentru a vedea setările implicite și a gestiona opțiunile de opt-out:",
+      "promptTitle": "Încarcă contextul canalului",
+      "viewingDefaults": "Vezi setările implicite pentru {channel}."
+    },
+    "optout": {
+      "confirm": "Vrei să renunți la TTS pe #{channel}? Mesajele tale nu vor fi citite cu voce tare. Poți reactiva oricând această opțiune.",
+      "confirmDescription": "Introdu numele canalului pentru a continua:",
+      "confirmTitle": "Confirmă canalul pentru opt-out TTS",
+      "continue": "Continuă",
+      "moderatorNote": "Un moderator al canalului te-a exclus de la TTS aici. Doar un moderator poate anula această acțiune.",
+      "optInFailed": "Reactivarea la TTS a eșuat.",
+      "optOutFailed": "Nu se poate dezactiva TTS.",
+      "optedIn": "Ai reactivat TTS.",
+      "optedInTestMode": "Ai reactivat TTS (mod test).",
+      "optedOut": "Ai dezactivat TTS.",
+      "optedOutTestMode": "Ai dezactivat TTS (mod test).",
+      "selectChannel": "Selectează mai întâi un canal.",
+      "selfNote": "Ai dezactivat TTS aici. Îl poți reactiva oricând.",
+      "specifyChannel": "Specifică un canal."
+    },
+    "prefs": {
+      "hintChannel": "Se folosește setarea implicită a canalului: {value}",
+      "hintSystem": "Se folosește setarea implicită a sistemului",
+      "hintUser": "Se folosește preferința ta globală: {value}",
+      "loadFailed": "Nu se pot încărca preferințele.",
+      "noVoicesFound": "Nicio voce găsită",
+      "saveFailed": "Nu se poate salva {key}: {reason}",
+      "sendPreview": "Trimite previzualizare",
+      "testCompletedTestMode": "Test finalizat (mod test).",
+      "updated": "Preferință actualizată.",
+      "updatedTestMode": "Preferință actualizată (mod test)."
+    }
+  },
+  "openChannelContextModalBtn": {
+    "loadChannel": "Încarcă canalul…"
+  },
+  "page": {
+    "setHowYourMessagesSound": "Setează cum se aud mesajele tale când le citește Wildcat TTS. Preferințele tale sunt globale și se aplică pe toate canalele.",
+    "viewerTtsPreferences": "Preferințe TTS spectator",
+    "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Setări spectator</span>"
+  },
+  "pitchReset": {
+    "clear": "Șterge",
+    "resetPitchToDefault": "Resetează înălțimea vocii la valoarea implicită"
+  },
+  "pitchSlider": {
+    "pitchAdjustment12To12": "Ajustare înălțime voce (-12 la +12)"
+  },
+  "preferencesPanel": {
+    "adjustTheVoicePitchHigher": "Ajustează înălțimea vocii mai sus sau mai jos",
+    "controlHowFastTheVoice": "Controlează viteza de vorbire a vocii",
+    "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Documentație </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Setări streamer </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "<strong>Emoție</strong>",
+    "emotion2": "Emoție",
+    "englishNormalization": "Normalizare engleză",
+    "engNormalization": "Normalizare engleză",
+    "ifTtsReadsNumbersIncorrectly": "Dacă TTS citește incorect numerele, activează normalizarea textului în engleză. Această setare crește ușor latența.",
+    "improvePronunciationForSpecificLanguages": "Îmbunătățește pronunția pentru anumite limbi",
+    "improveThePronunciationOfNumbers": "Îmbunătățește pronunția numerelor și a textului",
+    "language": "Limbă",
+    "languageBoost": "<strong>Amplificare limbă</strong>",
+    "pitch": "Înălțime voce",
+    "pitch12To12": "Tonalitate (-12 la +12):",
+    "quickLinks": "Linkuri rapide",
+    "selectYourPreferredTtsVoice": "Selectează vocea TTS preferată",
+    "setHowYourMessagesSound": "Setează cum se aud mesajele tale când le citește TTS",
+    "setTheEmotionalToneOf": "Setează tonul emoțional al vocii",
+    "speed": "Viteză",
+    "speed05To2": "Viteză (0.5 la 2.0):",
+    "testMessage": "Mesaj de test",
+    "voice": "<strong>Voce</strong>",
+    "voicePreview": "Previzualizare voce",
+    "voiceSettings": "Setări voce"
+  },
+  "prefsDisabledNote": {
+    "theStreamerDisabledPersonalVoice": "Streamerul a dezactivat setările vocale personale pentru acest canal. Acest canal va folosi vocea sa implicită în locul preferințelor tale."
+  },
+  "previewBtn": {
+    "sendPreview": "Trimite previzualizare"
+  },
+  "speedReset": {
+    "clear": "Șterge",
+    "resetSpeedToDefault": "Resetează viteza la valoarea implicită"
+  },
+  "speedSlider": {
+    "speedAdjustment05To": "Ajustare viteză (de la 0,5 la 2,0)"
+  },
+  "statChannelContext": {
+    "noneLoaded": "Nimic încărcat"
+  },
+  "voiceReset": {
+    "clear": "Șterge",
+    "resetVoiceToDefault": "Resetează vocea la cea implicită"
+  },
+  "voiceSearch": {
+    "searchVoices": "Caută voci",
+    "searchVoices2": "Caută voci..."
+  }
+}

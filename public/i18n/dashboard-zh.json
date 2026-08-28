@@ -1,0 +1,500 @@
+{
+  "addBotBtn": {
+    "activateTtsService": "启用 TTS 服务"
+  },
+  "addTtsBannedWordBtn": {
+    "add": "添加"
+  },
+  "addTtsIgnoreBtn": {
+    "add": "添加"
+  },
+  "addTtsPronunciationBtn": {
+    "add": "添加"
+  },
+  "allowViewerPreferences": {
+    "allowViewerVoicePreferences": "允许观众自定义语音偏好"
+  },
+  "announceUnfulfilledRedemptions": {
+    "announceQueuedRedeemsImmediately": "立即播报排队中的兑换"
+  },
+  "announceUnfulfilledRedemptionsHelp": {
+    "aRewardThatDoesNot": "未跳过奖励请求队列的奖励在被兑换时会立即播报，即使你之后拒绝了该请求。关闭此选项可将播报推迟到你接受请求为止——你未接受的奖励将不会被播报。"
+  },
+  "anonymizeFollowers": {
+    "anonymizeNewFollowers": "匿名化新关注者"
+  },
+  "bitsEnabled": {
+    "requireBitsForTts": "使用 TTS 需要 Bits"
+  },
+  "botRespondsInChat": {
+    "botRespondsInChat": "机器人在聊天中回复"
+  },
+  "botStatus": {
+    "loading": "加载中…"
+  },
+  "calibratedVoicesList": {
+    "noVoicesCalibratedYet": "尚未校准任何语音。"
+  },
+  "calibrationSaveBtn": {
+    "save": "保存"
+  },
+  "calibrationVoiceSearch": {
+    "searchVoicesToCalibrate": "搜索要校准的语音…"
+  },
+  "channelNameStatus": {
+    "yourChannel": "你的频道"
+  },
+  "cheerEventsEnabled": {
+    "announceCheers": "播报 Cheer"
+  },
+  "copyTtsUrlBtn": {
+    "copy": "复制",
+    "copyBrowserSourceUrl": "复制 Browser Source URL"
+  },
+  "cpDelete": {
+    "disableDelete": "禁用并删除"
+  },
+  "cpEnabled": {
+    "enableChannelPointsTts": "启用 Channel Points TTS"
+  },
+  "cpPerStream": {
+    "enterAmount": "输入数量"
+  },
+  "cpPerUser": {
+    "enterAmount": "输入数量"
+  },
+  "cpSave": {
+    "save": "保存"
+  },
+  "cpTest": {
+    "testRedeem": "测试兑换"
+  },
+  "dashboardContent": {
+    "channel": "频道",
+    "channelService": "频道服务",
+    "dashboardConfigurationTabs": "控制面板配置标签页",
+    "deactivationStopsTheBotFrom": "停用后，机器人将停止朗读聊天消息。你的设置仍会保留。你可以随时重新启用该服务。",
+    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>文档 </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>观众设置 </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "情绪",
+    "engNormalization": "英语规范化",
+    "language": "语言",
+    "pitch": "音调",
+    "quickLinks": "快捷链接",
+    "service": "服务",
+    "signedInAs": "登录身份为",
+    "speed": "语速",
+    "testMessage": "测试消息",
+    "voicePreview": "声音试听",
+    "volume": "音量"
+  },
+  "defaultEmotion": {
+    "angry": "愤怒",
+    "disgusted": "厌恶",
+    "fearful": "恐惧",
+    "happy": "开心",
+    "neutral": "中性",
+    "sad": "悲伤",
+    "surprised": "惊讶"
+  },
+  "defaultPitch": {
+    "defaultPitch12To12": "默认音调（-12 至 +12）"
+  },
+  "defaultSpeed": {
+    "defaultSpeed05To": "默认语速（0.5 至 2.0）"
+  },
+  "defaultVoiceSearch": {
+    "searchDefaultVoices": "搜索默认声音",
+    "searchVoices": "搜索声音..."
+  },
+  "defaultVolume": {
+    "voiceVolume01To": "声音音量（0.1 至 10）"
+  },
+  "emoteMode": {
+    "describeEmotes": "描述表情",
+    "readEmoteNames": "朗读表情名称",
+    "skipEmotes": "跳过表情"
+  },
+  "englishNormalization": {
+    "englishNormalization": "英文规范化"
+  },
+  "eventsEnabled": {
+    "announceEvents": "播报事件"
+  },
+  "loadingBar": {
+    "loadingDashboardSettings": "正在加载控制面板设置"
+  },
+  "loadingOverlay": {
+    "loadingDashboardSettings": "正在加载控制面板设置…"
+  },
+  "lookupUsername": {
+    "enterTwitchViewerUsername": "输入 Twitch 观众用户名"
+  },
+  "lookupVoiceBtn": {
+    "lookupVoice": "查询语音"
+  },
+  "meta": {
+    "wildcatttsDashboard": "WildcatTTS 控制面板",
+    "wildcatttsStreamerDashboardConfigureText": "WildcatTTS 主播控制面板 - 配置 TTS 设置、权限、机器人回复及 Channel Points。"
+  },
+  "msg": {
+    "auth": {
+      "demoStreamer": "演示主播",
+      "needBroadcaster": "请使用主播账号登录以访问主播设置。",
+      "needSignIn": "请使用 Twitch 账号登录以访问控制面板。"
+    },
+    "bannedWords": {
+      "addFailed": "无法添加违禁词。",
+      "added": "已将“{word}”添加到违禁词。",
+      "addedTestMode": "[测试] 已添加违禁词：{word}。",
+      "empty": "尚未添加违禁词。",
+      "removeFailed": "无法移除违禁词。",
+      "removed": "已从违禁词中移除“{word}”。",
+      "removedTestMode": "[测试] 已移除违禁词：{word}。"
+    },
+    "bot": {
+      "activateFailed": "无法启动 TTS 服务。",
+      "activated": "TTS 服务已启动。",
+      "activatedTestMode": "TTS 服务已启动（测试模式）。",
+      "activating": "正在启动 TTS 服务…",
+      "active": "已激活",
+      "deactivateFailed": "无法停用 TTS 服务。",
+      "deactivated": "TTS 服务已停用。",
+      "deactivatedTestMode": "TTS 服务已停用（测试模式）。",
+      "deactivating": "正在停用 TTS 服务…",
+      "inactive": "未激活",
+      "notAuthenticated": "未认证",
+      "requestAccess": "在此申请访问权限",
+      "statusError": "错误",
+      "statusFailed": "错误：{reason}",
+      "statusLoadFailed": "无法加载机器人状态：{reason}",
+      "unknownError": "未知错误"
+    },
+    "calibration": {
+      "confirmReset": "重置 {voice} 的校准设置？",
+      "edit": "编辑",
+      "empty": "尚未校准任何语音。",
+      "reset": "重置",
+      "row": "{voice} ({volume})"
+    },
+    "cp": {
+      "confirmDelete": "删除 Channel Points TTS 奖励？",
+      "deleteFailed": "删除失败。",
+      "deleted": "奖励已删除。",
+      "deletedTestMode": "奖励已删除（测试模式）。",
+      "deleting": "正在删除…",
+      "lastSynced": "{reward} · 上次同步：{time}",
+      "never": "从未",
+      "noReward": "未创建奖励",
+      "noRewardTestMode": "未创建奖励（测试模式）",
+      "rewardId": "奖励 ID：{id}",
+      "saveFailed": "无法保存 Channel Points 设置。",
+      "saved": "Channel Points 设置已保存。",
+      "savedTestMode": "Channel Points 设置已保存（测试模式）。",
+      "saving": "正在保存 Channel Points 设置…",
+      "testCompleted": "测试完成（{status}）。",
+      "testCompletedTestMode": "测试完成（测试模式）。",
+      "testFailed": "测试失败。",
+      "testPrompt": "输入测试消息以模拟兑换：",
+      "testing": "正在测试兑换…"
+    },
+    "ignore": {
+      "addFailed": "无法将用户添加到忽略列表。",
+      "addFailedReason": "无法添加用户：{reason}",
+      "badgeModerator": "被你静音",
+      "badgeSelf": "已自行停用",
+      "empty": "没有已忽略的用户。",
+      "noSuchAccount": "Twitch 账号不存在",
+      "removeFailed": "无法从忽略列表中移除用户。",
+      "removeFailedReason": "无法移除 {label}：{reason}",
+      "removeLabel": "将 {label} 从忽略列表中移除（{source, select, self {自行停用} other {被你静音}}）"
+    },
+    "lookup": {
+      "button": "查询声音",
+      "calibrate": "校准“{voice}”",
+      "error": "错误：{reason}",
+      "failed": "无法查询该用户。",
+      "hasVoice": "用户 {user} 设置了自定义声音：{voice}",
+      "noVoice": "用户 {user} 未设置自定义声音。",
+      "searching": "正在搜索…",
+      "voiceUnknown": "此声音不在可用声音列表中。"
+    },
+    "obs": {
+      "cannotCopy": "无法复制 URL。",
+      "cannotDetermine": "无法确定 TTS URL。",
+      "copied": "已复制到剪贴板。",
+      "copiedButton": "已复制！",
+      "copyFailed": "复制失败。",
+      "generateFailed": "无法生成 OBS URL。请重试。",
+      "generating": "正在生成…",
+      "generatingUrl": "正在生成安全 URL…",
+      "loadingUrl": "正在加载现有 URL…",
+      "pressRegenerate": "点击“重新生成 URL”以生成 OBS Browser Source URL。",
+      "refreshPage": "无法生成 URL。请刷新页面。",
+      "testModeUrl": "测试模式 URL",
+      "urlGenerated": "已生成新 URL。",
+      "urlGeneratedTestMode": "已生成新 URL（测试模式）。",
+      "urlNotReady": "URL 尚不可用。",
+      "yourUrl": "你的 OBS Browser Source URL"
+    },
+    "preview": {
+      "playingTestMode": "正在播放预览…（测试模式）",
+      "tooLong": "文本长度不得超过 500 个字符。"
+    },
+    "pron": {
+      "acronymsDisabled": "已禁用缩略词",
+      "acronymsOffHint": "请在上方开启“展开聊天缩写”以使这些设置生效。",
+      "addFailed": "无法添加发音。",
+      "added": "已添加发音：{match} -> {say}。",
+      "addedTestMode": "[测试] 已添加发音：{match} -> {say}。",
+      "builtinOff": " — 内置已关闭",
+      "empty": "尚未添加自定义发音。",
+      "expansion": " → {say}",
+      "needBoth": "请输入词语和对应发音。",
+      "removeFailed": "无法移除发音。",
+      "removed": "已移除发音：{match}。",
+      "removedTestMode": "[测试] 已移除发音：{match}。"
+    },
+    "setting": {
+      "allowViewerPreferences": "允许观众自定义语音偏好",
+      "announceQueuedRedeems": "播报排队的兑换",
+      "anonymizeFollowers": "匿名化关注者",
+      "bitsForTts": "TTS 所需 bits",
+      "botRespondsInChat": "机器人在聊天中回复",
+      "cheerAnnouncements": "Cheer 播报",
+      "defaultEmotion": "默认情绪",
+      "defaultLanguage": "默认语言",
+      "defaultPitch": "默认音调",
+      "defaultSpeed": "默认语速",
+      "defaultVoice": "默认声音",
+      "emoteMode": "表情模式",
+      "englishNormalization": "英语规范化",
+      "eventAnnouncements": "事件播报",
+      "expandAcronyms": "展开聊天缩写",
+      "minimumBits": "最低 bits",
+      "profanityFilter": "不当用语过滤",
+      "readFullUrls": "朗读完整 URL",
+      "redemptionAnnouncements": "兑换播报",
+      "ttsEngine": "TTS 引擎",
+      "ttsMode": "TTS 模式",
+      "ttsPermission": "TTS 权限",
+      "voiceVolume": "语音音量",
+      "watchStreakAnnouncements": "连续观看播报",
+      "youtubeHandle": "YouTube Handle",
+      "youtubeTts": "YouTube TTS"
+    },
+    "settings": {
+      "loadFailed": "无法加载你的设置。",
+      "saveFailed": "{label}：{reason}",
+      "youtubeHandleRequired": "开启 YouTube TTS 前请输入 YouTube Handle。"
+    }
+  },
+  "obsCloseBtn": {
+    "closeObsSetup": "关闭 OBS 设置"
+  },
+  "obsPopover": {
+    "addBrowserSource": "添加 Browser Source",
+    "cautionANewUrlStops": "注意：生成新 URL 后，当前 OBS 源将停止工作，直到你在 OBS 中更新该 URL。",
+    "controlAudioViaObs": "通过 OBS 控制音频",
+    "inObsAddANew": "在 OBS 中添加一个新的 <strong>Browser Source</strong>。将源命名为“Wildcat TTS”并粘贴复制的 URL。你可以保留默认的宽度和高度。",
+    "inTheObsAudioMixer": "在 OBS 混音器中找到“Wildcat TTS”。点击齿轮图标并选择 <strong>高级音频属性</strong>。将音频监听设置为 <strong>监听并输出</strong>。",
+    "monitorAndOutput": "监听并输出",
+    "obsBrowserSource": "OBS Browser Source",
+    "selectControlAudioViaObs": "勾选 <strong>通过 OBS 控制音频</strong>。确保未勾选 <strong>不可见时停用源</strong>。",
+    "setupInstructions": "设置说明",
+    "yourBrowserSourceUrl": "你的 Browser Source URL"
+  },
+  "obsToggleBtn": {
+    "obsSetup": "OBS 设置"
+  },
+  "page": {
+    "channelDashboard": "频道控制面板",
+    "textToSpeechSettingsFor": "频道的文本转语音设置。更改会实时自动保存。",
+    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">控制面板</span>"
+  },
+  "profanityFilterEnabled": {
+    "profanityFilter": "脏话过滤"
+  },
+  "pronunciationEnabled": {
+    "expandChatAcronyms": "展开聊天缩略词"
+  },
+  "readFullUrls": {
+    "readFullUrls": "朗读完整 URL"
+  },
+  "redemptionEventsEnabled": {
+    "announceRewardRedeems": "播报奖励兑换"
+  },
+  "regenerateTtsUrlBtn": {
+    "regenerateBrowserSourceUrl": "重新生成 Browser Source URL",
+    "regenerateUrl": "重新生成 URL"
+  },
+  "removeBotBtn": {
+    "deactivateTtsService": "停用 TTS 服务"
+  },
+  "resetPitchBtn": {
+    "reset": "重置",
+    "resetDefaultPitchTo0": "将默认音调重置为 0"
+  },
+  "resetSpeedBtn": {
+    "reset": "重置",
+    "resetDefaultSpeedTo1": "重置默认语速为 1.0"
+  },
+  "resetVolumeBtn": {
+    "reset": "重置",
+    "resetVoiceVolumeTo1": "重置语音音量为 1.0"
+  },
+  "saveSettingsBtn": {
+    "saveAllSettings": "保存所有设置"
+  },
+  "serviceHeadline": {
+    "ttsService": "TTS 服务"
+  },
+  "sidebarVoiceName": {
+    "friendlyPerson": "友善之声"
+  },
+  "tabBroadcaster": {
+    "allowTheBotToRespond": "允许机器人响应聊天命令（如 !myvoice）",
+    "allowViewerVoicePreferences": "允许观众偏好语音",
+    "allowViewersToUseChannel": "允许观众使用 Channel Points 触发 TTS",
+    "announceCheers": "播报 Cheers",
+    "announceEvents": "播报事件",
+    "announceEventsSuchAsSubscriptions": "播报订阅和 raid 等事件",
+    "announceQueuedRedeemsImmediately": "立即播报排队中的兑换",
+    "announceRewardRedeems": "播报奖励兑换",
+    "announceWatchStreaks": "播报连续观看记录",
+    "announceWhenAViewerCheers": "观众赠送 bits 时进行播报",
+    "announceWhenAViewerReaches": "观众达到连续观看里程碑时进行播报",
+    "announceWhenAViewerRedeems": "观众兑换 Channel Points 奖励时进行播报",
+    "anonymizeNewFollowers": "匿名化新关注者",
+    "bannedWordsCommaSeparated": "违禁词（逗号分隔）",
+    "bannedWordsPhrases": "<strong>违禁词 / 短语</strong>",
+    "bitsTts": "Bits → TTS",
+    "blockLinks": "屏蔽链接",
+    "botRespondsInChat": "机器人聊天区回复",
+    "channelPointsTts": "Channel Points → TTS",
+    "chooseWhichMessagesTriggerTts": "选择哪些消息触发 TTS",
+    "configureBitsRequirementsForText": "配置 TTS 的 bits 要求",
+    "configureChannelPointsRewardsFor": "配置 TTS 的 Channel Points 奖励",
+    "configureTtsEngineSettingsAnd": "配置 TTS 引擎设置和权限",
+    "controlHowTtsPronouncesSpecific": "控制 TTS 对特定词语的发音。默认支持常见的 Twitch 缩写。添加条目可覆盖默认发音或添加新词语。",
+    "controlsHowTtsHandlesEmotes": "控制 TTS 如何处理聊天消息中的表情",
+    "cooldownsAndModeration": "冷却与内容审核",
+    "costPoints": "花费（点数）",
+    "emoteMode": "<strong>表情模式</strong>",
+    "enableChannelPointsTts": "启用 Channel Points TTS",
+    "enableCooldownsLimits": "启用冷却与限制",
+    "engineMode": "引擎与模式",
+    "expandChatAcronyms": "朗读聊天缩写全称",
+    "globalCooldownSec": "全局冷却（秒）",
+    "hideFollowerNamesInTts": "在 TTS 提示中隐藏关注者名称以保护隐私",
+    "ifOnTtsReadsFull": "开启时，TTS 朗读完整 URL。关闭时，TTS 仅朗读域名",
+    "ifThisSettingIsOff": "若关闭此设置，TTS 将对所有消息使用频道默认语音",
+    "ignoredUsers": "已忽略用户",
+    "manageUsersThatTtsIgnores": "管理 TTS 忽略的用户",
+    "minimumBitsRequired": "<strong>所需最少 bits</strong>",
+    "minimumNumberOfBitsRequired": "触发 TTS 所需的最少 bits 数量",
+    "perStreamLimit": "每场直播限制",
+    "perUserPerStream": "每人每场直播",
+    "profanityFilter": "脏话过滤器",
+    "pronunciationDictionary": "<strong>发音词典</strong>",
+    "readFullUrls": "朗读完整 URL",
+    "readYoutubeLiveChatMessages": "通过 TTS 朗读 YouTube 直播聊天消息。此功能需要正在进行的 YouTube 直播。",
+    "readYoutubeLiveChatMessages2": "朗读 YouTube 直播聊天消息",
+    "requireBitsForTts": "使用 TTS 需要 bits",
+    "rewardTitle": "奖励标题",
+    "skipTheRewardQueue": "跳过奖励队列",
+    "theTitleMustBeUnique": "标题在你的频道中必须唯一。",
+    "ttsDoesNotReadMessages": "TTS 不会朗读此列表中用户的消息。",
+    "ttsEngineEnabled": "已启用 TTS 引擎",
+    "ttsExpandsCommonTwitchAcronyms": "TTS 会将常见的 Twitch 缩写展开为单词。例如，“ngl”会读作“not gonna lie”。关闭后将逐字母拼读。",
+    "ttsIgnoreList": "<strong>TTS 忽略列表</strong>",
+    "ttsMode": "<strong>TTS 模式</strong>",
+    "ttsPermission": "<strong>TTS 权限</strong>",
+    "ttsReplacesProfanityWithMilder": "TTS 会在朗读前将脏话替换为更温和的词语。过滤器使用频道语言和观众语言。若语言设为“自动”，则使用英文词库。违禁词仍会跳过整条消息。",
+    "ttsSkipsMessagesThatContain": "TTS 会跳过包含这些词语或短语的消息。",
+    "turnOnOrTurnOff": "开启或关闭文本转语音引擎",
+    "viewerPrompt": "观众提示",
+    "viewersMustCheerBitsTo": "观众必须使用 bits 助威才能使用文本转语音",
+    "whoCanUseTextTo": "谁可以使用文本转语音",
+    "yourYoutubeChannelHandleFor": "你的 YouTube 频道 Handle（例如 <code>@yourhandle</code>）",
+    "youtubeHandle": "<strong>YouTube Handle</strong>",
+    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>YouTube 集成",
+    "youtubeTtsEnabled": "已启用 YouTube TTS"
+  },
+  "tabBtnBroadcaster": {
+    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>主播"
+  },
+  "tabBtnViewerDefaults": {
+    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>默认语音"
+  },
+  "tabViewerDefaults": {
+    "adjustThePitchForThe": "调整默认语音的音调",
+    "adjustTheVolumeForThe": "调整所选语音的音量。注意：大于 1.0 的值可能导致失真。",
+    "calibrateVolumeForSpecificVoices": "校准特定语音的音量。注意：大于 1.0 的值可能导致失真。",
+    "calibratedVoices": "<strong>已校准语音</strong>",
+    "controlHowFastTheDefault": "控制默认语音的语速",
+    "defaultEmotion": "<strong>默认情绪</strong>",
+    "defaultLanguage": "<strong>默认语言</strong>",
+    "defaultPitch12To12": "默认音调 (-12 到 +12):",
+    "defaultSpeed05To": "默认语速 (0.5 到 2.0):",
+    "defaultVoice": "<strong>默认语音</strong>",
+    "defaultVoiceSettings": "默认语音设置",
+    "englishNormalization": "英语文本规范化",
+    "improvePronunciationForSpecificLanguages": "改善特定语言的发音",
+    "improveThePronunciationOfNumbers": "改善数字和文本的发音",
+    "selectTheDefaultTtsVoice": "为频道选择默认 TTS 语音",
+    "selectVoice": "选择语音",
+    "setDefaultVoiceSettingsFor": "为你的频道配置默认语音设置",
+    "setTheEmotionalToneOf": "设置默认语音的情感基调",
+    "viewerVoiceLookup": "观众语音查询",
+    "voiceCalibration": "语音校准",
+    "voiceVolume01To": "语音音量 (0.1 到 10):",
+    "voicesWithCustomVolumeSettings": "已自定义音量设置的语音。",
+    "volumeOverride": "音量覆盖:"
+  },
+  "ttsBannedWordInput": {
+    "wordOrPhraseToBan": "要屏蔽的词语或短语"
+  },
+  "ttsEnabled": {
+    "ttsEngineEnabled": "TTS 引擎已启用"
+  },
+  "ttsIgnoreUsername": {
+    "usernameToIgnore": "要忽略的用户名"
+  },
+  "ttsMode": {
+    "allMessages": "所有消息",
+    "bitsPointsOnly": "仅限 Bits/Channel Points",
+    "ttsCommandOnly": "仅限 !tts 命令"
+  },
+  "ttsPermission": {
+    "everyone": "所有人",
+    "moderatorsOnly": "仅限管理员",
+    "subscribersOnly": "仅限订阅者",
+    "vipsOnly": "仅限 VIP"
+  },
+  "ttsPronunciationMatchInput": {
+    "wordForExampleWcat": "词语（例如 wcat）",
+    "wordToReplace": "要替换的词语"
+  },
+  "ttsPronunciationSayInput": {
+    "howToSayItFor": "读法（例如 wildcat）",
+    "pronunciation": "发音"
+  },
+  "ttsUrlField": {
+    "yourBrowserSourceUrl": "你的 Browser Source URL"
+  },
+  "twitchUsername": {
+    "loading": "正在加载…"
+  },
+  "voiceTestBtn": {
+    "sendPreview": "发送试听"
+  },
+  "watchStreakEventsEnabled": {
+    "announceWatchStreaks": "播报连续观看记录"
+  },
+  "youtubeEnabled": {
+    "youtubeTtsEnabled": "YouTube TTS 已启用"
+  },
+  "youtubeHandle": {
+    "yourhandle": "@yourhandle"
+  }
+}

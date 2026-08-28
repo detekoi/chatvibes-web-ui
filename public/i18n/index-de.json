@@ -1,0 +1,50 @@
+{
+  "kofiClose": {
+    "closeSupportDialog": "Support-Dialog schließen"
+  },
+  "kofiModal": {
+    "openInNewTabOn": "<a href=\"https://ko-fi.com/parfaitfair\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"kofi-direct-link\">In neuem Tab auf Ko-fi.com öffnen</a>"
+  },
+  "kofiOpen": {
+    "supportMe": "Unterstütze mich"
+  },
+  "kofiTitle": {
+    "supportParfaitfair": "parfaitfair unterstützen"
+  },
+  "mainContent": {
+    "access": "Zugriff",
+    "accessIsInviteOnlyUnapproved": "Zugriff nur auf Einladung. Nicht freigeschaltete Kanäle erhalten eine Zugriffsverweigerung. <a class=\"wc-link wc-link--underline\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">Hier Zugriff anfragen</a>.",
+    "changeTtsSettingsControlBot": "TTS-Einstellungen ändern • Bot-Chat-Antworten steuern • Kanalpunkte konfigurieren • Stimmeinstellungen festlegen",
+    "colorTheme": "Farbschema",
+    "iAmAViewer": "<span class=\"wc-rule-name\">Ich bin Zuschauer</span>",
+    "iRunTheChannel": "<span class=\"wc-rule-name\">Ich leite den Kanal</span>",
+    "setHowYourMessagesSound": "Lege fest, wie deine Nachrichten klingen, wenn TTS sie in besuchten Kanälen vorliest.",
+    "textToSpeechForYour": "Text-to-Speech für deinen Twitch-Kanal – für Streamer und Zuschauer.",
+    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">Nur mit Einladung</span>",
+    "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">Text-to-Speech-Bot-Verwaltung</span>"
+  },
+  "meta": {
+    "wildcatttsBotManagement": "WildcatTTS-Bot-Verwaltung",
+    "wildcatttsTextToSpeechBot": "WildcatTTS Text-to-Speech-Bot-Verwaltung für Twitch-Kanäle, Streamer und Zuschauer."
+  },
+  "msg": {
+    "kofi": {
+      "iframeTitle": "parfaitfair auf Ko-fi unterstützen"
+    }
+  },
+  "page": {
+    "support": "Support"
+  },
+  "streamerLoginBtn": {
+    "manageMyChannel": "<i data-lucide=\"mic\" aria-hidden=\"true\"></i>Meinen Kanal verwalten"
+  },
+  "themeDarkBtn": {
+    "dark": "Dunkel"
+  },
+  "themeLightBtn": {
+    "light": "Hell"
+  },
+  "viewerPrefsBtn": {
+    "setMyOwnVoice": "<i data-lucide=\"headphones\" aria-hidden=\"true\"></i>Eigene Stimme festlegen"
+  }
+}

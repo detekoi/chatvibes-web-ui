@@ -1,0 +1,41 @@
+{
+  "errorAction": {
+    "tryAgain": "Повторить попытку"
+  },
+  "errorCode": {
+    "unknown": "неизвестно"
+  },
+  "errorCodeBlock": {
+    "error": "Ошибка"
+  },
+  "errorMessageDetails": {
+    "twitchAuthenticationFailed": "Ошибка аутентификации Twitch."
+  },
+  "errorReadout": {
+    "authenticationFailed": "Ошибка аутентификации"
+  },
+  "errorTitle": {
+    "authenticationFailed": "Ошибка аутентификации"
+  },
+  "mainContent": {
+    "requestAccessTtsWildcatChat": "<a class=\"wc-link\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">Запросить доступ</a> <span>tts.wildcat.chat</span>"
+  },
+  "meta": {
+    "wildcatttsAuthenticationError": "WildcatTTS — Ошибка аутентификации",
+    "wildcatttsAuthenticationErrorAndSign": "Ошибка аутентификации WildcatTTS и восстановление входа."
+  },
+  "msg": {
+    "authError": {
+      "backToSignIn": "Вернуться ко входу",
+      "canceledBody": "Никаких изменений не произошло. Вы можете войти, когда будете готовы.",
+      "canceledReadout": "Отменено",
+      "canceledTitle": "WildcatTTS — Вход отменён",
+      "canceledTitleShort": "Вход отменён",
+      "notPermitted": "Доступ запрещён",
+      "requestAccess": "Запросить доступ",
+      "twitchError": "Twitch вернул ошибку при аутентификации.",
+      "unspecified": "Произошла неизвестная ошибка.",
+      "unspecifiedCode": "неизвестно"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "authBar": {
+    "signInProgress": "پیشرفت ورود"
+  },
+  "authMessage": {
+    "pleaseWait": "لطفاً صبر کنید."
+  },
+  "authSteps": {
+    "loadingDashboard": "بارگیری داشبورد",
+    "sessionTokenStored": "توکن نشست ذخیره شد",
+    "twitchAuthorized": "Twitch تأیید شد"
+  },
+  "authTitle": {
+    "signingYouIn": "در حال ورود شما"
+  },
+  "meta": {
+    "completingWildcatttsTwitchSignIn": "تکمیل ورود به WildcatTTS از طریق Twitch.",
+    "wildcatttsCompletingSignIn": "WildcatTTS - در حال تکمیل ورود"
+  },
+  "msg": {
+    "authComplete": {
+      "cannotComplete": "امکان تکمیل ورود وجود ندارد.",
+      "failedReadout": "ناموفق",
+      "failedTitle": "ورود ناموفق بود",
+      "missingInfo": "اطلاعات احراز هویت از پاسخ Twitch وجود ندارد. دوباره وارد شوید.",
+      "noSession": "نشستی وجود ندارد",
+      "redirecting": "در حال انتقال به داشبورد شما.",
+      "retrySignIn": "{reason} دوباره وارد شوید.",
+      "sessionEstablished": "نشست برقرار شد",
+      "welcome": "خوش آمدید، {user}"
+    }
+  },
+  "sessionState": {
+    "establishingSession": "در حال برقراری نشست"
+  },
+  "statusReadout": {
+    "working": "<span class=\"wc-dot\"></span>در حال کار"
+  }
+}

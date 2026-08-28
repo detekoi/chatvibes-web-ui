@@ -1,0 +1,11 @@
+{
+  "mainContent": {
+    "pageNotFound": "Страница не найдена",
+    "returnToLogin": "Вернуться ко входу",
+    "thatUrlIsNotPart": "Этот URL не принадлежит данному сайту. Убедитесь, что адрес указан правильно, или вернитесь на страницу входа."
+  },
+  "meta": {
+    "pageNotFoundOnWildcattts": "Страница не найдена на WildcatTTS.",
+    "pageNotFoundWildcattts": "Страница не найдена — WildcatTTS"
+  }
+}

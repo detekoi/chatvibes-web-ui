@@ -1,0 +1,50 @@
+{
+  "kofiClose": {
+    "closeSupportDialog": "Destek penceresini kapat"
+  },
+  "kofiModal": {
+    "openInNewTabOn": "<a href=\"https://ko-fi.com/parfaitfair\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"kofi-direct-link\">Ko-fi.com'da yeni sekmede aç</a>"
+  },
+  "kofiOpen": {
+    "supportMe": "Bana destek ol"
+  },
+  "kofiTitle": {
+    "supportParfaitfair": "parfaitfair'e destek ol"
+  },
+  "mainContent": {
+    "access": "Erişim",
+    "accessIsInviteOnlyUnapproved": "Erişim yalnızca davetiyelidir. Onaylanmamış kanallar erişim reddedildi mesajı alır. <a class=\"wc-link wc-link--underline\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">Buradan erişim talep edin</a>.",
+    "changeTtsSettingsControlBot": "TTS ayarlarını değiştir • Bot sohbet yanıtlarını yönet • Kanal Puanlarını yapılandır • Ses tercihlerini ayarla",
+    "colorTheme": "Renk teması",
+    "iAmAViewer": "<span class=\"wc-rule-name\">İzleyiciyim</span>",
+    "iRunTheChannel": "<span class=\"wc-rule-name\">Kanalı yönetiyorum</span>",
+    "setHowYourMessagesSound": "Ziyaret ettiğin herhangi bir kanalda TTS mesajlarını okurken sesinin nasıl çıkacağını ayarla.",
+    "textToSpeechForYour": "Twitch kanalın için metin okuma; yayıncılar ve izleyiciler için.",
+    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">Yalnızca davetle</span>",
+    "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">Metin okuma botu yönetimi</span>"
+  },
+  "meta": {
+    "wildcatttsBotManagement": "WildcatTTS Bot Yönetimi",
+    "wildcatttsTextToSpeechBot": "Twitch kanalları, yayıncılar ve izleyiciler için WildcatTTS metin okuma botu yönetimi."
+  },
+  "msg": {
+    "kofi": {
+      "iframeTitle": "parfaitfair'e Ko-fi'de destek olun"
+    }
+  },
+  "page": {
+    "support": "Destek"
+  },
+  "streamerLoginBtn": {
+    "manageMyChannel": "<i data-lucide=\"mic\" aria-hidden=\"true\"></i>Kanalımı yönet"
+  },
+  "themeDarkBtn": {
+    "dark": "Koyu"
+  },
+  "themeLightBtn": {
+    "light": "Açık"
+  },
+  "viewerPrefsBtn": {
+    "setMyOwnVoice": "<i data-lucide=\"headphones\" aria-hidden=\"true\"></i>Kendi sesimi ayarla"
+  }
+}

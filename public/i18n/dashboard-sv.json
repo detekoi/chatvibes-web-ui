@@ -1,0 +1,500 @@
+{
+  "addBotBtn": {
+    "activateTtsService": "Aktivera TTS-tjänst"
+  },
+  "addTtsBannedWordBtn": {
+    "add": "Lägg till"
+  },
+  "addTtsIgnoreBtn": {
+    "add": "Lägg till"
+  },
+  "addTtsPronunciationBtn": {
+    "add": "Lägg till"
+  },
+  "allowViewerPreferences": {
+    "allowViewerVoicePreferences": "Tillåt röstinställningar för tittare"
+  },
+  "announceUnfulfilledRedemptions": {
+    "announceQueuedRedeemsImmediately": "Avisera köade inlösningar direkt"
+  },
+  "announceUnfulfilledRedemptionsHelp": {
+    "aRewardThatDoesNot": "En belöning som inte hoppar över kön för belöningsförfrågningar aviseras så fort den löses in, även om du avvisar förfrågan senare. Inaktivera detta för att hålla på aviseringen tills du godkänner förfrågan – belöningar du aldrig godkänner aviseras då aldrig."
+  },
+  "anonymizeFollowers": {
+    "anonymizeNewFollowers": "Anonymisera nya följare"
+  },
+  "bitsEnabled": {
+    "requireBitsForTts": "Kräv Bits för TTS"
+  },
+  "botRespondsInChat": {
+    "botRespondsInChat": "Botten svarar i chatten"
+  },
+  "botStatus": {
+    "loading": "Laddar…"
+  },
+  "calibratedVoicesList": {
+    "noVoicesCalibratedYet": "Inga röster har kalibrerats än."
+  },
+  "calibrationSaveBtn": {
+    "save": "Spara"
+  },
+  "calibrationVoiceSearch": {
+    "searchVoicesToCalibrate": "Sök efter röster att kalibrera..."
+  },
+  "channelNameStatus": {
+    "yourChannel": "din kanal"
+  },
+  "cheerEventsEnabled": {
+    "announceCheers": "Avisera Cheers"
+  },
+  "copyTtsUrlBtn": {
+    "copy": "Kopiera",
+    "copyBrowserSourceUrl": "Kopiera Browser Source-URL"
+  },
+  "cpDelete": {
+    "disableDelete": "Inaktivera och ta bort"
+  },
+  "cpEnabled": {
+    "enableChannelPointsTts": "Aktivera Channel Points-TTS"
+  },
+  "cpPerStream": {
+    "enterAmount": "Ange belopp"
+  },
+  "cpPerUser": {
+    "enterAmount": "Ange belopp"
+  },
+  "cpSave": {
+    "save": "Spara"
+  },
+  "cpTest": {
+    "testRedeem": "Testa inlösning"
+  },
+  "dashboardContent": {
+    "channel": "Kanal",
+    "channelService": "Kanaltjänst",
+    "dashboardConfigurationTabs": "Konfigurationsflikar för instrumentpanelen",
+    "deactivationStopsTheBotFrom": "Inaktivering stoppar botten från att läsa chattmeddelanden. Dina inställningar sparas. Du kan aktivera tjänsten igen när som helst.",
+    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentation </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>Tittarinställningar </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "Känsla",
+    "engNormalization": "Eng. normalisering",
+    "language": "Språk",
+    "pitch": "Tonhöjd",
+    "quickLinks": "Snabblänkar",
+    "service": "Tjänst",
+    "signedInAs": "Inloggad som",
+    "speed": "Hastighet",
+    "testMessage": "Testmeddelande",
+    "voicePreview": "Förhandsgranska röst",
+    "volume": "Volym"
+  },
+  "defaultEmotion": {
+    "angry": "Arg",
+    "disgusted": "Äcklad",
+    "fearful": "Rädd",
+    "happy": "Glad",
+    "neutral": "Neutral",
+    "sad": "Ledsen",
+    "surprised": "Förvånad"
+  },
+  "defaultPitch": {
+    "defaultPitch12To12": "Standardtonhöjd (-12 till +12)"
+  },
+  "defaultSpeed": {
+    "defaultSpeed05To": "Standardhastighet (0,5 till 2,0)"
+  },
+  "defaultVoiceSearch": {
+    "searchDefaultVoices": "Sök standardröster",
+    "searchVoices": "Sök röster..."
+  },
+  "defaultVolume": {
+    "voiceVolume01To": "Röstvolym (0,1 till 10)"
+  },
+  "emoteMode": {
+    "describeEmotes": "Beskriv emotes",
+    "readEmoteNames": "Läs upp emotenamn",
+    "skipEmotes": "Hoppa över emotes"
+  },
+  "englishNormalization": {
+    "englishNormalization": "Engelsk normalisering"
+  },
+  "eventsEnabled": {
+    "announceEvents": "Avisera händelser"
+  },
+  "loadingBar": {
+    "loadingDashboardSettings": "Läser in kontrollpanelens inställningar"
+  },
+  "loadingOverlay": {
+    "loadingDashboardSettings": "Läser in kontrollpanelens inställningar…"
+  },
+  "lookupUsername": {
+    "enterTwitchViewerUsername": "Ange tittarens Twitch-användarnamn"
+  },
+  "lookupVoiceBtn": {
+    "lookupVoice": "Sök röst"
+  },
+  "meta": {
+    "wildcatttsDashboard": "WildcatTTS-kontrollpanel",
+    "wildcatttsStreamerDashboardConfigureText": "WildcatTTS streamerkontrollpanel – Konfigurera inställningar för text-till-tal, behörigheter, botsvar och Channel Points."
+  },
+  "msg": {
+    "auth": {
+      "demoStreamer": "Demostreamer",
+      "needBroadcaster": "Logga in med ditt sändarkonto för att komma åt streamerinställningar.",
+      "needSignIn": "Logga in med ditt Twitch-konto för att komma åt kontrollpanelen."
+    },
+    "bannedWords": {
+      "addFailed": "Kan inte lägga till förbjudet ord.",
+      "added": "Lade till \"{word}\" bland förbjudna ord.",
+      "addedTestMode": "[Test] Lade till förbjudet ord: {word}.",
+      "empty": "Inga förbjudna ord har lagts till än.",
+      "removeFailed": "Kan inte ta bort förbjudet ord.",
+      "removed": "Tog bort \"{word}\" från förbjudna ord.",
+      "removedTestMode": "[Test] Tog bort förbjudet ord: {word}."
+    },
+    "bot": {
+      "activateFailed": "Kan inte aktivera TTS-tjänsten.",
+      "activated": "TTS-tjänsten har aktiverats.",
+      "activatedTestMode": "TTS-tjänsten har aktiverats (testläge).",
+      "activating": "Aktiverar TTS-tjänsten…",
+      "active": "Aktiv",
+      "deactivateFailed": "Kan inte inaktivera TTS-tjänsten.",
+      "deactivated": "TTS-tjänsten har inaktiverats.",
+      "deactivatedTestMode": "TTS-tjänsten har inaktiverats (testläge).",
+      "deactivating": "Inaktiverar TTS-tjänsten…",
+      "inactive": "Inaktiv",
+      "notAuthenticated": "Inte autentiserad",
+      "requestAccess": "Begär åtkomst här",
+      "statusError": "Fel",
+      "statusFailed": "Fel: {reason}",
+      "statusLoadFailed": "Kan inte läsa in botstatus: {reason}",
+      "unknownError": "Okänt fel"
+    },
+    "calibration": {
+      "confirmReset": "Återställ kalibrering för {voice}?",
+      "edit": "Redigera",
+      "empty": "Inga röster har kalibrerats än.",
+      "reset": "Återställ",
+      "row": "{voice} ({volume})"
+    },
+    "cp": {
+      "confirmDelete": "Ta bort TTS-belöningen för Channel Points?",
+      "deleteFailed": "Borttagningen misslyckades.",
+      "deleted": "Belöningen togs bort.",
+      "deletedTestMode": "Belöningen togs bort (testläge).",
+      "deleting": "Tar bort…",
+      "lastSynced": "{reward} · Senast synkroniserad: {time}",
+      "never": "aldrig",
+      "noReward": "Ingen belöning skapad",
+      "noRewardTestMode": "Ingen belöning skapad (testläge)",
+      "rewardId": "Belönings-ID: {id}",
+      "saveFailed": "Kan inte spara inställningar för Channel Points.",
+      "saved": "Inställningar för Channel Points sparade.",
+      "savedTestMode": "Inställningar för Channel Points sparade (testläge).",
+      "saving": "Sparar inställningar för Channel Points…",
+      "testCompleted": "Test slutfört ({status}).",
+      "testCompletedTestMode": "Test slutfört (testläge).",
+      "testFailed": "Testet misslyckades.",
+      "testPrompt": "Ange ett testmeddelande för att simulera en inlösen:",
+      "testing": "Testar inlösen…"
+    },
+    "ignore": {
+      "addFailed": "Kan inte lägga till användaren i ignoreringslistan.",
+      "addFailedReason": "Kan inte lägga till användare: {reason}",
+      "badgeModerator": "Tystad av dig",
+      "badgeSelf": "Valt bort",
+      "empty": "Inga ignorerade användare.",
+      "noSuchAccount": "Inget sådant Twitch-konto",
+      "removeFailed": "Kan inte ta bort användaren från ignoreringslistan.",
+      "removeFailedReason": "Kan inte ta bort {label}: {reason}",
+      "removeLabel": "Ta bort {label} från ignoreringslistan ({source, select, self {valde bort själv} other {tystad av dig}})"
+    },
+    "lookup": {
+      "button": "Sök röst",
+      "calibrate": "Kalibrera \"{voice}\"",
+      "error": "Fel: {reason}",
+      "failed": "Kan inte hitta användaren.",
+      "hasVoice": "Användaren {user} har angett en anpassad röst: {voice}",
+      "noVoice": "Användaren {user} har ingen anpassad röst vald.",
+      "searching": "Söker…",
+      "voiceUnknown": "Denna röst finns inte i listan över tillgängliga röster."
+    },
+    "obs": {
+      "cannotCopy": "Kan inte kopiera URL.",
+      "cannotDetermine": "Kan inte fastställa TTS-URL.",
+      "copied": "Kopierat till urklipp.",
+      "copiedButton": "Kopierat!",
+      "copyFailed": "Kopieringen misslyckades.",
+      "generateFailed": "Kan inte generera OBS-URL. Försök igen.",
+      "generating": "Genererar…",
+      "generatingUrl": "Genererar säker URL…",
+      "loadingUrl": "Laddar befintlig URL…",
+      "pressRegenerate": "Klicka på \"Generera ny URL\" för att skapa en OBS Browser Source-URL.",
+      "refreshPage": "Kan inte generera URL. Uppdatera sidan.",
+      "testModeUrl": "URL för testläge",
+      "urlGenerated": "Genererade en ny URL.",
+      "urlGeneratedTestMode": "Genererade en ny URL (testläge).",
+      "urlNotReady": "URL:en är inte tillgänglig än.",
+      "yourUrl": "Din OBS Browser Source-URL"
+    },
+    "preview": {
+      "playingTestMode": "Spelar upp förhandsvisning… (testläge)",
+      "tooLong": "Texten får vara högst 500 tecken."
+    },
+    "pron": {
+      "acronymsDisabled": "Förkortningar är inaktiverade",
+      "acronymsOffHint": "Aktivera \"Expandera chattförkortningar\" ovan för att dessa inställningar ska gälla.",
+      "addFailed": "Kan inte lägga till uttal.",
+      "added": "Lade till uttal: {match} -> {say}.",
+      "addedTestMode": "[Test] Lade till uttal: {match} -> {say}.",
+      "builtinOff": " – inbyggda avstängda",
+      "empty": "Inga anpassade uttal har lagts till än.",
+      "expansion": " → {say}",
+      "needBoth": "Ange både ordet och uttalet.",
+      "removeFailed": "Kan inte ta bort uttal.",
+      "removed": "Tog bort uttal: {match}.",
+      "removedTestMode": "[Test] Tog bort uttal: {match}."
+    },
+    "setting": {
+      "allowViewerPreferences": "Tillåt röstinställningar för tittare",
+      "announceQueuedRedeems": "Avisera köade inlösningar",
+      "anonymizeFollowers": "Anonymisera följare",
+      "bitsForTts": "Bits för TTS",
+      "botRespondsInChat": "Boten svarar i chatten",
+      "cheerAnnouncements": "Cheer-aviseringar",
+      "defaultEmotion": "Standardkänsla",
+      "defaultLanguage": "Standardspråk",
+      "defaultPitch": "Standardtonhöjd",
+      "defaultSpeed": "Standardhastighet",
+      "defaultVoice": "Standardröst",
+      "emoteMode": "Emote-läge",
+      "englishNormalization": "Engelsk normalisering",
+      "eventAnnouncements": "Händelseaviseringar",
+      "expandAcronyms": "Expandera chattförkortningar",
+      "minimumBits": "Minsta antal bits",
+      "profanityFilter": "Svordomsfilter",
+      "readFullUrls": "Läs upp hela URL:er",
+      "redemptionAnnouncements": "Inlösningsaviseringar",
+      "ttsEngine": "TTS-motor",
+      "ttsMode": "TTS-läge",
+      "ttsPermission": "TTS-behörighet",
+      "voiceVolume": "Röstvolym",
+      "watchStreakAnnouncements": "Watch Streak-aviseringar",
+      "youtubeHandle": "YouTube-användarnamn",
+      "youtubeTts": "YouTube TTS"
+    },
+    "settings": {
+      "loadFailed": "Kan inte läsa in dina inställningar.",
+      "saveFailed": "{label}: {reason}",
+      "youtubeHandleRequired": "Ange ett YouTube-användarnamn innan du aktiverar YouTube TTS."
+    }
+  },
+  "obsCloseBtn": {
+    "closeObsSetup": "Stäng OBS-konfiguration"
+  },
+  "obsPopover": {
+    "addBrowserSource": "Lägg till Browser Source",
+    "cautionANewUrlStops": "VARNING: En ny URL stoppar din nuvarande OBS-källa tills du uppdaterar URL:en i OBS.",
+    "controlAudioViaObs": "Styr ljud via OBS",
+    "inObsAddANew": "I OBS lägger du till en ny <strong>Browser Source</strong>. Namnge källan \"Wildcat TTS\" och klistra in den kopierade URL:en. Du kan behålla standardbredd och standardhöjd.",
+    "inTheObsAudioMixer": "Leta upp \"Wildcat TTS\" i OBS Audio Mixer. Klicka på kugghjulsikonen och välj <strong>Advanced Audio Properties</strong>. Ställ in Audio Monitoring på <strong>Monitor and Output</strong>.",
+    "monitorAndOutput": "Monitor och utmatning",
+    "obsBrowserSource": "OBS Browser Source",
+    "selectControlAudioViaObs": "Välj <strong>Control audio via OBS</strong>. Kontrollera att <strong>Shutdown source when not visible</strong> inte är markerat.",
+    "setupInstructions": "Instruktioner för installation",
+    "yourBrowserSourceUrl": "Din Browser Source-URL"
+  },
+  "obsToggleBtn": {
+    "obsSetup": "OBS-konfiguration"
+  },
+  "page": {
+    "channelDashboard": "Kanalöversikt",
+    "textToSpeechSettingsFor": "Text-till-tal-inställningar för din kanal. Ändringar sparas automatiskt.",
+    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Översikt</span>"
+  },
+  "profanityFilterEnabled": {
+    "profanityFilter": "Svordomsfilter"
+  },
+  "pronunciationEnabled": {
+    "expandChatAcronyms": "Expandera chattförkortningar"
+  },
+  "readFullUrls": {
+    "readFullUrls": "Läs upp fullständiga URL:er"
+  },
+  "redemptionEventsEnabled": {
+    "announceRewardRedeems": "Avisera inlösta belöningar"
+  },
+  "regenerateTtsUrlBtn": {
+    "regenerateBrowserSourceUrl": "Generera ny Browser Source-URL",
+    "regenerateUrl": "Generera ny URL"
+  },
+  "removeBotBtn": {
+    "deactivateTtsService": "Inaktivera TTS-tjänst"
+  },
+  "resetPitchBtn": {
+    "reset": "Återställ",
+    "resetDefaultPitchTo0": "Återställ standardtonhöjd till 0"
+  },
+  "resetSpeedBtn": {
+    "reset": "Återställ",
+    "resetDefaultSpeedTo1": "Återställ standardhastighet till 1.0"
+  },
+  "resetVolumeBtn": {
+    "reset": "Återställ",
+    "resetVoiceVolumeTo1": "Återställ röstvolym till 1.0"
+  },
+  "saveSettingsBtn": {
+    "saveAllSettings": "Spara alla inställningar"
+  },
+  "serviceHeadline": {
+    "ttsService": "TTS-tjänst"
+  },
+  "sidebarVoiceName": {
+    "friendlyPerson": "Vänlig person"
+  },
+  "tabBroadcaster": {
+    "allowTheBotToRespond": "Tillåt boten att svara på chattkommandon som !myvoice",
+    "allowViewerVoicePreferences": "Tillåt tittarnas röstinställningar",
+    "allowViewersToUseChannel": "Tillåt tittare att använda Channel Points för TTS",
+    "announceCheers": "Avisera cheers",
+    "announceEvents": "Avisera händelser",
+    "announceEventsSuchAsSubscriptions": "Avisera händelser som prenumerationer och raids",
+    "announceQueuedRedeemsImmediately": "Avisera köade inlösningar direkt",
+    "announceRewardRedeems": "Avisera belöningsinlösningar",
+    "announceWatchStreaks": "Avisera tittningssviter",
+    "announceWhenAViewerCheers": "Avisera när en tittare cheerar bits",
+    "announceWhenAViewerReaches": "Avisera när en tittare når en milstolpe för tittningssvit",
+    "announceWhenAViewerRedeems": "Avisera när en tittare löser in en Channel Points-belöning",
+    "anonymizeNewFollowers": "Anonymisera nya följare",
+    "bannedWordsCommaSeparated": "Bannlysta ord (kommaseparerade)",
+    "bannedWordsPhrases": "<strong>Bannlysta ord/fraser</strong>",
+    "bitsTts": "Bits → TTS",
+    "blockLinks": "Blockera länkar",
+    "botRespondsInChat": "Boten svarar i chatten",
+    "channelPointsTts": "Channel Points → TTS",
+    "chooseWhichMessagesTriggerTts": "Välj vilka meddelanden som aktiverar TTS",
+    "configureBitsRequirementsForText": "Konfigurera bits-krav för text-till-tal",
+    "configureChannelPointsRewardsFor": "Konfigurera Channel Points-belöningar för text-till-tal",
+    "configureTtsEngineSettingsAnd": "Konfigurera inställningar och behörigheter för TTS-motorn",
+    "controlHowTtsPronouncesSpecific": "Styr hur TTS uttalar specifika ord. Vanliga Twitch-akronymer hanteras automatiskt. Lägg till en post för att åsidosätta standarduttal eller lägga till ett nytt ord.",
+    "controlsHowTtsHandlesEmotes": "Styr hur TTS hanterar emotes i chattmeddelanden",
+    "cooldownsAndModeration": "Cooldowns och moderering",
+    "costPoints": "Kostnad (poäng)",
+    "emoteMode": "<strong>Emote-läge</strong>",
+    "enableChannelPointsTts": "Aktivera Channel Points-TTS",
+    "enableCooldownsLimits": "Aktivera cooldowns och gränser",
+    "engineMode": "Motor och läge",
+    "expandChatAcronyms": "Expandera chattakronymer",
+    "globalCooldownSec": "Global cooldown (sek)",
+    "hideFollowerNamesInTts": "Dölj följarnamn i TTS-aviseringar av integritetsskäl",
+    "ifOnTtsReadsFull": "Om aktiverad läser TTS fullständiga URL:er. Om inaktiverad läser TTS endast domännamn.",
+    "ifThisSettingIsOff": "Om inställningen är inaktiverad använder TTS kanalens standardröst för alla meddelanden.",
+    "ignoredUsers": "Ignorerade användare",
+    "manageUsersThatTtsIgnores": "Hantera användare som TTS ignorerar",
+    "minimumBitsRequired": "<strong>Minsta antal bits som krävs</strong>",
+    "minimumNumberOfBitsRequired": "Minsta antal bits som krävs för att aktivera TTS",
+    "perStreamLimit": "Gräns per stream",
+    "perUserPerStream": "Per användare och stream",
+    "profanityFilter": "Svordomsfilter",
+    "pronunciationDictionary": "<strong>Uttalsordlista</strong>",
+    "readFullUrls": "Läs fullständiga URL:er",
+    "readYoutubeLiveChatMessages": "Läs livechattmeddelanden från YouTube via TTS. Denna funktion kräver en aktiv YouTube-livestream.",
+    "readYoutubeLiveChatMessages2": "Läs upp livechattmeddelanden från YouTube",
+    "requireBitsForTts": "Kräv bits för TTS",
+    "rewardTitle": "Belöningstitel",
+    "skipTheRewardQueue": "Hoppa över belöningskön",
+    "theTitleMustBeUnique": "Titeln måste vara unik på din kanal.",
+    "ttsDoesNotReadMessages": "TTS läser inte meddelanden från användare på den här listan.",
+    "ttsEngineEnabled": "TTS-motor aktiverad",
+    "ttsExpandsCommonTwitchAcronyms": "TTS expanderar vanliga Twitch-akronymer till hela ord. Till exempel blir ”ngl” ”not gonna lie”. Inaktivera för att stava ut varje bokstav.",
+    "ttsIgnoreList": "<strong>TTS-ignoreringslista</strong>",
+    "ttsMode": "<strong>TTS-läge</strong>",
+    "ttsPermission": "<strong>TTS-behörighet</strong>",
+    "ttsReplacesProfanityWithMilder": "TTS ersätter svordomar med mildare ord före uppläsning. Filtret använder kanalens språk och tittarens språk. Om språket är inställt på Automatiskt används den engelska listan. Förbjudna ord gör fortfarande att hela meddelandet hoppas över.",
+    "ttsSkipsMessagesThatContain": "TTS hoppar över meddelanden som innehåller dessa ord eller fraser.",
+    "turnOnOrTurnOff": "Aktivera eller inaktivera text-till-tal-motorn",
+    "viewerPrompt": "Uppmaning till tittare",
+    "viewersMustCheerBitsTo": "Tittare måste cheera bits för att använda text-till-tal",
+    "whoCanUseTextTo": "Vilka som kan använda text-till-tal",
+    "yourYoutubeChannelHandleFor": "Ditt YouTube-användarnamn (till exempel <code>@yourhandle</code>)",
+    "youtubeHandle": "<strong>YouTube-användarnamn</strong>",
+    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>YouTube-integration",
+    "youtubeTtsEnabled": "YouTube-TTS aktiverat"
+  },
+  "tabBtnBroadcaster": {
+    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Sändare"
+  },
+  "tabBtnViewerDefaults": {
+    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Röststandarder"
+  },
+  "tabViewerDefaults": {
+    "adjustThePitchForThe": "Justera tonhöjden för standardrösten",
+    "adjustTheVolumeForThe": "Justera volymen för den valda rösten. VARNING: Värden över 1,0 kan orsaka distorsion.",
+    "calibrateVolumeForSpecificVoices": "Kalibrera volymen för specifika röster. VARNING: Värden över 1,0 kan orsaka distorsion.",
+    "calibratedVoices": "<strong>Kalibrerade röster</strong>",
+    "controlHowFastTheDefault": "Ställ in hur snabbt standardrösten talar",
+    "defaultEmotion": "<strong>Standardkänsla</strong>",
+    "defaultLanguage": "<strong>Standardspråk</strong>",
+    "defaultPitch12To12": "Standardtonhöjd (-12 till +12):",
+    "defaultSpeed05To": "Standardhastighet (0,5 till 2,0):",
+    "defaultVoice": "<strong>Standardröst</strong>",
+    "defaultVoiceSettings": "Standardröstinställningar",
+    "englishNormalization": "Engelsk normalisering",
+    "improvePronunciationForSpecificLanguages": "Förbättra uttal för specifika språk",
+    "improveThePronunciationOfNumbers": "Förbättra uttal av siffror och text",
+    "selectTheDefaultTtsVoice": "Välj standard-TTS-röst för kanalen",
+    "selectVoice": "Välj röst",
+    "setDefaultVoiceSettingsFor": "Ställ in standardröstinställningar för din kanal",
+    "setTheEmotionalToneOf": "Ställ in standardröstens känsla",
+    "viewerVoiceLookup": "Sök tittarröst",
+    "voiceCalibration": "Röstkalibrering",
+    "voiceVolume01To": "Röstvolym (0,1 till 10):",
+    "voicesWithCustomVolumeSettings": "Röster med anpassade volyminställningar.",
+    "volumeOverride": "Åsidosätt volym:"
+  },
+  "ttsBannedWordInput": {
+    "wordOrPhraseToBan": "Ord eller fras att blockera"
+  },
+  "ttsEnabled": {
+    "ttsEngineEnabled": "TTS-motor aktiverad"
+  },
+  "ttsIgnoreUsername": {
+    "usernameToIgnore": "Användarnamn att ignorera"
+  },
+  "ttsMode": {
+    "allMessages": "Alla meddelanden",
+    "bitsPointsOnly": "Endast bits/poäng",
+    "ttsCommandOnly": "Endast !tts-kommando"
+  },
+  "ttsPermission": {
+    "everyone": "Alla",
+    "moderatorsOnly": "Endast moderatorer",
+    "subscribersOnly": "Endast prenumeranter",
+    "vipsOnly": "Endast VIP-användare"
+  },
+  "ttsPronunciationMatchInput": {
+    "wordForExampleWcat": "Ord (till exempel wcat)",
+    "wordToReplace": "Ord att ersätta"
+  },
+  "ttsPronunciationSayInput": {
+    "howToSayItFor": "Hur det uttalas (till exempel wildcat)",
+    "pronunciation": "Uttal"
+  },
+  "ttsUrlField": {
+    "yourBrowserSourceUrl": "Din Browser Source-URL"
+  },
+  "twitchUsername": {
+    "loading": "läser in…"
+  },
+  "voiceTestBtn": {
+    "sendPreview": "Skicka förhandsgranskning"
+  },
+  "watchStreakEventsEnabled": {
+    "announceWatchStreaks": "Avisera Watch Streaks"
+  },
+  "youtubeEnabled": {
+    "youtubeTtsEnabled": "YouTube-TTS aktiverad"
+  },
+  "youtubeHandle": {
+    "yourhandle": "@dittanvändarnamn"
+  }
+}

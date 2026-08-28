@@ -1,0 +1,39 @@
+{
+  "authBar": {
+    "signInProgress": "Anmeldefortschritt"
+  },
+  "authMessage": {
+    "pleaseWait": "Bitte warten."
+  },
+  "authSteps": {
+    "loadingDashboard": "Dashboard wird geladen",
+    "sessionTokenStored": "Sitzungstoken gespeichert",
+    "twitchAuthorized": "Twitch autorisiert"
+  },
+  "authTitle": {
+    "signingYouIn": "Du wirst angemeldet"
+  },
+  "meta": {
+    "completingWildcatttsTwitchSignIn": "WildcatTTS Twitch-Anmeldung wird abgeschlossen.",
+    "wildcatttsCompletingSignIn": "WildcatTTS – Anmeldung wird abgeschlossen"
+  },
+  "msg": {
+    "authComplete": {
+      "cannotComplete": "Anmeldung kann nicht abgeschlossen werden.",
+      "failedReadout": "Fehlgeschlagen",
+      "failedTitle": "Anmeldung fehlgeschlagen",
+      "missingInfo": "Authentifizierungsinformationen vom Twitch-Callback fehlen. Melde dich erneut an.",
+      "noSession": "Keine Sitzung",
+      "redirecting": "Weiterleitung zu deinem Dashboard.",
+      "retrySignIn": "{reason} Melde dich erneut an.",
+      "sessionEstablished": "Sitzung aufgebaut",
+      "welcome": "Willkommen, {user}"
+    }
+  },
+  "sessionState": {
+    "establishingSession": "Sitzung wird aufgebaut"
+  },
+  "statusReadout": {
+    "working": "<span class=\"wc-dot\"></span>In Arbeit"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "authBar": {
+    "signInProgress": "サインインの進行状況"
+  },
+  "authMessage": {
+    "pleaseWait": "お待ちください。"
+  },
+  "authSteps": {
+    "loadingDashboard": "ダッシュボードを読み込み中",
+    "sessionTokenStored": "セッショントークンを保存しました",
+    "twitchAuthorized": "Twitch認証完了"
+  },
+  "authTitle": {
+    "signingYouIn": "サインイン中"
+  },
+  "meta": {
+    "completingWildcatttsTwitchSignIn": "WildcatTTSのTwitchサインインを完了しています。",
+    "wildcatttsCompletingSignIn": "WildcatTTS - サインイン完了処理中"
+  },
+  "msg": {
+    "authComplete": {
+      "cannotComplete": "サインインを完了できません。",
+      "failedReadout": "失敗",
+      "failedTitle": "サインインに失敗しました",
+      "missingInfo": "Twitchからのコールバック認証情報が見つかりません。再度サインインしてください。",
+      "noSession": "セッションがありません",
+      "redirecting": "ダッシュボードにリダイレクトしています。",
+      "retrySignIn": "{reason} 再度サインインしてください。",
+      "sessionEstablished": "セッションが確立されました",
+      "welcome": "ようこそ、{user}さん"
+    }
+  },
+  "sessionState": {
+    "establishingSession": "セッションを確立中"
+  },
+  "statusReadout": {
+    "working": "<span class=\"wc-dot\"></span>処理中"
+  }
+}

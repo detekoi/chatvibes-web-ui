@@ -1,0 +1,11 @@
+{
+  "mainContent": {
+    "pageNotFound": "पेज नहीं मिला",
+    "returnToLogin": "लॉगिन पर वापस जाएं",
+    "thatUrlIsNotPart": "यह URL इस साइट का हिस्सा नहीं है। पक्का करें कि पता सही है, या लॉगिन पेज पर वापस जाएं।"
+  },
+  "meta": {
+    "pageNotFoundOnWildcattts": "WildcatTTS पर पेज नहीं मिला।",
+    "pageNotFoundWildcattts": "पेज नहीं मिला — WildcatTTS"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "kofiClose": {
+    "closeSupportDialog": "关闭支持对话框"
+  },
+  "kofiModal": {
+    "openInNewTabOn": "<a href=\"https://ko-fi.com/parfaitfair\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"kofi-direct-link\">在 Ko-fi.com 的新标签页中打开</a>"
+  },
+  "kofiOpen": {
+    "supportMe": "支持我"
+  },
+  "kofiTitle": {
+    "supportParfaitfair": "支持 parfaitfair"
+  },
+  "mainContent": {
+    "access": "访问权限",
+    "accessIsInviteOnlyUnapproved": "仅限受邀访问。未经批准的频道将收到访问被拒绝的消息。<a class=\"wc-link wc-link--underline\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">在此申请访问权限</a>。",
+    "changeTtsSettingsControlBot": "更改 TTS 设置 • 控制机器人聊天回复 • 配置 Channel Points • 设置语音偏好",
+    "colorTheme": "颜色主题",
+    "iAmAViewer": "<span class=\"wc-rule-name\">我是观众</span>",
+    "iRunTheChannel": "<span class=\"wc-rule-name\">我是频道主</span>",
+    "setHowYourMessagesSound": "自定义你在任何频道发送消息时 TTS 朗读的声音效果。",
+    "textToSpeechForYour": "适用于主播和观众的 Twitch 频道文本转语音工具。",
+    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">仅限受邀</span>",
+    "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">文本转语音机器人管理</span>"
+  },
+  "meta": {
+    "wildcatttsBotManagement": "WildcatTTS 机器人管理",
+    "wildcatttsTextToSpeechBot": "面向 Twitch 频道、主播和观众的 WildcatTTS 文本转语音机器人管理。"
+  },
+  "msg": {
+    "kofi": {
+      "iframeTitle": "在 Ko-fi 上支持 parfaitfair"
+    }
+  },
+  "page": {
+    "support": "支持"
+  },
+  "streamerLoginBtn": {
+    "manageMyChannel": "<i data-lucide=\"mic\" aria-hidden=\"true\"></i>管理我的频道"
+  },
+  "themeDarkBtn": {
+    "dark": "深色"
+  },
+  "themeLightBtn": {
+    "light": "浅色"
+  },
+  "viewerPrefsBtn": {
+    "setMyOwnVoice": "<i data-lucide=\"headphones\" aria-hidden=\"true\"></i>设置我的语音"
+  }
+}

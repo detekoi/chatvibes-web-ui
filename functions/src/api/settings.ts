@@ -6,7 +6,7 @@ import express, { Response, Router, RequestHandler } from "express";
 import { db, COLLECTIONS, FieldValue, FieldPath } from "../services/firestore";
 import { authenticateApiRequest, authorizeChannelAccess, AuthenticatedRequest } from "../middleware/auth";
 import { logger } from "../logger";
-import { errorResponse } from "./utils";
+import { apiError } from "./utils";
 import { validateSpeed, validatePitch, validateEmotion, validateLanguageBoost } from "../services/utils";
 import { RELEASED_VOICES } from "../services/voice-list";
 import { normalizeMatchKey, validateSay, PRONUNCIATION_LIMITS } from "../services/pronunciation";
@@ -102,7 +102,7 @@ router.get("/tts/settings/channel/:channelName", authenticateApiRequest, authori
         }
     } catch (error) {
         logger.error({ error, channelName }, "Error fetching TTS settings");
-        errorResponse(res, 500, "Failed to fetch TTS settings");
+        apiError(res, 500, "settings_fetch_failed", "Failed to fetch TTS settings");
     }
 }) as RequestHandler);
 
@@ -112,13 +112,13 @@ router.put("/tts/settings/channel/:channelName", authenticateApiRequest, authori
     const { key, value } = req.body;
 
     if (!key) {
-        errorResponse(res, 400, "Key is required");
+        apiError(res, 400, "key_required", "Key is required");
         return;
     }
 
     if (!validateTtsSetting(key, value)) {
         logger.warn({ channelName, key, value }, "Rejected invalid TTS setting");
-        errorResponse(res, 400, `Invalid setting: ${key}`);
+        apiError(res, 400, "setting_invalid", `Invalid setting: ${key}`, { key });
         return;
     }
 
@@ -138,7 +138,7 @@ router.put("/tts/settings/channel/:channelName", authenticateApiRequest, authori
         res.json({ success: true, message: "Setting updated" });
     } catch (error) {
         logger.error({ error, channelName, key }, "Error updating TTS settings");
-        errorResponse(res, 500, "Failed to update TTS setting");
+        apiError(res, 500, "setting_update_failed", "Failed to update TTS setting");
     }
 }) as RequestHandler);
 
@@ -164,13 +164,13 @@ router.post("/tts/ignore/channel/:channelName", authenticateApiRequest, authoriz
     const { username } = req.body;
 
     if (!username || typeof username !== "string") {
-        errorResponse(res, 400, "Username is required");
+        apiError(res, 400, "username_required", "Username is required");
         return;
     }
 
     const normalizedUsername = username.toLowerCase().trim().replace(/^@/, "");
     if (!normalizedUsername) {
-        errorResponse(res, 400, "Invalid username");
+        apiError(res, 400, "username_invalid", "Invalid username");
         return;
     }
 
@@ -180,7 +180,7 @@ router.post("/tts/ignore/channel/:channelName", authenticateApiRequest, authoriz
         // matches no account would sit in the list looking effective forever.
         const account = await getUserByUsername(normalizedUsername, secrets);
         if (!account) {
-            errorResponse(res, 404, `No Twitch account named "${normalizedUsername}" exists`);
+            apiError(res, 404, "twitch_user_not_found", `No Twitch account named "${normalizedUsername}" exists`, { username: normalizedUsername });
             return;
         }
 
@@ -205,7 +205,7 @@ router.post("/tts/ignore/channel/:channelName", authenticateApiRequest, authoriz
         });
     } catch (error) {
         logger.error({ error, channelName, username }, "Error adding user to ignore list");
-        errorResponse(res, 500, "Failed to add user to ignore list");
+        apiError(res, 500, "ignore_add_failed", "Failed to add user to ignore list");
     }
 }) as RequestHandler);
 
@@ -215,7 +215,7 @@ router.delete("/tts/ignore/channel/:channelName", authenticateApiRequest, author
     const { key } = req.body;
 
     if (!key || typeof key !== "string") {
-        errorResponse(res, 400, "Entry key is required");
+        apiError(res, 400, "entry_key_required", "Entry key is required");
         return;
     }
 
@@ -234,7 +234,7 @@ router.delete("/tts/ignore/channel/:channelName", authenticateApiRequest, author
             return;
         }
         logger.error({ error, channelName, key }, "Error removing user from ignore list");
-        errorResponse(res, 500, "Failed to remove user from ignore list");
+        apiError(res, 500, "ignore_remove_failed", "Failed to remove user from ignore list");
     }
 }) as RequestHandler);
 
@@ -248,13 +248,13 @@ router.post("/tts/banned-words/channel/:channelName", authenticateApiRequest, au
     const { word } = req.body;
 
     if (!word || typeof word !== "string") {
-        errorResponse(res, 400, "Word or phrase is required");
+        apiError(res, 400, "word_required", "Word or phrase is required");
         return;
     }
 
     const normalizedWord = word.toLowerCase().trim();
     if (!normalizedWord) {
-        errorResponse(res, 400, "Invalid word or phrase");
+        apiError(res, 400, "word_invalid", "Invalid word or phrase");
         return;
     }
 
@@ -266,7 +266,7 @@ router.post("/tts/banned-words/channel/:channelName", authenticateApiRequest, au
         res.json({ success: true, message: "Word added to banned list" });
     } catch (error) {
         logger.error({ error, channelName, word }, "Error adding word to banned list");
-        errorResponse(res, 500, "Failed to add word to banned list");
+        apiError(res, 500, "banned_add_failed", "Failed to add word to banned list");
     }
 }) as RequestHandler);
 
@@ -276,13 +276,13 @@ router.delete("/tts/banned-words/channel/:channelName", authenticateApiRequest, 
     const { word } = req.body;
 
     if (!word || typeof word !== "string") {
-        errorResponse(res, 400, "Word or phrase is required");
+        apiError(res, 400, "word_required", "Word or phrase is required");
         return;
     }
 
     const normalizedWord = word.toLowerCase().trim();
     if (!normalizedWord) {
-        errorResponse(res, 400, "Invalid word or phrase");
+        apiError(res, 400, "word_invalid", "Invalid word or phrase");
         return;
     }
 
@@ -294,7 +294,7 @@ router.delete("/tts/banned-words/channel/:channelName", authenticateApiRequest, 
         res.json({ success: true, message: "Word removed from banned list" });
     } catch (error) {
         logger.error({ error, channelName, word }, "Error removing word from banned list");
-        errorResponse(res, 500, "Failed to remove word from banned list");
+        apiError(res, 500, "banned_remove_failed", "Failed to remove word from banned list");
     }
 }) as RequestHandler);
 
@@ -315,13 +315,13 @@ router.post("/tts/pronunciations/channel/:channelName", authenticateApiRequest, 
 
     const normalizedMatch = normalizeMatchKey(match);
     if (!normalizedMatch) {
-        errorResponse(res, 400, `Word must be 1-${PRONUNCIATION_LIMITS.MAX_MATCH_LENGTH} characters using letters, digits, apostrophes or hyphens, and cannot contain a dot`);
+        apiError(res, 400, "match_key_invalid", `Word must be 1-${PRONUNCIATION_LIMITS.MAX_MATCH_LENGTH} characters using letters, digits, apostrophes or hyphens, and cannot contain a dot`, { max: PRONUNCIATION_LIMITS.MAX_MATCH_LENGTH });
         return;
     }
 
     const normalizedSay = validateSay(say);
     if (!normalizedSay.ok) {
-        errorResponse(res, 400, `Pronunciation ${normalizedSay.reason}`);
+        apiError(res, 400, normalizedSay.reasonCode, `Pronunciation ${normalizedSay.reason}`, normalizedSay.reasonParams);
         return;
     }
 
@@ -336,7 +336,7 @@ router.post("/tts/pronunciations/channel/:channelName", authenticateApiRequest, 
         const existing = (snap.exists ? snap.data()?.pronunciations : null) || {};
         const isNew = !Object.hasOwn(existing, normalizedMatch);
         if (isNew && Object.keys(existing).length >= PRONUNCIATION_LIMITS.MAX_CUSTOM_ENTRIES) {
-            errorResponse(res, 400, `Limit of ${PRONUNCIATION_LIMITS.MAX_CUSTOM_ENTRIES} custom pronunciations reached. Remove one first.`);
+            apiError(res, 400, "pronunciation_limit_reached", `Limit of ${PRONUNCIATION_LIMITS.MAX_CUSTOM_ENTRIES} custom pronunciations reached. Remove one first.`, { max: PRONUNCIATION_LIMITS.MAX_CUSTOM_ENTRIES });
             return;
         }
 
@@ -347,7 +347,7 @@ router.post("/tts/pronunciations/channel/:channelName", authenticateApiRequest, 
         res.json({ success: true, message: "Pronunciation saved", match: normalizedMatch, say: normalizedSay.value });
     } catch (error) {
         logger.error({ error, channelName, match }, "Error setting TTS pronunciation");
-        errorResponse(res, 500, "Failed to save pronunciation");
+        apiError(res, 500, "pronunciation_save_failed", "Failed to save pronunciation");
     }
 }) as RequestHandler);
 
@@ -358,7 +358,7 @@ router.delete("/tts/pronunciations/channel/:channelName", authenticateApiRequest
 
     const normalizedMatch = normalizeMatchKey(match);
     if (!normalizedMatch) {
-        errorResponse(res, 400, "Word is required");
+        apiError(res, 400, "word_required", "Word is required");
         return;
     }
 
@@ -377,7 +377,7 @@ router.delete("/tts/pronunciations/channel/:channelName", authenticateApiRequest
             return;
         }
         logger.error({ error, channelName, match }, "Error removing TTS pronunciation");
-        errorResponse(res, 500, "Failed to remove pronunciation");
+        apiError(res, 500, "pronunciation_remove_failed", "Failed to remove pronunciation");
     }
 }) as RequestHandler);
 

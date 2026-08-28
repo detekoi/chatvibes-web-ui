@@ -1,0 +1,166 @@
+{
+  "darkModeToggle": {
+    "toggleDarkMode": "Donkere modus in-/uitschakelen"
+  },
+  "err": {
+    "banned_add_failed": "Kan dat woord niet toevoegen aan de banlijst.",
+    "banned_remove_failed": "Kan dat woord niet verwijderen uit de banlijst.",
+    "bot_add_failed": "Kan de bot niet activeren op je kanaal. Probeer het opnieuw.",
+    "bot_remove_failed": "Kan de bot niet deactiveren op je kanaal. Probeer het opnieuw.",
+    "bot_status_failed": "Kan de botstatus niet laden.",
+    "channel_data_not_found": "Geen instellingen gevonden voor dat kanaal.",
+    "channel_not_authorized": "Je kanaal heeft geen toestemming om deze bot te gebruiken. Neem contact met mij op voor toegang.",
+    "channel_not_found": "Dat kanaal is niet gevonden.",
+    "channel_required": "Een kanaal is verplicht.",
+    "channel_tts_disabled": "Dat kanaal is niet gevonden of TTS staat er niet ingeschakeld.",
+    "entry_key_required": "Een invoersleutel is vereist.",
+    "exchange_code_invalid": "Die inloglink ontbreekt of is ongeldig.",
+    "exchange_code_used": "Die inloglink is al gebruikt of verlopen. Log opnieuw in.",
+    "exchange_failed": "Kan inloggen niet voltooien. Probeer het opnieuw.",
+    "ignore_add_failed": "Kan die gebruiker niet toevoegen aan de negeerlijst.",
+    "ignore_moderator_imposed": "Een kanaalmoderator heeft je afgemeld voor TTS, dus alleen een moderator kan dit ongedaan maken.",
+    "ignore_remove_failed": "Kan die gebruiker niet verwijderen van de negeerlijst.",
+    "ignore_update_failed": "Kan je opt-out-instelling niet wijzigen.",
+    "key_required": "Een instellingsnaam is vereist.",
+    "match_key_invalid": "Het woord moet 1 tot {max} tekens lang zijn (letters, cijfers, apostrofs of koppeltekens) en mag geen punt bevatten.",
+    "network_error": "Kan de server niet bereiken. Controleer je verbinding.",
+    "obs_token_fetch_failed": "Kan het OBS-token niet laden.",
+    "obs_token_generate_failed": "Kan geen nieuw OBS-token genereren.",
+    "obs_token_store_failed": "Kan het OBS-token niet opslaan. Probeer het opnieuw.",
+    "prefs_fetch_failed": "Kan je voorkeuren niet laden.",
+    "prefs_global_fetch_failed": "Kan je algemene voorkeuren niet laden.",
+    "prefs_global_update_failed": "Kan je algemene voorkeuren niet opslaan.",
+    "prefs_invalid_emote_mode": "Emote-verwerking moet voorlezen, overslaan of beschrijven zijn.",
+    "prefs_invalid_emotion": "Dat is geen geldige emotie.",
+    "prefs_invalid_language": "Dat is geen geldige taal.",
+    "prefs_invalid_pitch": "Dat is geen geldige toonhoogte.",
+    "prefs_invalid_speed": "Dat is geen geldige snelheid.",
+    "prefs_invalid_voice": "Dat is geen geldige stem.",
+    "prefs_missing_data": "Er zijn geen wijzigingen verzonden.",
+    "prefs_update_failed": "Kan je voorkeuren niet opslaan.",
+    "pronunciation_limit_reached": "Je hebt de limiet van {max} aangepaste uitspraken bereikt. Verwijder er eerst een.",
+    "pronunciation_remove_failed": "Kan de uitspraak niet verwijderen.",
+    "pronunciation_save_failed": "Kan de uitspraak niet opslaan.",
+    "reward_banned_word": "Het bericht bevat een verboden woord: \"{word}\".",
+    "reward_create_failed": "Kan de Channel Points-beloning niet aanmaken.",
+    "reward_delete_failed": "Kan de Channel Points-beloning niet verwijderen.",
+    "reward_links_blocked": "Links zijn niet toegestaan in deze beloning.",
+    "reward_load_failed": "Kan de Channel Points-beloning niet laden.",
+    "reward_message_empty": "Het bericht is leeg.",
+    "reward_save_failed": "Kan de Channel Points-beloning niet opslaan.",
+    "reward_test_failed": "Kan de Channel Points-beloning niet testen.",
+    "reward_twitch_error": "Twitch heeft de beloningswijziging geweigerd.",
+    "reward_validation_failed": "Dat bericht is niet toegestaan.",
+    "say_contains_link": "De uitspraak mag geen link bevatten.",
+    "say_empty": "De uitspraak mag niet leeg zijn.",
+    "say_must_be_text": "De uitspraak moet tekst zijn.",
+    "say_too_long": "De uitspraak mag maximaal {max} tekens zijn.",
+    "server_misconfigured": "De server is verkeerd geconfigureerd.",
+    "setting_invalid": "Dat is geen geldige waarde voor {key}.",
+    "setting_update_failed": "Kan de TTS-instelling niet bijwerken.",
+    "settings_fetch_failed": "Kan TTS-instellingen niet laden.",
+    "shortlink_failed": "Kan de korte link niet aanmaken.",
+    "storage_unavailable": "Opslag is niet beschikbaar.",
+    "tts_generation_failed": "Spraak genereren mislukt: {reason}",
+    "tts_no_audio": "De spraakprovider heeft geen audio geretourneerd.",
+    "tts_not_configured": "Er is geen spraakprovider geconfigureerd.",
+    "tts_provider_failed": "De spraakprovider kon geen audio genereren.",
+    "tts_test_failed": "De spraaktest is mislukt.",
+    "tts_text_required": "Voer tekst in om te testen.",
+    "twitch_reauth_required": "Je Twitch-aanmelding is verlopen. Koppel je account opnieuw.",
+    "twitch_user_not_found": "Er bestaat geen Twitch-account met de naam \"{username}\".",
+    "url_required": "Een URL is verplicht.",
+    "username_invalid": "Die gebruikersnaam is niet geldig.",
+    "username_required": "Een gebruikersnaam is vereist.",
+    "voice_access_denied": "Voor de stem \"{voice}\" is speciale toegang vereist. Probeer een andere stem.",
+    "voice_invalid": "De stem \"{voice}\" is niet beschikbaar. Controleer de stem en probeer het opnieuw.",
+    "voice_lookup_failed": "Kan de stem van die gebruiker niet opzoeken.",
+    "word_invalid": "Dat woord of die woordgroep is niet geldig.",
+    "word_required": "Een woord of woordgroep is vereist."
+  },
+  "logoutLink": {
+    "logout": "Uitloggen"
+  },
+  "mainContent": {
+    "documentationTtsWildcatChat": "<a class=\"wc-link\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\">Documentatie</a> <span>tts.wildcat.chat</span>"
+  },
+  "msg": {
+    "action": {
+      "close": "Sluiten",
+      "remove": "Verwijderen",
+      "saved": "Opgeslagen"
+    },
+    "api": {
+      "authFailed": "Authenticatie mislukt. Log opnieuw in.",
+      "notAuthenticated": "Je bent niet ingelogd.",
+      "requestFailed": "Het verzoek is mislukt."
+    },
+    "auth": {
+      "genericUser": "Gebruiker",
+      "loading": "laden…",
+      "needViewerSignIn": "Verifieer je Twitch-account om toegang te krijgen tot kijkersvoorkeuren.",
+      "redirecting": "Doorverwijzen naar Twitch voor authenticatie…",
+      "required": "Authenticatie is vereist.",
+      "signInFailed": "Kan inloggen niet voltooien.",
+      "signInWithTwitch": "Inloggen met Twitch",
+      "signedOut": "Je bent niet ingelogd.",
+      "tokenMissing": "Authenticatietoken ontbreekt. Log opnieuw in."
+    },
+    "emotion": {
+      "angry": "Boos",
+      "auto": "Automatisch",
+      "calm": "Kalm",
+      "disgusted": "Walgend",
+      "fearful": "Angstig",
+      "fluent": "Vloeiend",
+      "happy": "Blij",
+      "neutral": "Neutraal",
+      "sad": "Verdrietig",
+      "surprised": "Verrast"
+    },
+    "ignore": {
+      "enterUsername": "Voer een gebruikersnaam in."
+    },
+    "lang": {
+      "automatic": "Automatisch"
+    },
+    "prefs": {
+      "useChannelDefault": "Kanaalstandaard gebruiken"
+    },
+    "preview": {
+      "enterText": "Voer tekst in om te testen.",
+      "unavailable": "Geen voorbeeld beschikbaar."
+    },
+    "value": {
+      "off": "Uit",
+      "on": "Aan"
+    },
+    "voice": {
+      "cannotPlay": "Kan audiofragment niet afspelen.",
+      "generating": "Genereren…",
+      "noAudio": "De server heeft geen audio geretourneerd.",
+      "noneFound": "Geen stemmen gevonden.",
+      "preview": "Voorbeeld van {voice}",
+      "regenerate": "Opnieuw genereren",
+      "testFailed": "Test mislukt: {reason}"
+    }
+  },
+  "page": {
+    "skipToMainContent": "Direct naar hoofdinhoud"
+  },
+  "sidebarEngNormVal": {
+    "off": "Uit"
+  },
+  "sidebarLanguageVal": {
+    "automatic": "Automatisch"
+  },
+  "ui": {
+    "language": "Taal"
+  },
+  "voicePreviewHint": {
+    "settingsChangedGenerateANew": "<i><i data-lucide=\"triangle-alert\" class=\"inline-icon\"></i> Instellingen gewijzigd. Genereer een nieuw voorbeeld.</i>"
+  },
+  "voicePreviewPlayer": {
+    "yourBrowserDoesNotSupport": "Je browser ondersteunt het audio-element niet."
+  }
+}

@@ -1,5 +1,6 @@
 import { fetchWithAuth } from '../common/api.js';
 import { showToast } from '../common/ui.js';
+import { apiErrorMessage, getLocale, t } from '../common/i18n.js';
 import type { DashboardContext, DashboardServices } from './types.js';
 
 /**
@@ -115,6 +116,18 @@ export function initChannelPointsModule(
 
   bindAutoSave();
 
+  /**
+   * "<reward> · Last synced: <time>", assembled from the catalog so the
+   * separator and the label are the translator's to place.
+   */
+  function renderStatusLine(rewardId?: string | null, syncedAt?: string | null): string {
+    const reward = rewardId ? t('msg.cp.rewardId', { id: rewardId }) : t('msg.cp.noReward');
+    const time = syncedAt === undefined
+      ? new Date().toLocaleTimeString(getLocale())
+      : (syncedAt ? new Date(syncedAt).toLocaleTimeString(getLocale()) : t('msg.cp.never'));
+    return t('msg.cp.lastSynced', { reward, time });
+  }
+
   return {
     load: () => loadChannelPointsConfig(),
   };
@@ -122,7 +135,7 @@ export function initChannelPointsModule(
   async function loadChannelPointsConfig(): Promise<void> {
     if (testMode) {
       if (cpEnabled) cpEnabled.checked = false;
-      if (cpStatusLine) cpStatusLine.textContent = 'No reward created (test mode)';
+      if (cpStatusLine) cpStatusLine.textContent = t('msg.cp.noRewardTestMode');
       return;
     }
 
@@ -153,9 +166,7 @@ export function initChannelPointsModule(
       if (cpBannedWords) cpBannedWords.value = (policy.bannedWords || []).join(', ');
       if (cpMsg) cpMsg.className = 'text-muted';
       if (cpStatusLine) {
-        const lastSynced = cp.lastSyncedAt ? new Date(cp.lastSyncedAt).toLocaleTimeString() : 'never';
-        const rewardInfo = cp.rewardId ? `Reward ID: ${cp.rewardId}` : 'No reward created';
-        cpStatusLine.textContent = `${rewardInfo} · Last synced: ${lastSynced}`;
+        cpStatusLine.textContent = renderStatusLine(cp.rewardId, cp.lastSyncedAt ?? null);
       }
     } catch (error) {
       console.warn('Failed to load Channel Points config:', error);
@@ -164,12 +175,12 @@ export function initChannelPointsModule(
 
   async function saveChannelPointsConfig(isAuto: boolean = false): Promise<void> {
     if (testMode) {
-      showToast('Channel Points settings saved (test mode).', 'success');
-      if (cpStatusLine) cpStatusLine.textContent = 'No reward created · Last synced: ' + new Date().toLocaleTimeString();
+      showToast(t('msg.cp.savedTestMode'), 'success');
+      if (cpStatusLine) cpStatusLine.textContent = renderStatusLine();
       return;
     }
     if (!getSessionToken()) {
-      showToast('Authentication is required.', 'error');
+      showToast(t('msg.auth.required'), 'error');
       return;
     }
 
@@ -193,7 +204,7 @@ export function initChannelPointsModule(
     };
 
     if (!isAuto) {
-      showToast('Saving Channel Points settings…', 'info');
+      showToast(t('msg.cp.saving'), 'info');
     }
 
     try {
@@ -204,41 +215,35 @@ export function initChannelPointsModule(
       });
       const data = await res.json().catch(() => ({})) as SaveResponse;
       if (!res.ok) {
-        showToast(data.error || 'Cannot save Channel Points settings.', 'error');
+        showToast(apiErrorMessage(data, 'msg.cp.saveFailed'), 'error');
         return;
       }
-      if (isAuto) {
-        showToast('Channel Points settings saved.', 'success');
-      } else {
-        showToast('Channel Points settings saved.', 'success');
-      }
+      showToast(t('msg.cp.saved'), 'success');
       if (cpStatusLine) {
-        const rewardId = data.channelPoints?.rewardId || data.rewardId;
-        const idPart = rewardId ? `Reward ID: ${rewardId}` : 'No reward created';
-        cpStatusLine.textContent = `${idPart} · Last synced: ${new Date().toLocaleTimeString()}`;
+        cpStatusLine.textContent = renderStatusLine(data.channelPoints?.rewardId || data.rewardId);
       }
       await loadChannelPointsConfig();
       await onSettingsRefresh?.();
     } catch (error) {
       console.error('Failed to save Channel Points config:', error);
-      showToast('Cannot save Channel Points settings.', 'error');
+      showToast(t('msg.cp.saveFailed'), 'error');
     }
   }
 
   async function testChannelPointsRedeem(): Promise<void> {
     if (testMode) {
-      const text = prompt('Enter a test message to simulate a redemption:');
-      if (text) showToast('Test completed (test mode).', 'success');
+      const text = prompt(t('msg.cp.testPrompt'));
+      if (text) showToast(t('msg.cp.testCompletedTestMode'), 'success');
       return;
     }
     if (!getSessionToken()) {
-      showToast('Authentication is required.', 'error');
+      showToast(t('msg.auth.required'), 'error');
       return;
     }
-    const text = prompt('Enter a test message to simulate a redemption:');
+    const text = prompt(t('msg.cp.testPrompt'));
     if (!text) return;
     try {
-      showToast('Testing redemption…', 'info');
+      showToast(t('msg.cp.testing'), 'info');
       const res = await fetchWithAuth(`${apiBaseUrl}/api/rewards/tts/test`, {
         method: 'POST',
         credentials: 'include',
@@ -246,45 +251,45 @@ export function initChannelPointsModule(
       });
       const data = await res.json().catch(() => ({})) as TestResponse;
       if (!res.ok) {
-        showToast(data.error || 'Test failed.', 'error');
+        showToast(apiErrorMessage(data, 'msg.cp.testFailed'), 'error');
         return;
       }
-      showToast(`Test completed (${data.status || 'ok'}).`, 'success');
+      showToast(t('msg.cp.testCompleted', { status: data.status || 'ok' }), 'success');
     } catch (e) {
-      showToast('Test failed.', 'error');
+      showToast(t('msg.cp.testFailed'), 'error');
     }
   }
 
   async function deleteChannelPointsReward(): Promise<void> {
     if (testMode) {
       if (cpEnabled) cpEnabled.checked = false;
-      if (cpStatusLine) cpStatusLine.textContent = 'No reward created · Last synced: ' + new Date().toLocaleTimeString();
-      showToast('Reward deleted (test mode).', 'success');
+      if (cpStatusLine) cpStatusLine.textContent = renderStatusLine();
+      showToast(t('msg.cp.deletedTestMode'), 'success');
       return;
     }
     if (!getSessionToken()) {
-      showToast('Authentication is required.', 'error');
+      showToast(t('msg.auth.required'), 'error');
       return;
     }
-    if (!confirm('Delete the Channel Points TTS reward?')) return;
+    if (!confirm(t('msg.cp.confirmDelete'))) return;
     try {
-      showToast('Deleting…', 'info');
+      showToast(t('msg.cp.deleting'), 'info');
       const res = await fetchWithAuth(`${apiBaseUrl}/api/rewards/tts`, {
         method: 'DELETE',
         credentials: 'include'
       });
       const data = await res.json().catch(() => ({})) as DeleteResponse;
       if (!res.ok) {
-        showToast(data.error || 'Delete failed.', 'error');
+        showToast(apiErrorMessage(data, 'msg.cp.deleteFailed'), 'error');
         return;
       }
       if (cpEnabled) cpEnabled.checked = false;
-      if (cpStatusLine) cpStatusLine.textContent = 'No reward created · Last synced: ' + new Date().toLocaleTimeString();
-      showToast('Reward deleted.', 'success');
+      if (cpStatusLine) cpStatusLine.textContent = renderStatusLine();
+      showToast(t('msg.cp.deleted'), 'success');
       await loadChannelPointsConfig();
       await onSettingsRefresh?.();
     } catch (e) {
-      showToast('Delete failed.', 'error');
+      showToast(t('msg.cp.deleteFailed'), 'error');
     }
   }
 

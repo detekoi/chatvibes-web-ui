@@ -1,0 +1,50 @@
+{
+  "kofiClose": {
+    "closeSupportDialog": "ஆதரவு சாளரத்தை மூடு"
+  },
+  "kofiModal": {
+    "openInNewTabOn": "<a href=\"https://ko-fi.com/parfaitfair\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"kofi-direct-link\">Ko-fi.com இல் புதிய தாவலில் திறக்கவும்</a>"
+  },
+  "kofiOpen": {
+    "supportMe": "என்னை ஆதரிக்கவும்"
+  },
+  "kofiTitle": {
+    "supportParfaitfair": "parfaitfair-ஐ ஆதரிக்கவும்"
+  },
+  "mainContent": {
+    "access": "அணுகல்",
+    "accessIsInviteOnlyUnapproved": "அணுகல் அழைப்பின் மூலம் மட்டுமே. அங்கீகரிக்கப்படாத சேனல்களுக்கு அணுகல் மறுக்கப்பட்ட செய்தி தோன்றும். <a class=\"wc-link wc-link--underline\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">இங்கே அணுகலைக் கோரவும்</a>.",
+    "changeTtsSettingsControlBot": "TTS அமைப்புகளை மாற்றவும் • போட் சாட் பதில்களைக் கட்டுப்படுத்தவும் • Channel Points கட்டமைக்கவும் • குரல் விருப்பங்களை அமைக்கவும்",
+    "colorTheme": "வண்ண தீம்",
+    "iAmAViewer": "<span class=\"wc-rule-name\">நான் ஒரு பார்வையாளர்</span>",
+    "iRunTheChannel": "<span class=\"wc-rule-name\">நான் சேனலை நடத்துகிறேன்</span>",
+    "setHowYourMessagesSound": "நீங்கள் செல்லும் எந்த சேனலிலும் TTS வாசிக்கும் போது உங்கள் செய்திகள் எவ்வாறு ஒலிக்க வேண்டும் என்பதை அமைக்கவும்.",
+    "textToSpeechForYour": "உங்கள் Twitch சேனலுக்கான டெக்ஸ்ட்-டு-ஸ்பீச், ஸ்ட்ரீமர்கள் மற்றும் பார்வையாளர்களுக்கு.",
+    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">அழைப்பு மூலம் மட்டுமே</span>",
+    "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">டெக்ஸ்ட்-டு-ஸ்பீச் போட் நிர்வாகம்</span>"
+  },
+  "meta": {
+    "wildcatttsBotManagement": "WildcatTTS போட் நிர்வாகம்",
+    "wildcatttsTextToSpeechBot": "Twitch சேனல்கள், ஸ்ட்ரீமர்கள் மற்றும் பார்வையாளர்களுக்கான WildcatTTS டெக்ஸ்ட்-டு-ஸ்பீச் போட் நிர்வாகம்."
+  },
+  "msg": {
+    "kofi": {
+      "iframeTitle": "Ko-fi இல் parfaitfair-க்கு ஆதரவளிக்கவும்"
+    }
+  },
+  "page": {
+    "support": "ஆதரவு"
+  },
+  "streamerLoginBtn": {
+    "manageMyChannel": "<i data-lucide=\"mic\" aria-hidden=\"true\"></i>எனது சேனலை நிர்வகிக்கவும்"
+  },
+  "themeDarkBtn": {
+    "dark": "இருண்டது"
+  },
+  "themeLightBtn": {
+    "light": "வெளிச்சமானது"
+  },
+  "viewerPrefsBtn": {
+    "setMyOwnVoice": "<i data-lucide=\"headphones\" aria-hidden=\"true\"></i>எனது சொந்தக் குரலை அமைக்கவும்"
+  }
+}

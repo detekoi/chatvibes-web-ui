@@ -1,0 +1,41 @@
+{
+  "errorAction": {
+    "tryAgain": "Опитай отново"
+  },
+  "errorCode": {
+    "unknown": "неизвестно"
+  },
+  "errorCodeBlock": {
+    "error": "Грешка"
+  },
+  "errorMessageDetails": {
+    "twitchAuthenticationFailed": "Неуспешно удостоверяване в Twitch."
+  },
+  "errorReadout": {
+    "authenticationFailed": "Неуспешно удостоверяване"
+  },
+  "errorTitle": {
+    "authenticationFailed": "Неуспешно удостоверяване"
+  },
+  "mainContent": {
+    "requestAccessTtsWildcatChat": "<a class=\"wc-link\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">Заявете достъп</a> <span>tts.wildcat.chat</span>"
+  },
+  "meta": {
+    "wildcatttsAuthenticationError": "WildcatTTS - Грешка при удостоверяване",
+    "wildcatttsAuthenticationErrorAndSign": "Грешка при удостоверяване в WildcatTTS и възстановяване на влизането."
+  },
+  "msg": {
+    "authError": {
+      "backToSignIn": "Назад към влизането",
+      "canceledBody": "Няма направени промени. Можете да влезете, когато сте готови.",
+      "canceledReadout": "Отменено",
+      "canceledTitle": "WildcatTTS - Влизането е отменено",
+      "canceledTitleShort": "Влизането е отменено",
+      "notPermitted": "Достъпът не е разрешен",
+      "requestAccess": "Заявка за достъп",
+      "twitchError": "Twitch върна грешка по време на удостоверяването.",
+      "unspecified": "Възникна неопределена грешка.",
+      "unspecifiedCode": "неопределена"
+    }
+  }
+}

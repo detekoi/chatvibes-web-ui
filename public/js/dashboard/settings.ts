@@ -1,4 +1,5 @@
 import { showToast, syncTextareas } from '../common/ui.js';
+import { apiErrorMessage, displayError, fillLanguageSelect, languageBoostOptions, t } from '../common/i18n.js';
 import { debounce, formatVoiceName } from '../common/utils.js';
 import { performVoiceTest, TTSPayload, PlayerElements, HintElements } from '../common/voice-preview.js';
 import { DashboardServices, TtsSettings } from './types.js';
@@ -55,18 +56,7 @@ export function initSettingsModule(
   const defaultLanguageSelect = document.getElementById('default-language') as HTMLSelectElement | null;
 
   if (defaultLanguageSelect) {
-    // "auto" is the value MiniMax's language_boost enum actually takes — the
-    // viewer page already sends it. "Automatic" is only a display label.
-    const options: { value: string; label: string }[] = [
-      { value: "auto", label: "Automatic" },
-      ...["Chinese", "Chinese,Yue", "English", "Arabic", "Russian", "Spanish", "French", "Portuguese",
-        "German", "Turkish", "Dutch", "Ukrainian", "Vietnamese", "Indonesian", "Japanese", "Italian",
-        "Korean", "Thai", "Polish", "Romanian", "Greek", "Czech", "Finnish", "Hindi", "Bulgarian",
-        "Danish", "Hebrew", "Malay", "Persian", "Slovak", "Swedish", "Croatian", "Filipino",
-        "Hungarian", "Norwegian", "Slovenian", "Catalan", "Nynorsk", "Tamil", "Afrikaans"
-      ].map(lang => ({ value: lang, label: lang }))
-    ];
-    defaultLanguageSelect.innerHTML = options.map(opt => `<option value="${opt.value}">${opt.label}</option>`).join('');
+    fillLanguageSelect(defaultLanguageSelect);
   }
   const englishNormalizationCheckbox = document.getElementById('english-normalization') as HTMLInputElement | null;
   const emoteModeSelect = document.getElementById('emote-mode') as HTMLSelectElement | null;
@@ -137,19 +127,19 @@ export function initSettingsModule(
     if (isInitializing) return;
     const channelName = getChannelName();
     if (testMode) {
-      maybeSuccessToast('Saved');
+      maybeSuccessToast(t('msg.action.saved'));
       return;
     }
     if (!channelName) {
-      showToast('You are not signed in.', 'error');
+      showToast(t('msg.auth.signedOut'), 'error');
       return;
     }
     try {
       await api.saveTtsSetting(channelName, key, value);
-      maybeSuccessToast('Saved');
+      maybeSuccessToast(t('msg.action.saved'));
     } catch (e) {
       const err = e as Error;
-      showToast(`${label}: ${err.message}`, 'error');
+      showToast(t('msg.settings.saveFailed', { label, reason: displayError(err) }), 'error');
     }
   }
 
@@ -161,55 +151,55 @@ export function initSettingsModule(
   }
 
   function setupAutoSaveListeners(): void {
-    if (ttsEnabledCheckbox) ttsEnabledCheckbox.addEventListener('change', () => saveSettingWrapper('engineEnabled', !!ttsEnabledCheckbox.checked, 'TTS Engine'));
-    if (botRespondsInChatCheckbox) botRespondsInChatCheckbox.addEventListener('change', () => saveSettingWrapper('botRespondsInChat', !!botRespondsInChatCheckbox.checked, 'Bot Responds in Chat'));
-    if (ttsModeSelect) ttsModeSelect.addEventListener('change', () => saveSettingWrapper('mode', ttsModeSelect.value || 'command', 'TTS Mode'));
-    if (ttsPermissionSelect) ttsPermissionSelect.addEventListener('change', () => saveSettingWrapper('ttsPermissionLevel', ttsPermissionSelect.value || 'everyone', 'TTS Permission'));
-    if (eventsEnabledCheckbox) eventsEnabledCheckbox.addEventListener('change', () => saveSettingWrapper('speakEvents', eventsEnabledCheckbox.checked !== false, 'Event Announcements'));
+    if (ttsEnabledCheckbox) ttsEnabledCheckbox.addEventListener('change', () => saveSettingWrapper('engineEnabled', !!ttsEnabledCheckbox.checked, t('msg.setting.ttsEngine')));
+    if (botRespondsInChatCheckbox) botRespondsInChatCheckbox.addEventListener('change', () => saveSettingWrapper('botRespondsInChat', !!botRespondsInChatCheckbox.checked, t('msg.setting.botRespondsInChat')));
+    if (ttsModeSelect) ttsModeSelect.addEventListener('change', () => saveSettingWrapper('mode', ttsModeSelect.value || 'command', t('msg.setting.ttsMode')));
+    if (ttsPermissionSelect) ttsPermissionSelect.addEventListener('change', () => saveSettingWrapper('ttsPermissionLevel', ttsPermissionSelect.value || 'everyone', t('msg.setting.ttsPermission')));
+    if (eventsEnabledCheckbox) eventsEnabledCheckbox.addEventListener('change', () => saveSettingWrapper('speakEvents', eventsEnabledCheckbox.checked !== false, t('msg.setting.eventAnnouncements')));
     const cheerEventsEnabledCheckbox = document.getElementById('cheer-events-enabled') as HTMLInputElement | null;
-    if (cheerEventsEnabledCheckbox) cheerEventsEnabledCheckbox.addEventListener('change', () => saveSettingWrapper('speakCheerEvents', cheerEventsEnabledCheckbox.checked !== false, 'Cheer Announcements'));
+    if (cheerEventsEnabledCheckbox) cheerEventsEnabledCheckbox.addEventListener('change', () => saveSettingWrapper('speakCheerEvents', cheerEventsEnabledCheckbox.checked !== false, t('msg.setting.cheerAnnouncements')));
     const redemptionEventsEnabledCheckbox = document.getElementById('redemption-events-enabled') as HTMLInputElement | null;
-    if (redemptionEventsEnabledCheckbox) redemptionEventsEnabledCheckbox.addEventListener('change', () => saveSettingWrapper('speakRedemptionEvents', redemptionEventsEnabledCheckbox.checked !== false, 'Redemption Announcements'));
+    if (redemptionEventsEnabledCheckbox) redemptionEventsEnabledCheckbox.addEventListener('change', () => saveSettingWrapper('speakRedemptionEvents', redemptionEventsEnabledCheckbox.checked !== false, t('msg.setting.redemptionAnnouncements')));
     const announceUnfulfilledCheckbox = document.getElementById('announce-unfulfilled-redemptions') as HTMLInputElement | null;
-    if (announceUnfulfilledCheckbox) announceUnfulfilledCheckbox.addEventListener('change', () => saveSettingWrapper('announceUnfulfilledRedemptions', !!announceUnfulfilledCheckbox.checked, 'Announce Queued Redeems'));
+    if (announceUnfulfilledCheckbox) announceUnfulfilledCheckbox.addEventListener('change', () => saveSettingWrapper('announceUnfulfilledRedemptions', !!announceUnfulfilledCheckbox.checked, t('msg.setting.announceQueuedRedeems')));
     const watchStreakEventsEnabledCheckbox = document.getElementById('watch-streak-events-enabled') as HTMLInputElement | null;
-    if (watchStreakEventsEnabledCheckbox) watchStreakEventsEnabledCheckbox.addEventListener('change', () => saveSettingWrapper('speakWatchStreakEvents', !!watchStreakEventsEnabledCheckbox.checked, 'Watch Streak Announcements'));
-    if (anonymizeFollowersCheckbox) anonymizeFollowersCheckbox.addEventListener('change', () => saveSettingWrapper('anonymizeFollowers', anonymizeFollowersCheckbox.checked !== false, 'Anonymize Followers'));
-    if (allowViewerPreferencesCheckbox) allowViewerPreferencesCheckbox.addEventListener('change', () => saveSettingWrapper('allowViewerPreferences', !!allowViewerPreferencesCheckbox.checked, 'Allow Viewer Voice Preferences'));
-    if (readFullUrlsCheckbox) readFullUrlsCheckbox.addEventListener('change', () => saveSettingWrapper('readFullUrls', !!readFullUrlsCheckbox.checked, 'Read Full URLs'));
-    if (pronunciationEnabledCheckbox) pronunciationEnabledCheckbox.addEventListener('change', () => saveSettingWrapper('pronunciationEnabled', !!pronunciationEnabledCheckbox.checked, 'Expand Chat Acronyms'));
-    if (profanityFilterCheckbox) profanityFilterCheckbox.addEventListener('change', () => saveSettingWrapper('profanityFilterEnabled', !!profanityFilterCheckbox.checked, 'Profanity Filter'));
-    if (bitsEnabledCheckbox) bitsEnabledCheckbox.addEventListener('change', () => saveSettingWrapper('bitsModeEnabled', !!bitsEnabledCheckbox.checked, 'Bits for TTS'));
+    if (watchStreakEventsEnabledCheckbox) watchStreakEventsEnabledCheckbox.addEventListener('change', () => saveSettingWrapper('speakWatchStreakEvents', !!watchStreakEventsEnabledCheckbox.checked, t('msg.setting.watchStreakAnnouncements')));
+    if (anonymizeFollowersCheckbox) anonymizeFollowersCheckbox.addEventListener('change', () => saveSettingWrapper('anonymizeFollowers', anonymizeFollowersCheckbox.checked !== false, t('msg.setting.anonymizeFollowers')));
+    if (allowViewerPreferencesCheckbox) allowViewerPreferencesCheckbox.addEventListener('change', () => saveSettingWrapper('allowViewerPreferences', !!allowViewerPreferencesCheckbox.checked, t('msg.setting.allowViewerPreferences')));
+    if (readFullUrlsCheckbox) readFullUrlsCheckbox.addEventListener('change', () => saveSettingWrapper('readFullUrls', !!readFullUrlsCheckbox.checked, t('msg.setting.readFullUrls')));
+    if (pronunciationEnabledCheckbox) pronunciationEnabledCheckbox.addEventListener('change', () => saveSettingWrapper('pronunciationEnabled', !!pronunciationEnabledCheckbox.checked, t('msg.setting.expandAcronyms')));
+    if (profanityFilterCheckbox) profanityFilterCheckbox.addEventListener('change', () => saveSettingWrapper('profanityFilterEnabled', !!profanityFilterCheckbox.checked, t('msg.setting.profanityFilter')));
+    if (bitsEnabledCheckbox) bitsEnabledCheckbox.addEventListener('change', () => saveSettingWrapper('bitsModeEnabled', !!bitsEnabledCheckbox.checked, t('msg.setting.bitsForTts')));
     if (bitsAmountInput) {
       const debouncedBitsAmountSave = debounce(
-        () => saveSettingWrapper('bitsMinimumAmount', parseInt(bitsAmountInput.value || '100', 10), 'Minimum Bits'),
+        () => saveSettingWrapper('bitsMinimumAmount', parseInt(bitsAmountInput.value || '100', 10), t('msg.setting.minimumBits')),
         600
       );
       bitsAmountInput.addEventListener('input', () => { if (!isInitializing) debouncedBitsAmountSave(); });
-      bitsAmountInput.addEventListener('change', () => saveSettingWrapper('bitsMinimumAmount', parseInt(bitsAmountInput.value || '100', 10), 'Minimum Bits'));
+      bitsAmountInput.addEventListener('change', () => saveSettingWrapper('bitsMinimumAmount', parseInt(bitsAmountInput.value || '100', 10), t('msg.setting.minimumBits')));
     }
 
     if (defaultEmotionSelect) defaultEmotionSelect.addEventListener('change', () => {
-      saveSettingWrapper('emotion', defaultEmotionSelect.value || 'neutral', 'Default Emotion');
+      saveSettingWrapper('emotion', defaultEmotionSelect.value || 'neutral', t('msg.setting.defaultEmotion'));
       updateSidebarPreview();
     });
 
     if (defaultPitchSlider) {
       const debouncedPitchSave = debounce(
-        () => saveSettingWrapper('pitch', parseInt(defaultPitchSlider.value || '0', 10), 'Default Pitch'),
+        () => saveSettingWrapper('pitch', parseInt(defaultPitchSlider.value || '0', 10), t('msg.setting.defaultPitch')),
         400
       );
       defaultPitchSlider.addEventListener('input', () => { if (!isInitializing) debouncedPitchSave(); updateSidebarPreview(); });
-      defaultPitchSlider.addEventListener('change', () => saveSettingWrapper('pitch', parseInt(defaultPitchSlider.value || '0', 10), 'Default Pitch'));
+      defaultPitchSlider.addEventListener('change', () => saveSettingWrapper('pitch', parseInt(defaultPitchSlider.value || '0', 10), t('msg.setting.defaultPitch')));
     }
 
     if (defaultSpeedSlider) {
       const debouncedSpeedSave = debounce(
-        () => saveSettingWrapper('speed', parseFloat(defaultSpeedSlider.value || '1.0'), 'Default Speed'),
+        () => saveSettingWrapper('speed', parseFloat(defaultSpeedSlider.value || '1.0'), t('msg.setting.defaultSpeed')),
         400
       );
       defaultSpeedSlider.addEventListener('input', () => { if (!isInitializing) debouncedSpeedSave(); updateSidebarPreview(); });
-      defaultSpeedSlider.addEventListener('change', () => saveSettingWrapper('speed', parseFloat(defaultSpeedSlider.value || '1.0'), 'Default Speed'));
+      defaultSpeedSlider.addEventListener('change', () => saveSettingWrapper('speed', parseFloat(defaultSpeedSlider.value || '1.0'), t('msg.setting.defaultSpeed')));
     }
 
     if (defaultVolumeSlider) {
@@ -219,7 +209,7 @@ export function initSettingsModule(
           const vol = parseFloat(defaultVolumeSlider.value || '1.0');
           currentVoiceVolumes[voiceId] = vol;
           voiceCalibration?.updateVolumes(currentVoiceVolumes); // Sync calibration component
-          saveSettingWrapper(`voiceVolumes.${voiceId}`, vol, 'Voice Volume');
+          saveSettingWrapper(`voiceVolumes.${voiceId}`, vol, t('msg.setting.voiceVolume'));
         },
         400
       );
@@ -229,23 +219,23 @@ export function initSettingsModule(
         const vol = parseFloat(defaultVolumeSlider.value || '1.0');
         currentVoiceVolumes[voiceId] = vol;
         voiceCalibration?.updateVolumes(currentVoiceVolumes);
-        saveSettingWrapper(`voiceVolumes.${voiceId}`, vol, 'Voice Volume');
+        saveSettingWrapper(`voiceVolumes.${voiceId}`, vol, t('msg.setting.voiceVolume'));
       });
     }
 
-    if (defaultLanguageSelect) defaultLanguageSelect.addEventListener('change', () => { saveSettingWrapper('languageBoost', defaultLanguageSelect.value || 'auto', 'Default Language'); updateSidebarPreview(); });
-    if (englishNormalizationCheckbox) englishNormalizationCheckbox.addEventListener('change', () => { saveSettingWrapper('englishNormalization', !!englishNormalizationCheckbox.checked, 'English Normalization'); updateSidebarPreview(); });
-    if (emoteModeSelect) emoteModeSelect.addEventListener('change', () => saveSettingWrapper('emoteMode', emoteModeSelect.value || 'describe', 'Emote Mode'));
+    if (defaultLanguageSelect) defaultLanguageSelect.addEventListener('change', () => { saveSettingWrapper('languageBoost', defaultLanguageSelect.value || 'auto', t('msg.setting.defaultLanguage')); updateSidebarPreview(); });
+    if (englishNormalizationCheckbox) englishNormalizationCheckbox.addEventListener('change', () => { saveSettingWrapper('englishNormalization', !!englishNormalizationCheckbox.checked, t('msg.setting.englishNormalization')); updateSidebarPreview(); });
+    if (emoteModeSelect) emoteModeSelect.addEventListener('change', () => saveSettingWrapper('emoteMode', emoteModeSelect.value || 'describe', t('msg.setting.emoteMode')));
 
     // YouTube integration auto-save
     if (youtubeEnabledCheckbox) {
       youtubeEnabledCheckbox.addEventListener('change', () => {
         if (youtubeEnabledCheckbox?.checked && !youtubeHandleInput?.value?.trim()) {
-          showToast('Enter a YouTube handle before you turn on YouTube TTS.', 'warning');
+          showToast(t('msg.settings.youtubeHandleRequired'), 'warning');
           youtubeEnabledCheckbox.checked = false;
           return;
         }
-        saveSettingWrapper('youtubeEnabled', !!youtubeEnabledCheckbox.checked, 'YouTube TTS');
+        saveSettingWrapper('youtubeEnabled', !!youtubeEnabledCheckbox.checked, t('msg.setting.youtubeTts'));
       });
     }
     if (youtubeHandleInput) {
@@ -253,7 +243,7 @@ export function initSettingsModule(
         () => {
           const handle = youtubeHandleInput.value.trim();
           youtubeHandleInput.value = handle; // reflect trimmed value in the input
-          saveSettingWrapper('youtubeHandle', handle, 'YouTube Handle');
+          saveSettingWrapper('youtubeHandle', handle, t('msg.setting.youtubeHandle'));
         },
         800
       );
@@ -261,7 +251,7 @@ export function initSettingsModule(
       youtubeHandleInput.addEventListener('change', () => {
         const handle = youtubeHandleInput.value.trim();
         youtubeHandleInput.value = handle; // reflect trimmed value in the input
-        saveSettingWrapper('youtubeHandle', handle, 'YouTube Handle');
+        saveSettingWrapper('youtubeHandle', handle, t('msg.setting.youtubeHandle'));
       });
     }
   }
@@ -297,9 +287,21 @@ export function initSettingsModule(
     if (pitchValEl) pitchValEl.textContent = String(pitch);
     if (speedValEl) speedValEl.textContent = speed.toFixed(1) + '×';
     if (volumeValEl) volumeValEl.textContent = volume.toFixed(1);
-    if (emotionValEl) emotionValEl.textContent = emotion === 'auto' ? 'Auto' : emotion.charAt(0).toUpperCase() + emotion.slice(1);
-    if (languageValEl) languageValEl.textContent = languageBoost === 'auto' ? 'Automatic' : languageBoost;
-    if (engNormValEl) engNormValEl.textContent = englishNormalizationCheckbox?.checked ? 'On' : 'Off';
+    // These overwrite markup that has already been translated, so they have to
+    // be translated too -- capitalizing the raw enum value put an English word
+    // back into every locale's sidebar.
+    if (emotionValEl) emotionValEl.textContent = t(`msg.emotion.${emotion}`);
+    if (languageValEl) {
+      // The endonym, matching both language pickers, rather than the English
+      // name the `languageBoost` enum happens to use.
+      const named = languageBoostOptions().find(o => o.value === languageBoost);
+      languageValEl.textContent = languageBoost === 'auto'
+        ? t('msg.lang.automatic')
+        : (named?.label ?? languageBoost);
+    }
+    if (engNormValEl) {
+      engNormValEl.textContent = t(englishNormalizationCheckbox?.checked ? 'msg.value.on' : 'msg.value.off');
+    }
   }
 
 
@@ -318,15 +320,15 @@ export function initSettingsModule(
       const text = textInput?.value?.trim() || '';
 
       if (!text) {
-        showToast('Enter text to test.', 'warning');
+        showToast(t('msg.preview.enterText'), 'warning');
         return;
       }
       if (text.length > 500) {
-        showToast('Text must be 500 characters or less.', 'error');
+        showToast(t('msg.preview.tooLong'), 'error');
         return;
       }
       if (testMode) {
-        showToast('Playing preview… (test mode)', 'success');
+        showToast(t('msg.preview.playingTestMode'), 'success');
         return;
       }
 
@@ -405,7 +407,7 @@ export function initSettingsModule(
     try {
       const response = await fetch(preMadeUrl);
       if (!response.ok) {
-        showToast('No preview available.', 'info');
+        showToast(t('msg.preview.unavailable'), 'info');
         return;
       }
 
@@ -462,14 +464,14 @@ export function initSettingsModule(
       if (!defaultPitchSlider || !pitchValueSpan) return;
       defaultPitchSlider.value = '0';
       pitchValueSpan.textContent = '0';
-      saveSettingWrapper('pitch', 0, 'Default Pitch');
+      saveSettingWrapper('pitch', 0, t('msg.setting.defaultPitch'));
       updateSidebarPreview();
     });
     resetSpeedBtn?.addEventListener('click', () => {
       if (!defaultSpeedSlider || !speedValueSpan) return;
       defaultSpeedSlider.value = '1.0';
       speedValueSpan.textContent = '1.0';
-      saveSettingWrapper('speed', 1.0, 'Default Speed');
+      saveSettingWrapper('speed', 1.0, t('msg.setting.defaultSpeed'));
       updateSidebarPreview();
     });
     resetVolumeBtn?.addEventListener('click', () => {
@@ -479,7 +481,7 @@ export function initSettingsModule(
       const voiceId = defaultVoiceDropdown.getValue() || 'Friendly_Person';
       currentVoiceVolumes[voiceId] = 1.0;
       voiceCalibration?.updateVolumes(currentVoiceVolumes);
-      saveSettingWrapper(`voiceVolumes.${voiceId}`, 1.0, 'Voice Volume');
+      saveSettingWrapper(`voiceVolumes.${voiceId}`, 1.0, t('msg.setting.voiceVolume'));
       updateSidebarPreview();
     });
 
@@ -492,7 +494,7 @@ export function initSettingsModule(
       containerId: 'default',
       onSelect: (voiceId) => {
         if (!isInitializing) updateVolumeSlider(voiceId);
-        saveSettingWrapper('voiceId', voiceId, 'Default Voice');
+        saveSettingWrapper('voiceId', voiceId, t('msg.setting.defaultVoice'));
         const hintEl = document.getElementById('voice-preview-hint');
         if (hintEl) hintEl.style.display = 'block';
         updateSidebarPreview();
@@ -517,7 +519,7 @@ export function initSettingsModule(
       currentVoiceVolumes: currentVoiceVolumes,
       onSave: async (voiceId, volume) => {
         await api.saveTtsSetting(getChannelName() || '', `voiceVolumes.${voiceId}`, volume);
-        maybeSuccessToast('Saved');
+        maybeSuccessToast(t('msg.action.saved'));
         // If this is also the default voice, update the main slider too
         if (defaultVoiceDropdown?.getValue() === voiceId && defaultVolumeSlider) {
           defaultVolumeSlider.value = String(volume);
@@ -559,11 +561,11 @@ export function initSettingsModule(
 
     const performLookup = async (): Promise<void> => {
       const username = lookupInput.value.trim();
-      if (!username) { showToast('Enter a username.', 'warning'); return; }
+      if (!username) { showToast(t('msg.ignore.enterUsername'), 'warning'); return; }
 
       lookupBtn.disabled = true;
       const originalBtnText = lookupBtn.textContent;
-      lookupBtn.textContent = 'Searching…';
+      lookupBtn.textContent = t('msg.lookup.searching');
       lookupResult.style.display = 'none';
       lookupResult.className = 'mt-3';
 
@@ -574,20 +576,18 @@ export function initSettingsModule(
           lookupResult.className = 'mt-3 alert alert-success';
           // Both values are attacker-controlled — the username is echoed back
           // from the lookup and the voice ID is whatever the viewer stored — so
-          // build the node instead of interpolating into innerHTML.
-          const strong = (text: string): HTMLElement => {
-            const el = document.createElement('strong');
-            el.textContent = text;
-            return el;
-          };
+          // this goes through textContent. That costs the bold emphasis the two
+          // values used to carry: keeping it would mean either splicing them
+          // into markup, or splitting the translated sentence on its own
+          // placeholders, and neither is worth a visual accent.
           const summary = document.createElement('div');
-          summary.append('User ', strong(data.username), ' set custom voice: ', strong(data.voiceId));
+          summary.textContent = t('msg.lookup.hasVoice', { user: data.username, voice: data.voiceId });
           lookupResult.replaceChildren(summary);
 
           if (allVoices.includes(data.voiceId)) {
             const calibrateBtn = document.createElement('button');
             calibrateBtn.className = 'btn btn-sm btn-success mt-2';
-            calibrateBtn.textContent = `Calibrate "${formatVoiceName(data.voiceId)}"`;
+            calibrateBtn.textContent = t('msg.lookup.calibrate', { voice: formatVoiceName(data.voiceId) });
             calibrateBtn.onclick = () => {
               voiceCalibration?.selectVoice(data.voiceId!);
             };
@@ -595,21 +595,21 @@ export function initSettingsModule(
           } else {
             const warning = document.createElement('div');
             warning.className = 'text-warning small mt-1';
-            warning.textContent = 'This voice is not in the list of available voices.';
+            warning.textContent = t('msg.lookup.voiceUnknown');
             lookupResult.appendChild(warning);
           }
         } else {
           lookupResult.className = 'mt-3 alert alert-info';
-          lookupResult.textContent = `User ${data.username} has no custom voice set.`;
+          lookupResult.textContent = t('msg.lookup.noVoice', { user: data.username });
         }
       } catch (e) {
         const err = e as Error;
         lookupResult.style.display = 'block';
         lookupResult.className = 'mt-3 alert alert-danger';
-        lookupResult.textContent = `Error: ${err.message}`;
+        lookupResult.textContent = t('msg.lookup.error', { reason: displayError(err) });
       } finally {
         lookupBtn.disabled = false;
-        lookupBtn.textContent = originalBtnText || 'Lookup Voice';
+        lookupBtn.textContent = originalBtnText || t('msg.lookup.button');
       }
     };
 
@@ -660,7 +660,7 @@ export function initSettingsModule(
 
     const response = await api.getSettings(user.login);
     if ('error' in response && response.error) {
-      showToast(`Cannot load settings: ${response.error}`, 'error');
+      showToast(apiErrorMessage(response, 'msg.settings.loadFailed'), 'error');
       return;
     }
 

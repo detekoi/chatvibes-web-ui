@@ -1,5 +1,6 @@
 import { fetchWithAuth } from '../common/api.js';
 import { copyToClipboard, showToast } from '../common/ui.js';
+import { apiErrorMessage, t } from '../common/i18n.js';
 
 /**
  * OBS module elements
@@ -60,31 +61,31 @@ export function initObsModule(
     if (!ttsUrlField) return;
     if (testMode) {
       ttsUrlField.value = `https://example.com/tts/test?channel=${encodeURIComponent(userLoginName || 'demo')}`;
-      ttsUrlField.placeholder = 'Test mode URL';
+      ttsUrlField.placeholder = t('msg.obs.testModeUrl');
       return;
     }
     if (!userLoginName || userLoginName.trim() === '' || userLoginName === 'loading...') {
       ttsUrlField.value = '';
-      ttsUrlField.placeholder = 'Cannot determine TTS URL.';
+      ttsUrlField.placeholder = t('msg.obs.cannotDetermine');
       return;
     }
-    ttsUrlField.value = 'Loading existing URL…';
+    ttsUrlField.value = t('msg.obs.loadingUrl');
     ttsUrlField.placeholder = '';
     try {
       const response = await fetchWithAuth(`${apiBaseUrl}/api/obs/getToken`, { method: 'GET' });
       const data = await response.json() as ObsTokenResponse;
       if (data.success && data.browserSourceUrl) {
         ttsUrlField.value = data.browserSourceUrl;
-        ttsUrlField.placeholder = 'Your OBS Browser Source URL';
+        ttsUrlField.placeholder = t('msg.obs.yourUrl');
         console.log('Dashboard: Loaded existing OBS URL for', userLoginName);
       } else {
         ttsUrlField.value = '';
-        ttsUrlField.placeholder = 'Click "Regenerate URL" to generate an OBS Browser Source URL.';
+        ttsUrlField.placeholder = t('msg.obs.pressRegenerate');
       }
     } catch (error) {
       console.error('Dashboard: Error loading existing TTS URL:', error);
       ttsUrlField.value = '';
-      ttsUrlField.placeholder = 'Click "Regenerate URL" to generate an OBS Browser Source URL.';
+      ttsUrlField.placeholder = t('msg.obs.pressRegenerate');
     }
   }
 
@@ -92,39 +93,39 @@ export function initObsModule(
     if (!ttsUrlField) return;
     if (testMode) {
       ttsUrlField.value = `https://example.com/tts/new-test-url?channel=${encodeURIComponent(userLoginName || 'demo')}`;
-      ttsUrlField.placeholder = 'Test mode URL';
-      showToast('Generated a new URL (test mode).', 'success');
+      ttsUrlField.placeholder = t('msg.obs.testModeUrl');
+      showToast(t('msg.obs.urlGeneratedTestMode'), 'success');
       return;
     }
     if (!userLoginName || userLoginName.trim() === '' || userLoginName === 'loading...') {
       ttsUrlField.value = '';
-      ttsUrlField.placeholder = 'Cannot determine TTS URL.';
+      ttsUrlField.placeholder = t('msg.obs.cannotDetermine');
       return;
     }
-    ttsUrlField.value = 'Generating secure URL…';
+    ttsUrlField.value = t('msg.obs.generatingUrl');
     ttsUrlField.placeholder = '';
     try {
       const response = await fetchWithAuth(`${apiBaseUrl}/api/obs/generateToken`, { method: 'POST' });
       const data = await response.json() as ObsTokenResponse;
       if (data.success && data.browserSourceUrl) {
         ttsUrlField.value = data.browserSourceUrl;
-        ttsUrlField.placeholder = 'Your OBS Browser Source URL';
-        showToast('Generated a new URL.', 'success');
+        ttsUrlField.placeholder = t('msg.obs.yourUrl');
+        showToast(t('msg.obs.urlGenerated'), 'success');
       } else {
-        throw new Error(data.message || 'Failed to generate OBS URL');
+        throw new Error(apiErrorMessage(data, 'msg.obs.generateFailed'));
       }
     } catch (error) {
       console.error('Dashboard: Error generating OBS URL:', error);
       ttsUrlField.value = '';
-      ttsUrlField.placeholder = 'Cannot generate URL. Refresh the page.';
-      showToast('Cannot generate OBS URL. Try again.', 'error');
+      ttsUrlField.placeholder = t('msg.obs.refreshPage');
+      showToast(t('msg.obs.generateFailed'), 'error');
     }
   }
 
   if (copyTtsUrlBtn && ttsUrlField) {
     copyTtsUrlBtn.addEventListener('click', async () => {
       if (!ttsUrlField.value) {
-        showToast('The URL is not available yet.', 'warning');
+        showToast(t('msg.obs.urlNotReady'), 'warning');
         return;
       }
       ttsUrlField.select();
@@ -132,20 +133,20 @@ export function initObsModule(
       try {
         const success = await copyToClipboard(ttsUrlField.value);
         if (success) {
-          showToast('Copied to clipboard.', 'success');
+          showToast(t('msg.obs.copied'), 'success');
           const original = copyTtsUrlBtn.textContent;
-          copyTtsUrlBtn.textContent = 'Copied!';
+          copyTtsUrlBtn.textContent = t('msg.obs.copiedButton');
           copyTtsUrlBtn.classList.add('copied');
           setTimeout(() => { 
             copyTtsUrlBtn.textContent = original; 
             copyTtsUrlBtn.classList.remove('copied');
           }, 2000);
         } else {
-          showToast('Copy failed.', 'error');
+          showToast(t('msg.obs.copyFailed'), 'error');
         }
       } catch (err) {
         console.error('Copy attempt error:', err);
-        showToast('Cannot copy URL.', 'error');
+        showToast(t('msg.obs.cannotCopy'), 'error');
       }
     });
   }
@@ -156,7 +157,7 @@ export function initObsModule(
       const userLogin = getLoggedInUser()?.login;
       if (testMode) {
         const originalText = regenerateTtsUrlBtn.textContent;
-        regenerateTtsUrlBtn.textContent = 'Generating…';
+        regenerateTtsUrlBtn.textContent = t('msg.obs.generating');
         regenerateTtsUrlBtn.style.pointerEvents = 'none';
         await new Promise(r => setTimeout(r, 500));
         await updateTtsUrl(userLogin || 'demo');
@@ -165,11 +166,11 @@ export function initObsModule(
         return;
       }
       if (!userLogin) {
-        showToast('You are not signed in.', 'error');
+        showToast(t('msg.auth.signedOut'), 'error');
         return;
       }
       const originalText = regenerateTtsUrlBtn.textContent;
-      regenerateTtsUrlBtn.textContent = 'Generating…';
+      regenerateTtsUrlBtn.textContent = t('msg.obs.generating');
       regenerateTtsUrlBtn.style.pointerEvents = 'none';
       try {
         await updateTtsUrl(userLogin);

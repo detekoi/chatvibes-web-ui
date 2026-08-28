@@ -1,0 +1,500 @@
+{
+  "addBotBtn": {
+    "activateTtsService": "Aktivovat službu TTS"
+  },
+  "addTtsBannedWordBtn": {
+    "add": "Přidat"
+  },
+  "addTtsIgnoreBtn": {
+    "add": "Přidat"
+  },
+  "addTtsPronunciationBtn": {
+    "add": "Přidat"
+  },
+  "allowViewerPreferences": {
+    "allowViewerVoicePreferences": "Povolit předvolby hlasu pro diváky"
+  },
+  "announceUnfulfilledRedemptions": {
+    "announceQueuedRedeemsImmediately": "Oznámit uplatnění ve frontě okamžitě"
+  },
+  "announceUnfulfilledRedemptionsHelp": {
+    "aRewardThatDoesNot": "Odměna, která nepřeskakuje frontu požadavků, je oznámena ihned po uplatnění, i když požadavek později odmítnete. Vypnutím této možnosti pozdržíte oznámení, dokud požadavek nepřijmete – nikdy nepřijaté odměny se pak neoznámí vůbec."
+  },
+  "anonymizeFollowers": {
+    "anonymizeNewFollowers": "Anonymizovat nové sledující"
+  },
+  "bitsEnabled": {
+    "requireBitsForTts": "Vyžadovat Bits pro TTS"
+  },
+  "botRespondsInChat": {
+    "botRespondsInChat": "Bot odpovídá v chatu"
+  },
+  "botStatus": {
+    "loading": "Načítání…"
+  },
+  "calibratedVoicesList": {
+    "noVoicesCalibratedYet": "Zatím nejsou zkalibrovány žádné hlasy."
+  },
+  "calibrationSaveBtn": {
+    "save": "Uložit"
+  },
+  "calibrationVoiceSearch": {
+    "searchVoicesToCalibrate": "Hledat hlasy ke kalibraci..."
+  },
+  "channelNameStatus": {
+    "yourChannel": "váš kanál"
+  },
+  "cheerEventsEnabled": {
+    "announceCheers": "Oznamovat Cheers"
+  },
+  "copyTtsUrlBtn": {
+    "copy": "Kopírovat",
+    "copyBrowserSourceUrl": "Kopírovat URL pro Browser Source"
+  },
+  "cpDelete": {
+    "disableDelete": "Zakázat a smazat"
+  },
+  "cpEnabled": {
+    "enableChannelPointsTts": "Povolit TTS za Channel Points"
+  },
+  "cpPerStream": {
+    "enterAmount": "Zadejte počet"
+  },
+  "cpPerUser": {
+    "enterAmount": "Zadejte počet"
+  },
+  "cpSave": {
+    "save": "Uložit"
+  },
+  "cpTest": {
+    "testRedeem": "Vyzkoušet uplatnění"
+  },
+  "dashboardContent": {
+    "channel": "Kanál",
+    "channelService": "Služba kanálu",
+    "dashboardConfigurationTabs": "Záložky nastavení přehledu",
+    "deactivationStopsTheBotFrom": "Deaktivací zabráníte botovi ve čtení zpráv v chatu. Vaše nastavení zůstane uložené. Službu můžete kdykoli znovu aktivovat.",
+    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentace </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>Nastavení pro diváky </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "Emoce",
+    "engNormalization": "Normalizace angl.",
+    "language": "Jazyk",
+    "pitch": "Výška hlasu",
+    "quickLinks": "Rychlé odkazy",
+    "service": "Služba",
+    "signedInAs": "Přihlášen jako",
+    "speed": "Rychlost",
+    "testMessage": "Zkušební zpráva",
+    "voicePreview": "Ukázka hlasu",
+    "volume": "Hlasitost"
+  },
+  "defaultEmotion": {
+    "angry": "Rozhněvaný",
+    "disgusted": "Znechucený",
+    "fearful": "Vyděšený",
+    "happy": "Šťastný",
+    "neutral": "Neutrální",
+    "sad": "Smutný",
+    "surprised": "Překvapený"
+  },
+  "defaultPitch": {
+    "defaultPitch12To12": "Výchozí výška hlasu (-12 až +12)"
+  },
+  "defaultSpeed": {
+    "defaultSpeed05To": "Výchozí rychlost (0,5 až 2,0)"
+  },
+  "defaultVoiceSearch": {
+    "searchDefaultVoices": "Hledat výchozí hlasy",
+    "searchVoices": "Hledat hlasy..."
+  },
+  "defaultVolume": {
+    "voiceVolume01To": "Hlasitost hlasu (0,1 až 10)"
+  },
+  "emoteMode": {
+    "describeEmotes": "Popisovat emotikony",
+    "readEmoteNames": "Číst názvy emotů",
+    "skipEmotes": "Přeskakovat emoty"
+  },
+  "englishNormalization": {
+    "englishNormalization": "Normalizace angličtiny"
+  },
+  "eventsEnabled": {
+    "announceEvents": "Oznamovat události"
+  },
+  "loadingBar": {
+    "loadingDashboardSettings": "Načítání nastavení ovládacího panelu"
+  },
+  "loadingOverlay": {
+    "loadingDashboardSettings": "Načítání nastavení ovládacího panelu…"
+  },
+  "lookupUsername": {
+    "enterTwitchViewerUsername": "Zadej uživatelské jméno diváka na Twitchi"
+  },
+  "lookupVoiceBtn": {
+    "lookupVoice": "Vyhledat hlas"
+  },
+  "meta": {
+    "wildcatttsDashboard": "WildcatTTS – Ovládací panel",
+    "wildcatttsStreamerDashboardConfigureText": "WildcatTTS Streamer Dashboard – Nastavení TTS, oprávnění, odpovědí bota a Channel Points."
+  },
+  "msg": {
+    "auth": {
+      "demoStreamer": "Demo streamer",
+      "needBroadcaster": "Pro přístup k nastavení streamera se přihlas svým účtem vysílajícího.",
+      "needSignIn": "Pro přístup k ovládacímu panelu se přihlas svým účtem Twitch."
+    },
+    "bannedWords": {
+      "addFailed": "Zakázané slovo nelze přidat.",
+      "added": "Slovo „{word}“ bylo přidáno mezi zakázaná slova.",
+      "addedTestMode": "[Test] Přidáno zakázané slovo: {word}.",
+      "empty": "Zatím nebyla přidána žádná zakázaná slova.",
+      "removeFailed": "Zakázané slovo nelze odebrat.",
+      "removed": "Slovo „{word}“ bylo odebráno ze zakázaných slov.",
+      "removedTestMode": "[Test] Odebráno zakázané slovo: {word}."
+    },
+    "bot": {
+      "activateFailed": "Službu TTS nelze aktivovat.",
+      "activated": "Služba TTS aktivována.",
+      "activatedTestMode": "Služba TTS aktivována (testovací režim).",
+      "activating": "Aktivace služby TTS…",
+      "active": "Aktivní",
+      "deactivateFailed": "Službu TTS nelze deaktivovat.",
+      "deactivated": "Služba TTS deaktivována.",
+      "deactivatedTestMode": "Služba TTS deaktivována (testovací režim).",
+      "deactivating": "Deaktivace služby TTS…",
+      "inactive": "Neaktivní",
+      "notAuthenticated": "Neověřeno",
+      "requestAccess": "Požádat o přístup zde",
+      "statusError": "Chyba",
+      "statusFailed": "Chyba: {reason}",
+      "statusLoadFailed": "Stav bota nelze načíst: {reason}",
+      "unknownError": "Neznámá chyba"
+    },
+    "calibration": {
+      "confirmReset": "Resetovat kalibraci pro {voice}?",
+      "edit": "Upravit",
+      "empty": "Zatím nebyly kalibrovány žádné hlasy.",
+      "reset": "Resetovat",
+      "row": "{voice} ({volume})"
+    },
+    "cp": {
+      "confirmDelete": "Smazat odměnu Channel Points pro TTS?",
+      "deleteFailed": "Smazání selhalo.",
+      "deleted": "Odměna smazána.",
+      "deletedTestMode": "Odměna smazána (testovací režim).",
+      "deleting": "Mazání…",
+      "lastSynced": "{reward} · Poslední synchronizace: {time}",
+      "never": "nikdy",
+      "noReward": "Nebyla vytvořena žádná odměna",
+      "noRewardTestMode": "Nebyla vytvořena žádná odměna (testovací režim)",
+      "rewardId": "ID odměny: {id}",
+      "saveFailed": "Nastavení Channel Points nelze uložit.",
+      "saved": "Nastavení Channel Points uloženo.",
+      "savedTestMode": "Nastavení Channel Points uloženo (testovací režim).",
+      "saving": "Ukládání nastavení Channel Points…",
+      "testCompleted": "Test dokončen ({status}).",
+      "testCompletedTestMode": "Test dokončen (testovací režim).",
+      "testFailed": "Test selhal.",
+      "testPrompt": "Zadej testovací zprávu pro simulaci uplatnění:",
+      "testing": "Testování uplatnění…"
+    },
+    "ignore": {
+      "addFailed": "Uživatele nelze přidat do seznamu ignorovaných.",
+      "addFailedReason": "Uživatele nelze přidat: {reason}",
+      "badgeModerator": "Ztlumeno tebou",
+      "badgeSelf": "Odhlášeno",
+      "empty": "Žádní ignorovaní uživatelé.",
+      "noSuchAccount": "Takový účet Twitch neexistuje",
+      "removeFailed": "Uživatele nelze odebrat ze seznamu ignorovaných.",
+      "removeFailedReason": "Nelze odebrat {label}: {reason}",
+      "removeLabel": "Odebrat uživatele {label} ze seznamu ignorovaných ({source, select, self {odhlásil se sám} other {ztlumeno tebou}})"
+    },
+    "lookup": {
+      "button": "Vyhledat hlas",
+      "calibrate": "Kalibrovat \"{voice}\"",
+      "error": "Chyba: {reason}",
+      "failed": "Uživatele nelze vyhledat.",
+      "hasVoice": "Uživatel {user} má nastavený vlastní hlas: {voice}",
+      "noVoice": "Uživatel {user} nemá nastavený žádný vlastní hlas.",
+      "searching": "Vyhledávání…",
+      "voiceUnknown": "Tento hlas není v seznamu dostupných hlasů."
+    },
+    "obs": {
+      "cannotCopy": "URL nelze zkopírovat.",
+      "cannotDetermine": "Nelze určit URL pro TTS.",
+      "copied": "Zkopírováno do schránky.",
+      "copiedButton": "Zkopírováno!",
+      "copyFailed": "Kopírování selhalo.",
+      "generateFailed": "Nelze vygenerovat OBS URL. Zkuste to znovu.",
+      "generating": "Generování…",
+      "generatingUrl": "Generování zabezpečené URL…",
+      "loadingUrl": "Načítání existující URL…",
+      "pressRegenerate": "Kliknutím na „Znovu vygenerovat URL“ vygenerujete URL pro OBS Browser Source.",
+      "refreshPage": "URL nelze vygenerovat. Obnovte stránku.",
+      "testModeUrl": "URL testovacího režimu",
+      "urlGenerated": "Byla vygenerována nová URL.",
+      "urlGeneratedTestMode": "Byla vygenerována nová URL (testovací režim).",
+      "urlNotReady": "URL ještě není k dispozici.",
+      "yourUrl": "Vaše URL pro OBS Browser Source"
+    },
+    "preview": {
+      "playingTestMode": "Přehrávání ukázky… (testovací režim)",
+      "tooLong": "Text může mít maximálně 500 znaků."
+    },
+    "pron": {
+      "acronymsDisabled": "Zkratky jsou zakázány",
+      "acronymsOffHint": "Aby se tato nastavení projevila, zapněte výše možnost „Rozbalovat zkratky z chatu“.",
+      "addFailed": "Nelze přidat výslovnost.",
+      "added": "Přidána výslovnost: {match} -> {say}.",
+      "addedTestMode": "[Test] Přidána výslovnost: {match} -> {say}.",
+      "builtinOff": " — vestavěné vypnuto",
+      "empty": "Zatím nebyla přidána žádná vlastní výslovnost.",
+      "expansion": " → {say}",
+      "needBoth": "Zadejte slovo i výslovnost.",
+      "removeFailed": "Nelze odebrat výslovnost.",
+      "removed": "Odebrána výslovnost: {match}.",
+      "removedTestMode": "[Test] Odebrána výslovnost: {match}."
+    },
+    "setting": {
+      "allowViewerPreferences": "Povolit hlasové předvolby diváků",
+      "announceQueuedRedeems": "Oznamovat odměny ve frontě",
+      "anonymizeFollowers": "Anonymizovat sledující",
+      "bitsForTts": "Bits pro TTS",
+      "botRespondsInChat": "Bot odpovídá v chatu",
+      "cheerAnnouncements": "Oznámení Cheer",
+      "defaultEmotion": "Výchozí emoce",
+      "defaultLanguage": "Výchozí jazyk",
+      "defaultPitch": "Výchozí výška hlasu",
+      "defaultSpeed": "Výchozí rychlost",
+      "defaultVoice": "Výchozí hlas",
+      "emoteMode": "Režim emotikonů",
+      "englishNormalization": "Normalizace angličtiny",
+      "eventAnnouncements": "Oznámení událostí",
+      "expandAcronyms": "Rozbalovat zkratky z chatu",
+      "minimumBits": "Minimální počet Bits",
+      "profanityFilter": "Filtr vulgarit",
+      "readFullUrls": "Číst celé URL",
+      "redemptionAnnouncements": "Oznámení o uplatnění",
+      "ttsEngine": "Engine TTS",
+      "ttsMode": "Režim TTS",
+      "ttsPermission": "Oprávnění pro TTS",
+      "voiceVolume": "Hlasitost hlasu",
+      "watchStreakAnnouncements": "Oznámení sérií sledování",
+      "youtubeHandle": "YouTube Handle",
+      "youtubeTts": "YouTube TTS"
+    },
+    "settings": {
+      "loadFailed": "Nastavení nelze načíst.",
+      "saveFailed": "{label}: {reason}",
+      "youtubeHandleRequired": "Před zapnutím YouTube TTS zadejte svůj YouTube handle."
+    }
+  },
+  "obsCloseBtn": {
+    "closeObsSetup": "Zavřít nastavení OBS"
+  },
+  "obsPopover": {
+    "addBrowserSource": "Přidat Browser Source",
+    "cautionANewUrlStops": "POZOR: Nová URL zastaví váš aktuální zdroj OBS, dokud URL v OBS neaktualizujete.",
+    "controlAudioViaObs": "Ovládat zvuk přes OBS",
+    "inObsAddANew": "V OBS přidejte nový <strong>Browser Source</strong>. Pojmenujte zdroj „Wildcat TTS“ a vložte zkopírovanou URL. Šířku a výšku můžete ponechat výchozí.",
+    "inTheObsAudioMixer": "Ve Směšovači zvuku v OBS najděte „Wildcat TTS“. Klikněte na ikonu ozubeného kola a vyberte <strong>Rozšířené vlastnosti zvuku</strong>. Nastavte Sledování zvuku na <strong>Sledovat a odesílat na výstup</strong>.",
+    "monitorAndOutput": "Sledovat a odesílat na výstup",
+    "obsBrowserSource": "OBS Browser Source",
+    "selectControlAudioViaObs": "Zaškrtněte <strong>Ovládat zvuk přes OBS</strong>. Ujistěte se, že není zaškrtnuto <strong>Vypnout zdroj, pokud není viditelný</strong>.",
+    "setupInstructions": "Pokyny k nastavení",
+    "yourBrowserSourceUrl": "Vaše Browser Source URL"
+  },
+  "obsToggleBtn": {
+    "obsSetup": "Nastavení OBS"
+  },
+  "page": {
+    "channelDashboard": "Přehled kanálu",
+    "textToSpeechSettingsFor": "Nastavení převodu textu na řeč pro váš kanál. Změny se ukládají průběžně.",
+    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Dashboard</span>"
+  },
+  "profanityFilterEnabled": {
+    "profanityFilter": "Filtr vulgarismů"
+  },
+  "pronunciationEnabled": {
+    "expandChatAcronyms": "Rozbalovat chatové zkratky"
+  },
+  "readFullUrls": {
+    "readFullUrls": "Předčítat celé URL"
+  },
+  "redemptionEventsEnabled": {
+    "announceRewardRedeems": "Oznamovat uplatnění odměn"
+  },
+  "regenerateTtsUrlBtn": {
+    "regenerateBrowserSourceUrl": "Znovu vygenerovat URL Browser Source",
+    "regenerateUrl": "Znovu vygenerovat URL"
+  },
+  "removeBotBtn": {
+    "deactivateTtsService": "Deaktivovat službu TTS"
+  },
+  "resetPitchBtn": {
+    "reset": "Obnovit",
+    "resetDefaultPitchTo0": "Obnovit výchozí výšku hlasu na 0"
+  },
+  "resetSpeedBtn": {
+    "reset": "Resetovat",
+    "resetDefaultSpeedTo1": "Obnovit výchozí rychlost na 1.0"
+  },
+  "resetVolumeBtn": {
+    "reset": "Resetovat",
+    "resetVoiceVolumeTo1": "Obnovit hlasitost hlasu na 1.0"
+  },
+  "saveSettingsBtn": {
+    "saveAllSettings": "Uložit všechna nastavení"
+  },
+  "serviceHeadline": {
+    "ttsService": "Služba TTS"
+  },
+  "sidebarVoiceName": {
+    "friendlyPerson": "Přátelská osoba"
+  },
+  "tabBroadcaster": {
+    "allowTheBotToRespond": "Povolit botovi reagovat na příkazy v chatu, například !myvoice",
+    "allowViewerVoicePreferences": "Povolit předvolby hlasu pro diváky",
+    "allowViewersToUseChannel": "Povolit divákům používat Channel Points pro TTS",
+    "announceCheers": "Oznamovat cheers",
+    "announceEvents": "Oznamovat události",
+    "announceEventsSuchAsSubscriptions": "Oznamovat události, jako jsou předplatná a raidy",
+    "announceQueuedRedeemsImmediately": "Okamžitě oznamovat uplatněné odměny ve frontě",
+    "announceRewardRedeems": "Oznamovat uplatnění odměn",
+    "announceWatchStreaks": "Oznamovat série sledování",
+    "announceWhenAViewerCheers": "Oznámit, když divák pošle bits (cheer)",
+    "announceWhenAViewerReaches": "Oznámit, když divák dosáhne milníku v sérii sledování",
+    "announceWhenAViewerRedeems": "Oznámit, když divák uplatní odměnu za Channel Points",
+    "anonymizeNewFollowers": "Anonymizovat nové sledující",
+    "bannedWordsCommaSeparated": "Zakázaná slova (oddělená čárkou)",
+    "bannedWordsPhrases": "<strong>Zakázaná slova / fráze</strong>",
+    "bitsTts": "Bits → TTS",
+    "blockLinks": "Blokovat odkazy",
+    "botRespondsInChat": "Bot odpovídá v chatu",
+    "channelPointsTts": "Channel Points → TTS",
+    "chooseWhichMessagesTriggerTts": "Zvolte zprávy, které spouští TTS",
+    "configureBitsRequirementsForText": "Nastavit požadavky na bits pro TTS",
+    "configureChannelPointsRewardsFor": "Nastavit odměny za Channel Points pro TTS",
+    "configureTtsEngineSettingsAnd": "Nastavit TTS engine a oprávnění",
+    "controlHowTtsPronouncesSpecific": "Nastavte, jak má TTS vyslovovat konkrétní slova. Běžné zkratky na Twitchi jsou zpracovány automaticky. Přidejte záznam pro přepsání výchozí výslovnosti nebo přidání nového slova.",
+    "controlsHowTtsHandlesEmotes": "Určuje, jak TTS zpracovává emoty v chatu",
+    "cooldownsAndModeration": "Cooldowny a moderace",
+    "costPoints": "Cena (body)",
+    "emoteMode": "<strong>Režim emotů</strong>",
+    "enableChannelPointsTts": "Povolit TTS za Channel Points",
+    "enableCooldownsLimits": "Povolit cooldowny a limity",
+    "engineMode": "Engine a režim",
+    "expandChatAcronyms": "Rozbalovat zkratky v chatu",
+    "globalCooldownSec": "Globální cooldown (s)",
+    "hideFollowerNamesInTts": "Skrýt jména sledujících v oznámeních TTS kvůli soukromí",
+    "ifOnTtsReadsFull": "Je-li zapnuto, TTS čte celé adresy URL. Je-li vypnuto, TTS čte pouze názvy domén",
+    "ifThisSettingIsOff": "Pokud je toto nastavení vypnuté, TTS používá pro všechny zprávy výchozí hlas kanálu",
+    "ignoredUsers": "Ignorovaní uživatelé",
+    "manageUsersThatTtsIgnores": "Správa uživatelů, které TTS ignoruje",
+    "minimumBitsRequired": "<strong>Minimální počet bits</strong>",
+    "minimumNumberOfBitsRequired": "Minimální počet bits vyžadovaný ke spuštění TTS",
+    "perStreamLimit": "Limit na stream",
+    "perUserPerStream": "Na uživatele na stream",
+    "profanityFilter": "Filtr vulgarit",
+    "pronunciationDictionary": "<strong>Slovník výslovnosti</strong>",
+    "readFullUrls": "Číst celé adresy URL",
+    "readYoutubeLiveChatMessages": "Číst zprávy z živého chatu na YouTube pomocí TTS. Tato funkce vyžaduje aktivní živé vysílání na YouTube.",
+    "readYoutubeLiveChatMessages2": "Předčítat zprávy z živého chatu na YouTube nahlas",
+    "requireBitsForTts": "Vyžadovat bits pro TTS",
+    "rewardTitle": "Název odměny",
+    "skipTheRewardQueue": "Přeskočit frontu odměn",
+    "theTitleMustBeUnique": "Název musí být v rámci vašeho kanálu jedinečný.",
+    "ttsDoesNotReadMessages": "TTS nečte zprávy od uživatelů na tomto seznamu.",
+    "ttsEngineEnabled": "Modul TTS povolen",
+    "ttsExpandsCommonTwitchAcronyms": "TTS rozbaluje běžné zkratky na Twitchi do celých slov. Například „ngl“ přečte jako „not gonna lie“. Vypněte, pokud chcete hláskovat jednotlivá písmena.",
+    "ttsIgnoreList": "<strong>Seznam ignorovaných pro TTS</strong>",
+    "ttsMode": "<strong>Režim TTS</strong>",
+    "ttsPermission": "<strong>Oprávnění TTS</strong>",
+    "ttsReplacesProfanityWithMilder": "TTS před přečtením nahrazuje vulgarismy mírnějšími slovy. Filtr používá jazyk kanálu a jazyk diváka. Pokud je jazyk nastaven na Automaticky, filtr použije anglický seznam. Zprávy se zakázanými slovy se i nadále celé přeskočí.",
+    "ttsSkipsMessagesThatContain": "TTS přeskočí zprávy, které obsahují tato slova nebo fráze.",
+    "turnOnOrTurnOff": "Zapnout nebo vypnout modul převodu textu na řeč",
+    "viewerPrompt": "Výzva pro diváky",
+    "viewersMustCheerBitsTo": "Diváci musí poslat bits, aby mohli použít převod textu na řeč",
+    "whoCanUseTextTo": "Kdo může používat převod textu na řeč",
+    "yourYoutubeChannelHandleFor": "Identifikátor (handle) vašeho YouTube kanálu (například <code>@yourhandle</code>)",
+    "youtubeHandle": "<strong>YouTube handle</strong>",
+    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>Integrace YouTube",
+    "youtubeTtsEnabled": "YouTube TTS povoleno"
+  },
+  "tabBtnBroadcaster": {
+    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Vysílající"
+  },
+  "tabBtnViewerDefaults": {
+    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Výchozí hlasy"
+  },
+  "tabViewerDefaults": {
+    "adjustThePitchForThe": "Upravit výšku tónu pro výchozí hlas",
+    "adjustTheVolumeForThe": "Upravte hlasitost pro vybraný hlas. POZOR: Hodnoty vyšší než 1.0 mohou způsobit zkreslení.",
+    "calibrateVolumeForSpecificVoices": "Kalibrace hlasitosti pro konkrétní hlasy. POZOR: Hodnoty vyšší než 1.0 mohou způsobit zkreslení.",
+    "calibratedVoices": "<strong>Kalibrované hlasy</strong>",
+    "controlHowFastTheDefault": "Nastavte rychlost mluvení výchozího hlasu",
+    "defaultEmotion": "<strong>Výchozí emoce</strong>",
+    "defaultLanguage": "<strong>Výchozí jazyk</strong>",
+    "defaultPitch12To12": "Výchozí výška hlasu (-12 až +12):",
+    "defaultSpeed05To": "Výchozí rychlost (0,5 až 2,0):",
+    "defaultVoice": "<strong>Výchozí hlas</strong>",
+    "defaultVoiceSettings": "Výchozí nastavení hlasu",
+    "englishNormalization": "Normalizace angličtiny",
+    "improvePronunciationForSpecificLanguages": "Vylepšit výslovnost pro konkrétní jazyky",
+    "improveThePronunciationOfNumbers": "Vylepšit výslovnost čísel a textu",
+    "selectTheDefaultTtsVoice": "Vyberte výchozí hlas TTS pro kanál",
+    "selectVoice": "Vybrat hlas",
+    "setDefaultVoiceSettingsFor": "Nastavte výchozí nastavení hlasu pro svůj kanál",
+    "setTheEmotionalToneOf": "Nastavte emoční tón výchozího hlasu",
+    "viewerVoiceLookup": "Vyhledání hlasu diváka",
+    "voiceCalibration": "Kalibrace hlasu",
+    "voiceVolume01To": "Hlasitost hlasu (0,1 až 10):",
+    "voicesWithCustomVolumeSettings": "Hlasy s vlastním nastavením hlasitosti.",
+    "volumeOverride": "Přepsání hlasitosti:"
+  },
+  "ttsBannedWordInput": {
+    "wordOrPhraseToBan": "Slovo nebo fráze k zakázání"
+  },
+  "ttsEnabled": {
+    "ttsEngineEnabled": "Modul TTS zapnut"
+  },
+  "ttsIgnoreUsername": {
+    "usernameToIgnore": "Uživatelské jméno k ignorování"
+  },
+  "ttsMode": {
+    "allMessages": "Všechny zprávy",
+    "bitsPointsOnly": "Pouze Bits / Channel Points",
+    "ttsCommandOnly": "Pouze příkaz !tts"
+  },
+  "ttsPermission": {
+    "everyone": "Všichni",
+    "moderatorsOnly": "Pouze moderátoři",
+    "subscribersOnly": "Pouze předplatitelé",
+    "vipsOnly": "Pouze VIP"
+  },
+  "ttsPronunciationMatchInput": {
+    "wordForExampleWcat": "Slovo (například wcat)",
+    "wordToReplace": "Slovo k nahrazení"
+  },
+  "ttsPronunciationSayInput": {
+    "howToSayItFor": "Jak vyslovit (například wildcat)",
+    "pronunciation": "Výslovnost"
+  },
+  "ttsUrlField": {
+    "yourBrowserSourceUrl": "Vaše URL pro Browser Source"
+  },
+  "twitchUsername": {
+    "loading": "načítání…"
+  },
+  "voiceTestBtn": {
+    "sendPreview": "Odeslat ukázku"
+  },
+  "watchStreakEventsEnabled": {
+    "announceWatchStreaks": "Oznamovat série sledování"
+  },
+  "youtubeEnabled": {
+    "youtubeTtsEnabled": "YouTube TTS zapnuto"
+  },
+  "youtubeHandle": {
+    "yourhandle": "@vasejmeno"
+  }
+}

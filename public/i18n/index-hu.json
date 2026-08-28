@@ -1,0 +1,50 @@
+{
+  "kofiClose": {
+    "closeSupportDialog": "Támogatási ablak bezárása"
+  },
+  "kofiModal": {
+    "openInNewTabOn": "<a href=\"https://ko-fi.com/parfaitfair\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"kofi-direct-link\">Megnyitás új lapon a Ko-fi.com-on</a>"
+  },
+  "kofiOpen": {
+    "supportMe": "Támogass"
+  },
+  "kofiTitle": {
+    "supportParfaitfair": "parfaitfair támogatása"
+  },
+  "mainContent": {
+    "access": "Hozzáférés",
+    "accessIsInviteOnlyUnapproved": "A hozzáférés csak meghívással lehetséges. A nem jóváhagyott csatornák hozzáférés megtagadva üzenetet kapnak. <a class=\"wc-link wc-link--underline\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">Kérj hozzáférést itt</a>.",
+    "changeTtsSettingsControlBot": "TTS-beállítások módosítása • Bot csevegési válaszainak vezérlése • Channel Points konfigurálása • Hangbeállítások megadása",
+    "colorTheme": "Színtéma",
+    "iAmAViewer": "<span class=\"wc-rule-name\">Néző vagyok</span>",
+    "iRunTheChannel": "<span class=\"wc-rule-name\">Én kezelem a csatornát</span>",
+    "setHowYourMessagesSound": "Állítsd be, hogyan hangozzanak az üzeneteid, amikor a TTS felolvassa őket a meglátogatott csatornákon.",
+    "textToSpeechForYour": "Szövegfelolvasás a Twitch-csatornádhoz, streamereknek és nézőknek.",
+    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">Csak meghívóval</span>",
+    "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">Szövegfelolvasó bot kezelése</span>"
+  },
+  "meta": {
+    "wildcatttsBotManagement": "WildcatTTS botkezelés",
+    "wildcatttsTextToSpeechBot": "WildcatTTS szövegfelolvasó bot kezelése Twitch-csatornákhoz, streamereknek és nézőknek."
+  },
+  "msg": {
+    "kofi": {
+      "iframeTitle": "parfaitfair támogatása a Ko-fi-n"
+    }
+  },
+  "page": {
+    "support": "Támogatás"
+  },
+  "streamerLoginBtn": {
+    "manageMyChannel": "<i data-lucide=\"mic\" aria-hidden=\"true\"></i>Csatornám kezelése"
+  },
+  "themeDarkBtn": {
+    "dark": "Sötét"
+  },
+  "themeLightBtn": {
+    "light": "Világos"
+  },
+  "viewerPrefsBtn": {
+    "setMyOwnVoice": "<i data-lucide=\"headphones\" aria-hidden=\"true\"></i>Saját hang beállítása"
+  }
+}

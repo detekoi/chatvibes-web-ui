@@ -1,0 +1,166 @@
+{
+  "darkModeToggle": {
+    "toggleDarkMode": "다크 모드 전환"
+  },
+  "err": {
+    "banned_add_failed": "금지 단어 목록에 추가할 수 없습니다.",
+    "banned_remove_failed": "금지 단어 목록에서 삭제할 수 없습니다.",
+    "bot_add_failed": "채널에서 봇을 활성화할 수 없습니다. 다시 시도해 주세요.",
+    "bot_remove_failed": "채널에서 봇을 비활성화할 수 없습니다. 다시 시도해 주세요.",
+    "bot_status_failed": "봇 상태를 불러올 수 없습니다.",
+    "channel_data_not_found": "해당 채널의 설정을 찾을 수 없습니다.",
+    "channel_not_authorized": "이 봇을 사용할 수 있도록 승인되지 않은 채널입니다. 이용하려면 관리자에게 문의하세요.",
+    "channel_not_found": "해당 채널을 찾을 수 없습니다.",
+    "channel_required": "채널을 지정해야 합니다.",
+    "channel_tts_disabled": "해당 채널을 찾을 수 없거나 TTS가 켜져 있지 않습니다.",
+    "entry_key_required": "항목 키가 필요합니다.",
+    "exchange_code_invalid": "로그인 링크가 없거나 잘못되었습니다.",
+    "exchange_code_used": "이미 사용되었거나 만료된 로그인 링크입니다. 다시 로그인해 주세요.",
+    "exchange_failed": "로그인을 완료할 수 없습니다. 다시 시도해 주세요.",
+    "ignore_add_failed": "무시 목록에 해당 사용자를 추가할 수 없습니다.",
+    "ignore_moderator_imposed": "채널 매니저가 사용자의 TTS 읽기를 제외하도록 설정하여 매니저만 해제할 수 있습니다.",
+    "ignore_remove_failed": "무시 목록에서 해당 사용자를 삭제할 수 없습니다.",
+    "ignore_update_failed": "TTS 제외 설정을 변경할 수 없습니다.",
+    "key_required": "설정 이름이 필요합니다.",
+    "match_key_invalid": "단어는 문자, 숫자, 아포스트로피('), 하이픈(-)을 사용한 1~{max}자여야 하며 마침표(.)를 포함할 수 없습니다.",
+    "network_error": "서버에 연결할 수 없습니다. 네트워크 연결을 확인해 주세요.",
+    "obs_token_fetch_failed": "OBS 토큰을 불러올 수 없습니다.",
+    "obs_token_generate_failed": "새 OBS 토큰을 생성할 수 없습니다.",
+    "obs_token_store_failed": "OBS 토큰을 저장할 수 없습니다. 다시 시도해 주세요.",
+    "prefs_fetch_failed": "설정을 불러올 수 없습니다.",
+    "prefs_global_fetch_failed": "전역 설정을 불러올 수 없습니다.",
+    "prefs_global_update_failed": "전역 설정을 저장할 수 없습니다.",
+    "prefs_invalid_emote_mode": "이모티콘 처리 방식은 읽기, 건너뛰기, 설명하기 중 하나여야 합니다.",
+    "prefs_invalid_emotion": "올바른 감정이 아닙니다.",
+    "prefs_invalid_language": "올바른 언어가 아닙니다.",
+    "prefs_invalid_pitch": "올바른 음높이가 아닙니다.",
+    "prefs_invalid_speed": "올바른 속도가 아닙니다.",
+    "prefs_invalid_voice": "올바른 음성이 아닙니다.",
+    "prefs_missing_data": "전송된 변경 사항이 없습니다.",
+    "prefs_update_failed": "설정을 저장할 수 없습니다.",
+    "pronunciation_limit_reached": "사용자 지정 발음 최대 한도인 {max}개에 도달했습니다. 먼저 기존 항목을 삭제하세요.",
+    "pronunciation_remove_failed": "발음을 삭제할 수 없습니다.",
+    "pronunciation_save_failed": "발음을 저장할 수 없습니다.",
+    "reward_banned_word": "메시지에 금지어가 포함되어 있습니다: \"{word}\".",
+    "reward_create_failed": "Channel Points 보상을 생성할 수 없습니다.",
+    "reward_delete_failed": "Channel Points 보상을 삭제할 수 없습니다.",
+    "reward_links_blocked": "이 보상에는 링크를 포함할 수 없습니다.",
+    "reward_load_failed": "Channel Points 보상을 불러올 수 없습니다.",
+    "reward_message_empty": "메시지가 비어 있습니다.",
+    "reward_save_failed": "Channel Points 보상을 저장할 수 없습니다.",
+    "reward_test_failed": "Channel Points 보상을 테스트할 수 없습니다.",
+    "reward_twitch_error": "Twitch에서 보상 수정을 거부했습니다.",
+    "reward_validation_failed": "허용되지 않는 메시지입니다.",
+    "say_contains_link": "발음에는 링크를 포함할 수 없습니다.",
+    "say_empty": "발음은 비워 둘 수 없습니다.",
+    "say_must_be_text": "발음은 텍스트여야 합니다.",
+    "say_too_long": "발음은 {max}자 이하여야 합니다.",
+    "server_misconfigured": "서버 설정이 잘못되었습니다.",
+    "setting_invalid": "올바른 {key} 값이 아닙니다.",
+    "setting_update_failed": "TTS 설정을 업데이트할 수 없습니다.",
+    "settings_fetch_failed": "TTS 설정을 불러올 수 없습니다.",
+    "shortlink_failed": "단축 링크를 생성할 수 없습니다.",
+    "storage_unavailable": "저장소를 사용할 수 없습니다.",
+    "tts_generation_failed": "음성 생성 실패: {reason}",
+    "tts_no_audio": "음성 제공자에서 반환된 오디오가 없습니다.",
+    "tts_not_configured": "설정된 음성 제공자가 없습니다.",
+    "tts_provider_failed": "음성 제공자가 오디오를 생성하지 못했습니다.",
+    "tts_test_failed": "음성 테스트에 실패했습니다.",
+    "tts_text_required": "테스트할 텍스트를 입력하세요.",
+    "twitch_reauth_required": "Twitch 로그인이 만료되었습니다. 계정을 다시 연결하세요.",
+    "twitch_user_not_found": "\"{username}\" Twitch 계정이 존재하지 않습니다.",
+    "url_required": "URL이 필요합니다.",
+    "username_invalid": "올바른 사용자 이름이 아닙니다.",
+    "username_required": "사용자 이름이 필요합니다.",
+    "voice_access_denied": "\"{voice}\" 음성은 특별한 접근 권한이 필요합니다. 다른 음성을 사용해 보세요.",
+    "voice_invalid": "\"{voice}\" 음성을 사용할 수 없습니다. 음성을 확인하고 다시 시도하세요.",
+    "voice_lookup_failed": "해당 사용자의 음성을 조회할 수 없습니다.",
+    "word_invalid": "올바른 단어나 문구가 아닙니다.",
+    "word_required": "단어나 문구를 입력해야 합니다."
+  },
+  "logoutLink": {
+    "logout": "로그아웃"
+  },
+  "mainContent": {
+    "documentationTtsWildcatChat": "<a class=\"wc-link\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\">문서</a> <span>tts.wildcat.chat</span>"
+  },
+  "msg": {
+    "action": {
+      "close": "닫기",
+      "remove": "삭제",
+      "saved": "저장됨"
+    },
+    "api": {
+      "authFailed": "인증에 실패했습니다. 다시 로그인하세요.",
+      "notAuthenticated": "로그인되어 있지 않습니다.",
+      "requestFailed": "요청에 실패했습니다."
+    },
+    "auth": {
+      "genericUser": "사용자",
+      "loading": "로딩 중…",
+      "needViewerSignIn": "시청자 설정에 접근하려면 Twitch 계정을 인증하세요.",
+      "redirecting": "인증을 위해 Twitch로 이동하는 중…",
+      "required": "인증이 필요합니다.",
+      "signInFailed": "로그인을 완료할 수 없습니다.",
+      "signInWithTwitch": "Twitch로 로그인",
+      "signedOut": "로그인되어 있지 않습니다.",
+      "tokenMissing": "인증 토큰이 없습니다. 다시 로그인하세요."
+    },
+    "emotion": {
+      "angry": "분노",
+      "auto": "자동",
+      "calm": "차분함",
+      "disgusted": "혐오",
+      "fearful": "두려움",
+      "fluent": "유창함",
+      "happy": "기쁨",
+      "neutral": "중립",
+      "sad": "슬픔",
+      "surprised": "놀람"
+    },
+    "ignore": {
+      "enterUsername": "사용자 이름을 입력하세요."
+    },
+    "lang": {
+      "automatic": "자동"
+    },
+    "prefs": {
+      "useChannelDefault": "채널 기본값 사용"
+    },
+    "preview": {
+      "enterText": "테스트할 텍스트를 입력하세요.",
+      "unavailable": "미리보기를 사용할 수 없습니다."
+    },
+    "value": {
+      "off": "꺼짐",
+      "on": "켜짐"
+    },
+    "voice": {
+      "cannotPlay": "오디오 샘플을 재생할 수 없습니다.",
+      "generating": "생성 중…",
+      "noAudio": "서버에서 반환된 오디오가 없습니다.",
+      "noneFound": "음성을 찾을 수 없습니다.",
+      "preview": "{voice} 미리듣기",
+      "regenerate": "다시 생성",
+      "testFailed": "테스트 실패: {reason}"
+    }
+  },
+  "page": {
+    "skipToMainContent": "본문으로 바로가기"
+  },
+  "sidebarEngNormVal": {
+    "off": "꺼짐"
+  },
+  "sidebarLanguageVal": {
+    "automatic": "자동"
+  },
+  "ui": {
+    "language": "언어"
+  },
+  "voicePreviewHint": {
+    "settingsChangedGenerateANew": "<i><i data-lucide=\"triangle-alert\" class=\"inline-icon\"></i> 설정이 변경되었습니다. 새 미리듣기를 생성하세요.</i>"
+  },
+  "voicePreviewPlayer": {
+    "yourBrowserDoesNotSupport": "사용 중인 브라우저가 오디오 요소를 지원하지 않습니다."
+  }
+}

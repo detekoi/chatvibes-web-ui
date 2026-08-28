@@ -1,0 +1,500 @@
+{
+  "addBotBtn": {
+    "activateTtsService": "Aktiveer TTS-diens"
+  },
+  "addTtsBannedWordBtn": {
+    "add": "Voeg by"
+  },
+  "addTtsIgnoreBtn": {
+    "add": "Voeg by"
+  },
+  "addTtsPronunciationBtn": {
+    "add": "Voeg by"
+  },
+  "allowViewerPreferences": {
+    "allowViewerVoicePreferences": "Laat kykerstemvoorkeure toe"
+  },
+  "announceUnfulfilledRedemptions": {
+    "announceQueuedRedeemsImmediately": "Kondig wagtende inruilings dadelik aan"
+  },
+  "announceUnfulfilledRedemptionsHelp": {
+    "aRewardThatDoesNot": "'n Beloning wat nie die versoekwaglys oorslaan nie, word aangekondig sodra dit ingeruil word, selfs al verwerp jy die versoek later. Skakel dit af om die aankondiging terug te hou totdat jy die versoek aanvaar — belonings wat jy nooit aanvaar nie, word dan nooit aangekondig nie."
+  },
+  "anonymizeFollowers": {
+    "anonymizeNewFollowers": "Anonimiseer nuwe volgers"
+  },
+  "bitsEnabled": {
+    "requireBitsForTts": "Vereis Bits vir TTS"
+  },
+  "botRespondsInChat": {
+    "botRespondsInChat": "Bot antwoord in klets"
+  },
+  "botStatus": {
+    "loading": "Laai tans…"
+  },
+  "calibratedVoicesList": {
+    "noVoicesCalibratedYet": "Nog geen stemme gekalibreer nie."
+  },
+  "calibrationSaveBtn": {
+    "save": "Stoor"
+  },
+  "calibrationVoiceSearch": {
+    "searchVoicesToCalibrate": "Soek stemme om te kalibreer..."
+  },
+  "channelNameStatus": {
+    "yourChannel": "jou kanaal"
+  },
+  "cheerEventsEnabled": {
+    "announceCheers": "Kondig cheers aan"
+  },
+  "copyTtsUrlBtn": {
+    "copy": "Kopieer",
+    "copyBrowserSourceUrl": "Kopieer Browser Source-URL"
+  },
+  "cpDelete": {
+    "disableDelete": "Deaktiveer en skrap"
+  },
+  "cpEnabled": {
+    "enableChannelPointsTts": "Aktiveer Channel Points TTS"
+  },
+  "cpPerStream": {
+    "enterAmount": "Voer bedrag in"
+  },
+  "cpPerUser": {
+    "enterAmount": "Voer bedrag in"
+  },
+  "cpSave": {
+    "save": "Stoor"
+  },
+  "cpTest": {
+    "testRedeem": "Toets inruiling"
+  },
+  "dashboardContent": {
+    "channel": "Kanaal",
+    "channelService": "Kanaaldiens",
+    "dashboardConfigurationTabs": "Kontroleskerm-konfigurasie-oortjies",
+    "deactivationStopsTheBotFrom": "Deaktivering keer dat die bot kletsboodskappe lees. Jou instellings bly gestoor. Jy kan die diens te eniger tyd weer aktiveer.",
+    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentasie </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>Kykerinstellings </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "Emosie",
+    "engNormalization": "Eng. normalisering",
+    "language": "Taal",
+    "pitch": "Toonhoogte",
+    "quickLinks": "Vinnige skakels",
+    "service": "Diens",
+    "signedInAs": "Aangemeld as",
+    "speed": "Spoed",
+    "testMessage": "Toetsboodskap",
+    "voicePreview": "Stemvoorskou",
+    "volume": "Volume"
+  },
+  "defaultEmotion": {
+    "angry": "Kwaad",
+    "disgusted": "Gewalg",
+    "fearful": "Bang",
+    "happy": "Bly",
+    "neutral": "Neutraal",
+    "sad": "Hartseer",
+    "surprised": "Verras"
+  },
+  "defaultPitch": {
+    "defaultPitch12To12": "Verstektoonhoogte (-12 tot +12)"
+  },
+  "defaultSpeed": {
+    "defaultSpeed05To": "Verstekspoed (0.5 tot 2.0)"
+  },
+  "defaultVoiceSearch": {
+    "searchDefaultVoices": "Soek verstekstemme",
+    "searchVoices": "Soek stemme..."
+  },
+  "defaultVolume": {
+    "voiceVolume01To": "Stemvolume (0.1 tot 10)"
+  },
+  "emoteMode": {
+    "describeEmotes": "Beskryf emotes",
+    "readEmoteNames": "Lees emote-name",
+    "skipEmotes": "Slaan emotes oor"
+  },
+  "englishNormalization": {
+    "englishNormalization": "Engelse normalisering"
+  },
+  "eventsEnabled": {
+    "announceEvents": "Kondig gebeure aan"
+  },
+  "loadingBar": {
+    "loadingDashboardSettings": "Laai kontroleskerminstellings"
+  },
+  "loadingOverlay": {
+    "loadingDashboardSettings": "Laai kontroleskerminstellings…"
+  },
+  "lookupUsername": {
+    "enterTwitchViewerUsername": "Voer Twitch-kyker se gebruikersnaam in"
+  },
+  "lookupVoiceBtn": {
+    "lookupVoice": "Soek stem op"
+  },
+  "meta": {
+    "wildcatttsDashboard": "WildcatTTS-kontroleskerm",
+    "wildcatttsStreamerDashboardConfigureText": "WildcatTTS-stroomkontroleskerm - Stel teks-na-spraak-instellings, toestemmings, bot-antwoorde en Channel Points op."
+  },
+  "msg": {
+    "auth": {
+      "demoStreamer": "Demo-streamer",
+      "needBroadcaster": "Meld aan met jou uitsaaierrekening om toegang tot stroominstellings te kry.",
+      "needSignIn": "Meld aan met jou Twitch-rekening om toegang tot die kontroleskerm te kry."
+    },
+    "bannedWords": {
+      "addFailed": "Kan nie verbode woord byvoeg nie.",
+      "added": "\"{word}\" by verbode woorde gevoeg.",
+      "addedTestMode": "[Toets] Verbode woord bygevoeg: {word}.",
+      "empty": "Nog geen verbode woorde bygevoeg nie.",
+      "removeFailed": "Kan nie verbode woord verwyder nie.",
+      "removed": "\"{word}\" uit verbode woorde verwyder.",
+      "removedTestMode": "[Toets] Verbode woord verwyder: {word}."
+    },
+    "bot": {
+      "activateFailed": "Kan nie TTS-diens aktiveer nie.",
+      "activated": "TTS-diens geaktiveer.",
+      "activatedTestMode": "TTS-diens geaktiveer (toetsmodus).",
+      "activating": "Aktiveer TTS-diens…",
+      "active": "Aktief",
+      "deactivateFailed": "Kan nie TTS-diens deaktiveer nie.",
+      "deactivated": "TTS-diens gedeaktiveer.",
+      "deactivatedTestMode": "TTS-diens gedeaktiveer (toetsmodus).",
+      "deactivating": "Deaktiveer TTS-diens…",
+      "inactive": "Onaktief",
+      "notAuthenticated": "Nie geoutentiseer nie",
+      "requestAccess": "Versoek toegang hier",
+      "statusError": "Fout",
+      "statusFailed": "Fout: {reason}",
+      "statusLoadFailed": "Kan nie bot-status laai nie: {reason}",
+      "unknownError": "Onbekende fout"
+    },
+    "calibration": {
+      "confirmReset": "Herstel kalibrasie vir {voice}?",
+      "edit": "Wysig",
+      "empty": "Nog geen stemme gekalibreer nie.",
+      "reset": "Herstel",
+      "row": "{voice} ({volume})"
+    },
+    "cp": {
+      "confirmDelete": "Skrap die Channel Points-TTS-beloning?",
+      "deleteFailed": "Skrap het misluk.",
+      "deleted": "Beloning geskrap.",
+      "deletedTestMode": "Beloning geskrap (toetsmodus).",
+      "deleting": "Skrap tans…",
+      "lastSynced": "{reward} · Laas gesinkroniseer: {time}",
+      "never": "nooit",
+      "noReward": "Geen beloning geskep nie",
+      "noRewardTestMode": "Geen beloning geskep nie (toetsmodus)",
+      "rewardId": "Beloning-ID: {id}",
+      "saveFailed": "Kan nie Channel Points-instellings stoor nie.",
+      "saved": "Channel Points-instellings gestoor.",
+      "savedTestMode": "Channel Points-instellings gestoor (toetsmodus).",
+      "saving": "Stoor tans Channel Points-instellings…",
+      "testCompleted": "Toets voltooi ({status}).",
+      "testCompletedTestMode": "Toets voltooi (toetsmodus).",
+      "testFailed": "Toets het misluk.",
+      "testPrompt": "Voer 'n toetsboodskap in om 'n inwisseling te simuleer:",
+      "testing": "Toets tans inwisseling…"
+    },
+    "ignore": {
+      "addFailed": "Kan nie gebruiker by ignoreerlys voeg nie.",
+      "addFailedReason": "Kan nie gebruiker byvoeg nie: {reason}",
+      "badgeModerator": "Gedemp deur jou",
+      "badgeSelf": "Onttrek",
+      "empty": "Geen geïgnoreerde gebruikers nie.",
+      "noSuchAccount": "Geen sodanige Twitch-rekening nie",
+      "removeFailed": "Kan nie gebruiker van ignoreerlys verwyder nie.",
+      "removeFailedReason": "Kan nie {label} verwyder nie: {reason}",
+      "removeLabel": "Verwyder {label} van die ignoreerlys ({source, select, self {het self onttrek} other {gedemp deur jou}})"
+    },
+    "lookup": {
+      "button": "Soek stem",
+      "calibrate": "Kalibreer \"{voice}\"",
+      "error": "Fout: {reason}",
+      "failed": "Kan nie daardie gebruiker opsoek nie.",
+      "hasVoice": "Gebruiker {user} het gepasmaakte stem gestel: {voice}",
+      "noVoice": "Gebruiker {user} het geen gepasmaakte stem gestel nie.",
+      "searching": "Soek tans…",
+      "voiceUnknown": "Hierdie stem is nie in die lys van beskikbare stemme nie."
+    },
+    "obs": {
+      "cannotCopy": "Kan nie URL kopieer nie.",
+      "cannotDetermine": "Kan nie TTS-URL bepaal nie.",
+      "copied": "Gekopieer na knipbord.",
+      "copiedButton": "Gekopieer!",
+      "copyFailed": "Kopiëring het misluk.",
+      "generateFailed": "Kan nie OBS-URL genereer nie. Probeer weer.",
+      "generating": "Genereer tans…",
+      "generatingUrl": "Genereer tans veilige URL…",
+      "loadingUrl": "Laai tans bestaande URL…",
+      "pressRegenerate": "Klik op \"Hergenereer URL\" om 'n OBS Browser Source-URL te genereer.",
+      "refreshPage": "Kan nie URL genereer nie. Herlaai die bladsy.",
+      "testModeUrl": "Toetsmodus-URL",
+      "urlGenerated": "'n Nuwe URL is gegenereer.",
+      "urlGeneratedTestMode": "'n Nuwe URL is gegenereer (toetsmodus).",
+      "urlNotReady": "Die URL is nog nie beskikbaar nie.",
+      "yourUrl": "Jou OBS Browser Source-URL"
+    },
+    "preview": {
+      "playingTestMode": "Speel tans voorskou… (toetsmodus)",
+      "tooLong": "Teks moet 500 karakters of minder wees."
+    },
+    "pron": {
+      "acronymsDisabled": "Akronieme is gedeaktiveer",
+      "acronymsOffHint": "Skakel \"Brei kletsakronieme uit\" hierbo aan om hierdie instellings toe te pas.",
+      "addFailed": "Kan nie uitspraak byvoeg nie.",
+      "added": "Uitspraak bygevoeg: {match} -> {say}.",
+      "addedTestMode": "[Toets] Uitspraak bygevoeg: {match} -> {say}.",
+      "builtinOff": " — ingeboude afgeskakel",
+      "empty": "Nog geen pasgemaakte uitsprake bygevoeg nie.",
+      "expansion": " → {say}",
+      "needBoth": "Voer beide die woord en die uitspraak in.",
+      "removeFailed": "Kan nie uitspraak verwyder nie.",
+      "removed": "Uitspraak verwyder: {match}.",
+      "removedTestMode": "[Toets] Uitspraak verwyder: {match}."
+    },
+    "setting": {
+      "allowViewerPreferences": "Laat kykerstemvoorkeure toe",
+      "announceQueuedRedeems": "Kondig inwisselings in tou aan",
+      "anonymizeFollowers": "Anonimiseer volgers",
+      "bitsForTts": "Bits vir TTS",
+      "botRespondsInChat": "Bot antwoord in klets",
+      "cheerAnnouncements": "Cheer-aankondigings",
+      "defaultEmotion": "Verstekemotie",
+      "defaultLanguage": "Verstektaal",
+      "defaultPitch": "Verstektoonhoogte",
+      "defaultSpeed": "Verstekspoed",
+      "defaultVoice": "Verstekstem",
+      "emoteMode": "Emote-modus",
+      "englishNormalization": "Engelse normalisering",
+      "eventAnnouncements": "Gebeurtenisaankondigings",
+      "expandAcronyms": "Brei kletsakronieme uit",
+      "minimumBits": "Minimum bits",
+      "profanityFilter": "Vloektaalfilter",
+      "readFullUrls": "Lees volledige URL's",
+      "redemptionAnnouncements": "Inwisselingaankondigings",
+      "ttsEngine": "TTS-enjin",
+      "ttsMode": "TTS-modus",
+      "ttsPermission": "TTS-toestemming",
+      "voiceVolume": "Stemvolume",
+      "watchStreakAnnouncements": "Kykreeks-aankondigings",
+      "youtubeHandle": "YouTube-gebruikernaam",
+      "youtubeTts": "YouTube-TTS"
+    },
+    "settings": {
+      "loadFailed": "Kan nie jou instellings laai nie.",
+      "saveFailed": "{label}: {reason}",
+      "youtubeHandleRequired": "Voer 'n YouTube-handvatsel in voordat jy YouTube-TTS aanskakel."
+    }
+  },
+  "obsCloseBtn": {
+    "closeObsSetup": "Sluit OBS-opstelling"
+  },
+  "obsPopover": {
+    "addBrowserSource": "Voeg Browser Source by",
+    "cautionANewUrlStops": "LET OP: 'n Nuwe URL stop jou huidige OBS-bron totdat jy die URL in OBS opdateer.",
+    "controlAudioViaObs": "Beheer oudio via OBS",
+    "inObsAddANew": "Voeg 'n nuwe <strong>Browser Source</strong> in OBS by. Noem die bron \"Wildcat TTS\" en plak die gekopieerde URL. Jy kan die verstekwydte en -hoogte behou.",
+    "inTheObsAudioMixer": "Vind \"Wildcat TTS\" in die OBS Audio Mixer. Klik op die rat-ikoon en kies <strong>Advanced Audio Properties</strong>. Stel oudiomonitering na <strong>Monitor and Output</strong>.",
+    "monitorAndOutput": "Monitor en afvoer",
+    "obsBrowserSource": "OBS Browser Source",
+    "selectControlAudioViaObs": "Kies <strong>Control audio via OBS</strong>. Maak seker dat <strong>Shutdown source when not visible</strong> nie gemerk is nie.",
+    "setupInstructions": "Opstellingsinstruksies",
+    "yourBrowserSourceUrl": "Jou Browser Source-URL"
+  },
+  "obsToggleBtn": {
+    "obsSetup": "OBS-opstelling"
+  },
+  "page": {
+    "channelDashboard": "Kanaalpaneelbord",
+    "textToSpeechSettingsFor": "Teks-na-spraak-instellings vir jou kanaal. Veranderinge word outomaties gestoor.",
+    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Paneelbord</span>"
+  },
+  "profanityFilterEnabled": {
+    "profanityFilter": "Vloektaalfilter"
+  },
+  "pronunciationEnabled": {
+    "expandChatAcronyms": "Brei kletsakronieme uit"
+  },
+  "readFullUrls": {
+    "readFullUrls": "Lees volledige URL's"
+  },
+  "redemptionEventsEnabled": {
+    "announceRewardRedeems": "Kondig beloning-inlossings aan"
+  },
+  "regenerateTtsUrlBtn": {
+    "regenerateBrowserSourceUrl": "Hergenereer Browser Source-URL",
+    "regenerateUrl": "Hergenereer URL"
+  },
+  "removeBotBtn": {
+    "deactivateTtsService": "Deaktiveer TTS-diens"
+  },
+  "resetPitchBtn": {
+    "reset": "Herstel",
+    "resetDefaultPitchTo0": "Herstel verstektoonhoogte na 0"
+  },
+  "resetSpeedBtn": {
+    "reset": "Herstel",
+    "resetDefaultSpeedTo1": "Herstel verstekspoed na 1.0"
+  },
+  "resetVolumeBtn": {
+    "reset": "Herstel",
+    "resetVoiceVolumeTo1": "Herstel stemvolume na 1.0"
+  },
+  "saveSettingsBtn": {
+    "saveAllSettings": "Stoor alle instellings"
+  },
+  "serviceHeadline": {
+    "ttsService": "TTS-diens"
+  },
+  "sidebarVoiceName": {
+    "friendlyPerson": "Vriendelike Persoon"
+  },
+  "tabBroadcaster": {
+    "allowTheBotToRespond": "Laat die bot toe om op kletsbevele soos !myvoice te reageer",
+    "allowViewerVoicePreferences": "Laat kykerstemvoorkeure toe",
+    "allowViewersToUseChannel": "Laat kykers toe om Channel Points vir TTS te gebruik",
+    "announceCheers": "Kondig cheers aan",
+    "announceEvents": "Kondig gebeurtenisse aan",
+    "announceEventsSuchAsSubscriptions": "Kondig gebeurtenisse soos intekeninge en raids aan",
+    "announceQueuedRedeemsImmediately": "Kondig tougestelde inwisselings dadelik aan",
+    "announceRewardRedeems": "Kondig beloning-inwisselings aan",
+    "announceWatchStreaks": "Kondig kykreekse aan",
+    "announceWhenAViewerCheers": "Kondig aan wanneer 'n kyker bits cheer",
+    "announceWhenAViewerReaches": "Kondig aan wanneer 'n kyker 'n kykreeks-mylpaal bereik",
+    "announceWhenAViewerRedeems": "Kondig aan wanneer 'n kyker 'n Channel Points-beloning inwissel",
+    "anonymizeNewFollowers": "Anonimiseer nuwe volgers",
+    "bannedWordsCommaSeparated": "Verbode woorde (komma-geskei)",
+    "bannedWordsPhrases": "<strong>Verbode woorde / frases</strong>",
+    "bitsTts": "Bits → TTS",
+    "blockLinks": "Blokkeer skakels",
+    "botRespondsInChat": "Bot antwoord in klets",
+    "channelPointsTts": "Channel Points → TTS",
+    "chooseWhichMessagesTriggerTts": "Kies watter boodskappe TTS aktiveer",
+    "configureBitsRequirementsForText": "Stel bits-vereistes vir teks-na-spraak op",
+    "configureChannelPointsRewardsFor": "Stel Channel Points-belonings vir teks-na-spraak op",
+    "configureTtsEngineSettingsAnd": "Stel TTS-enjinstellings en toestemmings op",
+    "controlHowTtsPronouncesSpecific": "Beheer hoe TTS spesifieke woorde uitspreek. Algemene Twitch-akronieme word by verstek hanteer. Voeg 'n inskrywing by om 'n verstekuitspraak te ignoreer of 'n nuwe woord by te voeg.",
+    "controlsHowTtsHandlesEmotes": "Beheer hoe TTS emotes in kletsboodskappe hanteer",
+    "cooldownsAndModeration": "Afkoeltye en moderering",
+    "costPoints": "Koste (punte)",
+    "emoteMode": "<strong>Emote-modus</strong>",
+    "enableChannelPointsTts": "Aktiveer Channel Points TTS",
+    "enableCooldownsLimits": "Aktiveer afkoeltye en limiete",
+    "engineMode": "Enjin en modus",
+    "expandChatAcronyms": "Brei kletsakronieme uit",
+    "globalCooldownSec": "Globale afkoeltyd (sek.)",
+    "hideFollowerNamesInTts": "Versteek volgernames in TTS-aankondigings vir privaatheid",
+    "ifOnTtsReadsFull": "Indien aan, lees TTS volledige URL's. Indien af, lees TTS slegs domeinname",
+    "ifThisSettingIsOff": "Indien hierdie instelling af is, gebruik TTS die kanaal se verstekstem vir alle boodskappe",
+    "ignoredUsers": "Geïgnoreerde gebruikers",
+    "manageUsersThatTtsIgnores": "Bestuur gebruikers wat TTS ignoreer",
+    "minimumBitsRequired": "<strong>Minimum bits vereis</strong>",
+    "minimumNumberOfBitsRequired": "Minimum aantal bits wat vereis word om TTS te aktiveer",
+    "perStreamLimit": "Limiet per stroom",
+    "perUserPerStream": "Per gebruiker per stroom",
+    "profanityFilter": "Vloekwoordfilter",
+    "pronunciationDictionary": "<strong>Uitspraakwoordeboek</strong>",
+    "readFullUrls": "Lees volledige URL's",
+    "readYoutubeLiveChatMessages": "Lees YouTube-regstreekse kletsboodskappe deur TTS. Hierdie kenmerk vereis 'n aktiewe YouTube-regstreekse stroom.",
+    "readYoutubeLiveChatMessages2": "Lees YouTube-regstreekse kletsboodskappe hardop",
+    "requireBitsForTts": "Vereis bits vir TTS",
+    "rewardTitle": "Beloningstitel",
+    "skipTheRewardQueue": "Slaan die beloningswagry oor",
+    "theTitleMustBeUnique": "Die titel moet uniek wees in jou kanaal.",
+    "ttsDoesNotReadMessages": "TTS lees nie boodskappe van gebruikers op hierdie lys nie.",
+    "ttsEngineEnabled": "TTS-enjin geaktiveer",
+    "ttsExpandsCommonTwitchAcronyms": "TTS brei algemene Twitch-akronieme uit na woorde. Byvoorbeeld, “ngl” word “not gonna lie”. Skakel af om elke letter uit te spel.",
+    "ttsIgnoreList": "<strong>TTS-ignoreerlys</strong>",
+    "ttsMode": "<strong>TTS-modus</strong>",
+    "ttsPermission": "<strong>TTS-toestemming</strong>",
+    "ttsReplacesProfanityWithMilder": "TTS vervang kru taal met sagter woorde voor dit praat. Die filter gebruik die kanaaltaal en die kykerstaal. As taal op Outomaties gestel is, gebruik die filter die Engelse lys. Verbode woorde slaan steeds die hele boodskap oor.",
+    "ttsSkipsMessagesThatContain": "TTS slaan boodskappe oor wat hierdie woorde of frases bevat.",
+    "turnOnOrTurnOff": "Skakel die teks-na-spraak-enjin aan of af",
+    "viewerPrompt": "Kykersopdrag",
+    "viewersMustCheerBitsTo": "Kykers moet bits cheer om teks-na-spraak te gebruik",
+    "whoCanUseTextTo": "Wie teks-na-spraak kan gebruik",
+    "yourYoutubeChannelHandleFor": "Jou YouTube-kanaalhandvatsel (byvoorbeeld <code>@jouhandvatsel</code>)",
+    "youtubeHandle": "<strong>YouTube-handvatsel</strong>",
+    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>YouTube-integrasie",
+    "youtubeTtsEnabled": "YouTube-TTS geaktiveer"
+  },
+  "tabBtnBroadcaster": {
+    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Uitsaaier"
+  },
+  "tabBtnViewerDefaults": {
+    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Stemverstekke"
+  },
+  "tabViewerDefaults": {
+    "adjustThePitchForThe": "Pas die toonhoogte vir die verstekstem aan",
+    "adjustTheVolumeForThe": "Pas die volume vir die gekose stem aan. VERSIGTIG: Waardes hoër as 1.0 kan vervorming veroorsaak.",
+    "calibrateVolumeForSpecificVoices": "Kalibreer volume vir spesifieke stemme. VERSIGTIG: Waardes hoër as 1.0 kan vervorming veroorsaak.",
+    "calibratedVoices": "<strong>Gekalibreerde stemme</strong>",
+    "controlHowFastTheDefault": "Beheer hoe vinnig die verstekstem praat",
+    "defaultEmotion": "<strong>Verstek-emosie</strong>",
+    "defaultLanguage": "<strong>Verstektaal</strong>",
+    "defaultPitch12To12": "Verstektoonhoogte (-12 tot +12):",
+    "defaultSpeed05To": "Verstekspoed (0.5 tot 2.0):",
+    "defaultVoice": "<strong>Verstekstem</strong>",
+    "defaultVoiceSettings": "Versteksteminstellings",
+    "englishNormalization": "Engelse normalisering",
+    "improvePronunciationForSpecificLanguages": "Verbeter uitspraak vir spesifieke tale",
+    "improveThePronunciationOfNumbers": "Verbeter die uitspraak van getalle en teks",
+    "selectTheDefaultTtsVoice": "Kies die verstek-TTS-stem vir die kanaal",
+    "selectVoice": "Kies stem",
+    "setDefaultVoiceSettingsFor": "Stel versteksteminstellings vir jou kanaal in",
+    "setTheEmotionalToneOf": "Stel die emosionele toon van die verstekstem in",
+    "viewerVoiceLookup": "Kykers-stemopsoek",
+    "voiceCalibration": "Stemkalibrasie",
+    "voiceVolume01To": "Stemvolume (0.1 tot 10):",
+    "voicesWithCustomVolumeSettings": "Stemme met pasgemaakte volume-instellings.",
+    "volumeOverride": "Volume-oorheersing:"
+  },
+  "ttsBannedWordInput": {
+    "wordOrPhraseToBan": "Woord of frase om te verban"
+  },
+  "ttsEnabled": {
+    "ttsEngineEnabled": "TTS-enjin geaktiveer"
+  },
+  "ttsIgnoreUsername": {
+    "usernameToIgnore": "Gebruikersnaam om te ignoreer"
+  },
+  "ttsMode": {
+    "allMessages": "Alle boodskappe",
+    "bitsPointsOnly": "Slegs Bits/Punte",
+    "ttsCommandOnly": "Slegs !tts-opdrag"
+  },
+  "ttsPermission": {
+    "everyone": "Almal",
+    "moderatorsOnly": "Slegs moderators",
+    "subscribersOnly": "Slegs intekenare",
+    "vipsOnly": "Slegs VIP's"
+  },
+  "ttsPronunciationMatchInput": {
+    "wordForExampleWcat": "Woord (byvoorbeeld wcat)",
+    "wordToReplace": "Woord om te vervang"
+  },
+  "ttsPronunciationSayInput": {
+    "howToSayItFor": "Hoe om dit uit te spreek (byvoorbeeld wildcat)",
+    "pronunciation": "Uitspraak"
+  },
+  "ttsUrlField": {
+    "yourBrowserSourceUrl": "Jou Browser Source-URL"
+  },
+  "twitchUsername": {
+    "loading": "laai…"
+  },
+  "voiceTestBtn": {
+    "sendPreview": "Stuur voorskou"
+  },
+  "watchStreakEventsEnabled": {
+    "announceWatchStreaks": "Kondig kykreekse aan"
+  },
+  "youtubeEnabled": {
+    "youtubeTtsEnabled": "YouTube-TTS geaktiveer"
+  },
+  "youtubeHandle": {
+    "yourhandle": "@jouhandvatsel"
+  }
+}

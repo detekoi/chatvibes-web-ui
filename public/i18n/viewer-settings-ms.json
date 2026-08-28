@@ -1,0 +1,212 @@
+{
+  "addChannelContextCard": {
+    "loadAChannelToSee": "Muatkan saluran untuk melihat tetapan lalainya dan mengurus pengecualian. Pilihan anda kekal global."
+  },
+  "channelContextCard": {
+    "changesHereUpdateYourGlobal": "Perubahan di sini mengemas kini pilihan global <strong>anda</strong>. Tetapan penstrim tidak berubah.",
+    "channelContext": "Konteks Saluran",
+    "clearButtonsSetYourGlobal": "<strong>Butang kosongkan:</strong> Tetapkan pilihan global anda supaya sepadan dengan tetapan lalai saluran ini."
+  },
+  "channelHint": {
+    "channelFound": "Saluran ditemui"
+  },
+  "channelInputCancel": {
+    "cancel": "Batal"
+  },
+  "channelInputConfirm": {
+    "load": "Muat"
+  },
+  "channelInputDesc": {
+    "enterTheChannelNameTo": "Masukkan nama saluran untuk melihat tetapan lalainya dan mengurus pengecualian:"
+  },
+  "channelInputModal": {
+    "streamerUsername": "Nama Pengguna Penstrim"
+  },
+  "channelInputModalText": {
+    "streamerUsername": "Nama Pengguna Penstrim"
+  },
+  "channelInputTitle": {
+    "loadChannelContext": "Muat Konteks Saluran"
+  },
+  "clearChannelContextBtn": {
+    "clear": "Kosongkan"
+  },
+  "confirmNo": {
+    "cancel": "Batal"
+  },
+  "confirmText": {
+    "yourMessagesWillNotBe": "Mesej anda tidak akan dibacakan. Anda boleh menghidupkannya semula pada bila-bila masa."
+  },
+  "confirmTitle": {
+    "confirmAction": "Sahkan tindakan"
+  },
+  "confirmYes": {
+    "confirm": "Sahkan"
+  },
+  "dangerTtsToggle": {
+    "optOutOfTtsIn": "Tarik diri daripada TTS dalam saluran ini",
+    "ttsWillNotReadYour": "TTS tidak akan membaca mesej anda dalam saluran ini"
+  },
+  "dangerZoneSection": {
+    "dangerZone": "Zon Bahaya",
+    "theseSettingsStopTheBot": "Tetapan ini menghentikan bot daripada membaca mesej anda dalam saluran. Anda boleh membalikkan sebarang tetapan yang anda pilih. Jika moderator telah mengecualikan anda, hanya moderator yang boleh membatalkannya."
+  },
+  "emotionReset": {
+    "clear": "Kosongkan",
+    "resetEmotionToDefault": "Tetapkan semula emosi kepada lalai"
+  },
+  "emotionSelect": {
+    "angry": "Marah",
+    "disgusted": "Jijik",
+    "fearful": "Takut",
+    "happy": "Gembira",
+    "neutral": "Neutral",
+    "sad": "Sedih",
+    "surprised": "Terkejut",
+    "useChannelDefault": "Gunakan lalai saluran"
+  },
+  "englishNormalizationCheckbox": {
+    "englishNormalization": "Penormalan Bahasa Inggeris"
+  },
+  "englishNormalizationReset": {
+    "clear": "Kosongkan",
+    "resetEnglishNormalizationToDefault": "Tetapkan semula penormalan Bahasa Inggeris kepada lalai"
+  },
+  "ignoreTts": {
+    "optOutOfTtsIn": "Tarik diri daripada TTS dalam saluran ini"
+  },
+  "languageReset": {
+    "clear": "Kosongkan",
+    "resetLanguageToDefault": "Tetapkan semula bahasa kepada lalai"
+  },
+  "loadingBar": {
+    "loadingYourPreferences": "Memuatkan keutamaan anda"
+  },
+  "loadingOverlay": {
+    "loadingYourPreferences": "Memuatkan keutamaan anda…"
+  },
+  "loggedInStatus": {
+    "channelContext": "Konteks saluran",
+    "global": "Global",
+    "loggedInAs": "Log masuk sebagai",
+    "scope": "Skop"
+  },
+  "meta": {
+    "wildcatttsViewerSettings": "Tetapan Penonton WildcatTTS",
+    "wildcatttsViewerSettingsSetYour": "Tetapan Penonton WildcatTTS - Tetapkan suara, nada dan kelajuan text-to-speech peribadi anda di seluruh saluran Twitch."
+  },
+  "msg": {
+    "auth": {
+      "exchangeFailed": "Tidak dapat melengkapkan log masuk. Cuba lagi dari halaman utama.",
+      "testUser": "Pengguna Ujian"
+    },
+    "channel": {
+      "cleared": "Konteks saluran dikosongkan.",
+      "clearedTestMode": "Konteks saluran dikosongkan (mod ujian).",
+      "enterName": "Masukkan nama saluran.",
+      "found": "Saluran ditemui",
+      "foundTestMode": "Saluran ditemui (mod ujian)",
+      "hint": "Muatkan saluran untuk melihat tetapan lalainya.",
+      "loaded": "Konteks saluran dimuatkan.",
+      "loadedTestMode": "Konteks saluran dimuatkan (mod ujian).",
+      "noneLoaded": "Tiada dimuatkan",
+      "promptConfirm": "Muatkan",
+      "promptDescription": "Masukkan nama saluran untuk melihat tetapan lalai dan mengurus penarikan diri:",
+      "promptTitle": "Muatkan Konteks Saluran",
+      "viewingDefaults": "Anda sedang melihat tetapan lalai untuk {channel}."
+    },
+    "optout": {
+      "confirm": "Adakah anda mahu menarik diri daripada TTS dalam #{channel}? Mesej anda tidak akan dibaca dengan kuat. Anda boleh mengaktifkannya semula pada bila-bila masa.",
+      "confirmDescription": "Masukkan nama saluran untuk meneruskan:",
+      "confirmTitle": "Sahkan saluran untuk penarikan diri TTS",
+      "continue": "Teruskan",
+      "moderatorNote": "Penyederhana saluran telah mengecualikan anda daripada TTS di sini. Hanya penyederhana boleh membatalkan ini.",
+      "optInFailed": "Tidak dapat menyertai semula TTS.",
+      "optOutFailed": "Tidak dapat menarik diri daripada TTS.",
+      "optedIn": "Anda menyertai semula TTS.",
+      "optedInTestMode": "Anda menyertai semula TTS (mod ujian).",
+      "optedOut": "Anda menarik diri daripada TTS.",
+      "optedOutTestMode": "Anda menarik diri daripada TTS (mod ujian).",
+      "selectChannel": "Pilih saluran terlebih dahulu.",
+      "selfNote": "Anda telah menarik diri daripada TTS di sini. Anda boleh mengaktifkannya semula pada bila-bila masa.",
+      "specifyChannel": "Nyatakan saluran."
+    },
+    "prefs": {
+      "hintChannel": "Menggunakan lalai saluran: {value}",
+      "hintSystem": "Menggunakan lalai sistem",
+      "hintUser": "Menggunakan pilihan global anda: {value}",
+      "loadFailed": "Tidak dapat memuatkan keutamaan.",
+      "noVoicesFound": "Tiada suara dijumpai",
+      "saveFailed": "Tidak dapat menyimpan {key}: {reason}",
+      "sendPreview": "Hantar Pratonton",
+      "testCompletedTestMode": "Ujian selesai (mod ujian).",
+      "updated": "Keutamaan dikemas kini.",
+      "updatedTestMode": "Keutamaan dikemas kini (mod ujian)."
+    }
+  },
+  "openChannelContextModalBtn": {
+    "loadChannel": "Muat Saluran…"
+  },
+  "page": {
+    "setHowYourMessagesSound": "Tetapkan bunyi mesej anda apabila Wildcat TTS membacanya. Keutamaan anda adalah global dan terpakai untuk semua saluran.",
+    "viewerTtsPreferences": "Keutamaan TTS penonton",
+    "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Tetapan penonton</span>"
+  },
+  "pitchReset": {
+    "clear": "Kosongkan",
+    "resetPitchToDefault": "Set semula pic ke lalai"
+  },
+  "pitchSlider": {
+    "pitchAdjustment12To12": "Pelarasan pic (-12 hingga +12)"
+  },
+  "preferencesPanel": {
+    "adjustTheVoicePitchHigher": "Laras pic suara lebih tinggi atau rendah",
+    "controlHowFastTheVoice": "Kawal kelajuan suara bertutur",
+    "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentasi </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Tetapan penstrim </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "<strong>Emosi</strong>",
+    "emotion2": "Emosi",
+    "englishNormalization": "Penormalan Bahasa Inggeris",
+    "engNormalization": "Penormalan B. Inggeris",
+    "ifTtsReadsNumbersIncorrectly": "Jika TTS membaca nombor dengan salah, hidupkan penormalan teks bahasa Inggeris. Tetapan ini sedikit meningkatkan kependaman.",
+    "improvePronunciationForSpecificLanguages": "Tingkatkan sebutan untuk bahasa tertentu",
+    "improveThePronunciationOfNumbers": "Tingkatkan sebutan nombor dan teks",
+    "language": "Bahasa",
+    "languageBoost": "<strong>Peningkatan Bahasa</strong>",
+    "pitch": "Pic",
+    "pitch12To12": "Pic (-12 hingga +12):",
+    "quickLinks": "Pautan pantas",
+    "selectYourPreferredTtsVoice": "Pilih suara TTS pilihan anda",
+    "setHowYourMessagesSound": "Tetapkan bunyi mesej anda apabila TTS membacanya",
+    "setTheEmotionalToneOf": "Tetapkan nada emosi suara",
+    "speed": "Kelajuan",
+    "speed05To2": "Kelajuan (0.5 hingga 2.0):",
+    "testMessage": "Mesej ujian",
+    "voice": "<strong>Suara</strong>",
+    "voicePreview": "Pratonton suara",
+    "voiceSettings": "Tetapan Suara"
+  },
+  "prefsDisabledNote": {
+    "theStreamerDisabledPersonalVoice": "Penstrim telah menyahdayakan tetapan suara peribadi untuk saluran ini. Saluran ini akan menggunakan suara lalainya dan bukannya pilihan anda."
+  },
+  "previewBtn": {
+    "sendPreview": "Hantar pratonton"
+  },
+  "speedReset": {
+    "clear": "Kosongkan",
+    "resetSpeedToDefault": "Tetapkan semula kelajuan kepada lalai"
+  },
+  "speedSlider": {
+    "speedAdjustment05To": "Pelarasan kelajuan (0.5 hingga 2.0)"
+  },
+  "statChannelContext": {
+    "noneLoaded": "Tiada dimuatkan"
+  },
+  "voiceReset": {
+    "clear": "Kosongkan",
+    "resetVoiceToDefault": "Tetapkan semula suara kepada lalai"
+  },
+  "voiceSearch": {
+    "searchVoices": "Cari suara",
+    "searchVoices2": "Cari suara..."
+  }
+}

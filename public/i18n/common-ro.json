@@ -1,0 +1,166 @@
+{
+  "darkModeToggle": {
+    "toggleDarkMode": "Comută modul întunecat"
+  },
+  "err": {
+    "banned_add_failed": "Nu se poate adăuga cuvântul la lista de cuvinte interzise.",
+    "banned_remove_failed": "Nu se poate elimina cuvântul din lista de cuvinte interzise.",
+    "bot_add_failed": "Nu se poate activa botul pe canalul tău. Încearcă din nou.",
+    "bot_remove_failed": "Nu se poate dezactiva botul de pe canalul tău. Încearcă din nou.",
+    "bot_status_failed": "Nu se poate încărca starea botului.",
+    "channel_data_not_found": "Nu s-au găsit setări pentru acel canal.",
+    "channel_not_authorized": "Canalul tău nu este autorizat să folosească acest bot. Contactează-mă pentru acces.",
+    "channel_not_found": "Acel canal nu a fost găsit.",
+    "channel_required": "Este necesar un canal.",
+    "channel_tts_disabled": "Acel canal nu a fost găsit sau nu are TTS activat.",
+    "entry_key_required": "Este necesară o cheie de intrare.",
+    "exchange_code_invalid": "Acel link de conectare lipsește sau este invalid.",
+    "exchange_code_used": "Acel link de conectare a fost deja folosit sau a expirat. Conectează-te din nou.",
+    "exchange_failed": "Conectarea nu a putut fi finalizată. Încearcă din nou.",
+    "ignore_add_failed": "Nu se poate adăuga utilizatorul la lista de ignorare.",
+    "ignore_moderator_imposed": "Un moderator al canalului te-a exclus de la TTS aici, așa că doar un moderator poate anula această setare.",
+    "ignore_remove_failed": "Nu se poate elimina utilizatorul din lista de ignorare.",
+    "ignore_update_failed": "Nu se poate modifica setarea de excludere.",
+    "key_required": "Este necesar un nume de setare.",
+    "match_key_invalid": "Cuvântul trebuie să aibă între 1 și {max} caractere (litere, cifre, apostrofuri sau cratime) și nu poate conține punct.",
+    "network_error": "Nu se poate contacta serverul. Verifică-ți conexiunea.",
+    "obs_token_fetch_failed": "Nu se poate încărca tokenul OBS.",
+    "obs_token_generate_failed": "Nu se poate genera un nou token OBS.",
+    "obs_token_store_failed": "Nu se poate salva tokenul OBS. Încearcă din nou.",
+    "prefs_fetch_failed": "Nu se pot încărca preferințele tale.",
+    "prefs_global_fetch_failed": "Nu se pot încărca preferințele tale globale.",
+    "prefs_global_update_failed": "Nu se pot salva preferințele tale globale.",
+    "prefs_invalid_emote_mode": "Gestionarea emoticoanelor trebuie să fie read, skip sau describe.",
+    "prefs_invalid_emotion": "Aceea nu este o emoție validă.",
+    "prefs_invalid_language": "Aceea nu este o limbă validă.",
+    "prefs_invalid_pitch": "Aceea nu este o tonalitate validă.",
+    "prefs_invalid_speed": "Aceea nu este o viteză validă.",
+    "prefs_invalid_voice": "Aceea nu este o voce validă.",
+    "prefs_missing_data": "Nu a fost trimisă nicio modificare.",
+    "prefs_update_failed": "Nu se pot salva preferințele tale.",
+    "pronunciation_limit_reached": "Ai atins limita de {max} pronunții personalizate. Elimină una mai întâi.",
+    "pronunciation_remove_failed": "Nu se poate elimina pronunția.",
+    "pronunciation_save_failed": "Nu se poate salva pronunția.",
+    "reward_banned_word": "Mesajul conține un cuvânt interzis: \"{word}\".",
+    "reward_create_failed": "Nu se poate crea recompensa Channel Points.",
+    "reward_delete_failed": "Nu se poate șterge recompensa Channel Points.",
+    "reward_links_blocked": "Linkurile nu sunt permise în această recompensă.",
+    "reward_load_failed": "Nu se poate încărca recompensa Channel Points.",
+    "reward_message_empty": "Mesajul este gol.",
+    "reward_save_failed": "Nu se poate salva recompensa Channel Points.",
+    "reward_test_failed": "Nu se poate testa recompensa Channel Points.",
+    "reward_twitch_error": "Twitch a respins modificarea recompensei.",
+    "reward_validation_failed": "Acel mesaj nu este permis.",
+    "say_contains_link": "Pronunția nu poate conține un link.",
+    "say_empty": "Pronunția nu poate fi goală.",
+    "say_must_be_text": "Pronunția trebuie să fie text.",
+    "say_too_long": "Pronunția trebuie să aibă cel mult {max} caractere.",
+    "server_misconfigured": "Serverul este configurat incorect.",
+    "setting_invalid": "Aceasta nu este o valoare validă pentru {key}.",
+    "setting_update_failed": "Nu se poate actualiza setarea TTS.",
+    "settings_fetch_failed": "Nu se pot încărca setările TTS.",
+    "shortlink_failed": "Nu se poate crea linkul scurt.",
+    "storage_unavailable": "Stocarea nu este disponibilă.",
+    "tts_generation_failed": "Generarea vocală a eșuat: {reason}",
+    "tts_no_audio": "Furnizorul vocal nu a returnat conținut audio.",
+    "tts_not_configured": "Nu este configurat niciun furnizor vocal.",
+    "tts_provider_failed": "Furnizorul vocal nu a putut genera conținut audio.",
+    "tts_test_failed": "Testul vocal a eșuat.",
+    "tts_text_required": "Introdu un text pentru testare.",
+    "twitch_reauth_required": "Autentificarea ta Twitch a expirat. Reconectează-ți contul.",
+    "twitch_user_not_found": "Nu există niciun cont Twitch cu numele \"{username}\".",
+    "url_required": "Este necesar un URL.",
+    "username_invalid": "Numele de utilizator nu este valid.",
+    "username_required": "Este necesar un nume de utilizator.",
+    "voice_access_denied": "Vocea \"{voice}\" necesită acces special. Încearcă altă voce.",
+    "voice_invalid": "Vocea \"{voice}\" nu este disponibilă. Verifică vocea și încearcă din nou.",
+    "voice_lookup_failed": "Nu se poate căuta vocea acelui utilizator.",
+    "word_invalid": "Cuvântul sau expresia nu este validă.",
+    "word_required": "Este necesar un cuvânt sau o expresie."
+  },
+  "logoutLink": {
+    "logout": "Deconectare"
+  },
+  "mainContent": {
+    "documentationTtsWildcatChat": "<a class=\"wc-link\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\">Documentație</a> <span>tts.wildcat.chat</span>"
+  },
+  "msg": {
+    "action": {
+      "close": "Închide",
+      "remove": "Elimină",
+      "saved": "Salvat"
+    },
+    "api": {
+      "authFailed": "Autentificarea a eșuat. Conectează-te din nou.",
+      "notAuthenticated": "Nu ești conectat.",
+      "requestFailed": "Solicitarea a eșuat."
+    },
+    "auth": {
+      "genericUser": "Utilizator",
+      "loading": "se încarcă…",
+      "needViewerSignIn": "Verifică-ți contul Twitch pentru a accesa preferințele de spectator.",
+      "redirecting": "Redirecționare către Twitch pentru autentificare…",
+      "required": "Este necesară autentificarea.",
+      "signInFailed": "Conectarea nu a putut fi finalizată.",
+      "signInWithTwitch": "Conectează-te cu Twitch",
+      "signedOut": "Nu ești conectat.",
+      "tokenMissing": "Tokenul de autentificare lipsește. Conectează-te din nou."
+    },
+    "emotion": {
+      "angry": "Furios",
+      "auto": "Auto",
+      "calm": "Calm",
+      "disgusted": "Dezgustat",
+      "fearful": "Speriat",
+      "fluent": "Fluent",
+      "happy": "Fericit",
+      "neutral": "Neutru",
+      "sad": "Trist",
+      "surprised": "Surprins"
+    },
+    "ignore": {
+      "enterUsername": "Introdu un nume de utilizator."
+    },
+    "lang": {
+      "automatic": "Automat"
+    },
+    "prefs": {
+      "useChannelDefault": "Folosește valoarea implicită a canalului"
+    },
+    "preview": {
+      "enterText": "Introdu un text pentru testare.",
+      "unavailable": "Nicio previzualizare disponibilă."
+    },
+    "value": {
+      "off": "Oprit",
+      "on": "Pornit"
+    },
+    "voice": {
+      "cannotPlay": "Nu se poate reda eșantionul audio.",
+      "generating": "Se generează…",
+      "noAudio": "Serverul nu a returnat conținut audio.",
+      "noneFound": "Nu s-au găsit voci.",
+      "preview": "Previzualizează {voice}",
+      "regenerate": "Regenerează",
+      "testFailed": "Test eșuat: {reason}"
+    }
+  },
+  "page": {
+    "skipToMainContent": "Sari la conținutul principal"
+  },
+  "sidebarEngNormVal": {
+    "off": "Oprit"
+  },
+  "sidebarLanguageVal": {
+    "automatic": "Automat"
+  },
+  "ui": {
+    "language": "Limbă"
+  },
+  "voicePreviewHint": {
+    "settingsChangedGenerateANew": "<i><i data-lucide=\"triangle-alert\" class=\"inline-icon\"></i> Setările s-au schimbat. Generează o nouă previzualizare.</i>"
+  },
+  "voicePreviewPlayer": {
+    "yourBrowserDoesNotSupport": "Browserul tău nu acceptă elementul audio."
+  }
+}

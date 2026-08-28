@@ -5,6 +5,7 @@ import {
     ErrorResponse,
     VoiceLookupResponse
 } from '../types.js';
+import { apiErrorMessage } from '../../common/i18n.js';
 
 export class SettingsApi {
     private apiBaseUrl: string;
@@ -31,7 +32,7 @@ export class SettingsApi {
             return this.handleResponse<SettingsResponse>(response);
         } catch (error) {
             console.error('Failed to get settings:', error);
-            return { error: 'Network error' };
+            return { error: 'Network error', code: 'network_error' };
         }
     }
 
@@ -77,8 +78,7 @@ export class SettingsApi {
             if (response.ok) {
                 return data as VoiceLookupResponse;
             } else {
-                const errorData = data as { error?: string, message?: string };
-                throw new Error(errorData.message || errorData.error || 'Lookup failed');
+                throw new Error(apiErrorMessage(data, 'msg.lookup.failed'));
             }
         } catch (error) {
             throw error;
@@ -105,15 +105,9 @@ export class SettingsApi {
         let errorText = `HTTP ${response.status}`;
         try {
             const errorData = await response.json() as ErrorResponse;
-            errorText = errorData.details || errorData.message || errorData.error || errorText;
+            errorText = errorData.details || apiErrorMessage(errorData, 'msg.api.requestFailed');
         } catch { }
 
-        // Special handling for 403 contact me link
-        if (response.status === 403 && errorText.includes('https://parfaitfair.com/#contact')) {
-            // Throw specific error or handle in UI? 
-            // For now, let's throw an error with the enhanced message
-            throw new Error(errorText);
-        }
 
         throw new Error(errorText);
     }

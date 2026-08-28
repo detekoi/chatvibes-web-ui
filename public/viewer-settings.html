@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="WildcatTTS Viewer Settings - Set your personal text-to-speech voice, pitch, and speed across Twitch channels.">
-    <title>WildcatTTS Viewer Settings</title>
+    <meta data-i18n-content="meta.wildcatttsViewerSettingsSetYour" name="description" content="WildcatTTS Viewer Settings - Set your personal text-to-speech voice, pitch, and speed across Twitch channels.">
+    <title data-i18n="meta.wildcatttsViewerSettings">WildcatTTS Viewer Settings</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -65,26 +65,29 @@
 </head>
 
 <body>
-    <a href="#main-content" class="wc-skip-link">Skip to main content</a>
+    <a data-i18n="page.skipToMainContent" href="#main-content" class="wc-skip-link">Skip to main content</a>
 
     <header class="wc-appbar">
-        <div class="wc-appbar-brand">
+        <div data-i18n="page.wildcatTtsViewerSettings" class="wc-appbar-brand">
             <span class="wc-lockup">Wildcat<b>TTS</b></span>
             <span class="wc-sep"></span>
             <span class="wc-appbar-page">Viewer settings</span>
         </div>
         <div class="wc-appbar-actions">
-            <button class="wc-iconbtn" type="button" id="darkModeToggle" title="Toggle dark mode"
+            <select data-i18n-aria-label="ui.language" class="wc-langselect" id="page-language-select" aria-label="Language">
+                <option data-i18n-skip value="en">English</option>
+            </select>
+            <button data-i18n-title="darkModeToggle.toggleDarkMode" data-i18n-aria-label="darkModeToggle.toggleDarkMode" class="wc-iconbtn" type="button" id="darkModeToggle" title="Toggle dark mode"
                 aria-label="Toggle dark mode">
                 <i data-lucide="moon" aria-hidden="true"></i>
             </button>
-            <a href="#" id="logout-link" class="wc-chipbtn wc-chipbtn--danger">Logout</a>
+            <a data-i18n="logoutLink.logout" href="#" id="logout-link" class="wc-chipbtn wc-chipbtn--danger">Logout</a>
         </div>
     </header>
 
     <div class="wc-page-head">
-        <h1>Viewer TTS preferences</h1>
-        <p>Set how your messages sound when Wildcat TTS reads them. Your preferences are global and apply to
+        <h1 data-i18n="page.viewerTtsPreferences">Viewer TTS preferences</h1>
+        <p data-i18n="page.setHowYourMessagesSound">Set how your messages sound when Wildcat TTS reads them. Your preferences are global and apply to
             all channels.</p>
     </div>
 
@@ -93,23 +96,23 @@
 
         <dl class="wc-stats" id="logged-in-status" style="display: none;">
             <div class="wc-stat">
-                <dt>Logged in as</dt>
+                <dt data-i18n="loggedInStatus.loggedInAs">Logged in as</dt>
                 <dd><span id="logged-in-username"></span></dd>
             </div>
             <div class="wc-stat">
-                <dt>Scope</dt>
-                <dd>Global</dd>
+                <dt data-i18n="loggedInStatus.scope">Scope</dt>
+                <dd data-i18n="loggedInStatus.global">Global</dd>
             </div>
             <div class="wc-stat">
-                <dt>Channel context</dt>
-                <dd class="is-muted" id="stat-channel-context">None loaded</dd>
+                <dt data-i18n="loggedInStatus.channelContext">Channel context</dt>
+                <dd data-i18n="statChannelContext.noneLoaded" class="is-muted" id="stat-channel-context">None loaded</dd>
             </div>
         </dl>
 
         <!-- Loading Overlay -->
         <div id="loading-overlay" class="wc-loading wc-loading--page" style="display: none;">
-            <div class="wc-bar" id="loading-bar" role="progressbar" aria-label="Loading your preferences"><span></span></div>
-            <p class="wc-loading-label">Loading your preferences…</p>
+            <div data-i18n-aria-label="loadingBar.loadingYourPreferences" class="wc-bar" id="loading-bar" role="progressbar" aria-label="Loading your preferences"><span></span></div>
+            <p data-i18n="loadingOverlay.loadingYourPreferences" class="wc-loading-label">Loading your preferences…</p>
         </div>
 
         <div id="preferences-panel" style="display: none;">
@@ -119,27 +122,27 @@
                     <!-- Channel Context (optional) -->
                     <div class="card mb-3" id="add-channel-context-card">
                         <div class="card-body d-flex justify-content-between align-items-center">
-                            <small class="text-muted">Load a channel to see its default settings and manage opt-outs.
+                            <small data-i18n="addChannelContextCard.loadAChannelToSee" class="text-muted">Load a channel to see its default settings and manage opt-outs.
                                 Your preferences remain global.</small>
-                            <button class="btn btn-outline-secondary btn-sm" id="open-channel-context-modal-btn">Load
+                            <button data-i18n="openChannelContextModalBtn.loadChannel" class="btn btn-outline-secondary btn-sm" id="open-channel-context-modal-btn">Load
                                 Channel…</button>
                         </div>
                     </div>
 
                     <div class="card mb-4 d-none" id="channel-context-card">
                         <div class="card-header d-flex justify-content-between align-items-center">
-                            <span>Channel Context</span>
-                            <button class="btn btn-link btn-sm text-decoration-none"
+                            <span data-i18n="channelContextCard.channelContext">Channel Context</span>
+                            <button data-i18n="clearChannelContextBtn.clear" class="btn btn-link btn-sm text-decoration-none"
                                 id="clear-channel-context-btn">Clear</button>
                         </div>
                         <div class="card-body">
-                            <p class="mb-1">You are viewing default settings for <strong id="channel-context-name"></strong>.</p>
-                            <small class="form-text text-muted d-block mb-2">Changes here update <strong>your</strong>
+                            <p class="mb-1" id="channel-context-line" data-i18n-skip></p>
+                            <small data-i18n="channelContextCard.changesHereUpdateYourGlobal" class="form-text text-muted d-block mb-2">Changes here update <strong>your</strong>
                                 global preferences. Streamer settings do not change.</small>
-                            <small class="form-text text-muted d-block mb-2"><strong>Clear buttons:</strong> Set your
+                            <small data-i18n="channelContextCard.clearButtonsSetYourGlobal" class="form-text text-muted d-block mb-2"><strong>Clear buttons:</strong> Set your
                                 global preference to match the default setting of this channel.</small>
-                            <small id="channel-hint" class="form-text text-muted">Channel found</small>
-                            <div id="prefs-disabled-note" class="alert alert-warning d-none mt-3 mb-0">
+                            <small data-i18n="channelHint.channelFound" id="channel-hint" class="form-text text-muted">Channel found</small>
+                            <div data-i18n="prefsDisabledNote.theStreamerDisabledPersonalVoice" id="prefs-disabled-note" class="alert alert-warning d-none mt-3 mb-0">
                                 The streamer disabled personal voice settings for this channel. This channel will use its
                                 default voice instead of your preferences.
                             </div>
@@ -148,27 +151,27 @@
 
                     <!-- Voice Settings -->
                     <div class="settings-section">
-                        <h2 class="settings-section-title">Voice Settings</h2>
-                        <p class="settings-section-description">Set how your messages sound when TTS reads them</p>
+                        <h2 data-i18n="preferencesPanel.voiceSettings" class="settings-section-title">Voice Settings</h2>
+                        <p data-i18n="preferencesPanel.setHowYourMessagesSound" class="settings-section-description">Set how your messages sound when TTS reads them</p>
                         <div class="list-group mb-4 shadow">
                             <div class="list-group-item">
                                 <div class="row align-items-center">
                                     <div class="col">
-                                        <label for="voice-search" class="form-label mb-1"><strong>Voice</strong></label>
-                                        <p class="text-muted mb-0">Select your preferred TTS voice</p>
+                                        <label data-i18n="preferencesPanel.voice" for="voice-search" class="form-label mb-1"><strong>Voice</strong></label>
+                                        <p data-i18n="preferencesPanel.selectYourPreferredTtsVoice" class="text-muted mb-0">Select your preferred TTS voice</p>
                                         <small class="form-text text-muted" id="hint-voice"
                                             style="display:none;"></small>
                                     </div>
                                     <div class="col-auto d-flex align-items-center gap-2">
                                         <div class="custom-voice-dropdown" id="voice-dropdown">
-                                            <input type="text" id="voice-search" class="form-control"
+                                            <input data-i18n-placeholder="voiceSearch.searchVoices2" data-i18n-aria-label="voiceSearch.searchVoices" type="text" id="voice-search" class="form-control"
                                                 placeholder="Search voices..." aria-label="Search voices" readonly>
                                             <input type="hidden" id="voice-select" value="">
                                             <div class="voice-dropdown-menu" id="voice-menu">
                                                 <div class="voice-dropdown-list"></div>
                                             </div>
                                         </div>
-                                        <button type="button" class="btn btn-outline-secondary btn-sm"
+                                        <button data-i18n="voiceReset.clear" data-i18n-aria-label="voiceReset.resetVoiceToDefault" type="button" class="btn btn-outline-secondary btn-sm"
                                             id="voice-reset" aria-label="Reset voice to default">Clear</button>
                                     </div>
                                 </div>
@@ -176,16 +179,15 @@
                             <div class="list-group-item">
                                 <div class="row align-items-center">
                                     <div class="col">
-                                        <label for="pitch-slider" class="form-label mb-1"><strong>Pitch (-12 to +12):
-                                                <span id="pitch-value">0</span></strong></label>
-                                        <p class="text-muted mb-0">Adjust the voice pitch higher or lower</p>
+                                        <label for="pitch-slider" class="form-label mb-1"><strong><span data-i18n="preferencesPanel.pitch12To12">Pitch (-12 to +12):</span> <span id="pitch-value">0</span></strong></label>
+                                        <p data-i18n="preferencesPanel.adjustTheVoicePitchHigher" class="text-muted mb-0">Adjust the voice pitch higher or lower</p>
                                         <small class="form-text text-muted" id="hint-pitch"
                                             style="display:none;"></small>
                                     </div>
                                     <div class="col-auto d-flex align-items-center gap-2" style="min-width: 200px;">
-                                        <input type="range" id="pitch-slider" class="form-range" min="-12" max="12"
+                                        <input data-i18n-aria-label="pitchSlider.pitchAdjustment12To12" type="range" id="pitch-slider" class="form-range" min="-12" max="12"
                                             step="1" value="0" aria-label="Pitch adjustment (-12 to +12)">
-                                        <button type="button" class="btn btn-outline-secondary btn-sm"
+                                        <button data-i18n="pitchReset.clear" data-i18n-aria-label="pitchReset.resetPitchToDefault" type="button" class="btn btn-outline-secondary btn-sm"
                                             id="pitch-reset" aria-label="Reset pitch to default">Clear</button>
                                     </div>
                                 </div>
@@ -193,16 +195,15 @@
                             <div class="list-group-item">
                                 <div class="row align-items-center">
                                     <div class="col">
-                                        <label for="speed-slider" class="form-label mb-1"><strong>Speed (0.5 to 2.0):
-                                                <span id="speed-value">1.0</span></strong></label>
-                                        <p class="text-muted mb-0">Control how fast the voice speaks</p>
+                                        <label for="speed-slider" class="form-label mb-1"><strong><span data-i18n="preferencesPanel.speed05To2">Speed (0.5 to 2.0):</span> <span id="speed-value">1.0</span></strong></label>
+                                        <p data-i18n="preferencesPanel.controlHowFastTheVoice" class="text-muted mb-0">Control how fast the voice speaks</p>
                                         <small class="form-text text-muted" id="hint-speed"
                                             style="display:none;"></small>
                                     </div>
                                     <div class="col-auto d-flex align-items-center gap-2" style="min-width: 200px;">
-                                        <input type="range" id="speed-slider" class="form-range" min="0.5" max="2"
+                                        <input data-i18n-aria-label="speedSlider.speedAdjustment05To" type="range" id="speed-slider" class="form-range" min="0.5" max="2"
                                             step="0.05" value="1" aria-label="Speed adjustment (0.5 to 2.0)">
-                                        <button type="button" class="btn btn-outline-secondary btn-sm"
+                                        <button data-i18n="speedReset.clear" data-i18n-aria-label="speedReset.resetSpeedToDefault" type="button" class="btn btn-outline-secondary btn-sm"
                                             id="speed-reset" aria-label="Reset speed to default">Clear</button>
                                     </div>
                                 </div>
@@ -210,24 +211,24 @@
                             <div class="list-group-item">
                                 <div class="row align-items-center">
                                     <div class="col">
-                                        <label for="emotion-select"
+                                        <label data-i18n="preferencesPanel.emotion" for="emotion-select"
                                             class="form-label mb-1"><strong>Emotion</strong></label>
-                                        <p class="text-muted mb-0">Set the emotional tone of the voice</p>
+                                        <p data-i18n="preferencesPanel.setTheEmotionalToneOf" class="text-muted mb-0">Set the emotional tone of the voice</p>
                                         <small class="form-text text-muted" id="hint-emotion"
                                             style="display:none;"></small>
                                     </div>
                                     <div class="col-auto d-flex align-items-center gap-2">
                                         <select id="emotion-select" class="form-select">
-                                            <option value="">Use channel default</option>
-                                            <option value="neutral">Neutral</option>
-                                            <option value="happy">Happy</option>
-                                            <option value="sad">Sad</option>
-                                            <option value="angry">Angry</option>
-                                            <option value="fearful">Fearful</option>
-                                            <option value="disgusted">Disgusted</option>
-                                            <option value="surprised">Surprised</option>
+                                            <option data-i18n="emotionSelect.useChannelDefault" value="">Use channel default</option>
+                                            <option data-i18n="emotionSelect.neutral" value="neutral">Neutral</option>
+                                            <option data-i18n="emotionSelect.happy" value="happy">Happy</option>
+                                            <option data-i18n="emotionSelect.sad" value="sad">Sad</option>
+                                            <option data-i18n="emotionSelect.angry" value="angry">Angry</option>
+                                            <option data-i18n="emotionSelect.fearful" value="fearful">Fearful</option>
+                                            <option data-i18n="emotionSelect.disgusted" value="disgusted">Disgusted</option>
+                                            <option data-i18n="emotionSelect.surprised" value="surprised">Surprised</option>
                                         </select>
-                                        <button type="button" class="btn btn-outline-secondary btn-sm"
+                                        <button data-i18n="emotionReset.clear" data-i18n-aria-label="emotionReset.resetEmotionToDefault" type="button" class="btn btn-outline-secondary btn-sm"
                                             id="emotion-reset" aria-label="Reset emotion to default">Clear</button>
                                     </div>
                                 </div>
@@ -235,42 +236,21 @@
                             <div class="list-group-item">
                                 <div class="row align-items-center">
                                     <div class="col">
-                                        <label for="language-select" class="form-label mb-1"><strong>Language
+                                        <label data-i18n="preferencesPanel.languageBoost" for="language-select" class="form-label mb-1"><strong>Language
                                                 Boost</strong></label>
-                                        <p class="text-muted mb-0">Improve pronunciation for specific languages</p>
+                                        <p data-i18n="preferencesPanel.improvePronunciationForSpecificLanguages" class="text-muted mb-0">Improve pronunciation for specific languages</p>
                                         <small class="form-text text-muted" id="hint-language"
                                             style="display:none;"></small>
                                     </div>
                                     <div class="col-auto d-flex align-items-center gap-2">
                                         <select id="language-select" class="form-select">
-                                            <option value="">Use channel default</option>
-                                            <option value="auto">Automatic</option>
-                                            <option value="Chinese">Chinese</option>
-                                            <option value="Chinese,Yue">Chinese, Yue (Cantonese)</option>
-                                            <option value="English">English</option>
-                                            <option value="Arabic">Arabic</option>
-                                            <option value="Russian">Russian</option>
-                                            <option value="Spanish">Spanish</option>
-                                            <option value="French">French</option>
-                                            <option value="Portuguese">Portuguese</option>
-                                            <option value="German">German</option>
-                                            <option value="Turkish">Turkish</option>
-                                            <option value="Dutch">Dutch</option>
-                                            <option value="Ukrainian">Ukrainian</option>
-                                            <option value="Vietnamese">Vietnamese</option>
-                                            <option value="Indonesian">Indonesian</option>
-                                            <option value="Japanese">Japanese</option>
-                                            <option value="Italian">Italian</option>
-                                            <option value="Korean">Korean</option>
-                                            <option value="Thai">Thai</option>
-                                            <option value="Polish">Polish</option>
-                                            <option value="Romanian">Romanian</option>
-                                            <option value="Greek">Greek</option>
-                                            <option value="Czech">Czech</option>
-                                            <option value="Finnish">Finnish</option>
-                                            <option value="Hindi">Hindi</option>
+                                            <!-- Filled at runtime by fillLanguageSelect() from locales.json, which is the
+                                                 single source of truth for the 40 languages and labels each in its own
+                                                 script. This markup held 26 hardcoded English names that had already
+                                                 drifted from the 42 the code offers, and every one of them was dead. -->
+                                            <option data-i18n-skip value="">Use channel default</option>
                                         </select>
-                                        <button type="button" class="btn btn-outline-secondary btn-sm"
+                                        <button data-i18n="languageReset.clear" data-i18n-aria-label="languageReset.resetLanguageToDefault" type="button" class="btn btn-outline-secondary btn-sm"
                                             id="language-reset" aria-label="Reset language to default">Clear</button>
                                     </div>
                                 </div>
@@ -278,19 +258,19 @@
                             <div class="list-group-item">
                                 <div class="row align-items-center">
                                     <div class="col">
-                                        <strong class="mb-0">English Normalization <span class="help-icon"
+                                        <strong class="mb-0"><span data-i18n="preferencesPanel.englishNormalization">English Normalization</span> <span data-i18n-tooltip="preferencesPanel.ifTtsReadsNumbersIncorrectly" class="help-icon"
                                                 data-tooltip="If TTS reads numbers incorrectly, turn on English text normalization. This setting slightly increases latency."><i data-lucide="circle-help" class="inline-icon"></i></span></strong>
-                                        <p class="text-muted mb-0">Improve the pronunciation of numbers and text</p>
+                                        <p data-i18n="preferencesPanel.improveThePronunciationOfNumbers" class="text-muted mb-0">Improve the pronunciation of numbers and text</p>
                                         <small class="form-text text-muted" id="hint-englishNormalization"
                                             style="display:none;"></small>
                                     </div>
                                     <div class="col-auto d-flex align-items-center gap-2">
                                         <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox"
+                                            <input data-i18n-aria-label="englishNormalizationCheckbox.englishNormalization" class="form-check-input" type="checkbox"
                                                 id="english-normalization-checkbox" aria-label="English Normalization">
                                             <span class="form-check-label"></span>
                                         </div>
-                                        <button type="button" class="btn btn-outline-secondary btn-sm"
+                                        <button data-i18n="englishNormalizationReset.clear" data-i18n-aria-label="englishNormalizationReset.resetEnglishNormalizationToDefault" type="button" class="btn btn-outline-secondary btn-sm"
                                             id="english-normalization-reset" aria-label="Reset English normalization to default">Clear</button>
                                     </div>
                                 </div>
@@ -300,8 +280,8 @@
 
                     <!-- Danger Zone -->
                     <div class="settings-section d-none" id="danger-zone-section">
-                        <h2 class="settings-section-title text-danger">Danger Zone</h2>
-                        <p class="settings-section-description fst-italic text-danger">These settings stop the bot
+                        <h2 data-i18n="dangerZoneSection.dangerZone" class="settings-section-title text-danger">Danger Zone</h2>
+                        <p data-i18n="dangerZoneSection.theseSettingsStopTheBot" class="settings-section-description fst-italic text-danger">These settings stop the bot
                             from reading your messages in a channel. You can reverse any setting that you choose. If a
                             moderator opted you out, only a moderator can undo that.</p>
                         <div class="list-group mb-4 shadow border-danger">
@@ -309,15 +289,15 @@
                                 style="display:none;">
                                 <div class="row align-items-center">
                                     <div class="col">
-                                        <strong class="mb-0 text-danger">Opt out of TTS in this channel</strong>
-                                        <p class="text-muted mb-0">TTS will not read your messages in this channel</p>
+                                        <strong data-i18n="dangerTtsToggle.optOutOfTtsIn" class="mb-0 text-danger">Opt out of TTS in this channel</strong>
+                                        <p data-i18n="dangerTtsToggle.ttsWillNotReadYour" class="text-muted mb-0">TTS will not read your messages in this channel</p>
                                         <!-- Filled in by danger-zone.ts, which knows whether the viewer opted
                                              out themselves or a moderator did it for them. -->
                                         <p class="text-muted mb-0 mt-1 small d-none" id="ignore-tts-note"></p>
                                     </div>
                                     <div class="col-auto">
                                         <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" id="ignore-tts" aria-label="Opt out of TTS in this channel" aria-describedby="ignore-tts-note">
+                                            <input data-i18n-aria-label="ignoreTts.optOutOfTtsIn" class="form-check-input" type="checkbox" id="ignore-tts" aria-label="Opt out of TTS in this channel" aria-describedby="ignore-tts-note">
                                             <span class="form-check-label"></span>
                                         </div>
                                     </div>
@@ -330,12 +310,12 @@
                     <!-- Confirm dialog -->
                     <dialog id="confirm-modal" class="modal" aria-labelledby="confirm-title" aria-modal="true">
                         <div class="modal-content">
-                            <h2 id="confirm-title" class="h3">Confirm action</h2>
-                            <p id="confirm-text">Your messages will not be read aloud. You can turn this back on at
+                            <h2 data-i18n="confirmTitle.confirmAction" id="confirm-title" class="h3">Confirm action</h2>
+                            <p data-i18n="confirmText.yourMessagesWillNotBe" id="confirm-text">Your messages will not be read aloud. You can turn this back on at
                                 any time.</p>
                             <div class="modal-actions">
-                                <button type="button" id="confirm-yes" class="btn btn-danger">Confirm</button>
-                                <button type="button" id="confirm-no" class="btn btn-secondary">Cancel</button>
+                                <button data-i18n="confirmYes.confirm" type="button" id="confirm-yes" class="btn btn-danger">Confirm</button>
+                                <button data-i18n="confirmNo.cancel" type="button" id="confirm-no" class="btn btn-secondary">Cancel</button>
                             </div>
                         </div>
                     </dialog>
@@ -343,15 +323,15 @@
                     <!-- Channel input modal (used to load channel context) -->
                     <dialog id="channel-input-modal" class="modal" aria-labelledby="channel-input-title" aria-modal="true">
                         <div class="modal-content">
-                            <h2 id="channel-input-title" class="h3">Load Channel Context</h2>
-                            <p id="channel-input-desc">Enter the channel name to view its default settings and manage opt-outs:
+                            <h2 data-i18n="channelInputTitle.loadChannelContext" id="channel-input-title" class="h3">Load Channel Context</h2>
+                            <p data-i18n="channelInputDesc.enterTheChannelNameTo" id="channel-input-desc">Enter the channel name to view its default settings and manage opt-outs:
                             </p>
-                            <label for="channel-input-modal-text" class="visually-hidden">Streamer Username</label>
-                            <input type="text" id="channel-input-modal-text" class="form-control mb-3"
+                            <label data-i18n="channelInputModal.streamerUsername" for="channel-input-modal-text" class="visually-hidden">Streamer Username</label>
+                            <input data-i18n-placeholder="channelInputModalText.streamerUsername" data-i18n-aria-label="channelInputModalText.streamerUsername" type="text" id="channel-input-modal-text" class="form-control mb-3"
                                 placeholder="Streamer Username" aria-label="Streamer Username">
                             <div class="modal-actions">
-                                <button type="button" id="channel-input-confirm" class="btn btn-primary">Load</button>
-                                <button type="button" id="channel-input-cancel"
+                                <button data-i18n="channelInputConfirm.load" type="button" id="channel-input-confirm" class="btn btn-primary">Load</button>
+                                <button data-i18n="channelInputCancel.cancel" type="button" id="channel-input-cancel"
                                     class="btn btn-secondary">Cancel</button>
                             </div>
                         </div>
@@ -361,40 +341,40 @@
                 <!-- Sidebar column -->
                 <aside class="wc-shell-aside">
                         <section class="wc-aside-card">
-                            <header>Voice preview</header>
+                            <header data-i18n="preferencesPanel.voicePreview">Voice preview</header>
                             <div class="wc-aside-body">
                                 <span id="sidebar-voice-name" class="wc-aside-headline">—</span>
-                                <label class="wc-code-label" for="preview-text">Test message</label>
+                                <label data-i18n="preferencesPanel.testMessage" class="wc-code-label" for="preview-text">Test message</label>
                                 <textarea id="preview-text" class="form-control" maxlength="500"
                                     rows="3">Chat is this real?</textarea>
-                                <button type="button" id="preview-btn" class="wc-btn wc-btn--aside">Send preview</button>
+                                <button data-i18n="previewBtn.sendPreview" type="button" id="preview-btn" class="wc-btn wc-btn--aside">Send preview</button>
                                 <!-- Audio Player Container -->
                                 <div id="voice-preview-player" class="voice-preview-player" style="display: none;">
                                     <audio controls class="w-100">
                                         <source id="voice-preview-source" type="audio/mpeg">
-                                        Your browser does not support the audio element.
+                                        <span data-i18n="voicePreviewPlayer.yourBrowserDoesNotSupport">Your browser does not support the audio element.</span>
                                     </audio>
-                                    <small id="voice-preview-hint" class="settings-changed-hint text-warning mt-1"
+                                    <small data-i18n="voicePreviewHint.settingsChangedGenerateANew" id="voice-preview-hint" class="settings-changed-hint text-warning mt-1"
                                         style="display: none;">
                                         <i><i data-lucide="triangle-alert" class="inline-icon"></i> Settings changed. Generate a new preview.</i>
                                     </small>
                                 </div>
                                 <!-- Current voice settings display -->
                                 <dl class="wc-kv">
-                                    <div><dt>Pitch</dt><dd id="sidebar-pitch-val">0</dd></div>
-                                    <div><dt>Speed</dt><dd id="sidebar-speed-val">1.0×</dd></div>
-                                    <div><dt>Emotion</dt><dd id="sidebar-emotion-val">—</dd></div>
-                                    <div><dt>Language</dt><dd id="sidebar-language-val">Automatic</dd></div>
-                                    <div><dt>Eng. normalization</dt><dd id="sidebar-eng-norm-val">Off</dd></div>
+                                    <div><dt data-i18n="preferencesPanel.pitch">Pitch</dt><dd id="sidebar-pitch-val">0</dd></div>
+                                    <div><dt data-i18n="preferencesPanel.speed">Speed</dt><dd id="sidebar-speed-val">1.0×</dd></div>
+                                    <div><dt data-i18n="preferencesPanel.emotion2">Emotion</dt><dd id="sidebar-emotion-val">—</dd></div>
+                                    <div><dt data-i18n="preferencesPanel.language">Language</dt><dd data-i18n="sidebarLanguageVal.automatic" id="sidebar-language-val">Automatic</dd></div>
+                                    <div><dt data-i18n="preferencesPanel.engNormalization">Eng. normalization</dt><dd data-i18n="sidebarEngNormVal.off" id="sidebar-eng-norm-val">Off</dd></div>
                                 </dl>
                             </div>
                         </section>
 
                         <!-- Quick Links -->
                         <section class="wc-aside-card">
-                            <header>Quick links</header>
+                            <header data-i18n="preferencesPanel.quickLinks">Quick links</header>
                             <div class="wc-aside-body">
-                                <div class="wc-links">
+                                <div data-i18n="preferencesPanel.documentationStreamerSettingsWildcatChat" class="wc-links">
                                     <a class="wc-link wc-link--muted" href="https://docs.wildcat.chat/wildcatttsdocs.html" target="_blank" rel="noopener">
                                         <i data-lucide="book" aria-hidden="true"></i>Documentation
                                     </a>

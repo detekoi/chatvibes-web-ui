@@ -1,0 +1,41 @@
+{
+  "errorAction": {
+    "tryAgain": "تلاش مجدد"
+  },
+  "errorCode": {
+    "unknown": "نامشخص"
+  },
+  "errorCodeBlock": {
+    "error": "خطا"
+  },
+  "errorMessageDetails": {
+    "twitchAuthenticationFailed": "احراز هویت Twitch ناموفق بود."
+  },
+  "errorReadout": {
+    "authenticationFailed": "احراز هویت ناموفق بود"
+  },
+  "errorTitle": {
+    "authenticationFailed": "احراز هویت ناموفق بود"
+  },
+  "mainContent": {
+    "requestAccessTtsWildcatChat": "<a class=\"wc-link\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">درخواست دسترسی</a> <span>tts.wildcat.chat</span>"
+  },
+  "meta": {
+    "wildcatttsAuthenticationError": "WildcatTTS - خطای احراز هویت",
+    "wildcatttsAuthenticationErrorAndSign": "خطای احراز هویت WildcatTTS و بازیابی ورود."
+  },
+  "msg": {
+    "authError": {
+      "backToSignIn": "بازگشت به ورود",
+      "canceledBody": "هیچ تغییری ایجاد نشد. هر زمان آماده بودید می‌توانید وارد شوید.",
+      "canceledReadout": "لغو شد",
+      "canceledTitle": "WildcatTTS - ورود لغو شد",
+      "canceledTitleShort": "ورود لغو شد",
+      "notPermitted": "دسترسی مجاز نیست",
+      "requestAccess": "درخواست دسترسی",
+      "twitchError": "Twitch هنگام احراز هویت خطایی برگرداند.",
+      "unspecified": "خطای نامشخصی رخ داد.",
+      "unspecifiedCode": "نامشخص"
+    }
+  }
+}

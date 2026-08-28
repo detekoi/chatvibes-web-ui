@@ -1,0 +1,41 @@
+{
+  "errorAction": {
+    "tryAgain": "Zkusit znovu"
+  },
+  "errorCode": {
+    "unknown": "neznámý"
+  },
+  "errorCodeBlock": {
+    "error": "Chyba"
+  },
+  "errorMessageDetails": {
+    "twitchAuthenticationFailed": "Ověření přes Twitch se nezdařilo."
+  },
+  "errorReadout": {
+    "authenticationFailed": "Ověření selhalo"
+  },
+  "errorTitle": {
+    "authenticationFailed": "Ověření selhalo"
+  },
+  "mainContent": {
+    "requestAccessTtsWildcatChat": "<a class=\"wc-link\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">Požádat o přístup</a> <span>tts.wildcat.chat</span>"
+  },
+  "meta": {
+    "wildcatttsAuthenticationError": "WildcatTTS – Chyba ověření",
+    "wildcatttsAuthenticationErrorAndSign": "Chyba ověření WildcatTTS a obnovení přihlášení."
+  },
+  "msg": {
+    "authError": {
+      "backToSignIn": "Zpět k přihlášení",
+      "canceledBody": "K žádným změnám nedošlo. Můžete se přihlásit, až budete připraveni.",
+      "canceledReadout": "Zrušeno",
+      "canceledTitle": "WildcatTTS - Přihlášení zrušeno",
+      "canceledTitleShort": "Přihlášení zrušeno",
+      "notPermitted": "Přístup odepřen",
+      "requestAccess": "Požádat o přístup",
+      "twitchError": "Při ověřování přes Twitch došlo k chybě.",
+      "unspecified": "Došlo k neurčené chybě.",
+      "unspecifiedCode": "neurčeno"
+    }
+  }
+}

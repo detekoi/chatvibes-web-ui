@@ -1,0 +1,50 @@
+{
+  "kofiClose": {
+    "closeSupportDialog": "Đóng hộp thoại ủng hộ"
+  },
+  "kofiModal": {
+    "openInNewTabOn": "<a href=\"https://ko-fi.com/parfaitfair\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"kofi-direct-link\">Mở trong tab mới trên Ko-fi.com</a>"
+  },
+  "kofiOpen": {
+    "supportMe": "Ủng hộ tôi"
+  },
+  "kofiTitle": {
+    "supportParfaitfair": "Ủng hộ parfaitfair"
+  },
+  "mainContent": {
+    "access": "Quyền truy cập",
+    "accessIsInviteOnlyUnapproved": "Chỉ người được mời mới có quyền truy cập. Các kênh chưa được phê duyệt sẽ nhận thông báo từ chối truy cập. <a class=\"wc-link wc-link--underline\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">Yêu cầu cấp quyền tại đây</a>.",
+    "changeTtsSettingsControlBot": "Đổi cài đặt TTS • Quản lý phản hồi chat của bot • Cấu hình Channel Points • Tùy chỉnh giọng đọc",
+    "colorTheme": "Chủ đề màu",
+    "iAmAViewer": "<span class=\"wc-rule-name\">Tôi là người xem</span>",
+    "iRunTheChannel": "<span class=\"wc-rule-name\">Tôi là chủ kênh</span>",
+    "setHowYourMessagesSound": "Tùy chỉnh giọng đọc tin nhắn của bạn khi TTS phát âm trên bất kỳ kênh nào bạn ghé thăm.",
+    "textToSpeechForYour": "Chuyển văn bản thành giọng nói cho kênh Twitch của bạn, dành cho streamer và người xem.",
+    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">Chỉ người được mời</span>",
+    "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">Quản lý bot chuyển văn bản thành giọng nói</span>"
+  },
+  "meta": {
+    "wildcatttsBotManagement": "Quản lý bot WildcatTTS",
+    "wildcatttsTextToSpeechBot": "Quản lý bot chuyển văn bản thành giọng nói WildcatTTS cho kênh Twitch, streamer và người xem."
+  },
+  "msg": {
+    "kofi": {
+      "iframeTitle": "Ủng hộ parfaitfair trên Ko-fi"
+    }
+  },
+  "page": {
+    "support": "Ủng hộ"
+  },
+  "streamerLoginBtn": {
+    "manageMyChannel": "<i data-lucide=\"mic\" aria-hidden=\"true\"></i>Quản lý kênh của tôi"
+  },
+  "themeDarkBtn": {
+    "dark": "Tối"
+  },
+  "themeLightBtn": {
+    "light": "Sáng"
+  },
+  "viewerPrefsBtn": {
+    "setMyOwnVoice": "<i data-lucide=\"headphones\" aria-hidden=\"true\"></i>Cài đặt giọng của tôi"
+  }
+}

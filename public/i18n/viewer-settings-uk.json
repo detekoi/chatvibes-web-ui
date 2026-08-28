@@ -1,0 +1,212 @@
+{
+  "addChannelContextCard": {
+    "loadAChannelToSee": "Завантажте канал, щоб переглянути його стандартні налаштування та керувати відмовами від озвучення. Ваші налаштування залишаються глобальними."
+  },
+  "channelContextCard": {
+    "changesHereUpdateYourGlobal": "Зміни тут оновлюють <strong>ваші</strong> глобальні налаштування. Налаштування стрімера не змінюються.",
+    "channelContext": "Контекст каналу",
+    "clearButtonsSetYourGlobal": "<strong>Кнопки очищення:</strong> установлюють ваше глобальне налаштування відповідно до стандартного налаштування цього каналу."
+  },
+  "channelHint": {
+    "channelFound": "Канал знайдено"
+  },
+  "channelInputCancel": {
+    "cancel": "Скасувати"
+  },
+  "channelInputConfirm": {
+    "load": "Завантажити"
+  },
+  "channelInputDesc": {
+    "enterTheChannelNameTo": "Введіть назву каналу, щоб переглянути його стандартні налаштування та керувати відмовами від озвучення:"
+  },
+  "channelInputModal": {
+    "streamerUsername": "Ім'я користувача стрімера"
+  },
+  "channelInputModalText": {
+    "streamerUsername": "Ім'я користувача стрімера"
+  },
+  "channelInputTitle": {
+    "loadChannelContext": "Завантажити контекст каналу"
+  },
+  "clearChannelContextBtn": {
+    "clear": "Очистити"
+  },
+  "confirmNo": {
+    "cancel": "Скасувати"
+  },
+  "confirmText": {
+    "yourMessagesWillNotBe": "Ваші повідомлення не озвучуватимуться. Ви можете ввімкнути це знову в будь-який момент."
+  },
+  "confirmTitle": {
+    "confirmAction": "Підтвердити дію"
+  },
+  "confirmYes": {
+    "confirm": "Підтвердити"
+  },
+  "dangerTtsToggle": {
+    "optOutOfTtsIn": "Відмовитися від TTS на цьому каналі",
+    "ttsWillNotReadYour": "TTS не читатиме ваші повідомлення на цьому каналі"
+  },
+  "dangerZoneSection": {
+    "dangerZone": "Небезпечна зона",
+    "theseSettingsStopTheBot": "Ці налаштування забороняють боту читати ваші повідомлення на каналі. Ви можете будь-коли змінити власні налаштування. Якщо озвучення для вас вимкнув модератор, лише модератор зможе це скасувати."
+  },
+  "emotionReset": {
+    "clear": "Очистити",
+    "resetEmotionToDefault": "Скинути емоцію до стандартної"
+  },
+  "emotionSelect": {
+    "angry": "Злий",
+    "disgusted": "З огидою",
+    "fearful": "Наляканий",
+    "happy": "Радісний",
+    "neutral": "Нейтральний",
+    "sad": "Сумний",
+    "surprised": "Здивований",
+    "useChannelDefault": "Стандартне для каналу"
+  },
+  "englishNormalizationCheckbox": {
+    "englishNormalization": "Нормалізація англійської"
+  },
+  "englishNormalizationReset": {
+    "clear": "Очистити",
+    "resetEnglishNormalizationToDefault": "Скинути нормалізацію англійської до стандартної"
+  },
+  "ignoreTts": {
+    "optOutOfTtsIn": "Відмовитися від TTS на цьому каналі"
+  },
+  "languageReset": {
+    "clear": "Очистити",
+    "resetLanguageToDefault": "Скинути мову до стандартної"
+  },
+  "loadingBar": {
+    "loadingYourPreferences": "Завантаження ваших налаштувань"
+  },
+  "loadingOverlay": {
+    "loadingYourPreferences": "Завантаження ваших налаштувань…"
+  },
+  "loggedInStatus": {
+    "channelContext": "Контекст каналу",
+    "global": "Глобально",
+    "loggedInAs": "Ви увійшли як",
+    "scope": "Область дії"
+  },
+  "meta": {
+    "wildcatttsViewerSettings": "WildcatTTS: налаштування глядача",
+    "wildcatttsViewerSettingsSetYour": "WildcatTTS: налаштування глядача — налаштуйте власний голос, висоту та швидкість TTS на каналах Twitch."
+  },
+  "msg": {
+    "auth": {
+      "exchangeFailed": "Не вдалося завершити вхід. Спробуйте ще раз із головної сторінки.",
+      "testUser": "Тестовий користувач"
+    },
+    "channel": {
+      "cleared": "Контекст каналу очищено.",
+      "clearedTestMode": "Контекст каналу очищено (тестовий режим).",
+      "enterName": "Введіть назву каналу.",
+      "found": "Канал знайдено",
+      "foundTestMode": "Канал знайдено (тестовий режим)",
+      "hint": "Завантажте канал, щоб переглянути його стандартні налаштування.",
+      "loaded": "Контекст каналу завантажено.",
+      "loadedTestMode": "Контекст каналу завантажено (тестовий режим).",
+      "noneLoaded": "Не завантажено",
+      "promptConfirm": "Завантажити",
+      "promptDescription": "Введіть назву каналу, щоб переглянути його стандартні налаштування та керувати відмовами від озвучення:",
+      "promptTitle": "Завантажити контекст каналу",
+      "viewingDefaults": "Ви переглядаєте стандартні налаштування для {channel}."
+    },
+    "optout": {
+      "confirm": "Бажаєте вимкнути TTS у #{channel}? Ваші повідомлення не зачитуватимуться вголос. Ви зможете ввімкнути це знову будь-коли.",
+      "confirmDescription": "Введіть назву каналу, щоб продовжити:",
+      "confirmTitle": "Підтвердження каналу для відмови від TTS",
+      "continue": "Продовжити",
+      "moderatorNote": "Модератор каналу вимкнув для вас TTS тут. Лише модератор може це скасувати.",
+      "optInFailed": "Не вдалося знову ввімкнути TTS.",
+      "optOutFailed": "Не вдалося відмовитися від TTS.",
+      "optedIn": "Ви знову ввімкнули TTS.",
+      "optedInTestMode": "Ви знову ввімкнули TTS (тестовий режим).",
+      "optedOut": "Ви відмовилися від TTS.",
+      "optedOutTestMode": "Ви відмовилися від TTS (тестовий режим).",
+      "selectChannel": "Спочатку виберіть канал.",
+      "selfNote": "Ви відмовилися від TTS тут. Ви можете ввімкнути його знову будь-коли.",
+      "specifyChannel": "Вкажіть канал."
+    },
+    "prefs": {
+      "hintChannel": "Використовується значення каналу за замовчуванням: {value}",
+      "hintSystem": "Використовується системне значення за замовчуванням",
+      "hintUser": "Використовується ваше глобальне налаштування: {value}",
+      "loadFailed": "Не вдалося завантажити налаштування.",
+      "noVoicesFound": "Голосів не знайдено",
+      "saveFailed": "Не вдалося зберегти {key}: {reason}",
+      "sendPreview": "Надіслати зразок",
+      "testCompletedTestMode": "Тест завершено (тестовий режим).",
+      "updated": "Налаштування оновлено.",
+      "updatedTestMode": "Налаштування оновлено (тестовий режим)."
+    }
+  },
+  "openChannelContextModalBtn": {
+    "loadChannel": "Завантажити канал…"
+  },
+  "page": {
+    "setHowYourMessagesSound": "Налаштуйте звучання своїх повідомлень під час озвучення Wildcat TTS. Ваші налаштування є глобальними та застосовуються до всіх каналів.",
+    "viewerTtsPreferences": "Налаштування TTS для глядача",
+    "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Налаштування глядача</span>"
+  },
+  "pitchReset": {
+    "clear": "Очистити",
+    "resetPitchToDefault": "Скинути висоту тону"
+  },
+  "pitchSlider": {
+    "pitchAdjustment12To12": "Коригування тону (від -12 до +12)"
+  },
+  "preferencesPanel": {
+    "adjustTheVoicePitchHigher": "Зробіть тон голосу вищим або нижчим",
+    "controlHowFastTheVoice": "Керуйте швидкістю мовлення голосу",
+    "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Документація </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Налаштування стрімера </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "<strong>Емоція</strong>",
+    "emotion2": "Емоція",
+    "englishNormalization": "Нормалізація англійського тексту",
+    "engNormalization": "Англ. нормалізація",
+    "ifTtsReadsNumbersIncorrectly": "Якщо TTS неправильно озвучує числа, увімкніть нормалізацію англійського тексту. Це налаштування трохи збільшує затримку.",
+    "improvePronunciationForSpecificLanguages": "Покращити вимову для окремих мов",
+    "improveThePronunciationOfNumbers": "Покращити вимову чисел і тексту",
+    "language": "Мова",
+    "languageBoost": "<strong>Language Boost</strong>",
+    "pitch": "Висота тону",
+    "pitch12To12": "Висота тону (від -12 до +12):",
+    "quickLinks": "Швидкі посилання",
+    "selectYourPreferredTtsVoice": "Виберіть бажаний голос TTS",
+    "setHowYourMessagesSound": "Налаштуйте звучання своїх повідомлень під час озвучення TTS",
+    "setTheEmotionalToneOf": "Налаштуйте емоційне забарвлення голосу",
+    "speed": "Швидкість",
+    "speed05To2": "Швидкість (від 0.5 до 2.0):",
+    "testMessage": "Тестове повідомлення",
+    "voice": "<strong>Голос</strong>",
+    "voicePreview": "Прослуховування голосу",
+    "voiceSettings": "Налаштування голосу"
+  },
+  "prefsDisabledNote": {
+    "theStreamerDisabledPersonalVoice": "Стример вимкнув персональні налаштування голосу для цього каналу. Використовуватиметься типовий голос каналу замість ваших налаштувань."
+  },
+  "previewBtn": {
+    "sendPreview": "Надіслати зразок"
+  },
+  "speedReset": {
+    "clear": "Очистити",
+    "resetSpeedToDefault": "Скинути швидкість до типової"
+  },
+  "speedSlider": {
+    "speedAdjustment05To": "Регулювання швидкості (від 0.5 до 2.0)"
+  },
+  "statChannelContext": {
+    "noneLoaded": "Не завантажено"
+  },
+  "voiceReset": {
+    "clear": "Очистити",
+    "resetVoiceToDefault": "Скинути голос до типового"
+  },
+  "voiceSearch": {
+    "searchVoices": "Пошук голосів",
+    "searchVoices2": "Пошук голосів..."
+  }
+}

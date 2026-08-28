@@ -1,0 +1,166 @@
+{
+  "darkModeToggle": {
+    "toggleDarkMode": "Vaihda tumma tila"
+  },
+  "err": {
+    "banned_add_failed": "Sanaa ei voi lisätä kieltolistalle.",
+    "banned_remove_failed": "Sanaa ei voi poistaa kieltolistalta.",
+    "bot_add_failed": "Bottia ei voi aktivoida kanavallasi. Yritä uudelleen.",
+    "bot_remove_failed": "Bottia ei voi poistaa käytöstä kanavallasi. Yritä uudelleen.",
+    "bot_status_failed": "Botin tilaa ei voi ladata.",
+    "channel_data_not_found": "Kyseiselle kanavalle ei löytynyt asetuksia.",
+    "channel_not_authorized": "Kanavallasi ei ole oikeutta käyttää tätä bottia. Ota yhteyttä saadaksesi käyttöoikeuden.",
+    "channel_not_found": "Kanavaa ei löytynyt.",
+    "channel_required": "Kanava on pakollinen.",
+    "channel_tts_disabled": "Kanavaa ei löytynyt tai sillä ei ole TTS-toimintoa käytössä.",
+    "entry_key_required": "Tietueen avain vaaditaan.",
+    "exchange_code_invalid": "Kirjautumislinkki puuttuu tai on virheellinen.",
+    "exchange_code_used": "Kirjautumislinkki on jo käytetty tai se on vanhentunut. Kirjaudu uudelleen.",
+    "exchange_failed": "Kirjautumista ei voitu suorittaa. Yritä uudelleen.",
+    "ignore_add_failed": "Käyttäjää ei voi lisätä ohituslistalle.",
+    "ignore_moderator_imposed": "Kanavan moderaattori poisti TTS:n käytöstä kohdallasi, joten vain moderaattori voi kumota sen.",
+    "ignore_remove_failed": "Käyttäjää ei voi poistaa ohituslistalta.",
+    "ignore_update_failed": "Kieltäytymisasetustasi ei voi muuttaa.",
+    "key_required": "Asetuksen nimi vaaditaan.",
+    "match_key_invalid": "Sanan on oltava 1–{max} merkkiä pitkä, ja se saa sisältää vain kirjaimia, numeroita, heittomerkkejä tai yhdysmerkkejä (ei pistettä).",
+    "network_error": "Palvelimeen ei saada yhteyttä. Tarkista yhteys.",
+    "obs_token_fetch_failed": "OBS-tunnistetta ei voi ladata.",
+    "obs_token_generate_failed": "Uutta OBS-tunnistetta ei voi luoda.",
+    "obs_token_store_failed": "OBS-tunnistetta ei voi tallentaa. Yritä uudelleen.",
+    "prefs_fetch_failed": "Asetuksiasi ei voi ladata.",
+    "prefs_global_fetch_failed": "Yleisiä asetuksiasi ei voi ladata.",
+    "prefs_global_update_failed": "Yleisiä asetuksiasi ei voi tallentaa.",
+    "prefs_invalid_emote_mode": "Emotekäsittelyn on oltava read, skip tai describe.",
+    "prefs_invalid_emotion": "Tunne ei kelpaa.",
+    "prefs_invalid_language": "Kieli ei kelpaa.",
+    "prefs_invalid_pitch": "Äänenkorkeus ei kelpaa.",
+    "prefs_invalid_speed": "Nopeus ei kelpaa.",
+    "prefs_invalid_voice": "Ääni ei kelpaa.",
+    "prefs_missing_data": "Muutoksia ei lähetetty.",
+    "prefs_update_failed": "Asetuksiasi ei voi tallentaa.",
+    "pronunciation_limit_reached": "Olet saavuttanut {max} mukautetun ääntämisasun rajan. Poista ensin jokin niistä.",
+    "pronunciation_remove_failed": "Ääntämisasua ei voi poistaa.",
+    "pronunciation_save_failed": "Ääntämisasua ei voi tallentaa.",
+    "reward_banned_word": "Viesti sisältää kielletyn sanan: \"{word}\".",
+    "reward_create_failed": "Channel Points -palkintoa ei voi luoda.",
+    "reward_delete_failed": "Channel Points -palkintoa ei voi poistaa.",
+    "reward_links_blocked": "Linkit eivät ole sallittuja tässä palkinnossa.",
+    "reward_load_failed": "Channel Points -palkintoa ei voi ladata.",
+    "reward_message_empty": "Viesti on tyhjä.",
+    "reward_save_failed": "Channel Points -palkintoa ei voi tallentaa.",
+    "reward_test_failed": "Channel Points -palkintoa ei voi testata.",
+    "reward_twitch_error": "Twitch hylkäsi palkinnon muutoksen.",
+    "reward_validation_failed": "Viesti ei ole sallittu.",
+    "say_contains_link": "Ääntämisasu ei voi sisältää linkkiä.",
+    "say_empty": "Ääntämisasu ei voi olla tyhjä.",
+    "say_must_be_text": "Ääntämisasun on oltava tekstiä.",
+    "say_too_long": "Ääntämisasussa saa olla enintään {max} merkkiä.",
+    "server_misconfigured": "Palvelimen määritykset ovat virheelliset.",
+    "setting_invalid": "Tämä arvo ei kelpaa kohteelle {key}.",
+    "setting_update_failed": "TTS-asetusta ei voi päivittää.",
+    "settings_fetch_failed": "TTS-asetuksia ei voi ladata.",
+    "shortlink_failed": "Lyhytlinkkiä ei voi luoda.",
+    "storage_unavailable": "Tallennustila ei ole käytettävissä.",
+    "tts_generation_failed": "Puheen luonti epäonnistui: {reason}",
+    "tts_no_audio": "Puhepalvelu ei palauttanut ääntä.",
+    "tts_not_configured": "Puhepalvelua ei ole määritetty.",
+    "tts_provider_failed": "Puhepalvelu ei voinut luoda ääntä.",
+    "tts_test_failed": "Puhetesti epäonnistui.",
+    "tts_text_required": "Kirjoita tekstiä testausta varten.",
+    "twitch_reauth_required": "Twitch-kirjautumisesi on vanhentunut. Yhdistä tilisi uudelleen.",
+    "twitch_user_not_found": "Twitch-tiliä nimellä \"{username}\" ei ole olemassa.",
+    "url_required": "URL-osoite vaaditaan.",
+    "username_invalid": "Käyttäjätunnus ei kelpaa.",
+    "username_required": "Käyttäjätunnus vaaditaan.",
+    "voice_access_denied": "Ääni \"{voice}\" vaatii erityisoikeuksia. Kokeile toista ääntä.",
+    "voice_invalid": "Ääni \"{voice}\" ei ole saatavilla. Tarkista ääni ja yritä uudelleen.",
+    "voice_lookup_failed": "Kyseisen käyttäjän äänen hakeminen epäonnistui.",
+    "word_invalid": "Sana tai lause ei kelpaa.",
+    "word_required": "Sana tai lause vaaditaan."
+  },
+  "logoutLink": {
+    "logout": "Kirjaudu ulos"
+  },
+  "mainContent": {
+    "documentationTtsWildcatChat": "<a class=\"wc-link\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\">Dokumentaatio</a> <span>tts.wildcat.chat</span>"
+  },
+  "msg": {
+    "action": {
+      "close": "Sulje",
+      "remove": "Poista",
+      "saved": "Tallennettu"
+    },
+    "api": {
+      "authFailed": "Tunnistautuminen epäonnistui. Kirjaudu sisään uudelleen.",
+      "notAuthenticated": "Et ole kirjautunut sisään.",
+      "requestFailed": "Pyyntö epäonnistui."
+    },
+    "auth": {
+      "genericUser": "Käyttäjä",
+      "loading": "ladataan…",
+      "needViewerSignIn": "Vahvista Twitch-tilisi päästäksesi katsoja-asetuksiin.",
+      "redirecting": "Uudelleenohjataan Twitchiin todennusta varten…",
+      "required": "Todennus vaaditaan.",
+      "signInFailed": "Kirjautumista ei voida suorittaa loppuun.",
+      "signInWithTwitch": "Kirjaudu sisään Twitchillä",
+      "signedOut": "Et ole kirjautunut sisään.",
+      "tokenMissing": "Todennustunniste puuttuu. Kirjaudu sisään uudelleen."
+    },
+    "emotion": {
+      "angry": "Vihainen",
+      "auto": "Automaattinen",
+      "calm": "Rauhallinen",
+      "disgusted": "Inhostunut",
+      "fearful": "Pelokas",
+      "fluent": "Sujuva",
+      "happy": "Iloinen",
+      "neutral": "Neutraali",
+      "sad": "Surullinen",
+      "surprised": "Yllättynyt"
+    },
+    "ignore": {
+      "enterUsername": "Syötä käyttäjätunnus."
+    },
+    "lang": {
+      "automatic": "Automaattinen"
+    },
+    "prefs": {
+      "useChannelDefault": "Käytä kanavan oletusta"
+    },
+    "preview": {
+      "enterText": "Kirjoita tekstiä testataksesi.",
+      "unavailable": "Esikatselua ei ole saatavilla."
+    },
+    "value": {
+      "off": "Pois päältä",
+      "on": "Päällä"
+    },
+    "voice": {
+      "cannotPlay": "Ääninäytettä ei voi toistaa.",
+      "generating": "Luodaan…",
+      "noAudio": "Palvelin ei palauttanut ääntä.",
+      "noneFound": "Ääniä ei löytynyt.",
+      "preview": "Esikuuntele {voice}",
+      "regenerate": "Luo uudelleen",
+      "testFailed": "Testi epäonnistui: {reason}"
+    }
+  },
+  "page": {
+    "skipToMainContent": "Siirry pääsisältöön"
+  },
+  "sidebarEngNormVal": {
+    "off": "Pois"
+  },
+  "sidebarLanguageVal": {
+    "automatic": "Automaattinen"
+  },
+  "ui": {
+    "language": "Kieli"
+  },
+  "voicePreviewHint": {
+    "settingsChangedGenerateANew": "<i><i data-lucide=\"triangle-alert\" class=\"inline-icon\"></i> Asetukset muuttuivat. Luo uusi esikuuntelu.</i>"
+  },
+  "voicePreviewPlayer": {
+    "yourBrowserDoesNotSupport": "Selaimesi ei tue audio-elementtiä."
+  }
+}

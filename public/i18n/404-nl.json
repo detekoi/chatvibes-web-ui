@@ -1,0 +1,11 @@
+{
+  "mainContent": {
+    "pageNotFound": "Pagina niet gevonden",
+    "returnToLogin": "Terug naar inloggen",
+    "thatUrlIsNotPart": "Die URL hoort niet bij deze site. Controleer of het adres klopt of ga terug naar de inlogpagina."
+  },
+  "meta": {
+    "pageNotFoundOnWildcattts": "Pagina niet gevonden op WildcatTTS.",
+    "pageNotFoundWildcattts": "Pagina niet gevonden — WildcatTTS"
+  }
+}

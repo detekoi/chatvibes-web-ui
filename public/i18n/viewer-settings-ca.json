@@ -1,0 +1,212 @@
+{
+  "addChannelContextCard": {
+    "loadAChannelToSee": "Carrega un canal per veure la configuració per defecte i gestionar les exclusions. Les teves preferències continuaran sent globals."
+  },
+  "channelContextCard": {
+    "changesHereUpdateYourGlobal": "Els canvis fets aquí actualitzen les <strong>teves</strong> preferències globals. La configuració de l'streamer no canvia.",
+    "channelContext": "Context del canal",
+    "clearButtonsSetYourGlobal": "<strong>Botons de restabliment:</strong> ajusten la teva preferència global perquè coincideixi amb el valor per defecte d'aquest canal."
+  },
+  "channelHint": {
+    "channelFound": "S'ha trobat el canal"
+  },
+  "channelInputCancel": {
+    "cancel": "Cancel·la"
+  },
+  "channelInputConfirm": {
+    "load": "Carrega"
+  },
+  "channelInputDesc": {
+    "enterTheChannelNameTo": "Introdueix el nom del canal per veure'n la configuració per defecte i gestionar les exclusions:"
+  },
+  "channelInputModal": {
+    "streamerUsername": "Nom d'usuari de l'streamer"
+  },
+  "channelInputModalText": {
+    "streamerUsername": "Nom d'usuari de l'streamer"
+  },
+  "channelInputTitle": {
+    "loadChannelContext": "Carrega el context del canal"
+  },
+  "clearChannelContextBtn": {
+    "clear": "Neteja"
+  },
+  "confirmNo": {
+    "cancel": "Cancel·la"
+  },
+  "confirmText": {
+    "yourMessagesWillNotBe": "Els teus missatges no es llegiran en veu alta. Pots tornar-ho a activar en qualsevol moment."
+  },
+  "confirmTitle": {
+    "confirmAction": "Confirma l'acció"
+  },
+  "confirmYes": {
+    "confirm": "Confirma"
+  },
+  "dangerTtsToggle": {
+    "optOutOfTtsIn": "Exclou-te del TTS en aquest canal",
+    "ttsWillNotReadYour": "El TTS no llegirà els teus missatges en aquest canal"
+  },
+  "dangerZoneSection": {
+    "dangerZone": "Zona de perill",
+    "theseSettingsStopTheBot": "Aquesta configuració impedeix que el bot llegeixi els teus missatges en un canal. Pots revertir qualsevol opció que triïs. Si t'ha exclòs un moderador, només un moderador podrà desfer-ho."
+  },
+  "emotionReset": {
+    "clear": "Restableix",
+    "resetEmotionToDefault": "Restableix l'emoció al valor per defecte"
+  },
+  "emotionSelect": {
+    "angry": "Enfadat",
+    "disgusted": "Disgustat",
+    "fearful": "Espantat",
+    "happy": "Content",
+    "neutral": "Neutre",
+    "sad": "Trist",
+    "surprised": "Sorprès",
+    "useChannelDefault": "Utilitza el valor per defecte del canal"
+  },
+  "englishNormalizationCheckbox": {
+    "englishNormalization": "Normalització de l'anglès"
+  },
+  "englishNormalizationReset": {
+    "clear": "Restableix",
+    "resetEnglishNormalizationToDefault": "Restableix la normalització de l'anglès al valor per defecte"
+  },
+  "ignoreTts": {
+    "optOutOfTtsIn": "Exclou-te del TTS en aquest canal"
+  },
+  "languageReset": {
+    "clear": "Restableix",
+    "resetLanguageToDefault": "Restableix l'idioma al valor per defecte"
+  },
+  "loadingBar": {
+    "loadingYourPreferences": "S'estan carregant les teves preferències"
+  },
+  "loadingOverlay": {
+    "loadingYourPreferences": "S'estan carregant les teves preferències…"
+  },
+  "loggedInStatus": {
+    "channelContext": "Context del canal",
+    "global": "Global",
+    "loggedInAs": "Sessió iniciada com a",
+    "scope": "Àmbit"
+  },
+  "meta": {
+    "wildcatttsViewerSettings": "Configuració d'espectador de WildcatTTS",
+    "wildcatttsViewerSettingsSetYour": "Configuració d'espectador de WildcatTTS: defineix la teva veu, to i velocitat de text a veu als canals de Twitch."
+  },
+  "msg": {
+    "auth": {
+      "exchangeFailed": "No s'ha pogut completar l'inici de sessió. Torna-ho a provar des de la pàgina principal.",
+      "testUser": "Usuari de prova"
+    },
+    "channel": {
+      "cleared": "S'ha esborrat el context del canal.",
+      "clearedTestMode": "S'ha esborrat el context del canal (mode de prova).",
+      "enterName": "Introdueix un nom de canal.",
+      "found": "Canal trobat",
+      "foundTestMode": "Canal trobat (mode de prova)",
+      "hint": "Carrega un canal per veure la seva configuració predeterminada.",
+      "loaded": "S'ha carregat el context del canal.",
+      "loadedTestMode": "S'ha carregat el context del canal (mode de prova).",
+      "noneLoaded": "Cap carregat",
+      "promptConfirm": "Carrega",
+      "promptDescription": "Introdueix el nom del canal per veure la seva configuració per defecte i gestionar les exclusions:",
+      "promptTitle": "Carrega el context del canal",
+      "viewingDefaults": "Estàs veient la configuració per defecte de {channel}."
+    },
+    "optout": {
+      "confirm": "Vols desactivar el TTS a #{channel}? Els teus missatges no es llegiran en veu alta. Pots tornar-lo a activar en qualsevol moment.",
+      "confirmDescription": "Introdueix el nom del canal per continuar:",
+      "confirmTitle": "Confirma el canal per desactivar el TTS",
+      "continue": "Continua",
+      "moderatorNote": "Un moderador del canal t'ha desactivat el TTS aquí. Només un moderador pot desfer-ho.",
+      "optInFailed": "No es pot tornar a activar el TTS.",
+      "optOutFailed": "No s'ha pogut desactivar el TTS.",
+      "optedIn": "Has tornat a activar el TTS.",
+      "optedInTestMode": "Has tornat a activar el TTS (mode de prova).",
+      "optedOut": "Has desactivat el TTS.",
+      "optedOutTestMode": "Has desactivat el TTS (mode de prova).",
+      "selectChannel": "Selecciona primer un canal.",
+      "selfNote": "Has desactivat el TTS aquí. Pots tornar-lo a activar en qualsevol moment.",
+      "specifyChannel": "Especifica un canal."
+    },
+    "prefs": {
+      "hintChannel": "S'usa el valor per defecte del canal: {value}",
+      "hintSystem": "S'usa el valor per defecte del sistema",
+      "hintUser": "S'usa la teva preferència global: {value}",
+      "loadFailed": "No s'han pogut carregar les preferències.",
+      "noVoicesFound": "No s'ha trobat cap veu",
+      "saveFailed": "No s'ha pogut desar {key}: {reason}",
+      "sendPreview": "Envia la vista prèvia",
+      "testCompletedTestMode": "Prova completada (mode de prova).",
+      "updated": "Preferència actualitzada.",
+      "updatedTestMode": "Preferència actualitzada (mode de prova)."
+    }
+  },
+  "openChannelContextModalBtn": {
+    "loadChannel": "Carrega el canal…"
+  },
+  "page": {
+    "setHowYourMessagesSound": "Configura com sonen els teus missatges quan Wildcat TTS els llegeixi. Les teves preferències són globals i s'apliquen a tots els canals.",
+    "viewerTtsPreferences": "Preferències de TTS de l'espectador",
+    "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Configuració de l'espectador</span>"
+  },
+  "pitchReset": {
+    "clear": "Neteja",
+    "resetPitchToDefault": "Restableix el to per defecte"
+  },
+  "pitchSlider": {
+    "pitchAdjustment12To12": "Ajust de to (-12 a +12)"
+  },
+  "preferencesPanel": {
+    "adjustTheVoicePitchHigher": "Ajusta el to de la veu més agut o més greu",
+    "controlHowFastTheVoice": "Controla la velocitat de la veu",
+    "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Documentació </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Configuració de streamer </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "<strong>Emoció</strong>",
+    "emotion2": "Emoció",
+    "englishNormalization": "Normalització en anglès",
+    "engNormalization": "Normalització d'anglès",
+    "ifTtsReadsNumbersIncorrectly": "Si el TTS llegeix els números incorrectament, activa la normalització de text en anglès. Aquest paràmetre augmenta lleugerament la latència.",
+    "improvePronunciationForSpecificLanguages": "Millora la pronunciació per a idiomes específics",
+    "improveThePronunciationOfNumbers": "Millora la pronunciació de números i text",
+    "language": "Idioma",
+    "languageBoost": "<strong>Millora d'idioma</strong>",
+    "pitch": "To",
+    "pitch12To12": "To (-12 a +12):",
+    "quickLinks": "Enllaços ràpids",
+    "selectYourPreferredTtsVoice": "Selecciona la veu de TTS que prefereixis",
+    "setHowYourMessagesSound": "Configura com sonen els teus missatges quan el TTS els llegeixi",
+    "setTheEmotionalToneOf": "Defineix el to emocional de la veu",
+    "speed": "Velocitat",
+    "speed05To2": "Velocitat (0,5 a 2,0):",
+    "testMessage": "Missatge de prova",
+    "voice": "<strong>Veu</strong>",
+    "voicePreview": "Previsualització de la veu",
+    "voiceSettings": "Configuració de la veu"
+  },
+  "prefsDisabledNote": {
+    "theStreamerDisabledPersonalVoice": "L'streamer ha desactivat la configuració de veu personalitzada per a aquest canal. Aquest canal farà servir la veu per defecte en lloc de les teves preferències."
+  },
+  "previewBtn": {
+    "sendPreview": "Envia la prova"
+  },
+  "speedReset": {
+    "clear": "Restableix",
+    "resetSpeedToDefault": "Restableix la velocitat per defecte"
+  },
+  "speedSlider": {
+    "speedAdjustment05To": "Ajust de velocitat (de 0,5 a 2,0)"
+  },
+  "statChannelContext": {
+    "noneLoaded": "Cap carregat"
+  },
+  "voiceReset": {
+    "clear": "Restableix",
+    "resetVoiceToDefault": "Restableix la veu per defecte"
+  },
+  "voiceSearch": {
+    "searchVoices": "Cerca veus",
+    "searchVoices2": "Cerca veus..."
+  }
+}

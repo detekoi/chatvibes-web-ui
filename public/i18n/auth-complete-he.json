@@ -1,0 +1,39 @@
+{
+  "authBar": {
+    "signInProgress": "התקדמות ההתחברות"
+  },
+  "authMessage": {
+    "pleaseWait": "נא להמתין."
+  },
+  "authSteps": {
+    "loadingDashboard": "טעינת לוח הבקרה",
+    "sessionTokenStored": "אסימון ההפעלה נשמר",
+    "twitchAuthorized": "Twitch אושר"
+  },
+  "authTitle": {
+    "signingYouIn": "מחבר אותך"
+  },
+  "meta": {
+    "completingWildcatttsTwitchSignIn": "משלים את ההתחברות ל-WildcatTTS דרך Twitch.",
+    "wildcatttsCompletingSignIn": "WildcatTTS - משלים התחברות"
+  },
+  "msg": {
+    "authComplete": {
+      "cannotComplete": "לא ניתן להשלים את ההתחברות.",
+      "failedReadout": "נכשל",
+      "failedTitle": "ההתחברות נכשלה",
+      "missingInfo": "פרטי האימות מ-Twitch חסרים. יש להתחבר שוב.",
+      "noSession": "אין סשן",
+      "redirecting": "מעביר ללוח הבקרה שלך.",
+      "retrySignIn": "{reason} יש להתחבר שוב.",
+      "sessionEstablished": "הסשן נוצר",
+      "welcome": "ברוך הבא, {user}"
+    }
+  },
+  "sessionState": {
+    "establishingSession": "יוצר חיבור"
+  },
+  "statusReadout": {
+    "working": "<span class=\"wc-dot\"></span>בפעולה"
+  }
+}

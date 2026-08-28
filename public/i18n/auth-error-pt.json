@@ -1,0 +1,41 @@
+{
+  "errorAction": {
+    "tryAgain": "Tentar novamente"
+  },
+  "errorCode": {
+    "unknown": "desconhecido"
+  },
+  "errorCodeBlock": {
+    "error": "Erro"
+  },
+  "errorMessageDetails": {
+    "twitchAuthenticationFailed": "Falha na autenticação da Twitch."
+  },
+  "errorReadout": {
+    "authenticationFailed": "Falha na autenticação"
+  },
+  "errorTitle": {
+    "authenticationFailed": "Falha na autenticação"
+  },
+  "mainContent": {
+    "requestAccessTtsWildcatChat": "<a class=\"wc-link\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">Solicitar acesso</a> <span>tts.wildcat.chat</span>"
+  },
+  "meta": {
+    "wildcatttsAuthenticationError": "WildcatTTS - Erro de autenticação",
+    "wildcatttsAuthenticationErrorAndSign": "Erro de autenticação e recuperação de login do WildcatTTS."
+  },
+  "msg": {
+    "authError": {
+      "backToSignIn": "Voltar ao login",
+      "canceledBody": "Nenhuma alteração foi feita. Você pode fazer login quando estiver pronto.",
+      "canceledReadout": "Cancelado",
+      "canceledTitle": "WildcatTTS - Login cancelado",
+      "canceledTitleShort": "Login cancelado",
+      "notPermitted": "Acesso não permitido",
+      "requestAccess": "Solicitar acesso",
+      "twitchError": "A Twitch retornou um erro durante a autenticação.",
+      "unspecified": "Ocorreu um erro não especificado.",
+      "unspecifiedCode": "não especificado"
+    }
+  }
+}

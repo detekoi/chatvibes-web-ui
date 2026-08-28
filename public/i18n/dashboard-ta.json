@@ -1,0 +1,500 @@
+{
+  "addBotBtn": {
+    "activateTtsService": "TTS சேவையைச் செயல்படுத்து"
+  },
+  "addTtsBannedWordBtn": {
+    "add": "சேர்"
+  },
+  "addTtsIgnoreBtn": {
+    "add": "சேர்"
+  },
+  "addTtsPronunciationBtn": {
+    "add": "சேர்"
+  },
+  "allowViewerPreferences": {
+    "allowViewerVoicePreferences": "பார்வையாளர் குரல் விருப்பங்களை அனுமதி"
+  },
+  "announceUnfulfilledRedemptions": {
+    "announceQueuedRedeemsImmediately": "வரிசையிலுள்ள மீட்புகளை உடனே அறிவி"
+  },
+  "announceUnfulfilledRedemptionsHelp": {
+    "aRewardThatDoesNot": "கோரிக்கை வரிசையைத் தவிர்க்காத ஒரு வெகுமதி, பின்னர் நீங்கள் அதை நிராகரித்தாலும், மீட்கப்பட்ட உடனே அறிவிக்கப்படும். நீங்கள் கோரிக்கையை ஏற்கும் வரை அறிவிப்பை நிறுத்தி வைக்க இதை முடக்கவும் — நீங்கள் ஏற்காத வெகுமதிகள் ஒருபோதும் அறிவிக்கப்படாது."
+  },
+  "anonymizeFollowers": {
+    "anonymizeNewFollowers": "புதிய பின்தொடர்பவர்களின் பெயரை மறைக்கவும்"
+  },
+  "bitsEnabled": {
+    "requireBitsForTts": "TTS-க்கு Bits தேவை"
+  },
+  "botRespondsInChat": {
+    "botRespondsInChat": "சாட்டில் பாட் பதிலளிக்கும்"
+  },
+  "botStatus": {
+    "loading": "ஏற்றுகிறது…"
+  },
+  "calibratedVoicesList": {
+    "noVoicesCalibratedYet": "குரல்கள் எதுவும் இன்னும் அளவீடு செய்யப்படவில்லை."
+  },
+  "calibrationSaveBtn": {
+    "save": "சேமி"
+  },
+  "calibrationVoiceSearch": {
+    "searchVoicesToCalibrate": "அளவீடு செய்ய வேண்டிய குரல்களைத் தேடவும்..."
+  },
+  "channelNameStatus": {
+    "yourChannel": "உங்கள் சேனல்"
+  },
+  "cheerEventsEnabled": {
+    "announceCheers": "Cheers-களை அறிவி"
+  },
+  "copyTtsUrlBtn": {
+    "copy": "நகலெடு",
+    "copyBrowserSourceUrl": "Browser Source URL-ஐ நகலெடு"
+  },
+  "cpDelete": {
+    "disableDelete": "முடக்கு & நீக்கு"
+  },
+  "cpEnabled": {
+    "enableChannelPointsTts": "Channel Points TTS-ஐச் செயல்படுத்து"
+  },
+  "cpPerStream": {
+    "enterAmount": "எண்ணிக்கையை உள்ளிடவும்"
+  },
+  "cpPerUser": {
+    "enterAmount": "எண்ணிக்கையை உள்ளிடவும்"
+  },
+  "cpSave": {
+    "save": "சேமி"
+  },
+  "cpTest": {
+    "testRedeem": "மீட்பைச் சோதி"
+  },
+  "dashboardContent": {
+    "channel": "சேனல்",
+    "channelService": "சேனல் சேவை",
+    "dashboardConfigurationTabs": "கட்டுப்பாட்டுப் பலக உள்ளமைவுத் தாவல்கள்",
+    "deactivationStopsTheBotFrom": "செயலிழக்கச் செய்வது, பாட் சாட் செய்திகளை வாசிப்பதை நிறுத்தும். உங்கள் அமைப்புகள் சேமிக்கப்பட்டே இருக்கும். நீங்கள் எப்போது வேண்டுமானாலும் மீண்டும் சேவையைச் செயல்படுத்தலாம்.",
+    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>ஆவணங்கள் </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>பார்வையாளர் அமைப்புகள் </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "உணர்ச்சி",
+    "engNormalization": "ஆங்கில சீராக்கம்",
+    "language": "மொழி",
+    "pitch": "சுருதி",
+    "quickLinks": "விரைவு இணைப்புகள்",
+    "service": "சேவை",
+    "signedInAs": "உள்நுழைந்துள்ள கணக்கு",
+    "speed": "வேகம்",
+    "testMessage": "சோதனைச் செய்தி",
+    "voicePreview": "குரல் முன்னோட்டம்",
+    "volume": "ஒலி அளவு"
+  },
+  "defaultEmotion": {
+    "angry": "கோபம்",
+    "disgusted": "அருவருப்பு",
+    "fearful": "பயம்",
+    "happy": "மகிழ்ச்சி",
+    "neutral": "நடுநிலை",
+    "sad": "சோகம்",
+    "surprised": "ஆச்சரியம்"
+  },
+  "defaultPitch": {
+    "defaultPitch12To12": "இயல்புநிலை சுருதி (-12 முதல் +12 வரை)"
+  },
+  "defaultSpeed": {
+    "defaultSpeed05To": "இயல்புநிலை வேகம் (0.5 முதல் 2.0 வரை)"
+  },
+  "defaultVoiceSearch": {
+    "searchDefaultVoices": "இயல்புநிலைக் குரல்களைத் தேடுங்கள்",
+    "searchVoices": "குரல்களைத் தேடுங்கள்..."
+  },
+  "defaultVolume": {
+    "voiceVolume01To": "குரல் ஒலி அளவு (0.1 முதல் 10 வரை)"
+  },
+  "emoteMode": {
+    "describeEmotes": "எமோட்டுகளை விவரி",
+    "readEmoteNames": "எமோட் பெயர்களைப் படிக்கவும்",
+    "skipEmotes": "எமோட்களைத் தவிர்க்கவும்"
+  },
+  "englishNormalization": {
+    "englishNormalization": "ஆங்கில இயல்பாக்கம்"
+  },
+  "eventsEnabled": {
+    "announceEvents": "நிகழ்வுகளை அறிவிக்கவும்"
+  },
+  "loadingBar": {
+    "loadingDashboardSettings": "டாஷ்போர்டு அமைப்புகள் ஏற்றப்படுகின்றன"
+  },
+  "loadingOverlay": {
+    "loadingDashboardSettings": "டாஷ்போர்டு அமைப்புகள் ஏற்றப்படுகின்றன…"
+  },
+  "lookupUsername": {
+    "enterTwitchViewerUsername": "Twitch பார்வையாளர் பயனர்பெயரை உள்ளிடவும்"
+  },
+  "lookupVoiceBtn": {
+    "lookupVoice": "குரலைத் தேடவும்"
+  },
+  "meta": {
+    "wildcatttsDashboard": "WildcatTTS Dashboard",
+    "wildcatttsStreamerDashboardConfigureText": "WildcatTTS Streamer Dashboard - உரையிலிருந்து பேச்சு அமைப்புகள், அனுமதிகள், பாட் பதில்கள் மற்றும் Channel Points ஆகியவற்றை உள்ளமைக்கவும்."
+  },
+  "msg": {
+    "auth": {
+      "demoStreamer": "டெமோ ஸ்ட்ரீமர்",
+      "needBroadcaster": "ஸ்ட்ரீமர் அமைப்புகளை அணுக உங்கள் ஒளிபரப்பாளர் கணக்கு மூலம் உள்நுழையவும்.",
+      "needSignIn": "டாஷ்போர்டை அணுக உங்கள் Twitch கணக்கு மூலம் உள்நுழையவும்."
+    },
+    "bannedWords": {
+      "addFailed": "தடைசெய்யப்பட்ட சொல்லைச் சேர்க்க முடியவில்லை.",
+      "added": "தடைசெய்யப்பட்ட சொற்களில் \"{word}\" சேர்க்கப்பட்டது.",
+      "addedTestMode": "[Test] தடைசெய்யப்பட்ட சொல் சேர்க்கப்பட்டது: {word}.",
+      "empty": "தடைசெய்யப்பட்ட சொற்கள் எதுவும் இதுவரை சேர்க்கப்படவில்லை.",
+      "removeFailed": "தடைசெய்யப்பட்ட சொல்லை நீக்க முடியவில்லை.",
+      "removed": "தடைசெய்யப்பட்ட சொற்களிலிருந்து \"{word}\" நீக்கப்பட்டது.",
+      "removedTestMode": "[Test] தடைசெய்யப்பட்ட சொல் நீக்கப்பட்டது: {word}."
+    },
+    "bot": {
+      "activateFailed": "TTS சேவையைச் செயல்படுத்த முடியவில்லை.",
+      "activated": "TTS சேவை செயல்படுத்தப்பட்டது.",
+      "activatedTestMode": "TTS சேவை செயல்படுத்தப்பட்டது (சோதனை முறை).",
+      "activating": "TTS சேவை செயல்படுத்தப்படுகிறது…",
+      "active": "செயலில் உள்ளது",
+      "deactivateFailed": "TTS சேவையை முடக்க முடியவில்லை.",
+      "deactivated": "TTS சேவை முடக்கப்பட்டது.",
+      "deactivatedTestMode": "TTS சேவை முடக்கப்பட்டது (சோதனை முறை).",
+      "deactivating": "TTS சேவை முடக்கப்படுகிறது…",
+      "inactive": "செயலில் இல்லை",
+      "notAuthenticated": "அங்கீகரிக்கப்படவில்லை",
+      "requestAccess": "அணுகலை இங்கே கோரவும்",
+      "statusError": "பிழை",
+      "statusFailed": "பிழை: {reason}",
+      "statusLoadFailed": "பாட் நிலையை ஏற்ற முடியவில்லை: {reason}",
+      "unknownError": "தெரியாத பிழை"
+    },
+    "calibration": {
+      "confirmReset": "{voice}-க்கான அளவுத்திருத்தத்தை மீட்டமைக்கவா?",
+      "edit": "திருத்து",
+      "empty": "இதுவரை எந்தக் குரலும் அளவுத்திருத்தம் செய்யப்படவில்லை.",
+      "reset": "மீட்டமை",
+      "row": "{voice} ({volume})"
+    },
+    "cp": {
+      "confirmDelete": "Channel Points TTS வெகுமதியை நீக்கவா?",
+      "deleteFailed": "நீக்குதல் தோல்வியடைந்தது.",
+      "deleted": "வெகுமதி நீக்கப்பட்டது.",
+      "deletedTestMode": "வெகுமதி நீக்கப்பட்டது (சோதனை முறை).",
+      "deleting": "நீக்குகிறது…",
+      "lastSynced": "{reward} · கடைசியாக ஒத்திசைக்கப்பட்டது: {time}",
+      "never": "எப்போதுமில்லை",
+      "noReward": "வெகுமதி எதுவும் உருவாக்கப்படவில்லை",
+      "noRewardTestMode": "வெகுமதி எதுவும் உருவாக்கப்படவில்லை (சோதனை முறை)",
+      "rewardId": "வெகுமதி ID: {id}",
+      "saveFailed": "Channel Points அமைப்புகளைச் சேமிக்க முடியவில்லை.",
+      "saved": "Channel Points அமைப்புகள் சேமிக்கப்பட்டன.",
+      "savedTestMode": "Channel Points அமைப்புகள் சேமிக்கப்பட்டன (சோதனை முறை).",
+      "saving": "Channel Points அமைப்புகளைச் சேமிக்கிறது…",
+      "testCompleted": "சோதனை முடிந்தது ({status}).",
+      "testCompletedTestMode": "சோதனை முடிந்தது (சோதனை முறை).",
+      "testFailed": "சோதனை தோல்வியடைந்தது.",
+      "testPrompt": "மீட்பைச் சோதிக்க ஒரு சோதனைச் செய்தியை உள்ளிடவும்:",
+      "testing": "மீட்பு சோதிக்கப்படுகிறது…"
+    },
+    "ignore": {
+      "addFailed": "புறக்கணிப்புப் பட்டியலில் பயனரைச் சேர்க்க முடியவில்லை.",
+      "addFailedReason": "பயனரைச் சேர்க்க முடியவில்லை: {reason}",
+      "badgeModerator": "உங்களால் முடக்கப்பட்டது",
+      "badgeSelf": "விலகியுள்ளார்",
+      "empty": "புறக்கணிக்கப்பட்ட பயனர்கள் எவருமில்லை.",
+      "noSuchAccount": "அப்படிப்பட்ட Twitch கணக்கு எதுவும் இல்லை",
+      "removeFailed": "புறக்கணிப்புப் பட்டியலில் இருந்து பயனரை நீக்க முடியவில்லை.",
+      "removeFailedReason": "{label} ஐ நீக்க முடியவில்லை: {reason}",
+      "removeLabel": "புறக்கணிப்புப் பட்டியலில் இருந்து {label} ஐ நீக்கு ({source, select, self {அவர்களே விலகியுள்ளனர்} other {உங்களால் முடக்கப்பட்டது}})"
+    },
+    "lookup": {
+      "button": "குரலைத் தேடு",
+      "calibrate": "\"{voice}\" குரலை அளவீடு செய்",
+      "error": "பிழை: {reason}",
+      "failed": "அந்தப் பயனரைக் கண்டறிய முடியவில்லை.",
+      "hasVoice": "{user} பயனர் அமைத்த தனிப்பயன் குரல்: {voice}",
+      "noVoice": "{user} பயனர் தனிப்பயன் குரல் எதையும் அமைக்கவில்லை.",
+      "searching": "தேடுகிறது…",
+      "voiceUnknown": "இந்தக் குரல் கிடைக்கக்கூடிய குரல்களின் பட்டியலில் இல்லை."
+    },
+    "obs": {
+      "cannotCopy": "URL ஐ நகலெடுக்க முடியவில்லை.",
+      "cannotDetermine": "TTS URL-ஐத் தீர்மானிக்க முடியவில்லை.",
+      "copied": "கிளிப்போர்டுக்கு நகலெடுக்கப்பட்டது.",
+      "copiedButton": "நகலெடுக்கப்பட்டது!",
+      "copyFailed": "நகலெடுப்பது தோல்வியடைந்தது.",
+      "generateFailed": "OBS URL-ஐ உருவாக்க முடியவில்லை. மீண்டும் முயற்சிக்கவும்.",
+      "generating": "உருவாக்குகிறது…",
+      "generatingUrl": "பாதுகாப்பான URL உருவாக்கப்படுகிறது…",
+      "loadingUrl": "தற்போதுள்ள URL ஏற்றப்படுகிறது…",
+      "pressRegenerate": "OBS Browser Source URL-ஐ உருவாக்க \"URL-ஐ மீண்டும் உருவாக்கு\" என்பதைக் கிளிக் செய்யவும்.",
+      "refreshPage": "URL-ஐ உருவாக்க முடியவில்லை. பக்கத்தைப் புதுப்பிக்கவும்.",
+      "testModeUrl": "சோதனை முறை URL",
+      "urlGenerated": "புதிய URL உருவாக்கப்பட்டது.",
+      "urlGeneratedTestMode": "புதிய URL உருவாக்கப்பட்டது (சோதனை முறை).",
+      "urlNotReady": "URL இன்னும் கிடைக்கவில்லை.",
+      "yourUrl": "உங்கள் OBS Browser Source URL"
+    },
+    "preview": {
+      "playingTestMode": "முன்னோட்டம் ஒலிக்கிறது… (சோதனை முறை)",
+      "tooLong": "உரை 500 அல்லது அதற்கும் குறைவான எழுத்துகளாக இருக்க வேண்டும்."
+    },
+    "pron": {
+      "acronymsDisabled": "சுருக்கப்பெயர்கள் முடக்கப்பட்டுள்ளன",
+      "acronymsOffHint": "இந்த அமைப்புகள் செயல்பட மேலே உள்ள \"சாட் சுருக்கப்பெயர்களை விரிவாக்கு\" என்பதை இயக்கவும்.",
+      "addFailed": "உச்சரிப்பைச் சேர்க்க முடியவில்லை.",
+      "added": "உச்சரிப்பு சேர்க்கப்பட்டது: {match} -> {say}.",
+      "addedTestMode": "[சோதனை] உச்சரிப்பு சேர்க்கப்பட்டது: {match} -> {say}.",
+      "builtinOff": " — உள்ளமைந்தது முடக்கப்பட்டது",
+      "empty": "தனிப்பயன் உச்சரிப்புகள் எதுவும் இதுவரை சேர்க்கப்படவில்லை.",
+      "expansion": " → {say}",
+      "needBoth": "சொல் மற்றும் உச்சரிப்பு இரண்டையும் உள்ளிடவும்.",
+      "removeFailed": "உச்சரிப்பை நீக்க முடியவில்லை.",
+      "removed": "உச்சரிப்பு நீக்கப்பட்டது: {match}.",
+      "removedTestMode": "[சோதனை] உச்சரிப்பு நீக்கப்பட்டது: {match}."
+    },
+    "setting": {
+      "allowViewerPreferences": "பார்வையாளர் குரல் விருப்பங்களை அனுமதி",
+      "announceQueuedRedeems": "வரிசையிலுள்ள Redeem-களை அறிவிக்கவும்",
+      "anonymizeFollowers": "ஃபாலோயர் பெயர்களை மறைக்கவும்",
+      "bitsForTts": "TTS-க்கான Bits",
+      "botRespondsInChat": "சாட்டில் பாட் பதிலளிக்கும்",
+      "cheerAnnouncements": "Cheer அறிவிப்புகள்",
+      "defaultEmotion": "இயல்புநிலை உணர்ச்சி",
+      "defaultLanguage": "இயல்புநிலை மொழி",
+      "defaultPitch": "இயல்புநிலை Pitch",
+      "defaultSpeed": "இயல்புநிலை வேகம்",
+      "defaultVoice": "இயல்புநிலைக் குரல்",
+      "emoteMode": "Emote பயன்முறை",
+      "englishNormalization": "ஆங்கில இயல்பாக்கம்",
+      "eventAnnouncements": "நிகழ்வு அறிவிப்புகள்",
+      "expandAcronyms": "சாட் சுருக்கப்பெயர்களை விரிவாக்கு",
+      "minimumBits": "குறைந்தபட்ச Bits",
+      "profanityFilter": "முறையற்ற சொல் வடிகட்டி",
+      "readFullUrls": "முழு URL-களையும் வாசி",
+      "redemptionAnnouncements": "Redemption அறிவிப்புகள்",
+      "ttsEngine": "TTS என்ஜின்",
+      "ttsMode": "TTS முறை",
+      "ttsPermission": "TTS அனுமதி",
+      "voiceVolume": "குரல் ஒலி அளவு",
+      "watchStreakAnnouncements": "Watch Streak அறிவிப்புகள்",
+      "youtubeHandle": "YouTube ஹேண்டில்",
+      "youtubeTts": "YouTube TTS"
+    },
+    "settings": {
+      "loadFailed": "உங்கள் அமைப்புகளை ஏற்ற முடியவில்லை.",
+      "saveFailed": "{label}: {reason}",
+      "youtubeHandleRequired": "YouTube TTS-ஐ இயக்குவதற்கு முன் ஒரு YouTube handle-ஐ உள்ளிடவும்."
+    }
+  },
+  "obsCloseBtn": {
+    "closeObsSetup": "OBS அமைவை மூடு"
+  },
+  "obsPopover": {
+    "addBrowserSource": "Browser Source-ஐச் சேர்",
+    "cautionANewUrlStops": "எச்சரிக்கை: OBS-இல் URL-ஐப் புதுப்பிக்கும் வரை புதிய URL உங்களின் தற்போதைய OBS சோர்ஸை நிறுத்தும்.",
+    "controlAudioViaObs": "OBS மூலம் ஆடியோவைக் கட்டுப்படுத்து",
+    "inObsAddANew": "OBS-இல், புதிய <strong>Browser Source</strong>-ஐச் சேர்க்கவும். சோர்ஸுக்கு \"Wildcat TTS\" என்று பெயரிட்டு, நகலெடுத்த URL-ஐ ஒட்டவும். இயல்புநிலை அகலம் மற்றும் உயரத்தை நீங்கள் அப்படியே வைத்திருக்கலாம்.",
+    "inTheObsAudioMixer": "OBS Audio Mixer-இல், \"Wildcat TTS\"-ஐக் கண்டறியவும். கியர் ஐகானைக் கிளிக் செய்து <strong>Advanced Audio Properties</strong>-ஐத் தேர்ந்தெடுக்கவும். Audio Monitoring-ஐ <strong>Monitor and Output</strong> என அமைக்கவும்.",
+    "monitorAndOutput": "Monitor and Output",
+    "obsBrowserSource": "OBS Browser Source",
+    "selectControlAudioViaObs": "<strong>Control audio via OBS</strong> என்பதைத் தேர்ந்தெடுக்கவும். <strong>Shutdown source when not visible</strong> தேர்ந்தெடுக்கப்படவில்லை என்பதை உறுதிப்படுத்தவும்.",
+    "setupInstructions": "அமைவு வழிமுறைகள்",
+    "yourBrowserSourceUrl": "உங்கள் Browser Source URL"
+  },
+  "obsToggleBtn": {
+    "obsSetup": "OBS அமைப்பு"
+  },
+  "page": {
+    "channelDashboard": "சேனல் டாஷ்போர்டு",
+    "textToSpeechSettingsFor": "உங்கள் சேனலுக்கான Text-to-speech அமைப்புகள். மாற்றங்கள் உடனுக்குடன் சேமிக்கப்படும்.",
+    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">டாஷ்போர்டு</span>"
+  },
+  "profanityFilterEnabled": {
+    "profanityFilter": "தகாத சொல் வடிகட்டி"
+  },
+  "pronunciationEnabled": {
+    "expandChatAcronyms": "சாட் சுருக்கப்பெயர்களை விரிவாக்கு"
+  },
+  "readFullUrls": {
+    "readFullUrls": "முழு URL-களையும் படி"
+  },
+  "redemptionEventsEnabled": {
+    "announceRewardRedeems": "ரிவார்டு ரீடீம்களை அறிவி"
+  },
+  "regenerateTtsUrlBtn": {
+    "regenerateBrowserSourceUrl": "Browser Source URL-ஐ மீண்டும் உருவாக்கு",
+    "regenerateUrl": "URL-ஐ மீண்டும் உருவாக்கு"
+  },
+  "removeBotBtn": {
+    "deactivateTtsService": "TTS சேவையை முடக்கு"
+  },
+  "resetPitchBtn": {
+    "reset": "மீட்டமை",
+    "resetDefaultPitchTo0": "இயல்புநிலை சுருதியை 0-க்கு மீட்டமை"
+  },
+  "resetSpeedBtn": {
+    "reset": "மீட்டமை",
+    "resetDefaultSpeedTo1": "இயல்புநிலை வேகத்தை 1.0 என மீட்டமைக்க"
+  },
+  "resetVolumeBtn": {
+    "reset": "மீட்டமை",
+    "resetVoiceVolumeTo1": "குரலின் ஒலியளவை 1.0 என மீட்டமைக்க"
+  },
+  "saveSettingsBtn": {
+    "saveAllSettings": "எல்லா அமைப்புகளையும் சேமி"
+  },
+  "serviceHeadline": {
+    "ttsService": "TTS சேவை"
+  },
+  "sidebarVoiceName": {
+    "friendlyPerson": "நட்பான நபர்"
+  },
+  "tabBroadcaster": {
+    "allowTheBotToRespond": "!myvoice போன்ற அரட்டைக் கட்டளைகளுக்கு பாட் பதிலளிக்க அனுமதிக்கவும்",
+    "allowViewerVoicePreferences": "பார்வையாளரின் குரல் விருப்பங்களை அனுமதி",
+    "allowViewersToUseChannel": "பார்வையாளர்கள் TTS-க்கு Channel Points-ஐப் பயன்படுத்த அனுமதிக்கவும்",
+    "announceCheers": "Cheers-களை அறிவிக்க",
+    "announceEvents": "நிகழ்வுகளை அறிவிக்க",
+    "announceEventsSuchAsSubscriptions": "Subscriptions மற்றும் raids போன்ற நிகழ்வுகளை அறிவிக்க",
+    "announceQueuedRedeemsImmediately": "வரிசையிலுள்ள redeems-ஐ உடனடியாக அறிவிக்க",
+    "announceRewardRedeems": "வெகுமதி redeems-ஐ அறிவிக்க",
+    "announceWatchStreaks": "Watch Streaks-ஐ அறிவிக்க",
+    "announceWhenAViewerCheers": "பார்வையாளர் bits cheers செய்யும்போது அறிவிக்கவும்",
+    "announceWhenAViewerReaches": "பார்வையாளர் தொடர் பார்வை மைல்கல்லை எட்டும்போது அறிவிக்கவும்",
+    "announceWhenAViewerRedeems": "பார்வையாளர் Channel Points வெகுமதியை redeem செய்யும்போது அறிவிக்கவும்",
+    "anonymizeNewFollowers": "புதிய பின்தொடர்பாளர்களை அநாமதேயமாக்கு",
+    "bannedWordsCommaSeparated": "தடைசெய்யப்பட்ட சொற்கள் (காற்புள்ளியால் பிரிக்கப்பட்டவை)",
+    "bannedWordsPhrases": "<strong>தடைசெய்யப்பட்ட சொற்கள் / சொற்றொடர்கள்</strong>",
+    "bitsTts": "Bits → TTS",
+    "blockLinks": "இணைப்புகளைத் தடு",
+    "botRespondsInChat": "பாட் அரட்டையில் பதிலளிக்கும்",
+    "channelPointsTts": "Channel Points → TTS",
+    "chooseWhichMessagesTriggerTts": "எந்தச் செய்திகள் TTS-ஐத் தூண்ட வேண்டும் என்பதைத் தேர்ந்தெடுக்கவும்",
+    "configureBitsRequirementsForText": "Text-to-speech-க்கான bits தேவைகளை உள்ளமைக்கவும்",
+    "configureChannelPointsRewardsFor": "Text-to-speech-க்கான Channel Points வெகுமதிகளை உள்ளமைக்கவும்",
+    "configureTtsEngineSettingsAnd": "TTS என்ஜின் அமைப்புகளையும் அனுமதிகளையும் உள்ளமைக்கவும்",
+    "controlHowTtsPronouncesSpecific": "குறிப்பிட்ட சொற்களை TTS எவ்வாறு உச்சரிக்கிறது என்பதைக் கட்டுப்படுத்துங்கள். பொதுவான Twitch சுருக்கப்பெயர்கள் இயல்பாகவே கையாளப்படுகின்றன. இயல்புநிலை உச்சரிப்பை மாற்றியமைக்க அல்லது புதிய சொல்லைச் சேர்க்க ஒரு உள்ளீட்டைச் சேர்க்கவும்.",
+    "controlsHowTtsHandlesEmotes": "அரட்டைச் செய்திகளில் உள்ள emotes-ஐ TTS எப்படிக் கையாள்கிறது என்பதைக் கட்டுப்படுத்துகிறது",
+    "cooldownsAndModeration": "காத்திருப்பு நேரங்கள் மற்றும் மட்டுப்படுத்தல்",
+    "costPoints": "செலவு (புள்ளிகள்)",
+    "emoteMode": "<strong>Emote பயன்முறை</strong>",
+    "enableChannelPointsTts": "Channel Points TTS-ஐ இயக்கு",
+    "enableCooldownsLimits": "காத்திருப்பு நேரங்கள் மற்றும் வரம்புகளை இயக்கு",
+    "engineMode": "என்ஜின் & முறைமை",
+    "expandChatAcronyms": "அரட்டை சுருக்கப்பெயர்களை விரிவாக்கு",
+    "globalCooldownSec": "பொது காத்திருப்பு நேரம் (வினாடிகள்)",
+    "hideFollowerNamesInTts": "தனியுரிமைக்காக TTS அறிவிப்புகளில் பின்தொடர்பவர்களின் பெயர்களை மறைக்கவும்",
+    "ifOnTtsReadsFull": "இயக்கப்பட்டால், TTS முழு URL-களையும் வாசிக்கும். முடக்கப்பட்டால், டொமைன் பெயர்களை மட்டுமே வாசிக்கும்",
+    "ifThisSettingIsOff": "இந்த அமைப்பு முடக்கப்பட்டிருந்தால், TTS அனைத்து செய்திகளுக்கும் சேனலின் இயல்புநிலை குரலையே பயன்படுத்தும்",
+    "ignoredUsers": "புறக்கணிக்கப்பட்ட பயனர்கள்",
+    "manageUsersThatTtsIgnores": "TTS புறக்கணிக்கும் பயனர்களை நிர்வகிக்கவும்",
+    "minimumBitsRequired": "<strong>தேவைப்படும் குறைந்தபட்ச Bits</strong>",
+    "minimumNumberOfBitsRequired": "TTS-ஐ இயக்கத் தேவைப்படும் குறைந்தபட்ச Bits எண்ணிக்கை",
+    "perStreamLimit": "ஒரு ஸ்ட்ரீமுக்கான வரம்பு",
+    "perUserPerStream": "ஒரு ஸ்ட்ரீமுக்கு ஒரு பயனர் வரம்பு",
+    "profanityFilter": "முறையற்ற சொல் வடிகட்டி",
+    "pronunciationDictionary": "<strong>உச்சரிப்பு அகராதி</strong>",
+    "readFullUrls": "முழு URL-களையும் வாசி",
+    "readYoutubeLiveChatMessages": "YouTube நேரலை அரட்டைச் செய்திகளை TTS மூலம் வாசிக்கவும். இந்த அம்சத்திற்கு செயலில் உள்ள YouTube நேரலை ஸ்ட்ரீம் தேவை.",
+    "readYoutubeLiveChatMessages2": "YouTube நேரலை அரட்டைச் செய்திகளை சத்தமாக வாசிக்கவும்",
+    "requireBitsForTts": "TTS-க்கு Bits தேவை",
+    "rewardTitle": "ரிவார்டு தலைப்பு",
+    "skipTheRewardQueue": "ரிவார்டு வரிசையைத் தவிர்",
+    "theTitleMustBeUnique": "தலைப்பு உங்கள் சேனலில் தனித்துவமானதாக இருக்க வேண்டும்.",
+    "ttsDoesNotReadMessages": "இந்தப் பட்டியலில் உள்ள பயனர்களின் செய்திகளை TTS வாசிக்காது.",
+    "ttsEngineEnabled": "TTS எஞ்சின் இயக்கப்பட்டது",
+    "ttsExpandsCommonTwitchAcronyms": "TTS பொதுவான Twitch சுருக்கச்சொற்களை முழு சொற்களாக விரிவுபடுத்தும். உதாரணமாக, “ngl” என்பது “not gonna lie” ஆக மாறும். ஒவ்வொரு எழுத்தாக உச்சரிக்க இதை முடக்கவும்.",
+    "ttsIgnoreList": "<strong>TTS புறக்கணிப்புப் பட்டியல்</strong>",
+    "ttsMode": "<strong>TTS முறை</strong>",
+    "ttsPermission": "<strong>TTS அனுமதி</strong>",
+    "ttsReplacesProfanityWithMilder": "TTS பேசுவதற்கு முன் முறையற்ற சொற்களை மென்மையான சொற்களாக மாற்றும். இந்த வடிகட்டி சேனல் மொழி மற்றும் பார்வையாளர் மொழியைப் பயன்படுத்துகிறது. மொழி Automatic என அமைக்கப்பட்டால், வடிகட்டி ஆங்கிலப் பட்டியலைப் பயன்படுத்தும். தடைசெய்யப்பட்ட சொற்கள் முழு செய்தியையும் தவிர்க்கச் செய்யும்.",
+    "ttsSkipsMessagesThatContain": "இந்தச் சொற்கள் அல்லது சொற்றொடர்களைக் கொண்ட செய்திகளை TTS தவிர்க்கும்.",
+    "turnOnOrTurnOff": "உரையிலிருந்து பேச்சு எஞ்சினை இயக்கவும் அல்லது முடக்கவும்",
+    "viewerPrompt": "பார்வையாளர் குறிப்பு",
+    "viewersMustCheerBitsTo": "உரையிலிருந்து பேச்சைப் பயன்படுத்த பார்வையாளர்கள் bits சியர் செய்ய வேண்டும்",
+    "whoCanUseTextTo": "உரையிலிருந்து பேச்சை யார் பயன்படுத்தலாம்",
+    "yourYoutubeChannelHandleFor": "உங்கள் YouTube சேனல் ஹேண்டில் (உதாரணமாக, <code>@yourhandle</code>)",
+    "youtubeHandle": "<strong>YouTube ஹேண்டில்</strong>",
+    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>YouTube ஒருங்கிணைப்பு",
+    "youtubeTtsEnabled": "YouTube TTS இயக்கப்பட்டது"
+  },
+  "tabBtnBroadcaster": {
+    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>ஒளிபரப்பாளர்"
+  },
+  "tabBtnViewerDefaults": {
+    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>குரல் இயல்புநிலைகள்"
+  },
+  "tabViewerDefaults": {
+    "adjustThePitchForThe": "இயல்புநிலைக் குரலுக்கான சுருதியைச் சரிசெய்யவும்",
+    "adjustTheVolumeForThe": "தேர்ந்தெடுக்கப்பட்ட குரலுக்கான ஒலியளவைச் சரிசெய்யவும். எச்சரிக்கை: 1.0-ஐ விட அதிகமான மதிப்புகள் சிதைவை ஏற்படுத்தக்கூடும்.",
+    "calibrateVolumeForSpecificVoices": "குறிப்பிட்ட குரல்களுக்கான ஒலியளவை அளவீடு செய்யவும். எச்சரிக்கை: 1.0-ஐ விட அதிகமான மதிப்புகள் சிதைவை ஏற்படுத்தக்கூடும்.",
+    "calibratedVoices": "<strong>அளவீடு செய்யப்பட்ட குரல்கள்</strong>",
+    "controlHowFastTheDefault": "இயல்புநிலைக் குரலின் பேசும் வேகத்தைக் கட்டுப்படுத்தவும்",
+    "defaultEmotion": "<strong>இயல்புநிலை உணர்ச்சி</strong>",
+    "defaultLanguage": "<strong>இயல்புநிலை மொழி</strong>",
+    "defaultPitch12To12": "இயல்புநிலை Pitch (-12 முதல் +12 வரை):",
+    "defaultSpeed05To": "இயல்புநிலை வேகம் (0.5 முதல் 2.0 வரை):",
+    "defaultVoice": "<strong>இயல்புநிலைக் குரல்</strong>",
+    "defaultVoiceSettings": "இயல்புநிலைக் குரல் அமைப்புகள்",
+    "englishNormalization": "ஆங்கில இயல்பாக்கம்",
+    "improvePronunciationForSpecificLanguages": "குறிப்பிட்ட மொழிகளுக்கான உச்சரிப்பை மேம்படுத்தவும்",
+    "improveThePronunciationOfNumbers": "எண்கள் மற்றும் உரையின் உச்சரிப்பை மேம்படுத்தவும்",
+    "selectTheDefaultTtsVoice": "சேனலுக்கான இயல்புநிலை TTS குரலைத் தேர்ந்தெடுக்கவும்",
+    "selectVoice": "குரலைத் தேர்ந்தெடுக்கவும்",
+    "setDefaultVoiceSettingsFor": "உங்கள் சேனலுக்கான இயல்புநிலைக் குரல் அமைப்புகளை அமைக்கவும்",
+    "setTheEmotionalToneOf": "இயல்புநிலைக் குரலின் உணர்ச்சித் தொனியை அமைக்கவும்",
+    "viewerVoiceLookup": "பார்வையாளர் குரல் தேடல்",
+    "voiceCalibration": "குரல் அளவுத்திருத்தம்",
+    "voiceVolume01To": "குரல் ஒலியளவு (0.1 முதல் 10 வரை):",
+    "voicesWithCustomVolumeSettings": "தனிப்பயன் ஒலி அமைப்புகளைக் கொண்ட குரல்கள்.",
+    "volumeOverride": "ஒலியளவு மேலெழுதீடு:"
+  },
+  "ttsBannedWordInput": {
+    "wordOrPhraseToBan": "தடைசெய்ய வேண்டிய சொல் அல்லது சொற்றொடர்"
+  },
+  "ttsEnabled": {
+    "ttsEngineEnabled": "TTS Engine இயக்கப்பட்டது"
+  },
+  "ttsIgnoreUsername": {
+    "usernameToIgnore": "புறக்கணிக்க வேண்டிய பயனர்பெயர்"
+  },
+  "ttsMode": {
+    "allMessages": "அனைத்து செய்திகளும்",
+    "bitsPointsOnly": "Bits/Points மட்டும்",
+    "ttsCommandOnly": "!tts கட்டளை மட்டும்"
+  },
+  "ttsPermission": {
+    "everyone": "அனைவரும்",
+    "moderatorsOnly": "Moderators மட்டும்",
+    "subscribersOnly": "Subscribers மட்டும்",
+    "vipsOnly": "VIPs மட்டும்"
+  },
+  "ttsPronunciationMatchInput": {
+    "wordForExampleWcat": "சொல் (எடுத்துக்காட்டாக, wcat)",
+    "wordToReplace": "மாற்ற வேண்டிய சொல்"
+  },
+  "ttsPronunciationSayInput": {
+    "howToSayItFor": "உச்சரிக்கும் முறை (எடுத்துக்காட்டாக, wildcat)",
+    "pronunciation": "உச்சரிப்பு"
+  },
+  "ttsUrlField": {
+    "yourBrowserSourceUrl": "உங்கள் Browser Source URL"
+  },
+  "twitchUsername": {
+    "loading": "ஏற்றுகிறது…"
+  },
+  "voiceTestBtn": {
+    "sendPreview": "மாதிரியை அனுப்பு"
+  },
+  "watchStreakEventsEnabled": {
+    "announceWatchStreaks": "Watch Streaks-ஐ அறிவிக்கவும்"
+  },
+  "youtubeEnabled": {
+    "youtubeTtsEnabled": "YouTube TTS இயக்கப்பட்டது"
+  },
+  "youtubeHandle": {
+    "yourhandle": "@yourhandle"
+  }
+}

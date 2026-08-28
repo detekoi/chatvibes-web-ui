@@ -1,0 +1,11 @@
+{
+  "mainContent": {
+    "pageNotFound": "Η σελίδα δεν βρέθηκε",
+    "returnToLogin": "Επιστροφή στη σύνδεση",
+    "thatUrlIsNotPart": "Αυτό το URL δεν ανήκει σε αυτόν τον ιστότοπο. Βεβαιώσου ότι η διεύθυνση είναι σωστή ή επίστρεψε στη σελίδα σύνδεσης."
+  },
+  "meta": {
+    "pageNotFoundOnWildcattts": "Η σελίδα δεν βρέθηκε στο WildcatTTS.",
+    "pageNotFoundWildcattts": "Η σελίδα δεν βρέθηκε — WildcatTTS"
+  }
+}

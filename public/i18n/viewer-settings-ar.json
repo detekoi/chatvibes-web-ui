@@ -1,0 +1,212 @@
+{
+  "addChannelContextCard": {
+    "loadAChannelToSee": "حمّل قناة لعرض إعداداتها الافتراضية وإدارة تفضيلات إلغاء القراءة. تظل تفضيلاتك عامة."
+  },
+  "channelContextCard": {
+    "changesHereUpdateYourGlobal": "تؤدي التغييرات هنا إلى تحديث تفضيلاتك <strong>العامة</strong>. لن تتغير إعدادات الستريمر.",
+    "channelContext": "سياق القناة",
+    "clearButtonsSetYourGlobal": "<strong>أزرار المسح:</strong> لضبط تفضيلك العام ليطابق الإعداد الافتراضي لهذه القناة."
+  },
+  "channelHint": {
+    "channelFound": "تم العثور على القناة"
+  },
+  "channelInputCancel": {
+    "cancel": "إلغاء"
+  },
+  "channelInputConfirm": {
+    "load": "تحميل"
+  },
+  "channelInputDesc": {
+    "enterTheChannelNameTo": "أدخل اسم القناة لعرض إعداداتها الافتراضية وإدارة تفضيلات إلغاء القراءة:"
+  },
+  "channelInputModal": {
+    "streamerUsername": "اسم مستخدم الستريمر"
+  },
+  "channelInputModalText": {
+    "streamerUsername": "اسم مستخدم الستريمر"
+  },
+  "channelInputTitle": {
+    "loadChannelContext": "تحميل سياق القناة"
+  },
+  "clearChannelContextBtn": {
+    "clear": "مسح"
+  },
+  "confirmNo": {
+    "cancel": "إلغاء"
+  },
+  "confirmText": {
+    "yourMessagesWillNotBe": "لن تُقرأ رسائلك بصوت عالٍ. يمكنك إعادة تفعيل هذا في أي وقت."
+  },
+  "confirmTitle": {
+    "confirmAction": "تأكيد الإجراء"
+  },
+  "confirmYes": {
+    "confirm": "تأكيد"
+  },
+  "dangerTtsToggle": {
+    "optOutOfTtsIn": "إلغاء تفعيل TTS في هذه القناة",
+    "ttsWillNotReadYour": "لن يقرأ TTS رسائلك في هذه القناة"
+  },
+  "dangerZoneSection": {
+    "dangerZone": "منطقة الخطر",
+    "theseSettingsStopTheBot": "تمنع هذه الإعدادات البوت من قراءة رسائلك في القناة. يمكنك التراجع عن أي إعداد تختاره. إذا قام مشرف بتعطيل القراءة لك، فلا يمكن التراجع عن ذلك إلا بواسطة مشرف."
+  },
+  "emotionReset": {
+    "clear": "مسح",
+    "resetEmotionToDefault": "إعادة تعيين المشاعر إلى الافتراضي"
+  },
+  "emotionSelect": {
+    "angry": "غاضب",
+    "disgusted": "مشمئز",
+    "fearful": "خائف",
+    "happy": "سعيد",
+    "neutral": "محايد",
+    "sad": "حزين",
+    "surprised": "متفاجئ",
+    "useChannelDefault": "استخدام الإعداد الافتراضي للقناة"
+  },
+  "englishNormalizationCheckbox": {
+    "englishNormalization": "تسوية النصوص الإنجليزية"
+  },
+  "englishNormalizationReset": {
+    "clear": "مسح",
+    "resetEnglishNormalizationToDefault": "إعادة تعيين تسوية النصوص الإنجليزية إلى الافتراضي"
+  },
+  "ignoreTts": {
+    "optOutOfTtsIn": "إلغاء تفعيل TTS في هذه القناة"
+  },
+  "languageReset": {
+    "clear": "مسح",
+    "resetLanguageToDefault": "إعادة تعيين اللغة إلى الافتراضي"
+  },
+  "loadingBar": {
+    "loadingYourPreferences": "جارٍ تحميل تفضيلاتك"
+  },
+  "loadingOverlay": {
+    "loadingYourPreferences": "جارٍ تحميل تفضيلاتك…"
+  },
+  "loggedInStatus": {
+    "channelContext": "سياق القناة",
+    "global": "عام",
+    "loggedInAs": "تم تسجيل الدخول باسم",
+    "scope": "النطاق"
+  },
+  "meta": {
+    "wildcatttsViewerSettings": "إعدادات المشاهد لـ WildcatTTS",
+    "wildcatttsViewerSettingsSetYour": "إعدادات المشاهد لـ WildcatTTS - اضبط صوت تحويل النص إلى كلام الشخصي وطبقة الصوت وسرعته عبر قنوات Twitch."
+  },
+  "msg": {
+    "auth": {
+      "exchangeFailed": "تعذر إكمال تسجيل الدخول. أعد المحاولة من الصفحة الرئيسية.",
+      "testUser": "مستخدم تجريبي"
+    },
+    "channel": {
+      "cleared": "تم مسح سياق القناة.",
+      "clearedTestMode": "تم مسح سياق القناة (وضع الاختبار).",
+      "enterName": "أدخل اسم القناة.",
+      "found": "تم العثور على القناة",
+      "foundTestMode": "تم العثور على القناة (وضع الاختبار)",
+      "hint": "حمّل قناة لعرض إعداداتها الافتراضية.",
+      "loaded": "تم تحميل سياق القناة.",
+      "loadedTestMode": "تم تحميل سياق القناة (وضع الاختبار).",
+      "noneLoaded": "لم يتم تحميل شيء",
+      "promptConfirm": "تحميل",
+      "promptDescription": "أدخل اسم القناة لعرض إعداداتها الافتراضية وإدارة الاستبعاد:",
+      "promptTitle": "تحميل سياق القناة",
+      "viewingDefaults": "أنت تعرض الإعدادات الافتراضية لـ {channel}."
+    },
+    "optout": {
+      "confirm": "هل تريد إلغاء الاشتراك في TTS في #{channel}؟ لن تُقرأ رسائلك بصوت عالٍ. يمكنك إعادة تفعيل هذا الخيار في أي وقت.",
+      "confirmDescription": "أدخل اسم القناة للمتابعة:",
+      "confirmTitle": "تأكيد القناة للاستبعاد من TTS",
+      "continue": "متابعة",
+      "moderatorNote": "قام مشرف القناة بإلغاء اشتراكك في TTS هنا. يمكن للمشرف فقط التراجع عن هذا الإجراء.",
+      "optInFailed": "تعذرت إعادة الاشتراك في TTS.",
+      "optOutFailed": "تعذر إلغاء تفعيل TTS.",
+      "optedIn": "أعدت تفعيل TTS.",
+      "optedInTestMode": "أعدت تفعيل TTS (وضع الاختبار).",
+      "optedOut": "ألغيت تفعيل TTS.",
+      "optedOutTestMode": "ألغيت تفعيل TTS (وضع الاختبار).",
+      "selectChannel": "اختر قناة أولاً.",
+      "selfNote": "لقد ألغيت تفعيل TTS هنا. يمكنك إعادة تفعيله في أي وقت.",
+      "specifyChannel": "حدد قناة."
+    },
+    "prefs": {
+      "hintChannel": "استخدام القيمة الافتراضية للقناة: {value}",
+      "hintSystem": "استخدام القيمة الافتراضية للنظام",
+      "hintUser": "استخدام تفضيلك العام: {value}",
+      "loadFailed": "تعذر تحميل التفضيلات.",
+      "noVoicesFound": "لم يتم العثور على أصوات",
+      "saveFailed": "تعذر حفظ {key}: {reason}",
+      "sendPreview": "إرسال معاينة",
+      "testCompletedTestMode": "اكتمل الاختبار (وضع الاختبار).",
+      "updated": "تم تحديث التفضيل.",
+      "updatedTestMode": "تم تحديث التفضيل (وضع الاختبار)."
+    }
+  },
+  "openChannelContextModalBtn": {
+    "loadChannel": "تحميل القناة…"
+  },
+  "page": {
+    "setHowYourMessagesSound": "حدد كيف تبدو رسائلك عندما يقرؤها Wildcat TTS. تفضيلاتك عامة وتُطبق على جميع القنوات.",
+    "viewerTtsPreferences": "تفضيلات TTS للمشاهد",
+    "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">إعدادات المشاهد</span>"
+  },
+  "pitchReset": {
+    "clear": "مسح",
+    "resetPitchToDefault": "إعادة ضبط طبقة الصوت للافتراضي"
+  },
+  "pitchSlider": {
+    "pitchAdjustment12To12": "تعديل طبقة الصوت (-12 إلى +12)"
+  },
+  "preferencesPanel": {
+    "adjustTheVoicePitchHigher": "تعديل طبقة الصوت لأعلى أو لأسفل",
+    "controlHowFastTheVoice": "التحكم في سرعة نطق الصوت",
+    "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>التوثيق </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>إعدادات البث </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "<strong>المشاعر</strong>",
+    "emotion2": "المشاعر",
+    "englishNormalization": "تسوية النصوص الإنجليزية",
+    "engNormalization": "تطبيع النصوص الإنجليزية",
+    "ifTtsReadsNumbersIncorrectly": "إذا كان TTS يقرأ الأرقام بشكل غير صحيح، فعِّل تسوية النصوص الإنجليزية. يؤدي هذا الإعداد إلى زيادة طفيفة في وقت الاستجابة.",
+    "improvePronunciationForSpecificLanguages": "تحسين النطق للغات معينة",
+    "improveThePronunciationOfNumbers": "تحسين نطق الأرقام والنصوص",
+    "language": "اللغة",
+    "languageBoost": "<strong>تعزيز اللغة</strong>",
+    "pitch": "طبقة الصوت",
+    "pitch12To12": "طبقة الصوت (-12 إلى +12):",
+    "quickLinks": "روابط سريعة",
+    "selectYourPreferredTtsVoice": "اختر صوت TTS المفضل لديك",
+    "setHowYourMessagesSound": "حدد كيف تبدو رسائلك عندما يقرؤها TTS",
+    "setTheEmotionalToneOf": "تحديد نبرة المشاعر للصوت",
+    "speed": "السرعة",
+    "speed05To2": "السرعة (0.5 إلى 2.0):",
+    "testMessage": "رسالة اختبار",
+    "voice": "<strong>الصوت</strong>",
+    "voicePreview": "معاينة الصوت",
+    "voiceSettings": "إعدادات الصوت"
+  },
+  "prefsDisabledNote": {
+    "theStreamerDisabledPersonalVoice": "عطّل صاحب البث إعدادات الصوت الشخصية لهذه القناة. ستستخدم هذه القناة صوتها الافتراضي بدلاً من تفضيلاتك."
+  },
+  "previewBtn": {
+    "sendPreview": "إرسال معاينة"
+  },
+  "speedReset": {
+    "clear": "مسح",
+    "resetSpeedToDefault": "إعادة ضبط السرعة إلى الوضع الافتراضي"
+  },
+  "speedSlider": {
+    "speedAdjustment05To": "ضبط السرعة (من 0.5 إلى 2.0)"
+  },
+  "statChannelContext": {
+    "noneLoaded": "لم يُحمَّل شيء"
+  },
+  "voiceReset": {
+    "clear": "مسح",
+    "resetVoiceToDefault": "إعادة ضبط الصوت إلى الوضع الافتراضي"
+  },
+  "voiceSearch": {
+    "searchVoices": "البحث عن الأصوات",
+    "searchVoices2": "البحث عن الأصوات..."
+  }
+}

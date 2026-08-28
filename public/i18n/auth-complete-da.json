@@ -1,0 +1,39 @@
+{
+  "authBar": {
+    "signInProgress": "Log ind-status"
+  },
+  "authMessage": {
+    "pleaseWait": "Vent venligst."
+  },
+  "authSteps": {
+    "loadingDashboard": "Indlæser kontrolpanel",
+    "sessionTokenStored": "Sessionstoken gemt",
+    "twitchAuthorized": "Twitch godkendt"
+  },
+  "authTitle": {
+    "signingYouIn": "Logger dig ind"
+  },
+  "meta": {
+    "completingWildcatttsTwitchSignIn": "Fuldfører WildcatTTS Twitch-login.",
+    "wildcatttsCompletingSignIn": "WildcatTTS - Fuldfører login"
+  },
+  "msg": {
+    "authComplete": {
+      "cannotComplete": "Kan ikke fuldføre login.",
+      "failedReadout": "Mislykkedes",
+      "failedTitle": "Login mislykkedes",
+      "missingInfo": "Godkendelsesoplysninger fra Twitch-callbacket mangler. Log ind igen.",
+      "noSession": "Ingen session",
+      "redirecting": "Omdirigerer til dit dashboard.",
+      "retrySignIn": "{reason} Log ind igen.",
+      "sessionEstablished": "Session oprettet",
+      "welcome": "Velkommen, {user}"
+    }
+  },
+  "sessionState": {
+    "establishingSession": "Opretter session"
+  },
+  "statusReadout": {
+    "working": "<span class=\"wc-dot\"></span>Arbejder"
+  }
+}

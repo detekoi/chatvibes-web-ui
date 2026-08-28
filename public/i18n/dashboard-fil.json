@@ -1,0 +1,500 @@
+{
+  "addBotBtn": {
+    "activateTtsService": "I-activate ang serbisyo ng TTS"
+  },
+  "addTtsBannedWordBtn": {
+    "add": "Idagdag"
+  },
+  "addTtsIgnoreBtn": {
+    "add": "Idagdag"
+  },
+  "addTtsPronunciationBtn": {
+    "add": "Idagdag"
+  },
+  "allowViewerPreferences": {
+    "allowViewerVoicePreferences": "Pahintulutan ang Mga Kagustuhan sa Boses ng Viewer"
+  },
+  "announceUnfulfilledRedemptions": {
+    "announceQueuedRedeemsImmediately": "Agad na I-anunsyo ang Naka-queue na Mga Redeem"
+  },
+  "announceUnfulfilledRedemptionsHelp": {
+    "aRewardThatDoesNot": "Ang reward na hindi lumalaktaw sa queue ng mga kahilingan ng reward ay iaanunsyo sa oras na ma-redeem ito, kahit tanggihan mo ang kahilingan sa ibang pagkakataon. I-off ito upang pigilan ang pag-anunsyo hanggang sa tanggapin mo ang kahilingan — ang mga reward na hindi mo kailanman tinanggap ay hindi iaanunsyo."
+  },
+  "anonymizeFollowers": {
+    "anonymizeNewFollowers": "Gawing Anonymous ang Bagong Mga Follower"
+  },
+  "bitsEnabled": {
+    "requireBitsForTts": "Kailanganin ang Bits para sa TTS"
+  },
+  "botRespondsInChat": {
+    "botRespondsInChat": "Sumasagot ang Bot sa Chat"
+  },
+  "botStatus": {
+    "loading": "Naglo-load…"
+  },
+  "calibratedVoicesList": {
+    "noVoicesCalibratedYet": "Wala pang na-calibrate na boses."
+  },
+  "calibrationSaveBtn": {
+    "save": "I-save"
+  },
+  "calibrationVoiceSearch": {
+    "searchVoicesToCalibrate": "Maghanap ng mga boses na ika-calibrate..."
+  },
+  "channelNameStatus": {
+    "yourChannel": "iyong channel"
+  },
+  "cheerEventsEnabled": {
+    "announceCheers": "I-anunsyo ang Mga Cheer"
+  },
+  "copyTtsUrlBtn": {
+    "copy": "Kopyahin",
+    "copyBrowserSourceUrl": "Kopyahin ang Browser Source URL"
+  },
+  "cpDelete": {
+    "disableDelete": "I-disable at I-delete"
+  },
+  "cpEnabled": {
+    "enableChannelPointsTts": "I-enable ang Channel Points TTS"
+  },
+  "cpPerStream": {
+    "enterAmount": "Ilagay ang halaga"
+  },
+  "cpPerUser": {
+    "enterAmount": "Ilagay ang halaga"
+  },
+  "cpSave": {
+    "save": "I-save"
+  },
+  "cpTest": {
+    "testRedeem": "Subukan ang redeem"
+  },
+  "dashboardContent": {
+    "channel": "Channel",
+    "channelService": "Serbisyo ng channel",
+    "dashboardConfigurationTabs": "Mga tab sa configuration ng dashboard",
+    "deactivationStopsTheBotFrom": "Hihinto ang bot sa pagbasa ng mga mensahe sa chat kapag na-deactivate. Mananatiling naka-save ang iyong mga setting. Maaari mong i-activate muli ang serbisyo anumang oras.",
+    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentasyon </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>Mga setting ng viewer </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "Emosyon",
+    "engNormalization": "Eng. normalization",
+    "language": "Wika",
+    "pitch": "Pitch",
+    "quickLinks": "Mga quick link",
+    "service": "Serbisyo",
+    "signedInAs": "Naka-sign in bilang",
+    "speed": "Bilis",
+    "testMessage": "Pansubok na mensahe",
+    "voicePreview": "Preview ng boses",
+    "volume": "Volume"
+  },
+  "defaultEmotion": {
+    "angry": "Galit",
+    "disgusted": "Nandidiri",
+    "fearful": "Takot",
+    "happy": "Masaya",
+    "neutral": "Neutral",
+    "sad": "Malungkot",
+    "surprised": "Nagulat"
+  },
+  "defaultPitch": {
+    "defaultPitch12To12": "Default na Pitch (-12 hanggang +12)"
+  },
+  "defaultSpeed": {
+    "defaultSpeed05To": "Default na Bilis (0.5 hanggang 2.0)"
+  },
+  "defaultVoiceSearch": {
+    "searchDefaultVoices": "Maghanap ng default na boses",
+    "searchVoices": "Maghanap ng boses..."
+  },
+  "defaultVolume": {
+    "voiceVolume01To": "Volume ng Boses (0.1 hanggang 10)"
+  },
+  "emoteMode": {
+    "describeEmotes": "Ilarawan ang mga emote",
+    "readEmoteNames": "Basahin ang mga pangalan ng emote",
+    "skipEmotes": "Laktawan ang mga emote"
+  },
+  "englishNormalization": {
+    "englishNormalization": "Normalisasyon ng English"
+  },
+  "eventsEnabled": {
+    "announceEvents": "I-anunsyo ang mga Kaganapan"
+  },
+  "loadingBar": {
+    "loadingDashboardSettings": "Nilo-load ang mga setting ng dashboard"
+  },
+  "loadingOverlay": {
+    "loadingDashboardSettings": "Nilo-load ang mga setting ng dashboard…"
+  },
+  "lookupUsername": {
+    "enterTwitchViewerUsername": "Ilagay ang username ng viewer sa Twitch"
+  },
+  "lookupVoiceBtn": {
+    "lookupVoice": "Hanapin ang Boses"
+  },
+  "meta": {
+    "wildcatttsDashboard": "WildcatTTS Dashboard",
+    "wildcatttsStreamerDashboardConfigureText": "WildcatTTS Streamer Dashboard - I-configure ang mga setting ng text-to-speech, mga pahintulot, mga tugon ng bot, at Channel Points."
+  },
+  "msg": {
+    "auth": {
+      "demoStreamer": "Demo Streamer",
+      "needBroadcaster": "Mag-sign in gamit ang iyong broadcaster account para ma-access ang mga setting ng streamer.",
+      "needSignIn": "Mag-sign in gamit ang iyong Twitch account para ma-access ang dashboard."
+    },
+    "bannedWords": {
+      "addFailed": "Hindi maidagdag ang bawal na salita.",
+      "added": "Idinagdag ang \"{word}\" sa mga bawal na salita.",
+      "addedTestMode": "[Test] Idinagdag ang bawal na salita: {word}.",
+      "empty": "Wala pang idinagdag na bawal na salita.",
+      "removeFailed": "Hindi maalis ang bawal na salita.",
+      "removed": "Inalis ang \"{word}\" mula sa mga bawal na salita.",
+      "removedTestMode": "[Test] Inalis ang bawal na salita: {word}."
+    },
+    "bot": {
+      "activateFailed": "Hindi ma-activate ang serbisyo ng TTS.",
+      "activated": "Na-activate ang serbisyo ng TTS.",
+      "activatedTestMode": "Na-activate ang serbisyo ng TTS (test mode).",
+      "activating": "Ina-activate ang serbisyo ng TTS…",
+      "active": "Aktibo",
+      "deactivateFailed": "Hindi ma-deactivate ang serbisyo ng TTS.",
+      "deactivated": "Na-deactivate ang serbisyo ng TTS.",
+      "deactivatedTestMode": "Na-deactivate ang serbisyo ng TTS (test mode).",
+      "deactivating": "Dini-deactivate ang serbisyo ng TTS…",
+      "inactive": "Hindi aktibo",
+      "notAuthenticated": "Hindi naka-authenticate",
+      "requestAccess": "Humiling ng access dito",
+      "statusError": "Error",
+      "statusFailed": "Error: {reason}",
+      "statusLoadFailed": "Hindi ma-load ang status ng bot: {reason}",
+      "unknownError": "Hindi malamang error"
+    },
+    "calibration": {
+      "confirmReset": "I-reset ang calibration para sa {voice}?",
+      "edit": "I-edit",
+      "empty": "Wala pang na-calibrate na boses.",
+      "reset": "I-reset",
+      "row": "{voice} ({volume})"
+    },
+    "cp": {
+      "confirmDelete": "I-delete ang Channel Points TTS reward?",
+      "deleteFailed": "Nabigo ang pag-delete.",
+      "deleted": "Na-delete ang reward.",
+      "deletedTestMode": "Na-delete ang reward (test mode).",
+      "deleting": "Dine-delete…",
+      "lastSynced": "{reward} · Huling na-sync: {time}",
+      "never": "kailanman",
+      "noReward": "Walang ginawang reward",
+      "noRewardTestMode": "Walang ginawang reward (test mode)",
+      "rewardId": "Reward ID: {id}",
+      "saveFailed": "Hindi mai-save ang mga setting ng Channel Points.",
+      "saved": "Na-save ang mga setting ng Channel Points.",
+      "savedTestMode": "Na-save ang mga setting ng Channel Points (test mode).",
+      "saving": "Sini-save ang mga setting ng Channel Points…",
+      "testCompleted": "Nakumpleto ang test ({status}).",
+      "testCompletedTestMode": "Nakumpleto ang test (test mode).",
+      "testFailed": "Nabigo ang test.",
+      "testPrompt": "Maglagay ng test message para mag-simulate ng redemption:",
+      "testing": "Sinusubukan ang redemption…"
+    },
+    "ignore": {
+      "addFailed": "Hindi maidagdag ang user sa ignore list.",
+      "addFailedReason": "Hindi maidagdag ang user: {reason}",
+      "badgeModerator": "Na-mute mo",
+      "badgeSelf": "Nag-opt out",
+      "empty": "Walang naka-ignore na user.",
+      "noSuchAccount": "Walang ganitong Twitch account",
+      "removeFailed": "Hindi maalis ang user mula sa ignore list.",
+      "removeFailedReason": "Hindi maalis ang {label}: {reason}",
+      "removeLabel": "Alisin ang {label} mula sa ignore list ({source, select, self {nag-opt out mismo} other {na-mute mo}})"
+    },
+    "lookup": {
+      "button": "Hanapin ang Voice",
+      "calibrate": "I-calibrate ang \"{voice}\"",
+      "error": "Error: {reason}",
+      "failed": "Hindi mahanap ang user na iyon.",
+      "hasVoice": "Nag-set ang user na si {user} ng custom voice: {voice}",
+      "noVoice": "Walang naka-set na custom voice ang user na si {user}.",
+      "searching": "Naghahanap…",
+      "voiceUnknown": "Wala ang voice na ito sa listahan ng mga available na voice."
+    },
+    "obs": {
+      "cannotCopy": "Hindi makopya ang URL.",
+      "cannotDetermine": "Hindi matukoy ang TTS URL.",
+      "copied": "Nakopya sa clipboard.",
+      "copiedButton": "Nakopya!",
+      "copyFailed": "Nabigo ang pagkopya.",
+      "generateFailed": "Hindi magawa ang OBS URL. Subukan muli.",
+      "generating": "Ginagawa…",
+      "generatingUrl": "Bumubuo ng secure na URL…",
+      "loadingUrl": "Naglo-load ng kasalukuyang URL…",
+      "pressRegenerate": "I-click ang \"Regenerate URL\" upang gumawa ng OBS Browser Source URL.",
+      "refreshPage": "Hindi magawa ang URL. I-refresh ang page.",
+      "testModeUrl": "URL ng Test Mode",
+      "urlGenerated": "Nakagawa ng bagong URL.",
+      "urlGeneratedTestMode": "Nakagawa ng bagong URL (test mode).",
+      "urlNotReady": "Hindi pa available ang URL.",
+      "yourUrl": "Ang Iyong OBS Browser Source URL"
+    },
+    "preview": {
+      "playingTestMode": "Pine-play ang preview… (test mode)",
+      "tooLong": "Dapat 500 character o mas kaunti lang ang text."
+    },
+    "pron": {
+      "acronymsDisabled": "Naka-disable ang mga acronym",
+      "acronymsOffHint": "I-on ang \"I-expand ang mga Chat Acronym\" sa itaas para magkabisa ang mga setting na ito.",
+      "addFailed": "Hindi maidagdag ang pagbigkas.",
+      "added": "Naidagdag ang pagbigkas: {match} -> {say}.",
+      "addedTestMode": "[Test] Naidagdag ang pagbigkas: {match} -> {say}.",
+      "builtinOff": " — naka-off ang built-in",
+      "empty": "Wala pang idinagdag na custom na pagbigkas.",
+      "expansion": " → {say}",
+      "needBoth": "Ilagay ang salita at ang pagbigkas nito.",
+      "removeFailed": "Hindi maalis ang pagbigkas.",
+      "removed": "Inalis ang pagbigkas: {match}.",
+      "removedTestMode": "[Test] Inalis ang pagbigkas: {match}."
+    },
+    "setting": {
+      "allowViewerPreferences": "Payagan ang Voice Preferences ng Manonood",
+      "announceQueuedRedeems": "I-anunsyo ang Nakapilang Redeems",
+      "anonymizeFollowers": "I-anonymize ang mga Follower",
+      "bitsForTts": "Bits para sa TTS",
+      "botRespondsInChat": "Sumasagot ang Bot sa Chat",
+      "cheerAnnouncements": "Mga Anunsyo ng Cheer",
+      "defaultEmotion": "Default na Emosyon",
+      "defaultLanguage": "Default na Wika",
+      "defaultPitch": "Default na Pitch",
+      "defaultSpeed": "Default na Bilis",
+      "defaultVoice": "Default na Boses",
+      "emoteMode": "Emote Mode",
+      "englishNormalization": "Normalisasyon ng Ingles",
+      "eventAnnouncements": "Mga Anunsyo ng Event",
+      "expandAcronyms": "I-expand ang mga Chat Acronym",
+      "minimumBits": "Minimum na Bits",
+      "profanityFilter": "Filter ng Pagmumura",
+      "readFullUrls": "Basahin ang Buong mga URL",
+      "redemptionAnnouncements": "Mga Anunsyo ng Redemption",
+      "ttsEngine": "TTS Engine",
+      "ttsMode": "TTS Mode",
+      "ttsPermission": "Pahintulot sa TTS",
+      "voiceVolume": "Volume ng Boses",
+      "watchStreakAnnouncements": "Mga Anunsyo ng Watch Streak",
+      "youtubeHandle": "YouTube Handle",
+      "youtubeTts": "YouTube TTS"
+    },
+    "settings": {
+      "loadFailed": "Hindi ma-load ang iyong mga setting.",
+      "saveFailed": "{label}: {reason}",
+      "youtubeHandleRequired": "Maglagay ng YouTube handle bago i-on ang YouTube TTS."
+    }
+  },
+  "obsCloseBtn": {
+    "closeObsSetup": "Isara ang OBS setup"
+  },
+  "obsPopover": {
+    "addBrowserSource": "Magdagdag ng Browser Source",
+    "cautionANewUrlStops": "BABALA: Hihinto ang kasalukuyan mong OBS source sa bagong URL hanggang sa ma-update mo ang URL sa OBS.",
+    "controlAudioViaObs": "Kontrolin ang Audio gamit ang OBS",
+    "inObsAddANew": "Sa OBS, magdagdag ng bagong <strong>Browser Source</strong>. Pangalanan ang source na \"Wildcat TTS\" at i-paste ang kinopyang URL. Maaari mong panatilihin ang default na width at height.",
+    "inTheObsAudioMixer": "Sa OBS Audio Mixer, hanapin ang \"Wildcat TTS\". I-click ang gear icon at piliin ang <strong>Advanced Audio Properties</strong>. Itakda ang Audio Monitoring sa <strong>Monitor and Output</strong>.",
+    "monitorAndOutput": "Monitor and Output",
+    "obsBrowserSource": "OBS Browser Source",
+    "selectControlAudioViaObs": "Piliin ang <strong>Control audio via OBS</strong>. Siguraduhing hindi napili ang <strong>Shutdown source when not visible</strong>.",
+    "setupInstructions": "Mga Tagubilin sa Setup",
+    "yourBrowserSourceUrl": "Ang Iyong Browser Source URL"
+  },
+  "obsToggleBtn": {
+    "obsSetup": "OBS Setup"
+  },
+  "page": {
+    "channelDashboard": "Dashboard ng channel",
+    "textToSpeechSettingsFor": "Mga setting ng text-to-speech para sa iyong channel. Awtomatikong mase-save ang mga pagbabago habang ginagawa mo ang mga ito.",
+    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Dashboard</span>"
+  },
+  "profanityFilterEnabled": {
+    "profanityFilter": "Profanity Filter"
+  },
+  "pronunciationEnabled": {
+    "expandChatAcronyms": "I-expand ang mga Chat Acronym"
+  },
+  "readFullUrls": {
+    "readFullUrls": "Basahin ang Buong mga URL"
+  },
+  "redemptionEventsEnabled": {
+    "announceRewardRedeems": "I-anunsyo ang Pag-redeem ng Reward"
+  },
+  "regenerateTtsUrlBtn": {
+    "regenerateBrowserSourceUrl": "I-regenerate ang Browser Source URL",
+    "regenerateUrl": "I-regenerate ang URL"
+  },
+  "removeBotBtn": {
+    "deactivateTtsService": "I-deactivate ang serbisyo ng TTS"
+  },
+  "resetPitchBtn": {
+    "reset": "I-reset",
+    "resetDefaultPitchTo0": "I-reset ang default pitch sa 0"
+  },
+  "resetSpeedBtn": {
+    "reset": "I-reset",
+    "resetDefaultSpeedTo1": "I-reset ang default na bilis sa 1.0"
+  },
+  "resetVolumeBtn": {
+    "reset": "I-reset",
+    "resetVoiceVolumeTo1": "I-reset ang lakas ng boses sa 1.0"
+  },
+  "saveSettingsBtn": {
+    "saveAllSettings": "I-save ang Lahat ng Setting"
+  },
+  "serviceHeadline": {
+    "ttsService": "Serbisyo ng TTS"
+  },
+  "sidebarVoiceName": {
+    "friendlyPerson": "Palakaibigang Tao"
+  },
+  "tabBroadcaster": {
+    "allowTheBotToRespond": "Payagan ang bot na sumagot sa mga chat command tulad ng !myvoice",
+    "allowViewerVoicePreferences": "Payagan ang Mga Kagustuhan sa Boses ng Manonood",
+    "allowViewersToUseChannel": "Payagan ang mga manonood na gumamit ng Channel Points para sa TTS",
+    "announceCheers": "I-anunsyo ang mga Cheer",
+    "announceEvents": "I-anunsyo ang mga Event",
+    "announceEventsSuchAsSubscriptions": "I-anunsyo ang mga event tulad ng mga subscription at raid",
+    "announceQueuedRedeemsImmediately": "Agad na I-anunsyo ang Nakapilang mga Redeem",
+    "announceRewardRedeems": "I-anunsyo ang mga Pag-redeem ng Reward",
+    "announceWatchStreaks": "I-anunsyo ang mga Watch Streak",
+    "announceWhenAViewerCheers": "I-anunsyo kapag nag-cheer ng bits ang isang manonood",
+    "announceWhenAViewerReaches": "I-anunsyo kapag naabot ng isang manonood ang milestone sa watch streak",
+    "announceWhenAViewerRedeems": "I-anunsyo kapag nag-redeem ang isang manonood ng reward sa Channel Points",
+    "anonymizeNewFollowers": "I-anonymize ang mga Bagong Follower",
+    "bannedWordsCommaSeparated": "Mga ipinagbabawal na salita (hiwalay gamit ang kuwit)",
+    "bannedWordsPhrases": "<strong>Mga Ipinagbabawal na Salita / Parirala</strong>",
+    "bitsTts": "Bits → TTS",
+    "blockLinks": "I-block ang mga link",
+    "botRespondsInChat": "Sumasagot ang Bot sa Chat",
+    "channelPointsTts": "Channel Points → TTS",
+    "chooseWhichMessagesTriggerTts": "Piliin kung aling mga mensahe ang magti-trigger ng TTS",
+    "configureBitsRequirementsForText": "I-configure ang mga kinakailangang bits para sa text-to-speech",
+    "configureChannelPointsRewardsFor": "I-configure ang mga reward sa Channel Points para sa text-to-speech",
+    "configureTtsEngineSettingsAnd": "I-configure ang mga setting at pahintulot ng TTS engine",
+    "controlHowTtsPronouncesSpecific": "Kontrolin kung paano binibigkas ng TTS ang mga partikular na salita. Karaniwang pinangangasiwaan na ang mga acronym sa Twitch bilang default. Magdagdag ng entry upang baguhin ang default na pagbigkas o magdagdag ng bagong salita.",
+    "controlsHowTtsHandlesEmotes": "Kinokontrol kung paano pinangangasiwaan ng TTS ang mga emote sa mga mensahe sa chat",
+    "cooldownsAndModeration": "Mga Cooldown at Moderasyon",
+    "costPoints": "Halaga (points)",
+    "emoteMode": "<strong>Mode ng Emote</strong>",
+    "enableChannelPointsTts": "I-enable ang Channel Points TTS",
+    "enableCooldownsLimits": "I-enable ang mga Cooldown at Limitasyon",
+    "engineMode": "Engine at Mode",
+    "expandChatAcronyms": "I-expand ang mga Acronym sa Chat",
+    "globalCooldownSec": "Global cooldown (seg)",
+    "hideFollowerNamesInTts": "Itago ang mga pangalan ng follower sa mga anunsyo ng TTS para sa privacy",
+    "ifOnTtsReadsFull": "Kung naka-on, binabasa ng TTS ang buong mga URL. Kung naka-off, domain name lang ang binabasa ng TTS",
+    "ifThisSettingIsOff": "Kung naka-off ang setting na ito, gagamitin ng TTS ang default na boses ng channel para sa lahat ng mensahe",
+    "ignoredUsers": "Mga Hindi Pinapansing User",
+    "manageUsersThatTtsIgnores": "Pamahalaan ang mga user na hindi pinapansin ng TTS",
+    "minimumBitsRequired": "<strong>Minimum na Kinakailangang Bits</strong>",
+    "minimumNumberOfBitsRequired": "Minimum na bilang ng bits na kailangan para ma-trigger ang TTS",
+    "perStreamLimit": "Limitasyon bawat stream",
+    "perUserPerStream": "Bawat user bawat stream",
+    "profanityFilter": "Filter ng Kabastusan",
+    "pronunciationDictionary": "<strong>Pronunciation Dictionary</strong>",
+    "readFullUrls": "Basahin ang Buong mga URL",
+    "readYoutubeLiveChatMessages": "Basahin ang mga live chat message sa YouTube gamit ang TTS. Nangangailangan ang feature na ito ng aktibong YouTube livestream.",
+    "readYoutubeLiveChatMessages2": "Basahin nang malakas ang mga live chat message sa YouTube",
+    "requireBitsForTts": "I-require ang Bits para sa TTS",
+    "rewardTitle": "Pamagat ng reward",
+    "skipTheRewardQueue": "Laktawan ang Reward Queue",
+    "theTitleMustBeUnique": "Dapat natatangi ang pamagat sa iyong channel.",
+    "ttsDoesNotReadMessages": "Hindi binabasa ng TTS ang mga mensahe mula sa mga user sa listahang ito.",
+    "ttsEngineEnabled": "Naka-enable ang TTS Engine",
+    "ttsExpandsCommonTwitchAcronyms": "Pinalalawak ng TTS ang mga karaniwang acronym sa Twitch bilang mga salita. Halimbawa, ang “ngl” ay nagiging “not gonna lie”. I-off para baybayin ang bawat titik.",
+    "ttsIgnoreList": "<strong>Ignore List ng TTS</strong>",
+    "ttsMode": "<strong>Mode ng TTS</strong>",
+    "ttsPermission": "<strong>Permiso sa TTS</strong>",
+    "ttsReplacesProfanityWithMilder": "Pinapalitan ng TTS ang kabastusan ng mas banayad na mga salita bago magsalita. Ginagamit ng filter ang wika ng channel at wika ng viewer. Kung nakatakda ang wika sa Automatic, gagamitin ng filter ang listahan sa English. Lalaktawan pa rin ng mga na-ban na salita ang buong mensahe.",
+    "ttsSkipsMessagesThatContain": "Nilalaktawan ng TTS ang mga mensaheng naglalaman ng mga salita o pariralang ito.",
+    "turnOnOrTurnOff": "I-on o i-off ang text-to-speech engine",
+    "viewerPrompt": "Prompt para sa viewer",
+    "viewersMustCheerBitsTo": "Dapat mag-cheer ng bits ang mga viewer para magamit ang text-to-speech",
+    "whoCanUseTextTo": "Sino ang puwedeng gumamit ng text-to-speech",
+    "yourYoutubeChannelHandleFor": "Ang handle ng iyong YouTube channel (halimbawa, <code>@yourhandle</code>)",
+    "youtubeHandle": "<strong>YouTube Handle</strong>",
+    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>YouTube Integration",
+    "youtubeTtsEnabled": "Naka-enable ang YouTube TTS"
+  },
+  "tabBtnBroadcaster": {
+    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Broadcaster"
+  },
+  "tabBtnViewerDefaults": {
+    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Voice Defaults"
+  },
+  "tabViewerDefaults": {
+    "adjustThePitchForThe": "I-adjust ang pitch para sa default na boses",
+    "adjustTheVolumeForThe": "I-adjust ang volume para sa napiling boses. BABALA: Ang mga value na higit sa 1.0 ay maaaring magdulot ng distortion.",
+    "calibrateVolumeForSpecificVoices": "I-calibrate ang volume para sa mga partikular na boses. BABALA: Ang mga value na higit sa 1.0 ay maaaring magdulot ng distortion.",
+    "calibratedVoices": "<strong>Mga Na-calibrate na Boses</strong>",
+    "controlHowFastTheDefault": "Kontrolin kung gaano kabilis magsalita ang default na boses",
+    "defaultEmotion": "<strong>Default na Emosyon</strong>",
+    "defaultLanguage": "<strong>Default na Wika</strong>",
+    "defaultPitch12To12": "Default na Pitch (-12 hanggang +12):",
+    "defaultSpeed05To": "Default na Bilis (0.5 hanggang 2.0):",
+    "defaultVoice": "<strong>Default na Boses</strong>",
+    "defaultVoiceSettings": "Mga Default na Setting ng Boses",
+    "englishNormalization": "English Normalization",
+    "improvePronunciationForSpecificLanguages": "Pahusayin ang pagbigkas para sa mga partikular na wika",
+    "improveThePronunciationOfNumbers": "Pahusayin ang pagbigkas ng mga numero at teksto",
+    "selectTheDefaultTtsVoice": "Piliin ang default na boses ng TTS para sa channel",
+    "selectVoice": "Pumili ng Boses",
+    "setDefaultVoiceSettingsFor": "Itakda ang mga default na setting ng boses para sa iyong channel",
+    "setTheEmotionalToneOf": "Itakda ang emosyonal na tono ng default na boses",
+    "viewerVoiceLookup": "Paghahanap ng Boses ng Manonood",
+    "voiceCalibration": "Voice Calibration",
+    "voiceVolume01To": "Volume ng Boses (0.1 hanggang 10):",
+    "voicesWithCustomVolumeSettings": "Mga boses na may custom na setting ng volume.",
+    "volumeOverride": "Override sa Volume:"
+  },
+  "ttsBannedWordInput": {
+    "wordOrPhraseToBan": "Salita o pariralang iba-ban"
+  },
+  "ttsEnabled": {
+    "ttsEngineEnabled": "Naka-enable ang TTS Engine"
+  },
+  "ttsIgnoreUsername": {
+    "usernameToIgnore": "Username na babalewalain"
+  },
+  "ttsMode": {
+    "allMessages": "Lahat ng Mensahe",
+    "bitsPointsOnly": "Bits/Points Lamang",
+    "ttsCommandOnly": "!tts Command Lamang"
+  },
+  "ttsPermission": {
+    "everyone": "Lahat",
+    "moderatorsOnly": "Mga Moderator Lamang",
+    "subscribersOnly": "Mga Subscriber Lamang",
+    "vipsOnly": "Mga VIP Lamang"
+  },
+  "ttsPronunciationMatchInput": {
+    "wordForExampleWcat": "Salita (halimbawa, wcat)",
+    "wordToReplace": "Salitang papalitan"
+  },
+  "ttsPronunciationSayInput": {
+    "howToSayItFor": "Paano ito bigkasin (halimbawa, wildcat)",
+    "pronunciation": "Pagbigkas"
+  },
+  "ttsUrlField": {
+    "yourBrowserSourceUrl": "Iyong Browser Source URL"
+  },
+  "twitchUsername": {
+    "loading": "naglo-load…"
+  },
+  "voiceTestBtn": {
+    "sendPreview": "Magpadala ng preview"
+  },
+  "watchStreakEventsEnabled": {
+    "announceWatchStreaks": "I-anunsyo ang mga Watch Streak"
+  },
+  "youtubeEnabled": {
+    "youtubeTtsEnabled": "Naka-enable ang YouTube TTS"
+  },
+  "youtubeHandle": {
+    "yourhandle": "@iyonghandle"
+  }
+}

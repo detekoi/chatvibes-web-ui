@@ -1,0 +1,41 @@
+{
+  "errorAction": {
+    "tryAgain": "再試一次"
+  },
+  "errorCode": {
+    "unknown": "未知"
+  },
+  "errorCodeBlock": {
+    "error": "錯誤"
+  },
+  "errorMessageDetails": {
+    "twitchAuthenticationFailed": "Twitch 驗證失敗。"
+  },
+  "errorReadout": {
+    "authenticationFailed": "驗證失敗"
+  },
+  "errorTitle": {
+    "authenticationFailed": "驗證失敗"
+  },
+  "mainContent": {
+    "requestAccessTtsWildcatChat": "<a class=\"wc-link\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">申請存取權限</a> <span>tts.wildcat.chat</span>"
+  },
+  "meta": {
+    "wildcatttsAuthenticationError": "WildcatTTS - 驗證錯誤",
+    "wildcatttsAuthenticationErrorAndSign": "WildcatTTS 驗證錯誤同登入復原。"
+  },
+  "msg": {
+    "authError": {
+      "backToSignIn": "返回登入",
+      "canceledBody": "冇任何變更。你準備好就可以登入。",
+      "canceledReadout": "已取消",
+      "canceledTitle": "WildcatTTS - 已取消登入",
+      "canceledTitleShort": "已取消登入",
+      "notPermitted": "冇存取權限",
+      "requestAccess": "申請權限",
+      "twitchError": "Twitch 喺驗證嗰陣回傳咗錯誤。",
+      "unspecified": "發生咗未指定嘅錯誤。",
+      "unspecifiedCode": "未指定"
+    }
+  }
+}

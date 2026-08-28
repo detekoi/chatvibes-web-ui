@@ -1,0 +1,39 @@
+{
+  "authBar": {
+    "signInProgress": "Πρόοδος σύνδεσης"
+  },
+  "authMessage": {
+    "pleaseWait": "Παρακαλώ περιμένετε."
+  },
+  "authSteps": {
+    "loadingDashboard": "Φόρτωση πίνακα ελέγχου",
+    "sessionTokenStored": "Το token συνεδρίας αποθηκεύτηκε",
+    "twitchAuthorized": "Το Twitch εξουσιοδοτήθηκε"
+  },
+  "authTitle": {
+    "signingYouIn": "Σας συνδέουμε"
+  },
+  "meta": {
+    "completingWildcatttsTwitchSignIn": "Ολοκλήρωση σύνδεσης Twitch στο WildcatTTS.",
+    "wildcatttsCompletingSignIn": "WildcatTTS - Ολοκλήρωση σύνδεσης"
+  },
+  "msg": {
+    "authComplete": {
+      "cannotComplete": "Δεν είναι δυνατή η ολοκλήρωση της σύνδεσης.",
+      "failedReadout": "Αποτυχία",
+      "failedTitle": "Αποτυχία σύνδεσης",
+      "missingInfo": "Λείπουν τα στοιχεία ταυτοποίησης από την απόκριση του Twitch. Συνδεθείτε ξανά.",
+      "noSession": "Δεν υπάρχει περίοδος σύνδεσης",
+      "redirecting": "Ανακατεύθυνση στον πίνακα ελέγχου σας.",
+      "retrySignIn": "{reason} Συνδεθείτε ξανά.",
+      "sessionEstablished": "Η περίοδος σύνδεσης δημιουργήθηκε",
+      "welcome": "Καλώς ορίσατε, {user}"
+    }
+  },
+  "sessionState": {
+    "establishingSession": "Δημιουργία συνεδρίας"
+  },
+  "statusReadout": {
+    "working": "<span class=\"wc-dot\"></span>Επεξεργασία"
+  }
+}

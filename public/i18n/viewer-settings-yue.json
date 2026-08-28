@@ -1,0 +1,212 @@
+{
+  "addChannelContextCard": {
+    "loadAChannelToSee": "載入頻道以查看其預設設定同管理 opt-out。你嘅個人偏好設定仍然係全域通用。"
+  },
+  "channelContextCard": {
+    "changesHereUpdateYourGlobal": "喺度更改會更新<strong>你嘅</strong>全域偏好設定。實況主嘅設定唔會改變。",
+    "channelContext": "頻道情境",
+    "clearButtonsSetYourGlobal": "<strong>清除掣：</strong>將你嘅全域偏好設定設為同呢個頻道嘅預設設定一樣。"
+  },
+  "channelHint": {
+    "channelFound": "搵到頻道"
+  },
+  "channelInputCancel": {
+    "cancel": "取消"
+  },
+  "channelInputConfirm": {
+    "load": "載入"
+  },
+  "channelInputDesc": {
+    "enterTheChannelNameTo": "輸入頻道名稱以查看其預設設定並管理 opt-out："
+  },
+  "channelInputModal": {
+    "streamerUsername": "實況主用戶名稱"
+  },
+  "channelInputModalText": {
+    "streamerUsername": "實況主用戶名稱"
+  },
+  "channelInputTitle": {
+    "loadChannelContext": "載入頻道情境"
+  },
+  "clearChannelContextBtn": {
+    "clear": "清除"
+  },
+  "confirmNo": {
+    "cancel": "取消"
+  },
+  "confirmText": {
+    "yourMessagesWillNotBe": "你嘅訊息將唔會被朗讀出嚟。你可以隨時重新開啟。"
+  },
+  "confirmTitle": {
+    "confirmAction": "確認操作"
+  },
+  "confirmYes": {
+    "confirm": "確認"
+  },
+  "dangerTtsToggle": {
+    "optOutOfTtsIn": "喺呢個頻道退出 TTS",
+    "ttsWillNotReadYour": "TTS 唔會喺呢個頻道朗讀你嘅訊息"
+  },
+  "dangerZoneSection": {
+    "dangerZone": "危險區域",
+    "theseSettingsStopTheBot": "呢啲設定會阻止機器人喺頻道入面朗讀你嘅訊息。你可以隨時復原你自己選擇嘅任何設定。如果係管理員幫你 opt out，就只有管理員先可以復原。"
+  },
+  "emotionReset": {
+    "clear": "清除",
+    "resetEmotionToDefault": "將情緒重設為預設值"
+  },
+  "emotionSelect": {
+    "angry": "憤怒",
+    "disgusted": "厭惡",
+    "fearful": "恐懼",
+    "happy": "開心",
+    "neutral": "中性",
+    "sad": "傷心",
+    "surprised": "驚訝",
+    "useChannelDefault": "使用頻道預設"
+  },
+  "englishNormalizationCheckbox": {
+    "englishNormalization": "英文正規化"
+  },
+  "englishNormalizationReset": {
+    "clear": "清除",
+    "resetEnglishNormalizationToDefault": "將英文正規化重設為預設值"
+  },
+  "ignoreTts": {
+    "optOutOfTtsIn": "喺呢個頻道退出 TTS"
+  },
+  "languageReset": {
+    "clear": "清除",
+    "resetLanguageToDefault": "將語言重設為預設值"
+  },
+  "loadingBar": {
+    "loadingYourPreferences": "載入緊你嘅偏好設定"
+  },
+  "loadingOverlay": {
+    "loadingYourPreferences": "載入緊你嘅偏好設定…"
+  },
+  "loggedInStatus": {
+    "channelContext": "頻道情境",
+    "global": "全域",
+    "loggedInAs": "已登入為",
+    "scope": "範圍"
+  },
+  "meta": {
+    "wildcatttsViewerSettings": "WildcatTTS 觀眾設定",
+    "wildcatttsViewerSettingsSetYour": "WildcatTTS 觀眾設定 - 設定你喺唔同 Twitch 頻道嘅個人 TTS 聲音、音調同速度。"
+  },
+  "msg": {
+    "auth": {
+      "exchangeFailed": "無法完成登入。請喺主頁再試過。",
+      "testUser": "測試使用者"
+    },
+    "channel": {
+      "cleared": "已清除頻道情境。",
+      "clearedTestMode": "已清除頻道情境（測試模式）。",
+      "enterName": "請輸入頻道名稱。",
+      "found": "搵到頻道",
+      "foundTestMode": "搵到頻道（測試模式）",
+      "hint": "載入頻道以查看其預設設定。",
+      "loaded": "已載入頻道情境。",
+      "loadedTestMode": "已載入頻道情境（測試模式）。",
+      "noneLoaded": "未載入",
+      "promptConfirm": "載入",
+      "promptDescription": "輸入頻道名稱嚟查看預設設定同管理 opt-out：",
+      "promptTitle": "載入頻道資料",
+      "viewingDefaults": "你而家睇緊 {channel} 嘅預設設定。"
+    },
+    "optout": {
+      "confirm": "你係咪想喺 #{channel} 停用 TTS？你嘅訊息將唔會被朗讀出嚟。你可以隨時重新開啟。",
+      "confirmDescription": "輸入頻道名稱以繼續：",
+      "confirmTitle": "確認 TTS opt-out 頻道",
+      "continue": "繼續",
+      "moderatorNote": "頻道管理員已喺呢度為你停用 TTS。只有管理員先可以復原呢個設定。",
+      "optInFailed": "無法重新啟用 TTS。",
+      "optOutFailed": "無法退出 TTS。",
+      "optedIn": "你已重新加入 TTS。",
+      "optedInTestMode": "你已重新加入 TTS（測試模式）。",
+      "optedOut": "你已退出 TTS。",
+      "optedOutTestMode": "你已退出 TTS（測試模式）。",
+      "selectChannel": "請先選擇頻道。",
+      "selfNote": "你喺呢度退出咗 TTS。你可以隨時重新開啟。",
+      "specifyChannel": "請指定頻道。"
+    },
+    "prefs": {
+      "hintChannel": "用緊頻道預設值：{value}",
+      "hintSystem": "用緊系統預設值",
+      "hintUser": "用緊你嘅全域偏好設定：{value}",
+      "loadFailed": "無法載入偏好設定。",
+      "noVoicesFound": "搵唔到語音",
+      "saveFailed": "無法儲存 {key}：{reason}",
+      "sendPreview": "傳送預覽",
+      "testCompletedTestMode": "測試完成（測試模式）。",
+      "updated": "偏好設定已更新。",
+      "updatedTestMode": "偏好設定已更新（測試模式）。"
+    }
+  },
+  "openChannelContextModalBtn": {
+    "loadChannel": "載入頻道…"
+  },
+  "page": {
+    "setHowYourMessagesSound": "設定 Wildcat TTS 朗讀你嘅訊息時嘅聲音效果。你嘅偏好設定係全域設定，適用於所有頻道。",
+    "viewerTtsPreferences": "觀眾 TTS 偏好設定",
+    "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">觀眾設定</span>"
+  },
+  "pitchReset": {
+    "clear": "清除",
+    "resetPitchToDefault": "重設音調為預設值"
+  },
+  "pitchSlider": {
+    "pitchAdjustment12To12": "音調調整（-12 至 +12）"
+  },
+  "preferencesPanel": {
+    "adjustTheVoicePitchHigher": "調高或調低語音音調",
+    "controlHowFastTheVoice": "控制語音說話速度",
+    "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>文件 </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>實況主設定 </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "<strong>情緒</strong>",
+    "emotion2": "情緒",
+    "englishNormalization": "英文文字標準化",
+    "engNormalization": "英文正規化",
+    "ifTtsReadsNumbersIncorrectly": "如果 TTS 讀錯數字，可以開啟英文文字標準化。呢個設定會稍微增加延遲。",
+    "improvePronunciationForSpecificLanguages": "改善特定語言嘅發音",
+    "improveThePronunciationOfNumbers": "改善數字同文字嘅發音",
+    "language": "語言",
+    "languageBoost": "<strong>語言增強</strong>",
+    "pitch": "音調",
+    "pitch12To12": "音高（-12 至 +12）：",
+    "quickLinks": "快速連結",
+    "selectYourPreferredTtsVoice": "選擇你偏好嘅 TTS 語音",
+    "setHowYourMessagesSound": "設定 TTS 朗讀你嘅訊息時嘅聲音效果",
+    "setTheEmotionalToneOf": "設定語音嘅情緒語調",
+    "speed": "速度",
+    "speed05To2": "語速（0.5 至 2.0）：",
+    "testMessage": "測試訊息",
+    "voice": "<strong>語音</strong>",
+    "voicePreview": "語音試聽",
+    "voiceSettings": "語音設定"
+  },
+  "prefsDisabledNote": {
+    "theStreamerDisabledPersonalVoice": "直播主已停用呢個頻道嘅個人語音設定。呢個頻道將會使用預設語音，而唔係你嘅偏好設定。"
+  },
+  "previewBtn": {
+    "sendPreview": "傳送試聽"
+  },
+  "speedReset": {
+    "clear": "清除",
+    "resetSpeedToDefault": "將速度重設為預設值"
+  },
+  "speedSlider": {
+    "speedAdjustment05To": "速度調整（0.5 至 2.0）"
+  },
+  "statChannelContext": {
+    "noneLoaded": "未載入"
+  },
+  "voiceReset": {
+    "clear": "清除",
+    "resetVoiceToDefault": "將語音重設為預設值"
+  },
+  "voiceSearch": {
+    "searchVoices": "搜尋語音",
+    "searchVoices2": "搜尋語音..."
+  }
+}

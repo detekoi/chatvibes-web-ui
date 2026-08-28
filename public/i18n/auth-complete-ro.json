@@ -1,0 +1,39 @@
+{
+  "authBar": {
+    "signInProgress": "Progres conectare"
+  },
+  "authMessage": {
+    "pleaseWait": "Te rugăm să aștepți."
+  },
+  "authSteps": {
+    "loadingDashboard": "Se încarcă panoul de control",
+    "sessionTokenStored": "Token de sesiune salvat",
+    "twitchAuthorized": "Twitch autorizat"
+  },
+  "authTitle": {
+    "signingYouIn": "Te conectăm"
+  },
+  "meta": {
+    "completingWildcatttsTwitchSignIn": "Se finalizează conectarea la Twitch pentru WildcatTTS.",
+    "wildcatttsCompletingSignIn": "WildcatTTS - Finalizare conectare"
+  },
+  "msg": {
+    "authComplete": {
+      "cannotComplete": "Nu se poate finaliza autentificarea.",
+      "failedReadout": "Eșuat",
+      "failedTitle": "Autentificare eșuată",
+      "missingInfo": "Lipsesc informațiile de autentificare din callback-ul Twitch. Autentifică-te din nou.",
+      "noSession": "Nicio sesiune",
+      "redirecting": "Redirecționare către panoul tău de control.",
+      "retrySignIn": "{reason} Autentifică-te din nou.",
+      "sessionEstablished": "Sesiune stabilită",
+      "welcome": "Bun venit, {user}"
+    }
+  },
+  "sessionState": {
+    "establishingSession": "Se stabilește sesiunea"
+  },
+  "statusReadout": {
+    "working": "<span class=\"wc-dot\"></span>Se procesează"
+  }
+}

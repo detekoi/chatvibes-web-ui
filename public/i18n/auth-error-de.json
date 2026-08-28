@@ -1,0 +1,41 @@
+{
+  "errorAction": {
+    "tryAgain": "Erneut versuchen"
+  },
+  "errorCode": {
+    "unknown": "unbekannt"
+  },
+  "errorCodeBlock": {
+    "error": "Fehler"
+  },
+  "errorMessageDetails": {
+    "twitchAuthenticationFailed": "Twitch-Authentifizierung fehlgeschlagen."
+  },
+  "errorReadout": {
+    "authenticationFailed": "Authentifizierung fehlgeschlagen"
+  },
+  "errorTitle": {
+    "authenticationFailed": "Authentifizierung fehlgeschlagen"
+  },
+  "mainContent": {
+    "requestAccessTtsWildcatChat": "<a class=\"wc-link\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">Zugang anfordern</a> <span>tts.wildcat.chat</span>"
+  },
+  "meta": {
+    "wildcatttsAuthenticationError": "WildcatTTS - Authentifizierungsfehler",
+    "wildcatttsAuthenticationErrorAndSign": "WildcatTTS-Authentifizierungsfehler und Anmeldungswiederherstellung."
+  },
+  "msg": {
+    "authError": {
+      "backToSignIn": "Zurück zur Anmeldung",
+      "canceledBody": "Keine Änderungen vorgenommen. Du kannst dich anmelden, sobald du bereit bist.",
+      "canceledReadout": "Abgebrochen",
+      "canceledTitle": "WildcatTTS - Anmeldung abgebrochen",
+      "canceledTitleShort": "Anmeldung abgebrochen",
+      "notPermitted": "Zugriff nicht gestattet",
+      "requestAccess": "Zugriff anfordern",
+      "twitchError": "Twitch hat bei der Authentifizierung einen Fehler gemeldet.",
+      "unspecified": "Ein unbekannter Fehler ist aufgetreten.",
+      "unspecifiedCode": "nicht spezifiziert"
+    }
+  }
+}

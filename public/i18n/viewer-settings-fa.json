@@ -1,0 +1,212 @@
+{
+  "addChannelContextCard": {
+    "loadAChannelToSee": "یک کانال را بارگیری کنید تا تنظیمات پیش‌فرض آن را ببینید و انصراف‌ها را مدیریت کنید. ترجیحات شما سراسری باقی می‌مانند."
+  },
+  "channelContextCard": {
+    "changesHereUpdateYourGlobal": "تغییرات در اینجا ترجیحات سراسری <strong>شما</strong> را به‌روزرسانی می‌کند. تنظیمات استریمر تغییر نمی‌کند.",
+    "channelContext": "زمینه کانال",
+    "clearButtonsSetYourGlobal": "<strong>دکمه‌های پاک کردن:</strong> ترجیح سراسری شما را مطابق با تنظیمات پیش‌فرض این کانال تنظیم می‌کند."
+  },
+  "channelHint": {
+    "channelFound": "کانال پیدا شد"
+  },
+  "channelInputCancel": {
+    "cancel": "لغو"
+  },
+  "channelInputConfirm": {
+    "load": "بارگیری"
+  },
+  "channelInputDesc": {
+    "enterTheChannelNameTo": "نام کانال را برای مشاهده تنظیمات پیش‌فرض آن و مدیریت انصراف‌ها وارد کنید:"
+  },
+  "channelInputModal": {
+    "streamerUsername": "نام کاربری استریمر"
+  },
+  "channelInputModalText": {
+    "streamerUsername": "نام کاربری استریمر"
+  },
+  "channelInputTitle": {
+    "loadChannelContext": "بارگیری زمینه کانال"
+  },
+  "clearChannelContextBtn": {
+    "clear": "پاک کردن"
+  },
+  "confirmNo": {
+    "cancel": "لغو"
+  },
+  "confirmText": {
+    "yourMessagesWillNotBe": "پیام‌های شما با صدای بلند خوانده نخواهند شد. می‌توانید هر زمان که خواستید دوباره این را فعال کنید."
+  },
+  "confirmTitle": {
+    "confirmAction": "تأیید اقدام"
+  },
+  "confirmYes": {
+    "confirm": "تأیید"
+  },
+  "dangerTtsToggle": {
+    "optOutOfTtsIn": "انصراف از TTS در این کانال",
+    "ttsWillNotReadYour": "TTS پیام‌های شما را در این کانال نمی‌خواند"
+  },
+  "dangerZoneSection": {
+    "dangerZone": "منطقه خطر",
+    "theseSettingsStopTheBot": "این تنظیمات مانع خواندن پیام‌های شما در کانال توسط ربات می‌شوند. هر تنظیمی را که خودتان انتخاب کرده‌اید می‌توانید بازگردانید. اگر مدیری خواندن پیام‌های شما را غیرفعال کرده باشد، فقط یک مدیر می‌تواند آن را لغو کند."
+  },
+  "emotionReset": {
+    "clear": "پاک کردن",
+    "resetEmotionToDefault": "بازنشانی احساس به پیش‌فرض"
+  },
+  "emotionSelect": {
+    "angry": "عصبانی",
+    "disgusted": "منزجر",
+    "fearful": "ترسیده",
+    "happy": "خوشحال",
+    "neutral": "خنثی",
+    "sad": "غمگین",
+    "surprised": "شگفت‌زده",
+    "useChannelDefault": "استفاده از پیش‌فرض کانال"
+  },
+  "englishNormalizationCheckbox": {
+    "englishNormalization": "عادی‌سازی انگلیسی"
+  },
+  "englishNormalizationReset": {
+    "clear": "پاک کردن",
+    "resetEnglishNormalizationToDefault": "بازنشانی عادی‌سازی انگلیسی به پیش‌فرض"
+  },
+  "ignoreTts": {
+    "optOutOfTtsIn": "انصراف از TTS در این کانال"
+  },
+  "languageReset": {
+    "clear": "پاک کردن",
+    "resetLanguageToDefault": "بازنشانی زبان به پیش‌فرض"
+  },
+  "loadingBar": {
+    "loadingYourPreferences": "در حال بارگیری ترجیحات شما"
+  },
+  "loadingOverlay": {
+    "loadingYourPreferences": "در حال بارگیری ترجیحات شما…"
+  },
+  "loggedInStatus": {
+    "channelContext": "زمینه کانال",
+    "global": "سراسری",
+    "loggedInAs": "ورود به عنوان",
+    "scope": "محدوده"
+  },
+  "meta": {
+    "wildcatttsViewerSettings": "تنظیمات بیننده WildcatTTS",
+    "wildcatttsViewerSettingsSetYour": "تنظیمات بیننده WildcatTTS - صدا، زیروبمی و سرعت تبدیل متن به گفتار شخصی خود را در کانال‌های Twitch تنظیم کنید."
+  },
+  "msg": {
+    "auth": {
+      "exchangeFailed": "امکان تکمیل ورود وجود ندارد. دوباره از صفحه اصلی تلاش کنید.",
+      "testUser": "کاربر آزمایشی"
+    },
+    "channel": {
+      "cleared": "زمینه کانال پاک شد.",
+      "clearedTestMode": "زمینه کانال پاک شد (حالت آزمایشی).",
+      "enterName": "نام کانال را وارد کنید.",
+      "found": "کانال پیدا شد",
+      "foundTestMode": "کانال پیدا شد (حالت آزمایشی)",
+      "hint": "یک کانال را بارگیری کنید تا تنظیمات پیش‌فرض آن را ببینید.",
+      "loaded": "زمینه کانال بارگیری شد.",
+      "loadedTestMode": "زمینه کانال بارگیری شد (حالت آزمایشی).",
+      "noneLoaded": "هیچ موردی بارگذاری نشد",
+      "promptConfirm": "بارگذاری",
+      "promptDescription": "برای مشاهده تنظیمات پیش‌فرض و مدیریت انصراف‌ها، نام کانال را وارد کنید:",
+      "promptTitle": "بارگذاری زمینه کانال",
+      "viewingDefaults": "در حال مشاهده تنظیمات پیش‌فرض {channel} هستید."
+    },
+    "optout": {
+      "confirm": "آیا می‌خواهید از TTS در #{channel} انصراف دهید؟ پیام‌های شما با صدای بلند خوانده نخواهند شد. می‌توانید هر زمان که بخواهید آن را دوباره فعال کنید.",
+      "confirmDescription": "برای ادامه، نام کانال را وارد کنید:",
+      "confirmTitle": "تأیید کانال برای انصراف از TTS",
+      "continue": "ادامه",
+      "moderatorNote": "یکی از مدیران کانال TTS شما را در اینجا غیرفعال کرده است. فقط یک مدیر می‌تواند این وضعیت را تغییر دهد.",
+      "optInFailed": "امکان فعال‌سازی مجدد TTS وجود ندارد.",
+      "optOutFailed": "امکان انصراف از TTS وجود ندارد.",
+      "optedIn": "مجدداً TTS را فعال کردید.",
+      "optedInTestMode": "مجدداً TTS را فعال کردید (حالت آزمایشی).",
+      "optedOut": "از TTS انصراف دادید.",
+      "optedOutTestMode": "از TTS انصراف دادید (حالت آزمایشی).",
+      "selectChannel": "ابتدا یک کانال را انتخاب کنید.",
+      "selfNote": "شما از TTS در اینجا انصراف داده‌اید. هرزمان که بخواهید می‌توانید دوباره آن را فعال کنید.",
+      "specifyChannel": "یک کانال مشخص کنید."
+    },
+    "prefs": {
+      "hintChannel": "استفاده از پیش‌فرض کانال: {value}",
+      "hintSystem": "استفاده از پیش‌فرض سیستم",
+      "hintUser": "استفاده از ترجیح سراسری شما: {value}",
+      "loadFailed": "بارگیری تنظیمات برگزیده امکان‌پذیر نیست.",
+      "noVoicesFound": "صدایی یافت نشد",
+      "saveFailed": "ذخیره {key} ممکن نیست: {reason}",
+      "sendPreview": "ارسال پیش‌نمایش",
+      "testCompletedTestMode": "آزمایش کامل شد (حالت آزمایشی).",
+      "updated": "تنظیم برگزیده به‌روزرسانی شد.",
+      "updatedTestMode": "تنظیم برگزیده به‌روزرسانی شد (حالت آزمایشی)."
+    }
+  },
+  "openChannelContextModalBtn": {
+    "loadChannel": "بارگیری کانال…"
+  },
+  "page": {
+    "setHowYourMessagesSound": "نحوه خوانده شدن پیام‌هایتان توسط Wildcat TTS را تنظیم کنید. ترجیحات شما سراسری است و در همه کانال‌ها اعمال می‌شود.",
+    "viewerTtsPreferences": "ترجیحات TTS بیننده",
+    "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">تنظیمات بیننده</span>"
+  },
+  "pitchReset": {
+    "clear": "پاک کردن",
+    "resetPitchToDefault": "بازنشانی زیروبمی به پیش‌فرض"
+  },
+  "pitchSlider": {
+    "pitchAdjustment12To12": "تنظیم زیروبمی (۱۲- تا ۱۲+)"
+  },
+  "preferencesPanel": {
+    "adjustTheVoicePitchHigher": "تنظیم زیروبمی صدا (زیرتر یا بم‌تر)",
+    "controlHowFastTheVoice": "کنترل سرعت خواندن صدا",
+    "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>مستندات </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>تنظیمات استریمر </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "<strong>احساس</strong>",
+    "emotion2": "احساس",
+    "englishNormalization": "نرمال‌سازی انگلیسی",
+    "engNormalization": "عادی‌سازی انگلیسی",
+    "ifTtsReadsNumbersIncorrectly": "اگر TTS اعداد را اشتباه می‌خواند، نرمال‌سازی متن انگلیسی را روشن کنید. این تنظیم تاخیر را کمی افزایش می‌دهد.",
+    "improvePronunciationForSpecificLanguages": "بهبود تلفظ برای زبان‌های خاص",
+    "improveThePronunciationOfNumbers": "بهبود تلفظ اعداد و متن",
+    "language": "زبان",
+    "languageBoost": "<strong>تقویت زبان</strong>",
+    "pitch": "زیروبمی",
+    "pitch12To12": "زیر و بمی (-12 تا +12):",
+    "quickLinks": "پیوندهای سریع",
+    "selectYourPreferredTtsVoice": "صدای TTS دلخواه خود را انتخاب کنید",
+    "setHowYourMessagesSound": "نحوه خوانده شدن پیام‌هایتان توسط TTS را تنظیم کنید",
+    "setTheEmotionalToneOf": "تنظیم لحن احساسی صدا",
+    "speed": "سرعت",
+    "speed05To2": "سرعت (0.5 تا 2.0):",
+    "testMessage": "پیام آزمایشی",
+    "voice": "<strong>صدا</strong>",
+    "voicePreview": "پیش‌نمایش صدا",
+    "voiceSettings": "تنظیمات صدا"
+  },
+  "prefsDisabledNote": {
+    "theStreamerDisabledPersonalVoice": "استریمر تنظیمات صدای شخصی را برای این کانال غیرفعال کرده است. این کانال به جای ترجیحات شما از صدای پیش‌فرض خود استفاده خواهد کرد."
+  },
+  "previewBtn": {
+    "sendPreview": "ارسال پیش‌نمایش"
+  },
+  "speedReset": {
+    "clear": "پاک کردن",
+    "resetSpeedToDefault": "بازنشانی سرعت به پیش‌فرض"
+  },
+  "speedSlider": {
+    "speedAdjustment05To": "تنظیم سرعت (0.5 تا 2.0)"
+  },
+  "statChannelContext": {
+    "noneLoaded": "موردی بارگیری نشده"
+  },
+  "voiceReset": {
+    "clear": "پاک کردن",
+    "resetVoiceToDefault": "بازنشانی صدا به پیش‌فرض"
+  },
+  "voiceSearch": {
+    "searchVoices": "جستجوی صداها",
+    "searchVoices2": "جستجوی صداها..."
+  }
+}

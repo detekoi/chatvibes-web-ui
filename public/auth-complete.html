@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Completing WildcatTTS Twitch sign in.">
-    <title>WildcatTTS - Completing sign in</title>
+    <meta data-i18n-content="meta.completingWildcatttsTwitchSignIn" name="description" content="Completing WildcatTTS Twitch sign in.">
+    <title data-i18n="meta.wildcatttsCompletingSignIn">WildcatTTS - Completing sign in</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -65,33 +65,33 @@
 </head>
 
 <body>
-    <a href="#main-content" class="wc-skip-link">Skip to main content</a>
+    <a data-i18n="page.skipToMainContent" href="#main-content" class="wc-skip-link">Skip to main content</a>
 
     <main id="main-content" class="wc-stage wc-stage--transient">
         <div class="wc-frame">
             <div class="wc-frame-head">
                 <span class="wc-lockup">Wildcat<b>TTS</b></span>
-                <span class="wc-readout wc-readout--accent" id="status-readout">
+                <span data-i18n="statusReadout.working" class="wc-readout wc-readout--accent" id="status-readout">
                     <span class="wc-dot"></span>Working
                 </span>
             </div>
 
             <div class="wc-frame-body">
-                <h1 class="wc-title wc-title--sm" id="auth-title">Signing you in</h1>
-                <p class="wc-lede" id="auth-message" role="status" aria-live="polite">Please wait.</p>
+                <h1 data-i18n="authTitle.signingYouIn" class="wc-title wc-title--sm" id="auth-title">Signing you in</h1>
+                <p data-i18n="authMessage.pleaseWait" class="wc-lede" id="auth-message" role="status" aria-live="polite">Please wait.</p>
 
                 <ol class="wc-steps" id="auth-steps">
-                    <li class="wc-step" data-step="authorized">Twitch authorized</li>
-                    <li class="wc-step" data-step="token">Session token stored</li>
-                    <li class="wc-step" data-step="redirect">Loading dashboard</li>
+                    <li data-i18n="authSteps.twitchAuthorized" class="wc-step" data-step="authorized">Twitch authorized</li>
+                    <li data-i18n="authSteps.sessionTokenStored" class="wc-step" data-step="token">Session token stored</li>
+                    <li data-i18n="authSteps.loadingDashboard" class="wc-step" data-step="redirect">Loading dashboard</li>
                 </ol>
 
                 <!-- Determinate: driven by the three real steps below, not a timer. -->
-                <div class="wc-bar" id="auth-bar" role="progressbar" aria-label="Sign-in progress"><span></span></div>
+                <div data-i18n-aria-label="authBar.signInProgress" class="wc-bar" id="auth-bar" role="progressbar" aria-label="Sign-in progress"><span></span></div>
             </div>
 
             <div class="wc-frame-foot">
-                <span id="session-state">Establishing session</span>
+                <span data-i18n="sessionState.establishingSession" id="session-state">Establishing session</span>
                 <span>tts.wildcat.chat</span>
             </div>
         </div>
@@ -100,130 +100,7 @@
     <!-- Theme Management -->
     <script src="js/theme.js"></script>
 
-    <script>
-        // This page does not inspect the JWT. Its only reason to was the
-        // token_user guard, which is gone; the equivalent decoder still lives
-        // in common/auth.ts for the pages that do need it.
-        document.addEventListener('DOMContentLoaded', () => {
-            const messageEl = document.getElementById('auth-message');
-            const titleEl = document.getElementById('auth-title');
-            const readoutEl = document.getElementById('status-readout');
-            const sessionStateEl = document.getElementById('session-state');
-            const barEl = document.getElementById('auth-bar');
-
-            // The three steps are real and discrete, so the bar reports actual
-            // completion here instead of looping. It only ever advances on a
-            // step that genuinely happened.
-            function markStep(name) {
-                const el = document.querySelector(`.wc-step[data-step="${name}"]`);
-                if (el) el.classList.add('is-done');
-
-                const steps = document.querySelectorAll('.wc-step');
-                const done = document.querySelectorAll('.wc-step.is-done').length;
-                const fill = barEl && barEl.querySelector('span');
-                if (!fill || !steps.length) return;
-
-                const pct = Math.round((done / steps.length) * 100);
-                barEl.setAttribute('data-progress', String(pct));
-                barEl.setAttribute('aria-valuemin', '0');
-                barEl.setAttribute('aria-valuemax', '100');
-                barEl.setAttribute('aria-valuenow', String(pct));
-                fill.style.width = pct + '%';
-            }
-
-            function fail(message) {
-                titleEl.textContent = 'Sign-in failed';
-                messageEl.textContent = message;
-                readoutEl.innerHTML = 'Failed';
-                readoutEl.classList.remove('wc-readout--accent');
-                readoutEl.classList.add('wc-readout--danger');
-                sessionStateEl.textContent = 'No session';
-                barEl.remove();
-            }
-
-            const queryParams = new URLSearchParams(window.location.search);
-
-            const userLogin = queryParams.get('user_login');
-            const userId = queryParams.get('user_id');
-            // Both handed over in memory by the head script, which already took
-            // them out of the URL; the query reads only cover that script not
-            // having run. `__sessionToken` is the old shape, still accepted for
-            // anyone mid-flow across the deploy.
-            const exchangeCode = window.__exchangeCode || queryParams.get('code');
-            const legacyToken = window.__sessionToken || queryParams.get('session_token');
-
-            // Nothing below needs them on the global object.
-            delete window.__exchangeCode;
-            delete window.__sessionToken;
-
-            /**
-             * Trades the one-time code for the session token.
-             */
-            async function redeemCode(code) {
-                // Relative on purpose: this page is served from the same host
-                // that rewrites /auth/** to the function, so the exchange is
-                // same-origin and needs no CORS.
-                const response = await fetch('/auth/exchange', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ code })
-                });
-
-                const data = await response.json().catch(() => ({}));
-                if (!response.ok || !data.success || !data.session_token) {
-                    throw new Error(data.error || 'Cannot complete sign-in.');
-                }
-                return data.session_token;
-            }
-
-            /**
-             * Stores the session and moves the user on to the dashboard.
-             */
-            function completeSignIn(sessionToken) {
-                localStorage.setItem('app_session_token', sessionToken);
-
-                // Anything left over from the retired token_user guard is inert
-                // now that nothing reads it, so clear it out of browsers that
-                // still carry it.
-                localStorage.removeItem('token_user');
-                localStorage.removeItem('token_channel');
-
-                markStep('token');
-                sessionStateEl.textContent = 'Session established';
-
-                titleEl.textContent = `Welcome, ${userLogin}`;
-                markStep('redirect');
-
-                messageEl.textContent = 'Redirecting to your dashboard.';
-                window.location.href = 'dashboard.html';
-            }
-
-            if (userLogin && userId && (exchangeCode || legacyToken)) {
-                markStep('authorized');
-
-                localStorage.setItem('twitch_user_login', userLogin);
-                localStorage.setItem('twitch_user_id', userId);
-
-                if (exchangeCode) {
-                    // A code is single-use, so a failure here cannot be retried
-                    // by reloading — send the user back to sign in again.
-                    redeemCode(exchangeCode)
-                        .then(completeSignIn)
-                        .catch((error) => {
-                            console.error('Exchange failed:', error);
-                            fail(`${error.message} Sign in again.`);
-                            setTimeout(() => { window.location.href = 'index.html'; }, 4000);
-                        });
-                } else {
-                    completeSignIn(legacyToken);
-                }
-            } else {
-                console.error("Missing authentication information:", { userLogin, userId, code: exchangeCode ? 'present' : 'missing' });
-                fail("Authentication information from the Twitch callback is missing. Sign in again.");
-                setTimeout(() => { window.location.href = 'index.html'; }, 5000);
-            }
-        });
-    </script>
+    <script type="module" src="js/auth-complete.js"></script>
 </body>
 
 </html>

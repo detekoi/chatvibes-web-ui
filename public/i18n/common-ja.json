@@ -1,0 +1,166 @@
+{
+  "darkModeToggle": {
+    "toggleDarkMode": "ダークモードの切り替え"
+  },
+  "err": {
+    "banned_add_failed": "禁止リストに単語を追加できません。",
+    "banned_remove_failed": "禁止リストから単語を削除できません。",
+    "bot_add_failed": "チャンネルでボットを有効化できません。もう一度お試しください。",
+    "bot_remove_failed": "チャンネルでボットを無効化できません。もう一度お試しください。",
+    "bot_status_failed": "ボットの状態を読み込めません。",
+    "channel_data_not_found": "そのチャンネルの設定が見つかりませんでした。",
+    "channel_not_authorized": "お使いのチャンネルにはこのボットの使用権限がありません。アクセスについては管理者にお問い合わせください。",
+    "channel_not_found": "そのチャンネルが見つかりませんでした。",
+    "channel_required": "チャンネルの指定が必要です。",
+    "channel_tts_disabled": "そのチャンネルが見つからないか、TTSが無効になっています。",
+    "entry_key_required": "エントリキーが必要です。",
+    "exchange_code_invalid": "サインインリンクが存在しないか、形式が正しくありません。",
+    "exchange_code_used": "サインインリンクは既に使用されているか、有効期限が切れています。もう一度サインインしてください。",
+    "exchange_failed": "サインインを完了できませんでした。もう一度お試しください。",
+    "ignore_add_failed": "無視リストにユーザーを追加できません。",
+    "ignore_moderator_imposed": "チャンネルのモデレーターによってTTS読み上げからオプトアウトされているため、解除できるのはモデレーターのみです。",
+    "ignore_remove_failed": "無視リストからユーザーを削除できません。",
+    "ignore_update_failed": "オプトアウト設定を変更できません。",
+    "key_required": "設定名が必要です。",
+    "match_key_invalid": "単語は英数字、アポストロフィ、ハイフンを使用した1〜{max}文字である必要があり、ドットを含めることはできません。",
+    "network_error": "サーバーに接続できません。通信環境を確認してください。",
+    "obs_token_fetch_failed": "OBSトークンを読み込めません。",
+    "obs_token_generate_failed": "新しいOBSトークンを生成できません。",
+    "obs_token_store_failed": "OBSトークンを保存できません。もう一度お試しください。",
+    "prefs_fetch_failed": "設定を読み込めません。",
+    "prefs_global_fetch_failed": "グローバル設定を読み込めません。",
+    "prefs_global_update_failed": "グローバル設定を保存できません。",
+    "prefs_invalid_emote_mode": "エモートの処理方法は「読み上げ」「スキップ」「説明」のいずれかである必要があります。",
+    "prefs_invalid_emotion": "無効な感情です。",
+    "prefs_invalid_language": "無効な言語です。",
+    "prefs_invalid_pitch": "無効なピッチです。",
+    "prefs_invalid_speed": "無効な速度です。",
+    "prefs_invalid_voice": "無効なボイスです。",
+    "prefs_missing_data": "変更内容が送信されませんでした。",
+    "prefs_update_failed": "設定を保存できません。",
+    "pronunciation_limit_reached": "カスタム読みの登録上限（{max}件）に達しました。先に既存のものを削除してください。",
+    "pronunciation_remove_failed": "読みを削除できません。",
+    "pronunciation_save_failed": "読みを保存できません。",
+    "reward_banned_word": "メッセージに禁止ワードが含まれています: \"{word}\"",
+    "reward_create_failed": "チャンネルポイントのリワードを作成できません。",
+    "reward_delete_failed": "チャンネルポイントのリワードを削除できません。",
+    "reward_links_blocked": "このリワードではリンクの使用が許可されていません。",
+    "reward_load_failed": "チャンネルポイントのリワードを読み込めません。",
+    "reward_message_empty": "メッセージが空です。",
+    "reward_save_failed": "チャンネルポイントのリワードを保存できません。",
+    "reward_test_failed": "チャンネルポイントのリワードをテストできません。",
+    "reward_twitch_error": "Twitchによってリワードの変更が拒否されました。",
+    "reward_validation_failed": "そのメッセージは許可されていません。",
+    "say_contains_link": "読みにリンクを含めることはできません。",
+    "say_empty": "読みを入力してください。",
+    "say_must_be_text": "読みはテキストである必要があります。",
+    "say_too_long": "読みは{max}文字以下である必要があります。",
+    "server_misconfigured": "サーバーの設定に誤りがあります。",
+    "setting_invalid": "{key} の有効な値ではありません。",
+    "setting_update_failed": "TTS設定を更新できません。",
+    "settings_fetch_failed": "TTS設定を読み込めません。",
+    "shortlink_failed": "短縮リンクを作成できません。",
+    "storage_unavailable": "ストレージを利用できません。",
+    "tts_generation_failed": "音声の生成に失敗しました: {reason}",
+    "tts_no_audio": "音声プロバイダーからオーディオが返されませんでした。",
+    "tts_not_configured": "音声プロバイダーが設定されていません。",
+    "tts_provider_failed": "音声プロバイダーがオーディオを生成できませんでした。",
+    "tts_test_failed": "音声テストに失敗しました。",
+    "tts_text_required": "テスト用のテキストを入力してください。",
+    "twitch_reauth_required": "Twitchのログイン有効期限が切れました。アカウントを再連携してください。",
+    "twitch_user_not_found": "「{username}」という名前のTwitchアカウントは存在しません。",
+    "url_required": "URLが必要です。",
+    "username_invalid": "無効なユーザー名です。",
+    "username_required": "ユーザー名が必要です。",
+    "voice_access_denied": "ボイス「{voice}」には特別な権限が必要です。別のボイスをお試しください。",
+    "voice_invalid": "ボイス「{voice}」は利用できません。ボイスを確認してやり直してください。",
+    "voice_lookup_failed": "該当ユーザーのボイスを取得できません。",
+    "word_invalid": "無効な単語またはフレーズです。",
+    "word_required": "単語またはフレーズが必要です。"
+  },
+  "logoutLink": {
+    "logout": "ログアウト"
+  },
+  "mainContent": {
+    "documentationTtsWildcatChat": "<a class=\"wc-link\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\">ドキュメント</a> <span>tts.wildcat.chat</span>"
+  },
+  "msg": {
+    "action": {
+      "close": "閉じる",
+      "remove": "削除",
+      "saved": "保存しました"
+    },
+    "api": {
+      "authFailed": "認証に失敗しました。再度ログインしてください。",
+      "notAuthenticated": "ログインしていません。",
+      "requestFailed": "リクエストに失敗しました。"
+    },
+    "auth": {
+      "genericUser": "ユーザー",
+      "loading": "読み込み中…",
+      "needViewerSignIn": "視聴者設定を利用するにはTwitchアカウントを認証してください。",
+      "redirecting": "認証のためTwitchへリダイレクト中…",
+      "required": "認証が必要です。",
+      "signInFailed": "ログインを完了できません。",
+      "signInWithTwitch": "Twitchでサインイン",
+      "signedOut": "サインインしていません。",
+      "tokenMissing": "認証トークンが見つかりません。再度サインインしてください。"
+    },
+    "emotion": {
+      "angry": "怒り",
+      "auto": "自動",
+      "calm": "穏やか",
+      "disgusted": "嫌悪",
+      "fearful": "恐怖",
+      "fluent": "流暢",
+      "happy": "喜び",
+      "neutral": "ニュートラル",
+      "sad": "悲しみ",
+      "surprised": "驚き"
+    },
+    "ignore": {
+      "enterUsername": "ユーザー名を入力してください。"
+    },
+    "lang": {
+      "automatic": "自動"
+    },
+    "prefs": {
+      "useChannelDefault": "チャンネルのデフォルトを使用"
+    },
+    "preview": {
+      "enterText": "テスト用のテキストを入力してください。",
+      "unavailable": "プレビューを利用できません。"
+    },
+    "value": {
+      "off": "オフ",
+      "on": "オン"
+    },
+    "voice": {
+      "cannotPlay": "サンプル音声を再生できません。",
+      "generating": "生成中…",
+      "noAudio": "サーバーからオーディオが返されませんでした。",
+      "noneFound": "ボイスが見つかりません。",
+      "preview": "{voice}をプレビュー",
+      "regenerate": "再生成",
+      "testFailed": "テストに失敗しました: {reason}"
+    }
+  },
+  "page": {
+    "skipToMainContent": "メインコンテンツへスキップ"
+  },
+  "sidebarEngNormVal": {
+    "off": "オフ"
+  },
+  "sidebarLanguageVal": {
+    "automatic": "自動"
+  },
+  "ui": {
+    "language": "言語"
+  },
+  "voicePreviewHint": {
+    "settingsChangedGenerateANew": "<i><i data-lucide=\"triangle-alert\" class=\"inline-icon\"></i> 設定が変更されました。プレビューを再生成してください。</i>"
+  },
+  "voicePreviewPlayer": {
+    "yourBrowserDoesNotSupport": "お使いのブラウザはaudio要素に対応していません。"
+  }
+}

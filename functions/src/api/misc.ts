@@ -14,6 +14,7 @@ import { logger, redactSensitive } from "../logger";
 import { RELEASED_VOICES } from "../services/voice-list";
 import { getUserIdFromUsername } from "../services/twitch";
 import { loadGlobalUserPreferences } from "../services/preferences";
+import { apiError } from "./utils";
 
 // Separate routers for API endpoints and public redirects
 const apiRouter: Router = express.Router();
@@ -71,7 +72,7 @@ apiRouter.post("/shortlink", authenticateApiRequest, async (req: Request, res: R
     const { url } = req.body;
 
     if (!url) {
-      res.status(400).json({ error: "URL is required" });
+      apiError(res, 400, "url_required", "URL is required");
       return;
     }
 
@@ -88,10 +89,7 @@ apiRouter.post("/shortlink", authenticateApiRequest, async (req: Request, res: R
   } catch (error) {
     const err = error as Error;
     log.error({ error: err.message }, "Error creating shortlink");
-    res.status(500).json({
-      success: false,
-      error: err.message,
-    });
+    apiError(res, 500, "shortlink_failed", err.message);
   }
 });
 
@@ -160,7 +158,7 @@ apiRouter.get("/tts/user-voice/:username", authenticateApiRequest, async (req: R
 
   if (!username) {
     log.warn({ params: req.params }, "Username is required but missing from params");
-    res.status(400).json({ error: "Username is required", message: "Username is required", debug_params: req.params });
+    apiError(res, 400, "username_required", "Username is required", undefined, { message: "Username is required", debug_params: req.params });
     return;
   }
 
@@ -199,11 +197,7 @@ apiRouter.get("/tts/user-voice/:username", authenticateApiRequest, async (req: R
   } catch (error) {
     const err = error as Error;
     log.error({ error: err.message }, "Error looking up user voice");
-    res.status(500).json({
-      success: false,
-      error: "Failed to lookup user voice",
-      message: err.message
-    });
+    apiError(res, 500, "voice_lookup_failed", "Failed to lookup user voice", undefined, { message: err.message });
   }
 });
 
@@ -217,10 +211,7 @@ apiRouter.post("/tts/test", ttsTestLimiter, authenticateApiRequest, async (req: 
 
   try {
     if (!text) {
-      res.status(400).json({
-        success: false,
-        error: "Text is required for TTS test",
-      });
+      apiError(res, 400, "tts_text_required", "Text is required for TTS test");
       return;
     }
 
@@ -356,7 +347,7 @@ apiRouter.post("/tts/test", ttsTestLimiter, authenticateApiRequest, async (req: 
         } else {
           log.error({ result }, "302.ai returned unexpected response");
           // Fall through to Wavespeed? Or just error? Let's error for now as fallthrough might be confusing
-          res.status(502).json({ success: false, error: "302.ai generated no audio URL" });
+          apiError(res, 502, "tts_no_audio", "302.ai generated no audio URL");
           return;
         }
 
@@ -367,7 +358,7 @@ apiRouter.post("/tts/test", ttsTestLimiter, authenticateApiRequest, async (req: 
           apiError: error.response?.data, 
         }, "302.ai call failed");
         // Could fallback to Wavespeed here if we wanted
-        res.status(500).json({ success: false, error: "302.ai TTS generation failed" });
+        apiError(res, 500, "tts_provider_failed", "302.ai TTS generation failed");
         return;
       }
     }
@@ -441,26 +432,26 @@ apiRouter.post("/tts/test", ttsTestLimiter, authenticateApiRequest, async (req: 
 
           // Provide specific error messages based on the failure reason
           if (data.error?.includes("you don't have access to this voice_id")) {
-            res.status(403).json({
-              success: false,
-              error: `Voice access denied: The voice "${effective.voiceId}" requires special access permissions. Please try a different voice.`,
-            });
+            apiError(res, 403, "voice_access_denied",
+              `Voice access denied: The voice "${effective.voiceId}" requires special access permissions. Please try a different voice.`,
+              { voice: effective.voiceId });
             return;
           }
 
           if (data.error?.includes("voice_id")) {
-            res.status(400).json({
-              success: false,
-              error: `Invalid voice: "${effective.voiceId}" is not available. Please check the voice ID and try again.`,
-            });
+            apiError(res, 400, "voice_invalid",
+              `Invalid voice: "${effective.voiceId}" is not available. Please check the voice ID and try again.`,
+              { voice: effective.voiceId });
             return;
           }
 
-          res.status(502).json({ success: false, error: `TTS generation failed: ${data.error || "Unknown error"}` });
+          apiError(res, 502, "tts_generation_failed",
+            `TTS generation failed: ${data.error || "Unknown error"}`,
+            { reason: data.error || "Unknown error" });
           return;
         } else {
           log.warn({ data: redactSensitive(data) }, "Wavespeed AI returned unexpected status or missing outputs");
-          res.status(502).json({ success: false, error: "No audio URL returned by TTS provider" });
+          apiError(res, 502, "tts_no_audio", "No audio URL returned by TTS provider");
           return;
         }
       } catch (wavespeedError) {
@@ -472,50 +463,43 @@ apiRouter.post("/tts/test", ttsTestLimiter, authenticateApiRequest, async (req: 
 
         // Provide specific error messages based on Wavespeed API response
         if (err.response?.data) {
-          const apiError = err.response.data;
+          const providerError = err.response.data;
 
           // Check for specific Wavespeed error messages
-          if (apiError.message && apiError.message.includes("you don't have access to this voice_id")) {
-            res.status(403).json({
-              success: false,
-              error: `Voice access denied: The voice "${effective.voiceId}" requires special access permissions. Please try a different voice.`,
-            });
+          if (providerError.message && providerError.message.includes("you don't have access to this voice_id")) {
+            apiError(res, 403, "voice_access_denied",
+              `Voice access denied: The voice "${effective.voiceId}" requires special access permissions. Please try a different voice.`,
+              { voice: effective.voiceId });
             return;
           }
 
-          if (apiError.message && apiError.message.includes("voice_id")) {
-            res.status(400).json({
-              success: false,
-              error: `Invalid voice: "${effective.voiceId}" is not available. Please check the voice ID and try again.`,
-            });
+          if (providerError.message && providerError.message.includes("voice_id")) {
+            apiError(res, 400, "voice_invalid",
+              `Invalid voice: "${effective.voiceId}" is not available. Please check the voice ID and try again.`,
+              { voice: effective.voiceId });
             return;
           }
 
-          if (apiError.message) {
-            res.status(502).json({
-              success: false,
-              error: `TTS generation failed: ${apiError.message}`,
-            });
+          if (providerError.message) {
+            apiError(res, 502, "tts_generation_failed",
+              `TTS generation failed: ${providerError.message}`,
+              { reason: providerError.message });
             return;
           }
         }
 
         // Fallback to generic error
-        res.status(500).json({ success: false, error: "TTS generation failed" });
+        apiError(res, 500, "tts_provider_failed", "TTS generation failed");
         return;
       }
     }
 
     // Fallback when Wavespeed AI is not configured
-    res.status(501).json({ success: false, error: "TTS provider not configured" });
+    apiError(res, 501, "tts_not_configured", "TTS provider not configured");
   } catch (error) {
     const err = error as Error;
     log.error({ error: err.message }, "Error in TTS test");
-    res.status(500).json({
-      success: false,
-      error: "TTS test failed",
-      message: err.message,
-    });
+    apiError(res, 500, "tts_test_failed", "TTS test failed", undefined, { message: err.message });
   }
 });
 

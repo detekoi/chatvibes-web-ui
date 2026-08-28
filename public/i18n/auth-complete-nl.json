@@ -1,0 +1,39 @@
+{
+  "authBar": {
+    "signInProgress": "Inlogvoortgang"
+  },
+  "authMessage": {
+    "pleaseWait": "Even geduld."
+  },
+  "authSteps": {
+    "loadingDashboard": "Dashboard laden",
+    "sessionTokenStored": "Sessietoken opgeslagen",
+    "twitchAuthorized": "Twitch geautoriseerd"
+  },
+  "authTitle": {
+    "signingYouIn": "Je wordt ingelogd"
+  },
+  "meta": {
+    "completingWildcatttsTwitchSignIn": "Inloggen bij WildcatTTS via Twitch voltooien.",
+    "wildcatttsCompletingSignIn": "WildcatTTS - Inloggen voltooien"
+  },
+  "msg": {
+    "authComplete": {
+      "cannotComplete": "Kan inloggen niet voltooien.",
+      "failedReadout": "Mislukt",
+      "failedTitle": "Inloggen mislukt",
+      "missingInfo": "Verificatiegegevens van de Twitch-callback ontbreken. Log opnieuw in.",
+      "noSession": "Geen sessie",
+      "redirecting": "Je wordt doorgestuurd naar je dashboard.",
+      "retrySignIn": "{reason} Log opnieuw in.",
+      "sessionEstablished": "Sessie tot stand gebracht",
+      "welcome": "Welkom, {user}"
+    }
+  },
+  "sessionState": {
+    "establishingSession": "Sessie tot stand brengen"
+  },
+  "statusReadout": {
+    "working": "<span class=\"wc-dot\"></span>Bezig"
+  }
+}

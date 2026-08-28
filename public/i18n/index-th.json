@@ -1,0 +1,50 @@
+{
+  "kofiClose": {
+    "closeSupportDialog": "ปิดหน้าต่างสนับสนุน"
+  },
+  "kofiModal": {
+    "openInNewTabOn": "<a href=\"https://ko-fi.com/parfaitfair\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"kofi-direct-link\">เปิดในแท็บใหม่บน Ko-fi.com</a>"
+  },
+  "kofiOpen": {
+    "supportMe": "สนับสนุนฉัน"
+  },
+  "kofiTitle": {
+    "supportParfaitfair": "สนับสนุน parfaitfair"
+  },
+  "mainContent": {
+    "access": "การเข้าถึง",
+    "accessIsInviteOnlyUnapproved": "การเข้าถึงเป็นแบบรับคำเชิญเท่านั้น ช่องที่ไม่ได้รับอนุมัติจะได้รับข้อความปฏิเสธการเข้าถึง <a class=\"wc-link wc-link--underline\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">ขอสิทธิ์เข้าถึงที่นี่</a>",
+    "changeTtsSettingsControlBot": "เปลี่ยนการตั้งค่า TTS • ควบคุมการตอบกลับแชทของบอท • กำหนดค่า Channel Points • ตั้งค่าเสียงที่ต้องการ",
+    "colorTheme": "ธีมสี",
+    "iAmAViewer": "<span class=\"wc-rule-name\">ฉันเป็นผู้ชม</span>",
+    "iRunTheChannel": "<span class=\"wc-rule-name\">ฉันเป็นเจ้าของช่อง</span>",
+    "setHowYourMessagesSound": "ตั้งค่าเสียงข้อความของคุณเมื่อ TTS อ่านออกเสียงในทุกช่องที่คุณเข้าชม",
+    "textToSpeechForYour": "ระบบ Text-to-speech สำหรับช่อง Twitch ของคุณ เพื่อสตรีมเมอร์และผู้ชม",
+    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">เฉพาะผู้ได้รับเชิญ</span>",
+    "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">การจัดการบอท Text-to-speech</span>"
+  },
+  "meta": {
+    "wildcatttsBotManagement": "การจัดการบอท WildcatTTS",
+    "wildcatttsTextToSpeechBot": "การจัดการบอท Text-to-speech ของ WildcatTTS สำหรับช่อง Twitch, สตรีมเมอร์ และผู้ชม"
+  },
+  "msg": {
+    "kofi": {
+      "iframeTitle": "สนับสนุน parfaitfair บน Ko-fi"
+    }
+  },
+  "page": {
+    "support": "สนับสนุน"
+  },
+  "streamerLoginBtn": {
+    "manageMyChannel": "<i data-lucide=\"mic\" aria-hidden=\"true\"></i>จัดการช่องของฉัน"
+  },
+  "themeDarkBtn": {
+    "dark": "มืด"
+  },
+  "themeLightBtn": {
+    "light": "สว่าง"
+  },
+  "viewerPrefsBtn": {
+    "setMyOwnVoice": "<i data-lucide=\"headphones\" aria-hidden=\"true\"></i>ตั้งค่าเสียงของฉัน"
+  }
+}

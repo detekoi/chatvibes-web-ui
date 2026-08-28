@@ -9,6 +9,7 @@ import { secrets, config } from "../config";
 import { db, COLLECTIONS, FieldValue } from "../services/firestore";
 import { validateTwitchToken } from "../services/twitch";
 import { logger, redactSensitive } from "../logger";
+import { apiError } from "../api/utils";
 import { issueState, consumeState, OAuthStatePayload } from "./state";
 import { createExchangeCode, redeemExchangeCode, EXCHANGE_CODE_PATTERN } from "./exchange";
 
@@ -548,10 +549,8 @@ router.post("/exchange", async (req: Request, res: Response): Promise<void> => {
 
     if (!result.ok) {
       logger.warn({ reason: result.reason }, "Exchange code refused");
-      res.status(400).json({
-        success: false,
-        error: "This sign-in link has already been used or has expired. Please sign in again.",
-      });
+      apiError(res, 400, "exchange_code_used",
+        "This sign-in link has already been used or has expired. Please sign in again.");
       return;
     }
 

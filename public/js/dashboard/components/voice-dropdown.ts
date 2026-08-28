@@ -1,4 +1,5 @@
 import { formatVoiceName } from '../../common/utils.js';
+import { t } from '../../common/i18n.js';
 
 export interface VoiceDropdownOptions {
     containerId: string; // The parent div containing the custom dropdown structure
@@ -129,7 +130,7 @@ export class VoiceDropdown {
         if (!voicesToRender.length) {
             const empty = document.createElement('div');
             empty.className = 'voice-dropdown-empty';
-            empty.textContent = 'No voices found.';
+            empty.textContent = t('msg.voice.noneFound');
             this.list.appendChild(empty);
             return;
         }
@@ -149,7 +150,7 @@ export class VoiceDropdown {
                 button.type = 'button';
                 button.className = 'voice-play-btn';
                 button.dataset.voiceId = voice;
-                button.setAttribute('aria-label', `Preview ${voice}`);
+                button.setAttribute('aria-label', t('msg.voice.preview', { voice }));
                 button.innerHTML = `
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M8 5v14l11-7z"/>

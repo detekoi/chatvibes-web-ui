@@ -1,0 +1,11 @@
+{
+  "mainContent": {
+    "pageNotFound": "Sidan hittades inte",
+    "returnToLogin": "Tillbaka till inloggningen",
+    "thatUrlIsNotPart": "Den URL:en tillhör inte den här webbplatsen. Kontrollera att adressen är korrekt, eller gå tillbaka till inloggningssidan."
+  },
+  "meta": {
+    "pageNotFoundOnWildcattts": "Sidan hittades inte på WildcatTTS.",
+    "pageNotFoundWildcattts": "Sidan hittades inte — WildcatTTS"
+  }
+}

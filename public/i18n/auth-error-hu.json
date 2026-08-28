@@ -1,0 +1,41 @@
+{
+  "errorAction": {
+    "tryAgain": "Próbáld újra"
+  },
+  "errorCode": {
+    "unknown": "ismeretlen"
+  },
+  "errorCodeBlock": {
+    "error": "Hiba"
+  },
+  "errorMessageDetails": {
+    "twitchAuthenticationFailed": "A Twitch-hitelesítés sikertelen volt."
+  },
+  "errorReadout": {
+    "authenticationFailed": "Sikertelen hitelesítés"
+  },
+  "errorTitle": {
+    "authenticationFailed": "Sikertelen hitelesítés"
+  },
+  "mainContent": {
+    "requestAccessTtsWildcatChat": "<a class=\"wc-link\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">Hozzáférés kérése</a> <span>tts.wildcat.chat</span>"
+  },
+  "meta": {
+    "wildcatttsAuthenticationError": "WildcatTTS – Hitelesítési hiba",
+    "wildcatttsAuthenticationErrorAndSign": "WildcatTTS hitelesítési hiba és bejelentkezés-helyreállítás."
+  },
+  "msg": {
+    "authError": {
+      "backToSignIn": "Vissza a bejelentkezéshez",
+      "canceledBody": "Nem történt változás. Bejelentkezhetsz, amint készen állsz.",
+      "canceledReadout": "Megszakítva",
+      "canceledTitle": "WildcatTTS – Bejelentkezés megszakítva",
+      "canceledTitleShort": "Bejelentkezés megszakítva",
+      "notPermitted": "Hozzáférés megtagadva",
+      "requestAccess": "Hozzáférés kérése",
+      "twitchError": "A Twitch hibát jelzett a hitelesítés során.",
+      "unspecified": "Meghatározatlan hiba történt.",
+      "unspecifiedCode": "meghatározatlan"
+    }
+  }
+}

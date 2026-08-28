@@ -1,0 +1,212 @@
+{
+  "addChannelContextCard": {
+    "loadAChannelToSee": "Läs in en kanal för att se dess standardinställningar och hantera avanmälningar. Dina inställningar förblir globala."
+  },
+  "channelContextCard": {
+    "changesHereUpdateYourGlobal": "Ändringar här uppdaterar <strong>dina</strong> globala inställningar. Streamerns inställningar ändras inte.",
+    "channelContext": "Kanalkontext",
+    "clearButtonsSetYourGlobal": "<strong>Rensa-knappar:</strong> Ändrar din globala inställning till kanalens standard."
+  },
+  "channelHint": {
+    "channelFound": "Kanal hittades"
+  },
+  "channelInputCancel": {
+    "cancel": "Avbryt"
+  },
+  "channelInputConfirm": {
+    "load": "Läs in"
+  },
+  "channelInputDesc": {
+    "enterTheChannelNameTo": "Ange kanalens namn för att visa dess standardinställningar och hantera avanmälningar:"
+  },
+  "channelInputModal": {
+    "streamerUsername": "Streamerns användarnamn"
+  },
+  "channelInputModalText": {
+    "streamerUsername": "Streamerns användarnamn"
+  },
+  "channelInputTitle": {
+    "loadChannelContext": "Läs in kanalkontext"
+  },
+  "clearChannelContextBtn": {
+    "clear": "Rensa"
+  },
+  "confirmNo": {
+    "cancel": "Avbryt"
+  },
+  "confirmText": {
+    "yourMessagesWillNotBe": "Dina meddelanden kommer inte att läsas upp. Du kan aktivera detta igen när som helst."
+  },
+  "confirmTitle": {
+    "confirmAction": "Bekräfta åtgärd"
+  },
+  "confirmYes": {
+    "confirm": "Bekräfta"
+  },
+  "dangerTtsToggle": {
+    "optOutOfTtsIn": "Välj bort TTS i den här kanalen",
+    "ttsWillNotReadYour": "TTS kommer inte att läsa dina meddelanden i den här kanalen"
+  },
+  "dangerZoneSection": {
+    "dangerZone": "Riskzon",
+    "theseSettingsStopTheBot": "Dessa inställningar hindrar boten från att läsa dina meddelanden i en kanal. Du kan ångra alla val du själv gör. Om en moderator har valt bort dig kan endast en moderator ångra det."
+  },
+  "emotionReset": {
+    "clear": "Rensa",
+    "resetEmotionToDefault": "Återställ känsla till standard"
+  },
+  "emotionSelect": {
+    "angry": "Arg",
+    "disgusted": "Äcklad",
+    "fearful": "Rädd",
+    "happy": "Glad",
+    "neutral": "Neutral",
+    "sad": "Ledsen",
+    "surprised": "Förvånad",
+    "useChannelDefault": "Använd kanalens standard"
+  },
+  "englishNormalizationCheckbox": {
+    "englishNormalization": "Engelsk normalisering"
+  },
+  "englishNormalizationReset": {
+    "clear": "Rensa",
+    "resetEnglishNormalizationToDefault": "Återställ engelsk normalisering till standard"
+  },
+  "ignoreTts": {
+    "optOutOfTtsIn": "Välj bort TTS i den här kanalen"
+  },
+  "languageReset": {
+    "clear": "Rensa",
+    "resetLanguageToDefault": "Återställ språk till standard"
+  },
+  "loadingBar": {
+    "loadingYourPreferences": "Läser in dina inställningar"
+  },
+  "loadingOverlay": {
+    "loadingYourPreferences": "Läser in dina inställningar…"
+  },
+  "loggedInStatus": {
+    "channelContext": "Kanalkontext",
+    "global": "Global",
+    "loggedInAs": "Inloggad som",
+    "scope": "Omfång"
+  },
+  "meta": {
+    "wildcatttsViewerSettings": "Tittarinställningar för WildcatTTS",
+    "wildcatttsViewerSettingsSetYour": "Tittarinställningar för WildcatTTS – Välj personlig röst, tonhöjd och hastighet för TTS på Twitch-kanaler."
+  },
+  "msg": {
+    "auth": {
+      "exchangeFailed": "Kan inte slutföra inloggningen. Försök igen från startsidan.",
+      "testUser": "Testanvändare"
+    },
+    "channel": {
+      "cleared": "Kanalkontext rensades.",
+      "clearedTestMode": "Kanalkontext rensades (testläge).",
+      "enterName": "Ange ett kanalnamn.",
+      "found": "Kanal hittad",
+      "foundTestMode": "Kanal hittad (testläge)",
+      "hint": "Läs in en kanal för att se dess standardinställningar.",
+      "loaded": "Kanalkontext inläst.",
+      "loadedTestMode": "Kanalkontext inläst (testläge).",
+      "noneLoaded": "Ingen inläst",
+      "promptConfirm": "Läs in",
+      "promptDescription": "Ange kanalnamnet för att visa dess standardinställningar och hantera opt-outs:",
+      "promptTitle": "Läs in kanalkontext",
+      "viewingDefaults": "Du visar standardinställningar för {channel}."
+    },
+    "optout": {
+      "confirm": "Vill du välja bort TTS i #{channel}? Dina meddelanden kommer inte att läsas upp. Du kan aktivera detta igen när som helst.",
+      "confirmDescription": "Ange kanalnamnet för att fortsätta:",
+      "confirmTitle": "Bekräfta kanal för TTS-opt-out",
+      "continue": "Fortsätt",
+      "moderatorNote": "En kanalmoderator har inaktiverat TTS för dig här. Endast en moderator kan ångra detta.",
+      "optInFailed": "Det gick inte att återaktivera TTS.",
+      "optOutFailed": "Kan inte välja bort TTS.",
+      "optedIn": "Du har aktiverat TTS igen.",
+      "optedInTestMode": "Du har aktiverat TTS igen (testläge).",
+      "optedOut": "Du har valt bort TTS.",
+      "optedOutTestMode": "Du har valt bort TTS (testläge).",
+      "selectChannel": "Välj en kanal först.",
+      "selfNote": "Du har valt bort TTS här. Du kan aktivera det igen när som helst.",
+      "specifyChannel": "Ange en kanal."
+    },
+    "prefs": {
+      "hintChannel": "Använder kanalens standard: {value}",
+      "hintSystem": "Använder systemets standard",
+      "hintUser": "Använder din globala inställning: {value}",
+      "loadFailed": "Kan inte läsa in inställningar.",
+      "noVoicesFound": "Inga röster hittades",
+      "saveFailed": "Kan inte spara {key}: {reason}",
+      "sendPreview": "Skicka förhandsvisning",
+      "testCompletedTestMode": "Test slutfört (testläge).",
+      "updated": "Inställningen har uppdaterats.",
+      "updatedTestMode": "Inställningen har uppdaterats (testläge)."
+    }
+  },
+  "openChannelContextModalBtn": {
+    "loadChannel": "Läs in kanal…"
+  },
+  "page": {
+    "setHowYourMessagesSound": "Ställ in hur dina meddelanden låter när Wildcat TTS läser upp dem. Dina inställningar är globala och gäller för alla kanaler.",
+    "viewerTtsPreferences": "TTS-inställningar för tittare",
+    "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Tittarinställningar</span>"
+  },
+  "pitchReset": {
+    "clear": "Rensa",
+    "resetPitchToDefault": "Återställ tonhöjd till standard"
+  },
+  "pitchSlider": {
+    "pitchAdjustment12To12": "Tonhöjdsjustering (-12 till +12)"
+  },
+  "preferencesPanel": {
+    "adjustTheVoicePitchHigher": "Justera röstens tonhöjd högre eller lägre",
+    "controlHowFastTheVoice": "Styr hur snabbt rösten talar",
+    "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentation </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Streamer-inställningar </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "<strong>Känsla</strong>",
+    "emotion2": "Känsla",
+    "englishNormalization": "Engelsk normalisering",
+    "engNormalization": "Eng. normalisering",
+    "ifTtsReadsNumbersIncorrectly": "Om TTS läser siffror felaktigt, aktivera engelsk textnormalisering. Denna inställning ökar fördröjningen något.",
+    "improvePronunciationForSpecificLanguages": "Förbättra uttalet för specifika språk",
+    "improveThePronunciationOfNumbers": "Förbättra uttalet av siffror och text",
+    "language": "Språk",
+    "languageBoost": "<strong>Language Boost</strong>",
+    "pitch": "Tonhöjd",
+    "pitch12To12": "Tonhöjd (-12 till +12):",
+    "quickLinks": "Snabblänkar",
+    "selectYourPreferredTtsVoice": "Välj din föredragna TTS-röst",
+    "setHowYourMessagesSound": "Ställ in hur dina meddelanden låter när TTS läser upp dem",
+    "setTheEmotionalToneOf": "Ställ in röstens känsloton",
+    "speed": "Hastighet",
+    "speed05To2": "Hastighet (0,5 till 2,0):",
+    "testMessage": "Testmeddelande",
+    "voice": "<strong>Röst</strong>",
+    "voicePreview": "Röstförhandsgranskning",
+    "voiceSettings": "Röstinställningar"
+  },
+  "prefsDisabledNote": {
+    "theStreamerDisabledPersonalVoice": "Streamern har inaktiverat personliga röstinställningar för den här kanalen. Den här kanalen kommer att använda sin standardröst i stället för dina inställningar."
+  },
+  "previewBtn": {
+    "sendPreview": "Skicka förhandsgranskning"
+  },
+  "speedReset": {
+    "clear": "Rensa",
+    "resetSpeedToDefault": "Återställ hastighet till standard"
+  },
+  "speedSlider": {
+    "speedAdjustment05To": "Hastighetsjustering (0,5 till 2,0)"
+  },
+  "statChannelContext": {
+    "noneLoaded": "Ingen inläst"
+  },
+  "voiceReset": {
+    "clear": "Rensa",
+    "resetVoiceToDefault": "Återställ röst till standard"
+  },
+  "voiceSearch": {
+    "searchVoices": "Sök röster",
+    "searchVoices2": "Sök röster..."
+  }
+}

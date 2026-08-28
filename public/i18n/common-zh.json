@@ -1,0 +1,166 @@
+{
+  "darkModeToggle": {
+    "toggleDarkMode": "切换深色模式"
+  },
+  "err": {
+    "banned_add_failed": "无法将该词添加到违禁词列表。",
+    "banned_remove_failed": "无法从违禁词列表中移除该词。",
+    "bot_add_failed": "无法在你的频道上启用机器人。请重试。",
+    "bot_remove_failed": "无法在你的频道上停用机器人。请重试。",
+    "bot_status_failed": "无法加载机器人状态。",
+    "channel_data_not_found": "未找到该频道的设置。",
+    "channel_not_authorized": "你的频道未被授权使用此机器人。请联系我以获取权限。",
+    "channel_not_found": "未找到该频道。",
+    "channel_required": "必须指定频道。",
+    "channel_tts_disabled": "未找到该频道，或该频道未开启 TTS。",
+    "entry_key_required": "条目键名不能为空。",
+    "exchange_code_invalid": "登录链接缺失或格式错误。",
+    "exchange_code_used": "该登录链接已被使用或已过期。请重新登录。",
+    "exchange_failed": "无法完成登录。请重试。",
+    "ignore_add_failed": "无法将该用户添加到忽略列表。",
+    "ignore_moderator_imposed": "频道管理员已为你停用此处的 TTS，只有管理员才能撤销此操作。",
+    "ignore_remove_failed": "无法从忽略列表中移除该用户。",
+    "ignore_update_failed": "无法更改你的停用设置。",
+    "key_required": "设置名称不能为空。",
+    "match_key_invalid": "词语必须为 1 到 {max} 个字符的字母、数字、撇号或连字符，且不能包含点号。",
+    "network_error": "无法连接到服务器。请检查网络连接。",
+    "obs_token_fetch_failed": "无法加载 OBS 令牌。",
+    "obs_token_generate_failed": "无法生成新的 OBS 令牌。",
+    "obs_token_store_failed": "无法保存 OBS 令牌。请重试。",
+    "prefs_fetch_failed": "无法加载你的偏好设置。",
+    "prefs_global_fetch_failed": "无法加载你的全局偏好设置。",
+    "prefs_global_update_failed": "无法保存你的全局偏好设置。",
+    "prefs_invalid_emote_mode": "表情符号处理方式必须为 read、skip 或 describe。",
+    "prefs_invalid_emotion": "不是有效的情绪选项。",
+    "prefs_invalid_language": "不是有效的语言选项。",
+    "prefs_invalid_pitch": "不是有效的音调选项。",
+    "prefs_invalid_speed": "不是有效的语速选项。",
+    "prefs_invalid_voice": "不是有效的语音选项。",
+    "prefs_missing_data": "未发送任何更改。",
+    "prefs_update_failed": "无法保存你的偏好设置。",
+    "pronunciation_limit_reached": "已达到 {max} 个自定义发音的上限。请先删除一个。",
+    "pronunciation_remove_failed": "无法删除该发音。",
+    "pronunciation_save_failed": "无法保存该发音。",
+    "reward_banned_word": "消息包含违禁词：“{word}”。",
+    "reward_create_failed": "无法创建 Channel Points 奖励。",
+    "reward_delete_failed": "无法删除 Channel Points 奖励。",
+    "reward_links_blocked": "此奖励中不允许包含链接。",
+    "reward_load_failed": "无法加载 Channel Points 奖励。",
+    "reward_message_empty": "消息不能为空。",
+    "reward_save_failed": "无法保存 Channel Points 奖励。",
+    "reward_test_failed": "无法测试 Channel Points 奖励。",
+    "reward_twitch_error": "Twitch 拒绝了奖励更改。",
+    "reward_validation_failed": "不允许使用该消息。",
+    "say_contains_link": "发音内容不能包含链接。",
+    "say_empty": "发音内容不能为空。",
+    "say_must_be_text": "发音内容必须为文本。",
+    "say_too_long": "发音内容不能超过 {max} 个字符。",
+    "server_misconfigured": "服务器配置错误。",
+    "setting_invalid": "该值对 {key} 无效。",
+    "setting_update_failed": "无法更新 TTS 设置。",
+    "settings_fetch_failed": "无法加载 TTS 设置。",
+    "shortlink_failed": "无法创建短链接。",
+    "storage_unavailable": "存储不可用。",
+    "tts_generation_failed": "语音生成失败：{reason}",
+    "tts_no_audio": "语音服务商未返回音频。",
+    "tts_not_configured": "未配置语音服务商。",
+    "tts_provider_failed": "语音服务商无法生成音频。",
+    "tts_test_failed": "语音测试失败。",
+    "tts_text_required": "请输入要测试的文本。",
+    "twitch_reauth_required": "你的 Twitch 登录已过期。请重新连接账号。",
+    "twitch_user_not_found": "不存在名为“{username}”的 Twitch 账号。",
+    "url_required": "需要提供 URL。",
+    "username_invalid": "该用户名无效。",
+    "username_required": "用户名不能为空。",
+    "voice_access_denied": "声音“{voice}”需要特殊访问权限。请尝试其他声音。",
+    "voice_invalid": "声音“{voice}”不可用。请检查后重试。",
+    "voice_lookup_failed": "无法查询该用户的声音。",
+    "word_invalid": "该词语或短语无效。",
+    "word_required": "词语或短语不能为空。"
+  },
+  "logoutLink": {
+    "logout": "退出登录"
+  },
+  "mainContent": {
+    "documentationTtsWildcatChat": "<a class=\"wc-link\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\">文档</a> <span>tts.wildcat.chat</span>"
+  },
+  "msg": {
+    "action": {
+      "close": "关闭",
+      "remove": "移除",
+      "saved": "已保存"
+    },
+    "api": {
+      "authFailed": "身份验证失败。请重新登录。",
+      "notAuthenticated": "你尚未登录。",
+      "requestFailed": "请求失败。"
+    },
+    "auth": {
+      "genericUser": "用户",
+      "loading": "加载中…",
+      "needViewerSignIn": "验证你的 Twitch 账号以访问观众偏好设置。",
+      "redirecting": "正在重定向到 Twitch 进行验证…",
+      "required": "需要身份验证。",
+      "signInFailed": "无法完成登录。",
+      "signInWithTwitch": "使用 Twitch 登录",
+      "signedOut": "你尚未登录。",
+      "tokenMissing": "身份验证令牌缺失。请重新登录。"
+    },
+    "emotion": {
+      "angry": "愤怒",
+      "auto": "自动",
+      "calm": "平静",
+      "disgusted": "厌恶",
+      "fearful": "恐惧",
+      "fluent": "流畅",
+      "happy": "开心",
+      "neutral": "中性",
+      "sad": "悲伤",
+      "surprised": "惊讶"
+    },
+    "ignore": {
+      "enterUsername": "输入用户名。"
+    },
+    "lang": {
+      "automatic": "自动"
+    },
+    "prefs": {
+      "useChannelDefault": "使用频道默认设置"
+    },
+    "preview": {
+      "enterText": "输入要测试的文本。",
+      "unavailable": "暂无预览。"
+    },
+    "value": {
+      "off": "关",
+      "on": "开"
+    },
+    "voice": {
+      "cannotPlay": "无法播放音频示例。",
+      "generating": "生成中…",
+      "noAudio": "服务器未返回音频。",
+      "noneFound": "未找到语音。",
+      "preview": "试听 {voice}",
+      "regenerate": "重新生成",
+      "testFailed": "测试失败：{reason}"
+    }
+  },
+  "page": {
+    "skipToMainContent": "跳至主要内容"
+  },
+  "sidebarEngNormVal": {
+    "off": "关闭"
+  },
+  "sidebarLanguageVal": {
+    "automatic": "自动"
+  },
+  "ui": {
+    "language": "语言"
+  },
+  "voicePreviewHint": {
+    "settingsChangedGenerateANew": "<i><i data-lucide=\"triangle-alert\" class=\"inline-icon\"></i> 设置已更改。请生成新的试听。</i>"
+  },
+  "voicePreviewPlayer": {
+    "yourBrowserDoesNotSupport": "你的浏览器不支持音频播放组件。"
+  }
+}

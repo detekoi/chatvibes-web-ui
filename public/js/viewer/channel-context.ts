@@ -1,4 +1,5 @@
 import { showToast, openDialog, closeDialog } from '../common/ui.js';
+import { t } from '../common/i18n.js';
 
 /**
  * Context configuration for the channel context module
@@ -75,7 +76,7 @@ export function initChannelContextModule(
     const elements: ChannelContextElements = {
         channelContextCard: document.getElementById('channel-context-card'),
         addChannelContextCard: document.getElementById('add-channel-context-card'),
-        channelContextNameEl: document.getElementById('channel-context-name'),
+        channelContextNameEl: document.getElementById('channel-context-line'),
         channelHint: document.getElementById('channel-hint'),
         openChannelContextModalBtn: document.getElementById('open-channel-context-modal-btn'),
         clearChannelContextBtn: document.getElementById('clear-channel-context-btn'),
@@ -103,13 +104,13 @@ export function initChannelContextModule(
         if (elements.openChannelContextModalBtn) {
             elements.openChannelContextModalBtn.addEventListener('click', () => {
                 openChannelPrompt({
-                    title: 'Load Channel Context',
-                    description: 'Enter the channel name to view its default settings and manage opt-outs:',
-                    confirmLabel: 'Load',
+                    title: t('msg.channel.promptTitle'),
+                    description: t('msg.channel.promptDescription'),
+                    confirmLabel: t('msg.channel.promptConfirm'),
                     confirmClass: 'btn-primary',
                     onConfirm: (channelName: string) => {
                         applyChannel(channelName);
-                        showToast(testMode ? 'Channel context loaded (test mode).' : 'Channel context loaded.', 'success');
+                        showToast(t(testMode ? 'msg.channel.loadedTestMode' : 'msg.channel.loaded'), 'success');
                     },
                 });
             });
@@ -118,7 +119,7 @@ export function initChannelContextModule(
         if (elements.clearChannelContextBtn) {
             elements.clearChannelContextBtn.addEventListener('click', () => {
                 applyChannel(null);
-                showToast(testMode ? 'Channel context cleared (test mode).' : 'Channel context cleared.', 'success');
+                showToast(t(testMode ? 'msg.channel.clearedTestMode' : 'msg.channel.cleared'), 'success');
             });
         }
 
@@ -126,7 +127,7 @@ export function initChannelContextModule(
             elements.channelInputConfirm.addEventListener('click', () => {
                 const channelName = (elements.channelInputModalText?.value || '').trim().toLowerCase();
                 if (!channelName) {
-                    showToast('Enter a channel name.', 'warning');
+                    showToast(t('msg.channel.enterName'), 'warning');
                     return;
                 }
                 if (confirmHandler) {
@@ -157,7 +158,7 @@ export function initChannelContextModule(
     function setContextStat(channelName: string | null): void {
         const stat = document.getElementById('stat-channel-context');
         if (!stat) return;
-        stat.textContent = channelName || 'None loaded';
+        stat.textContent = channelName || t('msg.channel.noneLoaded');
         stat.classList.toggle('is-muted', !channelName);
     }
 
@@ -169,10 +170,12 @@ export function initChannelContextModule(
 
         if (elements.channelContextCard) elements.channelContextCard.classList.remove('d-none');
         if (elements.addChannelContextCard) elements.addChannelContextCard.classList.add('d-none');
-        if (elements.channelContextNameEl) elements.channelContextNameEl.textContent = channelName;
+        if (elements.channelContextNameEl) {
+            elements.channelContextNameEl.textContent = t('msg.channel.viewingDefaults', { channel: channelName });
+        }
         setContextStat(channelName);
         if (elements.channelHint) {
-            elements.channelHint.textContent = testMode ? 'Channel found (test mode)' : 'Channel found';
+            elements.channelHint.textContent = t(testMode ? 'msg.channel.foundTestMode' : 'msg.channel.found');
             elements.channelHint.className = 'form-text text-success';
         }
     }
@@ -183,7 +186,7 @@ export function initChannelContextModule(
         if (elements.channelContextNameEl) elements.channelContextNameEl.textContent = '';
         setContextStat(null);
         if (elements.channelHint) {
-            elements.channelHint.textContent = 'Load a channel to view its default settings.';
+            elements.channelHint.textContent = t('msg.channel.hint');
             elements.channelHint.className = 'form-text';
         }
     }

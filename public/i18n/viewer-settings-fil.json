@@ -1,0 +1,212 @@
+{
+  "addChannelContextCard": {
+    "loadAChannelToSee": "Mag-load ng channel para makita ang mga default na setting nito at pamahalaan ang mga opt-out. Mananatiling pangkalahatan ang iyong mga preference."
+  },
+  "channelContextCard": {
+    "changesHereUpdateYourGlobal": "Maa-update sa mga pagbabago rito ang <strong>iyong</strong> mga pangkalahatang preference. Hindi magbabago ang mga setting ng streamer.",
+    "channelContext": "Konteksto ng Channel",
+    "clearButtonsSetYourGlobal": "<strong>Mga button na I-clear:</strong> Itakda ang iyong pangkalahatang preference para tumugma sa default na setting ng channel na ito."
+  },
+  "channelHint": {
+    "channelFound": "Nahanap ang channel"
+  },
+  "channelInputCancel": {
+    "cancel": "Kanselahin"
+  },
+  "channelInputConfirm": {
+    "load": "I-load"
+  },
+  "channelInputDesc": {
+    "enterTheChannelNameTo": "Ilagay ang pangalan ng channel para tingnan ang mga default na setting nito at pamahalaan ang mga opt-out:"
+  },
+  "channelInputModal": {
+    "streamerUsername": "Username ng Streamer"
+  },
+  "channelInputModalText": {
+    "streamerUsername": "Username ng Streamer"
+  },
+  "channelInputTitle": {
+    "loadChannelContext": "I-load ang Konteksto ng Channel"
+  },
+  "clearChannelContextBtn": {
+    "clear": "I-clear"
+  },
+  "confirmNo": {
+    "cancel": "Kanselahin"
+  },
+  "confirmText": {
+    "yourMessagesWillNotBe": "Hindi babasahin nang malakas ang iyong mga mensahe. Maaari mo itong i-on muli anumang oras."
+  },
+  "confirmTitle": {
+    "confirmAction": "Kumpirmahin ang aksyon"
+  },
+  "confirmYes": {
+    "confirm": "Kumpirmahin"
+  },
+  "dangerTtsToggle": {
+    "optOutOfTtsIn": "Mag-opt out sa TTS sa channel na ito",
+    "ttsWillNotReadYour": "Hindi babasahin ng TTS ang iyong mga mensahe sa channel na ito"
+  },
+  "dangerZoneSection": {
+    "dangerZone": "Danger Zone",
+    "theseSettingsStopTheBot": "Pinipigilan ng mga setting na ito ang bot na basahin ang iyong mga mensahe sa isang channel. Maaari mong baguhin muli ang anumang setting na pinili mo. Kung moderator ang nag-opt out sa iyo, moderator lang ang makakapagbalik nito."
+  },
+  "emotionReset": {
+    "clear": "I-clear",
+    "resetEmotionToDefault": "I-reset ang emosyon sa default"
+  },
+  "emotionSelect": {
+    "angry": "Galit",
+    "disgusted": "Nasusuklam",
+    "fearful": "Natatakot",
+    "happy": "Masaya",
+    "neutral": "Neutral",
+    "sad": "Malungkot",
+    "surprised": "Nagulat",
+    "useChannelDefault": "Gamitin ang default ng channel"
+  },
+  "englishNormalizationCheckbox": {
+    "englishNormalization": "English Normalization"
+  },
+  "englishNormalizationReset": {
+    "clear": "I-clear",
+    "resetEnglishNormalizationToDefault": "I-reset ang English normalization sa default"
+  },
+  "ignoreTts": {
+    "optOutOfTtsIn": "Mag-opt out sa TTS sa channel na ito"
+  },
+  "languageReset": {
+    "clear": "I-clear",
+    "resetLanguageToDefault": "I-reset ang wika sa default"
+  },
+  "loadingBar": {
+    "loadingYourPreferences": "Nilo-load ang iyong mga kagustuhan"
+  },
+  "loadingOverlay": {
+    "loadingYourPreferences": "Nilo-load ang iyong mga kagustuhan…"
+  },
+  "loggedInStatus": {
+    "channelContext": "Context ng channel",
+    "global": "Global",
+    "loggedInAs": "Naka-log in bilang",
+    "scope": "Saklaw"
+  },
+  "meta": {
+    "wildcatttsViewerSettings": "Mga Setting ng Viewer sa WildcatTTS",
+    "wildcatttsViewerSettingsSetYour": "Mga Setting ng Viewer sa WildcatTTS - Itakda ang iyong personal na text-to-speech voice, pitch, at bilis sa mga channel sa Twitch."
+  },
+  "msg": {
+    "auth": {
+      "exchangeFailed": "Hindi makumpleto ang pag-sign in. Subukang muli mula sa pangunahing page.",
+      "testUser": "Test User"
+    },
+    "channel": {
+      "cleared": "Na-clear ang context ng channel.",
+      "clearedTestMode": "Na-clear ang context ng channel (test mode).",
+      "enterName": "Maglagay ng pangalan ng channel.",
+      "found": "Nahanap ang channel",
+      "foundTestMode": "Nahanap ang channel (test mode)",
+      "hint": "Mag-load ng channel para makita ang mga default na setting nito.",
+      "loaded": "Na-load ang context ng channel.",
+      "loadedTestMode": "Na-load ang context ng channel (test mode).",
+      "noneLoaded": "Walang na-load",
+      "promptConfirm": "I-load",
+      "promptDescription": "Ilagay ang pangalan ng channel para tingnan ang mga default na setting nito at pamahalaan ang mga opt-out:",
+      "promptTitle": "I-load ang Konteksto ng Channel",
+      "viewingDefaults": "Tinitingnan mo ang mga default na setting para sa {channel}."
+    },
+    "optout": {
+      "confirm": "Gusto mo bang mag-opt out sa TTS sa #{channel}? Hindi babasahin nang malakas ang iyong mga mensahe. Puwede mo itong i-on ulit anumang oras.",
+      "confirmDescription": "Ilagay ang pangalan ng channel para magpatuloy:",
+      "confirmTitle": "Kumpirmahin ang channel para sa TTS opt-out",
+      "continue": "Magpatuloy",
+      "moderatorNote": "In-opt out ka ng moderator ng channel sa TTS dito. Moderator lang ang makakapagbago nito.",
+      "optInFailed": "Hindi makapag-opt in ulit sa TTS.",
+      "optOutFailed": "Hindi makapag-opt out sa TTS.",
+      "optedIn": "Nag-opt in ka ulit sa TTS.",
+      "optedInTestMode": "Nag-opt in ka ulit sa TTS (test mode).",
+      "optedOut": "Nag-opt out ka sa TTS.",
+      "optedOutTestMode": "Nag-opt out ka sa TTS (test mode).",
+      "selectChannel": "Pumili muna ng channel.",
+      "selfNote": "Nag-opt out ka sa TTS dito. Puwede mo itong i-on ulit anumang oras.",
+      "specifyChannel": "Tumukoy ng channel."
+    },
+    "prefs": {
+      "hintChannel": "Ginagamit ang default ng channel: {value}",
+      "hintSystem": "Ginagamit ang default ng system",
+      "hintUser": "Ginagamit ang iyong global preference: {value}",
+      "loadFailed": "Hindi ma-load ang preferences.",
+      "noVoicesFound": "Walang nakitang boses",
+      "saveFailed": "Hindi ma-save ang {key}: {reason}",
+      "sendPreview": "Magpadala ng Preview",
+      "testCompletedTestMode": "Tapos na ang test (test mode).",
+      "updated": "Na-update ang preference.",
+      "updatedTestMode": "Na-update ang preference (test mode)."
+    }
+  },
+  "openChannelContextModalBtn": {
+    "loadChannel": "I-load ang Channel…"
+  },
+  "page": {
+    "setHowYourMessagesSound": "Itakda kung paano tutunog ang mga mensahe mo kapag binasa ng Wildcat TTS. Pangkalahatan ang iyong preferences at nalalapat sa lahat ng channel.",
+    "viewerTtsPreferences": "Mga preference ng viewer sa TTS",
+    "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Mga setting ng viewer</span>"
+  },
+  "pitchReset": {
+    "clear": "I-clear",
+    "resetPitchToDefault": "I-reset ang pitch sa default"
+  },
+  "pitchSlider": {
+    "pitchAdjustment12To12": "Pagsasaayos ng pitch (-12 hanggang +12)"
+  },
+  "preferencesPanel": {
+    "adjustTheVoicePitchHigher": "Isaayos ang pitch ng boses pataas o pababa",
+    "controlHowFastTheVoice": "Kontrolin kung gaano kabilis magsalita ang boses",
+    "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentasyon </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Mga setting ng streamer </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "<strong>Emosyon</strong>",
+    "emotion2": "Emosyon",
+    "englishNormalization": "English Normalization",
+    "engNormalization": "Normalisasyon ng Eng.",
+    "ifTtsReadsNumbersIncorrectly": "Kung mali ang pagbasa ng TTS sa mga numero, i-on ang English text normalization. Bahagyang pinapataas ng setting na ito ang latency.",
+    "improvePronunciationForSpecificLanguages": "Pahusayin ang pagbigkas para sa mga partikular na wika",
+    "improveThePronunciationOfNumbers": "Pahusayin ang pagbigkas ng mga numero at teksto",
+    "language": "Wika",
+    "languageBoost": "<strong>Language Boost</strong>",
+    "pitch": "Pitch",
+    "pitch12To12": "Pitch (-12 hanggang +12):",
+    "quickLinks": "Mga mabilisang link",
+    "selectYourPreferredTtsVoice": "Piliin ang nais mong boses sa TTS",
+    "setHowYourMessagesSound": "Itakda kung paano tutunog ang mga mensahe mo kapag binasa ng TTS",
+    "setTheEmotionalToneOf": "Itakda ang tono ng emosyon ng boses",
+    "speed": "Bilis",
+    "speed05To2": "Bilis (0.5 hanggang 2.0):",
+    "testMessage": "Subok na mensahe",
+    "voice": "<strong>Boses</strong>",
+    "voicePreview": "Preview ng boses",
+    "voiceSettings": "Mga Setting ng Boses"
+  },
+  "prefsDisabledNote": {
+    "theStreamerDisabledPersonalVoice": "Hindi pinagana ng streamer ang personal na mga setting ng boses para sa channel na ito. Gagamitin ng channel na ito ang default na boses nito sa halip na ang iyong mga kagustuhan."
+  },
+  "previewBtn": {
+    "sendPreview": "Ipadala ang preview"
+  },
+  "speedReset": {
+    "clear": "I-clear",
+    "resetSpeedToDefault": "I-reset ang bilis sa default"
+  },
+  "speedSlider": {
+    "speedAdjustment05To": "Pagsasaayos ng bilis (0.5 hanggang 2.0)"
+  },
+  "statChannelContext": {
+    "noneLoaded": "Walang na-load"
+  },
+  "voiceReset": {
+    "clear": "I-clear",
+    "resetVoiceToDefault": "I-reset ang boses sa default"
+  },
+  "voiceSearch": {
+    "searchVoices": "Maghanap ng boses",
+    "searchVoices2": "Maghanap ng boses..."
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "darkModeToggle": {
+    "toggleDarkMode": "டார்க் மோடை நிலைமாற்று"
+  },
+  "err": {
+    "banned_add_failed": "அந்த வார்த்தையைத் தடைசெய்யப்பட்ட பட்டியலில் சேர்க்க முடியவில்லை.",
+    "banned_remove_failed": "அந்த வார்த்தையைத் தடைசெய்யப்பட்ட பட்டியலிலிருந்து நீக்க முடியவில்லை.",
+    "bot_add_failed": "உங்கள் சேனலில் bot-ஐ இயக்க முடியவில்லை. மீண்டும் முயற்சிக்கவும்.",
+    "bot_remove_failed": "உங்கள் சேனலில் bot-ஐ முடக்க முடியவில்லை. மீண்டும் முயற்சிக்கவும்.",
+    "bot_status_failed": "bot நிலையை ஏற்ற முடியவில்லை.",
+    "channel_data_not_found": "அந்த சேனலுக்கான அமைப்புகள் எதுவும் கிடைக்கவில்லை.",
+    "channel_not_authorized": "இந்த பாட்டைப் பயன்படுத்த உங்கள் சேனலுக்கு அனுமதி இல்லை. அணுகலுக்கு என்னை தொடர்பு கொள்ளவும்.",
+    "channel_not_found": "அந்த சேனல் கிடைக்கவில்லை.",
+    "channel_required": "சேனல் தேவை.",
+    "channel_tts_disabled": "அந்த சேனல் கிடைக்கவில்லை, அல்லது அதில் TTS இயக்கப்படவில்லை.",
+    "entry_key_required": "ஒரு உள்ளீட்டு விசை தேவை.",
+    "exchange_code_invalid": "அந்த உள்நுழைவு இணைப்பு காணப்படவில்லை அல்லது தவறாக உள்ளது.",
+    "exchange_code_used": "அந்த உள்நுழைவு இணைப்பு ஏற்கனவே பயன்படுத்தப்பட்டது அல்லது காலாவதியானது. மீண்டும் உள்நுழையவும்.",
+    "exchange_failed": "உள்நுழைய முடியவில்லை. மீண்டும் முயற்சிக்கவும்.",
+    "ignore_add_failed": "அந்த பயனரைப் புறக்கணிப்புப் பட்டியலில் சேர்க்க முடியவில்லை.",
+    "ignore_moderator_imposed": "சேனல் மாடரேட்டர் ஒருவர் உங்களை TTS-லிருந்து விலக்கியுள்ளார், எனவே மாடரேட்டரால் மட்டுமே இதை மாற்ற முடியும்.",
+    "ignore_remove_failed": "அந்த பயனரைப் புறக்கணிப்புப் பட்டியலிலிருந்து நீக்க முடியவில்லை.",
+    "ignore_update_failed": "உங்கள் opt-out அமைப்பை மாற்ற முடியவில்லை.",
+    "key_required": "அமைப்பின் பெயர் தேவை.",
+    "match_key_invalid": "வார்த்தை 1 முதல் {max} எழுத்துகள், எண்கள், மேற்கோள்குறி அல்லது இணைப்புக்குறிகளைக் கொண்டிருக்க வேண்டும், மேலும் புள்ளியைக் கொண்டிருக்கக்கூடாது.",
+    "network_error": "சர்வரைத் தொடர்பு கொள்ள முடியவில்லை. இணைய இணைப்பைச் சரிபார்க்கவும்.",
+    "obs_token_fetch_failed": "OBS டோக்கனை ஏற்ற முடியவில்லை.",
+    "obs_token_generate_failed": "புதிய OBS டோக்கனை உருவாக்க முடியவில்லை.",
+    "obs_token_store_failed": "OBS டோக்கனைச் சேமிக்க முடியவில்லை. மீண்டும் முயற்சிக்கவும்.",
+    "prefs_fetch_failed": "உங்கள் விருப்பங்களை ஏற்ற முடியவில்லை.",
+    "prefs_global_fetch_failed": "உங்கள் பொதுவான விருப்பங்களை ஏற்ற முடியவில்லை.",
+    "prefs_global_update_failed": "உங்கள் பொதுவான விருப்பங்களைச் சேமிக்க முடியவில்லை.",
+    "prefs_invalid_emote_mode": "Emote கையாளுதல் read, skip அல்லது describe என்பதாக இருக்க வேண்டும்.",
+    "prefs_invalid_emotion": "அது செல்லுபடியாகும் உணர்ச்சி அல்ல.",
+    "prefs_invalid_language": "அது செல்லுபடியாகும் மொழி அல்ல.",
+    "prefs_invalid_pitch": "அது செல்லுபடியாகும் pitch அல்ல.",
+    "prefs_invalid_speed": "அது செல்லுபடியாகும் வேகம் அல்ல.",
+    "prefs_invalid_voice": "அது செல்லுபடியாகும் குரல் அல்ல.",
+    "prefs_missing_data": "மாற்றங்கள் எதுவும் அனுப்பப்படவில்லை.",
+    "prefs_update_failed": "உங்கள் விருப்பங்களைச் சேமிக்க முடியவில்லை.",
+    "pronunciation_limit_reached": "{max} தனிப்பயன் உச்சரிப்புகளுக்கான வரம்பை அடைந்துவிட்டீர்கள். முதலில் ஒன்றை நீக்கவும்.",
+    "pronunciation_remove_failed": "உச்சரிப்பை நீக்க முடியவில்லை.",
+    "pronunciation_save_failed": "உச்சரிப்பைச் சேமிக்க முடியவில்லை.",
+    "reward_banned_word": "செய்தியில் தடைசெய்யப்பட்ட சொல் உள்ளது: \"{word}\".",
+    "reward_create_failed": "Channel Points வெகுமதியை உருவாக்க முடியவில்லை.",
+    "reward_delete_failed": "Channel Points வெகுமதியை நீக்க முடியவில்லை.",
+    "reward_links_blocked": "இந்த வெகுமதியில் இணைப்புகள் அனுமதிக்கப்படவில்லை.",
+    "reward_load_failed": "Channel Points வெகுமதியை ஏற்ற முடியவில்லை.",
+    "reward_message_empty": "செய்தி காலியாக உள்ளது.",
+    "reward_save_failed": "Channel Points வெகுமதியைச் சேமிக்க முடியவில்லை.",
+    "reward_test_failed": "Channel Points வெகுமதியைச் சோதிக்க முடியவில்லை.",
+    "reward_twitch_error": "Twitch வெகுமதி மாற்றத்தை நிராகரித்தது.",
+    "reward_validation_failed": "அந்த செய்தி அனுமதிக்கப்படவில்லை.",
+    "say_contains_link": "உச்சரிப்பில் இணைப்பு இருக்கக்கூடாது.",
+    "say_empty": "உச்சரிப்பு காலியாக இருக்கக்கூடாது.",
+    "say_must_be_text": "உச்சரிப்பு உரையாக இருக்க வேண்டும்.",
+    "say_too_long": "உச்சரிப்பு {max} அல்லது அதற்கும் குறைவான எழுத்துகளாக இருக்க வேண்டும்.",
+    "server_misconfigured": "சர்வர் தவறாக உள்ளமைக்கப்பட்டுள்ளது.",
+    "setting_invalid": "{key}-க்கு அது செல்லுபடியாகும் மதிப்பு அல்ல.",
+    "setting_update_failed": "TTS அமைப்பைப் புதுப்பிக்க முடியவில்லை.",
+    "settings_fetch_failed": "TTS அமைப்புகளை ஏற்ற முடியவில்லை.",
+    "shortlink_failed": "குறுகிய இணைப்பை உருவாக்க முடியவில்லை.",
+    "storage_unavailable": "சேமிப்பகம் கிடைக்கவில்லை.",
+    "tts_generation_failed": "பேச்சு உருவாக்கம் தோல்வியடைந்தது: {reason}",
+    "tts_no_audio": "பேச்சு வழங்குநர் எந்த ஆடியோவையும் வழங்கவில்லை.",
+    "tts_not_configured": "பேச்சு வழங்குநர் எதுவும் கட்டமைக்கப்படவில்லை.",
+    "tts_provider_failed": "பேச்சு வழங்குநரால் ஆடியோவை உருவாக்க முடியவில்லை.",
+    "tts_test_failed": "பேச்சு சோதனை தோல்வியடைந்தது.",
+    "tts_text_required": "சோதிக்க ஏதேனும் உரையை உள்ளிடவும்.",
+    "twitch_reauth_required": "உங்கள் Twitch உள்நுழைவு காலாவதியானது. உங்கள் கணக்கை மீண்டும் இணைக்கவும்.",
+    "twitch_user_not_found": "\"{username}\" என்ற பெயரில் எந்த Twitch கணக்கும் இல்லை.",
+    "url_required": "URL தேவை.",
+    "username_invalid": "அந்தப் பயனர்பெயர் செல்லுபடியாகாது.",
+    "username_required": "பயனர்பெயர் தேவை.",
+    "voice_access_denied": "\"{voice}\" குரலுக்கு சிறப்பு அனுமதி தேவை. வேறு குரலை முயற்சிக்கவும்.",
+    "voice_invalid": "\"{voice}\" குரல் கிடைக்கவில்லை. குரலைச் சரிபார்த்து மீண்டும் முயற்சிக்கவும்.",
+    "voice_lookup_failed": "அந்தப் பயனரின் குரலைக் கண்டறிய முடியவில்லை.",
+    "word_invalid": "அந்த வார்த்தை அல்லது சொற்றொடர் செல்லுபடியாகாது.",
+    "word_required": "ஒரு வார்த்தை அல்லது சொற்றொடர் தேவை."
+  },
+  "logoutLink": {
+    "logout": "வெளியேறு"
+  },
+  "mainContent": {
+    "documentationTtsWildcatChat": "<a class=\"wc-link\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\">ஆவணங்கள்</a> <span>tts.wildcat.chat</span>"
+  },
+  "msg": {
+    "action": {
+      "close": "மூடு",
+      "remove": "நீக்கு",
+      "saved": "சேமிக்கப்பட்டது"
+    },
+    "api": {
+      "authFailed": "அங்கீகரிப்பு தோல்வியடைந்தது. மீண்டும் உள்நுழையவும்.",
+      "notAuthenticated": "நீங்கள் உள்நுழையவில்லை.",
+      "requestFailed": "கோரிக்கை தோல்வியடைந்தது."
+    },
+    "auth": {
+      "genericUser": "பயனர்",
+      "loading": "ஏற்றுகிறது…",
+      "needViewerSignIn": "பார்வையாளர் விருப்பத்தேர்வுகளை அணுக உங்கள் Twitch கணக்கைச் சரிபார்க்கவும்.",
+      "redirecting": "அங்கீகாரத்திற்காக Twitch-க்கு திருப்பி விடப்படுகிறது…",
+      "required": "அங்கீகாரம் தேவை.",
+      "signInFailed": "உள்நுழைவை முடிக்க முடியவில்லை.",
+      "signInWithTwitch": "Twitch மூலம் உள்நுழைக",
+      "signedOut": "நீங்கள் உள்நுழையவில்லை.",
+      "tokenMissing": "அங்கீகார டோக்கன் இல்லை. மீண்டும் உள்நுழையவும்."
+    },
+    "emotion": {
+      "angry": "கோபம்",
+      "auto": "தானியங்கு",
+      "calm": "அமைதி",
+      "disgusted": "அருவருப்பு",
+      "fearful": "பயம்",
+      "fluent": "சரளம்",
+      "happy": "மகிழ்ச்சி",
+      "neutral": "நடுநிலை",
+      "sad": "சோகம்",
+      "surprised": "ஆச்சரியம்"
+    },
+    "ignore": {
+      "enterUsername": "பயனர்பெயரை உள்ளிடவும்."
+    },
+    "lang": {
+      "automatic": "தானியங்கி"
+    },
+    "prefs": {
+      "useChannelDefault": "சேனலின் இயல்புநிலையைப் பயன்படுத்து"
+    },
+    "preview": {
+      "enterText": "சோதிக்க உரையை உள்ளிடவும்.",
+      "unavailable": "முன்னோட்டம் கிடைக்கவில்லை."
+    },
+    "value": {
+      "off": "ஆஃப்",
+      "on": "ஆன்"
+    },
+    "voice": {
+      "cannotPlay": "ஆடியோ மாதிரியை இயக்க முடியவில்லை.",
+      "generating": "உருவாக்குகிறது…",
+      "noAudio": "சேவையகம் எந்த ஆடியோவையும் வழங்கவில்லை.",
+      "noneFound": "குரல்கள் எதுவும் கிடைக்கவில்லை.",
+      "preview": "{voice} முன்னோட்டம்",
+      "regenerate": "மீண்டும் உருவாக்கு",
+      "testFailed": "சோதனை தோல்வியடைந்தது: {reason}"
+    }
+  },
+  "page": {
+    "skipToMainContent": "முதன்மையான உள்ளடக்கத்திற்குச் செல்"
+  },
+  "sidebarEngNormVal": {
+    "off": "ஆஃப்"
+  },
+  "sidebarLanguageVal": {
+    "automatic": "தானியங்கி"
+  },
+  "ui": {
+    "language": "மொழி"
+  },
+  "voicePreviewHint": {
+    "settingsChangedGenerateANew": "<i><i data-lucide=\"triangle-alert\" class=\"inline-icon\"></i> அமைப்புகள் மாற்றப்பட்டன. புதிய முன்னோட்டத்தை உருவாக்கவும்.</i>"
+  },
+  "voicePreviewPlayer": {
+    "yourBrowserDoesNotSupport": "உங்கள் உலாவி ஆடியோ எலிமெண்ட்டை ஆதரிக்கவில்லை."
+  }
+}

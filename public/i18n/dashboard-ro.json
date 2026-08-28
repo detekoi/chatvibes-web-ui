@@ -1,0 +1,500 @@
+{
+  "addBotBtn": {
+    "activateTtsService": "Activează serviciul TTS"
+  },
+  "addTtsBannedWordBtn": {
+    "add": "Adaugă"
+  },
+  "addTtsIgnoreBtn": {
+    "add": "Adaugă"
+  },
+  "addTtsPronunciationBtn": {
+    "add": "Adaugă"
+  },
+  "allowViewerPreferences": {
+    "allowViewerVoicePreferences": "Permite preferințele de voce ale spectatorilor"
+  },
+  "announceUnfulfilledRedemptions": {
+    "announceQueuedRedeemsImmediately": "Anunță imediat revendicările din coadă"
+  },
+  "announceUnfulfilledRedemptionsHelp": {
+    "aRewardThatDoesNot": "O recompensă care nu sare peste coada de solicitări este anunțată imediat ce este revendicată, chiar dacă respingi solicitarea mai târziu. Dezactivează această opțiune pentru a amâna anunțul până când accepți solicitarea — recompensele pe care nu le accepți niciodată nu vor fi anunțate."
+  },
+  "anonymizeFollowers": {
+    "anonymizeNewFollowers": "Anonimizează urmăritorii noi"
+  },
+  "bitsEnabled": {
+    "requireBitsForTts": "Solicită Bits pentru TTS"
+  },
+  "botRespondsInChat": {
+    "botRespondsInChat": "Botul răspunde în chat"
+  },
+  "botStatus": {
+    "loading": "Se încarcă…"
+  },
+  "calibratedVoicesList": {
+    "noVoicesCalibratedYet": "Nicio voce calibrată încă."
+  },
+  "calibrationSaveBtn": {
+    "save": "Salvează"
+  },
+  "calibrationVoiceSearch": {
+    "searchVoicesToCalibrate": "Caută voci de calibrat..."
+  },
+  "channelNameStatus": {
+    "yourChannel": "canalul tău"
+  },
+  "cheerEventsEnabled": {
+    "announceCheers": "Anunță Cheer-urile"
+  },
+  "copyTtsUrlBtn": {
+    "copy": "Copiază",
+    "copyBrowserSourceUrl": "Copiază URL-ul pentru Browser Source"
+  },
+  "cpDelete": {
+    "disableDelete": "Dezactivează și șterge"
+  },
+  "cpEnabled": {
+    "enableChannelPointsTts": "Activează TTS pentru Channel Points"
+  },
+  "cpPerStream": {
+    "enterAmount": "Introdu valoarea"
+  },
+  "cpPerUser": {
+    "enterAmount": "Introdu valoarea"
+  },
+  "cpSave": {
+    "save": "Salvează"
+  },
+  "cpTest": {
+    "testRedeem": "Testează revendicarea"
+  },
+  "dashboardContent": {
+    "channel": "Canal",
+    "channelService": "Serviciu canal",
+    "dashboardConfigurationTabs": "File de configurare a panoului de control",
+    "deactivationStopsTheBotFrom": "Dezactivarea împiedică botul să citească mesajele din chat. Setările tale rămân salvate. Poți reactiva serviciul în orice moment.",
+    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Documentație </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>Setări spectator </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "Emoție",
+    "engNormalization": "Normalizare eng.",
+    "language": "Limbă",
+    "pitch": "Tonalitate",
+    "quickLinks": "Linkuri rapide",
+    "service": "Serviciu",
+    "signedInAs": "Conectat ca",
+    "speed": "Viteză",
+    "testMessage": "Mesaj de test",
+    "voicePreview": "Previzualizare voce",
+    "volume": "Volum"
+  },
+  "defaultEmotion": {
+    "angry": "Furios",
+    "disgusted": "Dezgustat",
+    "fearful": "Speriat",
+    "happy": "Fericit",
+    "neutral": "Neutru",
+    "sad": "Trist",
+    "surprised": "Surprins"
+  },
+  "defaultPitch": {
+    "defaultPitch12To12": "Înălțime implicită (de la -12 la +12)"
+  },
+  "defaultSpeed": {
+    "defaultSpeed05To": "Viteză implicită (de la 0,5 la 2,0)"
+  },
+  "defaultVoiceSearch": {
+    "searchDefaultVoices": "Caută voci implicite",
+    "searchVoices": "Caută voci..."
+  },
+  "defaultVolume": {
+    "voiceVolume01To": "Volum voce (de la 0,1 la 10)"
+  },
+  "emoteMode": {
+    "describeEmotes": "Descrie emoticoanele",
+    "readEmoteNames": "Citește numele emoticoanelor",
+    "skipEmotes": "Omite emoticoanele"
+  },
+  "englishNormalization": {
+    "englishNormalization": "Normalizare în engleză"
+  },
+  "eventsEnabled": {
+    "announceEvents": "Anunță evenimentele"
+  },
+  "loadingBar": {
+    "loadingDashboardSettings": "Se încarcă setările panoului de control"
+  },
+  "loadingOverlay": {
+    "loadingDashboardSettings": "Se încarcă setările panoului de control…"
+  },
+  "lookupUsername": {
+    "enterTwitchViewerUsername": "Introdu numele de utilizator Twitch al spectatorului"
+  },
+  "lookupVoiceBtn": {
+    "lookupVoice": "Caută vocea"
+  },
+  "meta": {
+    "wildcatttsDashboard": "Panou de control WildcatTTS",
+    "wildcatttsStreamerDashboardConfigureText": "WildcatTTS Streamer Dashboard - Configurează setările text-to-speech, permisiunile, răspunsurile botului și Channel Points."
+  },
+  "msg": {
+    "auth": {
+      "demoStreamer": "Streamer demo",
+      "needBroadcaster": "Conectează-te cu contul de broadcaster pentru a accesa setările de streamer.",
+      "needSignIn": "Conectează-te cu contul de Twitch pentru a accesa panoul de control."
+    },
+    "bannedWords": {
+      "addFailed": "Nu se poate adăuga cuvântul interzis.",
+      "added": "S-a adăugat „{word}” la cuvintele interzise.",
+      "addedTestMode": "[Test] S-a adăugat cuvântul interzis: {word}.",
+      "empty": "Niciun cuvânt interzis adăugat încă.",
+      "removeFailed": "Nu se poate elimina cuvântul interzis.",
+      "removed": "S-a eliminat „{word}” din cuvintele interzise.",
+      "removedTestMode": "[Test] S-a eliminat cuvântul interzis: {word}."
+    },
+    "bot": {
+      "activateFailed": "Nu se poate activa serviciul TTS.",
+      "activated": "Serviciul TTS a fost activat.",
+      "activatedTestMode": "Serviciul TTS a fost activat (mod test).",
+      "activating": "Se activează serviciul TTS…",
+      "active": "Activ",
+      "deactivateFailed": "Nu se poate dezactiva serviciul TTS.",
+      "deactivated": "Serviciul TTS a fost dezactivat.",
+      "deactivatedTestMode": "Serviciul TTS a fost dezactivat (mod test).",
+      "deactivating": "Se dezactivează serviciul TTS…",
+      "inactive": "Inactiv",
+      "notAuthenticated": "Neautentificat",
+      "requestAccess": "Solicită acces aici",
+      "statusError": "Eroare",
+      "statusFailed": "Eroare: {reason}",
+      "statusLoadFailed": "Nu se poate încărca starea botului: {reason}",
+      "unknownError": "Eroare necunoscută"
+    },
+    "calibration": {
+      "confirmReset": "Resetezi calibrarea pentru {voice}?",
+      "edit": "Editează",
+      "empty": "Nicio voce calibrată încă.",
+      "reset": "Resetează",
+      "row": "{voice} ({volume})"
+    },
+    "cp": {
+      "confirmDelete": "Ștergi recompensa TTS Channel Points?",
+      "deleteFailed": "Ștergerea a eșuat.",
+      "deleted": "Recompensă ștearsă.",
+      "deletedTestMode": "Recompensă ștearsă (mod de test).",
+      "deleting": "Se șterge…",
+      "lastSynced": "{reward} · Ultima sincronizare: {time}",
+      "never": "niciodată",
+      "noReward": "Nicio recompensă creată",
+      "noRewardTestMode": "Nicio recompensă creată (mod de test)",
+      "rewardId": "ID recompensă: {id}",
+      "saveFailed": "Nu se pot salva setările Channel Points.",
+      "saved": "Setările Channel Points au fost salvate.",
+      "savedTestMode": "Setările Channel Points au fost salvate (mod de test).",
+      "saving": "Se salvează setările Channel Points…",
+      "testCompleted": "Test finalizat ({status}).",
+      "testCompletedTestMode": "Test finalizat (mod de test).",
+      "testFailed": "Testul a eșuat.",
+      "testPrompt": "Introdu un mesaj de test pentru a simula o revendicare:",
+      "testing": "Se testează revendicarea…"
+    },
+    "ignore": {
+      "addFailed": "Nu se poate adăuga utilizatorul în lista de ignorare.",
+      "addFailedReason": "Nu se poate adăuga utilizatorul: {reason}",
+      "badgeModerator": "Redus la tăcere de tine",
+      "badgeSelf": "A renunțat",
+      "empty": "Niciun utilizator ignorat.",
+      "noSuchAccount": "Contul Twitch nu există",
+      "removeFailed": "Nu se poate elimina utilizatorul din lista de ignorare.",
+      "removeFailedReason": "Nu se poate elimina {label}: {reason}",
+      "removeLabel": "Elimină {label} din lista de ignorare ({source, select, self {a renunțat de bunăvoie} other {redus la tăcere de tine}})"
+    },
+    "lookup": {
+      "button": "Caută vocea",
+      "calibrate": "Calibrează „{voice}”",
+      "error": "Eroare: {reason}",
+      "failed": "Nu se poate găsi acel utilizator.",
+      "hasVoice": "Utilizatorul {user} a setat o voce personalizată: {voice}",
+      "noVoice": "Utilizatorul {user} nu are o voce personalizată setată.",
+      "searching": "Se caută…",
+      "voiceUnknown": "Această voce nu se află în lista de voci disponibile."
+    },
+    "obs": {
+      "cannotCopy": "Nu se poate copia URL-ul.",
+      "cannotDetermine": "Nu se poate determina URL-ul TTS.",
+      "copied": "Copiat în clipboard.",
+      "copiedButton": "Copiat!",
+      "copyFailed": "Copierea a eșuat.",
+      "generateFailed": "Nu s-a putut genera URL-ul OBS. Încearcă din nou.",
+      "generating": "Se generează…",
+      "generatingUrl": "Se generează URL-ul securizat…",
+      "loadingUrl": "Se încarcă URL-ul existent…",
+      "pressRegenerate": "Apasă pe „Regenerează URL-ul” pentru a genera un URL de OBS Browser Source.",
+      "refreshPage": "Nu se poate genera URL-ul. Reîmprospătează pagina.",
+      "testModeUrl": "URL mod de testare",
+      "urlGenerated": "A fost generat un nou URL.",
+      "urlGeneratedTestMode": "A fost generat un nou URL (mod test).",
+      "urlNotReady": "URL-ul nu este încă disponibil.",
+      "yourUrl": "URL-ul tău de OBS Browser Source"
+    },
+    "preview": {
+      "playingTestMode": "Se redă previzualizarea… (mod test)",
+      "tooLong": "Textul trebuie să aibă maximum 500 de caractere."
+    },
+    "pron": {
+      "acronymsDisabled": "Acronimele sunt dezactivate",
+      "acronymsOffHint": "Activează mai sus „Extinde acronimele din chat” pentru ca aceste setări să aibă efect.",
+      "addFailed": "Nu se poate adăuga pronunția.",
+      "added": "Pronunție adăugată: {match} -> {say}.",
+      "addedTestMode": "[Test] Pronunție adăugată: {match} -> {say}.",
+      "builtinOff": " — integrat dezactivat",
+      "empty": "Nicio pronunție personalizată adăugată încă.",
+      "expansion": " → {say}",
+      "needBoth": "Introdu atât cuvântul, cât și pronunția.",
+      "removeFailed": "Nu se poate elimina pronunția.",
+      "removed": "Pronunție eliminată: {match}.",
+      "removedTestMode": "[Test] Pronunție eliminată: {match}."
+    },
+    "setting": {
+      "allowViewerPreferences": "Permite preferințele de voce ale spectatorilor",
+      "announceQueuedRedeems": "Anunță revendicările din coadă",
+      "anonymizeFollowers": "Anonimizează urmăritorii",
+      "bitsForTts": "Bits pentru TTS",
+      "botRespondsInChat": "Botul răspunde în chat",
+      "cheerAnnouncements": "Anunțuri Cheer",
+      "defaultEmotion": "Emoție implicită",
+      "defaultLanguage": "Limbă implicită",
+      "defaultPitch": "Înălțime tonală implicită",
+      "defaultSpeed": "Viteză implicită",
+      "defaultVoice": "Voce implicită",
+      "emoteMode": "Mod emote-uri",
+      "englishNormalization": "Normalizare în engleză",
+      "eventAnnouncements": "Anunțuri pentru evenimente",
+      "expandAcronyms": "Extinde acronimele din chat",
+      "minimumBits": "Număr minim de bits",
+      "profanityFilter": "Filtru de vulgaritate",
+      "readFullUrls": "Citește URL-urile complete",
+      "redemptionAnnouncements": "Anunțuri de revendicare",
+      "ttsEngine": "Motor TTS",
+      "ttsMode": "Mod TTS",
+      "ttsPermission": "Permisiune TTS",
+      "voiceVolume": "Volum voce",
+      "watchStreakAnnouncements": "Anunțuri pentru serii de vizionare",
+      "youtubeHandle": "Handle YouTube",
+      "youtubeTts": "YouTube TTS"
+    },
+    "settings": {
+      "loadFailed": "Nu se pot încărca setările tale.",
+      "saveFailed": "{label}: {reason}",
+      "youtubeHandleRequired": "Introdu un handle YouTube înainte de a activa YouTube TTS."
+    }
+  },
+  "obsCloseBtn": {
+    "closeObsSetup": "Închide configurarea OBS"
+  },
+  "obsPopover": {
+    "addBrowserSource": "Adaugă Browser Source",
+    "cautionANewUrlStops": "ATENȚIE: Un nou URL oprește sursa OBS actuală până când actualizezi URL-ul în OBS.",
+    "controlAudioViaObs": "Controlează audio prin OBS",
+    "inObsAddANew": "În OBS, adaugă o nouă <strong>Browser Source</strong>. Numește sursa „Wildcat TTS” și lipește URL-ul copiat. Poți păstra lățimea și înălțimea implicite.",
+    "inTheObsAudioMixer": "În mixerul audio OBS, găsește „Wildcat TTS”. Fă clic pe pictograma rotiță și selectează <strong>Advanced Audio Properties</strong>. Setează Audio Monitoring pe <strong>Monitor and Output</strong>.",
+    "monitorAndOutput": "Monitorizare și ieșire",
+    "obsBrowserSource": "OBS Browser Source",
+    "selectControlAudioViaObs": "Selectează <strong>Control audio via OBS</strong>. Asigură-te că <strong>Shutdown source when not visible</strong> nu este bifat.",
+    "setupInstructions": "Instrucțiuni de configurare",
+    "yourBrowserSourceUrl": "URL-ul tău Browser Source"
+  },
+  "obsToggleBtn": {
+    "obsSetup": "Configurare OBS"
+  },
+  "page": {
+    "channelDashboard": "Panou de control canal",
+    "textToSpeechSettingsFor": "Setări text-to-speech pentru canalul tău. Modificările se salvează automat.",
+    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Panou de control</span>"
+  },
+  "profanityFilterEnabled": {
+    "profanityFilter": "Filtru de vulgarități"
+  },
+  "pronunciationEnabled": {
+    "expandChatAcronyms": "Extinde acronimele din chat"
+  },
+  "readFullUrls": {
+    "readFullUrls": "Citește URL-urile complete"
+  },
+  "redemptionEventsEnabled": {
+    "announceRewardRedeems": "Anunță revendicările de recompense"
+  },
+  "regenerateTtsUrlBtn": {
+    "regenerateBrowserSourceUrl": "Regenerează URL-ul Browser Source",
+    "regenerateUrl": "Regenerează URL-ul"
+  },
+  "removeBotBtn": {
+    "deactivateTtsService": "Dezactivează serviciul TTS"
+  },
+  "resetPitchBtn": {
+    "reset": "Resetează",
+    "resetDefaultPitchTo0": "Resetează înălțimea implicită a vocii la 0"
+  },
+  "resetSpeedBtn": {
+    "reset": "Resetează",
+    "resetDefaultSpeedTo1": "Resetează viteza implicită la 1.0"
+  },
+  "resetVolumeBtn": {
+    "reset": "Resetează",
+    "resetVoiceVolumeTo1": "Resetează volumul vocii la 1.0"
+  },
+  "saveSettingsBtn": {
+    "saveAllSettings": "Salvează toate setările"
+  },
+  "serviceHeadline": {
+    "ttsService": "Serviciu TTS"
+  },
+  "sidebarVoiceName": {
+    "friendlyPerson": "Persoană prietenoasă"
+  },
+  "tabBroadcaster": {
+    "allowTheBotToRespond": "Permite botului să răspundă la comenzi din chat precum !myvoice",
+    "allowViewerVoicePreferences": "Permite preferințele de voce ale spectatorilor",
+    "allowViewersToUseChannel": "Permite spectatorilor să folosească Channel Points pentru TTS",
+    "announceCheers": "Anunță cheer-urile",
+    "announceEvents": "Anunță evenimente",
+    "announceEventsSuchAsSubscriptions": "Anunță evenimente precum abonamente și raiduri",
+    "announceQueuedRedeemsImmediately": "Anunță imediat revendicările din coadă",
+    "announceRewardRedeems": "Anunță revendicările de recompense",
+    "announceWatchStreaks": "Anunță seriile de vizionare",
+    "announceWhenAViewerCheers": "Anunță când un spectator trimite bits",
+    "announceWhenAViewerReaches": "Anunță când un spectator atinge un prag de serie de vizionare",
+    "announceWhenAViewerRedeems": "Anunță când un spectator revendică o recompensă cu Channel Points",
+    "anonymizeNewFollowers": "Anonimizează urmăritorii noi",
+    "bannedWordsCommaSeparated": "Cuvinte interzise (separate prin virgulă)",
+    "bannedWordsPhrases": "<strong>Cuvinte / Fraze interzise</strong>",
+    "bitsTts": "Bits → TTS",
+    "blockLinks": "Blochează linkurile",
+    "botRespondsInChat": "Botul răspunde în chat",
+    "channelPointsTts": "Channel Points → TTS",
+    "chooseWhichMessagesTriggerTts": "Alege ce mesaje declanșează TTS",
+    "configureBitsRequirementsForText": "Configurează cerințele de bits pentru text-to-speech",
+    "configureChannelPointsRewardsFor": "Configurează recompensele Channel Points pentru text-to-speech",
+    "configureTtsEngineSettingsAnd": "Configurează setările motorului TTS și permisiunile",
+    "controlHowTtsPronouncesSpecific": "Controlează modul în care TTS pronunță anumite cuvinte. Acronimele comune de pe Twitch sunt gestionate implicit. Adaugă o intrare pentru a suprascrie o pronunție implicită sau pentru a adăuga un cuvânt nou.",
+    "controlsHowTtsHandlesEmotes": "Controlează modul în care TTS gestionează emoticoanele din mesajele de chat",
+    "cooldownsAndModeration": "Cooldown-uri și moderare",
+    "costPoints": "Cost (puncte)",
+    "emoteMode": "<strong>Mod emoticoane</strong>",
+    "enableChannelPointsTts": "Activează TTS pentru Channel Points",
+    "enableCooldownsLimits": "Activează cooldown-uri și limite",
+    "engineMode": "Motor și mod",
+    "expandChatAcronyms": "Extinde acronimele din chat",
+    "globalCooldownSec": "Cooldown global (sec)",
+    "hideFollowerNamesInTts": "Ascunde numele urmăritorilor în anunțurile TTS pentru confidențialitate",
+    "ifOnTtsReadsFull": "Dacă este activat, TTS citește URL-urile complete. Dacă este dezactivat, TTS citește doar numele domeniilor",
+    "ifThisSettingIsOff": "Dacă această setare este dezactivată, TTS folosește vocea implicită a canalului pentru toate mesajele",
+    "ignoredUsers": "Utilizatori ignorați",
+    "manageUsersThatTtsIgnores": "Gestionează utilizatorii ignorați de TTS",
+    "minimumBitsRequired": "<strong>Număr minim de bits necesar</strong>",
+    "minimumNumberOfBitsRequired": "Numărul minim de bits necesar pentru a declanșa TTS",
+    "perStreamLimit": "Limită per stream",
+    "perUserPerStream": "Per utilizator per stream",
+    "profanityFilter": "Filtru de vulgaritate",
+    "pronunciationDictionary": "<strong>Dicționar de pronunție</strong>",
+    "readFullUrls": "Citește URL-urile complete",
+    "readYoutubeLiveChatMessages": "Citește mesajele din chatul live YouTube prin TTS. Această funcție necesită un livestream YouTube activ.",
+    "readYoutubeLiveChatMessages2": "Citește cu voce tare mesajele din chatul live YouTube",
+    "requireBitsForTts": "Solicită bits pentru TTS",
+    "rewardTitle": "Titlu recompensă",
+    "skipTheRewardQueue": "Omite coada de recompense",
+    "theTitleMustBeUnique": "Titlul trebuie să fie unic pe canalul tău.",
+    "ttsDoesNotReadMessages": "TTS nu citește mesajele utilizatorilor din această listă.",
+    "ttsEngineEnabled": "Motor TTS activat",
+    "ttsExpandsCommonTwitchAcronyms": "TTS extinde acronimele uzuale de pe Twitch în cuvinte. De exemplu, „ngl” devine „not gonna lie”. Dezactivează pentru a rosti fiecare literă.",
+    "ttsIgnoreList": "<strong>Listă de ignorare TTS</strong>",
+    "ttsMode": "<strong>Mod TTS</strong>",
+    "ttsPermission": "<strong>Permisiune TTS</strong>",
+    "ttsReplacesProfanityWithMilder": "TTS înlocuiește vulgaritățile cu cuvinte mai blânde înainte de a le rosti. Filtrul folosește limba canalului și limba spectatorului. Dacă limba este setată pe Automat, filtrul folosește lista în engleză. Cuvintele interzise vor omite în continuare întregul mesaj.",
+    "ttsSkipsMessagesThatContain": "TTS omite mesajele care conțin aceste cuvinte sau fraze.",
+    "turnOnOrTurnOff": "Activează sau dezactivează motorul text-to-speech",
+    "viewerPrompt": "Mesaj pentru spectatori",
+    "viewersMustCheerBitsTo": "Spectatorii trebuie să trimită bits pentru a folosi text-to-speech",
+    "whoCanUseTextTo": "Cine poate folosi text-to-speech",
+    "yourYoutubeChannelHandleFor": "Identificatorul canalului tău YouTube (de exemplu, <code>@yourhandle</code>)",
+    "youtubeHandle": "<strong>Identificator YouTube</strong>",
+    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>Integrare YouTube",
+    "youtubeTtsEnabled": "TTS YouTube activat"
+  },
+  "tabBtnBroadcaster": {
+    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Broadcaster"
+  },
+  "tabBtnViewerDefaults": {
+    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Setări implicite voce"
+  },
+  "tabViewerDefaults": {
+    "adjustThePitchForThe": "Ajustează tonalitatea pentru vocea implicită",
+    "adjustTheVolumeForThe": "Ajustează volumul pentru vocea selectată. ATENȚIE: Valorile mai mari de 1,0 pot provoca distorsiuni.",
+    "calibrateVolumeForSpecificVoices": "Calibrează volumul pentru anumite voci. ATENȚIE: Valorile mai mari de 1,0 pot provoca distorsiuni.",
+    "calibratedVoices": "<strong>Voci calibrate</strong>",
+    "controlHowFastTheDefault": "Controlează viteza vocii implicite",
+    "defaultEmotion": "<strong>Emoție implicită</strong>",
+    "defaultLanguage": "<strong>Limbă implicită</strong>",
+    "defaultPitch12To12": "Tonalitate implicită (-12 la +12):",
+    "defaultSpeed05To": "Viteză implicită (0.5 la 2.0):",
+    "defaultVoice": "<strong>Voce implicită</strong>",
+    "defaultVoiceSettings": "Setări voce implicită",
+    "englishNormalization": "Normalizare engleză",
+    "improvePronunciationForSpecificLanguages": "Îmbunătățește pronunția pentru anumite limbi",
+    "improveThePronunciationOfNumbers": "Îmbunătățește pronunția numerelor și a textului",
+    "selectTheDefaultTtsVoice": "Selectează vocea TTS implicită pentru canal",
+    "selectVoice": "Selectează vocea",
+    "setDefaultVoiceSettingsFor": "Setează opțiunile implicite de voce pentru canal",
+    "setTheEmotionalToneOf": "Setează tonul emoțional al vocii implicite",
+    "viewerVoiceLookup": "Căutare voce spectator",
+    "voiceCalibration": "Calibrare voce",
+    "voiceVolume01To": "Volum voce (0.1 la 10):",
+    "voicesWithCustomVolumeSettings": "Voci cu setări de volum personalizate.",
+    "volumeOverride": "Suprascriere volum:"
+  },
+  "ttsBannedWordInput": {
+    "wordOrPhraseToBan": "Cuvânt sau expresie de interzis"
+  },
+  "ttsEnabled": {
+    "ttsEngineEnabled": "Motor TTS activat"
+  },
+  "ttsIgnoreUsername": {
+    "usernameToIgnore": "Nume de utilizator de ignorat"
+  },
+  "ttsMode": {
+    "allMessages": "Toate mesajele",
+    "bitsPointsOnly": "Doar Bits/Puncte",
+    "ttsCommandOnly": "Doar comanda !tts"
+  },
+  "ttsPermission": {
+    "everyone": "Oricine",
+    "moderatorsOnly": "Doar moderatori",
+    "subscribersOnly": "Doar abonați",
+    "vipsOnly": "Doar VIP-uri"
+  },
+  "ttsPronunciationMatchInput": {
+    "wordForExampleWcat": "Cuvânt (de exemplu, wcat)",
+    "wordToReplace": "Cuvânt de înlocuit"
+  },
+  "ttsPronunciationSayInput": {
+    "howToSayItFor": "Cum se pronunță (de exemplu, wildcat)",
+    "pronunciation": "Pronunție"
+  },
+  "ttsUrlField": {
+    "yourBrowserSourceUrl": "URL-ul tău Browser Source"
+  },
+  "twitchUsername": {
+    "loading": "se încarcă…"
+  },
+  "voiceTestBtn": {
+    "sendPreview": "Trimite previzualizare"
+  },
+  "watchStreakEventsEnabled": {
+    "announceWatchStreaks": "Anunță seriile de vizionare"
+  },
+  "youtubeEnabled": {
+    "youtubeTtsEnabled": "TTS YouTube activat"
+  },
+  "youtubeHandle": {
+    "yourhandle": "@yourhandle"
+  }
+}

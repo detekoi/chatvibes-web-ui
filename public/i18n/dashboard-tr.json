@@ -1,0 +1,500 @@
+{
+  "addBotBtn": {
+    "activateTtsService": "TTS hizmetini etkinleştir"
+  },
+  "addTtsBannedWordBtn": {
+    "add": "Ekle"
+  },
+  "addTtsIgnoreBtn": {
+    "add": "Ekle"
+  },
+  "addTtsPronunciationBtn": {
+    "add": "Ekle"
+  },
+  "allowViewerPreferences": {
+    "allowViewerVoicePreferences": "İzleyici Ses Tercihlerine İzin Ver"
+  },
+  "announceUnfulfilledRedemptions": {
+    "announceQueuedRedeemsImmediately": "Kuyruktaki Kullanımları Hemen Duyur"
+  },
+  "announceUnfulfilledRedemptionsHelp": {
+    "aRewardThatDoesNot": "Ödül talebi kuyruğunu atlamayan bir ödül, talebi daha sonra reddetseniz bile kullanıldığı anda duyurulur. Duyuruyu talebi kabul edene kadar bekletmek için bunu kapatın; kabul etmediğiniz ödüller hiçbir zaman duyurulmaz."
+  },
+  "anonymizeFollowers": {
+    "anonymizeNewFollowers": "Yeni Takipçileri Anonimleştir"
+  },
+  "bitsEnabled": {
+    "requireBitsForTts": "TTS İçin Bits Zorunlu Olsun"
+  },
+  "botRespondsInChat": {
+    "botRespondsInChat": "Bot Sohbette Yanıt Versin"
+  },
+  "botStatus": {
+    "loading": "Yükleniyor…"
+  },
+  "calibratedVoicesList": {
+    "noVoicesCalibratedYet": "Henüz kalibre edilmiş ses yok."
+  },
+  "calibrationSaveBtn": {
+    "save": "Kaydet"
+  },
+  "calibrationVoiceSearch": {
+    "searchVoicesToCalibrate": "Kalibre edilecek sesleri ara..."
+  },
+  "channelNameStatus": {
+    "yourChannel": "kanalınız"
+  },
+  "cheerEventsEnabled": {
+    "announceCheers": "Cheer'ları Duyur"
+  },
+  "copyTtsUrlBtn": {
+    "copy": "Kopyala",
+    "copyBrowserSourceUrl": "Browser Source URL'sini kopyala"
+  },
+  "cpDelete": {
+    "disableDelete": "Devre Dışı Bırak ve Sil"
+  },
+  "cpEnabled": {
+    "enableChannelPointsTts": "Channel Points TTS'yi Etkinleştir"
+  },
+  "cpPerStream": {
+    "enterAmount": "Miktar girin"
+  },
+  "cpPerUser": {
+    "enterAmount": "Miktar girin"
+  },
+  "cpSave": {
+    "save": "Kaydet"
+  },
+  "cpTest": {
+    "testRedeem": "Kullanımı test et"
+  },
+  "dashboardContent": {
+    "channel": "Kanal",
+    "channelService": "Kanal hizmeti",
+    "dashboardConfigurationTabs": "Kontrol paneli yapılandırma sekmeleri",
+    "deactivationStopsTheBotFrom": "Devre dışı bırakıldığında bot sohbet mesajlarını okumayı durdurur. Ayarlarınız kayıtlı kalır. Hizmeti istediğiniz zaman tekrar etkinleştirebilirsiniz.",
+    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokümantasyon </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>İzleyici ayarları </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "Duygu",
+    "engNormalization": "İng. normalizasyon",
+    "language": "Dil",
+    "pitch": "Perde",
+    "quickLinks": "Hızlı bağlantılar",
+    "service": "Hizmet",
+    "signedInAs": "Şu hesapla oturum açıldı:",
+    "speed": "Hız",
+    "testMessage": "Test mesajı",
+    "voicePreview": "Ses önizleme",
+    "volume": "Ses düzeyi"
+  },
+  "defaultEmotion": {
+    "angry": "Öfkeli",
+    "disgusted": "İğrenmiş",
+    "fearful": "Korkmuş",
+    "happy": "Mutlu",
+    "neutral": "Nötr",
+    "sad": "Üzgün",
+    "surprised": "Şaşırmış"
+  },
+  "defaultPitch": {
+    "defaultPitch12To12": "Varsayılan Ses Tonu (-12 ila +12)"
+  },
+  "defaultSpeed": {
+    "defaultSpeed05To": "Varsayılan Hız (0.5 ila 2.0)"
+  },
+  "defaultVoiceSearch": {
+    "searchDefaultVoices": "Varsayılan sesleri ara",
+    "searchVoices": "Sesleri ara..."
+  },
+  "defaultVolume": {
+    "voiceVolume01To": "Ses Düzeyi (0.1 ila 10)"
+  },
+  "emoteMode": {
+    "describeEmotes": "İfadeleri betimle",
+    "readEmoteNames": "İfade adlarını oku",
+    "skipEmotes": "İfadeleri atla"
+  },
+  "englishNormalization": {
+    "englishNormalization": "İngilizce Normalizasyonu"
+  },
+  "eventsEnabled": {
+    "announceEvents": "Etkinlikleri Duyur"
+  },
+  "loadingBar": {
+    "loadingDashboardSettings": "Panel ayarları yükleniyor"
+  },
+  "loadingOverlay": {
+    "loadingDashboardSettings": "Panel ayarları yükleniyor…"
+  },
+  "lookupUsername": {
+    "enterTwitchViewerUsername": "Twitch izleyici kullanıcı adını girin"
+  },
+  "lookupVoiceBtn": {
+    "lookupVoice": "Ses Ara"
+  },
+  "meta": {
+    "wildcatttsDashboard": "WildcatTTS Paneli",
+    "wildcatttsStreamerDashboardConfigureText": "WildcatTTS Yayıncı Paneli - Metin okuma ayarlarını, izinleri, bot yanıtlarını ve Channel Points'i yapılandırın."
+  },
+  "msg": {
+    "auth": {
+      "demoStreamer": "Demo Yayıncı",
+      "needBroadcaster": "Yayıncı ayarlarına erişmek için yayıncı hesabınızla giriş yapın.",
+      "needSignIn": "Panele erişmek için Twitch hesabınızla giriş yapın."
+    },
+    "bannedWords": {
+      "addFailed": "Yasaklı kelime eklenemiyor.",
+      "added": "\"{word}\" yasaklı kelimelere eklendi.",
+      "addedTestMode": "[Test] Yasaklı kelime eklendi: {word}.",
+      "empty": "Henüz yasaklı kelime eklenmedi.",
+      "removeFailed": "Yasaklı kelime kaldırılamıyor.",
+      "removed": "\"{word}\" yasaklı kelimelerden kaldırıldı.",
+      "removedTestMode": "[Test] Yasaklı kelime kaldırıldı: {word}."
+    },
+    "bot": {
+      "activateFailed": "TTS servisi etkinleştirilemiyor.",
+      "activated": "TTS servisi etkinleştirildi.",
+      "activatedTestMode": "TTS servisi etkinleştirildi (test modu).",
+      "activating": "TTS servisi etkinleştiriliyor…",
+      "active": "Aktif",
+      "deactivateFailed": "TTS servisi devre dışı bırakılamıyor.",
+      "deactivated": "TTS servisi devre dışı bırakıldı.",
+      "deactivatedTestMode": "TTS servisi devre dışı bırakıldı (test modu).",
+      "deactivating": "TTS servisi devre dışı bırakılıyor…",
+      "inactive": "Devre dışı",
+      "notAuthenticated": "Kimlik doğrulanmadı",
+      "requestAccess": "Buradan erişim talep edin",
+      "statusError": "Hata",
+      "statusFailed": "Hata: {reason}",
+      "statusLoadFailed": "Bot durumu yüklenemiyor: {reason}",
+      "unknownError": "Bilinmeyen hata"
+    },
+    "calibration": {
+      "confirmReset": "{voice} için kalibrasyon sıfırlansın mı?",
+      "edit": "Düzenle",
+      "empty": "Henüz kalibre edilmiş ses yok.",
+      "reset": "Sıfırla",
+      "row": "{voice} ({volume})"
+    },
+    "cp": {
+      "confirmDelete": "Channel Points TTS ödülü silinsin mi?",
+      "deleteFailed": "Silme başarısız.",
+      "deleted": "Ödül silindi.",
+      "deletedTestMode": "Ödül silindi (test modu).",
+      "deleting": "Siliniyor…",
+      "lastSynced": "{reward} · Son eşitleme: {time}",
+      "never": "hiçbir zaman",
+      "noReward": "Ödül oluşturulmadı",
+      "noRewardTestMode": "Ödül oluşturulmadı (test modu)",
+      "rewardId": "Ödül Kimliği: {id}",
+      "saveFailed": "Channel Points ayarları kaydedilemedi.",
+      "saved": "Channel Points ayarları kaydedildi.",
+      "savedTestMode": "Channel Points ayarları kaydedildi (test modu).",
+      "saving": "Channel Points ayarları kaydediliyor…",
+      "testCompleted": "Test tamamlandı ({status}).",
+      "testCompletedTestMode": "Test tamamlandı (test modu).",
+      "testFailed": "Test başarısız.",
+      "testPrompt": "Kullanımı simüle etmek için bir test mesajı girin:",
+      "testing": "Kullanım test ediliyor…"
+    },
+    "ignore": {
+      "addFailed": "Kullanıcı yoksayılanlar listesine eklenemedi.",
+      "addFailedReason": "Kullanıcı eklenemedi: {reason}",
+      "badgeModerator": "Sizin tarafınızdan susturuldu",
+      "badgeSelf": "Devre dışı bıraktı",
+      "empty": "Yoksayılan kullanıcı yok.",
+      "noSuchAccount": "Böyle bir Twitch hesabı yok",
+      "removeFailed": "Kullanıcı yoksayılanlar listesinden kaldırılamadı.",
+      "removeFailedReason": "{label} kaldırılamadı: {reason}",
+      "removeLabel": "{label} adlı kullanıcıyı yoksayılanlar listesinden kaldır ({source, select, self {kendisi devre dışı bıraktı} other {sizin tarafınızdan susturuldu}})"
+    },
+    "lookup": {
+      "button": "Sesi Ara",
+      "calibrate": "\"{voice}\" sesini kalibre et",
+      "error": "Hata: {reason}",
+      "failed": "Bu kullanıcı bulunamıyor.",
+      "hasVoice": "{user} kullanıcısının belirlediği özel ses: {voice}",
+      "noVoice": "{user} kullanıcısının ayarlanmış özel sesi yok.",
+      "searching": "Aranıyor…",
+      "voiceUnknown": "Bu ses kullanılabilir sesler listesinde bulunmuyor."
+    },
+    "obs": {
+      "cannotCopy": "URL kopyalanamıyor.",
+      "cannotDetermine": "TTS URL'si belirlenemiyor.",
+      "copied": "Panoya kopyalandı.",
+      "copiedButton": "Kopyalandı!",
+      "copyFailed": "Kopyalama başarısız.",
+      "generateFailed": "OBS URL'si oluşturulamıyor. Tekrar deneyin.",
+      "generating": "Oluşturuluyor…",
+      "generatingUrl": "Güvenli URL oluşturuluyor…",
+      "loadingUrl": "Mevcut URL yükleniyor…",
+      "pressRegenerate": "OBS Browser Source URL'si oluşturmak için \"URL'yi Yeniden Oluştur\"a tıklayın.",
+      "refreshPage": "URL oluşturulamıyor. Sayfayı yenileyin.",
+      "testModeUrl": "Test modu URL'si",
+      "urlGenerated": "Yeni bir URL oluşturuldu.",
+      "urlGeneratedTestMode": "Yeni bir URL oluşturuldu (test modu).",
+      "urlNotReady": "URL henüz hazır değil.",
+      "yourUrl": "OBS Browser Source URL'niz"
+    },
+    "preview": {
+      "playingTestMode": "Önizleme çalınıyor… (test modu)",
+      "tooLong": "Metin en fazla 500 karakter olmalıdır."
+    },
+    "pron": {
+      "acronymsDisabled": "Kısaltmalar devre dışı",
+      "acronymsOffHint": "Bu ayarların geçerli olması için yukarıdaki \"Sohbet Kısaltmalarını Aç\" ayarını etkinleştirin.",
+      "addFailed": "Telaffuz eklenemiyor.",
+      "added": "Telaffuz eklendi: {match} -> {say}.",
+      "addedTestMode": "[Test] Telaffuz eklendi: {match} -> {say}.",
+      "builtinOff": " — yerleşik olan kapatıldı",
+      "empty": "Henüz özel bir telaffuz eklenmedi.",
+      "expansion": " → {say}",
+      "needBoth": "Hem kelimeyi hem de telaffuzunu girin.",
+      "removeFailed": "Telaffuz kaldırılamıyor.",
+      "removed": "Telaffuz kaldırıldı: {match}.",
+      "removedTestMode": "[Test] Telaffuz kaldırıldı: {match}."
+    },
+    "setting": {
+      "allowViewerPreferences": "İzleyici Ses Tercihlerine İzin Ver",
+      "announceQueuedRedeems": "Kuyruktaki Kullanımları Duyur",
+      "anonymizeFollowers": "Takipçileri Anonimleştir",
+      "bitsForTts": "TTS için Bits",
+      "botRespondsInChat": "Bot Sohbette Yanıt Versin",
+      "cheerAnnouncements": "Cheer Duyuruları",
+      "defaultEmotion": "Varsayılan Duygu",
+      "defaultLanguage": "Varsayılan Dil",
+      "defaultPitch": "Varsayılan Ses Perdesi",
+      "defaultSpeed": "Varsayılan Hız",
+      "defaultVoice": "Varsayılan Ses",
+      "emoteMode": "İfade Modu",
+      "englishNormalization": "İngilizce Normalizasyon",
+      "eventAnnouncements": "Etkinlik Duyuruları",
+      "expandAcronyms": "Sohbet Kısaltmalarını Aç",
+      "minimumBits": "Minimum Bits",
+      "profanityFilter": "Küfür Filtresi",
+      "readFullUrls": "URL'lerin Tamamını Oku",
+      "redemptionAnnouncements": "Ödül Kullanım Duyuruları",
+      "ttsEngine": "TTS Motoru",
+      "ttsMode": "TTS Modu",
+      "ttsPermission": "TTS İzni",
+      "voiceVolume": "Ses Düzeyi",
+      "watchStreakAnnouncements": "İzleme Serisi Duyuruları",
+      "youtubeHandle": "YouTube Kullanıcı Adı",
+      "youtubeTts": "YouTube TTS"
+    },
+    "settings": {
+      "loadFailed": "Ayarlarınız yüklenemiyor.",
+      "saveFailed": "{label}: {reason}",
+      "youtubeHandleRequired": "YouTube TTS'yi açmadan önce bir YouTube kullanıcı adı girin."
+    }
+  },
+  "obsCloseBtn": {
+    "closeObsSetup": "OBS kurulumunu kapat"
+  },
+  "obsPopover": {
+    "addBrowserSource": "Browser Source Ekle",
+    "cautionANewUrlStops": "DİKKAT: Yeni bir URL, OBS'deki URL'yi güncelleyene kadar mevcut OBS kaynağınızı durdurur.",
+    "controlAudioViaObs": "Sesi OBS ile Yönet",
+    "inObsAddANew": "OBS'de yeni bir <strong>Browser Source</strong> ekleyin. Kaynağı \"Wildcat TTS\" olarak adlandırın ve kopyalanan URL'yi yapıştırın. Varsayılan genişlik ve yüksekliği değiştirmeden bırakabilirsiniz.",
+    "inTheObsAudioMixer": "OBS Ses Karıştırıcısı'nda \"Wildcat TTS\"i bulun. Dişli simgesine tıklayın ve <strong>Gelişmiş Ses Özellikleri</strong>'ni seçin. Ses İzleme'yi <strong>İzleme ve Çıkış</strong> olarak ayarlayın.",
+    "monitorAndOutput": "İzleme ve Çıkış",
+    "obsBrowserSource": "OBS Browser Source",
+    "selectControlAudioViaObs": "<strong>Sesi OBS üzerinden kontrol et</strong> seçeneğini işaretleyin. <strong>Görünür olmadığında kaynağı kapat</strong> seçeneğinin işaretli olmadığından emin olun.",
+    "setupInstructions": "Kurulum Talimatları",
+    "yourBrowserSourceUrl": "Browser Source URL'niz"
+  },
+  "obsToggleBtn": {
+    "obsSetup": "OBS Kurulumu"
+  },
+  "page": {
+    "channelDashboard": "Kanal paneli",
+    "textToSpeechSettingsFor": "Kanalınız için metin okuma ayarları. Değişiklikler anında kaydedilir.",
+    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Panel</span>"
+  },
+  "profanityFilterEnabled": {
+    "profanityFilter": "Küfür Filtresi"
+  },
+  "pronunciationEnabled": {
+    "expandChatAcronyms": "Sohbet Kısaltmalarını Aç"
+  },
+  "readFullUrls": {
+    "readFullUrls": "Tam URL'leri Oku"
+  },
+  "redemptionEventsEnabled": {
+    "announceRewardRedeems": "Ödül Kullanımlarını Duyur"
+  },
+  "regenerateTtsUrlBtn": {
+    "regenerateBrowserSourceUrl": "Browser Source URL'sini yeniden oluştur",
+    "regenerateUrl": "URL'yi Yeniden Oluştur"
+  },
+  "removeBotBtn": {
+    "deactivateTtsService": "TTS hizmetini devre dışı bırak"
+  },
+  "resetPitchBtn": {
+    "reset": "Sıfırla",
+    "resetDefaultPitchTo0": "Varsayılan ses perdesini 0'a sıfırla"
+  },
+  "resetSpeedBtn": {
+    "reset": "Sıfırla",
+    "resetDefaultSpeedTo1": "Varsayılan hızı 1.0 değerine sıfırla"
+  },
+  "resetVolumeBtn": {
+    "reset": "Sıfırla",
+    "resetVoiceVolumeTo1": "Ses düzeyini 1.0 değerine sıfırla"
+  },
+  "saveSettingsBtn": {
+    "saveAllSettings": "Tüm Ayarları Kaydet"
+  },
+  "serviceHeadline": {
+    "ttsService": "TTS hizmeti"
+  },
+  "sidebarVoiceName": {
+    "friendlyPerson": "Dost Canlısı Kişi"
+  },
+  "tabBroadcaster": {
+    "allowTheBotToRespond": "Botun !myvoice gibi sohbet komutlarına yanıt vermesine izin ver",
+    "allowViewerVoicePreferences": "İzleyici Ses Tercihlerine İzin Ver",
+    "allowViewersToUseChannel": "İzleyicilerin TTS için Channel Points kullanmasına izin ver",
+    "announceCheers": "Cheer'ları Duyur",
+    "announceEvents": "Etkinlikleri Duyur",
+    "announceEventsSuchAsSubscriptions": "Abonelikler ve baskınlar gibi etkinlikleri duyur",
+    "announceQueuedRedeemsImmediately": "Kuyruktaki Kullanımları Anında Duyur",
+    "announceRewardRedeems": "Ödül Kullanımlarını Duyur",
+    "announceWatchStreaks": "İzleme Serilerini Duyur",
+    "announceWhenAViewerCheers": "Bir izleyici bits ile cheer yaptığında duyur",
+    "announceWhenAViewerReaches": "Bir izleyici izleme serisi kilometre taşına ulaştığında duyur",
+    "announceWhenAViewerRedeems": "Bir izleyici bir Channel Points ödülü kullandığında duyur",
+    "anonymizeNewFollowers": "Yeni Takipçileri Anonimleştir",
+    "bannedWordsCommaSeparated": "Yasaklı kelimeler (virgülle ayrılmış)",
+    "bannedWordsPhrases": "<strong>Yasaklı Kelimeler / İfadeler</strong>",
+    "bitsTts": "Bits → TTS",
+    "blockLinks": "Bağlantıları engelle",
+    "botRespondsInChat": "Bot Sohbette Yanıt Verir",
+    "channelPointsTts": "Channel Points → TTS",
+    "chooseWhichMessagesTriggerTts": "Hangi mesajların TTS'yi tetikleyeceğini seç",
+    "configureBitsRequirementsForText": "Metin okuma için bits gereksinimlerini yapılandır",
+    "configureChannelPointsRewardsFor": "Metin okuma için Channel Points ödüllerini yapılandır",
+    "configureTtsEngineSettingsAnd": "TTS motoru ayarlarını ve izinlerini yapılandır",
+    "controlHowTtsPronouncesSpecific": "TTS'nin belirli kelimeleri nasıl telaffuz edeceğini kontrol et. Yaygın Twitch kısaltmaları varsayılan olarak desteklenir. Varsayılan bir telaffuzu geçersiz kılmak veya yeni bir kelime eklemek için bir girdi ekle.",
+    "controlsHowTtsHandlesEmotes": "TTS'nin sohbet mesajlarındaki ifadeleri nasıl işleyeceğini denetler",
+    "cooldownsAndModeration": "Bekleme Süreleri ve Denetim",
+    "costPoints": "Maliyet (puan)",
+    "emoteMode": "<strong>İfade Modu</strong>",
+    "enableChannelPointsTts": "Channel Points TTS'yi Etkinleştir",
+    "enableCooldownsLimits": "Bekleme Sürelerini ve Sınırları Etkinleştir",
+    "engineMode": "Motor ve Mod",
+    "expandChatAcronyms": "Sohbet Kısaltmalarını Genişlet",
+    "globalCooldownSec": "Genel bekleme süresi (sn)",
+    "hideFollowerNamesInTts": "Gizlilik için TTS duyurularında takipçi adlarını gizleyin",
+    "ifOnTtsReadsFull": "Açıksa TTS tam URL'leri okur. Kapalıysa TTS yalnızca alan adlarını okur",
+    "ifThisSettingIsOff": "Bu ayar kapalıysa TTS tüm mesajlar için kanalın varsayılan sesini kullanır",
+    "ignoredUsers": "Yok Sayılan Kullanıcılar",
+    "manageUsersThatTtsIgnores": "TTS'nin yok saydığı kullanıcıları yönetin",
+    "minimumBitsRequired": "<strong>Gerekli Minimum Bits</strong>",
+    "minimumNumberOfBitsRequired": "TTS'yi tetiklemek için gereken minimum bits sayısı",
+    "perStreamLimit": "Yayın başına sınır",
+    "perUserPerStream": "Kullanıcı ve yayın başına",
+    "profanityFilter": "Küfür Filtresi",
+    "pronunciationDictionary": "<strong>Telaffuz Sözlüğü</strong>",
+    "readFullUrls": "Tam URL'leri Oku",
+    "readYoutubeLiveChatMessages": "YouTube canlı sohbet mesajlarını TTS ile okuyun. Bu özellik aktif bir YouTube canlı yayını gerektirir.",
+    "readYoutubeLiveChatMessages2": "YouTube canlı sohbet mesajlarını sesli oku",
+    "requireBitsForTts": "TTS için Bits Zorunlu Olsun",
+    "rewardTitle": "Ödül başlığı",
+    "skipTheRewardQueue": "Ödül Sırasını Atla",
+    "theTitleMustBeUnique": "Başlık kanalınızda benzersiz olmalıdır.",
+    "ttsDoesNotReadMessages": "TTS bu listedeki kullanıcıların mesajlarını okumaz.",
+    "ttsEngineEnabled": "TTS Motoru Etkin",
+    "ttsExpandsCommonTwitchAcronyms": "TTS yaygın Twitch kısaltmalarını kelimelere dönüştürür. Örneğin “ngl”, “not gonna lie” olur. Harf harf okunması için kapatın.",
+    "ttsIgnoreList": "<strong>TTS Yok Sayma Listesi</strong>",
+    "ttsMode": "<strong>TTS Modu</strong>",
+    "ttsPermission": "<strong>TTS İzni</strong>",
+    "ttsReplacesProfanityWithMilder": "TTS küfürleri seslendirmeden önce daha hafif kelimelerle değiştirir. Filtre, kanal dilini ve izleyici dilini kullanır. Dil Otomatik olarak ayarlanmışsa filtre İngilizce listeyi kullanır. Yasaklı kelimeler yine de mesajın tamamını atlar.",
+    "ttsSkipsMessagesThatContain": "TTS bu kelimeleri veya ifadeleri içeren mesajları atlar.",
+    "turnOnOrTurnOff": "Metin okuma motorunu açın veya kapatın",
+    "viewerPrompt": "İzleyici istemi",
+    "viewersMustCheerBitsTo": "İzleyicilerin metin okumayı kullanabilmesi için bits göndermesi gerekir",
+    "whoCanUseTextTo": "Metin okumayı kimler kullanabilir",
+    "yourYoutubeChannelHandleFor": "YouTube kanal kullanıcı adınız (örneğin <code>@kullaniciadiniz</code>)",
+    "youtubeHandle": "<strong>YouTube Kullanıcı Adı</strong>",
+    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>YouTube Entegrasyonu",
+    "youtubeTtsEnabled": "YouTube TTS Etkin"
+  },
+  "tabBtnBroadcaster": {
+    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Yayıncı"
+  },
+  "tabBtnViewerDefaults": {
+    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Varsayılan Ses Ayarları"
+  },
+  "tabViewerDefaults": {
+    "adjustThePitchForThe": "Varsayılan sesin tonunu ayarlayın",
+    "adjustTheVolumeForThe": "Seçilen sesin düzeyini ayarlayın. DİKKAT: 1.0'dan büyük değerler seste bozulmaya neden olabilir.",
+    "calibrateVolumeForSpecificVoices": "Belirli seslerin düzeyini kalibre edin. DİKKAT: 1.0'dan büyük değerler seste bozulmaya neden olabilir.",
+    "calibratedVoices": "<strong>Kalibre Edilmiş Sesler</strong>",
+    "controlHowFastTheDefault": "Varsayılan sesin konuşma hızını kontrol edin",
+    "defaultEmotion": "<strong>Varsayılan Duygu</strong>",
+    "defaultLanguage": "<strong>Varsayılan Dil</strong>",
+    "defaultPitch12To12": "Varsayılan Perde (-12 ila +12):",
+    "defaultSpeed05To": "Varsayılan Hız (0.5 ila 2.0):",
+    "defaultVoice": "<strong>Varsayılan Ses</strong>",
+    "defaultVoiceSettings": "Varsayılan Ses Ayarları",
+    "englishNormalization": "İngilizce Normalizasyonu",
+    "improvePronunciationForSpecificLanguages": "Belirli diller için telaffuzu iyileştirin",
+    "improveThePronunciationOfNumbers": "Sayıların ve metinlerin telaffuzunu iyileştirin",
+    "selectTheDefaultTtsVoice": "Kanal için varsayılan TTS sesini seçin",
+    "selectVoice": "Ses Seç",
+    "setDefaultVoiceSettingsFor": "Kanalınız için varsayılan ses ayarlarını belirleyin",
+    "setTheEmotionalToneOf": "Varsayılan sesin duygu tonunu ayarlayın",
+    "viewerVoiceLookup": "İzleyici Sesi Arama",
+    "voiceCalibration": "Ses Kalibrasyonu",
+    "voiceVolume01To": "Ses Düzeyi (0.1 ila 10):",
+    "voicesWithCustomVolumeSettings": "Özel ses düzeyi ayarları olan sesler.",
+    "volumeOverride": "Ses Düzeyi Geçersiz Kılma:"
+  },
+  "ttsBannedWordInput": {
+    "wordOrPhraseToBan": "Yasaklanacak kelime veya ifade"
+  },
+  "ttsEnabled": {
+    "ttsEngineEnabled": "TTS Motoru Etkin"
+  },
+  "ttsIgnoreUsername": {
+    "usernameToIgnore": "Göz ardı edilecek kullanıcı adı"
+  },
+  "ttsMode": {
+    "allMessages": "Tüm Mesajlar",
+    "bitsPointsOnly": "Yalnızca Bits/Points",
+    "ttsCommandOnly": "Yalnızca !tts Komutu"
+  },
+  "ttsPermission": {
+    "everyone": "Herkes",
+    "moderatorsOnly": "Yalnızca Moderatörler",
+    "subscribersOnly": "Yalnızca Aboneler",
+    "vipsOnly": "Yalnızca VIP'ler"
+  },
+  "ttsPronunciationMatchInput": {
+    "wordForExampleWcat": "Kelime (örneğin wcat)",
+    "wordToReplace": "Değiştirilecek kelime"
+  },
+  "ttsPronunciationSayInput": {
+    "howToSayItFor": "Okunuşu (örneğin wildcat)",
+    "pronunciation": "Telaffuz"
+  },
+  "ttsUrlField": {
+    "yourBrowserSourceUrl": "Browser Source URL'niz"
+  },
+  "twitchUsername": {
+    "loading": "yükleniyor…"
+  },
+  "voiceTestBtn": {
+    "sendPreview": "Önizleme gönder"
+  },
+  "watchStreakEventsEnabled": {
+    "announceWatchStreaks": "İzleme Serilerini Duyur"
+  },
+  "youtubeEnabled": {
+    "youtubeTtsEnabled": "YouTube TTS Etkin"
+  },
+  "youtubeHandle": {
+    "yourhandle": "@kullaniciadiniz"
+  }
+}

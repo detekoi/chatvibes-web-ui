@@ -1,0 +1,50 @@
+{
+  "kofiClose": {
+    "closeSupportDialog": "Luk støttedialog"
+  },
+  "kofiModal": {
+    "openInNewTabOn": "<a href=\"https://ko-fi.com/parfaitfair\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"kofi-direct-link\">Åbn i en ny fane på Ko-fi.com</a>"
+  },
+  "kofiOpen": {
+    "supportMe": "Støt mig"
+  },
+  "kofiTitle": {
+    "supportParfaitfair": "Støt parfaitfair"
+  },
+  "mainContent": {
+    "access": "Adgang",
+    "accessIsInviteOnlyUnapproved": "Adgang er kun med invitation. Ikke-godkendte kanaler modtager en besked om nægtet adgang. <a class=\"wc-link wc-link--underline\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">Anmod om adgang her</a>.",
+    "changeTtsSettingsControlBot": "Skift TTS-indstillinger • Styr bottens chatsvar • Konfigurer Channel Points • Indstil stemmepræferencer",
+    "colorTheme": "Farvetema",
+    "iAmAViewer": "<span class=\"wc-rule-name\">Jeg er seer</span>",
+    "iRunTheChannel": "<span class=\"wc-rule-name\">Jeg driver kanalen</span>",
+    "setHowYourMessagesSound": "Indstil, hvordan dine beskeder lyder, når TTS læser dem op i enhver kanal, du besøger.",
+    "textToSpeechForYour": "Tekst-til-tale til din Twitch-kanal, for streamere og seere.",
+    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">Kun med invitation</span>",
+    "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">Administration af tekst-til-tale-bot</span>"
+  },
+  "meta": {
+    "wildcatttsBotManagement": "WildcatTTS Bot-administration",
+    "wildcatttsTextToSpeechBot": "WildcatTTS tekst-til-tale-botadministration for Twitch-kanaler, streamere og seere."
+  },
+  "msg": {
+    "kofi": {
+      "iframeTitle": "Støt parfaitfair på Ko-fi"
+    }
+  },
+  "page": {
+    "support": "Støtte"
+  },
+  "streamerLoginBtn": {
+    "manageMyChannel": "<i data-lucide=\"mic\" aria-hidden=\"true\"></i>Administrer min kanal"
+  },
+  "themeDarkBtn": {
+    "dark": "Mørkt"
+  },
+  "themeLightBtn": {
+    "light": "Lyst"
+  },
+  "viewerPrefsBtn": {
+    "setMyOwnVoice": "<i data-lucide=\"headphones\" aria-hidden=\"true\"></i>Indstil min egen stemme"
+  }
+}

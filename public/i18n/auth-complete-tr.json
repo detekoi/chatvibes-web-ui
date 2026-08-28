@@ -1,0 +1,39 @@
+{
+  "authBar": {
+    "signInProgress": "Giriş ilerlemesi"
+  },
+  "authMessage": {
+    "pleaseWait": "Lütfen bekleyin."
+  },
+  "authSteps": {
+    "loadingDashboard": "Kontrol paneli yükleniyor",
+    "sessionTokenStored": "Oturum belirteci kaydedildi",
+    "twitchAuthorized": "Twitch yetkilendirildi"
+  },
+  "authTitle": {
+    "signingYouIn": "Girişiniz yapılıyor"
+  },
+  "meta": {
+    "completingWildcatttsTwitchSignIn": "WildcatTTS Twitch girişi tamamlanıyor.",
+    "wildcatttsCompletingSignIn": "WildcatTTS - Giriş tamamlanıyor"
+  },
+  "msg": {
+    "authComplete": {
+      "cannotComplete": "Giriş tamamlanamıyor.",
+      "failedReadout": "Başarısız",
+      "failedTitle": "Giriş başarısız",
+      "missingInfo": "Twitch geri aramasındaki kimlik doğrulama bilgileri eksik. Tekrar giriş yapın.",
+      "noSession": "Oturum yok",
+      "redirecting": "Kontrol panelinize yönlendiriliyorsunuz.",
+      "retrySignIn": "{reason} Tekrar giriş yapın.",
+      "sessionEstablished": "Oturum açıldı",
+      "welcome": "Hoş geldiniz, {user}"
+    }
+  },
+  "sessionState": {
+    "establishingSession": "Oturum kuruluyor"
+  },
+  "statusReadout": {
+    "working": "<span class=\"wc-dot\"></span>Çalışıyor"
+  }
+}

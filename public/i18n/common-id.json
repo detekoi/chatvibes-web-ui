@@ -1,0 +1,166 @@
+{
+  "darkModeToggle": {
+    "toggleDarkMode": "Alihkan mode gelap"
+  },
+  "err": {
+    "banned_add_failed": "Tidak dapat menambahkan kata tersebut ke daftar terlarang.",
+    "banned_remove_failed": "Tidak dapat menghapus kata tersebut dari daftar terlarang.",
+    "bot_add_failed": "Tidak dapat mengaktifkan bot di channel Anda. Coba lagi.",
+    "bot_remove_failed": "Tidak dapat menonaktifkan bot di channel Anda. Coba lagi.",
+    "bot_status_failed": "Tidak dapat memuat status bot.",
+    "channel_data_not_found": "Pengaturan untuk channel tersebut tidak ditemukan.",
+    "channel_not_authorized": "Saluran Anda tidak diizinkan menggunakan bot ini. Hubungi saya untuk akses.",
+    "channel_not_found": "Channel tersebut tidak ditemukan.",
+    "channel_required": "Channel wajib diisi.",
+    "channel_tts_disabled": "Channel tersebut tidak ditemukan, atau TTS belum diaktifkan.",
+    "entry_key_required": "Kunci entri wajib diisi.",
+    "exchange_code_invalid": "Tautan masuk tidak ada atau tidak valid.",
+    "exchange_code_used": "Tautan masuk sudah digunakan atau kedaluwarsa. Masuk kembali.",
+    "exchange_failed": "Tidak dapat masuk. Coba lagi.",
+    "ignore_add_failed": "Tidak dapat menambahkan pengguna tersebut ke daftar abaikan.",
+    "ignore_moderator_imposed": "Moderator channel telah menonaktifkan TTS untuk Anda di sini, jadi hanya moderator yang dapat membatalkannya.",
+    "ignore_remove_failed": "Tidak dapat menghapus pengguna tersebut dari daftar abaikan.",
+    "ignore_update_failed": "Tidak dapat mengubah pengaturan opt-out Anda.",
+    "key_required": "Nama pengaturan wajib diisi.",
+    "match_key_invalid": "Kata harus terdiri dari 1 hingga {max} karakter berupa huruf, angka, tanda petik tunggal, atau tanda hubung, dan tidak boleh berisi titik.",
+    "network_error": "Tidak dapat terhubung ke server. Periksa koneksi Anda.",
+    "obs_token_fetch_failed": "Tidak dapat memuat token OBS.",
+    "obs_token_generate_failed": "Tidak dapat membuat token OBS baru.",
+    "obs_token_store_failed": "Tidak dapat menyimpan token OBS. Coba lagi.",
+    "prefs_fetch_failed": "Tidak dapat memuat preferensi Anda.",
+    "prefs_global_fetch_failed": "Tidak dapat memuat preferensi global Anda.",
+    "prefs_global_update_failed": "Tidak dapat menyimpan preferensi global Anda.",
+    "prefs_invalid_emote_mode": "Penanganan emote harus read, skip, atau describe.",
+    "prefs_invalid_emotion": "Emosi tersebut tidak valid.",
+    "prefs_invalid_language": "Bahasa tersebut tidak valid.",
+    "prefs_invalid_pitch": "Pitch tersebut tidak valid.",
+    "prefs_invalid_speed": "Kecepatan tersebut tidak valid.",
+    "prefs_invalid_voice": "Suara tersebut tidak valid.",
+    "prefs_missing_data": "Tidak ada perubahan yang dikirim.",
+    "prefs_update_failed": "Tidak dapat menyimpan preferensi Anda.",
+    "pronunciation_limit_reached": "Anda telah mencapai batas {max} pengucapan kustom. Hapus salah satu terlebih dahulu.",
+    "pronunciation_remove_failed": "Tidak dapat menghapus pengucapan.",
+    "pronunciation_save_failed": "Tidak dapat menyimpan pengucapan.",
+    "reward_banned_word": "Pesan mengandung kata terlarang: \"{word}\".",
+    "reward_create_failed": "Tidak dapat membuat reward Channel Points.",
+    "reward_delete_failed": "Tidak dapat menghapus reward Channel Points.",
+    "reward_links_blocked": "Tautan tidak diizinkan dalam reward ini.",
+    "reward_load_failed": "Tidak dapat memuat reward Channel Points.",
+    "reward_message_empty": "Pesan kosong.",
+    "reward_save_failed": "Tidak dapat menyimpan reward Channel Points.",
+    "reward_test_failed": "Tidak dapat menguji reward Channel Points.",
+    "reward_twitch_error": "Twitch menolak perubahan reward.",
+    "reward_validation_failed": "Pesan tersebut tidak diizinkan.",
+    "say_contains_link": "Pengucapan tidak boleh berisi tautan.",
+    "say_empty": "Pengucapan tidak boleh kosong.",
+    "say_must_be_text": "Pengucapan harus berupa teks.",
+    "say_too_long": "Pengucapan harus {max} karakter atau kurang.",
+    "server_misconfigured": "Konfigurasi server salah.",
+    "setting_invalid": "Nilai tersebut tidak valid untuk {key}.",
+    "setting_update_failed": "Tidak dapat memperbarui pengaturan TTS.",
+    "settings_fetch_failed": "Tidak dapat memuat pengaturan TTS.",
+    "shortlink_failed": "Tidak dapat membuat tautan pendek.",
+    "storage_unavailable": "Penyimpanan tidak tersedia.",
+    "tts_generation_failed": "Gagal membuat ucapan: {reason}",
+    "tts_no_audio": "Penyedia ucapan tidak mengembalikan audio.",
+    "tts_not_configured": "Tidak ada penyedia ucapan yang dikonfigurasi.",
+    "tts_provider_failed": "Penyedia ucapan tidak dapat membuat audio.",
+    "tts_test_failed": "Tes ucapan gagal.",
+    "tts_text_required": "Masukkan teks untuk diuji.",
+    "twitch_reauth_required": "Sesi masuk Twitch Anda telah kedaluwarsa. Hubungkan ulang akun Anda.",
+    "twitch_user_not_found": "Tidak ada akun Twitch bernama \"{username}\".",
+    "url_required": "URL diperlukan.",
+    "username_invalid": "Nama pengguna tidak valid.",
+    "username_required": "Nama pengguna wajib diisi.",
+    "voice_access_denied": "Suara \"{voice}\" memerlukan akses khusus. Coba suara yang berbeda.",
+    "voice_invalid": "Suara \"{voice}\" tidak tersedia. Periksa suara dan coba lagi.",
+    "voice_lookup_failed": "Tidak dapat menemukan suara pengguna tersebut.",
+    "word_invalid": "Kata atau frasa tidak valid.",
+    "word_required": "Kata atau frasa wajib diisi."
+  },
+  "logoutLink": {
+    "logout": "Keluar"
+  },
+  "mainContent": {
+    "documentationTtsWildcatChat": "<a class=\"wc-link\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\">Dokumentasi</a> <span>tts.wildcat.chat</span>"
+  },
+  "msg": {
+    "action": {
+      "close": "Tutup",
+      "remove": "Hapus",
+      "saved": "Tersimpan"
+    },
+    "api": {
+      "authFailed": "Autentikasi gagal. Masuk kembali.",
+      "notAuthenticated": "Anda belum masuk.",
+      "requestFailed": "Permintaan gagal."
+    },
+    "auth": {
+      "genericUser": "Pengguna",
+      "loading": "memuat…",
+      "needViewerSignIn": "Verifikasi akun Twitch Anda untuk mengakses preferensi penonton.",
+      "redirecting": "Mengarahkan ke Twitch untuk autentikasi…",
+      "required": "Autentikasi diperlukan.",
+      "signInFailed": "Tidak dapat menyelesaikan proses masuk.",
+      "signInWithTwitch": "Masuk dengan Twitch",
+      "signedOut": "Anda belum masuk.",
+      "tokenMissing": "Token autentikasi tidak ditemukan. Masuk kembali."
+    },
+    "emotion": {
+      "angry": "Marah",
+      "auto": "Otomatis",
+      "calm": "Tenang",
+      "disgusted": "Jijik",
+      "fearful": "Takut",
+      "fluent": "Fasih",
+      "happy": "Senang",
+      "neutral": "Netral",
+      "sad": "Sedih",
+      "surprised": "Terkejut"
+    },
+    "ignore": {
+      "enterUsername": "Masukkan nama pengguna."
+    },
+    "lang": {
+      "automatic": "Otomatis"
+    },
+    "prefs": {
+      "useChannelDefault": "Gunakan default saluran"
+    },
+    "preview": {
+      "enterText": "Masukkan teks untuk menguji.",
+      "unavailable": "Pratinjau tidak tersedia."
+    },
+    "value": {
+      "off": "Nonaktif",
+      "on": "Aktif"
+    },
+    "voice": {
+      "cannotPlay": "Tidak dapat memutar sampel audio.",
+      "generating": "Membuat…",
+      "noAudio": "Server tidak mengembalikan audio.",
+      "noneFound": "Suara tidak ditemukan.",
+      "preview": "Pratinjau {voice}",
+      "regenerate": "Buat ulang",
+      "testFailed": "Uji coba gagal: {reason}"
+    }
+  },
+  "page": {
+    "skipToMainContent": "Lompat ke konten utama"
+  },
+  "sidebarEngNormVal": {
+    "off": "Nonaktif"
+  },
+  "sidebarLanguageVal": {
+    "automatic": "Otomatis"
+  },
+  "ui": {
+    "language": "Bahasa"
+  },
+  "voicePreviewHint": {
+    "settingsChangedGenerateANew": "<i><i data-lucide=\"triangle-alert\" class=\"inline-icon\"></i> Pengaturan berubah. Buat pratinjau baru.</i>"
+  },
+  "voicePreviewPlayer": {
+    "yourBrowserDoesNotSupport": "Browser Anda tidak mendukung elemen audio."
+  }
+}

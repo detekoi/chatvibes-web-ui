@@ -1,6 +1,7 @@
 import { getApiBaseUrl, fetchWithAuth } from '../common/api.js';
 import { logout, getStoredSessionToken, decodeJwtPayload } from '../common/auth.js';
 import { setProgress } from '../common/ui.js';
+import { apiErrorMessage, initI18n, t } from '../common/i18n.js';
 import {
     initPreferencesModule,
     type PreferencesModule,
@@ -59,7 +60,12 @@ interface AuthStatusResponse {
 
 type AuthStatusType = 'info' | 'success' | 'error';
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+  // Translate before anything renders. The catalog fetch was started at module
+  // evaluation, so this await is nearly free -- and skipping it would let the
+  // modules below build markup from `t()` against an empty catalog, which
+  // renders bare keys.
+  await initI18n();
     (async function bootstrap(): Promise<void> {
         const TEST_MODE = new URLSearchParams(window.location.search).has('test');
         const urlParams = new URLSearchParams(window.location.search);
@@ -190,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 showAuthStatus('', 'info');
                 revealPreferencesPanel();
                 if (elements.loggedInStatus) elements.loggedInStatus.style.display = '';
-                if (elements.loggedInUsername) elements.loggedInUsername.textContent = 'Test User';
+                if (elements.loggedInUsername) elements.loggedInUsername.textContent = t('msg.auth.testUser');
                 if (state.currentChannel) {
                     channelContextModule.setChannelUI(state.currentChannel);
                 }
@@ -234,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     revealPreferencesPanel();
                     showAuthStatus('', 'info');
                     if (elements.loggedInStatus) elements.loggedInStatus.style.display = '';
-                    if (elements.loggedInUsername) elements.loggedInUsername.textContent = userDisplayName || 'User';
+                    if (elements.loggedInUsername) elements.loggedInUsername.textContent = userDisplayName || t('msg.auth.genericUser');
                     if (state.currentChannel) {
                         channelContextModule.setChannelUI(state.currentChannel);
                     }
@@ -242,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     return true;
                 } catch (error) {
                     console.error('Failed to process validated session token:', error);
-                    showAuthStatus('Authentication failed. Sign in again.', 'error');
+                    showAuthStatus(t('msg.api.authFailed'), 'error');
                     return false;
                 }
             }
@@ -278,7 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const data = await response.json().catch(() => ({}));
                 if (!response.ok || !data.success || !data.session_token) {
-                    throw new Error(data.error || 'Cannot complete sign-in.');
+                    throw new Error(apiErrorMessage(data, 'msg.auth.signInFailed'));
                 }
 
                 services.setSessionToken(data.session_token);
@@ -294,7 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 revealPreferencesPanel();
                 showAuthStatus('', 'info');
                 if (elements.loggedInStatus) elements.loggedInStatus.style.display = '';
-                if (elements.loggedInUsername) elements.loggedInUsername.textContent = userDisplayName || 'User';
+                if (elements.loggedInUsername) elements.loggedInUsername.textContent = userDisplayName || t('msg.auth.genericUser');
                 if (state.currentChannel) {
                     channelContextModule.setChannelUI(state.currentChannel);
                 }
@@ -302,24 +308,21 @@ document.addEventListener('DOMContentLoaded', () => {
             } catch (error) {
                 // A code is single-use, so reloading cannot retry this.
                 console.error('Failed to redeem exchange code:', error);
-                showAuthStatus(
-                    'Cannot complete sign-in. Try again from the main page.',
-                    'error',
-                );
+                showAuthStatus(t('msg.auth.exchangeFailed'), 'error');
                 return false;
             }
         }
 
         async function requireTwitchAuth(): Promise<boolean> {
-            showAuthStatus('Verify your Twitch account to access viewer preferences.', 'info');
+            showAuthStatus(t('msg.auth.needViewerSignIn'), 'info');
             const loginButton = document.createElement('button');
-            loginButton.textContent = 'Sign in with Twitch';
+            loginButton.textContent = t('msg.auth.signInWithTwitch');
             loginButton.className = 'btn btn-primary mt-2';
             // The server mints the state cookie and issues the redirect, so
             // this just navigates. The channel rides along as a query param
             // and the server stores it in the cookie for the callback.
             loginButton.onclick = () => {
-                showAuthStatus('Redirecting to Twitch for authentication…', 'info');
+                showAuthStatus(t('msg.auth.redirecting'), 'info');
 
                 window.location.href = state.currentChannel
                     ? `${apiBaseUrl}/auth/twitch/viewer?channel=${encodeURIComponent(state.currentChannel)}`
@@ -347,7 +350,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     showAuthStatus('', 'info');
                     if (elements.loggedInStatus) elements.loggedInStatus.style.display = '';
                     if (elements.loggedInUsername) {
-                        elements.loggedInUsername.textContent = data.user.displayName || data.user.userLogin || data.user.login || 'User';
+                        elements.loggedInUsername.textContent = data.user.displayName || data.user.userLogin || data.user.login || t('msg.auth.genericUser');
                     }
                     return true;
                 }

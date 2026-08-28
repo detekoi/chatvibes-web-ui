@@ -1,0 +1,50 @@
+{
+  "kofiClose": {
+    "closeSupportDialog": "إغلاق نافذة الدعم"
+  },
+  "kofiModal": {
+    "openInNewTabOn": "<a href=\"https://ko-fi.com/parfaitfair\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"kofi-direct-link\">فتح في علامة تبويب جديدة على Ko-fi.com</a>"
+  },
+  "kofiOpen": {
+    "supportMe": "ادعمني"
+  },
+  "kofiTitle": {
+    "supportParfaitfair": "دعم parfaitfair"
+  },
+  "mainContent": {
+    "access": "الوصول",
+    "accessIsInviteOnlyUnapproved": "الوصول عبر الدعوة فقط. تتلقى القنوات غير المعتمدة رسالة رفض الوصول. <a class=\"wc-link wc-link--underline\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">اطلب الوصول من هنا</a>.",
+    "changeTtsSettingsControlBot": "تغيير إعدادات TTS • التحكم في ردود دردشة البوت • ضبط Channel Points • تعيين تفضيلات الصوت",
+    "colorTheme": "سمة الألوان",
+    "iAmAViewer": "<span class=\"wc-rule-name\">أنا مشاهد</span>",
+    "iRunTheChannel": "<span class=\"wc-rule-name\">أنا أدير القناة</span>",
+    "setHowYourMessagesSound": "اضبط كيف تبدو رسائلك عند قراءتها بواسطة TTS في أي قناة تزورها.",
+    "textToSpeechForYour": "تحويل النص إلى كلام لقناتك على Twitch، لصناع البث والمشاهدين.",
+    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">بدعوة فقط</span>",
+    "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">إدارة بوت تحويل النص إلى كلام</span>"
+  },
+  "meta": {
+    "wildcatttsBotManagement": "إدارة بوت WildcatTTS",
+    "wildcatttsTextToSpeechBot": "إدارة بوت WildcatTTS لتحويل النص إلى كلام لقنوات Twitch، وصناع البث، والمشاهدين."
+  },
+  "msg": {
+    "kofi": {
+      "iframeTitle": "ادعم parfaitfair على Ko-fi"
+    }
+  },
+  "page": {
+    "support": "الدعم"
+  },
+  "streamerLoginBtn": {
+    "manageMyChannel": "<i data-lucide=\"mic\" aria-hidden=\"true\"></i>إدارة قناتي"
+  },
+  "themeDarkBtn": {
+    "dark": "داكن"
+  },
+  "themeLightBtn": {
+    "light": "فاتح"
+  },
+  "viewerPrefsBtn": {
+    "setMyOwnVoice": "<i data-lucide=\"headphones\" aria-hidden=\"true\"></i>تحديد صوتي الخاص"
+  }
+}

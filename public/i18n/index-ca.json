@@ -1,0 +1,50 @@
+{
+  "kofiClose": {
+    "closeSupportDialog": "Tanca el diàleg de suport"
+  },
+  "kofiModal": {
+    "openInNewTabOn": "<a href=\"https://ko-fi.com/parfaitfair\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"kofi-direct-link\">Obre en una pestanya nova a Ko-fi.com</a>"
+  },
+  "kofiOpen": {
+    "supportMe": "Dona'm suport"
+  },
+  "kofiTitle": {
+    "supportParfaitfair": "Dona suport a parfaitfair"
+  },
+  "mainContent": {
+    "access": "Accés",
+    "accessIsInviteOnlyUnapproved": "L'accés és només per invitació. Els canals no aprovats reben un missatge d'accés denegat. <a class=\"wc-link wc-link--underline\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">Sol·licita accés aquí</a>.",
+    "changeTtsSettingsControlBot": "Canvia la configuració de TTS • Controla les respostes del bot al xat • Configura els Channel Points • Tria les preferències de veu",
+    "colorTheme": "Tema de color",
+    "iAmAViewer": "<span class=\"wc-rule-name\">Soc un espectador</span>",
+    "iRunTheChannel": "<span class=\"wc-rule-name\">Gestiono el canal</span>",
+    "setHowYourMessagesSound": "Tria com sonen els teus missatges quan el TTS els llegeixi en qualsevol canal que visitis.",
+    "textToSpeechForYour": "Text-to-speech per al teu canal de Twitch, per a streamers i espectadors.",
+    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">Només per invitació</span>",
+    "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">Gestió del bot de text-to-speech</span>"
+  },
+  "meta": {
+    "wildcatttsBotManagement": "Gestió del bot WildcatTTS",
+    "wildcatttsTextToSpeechBot": "Gestió del bot de text-to-speech WildcatTTS per a canals de Twitch, streamers i espectadors."
+  },
+  "msg": {
+    "kofi": {
+      "iframeTitle": "Dona suport a parfaitfair a Ko-fi"
+    }
+  },
+  "page": {
+    "support": "Suport"
+  },
+  "streamerLoginBtn": {
+    "manageMyChannel": "<i data-lucide=\"mic\" aria-hidden=\"true\"></i>Gestiona el meu canal"
+  },
+  "themeDarkBtn": {
+    "dark": "Fosc"
+  },
+  "themeLightBtn": {
+    "light": "Clar"
+  },
+  "viewerPrefsBtn": {
+    "setMyOwnVoice": "<i data-lucide=\"headphones\" aria-hidden=\"true\"></i>Tria la meva veu"
+  }
+}

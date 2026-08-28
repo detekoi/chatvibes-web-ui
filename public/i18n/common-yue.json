@@ -1,0 +1,166 @@
+{
+  "darkModeToggle": {
+    "toggleDarkMode": "切換深色模式"
+  },
+  "err": {
+    "banned_add_failed": "無法將嗰個詞語加入封鎖名單。",
+    "banned_remove_failed": "無法由封鎖名單移除嗰個詞語。",
+    "bot_add_failed": "無法喺你嘅頻道啟用 Bot。請再試一次。",
+    "bot_remove_failed": "無法喺你嘅頻道停用 Bot。請再試一次。",
+    "bot_status_failed": "無法載入 Bot 狀態。",
+    "channel_data_not_found": "搵唔到嗰個頻道嘅設定。",
+    "channel_not_authorized": "你嘅頻道未獲授權使用呢部機器人。請聯絡我取得權限。",
+    "channel_not_found": "搵唔到嗰個頻道。",
+    "channel_required": "必須提供頻道。",
+    "channel_tts_disabled": "搵唔到嗰個頻道，或者佢未開啟 TTS。",
+    "entry_key_required": "需要輸入項目鍵。",
+    "exchange_code_invalid": "登入連結遺失或者格式唔正確。",
+    "exchange_code_used": "登入連結已經用過或者已經過期。請重新登入。",
+    "exchange_failed": "無法完成登入。請再試一次。",
+    "ignore_add_failed": "無法將嗰個用戶加入忽略名單。",
+    "ignore_moderator_imposed": "頻道管理員已為你設定退出 TTS，因此只有管理員先可以取消呢個設定。",
+    "ignore_remove_failed": "無法由忽略名單移除嗰個用戶。",
+    "ignore_update_failed": "無法更改你嘅退出設定。",
+    "key_required": "需要輸入設定名稱。",
+    "match_key_invalid": "詞語必須係 1 到 {max} 個字元嘅字母、數字、撇號或連字號，而且唔可以包含句點。",
+    "network_error": "無法連線至伺服器。請檢查你嘅網絡連線。",
+    "obs_token_fetch_failed": "無法載入 OBS token。",
+    "obs_token_generate_failed": "無法生成新嘅 OBS token。",
+    "obs_token_store_failed": "無法儲存 OBS token。請再試一次。",
+    "prefs_fetch_failed": "無法載入你嘅偏好設定。",
+    "prefs_global_fetch_failed": "無法載入你嘅全域偏好設定。",
+    "prefs_global_update_failed": "無法儲存你嘅全域偏好設定。",
+    "prefs_invalid_emote_mode": "表情符號處理方式必須係 read、skip 或 describe。",
+    "prefs_invalid_emotion": "呢個情緒設定無效。",
+    "prefs_invalid_language": "呢個語言設定無效。",
+    "prefs_invalid_pitch": "呢個音調設定無效。",
+    "prefs_invalid_speed": "呢個速度設定無效。",
+    "prefs_invalid_voice": "呢個語音設定無效。",
+    "prefs_missing_data": "未有傳送任何變更。",
+    "prefs_update_failed": "無法儲存你嘅偏好設定。",
+    "pronunciation_limit_reached": "你已經達到自訂發音上限（{max} 個）。請先刪除一個。",
+    "pronunciation_remove_failed": "無法移除該發音。",
+    "pronunciation_save_failed": "無法儲存該發音。",
+    "reward_banned_word": "訊息包含禁用詞：「{word}」。",
+    "reward_create_failed": "無法建立 Channel Points 獎勵。",
+    "reward_delete_failed": "無法刪除 Channel Points 獎勵。",
+    "reward_links_blocked": "呢個獎勵唔允許包含連結。",
+    "reward_load_failed": "無法載入 Channel Points 獎勵。",
+    "reward_message_empty": "訊息係空白嘅。",
+    "reward_save_failed": "無法儲存 Channel Points 獎勵。",
+    "reward_test_failed": "無法測試 Channel Points 獎勵。",
+    "reward_twitch_error": "Twitch 拒絕咗獎勵變更。",
+    "reward_validation_failed": "唔允許發送呢條訊息。",
+    "say_contains_link": "發音唔可以包含連結。",
+    "say_empty": "發音唔可以留空。",
+    "say_must_be_text": "發音必須係文字。",
+    "say_too_long": "發音唔可以超過 {max} 個字元。",
+    "server_misconfigured": "伺服器設定錯誤。",
+    "setting_invalid": "呢個唔係 {key} 嘅有效數值。",
+    "setting_update_failed": "無法更新 TTS 設定。",
+    "settings_fetch_failed": "無法載入 TTS 設定。",
+    "shortlink_failed": "無法建立短連結。",
+    "storage_unavailable": "儲存空間無法使用。",
+    "tts_generation_failed": "語音生成失敗：{reason}",
+    "tts_no_audio": "語音服務提供商冇傳回任何音訊。",
+    "tts_not_configured": "仲未設定語音服務提供商。",
+    "tts_provider_failed": "語音服務提供商無法生成音訊。",
+    "tts_test_failed": "語音測試失敗。",
+    "tts_text_required": "請輸入文字嚟測試。",
+    "twitch_reauth_required": "你嘅 Twitch 登入已過期。請重新連結你嘅帳戶。",
+    "twitch_user_not_found": "搵唔到名為「{username}」嘅 Twitch 帳戶。",
+    "url_required": "需要提供 URL。",
+    "username_invalid": "呢個用戶名稱無效。",
+    "username_required": "需要輸入用戶名稱。",
+    "voice_access_denied": "語音「{voice}」需要特殊權限。請試吓第個語音。",
+    "voice_invalid": "語音「{voice}」無法使用。請檢查語音後再試。",
+    "voice_lookup_failed": "搵唔到嗰位用戶嘅語音。",
+    "word_invalid": "嗰個詞語或短語無效。",
+    "word_required": "需要輸入詞語或短語。"
+  },
+  "logoutLink": {
+    "logout": "登出"
+  },
+  "mainContent": {
+    "documentationTtsWildcatChat": "<a class=\"wc-link\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\">說明文件</a> <span>tts.wildcat.chat</span>"
+  },
+  "msg": {
+    "action": {
+      "close": "關閉",
+      "remove": "移除",
+      "saved": "已儲存"
+    },
+    "api": {
+      "authFailed": "驗證失敗。請重新登入。",
+      "notAuthenticated": "你仲未登入。",
+      "requestFailed": "請求失敗。"
+    },
+    "auth": {
+      "genericUser": "用戶",
+      "loading": "載入緊…",
+      "needViewerSignIn": "請驗證你嘅 Twitch 帳戶嚟存取觀眾偏好設定。",
+      "redirecting": "正重新導向至 Twitch 進行驗證…",
+      "required": "需要進行驗證。",
+      "signInFailed": "無法完成登入。",
+      "signInWithTwitch": "使用 Twitch 登入",
+      "signedOut": "你未登入。",
+      "tokenMissing": "缺少驗證權杖。請重新登入。"
+    },
+    "emotion": {
+      "angry": "憤怒",
+      "auto": "自動",
+      "calm": "平靜",
+      "disgusted": "厭惡",
+      "fearful": "恐懼",
+      "fluent": "流暢",
+      "happy": "開心",
+      "neutral": "中性",
+      "sad": "悲傷",
+      "surprised": "驚訝"
+    },
+    "ignore": {
+      "enterUsername": "輸入用戶名稱。"
+    },
+    "lang": {
+      "automatic": "自動"
+    },
+    "prefs": {
+      "useChannelDefault": "使用頻道預設值"
+    },
+    "preview": {
+      "enterText": "輸入文字以進行測試。",
+      "unavailable": "無可用預覽。"
+    },
+    "value": {
+      "off": "關閉",
+      "on": "開啟"
+    },
+    "voice": {
+      "cannotPlay": "播唔到音訊範例。",
+      "generating": "生成緊…",
+      "noAudio": "伺服器冇傳回任何音訊。",
+      "noneFound": "搵唔到任何聲音。",
+      "preview": "試聽 {voice}",
+      "regenerate": "重新生成",
+      "testFailed": "測試失敗：{reason}"
+    }
+  },
+  "page": {
+    "skipToMainContent": "跳至主要內容"
+  },
+  "sidebarEngNormVal": {
+    "off": "關閉"
+  },
+  "sidebarLanguageVal": {
+    "automatic": "自動"
+  },
+  "ui": {
+    "language": "語言"
+  },
+  "voicePreviewHint": {
+    "settingsChangedGenerateANew": "<i><i data-lucide=\"triangle-alert\" class=\"inline-icon\"></i> 設定改咗。請重新生成試聽。</i>"
+  },
+  "voicePreviewPlayer": {
+    "yourBrowserDoesNotSupport": "你嘅瀏覽器唔支援音訊播放元件。"
+  }
+}

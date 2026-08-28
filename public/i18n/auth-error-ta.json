@@ -1,0 +1,41 @@
+{
+  "errorAction": {
+    "tryAgain": "மீண்டும் முயற்சிக்கவும்"
+  },
+  "errorCode": {
+    "unknown": "அறியப்படாதது"
+  },
+  "errorCodeBlock": {
+    "error": "பிழை"
+  },
+  "errorMessageDetails": {
+    "twitchAuthenticationFailed": "Twitch அங்கீகரிப்பு தோல்வியடைந்தது."
+  },
+  "errorReadout": {
+    "authenticationFailed": "அங்கீகரிப்பு தோல்வியடைந்தது"
+  },
+  "errorTitle": {
+    "authenticationFailed": "அங்கீகரிப்பு தோல்வியடைந்தது"
+  },
+  "mainContent": {
+    "requestAccessTtsWildcatChat": "<a class=\"wc-link\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">அணுகலைக் கோரவும்</a> <span>tts.wildcat.chat</span>"
+  },
+  "meta": {
+    "wildcatttsAuthenticationError": "WildcatTTS - அங்கீகரிப்புப் பிழை",
+    "wildcatttsAuthenticationErrorAndSign": "WildcatTTS அங்கீகரிப்புப் பிழை மற்றும் உள்நுழைவு மீட்பு."
+  },
+  "msg": {
+    "authError": {
+      "backToSignIn": "உள்நுழைவுக்குத் திரும்பு",
+      "canceledBody": "எந்த மாற்றமும் ஏற்படவில்லை. நீங்கள் தயாராக இருக்கும்போது உள்நுழையலாம்.",
+      "canceledReadout": "ரத்து செய்யப்பட்டது",
+      "canceledTitle": "WildcatTTS - உள்நுழைவு ரத்து செய்யப்பட்டது",
+      "canceledTitleShort": "உள்நுழைவு ரத்து செய்யப்பட்டது",
+      "notPermitted": "அணுகல் அனுமதிக்கப்படவில்லை",
+      "requestAccess": "அணுகலைக் கோருக",
+      "twitchError": "அங்கீகாரத்தின் போது Twitch பிழையைத் தந்தது.",
+      "unspecified": "குறிப்பிடப்படாத பிழை ஏற்பட்டது.",
+      "unspecifiedCode": "குறிப்பிடப்படாதது"
+    }
+  }
+}

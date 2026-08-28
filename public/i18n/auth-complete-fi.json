@@ -1,0 +1,39 @@
+{
+  "authBar": {
+    "signInProgress": "Kirjautumisen edistyminen"
+  },
+  "authMessage": {
+    "pleaseWait": "Odota hetki."
+  },
+  "authSteps": {
+    "loadingDashboard": "Ladataan hallintapaneelia",
+    "sessionTokenStored": "Istuntotunniste tallennettu",
+    "twitchAuthorized": "Twitch valtuutettu"
+  },
+  "authTitle": {
+    "signingYouIn": "Kirjataan sinua sisään"
+  },
+  "meta": {
+    "completingWildcatttsTwitchSignIn": "Viimeistellään WildcatTTS Twitch -kirjautumista.",
+    "wildcatttsCompletingSignIn": "WildcatTTS – Viimeistellään kirjautumista"
+  },
+  "msg": {
+    "authComplete": {
+      "cannotComplete": "Kirjautumista ei voi suorittaa loppuun.",
+      "failedReadout": "Epäonnistui",
+      "failedTitle": "Kirjautuminen epäonnistui",
+      "missingInfo": "Twitch-takaisinkutsun todennustiedot puuttuvat. Kirjaudu sisään uudelleen.",
+      "noSession": "Ei istuntoa",
+      "redirecting": "Uudelleenohjataan ohjauspaneeliin.",
+      "retrySignIn": "{reason} Kirjaudu sisään uudelleen.",
+      "sessionEstablished": "Istunto muodostettu",
+      "welcome": "Tervetuloa, {user}"
+    }
+  },
+  "sessionState": {
+    "establishingSession": "Muodostetaan istuntoa"
+  },
+  "statusReadout": {
+    "working": "<span class=\"wc-dot\"></span>Käsitellään"
+  }
+}

@@ -1,0 +1,500 @@
+{
+  "addBotBtn": {
+    "activateTtsService": "Aktiviraj TTS uslugu"
+  },
+  "addTtsBannedWordBtn": {
+    "add": "Dodaj"
+  },
+  "addTtsIgnoreBtn": {
+    "add": "Dodaj"
+  },
+  "addTtsPronunciationBtn": {
+    "add": "Dodaj"
+  },
+  "allowViewerPreferences": {
+    "allowViewerVoicePreferences": "Dopusti gledateljima odabir glasa"
+  },
+  "announceUnfulfilledRedemptions": {
+    "announceQueuedRedeemsImmediately": "Odmah objavi nagrade na čekanju"
+  },
+  "announceUnfulfilledRedemptionsHelp": {
+    "aRewardThatDoesNot": "Nagrada koja ne preskače red čekanja objavljuje se čim se zatraži, čak i ako je kasnije odbijete. Isključite ovo kako bi se objava odgodila dok ne prihvatite zahtjev – nagrade koje nikad ne prihvatite neće biti objavljene."
+  },
+  "anonymizeFollowers": {
+    "anonymizeNewFollowers": "Anonimiziraj nove pratitelje"
+  },
+  "bitsEnabled": {
+    "requireBitsForTts": "Zahtijevaj bits za TTS"
+  },
+  "botRespondsInChat": {
+    "botRespondsInChat": "Bot odgovara u chatu"
+  },
+  "botStatus": {
+    "loading": "Učitavanje…"
+  },
+  "calibratedVoicesList": {
+    "noVoicesCalibratedYet": "Još nema kalibriranih glasova."
+  },
+  "calibrationSaveBtn": {
+    "save": "Spremi"
+  },
+  "calibrationVoiceSearch": {
+    "searchVoicesToCalibrate": "Pretraži glasove za kalibraciju..."
+  },
+  "channelNameStatus": {
+    "yourChannel": "vaš kanal"
+  },
+  "cheerEventsEnabled": {
+    "announceCheers": "Objavi Cheerove"
+  },
+  "copyTtsUrlBtn": {
+    "copy": "Kopiraj",
+    "copyBrowserSourceUrl": "Kopiraj URL za Browser Source"
+  },
+  "cpDelete": {
+    "disableDelete": "Onemogući i izbriši"
+  },
+  "cpEnabled": {
+    "enableChannelPointsTts": "Omogući Channel Points TTS"
+  },
+  "cpPerStream": {
+    "enterAmount": "Unesite iznos"
+  },
+  "cpPerUser": {
+    "enterAmount": "Unesite iznos"
+  },
+  "cpSave": {
+    "save": "Spremi"
+  },
+  "cpTest": {
+    "testRedeem": "Testiraj iskorištavanje"
+  },
+  "dashboardContent": {
+    "channel": "Kanal",
+    "channelService": "Usluga kanala",
+    "dashboardConfigurationTabs": "Kartice za konfiguraciju nadzorne ploče",
+    "deactivationStopsTheBotFrom": "Deaktivacijom bot prestaje čitati poruke iz chata. Vaše postavke ostaju spremljene. Uslugu možete ponovno aktivirati u bilo kojem trenutku.",
+    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentacija </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>Postavke za gledatelje </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "Emocija",
+    "engNormalization": "Eng. normalizacija",
+    "language": "Jezik",
+    "pitch": "Visina tona",
+    "quickLinks": "Brze veze",
+    "service": "Usluga",
+    "signedInAs": "Prijavljeni kao",
+    "speed": "Brzina",
+    "testMessage": "Testna poruka",
+    "voicePreview": "Pretpregled glasa",
+    "volume": "Glasnoća"
+  },
+  "defaultEmotion": {
+    "angry": "Ljutit",
+    "disgusted": "Zgađen",
+    "fearful": "Uplašen",
+    "happy": "Sretan",
+    "neutral": "Neutralan",
+    "sad": "Tužan",
+    "surprised": "Iznenađen"
+  },
+  "defaultPitch": {
+    "defaultPitch12To12": "Zadana visina tona (-12 do +12)"
+  },
+  "defaultSpeed": {
+    "defaultSpeed05To": "Zadana brzina (0,5 do 2,0)"
+  },
+  "defaultVoiceSearch": {
+    "searchDefaultVoices": "Pretraži zadane glasove",
+    "searchVoices": "Pretraži glasove..."
+  },
+  "defaultVolume": {
+    "voiceVolume01To": "Glasnoća glasa (0,1 do 10)"
+  },
+  "emoteMode": {
+    "describeEmotes": "Opiši emotikone",
+    "readEmoteNames": "Čitaj nazive emotikona",
+    "skipEmotes": "Preskoči emotikone"
+  },
+  "englishNormalization": {
+    "englishNormalization": "Normalizacija engleskog"
+  },
+  "eventsEnabled": {
+    "announceEvents": "Najavi događaje"
+  },
+  "loadingBar": {
+    "loadingDashboardSettings": "Učitavanje postavki upravljačke ploče"
+  },
+  "loadingOverlay": {
+    "loadingDashboardSettings": "Učitavanje postavki upravljačke ploče…"
+  },
+  "lookupUsername": {
+    "enterTwitchViewerUsername": "Unesi korisničko ime Twitch gledatelja"
+  },
+  "lookupVoiceBtn": {
+    "lookupVoice": "Potraži glas"
+  },
+  "meta": {
+    "wildcatttsDashboard": "WildcatTTS upravljačka ploča",
+    "wildcatttsStreamerDashboardConfigureText": "WildcatTTS upravljačka ploča za streamere – konfiguriraj TTS postavke, dopuštenja, odgovore bota i Channel Points."
+  },
+  "msg": {
+    "auth": {
+      "demoStreamer": "Demo Streamer",
+      "needBroadcaster": "Prijavi se računom emitera za pristup postavkama streamera.",
+      "needSignIn": "Prijavi se Twitch računom za pristup upravljačkoj ploči."
+    },
+    "bannedWords": {
+      "addFailed": "Nije moguće dodati zabranjenu riječ.",
+      "added": "Riječ „{word}” dodana je među zabranjene riječi.",
+      "addedTestMode": "[Test] Dodana zabranjena riječ: {word}.",
+      "empty": "Još nema zabranjenih riječi.",
+      "removeFailed": "Nije moguće ukloniti zabranjenu riječ.",
+      "removed": "Riječ „{word}” uklonjena je iz zabranjenih riječi.",
+      "removedTestMode": "[Test] Uklonjena zabranjena riječ: {word}."
+    },
+    "bot": {
+      "activateFailed": "Nije moguće aktivirati TTS uslugu.",
+      "activated": "TTS usluga aktivirana.",
+      "activatedTestMode": "TTS usluga aktivirana (testni način).",
+      "activating": "Aktivacija TTS usluge…",
+      "active": "Aktivno",
+      "deactivateFailed": "Nije moguće deaktivirati TTS uslugu.",
+      "deactivated": "TTS usluga deaktivirana.",
+      "deactivatedTestMode": "TTS usluga deaktivirana (testni način).",
+      "deactivating": "Deaktivacija TTS usluge…",
+      "inactive": "Neaktivno",
+      "notAuthenticated": "Nema autentifikacije",
+      "requestAccess": "Zatraži pristup ovdje",
+      "statusError": "Pogreška",
+      "statusFailed": "Pogreška: {reason}",
+      "statusLoadFailed": "Nije moguće učitati status bota: {reason}",
+      "unknownError": "Nepoznata pogreška"
+    },
+    "calibration": {
+      "confirmReset": "Poništiti kalibraciju za {voice}?",
+      "edit": "Uredi",
+      "empty": "Nema kalibriranih glasova.",
+      "reset": "Poništi",
+      "row": "{voice} ({volume})"
+    },
+    "cp": {
+      "confirmDelete": "Izbrisati Channel Points TTS nagradu?",
+      "deleteFailed": "Brisanje nije uspjelo.",
+      "deleted": "Nagrada izbrisana.",
+      "deletedTestMode": "Nagrada izbrisana (testni način).",
+      "deleting": "Brisanje…",
+      "lastSynced": "{reward} · Zadnja sinkronizacija: {time}",
+      "never": "nikada",
+      "noReward": "Nema stvorene nagrade",
+      "noRewardTestMode": "Nema stvorene nagrade (testni način)",
+      "rewardId": "ID nagrade: {id}",
+      "saveFailed": "Nije moguće spremiti postavke za Channel Points.",
+      "saved": "Postavke za Channel Points spremljene.",
+      "savedTestMode": "Postavke za Channel Points spremljene (testni način).",
+      "saving": "Spremanje postavki za Channel Points…",
+      "testCompleted": "Test dovršen ({status}).",
+      "testCompletedTestMode": "Test dovršen (testni način).",
+      "testFailed": "Test nije uspio.",
+      "testPrompt": "Unesite testnu poruku za simulaciju iskorištavanja:",
+      "testing": "Testiranje iskorištavanja…"
+    },
+    "ignore": {
+      "addFailed": "Nije moguće dodati korisnika na popis ignoriranih.",
+      "addFailedReason": "Nije moguće dodati korisnika: {reason}",
+      "badgeModerator": "Utišao si",
+      "badgeSelf": "Samoisključenje",
+      "empty": "Nema ignoriranih korisnika.",
+      "noSuchAccount": "Twitch račun ne postoji",
+      "removeFailed": "Nije moguće ukloniti korisnika s popisa ignoriranih.",
+      "removeFailedReason": "Nije moguće ukloniti {label}: {reason}",
+      "removeLabel": "Ukloni {label} s popisa ignoriranih ({source, select, self {sami su se isključili} other {utišano s tvoje strane}})"
+    },
+    "lookup": {
+      "button": "Potraži glas",
+      "calibrate": "Kalibriraj \"{voice}\"",
+      "error": "Pogreška: {reason}",
+      "failed": "Nije moguće pronaći tog korisnika.",
+      "hasVoice": "Korisnik {user} postavio je prilagođeni glas: {voice}",
+      "noVoice": "Korisnik {user} nema postavljen prilagođeni glas.",
+      "searching": "Pretraživanje…",
+      "voiceUnknown": "Ovaj glas nije na popisu dostupnih glasova."
+    },
+    "obs": {
+      "cannotCopy": "Nije moguće kopirati URL.",
+      "cannotDetermine": "Nije moguće odrediti TTS URL.",
+      "copied": "Kopirano u međuspremnik.",
+      "copiedButton": "Kopirano!",
+      "copyFailed": "Kopiranje nije uspjelo.",
+      "generateFailed": "Nije moguće generirati OBS URL. Pokušaj ponovno.",
+      "generating": "Generiranje…",
+      "generatingUrl": "Generiranje sigurnog URL-a…",
+      "loadingUrl": "Učitavanje postojećeg URL-a…",
+      "pressRegenerate": "Klikni na „Ponovno generiraj URL” za generiranje OBS Browser Source URL-a.",
+      "refreshPage": "Nije moguće generirati URL. Osvježi stranicu.",
+      "testModeUrl": "URL za testni način",
+      "urlGenerated": "Generiran je novi URL.",
+      "urlGeneratedTestMode": "Generiran je novi URL (testni način).",
+      "urlNotReady": "URL još nije dostupan.",
+      "yourUrl": "Tvoj OBS Browser Source URL"
+    },
+    "preview": {
+      "playingTestMode": "Reprodukcija pretpregleda… (testni način)",
+      "tooLong": "Tekst mora imati 500 znakova ili manje."
+    },
+    "pron": {
+      "acronymsDisabled": "Kratice su onemogućene",
+      "acronymsOffHint": "Uključi „Proširi kratice u chatu” iznad kako bi ove postavke stupile na snagu.",
+      "addFailed": "Nije moguće dodati izgovor.",
+      "added": "Dodan izgovor: {match} -> {say}.",
+      "addedTestMode": "[Test] Dodan izgovor: {match} -> {say}.",
+      "builtinOff": " — ugrađeni je isključen",
+      "empty": "Još nema dodanih prilagođenih izgovora.",
+      "expansion": " → {say}",
+      "needBoth": "Unesi i riječ i izgovor.",
+      "removeFailed": "Nije moguće ukloniti izgovor.",
+      "removed": "Uklonjen izgovor: {match}.",
+      "removedTestMode": "[Test] Uklonjen izgovor: {match}."
+    },
+    "setting": {
+      "allowViewerPreferences": "Dopusti glasovne postavke gledatelja",
+      "announceQueuedRedeems": "Najavi preuzimanja na čekanju",
+      "anonymizeFollowers": "Anonimiziraj pratitelje",
+      "bitsForTts": "Bits za TTS",
+      "botRespondsInChat": "Bot odgovara u chatu",
+      "cheerAnnouncements": "Cheer najave",
+      "defaultEmotion": "Zadana emocija",
+      "defaultLanguage": "Zadani jezik",
+      "defaultPitch": "Zadana visina glasa",
+      "defaultSpeed": "Zadana brzina",
+      "defaultVoice": "Zadani glas",
+      "emoteMode": "Način za emotikone",
+      "englishNormalization": "Normalizacija engleskog",
+      "eventAnnouncements": "Najave događaja",
+      "expandAcronyms": "Proširi kratice u chatu",
+      "minimumBits": "Minimalno Bits",
+      "profanityFilter": "Filtar vulgarnosti",
+      "readFullUrls": "Čitaj cijele URL-ove",
+      "redemptionAnnouncements": "Najave preuzimanja nagrada",
+      "ttsEngine": "TTS mehanizam",
+      "ttsMode": "TTS način rada",
+      "ttsPermission": "TTS dopuštenja",
+      "voiceVolume": "Glasnoća glasa",
+      "watchStreakAnnouncements": "Najave niza gledanja",
+      "youtubeHandle": "YouTube korisničko ime",
+      "youtubeTts": "YouTube TTS"
+    },
+    "settings": {
+      "loadFailed": "Nije moguće učitati postavke.",
+      "saveFailed": "{label}: {reason}",
+      "youtubeHandleRequired": "Unesi YouTube korisničko ime prije uključivanja YouTube TTS-a."
+    }
+  },
+  "obsCloseBtn": {
+    "closeObsSetup": "Zatvori postavljanje OBS-a"
+  },
+  "obsPopover": {
+    "addBrowserSource": "Dodaj Browser Source",
+    "cautionANewUrlStops": "OPREZ: Novi URL zaustavlja tvoj trenutni OBS izvor dok ne ažuriraš URL u OBS-u.",
+    "controlAudioViaObs": "Upravljaj zvukom putem OBS-a",
+    "inObsAddANew": "U OBS-u dodaj novi <strong>Browser Source</strong>. Nazovi izvor „Wildcat TTS” i zalijepi kopirani URL. Možeš zadržati zadanu širinu i visinu.",
+    "inTheObsAudioMixer": "U OBS Audio mikseru pronađi „Wildcat TTS”. Klikni na ikonu zupčanika i odaberi <strong>Advanced Audio Properties</strong>. Postavi Audio Monitoring na <strong>Monitor and Output</strong>.",
+    "monitorAndOutput": "Praćenje i izlaz",
+    "obsBrowserSource": "OBS Browser Source",
+    "selectControlAudioViaObs": "Odaberi <strong>Control audio via OBS</strong>. Pripazi da <strong>Shutdown source when not visible</strong> nije odabrano.",
+    "setupInstructions": "Upute za postavljanje",
+    "yourBrowserSourceUrl": "Tvoj Browser Source URL"
+  },
+  "obsToggleBtn": {
+    "obsSetup": "Postavljanje OBS-a"
+  },
+  "page": {
+    "channelDashboard": "Nadzorna ploča kanala",
+    "textToSpeechSettingsFor": "Postavke pretvaranja teksta u govor za tvoj kanal. Promjene se spremaju automatski.",
+    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Nadzorna ploča</span>"
+  },
+  "profanityFilterEnabled": {
+    "profanityFilter": "Filtar vulgarnosti"
+  },
+  "pronunciationEnabled": {
+    "expandChatAcronyms": "Proširi kratice u chatu"
+  },
+  "readFullUrls": {
+    "readFullUrls": "Čitaj cijele URL-ove"
+  },
+  "redemptionEventsEnabled": {
+    "announceRewardRedeems": "Najavi iskorištavanje nagrada"
+  },
+  "regenerateTtsUrlBtn": {
+    "regenerateBrowserSourceUrl": "Ponovno generiraj Browser Source URL",
+    "regenerateUrl": "Ponovno generiraj URL"
+  },
+  "removeBotBtn": {
+    "deactivateTtsService": "Deaktiviraj TTS uslugu"
+  },
+  "resetPitchBtn": {
+    "reset": "Poništi",
+    "resetDefaultPitchTo0": "Vrati zadanu visinu tona na 0"
+  },
+  "resetSpeedBtn": {
+    "reset": "Poništi",
+    "resetDefaultSpeedTo1": "Vrati zadanu brzinu na 1.0"
+  },
+  "resetVolumeBtn": {
+    "reset": "Poništi",
+    "resetVoiceVolumeTo1": "Vrati glasnoću glasa na 1.0"
+  },
+  "saveSettingsBtn": {
+    "saveAllSettings": "Spremi sve postavke"
+  },
+  "serviceHeadline": {
+    "ttsService": "TTS usluga"
+  },
+  "sidebarVoiceName": {
+    "friendlyPerson": "Prijateljska osoba"
+  },
+  "tabBroadcaster": {
+    "allowTheBotToRespond": "Dopusti botu da odgovara na naredbe u chatu poput !myvoice",
+    "allowViewerVoicePreferences": "Dopusti postavke glasa za gledatelje",
+    "allowViewersToUseChannel": "Dopusti gledateljima korištenje Channel Points za TTS",
+    "announceCheers": "Najavi Cheerove",
+    "announceEvents": "Najavi događaje",
+    "announceEventsSuchAsSubscriptions": "Najavi događaje poput pretplata i raidova",
+    "announceQueuedRedeemsImmediately": "Odmah najavi nagrade u redu čekanja",
+    "announceRewardRedeems": "Najavi iskorištene nagrade",
+    "announceWatchStreaks": "Najavi nizove gledanja",
+    "announceWhenAViewerCheers": "Najavi kada gledatelj pošalje bitse",
+    "announceWhenAViewerReaches": "Najavi kada gledatelj dosegne prekretnicu niza gledanja",
+    "announceWhenAViewerRedeems": "Najavi kada gledatelj iskoristi Channel Points nagradu",
+    "anonymizeNewFollowers": "Anonimiziraj nove pratitelje",
+    "bannedWordsCommaSeparated": "Zabranjene riječi (odvojene zarezom)",
+    "bannedWordsPhrases": "<strong>Zabranjene riječi / fraze</strong>",
+    "bitsTts": "Bits → TTS",
+    "blockLinks": "Blokiraj poveznice",
+    "botRespondsInChat": "Bot odgovara u chatu",
+    "channelPointsTts": "Channel Points → TTS",
+    "chooseWhichMessagesTriggerTts": "Odaberi koje poruke pokreću TTS",
+    "configureBitsRequirementsForText": "Konfiguriraj zahtjeve za bits za pretvaranje teksta u govor",
+    "configureChannelPointsRewardsFor": "Konfiguriraj Channel Points nagrade za pretvaranje teksta u govor",
+    "configureTtsEngineSettingsAnd": "Konfiguriraj postavke TTS mehanizma i dopuštenja",
+    "controlHowTtsPronouncesSpecific": "Upravljaj načinom na koji TTS izgovara određene riječi. Uobičajeni Twitch akronimi obrađuju se prema zadanim postavkama. Dodaj unos za nadjačavanje zadanog izgovora ili dodaj novu riječ.",
+    "controlsHowTtsHandlesEmotes": "Upravlja načinom na koji TTS obrađuje emote u porukama chata",
+    "cooldownsAndModeration": "Vrijeme hlađenja i moderacija",
+    "costPoints": "Cijena (bodovi)",
+    "emoteMode": "<strong>Način rada za emote</strong>",
+    "enableChannelPointsTts": "Omogući Channel Points TTS",
+    "enableCooldownsLimits": "Omogući vremena hlađenja i ograničenja",
+    "engineMode": "Mehanizam i način rada",
+    "expandChatAcronyms": "Proširi akronime u chatu",
+    "globalCooldownSec": "Globalno vrijeme hlađenja (sek.)",
+    "hideFollowerNamesInTts": "Sakrij imena pratitelja u TTS obavijestima radi privatnosti",
+    "ifOnTtsReadsFull": "Ako je uključeno, TTS čita cijele URL-ove. Ako je isključeno, TTS čita samo nazive domena",
+    "ifThisSettingIsOff": "Ako je ova postavka isključena, TTS koristi zadani glas kanala za sve poruke",
+    "ignoredUsers": "Ignorirani korisnici",
+    "manageUsersThatTtsIgnores": "Upravljaj korisnicima koje TTS ignorira",
+    "minimumBitsRequired": "<strong>Minimalno potrebno bitsa</strong>",
+    "minimumNumberOfBitsRequired": "Minimalan broj bitsa potreban za pokretanje TTS-a",
+    "perStreamLimit": "Ograničenje po streamu",
+    "perUserPerStream": "Po korisniku po streamu",
+    "profanityFilter": "Filtar psovki",
+    "pronunciationDictionary": "<strong>Rječnik izgovora</strong>",
+    "readFullUrls": "Čitaj cijele URL-ove",
+    "readYoutubeLiveChatMessages": "Čitaj poruke YouTube chata uživo putem TTS-a. Ova značajka zahtijeva aktivan YouTube livestream.",
+    "readYoutubeLiveChatMessages2": "Čitaj poruke YouTube chata uživo naglas",
+    "requireBitsForTts": "Zahtijevaj bitse za TTS",
+    "rewardTitle": "Naslov nagrade",
+    "skipTheRewardQueue": "Preskoči red čekanja za nagrade",
+    "theTitleMustBeUnique": "Naslov mora biti jedinstven na tvom kanalu.",
+    "ttsDoesNotReadMessages": "TTS ne čita poruke korisnika s ovog popisa.",
+    "ttsEngineEnabled": "TTS mehanizam omogućen",
+    "ttsExpandsCommonTwitchAcronyms": "TTS proširuje uobičajene Twitch kratice u riječi. Na primjer, „ngl” postaje „not gonna lie”. Isključi kako bi se sricalo slovo po slovo.",
+    "ttsIgnoreList": "<strong>TTS popis ignoriranih</strong>",
+    "ttsMode": "<strong>TTS način rada</strong>",
+    "ttsPermission": "<strong>TTS dopuštenje</strong>",
+    "ttsReplacesProfanityWithMilder": "TTS zamjenjuje psovke blažim riječima prije izgovora. Filtar koristi jezik kanala i jezik gledatelja. Ako je jezik postavljen na Automatski, filtar koristi engleski popis. Zabranjene riječi i dalje preskaču cijelu poruku.",
+    "ttsSkipsMessagesThatContain": "TTS preskače poruke koje sadrže ove riječi ili izraze.",
+    "turnOnOrTurnOff": "Uključi ili isključi mehanizam za pretvaranje teksta u govor",
+    "viewerPrompt": "Tekst upita za gledatelje",
+    "viewersMustCheerBitsTo": "Gledatelji moraju poslati bitse (cheer) kako bi koristili pretvaranje teksta u govor",
+    "whoCanUseTextTo": "Tko može koristiti pretvaranje teksta u govor",
+    "yourYoutubeChannelHandleFor": "Korisnička oznaka tvog YouTube kanala (npr. <code>@tvojaoznaka</code>)",
+    "youtubeHandle": "<strong>YouTube korisnička oznaka</strong>",
+    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>YouTube integracija",
+    "youtubeTtsEnabled": "YouTube TTS omogućen"
+  },
+  "tabBtnBroadcaster": {
+    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Streamer"
+  },
+  "tabBtnViewerDefaults": {
+    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Zadane postavke glasa"
+  },
+  "tabViewerDefaults": {
+    "adjustThePitchForThe": "Prilagodi visinu tona zadanog glasa",
+    "adjustTheVolumeForThe": "Prilagodi glasnoću za odabrani glas. OPREZ: Vrijednosti veće od 1.0 mogu uzrokovati izobličenje zvuka.",
+    "calibrateVolumeForSpecificVoices": "Kalibriraj glasnoću za pojedine glasove. OPREZ: Vrijednosti veće od 1.0 mogu uzrokovati izobličenje zvuka.",
+    "calibratedVoices": "<strong>Kalibrirani glasovi</strong>",
+    "controlHowFastTheDefault": "Prilagodi brzinu zadanog glasa",
+    "defaultEmotion": "<strong>Zadana emocija</strong>",
+    "defaultLanguage": "<strong>Zadani jezik</strong>",
+    "defaultPitch12To12": "Zadana visina tona (-12 do +12):",
+    "defaultSpeed05To": "Zadana brzina (0.5 do 2.0):",
+    "defaultVoice": "<strong>Zadani glas</strong>",
+    "defaultVoiceSettings": "Postavke zadanog glasa",
+    "englishNormalization": "Normalizacija engleskog",
+    "improvePronunciationForSpecificLanguages": "Poboljšaj izgovor za određene jezike",
+    "improveThePronunciationOfNumbers": "Poboljšaj izgovor brojeva i teksta",
+    "selectTheDefaultTtsVoice": "Odaberi zadani TTS glas za kanal",
+    "selectVoice": "Odaberi glas",
+    "setDefaultVoiceSettingsFor": "Postavi zadane postavke glasa za svoj kanal",
+    "setTheEmotionalToneOf": "Postavi emocionalni ton zadanog glasa",
+    "viewerVoiceLookup": "Pretraživanje glasa gledatelja",
+    "voiceCalibration": "Kalibracija glasa",
+    "voiceVolume01To": "Glasnoća glasa (0.1 do 10):",
+    "voicesWithCustomVolumeSettings": "Glasovi s prilagođenom glasnoćom.",
+    "volumeOverride": "Nadjačavanje glasnoće:"
+  },
+  "ttsBannedWordInput": {
+    "wordOrPhraseToBan": "Riječ ili izraz za zabranu"
+  },
+  "ttsEnabled": {
+    "ttsEngineEnabled": "TTS pogon omogućen"
+  },
+  "ttsIgnoreUsername": {
+    "usernameToIgnore": "Korisničko ime za zanemarivanje"
+  },
+  "ttsMode": {
+    "allMessages": "Sve poruke",
+    "bitsPointsOnly": "Samo Bits/bodovi",
+    "ttsCommandOnly": "Samo naredba !tts"
+  },
+  "ttsPermission": {
+    "everyone": "Svi",
+    "moderatorsOnly": "Samo moderatori",
+    "subscribersOnly": "Samo pretplatnici",
+    "vipsOnly": "Samo VIP-ovi"
+  },
+  "ttsPronunciationMatchInput": {
+    "wordForExampleWcat": "Riječ (npr. wcat)",
+    "wordToReplace": "Riječ za zamjenu"
+  },
+  "ttsPronunciationSayInput": {
+    "howToSayItFor": "Kako se izgovara (npr. wildcat)",
+    "pronunciation": "Izgovor"
+  },
+  "ttsUrlField": {
+    "yourBrowserSourceUrl": "Tvoj Browser Source URL"
+  },
+  "twitchUsername": {
+    "loading": "učitavanje…"
+  },
+  "voiceTestBtn": {
+    "sendPreview": "Pošalji pretpregled"
+  },
+  "watchStreakEventsEnabled": {
+    "announceWatchStreaks": "Objavi nizove gledanja"
+  },
+  "youtubeEnabled": {
+    "youtubeTtsEnabled": "YouTube TTS omogućen"
+  },
+  "youtubeHandle": {
+    "yourhandle": "@tvojhandle"
+  }
+}

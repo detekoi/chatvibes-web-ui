@@ -1,0 +1,500 @@
+{
+  "addBotBtn": {
+    "activateTtsService": "הפעלת שירות TTS"
+  },
+  "addTtsBannedWordBtn": {
+    "add": "הוספה"
+  },
+  "addTtsIgnoreBtn": {
+    "add": "הוספה"
+  },
+  "addTtsPronunciationBtn": {
+    "add": "הוספה"
+  },
+  "allowViewerPreferences": {
+    "allowViewerVoicePreferences": "אפשר העדפות קול לצופים"
+  },
+  "announceUnfulfilledRedemptions": {
+    "announceQueuedRedeemsImmediately": "הכרז מיידית על מימושים בתור"
+  },
+  "announceUnfulfilledRedemptionsHelp": {
+    "aRewardThatDoesNot": "פרס שאינו מדלג על תור בקשות הפרסים מוכרז מיד עם מימושו, גם אם תדחה את הבקשה מאוחר יותר. כבה אפשרות זו כדי להשהות את ההכרזה עד שתאשר את הבקשה — פרסים שלעולם לא תאשר לא יוכרזו."
+  },
+  "anonymizeFollowers": {
+    "anonymizeNewFollowers": "הפוך עוקבים חדשים לאנונימיים"
+  },
+  "bitsEnabled": {
+    "requireBitsForTts": "דרוש Bits עבור TTS"
+  },
+  "botRespondsInChat": {
+    "botRespondsInChat": "הבוט מגיב בצ'אט"
+  },
+  "botStatus": {
+    "loading": "טוען…"
+  },
+  "calibratedVoicesList": {
+    "noVoicesCalibratedYet": "עדיין לא כוילו קולות."
+  },
+  "calibrationSaveBtn": {
+    "save": "שמירה"
+  },
+  "calibrationVoiceSearch": {
+    "searchVoicesToCalibrate": "חיפוש קולות לכיול..."
+  },
+  "channelNameStatus": {
+    "yourChannel": "הערוץ שלך"
+  },
+  "cheerEventsEnabled": {
+    "announceCheers": "הכרז על Cheers"
+  },
+  "copyTtsUrlBtn": {
+    "copy": "העתק",
+    "copyBrowserSourceUrl": "העתקת URL של Browser Source"
+  },
+  "cpDelete": {
+    "disableDelete": "השבת ומחק"
+  },
+  "cpEnabled": {
+    "enableChannelPointsTts": "הפעל TTS עבור Channel Points"
+  },
+  "cpPerStream": {
+    "enterAmount": "הזן כמות"
+  },
+  "cpPerUser": {
+    "enterAmount": "הזן כמות"
+  },
+  "cpSave": {
+    "save": "שמירה"
+  },
+  "cpTest": {
+    "testRedeem": "בדיקת מימוש"
+  },
+  "dashboardContent": {
+    "channel": "ערוץ",
+    "channelService": "שירות ערוץ",
+    "dashboardConfigurationTabs": "לשוניות הגדרת לוח הבקרה",
+    "deactivationStopsTheBotFrom": "השבתה מפסיקה את הקראת הודעות הצ'אט על ידי הבוט. ההגדרות שלך יישמרו. תוכל להפעיל מחדש את השירות בכל עת.",
+    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>תיעוד </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>הגדרות צופה </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "רגש",
+    "engNormalization": "נרמול אנגלית",
+    "language": "שפה",
+    "pitch": "גובה צליל",
+    "quickLinks": "קישורים מהירים",
+    "service": "שירות",
+    "signedInAs": "מחובר בתור",
+    "speed": "מהירות",
+    "testMessage": "הודעת בדיקה",
+    "voicePreview": "תצוגה מקדימה של הקול",
+    "volume": "עוצמת שמע"
+  },
+  "defaultEmotion": {
+    "angry": "כועס",
+    "disgusted": "נגעל",
+    "fearful": "מפוחד",
+    "happy": "שמח",
+    "neutral": "ניטרלי",
+    "sad": "עצוב",
+    "surprised": "מופתע"
+  },
+  "defaultPitch": {
+    "defaultPitch12To12": "גובה צליל ברירת מחדל (-12 עד +12)"
+  },
+  "defaultSpeed": {
+    "defaultSpeed05To": "מהירות ברירת מחדל (0.5 עד 2.0)"
+  },
+  "defaultVoiceSearch": {
+    "searchDefaultVoices": "חיפוש קולות ברירת מחדל",
+    "searchVoices": "חיפוש קולות..."
+  },
+  "defaultVolume": {
+    "voiceVolume01To": "עוצמת קול (0.1 עד 10)"
+  },
+  "emoteMode": {
+    "describeEmotes": "תיאור אימוטים",
+    "readEmoteNames": "הקרא שמות אימוטים",
+    "skipEmotes": "דלג על אימוטים"
+  },
+  "englishNormalization": {
+    "englishNormalization": "נורמליזציה של אנגלית"
+  },
+  "eventsEnabled": {
+    "announceEvents": "הכרז על אירועים"
+  },
+  "loadingBar": {
+    "loadingDashboardSettings": "טוען הגדרות לוח בקרה"
+  },
+  "loadingOverlay": {
+    "loadingDashboardSettings": "טוען הגדרות לוח בקרה…"
+  },
+  "lookupUsername": {
+    "enterTwitchViewerUsername": "הזן שם משתמש של צופה ב-Twitch"
+  },
+  "lookupVoiceBtn": {
+    "lookupVoice": "חפש קול"
+  },
+  "meta": {
+    "wildcatttsDashboard": "לוח הבקרה של WildcatTTS",
+    "wildcatttsStreamerDashboardConfigureText": "לוח בקרה לסטרימר של WildcatTTS - הגדרת הגדרות text-to-speech, הרשאות, תגובות בוט ו-Channel Points."
+  },
+  "msg": {
+    "auth": {
+      "demoStreamer": "סטרימר לדוגמה",
+      "needBroadcaster": "התחבר באמצעות חשבון המשדר שלך כדי לגשת להגדרות הסטרימר.",
+      "needSignIn": "התחבר באמצעות חשבון ה-Twitch שלך כדי לגשת ללוח הבקרה."
+    },
+    "bannedWords": {
+      "addFailed": "לא ניתן להוסיף מילה חסומה.",
+      "added": "התווספה המילה \"{word}\" למילים החסומות.",
+      "addedTestMode": "[בדיקה] נוספה מילה חסומה: {word}.",
+      "empty": "עדיין לא נוספו מילים חסומות.",
+      "removeFailed": "לא ניתן להסיר מילה חסומה.",
+      "removed": "הוסרה המילה \"{word}\" מהמילים החסומות.",
+      "removedTestMode": "[בדיקה] הוסרה מילה חסומה: {word}."
+    },
+    "bot": {
+      "activateFailed": "לא ניתן להפעיל את שירות ה-TTS.",
+      "activated": "שירות ה-TTS הופעל.",
+      "activatedTestMode": "שירות ה-TTS הופעל (מצב בדיקה).",
+      "activating": "מפעיל את שירות ה-TTS…",
+      "active": "פעיל",
+      "deactivateFailed": "לא ניתן להשבית את שירות ה-TTS.",
+      "deactivated": "שירות ה-TTS הושבת.",
+      "deactivatedTestMode": "שירות ה-TTS הושבת (מצב בדיקה).",
+      "deactivating": "משבית את שירות ה-TTS…",
+      "inactive": "לא פעיל",
+      "notAuthenticated": "לא מאומת",
+      "requestAccess": "בקש גישה כאן",
+      "statusError": "שגיאה",
+      "statusFailed": "שגיאה: {reason}",
+      "statusLoadFailed": "לא ניתן לטעון את סטטוס הבוט: {reason}",
+      "unknownError": "שגיאה לא ידועה"
+    },
+    "calibration": {
+      "confirmReset": "לאפס כיול עבור {voice}?",
+      "edit": "ערוך",
+      "empty": "עדיין לא כוילו קולות.",
+      "reset": "אפס",
+      "row": "{voice} ({volume})"
+    },
+    "cp": {
+      "confirmDelete": "למחוק את פרס ה-TTS של Channel Points?",
+      "deleteFailed": "המחיקה נכשלה.",
+      "deleted": "הפרס נמחק.",
+      "deletedTestMode": "הפרס נמחק (מצב בדיקה).",
+      "deleting": "מוחק…",
+      "lastSynced": "{reward} · סנכרון אחרון: {time}",
+      "never": "מעולם לא",
+      "noReward": "לא נוצר פרס",
+      "noRewardTestMode": "לא נוצר פרס (מצב בדיקה)",
+      "rewardId": "מזהה פרס: {id}",
+      "saveFailed": "לא ניתן לשמור את הגדרות ה-Channel Points.",
+      "saved": "הגדרות ה-Channel Points נשמרו.",
+      "savedTestMode": "הגדרות ה-Channel Points נשמרו (מצב בדיקה).",
+      "saving": "שומר את הגדרות ה-Channel Points…",
+      "testCompleted": "הבדיקה הושלמה ({status}).",
+      "testCompletedTestMode": "הבדיקה הושלמה (מצב בדיקה).",
+      "testFailed": "הבדיקה נכשלה.",
+      "testPrompt": "יש להזין הודעת בדיקה כדי לדמות מימוש:",
+      "testing": "בודק מימוש…"
+    },
+    "ignore": {
+      "addFailed": "לא ניתן להוסיף משתמש לרשימת ההתעלמות.",
+      "addFailedReason": "לא ניתן להוסיף את המשתמש: {reason}",
+      "badgeModerator": "הושתק על ידך",
+      "badgeSelf": "בחר לא להשתתף",
+      "empty": "אין משתמשים ברשימת ההתעלמות.",
+      "noSuchAccount": "אין חשבון Twitch כזה",
+      "removeFailed": "לא ניתן להסיר את המשתמש מרשימת ההתעלמות.",
+      "removeFailedReason": "לא ניתן להסיר את {label}: {reason}",
+      "removeLabel": "הסרת {label} מרשימת ההתעלמות ({source, select, self {בחר לא להשתתף בעצמו} other {הושתק על ידך}})"
+    },
+    "lookup": {
+      "button": "חיפוש קול",
+      "calibrate": "כיול \"{voice}\"",
+      "error": "שגיאה: {reason}",
+      "failed": "לא ניתן לאתר משתמש זה.",
+      "hasVoice": "המשתמש {user} הגדיר קול מותאם אישית: {voice}",
+      "noVoice": "המשתמש {user} לא הגדיר קול מותאם אישית.",
+      "searching": "מחפש…",
+      "voiceUnknown": "קול זה אינו מופיע ברשימת הקולות הזמינים."
+    },
+    "obs": {
+      "cannotCopy": "לא ניתן להעתיק את ה-URL.",
+      "cannotDetermine": "לא ניתן לזהות את ה-TTS URL.",
+      "copied": "הועתק ללוח.",
+      "copiedButton": "הועתק!",
+      "copyFailed": "ההעתקה נכשלה.",
+      "generateFailed": "לא ניתן להפיק URL של OBS. יש לנסות שוב.",
+      "generating": "יוצר…",
+      "generatingUrl": "יוצר URL מאובטח…",
+      "loadingUrl": "טוען URL קיים…",
+      "pressRegenerate": "לחץ על \"צור מחדש URL\" כדי ליצור OBS Browser Source URL.",
+      "refreshPage": "לא ניתן ליצור URL. יש לרענן את הדף.",
+      "testModeUrl": "URL למצב בדיקה",
+      "urlGenerated": "הופק URL חדש.",
+      "urlGeneratedTestMode": "הופק URL חדש (מצב בדיקה).",
+      "urlNotReady": "ה-URL עדיין אינו זמין.",
+      "yourUrl": "ה-OBS Browser Source URL שלך"
+    },
+    "preview": {
+      "playingTestMode": "משמיע תצוגה מקדימה… (מצב בדיקה)",
+      "tooLong": "הטקסט חייב להכיל עד 500 תווים."
+    },
+    "pron": {
+      "acronymsDisabled": "ראשי תיבות מושבתים",
+      "acronymsOffHint": "הפעל למעלה את \"הרחב ראשי תיבות בצ'אט\" כדי שהגדרות אלו ייכנסו לתוקף.",
+      "addFailed": "לא ניתן להוסיף הגייה.",
+      "added": "נוספה הגייה: {match} -> {say}.",
+      "addedTestMode": "[בדיקה] נוספה הגייה: {match} -> {say}.",
+      "builtinOff": " — המובנה כבוי",
+      "empty": "עדיין לא נוספו הגיות מותאמות אישית.",
+      "expansion": " ← {say}",
+      "needBoth": "יש להזין גם את המילה וגם את ההגייה.",
+      "removeFailed": "לא ניתן להסיר הגייה.",
+      "removed": "ההגייה הוסרה: {match}.",
+      "removedTestMode": "[בדיקה] ההגייה הוסרה: {match}."
+    },
+    "setting": {
+      "allowViewerPreferences": "אפשר העדפות קול לצופים",
+      "announceQueuedRedeems": "הכרז על מימושים בתור",
+      "anonymizeFollowers": "הסתר שמות עוקבים",
+      "bitsForTts": "Bits עבור TTS",
+      "botRespondsInChat": "הבוט מגיב בצ'אט",
+      "cheerAnnouncements": "הכרזות Cheer",
+      "defaultEmotion": "רגש ברירת מחדל",
+      "defaultLanguage": "שפת ברירת מחדל",
+      "defaultPitch": "גובה קול ברירת מחדל",
+      "defaultSpeed": "מהירות ברירת מחדל",
+      "defaultVoice": "קול ברירת מחדל",
+      "emoteMode": "מצב אימוטים",
+      "englishNormalization": "נרמול אנגלית",
+      "eventAnnouncements": "הכרזות על אירועים",
+      "expandAcronyms": "הרחב ראשי תיבות בצ'אט",
+      "minimumBits": "מינימום Bits",
+      "profanityFilter": "מסנן שפה בוטה",
+      "readFullUrls": "הקרא כתובות URL מלאות",
+      "redemptionAnnouncements": "הכרזות על מימושים",
+      "ttsEngine": "מנוע TTS",
+      "ttsMode": "מצב TTS",
+      "ttsPermission": "הרשאת TTS",
+      "voiceVolume": "עוצמת קול",
+      "watchStreakAnnouncements": "הכרזות על רצף צפייה",
+      "youtubeHandle": "שם משתמש ב-YouTube",
+      "youtubeTts": "YouTube TTS"
+    },
+    "settings": {
+      "loadFailed": "לא ניתן לטעון את ההגדרות שלך.",
+      "saveFailed": "{label}: {reason}",
+      "youtubeHandleRequired": "יש להזין כינוי (handle) של YouTube לפני הפעלת YouTube TTS."
+    }
+  },
+  "obsCloseBtn": {
+    "closeObsSetup": "סגירת הגדרת OBS"
+  },
+  "obsPopover": {
+    "addBrowserSource": "הוסף Browser Source",
+    "cautionANewUrlStops": "זהירות: URL חדש ישבית את מקור ה-OBS הנוכחי עד לעדכון ה-URL ב-OBS.",
+    "controlAudioViaObs": "שלוט באודיו דרך OBS",
+    "inObsAddANew": "ב-OBS, הוסף <strong>Browser Source</strong> חדש. תן למקור את השם \"Wildcat TTS\" והדבק את ה-URL שהועתק. ניתן להשאיר את הרוחב והגובה של ברירת המחדל.",
+    "inTheObsAudioMixer": "ב-Audio Mixer של OBS, מצא את \"Wildcat TTS\". לחץ על סמל גלגל השיניים ובחר ב-<strong>Advanced Audio Properties</strong>. הגדר את Audio Monitoring ל-<strong>Monitor and Output</strong>.",
+    "monitorAndOutput": "Monitor and Output",
+    "obsBrowserSource": "Browser Source של OBS",
+    "selectControlAudioViaObs": "בחר ב-<strong>Control audio via OBS</strong>. ודא שהאפשרות <strong>Shutdown source when not visible</strong> אינה מסומנת.",
+    "setupInstructions": "הוראות הגדרה",
+    "yourBrowserSourceUrl": "ה-URL שלך עבור Browser Source"
+  },
+  "obsToggleBtn": {
+    "obsSetup": "הגדרת OBS"
+  },
+  "page": {
+    "channelDashboard": "לוח בקרה של הערוץ",
+    "textToSpeechSettingsFor": "הגדרות המרת טקסט לדיבור עבור הערוץ שלך. השינויים נשמרים אוטומטית.",
+    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">לוח בקרה</span>"
+  },
+  "profanityFilterEnabled": {
+    "profanityFilter": "סינון ניבולי פה"
+  },
+  "pronunciationEnabled": {
+    "expandChatAcronyms": "הרחבת ראשי תיבות בצ'אט"
+  },
+  "readFullUrls": {
+    "readFullUrls": "הקראת כתובות URL מלאות"
+  },
+  "redemptionEventsEnabled": {
+    "announceRewardRedeems": "הכרזה על מימוש פרסים"
+  },
+  "regenerateTtsUrlBtn": {
+    "regenerateBrowserSourceUrl": "הפק מחדש URL של Browser Source",
+    "regenerateUrl": "הפק URL מחדש"
+  },
+  "removeBotBtn": {
+    "deactivateTtsService": "השבתת שירות TTS"
+  },
+  "resetPitchBtn": {
+    "reset": "איפוס",
+    "resetDefaultPitchTo0": "איפוס גובה צליל ברירת המחדל ל-0"
+  },
+  "resetSpeedBtn": {
+    "reset": "איפוס",
+    "resetDefaultSpeedTo1": "איפוס מהירות ברירת המחדל ל-1.0"
+  },
+  "resetVolumeBtn": {
+    "reset": "איפוס",
+    "resetVoiceVolumeTo1": "איפוס עוצמת הקול ל-1.0"
+  },
+  "saveSettingsBtn": {
+    "saveAllSettings": "שמירת כל ההגדרות"
+  },
+  "serviceHeadline": {
+    "ttsService": "שירות TTS"
+  },
+  "sidebarVoiceName": {
+    "friendlyPerson": "אדם ידידותי"
+  },
+  "tabBroadcaster": {
+    "allowTheBotToRespond": "אפשר לבוט להגיב לפקודות בצ'אט כגון !myvoice",
+    "allowViewerVoicePreferences": "אפשר העדפות קול לצופים",
+    "allowViewersToUseChannel": "אפשר לצופים להשתמש ב-Channel Points עבור TTS",
+    "announceCheers": "הכרזה על Cheers",
+    "announceEvents": "הכרזה על אירועים",
+    "announceEventsSuchAsSubscriptions": "הכרזה על אירועים כמו מינויים ו-Raids",
+    "announceQueuedRedeemsImmediately": "הכרזה מיידית על מימושים בתור",
+    "announceRewardRedeems": "הכרזה על מימושי פרסים",
+    "announceWatchStreaks": "הכרזה על רצפי צפייה",
+    "announceWhenAViewerCheers": "הכרזה כאשר צופה מקדיש bits",
+    "announceWhenAViewerReaches": "הכרזה כאשר צופה מגיע לאבן דרך ברצף צפייה",
+    "announceWhenAViewerRedeems": "הכרזה כאשר צופה מממש פרס Channel Points",
+    "anonymizeNewFollowers": "הסתרת שמות של עוקבים חדשים",
+    "bannedWordsCommaSeparated": "מילים אסורות (מופרדות בפסיקים)",
+    "bannedWordsPhrases": "<strong>מילים / ביטויים אסורים</strong>",
+    "bitsTts": "Bits → TTS",
+    "blockLinks": "חסימת קישורים",
+    "botRespondsInChat": "הבוט מגיב בצ'אט",
+    "channelPointsTts": "Channel Points → TTS",
+    "chooseWhichMessagesTriggerTts": "בחירת ההודעות שיפעילו TTS",
+    "configureBitsRequirementsForText": "הגדרת דרישות bits עבור TTS",
+    "configureChannelPointsRewardsFor": "הגדרת פרסי Channel Points עבור TTS",
+    "configureTtsEngineSettingsAnd": "הגדרת מנוע ה-TTS והרשאות",
+    "controlHowTtsPronouncesSpecific": "שליטה באופן שבו ה-TTS הוגה מילים מסוימות. קיצורים נפוצים ב-Twitch נתמכים כברירת מחדל. ניתן להוסיף רשומה כדי לעקוף הגיית ברירת מחדל או להוסיף מילה חדשה.",
+    "controlsHowTtsHandlesEmotes": "קביעת האופן שבו ה-TTS מטפל ב-Emotes בהודעות צ'אט",
+    "cooldownsAndModeration": "השהיות ומודרציה",
+    "costPoints": "עלות (נקודות)",
+    "emoteMode": "<strong>מצב Emotes</strong>",
+    "enableChannelPointsTts": "הפעלת Channel Points עבור TTS",
+    "enableCooldownsLimits": "הפעלת השהיות ומגבלות",
+    "engineMode": "מנוע ומצב",
+    "expandChatAcronyms": "הרחבת קיצורים בצ'אט",
+    "globalCooldownSec": "השהיה גלובלית (שניות)",
+    "hideFollowerNamesInTts": "הסתרת שמות עוקבים בהכרזות TTS לשמירה על הפרטיות",
+    "ifOnTtsReadsFull": "כאשר מופעל, TTS מקריא כתובות URL מלאות. כאשר כבוי, TTS מקריא רק שמות דומיין",
+    "ifThisSettingIsOff": "אם הגדרה זו כבויה, TTS משתמש בקול ברירת המחדל של הערוץ לכל ההודעות",
+    "ignoredUsers": "משתמשים בהתעלמות",
+    "manageUsersThatTtsIgnores": "ניהול משתמשים ש-TTS מתעלם מהם",
+    "minimumBitsRequired": "<strong>מינימום bits נדרש</strong>",
+    "minimumNumberOfBitsRequired": "מספר ה-bits המינימלי הנדרש להפעלת TTS",
+    "perStreamLimit": "מגבלה לשידור",
+    "perUserPerStream": "למשתמש בכל שידור",
+    "profanityFilter": "מסנן ניבולי פה",
+    "pronunciationDictionary": "<strong>מילון הגייה</strong>",
+    "readFullUrls": "הקראת כתובות URL מלאות",
+    "readYoutubeLiveChatMessages": "הקראת הודעות צ'אט חי של YouTube באמצעות TTS. תכונה זו דורשת שידור חי פעיל ב-YouTube.",
+    "readYoutubeLiveChatMessages2": "הקראת הודעות צ'אט חי של YouTube בקול",
+    "requireBitsForTts": "דרישת bits עבור TTS",
+    "rewardTitle": "כותרת הפרס",
+    "skipTheRewardQueue": "דילוג על תור הפרסים",
+    "theTitleMustBeUnique": "הכותרת חייבת להיות ייחודית בערוץ שלך.",
+    "ttsDoesNotReadMessages": "TTS אינו מקריא הודעות ממשתמשים ברשימה זו.",
+    "ttsEngineEnabled": "מנוע ה-TTS מופעל",
+    "ttsExpandsCommonTwitchAcronyms": "TTS מרחיב קיצורי Twitch נפוצים למילים. לדוגמה, “ngl” הופך ל-“not gonna lie”. כבה כדי לאיית כל אות בנפרד.",
+    "ttsIgnoreList": "<strong>רשימת התעלמות של TTS</strong>",
+    "ttsMode": "<strong>מצב TTS</strong>",
+    "ttsPermission": "<strong>הרשאת TTS</strong>",
+    "ttsReplacesProfanityWithMilder": "TTS מחליף ניבולי פה במילים עדינות יותר לפני ההקראה. המסנן משתמש בשפת הערוץ ובשפת הצופה. אם השפה מוגדרת כאוטומטית, המסנן משתמש ברשימה באנגלית. מילים חסומות עדיין ידלגו על ההודעה כולה.",
+    "ttsSkipsMessagesThatContain": "TTS מדלג על הודעות המכילות מילים או ביטויים אלה.",
+    "turnOnOrTurnOff": "הפעלה או כיבוי של מנוע ה-text-to-speech",
+    "viewerPrompt": "הנחיה לצופה",
+    "viewersMustCheerBitsTo": "צופים חייבים לשלוח bits כדי להשתמש ב-text-to-speech",
+    "whoCanUseTextTo": "מי רשאי להשתמש ב-text-to-speech",
+    "yourYoutubeChannelHandleFor": "כינוי ערוץ ה-YouTube שלך (לדוגמה, <code>@yourhandle</code>)",
+    "youtubeHandle": "<strong>כינוי ב-YouTube</strong>",
+    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>אינטגרציית YouTube",
+    "youtubeTtsEnabled": "YouTube TTS מופעל"
+  },
+  "tabBtnBroadcaster": {
+    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>שדרן"
+  },
+  "tabBtnViewerDefaults": {
+    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>ברירות מחדל לקול"
+  },
+  "tabViewerDefaults": {
+    "adjustThePitchForThe": "כוונן את גובה הצליל עבור קול ברירת המחדל",
+    "adjustTheVolumeForThe": "כוונן את עוצמת השמע עבור הקול שנבחר. זהירות: ערכים מעל 1.0 עלולים לגרום לעיוות.",
+    "calibrateVolumeForSpecificVoices": "כיול עוצמת השמע עבור קולות ספציפיים. זהירות: ערכים מעל 1.0 עלולים לגרום לעיוות.",
+    "calibratedVoices": "<strong>קולות מכוילים</strong>",
+    "controlHowFastTheDefault": "שליטה במהירות הדיבור של קול ברירת המחדל",
+    "defaultEmotion": "<strong>רגש ברירת מחדל</strong>",
+    "defaultLanguage": "<strong>שפת ברירת מחדל</strong>",
+    "defaultPitch12To12": "גובה צליל ברירת מחדל (-12 עד +12):",
+    "defaultSpeed05To": "מהירות ברירת מחדל (0.5 עד 2.0):",
+    "defaultVoice": "<strong>קול ברירת מחדל</strong>",
+    "defaultVoiceSettings": "הגדרות קול ברירת מחדל",
+    "englishNormalization": "נרמול אנגלית",
+    "improvePronunciationForSpecificLanguages": "שיפור ההגייה עבור שפות ספציפיות",
+    "improveThePronunciationOfNumbers": "שיפור ההגייה של מספרים וטקסט",
+    "selectTheDefaultTtsVoice": "בחירת קול ברירת המחדל של TTS לערוץ",
+    "selectVoice": "בחירת קול",
+    "setDefaultVoiceSettingsFor": "הגדרת קול ברירת המחדל לערוץ שלך",
+    "setTheEmotionalToneOf": "הגדרת הנימה הרגשית של קול ברירת המחדל",
+    "viewerVoiceLookup": "חיפוש קול צופה",
+    "voiceCalibration": "כיול קול",
+    "voiceVolume01To": "עוצמת קול (0.1 עד 10):",
+    "voicesWithCustomVolumeSettings": "קולות עם הגדרות עוצמת שמע מותאמות אישית.",
+    "volumeOverride": "דריסת עוצמת קול:"
+  },
+  "ttsBannedWordInput": {
+    "wordOrPhraseToBan": "מילה או ביטוי לחסימה"
+  },
+  "ttsEnabled": {
+    "ttsEngineEnabled": "מנוע TTS מופעל"
+  },
+  "ttsIgnoreUsername": {
+    "usernameToIgnore": "שם משתמש להתעלמות"
+  },
+  "ttsMode": {
+    "allMessages": "כל ההודעות",
+    "bitsPointsOnly": "Bits/נקודות בלבד",
+    "ttsCommandOnly": "פקודת ‎!tts בלבד"
+  },
+  "ttsPermission": {
+    "everyone": "כולם",
+    "moderatorsOnly": "מנהלים בלבד",
+    "subscribersOnly": "מנויים בלבד",
+    "vipsOnly": "VIP בלבד"
+  },
+  "ttsPronunciationMatchInput": {
+    "wordForExampleWcat": "מילה (לדוגמה: wcat)",
+    "wordToReplace": "מילה להחלפה"
+  },
+  "ttsPronunciationSayInput": {
+    "howToSayItFor": "איך להגות את זה (לדוגמה: wildcat)",
+    "pronunciation": "הגייה"
+  },
+  "ttsUrlField": {
+    "yourBrowserSourceUrl": "כתובת ה-URL של ה-Browser Source שלך"
+  },
+  "twitchUsername": {
+    "loading": "טוען…"
+  },
+  "voiceTestBtn": {
+    "sendPreview": "שלח תצוגה מקדימה"
+  },
+  "watchStreakEventsEnabled": {
+    "announceWatchStreaks": "הכרזה על רצפי צפייה"
+  },
+  "youtubeEnabled": {
+    "youtubeTtsEnabled": "YouTube TTS מופעל"
+  },
+  "youtubeHandle": {
+    "yourhandle": "@yourhandle"
+  }
+}

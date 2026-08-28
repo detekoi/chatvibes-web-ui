@@ -1,0 +1,11 @@
+{
+  "mainContent": {
+    "pageNotFound": "Hindi mahanap ang page",
+    "returnToLogin": "Bumalik sa login",
+    "thatUrlIsNotPart": "Hindi bahagi ng site na ito ang URL na iyon. Siguraduhing tama ang address, o bumalik sa login page."
+  },
+  "meta": {
+    "pageNotFoundOnWildcattts": "Hindi mahanap ang page sa WildcatTTS.",
+    "pageNotFoundWildcattts": "Hindi mahanap ang page — WildcatTTS"
+  }
+}

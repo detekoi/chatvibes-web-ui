@@ -1,0 +1,11 @@
+{
+  "mainContent": {
+    "pageNotFound": "Không tìm thấy trang",
+    "returnToLogin": "Quay lại đăng nhập",
+    "thatUrlIsNotPart": "URL đó không thuộc trang web này. Hãy đảm bảo địa chỉ chính xác hoặc quay lại trang đăng nhập."
+  },
+  "meta": {
+    "pageNotFoundOnWildcattts": "Không tìm thấy trang trên WildcatTTS.",
+    "pageNotFoundWildcattts": "Không tìm thấy trang — WildcatTTS"
+  }
+}

@@ -1,5 +1,6 @@
 import { fetchWithAuth } from '../common/api.js';
 import { showToast } from '../common/ui.js';
+import { displayError, fillLanguageSelect, languageBoostOptions, t } from '../common/i18n.js';
 import { formatNumberCompact, formatVoiceName } from '../common/utils.js';
 import { performVoiceTest, TTSPayload, PlayerElements, HintElements } from '../common/voice-preview.js';
 import type { IgnoreStatus } from './danger-zone.js';
@@ -202,17 +203,7 @@ export function initPreferencesModule(
   };
 
   if (elements.languageSelect) {
-    const options: { value: string; label: string }[] = [
-      { value: "auto", label: "Automatic" },
-      ...["Chinese", "Chinese,Yue", "English", "Arabic", "Russian", "Spanish", "French", "Portuguese",
-        "German", "Turkish", "Dutch", "Ukrainian", "Vietnamese", "Indonesian", "Japanese", "Italian",
-        "Korean", "Thai", "Polish", "Romanian", "Greek", "Czech", "Finnish", "Hindi", "Bulgarian",
-        "Danish", "Hebrew", "Malay", "Persian", "Slovak", "Swedish", "Croatian", "Filipino",
-        "Hungarian", "Norwegian", "Slovenian", "Catalan", "Nynorsk", "Tamil", "Afrikaans"
-      ].map(lang => ({ value: lang, label: lang }))
-    ];
-    elements.languageSelect.innerHTML = `<option value="">Use channel default</option>` +
-      options.map(opt => `<option value="${opt.value}">${opt.label}</option>`).join('');
+    fillLanguageSelect(elements.languageSelect, t('msg.prefs.useChannelDefault'));
   }
 
   const state: PreferencesState = {
@@ -327,12 +318,12 @@ export function initPreferencesModule(
     async function testVoice(): Promise<void> {
       const text = (previewText?.value || '').trim();
       if (!text) {
-        showToast('Enter text to test.', 'warning');
+        showToast(t('msg.preview.enterText'), 'warning');
         return;
       }
 
       if (testMode) {
-        showToast('Test completed (test mode).', 'success');
+        showToast(t('msg.prefs.testCompletedTestMode'), 'success');
         return;
       }
 
@@ -405,7 +396,7 @@ export function initPreferencesModule(
     if (!list) return;
 
     voiceSelect.value = '';
-    voiceSearch.value = 'Use channel default';
+    voiceSearch.value = t('msg.prefs.useChannelDefault');
 
     renderVoiceList(voices);
 
@@ -450,7 +441,7 @@ export function initPreferencesModule(
       voiceMenu.classList.remove('show');
       voiceSearch.setAttribute('readonly', 'readonly');
       const currentValue = voiceSelect.value;
-      voiceSearch.value = currentValue ? formatVoiceName(currentValue) : 'Use channel default';
+      voiceSearch.value = currentValue ? formatVoiceName(currentValue) : t('msg.prefs.useChannelDefault');
     }
 
     function renderVoiceList(listVoices: string[], showDefault = true): void {
@@ -462,7 +453,7 @@ export function initPreferencesModule(
         defaultItem.className = 'voice-dropdown-item';
         const label = document.createElement('span');
         label.className = 'voice-label';
-        label.textContent = 'Use channel default';
+        label.textContent = t('msg.prefs.useChannelDefault');
         label.addEventListener('click', () => {
           selectVoice('');
         });
@@ -473,7 +464,7 @@ export function initPreferencesModule(
       if (!listVoices.length) {
         const empty = document.createElement('div');
         empty.className = 'voice-dropdown-item no-results';
-        empty.textContent = 'No voices found';
+        empty.textContent = t('msg.prefs.noVoicesFound');
         list.appendChild(empty);
         return;
       }
@@ -490,7 +481,7 @@ export function initPreferencesModule(
         const playBtn = document.createElement('button');
         playBtn.type = 'button';
         playBtn.className = 'voice-play-btn';
-        playBtn.setAttribute('aria-label', `Preview ${voiceId}`);
+        playBtn.setAttribute('aria-label', t('msg.voice.preview', { voice: voiceId }));
         playBtn.innerHTML = `
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M8 5v14l11-7z"/>
@@ -510,7 +501,7 @@ export function initPreferencesModule(
     function selectVoice(voiceId: string): void {
       if (!voiceSelect || !voiceSearch || !voiceMenu) return;
       voiceSelect.value = voiceId;
-      voiceSearch.value = voiceId ? formatVoiceName(voiceId) : 'Use channel default';
+      voiceSearch.value = voiceId ? formatVoiceName(voiceId) : t('msg.prefs.useChannelDefault');
       voiceMenu.classList.remove('show');
       voiceSearch.setAttribute('readonly', 'readonly');
       savePreference('voiceId', voiceId || null);
@@ -539,7 +530,7 @@ export function initPreferencesModule(
     try {
       const response = await fetch(preMadeUrl);
       if (!response.ok) {
-        showToast('No preview available.', 'info');
+        showToast(t('msg.preview.unavailable'), 'info');
         return;
       }
       const blob = await response.blob();
@@ -631,7 +622,7 @@ export function initPreferencesModule(
       };
     } catch (error) {
       console.error('Failed to load preferences:', error);
-      showToast('Cannot load preferences.', 'error');
+      showToast(t('msg.prefs.loadFailed'), 'error');
       throw error;
     }
   }
@@ -660,7 +651,7 @@ export function initPreferencesModule(
     if (voiceSelect) {
       voiceSelect.value = prefs.voiceId || '';
       if (elements.voiceSearch) {
-        elements.voiceSearch.value = voiceSelect.value ? formatVoiceName(voiceSelect.value) : 'Use channel default';
+        elements.voiceSearch.value = voiceSelect.value ? formatVoiceName(voiceSelect.value) : t('msg.prefs.useChannelDefault');
       }
     }
     if (pitchSlider && pitchValue) {
@@ -720,9 +711,9 @@ export function initPreferencesModule(
     const defVal = cd[key];
     const hasUser = userVal !== null && userVal !== undefined && userVal !== '';
     const hasDef = defVal !== null && defVal !== undefined && defVal !== '';
-    if (hasUser) return `Using your global preference: ${formatValueForHint(key, userVal)}`;
-    if (hasDef) return `Using channel default: ${formatValueForHint(key, defVal)}`;
-    return 'Using system default';
+    if (hasUser) return t('msg.prefs.hintUser', { value: formatValueForHint(key, userVal) });
+    if (hasDef) return t('msg.prefs.hintChannel', { value: formatValueForHint(key, defVal) });
+    return t('msg.prefs.hintSystem');
   }
 
   function formatValueForHint(key: PreferenceKey, value: PreferenceValue): string {
@@ -749,7 +740,7 @@ export function initPreferencesModule(
       updateSidebarMeta();
     }
     if (testMode) {
-      showToast('Preference updated (test mode).', 'success');
+      showToast(t('msg.prefs.updatedTestMode'), 'success');
       return;
     }
     try {
@@ -759,7 +750,7 @@ export function initPreferencesModule(
         ? `${apiBaseUrl}/api/viewer/preferences/${encodeURIComponent(currentChannel)}`
         : `${apiBaseUrl}/api/viewer/preferences`;
       await fetchWithAuth(url, { method: 'PUT', body: JSON.stringify(body) });
-      showToast('Preference updated.', 'success');
+      showToast(t('msg.prefs.updated'), 'success');
     } catch (error) {
       if (state.currentPreferences) {
         (state.currentPreferences as Record<string, PreferenceValue>)[key] = previous as PreferenceValue;
@@ -768,8 +759,7 @@ export function initPreferencesModule(
         updateSidebarMeta();
       }
       console.error(`Failed to save ${key}:`, error);
-      const err = error as Error;
-      showToast(`Cannot save ${key}: ${err.message}`, 'error');
+      showToast(t('msg.prefs.saveFailed', { key, reason: displayError(error) }), 'error');
     }
   }
 
@@ -839,9 +829,17 @@ export function initPreferencesModule(
     if (voiceNameEl) voiceNameEl.textContent = formatVoiceName(voiceId);
     if (pitchValEl) pitchValEl.textContent = String(pitch);
     if (speedValEl) speedValEl.textContent = speed.toFixed(1) + '×';
-    if (emotionValEl) emotionValEl.textContent = emotion === 'auto' ? 'Auto' : emotion.charAt(0).toUpperCase() + emotion.slice(1);
-    if (languageValEl) languageValEl.textContent = language === 'auto' ? 'Automatic' : language;
-    if (engNormValEl) engNormValEl.textContent = engNorm ? 'On' : 'Off';
+    // These overwrite markup that has already been translated, so they have to
+    // be translated too -- capitalizing the raw enum value put an English word
+    // back into every locale's sidebar.
+    if (emotionValEl) emotionValEl.textContent = t(`msg.emotion.${emotion}`);
+    if (languageValEl) {
+      const named = languageBoostOptions().find(o => o.value === language);
+      languageValEl.textContent = language === 'auto'
+        ? t('msg.lang.automatic')
+        : (named?.label ?? language);
+    }
+    if (engNormValEl) engNormValEl.textContent = t(engNorm ? 'msg.value.on' : 'msg.value.off');
   }
 
   function clearCachedAudio(): void {
@@ -851,7 +849,7 @@ export function initPreferencesModule(
     }
     state.cachedSettings = null;
     if (elements.previewPlayer) elements.previewPlayer.style.display = 'none';
-    if (elements.previewBtn) elements.previewBtn.textContent = 'Send Preview';
+    if (elements.previewBtn) elements.previewBtn.textContent = t('msg.prefs.sendPreview');
     state.isDirty = false;
   }
 }

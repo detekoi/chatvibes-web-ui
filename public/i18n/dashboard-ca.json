@@ -1,0 +1,500 @@
+{
+  "addBotBtn": {
+    "activateTtsService": "Activa el servei de TTS"
+  },
+  "addTtsBannedWordBtn": {
+    "add": "Afegeix"
+  },
+  "addTtsIgnoreBtn": {
+    "add": "Afegeix"
+  },
+  "addTtsPronunciationBtn": {
+    "add": "Afegeix"
+  },
+  "allowViewerPreferences": {
+    "allowViewerVoicePreferences": "Permet les preferències de veu dels espectadors"
+  },
+  "announceUnfulfilledRedemptions": {
+    "announceQueuedRedeemsImmediately": "Anuncia immediatament els bescanvis en cua"
+  },
+  "announceUnfulfilledRedemptionsHelp": {
+    "aRewardThatDoesNot": "Una recompensa que no omet la cua de sol·licituds de recompensa s'anuncia tan bon punt es bescanvia, fins i tot si després rebutges la sol·licitud. Desactiva-ho per retenir l'anunci fins que acceptis la sol·licitud; les recompenses que mai acceptis no s'anunciaran."
+  },
+  "anonymizeFollowers": {
+    "anonymizeNewFollowers": "Anonimitza els nous seguidors"
+  },
+  "bitsEnabled": {
+    "requireBitsForTts": "Requereix bits per al TTS"
+  },
+  "botRespondsInChat": {
+    "botRespondsInChat": "El bot respon al xat"
+  },
+  "botStatus": {
+    "loading": "S'està carregant…"
+  },
+  "calibratedVoicesList": {
+    "noVoicesCalibratedYet": "Encara no s'ha calibrat cap veu."
+  },
+  "calibrationSaveBtn": {
+    "save": "Desa"
+  },
+  "calibrationVoiceSearch": {
+    "searchVoicesToCalibrate": "Cerca veus per calibrar..."
+  },
+  "channelNameStatus": {
+    "yourChannel": "el teu canal"
+  },
+  "cheerEventsEnabled": {
+    "announceCheers": "Anuncia els cheers"
+  },
+  "copyTtsUrlBtn": {
+    "copy": "Copia",
+    "copyBrowserSourceUrl": "Copia l'URL del Browser Source"
+  },
+  "cpDelete": {
+    "disableDelete": "Desactiva i elimina"
+  },
+  "cpEnabled": {
+    "enableChannelPointsTts": "Activa el TTS per Channel Points"
+  },
+  "cpPerStream": {
+    "enterAmount": "Introdueix la quantitat"
+  },
+  "cpPerUser": {
+    "enterAmount": "Introdueix la quantitat"
+  },
+  "cpSave": {
+    "save": "Desa"
+  },
+  "cpTest": {
+    "testRedeem": "Prova el bescanvi"
+  },
+  "dashboardContent": {
+    "channel": "Canal",
+    "channelService": "Servei del canal",
+    "dashboardConfigurationTabs": "Pestanyes de configuració del tauler",
+    "deactivationStopsTheBotFrom": "La desactivació impedeix que el bot llegeixi missatges del xat. La teva configuració es mantindrà desada. Pots tornar a activar el servei en qualsevol moment.",
+    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Documentació </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>Configuració d'espectador </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "Emoció",
+    "engNormalization": "Normalització d'anglès",
+    "language": "Idioma",
+    "pitch": "To",
+    "quickLinks": "Enllaços ràpids",
+    "service": "Servei",
+    "signedInAs": "Sessió iniciada com a",
+    "speed": "Velocitat",
+    "testMessage": "Missatge de prova",
+    "voicePreview": "Previsualització de veu",
+    "volume": "Volum"
+  },
+  "defaultEmotion": {
+    "angry": "Enfadat",
+    "disgusted": "Disgustat",
+    "fearful": "Espantat",
+    "happy": "Alegre",
+    "neutral": "Neutral",
+    "sad": "Trist",
+    "surprised": "Sorprès"
+  },
+  "defaultPitch": {
+    "defaultPitch12To12": "To predeterminat (-12 a +12)"
+  },
+  "defaultSpeed": {
+    "defaultSpeed05To": "Velocitat predeterminada (0,5 a 2,0)"
+  },
+  "defaultVoiceSearch": {
+    "searchDefaultVoices": "Cerca veus predeterminades",
+    "searchVoices": "Cerca veus..."
+  },
+  "defaultVolume": {
+    "voiceVolume01To": "Volum de la veu (0,1 a 10)"
+  },
+  "emoteMode": {
+    "describeEmotes": "Descriu les emoticones",
+    "readEmoteNames": "Llegeix els noms d'emoticones",
+    "skipEmotes": "Omet les emoticones"
+  },
+  "englishNormalization": {
+    "englishNormalization": "Normalització de l'anglès"
+  },
+  "eventsEnabled": {
+    "announceEvents": "Anuncia esdeveniments"
+  },
+  "loadingBar": {
+    "loadingDashboardSettings": "S'està carregant la configuració del tauler"
+  },
+  "loadingOverlay": {
+    "loadingDashboardSettings": "S'està carregant la configuració del tauler…"
+  },
+  "lookupUsername": {
+    "enterTwitchViewerUsername": "Introdueix el nom d'usuari de l'espectador de Twitch"
+  },
+  "lookupVoiceBtn": {
+    "lookupVoice": "Cerca la veu"
+  },
+  "meta": {
+    "wildcatttsDashboard": "Tauler de WildcatTTS",
+    "wildcatttsStreamerDashboardConfigureText": "Tauler de streamer de WildcatTTS: configura els paràmetres de text a veu, permisos, respostes del bot i Channel Points."
+  },
+  "msg": {
+    "auth": {
+      "demoStreamer": "Streamer de demostració",
+      "needBroadcaster": "Inicia sessió amb el teu compte de transmissor per accedir a la configuració de streamer.",
+      "needSignIn": "Inicia sessió amb el teu compte de Twitch per accedir al tauler."
+    },
+    "bannedWords": {
+      "addFailed": "No s'ha pogut afegir la paraula prohibida.",
+      "added": "S'ha afegit «{word}» a les paraules prohibides.",
+      "addedTestMode": "[Prova] S'ha afegit la paraula prohibida: {word}.",
+      "empty": "Encara no s'ha afegit cap paraula prohibida.",
+      "removeFailed": "No s'ha pogut eliminar la paraula prohibida.",
+      "removed": "S'ha eliminat «{word}» de les paraules prohibides.",
+      "removedTestMode": "[Prova] S'ha eliminat la paraula prohibida: {word}."
+    },
+    "bot": {
+      "activateFailed": "No s'ha pogut activar el servei de TTS.",
+      "activated": "Servei de TTS activat.",
+      "activatedTestMode": "Servei de TTS activat (mode de prova).",
+      "activating": "S'està activant el servei de TTS…",
+      "active": "Actiu",
+      "deactivateFailed": "No s'ha pogut desactivar el servei de TTS.",
+      "deactivated": "Servei de TTS desactivat.",
+      "deactivatedTestMode": "Servei de TTS desactivat (mode de prova).",
+      "deactivating": "S'està desactivant el servei de TTS…",
+      "inactive": "Inactiu",
+      "notAuthenticated": "No autenticat",
+      "requestAccess": "Sol·licita accés aquí",
+      "statusError": "Error",
+      "statusFailed": "Error: {reason}",
+      "statusLoadFailed": "No s'ha pogut carregar l'estat del bot: {reason}",
+      "unknownError": "Error desconegut"
+    },
+    "calibration": {
+      "confirmReset": "Vols restablir el calibratge de {voice}?",
+      "edit": "Edita",
+      "empty": "Encara no s'ha calibrat cap veu.",
+      "reset": "Restableix",
+      "row": "{voice} ({volume})"
+    },
+    "cp": {
+      "confirmDelete": "Vols suprimir la recompensa de TTS de Channel Points?",
+      "deleteFailed": "No s'ha pogut suprimir.",
+      "deleted": "S'ha suprimit la recompensa.",
+      "deletedTestMode": "S'ha suprimit la recompensa (mode de prova).",
+      "deleting": "Suprimint…",
+      "lastSynced": "{reward} · Última sincronització: {time}",
+      "never": "mai",
+      "noReward": "No s'ha creat cap recompensa",
+      "noRewardTestMode": "No s'ha creat cap recompensa (mode de prova)",
+      "rewardId": "ID de la recompensa: {id}",
+      "saveFailed": "No es pot desar la configuració de Channel Points.",
+      "saved": "S'ha desat la configuració de Channel Points.",
+      "savedTestMode": "S'ha desat la configuració de Channel Points (mode de prova).",
+      "saving": "Desant la configuració de Channel Points…",
+      "testCompleted": "Prova completada ({status}).",
+      "testCompletedTestMode": "Prova completada (mode de prova).",
+      "testFailed": "La prova ha fallat.",
+      "testPrompt": "Introdueix un missatge de prova per simular un bescanvi:",
+      "testing": "Provant el bescanvi…"
+    },
+    "ignore": {
+      "addFailed": "No es pot afegir l'usuari a la llista d'ignorats.",
+      "addFailedReason": "No es pot afegir l'usuari: {reason}",
+      "badgeModerator": "Silenciat per tu",
+      "badgeSelf": "Exclusió voluntària",
+      "empty": "No hi ha cap usuari ignorat.",
+      "noSuchAccount": "Aquest compte de Twitch no existeix",
+      "removeFailed": "No es pot suprimir l'usuari de la llista d'ignorats.",
+      "removeFailedReason": "No es pot suprimir {label}: {reason}",
+      "removeLabel": "Suprimeix {label} de la llista d'ignorats ({source, select, self {s'ha exclòs voluntàriament} other {silenciat per tu}})"
+    },
+    "lookup": {
+      "button": "Cerca la veu",
+      "calibrate": "Calibra \"{voice}\"",
+      "error": "Error: {reason}",
+      "failed": "No es pot cercar aquest usuari.",
+      "hasVoice": "L'usuari {user} ha definit una veu personalitzada: {voice}",
+      "noVoice": "L'usuari {user} no té cap veu personalitzada definida.",
+      "searching": "Cercant…",
+      "voiceUnknown": "Aquesta veu no és a la llista de veus disponibles."
+    },
+    "obs": {
+      "cannotCopy": "No es pot copiar l'URL.",
+      "cannotDetermine": "No es pot determinar l'URL de TTS.",
+      "copied": "S'ha copiat al porta-retalls.",
+      "copiedButton": "Copiat!",
+      "copyFailed": "No s'ha pogut copiar.",
+      "generateFailed": "No es pot generar l'URL d'OBS. Torna-ho a provar.",
+      "generating": "Generant…",
+      "generatingUrl": "S'està generant l'URL segur…",
+      "loadingUrl": "S'està carregant l'URL existent…",
+      "pressRegenerate": "Fes clic a «Regenera l'URL» per generar un URL de Browser Source per a OBS.",
+      "refreshPage": "No es pot generar l'URL. Actualitza la pàgina.",
+      "testModeUrl": "URL del mode de prova",
+      "urlGenerated": "S'ha generat un URL nou.",
+      "urlGeneratedTestMode": "S'ha generat un URL nou (mode de prova).",
+      "urlNotReady": "L'URL encara no està disponible.",
+      "yourUrl": "El teu URL de Browser Source per a OBS"
+    },
+    "preview": {
+      "playingTestMode": "Reproduint la visualització prèvia… (mode de prova)",
+      "tooLong": "El text ha de tenir 500 caràcters o menys."
+    },
+    "pron": {
+      "acronymsDisabled": "Els acrònims estan desactivats",
+      "acronymsOffHint": "Activa «Desplega els acrònims del xat» a dalt perquè aquesta configuració s'apliqui.",
+      "addFailed": "No es pot afegir la pronunciació.",
+      "added": "S'ha afegit la pronunciació: {match} -> {say}.",
+      "addedTestMode": "[Test] S'ha afegit la pronunciació: {match} -> {say}.",
+      "builtinOff": " — integrat desactivat",
+      "empty": "Encara no s'ha afegit cap pronunciació personalitzada.",
+      "expansion": " → {say}",
+      "needBoth": "Introdueix tant la paraula com la pronunciació.",
+      "removeFailed": "No es pot suprimir la pronunciació.",
+      "removed": "S'ha suprimit la pronunciació: {match}.",
+      "removedTestMode": "[Test] S'ha suprimit la pronunciació: {match}."
+    },
+    "setting": {
+      "allowViewerPreferences": "Permet les preferències de veu dels espectadors",
+      "announceQueuedRedeems": "Anuncia els bescanvis en cua",
+      "anonymizeFollowers": "Anonimitza els seguidors",
+      "bitsForTts": "Bits per al TTS",
+      "botRespondsInChat": "El bot respon al xat",
+      "cheerAnnouncements": "Anuncis de Cheer",
+      "defaultEmotion": "Emoció predeterminada",
+      "defaultLanguage": "Idioma predeterminat",
+      "defaultPitch": "To predeterminat",
+      "defaultSpeed": "Velocitat predeterminada",
+      "defaultVoice": "Veu predeterminada",
+      "emoteMode": "Mode d'emoticones",
+      "englishNormalization": "Normalització de l'anglès",
+      "eventAnnouncements": "Anuncis d'esdeveniments",
+      "expandAcronyms": "Desplega els acrònims del xat",
+      "minimumBits": "Bits mínims",
+      "profanityFilter": "Filtre de vulgaritats",
+      "readFullUrls": "Llegeix els URL sencers",
+      "redemptionAnnouncements": "Anuncis de bescanvis",
+      "ttsEngine": "Motor de TTS",
+      "ttsMode": "Mode de TTS",
+      "ttsPermission": "Permís de TTS",
+      "voiceVolume": "Volum de la veu",
+      "watchStreakAnnouncements": "Anuncis de ratxes de visualització",
+      "youtubeHandle": "Identificador de YouTube",
+      "youtubeTts": "TTS de YouTube"
+    },
+    "settings": {
+      "loadFailed": "No es pot carregar la teva configuració.",
+      "saveFailed": "{label}: {reason}",
+      "youtubeHandleRequired": "Introdueix un identificador de YouTube abans d'activar el TTS de YouTube."
+    }
+  },
+  "obsCloseBtn": {
+    "closeObsSetup": "Tanca la configuració d'OBS"
+  },
+  "obsPopover": {
+    "addBrowserSource": "Afegeix Browser Source",
+    "cautionANewUrlStops": "ATENCIÓ: Un URL nou atura la teva font d'OBS actual fins que actualitzis l'URL a OBS.",
+    "controlAudioViaObs": "Controla l'àudio mitjançant OBS",
+    "inObsAddANew": "A OBS, afegeix un <strong>Browser Source</strong> nou. Anomena la font «Wildcat TTS» i enganxa l'URL copiat. Pots mantenir l'amplada i l'alçada predeterminades.",
+    "inTheObsAudioMixer": "Al mesclador d'àudio d'OBS, cerca «Wildcat TTS». Fes clic a la icona d'engranatge i selecciona <strong>Propietats d'àudio avançades</strong>. Defineix la monitorització d'àudio a <strong>Monitorització i sortida</strong>.",
+    "monitorAndOutput": "Monitorització i sortida",
+    "obsBrowserSource": "Browser Source d'OBS",
+    "selectControlAudioViaObs": "Selecciona <strong>Controla l'àudio mitjançant l'OBS</strong>. Assegura't que l'opció <strong>Atura la font quan no sigui visible</strong> no estigui seleccionada.",
+    "setupInstructions": "Instruccions de configuració",
+    "yourBrowserSourceUrl": "El teu URL de Browser Source"
+  },
+  "obsToggleBtn": {
+    "obsSetup": "Configuració d'OBS"
+  },
+  "page": {
+    "channelDashboard": "Tauler del canal",
+    "textToSpeechSettingsFor": "Configuració de text a veu per al teu canal. Els canvis es desen automàticament.",
+    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Tauler de control</span>"
+  },
+  "profanityFilterEnabled": {
+    "profanityFilter": "Filtre de llenguatge vulgar"
+  },
+  "pronunciationEnabled": {
+    "expandChatAcronyms": "Expandeix els acrònims del xat"
+  },
+  "readFullUrls": {
+    "readFullUrls": "Llegeix els URL complets"
+  },
+  "redemptionEventsEnabled": {
+    "announceRewardRedeems": "Anuncia els bescanvis de recompenses"
+  },
+  "regenerateTtsUrlBtn": {
+    "regenerateBrowserSourceUrl": "Regenera l'URL de Browser Source",
+    "regenerateUrl": "Regenera l'URL"
+  },
+  "removeBotBtn": {
+    "deactivateTtsService": "Desactiva el servei de TTS"
+  },
+  "resetPitchBtn": {
+    "reset": "Restableix",
+    "resetDefaultPitchTo0": "Restableix el to predeterminat a 0"
+  },
+  "resetSpeedBtn": {
+    "reset": "Restableix",
+    "resetDefaultSpeedTo1": "Restableix la velocitat per defecte a 1.0"
+  },
+  "resetVolumeBtn": {
+    "reset": "Restableix",
+    "resetVoiceVolumeTo1": "Restableix el volum de la veu a 1.0"
+  },
+  "saveSettingsBtn": {
+    "saveAllSettings": "Desa tota la configuració"
+  },
+  "serviceHeadline": {
+    "ttsService": "Servei de TTS"
+  },
+  "sidebarVoiceName": {
+    "friendlyPerson": "Persona amable"
+  },
+  "tabBroadcaster": {
+    "allowTheBotToRespond": "Permet que el bot respongui a ordres del xat com ara !myvoice",
+    "allowViewerVoicePreferences": "Permet les preferències de veu dels espectadors",
+    "allowViewersToUseChannel": "Permet que els espectadors utilitzin Channel Points per al TTS",
+    "announceCheers": "Anuncia els cheers",
+    "announceEvents": "Anuncia els esdeveniments",
+    "announceEventsSuchAsSubscriptions": "Anuncia esdeveniments com ara subscripcions i raids",
+    "announceQueuedRedeemsImmediately": "Anuncia immediatament els bescanvis en cua",
+    "announceRewardRedeems": "Anuncia els bescanvis de recompenses",
+    "announceWatchStreaks": "Anuncia les ratxes d'espectador",
+    "announceWhenAViewerCheers": "Anuncia quan un espectador envia cheers amb bits",
+    "announceWhenAViewerReaches": "Anuncia quan un espectador assoleix una fita de ratxa d'espectador",
+    "announceWhenAViewerRedeems": "Anuncia quan un espectador bescanvia una recompensa de Channel Points",
+    "anonymizeNewFollowers": "Anonimitza els nous seguidors",
+    "bannedWordsCommaSeparated": "Paraules prohibides (separades per comes)",
+    "bannedWordsPhrases": "<strong>Paraules / frases prohibides</strong>",
+    "bitsTts": "Bits → TTS",
+    "blockLinks": "Bloqueja els enllaços",
+    "botRespondsInChat": "El bot respon al xat",
+    "channelPointsTts": "Channel Points → TTS",
+    "chooseWhichMessagesTriggerTts": "Tria quins missatges activen el TTS",
+    "configureBitsRequirementsForText": "Configura els requisits de bits per al text a veu",
+    "configureChannelPointsRewardsFor": "Configura les recompenses de Channel Points per al text a veu",
+    "configureTtsEngineSettingsAnd": "Configura el motor de TTS i els permisos",
+    "controlHowTtsPronouncesSpecific": "Controla com el TTS pronuncia paraules concretes. Els acrònims habituals de Twitch es gestionen per defecte. Afegeix una entrada per modificar una pronunciació per defecte o afegir una paraula nova.",
+    "controlsHowTtsHandlesEmotes": "Controla com el TTS gestiona les emoticones als missatges del xat",
+    "cooldownsAndModeration": "Temps d'espera i moderació",
+    "costPoints": "Cost (punts)",
+    "emoteMode": "<strong>Mode d'emoticones</strong>",
+    "enableChannelPointsTts": "Activa el TTS per Channel Points",
+    "enableCooldownsLimits": "Activa els temps d'espera i límits",
+    "engineMode": "Motor i mode",
+    "expandChatAcronyms": "Expandeix els acrònims del xat",
+    "globalCooldownSec": "Temps d'espera global (s)",
+    "hideFollowerNamesInTts": "Amaga els noms dels seguidors als anuncis de TTS per privacitat",
+    "ifOnTtsReadsFull": "Si està activat, el TTS llegeix els URL complets. Si està desactivat, només llegeix els noms de domini",
+    "ifThisSettingIsOff": "Si aquest paràmetre està desactivat, el TTS fa servir la veu per defecte del canal per a tots els missatges",
+    "ignoredUsers": "Usuaris ignorats",
+    "manageUsersThatTtsIgnores": "Gestiona els usuaris que el TTS ignora",
+    "minimumBitsRequired": "<strong>Mínim de bits requerits</strong>",
+    "minimumNumberOfBitsRequired": "Nombre mínim de bits requerits per activar el TTS",
+    "perStreamLimit": "Límit per emissió",
+    "perUserPerStream": "Per usuari i emissió",
+    "profanityFilter": "Filtre de llenguatge vulgar",
+    "pronunciationDictionary": "<strong>Diccionari de pronunciació</strong>",
+    "readFullUrls": "Llegeix els URL complets",
+    "readYoutubeLiveChatMessages": "Llegeix els missatges del xat en directe de YouTube amb el TTS. Aquesta funció requereix una emissió en directe activa a YouTube.",
+    "readYoutubeLiveChatMessages2": "Llegeix en veu alta els missatges del xat en directe de YouTube",
+    "requireBitsForTts": "Requereix bits per al TTS",
+    "rewardTitle": "Títol de la recompensa",
+    "skipTheRewardQueue": "Omet la cua de recompenses",
+    "theTitleMustBeUnique": "El títol ha de ser únic al teu canal.",
+    "ttsDoesNotReadMessages": "El TTS no llegeix els missatges dels usuaris d'aquesta llista.",
+    "ttsEngineEnabled": "Motor de TTS activat",
+    "ttsExpandsCommonTwitchAcronyms": "El TTS expandeix els acrònims comuns de Twitch en paraules. Per exemple, «ngl» es converteix en «not gonna lie». Desactiva-ho per lletrejar cada lletra.",
+    "ttsIgnoreList": "<strong>Llista d'ignorats del TTS</strong>",
+    "ttsMode": "<strong>Mode de TTS</strong>",
+    "ttsPermission": "<strong>Permís de TTS</strong>",
+    "ttsReplacesProfanityWithMilder": "El TTS substitueix les paraules vulgars per altres de més suaus abans de parlar. El filtre utilitza l'idioma del canal i el de l'espectador. Si l'idioma està definit com a automàtic, el filtre utilitza la llista en anglès. Les paraules vetades continuen ometent tot el missatge.",
+    "ttsSkipsMessagesThatContain": "El TTS omet els missatges que contenen aquestes paraules o frases.",
+    "turnOnOrTurnOff": "Activa o desactiva el motor de conversió de text a veu",
+    "viewerPrompt": "Indicador per a l'espectador",
+    "viewersMustCheerBitsTo": "Els espectadors han de fer un cheer amb bits per utilitzar el text a veu",
+    "whoCanUseTextTo": "Qui pot utilitzar el text a veu",
+    "yourYoutubeChannelHandleFor": "L'identificador del teu canal de YouTube (per exemple, <code>@elteuusuari</code>)",
+    "youtubeHandle": "<strong>Identificador de YouTube</strong>",
+    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>Integració amb YouTube",
+    "youtubeTtsEnabled": "TTS de YouTube activat"
+  },
+  "tabBtnBroadcaster": {
+    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Emissor"
+  },
+  "tabBtnViewerDefaults": {
+    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Veus per defecte"
+  },
+  "tabViewerDefaults": {
+    "adjustThePitchForThe": "Ajusta el to per a la veu per defecte",
+    "adjustTheVolumeForThe": "Ajusta el volum per a la veu seleccionada. ATENCIÓ: Els valors superiors a 1.0 poden causar distorsió.",
+    "calibrateVolumeForSpecificVoices": "Calibra el volum per a veus específiques. ATENCIÓ: Els valors superiors a 1.0 poden causar distorsió.",
+    "calibratedVoices": "<strong>Veus calibrades</strong>",
+    "controlHowFastTheDefault": "Controla la velocitat de la veu predeterminada",
+    "defaultEmotion": "<strong>Emoció predeterminada</strong>",
+    "defaultLanguage": "<strong>Idioma predeterminat</strong>",
+    "defaultPitch12To12": "To per defecte (-12 a +12):",
+    "defaultSpeed05To": "Velocitat per defecte (0.5 a 2.0):",
+    "defaultVoice": "<strong>Veu predeterminada</strong>",
+    "defaultVoiceSettings": "Configuració de la veu predeterminada",
+    "englishNormalization": "Normalització de l'anglès",
+    "improvePronunciationForSpecificLanguages": "Millora la pronunciació per a idiomes específics",
+    "improveThePronunciationOfNumbers": "Millora la pronunciació de números i text",
+    "selectTheDefaultTtsVoice": "Selecciona la veu TTS predeterminada per al canal",
+    "selectVoice": "Selecciona una veu",
+    "setDefaultVoiceSettingsFor": "Defineix la configuració de veu predeterminada del teu canal",
+    "setTheEmotionalToneOf": "Defineix el to emocional de la veu predeterminada",
+    "viewerVoiceLookup": "Cerca de veu d'espectador",
+    "voiceCalibration": "Calibració de veu",
+    "voiceVolume01To": "Volum de la veu (0.1 a 10):",
+    "voicesWithCustomVolumeSettings": "Veus amb ajustos de volum personalitzats.",
+    "volumeOverride": "Sobreescriptura de volum:"
+  },
+  "ttsBannedWordInput": {
+    "wordOrPhraseToBan": "Paraula o frase a prohibir"
+  },
+  "ttsEnabled": {
+    "ttsEngineEnabled": "Motor TTS activat"
+  },
+  "ttsIgnoreUsername": {
+    "usernameToIgnore": "Nom d'usuari a ignorar"
+  },
+  "ttsMode": {
+    "allMessages": "Tots els missatges",
+    "bitsPointsOnly": "Només bits/punts",
+    "ttsCommandOnly": "Només ordre !tts"
+  },
+  "ttsPermission": {
+    "everyone": "Tothom",
+    "moderatorsOnly": "Només moderadors",
+    "subscribersOnly": "Només subscriptors",
+    "vipsOnly": "Només VIPs"
+  },
+  "ttsPronunciationMatchInput": {
+    "wordForExampleWcat": "Paraula (per exemple, wcat)",
+    "wordToReplace": "Paraula a substituir"
+  },
+  "ttsPronunciationSayInput": {
+    "howToSayItFor": "Com pronunciar-ho (per exemple, wildcat)",
+    "pronunciation": "Pronunciació"
+  },
+  "ttsUrlField": {
+    "yourBrowserSourceUrl": "L'URL del teu Browser Source"
+  },
+  "twitchUsername": {
+    "loading": "carregant…"
+  },
+  "voiceTestBtn": {
+    "sendPreview": "Envia una prova"
+  },
+  "watchStreakEventsEnabled": {
+    "announceWatchStreaks": "Anuncia els Watch Streaks"
+  },
+  "youtubeEnabled": {
+    "youtubeTtsEnabled": "YouTube TTS activat"
+  },
+  "youtubeHandle": {
+    "yourhandle": "@elteuusuari"
+  }
+}

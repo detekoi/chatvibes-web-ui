@@ -1,0 +1,212 @@
+{
+  "addChannelContextCard": {
+    "loadAChannelToSee": "Tải một kênh để xem cài đặt mặc định của kênh và quản lý việc chọn không tham gia. Tùy chọn của bạn vẫn áp dụng chung."
+  },
+  "channelContextCard": {
+    "changesHereUpdateYourGlobal": "Các thay đổi tại đây sẽ cập nhật tùy chọn chung của <strong>bạn</strong>. Cài đặt của streamer sẽ không thay đổi.",
+    "channelContext": "Ngữ cảnh kênh",
+    "clearButtonsSetYourGlobal": "<strong>Nút xóa:</strong> Đặt tùy chọn chung của bạn khớp với cài đặt mặc định của kênh này."
+  },
+  "channelHint": {
+    "channelFound": "Đã tìm thấy kênh"
+  },
+  "channelInputCancel": {
+    "cancel": "Hủy"
+  },
+  "channelInputConfirm": {
+    "load": "Tải"
+  },
+  "channelInputDesc": {
+    "enterTheChannelNameTo": "Nhập tên kênh để xem cài đặt mặc định và quản lý việc chọn không tham gia:"
+  },
+  "channelInputModal": {
+    "streamerUsername": "Tên người dùng streamer"
+  },
+  "channelInputModalText": {
+    "streamerUsername": "Tên người dùng streamer"
+  },
+  "channelInputTitle": {
+    "loadChannelContext": "Tải ngữ cảnh kênh"
+  },
+  "clearChannelContextBtn": {
+    "clear": "Xóa"
+  },
+  "confirmNo": {
+    "cancel": "Hủy"
+  },
+  "confirmText": {
+    "yourMessagesWillNotBe": "Tin nhắn của bạn sẽ không được đọc to. Bạn có thể bật lại bất kỳ lúc nào."
+  },
+  "confirmTitle": {
+    "confirmAction": "Xác nhận hành động"
+  },
+  "confirmYes": {
+    "confirm": "Xác nhận"
+  },
+  "dangerTtsToggle": {
+    "optOutOfTtsIn": "Chọn không dùng TTS trong kênh này",
+    "ttsWillNotReadYour": "TTS sẽ không đọc tin nhắn của bạn trong kênh này"
+  },
+  "dangerZoneSection": {
+    "dangerZone": "Khu vực nguy hiểm",
+    "theseSettingsStopTheBot": "Các cài đặt này ngăn bot đọc tin nhắn của bạn trong kênh. Bạn có thể hủy bất kỳ cài đặt nào mình đã chọn. Nếu người kiểm duyệt tắt đọc tin nhắn của bạn, chỉ họ mới có thể hoàn tác."
+  },
+  "emotionReset": {
+    "clear": "Xóa",
+    "resetEmotionToDefault": "Đặt lại cảm xúc về mặc định"
+  },
+  "emotionSelect": {
+    "angry": "Tức giận",
+    "disgusted": "Ghê tởm",
+    "fearful": "Sợ hãi",
+    "happy": "Vui vẻ",
+    "neutral": "Trung tính",
+    "sad": "Buồn bã",
+    "surprised": "Ngạc nhiên",
+    "useChannelDefault": "Dùng mặc định của kênh"
+  },
+  "englishNormalizationCheckbox": {
+    "englishNormalization": "Chuẩn hóa tiếng Anh"
+  },
+  "englishNormalizationReset": {
+    "clear": "Xóa",
+    "resetEnglishNormalizationToDefault": "Đặt lại chuẩn hóa tiếng Anh về mặc định"
+  },
+  "ignoreTts": {
+    "optOutOfTtsIn": "Chọn không dùng TTS trong kênh này"
+  },
+  "languageReset": {
+    "clear": "Xóa",
+    "resetLanguageToDefault": "Đặt lại ngôn ngữ về mặc định"
+  },
+  "loadingBar": {
+    "loadingYourPreferences": "Đang tải tùy chọn của bạn"
+  },
+  "loadingOverlay": {
+    "loadingYourPreferences": "Đang tải tùy chọn của bạn…"
+  },
+  "loggedInStatus": {
+    "channelContext": "Ngữ cảnh kênh",
+    "global": "Toàn cục",
+    "loggedInAs": "Đã đăng nhập với tên",
+    "scope": "Phạm vi"
+  },
+  "meta": {
+    "wildcatttsViewerSettings": "Cài đặt người xem WildcatTTS",
+    "wildcatttsViewerSettingsSetYour": "Cài đặt người xem WildcatTTS - Thiết lập giọng đọc TTS, cao độ và tốc độ của riêng bạn trên các kênh Twitch."
+  },
+  "msg": {
+    "auth": {
+      "exchangeFailed": "Không thể hoàn tất đăng nhập. Hãy thử lại từ trang chính.",
+      "testUser": "Người dùng thử nghiệm"
+    },
+    "channel": {
+      "cleared": "Đã xóa ngữ cảnh kênh.",
+      "clearedTestMode": "Đã xóa ngữ cảnh kênh (chế độ thử nghiệm).",
+      "enterName": "Nhập tên kênh.",
+      "found": "Đã tìm thấy kênh",
+      "foundTestMode": "Đã tìm thấy kênh (chế độ thử nghiệm)",
+      "hint": "Tải một kênh để xem cài đặt mặc định của kênh đó.",
+      "loaded": "Đã tải ngữ cảnh kênh.",
+      "loadedTestMode": "Đã tải ngữ cảnh kênh (chế độ thử nghiệm).",
+      "noneLoaded": "Chưa tải kênh nào",
+      "promptConfirm": "Tải",
+      "promptDescription": "Nhập tên kênh để xem cài đặt mặc định và quản lý danh sách từ chối đọc:",
+      "promptTitle": "Tải ngữ cảnh kênh",
+      "viewingDefaults": "Bạn đang xem cài đặt mặc định cho {channel}."
+    },
+    "optout": {
+      "confirm": "Bạn có muốn tắt TTS trong #{channel} không? Tin nhắn của bạn sẽ không được đọc to. Bạn có thể bật lại bất cứ lúc nào.",
+      "confirmDescription": "Nhập tên kênh để tiếp tục:",
+      "confirmTitle": "Xác nhận kênh để từ chối đọc TTS",
+      "continue": "Tiếp tục",
+      "moderatorNote": "Người kiểm duyệt kênh đã tắt TTS của bạn tại đây. Chỉ người kiểm duyệt mới có thể hoàn tác điều này.",
+      "optInFailed": "Không thể bật lại TTS.",
+      "optOutFailed": "Không thể chọn không dùng TTS.",
+      "optedIn": "Bạn đã bật lại TTS.",
+      "optedInTestMode": "Bạn đã bật lại TTS (chế độ thử nghiệm).",
+      "optedOut": "Bạn đã chọn không dùng TTS.",
+      "optedOutTestMode": "Bạn đã chọn không dùng TTS (chế độ thử nghiệm).",
+      "selectChannel": "Chọn một kênh trước.",
+      "selfNote": "Bạn đã chọn không dùng TTS tại đây. Bạn có thể bật lại bất kỳ lúc nào.",
+      "specifyChannel": "Chỉ định một kênh."
+    },
+    "prefs": {
+      "hintChannel": "Dùng mặc định của kênh: {value}",
+      "hintSystem": "Dùng mặc định của hệ thống",
+      "hintUser": "Dùng tùy chọn chung của bạn: {value}",
+      "loadFailed": "Không thể tải tùy chọn.",
+      "noVoicesFound": "Không tìm thấy giọng đọc nào",
+      "saveFailed": "Không thể lưu {key}: {reason}",
+      "sendPreview": "Gửi nghe thử",
+      "testCompletedTestMode": "Kiểm tra hoàn tất (chế độ thử nghiệm).",
+      "updated": "Đã cập nhật tùy chọn.",
+      "updatedTestMode": "Đã cập nhật tùy chọn (chế độ thử nghiệm)."
+    }
+  },
+  "openChannelContextModalBtn": {
+    "loadChannel": "Tải kênh…"
+  },
+  "page": {
+    "setHowYourMessagesSound": "Tùy chỉnh cách phát âm tin nhắn của bạn khi Wildcat TTS đọc. Tùy chọn của bạn được áp dụng cho tất cả các kênh.",
+    "viewerTtsPreferences": "Tùy chọn TTS của người xem",
+    "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Cài đặt người xem</span>"
+  },
+  "pitchReset": {
+    "clear": "Xóa",
+    "resetPitchToDefault": "Đặt lại cao độ về mặc định"
+  },
+  "pitchSlider": {
+    "pitchAdjustment12To12": "Điều chỉnh cao độ (-12 đến +12)"
+  },
+  "preferencesPanel": {
+    "adjustTheVoicePitchHigher": "Điều chỉnh cao độ giọng nói cao hơn hoặc thấp hơn",
+    "controlHowFastTheVoice": "Điều chỉnh tốc độ đọc của giọng nói",
+    "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Tài liệu </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Cài đặt streamer </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "<strong>Cảm xúc</strong>",
+    "emotion2": "Cảm xúc",
+    "englishNormalization": "Chuẩn hóa tiếng Anh",
+    "engNormalization": "Chuẩn hóa tiếng Anh",
+    "ifTtsReadsNumbersIncorrectly": "Nếu TTS đọc số không chính xác, hãy bật chuẩn hóa văn bản tiếng Anh. Cài đặt này sẽ làm tăng độ trễ một chút.",
+    "improvePronunciationForSpecificLanguages": "Cải thiện phát âm cho các ngôn ngữ cụ thể",
+    "improveThePronunciationOfNumbers": "Cải thiện phát âm số và văn bản",
+    "language": "Ngôn ngữ",
+    "languageBoost": "<strong>Tăng cường ngôn ngữ</strong>",
+    "pitch": "Cao độ",
+    "pitch12To12": "Cao độ (-12 đến +12):",
+    "quickLinks": "Liên kết nhanh",
+    "selectYourPreferredTtsVoice": "Chọn giọng đọc TTS yêu thích của bạn",
+    "setHowYourMessagesSound": "Đặt cách phát âm tin nhắn khi TTS đọc",
+    "setTheEmotionalToneOf": "Đặt sắc thái cảm xúc cho giọng đọc",
+    "speed": "Tốc độ",
+    "speed05To2": "Tốc độ (0.5 đến 2.0):",
+    "testMessage": "Tin nhắn thử",
+    "voice": "<strong>Giọng đọc</strong>",
+    "voicePreview": "Nghe thử giọng nói",
+    "voiceSettings": "Cài đặt giọng nói"
+  },
+  "prefsDisabledNote": {
+    "theStreamerDisabledPersonalVoice": "Streamer đã tắt cài đặt giọng nói cá nhân cho kênh này. Kênh sẽ sử dụng giọng nói mặc định thay vì tùy chọn của bạn."
+  },
+  "previewBtn": {
+    "sendPreview": "Gửi nghe thử"
+  },
+  "speedReset": {
+    "clear": "Xóa",
+    "resetSpeedToDefault": "Đặt lại tốc độ về mặc định"
+  },
+  "speedSlider": {
+    "speedAdjustment05To": "Điều chỉnh tốc độ (0.5 đến 2.0)"
+  },
+  "statChannelContext": {
+    "noneLoaded": "Chưa tải dữ liệu"
+  },
+  "voiceReset": {
+    "clear": "Xóa",
+    "resetVoiceToDefault": "Đặt lại giọng nói về mặc định"
+  },
+  "voiceSearch": {
+    "searchVoices": "Tìm kiếm giọng nói",
+    "searchVoices2": "Tìm kiếm giọng nói..."
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "authBar": {
+    "signInProgress": "登入進度"
+  },
+  "authMessage": {
+    "pleaseWait": "請稍候。"
+  },
+  "authSteps": {
+    "loadingDashboard": "載入緊控制台",
+    "sessionTokenStored": "已儲存 Session Token",
+    "twitchAuthorized": "Twitch 已授權"
+  },
+  "authTitle": {
+    "signingYouIn": "幫緊你登入"
+  },
+  "meta": {
+    "completingWildcatttsTwitchSignIn": "完成緊 WildcatTTS Twitch 登入。",
+    "wildcatttsCompletingSignIn": "WildcatTTS - 完成緊登入"
+  },
+  "msg": {
+    "authComplete": {
+      "cannotComplete": "無法完成登入。",
+      "failedReadout": "失敗",
+      "failedTitle": "登入失敗",
+      "missingInfo": "缺少嚟自 Twitch 回傳嘅驗證資訊。請重新登入。",
+      "noSession": "冇工作階段",
+      "redirecting": "正跳轉去你嘅控制台。",
+      "retrySignIn": "{reason} 請重新登入。",
+      "sessionEstablished": "已建立工作階段",
+      "welcome": "歡迎，{user}"
+    }
+  },
+  "sessionState": {
+    "establishingSession": "建立緊工作階段"
+  },
+  "statusReadout": {
+    "working": "<span class=\"wc-dot\"></span>處理緊"
+  }
+}

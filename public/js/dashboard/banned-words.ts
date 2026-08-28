@@ -1,4 +1,5 @@
 import { showToast } from '../common/ui.js';
+import { apiErrorMessage, t } from '../common/i18n.js';
 
 export interface BannedWordsModule {
     displayBannedWords: (words: string[]) => void;
@@ -39,7 +40,7 @@ export function initBannedWordsModule(
         if (!words || words.length === 0) {
             const emptyLi = document.createElement('li');
             emptyLi.className = 'list-group-item text-center text-muted py-3';
-            emptyLi.textContent = 'No banned words added yet.';
+            emptyLi.textContent = t('msg.bannedWords.empty');
             listEl.appendChild(emptyLi);
             return;
         }
@@ -50,7 +51,7 @@ export function initBannedWordsModule(
 
             const removeBtn = document.createElement('button');
             removeBtn.className = 'btn btn-outline-danger btn-sm';
-            removeBtn.textContent = 'Remove';
+            removeBtn.textContent = t('msg.action.remove');
             removeBtn.addEventListener('click', () => removeBannedWord(word));
             li.appendChild(removeBtn);
             listEl.appendChild(li);
@@ -62,7 +63,7 @@ export function initBannedWordsModule(
         if (!user?.login) return;
 
         if (testMode) {
-            showToast(`[Test] Added banned word: ${word}.`, 'success');
+            showToast(t('msg.bannedWords.addedTestMode', { word }), 'success');
             if (onChange) onChange();
             return;
         }
@@ -75,14 +76,14 @@ export function initBannedWordsModule(
             });
             const data = await response.json();
             if (data.success) {
-                showToast(`Added "${word}" to banned words.`, 'success');
+                showToast(t('msg.bannedWords.added', { word }), 'success');
                 if (onChange) onChange();
             } else {
-                showToast(data.error || 'Cannot add banned word.', 'error');
+                showToast(apiErrorMessage(data, 'msg.bannedWords.addFailed'), 'error');
             }
         } catch (error) {
             console.error('Error adding banned word:', error);
-            showToast('Cannot add banned word.', 'error');
+            showToast(t('msg.bannedWords.addFailed'), 'error');
         }
     }
 
@@ -91,7 +92,7 @@ export function initBannedWordsModule(
         if (!user?.login) return;
 
         if (testMode) {
-            showToast(`[Test] Removed banned word: ${word}.`, 'success');
+            showToast(t('msg.bannedWords.removedTestMode', { word }), 'success');
             if (onChange) onChange();
             return;
         }
@@ -104,14 +105,14 @@ export function initBannedWordsModule(
             });
             const data = await response.json();
             if (data.success) {
-                showToast(`Removed "${word}" from banned words.`, 'success');
+                showToast(t('msg.bannedWords.removed', { word }), 'success');
                 if (onChange) onChange();
             } else {
-                showToast(data.error || 'Cannot remove banned word.', 'error');
+                showToast(apiErrorMessage(data, 'msg.bannedWords.removeFailed'), 'error');
             }
         } catch (error) {
             console.error('Error removing banned word:', error);
-            showToast('Cannot remove banned word.', 'error');
+            showToast(t('msg.bannedWords.removeFailed'), 'error');
         }
     }
 

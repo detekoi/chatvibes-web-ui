@@ -92,6 +92,10 @@ export interface ErrorResponse {
   error?: string;
   message?: string;
   details?: string;
+  /** Stable failure code, resolved to `err.<code>` by apiErrorMessage. */
+  code?: string;
+  /** Values the message interpolates. */
+  params?: Record<string, string | number>;
 }
 
 export interface VoiceLookupResponse {

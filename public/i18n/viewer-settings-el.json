@@ -1,0 +1,212 @@
+{
+  "addChannelContextCard": {
+    "loadAChannelToSee": "Φορτώστε ένα κανάλι για να δείτε τις προεπιλεγμένες ρυθμίσεις του και να διαχειριστείτε τις εξαιρέσεις. Οι προτιμήσεις σας παραμένουν καθολικές."
+  },
+  "channelContextCard": {
+    "changesHereUpdateYourGlobal": "Οι αλλαγές εδώ ενημερώνουν τις <strong>δικές σας</strong> καθολικές προτιμήσεις. Οι ρυθμίσεις του streamer δεν αλλάζουν.",
+    "channelContext": "Πλαίσιο καναλιού",
+    "clearButtonsSetYourGlobal": "<strong>Κουμπιά εκκαθάρισης:</strong> Ορίζουν την καθολική προτίμησή σας ώστε να ταιριάζει με την προεπιλογή αυτού του καναλιού."
+  },
+  "channelHint": {
+    "channelFound": "Το κανάλι βρέθηκε"
+  },
+  "channelInputCancel": {
+    "cancel": "Ακύρωση"
+  },
+  "channelInputConfirm": {
+    "load": "Φόρτωση"
+  },
+  "channelInputDesc": {
+    "enterTheChannelNameTo": "Εισαγάγετε το όνομα καναλιού για να δείτε τις προεπιλογές του και να διαχειριστείτε τις εξαιρέσεις:"
+  },
+  "channelInputModal": {
+    "streamerUsername": "Όνομα χρήστη streamer"
+  },
+  "channelInputModalText": {
+    "streamerUsername": "Όνομα χρήστη streamer"
+  },
+  "channelInputTitle": {
+    "loadChannelContext": "Φόρτωση πλαισίου καναλιού"
+  },
+  "clearChannelContextBtn": {
+    "clear": "Εκκαθάριση"
+  },
+  "confirmNo": {
+    "cancel": "Ακύρωση"
+  },
+  "confirmText": {
+    "yourMessagesWillNotBe": "Τα μηνύματά σας δεν θα εκφωνούνται. Μπορείτε να το ενεργοποιήσετε ξανά ανά πάσα στιγμή."
+  },
+  "confirmTitle": {
+    "confirmAction": "Επιβεβαίωση ενέργειας"
+  },
+  "confirmYes": {
+    "confirm": "Επιβεβαίωση"
+  },
+  "dangerTtsToggle": {
+    "optOutOfTtsIn": "Εξαίρεση από το TTS σε αυτό το κανάλι",
+    "ttsWillNotReadYour": "Το TTS δεν θα διαβάζει τα μηνύματά σας σε αυτό το κανάλι"
+  },
+  "dangerZoneSection": {
+    "dangerZone": "Επικίνδυνη ζώνη",
+    "theseSettingsStopTheBot": "Αυτές οι ρυθμίσεις εμποδίζουν το bot να διαβάζει τα μηνύματά σας σε ένα κανάλι. Μπορείτε να αναιρέσετε οποιαδήποτε ρύθμιση ορίσετε εσείς. Αν σας εξαίρεσε κάποιος διαχειριστής, μόνο ένας διαχειριστής μπορεί να το αναιρέσει."
+  },
+  "emotionReset": {
+    "clear": "Εκκαθάριση",
+    "resetEmotionToDefault": "Επαναφορά συναισθήματος στην προεπιλογή"
+  },
+  "emotionSelect": {
+    "angry": "Θυμωμένο",
+    "disgusted": "Αηδιασμένο",
+    "fearful": "Φοβισμένο",
+    "happy": "Χαρούμενο",
+    "neutral": "Ουδέτερο",
+    "sad": "Λυπημένο",
+    "surprised": "Έκπληκτο",
+    "useChannelDefault": "Χρήση προεπιλογής καναλιού"
+  },
+  "englishNormalizationCheckbox": {
+    "englishNormalization": "Κανονικοποίηση αγγλικών"
+  },
+  "englishNormalizationReset": {
+    "clear": "Εκκαθάριση",
+    "resetEnglishNormalizationToDefault": "Επαναφορά κανονικοποίησης αγγλικών στην προεπιλογή"
+  },
+  "ignoreTts": {
+    "optOutOfTtsIn": "Εξαίρεση από το TTS σε αυτό το κανάλι"
+  },
+  "languageReset": {
+    "clear": "Εκκαθάριση",
+    "resetLanguageToDefault": "Επαναφορά γλώσσας στην προεπιλογή"
+  },
+  "loadingBar": {
+    "loadingYourPreferences": "Φόρτωση των προτιμήσεών σας"
+  },
+  "loadingOverlay": {
+    "loadingYourPreferences": "Φόρτωση των προτιμήσεών σας…"
+  },
+  "loggedInStatus": {
+    "channelContext": "Πλαίσιο καναλιού",
+    "global": "Καθολικό",
+    "loggedInAs": "Συνδεδεμένος ως",
+    "scope": "Εμβέλεια"
+  },
+  "meta": {
+    "wildcatttsViewerSettings": "Ρυθμίσεις θεατή WildcatTTS",
+    "wildcatttsViewerSettingsSetYour": "Ρυθμίσεις θεατή WildcatTTS - Ορίστε την προσωπική σας φωνή, τον τόνο και την ταχύτητα TTS σε κανάλια Twitch."
+  },
+  "msg": {
+    "auth": {
+      "exchangeFailed": "Δεν είναι δυνατή η ολοκλήρωση της σύνδεσης. Δοκιμάστε ξανά από την αρχική σελίδα.",
+      "testUser": "Δοκιμαστικός χρήστης"
+    },
+    "channel": {
+      "cleared": "Το πλαίσιο καναλιού εκκαθαρίστηκε.",
+      "clearedTestMode": "Το πλαίσιο καναλιού εκκαθαρίστηκε (λειτουργία δοκιμής).",
+      "enterName": "Εισαγάγετε ένα όνομα καναλιού.",
+      "found": "Το κανάλι βρέθηκε",
+      "foundTestMode": "Το κανάλι βρέθηκε (λειτουργία δοκιμής)",
+      "hint": "Φορτώστε ένα κανάλι για να δείτε τις προεπιλεγμένες ρυθμίσεις του.",
+      "loaded": "Το πλαίσιο καναλιού φορτώθηκε.",
+      "loadedTestMode": "Το πλαίσιο καναλιού φορτώθηκε (λειτουργία δοκιμής).",
+      "noneLoaded": "Κανένα φορτωμένο",
+      "promptConfirm": "Φόρτωση",
+      "promptDescription": "Εισαγάγετε το όνομα καναλιού για να δείτε τις προεπιλεγμένες ρυθμίσεις του και να διαχειριστείτε τις εξαιρέσεις:",
+      "promptTitle": "Φόρτωση περιβάλλοντος καναλιού",
+      "viewingDefaults": "Βλέπετε τις προεπιλεγμένες ρυθμίσεις για το κανάλι {channel}."
+    },
+    "optout": {
+      "confirm": "Θέλετε να εξαιρεθείτε από το TTS στο #{channel}; Τα μηνύματά σας δεν θα διαβάζονται φωναχτά. Μπορείτε να το ενεργοποιήσετε ξανά ανά πάσα στιγμή.",
+      "confirmDescription": "Εισαγάγετε το όνομα καναλιού για να συνεχίσετε:",
+      "confirmTitle": "Επιβεβαίωση καναλιού για εξαίρεση από το TTS",
+      "continue": "Συνέχεια",
+      "moderatorNote": "Ένας συντονιστής καναλιού σάς εξαίρεσε από το TTS εδώ. Μόνο ένας συντονιστής μπορεί να το αναιρέσει.",
+      "optInFailed": "Δεν είναι δυνατή η εκ νέου συμμετοχή στο TTS.",
+      "optOutFailed": "Δεν είναι δυνατή η εξαίρεση από το TTS.",
+      "optedIn": "Επανενεργοποιήσατε το TTS.",
+      "optedInTestMode": "Επανενεργοποιήσατε το TTS (λειτουργία δοκιμής).",
+      "optedOut": "Εξαιρεθήκατε από το TTS.",
+      "optedOutTestMode": "Εξαιρεθήκατε από το TTS (λειτουργία δοκιμής).",
+      "selectChannel": "Επιλέξτε πρώτα ένα κανάλι.",
+      "selfNote": "Εξαιρεθήκατε από το TTS εδώ. Μπορείτε να το ενεργοποιήσετε ξανά ανά πάσα στιγμή.",
+      "specifyChannel": "Καθορίστε ένα κανάλι."
+    },
+    "prefs": {
+      "hintChannel": "Χρήση προεπιλογής καναλιού: {value}",
+      "hintSystem": "Χρήση προεπιλογής συστήματος",
+      "hintUser": "Χρήση της καθολικής προτίμησής σας: {value}",
+      "loadFailed": "Δεν είναι δυνατή η φόρτωση των προτιμήσεων.",
+      "noVoicesFound": "Δεν βρέθηκαν φωνές",
+      "saveFailed": "Δεν είναι δυνατή η αποθήκευση του {key}: {reason}",
+      "sendPreview": "Αποστολή προεπισκόπησης",
+      "testCompletedTestMode": "Η δοκιμή ολοκληρώθηκε (λειτουργία δοκιμής).",
+      "updated": "Η προτίμηση ενημερώθηκε.",
+      "updatedTestMode": "Η προτίμηση ενημερώθηκε (λειτουργία δοκιμής)."
+    }
+  },
+  "openChannelContextModalBtn": {
+    "loadChannel": "Φόρτωση καναλιού…"
+  },
+  "page": {
+    "setHowYourMessagesSound": "Ορίστε πώς θα ακούγονται τα μηνύματά σας όταν τα διαβάζει το Wildcat TTS. Οι προτιμήσεις σας είναι καθολικές και ισχύουν για όλα τα κανάλια.",
+    "viewerTtsPreferences": "Προτιμήσεις TTS θεατή",
+    "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Ρυθμίσεις θεατή</span>"
+  },
+  "pitchReset": {
+    "clear": "Εκκαθάριση",
+    "resetPitchToDefault": "Επαναφορά τονικού ύψους στην προεπιλογή"
+  },
+  "pitchSlider": {
+    "pitchAdjustment12To12": "Ρύθμιση τονικού ύψους (-12 έως +12)"
+  },
+  "preferencesPanel": {
+    "adjustTheVoicePitchHigher": "Ρυθμίστε το τονικό ύψος της φωνής υψηλότερα ή χαμηλότερα",
+    "controlHowFastTheVoice": "Ελέγξτε την ταχύτητα ομιλίας της φωνής",
+    "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Τεκμηρίωση </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Ρυθμίσεις streamer </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "<strong>Συναίσθημα</strong>",
+    "emotion2": "Συναίσθημα",
+    "englishNormalization": "Κανονικοποίηση αγγλικών",
+    "engNormalization": "Κανονικοποίηση αγγλικών",
+    "ifTtsReadsNumbersIncorrectly": "Αν το TTS διαβάζει αριθμούς εσφαλμένα, ενεργοποιήστε την κανονικοποίηση αγγλικού κειμένου. Αυτή η ρύθμιση αυξάνει ελαφρώς την καθυστέρηση.",
+    "improvePronunciationForSpecificLanguages": "Βελτίωση προφοράς για συγκεκριμένες γλώσσες",
+    "improveThePronunciationOfNumbers": "Βελτίωση της προφοράς αριθμών και κειμένου",
+    "language": "Γλώσσα",
+    "languageBoost": "<strong>Ενίσχυση γλώσσας</strong>",
+    "pitch": "Τονικό ύψος",
+    "pitch12To12": "Τόνος (-12 έως +12):",
+    "quickLinks": "Γρήγοροι σύνδεσμοι",
+    "selectYourPreferredTtsVoice": "Επιλέξτε την προτιμώμενη φωνή TTS",
+    "setHowYourMessagesSound": "Ορίστε πώς θα ακούγονται τα μηνύματά σας όταν τα διαβάζει το TTS",
+    "setTheEmotionalToneOf": "Ορίστε τον συναισθηματικό τόνο της φωνής",
+    "speed": "Ταχύτητα",
+    "speed05To2": "Ταχύτητα (0.5 έως 2.0):",
+    "testMessage": "Δοκιμαστικό μήνυμα",
+    "voice": "<strong>Φωνή</strong>",
+    "voicePreview": "Προεπισκόπηση φωνής",
+    "voiceSettings": "Ρυθμίσεις φωνής"
+  },
+  "prefsDisabledNote": {
+    "theStreamerDisabledPersonalVoice": "Ο streamer απενεργοποίησε τις προσωπικές ρυθμίσεις φωνής για αυτό το κανάλι. Αυτό το κανάλι θα χρησιμοποιεί την προεπιλεγμένη του φωνή αντί για τις προτιμήσεις σας."
+  },
+  "previewBtn": {
+    "sendPreview": "Αποστολή προεπισκόπησης"
+  },
+  "speedReset": {
+    "clear": "Εκκαθάριση",
+    "resetSpeedToDefault": "Επαναφορά ταχύτητας στην προεπιλογή"
+  },
+  "speedSlider": {
+    "speedAdjustment05To": "Προσαρμογή ταχύτητας (0,5 έως 2,0)"
+  },
+  "statChannelContext": {
+    "noneLoaded": "Δεν φορτώθηκε κανένα"
+  },
+  "voiceReset": {
+    "clear": "Εκκαθάριση",
+    "resetVoiceToDefault": "Επαναφορά φωνής στην προεπιλογή"
+  },
+  "voiceSearch": {
+    "searchVoices": "Αναζήτηση φωνών",
+    "searchVoices2": "Αναζήτηση φωνών..."
+  }
+}

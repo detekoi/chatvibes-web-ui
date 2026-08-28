@@ -1,0 +1,212 @@
+{
+  "addChannelContextCard": {
+    "loadAChannelToSee": "Muat channel untuk melihat pengaturan default-nya dan mengelola opt-out. Preferensi Anda tetap bersifat global."
+  },
+  "channelContextCard": {
+    "changesHereUpdateYourGlobal": "Perubahan di sini memperbarui preferensi global <strong>Anda</strong>. Pengaturan streamer tidak berubah.",
+    "channelContext": "Konteks Channel",
+    "clearButtonsSetYourGlobal": "<strong>Tombol hapus:</strong> Atur preferensi global Anda agar sesuai dengan pengaturan default channel ini."
+  },
+  "channelHint": {
+    "channelFound": "Channel ditemukan"
+  },
+  "channelInputCancel": {
+    "cancel": "Batal"
+  },
+  "channelInputConfirm": {
+    "load": "Muat"
+  },
+  "channelInputDesc": {
+    "enterTheChannelNameTo": "Masukkan nama channel untuk melihat pengaturan default-nya dan mengelola opt-out:"
+  },
+  "channelInputModal": {
+    "streamerUsername": "Username Streamer"
+  },
+  "channelInputModalText": {
+    "streamerUsername": "Username Streamer"
+  },
+  "channelInputTitle": {
+    "loadChannelContext": "Muat Konteks Channel"
+  },
+  "clearChannelContextBtn": {
+    "clear": "Hapus"
+  },
+  "confirmNo": {
+    "cancel": "Batal"
+  },
+  "confirmText": {
+    "yourMessagesWillNotBe": "Pesan Anda tidak akan dibacakan. Anda dapat mengaktifkannya kembali kapan saja."
+  },
+  "confirmTitle": {
+    "confirmAction": "Konfirmasi tindakan"
+  },
+  "confirmYes": {
+    "confirm": "Konfirmasi"
+  },
+  "dangerTtsToggle": {
+    "optOutOfTtsIn": "Pilih keluar dari TTS di channel ini",
+    "ttsWillNotReadYour": "TTS tidak akan membacakan pesan Anda di channel ini"
+  },
+  "dangerZoneSection": {
+    "dangerZone": "Zona Berbahaya",
+    "theseSettingsStopTheBot": "Pengaturan ini menghentikan bot membaca pesan Anda di channel. Anda dapat membatalkan pengaturan apa pun yang Anda pilih. Jika moderator mengeluarkan Anda, hanya moderator yang dapat membatalkannya."
+  },
+  "emotionReset": {
+    "clear": "Hapus",
+    "resetEmotionToDefault": "Atur ulang emosi ke default"
+  },
+  "emotionSelect": {
+    "angry": "Marah",
+    "disgusted": "Jijik",
+    "fearful": "Takut",
+    "happy": "Senang",
+    "neutral": "Netral",
+    "sad": "Sedih",
+    "surprised": "Terkejut",
+    "useChannelDefault": "Gunakan default channel"
+  },
+  "englishNormalizationCheckbox": {
+    "englishNormalization": "Normalisasi Bahasa Inggris"
+  },
+  "englishNormalizationReset": {
+    "clear": "Hapus",
+    "resetEnglishNormalizationToDefault": "Atur ulang normalisasi bahasa Inggris ke default"
+  },
+  "ignoreTts": {
+    "optOutOfTtsIn": "Pilih keluar dari TTS di channel ini"
+  },
+  "languageReset": {
+    "clear": "Hapus",
+    "resetLanguageToDefault": "Atur ulang bahasa ke default"
+  },
+  "loadingBar": {
+    "loadingYourPreferences": "Memuat preferensi Anda"
+  },
+  "loadingOverlay": {
+    "loadingYourPreferences": "Memuat preferensi Anda…"
+  },
+  "loggedInStatus": {
+    "channelContext": "Konteks saluran",
+    "global": "Global",
+    "loggedInAs": "Masuk sebagai",
+    "scope": "Cakupan"
+  },
+  "meta": {
+    "wildcatttsViewerSettings": "Pengaturan Penonton WildcatTTS",
+    "wildcatttsViewerSettingsSetYour": "Pengaturan Penonton WildcatTTS - Atur suara, nada, dan kecepatan text-to-speech pribadi Anda di seluruh saluran Twitch."
+  },
+  "msg": {
+    "auth": {
+      "exchangeFailed": "Tidak dapat menyelesaikan proses masuk. Coba lagi dari halaman utama.",
+      "testUser": "Pengguna Uji"
+    },
+    "channel": {
+      "cleared": "Konteks saluran dihapus.",
+      "clearedTestMode": "Konteks saluran dihapus (mode uji).",
+      "enterName": "Masukkan nama saluran.",
+      "found": "Saluran ditemukan",
+      "foundTestMode": "Saluran ditemukan (mode uji)",
+      "hint": "Muat saluran untuk melihat pengaturan default-nya.",
+      "loaded": "Konteks saluran dimuat.",
+      "loadedTestMode": "Konteks saluran dimuat (mode uji).",
+      "noneLoaded": "Tidak ada yang dimuat",
+      "promptConfirm": "Muat",
+      "promptDescription": "Masukkan nama saluran untuk melihat pengaturan default dan mengelola opt-out:",
+      "promptTitle": "Muat Konteks Saluran",
+      "viewingDefaults": "Anda sedang melihat pengaturan default untuk {channel}."
+    },
+    "optout": {
+      "confirm": "Apakah Anda ingin memilih keluar dari TTS di #{channel}? Pesan Anda tidak akan dibacakan dengan lantang. Anda dapat mengaktifkannya kembali kapan saja.",
+      "confirmDescription": "Masukkan nama saluran untuk melanjutkan:",
+      "confirmTitle": "Konfirmasi saluran untuk opt-out TTS",
+      "continue": "Lanjutkan",
+      "moderatorNote": "Moderator saluran telah mengeluarkan Anda dari TTS di sini. Hanya moderator yang dapat membatalkannya.",
+      "optInFailed": "Tidak dapat mengaktifkan kembali TTS.",
+      "optOutFailed": "Tidak dapat memilih keluar dari TTS.",
+      "optedIn": "Anda memilih kembali ikut TTS.",
+      "optedInTestMode": "Anda memilih kembali ikut TTS (mode uji).",
+      "optedOut": "Anda memilih keluar dari TTS.",
+      "optedOutTestMode": "Anda memilih keluar dari TTS (mode uji).",
+      "selectChannel": "Pilih saluran terlebih dahulu.",
+      "selfNote": "Anda memilih keluar dari TTS di sini. Anda dapat mengaktifkannya kembali kapan saja.",
+      "specifyChannel": "Tentukan saluran."
+    },
+    "prefs": {
+      "hintChannel": "Menggunakan default saluran: {value}",
+      "hintSystem": "Menggunakan default sistem",
+      "hintUser": "Menggunakan preferensi global Anda: {value}",
+      "loadFailed": "Tidak dapat memuat preferensi.",
+      "noVoicesFound": "Suara tidak ditemukan",
+      "saveFailed": "Tidak dapat menyimpan {key}: {reason}",
+      "sendPreview": "Kirim Pratinjau",
+      "testCompletedTestMode": "Uji selesai (mode uji).",
+      "updated": "Preferensi diperbarui.",
+      "updatedTestMode": "Preferensi diperbarui (mode uji)."
+    }
+  },
+  "openChannelContextModalBtn": {
+    "loadChannel": "Muat Saluran…"
+  },
+  "page": {
+    "setHowYourMessagesSound": "Atur bagaimana pesan Anda terdengar saat Wildcat TTS membacanya. Preferensi Anda bersifat global dan berlaku untuk semua saluran.",
+    "viewerTtsPreferences": "Preferensi TTS penonton",
+    "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Pengaturan penonton</span>"
+  },
+  "pitchReset": {
+    "clear": "Hapus",
+    "resetPitchToDefault": "Atur ulang pitch ke default"
+  },
+  "pitchSlider": {
+    "pitchAdjustment12To12": "Penyesuaian pitch (-12 hingga +12)"
+  },
+  "preferencesPanel": {
+    "adjustTheVoicePitchHigher": "Atur pitch suara lebih tinggi atau lebih rendah",
+    "controlHowFastTheVoice": "Atur kecepatan suara berbicara",
+    "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentasi </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Pengaturan streamer </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "<strong>Emosi</strong>",
+    "emotion2": "Emosi",
+    "englishNormalization": "Normalisasi Bahasa Inggris",
+    "engNormalization": "Normalisasi bhs. Inggris",
+    "ifTtsReadsNumbersIncorrectly": "Jika TTS salah membaca angka, aktifkan normalisasi teks bahasa Inggris. Pengaturan ini sedikit meningkatkan latensi.",
+    "improvePronunciationForSpecificLanguages": "Tingkatkan pengucapan untuk bahasa tertentu",
+    "improveThePronunciationOfNumbers": "Tingkatkan pengucapan angka dan teks",
+    "language": "Bahasa",
+    "languageBoost": "<strong>Language Boost</strong>",
+    "pitch": "Pitch",
+    "pitch12To12": "Pitch (-12 hingga +12):",
+    "quickLinks": "Tautan cepat",
+    "selectYourPreferredTtsVoice": "Pilih suara TTS pilihan Anda",
+    "setHowYourMessagesSound": "Atur bagaimana pesan Anda terdengar saat TTS membacanya",
+    "setTheEmotionalToneOf": "Atur nada emosi suara",
+    "speed": "Kecepatan",
+    "speed05To2": "Kecepatan (0.5 hingga 2.0):",
+    "testMessage": "Pesan uji",
+    "voice": "<strong>Suara</strong>",
+    "voicePreview": "Pratinjau suara",
+    "voiceSettings": "Pengaturan Suara"
+  },
+  "prefsDisabledNote": {
+    "theStreamerDisabledPersonalVoice": "Streamer menonaktifkan pengaturan suara pribadi untuk saluran ini. Saluran ini akan menggunakan suara default alih-alih preferensi Anda."
+  },
+  "previewBtn": {
+    "sendPreview": "Kirim pratinjau"
+  },
+  "speedReset": {
+    "clear": "Hapus",
+    "resetSpeedToDefault": "Atur ulang kecepatan ke default"
+  },
+  "speedSlider": {
+    "speedAdjustment05To": "Penyesuaian kecepatan (0,5 hingga 2,0)"
+  },
+  "statChannelContext": {
+    "noneLoaded": "Tidak ada yang dimuat"
+  },
+  "voiceReset": {
+    "clear": "Hapus",
+    "resetVoiceToDefault": "Atur ulang suara ke default"
+  },
+  "voiceSearch": {
+    "searchVoices": "Cari suara",
+    "searchVoices2": "Cari suara..."
+  }
+}

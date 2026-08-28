@@ -1,0 +1,11 @@
+{
+  "mainContent": {
+    "pageNotFound": "הדף לא נמצא",
+    "returnToLogin": "חזרה להתחברות",
+    "thatUrlIsNotPart": "כתובת ה-URL הזו אינה חלק מאתר זה. יש לוודא שהכתובת נכונה, או לחזור לדף ההתחברות."
+  },
+  "meta": {
+    "pageNotFoundOnWildcattts": "הדף לא נמצא ב-WildcatTTS.",
+    "pageNotFoundWildcattts": "הדף לא נמצא — WildcatTTS"
+  }
+}

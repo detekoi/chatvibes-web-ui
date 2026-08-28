@@ -1,0 +1,11 @@
+{
+  "mainContent": {
+    "pageNotFound": "ไม่พบหน้านี้",
+    "returnToLogin": "กลับไปหน้าเข้าสู่ระบบ",
+    "thatUrlIsNotPart": "URL นั้นไม่ได้เป็นส่วนหนึ่งของเว็บไซต์นี้ โปรดตรวจสอบว่าที่อยู่ถูกต้อง หรือกลับไปยังหน้าเข้าสู่ระบบ"
+  },
+  "meta": {
+    "pageNotFoundOnWildcattts": "ไม่พบหน้าบน WildcatTTS",
+    "pageNotFoundWildcattts": "ไม่พบหน้า — WildcatTTS"
+  }
+}

@@ -1,0 +1,500 @@
+{
+  "addBotBtn": {
+    "activateTtsService": "Aktiver TTS-tenesta"
+  },
+  "addTtsBannedWordBtn": {
+    "add": "Legg til"
+  },
+  "addTtsIgnoreBtn": {
+    "add": "Legg til"
+  },
+  "addTtsPronunciationBtn": {
+    "add": "Legg til"
+  },
+  "allowViewerPreferences": {
+    "allowViewerVoicePreferences": "Tillat stemmeinnstillingar for sjåarar"
+  },
+  "announceUnfulfilledRedemptions": {
+    "announceQueuedRedeemsImmediately": "Kunngjer innløysingar i kø med ein gong"
+  },
+  "announceUnfulfilledRedemptionsHelp": {
+    "aRewardThatDoesNot": "Ei belønning som ikkje hoppar over køen for førespurnader, blir kunngjord så snart ho blir løyst inn, sjølv om du avviser førespurnaden seinare. Slå av dette for å halde att kunngjeringa til du godtek førespurnaden – belønningar du aldri godtek, blir då aldri kunngjorde."
+  },
+  "anonymizeFollowers": {
+    "anonymizeNewFollowers": "Anonymiser nye følgjarar"
+  },
+  "bitsEnabled": {
+    "requireBitsForTts": "Krev bits for TTS"
+  },
+  "botRespondsInChat": {
+    "botRespondsInChat": "Boten svarer i chatten"
+  },
+  "botStatus": {
+    "loading": "Lastar inn…"
+  },
+  "calibratedVoicesList": {
+    "noVoicesCalibratedYet": "Ingen stemmer er kalibrerte enno."
+  },
+  "calibrationSaveBtn": {
+    "save": "Lagre"
+  },
+  "calibrationVoiceSearch": {
+    "searchVoicesToCalibrate": "Søk etter stemmer å kalibrere…"
+  },
+  "channelNameStatus": {
+    "yourChannel": "kanalen din"
+  },
+  "cheerEventsEnabled": {
+    "announceCheers": "Kunngjer cheers"
+  },
+  "copyTtsUrlBtn": {
+    "copy": "Kopier",
+    "copyBrowserSourceUrl": "Kopier Browser Source-URL"
+  },
+  "cpDelete": {
+    "disableDelete": "Deaktiver og slett"
+  },
+  "cpEnabled": {
+    "enableChannelPointsTts": "Aktiver Channel Points-TTS"
+  },
+  "cpPerStream": {
+    "enterAmount": "Oppgje mengd"
+  },
+  "cpPerUser": {
+    "enterAmount": "Oppgje mengd"
+  },
+  "cpSave": {
+    "save": "Lagre"
+  },
+  "cpTest": {
+    "testRedeem": "Test innløysing"
+  },
+  "dashboardContent": {
+    "channel": "Kanal",
+    "channelService": "Kanalteneste",
+    "dashboardConfigurationTabs": "Faner for dashbordoppsett",
+    "deactivationStopsTheBotFrom": "Deaktivering gjer at boten sluttar å lese opp chatmeldingar. Innstillingane dine blir framleis lagra. Du kan aktivere tenesta att når som helst.",
+    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentasjon </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>Sjåarinnstillingar </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "Kjensle",
+    "engNormalization": "Eng. normalisering",
+    "language": "Språk",
+    "pitch": "Tonehøgd",
+    "quickLinks": "Snøgglenkjer",
+    "service": "Teneste",
+    "signedInAs": "Logga inn som",
+    "speed": "Fart",
+    "testMessage": "Testmelding",
+    "voicePreview": "Førehandsvising av stemme",
+    "volume": "Volum"
+  },
+  "defaultEmotion": {
+    "angry": "Sint",
+    "disgusted": "Fråstøytt",
+    "fearful": "Redd",
+    "happy": "Glad",
+    "neutral": "Nøytral",
+    "sad": "Trist",
+    "surprised": "Overraska"
+  },
+  "defaultPitch": {
+    "defaultPitch12To12": "Standard tonehøgd (-12 til +12)"
+  },
+  "defaultSpeed": {
+    "defaultSpeed05To": "Standardfart (0,5 til 2,0)"
+  },
+  "defaultVoiceSearch": {
+    "searchDefaultVoices": "Søk etter standardstemmer",
+    "searchVoices": "Søk etter stemmer..."
+  },
+  "defaultVolume": {
+    "voiceVolume01To": "Stemmevolum (0,1 til 10)"
+  },
+  "emoteMode": {
+    "describeEmotes": "Skildre emotes",
+    "readEmoteNames": "Les opp emotenamn",
+    "skipEmotes": "Hopp over emotes"
+  },
+  "englishNormalization": {
+    "englishNormalization": "Engelsk normalisering"
+  },
+  "eventsEnabled": {
+    "announceEvents": "Kunngjer hendingar"
+  },
+  "loadingBar": {
+    "loadingDashboardSettings": "Lastar inn kontrollpanelinnstillingar"
+  },
+  "loadingOverlay": {
+    "loadingDashboardSettings": "Lastar inn kontrollpanelinnstillingar…"
+  },
+  "lookupUsername": {
+    "enterTwitchViewerUsername": "Skriv inn brukarnamn for Twitch-sjåar"
+  },
+  "lookupVoiceBtn": {
+    "lookupVoice": "Søk opp røyst"
+  },
+  "meta": {
+    "wildcatttsDashboard": "WildcatTTS-kontrollpanel",
+    "wildcatttsStreamerDashboardConfigureText": "WildcatTTS Streamer Dashboard – Konfigurer innstillingar for tekst-til-tale, løyve, bot-svar og Channel Points."
+  },
+  "msg": {
+    "auth": {
+      "demoStreamer": "Demostreamar",
+      "needBroadcaster": "Logg inn med kringkastarkontoen din for å få tilgang til strøymarinnstillingar.",
+      "needSignIn": "Logg inn med Twitch-kontoen din for å få tilgang til kontrollpanelet."
+    },
+    "bannedWords": {
+      "addFailed": "Kan ikkje leggje til forbode ord.",
+      "added": "La til \"{word}\" i forbodne ord.",
+      "addedTestMode": "[Test] La til forbode ord: {word}.",
+      "empty": "Ingen forbodne ord lagde til enno.",
+      "removeFailed": "Kan ikkje fjerne forbode ord.",
+      "removed": "Fjerna \"{word}\" frå forbodne ord.",
+      "removedTestMode": "[Test] Fjerna forbode ord: {word}."
+    },
+    "bot": {
+      "activateFailed": "Kan ikkje aktivere TTS-tenesta.",
+      "activated": "TTS-tenesta er aktivert.",
+      "activatedTestMode": "TTS-tenesta er aktivert (testmodus).",
+      "activating": "Aktiverer TTS-tenesta…",
+      "active": "Aktiv",
+      "deactivateFailed": "Kan ikkje deaktivere TTS-tenesta.",
+      "deactivated": "TTS-tenesta er deaktivert.",
+      "deactivatedTestMode": "TTS-tenesta er deaktivert (testmodus).",
+      "deactivating": "Deaktiverer TTS-tenesta…",
+      "inactive": "Inaktiv",
+      "notAuthenticated": "Ikkje autentisert",
+      "requestAccess": "Be om tilgang her",
+      "statusError": "Feil",
+      "statusFailed": "Feil: {reason}",
+      "statusLoadFailed": "Kan ikkje laste bot-status: {reason}",
+      "unknownError": "Ukjend feil"
+    },
+    "calibration": {
+      "confirmReset": "Tilbakestille kalibrering for {voice}?",
+      "edit": "Rediger",
+      "empty": "Ingen røyster er kalibrerte enno.",
+      "reset": "Tilbakestill",
+      "row": "{voice} ({volume})"
+    },
+    "cp": {
+      "confirmDelete": "Slette Channel Points-TTS-belønninga?",
+      "deleteFailed": "Slettinga mislukkast.",
+      "deleted": "Belønninga er sletta.",
+      "deletedTestMode": "Belønninga er sletta (testmodus).",
+      "deleting": "Slettar…",
+      "lastSynced": "{reward} · Sist synkronisert: {time}",
+      "never": "aldri",
+      "noReward": "Inga belønning oppretta",
+      "noRewardTestMode": "Inga belønning oppretta (testmodus)",
+      "rewardId": "Belønnings-ID: {id}",
+      "saveFailed": "Kan ikkje lagre Channel Points-innstillingane.",
+      "saved": "Channel Points-innstillingane er lagra.",
+      "savedTestMode": "Channel Points-innstillingane er lagra (testmodus).",
+      "saving": "Lagrar Channel Points-innstillingar…",
+      "testCompleted": "Test fullført ({status}).",
+      "testCompletedTestMode": "Test fullført (testmodus).",
+      "testFailed": "Testen mislukkast.",
+      "testPrompt": "Skriv ei testmelding for å simulere ei innløysing:",
+      "testing": "Testar innløysing…"
+    },
+    "ignore": {
+      "addFailed": "Kan ikkje leggje til brukar i ignoreringslista.",
+      "addFailedReason": "Kan ikkje leggje til brukar: {reason}",
+      "badgeModerator": "Dempa av deg",
+      "badgeSelf": "Meldt av",
+      "empty": "Ingen ignorerte brukarar.",
+      "noSuchAccount": "Fann ingen slik Twitch-konto",
+      "removeFailed": "Kan ikkje fjerne brukar frå ignoreringslista.",
+      "removeFailedReason": "Kan ikkje fjerne {label}: {reason}",
+      "removeLabel": "Fjern {label} frå ignoreringslista ({source, select, self {meldt seg av sjølv} other {dempa av deg}})"
+    },
+    "lookup": {
+      "button": "Finn røyst",
+      "calibrate": "Kalibrer \"{voice}\"",
+      "error": "Feil: {reason}",
+      "failed": "Kan ikkje slå opp den brukaren.",
+      "hasVoice": "Brukaren {user} har valt tilpassa røyst: {voice}",
+      "noVoice": "Brukaren {user} har ikkje valt noka tilpassa røyst.",
+      "searching": "Søkjer…",
+      "voiceUnknown": "Denne røysta er ikkje i lista over tilgjengelege røyster."
+    },
+    "obs": {
+      "cannotCopy": "Kan ikkje kopiere URL.",
+      "cannotDetermine": "Kan ikkje fastslå TTS-URL.",
+      "copied": "Kopiert til utklippstavla.",
+      "copiedButton": "Kopiert!",
+      "copyFailed": "Kopiering mislukkast.",
+      "generateFailed": "Kan ikkje generere OBS-URL. Prøv igjen.",
+      "generating": "Genererer…",
+      "generatingUrl": "Genererer sikker URL…",
+      "loadingUrl": "Lastar inn eksisterande URL…",
+      "pressRegenerate": "Klikk på «Regenerer URL» for å generere ein OBS Browser Source-URL.",
+      "refreshPage": "Kan ikkje generere URL. Last sida på nytt.",
+      "testModeUrl": "URL for testmodus",
+      "urlGenerated": "Genererte ein ny URL.",
+      "urlGeneratedTestMode": "Genererte ein ny URL (testmodus).",
+      "urlNotReady": "URL-en er ikkje tilgjengeleg enno.",
+      "yourUrl": "Din OBS Browser Source-URL"
+    },
+    "preview": {
+      "playingTestMode": "Spelar førehandsvising… (testmodus)",
+      "tooLong": "Teksten må vere 500 teikn eller mindre."
+    },
+    "pron": {
+      "acronymsDisabled": "Akronym er slått av",
+      "acronymsOffHint": "Slå på «Utvid chat-forkortingar» ovanfor for at desse innstillingane skal tre i kraft.",
+      "addFailed": "Kan ikkje leggje til uttale.",
+      "added": "La til uttale: {match} -> {say}.",
+      "addedTestMode": "[Test] La til uttale: {match} -> {say}.",
+      "builtinOff": " — innebygd slått av",
+      "empty": "Ingen tilpassa uttalar lagde til enno.",
+      "expansion": " → {say}",
+      "needBoth": "Skriv inn både ordet og uttalen.",
+      "removeFailed": "Kan ikkje fjerne uttale.",
+      "removed": "Fjerna uttale: {match}.",
+      "removedTestMode": "[Test] Fjerna uttale: {match}."
+    },
+    "setting": {
+      "allowViewerPreferences": "Tillat røysteval for sjåarar",
+      "announceQueuedRedeems": "Kunngjer innløysingar i kø",
+      "anonymizeFollowers": "Anonymiser følgjarar",
+      "bitsForTts": "Bits for TTS",
+      "botRespondsInChat": "Boten svarer i chatten",
+      "cheerAnnouncements": "Cheer-kunngjeringar",
+      "defaultEmotion": "Standardkjensle",
+      "defaultLanguage": "Standardspråk",
+      "defaultPitch": "Standard tonehøgd",
+      "defaultSpeed": "Standardfart",
+      "defaultVoice": "Standardrøyst",
+      "emoteMode": "Emote-modus",
+      "englishNormalization": "Engelsk normalisering",
+      "eventAnnouncements": "Henningskunngjeringar",
+      "expandAcronyms": "Utvid chat-forkortingar",
+      "minimumBits": "Minimum bits",
+      "profanityFilter": "Bannskapsfilter",
+      "readFullUrls": "Les heile URL-ar",
+      "redemptionAnnouncements": "Innløysingskunngjeringar",
+      "ttsEngine": "TTS-motor",
+      "ttsMode": "TTS-modus",
+      "ttsPermission": "TTS-løyve",
+      "voiceVolume": "Røystvolum",
+      "watchStreakAnnouncements": "Watch Streak-kunngjeringar",
+      "youtubeHandle": "YouTube-brukarnamn",
+      "youtubeTts": "YouTube TTS"
+    },
+    "settings": {
+      "loadFailed": "Kan ikkje laste innstillingane dine.",
+      "saveFailed": "{label}: {reason}",
+      "youtubeHandleRequired": "Skriv inn eit YouTube-brukarnamn før du slår på YouTube TTS."
+    }
+  },
+  "obsCloseBtn": {
+    "closeObsSetup": "Lukk OBS-oppsett"
+  },
+  "obsPopover": {
+    "addBrowserSource": "Legg til Browser Source",
+    "cautionANewUrlStops": "ÅTVARING: Ein ny URL stoppar den noverande OBS-kjelda di til du oppdaterer URL-en i OBS.",
+    "controlAudioViaObs": "Styr lyd via OBS",
+    "inObsAddANew": "I OBS legg du til ei ny <strong>Browser Source</strong>. Gje kjelda namnet \"Wildcat TTS\" og lim inn den kopierte URL-en. Du kan behalde standard breidd og høgd.",
+    "inTheObsAudioMixer": "Finn \"Wildcat TTS\" i OBS Audio Mixer. Klikk på tannhjulikonet og vel <strong>Advanced Audio Properties</strong>. Set Audio Monitoring til <strong>Monitor and Output</strong>.",
+    "monitorAndOutput": "Monitor og utgang",
+    "obsBrowserSource": "OBS Browser Source",
+    "selectControlAudioViaObs": "Vel <strong>Control audio via OBS</strong>. Pass på at <strong>Shutdown source when not visible</strong> ikkje er valt.",
+    "setupInstructions": "Instruksjonar for oppsett",
+    "yourBrowserSourceUrl": "URL for Browser Source"
+  },
+  "obsToggleBtn": {
+    "obsSetup": "OBS-oppsett"
+  },
+  "page": {
+    "channelDashboard": "Kontrollpanel for kanal",
+    "textToSpeechSettingsFor": "Tekst-til-tale-innstillingar for kanalen din. Endringar blir lagra etter kvart som du gjer dei.",
+    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Kontrollpanel</span>"
+  },
+  "profanityFilterEnabled": {
+    "profanityFilter": "Bannskapsfilter"
+  },
+  "pronunciationEnabled": {
+    "expandChatAcronyms": "Utvid chat-akronym"
+  },
+  "readFullUrls": {
+    "readFullUrls": "Les heile URL-ar"
+  },
+  "redemptionEventsEnabled": {
+    "announceRewardRedeems": "Kunngjer innløyste belønningar"
+  },
+  "regenerateTtsUrlBtn": {
+    "regenerateBrowserSourceUrl": "Regenerer Browser Source-URL",
+    "regenerateUrl": "Regenerer URL"
+  },
+  "removeBotBtn": {
+    "deactivateTtsService": "Deaktiver TTS-tenesta"
+  },
+  "resetPitchBtn": {
+    "reset": "Tilbakestill",
+    "resetDefaultPitchTo0": "Tilbakestill standard tonehøgd til 0"
+  },
+  "resetSpeedBtn": {
+    "reset": "Tilbakestill",
+    "resetDefaultSpeedTo1": "Tilbakestill standardfart til 1.0"
+  },
+  "resetVolumeBtn": {
+    "reset": "Tilbakestill",
+    "resetVoiceVolumeTo1": "Tilbakestill røystvolum til 1.0"
+  },
+  "saveSettingsBtn": {
+    "saveAllSettings": "Lagra alle innstillingar"
+  },
+  "serviceHeadline": {
+    "ttsService": "TTS-teneste"
+  },
+  "sidebarVoiceName": {
+    "friendlyPerson": "Venleg person"
+  },
+  "tabBroadcaster": {
+    "allowTheBotToRespond": "Lat boten svara på chat-kommandoar som !myvoice",
+    "allowViewerVoicePreferences": "Tillat røystval for sjåarar",
+    "allowViewersToUseChannel": "Lat sjåarar bruka Channel Points for TTS",
+    "announceCheers": "Kunngjer cheers",
+    "announceEvents": "Kunngjer hendingar",
+    "announceEventsSuchAsSubscriptions": "Kunngjer hendingar som abonnement og raids",
+    "announceQueuedRedeemsImmediately": "Kunngjer innløysingar i kø med ein gong",
+    "announceRewardRedeems": "Kunngjer innløyste belønningar",
+    "announceWatchStreaks": "Kunngjer sjåarrekker",
+    "announceWhenAViewerCheers": "Kunngjer når ein sjåar cheerar bits",
+    "announceWhenAViewerReaches": "Kunngjer når ein sjåar når ein milepåle for sjåarrekke",
+    "announceWhenAViewerRedeems": "Kunngjer når ein sjåar løyser inn ein Channel Points-belønning",
+    "anonymizeNewFollowers": "Gjer nye følgjarar anonyme",
+    "bannedWordsCommaSeparated": "Bannlyste ord (kommaseparerte)",
+    "bannedWordsPhrases": "<strong>Bannlyste ord / frasar</strong>",
+    "bitsTts": "Bits → TTS",
+    "blockLinks": "Blokker lenkjer",
+    "botRespondsInChat": "Bot svarar i chatten",
+    "channelPointsTts": "Channel Points → TTS",
+    "chooseWhichMessagesTriggerTts": "Vel kva meldingar som skal utløysa TTS",
+    "configureBitsRequirementsForText": "Konfigurer bits-krav for tekst-til-tale",
+    "configureChannelPointsRewardsFor": "Konfigurer Channel Points-belønningar for tekst-til-tale",
+    "configureTtsEngineSettingsAnd": "Konfigurer innstillingar og tilgangar for TTS-motor",
+    "controlHowTtsPronouncesSpecific": "Styr korleis TTS uttalar spesifikke ord. Vanlege Twitch-forkortingar blir handterte som standard. Legg til ei oppføring for å overstyra ein standarduttale eller leggja til eit nytt ord.",
+    "controlsHowTtsHandlesEmotes": "Styrer korleis TTS handterer emotar i chat-meldingar",
+    "cooldownsAndModeration": "Nedkjøling og moderering",
+    "costPoints": "Kostnad (poeng)",
+    "emoteMode": "<strong>Emote-modus</strong>",
+    "enableChannelPointsTts": "Slå på Channel Points TTS",
+    "enableCooldownsLimits": "Slå på nedkjølingar og grenser",
+    "engineMode": "Motor og modus",
+    "expandChatAcronyms": "Utvid forkortingar i chatten",
+    "globalCooldownSec": "Global nedkjøling (sek)",
+    "hideFollowerNamesInTts": "Gøym følgjarnamn i TTS-kunngjeringar for personvern",
+    "ifOnTtsReadsFull": "Viss på, les TTS heile URL-ar. Viss av, les TTS berre domenenamn",
+    "ifThisSettingIsOff": "Viss denne innstillinga er av, brukar TTS standardrøysta for kanalen på alle meldingar",
+    "ignoredUsers": "Ignorerte brukarar",
+    "manageUsersThatTtsIgnores": "Handter brukarar som TTS ignorerer",
+    "minimumBitsRequired": "<strong>Minstekrav til bits</strong>",
+    "minimumNumberOfBitsRequired": "Minstetal på bits som krevst for å utløyse TTS",
+    "perStreamLimit": "Grense per sending",
+    "perUserPerStream": "Per brukar per sending",
+    "profanityFilter": "Banneordfilter",
+    "pronunciationDictionary": "<strong>Uttaleordbok</strong>",
+    "readFullUrls": "Les heile URL-ar",
+    "readYoutubeLiveChatMessages": "Les YouTube-nettpratmeldingar med TTS. Denne funksjonen krev ei aktiv direktesending på YouTube.",
+    "readYoutubeLiveChatMessages2": "Les YouTube-nettpratmeldingar høgt",
+    "requireBitsForTts": "Krev bits for TTS",
+    "rewardTitle": "Belønningstittel",
+    "skipTheRewardQueue": "Hopp over belønningskøen",
+    "theTitleMustBeUnique": "Tittelen må vere unik for kanalen din.",
+    "ttsDoesNotReadMessages": "TTS les ikkje meldingar frå brukarar på denne lista.",
+    "ttsEngineEnabled": "TTS-motor aktivert",
+    "ttsExpandsCommonTwitchAcronyms": "TTS utvidar vanlege Twitch-forkortingar til heile ord. Til dømes vert «ngl» til «not gonna lie». Slå av for å stave kvar bokstav.",
+    "ttsIgnoreList": "<strong>TTS-ignoreringsliste</strong>",
+    "ttsMode": "<strong>TTS-modus</strong>",
+    "ttsPermission": "<strong>TTS-tilgang</strong>",
+    "ttsReplacesProfanityWithMilder": "TTS erstattar banneord med mildare ord før dei vert lesne opp. Filteret brukar språket til kanalen og språket til sjåaren. Viss språket er sett til Automatisk, brukar filteret den engelske lista. Bannlyste ord fører framleis til at heile meldinga vert hoppa over.",
+    "ttsSkipsMessagesThatContain": "TTS hoppar over meldingar som inneheld desse orda eller frasane.",
+    "turnOnOrTurnOff": "Slå på eller av tekst-til-tale-motoren",
+    "viewerPrompt": "Sjåarinstruks",
+    "viewersMustCheerBitsTo": "Sjåarar må cheere bits for å bruke tekst-til-tale",
+    "whoCanUseTextTo": "Kven som kan bruke tekst-til-tale",
+    "yourYoutubeChannelHandleFor": "YouTube-handtaket ditt (til dømes <code>@yourhandle</code>)",
+    "youtubeHandle": "<strong>YouTube-handtak</strong>",
+    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>YouTube-integrasjon",
+    "youtubeTtsEnabled": "YouTube-TTS aktivert"
+  },
+  "tabBtnBroadcaster": {
+    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Kringkastar"
+  },
+  "tabBtnViewerDefaults": {
+    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Standardrøyster"
+  },
+  "tabViewerDefaults": {
+    "adjustThePitchForThe": "Juster tonehøgda for standardrøysta",
+    "adjustTheVolumeForThe": "Juster lydstyrken for den valde røysta. ÅTVARING: Verdiar over 1,0 kan føre til forvrenging.",
+    "calibrateVolumeForSpecificVoices": "Kalibrer lydstyrken for einskilde røyster. ÅTVARING: Verdiar over 1,0 kan føre til forvrenging.",
+    "calibratedVoices": "<strong>Kalibrerte røyster</strong>",
+    "controlHowFastTheDefault": "Styr kor fort standardstemma snakkar",
+    "defaultEmotion": "<strong>Standardkjensle</strong>",
+    "defaultLanguage": "<strong>Standardspråk</strong>",
+    "defaultPitch12To12": "Standard tonehøgd (-12 til +12):",
+    "defaultSpeed05To": "Standardfart (0,5 til 2,0):",
+    "defaultVoice": "<strong>Standardstemme</strong>",
+    "defaultVoiceSettings": "Standard stemmeinnstillingar",
+    "englishNormalization": "Engelsk normalisering",
+    "improvePronunciationForSpecificLanguages": "Forbetre uttalen for bestemte språk",
+    "improveThePronunciationOfNumbers": "Forbetre uttalen av tal og tekst",
+    "selectTheDefaultTtsVoice": "Vel standard TTS-stemme for kanalen",
+    "selectVoice": "Vel stemme",
+    "setDefaultVoiceSettingsFor": "Set standard stemmeinnstillingar for kanalen din",
+    "setTheEmotionalToneOf": "Vel kjensletonen for standardstemma",
+    "viewerVoiceLookup": "Søk etter sjåarstemme",
+    "voiceCalibration": "Stemmekalibrering",
+    "voiceVolume01To": "Stemmevolum (0,1 til 10):",
+    "voicesWithCustomVolumeSettings": "Stemmer med tilpassa voluminnstillingar.",
+    "volumeOverride": "Volumoverstyring:"
+  },
+  "ttsBannedWordInput": {
+    "wordOrPhraseToBan": "Ord eller frase som skal blokkerast"
+  },
+  "ttsEnabled": {
+    "ttsEngineEnabled": "TTS-motor aktivert"
+  },
+  "ttsIgnoreUsername": {
+    "usernameToIgnore": "Brukarnamn som skal ignorerast"
+  },
+  "ttsMode": {
+    "allMessages": "Alle meldingar",
+    "bitsPointsOnly": "Berre bits/poeng",
+    "ttsCommandOnly": "Berre !tts-kommando"
+  },
+  "ttsPermission": {
+    "everyone": "Alle",
+    "moderatorsOnly": "Berre moderatorar",
+    "subscribersOnly": "Berre abonnentar",
+    "vipsOnly": "Berre VIP-ar"
+  },
+  "ttsPronunciationMatchInput": {
+    "wordForExampleWcat": "Ord (til dømes wcat)",
+    "wordToReplace": "Ord som skal erstattast"
+  },
+  "ttsPronunciationSayInput": {
+    "howToSayItFor": "Korleis det skal seiast (til dømes wildcat)",
+    "pronunciation": "Uttale"
+  },
+  "ttsUrlField": {
+    "yourBrowserSourceUrl": "Browser Source-URL-en din"
+  },
+  "twitchUsername": {
+    "loading": "lastar inn…"
+  },
+  "voiceTestBtn": {
+    "sendPreview": "Send prøve"
+  },
+  "watchStreakEventsEnabled": {
+    "announceWatchStreaks": "Annonser sjåarrekker"
+  },
+  "youtubeEnabled": {
+    "youtubeTtsEnabled": "YouTube TTS aktivert"
+  },
+  "youtubeHandle": {
+    "yourhandle": "@dittbrukarnamn"
+  }
+}

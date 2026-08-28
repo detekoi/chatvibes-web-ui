@@ -1,4 +1,5 @@
 import { showToast } from '../common/ui.js';
+import { apiErrorMessage, t } from '../common/i18n.js';
 import {
   normalizeIgnoreEntry,
   IGNORE_SOURCE_SELF,
@@ -75,8 +76,11 @@ export function initIgnoreListModule(
    */
   function readRenderedEntry(el: HTMLElement): StoredIgnoreValue {
     const label = el.querySelector<HTMLElement>('[data-ignore-label]')?.textContent || '';
-    const source = el.querySelector('.badge')?.textContent === 'Opted out' ?
-      IGNORE_SOURCE_SELF : IGNORE_SOURCE_MODERATOR;
+    // Read from the data attribute, never the badge's words: those are
+    // translated, so comparing them would resolve every locale but English to
+    // "moderator" and quietly make a viewer's own opt-out unremovable.
+    const source = el.querySelector<HTMLElement>('.badge')?.dataset.ignoreSource === IGNORE_SOURCE_SELF
+      ? IGNORE_SOURCE_SELF : IGNORE_SOURCE_MODERATOR;
     return { label, source, by: null, at: null };
   }
 
@@ -92,7 +96,10 @@ export function initIgnoreListModule(
     if (sorted.length === 0) {
       const li = document.createElement('li');
       li.className = 'list-group-item';
-      li.innerHTML = '<span class="text-muted fst-italic">No ignored users.</span>';
+      const empty = document.createElement('span');
+      empty.className = 'text-muted fst-italic';
+      empty.textContent = t('msg.ignore.empty');
+      li.appendChild(empty);
       listEl.appendChild(li);
       return;
     }
@@ -119,7 +126,8 @@ export function initIgnoreListModule(
 
       const sourceSpan = document.createElement('span');
       sourceSpan.className = `badge ms-2 ${isSelf ? 'text-bg-secondary' : 'text-bg-danger'}`;
-      sourceSpan.textContent = isSelf ? 'Opted out' : 'Muted by you';
+      sourceSpan.dataset.ignoreSource = source;
+      sourceSpan.textContent = isSelf ? t('msg.ignore.badgeSelf') : t('msg.ignore.badgeModerator');
       cell.appendChild(nameSpan);
       cell.appendChild(sourceSpan);
 
@@ -127,8 +135,8 @@ export function initIgnoreListModule(
       btn.className = 'btn btn-outline-danger btn-sm';
       btn.type = 'button';
       btn.setAttribute('aria-label',
-        `Remove ${label} from the ignore list (${isSelf ? 'opted out themselves' : 'muted by you'})`);
-      btn.textContent = 'Remove';
+        t('msg.ignore.removeLabel', { label, source: isSelf ? 'self' : 'moderator' }));
+      btn.textContent = t('msg.action.remove');
       btn.addEventListener('click', () => removeFromIgnoreList(type, key, label));
 
       li.appendChild(cell);
@@ -141,7 +149,7 @@ export function initIgnoreListModule(
     const inputEl = document.getElementById(`${type}-ignore-username`) as HTMLInputElement | null;
     const username = inputEl?.value?.trim();
     if (!inputEl || !username) {
-      showToast('Enter a username.', 'warning');
+      showToast(t('msg.ignore.enterUsername'), 'warning');
       return;
     }
 
@@ -168,7 +176,7 @@ export function initIgnoreListModule(
 
     const user = getLoggedInUser();
     if (!user?.login) {
-      showToast('You are not signed in.', 'error');
+      showToast(t('msg.auth.signedOut'), 'error');
       return;
     }
 
@@ -183,15 +191,17 @@ export function initIgnoreListModule(
         inputEl.value = '';
         onChangeCallback?.();
       } else {
-        const errorData = await response.json().catch(() => ({ error: 'Unknown error' })) as IgnoreListErrorResponse;
+        const errorData = await response.json().catch(() => ({})) as IgnoreListErrorResponse;
         // A 404 means the name resolved to no Twitch account, and the message
         // already says so — prefixing it would read as a server failure.
-        showToast(response.status === 404 ? (errorData.error || 'No such Twitch account') :
-          `Cannot add user: ${errorData.error}`, 'error');
+        showToast(response.status === 404
+          ? apiErrorMessage(errorData, 'msg.ignore.noSuchAccount')
+          : t('msg.ignore.addFailedReason', { reason: apiErrorMessage(errorData, 'msg.ignore.addFailed') }),
+        'error');
       }
     } catch (error) {
       console.error(`Failed to add user to ${type} ignore list:`, error);
-      showToast('Cannot add user to ignore list.', 'error');
+      showToast(t('msg.ignore.addFailed'), 'error');
     }
   }
 
@@ -212,7 +222,7 @@ export function initIgnoreListModule(
 
     const user = getLoggedInUser();
     if (!user?.login) {
-      showToast('You are not signed in.', 'error');
+      showToast(t('msg.auth.signedOut'), 'error');
       return;
     }
 
@@ -226,12 +236,12 @@ export function initIgnoreListModule(
       if (response.ok) {
         onChangeCallback?.();
       } else {
-        const errorData = await response.json().catch(() => ({ error: 'Unknown error' })) as IgnoreListErrorResponse;
-        showToast(`Cannot remove ${label}: ${errorData.error}`, 'error');
+        const errorData = await response.json().catch(() => ({})) as IgnoreListErrorResponse;
+        showToast(t('msg.ignore.removeFailedReason', { label, reason: apiErrorMessage(errorData, 'msg.ignore.removeFailed') }), 'error');
       }
     } catch (error) {
       console.error(`Failed to remove ${label} from ${type} ignore list:`, error);
-      showToast('Cannot remove user from ignore list.', 'error');
+      showToast(t('msg.ignore.removeFailed'), 'error');
     }
   }
 

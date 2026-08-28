@@ -1,0 +1,11 @@
+{
+  "mainContent": {
+    "pageNotFound": "搵唔到頁面",
+    "returnToLogin": "返回登入",
+    "thatUrlIsNotPart": "呢個 URL 唔屬於呢個網站。請確認網址正確，或者返去登入頁面。"
+  },
+  "meta": {
+    "pageNotFoundOnWildcattts": "喺 WildcatTTS 搵唔到呢個頁面。",
+    "pageNotFoundWildcattts": "搵唔到頁面 — WildcatTTS"
+  }
+}

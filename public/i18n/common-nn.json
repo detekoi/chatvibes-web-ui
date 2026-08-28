@@ -1,0 +1,166 @@
+{
+  "darkModeToggle": {
+    "toggleDarkMode": "Slå av/på mørk modus"
+  },
+  "err": {
+    "banned_add_failed": "Kan ikkje leggje til det ordet i lista over forbodne ord.",
+    "banned_remove_failed": "Kan ikkje fjerne det ordet frå lista over forbodne ord.",
+    "bot_add_failed": "Kan ikkje aktivere boten på kanalen din. Prøv igjen.",
+    "bot_remove_failed": "Kan ikkje deaktivere boten på kanalen din. Prøv igjen.",
+    "bot_status_failed": "Kan ikkje laste bot-statusen.",
+    "channel_data_not_found": "Fann inga innstillingar for den kanalen.",
+    "channel_not_authorized": "Kanalen din har ikkje tilgang til å bruke denne boten. Ta kontakt for å få tilgang.",
+    "channel_not_found": "Fann ikkje den kanalen.",
+    "channel_required": "Ein kanal er påkravd.",
+    "channel_tts_disabled": "Fann ikkje den kanalen, eller så er ikkje TTS slått på.",
+    "entry_key_required": "Ein oppføringsnøkkel er påkravd.",
+    "exchange_code_invalid": "Innloggingslenkja manglar eller er ugyldig.",
+    "exchange_code_used": "Innloggingslenkja er allereie brukt eller har gått ut. Logg inn på nytt.",
+    "exchange_failed": "Klarte ikkje å fullføre innlogginga. Prøv igjen.",
+    "ignore_add_failed": "Kan ikkje leggje til den brukaren i ignoreringslista.",
+    "ignore_moderator_imposed": "Ein kanalmoderator har meldt deg av TTS her, så berre ein moderator kan gjere om på det.",
+    "ignore_remove_failed": "Kan ikkje fjerne den brukaren frå ignoreringslista.",
+    "ignore_update_failed": "Kan ikkje endre avmeldingsinnstillinga di.",
+    "key_required": "Eit innstillingsnamn er påkravd.",
+    "match_key_invalid": "Ordet må vere på 1 til {max} teikn med bokstavar, tal, apostrofar eller bindestrekar, og kan ikkje innehalde punktum.",
+    "network_error": "Får ikkje kontakt med tenaren. Sjekk tilkoplinga di.",
+    "obs_token_fetch_failed": "Kan ikkje laste OBS-tokenet.",
+    "obs_token_generate_failed": "Kan ikkje generere eit nytt OBS-token.",
+    "obs_token_store_failed": "Kan ikkje lagre OBS-tokenet. Prøv igjen.",
+    "prefs_fetch_failed": "Kan ikkje laste innstillingane dine.",
+    "prefs_global_fetch_failed": "Kan ikkje laste dei globale innstillingane dine.",
+    "prefs_global_update_failed": "Kan ikkje lagre dei globale innstillingane dine.",
+    "prefs_invalid_emote_mode": "Emote-handsaming må vere les, hopp over eller skildre.",
+    "prefs_invalid_emotion": "Det er ikkje ei gyldig kjensle.",
+    "prefs_invalid_language": "Det er ikkje eit gyldig språk.",
+    "prefs_invalid_pitch": "Det er ikkje ei gyldig tonehøgd.",
+    "prefs_invalid_speed": "Det er ikkje ein gyldig fart.",
+    "prefs_invalid_voice": "Det er ikkje ei gyldig stemme.",
+    "prefs_missing_data": "Ingen endringar vart sende.",
+    "prefs_update_failed": "Kan ikkje lagre innstillingane dine.",
+    "pronunciation_limit_reached": "Du har nådd grensa på {max} eigendefinerte uttalar. Fjern ein først.",
+    "pronunciation_remove_failed": "Kan ikkje fjerne uttalen.",
+    "pronunciation_save_failed": "Kan ikkje lagre uttalen.",
+    "reward_banned_word": "Meldinga inneheld eit forbode ord: \"{word}\".",
+    "reward_create_failed": "Kan ikkje opprette Channel Points-belønninga.",
+    "reward_delete_failed": "Kan ikkje slette Channel Points-belønninga.",
+    "reward_links_blocked": "Lenkjer er ikkje tillatne i denne belønninga.",
+    "reward_load_failed": "Kan ikkje laste Channel Points-belønninga.",
+    "reward_message_empty": "Meldinga er tom.",
+    "reward_save_failed": "Kan ikkje lagre Channel Points-belønninga.",
+    "reward_test_failed": "Kan ikkje teste Channel Points-belønninga.",
+    "reward_twitch_error": "Twitch avviste endringa av belønninga.",
+    "reward_validation_failed": "Den meldinga er ikkje tillaten.",
+    "say_contains_link": "Uttalen kan ikkje innehalde ei lenkje.",
+    "say_empty": "Uttalen kan ikkje vere tom.",
+    "say_must_be_text": "Uttalen må vere tekst.",
+    "say_too_long": "Uttalen må vere {max} teikn eller færre.",
+    "server_misconfigured": "Tenaren er feilkonfigurert.",
+    "setting_invalid": "Det er ikkje ein gyldig verdi for {key}.",
+    "setting_update_failed": "Kan ikkje oppdatere TTS-innstillinga.",
+    "settings_fetch_failed": "Kan ikkje laste inn TTS-innstillingar.",
+    "shortlink_failed": "Kan ikkje opprette kortlenkja.",
+    "storage_unavailable": "Lagring er utilgjengeleg.",
+    "tts_generation_failed": "Generering av tale mislukkast: {reason}",
+    "tts_no_audio": "Taleleverandøren returnerte ingen lyd.",
+    "tts_not_configured": "Ingen taleleverandør er konfigurert.",
+    "tts_provider_failed": "Taleleverandøren kunne ikkje generere lyd.",
+    "tts_test_failed": "Taletesten mislukkast.",
+    "tts_text_required": "Skriv inn noko tekst for å teste.",
+    "twitch_reauth_required": "Twitch-innlogginga di har gått ut. Kople til kontoen din på nytt.",
+    "twitch_user_not_found": "Det finst ingen Twitch-konto med namnet «{username}».",
+    "url_required": "Ein URL er påkravd.",
+    "username_invalid": "Brukarnamnet er ikkje gyldig.",
+    "username_required": "Eit brukarnamn er påkravd.",
+    "voice_access_denied": "Stemma \"{voice}\" krev spesiell tilgang. Prøv ei anna stemme.",
+    "voice_invalid": "Stemma \"{voice}\" er ikkje tilgjengeleg. Sjekk stemma og prøv på nytt.",
+    "voice_lookup_failed": "Kan ikkje slå opp stemma til den brukaren.",
+    "word_invalid": "Det ordet eller uttrykket er ikkje gyldig.",
+    "word_required": "Eit ord eller uttrykk er påkravd."
+  },
+  "logoutLink": {
+    "logout": "Logg ut"
+  },
+  "mainContent": {
+    "documentationTtsWildcatChat": "<a class=\"wc-link\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\">Dokumentasjon</a> <span>tts.wildcat.chat</span>"
+  },
+  "msg": {
+    "action": {
+      "close": "Lukk",
+      "remove": "Fjern",
+      "saved": "Lagra"
+    },
+    "api": {
+      "authFailed": "Autentisering mislukkast. Logg inn på nytt.",
+      "notAuthenticated": "Du er ikkje logga inn.",
+      "requestFailed": "Førespurnaden mislukkast."
+    },
+    "auth": {
+      "genericUser": "Brukar",
+      "loading": "lastar inn…",
+      "needViewerSignIn": "Stadfest Twitch-kontoen din for å få tilgang til sjåarinnstillingar.",
+      "redirecting": "Omdirigerer til Twitch for autentisering…",
+      "required": "Autentisering er påkravd.",
+      "signInFailed": "Kan ikkje fullføre innlogging.",
+      "signInWithTwitch": "Logg inn med Twitch",
+      "signedOut": "Du er ikkje logga inn.",
+      "tokenMissing": "Autentiseringstoken manglar. Logg inn på nytt."
+    },
+    "emotion": {
+      "angry": "Sint",
+      "auto": "Auto",
+      "calm": "Roleg",
+      "disgusted": "Fråstøytt",
+      "fearful": "Redd",
+      "fluent": "Flytande",
+      "happy": "Glad",
+      "neutral": "Nøytral",
+      "sad": "Trist",
+      "surprised": "Overraska"
+    },
+    "ignore": {
+      "enterUsername": "Skriv inn eit brukarnamn."
+    },
+    "lang": {
+      "automatic": "Automatisk"
+    },
+    "prefs": {
+      "useChannelDefault": "Bruk standard for kanalen"
+    },
+    "preview": {
+      "enterText": "Skriv inn tekst for å teste.",
+      "unavailable": "Inga førehandsvising tilgjengeleg."
+    },
+    "value": {
+      "off": "Av",
+      "on": "På"
+    },
+    "voice": {
+      "cannotPlay": "Kan ikkje spela av lydprøve.",
+      "generating": "Genererer…",
+      "noAudio": "Tenaren returnerte ingen lyd.",
+      "noneFound": "Fann ingen røyster.",
+      "preview": "Prøvehøyr {voice}",
+      "regenerate": "Generer på nytt",
+      "testFailed": "Testen feila: {reason}"
+    }
+  },
+  "page": {
+    "skipToMainContent": "Hopp til hovudinnhaldet"
+  },
+  "sidebarEngNormVal": {
+    "off": "Av"
+  },
+  "sidebarLanguageVal": {
+    "automatic": "Automatisk"
+  },
+  "ui": {
+    "language": "Språk"
+  },
+  "voicePreviewHint": {
+    "settingsChangedGenerateANew": "<i><i data-lucide=\"triangle-alert\" class=\"inline-icon\"></i> Innstillingane er endra. Generer ei ny førehandshøyring.</i>"
+  },
+  "voicePreviewPlayer": {
+    "yourBrowserDoesNotSupport": "Nettlesaren din støttar ikkje lydelementet."
+  }
+}

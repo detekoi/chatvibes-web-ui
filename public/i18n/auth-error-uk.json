@@ -1,0 +1,41 @@
+{
+  "errorAction": {
+    "tryAgain": "Спробувати знову"
+  },
+  "errorCode": {
+    "unknown": "невідомо"
+  },
+  "errorCodeBlock": {
+    "error": "Помилка"
+  },
+  "errorMessageDetails": {
+    "twitchAuthenticationFailed": "Помилка автентифікації Twitch."
+  },
+  "errorReadout": {
+    "authenticationFailed": "Помилка автентифікації"
+  },
+  "errorTitle": {
+    "authenticationFailed": "Помилка автентифікації"
+  },
+  "mainContent": {
+    "requestAccessTtsWildcatChat": "<a class=\"wc-link\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">Запросити доступ</a> <span>tts.wildcat.chat</span>"
+  },
+  "meta": {
+    "wildcatttsAuthenticationError": "WildcatTTS — Помилка автентифікації",
+    "wildcatttsAuthenticationErrorAndSign": "Помилка автентифікації WildcatTTS та відновлення входу."
+  },
+  "msg": {
+    "authError": {
+      "backToSignIn": "Назад до входу",
+      "canceledBody": "Жодних змін не відбулося. Ви можете ввійти, коли будете готові.",
+      "canceledReadout": "Скасовано",
+      "canceledTitle": "WildcatTTS - Вхід скасовано",
+      "canceledTitleShort": "Вхід скасовано",
+      "notPermitted": "Доступ заборонено",
+      "requestAccess": "Запитати доступ",
+      "twitchError": "Twitch повернув помилку під час автентифікації.",
+      "unspecified": "Сталася невизначена помилка.",
+      "unspecifiedCode": "невизначено"
+    }
+  }
+}

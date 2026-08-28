@@ -1,0 +1,500 @@
+{
+  "addBotBtn": {
+    "activateTtsService": "เปิดใช้งานบริการ TTS"
+  },
+  "addTtsBannedWordBtn": {
+    "add": "เพิ่ม"
+  },
+  "addTtsIgnoreBtn": {
+    "add": "เพิ่ม"
+  },
+  "addTtsPronunciationBtn": {
+    "add": "เพิ่ม"
+  },
+  "allowViewerPreferences": {
+    "allowViewerVoicePreferences": "อนุญาตให้ผู้ชมเลือกการตั้งค่าเสียงได้"
+  },
+  "announceUnfulfilledRedemptions": {
+    "announceQueuedRedeemsImmediately": "ประกาศรายการแลกที่อยู่ในคิวทันที"
+  },
+  "announceUnfulfilledRedemptionsHelp": {
+    "aRewardThatDoesNot": "รางวัลที่ไม่ข้ามคิวคำขอรางวัลจะถูกประกาศทันทีที่มีการแลก แม้ว่าคุณจะปฏิเสธคำขอในภายหลังก็ตาม ปิดการตั้งค่านี้เพื่อระงับการประกาศไว้จนกว่าคุณจะยอมรับคำขอ — รางวัลที่คุณไม่เคยกดยอมรับจะไม่ถูกประกาศ"
+  },
+  "anonymizeFollowers": {
+    "anonymizeNewFollowers": "ปิดบังชื่อผู้ติดตามใหม่"
+  },
+  "bitsEnabled": {
+    "requireBitsForTts": "ต้องใช้ Bits เพื่อใช้ TTS"
+  },
+  "botRespondsInChat": {
+    "botRespondsInChat": "บอทตอบกลับในแชท"
+  },
+  "botStatus": {
+    "loading": "กำลังโหลด…"
+  },
+  "calibratedVoicesList": {
+    "noVoicesCalibratedYet": "ยังไม่มีเสียงที่ปรับเทียบ"
+  },
+  "calibrationSaveBtn": {
+    "save": "บันทึก"
+  },
+  "calibrationVoiceSearch": {
+    "searchVoicesToCalibrate": "ค้นหาเสียงที่ต้องการปรับเทียบ..."
+  },
+  "channelNameStatus": {
+    "yourChannel": "ช่องของคุณ"
+  },
+  "cheerEventsEnabled": {
+    "announceCheers": "ประกาศ Cheer"
+  },
+  "copyTtsUrlBtn": {
+    "copy": "คัดลอก",
+    "copyBrowserSourceUrl": "คัดลอก URL ของ Browser Source"
+  },
+  "cpDelete": {
+    "disableDelete": "ปิดใช้งานและลบ"
+  },
+  "cpEnabled": {
+    "enableChannelPointsTts": "เปิดใช้งาน Channel Points TTS"
+  },
+  "cpPerStream": {
+    "enterAmount": "ระบุจำนวน"
+  },
+  "cpPerUser": {
+    "enterAmount": "ระบุจำนวน"
+  },
+  "cpSave": {
+    "save": "บันทึก"
+  },
+  "cpTest": {
+    "testRedeem": "ทดสอบการแลกรางวัล"
+  },
+  "dashboardContent": {
+    "channel": "ช่อง",
+    "channelService": "บริการของช่อง",
+    "dashboardConfigurationTabs": "แท็บการกำหนดค่าแดชบอร์ด",
+    "deactivationStopsTheBotFrom": "การปิดใช้งานจะหยุดบอทไม่ให้อ่านข้อความในแชท การตั้งค่าของคุณจะยังคงได้รับการบันทึกไว้ คุณสามารถเปิดใช้งานบริการได้อีกครั้งทุกเมื่อ",
+    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>เอกสารคู่มือ </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>การตั้งค่าผู้ชม </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "อารมณ์",
+    "engNormalization": "การปรับมาตรฐานภาษาอังกฤษ",
+    "language": "ภาษา",
+    "pitch": "ระดับเสียง",
+    "quickLinks": "ลิงก์ด่วน",
+    "service": "บริการ",
+    "signedInAs": "ลงชื่อเข้าใช้ในชื่อ",
+    "speed": "ความเร็ว",
+    "testMessage": "ข้อความทดสอบ",
+    "voicePreview": "ตัวอย่างเสียง",
+    "volume": "ระดับเสียง"
+  },
+  "defaultEmotion": {
+    "angry": "โกรธ",
+    "disgusted": "รังเกียจ",
+    "fearful": "กลัว",
+    "happy": "มีความสุข",
+    "neutral": "เป็นกลาง",
+    "sad": "เศร้า",
+    "surprised": "ประหลาดใจ"
+  },
+  "defaultPitch": {
+    "defaultPitch12To12": "ระดับเสียงสูงต่ำเริ่มต้น (-12 ถึง +12)"
+  },
+  "defaultSpeed": {
+    "defaultSpeed05To": "ความเร็วเริ่มต้น (0.5 ถึง 2.0)"
+  },
+  "defaultVoiceSearch": {
+    "searchDefaultVoices": "ค้นหาเสียงเริ่มต้น",
+    "searchVoices": "ค้นหาเสียง..."
+  },
+  "defaultVolume": {
+    "voiceVolume01To": "ระดับเสียง (0.1 ถึง 10)"
+  },
+  "emoteMode": {
+    "describeEmotes": "อธิบายอีโมต",
+    "readEmoteNames": "อ่านชื่ออิโมต",
+    "skipEmotes": "ข้ามอิโมต"
+  },
+  "englishNormalization": {
+    "englishNormalization": "การปรับมาตรฐานภาษาอังกฤษ"
+  },
+  "eventsEnabled": {
+    "announceEvents": "ประกาศกิจกรรม"
+  },
+  "loadingBar": {
+    "loadingDashboardSettings": "กำลังโหลดการตั้งค่าแดชบอร์ด"
+  },
+  "loadingOverlay": {
+    "loadingDashboardSettings": "กำลังโหลดการตั้งค่าแดชบอร์ด…"
+  },
+  "lookupUsername": {
+    "enterTwitchViewerUsername": "ป้อนชื่อผู้ใช้ Twitch ของผู้ชม"
+  },
+  "lookupVoiceBtn": {
+    "lookupVoice": "ค้นหาเสียง"
+  },
+  "meta": {
+    "wildcatttsDashboard": "แดชบอร์ด WildcatTTS",
+    "wildcatttsStreamerDashboardConfigureText": "แดชบอร์ดสตรีมเมอร์ WildcatTTS - กำหนดการตั้งค่า text-to-speech สิทธิ์ การตอบกลับของบ็อต และ Channel Points"
+  },
+  "msg": {
+    "auth": {
+      "demoStreamer": "สตรีมเมอร์ตัวอย่าง",
+      "needBroadcaster": "ลงชื่อเข้าใช้ด้วยบัญชีผู้ถ่ายทอดสดของคุณเพื่อเข้าถึงการตั้งค่าสตรีมเมอร์",
+      "needSignIn": "ลงชื่อเข้าใช้ด้วยบัญชี Twitch ของคุณเพื่อเข้าถึงแดชบอร์ด"
+    },
+    "bannedWords": {
+      "addFailed": "ไม่สามารถเพิ่มคำที่ถูกแบนได้",
+      "added": "เพิ่ม \"{word}\" ไปยังคำที่ถูกแบนแล้ว",
+      "addedTestMode": "[ทดสอบ] เพิ่มคำที่ถูกแบนแล้ว: {word}",
+      "empty": "ยังไม่มีคำที่ถูกแบน",
+      "removeFailed": "ไม่สามารถลบคำที่ถูกแบนได้",
+      "removed": "ลบ \"{word}\" ออกจากคำที่ถูกแบนแล้ว",
+      "removedTestMode": "[ทดสอบ] ลบคำที่ถูกแบนแล้ว: {word}"
+    },
+    "bot": {
+      "activateFailed": "ไม่สามารถเปิดใช้งานบริการ TTS ได้",
+      "activated": "เปิดใช้งานบริการ TTS แล้ว",
+      "activatedTestMode": "เปิดใช้งานบริการ TTS แล้ว (โหมดทดสอบ)",
+      "activating": "กำลังเปิดใช้งานบริการ TTS…",
+      "active": "ใช้งานอยู่",
+      "deactivateFailed": "ไม่สามารถปิดใช้งานบริการ TTS ได้",
+      "deactivated": "ปิดใช้งานบริการ TTS แล้ว",
+      "deactivatedTestMode": "ปิดใช้งานบริการ TTS แล้ว (โหมดทดสอบ)",
+      "deactivating": "กำลังปิดใช้งานบริการ TTS…",
+      "inactive": "ไม่ได้ใช้งาน",
+      "notAuthenticated": "ไม่ได้ยืนยันตัวตน",
+      "requestAccess": "ขอสิทธิ์เข้าถึงที่นี่",
+      "statusError": "ข้อผิดพลาด",
+      "statusFailed": "ข้อผิดพลาด: {reason}",
+      "statusLoadFailed": "ไม่สามารถโหลดสถานะบ็อตได้: {reason}",
+      "unknownError": "ข้อผิดพลาดที่ไม่รู้จัก"
+    },
+    "calibration": {
+      "confirmReset": "รีเซ็ตการปรับเทียบสำหรับ {voice} หรือไม่?",
+      "edit": "แก้ไข",
+      "empty": "ยังไม่มีเสียงที่ปรับเทียบ",
+      "reset": "รีเซ็ต",
+      "row": "{voice} ({volume})"
+    },
+    "cp": {
+      "confirmDelete": "ลบรางวัล TTS ของ Channel Points หรือไม่?",
+      "deleteFailed": "การลบล้มเหลว",
+      "deleted": "ลบรางวัลแล้ว",
+      "deletedTestMode": "ลบรางวัลแล้ว (โหมดทดสอบ)",
+      "deleting": "กำลังลบ…",
+      "lastSynced": "{reward} · ซิงค์ล่าสุด: {time}",
+      "never": "ไม่เคย",
+      "noReward": "ยังไม่ได้สร้างรางวัล",
+      "noRewardTestMode": "ยังไม่ได้สร้างรางวัล (โหมดทดสอบ)",
+      "rewardId": "ID รางวัล: {id}",
+      "saveFailed": "ไม่สามารถบันทึกการตั้งค่า Channel Points ได้",
+      "saved": "บันทึกการตั้งค่า Channel Points แล้ว",
+      "savedTestMode": "บันทึกการตั้งค่า Channel Points แล้ว (โหมดทดสอบ)",
+      "saving": "กำลังบันทึกการตั้งค่า Channel Points…",
+      "testCompleted": "ทดสอบเสร็จสมบูรณ์ ({status})",
+      "testCompletedTestMode": "ทดสอบเสร็จสมบูรณ์ (โหมดทดสอบ)",
+      "testFailed": "การทดสอบล้มเหลว",
+      "testPrompt": "ป้อนข้อความทดสอบเพื่อจำลองการแลกรางวัล:",
+      "testing": "กำลังทดสอบการแลกรางวัล…"
+    },
+    "ignore": {
+      "addFailed": "ไม่สามารถเพิ่มผู้ใช้ลงในรายการเพิกเฉยได้",
+      "addFailedReason": "ไม่สามารถเพิ่มผู้ใช้ได้: {reason}",
+      "badgeModerator": "คุณปิดเสียงไว้",
+      "badgeSelf": "ขอไม่เข้าร่วม",
+      "empty": "ไม่มีผู้ใช้ที่ถูกเพิกเฉย",
+      "noSuchAccount": "ไม่พบบัญชี Twitch นี้",
+      "removeFailed": "ไม่สามารถลบผู้ใช้ออกจากรายการเพิกเฉยได้",
+      "removeFailedReason": "ไม่สามารถลบ {label} ได้: {reason}",
+      "removeLabel": "ลบ {label} ออกจากรายการเพิกเฉย ({source, select, self {ขอไม่เข้าร่วมเอง} other {คุณปิดเสียงไว้}})"
+    },
+    "lookup": {
+      "button": "ค้นหาเสียง",
+      "calibrate": "ปรับเทียบ \"{voice}\"",
+      "error": "ข้อผิดพลาด: {reason}",
+      "failed": "ไม่สามารถค้นหาผู้ใช้นั้นได้",
+      "hasVoice": "ผู้ใช้ {user} ตั้งค่าเสียงกำหนดเอง: {voice}",
+      "noVoice": "ผู้ใช้ {user} ไม่ได้ตั้งค่าเสียงกำหนดเอง",
+      "searching": "กำลังค้นหา…",
+      "voiceUnknown": "ไม่มีเสียงนี้ในรายการเสียงที่ใช้ได้"
+    },
+    "obs": {
+      "cannotCopy": "ไม่สามารถคัดลอก URL ได้",
+      "cannotDetermine": "ไม่สามารถระบุ TTS URL ได้",
+      "copied": "คัดลอกไปยังคลิปบอร์ดแล้ว",
+      "copiedButton": "คัดลอกแล้ว!",
+      "copyFailed": "คัดลอกไม่สำเร็จ",
+      "generateFailed": "สร้าง URL สำหรับ OBS ไม่สำเร็จ โปรดลองอีกครั้ง",
+      "generating": "กำลังสร้าง…",
+      "generatingUrl": "กำลังสร้าง URL ที่ปลอดภัย…",
+      "loadingUrl": "กำลังโหลด URL ที่มีอยู่…",
+      "pressRegenerate": "คลิก \"สร้าง URL ใหม่\" เพื่อสร้าง URL สำหรับ OBS Browser Source",
+      "refreshPage": "ไม่สามารถสร้าง URL ได้ โปรดรีเฟรชหน้าเว็บ",
+      "testModeUrl": "URL โหมดทดสอบ",
+      "urlGenerated": "สร้าง URL ใหม่แล้ว",
+      "urlGeneratedTestMode": "สร้าง URL ใหม่แล้ว (โหมดทดสอบ)",
+      "urlNotReady": "URL ยังไม่พร้อมใช้งาน",
+      "yourUrl": "URL สำหรับ OBS Browser Source ของคุณ"
+    },
+    "preview": {
+      "playingTestMode": "กำลังเล่นตัวอย่าง… (โหมดทดสอบ)",
+      "tooLong": "ข้อความต้องมีความยาวไม่เกิน 500 ตัวอักษร"
+    },
+    "pron": {
+      "acronymsDisabled": "ปิดใช้งานคำย่อแล้ว",
+      "acronymsOffHint": "เปิด \"ขยายคำย่อในแชท\" ด้านบนเพื่อให้การตั้งค่าเหล่านี้มีผล",
+      "addFailed": "ไม่สามารถเพิ่มการออกเสียงได้",
+      "added": "เพิ่มการออกเสียงแล้ว: {match} -> {say}",
+      "addedTestMode": "[ทดสอบ] เพิ่มการออกเสียงแล้ว: {match} -> {say}",
+      "builtinOff": " — ปิดแบบในตัวแล้ว",
+      "empty": "ยังไม่ได้เพิ่มการออกเสียงที่กำหนดเอง",
+      "expansion": " → {say}",
+      "needBoth": "โปรดป้อนทั้งคำและการออกเสียง",
+      "removeFailed": "ไม่สามารถลบการออกเสียงได้",
+      "removed": "ลบการออกเสียงแล้ว: {match}",
+      "removedTestMode": "[ทดสอบ] ลบการออกเสียงแล้ว: {match}"
+    },
+    "setting": {
+      "allowViewerPreferences": "อนุญาตการตั้งค่าเสียงของผู้ชม",
+      "announceQueuedRedeems": "ประกาศรายการแลกรับในคิว",
+      "anonymizeFollowers": "ซ่อนชื่อผู้ติดตาม",
+      "bitsForTts": "Bits สำหรับ TTS",
+      "botRespondsInChat": "บอทตอบกลับในแชท",
+      "cheerAnnouncements": "การประกาศ Cheer",
+      "defaultEmotion": "อารมณ์เริ่มต้น",
+      "defaultLanguage": "ภาษาเริ่มต้น",
+      "defaultPitch": "ระดับเสียงเริ่มต้น",
+      "defaultSpeed": "ความเร็วเริ่มต้น",
+      "defaultVoice": "เสียงเริ่มต้น",
+      "emoteMode": "โหมดอีโมต",
+      "englishNormalization": "การปรับมาตรฐานภาษาอังกฤษ",
+      "eventAnnouncements": "การประกาศกิจกรรม",
+      "expandAcronyms": "ขยายคำย่อในแชท",
+      "minimumBits": "Bits ขั้นต่ำ",
+      "profanityFilter": "ตัวกรองคำหยาบคาย",
+      "readFullUrls": "อ่าน URL แบบเต็ม",
+      "redemptionAnnouncements": "การประกาศการแลกรับ",
+      "ttsEngine": "TTS Engine",
+      "ttsMode": "โหมด TTS",
+      "ttsPermission": "สิทธิ์การใช้งาน TTS",
+      "voiceVolume": "ระดับเสียงพูด",
+      "watchStreakAnnouncements": "การประกาศ Watch Streak",
+      "youtubeHandle": "แฮนเดิล YouTube",
+      "youtubeTts": "YouTube TTS"
+    },
+    "settings": {
+      "loadFailed": "ไม่สามารถโหลดการตั้งค่าของคุณได้",
+      "saveFailed": "{label}: {reason}",
+      "youtubeHandleRequired": "โปรดป้อนแฮนเดิล YouTube ก่อนเปิดใช้งาน YouTube TTS"
+    }
+  },
+  "obsCloseBtn": {
+    "closeObsSetup": "ปิดการตั้งค่า OBS"
+  },
+  "obsPopover": {
+    "addBrowserSource": "เพิ่ม Browser Source",
+    "cautionANewUrlStops": "ข้อควรระวัง: URL ใหม่จะทำให้แหล่งข้อมูล OBS ปัจจุบันหยุดทำงานจนกว่าคุณจะอัปเดต URL ใน OBS",
+    "controlAudioViaObs": "ควบคุมเสียงผ่าน OBS",
+    "inObsAddANew": "ใน OBS ให้เพิ่ม <strong>Browser Source</strong> ใหม่ ตั้งชื่อแหล่งข้อมูลว่า \"Wildcat TTS\" แล้ววาง URL ที่คัดลอกมา คุณสามารถใช้ความกว้างและความสูงตามค่าเริ่มต้นได้",
+    "inTheObsAudioMixer": "ใน OBS Audio Mixer ให้หา \"Wildcat TTS\" คลิกไอคอนรูปเฟืองแล้วเลือก <strong>Advanced Audio Properties</strong> จากนั้นตั้งค่า Audio Monitoring เป็น <strong>Monitor and Output</strong>",
+    "monitorAndOutput": "มอนิเตอร์และส่งออก",
+    "obsBrowserSource": "OBS Browser Source",
+    "selectControlAudioViaObs": "เลือก <strong>Control audio via OBS</strong> และตรวจสอบให้แน่ใจว่าไม่ได้เลือก <strong>Shutdown source when not visible</strong>",
+    "setupInstructions": "คำแนะนำในการตั้งค่า",
+    "yourBrowserSourceUrl": "URL ของ Browser Source ของคุณ"
+  },
+  "obsToggleBtn": {
+    "obsSetup": "ตั้งค่า OBS"
+  },
+  "page": {
+    "channelDashboard": "แดชบอร์ดช่อง",
+    "textToSpeechSettingsFor": "การตั้งค่า Text-to-speech สำหรับช่องของคุณ การเปลี่ยนแปลงจะถูกบันทึกโดยอัตโนมัติ",
+    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">แดชบอร์ด</span>"
+  },
+  "profanityFilterEnabled": {
+    "profanityFilter": "ตัวกรองคำหยาบคาย"
+  },
+  "pronunciationEnabled": {
+    "expandChatAcronyms": "ขยายคำย่อในแชท"
+  },
+  "readFullUrls": {
+    "readFullUrls": "อ่าน URL แบบเต็ม"
+  },
+  "redemptionEventsEnabled": {
+    "announceRewardRedeems": "ประกาศการแลกรับรางวัล"
+  },
+  "regenerateTtsUrlBtn": {
+    "regenerateBrowserSourceUrl": "สร้าง URL ของ Browser Source ใหม่",
+    "regenerateUrl": "สร้าง URL ใหม่"
+  },
+  "removeBotBtn": {
+    "deactivateTtsService": "ปิดใช้งานบริการ TTS"
+  },
+  "resetPitchBtn": {
+    "reset": "รีเซ็ต",
+    "resetDefaultPitchTo0": "รีเซ็ตระดับเสียงเริ่มต้นเป็น 0"
+  },
+  "resetSpeedBtn": {
+    "reset": "รีเซ็ต",
+    "resetDefaultSpeedTo1": "รีเซ็ตความเร็วเริ่มต้นเป็น 1.0"
+  },
+  "resetVolumeBtn": {
+    "reset": "รีเซ็ต",
+    "resetVoiceVolumeTo1": "รีเซ็ตระดับเสียงเป็น 1.0"
+  },
+  "saveSettingsBtn": {
+    "saveAllSettings": "บันทึกการตั้งค่าทั้งหมด"
+  },
+  "serviceHeadline": {
+    "ttsService": "บริการ TTS"
+  },
+  "sidebarVoiceName": {
+    "friendlyPerson": "คนเป็นมิตร"
+  },
+  "tabBroadcaster": {
+    "allowTheBotToRespond": "อนุญาตให้บอทตอบสนองต่อคำสั่งแชท เช่น !myvoice",
+    "allowViewerVoicePreferences": "อนุญาตการตั้งค่าเสียงของผู้ชม",
+    "allowViewersToUseChannel": "อนุญาตให้ผู้ชมใช้ Channel Points สำหรับ TTS",
+    "announceCheers": "ประกาศ Cheers",
+    "announceEvents": "ประกาศกิจกรรม",
+    "announceEventsSuchAsSubscriptions": "ประกาศกิจกรรม เช่น การสมัครสมาชิกและการ Raid",
+    "announceQueuedRedeemsImmediately": "ประกาศการแลกรับในคิวทันที",
+    "announceRewardRedeems": "ประกาศการแลกรับรางวัล",
+    "announceWatchStreaks": "ประกาศ Watch Streak",
+    "announceWhenAViewerCheers": "ประกาศเมื่อผู้ชม Cheer bits",
+    "announceWhenAViewerReaches": "ประกาศเมื่อผู้ชมบรรลุเป้าหมาย Watch Streak",
+    "announceWhenAViewerRedeems": "ประกาศเมื่อผู้ชมแลกรางวัล Channel Points",
+    "anonymizeNewFollowers": "ซ่อนชื่อผู้ติดตามใหม่",
+    "bannedWordsCommaSeparated": "คำที่ถูกแบน (คั่นด้วยจุลภาค)",
+    "bannedWordsPhrases": "<strong>คำ / วลีที่ถูกแบน</strong>",
+    "bitsTts": "Bits → TTS",
+    "blockLinks": "บล็อกลิงก์",
+    "botRespondsInChat": "บอทตอบในแชท",
+    "channelPointsTts": "Channel Points → TTS",
+    "chooseWhichMessagesTriggerTts": "เลือกข้อความที่จะทริกเกอร์ TTS",
+    "configureBitsRequirementsForText": "กำหนดเงื่อนไข bits สำหรับ TTS",
+    "configureChannelPointsRewardsFor": "กำหนดรางวัล Channel Points สำหรับ TTS",
+    "configureTtsEngineSettingsAnd": "กำหนดการตั้งค่าและสิทธิ์ของ TTS Engine",
+    "controlHowTtsPronouncesSpecific": "ควบคุมวิธีที่ TTS ออกเสียงคำเฉพาะ โดยค่าเริ่มต้นจะรองรับคำย่อ Twitch ทั่วไปอยู่แล้ว คุณสามารถเพิ่มรายการเพื่อแทนที่การออกเสียงเริ่มต้นหรือเพิ่มคำใหม่ได้",
+    "controlsHowTtsHandlesEmotes": "ควบคุมวิธีที่ TTS จัดการอิโมตในข้อความแชท",
+    "cooldownsAndModeration": "คูลดาวน์และการดูแลเนื้อหา",
+    "costPoints": "ราคา (แต้ม)",
+    "emoteMode": "<strong>โหมดอิโมต</strong>",
+    "enableChannelPointsTts": "เปิดใช้งาน Channel Points TTS",
+    "enableCooldownsLimits": "เปิดใช้งานคูลดาวน์และการจำกัด",
+    "engineMode": "Engine และโหมด",
+    "expandChatAcronyms": "ขยายคำย่อในแชท",
+    "globalCooldownSec": "คูลดาวน์ส่วนกลาง (วินาที)",
+    "hideFollowerNamesInTts": "ซ่อนชื่อผู้ติดตามในการประกาศ TTS เพื่อความเป็นส่วนตัว",
+    "ifOnTtsReadsFull": "หากเปิด TTS จะอ่าน URL ทั้งหมด หากปิด TTS จะอ่านเฉพาะชื่อโดเมน",
+    "ifThisSettingIsOff": "หากปิดการตั้งค่านี้ TTS จะใช้เสียงเริ่มต้นของช่องสำหรับทุกข้อความ",
+    "ignoredUsers": "ผู้ใช้ที่ละเว้น",
+    "manageUsersThatTtsIgnores": "จัดการผู้ใช้ที่ TTS ละเว้น",
+    "minimumBitsRequired": "<strong>จำนวน Bits ขั้นต่ำที่ต้องใช้</strong>",
+    "minimumNumberOfBitsRequired": "จำนวน bits ขั้นต่ำที่ต้องใช้เพื่อเปิดใช้งาน TTS",
+    "perStreamLimit": "จำกัดต่อสตรีม",
+    "perUserPerStream": "ต่อผู้ใช้ต่อสตรีม",
+    "profanityFilter": "ตัวกรองคำหยาบคาย",
+    "pronunciationDictionary": "<strong>พจนานุกรมการออกเสียง</strong>",
+    "readFullUrls": "อ่าน URL ทั้งหมด",
+    "readYoutubeLiveChatMessages": "อ่านข้อความแชทสดของ YouTube ผ่าน TTS ฟีเจอร์นี้ต้องมีการไลฟ์สตรีม YouTube ที่กำลังดำเนินอยู่",
+    "readYoutubeLiveChatMessages2": "อ่านออกเสียงข้อความแชทสดของ YouTube",
+    "requireBitsForTts": "ต้องใช้ Bits สำหรับ TTS",
+    "rewardTitle": "ชื่อรางวัล",
+    "skipTheRewardQueue": "ข้ามคิวรางวัล",
+    "theTitleMustBeUnique": "ชื่อต้องไม่ซ้ำกันในช่องของคุณ",
+    "ttsDoesNotReadMessages": "TTS จะไม่อ่านข้อความจากผู้ใช้ในรายการนี้",
+    "ttsEngineEnabled": "เปิดใช้งานเอ็นจิน TTS แล้ว",
+    "ttsExpandsCommonTwitchAcronyms": "TTS จะแปลงคำย่อทั่วไปของ Twitch เป็นคำเต็ม ตัวอย่างเช่น “ngl” จะกลายเป็น “not gonna lie” ปิดเพื่อให้อ่านสะกดทีละตัวอักษร",
+    "ttsIgnoreList": "<strong>รายการละเว้นของ TTS</strong>",
+    "ttsMode": "<strong>โหมด TTS</strong>",
+    "ttsPermission": "<strong>สิทธิ์การใช้ TTS</strong>",
+    "ttsReplacesProfanityWithMilder": "TTS จะแทนที่คำหยาบคายด้วยคำที่เบากว่าก่อนอ่านออกเสียง ตัวกรองจะใช้ภาษาของช่องและภาษาของผู้ชม หากตั้งค่าภาษาเป็นแบบอัตโนมัติ ตัวกรองจะใช้รายการภาษาอังกฤษ ข้อความที่มีคำต้องห้ามจะยังคงถูกข้ามทั้งข้อความ",
+    "ttsSkipsMessagesThatContain": "TTS จะข้ามข้อความที่มีคำหรือวลีเหล่านี้",
+    "turnOnOrTurnOff": "เปิดหรือปิดเอ็นจินแปลงข้อความเป็นเสียงพูด",
+    "viewerPrompt": "ข้อความแจ้งเตือนผู้ชม",
+    "viewersMustCheerBitsTo": "ผู้ชมต้อง Cheer bits เพื่อใช้การแปลงข้อความเป็นเสียงพูด",
+    "whoCanUseTextTo": "ผู้ที่สามารถใช้การแปลงข้อความเป็นเสียงพูดได้",
+    "yourYoutubeChannelHandleFor": "แฮนเดิลช่อง YouTube ของคุณ (เช่น <code>@yourhandle</code>)",
+    "youtubeHandle": "<strong>แฮนเดิล YouTube</strong>",
+    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>การผสานรวม YouTube",
+    "youtubeTtsEnabled": "เปิดใช้งาน YouTube TTS แล้ว"
+  },
+  "tabBtnBroadcaster": {
+    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>ผู้ถ่ายทอดสด"
+  },
+  "tabBtnViewerDefaults": {
+    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>ค่าเริ่มต้นของเสียง"
+  },
+  "tabViewerDefaults": {
+    "adjustThePitchForThe": "ปรับระดับเสียงสูงต่ำสำหรับเสียงเริ่มต้น",
+    "adjustTheVolumeForThe": "ปรับระดับเสียงสำหรับเสียงที่เลือก ข้อควรระวัง: ค่าที่มากกว่า 1.0 อาจทำให้เสียงแตกพร่าได้",
+    "calibrateVolumeForSpecificVoices": "ปรับเทียบระดับเสียงสำหรับแต่ละเสียง ข้อควรระวัง: ค่าที่มากกว่า 1.0 อาจทำให้เสียงแตกพร่าได้",
+    "calibratedVoices": "<strong>เสียงที่ปรับเทียบแล้ว</strong>",
+    "controlHowFastTheDefault": "ควบคุมความเร็วเสียงพูดเริ่มต้น",
+    "defaultEmotion": "<strong>อารมณ์เริ่มต้น</strong>",
+    "defaultLanguage": "<strong>ภาษาเริ่มต้น</strong>",
+    "defaultPitch12To12": "ระดับเสียงสูงต่ำเริ่มต้น (-12 ถึง +12):",
+    "defaultSpeed05To": "ความเร็วเริ่มต้น (0.5 ถึง 2.0):",
+    "defaultVoice": "<strong>เสียงเริ่มต้น</strong>",
+    "defaultVoiceSettings": "การตั้งค่าเสียงเริ่มต้น",
+    "englishNormalization": "การปรับมาตรฐานภาษาอังกฤษ",
+    "improvePronunciationForSpecificLanguages": "ปรับปรุงการออกเสียงสำหรับบางภาษา",
+    "improveThePronunciationOfNumbers": "ปรับปรุงการออกเสียงตัวเลขและข้อความ",
+    "selectTheDefaultTtsVoice": "เลือกเสียง TTS เริ่มต้นสำหรับช่อง",
+    "selectVoice": "เลือกเสียง",
+    "setDefaultVoiceSettingsFor": "กำหนดการตั้งค่าเสียงเริ่มต้นสำหรับช่องของคุณ",
+    "setTheEmotionalToneOf": "กำหนดโทนอารมณ์ของเสียงเริ่มต้น",
+    "viewerVoiceLookup": "ค้นหาเสียงของผู้ชม",
+    "voiceCalibration": "การปรับเทียบระดับเสียง",
+    "voiceVolume01To": "ระดับความดังเสียง (0.1 ถึง 10):",
+    "voicesWithCustomVolumeSettings": "เสียงที่มีการปรับระดับเสียงแบบกำหนดเอง",
+    "volumeOverride": "แทนที่ระดับความดัง:"
+  },
+  "ttsBannedWordInput": {
+    "wordOrPhraseToBan": "คำหรือวลีที่ต้องการแบน"
+  },
+  "ttsEnabled": {
+    "ttsEngineEnabled": "เปิดใช้งานระบบ TTS"
+  },
+  "ttsIgnoreUsername": {
+    "usernameToIgnore": "ชื่อผู้ใช้ที่ต้องการละเว้น"
+  },
+  "ttsMode": {
+    "allMessages": "ทุกข้อความ",
+    "bitsPointsOnly": "เฉพาะ Bits/Points",
+    "ttsCommandOnly": "เฉพาะคำสั่ง !tts"
+  },
+  "ttsPermission": {
+    "everyone": "ทุกคน",
+    "moderatorsOnly": "เฉพาะผู้ดูแล",
+    "subscribersOnly": "เฉพาะสมาชิก",
+    "vipsOnly": "เฉพาะ VIP"
+  },
+  "ttsPronunciationMatchInput": {
+    "wordForExampleWcat": "คำ (เช่น wcat)",
+    "wordToReplace": "คำที่ต้องการแทนที่"
+  },
+  "ttsPronunciationSayInput": {
+    "howToSayItFor": "วิธีออกเสียง (เช่น wildcat)",
+    "pronunciation": "การออกเสียง"
+  },
+  "ttsUrlField": {
+    "yourBrowserSourceUrl": "URL ของ Browser Source ของคุณ"
+  },
+  "twitchUsername": {
+    "loading": "กำลังโหลด…"
+  },
+  "voiceTestBtn": {
+    "sendPreview": "ส่งตัวอย่างเสียง"
+  },
+  "watchStreakEventsEnabled": {
+    "announceWatchStreaks": "ประกาศ Watch Streak"
+  },
+  "youtubeEnabled": {
+    "youtubeTtsEnabled": "เปิดใช้งาน YouTube TTS"
+  },
+  "youtubeHandle": {
+    "yourhandle": "@yourhandle"
+  }
+}

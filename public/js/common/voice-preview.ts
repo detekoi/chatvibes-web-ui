@@ -1,5 +1,6 @@
 import { getApiBaseUrl, fetchWithAuth } from './api.js';
 import { showToast } from './ui.js';
+import { apiErrorMessage, displayError, t } from './i18n.js';
 
 /**
  * TTS test payload
@@ -73,7 +74,7 @@ export async function performVoiceTest(
 
   safeButtons.forEach(btn => {
     btn.disabled = true;
-    btn.textContent = 'Generating…';
+    btn.textContent = t('msg.voice.generating');
   });
 
   try {
@@ -118,7 +119,7 @@ export async function performVoiceTest(
           const blob = new Blob([arrayBuffer], { type: 'audio/mpeg' });
           audioUrl = URL.createObjectURL(blob);
         } else {
-          throw new Error(data.message || data.error || 'No audio returned by server');
+          throw new Error(apiErrorMessage(data, 'msg.voice.noAudio'));
         }
       }
     }
@@ -142,19 +143,11 @@ export async function performVoiceTest(
     return audioUrl || undefined;
   } catch (error) {
     console.error('Voice test failed:', error);
-    const err = error as Error;
-    let errorMessage = err.message;
-    if (err.message && err.message.includes('API Error:')) {
-      const match = err.message.match(/API Error: \d+ (.+)/);
-      if (match) {
-        errorMessage = match[1] || errorMessage;
-      }
-    }
-    showToast(`Test failed: ${errorMessage}`, 'error');
+    showToast(t('msg.voice.testFailed', { reason: displayError(error) }), 'error');
   } finally {
     safeButtons.forEach(btn => {
       btn.disabled = false;
-      btn.textContent = 'Regenerate';
+      btn.textContent = t('msg.voice.regenerate');
     });
   }
   return undefined;
@@ -212,7 +205,7 @@ async function handleAudioPlayer(
         await audioElement.play();
       } catch (err) {
         console.error('Error playing audio:', err);
-        showToast('Cannot play audio sample.', 'error');
+        showToast(t('msg.voice.cannotPlay'), 'error');
       }
     }
     playerEl.style.display = 'block';

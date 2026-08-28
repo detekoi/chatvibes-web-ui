@@ -1,0 +1,50 @@
+{
+  "kofiClose": {
+    "closeSupportDialog": "Tutup dialog dukungan"
+  },
+  "kofiModal": {
+    "openInNewTabOn": "<a href=\"https://ko-fi.com/parfaitfair\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"kofi-direct-link\">Buka di tab baru di Ko-fi.com</a>"
+  },
+  "kofiOpen": {
+    "supportMe": "Dukung saya"
+  },
+  "kofiTitle": {
+    "supportParfaitfair": "Dukung parfaitfair"
+  },
+  "mainContent": {
+    "access": "Akses",
+    "accessIsInviteOnlyUnapproved": "Akses hanya melalui undangan. Saluran yang belum disetujui akan menerima pesan akses ditolak. <a class=\"wc-link wc-link--underline\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">Minta akses di sini</a>.",
+    "changeTtsSettingsControlBot": "Ubah pengaturan TTS • Kontrol respons obrolan bot • Konfigurasikan Channel Points • Atur preferensi suara",
+    "colorTheme": "Tema warna",
+    "iAmAViewer": "<span class=\"wc-rule-name\">Saya seorang penonton</span>",
+    "iRunTheChannel": "<span class=\"wc-rule-name\">Saya pengelola saluran</span>",
+    "setHowYourMessagesSound": "Atur suara pesan Anda saat dibacakan TTS di saluran mana pun yang Anda kunjungi.",
+    "textToSpeechForYour": "Text-to-speech untuk saluran Twitch Anda, bagi streamer dan penonton.",
+    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">Hanya undangan</span>",
+    "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">Manajemen bot text-to-speech</span>"
+  },
+  "meta": {
+    "wildcatttsBotManagement": "Manajemen Bot WildcatTTS",
+    "wildcatttsTextToSpeechBot": "Manajemen bot text-to-speech WildcatTTS untuk saluran Twitch, streamer, dan penonton."
+  },
+  "msg": {
+    "kofi": {
+      "iframeTitle": "Dukung parfaitfair di Ko-fi"
+    }
+  },
+  "page": {
+    "support": "Dukungan"
+  },
+  "streamerLoginBtn": {
+    "manageMyChannel": "<i data-lucide=\"mic\" aria-hidden=\"true\"></i>Kelola saluran saya"
+  },
+  "themeDarkBtn": {
+    "dark": "Gelap"
+  },
+  "themeLightBtn": {
+    "light": "Terang"
+  },
+  "viewerPrefsBtn": {
+    "setMyOwnVoice": "<i data-lucide=\"headphones\" aria-hidden=\"true\"></i>Atur suara saya"
+  }
+}

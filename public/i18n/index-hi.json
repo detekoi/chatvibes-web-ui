@@ -1,0 +1,50 @@
+{
+  "kofiClose": {
+    "closeSupportDialog": "सपोर्ट डायलॉग बंद करें"
+  },
+  "kofiModal": {
+    "openInNewTabOn": "<a href=\"https://ko-fi.com/parfaitfair\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"kofi-direct-link\">Ko-fi.com पर नए टैब में खोलें</a>"
+  },
+  "kofiOpen": {
+    "supportMe": "मुझे सपोर्ट करें"
+  },
+  "kofiTitle": {
+    "supportParfaitfair": "parfaitfair को सपोर्ट करें"
+  },
+  "mainContent": {
+    "access": "एक्सेस",
+    "accessIsInviteOnlyUnapproved": "एक्सेस केवल इनवाइट द्वारा है। अनधिकृत चैनलों को 'एक्सेस डिनाइड' का मैसेज मिलता है। <a class=\"wc-link wc-link--underline\" href=\"https://parfaitfair.com/#contact\" target=\"_blank\" rel=\"noopener\">यहाँ एक्सेस का अनुरोध करें</a>।",
+    "changeTtsSettingsControlBot": "TTS सेटिंग्स बदलें • बॉट चैट रिस्पॉन्स नियंत्रित करें • Channel Points कॉन्फ़िगर करें • वॉइस प्राथमिकताएं सेट करें",
+    "colorTheme": "कलर थीम",
+    "iAmAViewer": "<span class=\"wc-rule-name\">मैं एक व्यूअर हूँ</span>",
+    "iRunTheChannel": "<span class=\"wc-rule-name\">मैं चैनल चलाता हूँ</span>",
+    "setHowYourMessagesSound": "सेट करें कि जब आप किसी भी चैनल पर जाएँ, तो TTS द्वारा आपके मैसेज पढ़े जाने पर वे कैसे सुनाई दें।",
+    "textToSpeechForYour": "आपके Twitch चैनल के लिए टेक्स्ट-टू-स्पीच, स्ट्रीमर्स और व्यूअर्स के लिए।",
+    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">केवल इनवाइट द्वारा</span>",
+    "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">टेक्स्ट-टू-स्पीच बॉट मैनेजमेंट</span>"
+  },
+  "meta": {
+    "wildcatttsBotManagement": "WildcatTTS बॉट मैनेजमेंट",
+    "wildcatttsTextToSpeechBot": "Twitch चैनलों, स्ट्रीमर्स और व्यूअर्स के लिए WildcatTTS टेक्स्ट-टू-स्पीच बॉट मैनेजमेंट।"
+  },
+  "msg": {
+    "kofi": {
+      "iframeTitle": "Ko-fi पर parfaitfair को सपोर्ट करें"
+    }
+  },
+  "page": {
+    "support": "सपोर्ट"
+  },
+  "streamerLoginBtn": {
+    "manageMyChannel": "<i data-lucide=\"mic\" aria-hidden=\"true\"></i>अपना चैनल मैनेज करें"
+  },
+  "themeDarkBtn": {
+    "dark": "डार्क"
+  },
+  "themeLightBtn": {
+    "light": "लाइट"
+  },
+  "viewerPrefsBtn": {
+    "setMyOwnVoice": "<i data-lucide=\"headphones\" aria-hidden=\"true\"></i>अपनी वॉइस सेट करें"
+  }
+}

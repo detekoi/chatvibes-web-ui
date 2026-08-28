@@ -1,0 +1,166 @@
+{
+  "darkModeToggle": {
+    "toggleDarkMode": "تغییر حالت تاریک"
+  },
+  "err": {
+    "banned_add_failed": "افزودن این واژه به فهرست ممنوعه ممکن نیست.",
+    "banned_remove_failed": "حذف این واژه از فهرست ممنوعه ممکن نیست.",
+    "bot_add_failed": "امکان فعال‌سازی ربات در کانال شما وجود ندارد. دوباره تلاش کنید.",
+    "bot_remove_failed": "امکان غیرفعال‌سازی ربات در کانال شما وجود ندارد. دوباره تلاش کنید.",
+    "bot_status_failed": "امکان بارگیری وضعیت ربات وجود ندارد.",
+    "channel_data_not_found": "هیچ تنظیمی برای این کانال یافت نشد.",
+    "channel_not_authorized": "کانال شما مجاز به استفاده از این بات نیست. برای دسترسی با من تماس بگیرید.",
+    "channel_not_found": "این کانال یافت نشد.",
+    "channel_required": "انتخاب کانال الزامی است.",
+    "channel_tts_disabled": "این کانال یافت نشد یا TTS در آن فعال نیست.",
+    "entry_key_required": "کلید ورودی الزامی است.",
+    "exchange_code_invalid": "پیوند ورود نامعتبر است یا وجود ندارد.",
+    "exchange_code_used": "این پیوند ورود قبلاً استفاده شده یا منقضی شده است. دوباره وارد شوید.",
+    "exchange_failed": "ورود انجام نشد. دوباره تلاش کنید.",
+    "ignore_add_failed": "افزودن این کاربر به فهرست نادیده‌گرفته‌ها ممکن نیست.",
+    "ignore_moderator_imposed": "یکی از ناظران کانال، TTS را برای شما غیرفعال کرده است؛ فقط یک ناظر می‌تواند آن را لغو کند.",
+    "ignore_remove_failed": "حذف این کاربر از فهرست نادیده‌گرفته‌ها ممکن نیست.",
+    "ignore_update_failed": "امکان تغییر تنظیمات انصراف وجود ندارد.",
+    "key_required": "نام تنظیم الزامی است.",
+    "match_key_invalid": "واژه باید ۱ تا {max} نویسه از حروف، ارقام، آپاستروف یا خط تیره باشد و نمی‌تواند حاوی نقطه باشد.",
+    "network_error": "ارتباط با سرور برقرار نشد. اتصال خود را بررسی کنید.",
+    "obs_token_fetch_failed": "امکان بارگیری توکن OBS وجود ندارد.",
+    "obs_token_generate_failed": "امکان ایجاد توکن جدید OBS وجود ندارد.",
+    "obs_token_store_failed": "امکان ذخیره توکن OBS وجود ندارد. دوباره تلاش کنید.",
+    "prefs_fetch_failed": "امکان بارگیری تنظیمات شما وجود ندارد.",
+    "prefs_global_fetch_failed": "امکان بارگیری تنظیمات عمومی شما وجود ندارد.",
+    "prefs_global_update_failed": "امکان ذخیره تنظیمات عمومی شما وجود ندارد.",
+    "prefs_invalid_emote_mode": "مدیریت ایموت باید روی read،‏ skip یا describe باشد.",
+    "prefs_invalid_emotion": "این احساس نامعتبر است.",
+    "prefs_invalid_language": "این زبان نامعتبر است.",
+    "prefs_invalid_pitch": "این زیروبمی صدا نامعتبر است.",
+    "prefs_invalid_speed": "این سرعت نامعتبر است.",
+    "prefs_invalid_voice": "این صدا نامعتبر است.",
+    "prefs_missing_data": "هیچ تغییری ارسال نشد.",
+    "prefs_update_failed": "امکان ذخیره تنظیمات شما وجود ندارد.",
+    "pronunciation_limit_reached": "به محدودیت {max} تلفظ سفارشی رسیده‌اید. ابتدا یکی را حذف کنید.",
+    "pronunciation_remove_failed": "حذف تلفظ ممکن نیست.",
+    "pronunciation_save_failed": "ذخیره تلفظ ممکن نیست.",
+    "reward_banned_word": "پیام شامل یک کلمه ممنوعه است: \"{word}\".",
+    "reward_create_failed": "امکان ایجاد پاداش Channel Points وجود ندارد.",
+    "reward_delete_failed": "امکان حذف پاداش Channel Points وجود ندارد.",
+    "reward_links_blocked": "قراردادن پیوند در این پاداش مجاز نیست.",
+    "reward_load_failed": "امکان بارگیری پاداش Channel Points وجود ندارد.",
+    "reward_message_empty": "پیام خالی است.",
+    "reward_save_failed": "امکان ذخیره پاداش Channel Points وجود ندارد.",
+    "reward_test_failed": "امکان آزمایش پاداش Channel Points وجود ندارد.",
+    "reward_twitch_error": "Twitch تغییر پاداش را رد کرد.",
+    "reward_validation_failed": "ارسال این پیام مجاز نیست.",
+    "say_contains_link": "تلفظ نمی‌تواند حاوی پیوند باشد.",
+    "say_empty": "تلفظ نمی‌تواند خالی باشد.",
+    "say_must_be_text": "تلفظ باید متن باشد.",
+    "say_too_long": "تلفظ باید {max} نویسه یا کمتر باشد.",
+    "server_misconfigured": "پیکربندی سرور نادرست است.",
+    "setting_invalid": "این مقدار برای {key} معتبر نیست.",
+    "setting_update_failed": "به‌روزرسانی تنظیمات TTS ممکن نیست.",
+    "settings_fetch_failed": "بارگیری تنظیمات TTS ممکن نیست.",
+    "shortlink_failed": "امکان ایجاد پیوند کوتاه وجود ندارد.",
+    "storage_unavailable": "فضای ذخیره‌سازی در دسترس نیست.",
+    "tts_generation_failed": "تولید گفتار ناموفق بود: {reason}",
+    "tts_no_audio": "ارائه‌دهنده گفتار هیچ صوتی برنگرداند.",
+    "tts_not_configured": "هیچ ارائه‌دهنده گفتاری پیکربندی نشده است.",
+    "tts_provider_failed": "ارائه‌دهنده گفتار نتوانست صدا تولید کند.",
+    "tts_test_failed": "آزمایش گفتار ناموفق بود.",
+    "tts_text_required": "متنی برای آزمایش وارد کنید.",
+    "twitch_reauth_required": "ورود به حساب Twitch شما منقضی شده است. حسابتان را دوباره متصل کنید.",
+    "twitch_user_not_found": "حساب Twitch با نام «{username}» وجود ندارد.",
+    "url_required": "وارد کردن URL الزامی است.",
+    "username_invalid": "این نام کاربری معتبر نیست.",
+    "username_required": "نام کاربری الزامی است.",
+    "voice_access_denied": "صدای «{voice}» به دسترسی ویژه نیاز دارد. صدای دیگری را امتحان کنید.",
+    "voice_invalid": "صدای «{voice}» در دسترس نیست. صدا را بررسی کرده و دوباره تلاش کنید.",
+    "voice_lookup_failed": "امکان یافتن صدای آن کاربر وجود ندارد.",
+    "word_invalid": "این واژه یا عبارت معتبر نیست.",
+    "word_required": "واژه یا عبارت الزامی است."
+  },
+  "logoutLink": {
+    "logout": "خروج"
+  },
+  "mainContent": {
+    "documentationTtsWildcatChat": "<a class=\"wc-link\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\">مستندات</a> <span>tts.wildcat.chat</span>"
+  },
+  "msg": {
+    "action": {
+      "close": "بستن",
+      "remove": "حذف",
+      "saved": "ذخیره شد"
+    },
+    "api": {
+      "authFailed": "احراز هویت ناموفق بود. دوباره وارد شوید.",
+      "notAuthenticated": "وارد حساب خود نشده‌اید.",
+      "requestFailed": "درخواست ناموفق بود."
+    },
+    "auth": {
+      "genericUser": "کاربر",
+      "loading": "در حال بارگیری…",
+      "needViewerSignIn": "برای دسترسی به اولویت‌های بیننده، حساب Twitch خود را تأیید کنید.",
+      "redirecting": "در حال انتقال به Twitch برای احراز هویت…",
+      "required": "احراز هویت الزامی است.",
+      "signInFailed": "امکان تکمیل ورود وجود ندارد.",
+      "signInWithTwitch": "ورود با Twitch",
+      "signedOut": "وارد نشده‌اید.",
+      "tokenMissing": "توکن احراز هویت وجود ندارد. دوباره وارد شوید."
+    },
+    "emotion": {
+      "angry": "عصبانی",
+      "auto": "خودکار",
+      "calm": "آرام",
+      "disgusted": "منزجر",
+      "fearful": "ترسان",
+      "fluent": "روان",
+      "happy": "خوشحال",
+      "neutral": "خنثی",
+      "sad": "غمگین",
+      "surprised": "شگفت‌زده"
+    },
+    "ignore": {
+      "enterUsername": "یک نام کاربری وارد کنید."
+    },
+    "lang": {
+      "automatic": "خودکار"
+    },
+    "prefs": {
+      "useChannelDefault": "استفاده از پیش‌فرض کانال"
+    },
+    "preview": {
+      "enterText": "متنی را برای آزمایش وارد کنید.",
+      "unavailable": "پیش‌نمایشی در دسترس نیست."
+    },
+    "value": {
+      "off": "خاموش",
+      "on": "روشن"
+    },
+    "voice": {
+      "cannotPlay": "امکان پخش نمونه صوتی نیست.",
+      "generating": "در حال تولید…",
+      "noAudio": "سرور هیچ صوتی برنگرداند.",
+      "noneFound": "هیچ صدایی پیدا نشد.",
+      "preview": "پیش‌نمایش {voice}",
+      "regenerate": "تولید مجدد",
+      "testFailed": "آزمایش ناموفق بود: {reason}"
+    }
+  },
+  "page": {
+    "skipToMainContent": "پرش به محتوای اصلی"
+  },
+  "sidebarEngNormVal": {
+    "off": "خاموش"
+  },
+  "sidebarLanguageVal": {
+    "automatic": "خودکار"
+  },
+  "ui": {
+    "language": "زبان"
+  },
+  "voicePreviewHint": {
+    "settingsChangedGenerateANew": "<i><i data-lucide=\"triangle-alert\" class=\"inline-icon\"></i> تنظیمات تغییر کرد. یک پیش‌نمایش جدید تولید کنید.</i>"
+  },
+  "voicePreviewPlayer": {
+    "yourBrowserDoesNotSupport": "مرورگر شما از پخش صوتی پشتیبانی نمی‌کند."
+  }
+}

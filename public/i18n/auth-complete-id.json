@@ -1,0 +1,39 @@
+{
+  "authBar": {
+    "signInProgress": "Progres masuk"
+  },
+  "authMessage": {
+    "pleaseWait": "Mohon tunggu."
+  },
+  "authSteps": {
+    "loadingDashboard": "Memuat dasbor",
+    "sessionTokenStored": "Token sesi disimpan",
+    "twitchAuthorized": "Twitch diotorisasi"
+  },
+  "authTitle": {
+    "signingYouIn": "Sedang memasukkan Anda"
+  },
+  "meta": {
+    "completingWildcatttsTwitchSignIn": "Menyelesaikan proses masuk Twitch WildcatTTS.",
+    "wildcatttsCompletingSignIn": "WildcatTTS - Menyelesaikan proses masuk"
+  },
+  "msg": {
+    "authComplete": {
+      "cannotComplete": "Tidak dapat menyelesaikan proses masuk.",
+      "failedReadout": "Gagal",
+      "failedTitle": "Gagal masuk",
+      "missingInfo": "Informasi autentikasi dari callback Twitch tidak ditemukan. Masuk lagi.",
+      "noSession": "Tidak ada sesi",
+      "redirecting": "Mengalihkan ke dasbor kamu.",
+      "retrySignIn": "{reason} Masuk lagi.",
+      "sessionEstablished": "Sesi berhasil dibuat",
+      "welcome": "Selamat datang, {user}"
+    }
+  },
+  "sessionState": {
+    "establishingSession": "Menyiapkan sesi"
+  },
+  "statusReadout": {
+    "working": "<span class=\"wc-dot\"></span>Memproses"
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "darkModeToggle": {
+    "toggleDarkMode": "Sötét mód be/ki"
+  },
+  "err": {
+    "banned_add_failed": "Nem sikerült hozzáadni a szót a tiltólistához.",
+    "banned_remove_failed": "Nem sikerült eltávolítani a szót a tiltólistáról.",
+    "bot_add_failed": "Nem sikerült aktiválni a botot a csatornádon. Próbáld újra.",
+    "bot_remove_failed": "Nem sikerült deaktiválni a botot a csatornádon. Próbáld újra.",
+    "bot_status_failed": "Nem sikerült betölteni a bot állapotát.",
+    "channel_data_not_found": "Nem találhatók beállítások ehhez a csatornához.",
+    "channel_not_authorized": "A csatornád nem jogosult a bot használatára. Hozzáférésért vedd fel velem a kapcsolatot.",
+    "channel_not_found": "A csatorna nem található.",
+    "channel_required": "A csatorna megadása kötelező.",
+    "channel_tts_disabled": "A csatorna nem található, vagy nincs bekapcsolva rajta a TTS.",
+    "entry_key_required": "A bejegyzéskulcs megadása kötelező.",
+    "exchange_code_invalid": "A bejelentkezési link hiányzik vagy hibás.",
+    "exchange_code_used": "Ez a bejelentkezési link már fel lett használva, vagy lejárt. Jelentkezz be újra.",
+    "exchange_failed": "Nem sikerült bejelentkezni. Próbáld újra.",
+    "ignore_add_failed": "Nem sikerült hozzáadni a felhasználót a mellőzési listához.",
+    "ignore_moderator_imposed": "Egy moderátor letiltotta számodra a TTS-t ezen a csatornán, így csak egy moderátor vonhatja vissza.",
+    "ignore_remove_failed": "Nem sikerült eltávolítani a felhasználót a mellőzési listáról.",
+    "ignore_update_failed": "Nem sikerült módosítani a leiratkozási beállításodat.",
+    "key_required": "A beállítás nevének megadása kötelező.",
+    "match_key_invalid": "A szó 1–{max} karakter hosszú lehet, csak betűket, számjegyeket, aposztrófot vagy kötőjelet tartalmazhat, pontot viszont nem.",
+    "network_error": "A szerver nem érhető el. Ellenőrizd a kapcsolatodat.",
+    "obs_token_fetch_failed": "Nem sikerült betölteni az OBS-tokent.",
+    "obs_token_generate_failed": "Nem sikerült új OBS-tokent generálni.",
+    "obs_token_store_failed": "Nem sikerült menteni az OBS-tokent. Próbáld újra.",
+    "prefs_fetch_failed": "Nem sikerült betölteni a beállításaidat.",
+    "prefs_global_fetch_failed": "Nem sikerült betölteni a globális beállításaidat.",
+    "prefs_global_update_failed": "Nem sikerült menteni a globális beállításaidat.",
+    "prefs_invalid_emote_mode": "A hangulatjel-kezelés csak felolvasás, kihagyás vagy leírás lehet.",
+    "prefs_invalid_emotion": "Érvénytelen érzelem.",
+    "prefs_invalid_language": "Érvénytelen nyelv.",
+    "prefs_invalid_pitch": "Érvénytelen hangmagasság.",
+    "prefs_invalid_speed": "Érvénytelen sebesség.",
+    "prefs_invalid_voice": "Érvénytelen hang.",
+    "prefs_missing_data": "Nem érkezett módosítás.",
+    "prefs_update_failed": "Nem sikerült menteni a beállításaidat.",
+    "pronunciation_limit_reached": "Elérted a(z) {max} egyéni kiejtési korlátot. Előbb törölj egyet.",
+    "pronunciation_remove_failed": "Nem sikerült eltávolítani a kiejtést.",
+    "pronunciation_save_failed": "Nem sikerült menteni a kiejtést.",
+    "reward_banned_word": "Az üzenet tiltott szót tartalmaz: \"{word}\".",
+    "reward_create_failed": "Nem sikerült létrehozni a Channel Points jutalmat.",
+    "reward_delete_failed": "Nem sikerült törölni a Channel Points jutalmat.",
+    "reward_links_blocked": "A linkek nem engedélyezettek ennél a jutalomnál.",
+    "reward_load_failed": "Nem sikerült betölteni a Channel Points jutalmat.",
+    "reward_message_empty": "Az üzenet üres.",
+    "reward_save_failed": "Nem sikerült menteni a Channel Points jutalmat.",
+    "reward_test_failed": "Nem sikerült tesztelni a Channel Points jutalmat.",
+    "reward_twitch_error": "A Twitch elutasította a jutalom módosítását.",
+    "reward_validation_failed": "Ez az üzenet nem engedélyezett.",
+    "say_contains_link": "A kiejtés nem tartalmazhat hivatkozást.",
+    "say_empty": "A kiejtés nem lehet üres.",
+    "say_must_be_text": "A kiejtésnek szövegesnek kell lennie.",
+    "say_too_long": "A kiejtés legfeljebb {max} karakter lehet.",
+    "server_misconfigured": "A szerver hibásan van konfigurálva.",
+    "setting_invalid": "Érvénytelen érték ehhez: {key}.",
+    "setting_update_failed": "Nem sikerült frissíteni a TTS-beállítást.",
+    "settings_fetch_failed": "Nem sikerült betölteni a TTS-beállításokat.",
+    "shortlink_failed": "Nem sikerült létrehozni a rövid linket.",
+    "storage_unavailable": "A tárhely nem érhető el.",
+    "tts_generation_failed": "A beszédgenerálás sikertelen: {reason}",
+    "tts_no_audio": "A beszédszolgáltató nem adott vissza hangot.",
+    "tts_not_configured": "Nincs beállítva beszédszolgáltató.",
+    "tts_provider_failed": "A beszédszolgáltató nem tudott hangot generálni.",
+    "tts_test_failed": "A beszédteszt sikertelen.",
+    "tts_text_required": "Írj be szöveget a teszteléshez.",
+    "twitch_reauth_required": "A Twitch-bejelentkezésed lejárt. Csatlakoztasd újra a fiókodat.",
+    "twitch_user_not_found": "Nem található \"{username}\" nevű Twitch-fiók.",
+    "url_required": "URL megadása kötelező.",
+    "username_invalid": "Ez a felhasználónév érvénytelen.",
+    "username_required": "A felhasználónév megadása kötelező.",
+    "voice_access_denied": "A(z) \"{voice}\" hanghoz különleges hozzáférés szükséges. Válassz másik hangot.",
+    "voice_invalid": "A(z) \"{voice}\" hang nem érhető el. Ellenőrizd a hangot, és próbáld újra.",
+    "voice_lookup_failed": "Nem sikerült lekérni a felhasználó hangját.",
+    "word_invalid": "Ez a szó vagy kifejezés érvénytelen.",
+    "word_required": "A szó vagy kifejezés megadása kötelező."
+  },
+  "logoutLink": {
+    "logout": "Kijelentkezés"
+  },
+  "mainContent": {
+    "documentationTtsWildcatChat": "<a class=\"wc-link\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\">Dokumentáció</a> <span>tts.wildcat.chat</span>"
+  },
+  "msg": {
+    "action": {
+      "close": "Bezárás",
+      "remove": "Eltávolítás",
+      "saved": "Mentve"
+    },
+    "api": {
+      "authFailed": "A hitelesítés sikertelen. Jelentkezz be újra.",
+      "notAuthenticated": "Nem vagy bejelentkezve.",
+      "requestFailed": "A kérés sikertelen."
+    },
+    "auth": {
+      "genericUser": "Felhasználó",
+      "loading": "betöltés…",
+      "needViewerSignIn": "Igazold a Twitch-fiókodat a nézői beállítások eléréséhez.",
+      "redirecting": "Átirányítás a Twitchre az azonosításhoz…",
+      "required": "Azonosítás szükséges.",
+      "signInFailed": "A bejelentkezés sikertelen.",
+      "signInWithTwitch": "Bejelentkezés Twitch-fiókkal",
+      "signedOut": "Nem vagy bejelentkezve.",
+      "tokenMissing": "Hiányzik az azonosítási token. Jelentkezz be újra."
+    },
+    "emotion": {
+      "angry": "Dühös",
+      "auto": "Automatikus",
+      "calm": "Nyugodt",
+      "disgusted": "Undorodó",
+      "fearful": "Rémült",
+      "fluent": "Folyékony",
+      "happy": "Boldog",
+      "neutral": "Semleges",
+      "sad": "Szomorú",
+      "surprised": "Meglepett"
+    },
+    "ignore": {
+      "enterUsername": "Adj meg egy felhasználónevet."
+    },
+    "lang": {
+      "automatic": "Automatikus"
+    },
+    "prefs": {
+      "useChannelDefault": "Csatorna alapértelmezése"
+    },
+    "preview": {
+      "enterText": "Írj be szöveget a teszteléshez.",
+      "unavailable": "Nincs előnézet."
+    },
+    "value": {
+      "off": "Ki",
+      "on": "Be"
+    },
+    "voice": {
+      "cannotPlay": "Nem játszható le a hangminta.",
+      "generating": "Generálás…",
+      "noAudio": "A szerver nem adott vissza hangot.",
+      "noneFound": "Nem található hang.",
+      "preview": "{voice} előhallgatása",
+      "regenerate": "Újragenerálás",
+      "testFailed": "A teszt sikertelen: {reason}"
+    }
+  },
+  "page": {
+    "skipToMainContent": "Ugrás a fő tartalomra"
+  },
+  "sidebarEngNormVal": {
+    "off": "Ki"
+  },
+  "sidebarLanguageVal": {
+    "automatic": "Automatikus"
+  },
+  "ui": {
+    "language": "Nyelv"
+  },
+  "voicePreviewHint": {
+    "settingsChangedGenerateANew": "<i><i data-lucide=\"triangle-alert\" class=\"inline-icon\"></i> A beállítások módosultak. Generálj új előhallgatást.</i>"
+  },
+  "voicePreviewPlayer": {
+    "yourBrowserDoesNotSupport": "A böngésződ nem támogatja az audioelemet."
+  }
+}

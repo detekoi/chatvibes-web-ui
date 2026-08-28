@@ -1,0 +1,212 @@
+{
+  "addChannelContextCard": {
+    "loadAChannelToSee": "Načtěte kanál pro zobrazení jeho výchozího nastavení a správu odhlášení. Vaše předvolby zůstanou globální."
+  },
+  "channelContextCard": {
+    "changesHereUpdateYourGlobal": "Změny provedené zde aktualizují <strong>vaše</strong> globální předvolby. Nastavení streamera se nezmění.",
+    "channelContext": "Kontext kanálu",
+    "clearButtonsSetYourGlobal": "<strong>Tlačítka vymazání:</strong> Nastaví vaši globální předvolbu podle výchozího nastavení tohoto kanálu."
+  },
+  "channelHint": {
+    "channelFound": "Kanál nalezen"
+  },
+  "channelInputCancel": {
+    "cancel": "Zrušit"
+  },
+  "channelInputConfirm": {
+    "load": "Načíst"
+  },
+  "channelInputDesc": {
+    "enterTheChannelNameTo": "Zadejte název kanálu pro zobrazení jeho výchozího nastavení a správu odhlášení:"
+  },
+  "channelInputModal": {
+    "streamerUsername": "Uživatelské jméno streamera"
+  },
+  "channelInputModalText": {
+    "streamerUsername": "Uživatelské jméno streamera"
+  },
+  "channelInputTitle": {
+    "loadChannelContext": "Načíst kontext kanálu"
+  },
+  "clearChannelContextBtn": {
+    "clear": "Vymazat"
+  },
+  "confirmNo": {
+    "cancel": "Zrušit"
+  },
+  "confirmText": {
+    "yourMessagesWillNotBe": "Vaše zprávy nebudou čteny nahlas. Kdykoli to můžete znovu zapnout."
+  },
+  "confirmTitle": {
+    "confirmAction": "Potvrdit akci"
+  },
+  "confirmYes": {
+    "confirm": "Potvrdit"
+  },
+  "dangerTtsToggle": {
+    "optOutOfTtsIn": "Odhlásit se z TTS na tomto kanálu",
+    "ttsWillNotReadYour": "TTS nebude číst vaše zprávy na tomto kanálu"
+  },
+  "dangerZoneSection": {
+    "dangerZone": "Nebezpečná zóna",
+    "theseSettingsStopTheBot": "Tato nastavení zabrání botovi číst vaše zprávy v kanálu. Jakékoli vámi zvolené nastavení můžete změnit zpět. Pokud vás odhlásil moderátor, může to vrátit pouze moderátor."
+  },
+  "emotionReset": {
+    "clear": "Vymazat",
+    "resetEmotionToDefault": "Obnovit emoci na výchozí"
+  },
+  "emotionSelect": {
+    "angry": "Naštvaný",
+    "disgusted": "Znechucený",
+    "fearful": "Vystrašený",
+    "happy": "Šťastný",
+    "neutral": "Neutrální",
+    "sad": "Smutný",
+    "surprised": "Překvapený",
+    "useChannelDefault": "Použít výchozí nastavení kanálu"
+  },
+  "englishNormalizationCheckbox": {
+    "englishNormalization": "Normalizace angličtiny"
+  },
+  "englishNormalizationReset": {
+    "clear": "Vymazat",
+    "resetEnglishNormalizationToDefault": "Obnovit normalizaci angličtiny na výchozí"
+  },
+  "ignoreTts": {
+    "optOutOfTtsIn": "Odhlásit se z TTS na tomto kanálu"
+  },
+  "languageReset": {
+    "clear": "Vymazat",
+    "resetLanguageToDefault": "Obnovit jazyk na výchozí"
+  },
+  "loadingBar": {
+    "loadingYourPreferences": "Načítání předvoleb"
+  },
+  "loadingOverlay": {
+    "loadingYourPreferences": "Načítání předvoleb…"
+  },
+  "loggedInStatus": {
+    "channelContext": "Kontext kanálu",
+    "global": "Globální",
+    "loggedInAs": "Přihlášen jako",
+    "scope": "Rozsah"
+  },
+  "meta": {
+    "wildcatttsViewerSettings": "WildcatTTS – Nastavení pro diváky",
+    "wildcatttsViewerSettingsSetYour": "WildcatTTS – Nastavení pro diváky – Nastavte si vlastní hlas TTS, výšku a rychlost napříč kanály na Twitchi."
+  },
+  "msg": {
+    "auth": {
+      "exchangeFailed": "Přihlášení nelze dokončit. Zkuste to znovu z hlavní stránky.",
+      "testUser": "Testovací uživatel"
+    },
+    "channel": {
+      "cleared": "Kontext kanálu byl vymazán.",
+      "clearedTestMode": "Kontext kanálu byl vymazán (testovací režim).",
+      "enterName": "Zadejte název kanálu.",
+      "found": "Kanál nalezen",
+      "foundTestMode": "Kanál nalezen (testovací režim)",
+      "hint": "Načtěte kanál pro zobrazení jeho výchozího nastavení.",
+      "loaded": "Kontext kanálu byl načten.",
+      "loadedTestMode": "Kontext kanálu byl načten (testovací režim).",
+      "noneLoaded": "Žádný nenačten",
+      "promptConfirm": "Načíst",
+      "promptDescription": "Zadejte název kanálu pro zobrazení výchozího nastavení a správu odhlášení:",
+      "promptTitle": "Načíst kontext kanálu",
+      "viewingDefaults": "Prohlížíte výchozí nastavení pro {channel}."
+    },
+    "optout": {
+      "confirm": "Chcete se odhlásit z TTS v #{channel}? Vaše zprávy se nebudou předčítat nahlas. Kdykoli to můžete znovu zapnout.",
+      "confirmDescription": "Pro pokračování zadejte název kanálu:",
+      "confirmTitle": "Potvrdit kanál pro odhlášení z TTS",
+      "continue": "Pokračovat",
+      "moderatorNote": "Moderátor kanálu vás zde odhlásil z TTS. Toto nastavení může zrušit pouze moderátor.",
+      "optInFailed": "K TTS se nelze znovu přihlásit.",
+      "optOutFailed": "Nelze se odhlásit z TTS.",
+      "optedIn": "Znovu jste se přihlásili k TTS.",
+      "optedInTestMode": "Znovu jste se přihlásili k TTS (testovací režim).",
+      "optedOut": "Odhlásili jste se z TTS.",
+      "optedOutTestMode": "Odhlásili jste se z TTS (testovací režim).",
+      "selectChannel": "Nejprve vyberte kanál.",
+      "selfNote": "Zde jste se odhlásili z TTS. Kdykoli to můžete znovu zapnout.",
+      "specifyChannel": "Zadejte kanál."
+    },
+    "prefs": {
+      "hintChannel": "Používá se výchozí nastavení kanálu: {value}",
+      "hintSystem": "Používá se výchozí nastavení systému",
+      "hintUser": "Používá se vaše globální předvolba: {value}",
+      "loadFailed": "Předvolby nelze načíst.",
+      "noVoicesFound": "Nebyly nalezeny žádné hlasy",
+      "saveFailed": "Nelze uložit {key}: {reason}",
+      "sendPreview": "Odeslat náhled",
+      "testCompletedTestMode": "Test dokončen (testovací režim).",
+      "updated": "Předvolba aktualizována.",
+      "updatedTestMode": "Předvolba aktualizována (testovací režim)."
+    }
+  },
+  "openChannelContextModalBtn": {
+    "loadChannel": "Načíst kanál…"
+  },
+  "page": {
+    "setHowYourMessagesSound": "Nastavte, jak budou vaše zprávy znít, když je předčítá Wildcat TTS. Vaše předvolby jsou globální a platí pro všechny kanály.",
+    "viewerTtsPreferences": "Předvolby TTS pro diváky",
+    "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Nastavení pro diváky</span>"
+  },
+  "pitchReset": {
+    "clear": "Vymazat",
+    "resetPitchToDefault": "Obnovit výchozí výšku hlasu"
+  },
+  "pitchSlider": {
+    "pitchAdjustment12To12": "Úprava výšky hlasu (-12 až +12)"
+  },
+  "preferencesPanel": {
+    "adjustTheVoicePitchHigher": "Upravte výšku hlasu výše či níže",
+    "controlHowFastTheVoice": "Nastavte rychlost předčítání hlasu",
+    "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentace </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Nastavení streamera </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "<strong>Emoce</strong>",
+    "emotion2": "Emoce",
+    "englishNormalization": "Normalizace angličtiny",
+    "engNormalization": "Angl. normalizace",
+    "ifTtsReadsNumbersIncorrectly": "Pokud TTS čte čísla nesprávně, zapněte normalizaci anglického textu. Toto nastavení mírně zvyšuje latenci.",
+    "improvePronunciationForSpecificLanguages": "Vylepšit výslovnost pro konkrétní jazyky",
+    "improveThePronunciationOfNumbers": "Vylepšit výslovnost čísel a textu",
+    "language": "Jazyk",
+    "languageBoost": "<strong>Language Boost</strong>",
+    "pitch": "Výška hlasu",
+    "pitch12To12": "Výška hlasu (-12 až +12):",
+    "quickLinks": "Rychlé odkazy",
+    "selectYourPreferredTtsVoice": "Vyberte preferovaný hlas TTS",
+    "setHowYourMessagesSound": "Nastavte, jak budou vaše zprávy znít při předčítání přes TTS",
+    "setTheEmotionalToneOf": "Nastavte emocionální tón hlasu",
+    "speed": "Rychlost",
+    "speed05To2": "Rychlost (0,5 až 2,0):",
+    "testMessage": "Zkušební zpráva",
+    "voice": "<strong>Hlas</strong>",
+    "voicePreview": "Ukázka hlasu",
+    "voiceSettings": "Nastavení hlasu"
+  },
+  "prefsDisabledNote": {
+    "theStreamerDisabledPersonalVoice": "Streamer pro tento kanál vypnul osobní nastavení hlasu. Tento kanál použije svůj výchozí hlas namísto vašich předvoleb."
+  },
+  "previewBtn": {
+    "sendPreview": "Odeslat ukázku"
+  },
+  "speedReset": {
+    "clear": "Vymazat",
+    "resetSpeedToDefault": "Obnovit výchozí rychlost"
+  },
+  "speedSlider": {
+    "speedAdjustment05To": "Úprava rychlosti (0,5 až 2,0)"
+  },
+  "statChannelContext": {
+    "noneLoaded": "Nic nenačteno"
+  },
+  "voiceReset": {
+    "clear": "Vymazat",
+    "resetVoiceToDefault": "Obnovit výchozí hlas"
+  },
+  "voiceSearch": {
+    "searchVoices": "Hledat hlasy",
+    "searchVoices2": "Hledat hlasy..."
+  }
+}

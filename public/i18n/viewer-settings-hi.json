@@ -1,0 +1,212 @@
+{
+  "addChannelContextCard": {
+    "loadAChannelToSee": "डिफ़ॉल्ट सेटिंग्स देखने और ऑप्ट-आउट प्रबंधित करने के लिए कोई चैनल लोड करें। आपकी प्राथमिकताएं ग्लोबल रहेंगी।"
+  },
+  "channelContextCard": {
+    "changesHereUpdateYourGlobal": "यहाँ किए गए बदलाव <strong>आपकी</strong> ग्लोबल प्राथमिकताओं को अपडेट करते हैं। स्ट्रीमर की सेटिंग्स नहीं बदलती हैं।",
+    "channelContext": "चैनल संदर्भ",
+    "clearButtonsSetYourGlobal": "<strong>क्लियर बटन:</strong> अपनी ग्लोबल प्राथमिकता को इस चैनल की डिफ़ॉल्ट सेटिंग के अनुसार सेट करें।"
+  },
+  "channelHint": {
+    "channelFound": "चैनल मिल गया"
+  },
+  "channelInputCancel": {
+    "cancel": "रद्द करें"
+  },
+  "channelInputConfirm": {
+    "load": "लोड करें"
+  },
+  "channelInputDesc": {
+    "enterTheChannelNameTo": "डिफ़ॉल्ट सेटिंग्स देखने और ऑप्ट-आउट प्रबंधित करने के लिए चैनल का नाम दर्ज करें:"
+  },
+  "channelInputModal": {
+    "streamerUsername": "स्ट्रीमर का यूज़रनेम"
+  },
+  "channelInputModalText": {
+    "streamerUsername": "स्ट्रीमर का यूज़रनेम"
+  },
+  "channelInputTitle": {
+    "loadChannelContext": "चैनल संदर्भ लोड करें"
+  },
+  "clearChannelContextBtn": {
+    "clear": "साफ़ करें"
+  },
+  "confirmNo": {
+    "cancel": "रद्द करें"
+  },
+  "confirmText": {
+    "yourMessagesWillNotBe": "आपके संदेश बोलकर नहीं पढ़े जाएंगे। आप इसे किसी भी समय वापस चालू कर सकते हैं।"
+  },
+  "confirmTitle": {
+    "confirmAction": "कार्रवाई की पुष्टि करें"
+  },
+  "confirmYes": {
+    "confirm": "पुष्टि करें"
+  },
+  "dangerTtsToggle": {
+    "optOutOfTtsIn": "इस चैनल में TTS से ऑप्ट-आउट करें",
+    "ttsWillNotReadYour": "TTS इस चैनल में आपके संदेश नहीं पढ़ेगा"
+  },
+  "dangerZoneSection": {
+    "dangerZone": "डेंजर ज़ोन",
+    "theseSettingsStopTheBot": "ये सेटिंग्स बॉट को किसी चैनल में आपके संदेश पढ़ने से रोकती हैं। आप अपनी चुनी हुई किसी भी सेटिंग को बदल सकते हैं। यदि किसी मॉडरेटर ने आपको ऑप्ट-आउट किया है, तो केवल मॉडरेटर ही इसे पूर्ववत कर सकता है।"
+  },
+  "emotionReset": {
+    "clear": "साफ़ करें",
+    "resetEmotionToDefault": "इमोशन को डिफ़ॉल्ट पर रीसेट करें"
+  },
+  "emotionSelect": {
+    "angry": "क्रोधित",
+    "disgusted": "घृणा",
+    "fearful": "भयभीत",
+    "happy": "खुश",
+    "neutral": "तटस्थ",
+    "sad": "उदास",
+    "surprised": "हैरान",
+    "useChannelDefault": "चैनल डिफ़ॉल्ट का उपयोग करें"
+  },
+  "englishNormalizationCheckbox": {
+    "englishNormalization": "अंग्रेज़ी नॉर्मलाइज़ेशन"
+  },
+  "englishNormalizationReset": {
+    "clear": "साफ़ करें",
+    "resetEnglishNormalizationToDefault": "अंग्रेज़ी नॉर्मलाइज़ेशन को डिफ़ॉल्ट पर रीसेट करें"
+  },
+  "ignoreTts": {
+    "optOutOfTtsIn": "इस चैनल में TTS से ऑप्ट-आउट करें"
+  },
+  "languageReset": {
+    "clear": "साफ़ करें",
+    "resetLanguageToDefault": "भाषा को डिफ़ॉल्ट पर रीसेट करें"
+  },
+  "loadingBar": {
+    "loadingYourPreferences": "आपकी प्राथमिकताएँ लोड हो रही हैं"
+  },
+  "loadingOverlay": {
+    "loadingYourPreferences": "आपकी प्राथमिकताएँ लोड हो रही हैं…"
+  },
+  "loggedInStatus": {
+    "channelContext": "चैनल संदर्भ",
+    "global": "ग्लोबल",
+    "loggedInAs": "इस रूप में लॉग इन हैं",
+    "scope": "दायरा"
+  },
+  "meta": {
+    "wildcatttsViewerSettings": "WildcatTTS दर्शक सेटिंग्स",
+    "wildcatttsViewerSettingsSetYour": "WildcatTTS दर्शक सेटिंग्स - Twitch चैनलों पर अपनी व्यक्तिगत टेक्स्ट-टू-स्पीच आवाज़, पिच और गति सेट करें।"
+  },
+  "msg": {
+    "auth": {
+      "exchangeFailed": "साइन-इन पूरा नहीं हो सका। मुख्य पेज से दोबारा कोशिश करें।",
+      "testUser": "टेस्ट यूज़र"
+    },
+    "channel": {
+      "cleared": "चैनल संदर्भ साफ़ किया गया।",
+      "clearedTestMode": "चैनल संदर्भ साफ़ किया गया (टेस्ट मोड)।",
+      "enterName": "चैनल का नाम दर्ज करें।",
+      "found": "चैनल मिल गया",
+      "foundTestMode": "चैनल मिल गया (टेस्ट मोड)",
+      "hint": "चैनल की डिफ़ॉल्ट सेटिंग्स देखने के लिए उसे लोड करें।",
+      "loaded": "चैनल संदर्भ लोड हो गया।",
+      "loadedTestMode": "चैनल संदर्भ लोड हो गया (टेस्ट मोड)।",
+      "noneLoaded": "कोई लोड नहीं हुआ",
+      "promptConfirm": "लोड करें",
+      "promptDescription": "डिफ़ॉल्ट सेटिंग्स देखने और ऑप्ट-आउट प्रबंधित करने के लिए चैनल का नाम दर्ज करें:",
+      "promptTitle": "चैनल संदर्भ लोड करें",
+      "viewingDefaults": "आप {channel} की डिफ़ॉल्ट सेटिंग्स देख रहे हैं।"
+    },
+    "optout": {
+      "confirm": "क्या आप #{channel} में TTS से ऑप्ट आउट करना चाहते हैं? आपके संदेश ज़ोर से नहीं पढ़े जाएंगे। आप इसे किसी भी समय वापस चालू कर सकते हैं।",
+      "confirmDescription": "आगे बढ़ने के लिए चैनल का नाम दर्ज करें:",
+      "confirmTitle": "TTS ऑप्ट-आउट के लिए चैनल की पुष्टि करें",
+      "continue": "जारी रखें",
+      "moderatorNote": "चैनल मॉडरेटर ने आपको यहाँ TTS से ऑप्ट आउट कर दिया है। केवल मॉडरेटर ही इसे पहले जैसा कर सकते हैं।",
+      "optInFailed": "TTS में वापस ऑप्ट इन नहीं किया जा सकता।",
+      "optOutFailed": "TTS से ऑप्ट आउट नहीं किया जा सका।",
+      "optedIn": "आप TTS में वापस शामिल हो गए हैं।",
+      "optedInTestMode": "आप TTS में वापस शामिल हो गए (टेस्ट मोड)।",
+      "optedOut": "आप TTS से बाहर हो गए हैं।",
+      "optedOutTestMode": "आप TTS से बाहर हो गए (टेस्ट मोड)।",
+      "selectChannel": "पहले एक चैनल चुनें।",
+      "selfNote": "आपने यहाँ TTS से ऑप्ट आउट किया है। आप इसे किसी भी समय वापस चालू कर सकते हैं।",
+      "specifyChannel": "चैनल निर्दिष्ट करें।"
+    },
+    "prefs": {
+      "hintChannel": "चैनल डिफ़ॉल्ट का उपयोग किया जा रहा है: {value}",
+      "hintSystem": "सिस्टम डिफ़ॉल्ट का उपयोग किया जा रहा है",
+      "hintUser": "आपकी ग्लोबल प्राथमिकता का उपयोग किया जा रहा है: {value}",
+      "loadFailed": "प्राथमिकताएं लोड नहीं हो सकीं।",
+      "noVoicesFound": "कोई आवाज़ नहीं मिली",
+      "saveFailed": "{key} को सहेजा नहीं जा सका: {reason}",
+      "sendPreview": "पूर्वावलोकन भेजें",
+      "testCompletedTestMode": "परीक्षण पूरा हुआ (टेस्ट मोड)।",
+      "updated": "प्राथमिकता अपडेट की गई।",
+      "updatedTestMode": "प्राथमिकता अपडेट की गई (टेस्ट मोड)।"
+    }
+  },
+  "openChannelContextModalBtn": {
+    "loadChannel": "चैनल लोड करें…"
+  },
+  "page": {
+    "setHowYourMessagesSound": "सेट करें कि Wildcat TTS द्वारा पढ़े जाने पर आपके संदेश कैसे सुनाई दें। आपकी प्राथमिकताएं वैश्विक हैं और सभी चैनलों पर लागू होती हैं।",
+    "viewerTtsPreferences": "दर्शक TTS प्राथमिकताएं",
+    "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">दर्शक सेटिंग्स</span>"
+  },
+  "pitchReset": {
+    "clear": "साफ़ करें",
+    "resetPitchToDefault": "पिच को डिफ़ॉल्ट पर रीसेट करें"
+  },
+  "pitchSlider": {
+    "pitchAdjustment12To12": "पिच समायोजन (-12 से +12)"
+  },
+  "preferencesPanel": {
+    "adjustTheVoicePitchHigher": "आवाज़ की पिच को ऊँचा या नीचा समायोजित करें",
+    "controlHowFastTheVoice": "नियंत्रित करें कि आवाज़ कितनी तेज़ी से बोले",
+    "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>दस्तावेज़ </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>स्ट्रीमर सेटिंग्स </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "emotion": "<strong>भाव</strong>",
+    "emotion2": "भाव",
+    "englishNormalization": "अंग्रेज़ी नॉर्मलाइज़ेशन",
+    "engNormalization": "अंग्रेज़ी सामान्यीकरण",
+    "ifTtsReadsNumbersIncorrectly": "अगर TTS नंबर गलत पढ़ता है, तो अंग्रेज़ी टेक्स्ट नॉर्मलाइज़ेशन चालू करें। इससे लेटेंसी थोड़ी बढ़ जाती है।",
+    "improvePronunciationForSpecificLanguages": "विशिष्ट भाषाओं के लिए उच्चारण बेहतर बनाएं",
+    "improveThePronunciationOfNumbers": "संख्याओं और टेक्स्ट का उच्चारण बेहतर बनाएं",
+    "language": "भाषा",
+    "languageBoost": "<strong>भाषा बूस्ट</strong>",
+    "pitch": "पिच",
+    "pitch12To12": "पिच (-12 से +12):",
+    "quickLinks": "त्वरित लिंक",
+    "selectYourPreferredTtsVoice": "अपनी पसंदीदा TTS आवाज़ चुनें",
+    "setHowYourMessagesSound": "सेट करें कि TTS द्वारा पढ़े जाने पर आपके संदेश कैसे सुनाई दें",
+    "setTheEmotionalToneOf": "आवाज़ का भावनात्मक लहज़ा सेट करें",
+    "speed": "गति",
+    "speed05To2": "गति (0.5 से 2.0):",
+    "testMessage": "टेस्ट संदेश",
+    "voice": "<strong>आवाज़</strong>",
+    "voicePreview": "वॉइस प्रीव्यू",
+    "voiceSettings": "वॉइस सेटिंग्स"
+  },
+  "prefsDisabledNote": {
+    "theStreamerDisabledPersonalVoice": "स्ट्रीमर ने इस चैनल के लिए पर्सनल वॉइस सेटिंग्स बंद कर दी हैं। यह चैनल आपकी प्राथमिकताओं के बजाय अपनी डिफ़ॉल्ट आवाज़ का इस्तेमाल करेगा।"
+  },
+  "previewBtn": {
+    "sendPreview": "प्रीव्यू भेजें"
+  },
+  "speedReset": {
+    "clear": "साफ़ करें",
+    "resetSpeedToDefault": "स्पीड डिफ़ॉल्ट पर रीसेट करें"
+  },
+  "speedSlider": {
+    "speedAdjustment05To": "स्पीड एडजस्टमेंट (0.5 से 2.0)"
+  },
+  "statChannelContext": {
+    "noneLoaded": "कोई लोड नहीं हुआ"
+  },
+  "voiceReset": {
+    "clear": "साफ़ करें",
+    "resetVoiceToDefault": "वॉइस डिफ़ॉल्ट पर रीसेट करें"
+  },
+  "voiceSearch": {
+    "searchVoices": "वॉइस खोजें",
+    "searchVoices2": "वॉइस खोजें..."
+  }
+}
