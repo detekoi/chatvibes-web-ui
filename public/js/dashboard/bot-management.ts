@@ -133,12 +133,14 @@ export function initBotManagement(
         if (data.success) {
           showToast(data.message || 'TTS service activated.', 'success');
           updateBotStatusUI(true);
-        } else if (res.status === 403 || data.error?.includes('https://parfaitfair.com/#contact')) {
+        } else if (res.status === 403 || data.code === 'channel_not_authorized') {
+          // Keyed on the error code, not on finding a URL inside the prose. The
+          // link is appended as a real element rather than spliced into the
+          // string: the toast body is set with textContent, so the markup this
+          // used to build was displayed to the user as literal angle brackets.
           const errorText = data.details || data.error || data.message || 'Channel not authorized.';
-          const html = errorText.includes('https://parfaitfair.com/#contact')
-            ? errorText.replace('https://parfaitfair.com/#contact', '<a href="https://parfaitfair.com/#contact" target="_blank" class="link-light">this link</a>')
-            : `${errorText} <a href="https://parfaitfair.com/#contact" target="_blank" class="link-light">Request access here</a>.`;
-          showToast(html, 'error');
+          const contactUrl = data.params?.contactUrl;
+          showToast(errorText, 'error', contactUrl ? { href: contactUrl, text: 'Request access here' } : undefined);
         } else {
           showToast(data.error || data.message || 'Cannot activate TTS service.', 'error');
         }

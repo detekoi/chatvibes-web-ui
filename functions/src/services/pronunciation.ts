@@ -48,29 +48,40 @@ export function normalizeMatchKey(raw: unknown): string | null {
 
 export type SayResult =
   | { ok: true; value: string }
-  | { ok: false; reason: string };
+  | { ok: false; reason: string; reasonCode: string; reasonParams?: Record<string, unknown> };
 
 /**
  * Validate and normalize the spoken form.
+ *
+ * A failure carries a stable `reasonCode` as well as the English `reason`. The
+ * caller splices the reason into a sentence — "Pronunciation ${reason}" — so an
+ * English fragment there produces a sentence that changes language halfway
+ * through once the surrounding text is translated. The prose is kept so existing
+ * clients are unaffected.
+ *
  * @param {unknown} raw - The caller-supplied replacement text
  * @return {SayResult} The normalized value, or the reason it was rejected
  */
 export function validateSay(raw: unknown): SayResult {
-  if (typeof raw !== "string") return { ok: false, reason: "must be text" };
+  if (typeof raw !== "string") {
+    return { ok: false, reason: "must be text", reasonCode: "say_must_be_text" };
+  }
 
   const say = raw.replace(CONTROL_CHARS, "").trim().replace(/\s+/g, " ");
 
   // An empty value would let a message filter down to "", which the bot drops
   // rather than speaks. Removing an entry is a separate operation.
-  if (!say) return { ok: false, reason: "cannot be empty" };
+  if (!say) return { ok: false, reason: "cannot be empty", reasonCode: "say_empty" };
   if (say.length > LIMITS.MAX_SAY_LENGTH) {
     return {
       ok: false,
       reason: `must be ${LIMITS.MAX_SAY_LENGTH} characters or fewer`,
+      reasonCode: "say_too_long",
+      reasonParams: { max: LIMITS.MAX_SAY_LENGTH },
     };
   }
   if (URL_PATTERN.test(say)) {
-    return { ok: false, reason: "cannot contain a link" };
+    return { ok: false, reason: "cannot contain a link", reasonCode: "say_contains_link" };
   }
 
   return { ok: true, value: say };

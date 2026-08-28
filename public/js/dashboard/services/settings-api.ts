@@ -108,10 +108,10 @@ export class SettingsApi {
             errorText = errorData.details || errorData.message || errorData.error || errorText;
         } catch { }
 
-        // Special handling for 403 contact me link
-        if (response.status === 403 && errorText.includes('https://parfaitfair.com/#contact')) {
-            // Throw specific error or handle in UI? 
-            // For now, let's throw an error with the enhanced message
+        // Not-authorized is surfaced as-is for the caller to present. Keyed on
+        // the error code rather than on spotting a URL inside the sentence, so
+        // rewording the message cannot silently change the behaviour.
+        if (response.status === 403) {
             throw new Error(errorText);
         }
 

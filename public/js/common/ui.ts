@@ -106,8 +106,18 @@ export type ToastType = 'success' | 'error' | 'danger' | 'warning' | 'info';
 
 /**
  * Display a toast notification.
+ *
+ * `link` appends a real anchor element. Callers used to build an `<a>` into the
+ * message string, which never worked: the body is set with textContent, so the
+ * markup was shown to the user as literal angle brackets. Passing the parts
+ * separately renders the link and keeps the message free of markup, which also
+ * leaves it translatable as a plain sentence.
  */
-export function showToast(message: string, type: ToastType = 'success'): void {
+export function showToast(
+  message: string,
+  type: ToastType = 'success',
+  link?: { href: string; text: string },
+): void {
   const toastContainer = getToastContainer();
 
   const toastEl = document.createElement('div');
@@ -127,6 +137,17 @@ export function showToast(message: string, type: ToastType = 'success'): void {
   const body = document.createElement('div');
   body.className = 'toast-body';
   body.textContent = message;
+
+  if (link?.href) {
+    body.append(' ');
+    const anchor = document.createElement('a');
+    anchor.href = link.href;
+    anchor.target = '_blank';
+    anchor.rel = 'noopener noreferrer';
+    anchor.className = 'link-light';
+    anchor.textContent = link.text;
+    body.append(anchor);
+  }
 
   const btn = document.createElement('button');
   btn.type = 'button';

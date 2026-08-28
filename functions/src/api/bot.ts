@@ -8,7 +8,7 @@ import { getValidTwitchTokenForUser, getUserIdFromUsername, addModerator } from 
 import { authenticateApiRequest, assertAuthenticated } from "../middleware/auth";
 import { secrets, config, secretsLoadedPromise } from "../config";
 import { logger } from "../logger";
-import { errorResponse } from "./utils";
+import { errorResponse, apiError } from "./utils";
 
 const router: Router = express.Router();
 
@@ -90,7 +90,17 @@ router.post("/add", authenticateApiRequest, async (req: Request, res: Response):
     const existingDoc = await docRef.get();
     if (!existingDoc.exists) {
       log.warn("Channel not approved in Firestore");
-      errorResponse(res, 403, "Your channel is not authorized to use this bot. Contact me for access: https://parfaitfair.com/#contact");
+      // The contact URL travels as a parameter, not embedded in the sentence.
+      // The dashboard used to string-match it out of the prose to decide how to
+      // render this, which tied the copy to the presentation and broke the
+      // moment either changed.
+      apiError(
+        res,
+        403,
+        "channel_not_authorized",
+        "Your channel is not authorized to use this bot. Contact me for access: https://parfaitfair.com/#contact",
+        { contactUrl: "https://parfaitfair.com/#contact" },
+      );
       return;
     }
 
