@@ -119,17 +119,18 @@ export function initIgnoreListModule(
       // querySelector('span').textContent return "Spammer1Muted by you", which
       // then went back through the list as a bare string — losing the provenance
       // and growing another badge on every render.
-      const cell = document.createElement('span');
       const nameSpan = document.createElement('span');
       nameSpan.dataset.ignoreLabel = '';
+      nameSpan.className = 'text-truncate flex-grow-1';
       nameSpan.textContent = label;
 
+      const actionsDiv = document.createElement('div');
+      actionsDiv.className = 'd-flex align-items-center gap-2 flex-shrink-0';
+
       const sourceSpan = document.createElement('span');
-      sourceSpan.className = `badge ms-2 ${isSelf ? 'text-bg-secondary' : 'text-bg-danger'}`;
+      sourceSpan.className = `badge ${isSelf ? 'text-bg-secondary' : 'text-bg-danger'}`;
       sourceSpan.dataset.ignoreSource = source;
       sourceSpan.textContent = isSelf ? t('msg.ignore.badgeSelf') : t('msg.ignore.badgeModerator');
-      cell.appendChild(nameSpan);
-      cell.appendChild(sourceSpan);
 
       const btn = document.createElement('button');
       btn.className = 'btn btn-outline-danger btn-sm';
@@ -139,8 +140,11 @@ export function initIgnoreListModule(
       btn.textContent = t('msg.action.remove');
       btn.addEventListener('click', () => removeFromIgnoreList(type, key, label));
 
-      li.appendChild(cell);
-      li.appendChild(btn);
+      actionsDiv.appendChild(sourceSpan);
+      actionsDiv.appendChild(btn);
+
+      li.appendChild(nameSpan);
+      li.appendChild(actionsDiv);
       listEl.appendChild(li);
     });
   }

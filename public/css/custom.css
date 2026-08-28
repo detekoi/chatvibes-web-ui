@@ -1307,6 +1307,15 @@ dialog.modal::backdrop {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.ignore-list .badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-width: 95px;
 }
 
 /* =====================================================
