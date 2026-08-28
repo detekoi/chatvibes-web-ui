@@ -605,6 +605,7 @@ a[target="_blank"].no-arrow::after {
     font-size: 11px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+    white-space: nowrap;
     cursor: pointer;
     transition: border-color 0.15s ease, color 0.15s ease;
 }
@@ -905,7 +906,13 @@ a[target="_blank"].no-arrow::after {
     display: flex;
     align-items: center;
     gap: 10px;
+    flex: none;
 }
+
+/* The controls keep their intrinsic width. Left to shrink they do not clip,
+   they squeeze past the brand and paint on top of it, because a flex item is
+   allowed to become narrower than the text inside it. */
+.wc-appbar-actions > * { flex: none; }
 
 .wc-page-head {
     padding: 26px 24px 0;
@@ -1665,7 +1672,25 @@ a[target="_blank"].no-arrow::after {
    12. RESPONSIVE
    ===================================================== */
 @media (max-width: 767.98px) {
-    .wc-appbar { padding: 10px 16px; }
+    /* Four controls plus the brand do not fit a phone-width row, so let the
+       actions drop to a line of their own rather than overlap the lockup. */
+    .wc-appbar {
+        padding: 10px 16px;
+        flex-wrap: wrap;
+        row-gap: 10px;
+    }
+    .wc-appbar-actions {
+        flex: 1 1 auto;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    /* The one control that can give: an endonym truncates and stays readable,
+       where a chip label wraps into two broken words. */
+    .wc-langselect {
+        flex: 0 1 auto;
+        min-width: 5.5rem;
+    }
     .wc-page-head { padding-inline: 16px; }
     .wc-stats {
         flex-direction: column;
