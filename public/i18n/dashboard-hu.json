@@ -23,9 +23,6 @@
   "anonymizeFollowers": {
     "anonymizeNewFollowers": "Új követők anonimizálása"
   },
-  "bitsEnabled": {
-    "requireBitsForTts": "Bits megkövetelése a TTS-hez"
-  },
   "botRespondsInChat": {
     "botRespondsInChat": "Bot válaszoljon a csevegésben"
   },
@@ -258,7 +255,6 @@
       "allowViewerPreferences": "Nézői hangbeállítások engedélyezése",
       "announceQueuedRedeems": "Sorba állított beváltások bejelentése",
       "anonymizeFollowers": "Követők anonimizálása",
-      "bitsForTts": "Bits a TTS-hez",
       "botRespondsInChat": "A bot válaszol a csevegésben",
       "cheerAnnouncements": "Cheer-bejelentések",
       "defaultEmotion": "Alapértelmezett érzelem",
@@ -272,6 +268,7 @@
       "expandAcronyms": "Csevegési mozaikszavak feloldása",
       "minimumBits": "Minimum bits",
       "profanityFilter": "Káromkodásszűrő",
+      "readCheerMessages": "Cheer üzenetek felolvasása",
       "readFullUrls": "Teljes URL-ek felolvasása",
       "redemptionAnnouncements": "Beváltás-bejelentések",
       "ttsEngine": "TTS-motor",
@@ -317,6 +314,12 @@
   "pronunciationEnabled": {
     "expandChatAcronyms": "Csevegési mozaikszavak feloldása"
   },
+  "readCheerMessages": {
+    "readCheerMessages": "Cheer üzenetek felolvasása"
+  },
+  "readCheerMessagesModeNote": {
+    "alwaysOnInBitsPoints": "Mindig bekapcsolva a „Csak Bits/Points” módban"
+  },
   "readFullUrls": {
     "readFullUrls": "Teljes URL-ek felolvasása"
   },
@@ -353,8 +356,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "A bot válaszolhat olyan chatparancsokra, mint a !myvoice",
-    "allowViewerVoicePreferences": "Nézői hangbeállítások engedélyezése",
     "allowViewersToUseChannel": "Nézők számára a Channel Points használatának engedélyezése TTS-hez",
+    "allowViewerVoicePreferences": "Nézői hangbeállítások engedélyezése",
     "announceCheers": "Cheerek bemondása",
     "announceEvents": "Események bemondása",
     "announceEventsSuchAsSubscriptions": "Események (pl. feliratkozások és raidek) bemondása",
@@ -367,12 +370,12 @@
     "anonymizeNewFollowers": "Új követők anonimizálása",
     "bannedWordsCommaSeparated": "Tiltott szavak (vesszővel elválasztva)",
     "bannedWordsPhrases": "<strong>Tiltott szavak / kifejezések</strong>",
-    "bitsTts": "Bits → TTS",
     "blockLinks": "Hivatkozások letiltása",
     "botRespondsInChat": "A bot válaszol a chatben",
     "channelPointsTts": "Channel Points → TTS",
+    "cheers": "Cheerek",
+    "cheersBelowThisAmountAre": "Az ezen összeg alatti cheereket nem olvassa fel a rendszer. Az 1 minden üzenettel rendelkező cheert jelent.",
     "chooseWhichMessagesTriggerTts": "Válaszd ki, mely üzenetek aktiválják a TTS-t",
-    "configureBitsRequirementsForText": "A szövegfelolvasás bits-követelményeinek beállítása",
     "configureChannelPointsRewardsFor": "A szövegfelolvasás Channel Points jutalmainak beállítása",
     "configureTtsEngineSettingsAnd": "A TTS-motor beállításainak és engedélyeinek konfigurálása",
     "controlHowTtsPronouncesSpecific": "Szabályozd, hogyan ejtse ki a TTS az egyes szavakat. A gyakori Twitch-mozaikszavakat alapértelmezetten kezeli. Hozz létre egy bejegyzést az alapértelmezett kiejtés felülírásához vagy egy új szó hozzáadásához.",
@@ -390,16 +393,16 @@
     "ifThisSettingIsOff": "Ha ez a beállítás ki van kapcsolva, a TTS az alapértelmezett csatornahangot használja minden üzenethez",
     "ignoredUsers": "Mellőzött felhasználók",
     "manageUsersThatTtsIgnores": "A TTS által figyelmen kívül hagyott felhasználók kezelése",
-    "minimumBitsRequired": "<strong>Szükséges minimális bits</strong>",
-    "minimumNumberOfBitsRequired": "A TTS aktiválásához szükséges minimális bits-mennyiség",
+    "minimumBits": "<strong>Minimális Bits</strong>",
     "perStreamLimit": "Streamenkénti korlát",
     "perUserPerStream": "Felhasználónként és streamenként",
     "profanityFilter": "Káromkodásszűrő",
     "pronunciationDictionary": "<strong>Kiejtési szótár</strong>",
+    "readAloudTheMessageA": "A néző által a cheerhez csatolt üzenet felolvasása",
+    "readCheerMessages": "Cheer üzenetek felolvasása",
     "readFullUrls": "Teljes URL-ek felolvasása",
     "readYoutubeLiveChatMessages": "A YouTube élő csevegési üzeneteinek felolvasása TTS-sel. Ehhez a funkcióhoz aktív YouTube élő közvetítés szükséges.",
     "readYoutubeLiveChatMessages2": "YouTube élő csevegési üzenetek felolvasása",
-    "requireBitsForTts": "Bits megkövetelése a TTS-hez",
     "rewardTitle": "Jutalom neve",
     "skipTheRewardQueue": "Jutalomsor kihagyása",
     "theTitleMustBeUnique": "A címnek egyedinek kell lennie a csatornádon.",
@@ -413,7 +416,7 @@
     "ttsSkipsMessagesThatContain": "A TTS kihagyja az ezeket a szavakat vagy kifejezéseket tartalmazó üzeneteket.",
     "turnOnOrTurnOff": "Szövegfelolvasó (TTS) motor be- vagy kikapcsolása",
     "viewerPrompt": "Nézői prompt",
-    "viewersMustCheerBitsTo": "A nézőknek bits-et kell küldeniük a szövegfelolvasás használatához",
+    "whatHappensWhenAViewer": "Mi történik, amikor egy néző biteket cheerel. A cheer fizetős, így az üzenetét minden TTS módban felolvassa a rendszer, és a TTS jogosultság sem korlátozza.",
     "whoCanUseTextTo": "Ki használhatja a szövegfelolvasást",
     "yourYoutubeChannelHandleFor": "A YouTube-csatornád azonosítója (például <code>@yourhandle</code>)",
     "youtubeHandle": "<strong>YouTube-azonosító</strong>",
@@ -429,8 +432,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Az alapértelmezett hang magasságának beállítása",
     "adjustTheVolumeForThe": "A kiválasztott hang hangerejének beállítása. VIGYÁZAT: Az 1,0-nál nagyobb értékek torzítást okozhatnak.",
-    "calibrateVolumeForSpecificVoices": "Hangerő kalibrálása adott hangokhoz. VIGYÁZAT: Az 1,0-nál nagyobb értékek torzítást okozhatnak.",
     "calibratedVoices": "<strong>Kalibrált hangok</strong>",
+    "calibrateVolumeForSpecificVoices": "Hangerő kalibrálása adott hangokhoz. VIGYÁZAT: Az 1,0-nál nagyobb értékek torzítást okozhatnak.",
     "controlHowFastTheDefault": "Az alapértelmezett hang beszédsebességének beállítása",
     "defaultEmotion": "<strong>Alapértelmezett érzelem</strong>",
     "defaultLanguage": "<strong>Alapértelmezett nyelv</strong>",
@@ -447,8 +450,8 @@
     "setTheEmotionalToneOf": "Állítsd be az alapértelmezett hang érzelmi tónusát",
     "viewerVoiceLookup": "Nézői hang keresése",
     "voiceCalibration": "Hang kalibrálása",
-    "voiceVolume01To": "Hang hangereje (0,1 – 10):",
     "voicesWithCustomVolumeSettings": "Egyéni hangerő-beállításokkal rendelkező hangok.",
+    "voiceVolume01To": "Hang hangereje (0,1 – 10):",
     "volumeOverride": "Hangerő felülbírálása:"
   },
   "ttsBannedWordInput": {

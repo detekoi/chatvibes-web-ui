@@ -23,9 +23,6 @@
   "anonymizeFollowers": {
     "anonymizeNewFollowers": "Gawing Anonymous ang Bagong Mga Follower"
   },
-  "bitsEnabled": {
-    "requireBitsForTts": "Kailanganin ang Bits para sa TTS"
-  },
   "botRespondsInChat": {
     "botRespondsInChat": "Sumasagot ang Bot sa Chat"
   },
@@ -258,7 +255,6 @@
       "allowViewerPreferences": "Payagan ang Voice Preferences ng Manonood",
       "announceQueuedRedeems": "I-anunsyo ang Nakapilang Redeems",
       "anonymizeFollowers": "I-anonymize ang mga Follower",
-      "bitsForTts": "Bits para sa TTS",
       "botRespondsInChat": "Sumasagot ang Bot sa Chat",
       "cheerAnnouncements": "Mga Anunsyo ng Cheer",
       "defaultEmotion": "Default na Emosyon",
@@ -272,6 +268,7 @@
       "expandAcronyms": "I-expand ang mga Chat Acronym",
       "minimumBits": "Minimum na Bits",
       "profanityFilter": "Filter ng Pagmumura",
+      "readCheerMessages": "Basahin ang mga Mensahe ng Cheer",
       "readFullUrls": "Basahin ang Buong mga URL",
       "redemptionAnnouncements": "Mga Anunsyo ng Redemption",
       "ttsEngine": "TTS Engine",
@@ -317,6 +314,12 @@
   "pronunciationEnabled": {
     "expandChatAcronyms": "I-expand ang mga Chat Acronym"
   },
+  "readCheerMessages": {
+    "readCheerMessages": "Basahin ang mga Mensahe ng Cheer"
+  },
+  "readCheerMessagesModeNote": {
+    "alwaysOnInBitsPoints": "Palaging naka-on sa Bits/Points Only mode"
+  },
   "readFullUrls": {
     "readFullUrls": "Basahin ang Buong mga URL"
   },
@@ -353,8 +356,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Payagan ang bot na sumagot sa mga chat command tulad ng !myvoice",
-    "allowViewerVoicePreferences": "Payagan ang Mga Kagustuhan sa Boses ng Manonood",
     "allowViewersToUseChannel": "Payagan ang mga manonood na gumamit ng Channel Points para sa TTS",
+    "allowViewerVoicePreferences": "Payagan ang Mga Kagustuhan sa Boses ng Manonood",
     "announceCheers": "I-anunsyo ang mga Cheer",
     "announceEvents": "I-anunsyo ang mga Event",
     "announceEventsSuchAsSubscriptions": "I-anunsyo ang mga event tulad ng mga subscription at raid",
@@ -367,12 +370,12 @@
     "anonymizeNewFollowers": "I-anonymize ang mga Bagong Follower",
     "bannedWordsCommaSeparated": "Mga ipinagbabawal na salita (hiwalay gamit ang kuwit)",
     "bannedWordsPhrases": "<strong>Mga Ipinagbabawal na Salita / Parirala</strong>",
-    "bitsTts": "Bits → TTS",
     "blockLinks": "I-block ang mga link",
     "botRespondsInChat": "Sumasagot ang Bot sa Chat",
     "channelPointsTts": "Channel Points → TTS",
+    "cheers": "Mga Cheer",
+    "cheersBelowThisAmountAre": "Hindi binabasa ang mga cheer na mas mababa sa halagang ito. Ang ibig sabihin ng 1 ay bawat cheer na may kasamang mensahe.",
     "chooseWhichMessagesTriggerTts": "Piliin kung aling mga mensahe ang magti-trigger ng TTS",
-    "configureBitsRequirementsForText": "I-configure ang mga kinakailangang bits para sa text-to-speech",
     "configureChannelPointsRewardsFor": "I-configure ang mga reward sa Channel Points para sa text-to-speech",
     "configureTtsEngineSettingsAnd": "I-configure ang mga setting at pahintulot ng TTS engine",
     "controlHowTtsPronouncesSpecific": "Kontrolin kung paano binibigkas ng TTS ang mga partikular na salita. Karaniwang pinangangasiwaan na ang mga acronym sa Twitch bilang default. Magdagdag ng entry upang baguhin ang default na pagbigkas o magdagdag ng bagong salita.",
@@ -390,16 +393,16 @@
     "ifThisSettingIsOff": "Kung naka-off ang setting na ito, gagamitin ng TTS ang default na boses ng channel para sa lahat ng mensahe",
     "ignoredUsers": "Mga Hindi Pinapansing User",
     "manageUsersThatTtsIgnores": "Pamahalaan ang mga user na hindi pinapansin ng TTS",
-    "minimumBitsRequired": "<strong>Minimum na Kinakailangang Bits</strong>",
-    "minimumNumberOfBitsRequired": "Minimum na bilang ng bits na kailangan para ma-trigger ang TTS",
+    "minimumBits": "<strong>Minimum na Bits</strong>",
     "perStreamLimit": "Limitasyon bawat stream",
     "perUserPerStream": "Bawat user bawat stream",
     "profanityFilter": "Filter ng Kabastusan",
     "pronunciationDictionary": "<strong>Pronunciation Dictionary</strong>",
+    "readAloudTheMessageA": "Basahin nang malakas ang mensaheng inilakip ng viewer sa isang cheer",
+    "readCheerMessages": "Basahin ang mga Mensahe ng Cheer",
     "readFullUrls": "Basahin ang Buong mga URL",
     "readYoutubeLiveChatMessages": "Basahin ang mga live chat message sa YouTube gamit ang TTS. Nangangailangan ang feature na ito ng aktibong YouTube livestream.",
     "readYoutubeLiveChatMessages2": "Basahin nang malakas ang mga live chat message sa YouTube",
-    "requireBitsForTts": "I-require ang Bits para sa TTS",
     "rewardTitle": "Pamagat ng reward",
     "skipTheRewardQueue": "Laktawan ang Reward Queue",
     "theTitleMustBeUnique": "Dapat natatangi ang pamagat sa iyong channel.",
@@ -413,7 +416,7 @@
     "ttsSkipsMessagesThatContain": "Nilalaktawan ng TTS ang mga mensaheng naglalaman ng mga salita o pariralang ito.",
     "turnOnOrTurnOff": "I-on o i-off ang text-to-speech engine",
     "viewerPrompt": "Prompt para sa viewer",
-    "viewersMustCheerBitsTo": "Dapat mag-cheer ng bits ang mga viewer para magamit ang text-to-speech",
+    "whatHappensWhenAViewer": "Ang mangyayari kapag nag-cheer ng bits ang isang viewer. May bayad ang cheer, kaya binabasa ang mensahe nito sa bawat TTS Mode at hindi nalilimitahan ng TTS Permission.",
     "whoCanUseTextTo": "Sino ang puwedeng gumamit ng text-to-speech",
     "yourYoutubeChannelHandleFor": "Ang handle ng iyong YouTube channel (halimbawa, <code>@yourhandle</code>)",
     "youtubeHandle": "<strong>YouTube Handle</strong>",
@@ -429,8 +432,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "I-adjust ang pitch para sa default na boses",
     "adjustTheVolumeForThe": "I-adjust ang volume para sa napiling boses. BABALA: Ang mga value na higit sa 1.0 ay maaaring magdulot ng distortion.",
-    "calibrateVolumeForSpecificVoices": "I-calibrate ang volume para sa mga partikular na boses. BABALA: Ang mga value na higit sa 1.0 ay maaaring magdulot ng distortion.",
     "calibratedVoices": "<strong>Mga Na-calibrate na Boses</strong>",
+    "calibrateVolumeForSpecificVoices": "I-calibrate ang volume para sa mga partikular na boses. BABALA: Ang mga value na higit sa 1.0 ay maaaring magdulot ng distortion.",
     "controlHowFastTheDefault": "Kontrolin kung gaano kabilis magsalita ang default na boses",
     "defaultEmotion": "<strong>Default na Emosyon</strong>",
     "defaultLanguage": "<strong>Default na Wika</strong>",
@@ -447,8 +450,8 @@
     "setTheEmotionalToneOf": "Itakda ang emosyonal na tono ng default na boses",
     "viewerVoiceLookup": "Paghahanap ng Boses ng Manonood",
     "voiceCalibration": "Voice Calibration",
-    "voiceVolume01To": "Volume ng Boses (0.1 hanggang 10):",
     "voicesWithCustomVolumeSettings": "Mga boses na may custom na setting ng volume.",
+    "voiceVolume01To": "Volume ng Boses (0.1 hanggang 10):",
     "volumeOverride": "Override sa Volume:"
   },
   "ttsBannedWordInput": {

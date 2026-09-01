@@ -23,9 +23,6 @@
   "anonymizeFollowers": {
     "anonymizeNewFollowers": "புதிய பின்தொடர்பவர்களின் பெயரை மறைக்கவும்"
   },
-  "bitsEnabled": {
-    "requireBitsForTts": "TTS-க்கு Bits தேவை"
-  },
   "botRespondsInChat": {
     "botRespondsInChat": "சாட்டில் பாட் பதிலளிக்கும்"
   },
@@ -258,7 +255,6 @@
       "allowViewerPreferences": "பார்வையாளர் குரல் விருப்பங்களை அனுமதி",
       "announceQueuedRedeems": "வரிசையிலுள்ள Redeem-களை அறிவிக்கவும்",
       "anonymizeFollowers": "ஃபாலோயர் பெயர்களை மறைக்கவும்",
-      "bitsForTts": "TTS-க்கான Bits",
       "botRespondsInChat": "சாட்டில் பாட் பதிலளிக்கும்",
       "cheerAnnouncements": "Cheer அறிவிப்புகள்",
       "defaultEmotion": "இயல்புநிலை உணர்ச்சி",
@@ -272,6 +268,7 @@
       "expandAcronyms": "சாட் சுருக்கப்பெயர்களை விரிவாக்கு",
       "minimumBits": "குறைந்தபட்ச Bits",
       "profanityFilter": "முறையற்ற சொல் வடிகட்டி",
+      "readCheerMessages": "Cheer செய்திகளைப் படிக்கவும்",
       "readFullUrls": "முழு URL-களையும் வாசி",
       "redemptionAnnouncements": "Redemption அறிவிப்புகள்",
       "ttsEngine": "TTS என்ஜின்",
@@ -317,6 +314,12 @@
   "pronunciationEnabled": {
     "expandChatAcronyms": "சாட் சுருக்கப்பெயர்களை விரிவாக்கு"
   },
+  "readCheerMessages": {
+    "readCheerMessages": "Cheer செய்திகளைப் படிக்கவும்"
+  },
+  "readCheerMessagesModeNote": {
+    "alwaysOnInBitsPoints": "Bits/Points Only பயன்முறையில் எப்போதும் இயக்கத்தில் இருக்கும்"
+  },
   "readFullUrls": {
     "readFullUrls": "முழு URL-களையும் படி"
   },
@@ -353,8 +356,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "!myvoice போன்ற அரட்டைக் கட்டளைகளுக்கு பாட் பதிலளிக்க அனுமதிக்கவும்",
-    "allowViewerVoicePreferences": "பார்வையாளரின் குரல் விருப்பங்களை அனுமதி",
     "allowViewersToUseChannel": "பார்வையாளர்கள் TTS-க்கு Channel Points-ஐப் பயன்படுத்த அனுமதிக்கவும்",
+    "allowViewerVoicePreferences": "பார்வையாளரின் குரல் விருப்பங்களை அனுமதி",
     "announceCheers": "Cheers-களை அறிவிக்க",
     "announceEvents": "நிகழ்வுகளை அறிவிக்க",
     "announceEventsSuchAsSubscriptions": "Subscriptions மற்றும் raids போன்ற நிகழ்வுகளை அறிவிக்க",
@@ -367,12 +370,12 @@
     "anonymizeNewFollowers": "புதிய பின்தொடர்பாளர்களை அநாமதேயமாக்கு",
     "bannedWordsCommaSeparated": "தடைசெய்யப்பட்ட சொற்கள் (காற்புள்ளியால் பிரிக்கப்பட்டவை)",
     "bannedWordsPhrases": "<strong>தடைசெய்யப்பட்ட சொற்கள் / சொற்றொடர்கள்</strong>",
-    "bitsTts": "Bits → TTS",
     "blockLinks": "இணைப்புகளைத் தடு",
     "botRespondsInChat": "பாட் அரட்டையில் பதிலளிக்கும்",
     "channelPointsTts": "Channel Points → TTS",
+    "cheers": "Cheers",
+    "cheersBelowThisAmountAre": "இந்த அளவுக்குக் குறைவான Cheers படிக்கப்படாது. 1 என்பது செய்தி உள்ள ஒவ்வொரு cheer-ஐயும் குறிக்கும்.",
     "chooseWhichMessagesTriggerTts": "எந்தச் செய்திகள் TTS-ஐத் தூண்ட வேண்டும் என்பதைத் தேர்ந்தெடுக்கவும்",
-    "configureBitsRequirementsForText": "Text-to-speech-க்கான bits தேவைகளை உள்ளமைக்கவும்",
     "configureChannelPointsRewardsFor": "Text-to-speech-க்கான Channel Points வெகுமதிகளை உள்ளமைக்கவும்",
     "configureTtsEngineSettingsAnd": "TTS என்ஜின் அமைப்புகளையும் அனுமதிகளையும் உள்ளமைக்கவும்",
     "controlHowTtsPronouncesSpecific": "குறிப்பிட்ட சொற்களை TTS எவ்வாறு உச்சரிக்கிறது என்பதைக் கட்டுப்படுத்துங்கள். பொதுவான Twitch சுருக்கப்பெயர்கள் இயல்பாகவே கையாளப்படுகின்றன. இயல்புநிலை உச்சரிப்பை மாற்றியமைக்க அல்லது புதிய சொல்லைச் சேர்க்க ஒரு உள்ளீட்டைச் சேர்க்கவும்.",
@@ -390,16 +393,16 @@
     "ifThisSettingIsOff": "இந்த அமைப்பு முடக்கப்பட்டிருந்தால், TTS அனைத்து செய்திகளுக்கும் சேனலின் இயல்புநிலை குரலையே பயன்படுத்தும்",
     "ignoredUsers": "புறக்கணிக்கப்பட்ட பயனர்கள்",
     "manageUsersThatTtsIgnores": "TTS புறக்கணிக்கும் பயனர்களை நிர்வகிக்கவும்",
-    "minimumBitsRequired": "<strong>தேவைப்படும் குறைந்தபட்ச Bits</strong>",
-    "minimumNumberOfBitsRequired": "TTS-ஐ இயக்கத் தேவைப்படும் குறைந்தபட்ச Bits எண்ணிக்கை",
+    "minimumBits": "<strong>குறைந்தபட்ச Bits</strong>",
     "perStreamLimit": "ஒரு ஸ்ட்ரீமுக்கான வரம்பு",
     "perUserPerStream": "ஒரு ஸ்ட்ரீமுக்கு ஒரு பயனர் வரம்பு",
     "profanityFilter": "முறையற்ற சொல் வடிகட்டி",
     "pronunciationDictionary": "<strong>உச்சரிப்பு அகராதி</strong>",
+    "readAloudTheMessageA": "பார்வையாளர் cheer உடன் இணைக்கும் செய்தியை சத்தமாகப் படிக்கவும்",
+    "readCheerMessages": "Cheer செய்திகளைப் படிக்கவும்",
     "readFullUrls": "முழு URL-களையும் வாசி",
     "readYoutubeLiveChatMessages": "YouTube நேரலை அரட்டைச் செய்திகளை TTS மூலம் வாசிக்கவும். இந்த அம்சத்திற்கு செயலில் உள்ள YouTube நேரலை ஸ்ட்ரீம் தேவை.",
     "readYoutubeLiveChatMessages2": "YouTube நேரலை அரட்டைச் செய்திகளை சத்தமாக வாசிக்கவும்",
-    "requireBitsForTts": "TTS-க்கு Bits தேவை",
     "rewardTitle": "ரிவார்டு தலைப்பு",
     "skipTheRewardQueue": "ரிவார்டு வரிசையைத் தவிர்",
     "theTitleMustBeUnique": "தலைப்பு உங்கள் சேனலில் தனித்துவமானதாக இருக்க வேண்டும்.",
@@ -413,7 +416,7 @@
     "ttsSkipsMessagesThatContain": "இந்தச் சொற்கள் அல்லது சொற்றொடர்களைக் கொண்ட செய்திகளை TTS தவிர்க்கும்.",
     "turnOnOrTurnOff": "உரையிலிருந்து பேச்சு எஞ்சினை இயக்கவும் அல்லது முடக்கவும்",
     "viewerPrompt": "பார்வையாளர் குறிப்பு",
-    "viewersMustCheerBitsTo": "உரையிலிருந்து பேச்சைப் பயன்படுத்த பார்வையாளர்கள் bits சியர் செய்ய வேண்டும்",
+    "whatHappensWhenAViewer": "பார்வையாளர் bits cheer செய்யும்போது என்ன நடக்கும். Cheer கட்டணம் செலுத்தப்பட்டது என்பதால், அதன் செய்தி ஒவ்வொரு TTS Mode-லும் படிக்கப்படும் மற்றும் TTS Permission வரம்பிற்கு உட்படாது.",
     "whoCanUseTextTo": "உரையிலிருந்து பேச்சை யார் பயன்படுத்தலாம்",
     "yourYoutubeChannelHandleFor": "உங்கள் YouTube சேனல் ஹேண்டில் (உதாரணமாக, <code>@yourhandle</code>)",
     "youtubeHandle": "<strong>YouTube ஹேண்டில்</strong>",
@@ -429,8 +432,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "இயல்புநிலைக் குரலுக்கான சுருதியைச் சரிசெய்யவும்",
     "adjustTheVolumeForThe": "தேர்ந்தெடுக்கப்பட்ட குரலுக்கான ஒலியளவைச் சரிசெய்யவும். எச்சரிக்கை: 1.0-ஐ விட அதிகமான மதிப்புகள் சிதைவை ஏற்படுத்தக்கூடும்.",
-    "calibrateVolumeForSpecificVoices": "குறிப்பிட்ட குரல்களுக்கான ஒலியளவை அளவீடு செய்யவும். எச்சரிக்கை: 1.0-ஐ விட அதிகமான மதிப்புகள் சிதைவை ஏற்படுத்தக்கூடும்.",
     "calibratedVoices": "<strong>அளவீடு செய்யப்பட்ட குரல்கள்</strong>",
+    "calibrateVolumeForSpecificVoices": "குறிப்பிட்ட குரல்களுக்கான ஒலியளவை அளவீடு செய்யவும். எச்சரிக்கை: 1.0-ஐ விட அதிகமான மதிப்புகள் சிதைவை ஏற்படுத்தக்கூடும்.",
     "controlHowFastTheDefault": "இயல்புநிலைக் குரலின் பேசும் வேகத்தைக் கட்டுப்படுத்தவும்",
     "defaultEmotion": "<strong>இயல்புநிலை உணர்ச்சி</strong>",
     "defaultLanguage": "<strong>இயல்புநிலை மொழி</strong>",
@@ -447,8 +450,8 @@
     "setTheEmotionalToneOf": "இயல்புநிலைக் குரலின் உணர்ச்சித் தொனியை அமைக்கவும்",
     "viewerVoiceLookup": "பார்வையாளர் குரல் தேடல்",
     "voiceCalibration": "குரல் அளவுத்திருத்தம்",
-    "voiceVolume01To": "குரல் ஒலியளவு (0.1 முதல் 10 வரை):",
     "voicesWithCustomVolumeSettings": "தனிப்பயன் ஒலி அமைப்புகளைக் கொண்ட குரல்கள்.",
+    "voiceVolume01To": "குரல் ஒலியளவு (0.1 முதல் 10 வரை):",
     "volumeOverride": "ஒலியளவு மேலெழுதீடு:"
   },
   "ttsBannedWordInput": {

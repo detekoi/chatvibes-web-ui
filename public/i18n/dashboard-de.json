@@ -23,9 +23,6 @@
   "anonymizeFollowers": {
     "anonymizeNewFollowers": "Neue Follower anonymisieren"
   },
-  "bitsEnabled": {
-    "requireBitsForTts": "Bits für TTS erforderlich"
-  },
   "botRespondsInChat": {
     "botRespondsInChat": "Bot antwortet im Chat"
   },
@@ -258,7 +255,6 @@
       "allowViewerPreferences": "Zuschauer-Stimmeinstellungen erlauben",
       "announceQueuedRedeems": "Eingereihte Einlösungen ansagen",
       "anonymizeFollowers": "Follower anonymisieren",
-      "bitsForTts": "Bits für TTS",
       "botRespondsInChat": "Bot antwortet im Chat",
       "cheerAnnouncements": "Cheer-Ansagen",
       "defaultEmotion": "Standard-Emotion",
@@ -272,6 +268,7 @@
       "expandAcronyms": "Chat-Akronyme ausschreiben",
       "minimumBits": "Mindest-Bits",
       "profanityFilter": "Schimpfwortfilter",
+      "readCheerMessages": "Cheer-Nachrichten vorlesen",
       "readFullUrls": "Vollständige URLs vorlesen",
       "redemptionAnnouncements": "Einlösungs-Ansagen",
       "ttsEngine": "TTS-Engine",
@@ -317,6 +314,12 @@
   "pronunciationEnabled": {
     "expandChatAcronyms": "Chat-Akronyme ausschreiben"
   },
+  "readCheerMessages": {
+    "readCheerMessages": "Cheer-Nachrichten vorlesen"
+  },
+  "readCheerMessagesModeNote": {
+    "alwaysOnInBitsPoints": "Im Modus „Nur Bits/Punkte“ immer aktiv"
+  },
   "readFullUrls": {
     "readFullUrls": "Vollständige URLs vorlesen"
   },
@@ -353,8 +356,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Dem Bot erlauben, auf Chat-Befehle wie !myvoice zu antworten",
-    "allowViewerVoicePreferences": "Stimmenauswahl für Zuschauer erlauben",
     "allowViewersToUseChannel": "Zuschauern erlauben, Channel Points für TTS zu nutzen",
+    "allowViewerVoicePreferences": "Stimmenauswahl für Zuschauer erlauben",
     "announceCheers": "Cheers ankündigen",
     "announceEvents": "Events ankündigen",
     "announceEventsSuchAsSubscriptions": "Events wie Abonnements und Raids ankündigen",
@@ -367,12 +370,12 @@
     "anonymizeNewFollowers": "Neue Follower anonymisieren",
     "bannedWordsCommaSeparated": "Gesperrte Wörter (kommagetrennt)",
     "bannedWordsPhrases": "<strong>Gesperrte Wörter / Phrasen</strong>",
-    "bitsTts": "Bits → TTS",
     "blockLinks": "Links blockieren",
     "botRespondsInChat": "Bot antwortet im Chat",
     "channelPointsTts": "Channel Points → TTS",
+    "cheers": "Cheers",
+    "cheersBelowThisAmountAre": "Cheers unter diesem Betrag werden nicht vorgelesen. 1 bedeutet jeder Cheer mit einer Nachricht.",
     "chooseWhichMessagesTriggerTts": "Auswählen, welche Nachrichten TTS auslösen",
-    "configureBitsRequirementsForText": "Bits-Anforderungen für Text-to-Speech konfigurieren",
     "configureChannelPointsRewardsFor": "Channel-Points-Belohnungen für Text-to-Speech konfigurieren",
     "configureTtsEngineSettingsAnd": "TTS-Engine-Einstellungen und -Berechtigungen konfigurieren",
     "controlHowTtsPronouncesSpecific": "Steuere, wie TTS bestimmte Wörter ausspricht. Gängige Twitch-Akronyme werden standardmäßig unterstützt. Füge einen Eintrag hinzu, um eine Standardaussprache zu überschreiben oder ein neues Wort hinzuzufügen.",
@@ -390,16 +393,16 @@
     "ifThisSettingIsOff": "Wenn diese Einstellung deaktiviert ist, verwendet TTS die Standardstimme des Kanals für alle Nachrichten",
     "ignoredUsers": "Ignorierte Benutzer",
     "manageUsersThatTtsIgnores": "Benutzer verwalten, die von TTS ignoriert werden",
-    "minimumBitsRequired": "<strong>Erforderliche Mindest-Bits</strong>",
-    "minimumNumberOfBitsRequired": "Mindestanzahl an Bits, um TTS auszulösen",
+    "minimumBits": "<strong>Mindest-Bits</strong>",
     "perStreamLimit": "Limit pro Stream",
     "perUserPerStream": "Pro Benutzer pro Stream",
     "profanityFilter": "Schimpfwortfilter",
     "pronunciationDictionary": "<strong>Aussprachewörterbuch</strong>",
+    "readAloudTheMessageA": "Die Nachricht vorlesen, die ein Zuschauer an einen Cheer anhängt",
+    "readCheerMessages": "Cheer-Nachrichten vorlesen",
     "readFullUrls": "Vollständige URLs vorlesen",
     "readYoutubeLiveChatMessages": "YouTube-Livechat-Nachrichten per TTS vorlesen. Erfordert einen aktiven YouTube-Livestream.",
     "readYoutubeLiveChatMessages2": "YouTube-Livechat-Nachrichten laut vorlesen",
-    "requireBitsForTts": "Bits für TTS voraussetzen",
     "rewardTitle": "Belohnungstitel",
     "skipTheRewardQueue": "Belohnungswarteschlange überspringen",
     "theTitleMustBeUnique": "Der Titel muss auf deinem Kanal eindeutig sein.",
@@ -413,7 +416,7 @@
     "ttsSkipsMessagesThatContain": "TTS überspringt Nachrichten, die diese Wörter oder Ausdrücke enthalten.",
     "turnOnOrTurnOff": "Text-to-Speech-Engine aktivieren oder deaktivieren",
     "viewerPrompt": "Aufforderung für Zuschauer",
-    "viewersMustCheerBitsTo": "Zuschauer müssen Bits cheeren, um Text-to-Speech zu nutzen",
+    "whatHappensWhenAViewer": "Was passiert, wenn ein Zuschauer Bits cheert. Ein Cheer ist kostenpflichtig, daher wird seine Nachricht in jedem TTS-Modus vorgelesen und nicht durch TTS-Berechtigungen eingeschränkt.",
     "whoCanUseTextTo": "Wer Text-to-Speech nutzen darf",
     "yourYoutubeChannelHandleFor": "Dein YouTube-Kanal-Handle (z. B. <code>@deinhandle</code>)",
     "youtubeHandle": "<strong>YouTube-Handle</strong>",
@@ -429,8 +432,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Tonhöhe für die Standardstimme anpassen",
     "adjustTheVolumeForThe": "Lautstärke für die ausgewählte Stimme anpassen. ACHTUNG: Werte über 1,0 können zu Verzerrungen führen.",
-    "calibrateVolumeForSpecificVoices": "Lautstärke für bestimmte Stimmen kalibrieren. ACHTUNG: Werte über 1,0 können zu Verzerrungen führen.",
     "calibratedVoices": "<strong>Kalibrierte Stimmen</strong>",
+    "calibrateVolumeForSpecificVoices": "Lautstärke für bestimmte Stimmen kalibrieren. ACHTUNG: Werte über 1,0 können zu Verzerrungen führen.",
     "controlHowFastTheDefault": "Steuere, wie schnell die Standardstimme spricht",
     "defaultEmotion": "<strong>Standard-Emotion</strong>",
     "defaultLanguage": "<strong>Standardsprache</strong>",
@@ -447,8 +450,8 @@
     "setTheEmotionalToneOf": "Emotionalen Ton der Standardstimme festlegen",
     "viewerVoiceLookup": "Zuschauerstimmen-Suche",
     "voiceCalibration": "Stimmen-Kalibrierung",
-    "voiceVolume01To": "Stimmlautstärke (0,1 bis 10):",
     "voicesWithCustomVolumeSettings": "Stimmen mit benutzerdefinierter Lautstärke.",
+    "voiceVolume01To": "Stimmlautstärke (0,1 bis 10):",
     "volumeOverride": "Lautstärke-Überschreibung:"
   },
   "ttsBannedWordInput": {

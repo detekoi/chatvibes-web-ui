@@ -23,9 +23,6 @@
   "anonymizeFollowers": {
     "anonymizeNewFollowers": "Awanamkan Pengikut Baharu"
   },
-  "bitsEnabled": {
-    "requireBitsForTts": "Perlukan Bits untuk TTS"
-  },
   "botRespondsInChat": {
     "botRespondsInChat": "Bot Membalas dalam Sembang"
   },
@@ -258,7 +255,6 @@
       "allowViewerPreferences": "Benarkan Pilihan Suara Penonton",
       "announceQueuedRedeems": "Umumkan Penebusan dalam Giliran",
       "anonymizeFollowers": "Awanamkan Pengikut",
-      "bitsForTts": "Bits untuk TTS",
       "botRespondsInChat": "Bot Balas dalam Sembang",
       "cheerAnnouncements": "Pengumuman Cheer",
       "defaultEmotion": "Emosi Lalai",
@@ -272,6 +268,7 @@
       "expandAcronyms": "Kembangkan Akronim Sembang",
       "minimumBits": "Bits Minimum",
       "profanityFilter": "Penapis Kata Kesat",
+      "readCheerMessages": "Baca Mesej Cheer",
       "readFullUrls": "Baca URL Penuh",
       "redemptionAnnouncements": "Pengumuman Penebusan",
       "ttsEngine": "Enjin TTS",
@@ -317,6 +314,12 @@
   "pronunciationEnabled": {
     "expandChatAcronyms": "Kembangkan Akronim Sembang"
   },
+  "readCheerMessages": {
+    "readCheerMessages": "Baca Mesej Cheer"
+  },
+  "readCheerMessagesModeNote": {
+    "alwaysOnInBitsPoints": "Sentiasa aktif dalam mod Bits/Points Sahaja"
+  },
   "readFullUrls": {
     "readFullUrls": "Baca URL Penuh"
   },
@@ -353,8 +356,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Benarkan bot membalas arahan sembang seperti !myvoice",
-    "allowViewerVoicePreferences": "Benarkan Pilihan Suara Penonton",
     "allowViewersToUseChannel": "Benarkan penonton menggunakan Channel Points untuk TTS",
+    "allowViewerVoicePreferences": "Benarkan Pilihan Suara Penonton",
     "announceCheers": "Umumkan Cheers",
     "announceEvents": "Umumkan Acara",
     "announceEventsSuchAsSubscriptions": "Umumkan acara seperti langganan dan raid",
@@ -367,12 +370,12 @@
     "anonymizeNewFollowers": "Awanamkan Pengikut Baharu",
     "bannedWordsCommaSeparated": "Perkataan dilarang (dipisahkan koma)",
     "bannedWordsPhrases": "<strong>Perkataan / Frasa Dilarang</strong>",
-    "bitsTts": "Bits → TTS",
     "blockLinks": "Sekat pautan",
     "botRespondsInChat": "Bot Membalas dalam Sembang",
     "channelPointsTts": "Channel Points → TTS",
+    "cheers": "Cheers",
+    "cheersBelowThisAmountAre": "Cheer di bawah jumlah ini tidak dibaca. 1 bermaksud setiap cheer yang disertakan mesej.",
     "chooseWhichMessagesTriggerTts": "Pilih mesej yang mencetuskan TTS",
-    "configureBitsRequirementsForText": "Konfigurasikan syarat bits untuk teks-ke-ucapan",
     "configureChannelPointsRewardsFor": "Konfigurasikan ganjaran Channel Points untuk teks-ke-ucapan",
     "configureTtsEngineSettingsAnd": "Konfigurasikan tetapan enjin dan kebenaran TTS",
     "controlHowTtsPronouncesSpecific": "Kawal cara TTS menyebut perkataan tertentu. Akronim lazim Twitch dikendalikan secara lalai. Tambah entri untuk mengatasi sebutan lalai atau menambah perkataan baharu.",
@@ -390,16 +393,16 @@
     "ifThisSettingIsOff": "Jika tetapan ini dimatikan, TTS menggunakan suara lalai saluran untuk semua mesej",
     "ignoredUsers": "Pengguna Diabaikan",
     "manageUsersThatTtsIgnores": "Urus pengguna yang diabaikan oleh TTS",
-    "minimumBitsRequired": "<strong>Minimum Bits Diperlukan</strong>",
-    "minimumNumberOfBitsRequired": "Jumlah minimum bits yang diperlukan untuk mencetuskan TTS",
+    "minimumBits": "<strong>Bits Minimum</strong>",
     "perStreamLimit": "Had setiap penstriman",
     "perUserPerStream": "Setiap pengguna setiap penstriman",
     "profanityFilter": "Penapis Kata Kesat",
     "pronunciationDictionary": "<strong>Kamus Sebutan</strong>",
+    "readAloudTheMessageA": "Baca dengan kuat mesej yang disertakan penonton pada cheer",
+    "readCheerMessages": "Baca Mesej Cheer",
     "readFullUrls": "Baca URL Penuh",
     "readYoutubeLiveChatMessages": "Baca mesej sembang langsung YouTube melalui TTS. Ciri ini memerlukan siaran langsung YouTube yang aktif.",
     "readYoutubeLiveChatMessages2": "Baca mesej sembang langsung YouTube dengan kuat",
-    "requireBitsForTts": "Wajibkan Bits untuk TTS",
     "rewardTitle": "Tajuk ganjaran",
     "skipTheRewardQueue": "Langkau Baris Gilir Ganjaran",
     "theTitleMustBeUnique": "Tajuk mestilah unik dalam saluran anda.",
@@ -413,7 +416,7 @@
     "ttsSkipsMessagesThatContain": "TTS melangkau mesej yang mengandungi perkataan atau frasa ini.",
     "turnOnOrTurnOff": "Hidupkan atau matikan enjin teks-ke-pertuturan",
     "viewerPrompt": "Prom penonton",
-    "viewersMustCheerBitsTo": "Penonton mesti cheer bits untuk menggunakan teks-ke-pertuturan",
+    "whatHappensWhenAViewer": "Perkara yang berlaku apabila penonton cheer bits. Cheer adalah berbayar, jadi mesejnya dibaca dalam setiap Mod TTS dan tidak dihadkan oleh Kebenaran TTS.",
     "whoCanUseTextTo": "Siapa yang boleh menggunakan teks-ke-pertuturan",
     "yourYoutubeChannelHandleFor": "Pemegang saluran YouTube anda (contohnya, <code>@yourhandle</code>)",
     "youtubeHandle": "<strong>Pemegang YouTube</strong>",
@@ -429,8 +432,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Laraskan nada untuk suara lalai",
     "adjustTheVolumeForThe": "Laraskan kelantangan untuk suara yang dipilih. AWAS: Nilai lebih daripada 1.0 boleh menyebabkan herotan.",
-    "calibrateVolumeForSpecificVoices": "Tentukur kelantangan untuk suara tertentu. AWAS: Nilai lebih daripada 1.0 boleh menyebabkan herotan.",
     "calibratedVoices": "<strong>Suara Ditentukur</strong>",
+    "calibrateVolumeForSpecificVoices": "Tentukur kelantangan untuk suara tertentu. AWAS: Nilai lebih daripada 1.0 boleh menyebabkan herotan.",
     "controlHowFastTheDefault": "Kawal kelajuan pertuturan suara lalai",
     "defaultEmotion": "<strong>Emosi Lalai</strong>",
     "defaultLanguage": "<strong>Bahasa Lalai</strong>",
@@ -447,8 +450,8 @@
     "setTheEmotionalToneOf": "Tetapkan nada emosi suara lalai",
     "viewerVoiceLookup": "Carian Suara Penonton",
     "voiceCalibration": "Penentukuran Suara",
-    "voiceVolume01To": "Kelantangan Suara (0.1 hingga 10):",
     "voicesWithCustomVolumeSettings": "Suara dengan tetapan kelantangan tersuai.",
+    "voiceVolume01To": "Kelantangan Suara (0.1 hingga 10):",
     "volumeOverride": "Gantian Kelantangan:"
   },
   "ttsBannedWordInput": {

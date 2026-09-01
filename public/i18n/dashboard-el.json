@@ -23,9 +23,6 @@
   "anonymizeFollowers": {
     "anonymizeNewFollowers": "Ανωνυμοποίηση νέων ακολούθων"
   },
-  "bitsEnabled": {
-    "requireBitsForTts": "Απαίτηση Bits για TTS"
-  },
   "botRespondsInChat": {
     "botRespondsInChat": "Το bot απαντά στη συνομιλία"
   },
@@ -258,7 +255,6 @@
       "allowViewerPreferences": "Να επιτρέπονται οι προτιμήσεις φωνής θεατών",
       "announceQueuedRedeems": "Ανακοίνωση εξαργυρώσεων σε ουρά",
       "anonymizeFollowers": "Ανωνυμοποίηση ακολούθων",
-      "bitsForTts": "Bits για TTS",
       "botRespondsInChat": "Το bot απαντά στο chat",
       "cheerAnnouncements": "Ανακοινώσεις Cheer",
       "defaultEmotion": "Προεπιλεγμένο συναίσθημα",
@@ -272,6 +268,7 @@
       "expandAcronyms": "Ανάπτυξη ακρωνυμίων chat",
       "minimumBits": "Ελάχιστα bits",
       "profanityFilter": "Φίλτρο βωμολοχιών",
+      "readCheerMessages": "Ανάγνωση μηνυμάτων Cheer",
       "readFullUrls": "Ανάγνωση πλήρων URL",
       "redemptionAnnouncements": "Ανακοινώσεις εξαργυρώσεων",
       "ttsEngine": "Μηχανή TTS",
@@ -317,6 +314,12 @@
   "pronunciationEnabled": {
     "expandChatAcronyms": "Ανάπτυξη ακρωνυμίων συνομιλίας"
   },
+  "readCheerMessages": {
+    "readCheerMessages": "Ανάγνωση μηνυμάτων Cheer"
+  },
+  "readCheerMessagesModeNote": {
+    "alwaysOnInBitsPoints": "Πάντα ενεργό στη λειτουργία Μόνο Bits/Πόντοι"
+  },
   "readFullUrls": {
     "readFullUrls": "Ανάγνωση πλήρων URL"
   },
@@ -353,8 +356,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Να επιτρέπεται στο bot να απαντά σε εντολές chat όπως !myvoice",
-    "allowViewerVoicePreferences": "Αποδοχή προτιμήσεων φωνής θεατών",
     "allowViewersToUseChannel": "Να επιτρέπεται στους θεατές να χρησιμοποιούν Channel Points για TTS",
+    "allowViewerVoicePreferences": "Αποδοχή προτιμήσεων φωνής θεατών",
     "announceCheers": "Ανακοίνωση Cheers",
     "announceEvents": "Ανακοίνωση συμβάντων",
     "announceEventsSuchAsSubscriptions": "Ανακοίνωση συμβάντων όπως συνδρομές και raids",
@@ -367,12 +370,12 @@
     "anonymizeNewFollowers": "Ανωνυμοποίηση νέων ακολούθων",
     "bannedWordsCommaSeparated": "Αποκλεισμένες λέξεις (διαχωρισμένες με κόμμα)",
     "bannedWordsPhrases": "<strong>Αποκλεισμένες λέξεις / φράσεις</strong>",
-    "bitsTts": "Bits → TTS",
     "blockLinks": "Αποκλεισμός συνδέσμων",
     "botRespondsInChat": "Απόκριση bot στο chat",
     "channelPointsTts": "Channel Points → TTS",
+    "cheers": "Cheers",
+    "cheersBelowThisAmountAre": "Τα cheers κάτω από αυτό το ποσό δεν διαβάζονται. Το 1 σημαίνει κάθε cheer που συνοδεύεται από μήνυμα.",
     "chooseWhichMessagesTriggerTts": "Επιλέξτε ποια μηνύματα ενεργοποιούν το TTS",
-    "configureBitsRequirementsForText": "Διαμόρφωση απαιτήσεων bits για μετατροπή κειμένου σε ομιλία",
     "configureChannelPointsRewardsFor": "Διαμόρφωση ανταμοιβών Channel Points για μετατροπή κειμένου σε ομιλία",
     "configureTtsEngineSettingsAnd": "Διαμόρφωση ρυθμίσεων μηχανής TTS και δικαιωμάτων",
     "controlHowTtsPronouncesSpecific": "Ελέγξτε πώς προφέρει το TTS συγκεκριμένες λέξεις. Τα συνήθη ακρωνύμια του Twitch υποστηρίζονται από προεπιλογή. Προσθέστε μια καταχώριση για να αλλάξετε μια προεπιλεγμένη προφορά ή να προσθέσετε νέα λέξη.",
@@ -390,16 +393,16 @@
     "ifThisSettingIsOff": "Αν αυτή η ρύθμιση είναι ανενεργή, το TTS χρησιμοποιεί την προεπιλεγμένη φωνή του καναλιού για όλα τα μηνύματα",
     "ignoredUsers": "Αγνοημένοι χρήστες",
     "manageUsersThatTtsIgnores": "Διαχείριση χρηστών που αγνοεί το TTS",
-    "minimumBitsRequired": "<strong>Ελάχιστα απαιτούμενα Bits</strong>",
-    "minimumNumberOfBitsRequired": "Ελάχιστος αριθμός bits που απαιτείται για ενεργοποίηση του TTS",
+    "minimumBits": "<strong>Ελάχιστα Bits</strong>",
     "perStreamLimit": "Όριο ανά stream",
     "perUserPerStream": "Ανά χρήστη ανά stream",
     "profanityFilter": "Φίλτρο βωμολοχιών",
     "pronunciationDictionary": "<strong>Λεξικό προφοράς</strong>",
+    "readAloudTheMessageA": "Εκφώνηση του μηνύματος που επισυνάπτει ένας θεατής σε ένα cheer",
+    "readCheerMessages": "Ανάγνωση μηνυμάτων Cheer",
     "readFullUrls": "Ανάγνωση πλήρων URL",
     "readYoutubeLiveChatMessages": "Ανάγνωση μηνυμάτων ζωντανής συνομιλίας YouTube μέσω TTS. Αυτή η λειτουργία απαιτεί ενεργό livestream στο YouTube.",
     "readYoutubeLiveChatMessages2": "Εκφώνηση μηνυμάτων ζωντανής συνομιλίας YouTube",
-    "requireBitsForTts": "Απαίτηση Bits για TTS",
     "rewardTitle": "Τίτλος ανταμοιβής",
     "skipTheRewardQueue": "Παράκαμψη ουράς ανταμοιβών",
     "theTitleMustBeUnique": "Ο τίτλος πρέπει να είναι μοναδικός στο κανάλι σας.",
@@ -413,7 +416,7 @@
     "ttsSkipsMessagesThatContain": "Το TTS παραλείπει μηνύματα που περιέχουν αυτές τις λέξεις ή φράσεις.",
     "turnOnOrTurnOff": "Ενεργοποίηση ή απενεργοποίηση της μηχανής text-to-speech",
     "viewerPrompt": "Προτροπή θεατή",
-    "viewersMustCheerBitsTo": "Οι θεατές πρέπει να κάνουν cheer με bits για να χρησιμοποιήσουν το text-to-speech",
+    "whatHappensWhenAViewer": "Τι συμβαίνει όταν ένας θεατής κάνει cheer με bits. Ένα cheer είναι επί πληρωμή, επομένως το μήνυμά του διαβάζεται σε κάθε λειτουργία TTS και δεν περιορίζεται από τα δικαιώματα TTS.",
     "whoCanUseTextTo": "Ποιος μπορεί να χρησιμοποιήσει το text-to-speech",
     "yourYoutubeChannelHandleFor": "Το handle του καναλιού σας στο YouTube (π.χ. <code>@yourhandle</code>)",
     "youtubeHandle": "<strong>YouTube Handle</strong>",
@@ -429,8 +432,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Ρύθμιση του τόνου για την προεπιλεγμένη φωνή",
     "adjustTheVolumeForThe": "Ρύθμιση έντασης για την επιλεγμένη φωνή. ΠΡΟΣΟΧΗ: Τιμές άνω του 1.0 μπορεί να προκαλέσουν παραμόρφωση.",
-    "calibrateVolumeForSpecificVoices": "Βαθμονόμηση έντασης για συγκεκριμένες φωνές. ΠΡΟΣΟΧΗ: Τιμές άνω του 1.0 μπορεί να προκαλέσουν παραμόρφωση.",
     "calibratedVoices": "<strong>Βαθμονομημένες φωνές</strong>",
+    "calibrateVolumeForSpecificVoices": "Βαθμονόμηση έντασης για συγκεκριμένες φωνές. ΠΡΟΣΟΧΗ: Τιμές άνω του 1.0 μπορεί να προκαλέσουν παραμόρφωση.",
     "controlHowFastTheDefault": "Ρυθμίστε πόσο γρήγορα μιλάει η προεπιλεγμένη φωνή",
     "defaultEmotion": "<strong>Προεπιλεγμένο συναίσθημα</strong>",
     "defaultLanguage": "<strong>Προεπιλεγμένη γλώσσα</strong>",
@@ -447,8 +450,8 @@
     "setTheEmotionalToneOf": "Ορίστε τον συναισθηματικό τόνο της προεπιλεγμένης φωνής",
     "viewerVoiceLookup": "Αναζήτηση φωνής θεατή",
     "voiceCalibration": "Βαθμονόμηση φωνής",
-    "voiceVolume01To": "Ένταση φωνής (0.1 έως 10):",
     "voicesWithCustomVolumeSettings": "Φωνές με προσαρμοσμένες ρυθμίσεις έντασης.",
+    "voiceVolume01To": "Ένταση φωνής (0.1 έως 10):",
     "volumeOverride": "Παράκαμψη έντασης:"
   },
   "ttsBannedWordInput": {

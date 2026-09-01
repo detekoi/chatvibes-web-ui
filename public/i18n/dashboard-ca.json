@@ -23,9 +23,6 @@
   "anonymizeFollowers": {
     "anonymizeNewFollowers": "Anonimitza els nous seguidors"
   },
-  "bitsEnabled": {
-    "requireBitsForTts": "Requereix bits per al TTS"
-  },
   "botRespondsInChat": {
     "botRespondsInChat": "El bot respon al xat"
   },
@@ -258,7 +255,6 @@
       "allowViewerPreferences": "Permet les preferències de veu dels espectadors",
       "announceQueuedRedeems": "Anuncia els bescanvis en cua",
       "anonymizeFollowers": "Anonimitza els seguidors",
-      "bitsForTts": "Bits per al TTS",
       "botRespondsInChat": "El bot respon al xat",
       "cheerAnnouncements": "Anuncis de Cheer",
       "defaultEmotion": "Emoció predeterminada",
@@ -272,6 +268,7 @@
       "expandAcronyms": "Desplega els acrònims del xat",
       "minimumBits": "Bits mínims",
       "profanityFilter": "Filtre de vulgaritats",
+      "readCheerMessages": "Llegir missatges de cheer",
       "readFullUrls": "Llegeix els URL sencers",
       "redemptionAnnouncements": "Anuncis de bescanvis",
       "ttsEngine": "Motor de TTS",
@@ -317,6 +314,12 @@
   "pronunciationEnabled": {
     "expandChatAcronyms": "Expandeix els acrònims del xat"
   },
+  "readCheerMessages": {
+    "readCheerMessages": "Llegir missatges de cheer"
+  },
+  "readCheerMessagesModeNote": {
+    "alwaysOnInBitsPoints": "Sempre actiu en el mode Només Bits/Points"
+  },
   "readFullUrls": {
     "readFullUrls": "Llegeix els URL complets"
   },
@@ -353,8 +356,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Permet que el bot respongui a ordres del xat com ara !myvoice",
-    "allowViewerVoicePreferences": "Permet les preferències de veu dels espectadors",
     "allowViewersToUseChannel": "Permet que els espectadors utilitzin Channel Points per al TTS",
+    "allowViewerVoicePreferences": "Permet les preferències de veu dels espectadors",
     "announceCheers": "Anuncia els cheers",
     "announceEvents": "Anuncia els esdeveniments",
     "announceEventsSuchAsSubscriptions": "Anuncia esdeveniments com ara subscripcions i raids",
@@ -367,12 +370,12 @@
     "anonymizeNewFollowers": "Anonimitza els nous seguidors",
     "bannedWordsCommaSeparated": "Paraules prohibides (separades per comes)",
     "bannedWordsPhrases": "<strong>Paraules / frases prohibides</strong>",
-    "bitsTts": "Bits → TTS",
     "blockLinks": "Bloqueja els enllaços",
     "botRespondsInChat": "El bot respon al xat",
     "channelPointsTts": "Channel Points → TTS",
+    "cheers": "Cheers",
+    "cheersBelowThisAmountAre": "Els cheers per sota d'aquesta quantitat no es llegeixen. 1 vol dir tots els cheers que incloguin un missatge.",
     "chooseWhichMessagesTriggerTts": "Tria quins missatges activen el TTS",
-    "configureBitsRequirementsForText": "Configura els requisits de bits per al text a veu",
     "configureChannelPointsRewardsFor": "Configura les recompenses de Channel Points per al text a veu",
     "configureTtsEngineSettingsAnd": "Configura el motor de TTS i els permisos",
     "controlHowTtsPronouncesSpecific": "Controla com el TTS pronuncia paraules concretes. Els acrònims habituals de Twitch es gestionen per defecte. Afegeix una entrada per modificar una pronunciació per defecte o afegir una paraula nova.",
@@ -390,16 +393,16 @@
     "ifThisSettingIsOff": "Si aquest paràmetre està desactivat, el TTS fa servir la veu per defecte del canal per a tots els missatges",
     "ignoredUsers": "Usuaris ignorats",
     "manageUsersThatTtsIgnores": "Gestiona els usuaris que el TTS ignora",
-    "minimumBitsRequired": "<strong>Mínim de bits requerits</strong>",
-    "minimumNumberOfBitsRequired": "Nombre mínim de bits requerits per activar el TTS",
+    "minimumBits": "<strong>Bits mínims</strong>",
     "perStreamLimit": "Límit per emissió",
     "perUserPerStream": "Per usuari i emissió",
     "profanityFilter": "Filtre de llenguatge vulgar",
     "pronunciationDictionary": "<strong>Diccionari de pronunciació</strong>",
+    "readAloudTheMessageA": "Llegeix en veu alta el missatge que un espectador adjunta a un cheer",
+    "readCheerMessages": "Llegir missatges de cheer",
     "readFullUrls": "Llegeix els URL complets",
     "readYoutubeLiveChatMessages": "Llegeix els missatges del xat en directe de YouTube amb el TTS. Aquesta funció requereix una emissió en directe activa a YouTube.",
     "readYoutubeLiveChatMessages2": "Llegeix en veu alta els missatges del xat en directe de YouTube",
-    "requireBitsForTts": "Requereix bits per al TTS",
     "rewardTitle": "Títol de la recompensa",
     "skipTheRewardQueue": "Omet la cua de recompenses",
     "theTitleMustBeUnique": "El títol ha de ser únic al teu canal.",
@@ -413,7 +416,7 @@
     "ttsSkipsMessagesThatContain": "El TTS omet els missatges que contenen aquestes paraules o frases.",
     "turnOnOrTurnOff": "Activa o desactiva el motor de conversió de text a veu",
     "viewerPrompt": "Indicador per a l'espectador",
-    "viewersMustCheerBitsTo": "Els espectadors han de fer un cheer amb bits per utilitzar el text a veu",
+    "whatHappensWhenAViewer": "Què passa quan un espectador fa cheer de bits. Un cheer és de pagament, de manera que el seu missatge es llegeix en tots els modes de TTS i no està limitat pels permisos de TTS.",
     "whoCanUseTextTo": "Qui pot utilitzar el text a veu",
     "yourYoutubeChannelHandleFor": "L'identificador del teu canal de YouTube (per exemple, <code>@elteuusuari</code>)",
     "youtubeHandle": "<strong>Identificador de YouTube</strong>",
@@ -429,8 +432,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Ajusta el to per a la veu per defecte",
     "adjustTheVolumeForThe": "Ajusta el volum per a la veu seleccionada. ATENCIÓ: Els valors superiors a 1.0 poden causar distorsió.",
-    "calibrateVolumeForSpecificVoices": "Calibra el volum per a veus específiques. ATENCIÓ: Els valors superiors a 1.0 poden causar distorsió.",
     "calibratedVoices": "<strong>Veus calibrades</strong>",
+    "calibrateVolumeForSpecificVoices": "Calibra el volum per a veus específiques. ATENCIÓ: Els valors superiors a 1.0 poden causar distorsió.",
     "controlHowFastTheDefault": "Controla la velocitat de la veu predeterminada",
     "defaultEmotion": "<strong>Emoció predeterminada</strong>",
     "defaultLanguage": "<strong>Idioma predeterminat</strong>",
@@ -447,8 +450,8 @@
     "setTheEmotionalToneOf": "Defineix el to emocional de la veu predeterminada",
     "viewerVoiceLookup": "Cerca de veu d'espectador",
     "voiceCalibration": "Calibració de veu",
-    "voiceVolume01To": "Volum de la veu (0.1 a 10):",
     "voicesWithCustomVolumeSettings": "Veus amb ajustos de volum personalitzats.",
+    "voiceVolume01To": "Volum de la veu (0.1 a 10):",
     "volumeOverride": "Sobreescriptura de volum:"
   },
   "ttsBannedWordInput": {

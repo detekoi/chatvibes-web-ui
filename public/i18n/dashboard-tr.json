@@ -23,9 +23,6 @@
   "anonymizeFollowers": {
     "anonymizeNewFollowers": "Yeni Takipçileri Anonimleştir"
   },
-  "bitsEnabled": {
-    "requireBitsForTts": "TTS İçin Bits Zorunlu Olsun"
-  },
   "botRespondsInChat": {
     "botRespondsInChat": "Bot Sohbette Yanıt Versin"
   },
@@ -258,7 +255,6 @@
       "allowViewerPreferences": "İzleyici Ses Tercihlerine İzin Ver",
       "announceQueuedRedeems": "Kuyruktaki Kullanımları Duyur",
       "anonymizeFollowers": "Takipçileri Anonimleştir",
-      "bitsForTts": "TTS için Bits",
       "botRespondsInChat": "Bot Sohbette Yanıt Versin",
       "cheerAnnouncements": "Cheer Duyuruları",
       "defaultEmotion": "Varsayılan Duygu",
@@ -272,6 +268,7 @@
       "expandAcronyms": "Sohbet Kısaltmalarını Aç",
       "minimumBits": "Minimum Bits",
       "profanityFilter": "Küfür Filtresi",
+      "readCheerMessages": "Cheer Mesajlarını Oku",
       "readFullUrls": "URL'lerin Tamamını Oku",
       "redemptionAnnouncements": "Ödül Kullanım Duyuruları",
       "ttsEngine": "TTS Motoru",
@@ -317,6 +314,12 @@
   "pronunciationEnabled": {
     "expandChatAcronyms": "Sohbet Kısaltmalarını Aç"
   },
+  "readCheerMessages": {
+    "readCheerMessages": "Cheer Mesajlarını Oku"
+  },
+  "readCheerMessagesModeNote": {
+    "alwaysOnInBitsPoints": "Yalnızca Bits/Puan modunda her zaman açıktır"
+  },
   "readFullUrls": {
     "readFullUrls": "Tam URL'leri Oku"
   },
@@ -353,8 +356,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Botun !myvoice gibi sohbet komutlarına yanıt vermesine izin ver",
-    "allowViewerVoicePreferences": "İzleyici Ses Tercihlerine İzin Ver",
     "allowViewersToUseChannel": "İzleyicilerin TTS için Channel Points kullanmasına izin ver",
+    "allowViewerVoicePreferences": "İzleyici Ses Tercihlerine İzin Ver",
     "announceCheers": "Cheer'ları Duyur",
     "announceEvents": "Etkinlikleri Duyur",
     "announceEventsSuchAsSubscriptions": "Abonelikler ve baskınlar gibi etkinlikleri duyur",
@@ -367,12 +370,12 @@
     "anonymizeNewFollowers": "Yeni Takipçileri Anonimleştir",
     "bannedWordsCommaSeparated": "Yasaklı kelimeler (virgülle ayrılmış)",
     "bannedWordsPhrases": "<strong>Yasaklı Kelimeler / İfadeler</strong>",
-    "bitsTts": "Bits → TTS",
     "blockLinks": "Bağlantıları engelle",
     "botRespondsInChat": "Bot Sohbette Yanıt Verir",
     "channelPointsTts": "Channel Points → TTS",
+    "cheers": "Cheer'lar",
+    "cheersBelowThisAmountAre": "Bu miktarın altındaki Cheer'lar okunmaz. 1, mesaj içeren her Cheer anlamına gelir.",
     "chooseWhichMessagesTriggerTts": "Hangi mesajların TTS'yi tetikleyeceğini seç",
-    "configureBitsRequirementsForText": "Metin okuma için bits gereksinimlerini yapılandır",
     "configureChannelPointsRewardsFor": "Metin okuma için Channel Points ödüllerini yapılandır",
     "configureTtsEngineSettingsAnd": "TTS motoru ayarlarını ve izinlerini yapılandır",
     "controlHowTtsPronouncesSpecific": "TTS'nin belirli kelimeleri nasıl telaffuz edeceğini kontrol et. Yaygın Twitch kısaltmaları varsayılan olarak desteklenir. Varsayılan bir telaffuzu geçersiz kılmak veya yeni bir kelime eklemek için bir girdi ekle.",
@@ -390,16 +393,16 @@
     "ifThisSettingIsOff": "Bu ayar kapalıysa TTS tüm mesajlar için kanalın varsayılan sesini kullanır",
     "ignoredUsers": "Yok Sayılan Kullanıcılar",
     "manageUsersThatTtsIgnores": "TTS'nin yok saydığı kullanıcıları yönetin",
-    "minimumBitsRequired": "<strong>Gerekli Minimum Bits</strong>",
-    "minimumNumberOfBitsRequired": "TTS'yi tetiklemek için gereken minimum bits sayısı",
+    "minimumBits": "<strong>Minimum Bits</strong>",
     "perStreamLimit": "Yayın başına sınır",
     "perUserPerStream": "Kullanıcı ve yayın başına",
     "profanityFilter": "Küfür Filtresi",
     "pronunciationDictionary": "<strong>Telaffuz Sözlüğü</strong>",
+    "readAloudTheMessageA": "İzleyicinin bir Cheer'a eklediği mesajı sesli oku",
+    "readCheerMessages": "Cheer Mesajlarını Oku",
     "readFullUrls": "Tam URL'leri Oku",
     "readYoutubeLiveChatMessages": "YouTube canlı sohbet mesajlarını TTS ile okuyun. Bu özellik aktif bir YouTube canlı yayını gerektirir.",
     "readYoutubeLiveChatMessages2": "YouTube canlı sohbet mesajlarını sesli oku",
-    "requireBitsForTts": "TTS için Bits Zorunlu Olsun",
     "rewardTitle": "Ödül başlığı",
     "skipTheRewardQueue": "Ödül Sırasını Atla",
     "theTitleMustBeUnique": "Başlık kanalınızda benzersiz olmalıdır.",
@@ -413,7 +416,7 @@
     "ttsSkipsMessagesThatContain": "TTS bu kelimeleri veya ifadeleri içeren mesajları atlar.",
     "turnOnOrTurnOff": "Metin okuma motorunu açın veya kapatın",
     "viewerPrompt": "İzleyici istemi",
-    "viewersMustCheerBitsTo": "İzleyicilerin metin okumayı kullanabilmesi için bits göndermesi gerekir",
+    "whatHappensWhenAViewer": "Bir izleyici Bits ile Cheer gönderdiğinde ne olacağı. Cheer ücretli olduğu için mesajı her TTS Modunda okunur ve TTS İzni ile sınırlandırılmaz.",
     "whoCanUseTextTo": "Metin okumayı kimler kullanabilir",
     "yourYoutubeChannelHandleFor": "YouTube kanal kullanıcı adınız (örneğin <code>@kullaniciadiniz</code>)",
     "youtubeHandle": "<strong>YouTube Kullanıcı Adı</strong>",
@@ -429,8 +432,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Varsayılan sesin tonunu ayarlayın",
     "adjustTheVolumeForThe": "Seçilen sesin düzeyini ayarlayın. DİKKAT: 1.0'dan büyük değerler seste bozulmaya neden olabilir.",
-    "calibrateVolumeForSpecificVoices": "Belirli seslerin düzeyini kalibre edin. DİKKAT: 1.0'dan büyük değerler seste bozulmaya neden olabilir.",
     "calibratedVoices": "<strong>Kalibre Edilmiş Sesler</strong>",
+    "calibrateVolumeForSpecificVoices": "Belirli seslerin düzeyini kalibre edin. DİKKAT: 1.0'dan büyük değerler seste bozulmaya neden olabilir.",
     "controlHowFastTheDefault": "Varsayılan sesin konuşma hızını kontrol edin",
     "defaultEmotion": "<strong>Varsayılan Duygu</strong>",
     "defaultLanguage": "<strong>Varsayılan Dil</strong>",
@@ -447,8 +450,8 @@
     "setTheEmotionalToneOf": "Varsayılan sesin duygu tonunu ayarlayın",
     "viewerVoiceLookup": "İzleyici Sesi Arama",
     "voiceCalibration": "Ses Kalibrasyonu",
-    "voiceVolume01To": "Ses Düzeyi (0.1 ila 10):",
     "voicesWithCustomVolumeSettings": "Özel ses düzeyi ayarları olan sesler.",
+    "voiceVolume01To": "Ses Düzeyi (0.1 ila 10):",
     "volumeOverride": "Ses Düzeyi Geçersiz Kılma:"
   },
   "ttsBannedWordInput": {

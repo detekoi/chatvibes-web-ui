@@ -23,9 +23,6 @@
   "anonymizeFollowers": {
     "anonymizeNewFollowers": "הפוך עוקבים חדשים לאנונימיים"
   },
-  "bitsEnabled": {
-    "requireBitsForTts": "דרוש Bits עבור TTS"
-  },
   "botRespondsInChat": {
     "botRespondsInChat": "הבוט מגיב בצ'אט"
   },
@@ -258,7 +255,6 @@
       "allowViewerPreferences": "אפשר העדפות קול לצופים",
       "announceQueuedRedeems": "הכרז על מימושים בתור",
       "anonymizeFollowers": "הסתר שמות עוקבים",
-      "bitsForTts": "Bits עבור TTS",
       "botRespondsInChat": "הבוט מגיב בצ'אט",
       "cheerAnnouncements": "הכרזות Cheer",
       "defaultEmotion": "רגש ברירת מחדל",
@@ -272,6 +268,7 @@
       "expandAcronyms": "הרחב ראשי תיבות בצ'אט",
       "minimumBits": "מינימום Bits",
       "profanityFilter": "מסנן שפה בוטה",
+      "readCheerMessages": "הקראת הודעות Cheer",
       "readFullUrls": "הקרא כתובות URL מלאות",
       "redemptionAnnouncements": "הכרזות על מימושים",
       "ttsEngine": "מנוע TTS",
@@ -317,6 +314,12 @@
   "pronunciationEnabled": {
     "expandChatAcronyms": "הרחבת ראשי תיבות בצ'אט"
   },
+  "readCheerMessages": {
+    "readCheerMessages": "הקראת הודעות Cheer"
+  },
+  "readCheerMessagesModeNote": {
+    "alwaysOnInBitsPoints": "פועל תמיד במצב Bits/Points בלבד"
+  },
   "readFullUrls": {
     "readFullUrls": "הקראת כתובות URL מלאות"
   },
@@ -353,8 +356,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "אפשר לבוט להגיב לפקודות בצ'אט כגון !myvoice",
-    "allowViewerVoicePreferences": "אפשר העדפות קול לצופים",
     "allowViewersToUseChannel": "אפשר לצופים להשתמש ב-Channel Points עבור TTS",
+    "allowViewerVoicePreferences": "אפשר העדפות קול לצופים",
     "announceCheers": "הכרזה על Cheers",
     "announceEvents": "הכרזה על אירועים",
     "announceEventsSuchAsSubscriptions": "הכרזה על אירועים כמו מינויים ו-Raids",
@@ -367,12 +370,12 @@
     "anonymizeNewFollowers": "הסתרת שמות של עוקבים חדשים",
     "bannedWordsCommaSeparated": "מילים אסורות (מופרדות בפסיקים)",
     "bannedWordsPhrases": "<strong>מילים / ביטויים אסורים</strong>",
-    "bitsTts": "Bits → TTS",
     "blockLinks": "חסימת קישורים",
     "botRespondsInChat": "הבוט מגיב בצ'אט",
     "channelPointsTts": "Channel Points → TTS",
+    "cheers": "Cheers",
+    "cheersBelowThisAmountAre": "צ'ירים מתחת לסכום זה לא יוקראו. 1 מציין כל צ'יר שמכיל הודעה.",
     "chooseWhichMessagesTriggerTts": "בחירת ההודעות שיפעילו TTS",
-    "configureBitsRequirementsForText": "הגדרת דרישות bits עבור TTS",
     "configureChannelPointsRewardsFor": "הגדרת פרסי Channel Points עבור TTS",
     "configureTtsEngineSettingsAnd": "הגדרת מנוע ה-TTS והרשאות",
     "controlHowTtsPronouncesSpecific": "שליטה באופן שבו ה-TTS הוגה מילים מסוימות. קיצורים נפוצים ב-Twitch נתמכים כברירת מחדל. ניתן להוסיף רשומה כדי לעקוף הגיית ברירת מחדל או להוסיף מילה חדשה.",
@@ -390,16 +393,16 @@
     "ifThisSettingIsOff": "אם הגדרה זו כבויה, TTS משתמש בקול ברירת המחדל של הערוץ לכל ההודעות",
     "ignoredUsers": "משתמשים בהתעלמות",
     "manageUsersThatTtsIgnores": "ניהול משתמשים ש-TTS מתעלם מהם",
-    "minimumBitsRequired": "<strong>מינימום bits נדרש</strong>",
-    "minimumNumberOfBitsRequired": "מספר ה-bits המינימלי הנדרש להפעלת TTS",
+    "minimumBits": "<strong>מינימום Bits</strong>",
     "perStreamLimit": "מגבלה לשידור",
     "perUserPerStream": "למשתמש בכל שידור",
     "profanityFilter": "מסנן ניבולי פה",
     "pronunciationDictionary": "<strong>מילון הגייה</strong>",
+    "readAloudTheMessageA": "הקרא בקול את ההודעה שצופה מצרף ל-Cheer",
+    "readCheerMessages": "הקראת הודעות Cheer",
     "readFullUrls": "הקראת כתובות URL מלאות",
     "readYoutubeLiveChatMessages": "הקראת הודעות צ'אט חי של YouTube באמצעות TTS. תכונה זו דורשת שידור חי פעיל ב-YouTube.",
     "readYoutubeLiveChatMessages2": "הקראת הודעות צ'אט חי של YouTube בקול",
-    "requireBitsForTts": "דרישת bits עבור TTS",
     "rewardTitle": "כותרת הפרס",
     "skipTheRewardQueue": "דילוג על תור הפרסים",
     "theTitleMustBeUnique": "הכותרת חייבת להיות ייחודית בערוץ שלך.",
@@ -413,7 +416,7 @@
     "ttsSkipsMessagesThatContain": "TTS מדלג על הודעות המכילות מילים או ביטויים אלה.",
     "turnOnOrTurnOff": "הפעלה או כיבוי של מנוע ה-text-to-speech",
     "viewerPrompt": "הנחיה לצופה",
-    "viewersMustCheerBitsTo": "צופים חייבים לשלוח bits כדי להשתמש ב-text-to-speech",
+    "whatHappensWhenAViewer": "מה קורה כשצופה שולח Bits ב-Cheer. צ'יר נרכש בתשלום, ולכן הודעתו מוקראת בכל מצב TTS ואינה מוגבלת על ידי הרשאות TTS.",
     "whoCanUseTextTo": "מי רשאי להשתמש ב-text-to-speech",
     "yourYoutubeChannelHandleFor": "כינוי ערוץ ה-YouTube שלך (לדוגמה, <code>@yourhandle</code>)",
     "youtubeHandle": "<strong>כינוי ב-YouTube</strong>",
@@ -429,8 +432,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "כוונן את גובה הצליל עבור קול ברירת המחדל",
     "adjustTheVolumeForThe": "כוונן את עוצמת השמע עבור הקול שנבחר. זהירות: ערכים מעל 1.0 עלולים לגרום לעיוות.",
-    "calibrateVolumeForSpecificVoices": "כיול עוצמת השמע עבור קולות ספציפיים. זהירות: ערכים מעל 1.0 עלולים לגרום לעיוות.",
     "calibratedVoices": "<strong>קולות מכוילים</strong>",
+    "calibrateVolumeForSpecificVoices": "כיול עוצמת השמע עבור קולות ספציפיים. זהירות: ערכים מעל 1.0 עלולים לגרום לעיוות.",
     "controlHowFastTheDefault": "שליטה במהירות הדיבור של קול ברירת המחדל",
     "defaultEmotion": "<strong>רגש ברירת מחדל</strong>",
     "defaultLanguage": "<strong>שפת ברירת מחדל</strong>",
@@ -447,8 +450,8 @@
     "setTheEmotionalToneOf": "הגדרת הנימה הרגשית של קול ברירת המחדל",
     "viewerVoiceLookup": "חיפוש קול צופה",
     "voiceCalibration": "כיול קול",
-    "voiceVolume01To": "עוצמת קול (0.1 עד 10):",
     "voicesWithCustomVolumeSettings": "קולות עם הגדרות עוצמת שמע מותאמות אישית.",
+    "voiceVolume01To": "עוצמת קול (0.1 עד 10):",
     "volumeOverride": "דריסת עוצמת קול:"
   },
   "ttsBannedWordInput": {

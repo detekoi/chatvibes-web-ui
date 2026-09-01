@@ -70,8 +70,10 @@ export function initSettingsModule(
   const readFullUrlsCheckbox = document.getElementById('read-full-urls') as HTMLInputElement | null;
   const pronunciationEnabledCheckbox = document.getElementById('pronunciation-enabled') as HTMLInputElement | null;
   const profanityFilterCheckbox = document.getElementById('profanity-filter-enabled') as HTMLInputElement | null;
-  const bitsEnabledCheckbox = document.getElementById('bits-enabled') as HTMLInputElement | null;
+  const readCheerMessagesCheckbox = document.getElementById('read-cheer-messages') as HTMLInputElement | null;
+  const readCheerMessagesModeNote = document.getElementById('read-cheer-messages-mode-note') as HTMLElement | null;
   const bitsAmountInput = document.getElementById('bits-amount') as HTMLInputElement | null;
+  let lastStoredReadCheerMessages = true;
   const anonymizeFollowersCheckbox = document.getElementById('anonymize-followers') as HTMLInputElement | null;
 
   // YouTube integration elements
@@ -153,7 +155,10 @@ export function initSettingsModule(
   function setupAutoSaveListeners(): void {
     if (ttsEnabledCheckbox) ttsEnabledCheckbox.addEventListener('change', () => saveSettingWrapper('engineEnabled', !!ttsEnabledCheckbox.checked, t('msg.setting.ttsEngine')));
     if (botRespondsInChatCheckbox) botRespondsInChatCheckbox.addEventListener('change', () => saveSettingWrapper('botRespondsInChat', !!botRespondsInChatCheckbox.checked, t('msg.setting.botRespondsInChat')));
-    if (ttsModeSelect) ttsModeSelect.addEventListener('change', () => saveSettingWrapper('mode', ttsModeSelect.value || 'command', t('msg.setting.ttsMode')));
+    if (ttsModeSelect) ttsModeSelect.addEventListener('change', () => {
+      saveSettingWrapper('mode', ttsModeSelect.value || 'command', t('msg.setting.ttsMode'));
+      syncReadCheerMessagesToMode();
+    });
     if (ttsPermissionSelect) ttsPermissionSelect.addEventListener('change', () => saveSettingWrapper('ttsPermissionLevel', ttsPermissionSelect.value || 'everyone', t('msg.setting.ttsPermission')));
     if (eventsEnabledCheckbox) eventsEnabledCheckbox.addEventListener('change', () => saveSettingWrapper('speakEvents', eventsEnabledCheckbox.checked !== false, t('msg.setting.eventAnnouncements')));
     const cheerEventsEnabledCheckbox = document.getElementById('cheer-events-enabled') as HTMLInputElement | null;
@@ -169,15 +174,31 @@ export function initSettingsModule(
     if (readFullUrlsCheckbox) readFullUrlsCheckbox.addEventListener('change', () => saveSettingWrapper('readFullUrls', !!readFullUrlsCheckbox.checked, t('msg.setting.readFullUrls')));
     if (pronunciationEnabledCheckbox) pronunciationEnabledCheckbox.addEventListener('change', () => saveSettingWrapper('pronunciationEnabled', !!pronunciationEnabledCheckbox.checked, t('msg.setting.expandAcronyms')));
     if (profanityFilterCheckbox) profanityFilterCheckbox.addEventListener('change', () => saveSettingWrapper('profanityFilterEnabled', !!profanityFilterCheckbox.checked, t('msg.setting.profanityFilter')));
-    if (bitsEnabledCheckbox) bitsEnabledCheckbox.addEventListener('change', () => saveSettingWrapper('bitsModeEnabled', !!bitsEnabledCheckbox.checked, t('msg.setting.bitsForTts')));
+    if (readCheerMessagesCheckbox) readCheerMessagesCheckbox.addEventListener('change', () => {
+      lastStoredReadCheerMessages = readCheerMessagesCheckbox.checked !== false;
+      saveSettingWrapper('readCheerMessages', lastStoredReadCheerMessages, t('msg.setting.readCheerMessages'));
+    });
     if (bitsAmountInput) {
       const debouncedBitsAmountSave = debounce(
-        () => saveSettingWrapper('bitsMinimumAmount', parseInt(bitsAmountInput.value || '100', 10), t('msg.setting.minimumBits')),
+        () => saveSettingWrapper('bitsMinimumAmount', Math.max(1, parseInt(bitsAmountInput.value || '1', 10) || 1), t('msg.setting.minimumBits')),
         600
       );
       bitsAmountInput.addEventListener('input', () => { if (!isInitializing) debouncedBitsAmountSave(); });
-      bitsAmountInput.addEventListener('change', () => saveSettingWrapper('bitsMinimumAmount', parseInt(bitsAmountInput.value || '100', 10), t('msg.setting.minimumBits')));
+      bitsAmountInput.addEventListener('change', () => saveSettingWrapper('bitsMinimumAmount', Math.max(1, parseInt(bitsAmountInput.value || '1', 10) || 1), t('msg.setting.minimumBits')));
     }
+  }
+
+  // bits_points_only always reads cheer messages (that is what the mode is
+  // for), so the toggle is shown on and locked there rather than offering a
+  // switch that would do nothing. The stored value is left alone, so the
+  // channel's choice comes back when it changes mode again.
+  function syncReadCheerMessagesToMode(): void {
+    if (!readCheerMessagesCheckbox) return;
+    const locked = ttsModeSelect?.value === 'bits_points_only';
+    readCheerMessagesCheckbox.disabled = locked;
+    if (locked) readCheerMessagesCheckbox.checked = true;
+    else readCheerMessagesCheckbox.checked = lastStoredReadCheerMessages;
+    if (readCheerMessagesModeNote) readCheerMessagesModeNote.hidden = !locked;
 
     if (defaultEmotionSelect) defaultEmotionSelect.addEventListener('change', () => {
       saveSettingWrapper('emotion', defaultEmotionSelect.value || 'neutral', t('msg.setting.defaultEmotion'));
@@ -633,8 +654,8 @@ export function initSettingsModule(
         ttsPermissionLevel: 'everyone',
         speakEvents: true,
         readFullUrls: false,
-        bitsModeEnabled: true,
-        bitsMinimumAmount: 100,
+        readCheerMessages: true,
+        bitsMinimumAmount: 1,
         voiceId: 'Friendly_Person',
         emotion: 'auto',
         pitch: 0,
@@ -710,8 +731,10 @@ export function initSettingsModule(
     // two undefined cases resolve in opposite directions.
     if (pronunciationEnabledCheckbox) pronunciationEnabledCheckbox.checked = settings.pronunciationEnabled !== false;
     if (profanityFilterCheckbox) profanityFilterCheckbox.checked = settings.profanityFilterEnabled || false;
-    if (bitsEnabledCheckbox) bitsEnabledCheckbox.checked = settings.bitsModeEnabled || false;
-    if (bitsAmountInput) bitsAmountInput.value = String(settings.bitsMinimumAmount ?? 100);
+    // On unless the channel turned it off, matching the bot's default.
+    lastStoredReadCheerMessages = settings.readCheerMessages !== false;
+    syncReadCheerMessagesToMode();
+    if (bitsAmountInput) bitsAmountInput.value = String(Math.max(1, Number(settings.bitsMinimumAmount) || 1));
 
     if (defaultVoiceDropdown && settings.voiceId) {
       defaultVoiceDropdown.setValue(settings.voiceId);

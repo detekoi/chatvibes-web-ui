@@ -23,9 +23,6 @@
   "anonymizeFollowers": {
     "anonymizeNewFollowers": "Anonimiseer nuwe volgers"
   },
-  "bitsEnabled": {
-    "requireBitsForTts": "Vereis Bits vir TTS"
-  },
   "botRespondsInChat": {
     "botRespondsInChat": "Bot antwoord in klets"
   },
@@ -258,7 +255,6 @@
       "allowViewerPreferences": "Laat kykerstemvoorkeure toe",
       "announceQueuedRedeems": "Kondig inwisselings in tou aan",
       "anonymizeFollowers": "Anonimiseer volgers",
-      "bitsForTts": "Bits vir TTS",
       "botRespondsInChat": "Bot antwoord in klets",
       "cheerAnnouncements": "Cheer-aankondigings",
       "defaultEmotion": "Verstekemotie",
@@ -272,6 +268,7 @@
       "expandAcronyms": "Brei kletsakronieme uit",
       "minimumBits": "Minimum bits",
       "profanityFilter": "Vloektaalfilter",
+      "readCheerMessages": "Lees cheer-boodskappe",
       "readFullUrls": "Lees volledige URL's",
       "redemptionAnnouncements": "Inwisselingaankondigings",
       "ttsEngine": "TTS-enjin",
@@ -317,6 +314,12 @@
   "pronunciationEnabled": {
     "expandChatAcronyms": "Brei kletsakronieme uit"
   },
+  "readCheerMessages": {
+    "readCheerMessages": "Lees cheer-boodskappe"
+  },
+  "readCheerMessagesModeNote": {
+    "alwaysOnInBitsPoints": "Altyd aan in Slegs Bits/Punte-modus"
+  },
   "readFullUrls": {
     "readFullUrls": "Lees volledige URL's"
   },
@@ -353,8 +356,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Laat die bot toe om op kletsbevele soos !myvoice te reageer",
-    "allowViewerVoicePreferences": "Laat kykerstemvoorkeure toe",
     "allowViewersToUseChannel": "Laat kykers toe om Channel Points vir TTS te gebruik",
+    "allowViewerVoicePreferences": "Laat kykerstemvoorkeure toe",
     "announceCheers": "Kondig cheers aan",
     "announceEvents": "Kondig gebeurtenisse aan",
     "announceEventsSuchAsSubscriptions": "Kondig gebeurtenisse soos intekeninge en raids aan",
@@ -367,12 +370,12 @@
     "anonymizeNewFollowers": "Anonimiseer nuwe volgers",
     "bannedWordsCommaSeparated": "Verbode woorde (komma-geskei)",
     "bannedWordsPhrases": "<strong>Verbode woorde / frases</strong>",
-    "bitsTts": "Bits → TTS",
     "blockLinks": "Blokkeer skakels",
     "botRespondsInChat": "Bot antwoord in klets",
     "channelPointsTts": "Channel Points → TTS",
+    "cheers": "Cheers",
+    "cheersBelowThisAmountAre": "Cheers onder hierdie bedrag word nie gelees nie. 1 beteken elke cheer wat 'n boodskap bevat.",
     "chooseWhichMessagesTriggerTts": "Kies watter boodskappe TTS aktiveer",
-    "configureBitsRequirementsForText": "Stel bits-vereistes vir teks-na-spraak op",
     "configureChannelPointsRewardsFor": "Stel Channel Points-belonings vir teks-na-spraak op",
     "configureTtsEngineSettingsAnd": "Stel TTS-enjinstellings en toestemmings op",
     "controlHowTtsPronouncesSpecific": "Beheer hoe TTS spesifieke woorde uitspreek. Algemene Twitch-akronieme word by verstek hanteer. Voeg 'n inskrywing by om 'n verstekuitspraak te ignoreer of 'n nuwe woord by te voeg.",
@@ -390,16 +393,16 @@
     "ifThisSettingIsOff": "Indien hierdie instelling af is, gebruik TTS die kanaal se verstekstem vir alle boodskappe",
     "ignoredUsers": "Geïgnoreerde gebruikers",
     "manageUsersThatTtsIgnores": "Bestuur gebruikers wat TTS ignoreer",
-    "minimumBitsRequired": "<strong>Minimum bits vereis</strong>",
-    "minimumNumberOfBitsRequired": "Minimum aantal bits wat vereis word om TTS te aktiveer",
+    "minimumBits": "<strong>Minimum bits</strong>",
     "perStreamLimit": "Limiet per stroom",
     "perUserPerStream": "Per gebruiker per stroom",
     "profanityFilter": "Vloekwoordfilter",
     "pronunciationDictionary": "<strong>Uitspraakwoordeboek</strong>",
+    "readAloudTheMessageA": "Lees die boodskap wat 'n kyker by 'n cheer insluit hardop",
+    "readCheerMessages": "Lees cheer-boodskappe",
     "readFullUrls": "Lees volledige URL's",
     "readYoutubeLiveChatMessages": "Lees YouTube-regstreekse kletsboodskappe deur TTS. Hierdie kenmerk vereis 'n aktiewe YouTube-regstreekse stroom.",
     "readYoutubeLiveChatMessages2": "Lees YouTube-regstreekse kletsboodskappe hardop",
-    "requireBitsForTts": "Vereis bits vir TTS",
     "rewardTitle": "Beloningstitel",
     "skipTheRewardQueue": "Slaan die beloningswagry oor",
     "theTitleMustBeUnique": "Die titel moet uniek wees in jou kanaal.",
@@ -413,7 +416,7 @@
     "ttsSkipsMessagesThatContain": "TTS slaan boodskappe oor wat hierdie woorde of frases bevat.",
     "turnOnOrTurnOff": "Skakel die teks-na-spraak-enjin aan of af",
     "viewerPrompt": "Kykersopdrag",
-    "viewersMustCheerBitsTo": "Kykers moet bits cheer om teks-na-spraak te gebruik",
+    "whatHappensWhenAViewer": "Wat gebeur wanneer 'n kyker bits cheer. 'n Cheer word voor betaal, so die boodskap daarvan word in elke TTS-modus gelees en word nie deur TTS-toestemming beperk nie.",
     "whoCanUseTextTo": "Wie teks-na-spraak kan gebruik",
     "yourYoutubeChannelHandleFor": "Jou YouTube-kanaalhandvatsel (byvoorbeeld <code>@jouhandvatsel</code>)",
     "youtubeHandle": "<strong>YouTube-handvatsel</strong>",
@@ -429,8 +432,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Pas die toonhoogte vir die verstekstem aan",
     "adjustTheVolumeForThe": "Pas die volume vir die gekose stem aan. VERSIGTIG: Waardes hoër as 1.0 kan vervorming veroorsaak.",
-    "calibrateVolumeForSpecificVoices": "Kalibreer volume vir spesifieke stemme. VERSIGTIG: Waardes hoër as 1.0 kan vervorming veroorsaak.",
     "calibratedVoices": "<strong>Gekalibreerde stemme</strong>",
+    "calibrateVolumeForSpecificVoices": "Kalibreer volume vir spesifieke stemme. VERSIGTIG: Waardes hoër as 1.0 kan vervorming veroorsaak.",
     "controlHowFastTheDefault": "Beheer hoe vinnig die verstekstem praat",
     "defaultEmotion": "<strong>Verstek-emosie</strong>",
     "defaultLanguage": "<strong>Verstektaal</strong>",
@@ -447,8 +450,8 @@
     "setTheEmotionalToneOf": "Stel die emosionele toon van die verstekstem in",
     "viewerVoiceLookup": "Kykers-stemopsoek",
     "voiceCalibration": "Stemkalibrasie",
-    "voiceVolume01To": "Stemvolume (0.1 tot 10):",
     "voicesWithCustomVolumeSettings": "Stemme met pasgemaakte volume-instellings.",
+    "voiceVolume01To": "Stemvolume (0.1 tot 10):",
     "volumeOverride": "Volume-oorheersing:"
   },
   "ttsBannedWordInput": {

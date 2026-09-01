@@ -23,9 +23,6 @@
   "anonymizeFollowers": {
     "anonymizeNewFollowers": "ปิดบังชื่อผู้ติดตามใหม่"
   },
-  "bitsEnabled": {
-    "requireBitsForTts": "ต้องใช้ Bits เพื่อใช้ TTS"
-  },
   "botRespondsInChat": {
     "botRespondsInChat": "บอทตอบกลับในแชท"
   },
@@ -258,7 +255,6 @@
       "allowViewerPreferences": "อนุญาตการตั้งค่าเสียงของผู้ชม",
       "announceQueuedRedeems": "ประกาศรายการแลกรับในคิว",
       "anonymizeFollowers": "ซ่อนชื่อผู้ติดตาม",
-      "bitsForTts": "Bits สำหรับ TTS",
       "botRespondsInChat": "บอทตอบกลับในแชท",
       "cheerAnnouncements": "การประกาศ Cheer",
       "defaultEmotion": "อารมณ์เริ่มต้น",
@@ -272,6 +268,7 @@
       "expandAcronyms": "ขยายคำย่อในแชท",
       "minimumBits": "Bits ขั้นต่ำ",
       "profanityFilter": "ตัวกรองคำหยาบคาย",
+      "readCheerMessages": "อ่านข้อความ Cheer",
       "readFullUrls": "อ่าน URL แบบเต็ม",
       "redemptionAnnouncements": "การประกาศการแลกรับ",
       "ttsEngine": "TTS Engine",
@@ -317,6 +314,12 @@
   "pronunciationEnabled": {
     "expandChatAcronyms": "ขยายคำย่อในแชท"
   },
+  "readCheerMessages": {
+    "readCheerMessages": "อ่านข้อความ Cheer"
+  },
+  "readCheerMessagesModeNote": {
+    "alwaysOnInBitsPoints": "เปิดใช้งานเสมอในโหมด Bits/Points Only"
+  },
   "readFullUrls": {
     "readFullUrls": "อ่าน URL แบบเต็ม"
   },
@@ -353,8 +356,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "อนุญาตให้บอทตอบสนองต่อคำสั่งแชท เช่น !myvoice",
-    "allowViewerVoicePreferences": "อนุญาตการตั้งค่าเสียงของผู้ชม",
     "allowViewersToUseChannel": "อนุญาตให้ผู้ชมใช้ Channel Points สำหรับ TTS",
+    "allowViewerVoicePreferences": "อนุญาตการตั้งค่าเสียงของผู้ชม",
     "announceCheers": "ประกาศ Cheers",
     "announceEvents": "ประกาศกิจกรรม",
     "announceEventsSuchAsSubscriptions": "ประกาศกิจกรรม เช่น การสมัครสมาชิกและการ Raid",
@@ -367,12 +370,12 @@
     "anonymizeNewFollowers": "ซ่อนชื่อผู้ติดตามใหม่",
     "bannedWordsCommaSeparated": "คำที่ถูกแบน (คั่นด้วยจุลภาค)",
     "bannedWordsPhrases": "<strong>คำ / วลีที่ถูกแบน</strong>",
-    "bitsTts": "Bits → TTS",
     "blockLinks": "บล็อกลิงก์",
     "botRespondsInChat": "บอทตอบในแชท",
     "channelPointsTts": "Channel Points → TTS",
+    "cheers": "Cheers",
+    "cheersBelowThisAmountAre": "จะไม่อ่าน Cheer ที่ต่ำกว่าจำนวนนี้ ค่า 1 หมายถึงอ่านทุก Cheer ที่มีข้อความ",
     "chooseWhichMessagesTriggerTts": "เลือกข้อความที่จะทริกเกอร์ TTS",
-    "configureBitsRequirementsForText": "กำหนดเงื่อนไข bits สำหรับ TTS",
     "configureChannelPointsRewardsFor": "กำหนดรางวัล Channel Points สำหรับ TTS",
     "configureTtsEngineSettingsAnd": "กำหนดการตั้งค่าและสิทธิ์ของ TTS Engine",
     "controlHowTtsPronouncesSpecific": "ควบคุมวิธีที่ TTS ออกเสียงคำเฉพาะ โดยค่าเริ่มต้นจะรองรับคำย่อ Twitch ทั่วไปอยู่แล้ว คุณสามารถเพิ่มรายการเพื่อแทนที่การออกเสียงเริ่มต้นหรือเพิ่มคำใหม่ได้",
@@ -390,16 +393,16 @@
     "ifThisSettingIsOff": "หากปิดการตั้งค่านี้ TTS จะใช้เสียงเริ่มต้นของช่องสำหรับทุกข้อความ",
     "ignoredUsers": "ผู้ใช้ที่ละเว้น",
     "manageUsersThatTtsIgnores": "จัดการผู้ใช้ที่ TTS ละเว้น",
-    "minimumBitsRequired": "<strong>จำนวน Bits ขั้นต่ำที่ต้องใช้</strong>",
-    "minimumNumberOfBitsRequired": "จำนวน bits ขั้นต่ำที่ต้องใช้เพื่อเปิดใช้งาน TTS",
+    "minimumBits": "<strong>Bits ขั้นต่ำ</strong>",
     "perStreamLimit": "จำกัดต่อสตรีม",
     "perUserPerStream": "ต่อผู้ใช้ต่อสตรีม",
     "profanityFilter": "ตัวกรองคำหยาบคาย",
     "pronunciationDictionary": "<strong>พจนานุกรมการออกเสียง</strong>",
+    "readAloudTheMessageA": "อ่านออกเสียงข้อความที่ผู้ชมแนบมากับ Cheer",
+    "readCheerMessages": "อ่านข้อความ Cheer",
     "readFullUrls": "อ่าน URL ทั้งหมด",
     "readYoutubeLiveChatMessages": "อ่านข้อความแชทสดของ YouTube ผ่าน TTS ฟีเจอร์นี้ต้องมีการไลฟ์สตรีม YouTube ที่กำลังดำเนินอยู่",
     "readYoutubeLiveChatMessages2": "อ่านออกเสียงข้อความแชทสดของ YouTube",
-    "requireBitsForTts": "ต้องใช้ Bits สำหรับ TTS",
     "rewardTitle": "ชื่อรางวัล",
     "skipTheRewardQueue": "ข้ามคิวรางวัล",
     "theTitleMustBeUnique": "ชื่อต้องไม่ซ้ำกันในช่องของคุณ",
@@ -413,7 +416,7 @@
     "ttsSkipsMessagesThatContain": "TTS จะข้ามข้อความที่มีคำหรือวลีเหล่านี้",
     "turnOnOrTurnOff": "เปิดหรือปิดเอ็นจินแปลงข้อความเป็นเสียงพูด",
     "viewerPrompt": "ข้อความแจ้งเตือนผู้ชม",
-    "viewersMustCheerBitsTo": "ผู้ชมต้อง Cheer bits เพื่อใช้การแปลงข้อความเป็นเสียงพูด",
+    "whatHappensWhenAViewer": "สิ่งที่เกิดขึ้นเมื่อผู้ชม Cheer bits เนื่องจากการ Cheer มีค่าใช้จ่าย ข้อความจึงจะถูกอ่านในทุกโหมด TTS และไม่ถูกจำกัดโดยสิทธิ์ TTS",
     "whoCanUseTextTo": "ผู้ที่สามารถใช้การแปลงข้อความเป็นเสียงพูดได้",
     "yourYoutubeChannelHandleFor": "แฮนเดิลช่อง YouTube ของคุณ (เช่น <code>@yourhandle</code>)",
     "youtubeHandle": "<strong>แฮนเดิล YouTube</strong>",
@@ -429,8 +432,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "ปรับระดับเสียงสูงต่ำสำหรับเสียงเริ่มต้น",
     "adjustTheVolumeForThe": "ปรับระดับเสียงสำหรับเสียงที่เลือก ข้อควรระวัง: ค่าที่มากกว่า 1.0 อาจทำให้เสียงแตกพร่าได้",
-    "calibrateVolumeForSpecificVoices": "ปรับเทียบระดับเสียงสำหรับแต่ละเสียง ข้อควรระวัง: ค่าที่มากกว่า 1.0 อาจทำให้เสียงแตกพร่าได้",
     "calibratedVoices": "<strong>เสียงที่ปรับเทียบแล้ว</strong>",
+    "calibrateVolumeForSpecificVoices": "ปรับเทียบระดับเสียงสำหรับแต่ละเสียง ข้อควรระวัง: ค่าที่มากกว่า 1.0 อาจทำให้เสียงแตกพร่าได้",
     "controlHowFastTheDefault": "ควบคุมความเร็วเสียงพูดเริ่มต้น",
     "defaultEmotion": "<strong>อารมณ์เริ่มต้น</strong>",
     "defaultLanguage": "<strong>ภาษาเริ่มต้น</strong>",
@@ -447,8 +450,8 @@
     "setTheEmotionalToneOf": "กำหนดโทนอารมณ์ของเสียงเริ่มต้น",
     "viewerVoiceLookup": "ค้นหาเสียงของผู้ชม",
     "voiceCalibration": "การปรับเทียบระดับเสียง",
-    "voiceVolume01To": "ระดับความดังเสียง (0.1 ถึง 10):",
     "voicesWithCustomVolumeSettings": "เสียงที่มีการปรับระดับเสียงแบบกำหนดเอง",
+    "voiceVolume01To": "ระดับความดังเสียง (0.1 ถึง 10):",
     "volumeOverride": "แทนที่ระดับความดัง:"
   },
   "ttsBannedWordInput": {

@@ -23,9 +23,6 @@
   "anonymizeFollowers": {
     "anonymizeNewFollowers": "Anonymiser nye følgjarar"
   },
-  "bitsEnabled": {
-    "requireBitsForTts": "Krev bits for TTS"
-  },
   "botRespondsInChat": {
     "botRespondsInChat": "Boten svarer i chatten"
   },
@@ -258,7 +255,6 @@
       "allowViewerPreferences": "Tillat røysteval for sjåarar",
       "announceQueuedRedeems": "Kunngjer innløysingar i kø",
       "anonymizeFollowers": "Anonymiser følgjarar",
-      "bitsForTts": "Bits for TTS",
       "botRespondsInChat": "Boten svarer i chatten",
       "cheerAnnouncements": "Cheer-kunngjeringar",
       "defaultEmotion": "Standardkjensle",
@@ -272,6 +268,7 @@
       "expandAcronyms": "Utvid chat-forkortingar",
       "minimumBits": "Minimum bits",
       "profanityFilter": "Bannskapsfilter",
+      "readCheerMessages": "Les cheer-meldingar",
       "readFullUrls": "Les heile URL-ar",
       "redemptionAnnouncements": "Innløysingskunngjeringar",
       "ttsEngine": "TTS-motor",
@@ -317,6 +314,12 @@
   "pronunciationEnabled": {
     "expandChatAcronyms": "Utvid chat-akronym"
   },
+  "readCheerMessages": {
+    "readCheerMessages": "Les cheer-meldingar"
+  },
+  "readCheerMessagesModeNote": {
+    "alwaysOnInBitsPoints": "Alltid på i modusen «Berre bits/poeng»"
+  },
   "readFullUrls": {
     "readFullUrls": "Les heile URL-ar"
   },
@@ -353,8 +356,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Lat boten svara på chat-kommandoar som !myvoice",
-    "allowViewerVoicePreferences": "Tillat røystval for sjåarar",
     "allowViewersToUseChannel": "Lat sjåarar bruka Channel Points for TTS",
+    "allowViewerVoicePreferences": "Tillat røystval for sjåarar",
     "announceCheers": "Kunngjer cheers",
     "announceEvents": "Kunngjer hendingar",
     "announceEventsSuchAsSubscriptions": "Kunngjer hendingar som abonnement og raids",
@@ -367,12 +370,12 @@
     "anonymizeNewFollowers": "Gjer nye følgjarar anonyme",
     "bannedWordsCommaSeparated": "Bannlyste ord (kommaseparerte)",
     "bannedWordsPhrases": "<strong>Bannlyste ord / frasar</strong>",
-    "bitsTts": "Bits → TTS",
     "blockLinks": "Blokker lenkjer",
     "botRespondsInChat": "Bot svarar i chatten",
     "channelPointsTts": "Channel Points → TTS",
+    "cheers": "Cheers",
+    "cheersBelowThisAmountAre": "Cheers under dette beløpet blir ikkje lesne opp. 1 tyder kvart cheer som inneheld ei melding.",
     "chooseWhichMessagesTriggerTts": "Vel kva meldingar som skal utløysa TTS",
-    "configureBitsRequirementsForText": "Konfigurer bits-krav for tekst-til-tale",
     "configureChannelPointsRewardsFor": "Konfigurer Channel Points-belønningar for tekst-til-tale",
     "configureTtsEngineSettingsAnd": "Konfigurer innstillingar og tilgangar for TTS-motor",
     "controlHowTtsPronouncesSpecific": "Styr korleis TTS uttalar spesifikke ord. Vanlege Twitch-forkortingar blir handterte som standard. Legg til ei oppføring for å overstyra ein standarduttale eller leggja til eit nytt ord.",
@@ -390,16 +393,16 @@
     "ifThisSettingIsOff": "Viss denne innstillinga er av, brukar TTS standardrøysta for kanalen på alle meldingar",
     "ignoredUsers": "Ignorerte brukarar",
     "manageUsersThatTtsIgnores": "Handter brukarar som TTS ignorerer",
-    "minimumBitsRequired": "<strong>Minstekrav til bits</strong>",
-    "minimumNumberOfBitsRequired": "Minstetal på bits som krevst for å utløyse TTS",
+    "minimumBits": "<strong>Minimum bits</strong>",
     "perStreamLimit": "Grense per sending",
     "perUserPerStream": "Per brukar per sending",
     "profanityFilter": "Banneordfilter",
     "pronunciationDictionary": "<strong>Uttaleordbok</strong>",
+    "readAloudTheMessageA": "Les opp meldinga ein sjåar legg ved eit cheer",
+    "readCheerMessages": "Les cheer-meldingar",
     "readFullUrls": "Les heile URL-ar",
     "readYoutubeLiveChatMessages": "Les YouTube-nettpratmeldingar med TTS. Denne funksjonen krev ei aktiv direktesending på YouTube.",
     "readYoutubeLiveChatMessages2": "Les YouTube-nettpratmeldingar høgt",
-    "requireBitsForTts": "Krev bits for TTS",
     "rewardTitle": "Belønningstittel",
     "skipTheRewardQueue": "Hopp over belønningskøen",
     "theTitleMustBeUnique": "Tittelen må vere unik for kanalen din.",
@@ -413,7 +416,7 @@
     "ttsSkipsMessagesThatContain": "TTS hoppar over meldingar som inneheld desse orda eller frasane.",
     "turnOnOrTurnOff": "Slå på eller av tekst-til-tale-motoren",
     "viewerPrompt": "Sjåarinstruks",
-    "viewersMustCheerBitsTo": "Sjåarar må cheere bits for å bruke tekst-til-tale",
+    "whatHappensWhenAViewer": "Kva som skjer når ein sjåar cheerar bits. Eit cheer er betalt for, så meldinga blir lesen opp i alle TTS-modusar og er ikkje avgrensa av TTS-tilgang.",
     "whoCanUseTextTo": "Kven som kan bruke tekst-til-tale",
     "yourYoutubeChannelHandleFor": "YouTube-handtaket ditt (til dømes <code>@yourhandle</code>)",
     "youtubeHandle": "<strong>YouTube-handtak</strong>",
@@ -429,8 +432,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Juster tonehøgda for standardrøysta",
     "adjustTheVolumeForThe": "Juster lydstyrken for den valde røysta. ÅTVARING: Verdiar over 1,0 kan føre til forvrenging.",
-    "calibrateVolumeForSpecificVoices": "Kalibrer lydstyrken for einskilde røyster. ÅTVARING: Verdiar over 1,0 kan føre til forvrenging.",
     "calibratedVoices": "<strong>Kalibrerte røyster</strong>",
+    "calibrateVolumeForSpecificVoices": "Kalibrer lydstyrken for einskilde røyster. ÅTVARING: Verdiar over 1,0 kan føre til forvrenging.",
     "controlHowFastTheDefault": "Styr kor fort standardstemma snakkar",
     "defaultEmotion": "<strong>Standardkjensle</strong>",
     "defaultLanguage": "<strong>Standardspråk</strong>",
@@ -447,8 +450,8 @@
     "setTheEmotionalToneOf": "Vel kjensletonen for standardstemma",
     "viewerVoiceLookup": "Søk etter sjåarstemme",
     "voiceCalibration": "Stemmekalibrering",
-    "voiceVolume01To": "Stemmevolum (0,1 til 10):",
     "voicesWithCustomVolumeSettings": "Stemmer med tilpassa voluminnstillingar.",
+    "voiceVolume01To": "Stemmevolum (0,1 til 10):",
     "volumeOverride": "Volumoverstyring:"
   },
   "ttsBannedWordInput": {

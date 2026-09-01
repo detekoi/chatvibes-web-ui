@@ -23,9 +23,6 @@
   "anonymizeFollowers": {
     "anonymizeNewFollowers": "Anonymiser nye følgere"
   },
-  "bitsEnabled": {
-    "requireBitsForTts": "Kræv Bits til TTS"
-  },
   "botRespondsInChat": {
     "botRespondsInChat": "Bot svarer i chatten"
   },
@@ -258,7 +255,6 @@
       "allowViewerPreferences": "Tillad seeres stemmepræferencer",
       "announceQueuedRedeems": "Annoncér indløsninger i kø",
       "anonymizeFollowers": "Anonymiser følgere",
-      "bitsForTts": "Bits til TTS",
       "botRespondsInChat": "Bot svarer i chatten",
       "cheerAnnouncements": "Cheer-annonceringer",
       "defaultEmotion": "Standardfølelse",
@@ -272,6 +268,7 @@
       "expandAcronyms": "Udvid chatforkortelser",
       "minimumBits": "Minimum bits",
       "profanityFilter": "Bandeordsfilter",
+      "readCheerMessages": "Læs cheer-beskeder",
       "readFullUrls": "Læs hele URL'er",
       "redemptionAnnouncements": "Indløsningsannonceringer",
       "ttsEngine": "TTS-motor",
@@ -317,6 +314,12 @@
   "pronunciationEnabled": {
     "expandChatAcronyms": "Udvid chat-akronymer"
   },
+  "readCheerMessages": {
+    "readCheerMessages": "Læs cheer-beskeder"
+  },
+  "readCheerMessagesModeNote": {
+    "alwaysOnInBitsPoints": "Altid aktiv i tilstanden Kun bits/point"
+  },
   "readFullUrls": {
     "readFullUrls": "Læs fulde URL'er"
   },
@@ -353,8 +356,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Tillad botten at svare på chatkommandoer som f.eks. !myvoice",
-    "allowViewerVoicePreferences": "Tillad seernes stemmeindstillinger",
     "allowViewersToUseChannel": "Tillad seere at bruge Channel Points til TTS",
+    "allowViewerVoicePreferences": "Tillad seernes stemmeindstillinger",
     "announceCheers": "Annoncer cheers",
     "announceEvents": "Annoncer begivenheder",
     "announceEventsSuchAsSubscriptions": "Annoncer begivenheder som f.eks. abonnementer og raids",
@@ -367,12 +370,12 @@
     "anonymizeNewFollowers": "Anonymiser nye følgere",
     "bannedWordsCommaSeparated": "Forbudte ord (kommasepareret)",
     "bannedWordsPhrases": "<strong>Forbudte ord/fraser</strong>",
-    "bitsTts": "Bits → TTS",
     "blockLinks": "Bloker links",
     "botRespondsInChat": "Bot svarer i chatten",
     "channelPointsTts": "Channel Points → TTS",
+    "cheers": "Cheers",
+    "cheersBelowThisAmountAre": "Cheers under dette beløb læses ikke. 1 betyder alle cheers, der indeholder en besked.",
     "chooseWhichMessagesTriggerTts": "Vælg, hvilke beskeder der udløser TTS",
-    "configureBitsRequirementsForText": "Konfigurer bits-krav til tekst-til-tale",
     "configureChannelPointsRewardsFor": "Konfigurer Channel Points-belønninger til tekst-til-tale",
     "configureTtsEngineSettingsAnd": "Konfigurer TTS-motorindstillinger og tilladelser",
     "controlHowTtsPronouncesSpecific": "Styr, hvordan TTS udtaler specifikke ord. Almindelige Twitch-akronymer håndteres som standard. Tilføj et punkt for at tilsidesætte en standardudtale eller tilføje et nyt ord.",
@@ -390,16 +393,16 @@
     "ifThisSettingIsOff": "Hvis denne indstilling er slået fra, bruger TTS kanalens standardstemme til alle beskeder",
     "ignoredUsers": "Ignorerede brugere",
     "manageUsersThatTtsIgnores": "Administrer brugere, som TTS ignorerer",
-    "minimumBitsRequired": "<strong>Minimum bits påkrævet</strong>",
-    "minimumNumberOfBitsRequired": "Minimum antal bits påkrævet for at aktivere TTS",
+    "minimumBits": "<strong>Minimum bits</strong>",
     "perStreamLimit": "Grænse pr. stream",
     "perUserPerStream": "Pr. bruger pr. stream",
     "profanityFilter": "Bandeordsfilter",
     "pronunciationDictionary": "<strong>Udtaleordbog</strong>",
+    "readAloudTheMessageA": "Læs beskeden højt, som en seer vedhæfter en cheer",
+    "readCheerMessages": "Læs cheer-beskeder",
     "readFullUrls": "Læs hele URL'er",
     "readYoutubeLiveChatMessages": "Læs YouTube-livechatbeskeder via TTS. Denne funktion kræver et aktivt YouTube-livestream.",
     "readYoutubeLiveChatMessages2": "Læs YouTube-livechatbeskeder højt",
-    "requireBitsForTts": "Kræv bits for TTS",
     "rewardTitle": "Belønningstitel",
     "skipTheRewardQueue": "Spring belønningskøen over",
     "theTitleMustBeUnique": "Titlen skal være unik for din kanal.",
@@ -413,7 +416,7 @@
     "ttsSkipsMessagesThatContain": "TTS springer beskeder over, der indeholder disse ord eller fraser.",
     "turnOnOrTurnOff": "Slå tekst-til-tale-motoren til eller fra",
     "viewerPrompt": "Seerprompt",
-    "viewersMustCheerBitsTo": "Seere skal cheere bits for at bruge tekst-til-tale",
+    "whatHappensWhenAViewer": "Hvad der sker, når en seer cheerer med bits. En cheer er betalt, så dens besked læses i alle TTS-tilstande og er ikke begrænset af TTS-tilladelse.",
     "whoCanUseTextTo": "Hvem der kan bruge tekst-til-tale",
     "yourYoutubeChannelHandleFor": "Dit YouTube-kanal-handle (f.eks. <code>@dithandle</code>)",
     "youtubeHandle": "<strong>YouTube-handle</strong>",
@@ -429,8 +432,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Juster tonehøjden for standardstemmen",
     "adjustTheVolumeForThe": "Juster lydstyrken for den valgte stemme. ADVARSEL: Værdier over 1,0 kan forårsage forvrængning.",
-    "calibrateVolumeForSpecificVoices": "Kalibrer lydstyrke for specifikke stemmer. ADVARSEL: Værdier over 1,0 kan forårsage forvrængning.",
     "calibratedVoices": "<strong>Kalibrerede stemmer</strong>",
+    "calibrateVolumeForSpecificVoices": "Kalibrer lydstyrke for specifikke stemmer. ADVARSEL: Værdier over 1,0 kan forårsage forvrængning.",
     "controlHowFastTheDefault": "Styr, hvor hurtigt standardstemmen taler",
     "defaultEmotion": "<strong>Standardfølelse</strong>",
     "defaultLanguage": "<strong>Standardsprog</strong>",
@@ -447,8 +450,8 @@
     "setTheEmotionalToneOf": "Indstil den følelsesmæssige tone for standardstemmen",
     "viewerVoiceLookup": "Opslag af seerstemme",
     "voiceCalibration": "Stemmekalibrering",
-    "voiceVolume01To": "Stemmelydstyrke (0,1 til 10):",
     "voicesWithCustomVolumeSettings": "Stemmer med tilpassede lydstyrkeindstillinger.",
+    "voiceVolume01To": "Stemmelydstyrke (0,1 til 10):",
     "volumeOverride": "Overstyring af lydstyrke:"
   },
   "ttsBannedWordInput": {

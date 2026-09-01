@@ -23,9 +23,6 @@
   "anonymizeFollowers": {
     "anonymizeNewFollowers": "إخفاء هوية المتابعين الجدد"
   },
-  "bitsEnabled": {
-    "requireBitsForTts": "طلب bits لاستخدام TTS"
-  },
   "botRespondsInChat": {
     "botRespondsInChat": "استجابة البوت في الدردشة"
   },
@@ -258,7 +255,6 @@
       "allowViewerPreferences": "السماح بتفضيلات أصوات المشاهدين",
       "announceQueuedRedeems": "الإعلان عن عمليات الاسترداد في قائمة الانتظار",
       "anonymizeFollowers": "إخفاء هوية المتابعين",
-      "bitsForTts": "bits لـ TTS",
       "botRespondsInChat": "رد البوت في الدردشة",
       "cheerAnnouncements": "إعلانات Cheer",
       "defaultEmotion": "المشاعر الافتراضية",
@@ -272,6 +268,7 @@
       "expandAcronyms": "توسيع اختصارات الدردشة",
       "minimumBits": "الحد الأدنى لـ bits",
       "profanityFilter": "فلتر الألفاظ النابية",
+      "readCheerMessages": "قراءة رسائل Cheer",
       "readFullUrls": "قراءة عناوين URL كاملة",
       "redemptionAnnouncements": "إعلانات الاسترداد",
       "ttsEngine": "محرك TTS",
@@ -317,6 +314,12 @@
   "pronunciationEnabled": {
     "expandChatAcronyms": "توسيع اختصارات الدردشة"
   },
+  "readCheerMessages": {
+    "readCheerMessages": "قراءة رسائل Cheer"
+  },
+  "readCheerMessagesModeNote": {
+    "alwaysOnInBitsPoints": "مفعّل دائمًا في وضع Bits/Points فقط"
+  },
   "readFullUrls": {
     "readFullUrls": "قراءة عناوين URL كاملة"
   },
@@ -353,8 +356,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "السماح للبوت بالرد على أوامر الدردشة مثل !myvoice",
-    "allowViewerVoicePreferences": "السماح بتفضيلات صوت المشاهدين",
     "allowViewersToUseChannel": "السماح للمشاهدين باستخدام Channel Points لـ TTS",
+    "allowViewerVoicePreferences": "السماح بتفضيلات صوت المشاهدين",
     "announceCheers": "الإعلان عن الـ Cheers",
     "announceEvents": "الإعلان عن الأحداث",
     "announceEventsSuchAsSubscriptions": "الإعلان عن أحداث مثل الاشتراكات و raids",
@@ -367,12 +370,12 @@
     "anonymizeNewFollowers": "إخفاء هوية المتابعين الجدد",
     "bannedWordsCommaSeparated": "الكلمات المحظورة (مفصولة بفواصل)",
     "bannedWordsPhrases": "<strong>الكلمات / العبارات المحظورة</strong>",
-    "bitsTts": "Bits → TTS",
     "blockLinks": "حظر الروابط",
     "botRespondsInChat": "رد البوت في الدردشة",
     "channelPointsTts": "Channel Points → TTS",
+    "cheers": "Cheers",
+    "cheersBelowThisAmountAre": "لن تُقرأ الـ Cheers الأقل من هذه القيمة. 1 تعني قراءة كل Cheer يتضمن رسالة.",
     "chooseWhichMessagesTriggerTts": "اختر الرسائل التي تُشغّل TTS",
-    "configureBitsRequirementsForText": "تهيئة متطلبات bits لتحويل النص إلى كلام",
     "configureChannelPointsRewardsFor": "تهيئة مكافآت Channel Points لتحويل النص إلى كلام",
     "configureTtsEngineSettingsAnd": "تهيئة إعدادات وأذونات محرك TTS",
     "controlHowTtsPronouncesSpecific": "التحكم في كيفية نطق TTS لكلمات محددة. يتم التعامل مع اختصارات Twitch الشائعة افتراضياً. أضف إدخالاً لتجاوز النطق الافتراضي أو إضافة كلمة جديدة.",
@@ -390,16 +393,16 @@
     "ifThisSettingIsOff": "إذا تم إيقاف هذا الإعداد، سيستخدم TTS الصوت الافتراضي للقناة لجميع الرسائل",
     "ignoredUsers": "المستخدمون المتجاهلون",
     "manageUsersThatTtsIgnores": "إدارة المستخدمين الذين يتجاهلهم TTS",
-    "minimumBitsRequired": "<strong>الحد الأدنى المطلوب من bits</strong>",
-    "minimumNumberOfBitsRequired": "الحد الأدنى لعدد bits المطلوبة لتشغيل TTS",
+    "minimumBits": "<strong>الحد الأدنى لـ Bits</strong>",
     "perStreamLimit": "الحد لكل بث",
     "perUserPerStream": "لكل مستخدم في كل بث",
     "profanityFilter": "فلتر الألفاظ النابية",
     "pronunciationDictionary": "<strong>قاموس النطق</strong>",
+    "readAloudTheMessageA": "قراءة الرسالة التي يرفقها المشاهد مع الـ Cheer بصوت مسموع",
+    "readCheerMessages": "قراءة رسائل Cheer",
     "readFullUrls": "قراءة عناوين URL الكاملة",
     "readYoutubeLiveChatMessages": "قراءة رسائل الدردشة المباشرة على YouTube عبر TTS. تتطلب هذه الميزة بثًا مباشرًا نشطًا على YouTube.",
     "readYoutubeLiveChatMessages2": "قراءة رسائل الدردشة المباشرة على YouTube بصوت عالٍ",
-    "requireBitsForTts": "طلب bits لـ TTS",
     "rewardTitle": "عنوان المكافأة",
     "skipTheRewardQueue": "تخطي قائمة انتظار المكافآت",
     "theTitleMustBeUnique": "يجب أن يكون العنوان فريدًا في قناتك.",
@@ -413,7 +416,7 @@
     "ttsSkipsMessagesThatContain": "يتخطى TTS الرسائل التي تحتوي على هذه الكلمات أو العبارات.",
     "turnOnOrTurnOff": "تشغيل محرك تحويل النص إلى كلام أو إيقافه",
     "viewerPrompt": "توجيه المشاهد",
-    "viewersMustCheerBitsTo": "يجب على المشاهدين التشجيع باستخدام bits لاستخدام تحويل النص إلى كلام",
+    "whatHappensWhenAViewer": "ما يحدث عندما يرسل المشاهد bits عبر الـ cheer. يتم الدفع مقابل الـ Cheer، لذا تُقرأ رسالته في كل TTS Mode ولا تقيدها أذونات TTS Permission.",
     "whoCanUseTextTo": "من يمكنه استخدام تحويل النص إلى كلام",
     "yourYoutubeChannelHandleFor": "معرّف قناتك على YouTube (على سبيل المثال، <code>@yourhandle</code>)",
     "youtubeHandle": "<strong>معرّف YouTube</strong>",
@@ -429,8 +432,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "ضبط طبقة الصوت للصوت الافتراضي",
     "adjustTheVolumeForThe": "ضبط مستوى الصوت للصوت المحدد. تنبيه: القيم الأكبر من 1.0 قد تؤدي إلى تشويش الصوت.",
-    "calibrateVolumeForSpecificVoices": "معايرة مستوى الصوت لأصوات معينة. تنبيه: القيم الأكبر من 1.0 قد تؤدي إلى تشويش الصوت.",
     "calibratedVoices": "<strong>الأصوات المعايرة</strong>",
+    "calibrateVolumeForSpecificVoices": "معايرة مستوى الصوت لأصوات معينة. تنبيه: القيم الأكبر من 1.0 قد تؤدي إلى تشويش الصوت.",
     "controlHowFastTheDefault": "تحكّم في سرعة تحدث الصوت الافتراضي",
     "defaultEmotion": "<strong>الشعور الافتراضي</strong>",
     "defaultLanguage": "<strong>اللغة الافتراضية</strong>",
@@ -447,8 +450,8 @@
     "setTheEmotionalToneOf": "تحديد النبرة الشعورية للصوت الافتراضي",
     "viewerVoiceLookup": "البحث عن صوت المشاهد",
     "voiceCalibration": "معايرة الصوت",
-    "voiceVolume01To": "مستوى صوت المتحدث (0.1 إلى 10):",
     "voicesWithCustomVolumeSettings": "أصوات بإعدادات مخصصة لمستوى الصوت.",
+    "voiceVolume01To": "مستوى صوت المتحدث (0.1 إلى 10):",
     "volumeOverride": "تجاوز مستوى الصوت:"
   },
   "ttsBannedWordInput": {

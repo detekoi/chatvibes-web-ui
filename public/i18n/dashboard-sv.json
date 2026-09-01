@@ -23,9 +23,6 @@
   "anonymizeFollowers": {
     "anonymizeNewFollowers": "Anonymisera nya följare"
   },
-  "bitsEnabled": {
-    "requireBitsForTts": "Kräv Bits för TTS"
-  },
   "botRespondsInChat": {
     "botRespondsInChat": "Botten svarar i chatten"
   },
@@ -258,7 +255,6 @@
       "allowViewerPreferences": "Tillåt röstinställningar för tittare",
       "announceQueuedRedeems": "Avisera köade inlösningar",
       "anonymizeFollowers": "Anonymisera följare",
-      "bitsForTts": "Bits för TTS",
       "botRespondsInChat": "Boten svarar i chatten",
       "cheerAnnouncements": "Cheer-aviseringar",
       "defaultEmotion": "Standardkänsla",
@@ -272,6 +268,7 @@
       "expandAcronyms": "Expandera chattförkortningar",
       "minimumBits": "Minsta antal bits",
       "profanityFilter": "Svordomsfilter",
+      "readCheerMessages": "Läs upp Cheer-meddelanden",
       "readFullUrls": "Läs upp hela URL:er",
       "redemptionAnnouncements": "Inlösningsaviseringar",
       "ttsEngine": "TTS-motor",
@@ -317,6 +314,12 @@
   "pronunciationEnabled": {
     "expandChatAcronyms": "Expandera chattförkortningar"
   },
+  "readCheerMessages": {
+    "readCheerMessages": "Läs upp Cheer-meddelanden"
+  },
+  "readCheerMessagesModeNote": {
+    "alwaysOnInBitsPoints": "Alltid på i läget Endast Bits/Points"
+  },
   "readFullUrls": {
     "readFullUrls": "Läs upp fullständiga URL:er"
   },
@@ -353,8 +356,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Tillåt boten att svara på chattkommandon som !myvoice",
-    "allowViewerVoicePreferences": "Tillåt tittarnas röstinställningar",
     "allowViewersToUseChannel": "Tillåt tittare att använda Channel Points för TTS",
+    "allowViewerVoicePreferences": "Tillåt tittarnas röstinställningar",
     "announceCheers": "Avisera cheers",
     "announceEvents": "Avisera händelser",
     "announceEventsSuchAsSubscriptions": "Avisera händelser som prenumerationer och raids",
@@ -367,12 +370,12 @@
     "anonymizeNewFollowers": "Anonymisera nya följare",
     "bannedWordsCommaSeparated": "Bannlysta ord (kommaseparerade)",
     "bannedWordsPhrases": "<strong>Bannlysta ord/fraser</strong>",
-    "bitsTts": "Bits → TTS",
     "blockLinks": "Blockera länkar",
     "botRespondsInChat": "Boten svarar i chatten",
     "channelPointsTts": "Channel Points → TTS",
+    "cheers": "Cheers",
+    "cheersBelowThisAmountAre": "Cheers under detta belopp läses inte upp. 1 innebär varje cheer som innehåller ett meddelande.",
     "chooseWhichMessagesTriggerTts": "Välj vilka meddelanden som aktiverar TTS",
-    "configureBitsRequirementsForText": "Konfigurera bits-krav för text-till-tal",
     "configureChannelPointsRewardsFor": "Konfigurera Channel Points-belöningar för text-till-tal",
     "configureTtsEngineSettingsAnd": "Konfigurera inställningar och behörigheter för TTS-motorn",
     "controlHowTtsPronouncesSpecific": "Styr hur TTS uttalar specifika ord. Vanliga Twitch-akronymer hanteras automatiskt. Lägg till en post för att åsidosätta standarduttal eller lägga till ett nytt ord.",
@@ -390,16 +393,16 @@
     "ifThisSettingIsOff": "Om inställningen är inaktiverad använder TTS kanalens standardröst för alla meddelanden.",
     "ignoredUsers": "Ignorerade användare",
     "manageUsersThatTtsIgnores": "Hantera användare som TTS ignorerar",
-    "minimumBitsRequired": "<strong>Minsta antal bits som krävs</strong>",
-    "minimumNumberOfBitsRequired": "Minsta antal bits som krävs för att aktivera TTS",
+    "minimumBits": "<strong>Minsta antal bits</strong>",
     "perStreamLimit": "Gräns per stream",
     "perUserPerStream": "Per användare och stream",
     "profanityFilter": "Svordomsfilter",
     "pronunciationDictionary": "<strong>Uttalsordlista</strong>",
+    "readAloudTheMessageA": "Läs upp meddelandet en tittare bifogar till en cheer",
+    "readCheerMessages": "Läs upp Cheer-meddelanden",
     "readFullUrls": "Läs fullständiga URL:er",
     "readYoutubeLiveChatMessages": "Läs livechattmeddelanden från YouTube via TTS. Denna funktion kräver en aktiv YouTube-livestream.",
     "readYoutubeLiveChatMessages2": "Läs upp livechattmeddelanden från YouTube",
-    "requireBitsForTts": "Kräv bits för TTS",
     "rewardTitle": "Belöningstitel",
     "skipTheRewardQueue": "Hoppa över belöningskön",
     "theTitleMustBeUnique": "Titeln måste vara unik på din kanal.",
@@ -413,7 +416,7 @@
     "ttsSkipsMessagesThatContain": "TTS hoppar över meddelanden som innehåller dessa ord eller fraser.",
     "turnOnOrTurnOff": "Aktivera eller inaktivera text-till-tal-motorn",
     "viewerPrompt": "Uppmaning till tittare",
-    "viewersMustCheerBitsTo": "Tittare måste cheera bits för att använda text-till-tal",
+    "whatHappensWhenAViewer": "Vad som händer när en tittare cheerar bits. En cheer är betald, så dess meddelande läses upp i alla TTS-lägen och begränsas inte av TTS-behörighet.",
     "whoCanUseTextTo": "Vilka som kan använda text-till-tal",
     "yourYoutubeChannelHandleFor": "Ditt YouTube-användarnamn (till exempel <code>@yourhandle</code>)",
     "youtubeHandle": "<strong>YouTube-användarnamn</strong>",
@@ -429,8 +432,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Justera tonhöjden för standardrösten",
     "adjustTheVolumeForThe": "Justera volymen för den valda rösten. VARNING: Värden över 1,0 kan orsaka distorsion.",
-    "calibrateVolumeForSpecificVoices": "Kalibrera volymen för specifika röster. VARNING: Värden över 1,0 kan orsaka distorsion.",
     "calibratedVoices": "<strong>Kalibrerade röster</strong>",
+    "calibrateVolumeForSpecificVoices": "Kalibrera volymen för specifika röster. VARNING: Värden över 1,0 kan orsaka distorsion.",
     "controlHowFastTheDefault": "Ställ in hur snabbt standardrösten talar",
     "defaultEmotion": "<strong>Standardkänsla</strong>",
     "defaultLanguage": "<strong>Standardspråk</strong>",
@@ -447,8 +450,8 @@
     "setTheEmotionalToneOf": "Ställ in standardröstens känsla",
     "viewerVoiceLookup": "Sök tittarröst",
     "voiceCalibration": "Röstkalibrering",
-    "voiceVolume01To": "Röstvolym (0,1 till 10):",
     "voicesWithCustomVolumeSettings": "Röster med anpassade volyminställningar.",
+    "voiceVolume01To": "Röstvolym (0,1 till 10):",
     "volumeOverride": "Åsidosätt volym:"
   },
   "ttsBannedWordInput": {

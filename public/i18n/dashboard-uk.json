@@ -23,9 +23,6 @@
   "anonymizeFollowers": {
     "anonymizeNewFollowers": "Анонімізувати нових підписників"
   },
-  "bitsEnabled": {
-    "requireBitsForTts": "Вимагати Bits для TTS"
-  },
   "botRespondsInChat": {
     "botRespondsInChat": "Бот відповідає в чаті"
   },
@@ -258,7 +255,6 @@
       "allowViewerPreferences": "Дозволити глядачам вибирати голос",
       "announceQueuedRedeems": "Оголошувати нагороди в черзі",
       "anonymizeFollowers": "Анонімізувати підписників",
-      "bitsForTts": "Bits для TTS",
       "botRespondsInChat": "Бот відповідає в чаті",
       "cheerAnnouncements": "Оголошення Cheer",
       "defaultEmotion": "Емоція за замовчуванням",
@@ -272,6 +268,7 @@
       "expandAcronyms": "Розгортати скорочення з чату",
       "minimumBits": "Мінімум Bits",
       "profanityFilter": "Фільтр ненормативної лексики",
+      "readCheerMessages": "Читати повідомлення Cheer",
       "readFullUrls": "Читати повні URL",
       "redemptionAnnouncements": "Оголошення про нагороди",
       "ttsEngine": "Рушій TTS",
@@ -317,6 +314,12 @@
   "pronunciationEnabled": {
     "expandChatAcronyms": "Розгортати чат-акроніми"
   },
+  "readCheerMessages": {
+    "readCheerMessages": "Читати повідомлення Cheer"
+  },
+  "readCheerMessagesModeNote": {
+    "alwaysOnInBitsPoints": "Завжди увімкнено в режимі «Лише Bits/Points»"
+  },
   "readFullUrls": {
     "readFullUrls": "Читати URL повністю"
   },
@@ -353,8 +356,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Дозволити боту відповідати на команди в чаті, як-от !myvoice",
-    "allowViewerVoicePreferences": "Дозволити глядачам вибирати голос",
     "allowViewersToUseChannel": "Дозволити глядачам використовувати Channel Points для TTS",
+    "allowViewerVoicePreferences": "Дозволити глядачам вибирати голос",
     "announceCheers": "Озвучувати Cheers",
     "announceEvents": "Озвучувати події",
     "announceEventsSuchAsSubscriptions": "Озвучувати такі події, як підписки та рейди",
@@ -367,12 +370,12 @@
     "anonymizeNewFollowers": "Анонімізувати нових підписників",
     "bannedWordsCommaSeparated": "Заборонені слова (через кому)",
     "bannedWordsPhrases": "<strong>Заборонені слова / фрази</strong>",
-    "bitsTts": "Bits → TTS",
     "blockLinks": "Блокувати посилання",
     "botRespondsInChat": "Бот відповідає в чаті",
     "channelPointsTts": "Channel Points → TTS",
+    "cheers": "Cheers",
+    "cheersBelowThisAmountAre": "Cheers менше цієї суми не читаються. 1 означає кожен cheer із повідомленням.",
     "chooseWhichMessagesTriggerTts": "Виберіть, які повідомлення активують TTS",
-    "configureBitsRequirementsForText": "Налаштувати вимоги bits для TTS",
     "configureChannelPointsRewardsFor": "Налаштувати нагороди за Channel Points для TTS",
     "configureTtsEngineSettingsAnd": "Налаштувати рушій TTS і дозволи",
     "controlHowTtsPronouncesSpecific": "Керуйте вимовою окремих слів у TTS. Поширені абревіатури Twitch підтримуються типово. Додайте запис, щоб змінити стандартну вимову або додати нове слово.",
@@ -390,16 +393,16 @@
     "ifThisSettingIsOff": "Якщо це налаштування вимкнено, TTS використовує стандартний голос каналу для всіх повідомлень",
     "ignoredUsers": "Ігноровані користувачі",
     "manageUsersThatTtsIgnores": "Керування користувачами, яких ігнорує TTS",
-    "minimumBitsRequired": "<strong>Мінімум bits</strong>",
-    "minimumNumberOfBitsRequired": "Мінімальна кількість bits, потрібна для активації TTS",
+    "minimumBits": "<strong>Мінімум Bits</strong>",
     "perStreamLimit": "Ліміт на трансляцію",
     "perUserPerStream": "На користувача за трансляцію",
     "profanityFilter": "Фільтр ненормативної лексики",
     "pronunciationDictionary": "<strong>Словник вимови</strong>",
+    "readAloudTheMessageA": "Озвучувати повідомлення, яке глядач додає до cheer",
+    "readCheerMessages": "Читати повідомлення Cheer",
     "readFullUrls": "Читати повні URL",
     "readYoutubeLiveChatMessages": "Озвучувати повідомлення чату YouTube за допомогою TTS. Для цієї функції потрібна активна пряма трансляція YouTube.",
     "readYoutubeLiveChatMessages2": "Озвучувати повідомлення чату YouTube",
-    "requireBitsForTts": "Вимагати bits для TTS",
     "rewardTitle": "Назва нагороди",
     "skipTheRewardQueue": "Пропускати чергу нагород",
     "theTitleMustBeUnique": "Назва має бути унікальною для вашого каналу.",
@@ -413,7 +416,7 @@
     "ttsSkipsMessagesThatContain": "TTS пропускає повідомлення, що містять ці слова або фрази.",
     "turnOnOrTurnOff": "Увімкнути або вимкнути рушій перетворення тексту на мовлення",
     "viewerPrompt": "Підказка для глядачів",
-    "viewersMustCheerBitsTo": "Глядачі мають надсилати bits, щоб скористатися озвученням тексту",
+    "whatHappensWhenAViewer": "Що відбувається, коли глядач надсилає bits. Cheer є платним, тому його повідомлення озвучується в кожному режимі TTS і не обмежується дозволами TTS.",
     "whoCanUseTextTo": "Хто може користуватися озвученням тексту",
     "yourYoutubeChannelHandleFor": "Хендл вашого каналу YouTube (наприклад, <code>@yourhandle</code>)",
     "youtubeHandle": "<strong>Хендл YouTube</strong>",
@@ -429,8 +432,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Налаштувати висоту стандартного голосу",
     "adjustTheVolumeForThe": "Налаштуйте гучність вибраного голосу. УВАГА: значення понад 1.0 можуть спричинити спотворення звуку.",
-    "calibrateVolumeForSpecificVoices": "Калібруйте гучність для окремих голосів. УВАГА: значення понад 1.0 можуть спричинити спотворення звуку.",
     "calibratedVoices": "<strong>Калібровані голоси</strong>",
+    "calibrateVolumeForSpecificVoices": "Калібруйте гучність для окремих голосів. УВАГА: значення понад 1.0 можуть спричинити спотворення звуку.",
     "controlHowFastTheDefault": "Керуйте швидкістю мовлення типового голосу",
     "defaultEmotion": "<strong>Типова емоція</strong>",
     "defaultLanguage": "<strong>Типова мова</strong>",
@@ -447,8 +450,8 @@
     "setTheEmotionalToneOf": "Установіть емоційний тон типового голосу",
     "viewerVoiceLookup": "Пошук голосу глядача",
     "voiceCalibration": "Калібрування голосу",
-    "voiceVolume01To": "Гучність голосу (0.1 до 10):",
     "voicesWithCustomVolumeSettings": "Голоси з власними налаштуваннями гучності.",
+    "voiceVolume01To": "Гучність голосу (0.1 до 10):",
     "volumeOverride": "Перевизначення гучності:"
   },
   "ttsBannedWordInput": {

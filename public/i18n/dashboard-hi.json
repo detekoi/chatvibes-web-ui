@@ -23,9 +23,6 @@
   "anonymizeFollowers": {
     "anonymizeNewFollowers": "नए फ़ॉलोअर्स को गुमनाम रखें"
   },
-  "bitsEnabled": {
-    "requireBitsForTts": "TTS के लिए Bits आवश्यक करें"
-  },
   "botRespondsInChat": {
     "botRespondsInChat": "बॉट चैट में जवाब दे"
   },
@@ -258,7 +255,6 @@
       "allowViewerPreferences": "दर्शकों की आवाज़ प्राथमिकताओं की अनुमति दें",
       "announceQueuedRedeems": "कतार में मौजूद रिडीम की घोषणा करें",
       "anonymizeFollowers": "फ़ॉलोअर्स को अनाम रखें",
-      "bitsForTts": "TTS के लिए Bits",
       "botRespondsInChat": "बॉट चैट में जवाब दे",
       "cheerAnnouncements": "Cheer घोषणाएँ",
       "defaultEmotion": "डिफ़ॉल्ट भाव",
@@ -272,6 +268,7 @@
       "expandAcronyms": "चैट संक्षिप्त रूप विस्तृत करें",
       "minimumBits": "न्यूनतम Bits",
       "profanityFilter": "अपशब्द फ़िल्टर",
+      "readCheerMessages": "Cheer संदेश पढ़ें",
       "readFullUrls": "पूरे URLs पढ़ें",
       "redemptionAnnouncements": "रिडेम्पशन घोषणाएँ",
       "ttsEngine": "TTS इंजन",
@@ -317,6 +314,12 @@
   "pronunciationEnabled": {
     "expandChatAcronyms": "चैट Acronyms का विस्तार करें"
   },
+  "readCheerMessages": {
+    "readCheerMessages": "Cheer संदेश पढ़ें"
+  },
+  "readCheerMessagesModeNote": {
+    "alwaysOnInBitsPoints": "Bits/Points Only मोड में हमेशा चालू"
+  },
   "readFullUrls": {
     "readFullUrls": "पूरे URL पढ़ें"
   },
@@ -353,8 +356,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "!myvoice जैसे चैट कमांड पर बॉट को जवाब देने की अनुमति दें",
-    "allowViewerVoicePreferences": "दर्शकों की आवाज़ प्राथमिकताओं की अनुमति दें",
     "allowViewersToUseChannel": "दर्शकों को TTS के लिए Channel Points का उपयोग करने की अनुमति दें",
+    "allowViewerVoicePreferences": "दर्शकों की आवाज़ प्राथमिकताओं की अनुमति दें",
     "announceCheers": "Cheers की घोषणा करें",
     "announceEvents": "इवेंट्स की घोषणा करें",
     "announceEventsSuchAsSubscriptions": "सब्सक्रिप्शन और रेड जैसे इवेंट्स की घोषणा करें",
@@ -367,12 +370,12 @@
     "anonymizeNewFollowers": "नए फ़ॉलोअर्स को अनाम रखें",
     "bannedWordsCommaSeparated": "प्रतिबंधित शब्द (कॉमा से अलग किए गए)",
     "bannedWordsPhrases": "<strong>प्रतिबंधित शब्द / वाक्यांश</strong>",
-    "bitsTts": "Bits → TTS",
     "blockLinks": "लिंक ब्लॉक करें",
     "botRespondsInChat": "बॉट चैट में जवाब दे",
     "channelPointsTts": "Channel Points → TTS",
+    "cheers": "Cheers",
+    "cheersBelowThisAmountAre": "इस राशि से कम के Cheers नहीं पढ़े जाते। 1 का अर्थ है संदेश वाला हर cheer।",
     "chooseWhichMessagesTriggerTts": "चुनें कि कौन-से संदेश TTS ट्रिगर करेंगे",
-    "configureBitsRequirementsForText": "टेक्स्ट-टू-स्पीच के लिए bits आवश्यकताएं कॉन्फ़िगर करें",
     "configureChannelPointsRewardsFor": "टेक्स्ट-टू-स्पीच के लिए Channel Points रिवॉर्ड कॉन्फ़िगर करें",
     "configureTtsEngineSettingsAnd": "TTS इंजन सेटिंग्स और अनुमतियां कॉन्फ़िगर करें",
     "controlHowTtsPronouncesSpecific": "नियंत्रित करें कि TTS विशिष्ट शब्दों का उच्चारण कैसे करे। Twitch के सामान्य संक्षिप्त रूपों को डिफ़ॉल्ट रूप से संभाला जाता है। डिफ़ॉल्ट उच्चारण बदलने या नया शब्द जोड़ने के लिए एक एंट्री जोड़ें।",
@@ -390,16 +393,16 @@
     "ifThisSettingIsOff": "यदि यह सेटिंग बंद है, तो TTS सभी संदेशों के लिए चैनल की डिफ़ॉल्ट वॉइस का उपयोग करेगा",
     "ignoredUsers": "इग्नोर किए गए यूज़र",
     "manageUsersThatTtsIgnores": "उन यूज़र्स को प्रबंधित करें जिन्हें TTS इग्नोर करता है",
-    "minimumBitsRequired": "<strong>न्यूनतम आवश्यक Bits</strong>",
-    "minimumNumberOfBitsRequired": "TTS ट्रिगर करने के लिए आवश्यक न्यूनतम bits की संख्या",
+    "minimumBits": "<strong>न्यूनतम Bits</strong>",
     "perStreamLimit": "प्रति-स्ट्रीम सीमा",
     "perUserPerStream": "प्रति-यूज़र प्रति-स्ट्रीम",
     "profanityFilter": "अपशब्द फ़िल्टर",
     "pronunciationDictionary": "<strong>उच्चारण डिक्शनरी</strong>",
+    "readAloudTheMessageA": "दर्शक द्वारा cheer के साथ जोड़े गए संदेश को बोलकर पढ़ें",
+    "readCheerMessages": "Cheer संदेश पढ़ें",
     "readFullUrls": "पूरे URL पढ़ें",
     "readYoutubeLiveChatMessages": "TTS के ज़रिए YouTube लाइव चैट संदेश पढ़ें। इस सुविधा के लिए एक सक्रिय YouTube लाइवस्ट्रीम आवश्यक है।",
     "readYoutubeLiveChatMessages2": "YouTube लाइव चैट संदेश बोलकर पढ़ें",
-    "requireBitsForTts": "TTS के लिए Bits आवश्यक करें",
     "rewardTitle": "रिवॉर्ड शीर्षक",
     "skipTheRewardQueue": "रिवॉर्ड कतार छोड़ें",
     "theTitleMustBeUnique": "शीर्षक आपके चैनल में यूनीक होना चाहिए।",
@@ -413,7 +416,7 @@
     "ttsSkipsMessagesThatContain": "TTS उन संदेशों को छोड़ देता है जिनमें ये शब्द या वाक्यांश होते हैं।",
     "turnOnOrTurnOff": "टेक्स्ट-टू-स्पीच इंजन चालू या बंद करें",
     "viewerPrompt": "दर्शक प्रॉम्प्ट",
-    "viewersMustCheerBitsTo": "टेक्स्ट-टू-स्पीच का उपयोग करने के लिए दर्शकों को bits चीयर करने होंगे",
+    "whatHappensWhenAViewer": "जब कोई दर्शक bits cheer करता है तब क्या होता है। Cheer के लिए भुगतान किया जाता है, इसलिए इसका संदेश हर TTS Mode में पढ़ा जाता है और यह TTS Permission द्वारा सीमित नहीं होता।",
     "whoCanUseTextTo": "टेक्स्ट-टू-स्पीच का उपयोग कौन कर सकता है",
     "yourYoutubeChannelHandleFor": "आपका YouTube चैनल हैंडल (उदाहरण के लिए, <code>@yourhandle</code>)",
     "youtubeHandle": "<strong>YouTube हैंडल</strong>",
@@ -429,8 +432,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "डिफ़ॉल्ट वॉइस के लिए पिच समायोजित करें",
     "adjustTheVolumeForThe": "चुनी गई वॉइस के लिए वॉल्यूम समायोजित करें। सावधानी: 1.0 से अधिक मान डिस्टॉर्शन पैदा कर सकते हैं।",
-    "calibrateVolumeForSpecificVoices": "विशिष्ट आवाज़ों के लिए वॉल्यूम कैलिब्रेट करें। सावधानी: 1.0 से अधिक मान डिस्टॉर्शन पैदा कर सकते हैं।",
     "calibratedVoices": "<strong>कैलिब्रेट की गई आवाज़ें</strong>",
+    "calibrateVolumeForSpecificVoices": "विशिष्ट आवाज़ों के लिए वॉल्यूम कैलिब्रेट करें। सावधानी: 1.0 से अधिक मान डिस्टॉर्शन पैदा कर सकते हैं।",
     "controlHowFastTheDefault": "डिफ़ॉल्ट आवाज़ की बोलने की गति नियंत्रित करें",
     "defaultEmotion": "<strong>डिफ़ॉल्ट भावना</strong>",
     "defaultLanguage": "<strong>डिफ़ॉल्ट भाषा</strong>",
@@ -447,8 +450,8 @@
     "setTheEmotionalToneOf": "डिफ़ॉल्ट आवाज़ का भावनात्मक टोन सेट करें",
     "viewerVoiceLookup": "दर्शक आवाज़ खोज",
     "voiceCalibration": "आवाज़ कैलिब्रेशन",
-    "voiceVolume01To": "वॉइस वॉल्यूम (0.1 से 10):",
     "voicesWithCustomVolumeSettings": "कस्टम वॉल्यूम सेटिंग्स वाली आवाज़ें।",
+    "voiceVolume01To": "वॉइस वॉल्यूम (0.1 से 10):",
     "volumeOverride": "वॉल्यूम ओवरराइड:"
   },
   "ttsBannedWordInput": {

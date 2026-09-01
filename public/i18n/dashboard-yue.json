@@ -23,9 +23,6 @@
   "anonymizeFollowers": {
     "anonymizeNewFollowers": "將新追隨者匿名化"
   },
-  "bitsEnabled": {
-    "requireBitsForTts": "使用 TTS 需要 Bits"
-  },
   "botRespondsInChat": {
     "botRespondsInChat": "Bot 喺聊天室回覆"
   },
@@ -258,7 +255,6 @@
       "allowViewerPreferences": "允許觀眾語音偏好",
       "announceQueuedRedeems": "播報排隊中嘅兌換",
       "anonymizeFollowers": "匿名化追隨者",
-      "bitsForTts": "TTS 所需 Bits",
       "botRespondsInChat": "Bot 喺聊天室回覆",
       "cheerAnnouncements": "Cheer 播報",
       "defaultEmotion": "預設情緒",
@@ -272,6 +268,7 @@
       "expandAcronyms": "展開聊天室縮寫",
       "minimumBits": "最低 Bits 數",
       "profanityFilter": "粗口過濾器",
+      "readCheerMessages": "朗讀 Cheer 訊息",
       "readFullUrls": "朗讀完整 URL",
       "redemptionAnnouncements": "兌換播報",
       "ttsEngine": "TTS 引擎",
@@ -317,6 +314,12 @@
   "pronunciationEnabled": {
     "expandChatAcronyms": "展開聊天室縮寫"
   },
+  "readCheerMessages": {
+    "readCheerMessages": "朗讀 Cheer 訊息"
+  },
+  "readCheerMessagesModeNote": {
+    "alwaysOnInBitsPoints": "喺「只限 Bits/Points」模式下會保持開啟"
+  },
   "readFullUrls": {
     "readFullUrls": "讀出完整 URL"
   },
@@ -353,8 +356,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "允許 Bot 回應聊天室指令（例如 !myvoice）",
-    "allowViewerVoicePreferences": "允許觀眾自訂語音偏好",
     "allowViewersToUseChannel": "允許觀眾用 Channel Points 使用 TTS",
+    "allowViewerVoicePreferences": "允許觀眾自訂語音偏好",
     "announceCheers": "宣讀 Cheers",
     "announceEvents": "宣讀活動",
     "announceEventsSuchAsSubscriptions": "宣讀訂閱同 Raid 等活動",
@@ -367,12 +370,12 @@
     "anonymizeNewFollowers": "將新追隨者匿名化",
     "bannedWordsCommaSeparated": "違禁詞（以逗號分隔）",
     "bannedWordsPhrases": "<strong>違禁詞／短語</strong>",
-    "bitsTts": "Bits → TTS",
     "blockLinks": "封鎖連結",
     "botRespondsInChat": "Bot 喺聊天室回應",
     "channelPointsTts": "Channel Points → TTS",
+    "cheers": "Cheers",
+    "cheersBelowThisAmountAre": "少過呢個數量嘅 Cheer 唔會朗讀。設為 1 代表朗讀所有附帶訊息嘅 Cheer。",
     "chooseWhichMessagesTriggerTts": "選擇邊啲訊息會觸發 TTS",
-    "configureBitsRequirementsForText": "設定 TTS 嘅 bits 要求",
     "configureChannelPointsRewardsFor": "設定 TTS 嘅 Channel Points 獎勵",
     "configureTtsEngineSettingsAnd": "設定 TTS 引擎選項同權限",
     "controlHowTtsPronouncesSpecific": "控制 TTS 點樣讀出特定字詞。系統預設會處理常見嘅 Twitch 縮寫。你可以新增項目去覆蓋預設讀音或者加入新字詞。",
@@ -390,16 +393,16 @@
     "ifThisSettingIsOff": "如果關閉呢個設定，TTS 會對所有訊息使用頻道預設語音",
     "ignoredUsers": "已忽略使用者",
     "manageUsersThatTtsIgnores": "管理 TTS 忽略嘅使用者",
-    "minimumBitsRequired": "<strong>最低所需 Bits 數量</strong>",
-    "minimumNumberOfBitsRequired": "觸發 TTS 所需嘅最低 bits 數量",
+    "minimumBits": "<strong>最低 Bits 數</strong>",
     "perStreamLimit": "每次直播上限",
     "perUserPerStream": "每位使用者每次直播上限",
     "profanityFilter": "不雅用語過濾器",
     "pronunciationDictionary": "<strong>發音字典</strong>",
+    "readAloudTheMessageA": "朗讀觀眾喺 Cheer 附帶嘅訊息",
+    "readCheerMessages": "朗讀 Cheer 訊息",
     "readFullUrls": "讀出完整 URL",
     "readYoutubeLiveChatMessages": "透過 TTS 讀出 YouTube 直播聊天室訊息。呢個功能需要進行緊嘅 YouTube 直播。",
     "readYoutubeLiveChatMessages2": "朗讀 YouTube 直播聊天室訊息",
-    "requireBitsForTts": "使用 TTS 需要 Bits",
     "rewardTitle": "獎勵標題",
     "skipTheRewardQueue": "跳過獎勵佇列",
     "theTitleMustBeUnique": "標題喺你嘅頻道入面必須係唯一嘅。",
@@ -413,7 +416,7 @@
     "ttsSkipsMessagesThatContain": "TTS 會跳過包含呢啲字詞或短語嘅訊息。",
     "turnOnOrTurnOff": "開啟或關閉文字語音轉換 (TTS) 引擎",
     "viewerPrompt": "觀眾提示文字",
-    "viewersMustCheerBitsTo": "觀眾必須 Cheer bits 先可以使用文字語音轉換 (TTS)",
+    "whatHappensWhenAViewer": "觀眾用 bits 進行 Cheer 嗰陣嘅處理方式。Cheer 屬於付費功能，所以其訊息喺所有 TTS 模式都會朗讀，亦唔受 TTS 權限限制。",
     "whoCanUseTextTo": "邊個可以使用文字語音轉換 (TTS)",
     "yourYoutubeChannelHandleFor": "你嘅 YouTube 頻道代稱（例如 <code>@yourhandle</code>）",
     "youtubeHandle": "<strong>YouTube 頻道代稱</strong>",
@@ -429,8 +432,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "調整預設語音嘅音調",
     "adjustTheVolumeForThe": "調整所選語音嘅音量。注意：數值大於 1.0 可能會導致破音。",
-    "calibrateVolumeForSpecificVoices": "校準特定語音嘅音量。注意：數值大於 1.0 可能會導致破音。",
     "calibratedVoices": "<strong>已校準語音</strong>",
+    "calibrateVolumeForSpecificVoices": "校準特定語音嘅音量。注意：數值大於 1.0 可能會導致破音。",
     "controlHowFastTheDefault": "控制預設聲音嘅說話速度",
     "defaultEmotion": "<strong>預設情緒</strong>",
     "defaultLanguage": "<strong>預設語言</strong>",
@@ -447,8 +450,8 @@
     "setTheEmotionalToneOf": "設定預設聲音嘅情緒語調",
     "viewerVoiceLookup": "觀眾聲音查詢",
     "voiceCalibration": "聲音校準",
-    "voiceVolume01To": "語音音量 (0.1 至 10)：",
     "voicesWithCustomVolumeSettings": "自訂咗音量嘅聲音。",
+    "voiceVolume01To": "語音音量 (0.1 至 10)：",
     "volumeOverride": "覆寫音量："
   },
   "ttsBannedWordInput": {

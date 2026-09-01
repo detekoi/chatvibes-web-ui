@@ -45,7 +45,7 @@ export interface TtsSettings {
   anonymizeFollowers?: boolean; // Hide follower names in TTS announcements (default: true)
   allowViewerPreferences?: boolean;
   readFullUrls?: boolean;
-  bitsModeEnabled?: boolean;
+  readCheerMessages?: boolean;
   bitsMinimumAmount?: number;
   voiceId?: string;
   emotion?: string;

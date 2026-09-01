@@ -23,9 +23,6 @@
   "anonymizeFollowers": {
     "anonymizeNewFollowers": "Anonymizovať nových sledovateľov"
   },
-  "bitsEnabled": {
-    "requireBitsForTts": "Vyžadovať bits pre TTS"
-  },
   "botRespondsInChat": {
     "botRespondsInChat": "Bot odpovedá v chate"
   },
@@ -258,7 +255,6 @@
       "allowViewerPreferences": "Povoliť hlasové preferencie divákov",
       "announceQueuedRedeems": "Oznamovať uplatnenia v rade",
       "anonymizeFollowers": "Anonymizovať sledovateľov",
-      "bitsForTts": "Bits pre TTS",
       "botRespondsInChat": "Bot odpovedá v chate",
       "cheerAnnouncements": "Oznámenia Cheer",
       "defaultEmotion": "Predvolená emócia",
@@ -272,6 +268,7 @@
       "expandAcronyms": "Rozbaliť skratky v chate",
       "minimumBits": "Minimum Bits",
       "profanityFilter": "Filter vulgarizmov",
+      "readCheerMessages": "Čítať správy s cheerom",
       "readFullUrls": "Čítať celé URL",
       "redemptionAnnouncements": "Oznámenia o uplatnení odmien",
       "ttsEngine": "TTS Engine",
@@ -317,6 +314,12 @@
   "pronunciationEnabled": {
     "expandChatAcronyms": "Rozpisovať skratky v čete"
   },
+  "readCheerMessages": {
+    "readCheerMessages": "Čítať správy s cheerom"
+  },
+  "readCheerMessagesModeNote": {
+    "alwaysOnInBitsPoints": "V režime Iba Bits/Points je vždy zapnuté"
+  },
   "readFullUrls": {
     "readFullUrls": "Čítať celé URL adresy"
   },
@@ -353,8 +356,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Povoliť botovi odpovedať na príkazy v chate, napríklad !myvoice",
-    "allowViewerVoicePreferences": "Povoliť hlasové preferencie divákov",
     "allowViewersToUseChannel": "Povoliť divákom používať Channel Points pre TTS",
+    "allowViewerVoicePreferences": "Povoliť hlasové preferencie divákov",
     "announceCheers": "Ohlasovať Cheers",
     "announceEvents": "Ohlasovať udalosti",
     "announceEventsSuchAsSubscriptions": "Ohlasovať udalosti, ako sú odbery a raidy",
@@ -367,12 +370,12 @@
     "anonymizeNewFollowers": "Anonymizovať nových sledovateľov",
     "bannedWordsCommaSeparated": "Zakázané slová (oddelené čiarkou)",
     "bannedWordsPhrases": "<strong>Zakázané slová / frázy</strong>",
-    "bitsTts": "Bits → TTS",
     "blockLinks": "Blokovať odkazy",
     "botRespondsInChat": "Bot odpovedá v chate",
     "channelPointsTts": "Channel Points → TTS",
+    "cheers": "Cheers",
+    "cheersBelowThisAmountAre": "Cheery pod touto hodnotou sa nečítajú. 1 znamená každý cheer, ktorý obsahuje správu.",
     "chooseWhichMessagesTriggerTts": "Vyberte, ktoré správy spustia TTS",
-    "configureBitsRequirementsForText": "Nakonfigurujte požiadavky na bits pre TTS",
     "configureChannelPointsRewardsFor": "Nakonfigurujte odmeny za Channel Points pre TTS",
     "configureTtsEngineSettingsAnd": "Nakonfigurujte nastavenia modulu TTS a oprávnenia",
     "controlHowTtsPronouncesSpecific": "Ovládajte, ako TTS vyslovuje konkrétne slová. Bežné skratky z Twitchu sú predvolene spracované. Pridaním záznamu prepíšete predvolenú výslovnosť alebo pridáte nové slovo.",
@@ -390,16 +393,16 @@
     "ifThisSettingIsOff": "Ak je toto nastavenie vypnuté, TTS používa predvolený hlas kanála pre všetky správy",
     "ignoredUsers": "Ignorovaní používatelia",
     "manageUsersThatTtsIgnores": "Spravovať používateľov, ktorých TTS ignoruje",
-    "minimumBitsRequired": "<strong>Minimálny počet bitov</strong>",
-    "minimumNumberOfBitsRequired": "Minimálny počet bitov potrebný na spustenie TTS",
+    "minimumBits": "<strong>Minimum bits</strong>",
     "perStreamLimit": "Limit na stream",
     "perUserPerStream": "Na používateľa na stream",
     "profanityFilter": "Filter vulgarizmov",
     "pronunciationDictionary": "<strong>Slovník výslovnosti</strong>",
+    "readAloudTheMessageA": "Prečítať nahlas správu, ktorú divák pripojí k cheeru",
+    "readCheerMessages": "Čítať správy s cheerom",
     "readFullUrls": "Čítať celé adresy URL",
     "readYoutubeLiveChatMessages": "Čítať správy zo živého chatu YouTube cez TTS. Táto funkcia vyžaduje aktívny živý prenos na YouTube.",
     "readYoutubeLiveChatMessages2": "Čítať správy zo živého chatu YouTube nahlas",
-    "requireBitsForTts": "Vyžadovať bits pre TTS",
     "rewardTitle": "Názov odmeny",
     "skipTheRewardQueue": "Preskočiť rad odmien",
     "theTitleMustBeUnique": "Názov musí byť v rámci tvojho kanála jedinečný.",
@@ -413,7 +416,7 @@
     "ttsSkipsMessagesThatContain": "TTS preskočí správy, ktoré obsahujú tieto slová alebo frázy.",
     "turnOnOrTurnOff": "Zapnúť alebo vypnúť modul prevodu textu na reč",
     "viewerPrompt": "Výzva pre diváka",
-    "viewersMustCheerBitsTo": "Diváci musia poslať bits, aby mohli použiť prevod textu na reč",
+    "whatHappensWhenAViewer": "Čo sa stane, keď divák pošle cheer s bits. Cheer je platený, takže jeho správa sa prečíta v každom režime TTS a nie je obmedzená povoleniami TTS.",
     "whoCanUseTextTo": "Kto môže používať prevod textu na reč",
     "yourYoutubeChannelHandleFor": "Identifikátor tvojho YouTube kanála (napríklad <code>@tvojidentifikator</code>)",
     "youtubeHandle": "<strong>Identifikátor YouTube</strong>",
@@ -429,8 +432,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Upraviť výšku tónu predvoleného hlasu",
     "adjustTheVolumeForThe": "Upraviť hlasitosť vybraného hlasu. UPOZORNENIE: Hodnoty vyššie ako 1.0 môžu spôsobiť skreslenie.",
-    "calibrateVolumeForSpecificVoices": "Kalibrovať hlasitosť pre konkrétne hlasy. UPOZORNENIE: Hodnoty vyššie ako 1.0 môžu spôsobiť skreslenie.",
     "calibratedVoices": "<strong>Nakalibrované hlasy</strong>",
+    "calibrateVolumeForSpecificVoices": "Kalibrovať hlasitosť pre konkrétne hlasy. UPOZORNENIE: Hodnoty vyššie ako 1.0 môžu spôsobiť skreslenie.",
     "controlHowFastTheDefault": "Nastavte, ako rýchlo hovorí predvolený hlas",
     "defaultEmotion": "<strong>Predvolená emócia</strong>",
     "defaultLanguage": "<strong>Predvolený jazyk</strong>",
@@ -447,8 +450,8 @@
     "setTheEmotionalToneOf": "Nastavte emocionálny tón predvoleného hlasu",
     "viewerVoiceLookup": "Vyhľadávanie hlasu diváka",
     "voiceCalibration": "Kalibrácia hlasu",
-    "voiceVolume01To": "Hlasitosť hlasu (0,1 až 10):",
     "voicesWithCustomVolumeSettings": "Hlasy s vlastným nastavením hlasitosti.",
+    "voiceVolume01To": "Hlasitosť hlasu (0,1 až 10):",
     "volumeOverride": "Prepísanie hlasitosti:"
   },
   "ttsBannedWordInput": {

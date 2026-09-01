@@ -23,9 +23,6 @@
   "anonymizeFollowers": {
     "anonymizeNewFollowers": "Ẩn danh người theo dõi mới"
   },
-  "bitsEnabled": {
-    "requireBitsForTts": "Yêu cầu Bits cho TTS"
-  },
   "botRespondsInChat": {
     "botRespondsInChat": "Bot phản hồi trong chat"
   },
@@ -258,7 +255,6 @@
       "allowViewerPreferences": "Cho phép người xem tùy chỉnh giọng đọc",
       "announceQueuedRedeems": "Thông báo đổi thưởng trong hàng đợi",
       "anonymizeFollowers": "Ẩn danh người theo dõi",
-      "bitsForTts": "Bits cho TTS",
       "botRespondsInChat": "Bot phản hồi trong chat",
       "cheerAnnouncements": "Thông báo Cheer",
       "defaultEmotion": "Cảm xúc mặc định",
@@ -272,6 +268,7 @@
       "expandAcronyms": "Mở rộng từ viết tắt trong chat",
       "minimumBits": "Số Bits tối thiểu",
       "profanityFilter": "Bộ lọc từ ngữ phản cảm",
+      "readCheerMessages": "Đọc tin nhắn Cheer",
       "readFullUrls": "Đọc toàn bộ URL",
       "redemptionAnnouncements": "Thông báo đổi thưởng",
       "ttsEngine": "Công cụ TTS",
@@ -317,6 +314,12 @@
   "pronunciationEnabled": {
     "expandChatAcronyms": "Mở rộng từ viết tắt trong chat"
   },
+  "readCheerMessages": {
+    "readCheerMessages": "Đọc tin nhắn Cheer"
+  },
+  "readCheerMessagesModeNote": {
+    "alwaysOnInBitsPoints": "Luôn bật ở chế độ Chỉ Bits/Points"
+  },
   "readFullUrls": {
     "readFullUrls": "Đọc toàn bộ URL"
   },
@@ -353,8 +356,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Cho phép bot phản hồi các lệnh chat như !myvoice",
-    "allowViewerVoicePreferences": "Cho phép tùy chọn giọng của người xem",
     "allowViewersToUseChannel": "Cho phép người xem dùng Channel Points cho TTS",
+    "allowViewerVoicePreferences": "Cho phép tùy chọn giọng của người xem",
     "announceCheers": "Thông báo Cheer",
     "announceEvents": "Thông báo sự kiện",
     "announceEventsSuchAsSubscriptions": "Thông báo các sự kiện như gói đăng ký và raid",
@@ -367,12 +370,12 @@
     "anonymizeNewFollowers": "Ẩn danh người theo dõi mới",
     "bannedWordsCommaSeparated": "Từ bị cấm (phân cách bằng dấu phẩy)",
     "bannedWordsPhrases": "<strong>Từ / Cụm từ bị cấm</strong>",
-    "bitsTts": "Bits → TTS",
     "blockLinks": "Chặn liên kết",
     "botRespondsInChat": "Bot phản hồi trong chat",
     "channelPointsTts": "Channel Points → TTS",
+    "cheers": "Cheers",
+    "cheersBelowThisAmountAre": "Cheer dưới mức này sẽ không được đọc. 1 nghĩa là đọc mọi cheer có đính kèm tin nhắn.",
     "chooseWhichMessagesTriggerTts": "Chọn tin nhắn kích hoạt TTS",
-    "configureBitsRequirementsForText": "Thiết lập yêu cầu bits cho TTS",
     "configureChannelPointsRewardsFor": "Thiết lập phần thưởng Channel Points cho TTS",
     "configureTtsEngineSettingsAnd": "Thiết lập công cụ TTS và phân quyền",
     "controlHowTtsPronouncesSpecific": "Kiểm soát cách TTS phát âm các từ cụ thể. Các từ viết tắt Twitch phổ biến được xử lý theo mặc định. Thêm mục để ghi đè cách phát âm mặc định hoặc thêm từ mới.",
@@ -390,16 +393,16 @@
     "ifThisSettingIsOff": "Nếu tắt cài đặt này, TTS sẽ dùng giọng mặc định của kênh cho mọi tin nhắn",
     "ignoredUsers": "Người dùng bị bỏ qua",
     "manageUsersThatTtsIgnores": "Quản lý người dùng mà TTS bỏ qua",
-    "minimumBitsRequired": "<strong>Số Bits tối thiểu bắt buộc</strong>",
-    "minimumNumberOfBitsRequired": "Số lượng bits tối thiểu để kích hoạt TTS",
+    "minimumBits": "<strong>Bits tối thiểu</strong>",
     "perStreamLimit": "Giới hạn mỗi buổi stream",
     "perUserPerStream": "Mỗi người dùng/buổi stream",
     "profanityFilter": "Bộ lọc từ tục tĩu",
     "pronunciationDictionary": "<strong>Từ điển phát âm</strong>",
+    "readAloudTheMessageA": "Đọc to tin nhắn người xem đính kèm khi cheer",
+    "readCheerMessages": "Đọc tin nhắn Cheer",
     "readFullUrls": "Đọc toàn bộ URL",
     "readYoutubeLiveChatMessages": "Đọc tin nhắn trò chuyện trực tiếp trên YouTube qua TTS. Tính năng này yêu cầu luồng trực tiếp YouTube đang hoạt động.",
     "readYoutubeLiveChatMessages2": "Đọc thành tiếng tin nhắn trò chuyện trực tiếp trên YouTube",
-    "requireBitsForTts": "Yêu cầu Bits để dùng TTS",
     "rewardTitle": "Tiêu đề phần thưởng",
     "skipTheRewardQueue": "Bỏ qua hàng chờ phần thưởng",
     "theTitleMustBeUnique": "Tiêu đề không được trùng lặp trong kênh của bạn.",
@@ -413,7 +416,7 @@
     "ttsSkipsMessagesThatContain": "TTS bỏ qua các tin nhắn chứa những từ hoặc cụm từ này.",
     "turnOnOrTurnOff": "Bật hoặc tắt công cụ chuyển văn bản thành giọng nói",
     "viewerPrompt": "Lời nhắc cho người xem",
-    "viewersMustCheerBitsTo": "Người xem phải cheer bits để sử dụng tính năng chuyển văn bản thành giọng nói",
+    "whatHappensWhenAViewer": "Điều gì xảy ra khi người xem cheer bits. Cheer là tính năng trả phí, do đó tin nhắn cheer sẽ được đọc trong mọi Chế độ TTS và không bị giới hạn bởi Quyền TTS.",
     "whoCanUseTextTo": "Ai có thể dùng tính năng chuyển văn bản thành giọng nói",
     "yourYoutubeChannelHandleFor": "Tên người dùng kênh YouTube của bạn (ví dụ: <code>@yourhandle</code>)",
     "youtubeHandle": "<strong>Tên người dùng YouTube</strong>",
@@ -429,8 +432,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Điều chỉnh cao độ cho giọng đọc mặc định",
     "adjustTheVolumeForThe": "Điều chỉnh âm lượng cho giọng đọc đã chọn. LƯU Ý: Giá trị lớn hơn 1.0 có thể gây méo tiếng.",
-    "calibrateVolumeForSpecificVoices": "Hiệu chỉnh âm lượng cho từng giọng đọc cụ thể. LƯU Ý: Giá trị lớn hơn 1.0 có thể gây méo tiếng.",
     "calibratedVoices": "<strong>Giọng đọc đã hiệu chỉnh</strong>",
+    "calibrateVolumeForSpecificVoices": "Hiệu chỉnh âm lượng cho từng giọng đọc cụ thể. LƯU Ý: Giá trị lớn hơn 1.0 có thể gây méo tiếng.",
     "controlHowFastTheDefault": "Chỉnh tốc độ đọc của giọng mặc định",
     "defaultEmotion": "<strong>Cảm xúc mặc định</strong>",
     "defaultLanguage": "<strong>Ngôn ngữ mặc định</strong>",
@@ -447,8 +450,8 @@
     "setTheEmotionalToneOf": "Đặt tông cảm xúc cho giọng mặc định",
     "viewerVoiceLookup": "Tra cứu giọng người xem",
     "voiceCalibration": "Hiệu chỉnh giọng đọc",
-    "voiceVolume01To": "Âm lượng giọng (0.1 đến 10):",
     "voicesWithCustomVolumeSettings": "Các giọng có cài đặt âm lượng tùy chỉnh.",
+    "voiceVolume01To": "Âm lượng giọng (0.1 đến 10):",
     "volumeOverride": "Ghi đè âm lượng:"
   },
   "ttsBannedWordInput": {

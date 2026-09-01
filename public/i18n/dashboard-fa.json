@@ -23,9 +23,6 @@
   "anonymizeFollowers": {
     "anonymizeNewFollowers": "ناشناس کردن دنبال‌کنندگان جدید"
   },
-  "bitsEnabled": {
-    "requireBitsForTts": "الزام Bits برای TTS"
-  },
   "botRespondsInChat": {
     "botRespondsInChat": "پاسخ دادن ربات در چت"
   },
@@ -258,7 +255,6 @@
       "allowViewerPreferences": "اجازه به ترجیحات صدای بیننده",
       "announceQueuedRedeems": "اعلام پاداش‌های در صف",
       "anonymizeFollowers": "ناشناس کردن دنبال‌کنندگان",
-      "bitsForTts": "Bits برای TTS",
       "botRespondsInChat": "پاسخ ربات در چت",
       "cheerAnnouncements": "اعلام‌های Cheer",
       "defaultEmotion": "حالت احساسی پیش‌فرض",
@@ -272,6 +268,7 @@
       "expandAcronyms": "گسترش اختصارات چت",
       "minimumBits": "حداقل Bits",
       "profanityFilter": "فیلتر الفاظ رکیک",
+      "readCheerMessages": "خواندن پیام‌های Cheer",
       "readFullUrls": "خواندن کامل URLها",
       "redemptionAnnouncements": "اعلام دریافت‌های پاداش",
       "ttsEngine": "موتور TTS",
@@ -317,6 +314,12 @@
   "pronunciationEnabled": {
     "expandChatAcronyms": "بسط مخفف‌های چت"
   },
+  "readCheerMessages": {
+    "readCheerMessages": "خواندن پیام‌های Cheer"
+  },
+  "readCheerMessagesModeNote": {
+    "alwaysOnInBitsPoints": "همیشه در حالت «فقط Bits/Points» فعال است"
+  },
   "readFullUrls": {
     "readFullUrls": "خواندن کامل URLها"
   },
@@ -353,8 +356,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "اجازه دادن به بات برای پاسخ به دستورات چت مانند ‎!myvoice",
-    "allowViewerVoicePreferences": "اجازه به اولویت‌های صدای بیننده",
     "allowViewersToUseChannel": "اجازه به بینندگان برای استفاده از Channel Points جهت TTS",
+    "allowViewerVoicePreferences": "اجازه به اولویت‌های صدای بیننده",
     "announceCheers": "اعلان Cheerها",
     "announceEvents": "اعلان رویدادها",
     "announceEventsSuchAsSubscriptions": "اعلان رویدادهایی مانند اشتراک‌ها و raidها",
@@ -367,12 +370,12 @@
     "anonymizeNewFollowers": "ناشناس‌سازی دنبال‌کنندگان جدید",
     "bannedWordsCommaSeparated": "کلمات ممنوعه (با کاما جدا کنید)",
     "bannedWordsPhrases": "<strong>کلمات / عبارات ممنوعه</strong>",
-    "bitsTts": "Bits → TTS",
     "blockLinks": "مسدود کردن لینک‌ها",
     "botRespondsInChat": "پاسخ بات در چت",
     "channelPointsTts": "Channel Points → TTS",
+    "cheers": "Cheers",
+    "cheersBelowThisAmountAre": "Cheers کمتر از این مقدار خوانده نمی‌شوند. ۱ به این معنی است که هر cheer دارای پیام خوانده می‌شود.",
     "chooseWhichMessagesTriggerTts": "انتخاب پیام‌هایی که TTS را فعال می‌کنند",
-    "configureBitsRequirementsForText": "پیکربندی نیازمندی‌های bits برای TTS",
     "configureChannelPointsRewardsFor": "پیکربندی پاداش‌های Channel Points برای TTS",
     "configureTtsEngineSettingsAnd": "پیکربندی تنظیمات و دسترسی‌های موتور TTS",
     "controlHowTtsPronouncesSpecific": "کنترل نحوه تلفظ کلمات خاص توسط TTS. سرواژه‌های رایج Twitch به‌طور پیش‌فرض مدیریت می‌شوند. برای لغو یک تلفظ پیش‌فرض یا افزودن کلمه جدید، یک مورد اضافه کنید.",
@@ -390,16 +393,16 @@
     "ifThisSettingIsOff": "اگر این تنظیم خاموش باشد، TTS از صدای پیش‌فرض کانال برای همه پیام‌ها استفاده می‌کند",
     "ignoredUsers": "کاربران نادیده‌گرفته‌شده",
     "manageUsersThatTtsIgnores": "مدیریت کاربرانی که TTS نادیده می‌گیرد",
-    "minimumBitsRequired": "<strong>حداقل bits مورد نیاز</strong>",
-    "minimumNumberOfBitsRequired": "حداقل تعداد bits مورد نیاز برای اجرای TTS",
+    "minimumBits": "<strong>حداقل Bits</strong>",
     "perStreamLimit": "محدودیت در هر استریم",
     "perUserPerStream": "به ازای هر کاربر در هر استریم",
     "profanityFilter": "فیلتر کلمات رکیک",
     "pronunciationDictionary": "<strong>فرهنگ تلفظ</strong>",
+    "readAloudTheMessageA": "خواندن با صدای بلند پیامی که بیننده به یک cheer پیوست می‌کند",
+    "readCheerMessages": "خواندن پیام‌های Cheer",
     "readFullUrls": "خواندن کامل URLها",
     "readYoutubeLiveChatMessages": "خواندن پیام‌های چت زنده YouTube با TTS. این قابلیت نیازمند پخش زنده فعال در YouTube است.",
     "readYoutubeLiveChatMessages2": "خواندن پیام‌های چت زنده YouTube با صدای بلند",
-    "requireBitsForTts": "نیاز به Bits برای TTS",
     "rewardTitle": "عنوان پاداش",
     "skipTheRewardQueue": "رد کردن صف پاداش",
     "theTitleMustBeUnique": "عنوان باید در کانال شما یکتا باشد.",
@@ -413,7 +416,7 @@
     "ttsSkipsMessagesThatContain": "TTS پیام‌های حاوی این کلمات یا عبارات را رد می‌کند.",
     "turnOnOrTurnOff": "روشن یا خاموش کردن موتور تبدیل متن به گفتار",
     "viewerPrompt": "پیام راهنمای بیننده",
-    "viewersMustCheerBitsTo": "بینندگان برای استفاده از تبدیل متن به گفتار باید bits بفرستند",
+    "whatHappensWhenAViewer": "اتفاقی که هنگام cheer کردن bits توسط بیننده رخ می‌دهد. هزینهٔ cheer پرداخت شده است، بنابراین پیام آن در تمام حالت‌های TTS خوانده می‌شود و توسط مجوز TTS محدود نمی‌شود.",
     "whoCanUseTextTo": "چه کسانی می‌توانند از تبدیل متن به گفتار استفاده کنند",
     "yourYoutubeChannelHandleFor": "شناسه کانال YouTube شما (مثلاً <code>@yourhandle</code>)",
     "youtubeHandle": "<strong>شناسه YouTube</strong>",
@@ -429,8 +432,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "تنظیم زیروبمی برای صدای پیش‌فرض",
     "adjustTheVolumeForThe": "تنظیم بلندی صدای انتخاب‌شده. احتیاط: مقادیر بیشتر از ۱٫۰ می‌توانند باعث اعوجاج صدا شوند.",
-    "calibrateVolumeForSpecificVoices": "تنظیم بلندی صدا برای صداهای خاص. احتیاط: مقادیر بیشتر از ۱٫۰ می‌توانند باعث اعوجاج صدا شوند.",
     "calibratedVoices": "<strong>صداهای کالیبره‌شده</strong>",
+    "calibrateVolumeForSpecificVoices": "تنظیم بلندی صدا برای صداهای خاص. احتیاط: مقادیر بیشتر از ۱٫۰ می‌توانند باعث اعوجاج صدا شوند.",
     "controlHowFastTheDefault": "کنترل سرعت خواندن صدای پیش‌فرض",
     "defaultEmotion": "<strong>احساس پیش‌فرض</strong>",
     "defaultLanguage": "<strong>زبان پیش‌فرض</strong>",
@@ -447,8 +450,8 @@
     "setTheEmotionalToneOf": "تعیین لحن احساسی صدای پیش‌فرض",
     "viewerVoiceLookup": "جستجوی صدای بیننده",
     "voiceCalibration": "کالیبراسیون صدا",
-    "voiceVolume01To": "بلندی صدا (0.1 تا 10):",
     "voicesWithCustomVolumeSettings": "صداهای دارای تنظیمات بلندی صدای سفارشی.",
+    "voiceVolume01To": "بلندی صدا (0.1 تا 10):",
     "volumeOverride": "جایگزینی بلندی صدا:"
   },
   "ttsBannedWordInput": {

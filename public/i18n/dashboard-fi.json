@@ -23,9 +23,6 @@
   "anonymizeFollowers": {
     "anonymizeNewFollowers": "Anonymisoi uudet seuraajat"
   },
-  "bitsEnabled": {
-    "requireBitsForTts": "Vaadi bitsejä TTS:ään"
-  },
   "botRespondsInChat": {
     "botRespondsInChat": "Botti vastaa chatissa"
   },
@@ -258,7 +255,6 @@
       "allowViewerPreferences": "Salli katsojien ääniasetukset",
       "announceQueuedRedeems": "Ilmoita jonossa olevat lunastukset",
       "anonymizeFollowers": "Anonymisoi seuraajat",
-      "bitsForTts": "Bits-määrä TTS:lle",
       "botRespondsInChat": "Botti vastaa chatissa",
       "cheerAnnouncements": "Cheer-ilmoitukset",
       "defaultEmotion": "Oletustunnetila",
@@ -272,6 +268,7 @@
       "expandAcronyms": "Laajenna chatin lyhenteet",
       "minimumBits": "Bits-vähimmäismäärä",
       "profanityFilter": "Kirosanasuodatin",
+      "readCheerMessages": "Lue Cheer-viestit",
       "readFullUrls": "Lue täydet URL-osoitteet",
       "redemptionAnnouncements": "Lunastusilmoitukset",
       "ttsEngine": "TTS-moottori",
@@ -317,6 +314,12 @@
   "pronunciationEnabled": {
     "expandChatAcronyms": "Avaa chatin lyhenteet"
   },
+  "readCheerMessages": {
+    "readCheerMessages": "Lue Cheer-viestit"
+  },
+  "readCheerMessagesModeNote": {
+    "alwaysOnInBitsPoints": "Aina käytössä Vain Bits/Points -tilassa"
+  },
   "readFullUrls": {
     "readFullUrls": "Lue koko URL-osoitteet"
   },
@@ -353,8 +356,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Salli botin vastata chat-komentoihin, kuten !myvoice",
-    "allowViewerVoicePreferences": "Salli katsojien ääniasetukset",
     "allowViewersToUseChannel": "Salli katsojien käyttää Channel Points -pisteitä TTS:ään",
+    "allowViewerVoicePreferences": "Salli katsojien ääniasetukset",
     "announceCheers": "Ilmoita cheerit",
     "announceEvents": "Ilmoita tapahtumat",
     "announceEventsSuchAsSubscriptions": "Ilmoita tapahtumat, kuten tilaukset ja raidit",
@@ -367,12 +370,12 @@
     "anonymizeNewFollowers": "Anonymisoi uudet seuraajat",
     "bannedWordsCommaSeparated": "Kielletyt sanat (pilkuin eroteltuna)",
     "bannedWordsPhrases": "<strong>Kielletyt sanat / lausekkeet</strong>",
-    "bitsTts": "Bits → TTS",
     "blockLinks": "Estä linkit",
     "botRespondsInChat": "Botti vastaa chatissa",
     "channelPointsTts": "Channel Points → TTS",
+    "cheers": "Cheerit",
+    "cheersBelowThisAmountAre": "Tätä määrää pienempiä Cheerejä ei lueta. 1 tarkoittaa kaikkia viestin sisältäviä Cheerejä.",
     "chooseWhichMessagesTriggerTts": "Valitse, mitkä viestit käynnistävät TTS:n",
-    "configureBitsRequirementsForText": "Määritä bits-vaatimukset tekstistä puheeksi -toiminnolle",
     "configureChannelPointsRewardsFor": "Määritä Channel Points -palkinnot tekstistä puheeksi -toiminnolle",
     "configureTtsEngineSettingsAnd": "Määritä TTS-moottorin asetukset ja käyttöoikeudet",
     "controlHowTtsPronouncesSpecific": "Määritä, miten TTS ääntää tietyt sanat. Tavalliset Twitch-lyhenteet käsitellään oletuksena. Lisää tietue korvataksesi oletusääntämyksen tai lisätäksesi uuden sanan.",
@@ -390,16 +393,16 @@
     "ifThisSettingIsOff": "Jos tämä asetus on pois käytöstä, TTS käyttää kanavan oletusääntä kaikissa viesteissä",
     "ignoredUsers": "Ohitetut käyttäjät",
     "manageUsersThatTtsIgnores": "Hallitse käyttäjiä, jotka TTS ohittaa",
-    "minimumBitsRequired": "<strong>Vaadittu vähimmäismäärä bitsejä</strong>",
-    "minimumNumberOfBitsRequired": "TTS:n käynnistämiseen vaadittava bitsien vähimmäismäärä",
+    "minimumBits": "<strong>Bits-vähimmäismäärä</strong>",
     "perStreamLimit": "Rajoitus per lähetys",
     "perUserPerStream": "Käyttäjäkohtainen per lähetys",
     "profanityFilter": "Kiroilusuodatin",
     "pronunciationDictionary": "<strong>Ääntämissanakirja</strong>",
+    "readAloudTheMessageA": "Lue ääneen katsojan Cheeriin liittämä viesti",
+    "readCheerMessages": "Lue Cheer-viestit",
     "readFullUrls": "Lue koko URL-osoitteet",
     "readYoutubeLiveChatMessages": "Lue YouTube-livelähetyksen chat-viestit TTS:llä. Tämä ominaisuus vaatii aktiivisen YouTube-livelähetyksen.",
     "readYoutubeLiveChatMessages2": "Lue YouTube-livelähetyksen chat-viestit ääneen",
-    "requireBitsForTts": "Vaadi bitsejä TTS:lle",
     "rewardTitle": "Palkinnon nimi",
     "skipTheRewardQueue": "Ohita palkintojono",
     "theTitleMustBeUnique": "Nimen on oltava uniikki kanavallasi.",
@@ -413,7 +416,7 @@
     "ttsSkipsMessagesThatContain": "TTS ohittaa viestit, jotka sisältävät näitä sanoja tai lauseita.",
     "turnOnOrTurnOff": "Ota puhesynteesi käyttöön tai poista se käytöstä",
     "viewerPrompt": "Kehote katsojalle",
-    "viewersMustCheerBitsTo": "Katsojien on lähetettävä bitsejä käyttääkseen puhesynteesiä",
+    "whatHappensWhenAViewer": "Mitä tapahtuu, kun katsoja lähettää Cheerin bitseillä. Cheer on maksullinen, joten sen viesti luetaan kaikissa TTS-tiloissa eivätkä TTS-käyttöoikeudet rajoita sitä.",
     "whoCanUseTextTo": "Kuka voi käyttää puhesynteesiä",
     "yourYoutubeChannelHandleFor": "YouTube-kanavasi tunnus (esimerkiksi <code>@tunnus</code>)",
     "youtubeHandle": "<strong>YouTube-tunnus</strong>",
@@ -429,8 +432,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Säädä oletusäänen korkeutta",
     "adjustTheVolumeForThe": "Säädä valitun äänen äänenvoimakkuutta. VAROITUS: Yli 1.0 arvot voivat aiheuttaa säröytymistä.",
-    "calibrateVolumeForSpecificVoices": "Kalibroi tiettyjen äänten äänenvoimakkuus. VAROITUS: Yli 1.0 arvot voivat aiheuttaa säröytymistä.",
     "calibratedVoices": "<strong>Kalibroidut äänet</strong>",
+    "calibrateVolumeForSpecificVoices": "Kalibroi tiettyjen äänten äänenvoimakkuus. VAROITUS: Yli 1.0 arvot voivat aiheuttaa säröytymistä.",
     "controlHowFastTheDefault": "Säädä oletusäänen puhenopeutta",
     "defaultEmotion": "<strong>Oletustunnetila</strong>",
     "defaultLanguage": "<strong>Oletuskieli</strong>",
@@ -447,8 +450,8 @@
     "setTheEmotionalToneOf": "Aseta oletusäänen tunnesävy",
     "viewerVoiceLookup": "Katsojan äänen haku",
     "voiceCalibration": "Äänen kalibrointi",
-    "voiceVolume01To": "Äänenvoimakkuus (0,1–10):",
     "voicesWithCustomVolumeSettings": "Äänet, joilla on mukautettu äänenvoimakkuus.",
+    "voiceVolume01To": "Äänenvoimakkuus (0,1–10):",
     "volumeOverride": "Äänenvoimakkuuden ohitus:"
   },
   "ttsBannedWordInput": {

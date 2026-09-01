@@ -23,9 +23,6 @@
   "anonymizeFollowers": {
     "anonymizeNewFollowers": "Анонимизировать новых фолловеров"
   },
-  "bitsEnabled": {
-    "requireBitsForTts": "Требовать Bits для TTS"
-  },
   "botRespondsInChat": {
     "botRespondsInChat": "Бот отвечает в чате"
   },
@@ -258,7 +255,6 @@
       "allowViewerPreferences": "Разрешить зрителям настраивать голос",
       "announceQueuedRedeems": "Озвучивать награды в очереди",
       "anonymizeFollowers": "Анонимизировать фолловеров",
-      "bitsForTts": "Bits для TTS",
       "botRespondsInChat": "Ответы бота в чате",
       "cheerAnnouncements": "Оповещения о Cheer",
       "defaultEmotion": "Эмоция по умолчанию",
@@ -272,6 +268,7 @@
       "expandAcronyms": "Расшифровывать сокращения в чате",
       "minimumBits": "Минимум Bits",
       "profanityFilter": "Фильтр ненормативной лексики",
+      "readCheerMessages": "Озвучивать сообщения с Cheer",
       "readFullUrls": "Зачитывать URL полностью",
       "redemptionAnnouncements": "Оповещения об активации наград",
       "ttsEngine": "Движок TTS",
@@ -317,6 +314,12 @@
   "pronunciationEnabled": {
     "expandChatAcronyms": "Расшифровывать акронимы чата"
   },
+  "readCheerMessages": {
+    "readCheerMessages": "Озвучивать сообщения с Cheer"
+  },
+  "readCheerMessagesModeNote": {
+    "alwaysOnInBitsPoints": "Всегда включено в режиме «Только Bits/Points»"
+  },
   "readFullUrls": {
     "readFullUrls": "Читать URL полностью"
   },
@@ -353,8 +356,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Разрешить боту отвечать на команды в чате, такие как !myvoice",
-    "allowViewerVoicePreferences": "Разрешить зрителям выбирать голоса",
     "allowViewersToUseChannel": "Разрешить зрителям использовать Channel Points для TTS",
+    "allowViewerVoicePreferences": "Разрешить зрителям выбирать голоса",
     "announceCheers": "Озвучивать Cheers",
     "announceEvents": "Озвучивать события",
     "announceEventsSuchAsSubscriptions": "Озвучивать события, такие как подписки и рейды",
@@ -367,12 +370,12 @@
     "anonymizeNewFollowers": "Анонимизировать новых фолловеров",
     "bannedWordsCommaSeparated": "Запрещенные слова (через запятую)",
     "bannedWordsPhrases": "<strong>Запрещенные слова и фразы</strong>",
-    "bitsTts": "Bits → TTS",
     "blockLinks": "Блокировать ссылки",
     "botRespondsInChat": "Ответы бота в чате",
     "channelPointsTts": "Channel Points → TTS",
+    "cheers": "Cheers",
+    "cheersBelowThisAmountAre": "Cheer на сумму меньше указанной не озвучиваются. 1 означает любое сообщение с Cheer.",
     "chooseWhichMessagesTriggerTts": "Выберите, какие сообщения активируют TTS",
-    "configureBitsRequirementsForText": "Настройте требования bits для TTS",
     "configureChannelPointsRewardsFor": "Настройте награды за Channel Points для TTS",
     "configureTtsEngineSettingsAnd": "Настройте параметры движка TTS и права доступа",
     "controlHowTtsPronouncesSpecific": "Управляйте произношением определенных слов в TTS. Популярные сокращения Twitch поддерживаются по умолчанию. Добавьте запись, чтобы изменить стандартное произношение или добавить новое слово.",
@@ -390,16 +393,16 @@
     "ifThisSettingIsOff": "Если настройка выключена, TTS использует голос канала по умолчанию для всех сообщений",
     "ignoredUsers": "Игнорируемые пользователи",
     "manageUsersThatTtsIgnores": "Управление пользователями, которых игнорирует TTS",
-    "minimumBitsRequired": "<strong>Минимум Bits</strong>",
-    "minimumNumberOfBitsRequired": "Минимальное количество Bits для активации TTS",
+    "minimumBits": "<strong>Минимум Bits</strong>",
     "perStreamLimit": "Лимит на стрим",
     "perUserPerStream": "На зрителя за стрим",
     "profanityFilter": "Фильтр ненормативной лексики",
     "pronunciationDictionary": "<strong>Словарь произношения</strong>",
+    "readAloudTheMessageA": "Озвучивать сообщение, которое зритель прикрепляет к Cheer",
+    "readCheerMessages": "Озвучивать сообщения с Cheer",
     "readFullUrls": "Читать полные URL",
     "readYoutubeLiveChatMessages": "Озвучивать сообщения чата прямых трансляций YouTube через TTS. Требуется активный стрим на YouTube.",
     "readYoutubeLiveChatMessages2": "Озвучивать сообщения чата YouTube",
-    "requireBitsForTts": "Требовать Bits для TTS",
     "rewardTitle": "Название награды",
     "skipTheRewardQueue": "Пропускать очередь наград",
     "theTitleMustBeUnique": "Название должно быть уникальным на вашем канале.",
@@ -413,7 +416,7 @@
     "ttsSkipsMessagesThatContain": "TTS пропускает сообщения, содержащие эти слова или фразы.",
     "turnOnOrTurnOff": "Включение и выключение синтеза речи",
     "viewerPrompt": "Подсказка для зрителя",
-    "viewersMustCheerBitsTo": "Зрители должны отправлять bits для озвучивания сообщений",
+    "whatHappensWhenAViewer": "Что происходит, когда зритель отправляет bits. Cheer — платное действие, поэтому такое сообщение озвучивается в любом режиме TTS и не зависит от прав доступа к TTS.",
     "whoCanUseTextTo": "Кто может использовать озвучивание текста",
     "yourYoutubeChannelHandleFor": "Хэндл вашего канала YouTube (например, <code>@yourhandle</code>)",
     "youtubeHandle": "<strong>Хэндл YouTube</strong>",
@@ -429,8 +432,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Настройка высоты тона для голоса по умолчанию",
     "adjustTheVolumeForThe": "Настройка громкости для выбранного голоса. ВНИМАНИЕ: значения выше 1.0 могут вызывать искажения.",
-    "calibrateVolumeForSpecificVoices": "Калибровка громкости для отдельных голосов. ВНИМАНИЕ: значения выше 1.0 могут вызывать искажения.",
     "calibratedVoices": "<strong>Откалиброванные голоса</strong>",
+    "calibrateVolumeForSpecificVoices": "Калибровка громкости для отдельных голосов. ВНИМАНИЕ: значения выше 1.0 могут вызывать искажения.",
     "controlHowFastTheDefault": "Настройте скорость стандартного голоса",
     "defaultEmotion": "<strong>Эмоция по умолчанию</strong>",
     "defaultLanguage": "<strong>Язык по умолчанию</strong>",
@@ -447,8 +450,8 @@
     "setTheEmotionalToneOf": "Задайте эмоциональный тон голоса по умолчанию",
     "viewerVoiceLookup": "Поиск голоса зрителя",
     "voiceCalibration": "Калибровка голоса",
-    "voiceVolume01To": "Громкость голоса (от 0.1 до 10):",
     "voicesWithCustomVolumeSettings": "Голоса с индивидуальной настройкой громкости.",
+    "voiceVolume01To": "Громкость голоса (от 0.1 до 10):",
     "volumeOverride": "Переопределение громкости:"
   },
   "ttsBannedWordInput": {

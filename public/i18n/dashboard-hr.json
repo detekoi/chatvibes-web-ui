@@ -23,9 +23,6 @@
   "anonymizeFollowers": {
     "anonymizeNewFollowers": "Anonimiziraj nove pratitelje"
   },
-  "bitsEnabled": {
-    "requireBitsForTts": "Zahtijevaj bits za TTS"
-  },
   "botRespondsInChat": {
     "botRespondsInChat": "Bot odgovara u chatu"
   },
@@ -258,7 +255,6 @@
       "allowViewerPreferences": "Dopusti glasovne postavke gledatelja",
       "announceQueuedRedeems": "Najavi preuzimanja na čekanju",
       "anonymizeFollowers": "Anonimiziraj pratitelje",
-      "bitsForTts": "Bits za TTS",
       "botRespondsInChat": "Bot odgovara u chatu",
       "cheerAnnouncements": "Cheer najave",
       "defaultEmotion": "Zadana emocija",
@@ -272,6 +268,7 @@
       "expandAcronyms": "Proširi kratice u chatu",
       "minimumBits": "Minimalno Bits",
       "profanityFilter": "Filtar vulgarnosti",
+      "readCheerMessages": "Čitaj Cheer poruke",
       "readFullUrls": "Čitaj cijele URL-ove",
       "redemptionAnnouncements": "Najave preuzimanja nagrada",
       "ttsEngine": "TTS mehanizam",
@@ -317,6 +314,12 @@
   "pronunciationEnabled": {
     "expandChatAcronyms": "Proširi kratice u chatu"
   },
+  "readCheerMessages": {
+    "readCheerMessages": "Čitaj Cheer poruke"
+  },
+  "readCheerMessagesModeNote": {
+    "alwaysOnInBitsPoints": "Uvijek uključeno u načinu rada Samo Bits/Points"
+  },
   "readFullUrls": {
     "readFullUrls": "Čitaj cijele URL-ove"
   },
@@ -353,8 +356,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Dopusti botu da odgovara na naredbe u chatu poput !myvoice",
-    "allowViewerVoicePreferences": "Dopusti postavke glasa za gledatelje",
     "allowViewersToUseChannel": "Dopusti gledateljima korištenje Channel Points za TTS",
+    "allowViewerVoicePreferences": "Dopusti postavke glasa za gledatelje",
     "announceCheers": "Najavi Cheerove",
     "announceEvents": "Najavi događaje",
     "announceEventsSuchAsSubscriptions": "Najavi događaje poput pretplata i raidova",
@@ -367,12 +370,12 @@
     "anonymizeNewFollowers": "Anonimiziraj nove pratitelje",
     "bannedWordsCommaSeparated": "Zabranjene riječi (odvojene zarezom)",
     "bannedWordsPhrases": "<strong>Zabranjene riječi / fraze</strong>",
-    "bitsTts": "Bits → TTS",
     "blockLinks": "Blokiraj poveznice",
     "botRespondsInChat": "Bot odgovara u chatu",
     "channelPointsTts": "Channel Points → TTS",
+    "cheers": "Cheerovi",
+    "cheersBelowThisAmountAre": "Cheerovi ispod ovog iznosa se ne čitaju. 1 znači svaki cheer koji sadrži poruku.",
     "chooseWhichMessagesTriggerTts": "Odaberi koje poruke pokreću TTS",
-    "configureBitsRequirementsForText": "Konfiguriraj zahtjeve za bits za pretvaranje teksta u govor",
     "configureChannelPointsRewardsFor": "Konfiguriraj Channel Points nagrade za pretvaranje teksta u govor",
     "configureTtsEngineSettingsAnd": "Konfiguriraj postavke TTS mehanizma i dopuštenja",
     "controlHowTtsPronouncesSpecific": "Upravljaj načinom na koji TTS izgovara određene riječi. Uobičajeni Twitch akronimi obrađuju se prema zadanim postavkama. Dodaj unos za nadjačavanje zadanog izgovora ili dodaj novu riječ.",
@@ -390,16 +393,16 @@
     "ifThisSettingIsOff": "Ako je ova postavka isključena, TTS koristi zadani glas kanala za sve poruke",
     "ignoredUsers": "Ignorirani korisnici",
     "manageUsersThatTtsIgnores": "Upravljaj korisnicima koje TTS ignorira",
-    "minimumBitsRequired": "<strong>Minimalno potrebno bitsa</strong>",
-    "minimumNumberOfBitsRequired": "Minimalan broj bitsa potreban za pokretanje TTS-a",
+    "minimumBits": "<strong>Minimalno bitsa</strong>",
     "perStreamLimit": "Ograničenje po streamu",
     "perUserPerStream": "Po korisniku po streamu",
     "profanityFilter": "Filtar psovki",
     "pronunciationDictionary": "<strong>Rječnik izgovora</strong>",
+    "readAloudTheMessageA": "Naglas pročitaj poruku koju gledatelj priloži uz cheer",
+    "readCheerMessages": "Čitaj Cheer poruke",
     "readFullUrls": "Čitaj cijele URL-ove",
     "readYoutubeLiveChatMessages": "Čitaj poruke YouTube chata uživo putem TTS-a. Ova značajka zahtijeva aktivan YouTube livestream.",
     "readYoutubeLiveChatMessages2": "Čitaj poruke YouTube chata uživo naglas",
-    "requireBitsForTts": "Zahtijevaj bitse za TTS",
     "rewardTitle": "Naslov nagrade",
     "skipTheRewardQueue": "Preskoči red čekanja za nagrade",
     "theTitleMustBeUnique": "Naslov mora biti jedinstven na tvom kanalu.",
@@ -413,7 +416,7 @@
     "ttsSkipsMessagesThatContain": "TTS preskače poruke koje sadrže ove riječi ili izraze.",
     "turnOnOrTurnOff": "Uključi ili isključi mehanizam za pretvaranje teksta u govor",
     "viewerPrompt": "Tekst upita za gledatelje",
-    "viewersMustCheerBitsTo": "Gledatelji moraju poslati bitse (cheer) kako bi koristili pretvaranje teksta u govor",
+    "whatHappensWhenAViewer": "Što se događa kada gledatelj pošalje cheer s bitsima. Cheer je plaćen, pa se njegova poruka čita u svakom TTS načinu rada i nije ograničena TTS dozvolom.",
     "whoCanUseTextTo": "Tko može koristiti pretvaranje teksta u govor",
     "yourYoutubeChannelHandleFor": "Korisnička oznaka tvog YouTube kanala (npr. <code>@tvojaoznaka</code>)",
     "youtubeHandle": "<strong>YouTube korisnička oznaka</strong>",
@@ -429,8 +432,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Prilagodi visinu tona zadanog glasa",
     "adjustTheVolumeForThe": "Prilagodi glasnoću za odabrani glas. OPREZ: Vrijednosti veće od 1.0 mogu uzrokovati izobličenje zvuka.",
-    "calibrateVolumeForSpecificVoices": "Kalibriraj glasnoću za pojedine glasove. OPREZ: Vrijednosti veće od 1.0 mogu uzrokovati izobličenje zvuka.",
     "calibratedVoices": "<strong>Kalibrirani glasovi</strong>",
+    "calibrateVolumeForSpecificVoices": "Kalibriraj glasnoću za pojedine glasove. OPREZ: Vrijednosti veće od 1.0 mogu uzrokovati izobličenje zvuka.",
     "controlHowFastTheDefault": "Prilagodi brzinu zadanog glasa",
     "defaultEmotion": "<strong>Zadana emocija</strong>",
     "defaultLanguage": "<strong>Zadani jezik</strong>",
@@ -447,8 +450,8 @@
     "setTheEmotionalToneOf": "Postavi emocionalni ton zadanog glasa",
     "viewerVoiceLookup": "Pretraživanje glasa gledatelja",
     "voiceCalibration": "Kalibracija glasa",
-    "voiceVolume01To": "Glasnoća glasa (0.1 do 10):",
     "voicesWithCustomVolumeSettings": "Glasovi s prilagođenom glasnoćom.",
+    "voiceVolume01To": "Glasnoća glasa (0.1 do 10):",
     "volumeOverride": "Nadjačavanje glasnoće:"
   },
   "ttsBannedWordInput": {

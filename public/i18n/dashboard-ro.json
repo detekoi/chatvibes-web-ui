@@ -23,9 +23,6 @@
   "anonymizeFollowers": {
     "anonymizeNewFollowers": "Anonimizează urmăritorii noi"
   },
-  "bitsEnabled": {
-    "requireBitsForTts": "Solicită Bits pentru TTS"
-  },
   "botRespondsInChat": {
     "botRespondsInChat": "Botul răspunde în chat"
   },
@@ -258,7 +255,6 @@
       "allowViewerPreferences": "Permite preferințele de voce ale spectatorilor",
       "announceQueuedRedeems": "Anunță revendicările din coadă",
       "anonymizeFollowers": "Anonimizează urmăritorii",
-      "bitsForTts": "Bits pentru TTS",
       "botRespondsInChat": "Botul răspunde în chat",
       "cheerAnnouncements": "Anunțuri Cheer",
       "defaultEmotion": "Emoție implicită",
@@ -272,6 +268,7 @@
       "expandAcronyms": "Extinde acronimele din chat",
       "minimumBits": "Număr minim de bits",
       "profanityFilter": "Filtru de vulgaritate",
+      "readCheerMessages": "Citește mesajele Cheer",
       "readFullUrls": "Citește URL-urile complete",
       "redemptionAnnouncements": "Anunțuri de revendicare",
       "ttsEngine": "Motor TTS",
@@ -317,6 +314,12 @@
   "pronunciationEnabled": {
     "expandChatAcronyms": "Extinde acronimele din chat"
   },
+  "readCheerMessages": {
+    "readCheerMessages": "Citește mesajele Cheer"
+  },
+  "readCheerMessagesModeNote": {
+    "alwaysOnInBitsPoints": "Întotdeauna activ în modul Doar Bits/Puncte"
+  },
   "readFullUrls": {
     "readFullUrls": "Citește URL-urile complete"
   },
@@ -353,8 +356,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Permite botului să răspundă la comenzi din chat precum !myvoice",
-    "allowViewerVoicePreferences": "Permite preferințele de voce ale spectatorilor",
     "allowViewersToUseChannel": "Permite spectatorilor să folosească Channel Points pentru TTS",
+    "allowViewerVoicePreferences": "Permite preferințele de voce ale spectatorilor",
     "announceCheers": "Anunță cheer-urile",
     "announceEvents": "Anunță evenimente",
     "announceEventsSuchAsSubscriptions": "Anunță evenimente precum abonamente și raiduri",
@@ -367,12 +370,12 @@
     "anonymizeNewFollowers": "Anonimizează urmăritorii noi",
     "bannedWordsCommaSeparated": "Cuvinte interzise (separate prin virgulă)",
     "bannedWordsPhrases": "<strong>Cuvinte / Fraze interzise</strong>",
-    "bitsTts": "Bits → TTS",
     "blockLinks": "Blochează linkurile",
     "botRespondsInChat": "Botul răspunde în chat",
     "channelPointsTts": "Channel Points → TTS",
+    "cheers": "Cheers",
+    "cheersBelowThisAmountAre": "Cheer-urile sub această valoare nu sunt citite. 1 înseamnă fiecare cheer care conține un mesaj.",
     "chooseWhichMessagesTriggerTts": "Alege ce mesaje declanșează TTS",
-    "configureBitsRequirementsForText": "Configurează cerințele de bits pentru text-to-speech",
     "configureChannelPointsRewardsFor": "Configurează recompensele Channel Points pentru text-to-speech",
     "configureTtsEngineSettingsAnd": "Configurează setările motorului TTS și permisiunile",
     "controlHowTtsPronouncesSpecific": "Controlează modul în care TTS pronunță anumite cuvinte. Acronimele comune de pe Twitch sunt gestionate implicit. Adaugă o intrare pentru a suprascrie o pronunție implicită sau pentru a adăuga un cuvânt nou.",
@@ -390,16 +393,16 @@
     "ifThisSettingIsOff": "Dacă această setare este dezactivată, TTS folosește vocea implicită a canalului pentru toate mesajele",
     "ignoredUsers": "Utilizatori ignorați",
     "manageUsersThatTtsIgnores": "Gestionează utilizatorii ignorați de TTS",
-    "minimumBitsRequired": "<strong>Număr minim de bits necesar</strong>",
-    "minimumNumberOfBitsRequired": "Numărul minim de bits necesar pentru a declanșa TTS",
+    "minimumBits": "<strong>Număr minim de bits</strong>",
     "perStreamLimit": "Limită per stream",
     "perUserPerStream": "Per utilizator per stream",
     "profanityFilter": "Filtru de vulgaritate",
     "pronunciationDictionary": "<strong>Dicționar de pronunție</strong>",
+    "readAloudTheMessageA": "Citește cu voce tare mesajul pe care un spectator îl atașează la un cheer",
+    "readCheerMessages": "Citește mesajele Cheer",
     "readFullUrls": "Citește URL-urile complete",
     "readYoutubeLiveChatMessages": "Citește mesajele din chatul live YouTube prin TTS. Această funcție necesită un livestream YouTube activ.",
     "readYoutubeLiveChatMessages2": "Citește cu voce tare mesajele din chatul live YouTube",
-    "requireBitsForTts": "Solicită bits pentru TTS",
     "rewardTitle": "Titlu recompensă",
     "skipTheRewardQueue": "Omite coada de recompense",
     "theTitleMustBeUnique": "Titlul trebuie să fie unic pe canalul tău.",
@@ -413,7 +416,7 @@
     "ttsSkipsMessagesThatContain": "TTS omite mesajele care conțin aceste cuvinte sau fraze.",
     "turnOnOrTurnOff": "Activează sau dezactivează motorul text-to-speech",
     "viewerPrompt": "Mesaj pentru spectatori",
-    "viewersMustCheerBitsTo": "Spectatorii trebuie să trimită bits pentru a folosi text-to-speech",
+    "whatHappensWhenAViewer": "Ce se întâmplă când un spectator trimite cheer cu bits. Un cheer este plătit, așa că mesajul său este citit în fiecare mod TTS și nu este limitat de permisiunea TTS.",
     "whoCanUseTextTo": "Cine poate folosi text-to-speech",
     "yourYoutubeChannelHandleFor": "Identificatorul canalului tău YouTube (de exemplu, <code>@yourhandle</code>)",
     "youtubeHandle": "<strong>Identificator YouTube</strong>",
@@ -429,8 +432,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Ajustează tonalitatea pentru vocea implicită",
     "adjustTheVolumeForThe": "Ajustează volumul pentru vocea selectată. ATENȚIE: Valorile mai mari de 1,0 pot provoca distorsiuni.",
-    "calibrateVolumeForSpecificVoices": "Calibrează volumul pentru anumite voci. ATENȚIE: Valorile mai mari de 1,0 pot provoca distorsiuni.",
     "calibratedVoices": "<strong>Voci calibrate</strong>",
+    "calibrateVolumeForSpecificVoices": "Calibrează volumul pentru anumite voci. ATENȚIE: Valorile mai mari de 1,0 pot provoca distorsiuni.",
     "controlHowFastTheDefault": "Controlează viteza vocii implicite",
     "defaultEmotion": "<strong>Emoție implicită</strong>",
     "defaultLanguage": "<strong>Limbă implicită</strong>",
@@ -447,8 +450,8 @@
     "setTheEmotionalToneOf": "Setează tonul emoțional al vocii implicite",
     "viewerVoiceLookup": "Căutare voce spectator",
     "voiceCalibration": "Calibrare voce",
-    "voiceVolume01To": "Volum voce (0.1 la 10):",
     "voicesWithCustomVolumeSettings": "Voci cu setări de volum personalizate.",
+    "voiceVolume01To": "Volum voce (0.1 la 10):",
     "volumeOverride": "Suprascriere volum:"
   },
   "ttsBannedWordInput": {

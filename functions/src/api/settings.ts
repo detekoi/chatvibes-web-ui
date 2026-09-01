@@ -30,7 +30,7 @@ const BOOLEAN_SETTINGS = [
     "announceUnfulfilledRedemptions",
     "speakWatchStreakEvents",
     "anonymizeFollowers",
-    "bitsModeEnabled",
+    "readCheerMessages",
     "readFullUrls",
     "allowViewerPreferences",
     "botRespondsInChat",
@@ -70,7 +70,7 @@ function validateTtsSetting(key: string, value: unknown): boolean {
     case "speed":
         return validateSpeed(value as number);
     case "bitsMinimumAmount":
-        return typeof value === "number" && Number.isInteger(value) && value >= 0;
+        return typeof value === "number" && Number.isInteger(value) && value >= 1;
     case "voiceId":
         return typeof value === "string" && VOICE_IDS.has(value);
     case "youtubeHandle":

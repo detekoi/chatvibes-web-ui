@@ -227,21 +227,6 @@
                                 <div class="list-group-item">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <strong data-i18n="tabBroadcaster.announceCheers" class="mb-0">Announce Cheers</strong>
-                                            <p data-i18n="tabBroadcaster.announceWhenAViewerCheers" class="text-muted mb-0">Announce when a viewer cheers bits</p>
-                                        </div>
-                                        <div class="col-auto">
-                                            <div class="form-check form-switch">
-                                                <input data-i18n-aria-label="cheerEventsEnabled.announceCheers" class="form-check-input" type="checkbox"
-                                                    id="cheer-events-enabled" aria-label="Announce Cheers">
-                                                <span class="form-check-label"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="list-group-item">
-                                    <div class="row align-items-center">
-                                        <div class="col">
                                             <strong data-i18n="tabBroadcaster.announceRewardRedeems" class="mb-0">Announce Reward Redeems</strong>
                                             <p data-i18n="tabBroadcaster.announceWhenAViewerRedeems" class="text-muted mb-0">Announce when a viewer redeems a channel point
                                                 reward</p>
@@ -424,20 +409,21 @@
                             </div>
                         </div>
 
-                        <!-- Bits -> TTS -->
+                        <!-- Cheers -->
                         <div class="settings-section">
-                            <h2 data-i18n="tabBroadcaster.bitsTts" class="settings-section-title">Bits → TTS</h2>
-                            <p data-i18n="tabBroadcaster.configureBitsRequirementsForText" class="settings-section-description">Configure bits requirements for text-to-speech</p>
+                            <h2 data-i18n="tabBroadcaster.cheers" class="settings-section-title">Cheers</h2>
+                            <p data-i18n="tabBroadcaster.whatHappensWhenAViewer" class="settings-section-description">What happens when a viewer cheers bits. A cheer is paid for, so its message is read in every TTS Mode and is not limited by TTS Permission.</p>
                             <div class="list-group mb-4 shadow">
                                 <div class="list-group-item">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <strong data-i18n="tabBroadcaster.requireBitsForTts" class="mb-0">Require Bits for TTS</strong>
-                                            <p data-i18n="tabBroadcaster.viewersMustCheerBitsTo" class="text-muted mb-0">Viewers must cheer bits to use text-to-speech</p>
+                                            <strong data-i18n="tabBroadcaster.announceCheers" class="mb-0">Announce Cheers</strong>
+                                            <p data-i18n="tabBroadcaster.announceWhenAViewerCheers" class="text-muted mb-0">Announce when a viewer cheers bits</p>
                                         </div>
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
-                                                <input data-i18n-aria-label="bitsEnabled.requireBitsForTts" class="form-check-input" type="checkbox" id="bits-enabled" aria-label="Require Bits for TTS">
+                                                <input data-i18n-aria-label="cheerEventsEnabled.announceCheers" class="form-check-input" type="checkbox"
+                                                    id="cheer-events-enabled" aria-label="Announce Cheers">
                                                 <span class="form-check-label"></span>
                                             </div>
                                         </div>
@@ -446,13 +432,27 @@
                                 <div class="list-group-item">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <label data-i18n="tabBroadcaster.minimumBitsRequired" for="bits-amount" class="form-label mb-1"><strong>Minimum Bits
-                                                    Required</strong></label>
-                                            <p data-i18n="tabBroadcaster.minimumNumberOfBitsRequired" class="text-muted mb-0">Minimum number of bits required to trigger TTS</p>
+                                            <strong data-i18n="tabBroadcaster.readCheerMessages" class="mb-0">Read Cheer Messages</strong>
+                                            <p data-i18n="tabBroadcaster.readAloudTheMessageA" class="text-muted mb-0">Read aloud the message a viewer attaches to a cheer</p>
+                                            <p data-i18n="readCheerMessagesModeNote.alwaysOnInBitsPoints" id="read-cheer-messages-mode-note" class="text-muted mb-0" hidden>Always on in Bits/Points Only mode</p>
                                         </div>
                                         <div class="col-auto">
-                                            <input type="number" id="bits-amount" class="form-control" min="0"
-                                                value="100" style="width: 120px;">
+                                            <div class="form-check form-switch">
+                                                <input data-i18n-aria-label="readCheerMessages.readCheerMessages" class="form-check-input" type="checkbox" id="read-cheer-messages" aria-label="Read Cheer Messages" aria-describedby="read-cheer-messages-mode-note">
+                                                <span class="form-check-label"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-group-item">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <label data-i18n="tabBroadcaster.minimumBits" for="bits-amount" class="form-label mb-1"><strong>Minimum Bits</strong></label>
+                                            <p data-i18n="tabBroadcaster.cheersBelowThisAmountAre" class="text-muted mb-0">Cheers below this amount are not read. 1 means every cheer that carries a message.</p>
+                                        </div>
+                                        <div class="col-auto">
+                                            <input type="number" id="bits-amount" class="form-control" min="1"
+                                                value="1" style="width: 120px;">
                                         </div>
                                     </div>
                                 </div>

@@ -23,9 +23,6 @@
   "anonymizeFollowers": {
     "anonymizeNewFollowers": "新規フォロワーを匿名化"
   },
-  "bitsEnabled": {
-    "requireBitsForTts": "TTSにBitsを必須にする"
-  },
   "botRespondsInChat": {
     "botRespondsInChat": "Botがチャットで応答"
   },
@@ -258,7 +255,6 @@
       "allowViewerPreferences": "視聴者の音声設定を許可",
       "announceQueuedRedeems": "キューに入った引き換えを通知",
       "anonymizeFollowers": "フォロワーを匿名化",
-      "bitsForTts": "TTS用Bits",
       "botRespondsInChat": "ボットがチャットで応答",
       "cheerAnnouncements": "Cheer通知",
       "defaultEmotion": "デフォルトの感情",
@@ -272,6 +268,7 @@
       "expandAcronyms": "チャットの略語を展開",
       "minimumBits": "最小Bits",
       "profanityFilter": "不適切表現フィルター",
+      "readCheerMessages": "Cheerメッセージを読み上げる",
       "readFullUrls": "URLを最後まで読み上げる",
       "redemptionAnnouncements": "引き換え通知",
       "ttsEngine": "TTSエンジン",
@@ -317,6 +314,12 @@
   "pronunciationEnabled": {
     "expandChatAcronyms": "チャット略語の展開"
   },
+  "readCheerMessages": {
+    "readCheerMessages": "Cheerメッセージを読み上げる"
+  },
+  "readCheerMessagesModeNote": {
+    "alwaysOnInBitsPoints": "Bits/Points専用モードでは常に有効"
+  },
   "readFullUrls": {
     "readFullUrls": "URLを省略せず読み上げる"
   },
@@ -353,8 +356,8 @@
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "!myvoiceなどのチャットコマンドへのボットの応答を許可",
-    "allowViewerVoicePreferences": "視聴者のボイス設定を許可",
     "allowViewersToUseChannel": "視聴者によるTTSへのChannel Pointsの使用を許可",
+    "allowViewerVoicePreferences": "視聴者のボイス設定を許可",
     "announceCheers": "Cheerをアナウンス",
     "announceEvents": "イベントをアナウンス",
     "announceEventsSuchAsSubscriptions": "サブスクやレイドなどのイベントをアナウンス",
@@ -367,12 +370,12 @@
     "anonymizeNewFollowers": "新規フォロワーを匿名化",
     "bannedWordsCommaSeparated": "禁止ワード（カンマ区切り）",
     "bannedWordsPhrases": "<strong>禁止ワード / フレーズ</strong>",
-    "bitsTts": "Bits → TTS",
     "blockLinks": "リンクをブロック",
     "botRespondsInChat": "ボットがチャットで応答",
     "channelPointsTts": "Channel Points → TTS",
+    "cheers": "Cheer",
+    "cheersBelowThisAmountAre": "この数量未満のCheerは読み上げられません。1にすると、メッセージ付きのすべてのCheerが読み上げられます。",
     "chooseWhichMessagesTriggerTts": "TTSをトリガーするメッセージを選択",
-    "configureBitsRequirementsForText": "TTSのbits要件を設定",
     "configureChannelPointsRewardsFor": "TTSのChannel Pointsリワードを設定",
     "configureTtsEngineSettingsAnd": "TTSエンジンの設定と権限を設定",
     "controlHowTtsPronouncesSpecific": "特定の単語のTTSでの発音を管理します。一般的なTwitchの略語はデフォルトで処理されます。エントリを追加してデフォルトの発音を上書きするか、新しい単語を追加してください。",
@@ -390,16 +393,16 @@
     "ifThisSettingIsOff": "この設定が無効の場合、TTSはすべてのメッセージにチャンネルのデフォルトボイスを使用します",
     "ignoredUsers": "無視するユーザー",
     "manageUsersThatTtsIgnores": "TTSが無視するユーザーを管理",
-    "minimumBitsRequired": "<strong>必要な最小Bits数</strong>",
-    "minimumNumberOfBitsRequired": "TTSをトリガーするために必要な最小Bits数",
+    "minimumBits": "<strong>最小Bits数</strong>",
     "perStreamLimit": "配信ごとの上限",
     "perUserPerStream": "ユーザーごと・配信ごとの上限",
     "profanityFilter": "不適切な表現のフィルター",
     "pronunciationDictionary": "<strong>発音辞書</strong>",
+    "readAloudTheMessageA": "視聴者がCheerに添付したメッセージを読み上げます",
+    "readCheerMessages": "Cheerメッセージを読み上げる",
     "readFullUrls": "URL全体を読み上げる",
     "readYoutubeLiveChatMessages": "YouTubeライブチャットのメッセージをTTSで読み上げます。この機能には進行中のYouTubeライブ配信が必要です。",
     "readYoutubeLiveChatMessages2": "YouTubeライブチャットのメッセージを読み上げる",
-    "requireBitsForTts": "TTSにBitsを必須にする",
     "rewardTitle": "リワード名",
     "skipTheRewardQueue": "リワードキューをスキップ",
     "theTitleMustBeUnique": "タイトルはチャンネル内で一意である必要があります。",
@@ -413,7 +416,7 @@
     "ttsSkipsMessagesThatContain": "TTSはこれらの単語やフレーズを含むメッセージをスキップします。",
     "turnOnOrTurnOff": "音声読み上げエンジンのオン/オフを切り替える",
     "viewerPrompt": "視聴者へのプロンプト",
-    "viewersMustCheerBitsTo": "視聴者が音声読み上げを使用するにはBitsをCheerする必要があります",
+    "whatHappensWhenAViewer": "視聴者がBitsでCheerした際の動作です。Cheerは有料機能のため、すべてのTTSモードで読み上げられ、TTS権限の制限を受けません。",
     "whoCanUseTextTo": "音声読み上げを使用できるユーザー",
     "yourYoutubeChannelHandleFor": "YouTubeチャンネルハンドル（例: <code>@yourhandle</code>）",
     "youtubeHandle": "<strong>YouTubeハンドル</strong>",
@@ -429,8 +432,8 @@
   "tabViewerDefaults": {
     "adjustThePitchForThe": "デフォルトボイスのピッチを調整",
     "adjustTheVolumeForThe": "選択したボイスの音量を調整します。注意: 1.0より大きい値にすると音割れの原因になります。",
-    "calibrateVolumeForSpecificVoices": "特定のボイスの音量を調整します。注意: 1.0より大きい値にすると音割れの原因になります。",
     "calibratedVoices": "<strong>調整済みボイス</strong>",
+    "calibrateVolumeForSpecificVoices": "特定のボイスの音量を調整します。注意: 1.0より大きい値にすると音割れの原因になります。",
     "controlHowFastTheDefault": "デフォルト音声の読み上げ速度を調整",
     "defaultEmotion": "<strong>デフォルトの感情</strong>",
     "defaultLanguage": "<strong>デフォルトの言語</strong>",
@@ -447,8 +450,8 @@
     "setTheEmotionalToneOf": "デフォルト音声の感情トーンを設定",
     "viewerVoiceLookup": "視聴者音声の検索",
     "voiceCalibration": "音声キャリブレーション",
-    "voiceVolume01To": "ボイスの音量 (0.1〜10):",
     "voicesWithCustomVolumeSettings": "音量がカスタム設定されている音声。",
+    "voiceVolume01To": "ボイスの音量 (0.1〜10):",
     "volumeOverride": "音量の上書き:"
   },
   "ttsBannedWordInput": {
