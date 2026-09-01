@@ -56,7 +56,7 @@
     "reward_unmute_failed": "無法取消靜音嗰個獎勵。",
     "reward_validation_failed": "唔允許發送呢條訊息。",
     "rewards_list_failed": "無法列出 Channel Points 獎勵。",
-    "rewards_unavailable": "Twitch 無法列出呢個頻道嘅獎勵。",
+    "rewards_unavailable": "Twitch 冇提供呢個頻道嘅獎勵清單。",
     "say_contains_link": "發音唔可以包含連結。",
     "say_empty": "發音唔可以留空。",
     "say_must_be_text": "發音必須係文字。",

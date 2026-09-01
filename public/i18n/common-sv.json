@@ -56,7 +56,7 @@
     "reward_unmute_failed": "Kan inte avtysta den belöningen.",
     "reward_validation_failed": "Det meddelandet är inte tillåtet.",
     "rewards_list_failed": "Kan inte lista belöningarna för Channel Points.",
-    "rewards_unavailable": "Twitch kunde inte lista den här kanalens belöningar.",
+    "rewards_unavailable": "Twitch gav inte listan över belöningar för den här kanalen.",
     "say_contains_link": "Uttalet får inte innehålla en länk.",
     "say_empty": "Uttalet får inte vara tomt.",
     "say_must_be_text": "Uttalet måste vara text.",

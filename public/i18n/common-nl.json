@@ -56,7 +56,7 @@
     "reward_unmute_failed": "Kan het dempen van die beloning niet opheffen.",
     "reward_validation_failed": "Dat bericht is niet toegestaan.",
     "rewards_list_failed": "Kan de Channel Points-beloningen niet ophalen.",
-    "rewards_unavailable": "Twitch kon de beloningen van dit kanaal niet ophalen.",
+    "rewards_unavailable": "Twitch heeft de lijst met beloningen voor dit kanaal niet verstrekt.",
     "say_contains_link": "De uitspraak mag geen link bevatten.",
     "say_empty": "De uitspraak mag niet leeg zijn.",
     "say_must_be_text": "De uitspraak moet tekst zijn.",

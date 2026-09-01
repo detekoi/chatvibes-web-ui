@@ -217,16 +217,17 @@
     },
     "mutedRewards": {
       "announceLabel": "Najavi iskorištavanja nagrade {title}",
-      "announced": "Iskorištavanja nagrade {title} ponovno će se najavljivati.",
+      "announced": "Bot će ponovno najavljivati iskorištavanje nagrade {title}.",
       "badgeDisabled": "Onemogućeno na Twitchu",
-      "badgeMissing": "Više nije na Twitchu",
+      "badgeMissing": "Nije na Twitchu",
       "badgePaused": "Pauzirano na Twitchu",
       "empty": "Ovaj kanal nema prilagođenih Channel Points nagrada.",
       "loadFailed": "Nije moguće učitati Channel Points nagrade.",
       "loading": "Učitavanje Channel Points nagrada…",
-      "muted": "Iskorištavanja nagrade {title} neće se najavljivati.",
-      "removeLabel": "Ukloni utišavanje za {title}",
-      "unavailable": "Twitch nije mogao dohvatiti nagrade ovog kanala. Za Channel Points potreban je status affiliatea ili partnera, a na nadzornoj ploči se možda morate ponovno prijaviti.",
+      "muted": "Bot neće najavljivati iskorištavanje nagrade {title}.",
+      "noMatches": "Nema nagrada koje odgovaraju pretrazi.",
+      "noneMuted": "Bot najavljuje svaku nagradu.",
+      "unavailable": "Twitch nije pružio popis nagrada za ovaj kanal. Channel Points su dostupni samo affiliate i partner streamerima. Ako pripadate jednoj od tih skupina, prijavite se ponovno.",
       "updateFailed": "Nije moguće ažurirati {title}: {reason}"
     },
     "obs": {
@@ -299,14 +300,29 @@
       "youtubeHandleRequired": "Unesi YouTube korisničko ime prije uključivanja YouTube TTS-a."
     }
   },
+  "mutedRewardsClose": {
+    "done": "Gotovo"
+  },
   "mutedRewardsHeading": {
     "rewardsToAnnounce": "Nagrade za najavu"
   },
   "mutedRewardsHelp": {
-    "switchOffAnyRewardThat": "Isključite nagrade koje se ne bi trebale najavljivati, poput zvučnih efekata koji reproduciraju vlastiti zvuk. Sve što ostane uključeno bit će najavljeno. Moderatori mogu učiniti isto iz chata s <code>!tts redeems mute &lt;reward&gt;</code>."
+    "everyRewardIsAnnouncedUnless": "Bot najavljuje svaku nagradu. Ovdje isključite nagradu kako se ne bi najavljivala, na primjer soundboard koji reproducira vlastiti zvuk. Moderatori mogu upotrijebiti <code>!tts redeems mute &lt;reward&gt;</code> u chatu."
   },
-  "mutedRewardsRefresh": {
-    "refreshRewardList": "Osvježi popis nagrada"
+  "mutedRewardsModal": {
+    "searchRewards": "Pretraži nagrade"
+  },
+  "mutedRewardsModalHelp": {
+    "switchOffAnyRewardThat": "Isključite svaku nagradu koju bot ne smije najavljivati. Nadzorna ploča odmah sprema svaku promjenu."
+  },
+  "mutedRewardsOpen": {
+    "chooseRewards": "Odaberi nagrade"
+  },
+  "mutedRewardsSearch": {
+    "searchRewards": "Pretraži nagrade"
+  },
+  "mutedRewardsTitle": {
+    "rewardsToAnnounce": "Nagrade za najavu"
   },
   "obsCloseBtn": {
     "closeObsSetup": "Zatvori postavljanje OBS-a"

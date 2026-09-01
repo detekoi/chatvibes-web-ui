@@ -217,16 +217,17 @@
     },
     "mutedRewards": {
       "announceLabel": "Оголошувати активації {title}",
-      "announced": "Активації {title} знову оголошуватимуться.",
+      "announced": "Бот знову озвучуватиме активації {title}.",
       "badgeDisabled": "Вимкнено на Twitch",
-      "badgeMissing": "Більше немає на Twitch",
+      "badgeMissing": "Немає на Twitch",
       "badgePaused": "Призупинено на Twitch",
       "empty": "На цьому каналі немає власних нагород за Channel Points.",
       "loadFailed": "Не вдалося завантажити нагороди за Channel Points.",
       "loading": "Завантаження нагород за Channel Points…",
-      "muted": "Активації {title} не оголошуватимуться.",
-      "removeLabel": "Припинити заглушення {title}",
-      "unavailable": "Twitch не повернув список нагород цього каналу. Для Channel Points потрібен статус компаньйона або партнера, а також може знадобитися повторно ввійти на панель керування.",
+      "muted": "Бот не озвучуватиме активації {title}.",
+      "noMatches": "Немає нагород, що відповідають пошуку.",
+      "noneMuted": "Бот озвучує кожну нагороду.",
+      "unavailable": "Twitch не надав список нагород для цього каналу. Channel Points доступні лише компаньйонам і партнерам. Якщо ви маєте цей статус, увійдіть знову.",
       "updateFailed": "Не вдалося оновити {title}: {reason}"
     },
     "obs": {
@@ -299,14 +300,29 @@
       "youtubeHandleRequired": "Введіть хендл YouTube перед тим, як увімкнути YouTube TTS."
     }
   },
+  "mutedRewardsClose": {
+    "done": "Готово"
+  },
   "mutedRewardsHeading": {
     "rewardsToAnnounce": "Нагороди для оголошення"
   },
   "mutedRewardsHelp": {
-    "switchOffAnyRewardThat": "Вимкніть будь-яку нагороду, яку не потрібно оголошувати (наприклад, саундборд, який має власний звук). Усе увімкнене оголошуватиметься. Модератори можуть зробити те саме з чату командою <code>!tts redeems mute &lt;reward&gt;</code>."
+    "everyRewardIsAnnouncedUnless": "Бот озвучує кожну нагороду. Вимкніть нагороду тут, щоб вона не озвучувалася — наприклад, звуки деки, що мають власний аудіосупровід. Модератори можуть використати <code>!tts redeems mute &lt;reward&gt;</code> у чаті."
   },
-  "mutedRewardsRefresh": {
-    "refreshRewardList": "Оновити список нагород"
+  "mutedRewardsModal": {
+    "searchRewards": "Пошук нагород"
+  },
+  "mutedRewardsModalHelp": {
+    "switchOffAnyRewardThat": "Вимкніть нагороди, які бот не має озвучувати. Панель керування зберігає зміни миттєво."
+  },
+  "mutedRewardsOpen": {
+    "chooseRewards": "Вибрати нагороди"
+  },
+  "mutedRewardsSearch": {
+    "searchRewards": "Пошук нагород"
+  },
+  "mutedRewardsTitle": {
+    "rewardsToAnnounce": "Нагороди для озвучення"
   },
   "obsCloseBtn": {
     "closeObsSetup": "Закрити налаштування OBS"

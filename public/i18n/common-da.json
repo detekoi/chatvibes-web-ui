@@ -56,7 +56,7 @@
     "reward_unmute_failed": "Kan ikke slå lyden til for den belønning.",
     "reward_validation_failed": "Den besked er ikke tilladt.",
     "rewards_list_failed": "Kan ikke hente Channel Points-belønningerne.",
-    "rewards_unavailable": "Twitch kunne ikke hente denne kanals belønninger.",
+    "rewards_unavailable": "Twitch gav ikke listen over belønninger for denne kanal.",
     "say_contains_link": "Udtalen må ikke indeholde et link.",
     "say_empty": "Udtalen må ikke være tom.",
     "say_must_be_text": "Udtalen skal være tekst.",

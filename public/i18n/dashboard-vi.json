@@ -217,16 +217,17 @@
     },
     "mutedRewards": {
       "announceLabel": "Thông báo khi đổi {title}",
-      "announced": "Lượt đổi {title} sẽ được thông báo lại.",
+      "announced": "Bot sẽ thông báo lại lượt đổi {title}.",
       "badgeDisabled": "Đã tắt trên Twitch",
-      "badgeMissing": "Không còn trên Twitch",
+      "badgeMissing": "Không có trên Twitch",
       "badgePaused": "Tạm dừng trên Twitch",
       "empty": "Kênh này không có phần thưởng Channel Points tùy chỉnh nào.",
       "loadFailed": "Không thể tải phần thưởng Channel Points.",
       "loading": "Đang tải phần thưởng Channel Points…",
-      "muted": "Lượt đổi {title} sẽ không được thông báo.",
-      "removeLabel": "Bỏ tắt tiếng {title}",
-      "unavailable": "Twitch không thể liệt kê phần thưởng của kênh này. Channel Points yêu cầu tư cách Affiliate hoặc Partner, và bảng điều khiển có thể yêu cầu bạn đăng nhập lại.",
+      "muted": "Bot sẽ không thông báo lượt đổi {title}.",
+      "noMatches": "Không có phần thưởng nào khớp với tìm kiếm.",
+      "noneMuted": "Bot thông báo mọi phần thưởng.",
+      "unavailable": "Twitch không cung cấp danh sách phần thưởng cho kênh này. Channel Points chỉ dành cho Affiliate và Đối tác. Nếu bạn đủ điều kiện, hãy đăng nhập lại.",
       "updateFailed": "Không thể cập nhật {title}: {reason}"
     },
     "obs": {
@@ -299,14 +300,29 @@
       "youtubeHandleRequired": "Nhập tên người dùng YouTube trước khi bật YouTube TTS."
     }
   },
+  "mutedRewardsClose": {
+    "done": "Xong"
+  },
   "mutedRewardsHeading": {
     "rewardsToAnnounce": "Phần thưởng cần thông báo"
   },
   "mutedRewardsHelp": {
-    "switchOffAnyRewardThat": "Tắt bất kỳ phần thưởng nào không cần thông báo, chẳng hạn như soundboard tự phát âm thanh riêng. Mọi mục còn bật sẽ được thông báo. Người kiểm duyệt cũng có thể làm việc này trong chat bằng <code>!tts redeems mute &lt;reward&gt;</code>."
+    "everyRewardIsAnnouncedUnless": "Bot thông báo mọi phần thưởng. Hãy tắt phần thưởng tại đây để giữ im lặng, ví dụ soundboard tự phát âm thanh. Người kiểm duyệt có thể dùng <code>!tts redeems mute &lt;reward&gt;</code> trong chat."
   },
-  "mutedRewardsRefresh": {
-    "refreshRewardList": "Làm mới danh sách phần thưởng"
+  "mutedRewardsModal": {
+    "searchRewards": "Tìm kiếm phần thưởng"
+  },
+  "mutedRewardsModalHelp": {
+    "switchOffAnyRewardThat": "Tắt các phần thưởng mà bạn không muốn bot thông báo. Bảng điều khiển sẽ lưu thay đổi ngay lập tức."
+  },
+  "mutedRewardsOpen": {
+    "chooseRewards": "Chọn phần thưởng"
+  },
+  "mutedRewardsSearch": {
+    "searchRewards": "Tìm kiếm phần thưởng"
+  },
+  "mutedRewardsTitle": {
+    "rewardsToAnnounce": "Phần thưởng cần thông báo"
   },
   "obsCloseBtn": {
     "closeObsSetup": "Đóng thiết lập OBS"

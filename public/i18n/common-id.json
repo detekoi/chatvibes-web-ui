@@ -56,7 +56,7 @@
     "reward_unmute_failed": "Tidak dapat membatalkan bisu reward tersebut.",
     "reward_validation_failed": "Pesan tersebut tidak diizinkan.",
     "rewards_list_failed": "Tidak dapat menampilkan daftar reward Channel Points.",
-    "rewards_unavailable": "Twitch tidak dapat menampilkan reward channel ini.",
+    "rewards_unavailable": "Twitch tidak memberikan daftar hadiah untuk saluran ini.",
     "say_contains_link": "Pengucapan tidak boleh berisi tautan.",
     "say_empty": "Pengucapan tidak boleh kosong.",
     "say_must_be_text": "Pengucapan harus berupa teks.",

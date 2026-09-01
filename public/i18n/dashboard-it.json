@@ -217,16 +217,17 @@
     },
     "mutedRewards": {
       "announceLabel": "Annuncia riscatti di {title}",
-      "announced": "I riscatti di {title} verranno annunciati di nuovo.",
+      "announced": "Il bot annuncerà di nuovo i riscatti di {title}.",
       "badgeDisabled": "Disattivato su Twitch",
-      "badgeMissing": "Non più su Twitch",
+      "badgeMissing": "Non su Twitch",
       "badgePaused": "In pausa su Twitch",
       "empty": "Questo canale non ha ricompense personalizzate dei Channel Points.",
       "loadFailed": "Impossibile caricare le ricompense dei Channel Points.",
       "loading": "Caricamento ricompense dei Channel Points…",
-      "muted": "I riscatti di {title} non verranno annunciati.",
-      "removeLabel": "Smetti di silenziare {title}",
-      "unavailable": "Twitch non ha mostrato le ricompense di questo canale. I Channel Points richiedono lo stato di affiliato o partner e potrebbe essere necessario accedere nuovamente alla dashboard.",
+      "muted": "Il bot non annuncerà i riscatti di {title}.",
+      "noMatches": "Nessuna ricompensa corrisponde alla ricerca.",
+      "noneMuted": "Il bot annuncia ogni ricompensa.",
+      "unavailable": "Twitch non ha fornito l'elenco delle ricompense per questo canale. I Channel Points sono disponibili solo per affiliati e partner. Se ne fai parte, accedi di nuovo.",
       "updateFailed": "Impossibile aggiornare {title}: {reason}"
     },
     "obs": {
@@ -299,14 +300,29 @@
       "youtubeHandleRequired": "Inserisci un handle di YouTube prima di attivare il TTS di YouTube."
     }
   },
+  "mutedRewardsClose": {
+    "done": "Fatto"
+  },
   "mutedRewardsHeading": {
     "rewardsToAnnounce": "Ricompense da annunciare"
   },
   "mutedRewardsHelp": {
-    "switchOffAnyRewardThat": "Disattiva le ricompense che non devono essere annunciate, come una soundboard che riproduce già il proprio suono. Tutto ciò che resta attivo verrà annunciato. I moderatori possono fare lo stesso dalla chat con <code>!tts redeems mute &lt;reward&gt;</code>."
+    "everyRewardIsAnnouncedUnless": "Il bot annuncia ogni ricompensa. Disattiva una ricompensa qui per silenziarla, ad esempio una soundboard che riproduce già il proprio suono. I moderatori possono usare <code>!tts redeems mute &lt;reward&gt;</code> in chat."
   },
-  "mutedRewardsRefresh": {
-    "refreshRewardList": "Aggiorna elenco ricompense"
+  "mutedRewardsModal": {
+    "searchRewards": "Cerca ricompense"
+  },
+  "mutedRewardsModalHelp": {
+    "switchOffAnyRewardThat": "Disattiva ogni ricompensa che il bot non deve annunciare. La dashboard salva ogni modifica immediatamente."
+  },
+  "mutedRewardsOpen": {
+    "chooseRewards": "Scegli ricompense"
+  },
+  "mutedRewardsSearch": {
+    "searchRewards": "Cerca ricompense"
+  },
+  "mutedRewardsTitle": {
+    "rewardsToAnnounce": "Ricompense da annunciare"
   },
   "obsCloseBtn": {
     "closeObsSetup": "Chiudi configurazione OBS"

@@ -217,16 +217,17 @@
     },
     "mutedRewards": {
       "announceLabel": "Ogłaszaj odebrania nagrody {title}",
-      "announced": "Odebrania nagrody {title} będą ponownie ogłaszane.",
+      "announced": "Bot będzie ponownie ogłaszać realizacje nagrody {title}.",
       "badgeDisabled": "Wyłączono na Twitchu",
-      "badgeMissing": "Nie ma już na Twitchu",
+      "badgeMissing": "Brak na Twitchu",
       "badgePaused": "Wstrzymano na Twitchu",
       "empty": "Ten kanał nie ma własnych nagród za Channel Points.",
       "loadFailed": "Nie można załadować nagród za Channel Points.",
       "loading": "Ładowanie nagród za Channel Points…",
-      "muted": "Odebrania nagrody {title} nie będą ogłaszane.",
-      "removeLabel": "Przestań wyciszać nagrodę {title}",
-      "unavailable": "Twitch nie zwrócił listy nagród tego kanału. Channel Points wymagają statusu Towarzysza lub Partnera, a panel może wymagać ponownego zalogowania.",
+      "muted": "Bot nie będzie ogłaszać realizacji nagrody {title}.",
+      "noMatches": "Brak pasujących nagród.",
+      "noneMuted": "Bot ogłasza każdą nagrodę.",
+      "unavailable": "Twitch nie udostępnił listy nagród dla tego kanału. Channel Points są dostępne tylko dla towarzyszy i partnerów. Jeśli masz taki status, zaloguj się ponownie.",
       "updateFailed": "Nie można zaktualizować {title}: {reason}"
     },
     "obs": {
@@ -299,14 +300,29 @@
       "youtubeHandleRequired": "Wprowadź identyfikator YouTube przed włączeniem TTS dla YouTube."
     }
   },
+  "mutedRewardsClose": {
+    "done": "Gotowe"
+  },
   "mutedRewardsHeading": {
     "rewardsToAnnounce": "Nagrody do ogłaszania"
   },
   "mutedRewardsHelp": {
-    "switchOffAnyRewardThat": "Wyłącz nagrody, które nie powinny być ogłaszane, np. soundboard odtwarzający własny dźwięk. Wszystko, co pozostanie włączone, będzie ogłaszane. Moderatorzy mogą zrobić to samo na czacie za pomocą <code>!tts redeems mute &lt;reward&gt;</code>."
+    "everyRewardIsAnnouncedUnless": "Bot ogłasza każdą nagrodę. Wyłącz tutaj nagrodę, aby ją wyciszyć – na przykład soundboard, który odtwarza własny dźwięk. Moderatorzy mogą użyć na czacie komendy <code>!tts redeems mute &lt;reward&gt;</code>."
   },
-  "mutedRewardsRefresh": {
-    "refreshRewardList": "Odśwież listę nagród"
+  "mutedRewardsModal": {
+    "searchRewards": "Szukaj nagród"
+  },
+  "mutedRewardsModalHelp": {
+    "switchOffAnyRewardThat": "Wyłącz nagrody, których bot ma nie ogłaszać. Panel zapisuje każdą zmianę natychmiast."
+  },
+  "mutedRewardsOpen": {
+    "chooseRewards": "Wybierz nagrody"
+  },
+  "mutedRewardsSearch": {
+    "searchRewards": "Szukaj nagród"
+  },
+  "mutedRewardsTitle": {
+    "rewardsToAnnounce": "Nagrody do zapowiadania"
   },
   "obsCloseBtn": {
     "closeObsSetup": "Zamknij konfigurację OBS"

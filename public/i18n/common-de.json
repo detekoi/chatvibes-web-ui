@@ -56,7 +56,7 @@
     "reward_unmute_failed": "Stummschaltung dieser Belohnung kann nicht aufgehoben werden.",
     "reward_validation_failed": "Diese Nachricht ist nicht erlaubt.",
     "rewards_list_failed": "Channel Points-Belohnungen können nicht aufgelistet werden.",
-    "rewards_unavailable": "Twitch konnte die Belohnungen dieses Kanals nicht abrufen.",
+    "rewards_unavailable": "Twitch hat die Liste der Belohnungen für diesen Kanal nicht bereitgestellt.",
     "say_contains_link": "Die Aussprache darf keinen Link enthalten.",
     "say_empty": "Die Aussprache darf nicht leer sein.",
     "say_must_be_text": "Die Aussprache muss Text sein.",

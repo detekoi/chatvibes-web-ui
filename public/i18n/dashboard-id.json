@@ -217,16 +217,17 @@
     },
     "mutedRewards": {
       "announceLabel": "Umumkan penukaran {title}",
-      "announced": "Penukaran {title} akan diumumkan kembali.",
+      "announced": "Bot akan mengumumkan penukaran {title} lagi.",
       "badgeDisabled": "Dinonaktifkan di Twitch",
-      "badgeMissing": "Tidak ada lagi di Twitch",
+      "badgeMissing": "Tidak di Twitch",
       "badgePaused": "Dijeda di Twitch",
       "empty": "Saluran ini tidak memiliki reward Channel Points kustom.",
       "loadFailed": "Tidak dapat memuat reward Channel Points.",
       "loading": "Memuat reward Channel Points…",
-      "muted": "Penukaran {title} tidak akan diumumkan.",
-      "removeLabel": "Berhenti membisukan {title}",
-      "unavailable": "Twitch tidak dapat menampilkan reward saluran ini. Channel Points memerlukan status affiliate atau partner, dan kamu mungkin perlu masuk kembali ke dasbor.",
+      "muted": "Bot tidak akan mengumumkan penukaran {title}.",
+      "noMatches": "Tidak ada reward yang cocok dengan pencarian Anda.",
+      "noneMuted": "Bot mengumumkan setiap hadiah.",
+      "unavailable": "Twitch tidak memberikan daftar hadiah untuk channel ini. Channel Points hanya tersedia untuk affiliate dan partner. Jika kamu salah satunya, masuk lagi.",
       "updateFailed": "Tidak dapat memperbarui {title}: {reason}"
     },
     "obs": {
@@ -299,14 +300,29 @@
       "youtubeHandleRequired": "Masukkan handle YouTube sebelum mengaktifkan YouTube TTS."
     }
   },
+  "mutedRewardsClose": {
+    "done": "Selesai"
+  },
   "mutedRewardsHeading": {
     "rewardsToAnnounce": "Reward untuk Diumumkan"
   },
   "mutedRewardsHelp": {
-    "switchOffAnyRewardThat": "Nonaktifkan reward apa pun yang tidak ingin diumumkan, seperti soundboard yang memutar suaranya sendiri. Semua yang dibiarkan aktif akan diumumkan. Moderator dapat melakukan hal yang sama dari obrolan dengan <code>!tts redeems mute &lt;reward&gt;</code>."
+    "everyRewardIsAnnouncedUnless": "Bot mengumumkan setiap hadiah. Nonaktifkan hadiah di sini agar dibisukan, misalnya soundboard yang memutar suaranya sendiri. Moderator dapat menggunakan <code>!tts redeems mute &lt;reward&gt;</code> di chat."
   },
-  "mutedRewardsRefresh": {
-    "refreshRewardList": "Segarkan daftar reward"
+  "mutedRewardsModal": {
+    "searchRewards": "Cari reward"
+  },
+  "mutedRewardsModalHelp": {
+    "switchOffAnyRewardThat": "Nonaktifkan setiap hadiah yang tidak boleh diumumkan oleh bot. Dasbor langsung menyimpan setiap perubahan."
+  },
+  "mutedRewardsOpen": {
+    "chooseRewards": "Pilih reward"
+  },
+  "mutedRewardsSearch": {
+    "searchRewards": "Cari reward"
+  },
+  "mutedRewardsTitle": {
+    "rewardsToAnnounce": "Reward untuk diumumkan"
   },
   "obsCloseBtn": {
     "closeObsSetup": "Tutup penyiapan OBS"

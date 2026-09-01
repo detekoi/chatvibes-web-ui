@@ -217,16 +217,17 @@
     },
     "mutedRewards": {
       "announceLabel": "الإعلان عن عمليات استرداد {title}",
-      "announced": "سيتم الإعلان عن عمليات استرداد {title} مجددًا.",
+      "announced": "سيعلن البوت عن عمليات استرداد {title} مجددًا.",
       "badgeDisabled": "معطل على Twitch",
-      "badgeMissing": "لم يعد موجودًا على Twitch",
+      "badgeMissing": "ليس على Twitch",
       "badgePaused": "متوقف مؤقتًا على Twitch",
       "empty": "لا تحتوي هذه القناة على مكافآت Channel Points مخصصة.",
       "loadFailed": "تعذر تحميل مكافآت Channel Points.",
       "loading": "جارٍ تحميل مكافآت Channel Points…",
-      "muted": "لن يتم الإعلان عن عمليات استرداد {title}.",
-      "removeLabel": "إلغاء كتم {title}",
-      "unavailable": "لم يتمكن Twitch من سرد مكافآت هذه القناة. تتطلب Channel Points صفة شريك منتسب (Affiliate) أو شريك (Partner)، وقد تتطلب منك لوحة التحكم تسجيل الدخول مجددًا.",
+      "muted": "لن يعلن البوت عن عمليات استرداد {title}.",
+      "noMatches": "لا توجد مكافآت تطابق بحثك.",
+      "noneMuted": "يعلن البوت عن كل المكافآت.",
+      "unavailable": "لم يوفّر Twitch قائمة المكافآت لهذه القناة. تتوفر Channel Points للشركاء والمنتسبين فقط. إذا كنت أحدهم، فسجّل الدخول مجددًا.",
       "updateFailed": "تعذر تحديث {title}: {reason}"
     },
     "obs": {
@@ -299,14 +300,29 @@
       "youtubeHandleRequired": "أدخل مقبض YouTube قبل تفعيل YouTube TTS."
     }
   },
+  "mutedRewardsClose": {
+    "done": "تم"
+  },
   "mutedRewardsHeading": {
     "rewardsToAnnounce": "المكافآت التي سيتم الإعلان عنها"
   },
   "mutedRewardsHelp": {
-    "switchOffAnyRewardThat": "عطّل أي مكافأة لا ترغب في الإعلان عنها، مثل لوحة الصوت التي تشغل صوتها الخاص. سيتم الإعلان عن كل ما تتركه مفعلاً. يمكن للمشرفين فعل الشيء نفسه من الدردشة باستخدام <code>!tts redeems mute &lt;reward&gt;</code>."
+    "everyRewardIsAnnouncedUnless": "يعلن البوت عن كل المكافآت. أوقف تفعيل أي مكافأة هنا لكتمها، مثل لوحة صوتية تُشغّل صوتها الخاص. يمكن للمشرفين استخدام <code>!tts redeems mute &lt;reward&gt;</code> في الدردشة."
   },
-  "mutedRewardsRefresh": {
-    "refreshRewardList": "تحديث قائمة المكافآت"
+  "mutedRewardsModal": {
+    "searchRewards": "البحث في المكافآت"
+  },
+  "mutedRewardsModalHelp": {
+    "switchOffAnyRewardThat": "أوقف تفعيل كل مكافأة لا ينبغي للبوت الإعلان عنها. تحفظ لوحة التحكم كل تغيير فورًا."
+  },
+  "mutedRewardsOpen": {
+    "chooseRewards": "اختر المكافآت"
+  },
+  "mutedRewardsSearch": {
+    "searchRewards": "البحث في المكافآت"
+  },
+  "mutedRewardsTitle": {
+    "rewardsToAnnounce": "المكافآت المطلوب الإعلان عنها"
   },
   "obsCloseBtn": {
     "closeObsSetup": "إغلاق إعداد OBS"

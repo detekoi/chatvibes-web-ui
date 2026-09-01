@@ -217,16 +217,17 @@
     },
     "mutedRewards": {
       "announceLabel": "Озвучивать активации «{title}»",
-      "announced": "Активации «{title}» снова будут озвучиваться.",
+      "announced": "Бот снова будет озвучивать активации награды {title}.",
       "badgeDisabled": "Отключено на Twitch",
-      "badgeMissing": "Больше нет на Twitch",
+      "badgeMissing": "Нет на Twitch",
       "badgePaused": "Приостановлено на Twitch",
       "empty": "У этого канала нет наград за Channel Points.",
       "loadFailed": "Не удалось загрузить награды за Channel Points.",
       "loading": "Загрузка наград за Channel Points…",
-      "muted": "Активации «{title}» не будут озвучиваться.",
-      "removeLabel": "Перестать заглушать «{title}»",
-      "unavailable": "Twitch не вернул список наград этого канала. Для Channel Points требуется статус компаньона или партнера, либо вам нужно снова войти в панель управления.",
+      "muted": "Бот не будет озвучивать активации награды {title}.",
+      "noMatches": "Нет подходящих наград.",
+      "noneMuted": "Бот озвучивает все награды.",
+      "unavailable": "Twitch не предоставил список наград для этого канала. Channel Points доступны только компаньонам и партнерам. Если у вас есть этот статус, выполните вход повторно.",
       "updateFailed": "Не удалось обновить «{title}»: {reason}"
     },
     "obs": {
@@ -299,14 +300,29 @@
       "youtubeHandleRequired": "Введите хэндл YouTube перед включением YouTube TTS."
     }
   },
+  "mutedRewardsClose": {
+    "done": "Готово"
+  },
   "mutedRewardsHeading": {
     "rewardsToAnnounce": "Награды для озвучивания"
   },
   "mutedRewardsHelp": {
-    "switchOffAnyRewardThat": "Отключите награды, которые не нужно озвучивать (например, соундборд, который воспроизводит собственный звук). Все включенные награды озвучиваются. Модераторы могут сделать то же самое из чата с помощью <code>!tts redeems mute &lt;reward&gt;</code>."
+    "everyRewardIsAnnouncedUnless": "Бот озвучивает все награды. Отключите здесь награду, чтобы бот не озвучивал ее — например, воспроизведение звука, у которого уже есть свое аудио. Модераторы могут использовать команду <code>!tts redeems mute &lt;reward&gt;</code> в чате."
   },
-  "mutedRewardsRefresh": {
-    "refreshRewardList": "Обновить список наград"
+  "mutedRewardsModal": {
+    "searchRewards": "Поиск наград"
+  },
+  "mutedRewardsModalHelp": {
+    "switchOffAnyRewardThat": "Отключите награды, которые бот не должен озвучивать. Изменения сохраняются сразу же."
+  },
+  "mutedRewardsOpen": {
+    "chooseRewards": "Выбрать награды"
+  },
+  "mutedRewardsSearch": {
+    "searchRewards": "Поиск наград"
+  },
+  "mutedRewardsTitle": {
+    "rewardsToAnnounce": "Озвучиваемые награды"
   },
   "obsCloseBtn": {
     "closeObsSetup": "Закрыть настройку OBS"

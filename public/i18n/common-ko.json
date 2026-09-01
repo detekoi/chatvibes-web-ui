@@ -56,7 +56,7 @@
     "reward_unmute_failed": "해당 보상의 음소거를 해제할 수 없습니다.",
     "reward_validation_failed": "허용되지 않는 메시지입니다.",
     "rewards_list_failed": "Channel Points 보상 목록을 불러올 수 없습니다.",
-    "rewards_unavailable": "Twitch에서 이 채널의 보상 목록을 불러오지 못했습니다.",
+    "rewards_unavailable": "Twitch에서 이 채널의 보상 목록을 가져오지 못했습니다.",
     "say_contains_link": "발음에는 링크를 포함할 수 없습니다.",
     "say_empty": "발음은 비워 둘 수 없습니다.",
     "say_must_be_text": "발음은 텍스트여야 합니다.",

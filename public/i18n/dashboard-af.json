@@ -217,16 +217,17 @@
     },
     "mutedRewards": {
       "announceLabel": "Kondig inwisselings van {title} aan",
-      "announced": "Inwisselings van {title} sal weer aangekondig word.",
+      "announced": "Die bot sal weer inwisselings van {title} aankondig.",
       "badgeDisabled": "Gedeaktiveer op Twitch",
-      "badgeMissing": "Nie meer op Twitch nie",
+      "badgeMissing": "Nie op Twitch nie",
       "badgePaused": "Gepouseer op Twitch",
       "empty": "Hierdie kanaal het geen pasgemaakte Channel Points-belonings nie.",
       "loadFailed": "Kan nie die Channel Points-belonings laai nie.",
       "loading": "Laai tans Channel Points-belonings…",
-      "muted": "Inwisselings van {title} sal nie aangekondig word nie.",
-      "removeLabel": "Hou op om {title} te demp",
-      "unavailable": "Twitch kon nie hierdie kanaal se belonings lys nie. Channel Points vereis 'n geaffilieerde- of vennootstatus, en jy moet dalk weer by die kontroleskerm aanmeld.",
+      "muted": "Die bot sal nie inwisselings van {title} aankondig nie.",
+      "noMatches": "Geen belonings stem ooreen met jou soektog nie.",
+      "noneMuted": "Die bot kondig elke beloning aan.",
+      "unavailable": "Twitch het nie die lys van belonings vir hierdie kanaal verskaf nie. Channel Points is slegs beskikbaar vir geaffilieerdes en vennote. As jy een is, meld weer aan.",
       "updateFailed": "Kan nie {title} bywerk nie: {reason}"
     },
     "obs": {
@@ -299,14 +300,29 @@
       "youtubeHandleRequired": "Voer 'n YouTube-handvatsel in voordat jy YouTube-TTS aanskakel."
     }
   },
+  "mutedRewardsClose": {
+    "done": "Klaar"
+  },
   "mutedRewardsHeading": {
     "rewardsToAnnounce": "Belonings om aan te kondig"
   },
   "mutedRewardsHelp": {
-    "switchOffAnyRewardThat": "Skakel enige beloning af wat nie aangekondig moet word nie, soos 'n klankbord wat sy eie klank speel. Alles wat aan bly, word aangekondig. Moderateurs kan dieselfde doen vanuit die klets met <code>!tts redeems mute &lt;reward&gt;</code>."
+    "everyRewardIsAnnouncedUnless": "Die bot kondig elke beloning aan. Skakel 'n beloning hier af om dit stil te hou, byvoorbeeld 'n klankbord wat sy eie klank speel. Moderators kan <code>!tts redeems mute &lt;reward&gt;</code> in klets gebruik."
   },
-  "mutedRewardsRefresh": {
-    "refreshRewardList": "Verfris beloninglys"
+  "mutedRewardsModal": {
+    "searchRewards": "Soek belonings"
+  },
+  "mutedRewardsModalHelp": {
+    "switchOffAnyRewardThat": "Skakel elke beloning af wat die bot nie moet aankondig nie. Die kontroleskerm stoor elke verandering onmiddellik."
+  },
+  "mutedRewardsOpen": {
+    "chooseRewards": "Kies belonings"
+  },
+  "mutedRewardsSearch": {
+    "searchRewards": "Soek belonings"
+  },
+  "mutedRewardsTitle": {
+    "rewardsToAnnounce": "Belonings om aan te kondig"
   },
   "obsCloseBtn": {
     "closeObsSetup": "Sluit OBS-opstelling"

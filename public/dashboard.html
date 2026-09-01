@@ -241,20 +241,38 @@
                                     </div>
                                 </div>
                                 <div class="list-group-item" id="muted-rewards-item">
-                                    <div class="row">
+                                    <div class="row align-items-center">
                                         <div class="col">
                                             <strong data-i18n="mutedRewardsHeading.rewardsToAnnounce" class="mb-0" id="muted-rewards-heading">Rewards to Announce</strong>
-                                            <p data-i18n="mutedRewardsHelp.switchOffAnyRewardThat" class="text-muted mb-2" id="muted-rewards-help">Switch off any reward that should
-                                                not be announced, such as a soundboard that plays its own sound. Everything
-                                                left on is announced. Moderators can do the same from chat with
-                                                <code>!tts redeems mute &lt;reward&gt;</code>.</p>
-                                            <p id="muted-rewards-status" class="small text-muted mb-2" aria-live="polite"></p>
-                                            <ul id="muted-rewards-list" class="list-group" aria-labelledby="muted-rewards-heading"
-                                                aria-describedby="muted-rewards-help"></ul>
-                                            <button data-i18n="mutedRewardsRefresh.refreshRewardList" type="button" id="muted-rewards-refresh" class="btn btn-link btn-sm px-0 mt-1">Refresh
-                                                reward list</button>
+                                            <p data-i18n="mutedRewardsHelp.everyRewardIsAnnouncedUnless" class="text-muted mb-0" id="muted-rewards-help">The bot announces every reward. Switch off a
+                                                reward here to keep it silent, for example a soundboard that plays its own
+                                                sound. Moderators can use <code>!tts redeems mute &lt;reward&gt;</code>
+                                                in chat.</p>
+                                            <div id="muted-rewards-summary" class="muted-rewards-summary mt-2" aria-live="polite"
+                                                aria-labelledby="muted-rewards-heading"></div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <button data-i18n="mutedRewardsOpen.chooseRewards" type="button" id="muted-rewards-open" class="btn btn-secondary btn-sm"
+                                                aria-haspopup="dialog" aria-controls="muted-rewards-modal">Choose rewards</button>
                                         </div>
                                     </div>
+                                    <dialog id="muted-rewards-modal" class="modal modal--wide" aria-labelledby="muted-rewards-title"
+                                        aria-modal="true">
+                                        <div class="modal-content">
+                                            <h2 data-i18n="mutedRewardsTitle.rewardsToAnnounce" id="muted-rewards-title" class="h3">Rewards to announce</h2>
+                                            <p data-i18n="mutedRewardsModalHelp.switchOffAnyRewardThat" id="muted-rewards-modal-help">Switch off each reward that the bot must
+                                                not announce. The dashboard saves each change immediately.</p>
+                                            <label data-i18n="mutedRewardsModal.searchRewards" for="muted-rewards-search" class="visually-hidden">Search rewards</label>
+                                            <input data-i18n-placeholder="mutedRewardsSearch.searchRewards" type="search" id="muted-rewards-search" class="form-control mb-3"
+                                                placeholder="Search rewards" autocomplete="off">
+                                            <p id="muted-rewards-status" class="small text-muted mb-2" aria-live="polite"></p>
+                                            <ul id="muted-rewards-list" class="list-group muted-rewards-list"
+                                                aria-labelledby="muted-rewards-title"></ul>
+                                            <div class="modal-actions mt-3">
+                                                <button data-i18n="mutedRewardsClose.done" type="button" id="muted-rewards-close" class="btn btn-secondary">Done</button>
+                                            </div>
+                                        </div>
+                                    </dialog>
                                 </div>
                                 <div class="list-group-item">
                                     <div class="row align-items-center">

@@ -217,16 +217,17 @@
     },
     "mutedRewards": {
       "announceLabel": "Ohlašovat uplatnění {title}",
-      "announced": "Uplatnění {title} se bude znovu ohlašovat.",
+      "announced": "Bot bude znovu oznamovat uplatnění {title}.",
       "badgeDisabled": "Vypnuto na Twitchi",
-      "badgeMissing": "Již není na Twitchi",
+      "badgeMissing": "Není na Twitchi",
       "badgePaused": "Pozastaveno na Twitchi",
       "empty": "Tento kanál nemá žádné vlastní odměny za Channel Points.",
       "loadFailed": "Odměny za Channel Points nelze načíst.",
       "loading": "Načítání odměn za Channel Points…",
-      "muted": "Uplatnění {title} se nebude ohlašovat.",
-      "removeLabel": "Zrušit ztlumení {title}",
-      "unavailable": "Twitch nenačetl odměny tohoto kanálu. Channel Points vyžadují status Affiliate nebo Partner a možná se budete muset znovu přihlásit do dashboardu.",
+      "muted": "Bot nebude oznamovat uplatnění {title}.",
+      "noMatches": "Hledání neodpovídají žádné odměny.",
+      "noneMuted": "Bot oznamuje každou odměnu.",
+      "unavailable": "Twitch neposkytl seznam odměn pro tento kanál. Channel Points jsou dostupné pouze pro affiliate a partnery. Pokud jsi jedním z nich, přihlas se znovu.",
       "updateFailed": "Nelze aktualizovat {title}: {reason}"
     },
     "obs": {
@@ -299,14 +300,29 @@
       "youtubeHandleRequired": "Před zapnutím YouTube TTS zadejte svůj YouTube handle."
     }
   },
+  "mutedRewardsClose": {
+    "done": "Hotovo"
+  },
   "mutedRewardsHeading": {
     "rewardsToAnnounce": "Odměny k ohlašování"
   },
   "mutedRewardsHelp": {
-    "switchOffAnyRewardThat": "Vypněte odměny, které se nemají ohlašovat, například soundboard s vlastním zvukem. Všechno zapnuté bude ohlašováno. Moderátoři mohou udělat totéž z chatu pomocí <code>!tts redeems mute &lt;reward&gt;</code>."
+    "everyRewardIsAnnouncedUnless": "Bot oznamuje každou odměnu. Zde můžeš odměnu vypnout, aby zůstala zticha – například soundboard, který přehrává vlastní zvuk. Moderátoři mohou v chatu použít <code>!tts redeems mute &lt;reward&gt;</code>."
   },
-  "mutedRewardsRefresh": {
-    "refreshRewardList": "Obnovit seznam odměn"
+  "mutedRewardsModal": {
+    "searchRewards": "Hledat odměny"
+  },
+  "mutedRewardsModalHelp": {
+    "switchOffAnyRewardThat": "Vypni každou odměnu, kterou bot nemá oznamovat. Ovládací panel každou změnu ihned ukládá."
+  },
+  "mutedRewardsOpen": {
+    "chooseRewards": "Vybrat odměny"
+  },
+  "mutedRewardsSearch": {
+    "searchRewards": "Hledat odměny"
+  },
+  "mutedRewardsTitle": {
+    "rewardsToAnnounce": "Odměny k ohlašování"
   },
   "obsCloseBtn": {
     "closeObsSetup": "Zavřít nastavení OBS"

@@ -217,16 +217,17 @@
     },
     "mutedRewards": {
       "announceLabel": "Anunciar canjes de {title}",
-      "announced": "Los canjes de {title} se volverán a anunciar.",
+      "announced": "El bot volverá a anunciar los canjes de {title}.",
       "badgeDisabled": "Desactivado en Twitch",
-      "badgeMissing": "Ya no está en Twitch",
+      "badgeMissing": "No está en Twitch",
       "badgePaused": "Pausado en Twitch",
       "empty": "Este canal no tiene recompensas personalizadas de Channel Points.",
       "loadFailed": "No se pueden cargar las recompensas de Channel Points.",
       "loading": "Cargando recompensas de Channel Points…",
-      "muted": "Los canjes de {title} no se anunciarán.",
-      "removeLabel": "Dejar de silenciar {title}",
-      "unavailable": "Twitch no pudo mostrar las recompensas de este canal. Los Channel Points requieren estado de afiliado o socio, y es posible que debas iniciar sesión de nuevo en el panel.",
+      "muted": "El bot no anunciará los canjes de {title}.",
+      "noMatches": "Ninguna recompensa coincide con tu búsqueda.",
+      "noneMuted": "El bot anuncia todas las recompensas.",
+      "unavailable": "Twitch no proporcionó la lista de recompensas de este canal. Los Channel Points solo están disponibles para afiliados y socios. Si lo eres, vuelve a iniciar sesión.",
       "updateFailed": "No se puede actualizar {title}: {reason}"
     },
     "obs": {
@@ -299,14 +300,29 @@
       "youtubeHandleRequired": "Introduce un nombre de usuario de YouTube antes de activar el TTS de YouTube."
     }
   },
+  "mutedRewardsClose": {
+    "done": "Listo"
+  },
   "mutedRewardsHeading": {
     "rewardsToAnnounce": "Recompensas para anunciar"
   },
   "mutedRewardsHelp": {
-    "switchOffAnyRewardThat": "Desactiva cualquier recompensa que no deba anunciarse, como una botonera que ya reproduzca su propio sonido. Todo lo que se deje activado se anunciará. Los moderadores pueden hacer lo mismo desde el chat con <code>!tts redeems mute &lt;recompensa&gt;</code>."
+    "everyRewardIsAnnouncedUnless": "El bot anuncia todas las recompensas. Desactiva una recompensa aquí para silenciarla; por ejemplo, una botonera que reproduce su propio sonido. Los moderadores pueden usar <code>!tts redeems mute &lt;reward&gt;</code> en el chat."
   },
-  "mutedRewardsRefresh": {
-    "refreshRewardList": "Actualizar lista de recompensas"
+  "mutedRewardsModal": {
+    "searchRewards": "Buscar recompensas"
+  },
+  "mutedRewardsModalHelp": {
+    "switchOffAnyRewardThat": "Desactiva cada recompensa que el bot no deba anunciar. El panel guarda cada cambio de inmediato."
+  },
+  "mutedRewardsOpen": {
+    "chooseRewards": "Elegir recompensas"
+  },
+  "mutedRewardsSearch": {
+    "searchRewards": "Buscar recompensas"
+  },
+  "mutedRewardsTitle": {
+    "rewardsToAnnounce": "Recompensas a anunciar"
   },
   "obsCloseBtn": {
     "closeObsSetup": "Cerrar configuración de OBS"

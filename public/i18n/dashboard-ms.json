@@ -217,16 +217,17 @@
     },
     "mutedRewards": {
       "announceLabel": "Umumkan penebusan {title}",
-      "announced": "Penebusan {title} akan diumumkan semula.",
+      "announced": "Bot akan mengumumkan tebusan {title} semula.",
       "badgeDisabled": "Dinyahdayakan di Twitch",
-      "badgeMissing": "Tiada lagi di Twitch",
+      "badgeMissing": "Tiada di Twitch",
       "badgePaused": "Dijeda di Twitch",
       "empty": "Saluran ini tiada ganjaran Channel Points tersuai.",
       "loadFailed": "Tidak dapat memuatkan ganjaran Channel Points.",
       "loading": "Memuatkan ganjaran Channel Points…",
-      "muted": "Penebusan {title} tidak akan diumumkan.",
-      "removeLabel": "Berhenti senyapkan {title}",
-      "unavailable": "Twitch tidak dapat menyenaraikan ganjaran saluran ini. Channel Points memerlukan status affiliate atau partner, dan papan pemuka mungkin memerlukan anda log masuk semula.",
+      "muted": "Bot tidak akan mengumumkan tebusan {title}.",
+      "noMatches": "Tiada ganjaran yang sepadan dengan carian anda.",
+      "noneMuted": "Bot mengumumkan setiap ganjaran.",
+      "unavailable": "Twitch tidak memberikan senarai ganjaran untuk saluran ini. Channel Points hanya tersedia untuk ahli gabungan dan rakan kongsi. Jika anda salah seorang daripadanya, log masuk semula.",
       "updateFailed": "Tidak dapat mengemas kini {title}: {reason}"
     },
     "obs": {
@@ -299,14 +300,29 @@
       "youtubeHandleRequired": "Masukkan pemegang YouTube sebelum anda menghidupkan YouTube TTS."
     }
   },
+  "mutedRewardsClose": {
+    "done": "Selesai"
+  },
   "mutedRewardsHeading": {
     "rewardsToAnnounce": "Ganjaran untuk Diumumkan"
   },
   "mutedRewardsHelp": {
-    "switchOffAnyRewardThat": "Matikan mana-mana ganjaran yang tidak sepatutnya diumumkan, seperti papan bunyi yang memainkan bunyinya sendiri. Semua yang dibiarkan aktif akan diumumkan. Moderator boleh melakukan perkara yang sama daripada sembang dengan <code>!tts redeems mute &lt;reward&gt;</code>."
+    "everyRewardIsAnnouncedUnless": "Bot mengumumkan setiap ganjaran. Matikan ganjaran di sini untuk mendiamkannya, contohnya papan bunyi yang memainkan bunyinya sendiri. Moderator boleh menggunakan <code>!tts redeems mute &lt;reward&gt;</code> dalam sembang."
   },
-  "mutedRewardsRefresh": {
-    "refreshRewardList": "Muat semula senarai ganjaran"
+  "mutedRewardsModal": {
+    "searchRewards": "Cari ganjaran"
+  },
+  "mutedRewardsModalHelp": {
+    "switchOffAnyRewardThat": "Matikan setiap ganjaran yang tidak sepatutnya diumumkan oleh bot. Papan pemuka menyimpan setiap perubahan serta-merta."
+  },
+  "mutedRewardsOpen": {
+    "chooseRewards": "Pilih ganjaran"
+  },
+  "mutedRewardsSearch": {
+    "searchRewards": "Cari ganjaran"
+  },
+  "mutedRewardsTitle": {
+    "rewardsToAnnounce": "Ganjaran untuk diumumkan"
   },
   "obsCloseBtn": {
     "closeObsSetup": "Tutup persediaan OBS"

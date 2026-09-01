@@ -56,7 +56,7 @@
     "reward_unmute_failed": "לא ניתן לבטל את השתקת הפרס הזה.",
     "reward_validation_failed": "הודעה זו אינה מורשית.",
     "rewards_list_failed": "לא ניתן להציג את פרסי ה-Channel Points.",
-    "rewards_unavailable": "Twitch לא הצליח להציג את הפרסים של ערוץ זה.",
+    "rewards_unavailable": "Twitch לא סיפק את רשימת ההטבות עבור ערוץ זה.",
     "say_contains_link": "ההגייה אינה יכולה להכיל קישור.",
     "say_empty": "ההגייה אינה יכולה להיות ריקה.",
     "say_must_be_text": "ההגייה חייבת להיות טקסט.",

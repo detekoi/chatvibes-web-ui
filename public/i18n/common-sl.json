@@ -56,7 +56,7 @@
     "reward_unmute_failed": "Te nagrade ni mogoče odtišati.",
     "reward_validation_failed": "To sporočilo ni dovoljeno.",
     "rewards_list_failed": "Ni mogoče prikazati nagrad Channel Points.",
-    "rewards_unavailable": "Twitch ni mogel prikazati nagrad tega kanala.",
+    "rewards_unavailable": "Twitch ni posredoval seznama nagrad za ta kanal.",
     "say_contains_link": "Izgovorjava ne sme vsebovati povezave.",
     "say_empty": "Izgovorjava ne sme biti prazna.",
     "say_must_be_text": "Izgovorjava mora biti besedilo.",

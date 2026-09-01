@@ -1274,6 +1274,45 @@ dialog.modal::backdrop {
     gap: 0.75rem;
 }
 
+/* Muted rewards: summary chips on the settings page, switch list in a dialog */
+dialog.modal.modal--wide {
+    max-width: 560px;
+}
+
+.muted-rewards-list {
+    max-height: 55vh;
+    overflow-y: auto;
+}
+
+.muted-rewards-summary {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.muted-reward-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.muted-reward-chip__remove {
+    background: none;
+    border: 0;
+    color: inherit;
+    padding: 0 0.1rem;
+    line-height: 1;
+    font-size: 1.1em;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.muted-reward-chip__remove:hover,
+.muted-reward-chip__remove:focus-visible {
+    opacity: 1;
+}
+
 /* =====================================================
    STICKY SIDEBAR
    ===================================================== */

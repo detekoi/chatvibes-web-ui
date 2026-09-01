@@ -56,7 +56,7 @@
     "reward_unmute_failed": "Nije moguće poništiti utišavanje te nagrade.",
     "reward_validation_failed": "Ta poruka nije dopuštena.",
     "rewards_list_failed": "Nije moguće prikazati nagrade za Channel Points.",
-    "rewards_unavailable": "Twitch nije mogao prikazati nagrade ovog kanala.",
+    "rewards_unavailable": "Twitch nije pružio popis nagrada za ovaj kanal.",
     "say_contains_link": "Izgovor ne smije sadržavati poveznicu.",
     "say_empty": "Izgovor ne može biti prazan.",
     "say_must_be_text": "Izgovor mora biti tekst.",

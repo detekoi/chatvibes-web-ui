@@ -217,16 +217,17 @@
     },
     "mutedRewards": {
       "announceLabel": "Avisera inlösningar av {title}",
-      "announced": "Inlösningar av {title} kommer att aviseras igen.",
+      "announced": "Botten kommer att läsa upp inlösen av {title} igen.",
       "badgeDisabled": "Inaktiverad på Twitch",
-      "badgeMissing": "Finns inte längre på Twitch",
+      "badgeMissing": "Inte på Twitch",
       "badgePaused": "Pausad på Twitch",
       "empty": "Den här kanalen har inga anpassade Channel Points-belöningar.",
       "loadFailed": "Kan inte läsa in Channel Points-belöningarna.",
       "loading": "Läser in Channel Points-belöningar…",
-      "muted": "Inlösningar av {title} kommer inte att aviseras.",
-      "removeLabel": "Sluta tysta {title}",
-      "unavailable": "Twitch kunde inte lista den här kanalens belöningar. Channel Points kräver affiliate- eller partnerstatus, och du kan behöva logga in på instrumentpanelen igen.",
+      "muted": "Botten kommer inte att läsa upp inlösen av {title}.",
+      "noMatches": "Inga belöningar matchar din sökning.",
+      "noneMuted": "Botten läser upp alla belöningar.",
+      "unavailable": "Twitch gav inte listan över belöningar för den här kanalen. Channel Points är endast tillgängliga för affiliates och partners. Om du är det, logga in igen.",
       "updateFailed": "Kan inte uppdatera {title}: {reason}"
     },
     "obs": {
@@ -299,14 +300,29 @@
       "youtubeHandleRequired": "Ange ett YouTube-användarnamn innan du aktiverar YouTube TTS."
     }
   },
+  "mutedRewardsClose": {
+    "done": "Klar"
+  },
   "mutedRewardsHeading": {
     "rewardsToAnnounce": "Belöningar att avisera"
   },
   "mutedRewardsHelp": {
-    "switchOffAnyRewardThat": "Stäng av alla belöningar som inte ska aviseras, till exempel en soundboard som spelar upp sitt eget ljud. Allt som lämnas påslaget aviseras. Moderatorer kan göra detsamma från chatten med <code>!tts redeems mute &lt;reward&gt;</code>."
+    "everyRewardIsAnnouncedUnless": "Botten läser upp alla belöningar. Inaktivera en belöning här för att tysta den, till exempel en soundboard som spelar ett eget ljud. Moderatorer kan använda <code>!tts redeems mute &lt;reward&gt;</code> i chatten."
   },
-  "mutedRewardsRefresh": {
-    "refreshRewardList": "Uppdatera belöningslistan"
+  "mutedRewardsModal": {
+    "searchRewards": "Sök belöningar"
+  },
+  "mutedRewardsModalHelp": {
+    "switchOffAnyRewardThat": "Inaktivera varje belöning som botten inte ska läsa upp. Kontrollpanelen sparar varje ändring direkt."
+  },
+  "mutedRewardsOpen": {
+    "chooseRewards": "Välj belöningar"
+  },
+  "mutedRewardsSearch": {
+    "searchRewards": "Sök belöningar"
+  },
+  "mutedRewardsTitle": {
+    "rewardsToAnnounce": "Belöningar att läsa upp"
   },
   "obsCloseBtn": {
     "closeObsSetup": "Stäng OBS-konfiguration"

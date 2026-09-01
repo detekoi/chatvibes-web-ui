@@ -56,7 +56,7 @@
     "reward_unmute_failed": "Hindi ma-unmute ang reward na iyon.",
     "reward_validation_failed": "Hindi pinapayagan ang mensaheng iyon.",
     "rewards_list_failed": "Hindi mailista ang mga reward sa Channel Points.",
-    "rewards_unavailable": "Hindi inilista ng Twitch ang mga reward ng channel na ito.",
+    "rewards_unavailable": "Hindi ibinigay ng Twitch ang listahan ng mga reward para sa channel na ito.",
     "say_contains_link": "Hindi puwedeng maglaman ng link ang pagbigkas.",
     "say_empty": "Hindi puwedeng walang laman ang pagbigkas.",
     "say_must_be_text": "Dapat ay text ang pagbigkas.",

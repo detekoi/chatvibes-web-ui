@@ -217,16 +217,17 @@
     },
     "mutedRewards": {
       "announceLabel": "הכרזה על מימושים של {title}",
-      "announced": "מימושים של {title} יוכרזו שוב.",
+      "announced": "הבוט יכריז שוב על מימושים של {title}.",
       "badgeDisabled": "מושבת ב-Twitch",
-      "badgeMissing": "אינו קיים עוד ב-Twitch",
+      "badgeMissing": "לא ב-Twitch",
       "badgePaused": "מושהה ב-Twitch",
       "empty": "בערוץ הזה אין פרסי Channel Points מותאמים אישית.",
       "loadFailed": "לא ניתן לטעון את פרסי ה-Channel Points.",
       "loading": "טוען פרסי Channel Points…",
-      "muted": "מימושים של {title} לא יוכרזו.",
-      "removeLabel": "בטל השתקה של {title}",
-      "unavailable": "Twitch לא הציג את הפרסים של הערוץ הזה. Channel Points דורשים מעמד Affiliate או Partner, וייתכן שצריך להתחבר מחדש ללוח הבקרה.",
+      "muted": "הבוט לא יכריז על מימושים של {title}.",
+      "noMatches": "אין פרסים התואמים לחיפוש שלך.",
+      "noneMuted": "הבוט מכריז על כל הטבה.",
+      "unavailable": "Twitch לא מסרה את רשימת ההטבות עבור ערוץ זה. Channel Points זמינים רק ל-Affiliates ול-Partners. אם יש לך מעמד כזה, יש להתחבר מחדש.",
       "updateFailed": "לא ניתן לעדכן את {title}: {reason}"
     },
     "obs": {
@@ -299,14 +300,29 @@
       "youtubeHandleRequired": "יש להזין כינוי (handle) של YouTube לפני הפעלת YouTube TTS."
     }
   },
+  "mutedRewardsClose": {
+    "done": "סיום"
+  },
   "mutedRewardsHeading": {
     "rewardsToAnnounce": "פרסים להכרזה"
   },
   "mutedRewardsHelp": {
-    "switchOffAnyRewardThat": "כבה כל פרס שאין להכריז עליו, כמו soundboard שמשמיע צליל משלו. כל מה שיישאר דלוק יוכרז. מודרטורים יכולים לעשות זאת גם מהצ'אט עם <code>!tts redeems mute &lt;reward&gt;</code>."
+    "everyRewardIsAnnouncedUnless": "הבוט מכריז על כל הטבה. כבה הטבה כאן כדי להשתיק אותה, למשל לוח צלילים (soundboard) שמנגן צליל משלו. מודרטורים יכולים להשתמש ב-<code>!tts redeems mute &lt;reward&gt;</code> בצ'אט."
   },
-  "mutedRewardsRefresh": {
-    "refreshRewardList": "רענון רשימת הפרסים"
+  "mutedRewardsModal": {
+    "searchRewards": "חיפוש פרסים"
+  },
+  "mutedRewardsModalHelp": {
+    "switchOffAnyRewardThat": "כבה כל הטבה שהבוט לא אמור להכריז עליה. לוח הבקרה שומר כל שינוי באופן מיידי."
+  },
+  "mutedRewardsOpen": {
+    "chooseRewards": "בחירת פרסים"
+  },
+  "mutedRewardsSearch": {
+    "searchRewards": "חיפוש פרסים"
+  },
+  "mutedRewardsTitle": {
+    "rewardsToAnnounce": "פרסים להכרזה"
   },
   "obsCloseBtn": {
     "closeObsSetup": "סגירת הגדרת OBS"

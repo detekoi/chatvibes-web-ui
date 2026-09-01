@@ -56,7 +56,7 @@
     "reward_unmute_failed": "No se puede reactivar el sonido de esa recompensa.",
     "reward_validation_failed": "Ese mensaje no está permitido.",
     "rewards_list_failed": "No se pueden listar las recompensas de Channel Points.",
-    "rewards_unavailable": "Twitch no permitió listar las recompensas de este canal.",
+    "rewards_unavailable": "Twitch no proporcionó la lista de recompensas de este canal.",
     "say_contains_link": "La pronunciación no puede contener enlaces.",
     "say_empty": "La pronunciación no puede estar vacía.",
     "say_must_be_text": "La pronunciación debe ser texto.",

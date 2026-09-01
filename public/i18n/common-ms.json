@@ -56,7 +56,7 @@
     "reward_unmute_failed": "Tidak dapat menyahbisukan ganjaran itu.",
     "reward_validation_failed": "Mesej tersebut tidak dibenarkan.",
     "rewards_list_failed": "Tidak dapat menyenaraikan ganjaran Channel Points.",
-    "rewards_unavailable": "Twitch tidak dapat menyenaraikan ganjaran saluran ini.",
+    "rewards_unavailable": "Twitch tidak memberikan senarai ganjaran untuk saluran ini.",
     "say_contains_link": "Sebutan tidak boleh mengandungi pautan.",
     "say_empty": "Sebutan tidak boleh kosong.",
     "say_must_be_text": "Sebutan mestilah teks.",

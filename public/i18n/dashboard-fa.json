@@ -217,16 +217,17 @@
     },
     "mutedRewards": {
       "announceLabel": "اعلام دریافت‌های {title}",
-      "announced": "دریافت‌های {title} دوباره اعلام خواهند شد.",
+      "announced": "ربات دوباره بازخریدهای {title} را اعلام خواهد کرد.",
       "badgeDisabled": "غیرفعال در Twitch",
-      "badgeMissing": "دیگر در Twitch وجود ندارد",
+      "badgeMissing": "در Twitch نیست",
       "badgePaused": "متوقف‌شده در Twitch",
       "empty": "این کانال پاداش سفارشی Channel Points ندارد.",
       "loadFailed": "بارگیری پاداش‌های Channel Points امکان‌پذیر نیست.",
       "loading": "در حال بارگیری پاداش‌های Channel Points…",
-      "muted": "دریافت‌های {title} اعلام نخواهند شد.",
-      "removeLabel": "لغو بی‌صدا کردن {title}",
-      "unavailable": "Twitch پاداش‌های این کانال را فهرست نکرد. Channel Points نیازمند وضعیت Affiliate یا Partner است و ممکن است لازم باشد دوباره به داشبورد وارد شوید.",
+      "muted": "ربات بازخریدهای {title} را اعلام نخواهد کرد.",
+      "noMatches": "هیچ پاداشی با جستجوی شما مطابقت ندارد.",
+      "noneMuted": "ربات تمام پاداش‌ها را اعلام می‌کند.",
+      "unavailable": "Twitch فهرست پاداش‌های این کانال را ارائه نداد. Channel Points فقط برای Affiliateها و Partnerها در دسترس است. اگر جزو آن‌ها هستید، دوباره وارد شوید.",
       "updateFailed": "به‌روزرسانی {title} انجام نشد: {reason}"
     },
     "obs": {
@@ -299,14 +300,29 @@
       "youtubeHandleRequired": "قبل از روشن کردن TTS برای YouTube، یک شناسه YouTube وارد کنید."
     }
   },
+  "mutedRewardsClose": {
+    "done": "انجام شد"
+  },
   "mutedRewardsHeading": {
     "rewardsToAnnounce": "پاداش‌های قابل اعلام"
   },
   "mutedRewardsHelp": {
-    "switchOffAnyRewardThat": "هر پاداشی را که نباید اعلام شود خاموش کنید، مانند ساندبوردی که خودش صدا پخش می‌کند. مواردی که روشن بمانند اعلام می‌شوند. ناظران نیز می‌توانند همین کار را با <code>!tts redeems mute &lt;reward&gt;</code> در چت انجام دهند."
+    "everyRewardIsAnnouncedUnless": "ربات تمام پاداش‌ها را اعلام می‌کند. برای بی‌صدا نگه‌داشتن یک پاداش، آن را در اینجا غیرفعال کنید؛ مانند ساندبوردی که صدای خودش را پخش می‌کند. مدیران چت می‌توانند از <code>!tts redeems mute &lt;reward&gt;</code> در چت استفاده کنند."
   },
-  "mutedRewardsRefresh": {
-    "refreshRewardList": "تازه‌سازی فهرست پاداش‌ها"
+  "mutedRewardsModal": {
+    "searchRewards": "جستجوی پاداش‌ها"
+  },
+  "mutedRewardsModalHelp": {
+    "switchOffAnyRewardThat": "هر پاداشی را که ربات نباید اعلام کند غیرفعال کنید. داشبورد هر تغییر را فوراً ذخیره می‌کند."
+  },
+  "mutedRewardsOpen": {
+    "chooseRewards": "انتخاب پاداش‌ها"
+  },
+  "mutedRewardsSearch": {
+    "searchRewards": "جستجوی پاداش‌ها"
+  },
+  "mutedRewardsTitle": {
+    "rewardsToAnnounce": "پاداش‌ها برای اعلام"
   },
   "obsCloseBtn": {
     "closeObsSetup": "بستن راه‌اندازی OBS"

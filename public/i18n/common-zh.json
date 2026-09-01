@@ -56,7 +56,7 @@
     "reward_unmute_failed": "无法取消静音该奖励。",
     "reward_validation_failed": "不允许使用该消息。",
     "rewards_list_failed": "无法列出 Channel Points 奖励。",
-    "rewards_unavailable": "Twitch 无法列出此频道的奖励。",
+    "rewards_unavailable": "Twitch 未提供此频道的奖励列表。",
     "say_contains_link": "发音内容不能包含链接。",
     "say_empty": "发音内容不能为空。",
     "say_must_be_text": "发音内容必须为文本。",

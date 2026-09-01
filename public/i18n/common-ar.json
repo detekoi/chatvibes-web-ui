@@ -56,7 +56,7 @@
     "reward_unmute_failed": "تعذر إلغاء كتم تلك المكافأة.",
     "reward_validation_failed": "هذه الرسالة غير مسموح بها.",
     "rewards_list_failed": "تعذر عرض مكافآت Channel Points.",
-    "rewards_unavailable": "تعذر على Twitch عرض مكافآت هذه القناة.",
+    "rewards_unavailable": "لم يوفّر Twitch قائمة المكافآت لهذه القناة.",
     "say_contains_link": "لا يمكن أن تحتوي طريقة النطق على رابط.",
     "say_empty": "لا يمكن أن تكون طريقة النطق فارغة.",
     "say_must_be_text": "يجب أن تكون طريقة النطق نصاً.",

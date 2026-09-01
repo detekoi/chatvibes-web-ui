@@ -56,7 +56,7 @@
     "reward_unmute_failed": "उस रिवॉर्ड को अनम्यूट नहीं किया जा सका।",
     "reward_validation_failed": "उस संदेश की अनुमति नहीं है।",
     "rewards_list_failed": "Channel Points रिवॉर्ड की सूची नहीं दिखाई जा सकी।",
-    "rewards_unavailable": "Twitch इस चैनल के रिवॉर्ड नहीं दिखा सका।",
+    "rewards_unavailable": "Twitch ने इस चैनल के रिवॉर्ड की सूची नहीं दी।",
     "say_contains_link": "उच्चारण में कोई लिंक नहीं हो सकता।",
     "say_empty": "उच्चारण खाली नहीं हो सकता।",
     "say_must_be_text": "उच्चारण टेक्स्ट होना चाहिए।",

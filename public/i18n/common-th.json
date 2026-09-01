@@ -56,7 +56,7 @@
     "reward_unmute_failed": "ไม่สามารถเปิดเสียงรางวัลนั้นได้",
     "reward_validation_failed": "ไม่อนุญาตให้ใช้ข้อความนั้น",
     "rewards_list_failed": "ไม่สามารถแสดงรายการรางวัล Channel Points ได้",
-    "rewards_unavailable": "Twitch ไม่แสดงรายการรางวัลของช่องนี้",
+    "rewards_unavailable": "Twitch ไม่ได้ส่งรายการรางวัลของช่องนี้มาให้",
     "say_contains_link": "การออกเสียงต้องไม่มีลิงก์",
     "say_empty": "การออกเสียงต้องไม่เว้นว่าง",
     "say_must_be_text": "การออกเสียงต้องเป็นข้อความ",

@@ -217,16 +217,17 @@
     },
     "mutedRewards": {
       "announceLabel": "Обявяване на активирането на {title}",
-      "announced": "Активиранията на {title} ще се обявяват отново.",
+      "announced": "Ботът отново ще съобщава за активирането на {title}.",
       "badgeDisabled": "Деактивирано в Twitch",
-      "badgeMissing": "Вече не е в Twitch",
+      "badgeMissing": "Не е в Twitch",
       "badgePaused": "На пауза в Twitch",
       "empty": "Този канал няма персонализирани награди с Channel Points.",
       "loadFailed": "Наградите с Channel Points не можаха да се заредят.",
       "loading": "Зареждане на наградите с Channel Points…",
-      "muted": "Активиранията на {title} няма да се обявяват.",
-      "removeLabel": "Спиране на заглушаването на {title}",
-      "unavailable": "Twitch не можа да зареди списъка с награди за този канал. За Channel Points е необходим статус на Affiliate или Partner, а може да се наложи и отново да влезеш в таблото за управление.",
+      "muted": "Ботът няма да съобщава за активирането на {title}.",
+      "noMatches": "Няма награди, отговарящи на търсенето.",
+      "noneMuted": "Ботът съобщава за всяка награда.",
+      "unavailable": "Twitch не предостави списъка с награди за този канал. Channel points са достъпни само за affiliates и партньори. Ако си такъв, влез отново.",
       "updateFailed": "Неуспешно обновяване на {title}: {reason}"
     },
     "obs": {
@@ -299,14 +300,29 @@
       "youtubeHandleRequired": "Въведи YouTube потребителско име, преди да включиш YouTube TTS."
     }
   },
+  "mutedRewardsClose": {
+    "done": "Готово"
+  },
   "mutedRewardsHeading": {
     "rewardsToAnnounce": "Награди за обявяване"
   },
   "mutedRewardsHelp": {
-    "switchOffAnyRewardThat": "Изключи всяка награда, която не трябва да се обявява, например soundboard със собствен звук. Всичко оставено включено ще се обявява. Модераторите могат да правят същото от чата с <code>!tts redeems mute &lt;reward&gt;</code>."
+    "everyRewardIsAnnouncedUnless": "Ботът съобщава за всяка награда. Изключи награда оттук, за да бъде заглушена – например за звуков панел, който пуска собствен звук. Модераторите могат да използват <code>!tts redeems mute &lt;reward&gt;</code> в чата."
   },
-  "mutedRewardsRefresh": {
-    "refreshRewardList": "Опресняване на списъка с награди"
+  "mutedRewardsModal": {
+    "searchRewards": "Търсене на награди"
+  },
+  "mutedRewardsModalHelp": {
+    "switchOffAnyRewardThat": "Изключи всяка награда, която ботът не трябва да съобщава. Таблото за управление запазва всяка промяна незабавно."
+  },
+  "mutedRewardsOpen": {
+    "chooseRewards": "Избери награди"
+  },
+  "mutedRewardsSearch": {
+    "searchRewards": "Търсене на награди"
+  },
+  "mutedRewardsTitle": {
+    "rewardsToAnnounce": "Награди за оповестяване"
   },
   "obsCloseBtn": {
     "closeObsSetup": "Затваряне на настройката на OBS"

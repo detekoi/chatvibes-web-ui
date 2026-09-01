@@ -56,7 +56,7 @@
     "reward_unmute_failed": "Bu ödülün sesi açılamadı.",
     "reward_validation_failed": "Bu mesaja izin verilmiyor.",
     "rewards_list_failed": "Channel Points ödülleri listelenemedi.",
-    "rewards_unavailable": "Twitch bu kanalın ödüllerini listelemedi.",
+    "rewards_unavailable": "Twitch bu kanalın ödül listesini vermedi.",
     "say_contains_link": "Telaffuz bağlantı içeremez.",
     "say_empty": "Telaffuz boş olamaz.",
     "say_must_be_text": "Telaffuz metin olmalıdır.",

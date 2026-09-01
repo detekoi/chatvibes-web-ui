@@ -217,16 +217,17 @@
     },
     "mutedRewards": {
       "announceLabel": "Inwisselingen van {title} aankondigen",
-      "announced": "Inwisselingen van {title} worden weer aangekondigd.",
+      "announced": "De bot kondigt redeems van {title} weer aan.",
       "badgeDisabled": "Uitgeschakeld op Twitch",
-      "badgeMissing": "Niet meer op Twitch",
+      "badgeMissing": "Niet op Twitch",
       "badgePaused": "Gepauzeerd op Twitch",
       "empty": "Dit kanaal heeft geen aangepaste Channel Points-beloningen.",
       "loadFailed": "Kan de Channel Points-beloningen niet laden.",
       "loading": "Channel Points-beloningen laden…",
-      "muted": "Inwisselingen van {title} worden niet aangekondigd.",
-      "removeLabel": "Dempen van {title} opheffen",
-      "unavailable": "Twitch kon de beloningen van dit kanaal niet ophalen. Channel Points vereisen de affiliate- of partnerstatus, en mogelijk moet je opnieuw inloggen op het dashboard.",
+      "muted": "De bot kondigt redeems van {title} niet aan.",
+      "noMatches": "Geen beloningen komen overeen met je zoekopdracht.",
+      "noneMuted": "De bot kondigt elke beloning aan.",
+      "unavailable": "Twitch heeft de lijst met beloningen voor dit kanaal niet verstrekt. Channel Points zijn alleen beschikbaar voor affiliates en partners. Log opnieuw in als je dat bent.",
       "updateFailed": "Kan {title} niet bijwerken: {reason}"
     },
     "obs": {
@@ -299,14 +300,29 @@
       "youtubeHandleRequired": "Voer een YouTube-handle in voordat je YouTube-TTS inschakelt."
     }
   },
+  "mutedRewardsClose": {
+    "done": "Klaar"
+  },
   "mutedRewardsHeading": {
     "rewardsToAnnounce": "Aan te kondigen beloningen"
   },
   "mutedRewardsHelp": {
-    "switchOffAnyRewardThat": "Schakel beloningen uit die niet moeten worden aangekondigd, zoals een soundboard dat zelf al geluid afspeelt. Alles wat aan blijft staan, wordt aangekondigd. Moderators kunnen hetzelfde doen vanuit de chat met <code>!tts redeems mute &lt;reward&gt;</code>."
+    "everyRewardIsAnnouncedUnless": "De bot kondigt elke beloning aan. Schakel hier een beloning uit om deze te dempen, bijvoorbeeld een soundboard dat een eigen geluid afspeelt. Moderators kunnen <code>!tts redeems mute &lt;reward&gt;</code> in de chat gebruiken."
   },
-  "mutedRewardsRefresh": {
-    "refreshRewardList": "Beloningenlijst vernieuwen"
+  "mutedRewardsModal": {
+    "searchRewards": "Beloningen zoeken"
+  },
+  "mutedRewardsModalHelp": {
+    "switchOffAnyRewardThat": "Schakel elke beloning uit die de bot niet mag aankondigen. Het dashboard slaat elke wijziging direct op."
+  },
+  "mutedRewardsOpen": {
+    "chooseRewards": "Beloningen kiezen"
+  },
+  "mutedRewardsSearch": {
+    "searchRewards": "Beloningen zoeken"
+  },
+  "mutedRewardsTitle": {
+    "rewardsToAnnounce": "Aan te kondigen beloningen"
   },
   "obsCloseBtn": {
     "closeObsSetup": "OBS-configuratie sluiten"

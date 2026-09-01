@@ -56,7 +56,7 @@
     "reward_unmute_failed": "Ztlumení této odměny nelze zrušit.",
     "reward_validation_failed": "Tato zpráva není povolena.",
     "rewards_list_failed": "Nelze načíst odměny za Channel Points.",
-    "rewards_unavailable": "Twitch nenačetl odměny tohoto kanálu.",
+    "rewards_unavailable": "Twitch neposkytl seznam odměn pro tento kanál.",
     "say_contains_link": "Výslovnost nesmí obsahovat odkaz.",
     "say_empty": "Výslovnost nesmí být prázdná.",
     "say_must_be_text": "Výslovnost musí být text.",

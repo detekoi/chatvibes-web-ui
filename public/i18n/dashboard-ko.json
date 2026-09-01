@@ -217,16 +217,17 @@
     },
     "mutedRewards": {
       "announceLabel": "{title} 교환 알림",
-      "announced": "이제 {title} 교환 시 다시 알립니다.",
+      "announced": "봇이 {title} 교환을 다시 알립니다.",
       "badgeDisabled": "Twitch에서 비활성화됨",
-      "badgeMissing": "더 이상 Twitch에 없음",
+      "badgeMissing": "Twitch에 없음",
       "badgePaused": "Twitch에서 일시 중지됨",
       "empty": "이 채널에는 사용자 지정 Channel Points 보상이 없습니다.",
       "loadFailed": "Channel Points 보상을 불러올 수 없습니다.",
       "loading": "Channel Points 보상 불러오는 중…",
-      "muted": "{title} 교환 시 알리지 않습니다.",
-      "removeLabel": "{title} 음소거 해제",
-      "unavailable": "Twitch에서 이 채널의 보상 목록을 가져올 수 없습니다. Channel Points를 사용하려면 제휴 또는 파트너 상태여야 하며, 대시보드에 다시 로그인해야 할 수 있습니다.",
+      "muted": "봇이 {title} 교환을 알리지 않습니다.",
+      "noMatches": "검색과 일치하는 보상이 없습니다.",
+      "noneMuted": "봇이 모든 보상을 알립니다.",
+      "unavailable": "Twitch에서 이 채널의 보상 목록을 불러오지 못했습니다. Channel Points는 제휴 및 파트너 스트리머에게만 제공됩니다. 해당되는 경우 다시 로그인하세요.",
       "updateFailed": "{title} 업데이트 실패: {reason}"
     },
     "obs": {
@@ -299,14 +300,29 @@
       "youtubeHandleRequired": "YouTube TTS를 켜기 전에 YouTube 핸들을 입력하세요."
     }
   },
+  "mutedRewardsClose": {
+    "done": "완료"
+  },
   "mutedRewardsHeading": {
     "rewardsToAnnounce": "알림을 보낼 보상"
   },
   "mutedRewardsHelp": {
-    "switchOffAnyRewardThat": "자체 사운드가 재생되는 사운드보드처럼 알리지 않아야 할 보상은 끄세요. 켜져 있는 보상은 모두 알림이 전송됩니다. 매니저도 채팅창에서 <code>!tts redeems mute &lt;reward&gt;</code> 명령어로 설정할 수 있습니다."
+    "everyRewardIsAnnouncedUnless": "봇이 모든 보상을 알립니다. 자체 소리를 재생하는 사운드보드처럼 알림을 끄려는 보상은 여기서 비활성화하세요. 매니저는 채팅에서 <code>!tts redeems mute &lt;reward&gt;</code> 명령어를 사용할 수 있습니다."
   },
-  "mutedRewardsRefresh": {
-    "refreshRewardList": "보상 목록 새로고침"
+  "mutedRewardsModal": {
+    "searchRewards": "보상 검색"
+  },
+  "mutedRewardsModalHelp": {
+    "switchOffAnyRewardThat": "봇이 알리지 않아야 하는 보상을 비활성화하세요. 변경사항은 대시보드에 즉시 저장됩니다."
+  },
+  "mutedRewardsOpen": {
+    "chooseRewards": "보상 선택"
+  },
+  "mutedRewardsSearch": {
+    "searchRewards": "보상 검색"
+  },
+  "mutedRewardsTitle": {
+    "rewardsToAnnounce": "안내할 보상"
   },
   "obsCloseBtn": {
     "closeObsSetup": "OBS 설정 닫기"

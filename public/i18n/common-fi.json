@@ -56,7 +56,7 @@
     "reward_unmute_failed": "Palkinnon mykistystä ei voi poistaa.",
     "reward_validation_failed": "Viesti ei ole sallittu.",
     "rewards_list_failed": "Channel Points -palkintoja ei voi listata.",
-    "rewards_unavailable": "Twitch ei voinut listata tämän kanavan palkintoja.",
+    "rewards_unavailable": "Twitch ei antanut tämän kanavan palkintolistaa.",
     "say_contains_link": "Ääntämisasu ei voi sisältää linkkiä.",
     "say_empty": "Ääntämisasu ei voi olla tyhjä.",
     "say_must_be_text": "Ääntämisasun on oltava tekstiä.",

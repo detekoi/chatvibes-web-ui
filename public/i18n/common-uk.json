@@ -56,7 +56,7 @@
     "reward_unmute_failed": "Не вдалося увімкнути звук для цієї нагороди.",
     "reward_validation_failed": "Це повідомлення недозволене.",
     "rewards_list_failed": "Не вдалося отримати список нагород Channel Points.",
-    "rewards_unavailable": "Twitch не надав список нагород цього каналу.",
+    "rewards_unavailable": "Twitch не надав список нагород для цього каналу.",
     "say_contains_link": "Вимова не може містити посилання.",
     "say_empty": "Вимова не може бути порожньою.",
     "say_must_be_text": "Вимова має бути текстом.",

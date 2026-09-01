@@ -56,7 +56,7 @@
     "reward_unmute_failed": "Nem sikerült feloldani a jutalom némítását.",
     "reward_validation_failed": "Ez az üzenet nem engedélyezett.",
     "rewards_list_failed": "Nem sikerült listázni a Channel Points jutalmakat.",
-    "rewards_unavailable": "A Twitch nem tudta listázni a csatorna jutalmait.",
+    "rewards_unavailable": "A Twitch nem adta meg a csatorna jutalmainak listáját.",
     "say_contains_link": "A kiejtés nem tartalmazhat hivatkozást.",
     "say_empty": "A kiejtés nem lehet üres.",
     "say_must_be_text": "A kiejtésnek szövegesnek kell lennie.",

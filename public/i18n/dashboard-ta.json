@@ -217,16 +217,17 @@
     },
     "mutedRewards": {
       "announceLabel": "{title} ரிடீம்களை அறிவி",
-      "announced": "{title} ரிடீம்கள் மீண்டும் அறிவிக்கப்படும்.",
+      "announced": "{title} மீட்டெடுப்புகளை பாட் மீண்டும் அறிவிக்கும்.",
       "badgeDisabled": "Twitch-இல் முடக்கப்பட்டது",
-      "badgeMissing": "இனி Twitch-இல் இல்லை",
+      "badgeMissing": "Twitch-இல் இல்லை",
       "badgePaused": "Twitch-இல் இடைநிறுத்தப்பட்டது",
       "empty": "இந்த சேனலில் தனிப்பயன் Channel Points ரிவார்டுகள் எதுவும் இல்லை.",
       "loadFailed": "Channel Points ரிவார்டுகளை ஏற்ற முடியவில்லை.",
       "loading": "Channel Points ரிவார்டுகள் ஏற்றப்படுகின்றன…",
-      "muted": "{title} ரிடீம்கள் அறிவிக்கப்படாது.",
-      "removeLabel": "{title} ஒலியடக்கத்தை நீக்கு",
-      "unavailable": "Twitch இந்த சேனலின் ரிவார்டுகளைப் பட்டியலிடவில்லை. Channel Points-க்கு affiliate அல்லது partner நிலை தேவை, மேலும் டாஷ்போர்டில் நீங்கள் மீண்டும் உள்நுழைய வேண்டியிருக்கலாம்.",
+      "muted": "{title} மீட்டெடுப்புகளை பாட் அறிவிக்காது.",
+      "noMatches": "உங்கள் தேடலுடன் எந்த ரிவார்டும் பொருந்தவில்லை.",
+      "noneMuted": "பாட் அனைத்து ரிவார்டுகளையும் அறிவிக்கும்.",
+      "unavailable": "இந்தச் சேனலுக்கான ரிவார்டுகளின் பட்டியலை Twitch வழங்கவில்லை. Channel Points என்பது affiliates மற்றும் partners-க்கு மட்டுமே கிடைக்கும். நீங்கள் அவர்களில் ஒருவர் என்றால், மீண்டும் உள்நுழையவும்.",
       "updateFailed": "{title}-ஐப் புதுப்பிக்க முடியவில்லை: {reason}"
     },
     "obs": {
@@ -299,14 +300,29 @@
       "youtubeHandleRequired": "YouTube TTS-ஐ இயக்குவதற்கு முன் ஒரு YouTube handle-ஐ உள்ளிடவும்."
     }
   },
+  "mutedRewardsClose": {
+    "done": "முடிந்தது"
+  },
   "mutedRewardsHeading": {
     "rewardsToAnnounce": "அறிவிக்க வேண்டிய ரிவார்டுகள்"
   },
   "mutedRewardsHelp": {
-    "switchOffAnyRewardThat": "சொந்த ஒலியைக் கொண்டிருக்கும் soundboard போன்ற அறிவிக்கப்படக் கூடாத எந்தவொரு ரிவார்டையும் முடக்கவும். இயக்கத்தில் உள்ளவை அனைத்தும் அறிவிக்கப்படும். மாடரேட்டர்கள் சாட்டிலிருந்தே <code>!tts redeems mute &lt;reward&gt;</code> மூலம் இதைச் செய்யலாம்."
+    "everyRewardIsAnnouncedUnless": "பாட் அனைத்து ரிவார்டுகளையும் அறிவிக்கும். ஒலி வேண்டாம் எனில், இங்கே ஒரு ரிவார்டை ஆஃப் செய்யவும் (எ.கா. சொந்தமாக ஒலியை இயக்கும் soundboard). Moderators சேட்டில் <code>!tts redeems mute &lt;reward&gt;</code> என்பதைப் பயன்படுத்தலாம்."
   },
-  "mutedRewardsRefresh": {
-    "refreshRewardList": "ரிவார்டு பட்டியலைப் புதுப்பி"
+  "mutedRewardsModal": {
+    "searchRewards": "ரிவார்டுகளைத் தேடுங்கள்"
+  },
+  "mutedRewardsModalHelp": {
+    "switchOffAnyRewardThat": "பாட் அறிவிக்கக் கூடாத ஒவ்வொரு ரிவார்டையும் ஆஃப் செய்யவும். டேஷ்போர்டு ஒவ்வொரு மாற்றத்தையும் உடனடியாகச் சேமிக்கும்."
+  },
+  "mutedRewardsOpen": {
+    "chooseRewards": "ரிவார்டுகளைத் தேர்ந்தெடுக்கவும்"
+  },
+  "mutedRewardsSearch": {
+    "searchRewards": "ரிவார்டுகளைத் தேடுங்கள்"
+  },
+  "mutedRewardsTitle": {
+    "rewardsToAnnounce": "அறிவிக்க வேண்டிய ரிவார்டுகள்"
   },
   "obsCloseBtn": {
     "closeObsSetup": "OBS அமைவை மூடு"

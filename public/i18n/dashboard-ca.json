@@ -217,16 +217,17 @@
     },
     "mutedRewards": {
       "announceLabel": "Anuncia els bescanvis de {title}",
-      "announced": "Es tornaran a anunciar els bescanvis de {title}.",
+      "announced": "El bot tornarà a anunciar els bescanvis de {title}.",
       "badgeDisabled": "Desactivat a Twitch",
-      "badgeMissing": "Ja no és a Twitch",
+      "badgeMissing": "No és a Twitch",
       "badgePaused": "En pausa a Twitch",
       "empty": "Aquest canal no té recompenses personalitzades de Channel Points.",
       "loadFailed": "No s'han pogut carregar les recompenses de Channel Points.",
       "loading": "S'estan carregant les recompenses de Channel Points…",
-      "muted": "No s'anunciaran els bescanvis de {title}.",
-      "removeLabel": "Deixa de silenciar {title}",
-      "unavailable": "Twitch no ha pogut llistar les recompenses d'aquest canal. Els Channel Points requereixen l'estat d'afiliat o soci, i pot ser que hagis de tornar a iniciar sessió al tauler.",
+      "muted": "El bot no anunciarà els bescanvis de {title}.",
+      "noMatches": "Cap recompensa coincideix amb la cerca.",
+      "noneMuted": "El bot anuncia totes les recompenses.",
+      "unavailable": "Twitch no ha proporcionat la llista de recompenses d'aquest canal. Els Channel Points només estan disponibles per a afiliats i socis. Si ho ets, torna a iniciar la sessió.",
       "updateFailed": "No s'ha pogut actualitzar {title}: {reason}"
     },
     "obs": {
@@ -299,14 +300,29 @@
       "youtubeHandleRequired": "Introdueix un identificador de YouTube abans d'activar el TTS de YouTube."
     }
   },
+  "mutedRewardsClose": {
+    "done": "Fet"
+  },
   "mutedRewardsHeading": {
     "rewardsToAnnounce": "Recompenses per anunciar"
   },
   "mutedRewardsHelp": {
-    "switchOffAnyRewardThat": "Desactiva qualsevol recompensa que no s'hagi d'anunciar, com ara una taula de sons que ja reprodueix el seu propi so. Tot el que quedi activat s'anunciarà. Els moderadors poden fer el mateix des del xat amb <code>!tts redeems mute &lt;reward&gt;</code>."
+    "everyRewardIsAnnouncedUnless": "El bot anuncia totes les recompenses. Desactiva una recompensa aquí per silenciar-la, per exemple una taula de so que reprodueix el seu propi so. Els moderadors poden utilitzar <code>!tts redeems mute &lt;reward&gt;</code> al xat."
   },
-  "mutedRewardsRefresh": {
-    "refreshRewardList": "Actualitza la llista de recompenses"
+  "mutedRewardsModal": {
+    "searchRewards": "Cerca recompenses"
+  },
+  "mutedRewardsModalHelp": {
+    "switchOffAnyRewardThat": "Desactiva cada recompensa que el bot no hagi d'anunciar. El tauler desa cada canvi immediatament."
+  },
+  "mutedRewardsOpen": {
+    "chooseRewards": "Tria recompenses"
+  },
+  "mutedRewardsSearch": {
+    "searchRewards": "Cerca recompenses"
+  },
+  "mutedRewardsTitle": {
+    "rewardsToAnnounce": "Recompenses per anunciar"
   },
   "obsCloseBtn": {
     "closeObsSetup": "Tanca la configuració d'OBS"

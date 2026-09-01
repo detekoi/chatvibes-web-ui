@@ -217,16 +217,17 @@
     },
     "mutedRewards": {
       "announceLabel": "Announce redeems of {title}",
-      "announced": "Redeems of {title} will be announced again.",
+      "announced": "The bot will announce redeems of {title} again.",
       "badgeDisabled": "Disabled on Twitch",
-      "badgeMissing": "No longer on Twitch",
+      "badgeMissing": "Not on Twitch",
       "badgePaused": "Paused on Twitch",
       "empty": "This channel has no custom channel point rewards.",
       "loadFailed": "Cannot load the channel point rewards.",
       "loading": "Loading channel point rewards…",
-      "muted": "Redeems of {title} will not be announced.",
-      "removeLabel": "Stop muting {title}",
-      "unavailable": "Twitch would not list this channel's rewards. Channel points need affiliate or partner status, and the dashboard may need you to sign in again.",
+      "muted": "The bot will not announce redeems of {title}.",
+      "noMatches": "No rewards match your search.",
+      "noneMuted": "The bot announces every reward.",
+      "unavailable": "Twitch did not give the list of rewards for this channel. Channel points are only available to affiliates and partners. If you are one, sign in again.",
       "updateFailed": "Cannot update {title}: {reason}"
     },
     "obs": {
@@ -299,14 +300,29 @@
       "youtubeHandleRequired": "Enter a YouTube handle before you turn on YouTube TTS."
     }
   },
+  "mutedRewardsClose": {
+    "done": "Done"
+  },
   "mutedRewardsHeading": {
     "rewardsToAnnounce": "Rewards to Announce"
   },
   "mutedRewardsHelp": {
-    "switchOffAnyRewardThat": "Switch off any reward that should not be announced, such as a soundboard that plays its own sound. Everything left on is announced. Moderators can do the same from chat with <code>!tts redeems mute &lt;reward&gt;</code>."
+    "everyRewardIsAnnouncedUnless": "The bot announces every reward. Switch off a reward here to keep it silent, for example a soundboard that plays its own sound. Moderators can use <code>!tts redeems mute &lt;reward&gt;</code> in chat."
   },
-  "mutedRewardsRefresh": {
-    "refreshRewardList": "Refresh reward list"
+  "mutedRewardsModal": {
+    "searchRewards": "Search rewards"
+  },
+  "mutedRewardsModalHelp": {
+    "switchOffAnyRewardThat": "Switch off each reward that the bot must not announce. The dashboard saves each change immediately."
+  },
+  "mutedRewardsOpen": {
+    "chooseRewards": "Choose rewards"
+  },
+  "mutedRewardsSearch": {
+    "searchRewards": "Search rewards"
+  },
+  "mutedRewardsTitle": {
+    "rewardsToAnnounce": "Rewards to announce"
   },
   "obsCloseBtn": {
     "closeObsSetup": "Close OBS setup"

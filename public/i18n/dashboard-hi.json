@@ -217,16 +217,17 @@
     },
     "mutedRewards": {
       "announceLabel": "{title} के रिडीम की घोषणा करें",
-      "announced": "{title} के रिडीम की फिर से घोषणा की जाएगी।",
+      "announced": "बॉट {title} के रिडीम की फिर से घोषणा करेगा।",
       "badgeDisabled": "Twitch पर अक्षम",
-      "badgeMissing": "अब Twitch पर उपलब्ध नहीं",
+      "badgeMissing": "Twitch पर नहीं है",
       "badgePaused": "Twitch पर रोका गया",
       "empty": "इस चैनल पर कोई कस्टम Channel Points रिवॉर्ड नहीं हैं।",
       "loadFailed": "Channel Points रिवॉर्ड लोड नहीं किए जा सके।",
       "loading": "Channel Points रिवॉर्ड लोड हो रहे हैं…",
-      "muted": "{title} के रिडीम की घोषणा नहीं की जाएगी।",
-      "removeLabel": "{title} को म्यूट करना बंद करें",
-      "unavailable": "Twitch इस चैनल के रिवॉर्ड लोड नहीं कर सका। Channel Points के लिए अफ़िलिएट या पार्टनर स्टेटस ज़रूरी है, और हो सकता है आपको डैशबोर्ड में फिर से साइन इन करना पड़े।",
+      "muted": "बॉट {title} के रिडीम की घोषणा नहीं करेगा।",
+      "noMatches": "आपकी खोज से कोई रिवॉर्ड नहीं मिला।",
+      "noneMuted": "बॉट हर रिवॉर्ड की घोषणा करता है।",
+      "unavailable": "Twitch ने इस चैनल के रिवॉर्ड की सूची उपलब्ध नहीं कराई। Channel Points केवल अफ़िलिएट और पार्टनर के लिए उपलब्ध हैं। अगर आप इनमें से एक हैं, तो फिर से साइन इन करें।",
       "updateFailed": "{title} को अपडेट नहीं किया जा सका: {reason}"
     },
     "obs": {
@@ -299,14 +300,29 @@
       "youtubeHandleRequired": "YouTube TTS चालू करने से पहले एक YouTube हैंडल दर्ज करें।"
     }
   },
+  "mutedRewardsClose": {
+    "done": "हो गया"
+  },
   "mutedRewardsHeading": {
     "rewardsToAnnounce": "घोषणा किए जाने वाले रिवॉर्ड"
   },
   "mutedRewardsHelp": {
-    "switchOffAnyRewardThat": "ऐसे किसी भी रिवॉर्ड को बंद कर दें जिसकी घोषणा नहीं की जानी चाहिए, जैसे कि कोई साउंडबोर्ड जो अपनी आवाज़ खुद बजाता है। जो भी चालू रहेगा उसकी घोषणा की जाएगी। मॉडरेटर चैट में <code>!tts redeems mute &lt;reward&gt;</code> का इस्तेमाल करके भी ऐसा कर सकते हैं।"
+    "everyRewardIsAnnouncedUnless": "बॉट हर रिवॉर्ड की घोषणा करता है। किसी रिवॉर्ड को शांत रखने के लिए उसे यहाँ बंद करें, उदाहरण के लिए ऐसा साउंडबोर्ड जो अपनी ध्वनि खुद बजाता है। मॉडरेटर चैट में <code>!tts redeems mute &lt;reward&gt;</code> का इस्तेमाल कर सकते हैं।"
   },
-  "mutedRewardsRefresh": {
-    "refreshRewardList": "रिवॉर्ड लिस्ट रीफ़्रेश करें"
+  "mutedRewardsModal": {
+    "searchRewards": "रिवॉर्ड खोजें"
+  },
+  "mutedRewardsModalHelp": {
+    "switchOffAnyRewardThat": "ऐसे हर रिवॉर्ड को बंद करें जिसकी घोषणा बॉट को नहीं करनी चाहिए। डैशबोर्ड हर बदलाव को तुरंत सेव करता है।"
+  },
+  "mutedRewardsOpen": {
+    "chooseRewards": "रिवॉर्ड चुनें"
+  },
+  "mutedRewardsSearch": {
+    "searchRewards": "रिवॉर्ड खोजें"
+  },
+  "mutedRewardsTitle": {
+    "rewardsToAnnounce": "घोषणा के लिए रिवॉर्ड"
   },
   "obsCloseBtn": {
     "closeObsSetup": "OBS सेटअप बंद करें"

@@ -56,7 +56,7 @@
     "reward_unmute_failed": "Не удалось включить звук для этой награды.",
     "reward_validation_failed": "Это сообщение недопустимо.",
     "rewards_list_failed": "Не удалось получить список наград за Channel Points.",
-    "rewards_unavailable": "Twitch не предоставил список наград этого канала.",
+    "rewards_unavailable": "Twitch не предоставил список наград для этого канала.",
     "say_contains_link": "Произношение не может содержать ссылку.",
     "say_empty": "Произношение не может быть пустым.",
     "say_must_be_text": "Произношение должно быть текстом.",

@@ -56,7 +56,7 @@
     "reward_unmute_failed": "Cannot unmute that reward.",
     "reward_validation_failed": "That message is not allowed.",
     "rewards_list_failed": "Cannot list the channel point rewards.",
-    "rewards_unavailable": "Twitch would not list this channel's rewards.",
+    "rewards_unavailable": "Twitch did not give the list of rewards for this channel.",
     "say_contains_link": "The pronunciation cannot contain a link.",
     "say_empty": "The pronunciation cannot be empty.",
     "say_must_be_text": "The pronunciation must be text.",

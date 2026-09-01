@@ -217,16 +217,17 @@
     },
     "mutedRewards": {
       "announceLabel": "Ilmoita kohteen {title} lunastukset",
-      "announced": "Kohteen {title} lunastukset ilmoitetaan taas.",
+      "announced": "Botti ilmoittaa jälleen palkinnon {title} lunastukset.",
       "badgeDisabled": "Poistettu käytöstä Twitchissä",
-      "badgeMissing": "Ei enää Twitchissä",
+      "badgeMissing": "Ei Twitchissä",
       "badgePaused": "Keskeytetty Twitchissä",
       "empty": "Tällä kanavalla ei ole mukautettuja kanavapistepalkintoja.",
       "loadFailed": "Kanavapistepalkintoja ei voi ladata.",
       "loading": "Ladataan kanavapistepalkintoja…",
-      "muted": "Kohteen {title} lunastuksia ei ilmoiteta.",
-      "removeLabel": "Poista kohteen {title} vaimennus",
-      "unavailable": "Twitch ei voinut listata tämän kanavan palkintoja. Kanavapisteet vaativat Affiliate- tai Partner-tilan, ja hallintapaneeli saattaa vaatia uutta sisäänkirjautumista.",
+      "muted": "Botti ei ilmoita palkinnon {title} lunastuksia.",
+      "noMatches": "Yksikään palkinto ei vastaa hakuasi.",
+      "noneMuted": "Botti ilmoittaa jokaisen palkinnon.",
+      "unavailable": "Twitch ei antanut tämän kanavan palkintoluetteloa. Channel Points on saatavilla vain affiliate- ja partner-käyttäjille. Jos olet sellainen, kirjaudu uudelleen sisään.",
       "updateFailed": "Kohdetta {title} ei voi päivittää: {reason}"
     },
     "obs": {
@@ -299,14 +300,29 @@
       "youtubeHandleRequired": "Anna YouTube-tunnus ennen kuin otat YouTube TTS -toiminnon käyttöön."
     }
   },
+  "mutedRewardsClose": {
+    "done": "Valmis"
+  },
   "mutedRewardsHeading": {
     "rewardsToAnnounce": "Ilmoitettavat palkinnot"
   },
   "mutedRewardsHelp": {
-    "switchOffAnyRewardThat": "Kytke pois päältä palkinnot, joita ei pitäisi ilmoittaa, kuten äänipöytä, jolla on oma ääni. Kaikki päälle jätetyt ilmoitetaan. Moderaattorit voivat tehdä saman chatissa komennolla <code>!tts redeems mute &lt;reward&gt;</code>."
+    "everyRewardIsAnnouncedUnless": "Botti ilmoittaa jokaisen palkinnon. Kytke palkinto pois päältä tästä pitääksesi sen hiljaisena, esimerkiksi äänitaulun, joka toistaa oman äänensä. Moderaattorit voivat käyttää chatissa komentoa <code>!tts redeems mute &lt;reward&gt;</code>."
   },
-  "mutedRewardsRefresh": {
-    "refreshRewardList": "Päivitä palkintolista"
+  "mutedRewardsModal": {
+    "searchRewards": "Etsi palkintoja"
+  },
+  "mutedRewardsModalHelp": {
+    "switchOffAnyRewardThat": "Kytke pois päältä ne palkinnot, joita botin ei tule ilmoittaa. Hallintapaneeli tallentaa jokaisen muutoksen heti."
+  },
+  "mutedRewardsOpen": {
+    "chooseRewards": "Valitse palkinnot"
+  },
+  "mutedRewardsSearch": {
+    "searchRewards": "Etsi palkintoja"
+  },
+  "mutedRewardsTitle": {
+    "rewardsToAnnounce": "Ilmoitettavat palkinnot"
   },
   "obsCloseBtn": {
     "closeObsSetup": "Sulje OBS-määritys"

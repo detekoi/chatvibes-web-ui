@@ -217,16 +217,17 @@
     },
     "mutedRewards": {
       "announceLabel": "Anunță revendicările pentru {title}",
-      "announced": "Revendicările pentru {title} vor fi anunțate din nou.",
+      "announced": "Botul va anunța din nou revendicările pentru {title}.",
       "badgeDisabled": "Dezactivat pe Twitch",
-      "badgeMissing": "Nu mai există pe Twitch",
+      "badgeMissing": "Nu este pe Twitch",
       "badgePaused": "Pus pe pauză pe Twitch",
       "empty": "Acest canal nu are recompense personalizate cu Channel Points.",
       "loadFailed": "Nu se pot încărca recompensele Channel Points.",
       "loading": "Se încarcă recompensele Channel Points…",
-      "muted": "Revendicările pentru {title} nu vor fi anunțate.",
-      "removeLabel": "Oprește silențierea pentru {title}",
-      "unavailable": "Twitch nu a putut afișa recompensele acestui canal. Pentru Channel Points este necesar statutul de afiliat sau partener, iar tabloul de bord ar putea necesita reconectarea ta.",
+      "muted": "Botul nu va anunța revendicările pentru {title}.",
+      "noMatches": "Nicio recompensă nu se potrivește căutării.",
+      "noneMuted": "Botul anunță fiecare recompensă.",
+      "unavailable": "Twitch nu a furnizat lista de recompense pentru acest canal. Channel Points sunt disponibile doar pentru afiliați și parteneri. Dacă ești unul dintre ei, conectează-te din nou.",
       "updateFailed": "Nu se poate actualiza {title}: {reason}"
     },
     "obs": {
@@ -299,14 +300,29 @@
       "youtubeHandleRequired": "Introdu un handle YouTube înainte de a activa YouTube TTS."
     }
   },
+  "mutedRewardsClose": {
+    "done": "Gata"
+  },
   "mutedRewardsHeading": {
     "rewardsToAnnounce": "Recompense de anunțat"
   },
   "mutedRewardsHelp": {
-    "switchOffAnyRewardThat": "Dezactivează orice recompensă care nu ar trebui anunțată, cum ar fi un soundboard care își redă propriul sunet. Tot ce rămâne activat va fi anunțat. Moderatorii pot face același lucru din chat cu <code>!tts redeems mute &lt;reward&gt;</code>."
+    "everyRewardIsAnnouncedUnless": "Botul anunță fiecare recompensă. Dezactivează o recompensă aici pentru a o păstra silențioasă, de exemplu o placă de sunete care își redă propriul sunet. Moderatorii pot folosi <code>!tts redeems mute &lt;reward&gt;</code> în chat."
   },
-  "mutedRewardsRefresh": {
-    "refreshRewardList": "Reîmprospătează lista de recompense"
+  "mutedRewardsModal": {
+    "searchRewards": "Caută recompense"
+  },
+  "mutedRewardsModalHelp": {
+    "switchOffAnyRewardThat": "Dezactivează fiecare recompensă pe care botul nu trebuie să o anunțe. Panoul de control salvează fiecare modificare imediat."
+  },
+  "mutedRewardsOpen": {
+    "chooseRewards": "Alege recompense"
+  },
+  "mutedRewardsSearch": {
+    "searchRewards": "Caută recompense"
+  },
+  "mutedRewardsTitle": {
+    "rewardsToAnnounce": "Recompense de anunțat"
   },
   "obsCloseBtn": {
     "closeObsSetup": "Închide configurarea OBS"

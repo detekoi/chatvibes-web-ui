@@ -56,7 +56,7 @@
     "reward_unmute_failed": "Kan ikke oppheve demping av den belønningen.",
     "reward_validation_failed": "Den meldingen er ikke tillatt.",
     "rewards_list_failed": "Kan ikke hente Channel Points-belønningene.",
-    "rewards_unavailable": "Twitch kunne ikke hente denne kanalens belønninger.",
+    "rewards_unavailable": "Twitch ga ikke listen over belønninger for denne kanalen.",
     "say_contains_link": "Uttalen kan ikke inneholde en lenke.",
     "say_empty": "Uttalen kan ikke være tom.",
     "say_must_be_text": "Uttalen må være tekst.",

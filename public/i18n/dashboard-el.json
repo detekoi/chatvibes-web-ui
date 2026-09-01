@@ -217,16 +217,17 @@
     },
     "mutedRewards": {
       "announceLabel": "Ανακοίνωση εξαργυρώσεων για {title}",
-      "announced": "Οι εξαργυρώσεις για {title} θα ανακοινώνονται ξανά.",
+      "announced": "Το bot θα ανακοινώνει ξανά τις εξαργυρώσεις του {title}.",
       "badgeDisabled": "Απενεργοποιημένο στο Twitch",
-      "badgeMissing": "Δεν υπάρχει πλέον στο Twitch",
+      "badgeMissing": "Όχι στο Twitch",
       "badgePaused": "Σε παύση στο Twitch",
       "empty": "Αυτό το κανάλι δεν έχει προσαρμοσμένες ανταμοιβές Channel Points.",
       "loadFailed": "Αδυναμία φόρτωσης των ανταμοιβών Channel Points.",
       "loading": "Φόρτωση ανταμοιβών Channel Points…",
-      "muted": "Οι εξαργυρώσεις για {title} δεν θα ανακοινώνονται.",
-      "removeLabel": "Κατάργηση σίγασης για {title}",
-      "unavailable": "Το Twitch δεν εμφάνισε τις ανταμοιβές αυτού του καναλιού. Τα Channel Points απαιτούν κατάσταση Affiliate ή Partner, και ίσως χρειαστεί να συνδεθείτε ξανά στον πίνακα ελέγχου.",
+      "muted": "Το bot δεν θα ανακοινώνει τις εξαργυρώσεις του {title}.",
+      "noMatches": "Καμία ανταμοιβή δεν ταιριάζει με την αναζήτηση.",
+      "noneMuted": "Το bot ανακοινώνει κάθε ανταμοιβή.",
+      "unavailable": "Το Twitch δεν παρείχε τη λίστα ανταμοιβών για αυτό το κανάλι. Τα Channel Points είναι διαθέσιμα μόνο σε affiliates και partners. Εάν είστε ένας από αυτούς, συνδεθείτε ξανά.",
       "updateFailed": "Αδυναμία ενημέρωσης του {title}: {reason}"
     },
     "obs": {
@@ -299,14 +300,29 @@
       "youtubeHandleRequired": "Εισαγάγετε ένα YouTube handle πριν ενεργοποιήσετε το YouTube TTS."
     }
   },
+  "mutedRewardsClose": {
+    "done": "Τέλος"
+  },
   "mutedRewardsHeading": {
     "rewardsToAnnounce": "Ανταμοιβές προς ανακοίνωση"
   },
   "mutedRewardsHelp": {
-    "switchOffAnyRewardThat": "Απενεργοποιήστε όποια ανταμοιβή δεν πρέπει να ανακοινώνεται, όπως ένα soundboard που παίζει δικό του ήχο. Ό,τι παραμένει ενεργό ανακοινώνεται. Οι συντονιστές μπορούν να κάνουν το ίδιο από το chat με <code>!tts redeems mute &lt;reward&gt;</code>."
+    "everyRewardIsAnnouncedUnless": "Το bot ανακοινώνει κάθε ανταμοιβή. Απενεργοποιήστε μια ανταμοιβή εδώ για να παραμείνει σε σίγαση, για παράδειγμα ένα soundboard που αναπαράγει τον δικό του ήχο. Οι διαχειριστές μπορούν να χρησιμοποιήσουν το <code>!tts redeems mute &lt;reward&gt;</code> στη συνομιλία."
   },
-  "mutedRewardsRefresh": {
-    "refreshRewardList": "Ανανέωση λίστας ανταμοιβών"
+  "mutedRewardsModal": {
+    "searchRewards": "Αναζήτηση ανταμοιβών"
+  },
+  "mutedRewardsModalHelp": {
+    "switchOffAnyRewardThat": "Απενεργοποιήστε κάθε ανταμοιβή που δεν πρέπει να ανακοινώνει το bot. Ο πίνακας ελέγχου αποθηκεύει κάθε αλλαγή αμέσως."
+  },
+  "mutedRewardsOpen": {
+    "chooseRewards": "Επιλογή ανταμοιβών"
+  },
+  "mutedRewardsSearch": {
+    "searchRewards": "Αναζήτηση ανταμοιβών"
+  },
+  "mutedRewardsTitle": {
+    "rewardsToAnnounce": "Ανταμοιβές προς ανακοίνωση"
   },
   "obsCloseBtn": {
     "closeObsSetup": "Κλείσιμο ρύθμισης OBS"

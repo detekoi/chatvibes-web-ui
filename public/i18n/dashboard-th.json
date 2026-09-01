@@ -217,16 +217,17 @@
     },
     "mutedRewards": {
       "announceLabel": "ประกาศการแลก {title}",
-      "announced": "จะประกาศการแลก {title} อีกครั้ง",
+      "announced": "บ็อตจะประกาศการแลกรับ {title} อีกครั้ง",
       "badgeDisabled": "ปิดใช้งานบน Twitch",
-      "badgeMissing": "ไม่มีบน Twitch แล้ว",
+      "badgeMissing": "ไม่อยู่บน Twitch",
       "badgePaused": "หยุดชั่วคราวบน Twitch",
       "empty": "ช่องนี้ไม่มีรางวัล Channel Points แบบกำหนดเอง",
       "loadFailed": "ไม่สามารถโหลดรางวัล Channel Points ได้",
       "loading": "กำลังโหลดรางวัล Channel Points…",
-      "muted": "จะไม่ประกาศการแลก {title}",
-      "removeLabel": "เลิกปิดเสียง {title}",
-      "unavailable": "Twitch ไม่แสดงรายการรางวัลของช่องนี้ Channel Points ต้องมีสถานะ Affiliate หรือ Partner และแดชบอร์ดอาจต้องให้คุณลงชื่อเข้าใช้อีกครั้ง",
+      "muted": "บ็อตจะไม่ประกาศการแลกรับ {title}",
+      "noMatches": "ไม่พบรางวัลที่ตรงกับการค้นหา",
+      "noneMuted": "บ็อตประกาศทุกรางวัล",
+      "unavailable": "Twitch ไม่ได้ระบุรายการรางวัลสำหรับช่องนี้ Channel Points มีให้เฉพาะ Affiliate และ Partner เท่านั้น หากคุณมีคุณสมบัตินี้ โปรดลงชื่อเข้าใช้อีกครั้ง",
       "updateFailed": "ไม่สามารถอัปเดต {title} ได้: {reason}"
     },
     "obs": {
@@ -299,14 +300,29 @@
       "youtubeHandleRequired": "โปรดป้อนแฮนเดิล YouTube ก่อนเปิดใช้งาน YouTube TTS"
     }
   },
+  "mutedRewardsClose": {
+    "done": "เสร็จสิ้น"
+  },
   "mutedRewardsHeading": {
     "rewardsToAnnounce": "รางวัลที่จะประกาศ"
   },
   "mutedRewardsHelp": {
-    "switchOffAnyRewardThat": "ปิดรางวัลที่ไม่ควรประกาศ เช่น ซาวด์บอร์ดที่มีเสียงในตัวอยู่แล้ว ทุกรางวัลที่เปิดไว้จะได้รับการประกาศ ผู้ดูแลสามารถทำสิ่งนี้ได้จากแช็ตด้วยคำสั่ง <code>!tts redeems mute &lt;reward&gt;</code>"
+    "everyRewardIsAnnouncedUnless": "บ็อตจะประกาศทุกรางวัล ปิดการทำงานของรางวัลที่นี่เพื่อให้เงียบ เช่น ซาวด์บอร์ดที่มีเสียงของตัวเองอยู่แล้ว ผู้ดูแลสามารถใช้ <code>!tts redeems mute &lt;reward&gt;</code> ในแชทได้"
   },
-  "mutedRewardsRefresh": {
-    "refreshRewardList": "รีเฟรชรายการรางวัล"
+  "mutedRewardsModal": {
+    "searchRewards": "ค้นหารางวัล"
+  },
+  "mutedRewardsModalHelp": {
+    "switchOffAnyRewardThat": "ปิดแต่ละรางวัลที่ไม่ต้องการให้บ็อตประกาศ แดชบอร์ดจะบันทึกการเปลี่ยนแปลงทันที"
+  },
+  "mutedRewardsOpen": {
+    "chooseRewards": "เลือกรางวัล"
+  },
+  "mutedRewardsSearch": {
+    "searchRewards": "ค้นหารางวัล"
+  },
+  "mutedRewardsTitle": {
+    "rewardsToAnnounce": "รางวัลที่จะประกาศ"
   },
   "obsCloseBtn": {
     "closeObsSetup": "ปิดการตั้งค่า OBS"

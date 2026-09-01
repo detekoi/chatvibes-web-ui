@@ -217,16 +217,17 @@
     },
     "mutedRewards": {
       "announceLabel": "Oznamovať uplatnenie odmeny {title}",
-      "announced": "Uplatnenia odmeny {title} sa budú opäť oznamovať.",
+      "announced": "Bot bude znova ohlasovať uplatnenie odmeny {title}.",
       "badgeDisabled": "Vypnuté na Twitchi",
-      "badgeMissing": "Už nie je na Twitchi",
+      "badgeMissing": "Nie je na Twitchi",
       "badgePaused": "Pozastavené na Twitchi",
       "empty": "Tento kanál nemá žiadne vlastné odmeny za Channel Points.",
       "loadFailed": "Nepodarilo sa načítať odmeny za Channel Points.",
       "loading": "Načítavajú sa odmeny za Channel Points…",
-      "muted": "Uplatnenia odmeny {title} sa nebudú oznamovať.",
-      "removeLabel": "Zrušiť stlmenie odmeny {title}",
-      "unavailable": "Twitch neposkytol zoznam odmien tohto kanála. Channel Points vyžadujú status affiliate alebo partnera a v ovládacom paneli sa možno budeš musieť znova prihlásiť.",
+      "muted": "Bot nebude ohlasovať uplatnenie odmeny {title}.",
+      "noMatches": "Vyhľadávaniu nezodpovedajú žiadne odmeny.",
+      "noneMuted": "Bot ohlasuje každú odmenu.",
+      "unavailable": "Twitch neposkytol zoznam odmien pre tento kanál. Channel Points sú dostupné len pre affiliate a partnerov. Ak medzi nich patríš, prihlás sa znova.",
       "updateFailed": "Nepodarilo sa aktualizovať {title}: {reason}"
     },
     "obs": {
@@ -299,14 +300,29 @@
       "youtubeHandleRequired": "Pred zapnutím YouTube TTS zadajte YouTube handle."
     }
   },
+  "mutedRewardsClose": {
+    "done": "Hotovo"
+  },
   "mutedRewardsHeading": {
     "rewardsToAnnounce": "Odmeny na oznamovanie"
   },
   "mutedRewardsHelp": {
-    "switchOffAnyRewardThat": "Vypni každú odmenu, ktorá sa nemá oznamovať, napríklad soundboard prehrávajúci vlastný zvuk. Všetko ponechané zapnuté sa bude oznamovať. Moderátori môžu urobiť to isté z chatu pomocou <code>!tts redeems mute &lt;reward&gt;</code>."
+    "everyRewardIsAnnouncedUnless": "Bot ohlasuje každú odmenu. Tu vypni odmenu, ktorú chceš stíšiť – napríklad soundboard, ktorý prehráva vlastný zvuk. Moderátori môžu v chate použiť <code>!tts redeems mute &lt;reward&gt;</code>."
   },
-  "mutedRewardsRefresh": {
-    "refreshRewardList": "Obnoviť zoznam odmien"
+  "mutedRewardsModal": {
+    "searchRewards": "Hľadať odmeny"
+  },
+  "mutedRewardsModalHelp": {
+    "switchOffAnyRewardThat": "Vypni každú odmenu, ktorú bot nemá ohlasovať. Ovládací panel ukladá každú zmenu okamžite."
+  },
+  "mutedRewardsOpen": {
+    "chooseRewards": "Vybrať odmeny"
+  },
+  "mutedRewardsSearch": {
+    "searchRewards": "Hľadať odmeny"
+  },
+  "mutedRewardsTitle": {
+    "rewardsToAnnounce": "Odmeny na oznamovanie"
   },
   "obsCloseBtn": {
     "closeObsSetup": "Zavrieť nastavenie OBS"

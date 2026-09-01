@@ -217,16 +217,17 @@
     },
     "mutedRewards": {
       "announceLabel": "播報 {title} 嘅兌換",
-      "announced": "將會重新播報 {title} 嘅兌換。",
+      "announced": "Bot 會再次播報兌換 {title}。",
       "badgeDisabled": "喺 Twitch 上已停用",
-      "badgeMissing": "喺 Twitch 上已唔存在",
+      "badgeMissing": "唔喺 Twitch",
       "badgePaused": "喺 Twitch 上已暫停",
       "empty": "呢個頻道冇自訂嘅 Channel Points 獎勵。",
       "loadFailed": "無法載入 Channel Points 獎勵。",
       "loading": "載入緊 Channel Points 獎勵…",
-      "muted": "唔會播報 {title} 嘅兌換。",
-      "removeLabel": "取消靜音 {title}",
-      "unavailable": "Twitch 無法列出呢個頻道嘅獎勵。Channel Points 需要實況盟友或合作夥伴資格，而且控制台可能需要你重新登入。",
+      "muted": "Bot 唔會播報兌換 {title}。",
+      "noMatches": "搵唔到符合你搜尋嘅獎勵。",
+      "noneMuted": "Bot 會播報所有獎勵。",
+      "unavailable": "Twitch 冇提供呢個頻道嘅獎勵清單。Channel Points 淨係適用於實況盟友同合作夥伴。如果你係其中之一，請重新登入。",
       "updateFailed": "無法更新 {title}：{reason}"
     },
     "obs": {
@@ -299,14 +300,29 @@
       "youtubeHandleRequired": "開啟 YouTube TTS 前請先輸入 YouTube handle。"
     }
   },
+  "mutedRewardsClose": {
+    "done": "完成"
+  },
   "mutedRewardsHeading": {
     "rewardsToAnnounce": "要播報嘅獎勵"
   },
   "mutedRewardsHelp": {
-    "switchOffAnyRewardThat": "關閉任何唔應該播報嘅獎勵，例如本身會出聲嘅 soundboard。所有開住嘅獎勵都會播報。Mod 亦可以喺聊天室用 <code>!tts redeems mute &lt;reward&gt;</code> 達到相同效果。"
+    "everyRewardIsAnnouncedUnless": "Bot 會播報所有獎勵。喺度閂咗某個獎勵就可以令佢保持靜音，例如本身會播聲嘅 soundboard。管理員可以喺聊天室用 <code>!tts redeems mute &lt;reward&gt;</code>。"
   },
-  "mutedRewardsRefresh": {
-    "refreshRewardList": "重新整理獎勵清單"
+  "mutedRewardsModal": {
+    "searchRewards": "搜尋獎勵"
+  },
+  "mutedRewardsModalHelp": {
+    "switchOffAnyRewardThat": "閂咗唔想 Bot 播報嘅獎勵。主頁會即時儲存每個變更。"
+  },
+  "mutedRewardsOpen": {
+    "chooseRewards": "揀選獎勵"
+  },
+  "mutedRewardsSearch": {
+    "searchRewards": "搜尋獎勵"
+  },
+  "mutedRewardsTitle": {
+    "rewardsToAnnounce": "要播報嘅獎勵"
   },
   "obsCloseBtn": {
     "closeObsSetup": "關閉 OBS 設定"

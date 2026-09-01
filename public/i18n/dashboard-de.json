@@ -217,16 +217,17 @@
     },
     "mutedRewards": {
       "announceLabel": "Einlösungen von {title} ansagen",
-      "announced": "Einlösungen von {title} werden wieder angesagt.",
+      "announced": "Der Bot sagt Einlösungen von {title} wieder an.",
       "badgeDisabled": "Auf Twitch deaktiviert",
-      "badgeMissing": "Nicht mehr auf Twitch",
+      "badgeMissing": "Nicht auf Twitch",
       "badgePaused": "Auf Twitch pausiert",
       "empty": "Dieser Kanal hat keine benutzerdefinierten Kanalpunkte-Belohnungen.",
       "loadFailed": "Kanalpunkte-Belohnungen können nicht geladen werden.",
       "loading": "Kanalpunkte-Belohnungen werden geladen…",
-      "muted": "Einlösungen von {title} werden nicht angesagt.",
-      "removeLabel": "Stummschaltung für {title} aufheben",
-      "unavailable": "Twitch konnte die Belohnungen dieses Kanals nicht auflisten. Kanalpunkte erfordern den Affiliate- oder Partnerstatus, und du musst dich eventuell erneut im Dashboard anmelden.",
+      "muted": "Der Bot sagt Einlösungen von {title} nicht an.",
+      "noMatches": "Keine Belohnungen entsprechen deiner Suche.",
+      "noneMuted": "Der Bot sagt jede Belohnung an.",
+      "unavailable": "Twitch hat die Liste der Belohnungen für diesen Kanal nicht bereitgestellt. Channel Points sind nur für Affiliates und Partner verfügbar. Wenn du Affiliate oder Partner bist, melde dich erneut an.",
       "updateFailed": "{title} kann nicht aktualisiert werden: {reason}"
     },
     "obs": {
@@ -299,14 +300,29 @@
       "youtubeHandleRequired": "Gib ein YouTube-Handle ein, bevor du YouTube-TTS aktivierst."
     }
   },
+  "mutedRewardsClose": {
+    "done": "Fertig"
+  },
   "mutedRewardsHeading": {
     "rewardsToAnnounce": "Anzusagende Belohnungen"
   },
   "mutedRewardsHelp": {
-    "switchOffAnyRewardThat": "Schalte alle Belohnungen aus, die nicht angesagt werden sollen, z. B. ein Soundboard mit eigenem Sound. Alles, was aktiviert bleibt, wird angesagt. Moderatoren können dies auch im Chat mit <code>!tts redeems mute &lt;reward&gt;</code> tun."
+    "everyRewardIsAnnouncedUnless": "Der Bot sagt jede Belohnung an. Schalte hier Belohnungen stumm, die keinen Ton erzeugen sollen, z. B. ein Soundboard mit eigenem Sound. Moderatoren können im Chat <code>!tts redeems mute &lt;reward&gt;</code> verwenden."
   },
-  "mutedRewardsRefresh": {
-    "refreshRewardList": "Belohnungsliste aktualisieren"
+  "mutedRewardsModal": {
+    "searchRewards": "Belohnungen suchen"
+  },
+  "mutedRewardsModalHelp": {
+    "switchOffAnyRewardThat": "Schalte jede Belohnung aus, die der Bot nicht ansagen soll. Das Dashboard speichert Änderungen sofort."
+  },
+  "mutedRewardsOpen": {
+    "chooseRewards": "Belohnungen auswählen"
+  },
+  "mutedRewardsSearch": {
+    "searchRewards": "Belohnungen suchen"
+  },
+  "mutedRewardsTitle": {
+    "rewardsToAnnounce": "Anzusagende Belohnungen"
   },
   "obsCloseBtn": {
     "closeObsSetup": "OBS-Einrichtung schließen"

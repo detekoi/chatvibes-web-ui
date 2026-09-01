@@ -56,7 +56,7 @@
     "reward_unmute_failed": "Тази награда не може да бъде отглушена.",
     "reward_validation_failed": "Това съобщение не е разрешено.",
     "rewards_list_failed": "Наградите за Channel Points не могат да бъдат заредени.",
-    "rewards_unavailable": "Twitch не успя да зареди наградите за този канал.",
+    "rewards_unavailable": "Twitch не предостави списъка с награди за този канал.",
     "say_contains_link": "Произношението не може да съдържа връзка.",
     "say_empty": "Произношението не може да е празно.",
     "say_must_be_text": "Произношението трябва да е текст.",

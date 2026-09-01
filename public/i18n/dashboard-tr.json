@@ -217,16 +217,17 @@
     },
     "mutedRewards": {
       "announceLabel": "{title} kullanımlarını duyur",
-      "announced": "{title} kullanımları tekrar duyurulacak.",
+      "announced": "Bot, {title} ödülü kullanımlarını tekrar duyuracak.",
       "badgeDisabled": "Twitch'te devre dışı",
-      "badgeMissing": "Artık Twitch'te yok",
+      "badgeMissing": "Twitch'te yok",
       "badgePaused": "Twitch'te duraklatıldı",
       "empty": "Bu kanalda özel Channel Points ödülü yok.",
       "loadFailed": "Channel Points ödülleri yüklenemiyor.",
       "loading": "Channel Points ödülleri yükleniyor…",
-      "muted": "{title} kullanımları duyurulmayacak.",
-      "removeLabel": "{title} susturmasını kaldır",
-      "unavailable": "Twitch bu kanalın ödüllerini listelemedi. Channel Points için İştirak veya Partner durumu gerekir ve panelde yeniden oturum açman gerekebilir.",
+      "muted": "Bot, {title} ödülü kullanımlarını duyurmayacak.",
+      "noMatches": "Aramanızla eşleşen ödül bulunamadı.",
+      "noneMuted": "Bot tüm ödülleri duyurur.",
+      "unavailable": "Twitch bu kanal için ödül listesini vermedi. Channel Points yalnızca İştirakler ve Partnerler için geçerlidir. Biriyseniz tekrar giriş yapın.",
       "updateFailed": "{title} güncellenemiyor: {reason}"
     },
     "obs": {
@@ -299,14 +300,29 @@
       "youtubeHandleRequired": "YouTube TTS'yi açmadan önce bir YouTube kullanıcı adı girin."
     }
   },
+  "mutedRewardsClose": {
+    "done": "Bitti"
+  },
   "mutedRewardsHeading": {
     "rewardsToAnnounce": "Duyurulacak Ödüller"
   },
   "mutedRewardsHelp": {
-    "switchOffAnyRewardThat": "Kendi sesini çalan bir ses panosu gibi duyurulmaması gereken ödülleri kapat. Açık bırakılan her şey duyurulur. Moderatörler aynısını sohbetten <code>!tts redeems mute &lt;reward&gt;</code> komutuyla yapabilir."
+    "everyRewardIsAnnouncedUnless": "Bot tüm ödülleri duyurur. Kendi sesini çalan bir soundboard gibi sessiz kalmasını istediğiniz ödülleri buradan kapatın. Moderatörler sohbette <code>!tts redeems mute &lt;reward&gt;</code> komutunu kullanabilir."
   },
-  "mutedRewardsRefresh": {
-    "refreshRewardList": "Ödül listesini yenile"
+  "mutedRewardsModal": {
+    "searchRewards": "Ödülleri ara"
+  },
+  "mutedRewardsModalHelp": {
+    "switchOffAnyRewardThat": "Botun duyurmasını istemediğiniz ödülleri kapatın. Panel her değişikliği anında kaydeder."
+  },
+  "mutedRewardsOpen": {
+    "chooseRewards": "Ödülleri seç"
+  },
+  "mutedRewardsSearch": {
+    "searchRewards": "Ödülleri ara"
+  },
+  "mutedRewardsTitle": {
+    "rewardsToAnnounce": "Duyurulacak ödüller"
   },
   "obsCloseBtn": {
     "closeObsSetup": "OBS kurulumunu kapat"
