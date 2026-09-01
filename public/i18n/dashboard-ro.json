@@ -215,6 +215,20 @@
       "searching": "Se caută…",
       "voiceUnknown": "Această voce nu se află în lista de voci disponibile."
     },
+    "mutedRewards": {
+      "announceLabel": "Anunță revendicările pentru {title}",
+      "announced": "Revendicările pentru {title} vor fi anunțate din nou.",
+      "badgeDisabled": "Dezactivat pe Twitch",
+      "badgeMissing": "Nu mai există pe Twitch",
+      "badgePaused": "Pus pe pauză pe Twitch",
+      "empty": "Acest canal nu are recompense personalizate cu Channel Points.",
+      "loadFailed": "Nu se pot încărca recompensele Channel Points.",
+      "loading": "Se încarcă recompensele Channel Points…",
+      "muted": "Revendicările pentru {title} nu vor fi anunțate.",
+      "removeLabel": "Oprește silențierea pentru {title}",
+      "unavailable": "Twitch nu a putut afișa recompensele acestui canal. Pentru Channel Points este necesar statutul de afiliat sau partener, iar tabloul de bord ar putea necesita reconectarea ta.",
+      "updateFailed": "Nu se poate actualiza {title}: {reason}"
+    },
     "obs": {
       "cannotCopy": "Nu se poate copia URL-ul.",
       "cannotDetermine": "Nu se poate determina URL-ul TTS.",
@@ -284,6 +298,15 @@
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Introdu un handle YouTube înainte de a activa YouTube TTS."
     }
+  },
+  "mutedRewardsHeading": {
+    "rewardsToAnnounce": "Recompense de anunțat"
+  },
+  "mutedRewardsHelp": {
+    "switchOffAnyRewardThat": "Dezactivează orice recompensă care nu ar trebui anunțată, cum ar fi un soundboard care își redă propriul sunet. Tot ce rămâne activat va fi anunțat. Moderatorii pot face același lucru din chat cu <code>!tts redeems mute &lt;reward&gt;</code>."
+  },
+  "mutedRewardsRefresh": {
+    "refreshRewardList": "Reîmprospătează lista de recompense"
   },
   "obsCloseBtn": {
     "closeObsSetup": "Închide configurarea OBS"

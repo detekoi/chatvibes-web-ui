@@ -215,6 +215,20 @@
       "searching": "Haetaan…",
       "voiceUnknown": "Tämä ääni ei ole saatavilla olevien äänten luettelossa."
     },
+    "mutedRewards": {
+      "announceLabel": "Ilmoita kohteen {title} lunastukset",
+      "announced": "Kohteen {title} lunastukset ilmoitetaan taas.",
+      "badgeDisabled": "Poistettu käytöstä Twitchissä",
+      "badgeMissing": "Ei enää Twitchissä",
+      "badgePaused": "Keskeytetty Twitchissä",
+      "empty": "Tällä kanavalla ei ole mukautettuja kanavapistepalkintoja.",
+      "loadFailed": "Kanavapistepalkintoja ei voi ladata.",
+      "loading": "Ladataan kanavapistepalkintoja…",
+      "muted": "Kohteen {title} lunastuksia ei ilmoiteta.",
+      "removeLabel": "Poista kohteen {title} vaimennus",
+      "unavailable": "Twitch ei voinut listata tämän kanavan palkintoja. Kanavapisteet vaativat Affiliate- tai Partner-tilan, ja hallintapaneeli saattaa vaatia uutta sisäänkirjautumista.",
+      "updateFailed": "Kohdetta {title} ei voi päivittää: {reason}"
+    },
     "obs": {
       "cannotCopy": "URL-osoitetta ei voi kopioida.",
       "cannotDetermine": "TTS-URL-osoitetta ei voi määrittää.",
@@ -284,6 +298,15 @@
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Anna YouTube-tunnus ennen kuin otat YouTube TTS -toiminnon käyttöön."
     }
+  },
+  "mutedRewardsHeading": {
+    "rewardsToAnnounce": "Ilmoitettavat palkinnot"
+  },
+  "mutedRewardsHelp": {
+    "switchOffAnyRewardThat": "Kytke pois päältä palkinnot, joita ei pitäisi ilmoittaa, kuten äänipöytä, jolla on oma ääni. Kaikki päälle jätetyt ilmoitetaan. Moderaattorit voivat tehdä saman chatissa komennolla <code>!tts redeems mute &lt;reward&gt;</code>."
+  },
+  "mutedRewardsRefresh": {
+    "refreshRewardList": "Päivitä palkintolista"
   },
   "obsCloseBtn": {
     "closeObsSetup": "Sulje OBS-määritys"

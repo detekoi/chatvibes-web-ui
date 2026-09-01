@@ -215,6 +215,20 @@
       "searching": "Ricerca in corso…",
       "voiceUnknown": "Questa voce non è nell'elenco delle voci disponibili."
     },
+    "mutedRewards": {
+      "announceLabel": "Annuncia riscatti di {title}",
+      "announced": "I riscatti di {title} verranno annunciati di nuovo.",
+      "badgeDisabled": "Disattivato su Twitch",
+      "badgeMissing": "Non più su Twitch",
+      "badgePaused": "In pausa su Twitch",
+      "empty": "Questo canale non ha ricompense personalizzate dei Channel Points.",
+      "loadFailed": "Impossibile caricare le ricompense dei Channel Points.",
+      "loading": "Caricamento ricompense dei Channel Points…",
+      "muted": "I riscatti di {title} non verranno annunciati.",
+      "removeLabel": "Smetti di silenziare {title}",
+      "unavailable": "Twitch non ha mostrato le ricompense di questo canale. I Channel Points richiedono lo stato di affiliato o partner e potrebbe essere necessario accedere nuovamente alla dashboard.",
+      "updateFailed": "Impossibile aggiornare {title}: {reason}"
+    },
     "obs": {
       "cannotCopy": "Impossibile copiare l'URL.",
       "cannotDetermine": "Impossibile determinare l'URL del TTS.",
@@ -284,6 +298,15 @@
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Inserisci un handle di YouTube prima di attivare il TTS di YouTube."
     }
+  },
+  "mutedRewardsHeading": {
+    "rewardsToAnnounce": "Ricompense da annunciare"
+  },
+  "mutedRewardsHelp": {
+    "switchOffAnyRewardThat": "Disattiva le ricompense che non devono essere annunciate, come una soundboard che riproduce già il proprio suono. Tutto ciò che resta attivo verrà annunciato. I moderatori possono fare lo stesso dalla chat con <code>!tts redeems mute &lt;reward&gt;</code>."
+  },
+  "mutedRewardsRefresh": {
+    "refreshRewardList": "Aggiorna elenco ricompense"
   },
   "obsCloseBtn": {
     "closeObsSetup": "Chiudi configurazione OBS"

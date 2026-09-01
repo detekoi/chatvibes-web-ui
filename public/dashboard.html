@@ -240,6 +240,22 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="list-group-item" id="muted-rewards-item">
+                                    <div class="row">
+                                        <div class="col">
+                                            <strong data-i18n="mutedRewardsHeading.rewardsToAnnounce" class="mb-0" id="muted-rewards-heading">Rewards to Announce</strong>
+                                            <p data-i18n="mutedRewardsHelp.switchOffAnyRewardThat" class="text-muted mb-2" id="muted-rewards-help">Switch off any reward that should
+                                                not be announced, such as a soundboard that plays its own sound. Everything
+                                                left on is announced. Moderators can do the same from chat with
+                                                <code>!tts redeems mute &lt;reward&gt;</code>.</p>
+                                            <p id="muted-rewards-status" class="small text-muted mb-2" aria-live="polite"></p>
+                                            <ul id="muted-rewards-list" class="list-group" aria-labelledby="muted-rewards-heading"
+                                                aria-describedby="muted-rewards-help"></ul>
+                                            <button data-i18n="mutedRewardsRefresh.refreshRewardList" type="button" id="muted-rewards-refresh" class="btn btn-link btn-sm px-0 mt-1">Refresh
+                                                reward list</button>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="list-group-item">
                                     <div class="row align-items-center">
                                         <div class="col">

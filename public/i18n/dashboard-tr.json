@@ -215,6 +215,20 @@
       "searching": "Aranıyor…",
       "voiceUnknown": "Bu ses kullanılabilir sesler listesinde bulunmuyor."
     },
+    "mutedRewards": {
+      "announceLabel": "{title} kullanımlarını duyur",
+      "announced": "{title} kullanımları tekrar duyurulacak.",
+      "badgeDisabled": "Twitch'te devre dışı",
+      "badgeMissing": "Artık Twitch'te yok",
+      "badgePaused": "Twitch'te duraklatıldı",
+      "empty": "Bu kanalda özel Channel Points ödülü yok.",
+      "loadFailed": "Channel Points ödülleri yüklenemiyor.",
+      "loading": "Channel Points ödülleri yükleniyor…",
+      "muted": "{title} kullanımları duyurulmayacak.",
+      "removeLabel": "{title} susturmasını kaldır",
+      "unavailable": "Twitch bu kanalın ödüllerini listelemedi. Channel Points için İştirak veya Partner durumu gerekir ve panelde yeniden oturum açman gerekebilir.",
+      "updateFailed": "{title} güncellenemiyor: {reason}"
+    },
     "obs": {
       "cannotCopy": "URL kopyalanamıyor.",
       "cannotDetermine": "TTS URL'si belirlenemiyor.",
@@ -284,6 +298,15 @@
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "YouTube TTS'yi açmadan önce bir YouTube kullanıcı adı girin."
     }
+  },
+  "mutedRewardsHeading": {
+    "rewardsToAnnounce": "Duyurulacak Ödüller"
+  },
+  "mutedRewardsHelp": {
+    "switchOffAnyRewardThat": "Kendi sesini çalan bir ses panosu gibi duyurulmaması gereken ödülleri kapat. Açık bırakılan her şey duyurulur. Moderatörler aynısını sohbetten <code>!tts redeems mute &lt;reward&gt;</code> komutuyla yapabilir."
+  },
+  "mutedRewardsRefresh": {
+    "refreshRewardList": "Ödül listesini yenile"
   },
   "obsCloseBtn": {
     "closeObsSetup": "OBS kurulumunu kapat"

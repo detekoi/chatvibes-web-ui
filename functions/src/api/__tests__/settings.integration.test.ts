@@ -698,4 +698,92 @@ describe('Settings API Integration Tests (Mocked Firestore)', () => {
         .expect(500);
     });
   });
+  describe('POST /api/tts/muted-rewards/channel/:channelName', () => {
+    it('should return 401 without authentication', async () => {
+      await request(app)
+        .post(`/api/tts/muted-rewards/channel/${channelName}`)
+        .send({ rewardId: 'abc-123', title: 'Air Horn' })
+        .expect(401);
+    });
+
+    it('should reject a missing or malformed reward ID and a missing title', async () => {
+      await request(app)
+        .post(`/api/tts/muted-rewards/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ title: 'Air Horn' })
+        .expect(400);
+      await request(app)
+        .post(`/api/tts/muted-rewards/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ rewardId: 'not a uuid!', title: 'Air Horn' })
+        .expect(400);
+      await request(app)
+        .post(`/api/tts/muted-rewards/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ rewardId: 'abc-123', title: '   ' })
+        .expect(400);
+      expect((db as any).set).not.toHaveBeenCalled();
+    });
+
+    it('should write the full entry as a nested map keyed by reward ID', async () => {
+      ((db as any).set as any).mockResolvedValueOnce({} as any);
+
+      const response = await request(app)
+        .post(`/api/tts/muted-rewards/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ rewardId: '92af127c-7326-4483-a52b-b0da0be61c01', title: ' Air Horn ' })
+        .expect(200);
+
+      expect(response.body).toEqual({
+        success: true,
+        message: 'Reward muted',
+        entry: { rewardId: '92af127c-7326-4483-a52b-b0da0be61c01', title: 'Air Horn' },
+      });
+      expect(db.doc).toHaveBeenCalledWith(testUser.userId);
+      // A nested map, not a dotted key, and every field present so merge:true
+      // cannot inherit a stale one.
+      const [payload, options] = ((db as any).set as any).mock.calls[0];
+      expect(options).toEqual({ merge: true });
+      const entry = payload.mutedRewardIds['92af127c-7326-4483-a52b-b0da0be61c01'];
+      expect(Object.keys(entry).sort()).toEqual(['at', 'by', 'title']);
+      expect(entry.title).toBe('Air Horn');
+      expect(entry.by).toBe(`twitch:${testUser.userId}`);
+      expect(Date.parse(entry.at)).not.toBeNaN();
+    });
+  });
+
+  describe('DELETE /api/tts/muted-rewards/channel/:channelName', () => {
+    it('should return 400 without a reward ID', async () => {
+      await request(app)
+        .delete(`/api/tts/muted-rewards/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({})
+        .expect(400);
+    });
+
+    it('should delete the one key through a FieldPath', async () => {
+      ((db as any).update as any).mockResolvedValueOnce({} as any);
+
+      await request(app)
+        .delete(`/api/tts/muted-rewards/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ rewardId: '92af127c-7326-4483-a52b-b0da0be61c01' })
+        .expect(200);
+
+      const [fieldPath, value] = ((db as any).update as any).mock.calls[0];
+      expect(fieldPath.segments).toEqual(['mutedRewardIds', '92af127c-7326-4483-a52b-b0da0be61c01']);
+      expect(value).toEqual({ type: 'delete' });
+      expect(FieldValue.delete).toHaveBeenCalled();
+    });
+
+    it('should treat an entry that is already gone as success', async () => {
+      ((db as any).update as any).mockRejectedValueOnce(Object.assign(new Error('not found'), { code: 5 }));
+
+      await request(app)
+        .delete(`/api/tts/muted-rewards/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ rewardId: '92af127c-7326-4483-a52b-b0da0be61c01' })
+        .expect(200);
+    });
+  });
 });

@@ -215,6 +215,20 @@
       "searching": "Търсене…",
       "voiceUnknown": "Този глас не е в списъка с налични гласове."
     },
+    "mutedRewards": {
+      "announceLabel": "Обявяване на активирането на {title}",
+      "announced": "Активиранията на {title} ще се обявяват отново.",
+      "badgeDisabled": "Деактивирано в Twitch",
+      "badgeMissing": "Вече не е в Twitch",
+      "badgePaused": "На пауза в Twitch",
+      "empty": "Този канал няма персонализирани награди с Channel Points.",
+      "loadFailed": "Наградите с Channel Points не можаха да се заредят.",
+      "loading": "Зареждане на наградите с Channel Points…",
+      "muted": "Активиранията на {title} няма да се обявяват.",
+      "removeLabel": "Спиране на заглушаването на {title}",
+      "unavailable": "Twitch не можа да зареди списъка с награди за този канал. За Channel Points е необходим статус на Affiliate или Partner, а може да се наложи и отново да влезеш в таблото за управление.",
+      "updateFailed": "Неуспешно обновяване на {title}: {reason}"
+    },
     "obs": {
       "cannotCopy": "URL адресът не може да се копира.",
       "cannotDetermine": "Не може да се определи TTS URL.",
@@ -284,6 +298,15 @@
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Въведи YouTube потребителско име, преди да включиш YouTube TTS."
     }
+  },
+  "mutedRewardsHeading": {
+    "rewardsToAnnounce": "Награди за обявяване"
+  },
+  "mutedRewardsHelp": {
+    "switchOffAnyRewardThat": "Изключи всяка награда, която не трябва да се обявява, например soundboard със собствен звук. Всичко оставено включено ще се обявява. Модераторите могат да правят същото от чата с <code>!tts redeems mute &lt;reward&gt;</code>."
+  },
+  "mutedRewardsRefresh": {
+    "refreshRewardList": "Опресняване на списъка с награди"
   },
   "obsCloseBtn": {
     "closeObsSetup": "Затваряне на настройката на OBS"

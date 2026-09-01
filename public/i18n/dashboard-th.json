@@ -215,6 +215,20 @@
       "searching": "กำลังค้นหา…",
       "voiceUnknown": "ไม่มีเสียงนี้ในรายการเสียงที่ใช้ได้"
     },
+    "mutedRewards": {
+      "announceLabel": "ประกาศการแลก {title}",
+      "announced": "จะประกาศการแลก {title} อีกครั้ง",
+      "badgeDisabled": "ปิดใช้งานบน Twitch",
+      "badgeMissing": "ไม่มีบน Twitch แล้ว",
+      "badgePaused": "หยุดชั่วคราวบน Twitch",
+      "empty": "ช่องนี้ไม่มีรางวัล Channel Points แบบกำหนดเอง",
+      "loadFailed": "ไม่สามารถโหลดรางวัล Channel Points ได้",
+      "loading": "กำลังโหลดรางวัล Channel Points…",
+      "muted": "จะไม่ประกาศการแลก {title}",
+      "removeLabel": "เลิกปิดเสียง {title}",
+      "unavailable": "Twitch ไม่แสดงรายการรางวัลของช่องนี้ Channel Points ต้องมีสถานะ Affiliate หรือ Partner และแดชบอร์ดอาจต้องให้คุณลงชื่อเข้าใช้อีกครั้ง",
+      "updateFailed": "ไม่สามารถอัปเดต {title} ได้: {reason}"
+    },
     "obs": {
       "cannotCopy": "ไม่สามารถคัดลอก URL ได้",
       "cannotDetermine": "ไม่สามารถระบุ TTS URL ได้",
@@ -284,6 +298,15 @@
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "โปรดป้อนแฮนเดิล YouTube ก่อนเปิดใช้งาน YouTube TTS"
     }
+  },
+  "mutedRewardsHeading": {
+    "rewardsToAnnounce": "รางวัลที่จะประกาศ"
+  },
+  "mutedRewardsHelp": {
+    "switchOffAnyRewardThat": "ปิดรางวัลที่ไม่ควรประกาศ เช่น ซาวด์บอร์ดที่มีเสียงในตัวอยู่แล้ว ทุกรางวัลที่เปิดไว้จะได้รับการประกาศ ผู้ดูแลสามารถทำสิ่งนี้ได้จากแช็ตด้วยคำสั่ง <code>!tts redeems mute &lt;reward&gt;</code>"
+  },
+  "mutedRewardsRefresh": {
+    "refreshRewardList": "รีเฟรชรายการรางวัล"
   },
   "obsCloseBtn": {
     "closeObsSetup": "ปิดการตั้งค่า OBS"

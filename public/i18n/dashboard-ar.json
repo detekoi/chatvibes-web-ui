@@ -215,6 +215,20 @@
       "searching": "جارٍ البحث…",
       "voiceUnknown": "هذا الصوت غير موجود في قائمة الأصوات المتاحة."
     },
+    "mutedRewards": {
+      "announceLabel": "الإعلان عن عمليات استرداد {title}",
+      "announced": "سيتم الإعلان عن عمليات استرداد {title} مجددًا.",
+      "badgeDisabled": "معطل على Twitch",
+      "badgeMissing": "لم يعد موجودًا على Twitch",
+      "badgePaused": "متوقف مؤقتًا على Twitch",
+      "empty": "لا تحتوي هذه القناة على مكافآت Channel Points مخصصة.",
+      "loadFailed": "تعذر تحميل مكافآت Channel Points.",
+      "loading": "جارٍ تحميل مكافآت Channel Points…",
+      "muted": "لن يتم الإعلان عن عمليات استرداد {title}.",
+      "removeLabel": "إلغاء كتم {title}",
+      "unavailable": "لم يتمكن Twitch من سرد مكافآت هذه القناة. تتطلب Channel Points صفة شريك منتسب (Affiliate) أو شريك (Partner)، وقد تتطلب منك لوحة التحكم تسجيل الدخول مجددًا.",
+      "updateFailed": "تعذر تحديث {title}: {reason}"
+    },
     "obs": {
       "cannotCopy": "تعذر نسخ URL.",
       "cannotDetermine": "تعذر تحديد عنوان URL لـ TTS.",
@@ -284,6 +298,15 @@
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "أدخل مقبض YouTube قبل تفعيل YouTube TTS."
     }
+  },
+  "mutedRewardsHeading": {
+    "rewardsToAnnounce": "المكافآت التي سيتم الإعلان عنها"
+  },
+  "mutedRewardsHelp": {
+    "switchOffAnyRewardThat": "عطّل أي مكافأة لا ترغب في الإعلان عنها، مثل لوحة الصوت التي تشغل صوتها الخاص. سيتم الإعلان عن كل ما تتركه مفعلاً. يمكن للمشرفين فعل الشيء نفسه من الدردشة باستخدام <code>!tts redeems mute &lt;reward&gt;</code>."
+  },
+  "mutedRewardsRefresh": {
+    "refreshRewardList": "تحديث قائمة المكافآت"
   },
   "obsCloseBtn": {
     "closeObsSetup": "إغلاق إعداد OBS"

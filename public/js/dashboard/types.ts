@@ -3,6 +3,7 @@
  */
 
 import type { StoredIgnoreValue } from '../common/ignoreEntries.js';
+import type { StoredMutedRewardValue } from './muted-rewards.js';
 
 /**
  * User information stored in session
@@ -61,6 +62,13 @@ export interface TtsSettings {
    * reads as moderator-imposed; see common/ignoreEntries.ts.
    */
   ignoredUserIds?: Record<string, StoredIgnoreValue>;
+  /**
+   * Channel point rewards whose redemptions are not announced, keyed by Twitch
+   * reward ID. The title is display only. See muted-rewards.ts.
+   */
+  mutedRewardIds?: Record<string, StoredMutedRewardValue>;
+  /** The TTS reward the dashboard manages; it is never in the announcement list. */
+  channelPoints?: { rewardId?: string | null; enabled?: boolean };
   bannedWords?: string[];
   voiceVolumes?: Record<string, number>;
   youtubeEnabled?: boolean;

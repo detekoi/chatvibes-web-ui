@@ -215,6 +215,20 @@
       "searching": "Zoeken…",
       "voiceUnknown": "Deze stem staat niet in de lijst met beschikbare stemmen."
     },
+    "mutedRewards": {
+      "announceLabel": "Inwisselingen van {title} aankondigen",
+      "announced": "Inwisselingen van {title} worden weer aangekondigd.",
+      "badgeDisabled": "Uitgeschakeld op Twitch",
+      "badgeMissing": "Niet meer op Twitch",
+      "badgePaused": "Gepauzeerd op Twitch",
+      "empty": "Dit kanaal heeft geen aangepaste Channel Points-beloningen.",
+      "loadFailed": "Kan de Channel Points-beloningen niet laden.",
+      "loading": "Channel Points-beloningen laden…",
+      "muted": "Inwisselingen van {title} worden niet aangekondigd.",
+      "removeLabel": "Dempen van {title} opheffen",
+      "unavailable": "Twitch kon de beloningen van dit kanaal niet ophalen. Channel Points vereisen de affiliate- of partnerstatus, en mogelijk moet je opnieuw inloggen op het dashboard.",
+      "updateFailed": "Kan {title} niet bijwerken: {reason}"
+    },
     "obs": {
       "cannotCopy": "Kan URL niet kopiëren.",
       "cannotDetermine": "Kan TTS-URL niet bepalen.",
@@ -284,6 +298,15 @@
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Voer een YouTube-handle in voordat je YouTube-TTS inschakelt."
     }
+  },
+  "mutedRewardsHeading": {
+    "rewardsToAnnounce": "Aan te kondigen beloningen"
+  },
+  "mutedRewardsHelp": {
+    "switchOffAnyRewardThat": "Schakel beloningen uit die niet moeten worden aangekondigd, zoals een soundboard dat zelf al geluid afspeelt. Alles wat aan blijft staan, wordt aangekondigd. Moderators kunnen hetzelfde doen vanuit de chat met <code>!tts redeems mute &lt;reward&gt;</code>."
+  },
+  "mutedRewardsRefresh": {
+    "refreshRewardList": "Beloningenlijst vernieuwen"
   },
   "obsCloseBtn": {
     "closeObsSetup": "OBS-configuratie sluiten"

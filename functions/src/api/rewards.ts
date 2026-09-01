@@ -281,6 +281,61 @@ async function ensureTtsChannelPointReward(channelLogin: string, twitchUserId: s
 }
 
 
+interface TwitchCustomReward {
+  id: string;
+  title: string;
+  prompt?: string;
+  cost: number;
+  is_enabled?: boolean;
+  is_paused?: boolean;
+  image?: { url_1x?: string } | null;
+  default_image?: { url_1x?: string } | null;
+}
+
+// GET /api/rewards/all - every custom reward on the channel
+//
+// Feeds the dashboard's per-reward announcement toggles. Only custom rewards
+// are listed: Twitch's built-in ones ("Highlight My Message" and so on) are not
+// custom rewards, and the bot receives no redemption event for them either, so
+// there is nothing to mute.
+router.get("/all", authenticateApiRequest, async (req: Request, res: Response): Promise<void> => {
+  assertAuthenticated(req);
+  const log = logger.child({ endpoint: "GET /api/rewards/all", channelLogin: req.user.userLogin });
+
+  try {
+    const accessToken = await getValidTwitchTokenForUser(req.user.userId, secrets);
+    const helix = axios.create({
+      baseURL: "https://api.twitch.tv/helix",
+      headers: { "Client-ID": secrets.TWITCH_CLIENT_ID, "Authorization": `Bearer ${accessToken}` },
+      timeout: 10000,
+    });
+    const resp = await helix.get<{ data: TwitchCustomReward[] }>(
+      `/channel_points/custom_rewards?broadcaster_id=${encodeURIComponent(req.user.userId)}`
+    );
+    const rewards = (Array.isArray(resp.data?.data) ? resp.data.data : []).map((r) => ({
+      id: r.id,
+      title: r.title,
+      prompt: r.prompt || "",
+      cost: r.cost,
+      isEnabled: r.is_enabled !== false,
+      isPaused: r.is_paused === true,
+      imageUrl: r.image?.url_1x || r.default_image?.url_1x || null,
+    }));
+    res.json({ success: true, rewards });
+  } catch (e) {
+    const err = e as { response?: { status?: number; data?: unknown }; message?: string };
+    const status = err.response?.status;
+    log.warn({ status, error: err.message, responseData: redactSensitive(err.response?.data) }, "Listing custom rewards failed");
+    // 403 is what Twitch returns for a channel without channel points (not an
+    // affiliate or partner); 401 means the stored token no longer works.
+    if (status === 401 || status === 403) {
+      apiError(res, 403, "rewards_unavailable", "Twitch would not list this channel's rewards");
+      return;
+    }
+    apiError(res, 502, "rewards_list_failed", "Failed to list channel point rewards");
+  }
+});
+
 // GET current TTS reward config and Twitch status
 router.get("/tts", authenticateApiRequest, async (req: Request, res: Response): Promise<void> => {
   assertAuthenticated(req);

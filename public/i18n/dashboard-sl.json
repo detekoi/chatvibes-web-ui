@@ -215,6 +215,20 @@
       "searching": "Iskanje…",
       "voiceUnknown": "Ta glas ni na seznamu razpoložljivih glasov."
     },
+    "mutedRewards": {
+      "announceLabel": "Oznani unovčitve za {title}",
+      "announced": "Unovčitve za {title} bodo znova oznanjene.",
+      "badgeDisabled": "Onemogočeno na Twitchu",
+      "badgeMissing": "Ni več na Twitchu",
+      "badgePaused": "Zaustavljeno na Twitchu",
+      "empty": "Ta kanal nima nagrad Channel Points po meri.",
+      "loadFailed": "Nagrad Channel Points ni mogoče naložiti.",
+      "loading": "Nalaganje nagrad Channel Points…",
+      "muted": "Unovčitve za {title} ne bodo oznanjene.",
+      "removeLabel": "Prekliči utišanje za {title}",
+      "unavailable": "Twitch ni navedel nagrad tega kanala. Za Channel Points je potreben status Affiliate ali Partner, nadzorna plošča pa morda zahteva vašo ponovno prijavo.",
+      "updateFailed": "{title} ni mogoče posodobiti: {reason}"
+    },
     "obs": {
       "cannotCopy": "URL-ja ni mogoče kopirati.",
       "cannotDetermine": "URL-ja za TTS ni mogoče določiti.",
@@ -284,6 +298,15 @@
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Preden vklopiš YouTube TTS, vnesi ročaj YouTube."
     }
+  },
+  "mutedRewardsHeading": {
+    "rewardsToAnnounce": "Nagrade za oznanitev"
+  },
+  "mutedRewardsHelp": {
+    "switchOffAnyRewardThat": "Izklopite nagrade, ki naj se ne oznanijo, na primer zvočno ploščo, ki predvaja svoj zvok. Vse, kar ostane vklopljeno, bo oznanjeno. Moderatorji lahko to storijo tudi v klepetu z <code>!tts redeems mute &lt;reward&gt;</code>."
+  },
+  "mutedRewardsRefresh": {
+    "refreshRewardList": "Osveži seznam nagrad"
   },
   "obsCloseBtn": {
     "closeObsSetup": "Zapri nastavitev OBS"

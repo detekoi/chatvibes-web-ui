@@ -215,6 +215,20 @@
       "searching": "Wird gesucht…",
       "voiceUnknown": "Diese Stimme ist nicht in der Liste verfügbarer Stimmen."
     },
+    "mutedRewards": {
+      "announceLabel": "Einlösungen von {title} ansagen",
+      "announced": "Einlösungen von {title} werden wieder angesagt.",
+      "badgeDisabled": "Auf Twitch deaktiviert",
+      "badgeMissing": "Nicht mehr auf Twitch",
+      "badgePaused": "Auf Twitch pausiert",
+      "empty": "Dieser Kanal hat keine benutzerdefinierten Kanalpunkte-Belohnungen.",
+      "loadFailed": "Kanalpunkte-Belohnungen können nicht geladen werden.",
+      "loading": "Kanalpunkte-Belohnungen werden geladen…",
+      "muted": "Einlösungen von {title} werden nicht angesagt.",
+      "removeLabel": "Stummschaltung für {title} aufheben",
+      "unavailable": "Twitch konnte die Belohnungen dieses Kanals nicht auflisten. Kanalpunkte erfordern den Affiliate- oder Partnerstatus, und du musst dich eventuell erneut im Dashboard anmelden.",
+      "updateFailed": "{title} kann nicht aktualisiert werden: {reason}"
+    },
     "obs": {
       "cannotCopy": "URL kann nicht kopiert werden.",
       "cannotDetermine": "TTS-URL kann nicht ermittelt werden.",
@@ -284,6 +298,15 @@
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Gib ein YouTube-Handle ein, bevor du YouTube-TTS aktivierst."
     }
+  },
+  "mutedRewardsHeading": {
+    "rewardsToAnnounce": "Anzusagende Belohnungen"
+  },
+  "mutedRewardsHelp": {
+    "switchOffAnyRewardThat": "Schalte alle Belohnungen aus, die nicht angesagt werden sollen, z. B. ein Soundboard mit eigenem Sound. Alles, was aktiviert bleibt, wird angesagt. Moderatoren können dies auch im Chat mit <code>!tts redeems mute &lt;reward&gt;</code> tun."
+  },
+  "mutedRewardsRefresh": {
+    "refreshRewardList": "Belohnungsliste aktualisieren"
   },
   "obsCloseBtn": {
     "closeObsSetup": "OBS-Einrichtung schließen"

@@ -215,6 +215,20 @@
       "searching": "Keresés…",
       "voiceUnknown": "Ez a hang nem szerepel az elérhető hangok listáján."
     },
+    "mutedRewards": {
+      "announceLabel": "{title} beváltásainak bemondása",
+      "announced": "{title} beváltásai újra be lesznek mondva.",
+      "badgeDisabled": "Kikapcsolva a Twitch-en",
+      "badgeMissing": "Már nincs a Twitch-en",
+      "badgePaused": "Szüneteltetve a Twitch-en",
+      "empty": "Ennek a csatornának nincsenek egyéni Channel Points-jutalmai.",
+      "loadFailed": "Nem sikerült betölteni a Channel Points-jutalmakat.",
+      "loading": "Channel Points-jutalmak betöltése…",
+      "muted": "{title} beváltásai nem lesznek bemondva.",
+      "removeLabel": "{title} némításának feloldása",
+      "unavailable": "A Twitch nem jelenítette meg a csatorna jutalmait. A Channel Points használatához Affiliate vagy Partner státusz szükséges, és lehet, hogy újra be kell jelentkezned a vezérlőpultra.",
+      "updateFailed": "{title} frissítése sikertelen: {reason}"
+    },
     "obs": {
       "cannotCopy": "Nem sikerült kimásolni az URL-t.",
       "cannotDetermine": "A TTS URL nem határozható meg.",
@@ -284,6 +298,15 @@
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Add meg a YouTube-azonosítódat a YouTube TTS bekapcsolása előtt."
     }
+  },
+  "mutedRewardsHeading": {
+    "rewardsToAnnounce": "Bemondandó jutalmak"
+  },
+  "mutedRewardsHelp": {
+    "switchOffAnyRewardThat": "Kapcsolj ki minden olyan jutalmat, amelyet nem kell bemondani (például egy saját hangot lejátszó soundboardot). Minden bekapcsolva hagyott jutalmat bemond a rendszer. A moderátorok ugyanezt megtehetik a chatből a <code>!tts redeems mute &lt;reward&gt;</code> paranccsal."
+  },
+  "mutedRewardsRefresh": {
+    "refreshRewardList": "Jutalomlista frissítése"
   },
   "obsCloseBtn": {
     "closeObsSetup": "OBS-beállítás bezárása"

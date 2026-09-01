@@ -215,6 +215,20 @@
       "searching": "در حال جستجو…",
       "voiceUnknown": "این صدا در فهرست صداهای موجود نیست."
     },
+    "mutedRewards": {
+      "announceLabel": "اعلام دریافت‌های {title}",
+      "announced": "دریافت‌های {title} دوباره اعلام خواهند شد.",
+      "badgeDisabled": "غیرفعال در Twitch",
+      "badgeMissing": "دیگر در Twitch وجود ندارد",
+      "badgePaused": "متوقف‌شده در Twitch",
+      "empty": "این کانال پاداش سفارشی Channel Points ندارد.",
+      "loadFailed": "بارگیری پاداش‌های Channel Points امکان‌پذیر نیست.",
+      "loading": "در حال بارگیری پاداش‌های Channel Points…",
+      "muted": "دریافت‌های {title} اعلام نخواهند شد.",
+      "removeLabel": "لغو بی‌صدا کردن {title}",
+      "unavailable": "Twitch پاداش‌های این کانال را فهرست نکرد. Channel Points نیازمند وضعیت Affiliate یا Partner است و ممکن است لازم باشد دوباره به داشبورد وارد شوید.",
+      "updateFailed": "به‌روزرسانی {title} انجام نشد: {reason}"
+    },
     "obs": {
       "cannotCopy": "کپی URL امکان‌پذیر نیست.",
       "cannotDetermine": "تشخیص URL مربوط به TTS امکان‌پذیر نیست.",
@@ -284,6 +298,15 @@
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "قبل از روشن کردن TTS برای YouTube، یک شناسه YouTube وارد کنید."
     }
+  },
+  "mutedRewardsHeading": {
+    "rewardsToAnnounce": "پاداش‌های قابل اعلام"
+  },
+  "mutedRewardsHelp": {
+    "switchOffAnyRewardThat": "هر پاداشی را که نباید اعلام شود خاموش کنید، مانند ساندبوردی که خودش صدا پخش می‌کند. مواردی که روشن بمانند اعلام می‌شوند. ناظران نیز می‌توانند همین کار را با <code>!tts redeems mute &lt;reward&gt;</code> در چت انجام دهند."
+  },
+  "mutedRewardsRefresh": {
+    "refreshRewardList": "تازه‌سازی فهرست پاداش‌ها"
   },
   "obsCloseBtn": {
     "closeObsSetup": "بستن راه‌اندازی OBS"

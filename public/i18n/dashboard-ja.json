@@ -215,6 +215,20 @@
       "searching": "検索中…",
       "voiceUnknown": "このボイスは利用可能なボイス一覧にありません。"
     },
+    "mutedRewards": {
+      "announceLabel": "{title}の引き換えを読み上げる",
+      "announced": "{title}の引き換えが再び読み上げられます。",
+      "badgeDisabled": "Twitchで無効",
+      "badgeMissing": "Twitchに存在しません",
+      "badgePaused": "Twitchで一時停止中",
+      "empty": "このチャンネルにはカスタムChannel Pointsリワードがありません。",
+      "loadFailed": "Channel Pointsリワードを読み込めません。",
+      "loading": "Channel Pointsリワードを読み込み中…",
+      "muted": "{title}の引き換えは読み上げられません。",
+      "removeLabel": "{title}のミュートを解除",
+      "unavailable": "Twitchからこのチャンネルのリワードを取得できませんでした。Channel Pointsの利用にはアフィリエイトまたはパートナー資格が必要です。また、ダッシュボードへの再ログインが必要な場合があります。",
+      "updateFailed": "{title}を更新できません: {reason}"
+    },
     "obs": {
       "cannotCopy": "URLをコピーできません。",
       "cannotDetermine": "TTS URLを特定できません。",
@@ -284,6 +298,15 @@
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "YouTube TTSを有効にする前にYouTubeハンドルを入力してください。"
     }
+  },
+  "mutedRewardsHeading": {
+    "rewardsToAnnounce": "読み上げるリワード"
+  },
+  "mutedRewardsHelp": {
+    "switchOffAnyRewardThat": "独自のサウンドを再生するサウンドボードなど、読み上げたくないリワードはオフにしてください。オンになっているリワードはすべて読み上げられます。モデレーターもチャットで <code>!tts redeems mute &lt;reward&gt;</code> を実行して同じ設定が可能です。"
+  },
+  "mutedRewardsRefresh": {
+    "refreshRewardList": "リワード一覧を更新"
   },
   "obsCloseBtn": {
     "closeObsSetup": "OBS設定を閉じる"

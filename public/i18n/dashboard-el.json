@@ -215,6 +215,20 @@
       "searching": "Αναζήτηση…",
       "voiceUnknown": "Αυτή η φωνή δεν βρίσκεται στη λίστα διαθέσιμων φωνών."
     },
+    "mutedRewards": {
+      "announceLabel": "Ανακοίνωση εξαργυρώσεων για {title}",
+      "announced": "Οι εξαργυρώσεις για {title} θα ανακοινώνονται ξανά.",
+      "badgeDisabled": "Απενεργοποιημένο στο Twitch",
+      "badgeMissing": "Δεν υπάρχει πλέον στο Twitch",
+      "badgePaused": "Σε παύση στο Twitch",
+      "empty": "Αυτό το κανάλι δεν έχει προσαρμοσμένες ανταμοιβές Channel Points.",
+      "loadFailed": "Αδυναμία φόρτωσης των ανταμοιβών Channel Points.",
+      "loading": "Φόρτωση ανταμοιβών Channel Points…",
+      "muted": "Οι εξαργυρώσεις για {title} δεν θα ανακοινώνονται.",
+      "removeLabel": "Κατάργηση σίγασης για {title}",
+      "unavailable": "Το Twitch δεν εμφάνισε τις ανταμοιβές αυτού του καναλιού. Τα Channel Points απαιτούν κατάσταση Affiliate ή Partner, και ίσως χρειαστεί να συνδεθείτε ξανά στον πίνακα ελέγχου.",
+      "updateFailed": "Αδυναμία ενημέρωσης του {title}: {reason}"
+    },
     "obs": {
       "cannotCopy": "Αδυναμία αντιγραφής URL.",
       "cannotDetermine": "Δεν είναι δυνατός ο προσδιορισμός του URL του TTS.",
@@ -284,6 +298,15 @@
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Εισαγάγετε ένα YouTube handle πριν ενεργοποιήσετε το YouTube TTS."
     }
+  },
+  "mutedRewardsHeading": {
+    "rewardsToAnnounce": "Ανταμοιβές προς ανακοίνωση"
+  },
+  "mutedRewardsHelp": {
+    "switchOffAnyRewardThat": "Απενεργοποιήστε όποια ανταμοιβή δεν πρέπει να ανακοινώνεται, όπως ένα soundboard που παίζει δικό του ήχο. Ό,τι παραμένει ενεργό ανακοινώνεται. Οι συντονιστές μπορούν να κάνουν το ίδιο από το chat με <code>!tts redeems mute &lt;reward&gt;</code>."
+  },
+  "mutedRewardsRefresh": {
+    "refreshRewardList": "Ανανέωση λίστας ανταμοιβών"
   },
   "obsCloseBtn": {
     "closeObsSetup": "Κλείσιμο ρύθμισης OBS"

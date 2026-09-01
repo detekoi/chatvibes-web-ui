@@ -8,6 +8,7 @@ import { initChannelPointsModule, ChannelPointsModule } from './channel-points.j
 import { initIgnoreListModule, IgnoreListModule } from './ignore-list.js';
 import { initBannedWordsModule, BannedWordsModule } from './banned-words.js';
 import { initPronunciationsModule, PronunciationsModule } from './pronunciations.js';
+import { initMutedRewardsModule, MutedRewardsModule } from './muted-rewards.js';
 import { initI18n, t } from '../common/i18n.js';
 
 /**
@@ -83,14 +84,17 @@ document.addEventListener('DOMContentLoaded', async () => {
   const ignoreModule: IgnoreListModule = initIgnoreListModule({ apiPrefix, testMode }, services);
   const bannedWordsModule: BannedWordsModule = initBannedWordsModule({ apiPrefix, testMode }, services);
   const pronunciationsModule: PronunciationsModule = initPronunciationsModule({ apiPrefix, testMode }, services);
+  const mutedRewardsModule: MutedRewardsModule = initMutedRewardsModule({ apiPrefix, testMode }, services);
   const settingsModule: SettingsModule = initSettingsModule({ apiPrefix, testMode }, services, {
     displayIgnoreList: ignoreModule.displayIgnoreList,
     displayBannedWords: bannedWordsModule.displayBannedWords,
     displayPronunciations: pronunciationsModule.displayPronunciations,
+    displayMutedRewards: mutedRewardsModule.displayMutedRewards,
   });
   ignoreModule.setOnChange(() => settingsModule.loadSettings());
   bannedWordsModule.setOnChange(() => settingsModule.loadSettings());
   pronunciationsModule.setOnChange(() => settingsModule.loadSettings());
+  mutedRewardsModule.setOnChange(() => settingsModule.loadSettings());
 
   const botModule: BotManagementModule = initBotManagement({ botStatusEl, addBotBtn, removeBotBtn }, { apiBaseUrl, testMode }, services);
   const obsModule: ObsModule = initObsModule({ ttsUrlField, copyTtsUrlBtn, regenerateTtsUrlBtn, obsToggleBtn, obsPopover, obsCloseBtn }, { apiBaseUrl, testMode }, services);

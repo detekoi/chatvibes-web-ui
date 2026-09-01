@@ -215,6 +215,20 @@
       "searching": "Wyszukiwanie…",
       "voiceUnknown": "Tego głosu nie ma na liście dostępnych głosów."
     },
+    "mutedRewards": {
+      "announceLabel": "Ogłaszaj odebrania nagrody {title}",
+      "announced": "Odebrania nagrody {title} będą ponownie ogłaszane.",
+      "badgeDisabled": "Wyłączono na Twitchu",
+      "badgeMissing": "Nie ma już na Twitchu",
+      "badgePaused": "Wstrzymano na Twitchu",
+      "empty": "Ten kanał nie ma własnych nagród za Channel Points.",
+      "loadFailed": "Nie można załadować nagród za Channel Points.",
+      "loading": "Ładowanie nagród za Channel Points…",
+      "muted": "Odebrania nagrody {title} nie będą ogłaszane.",
+      "removeLabel": "Przestań wyciszać nagrodę {title}",
+      "unavailable": "Twitch nie zwrócił listy nagród tego kanału. Channel Points wymagają statusu Towarzysza lub Partnera, a panel może wymagać ponownego zalogowania.",
+      "updateFailed": "Nie można zaktualizować {title}: {reason}"
+    },
     "obs": {
       "cannotCopy": "Nie można skopiować adresu URL.",
       "cannotDetermine": "Nie można ustalić URL TTS.",
@@ -284,6 +298,15 @@
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Wprowadź identyfikator YouTube przed włączeniem TTS dla YouTube."
     }
+  },
+  "mutedRewardsHeading": {
+    "rewardsToAnnounce": "Nagrody do ogłaszania"
+  },
+  "mutedRewardsHelp": {
+    "switchOffAnyRewardThat": "Wyłącz nagrody, które nie powinny być ogłaszane, np. soundboard odtwarzający własny dźwięk. Wszystko, co pozostanie włączone, będzie ogłaszane. Moderatorzy mogą zrobić to samo na czacie za pomocą <code>!tts redeems mute &lt;reward&gt;</code>."
+  },
+  "mutedRewardsRefresh": {
+    "refreshRewardList": "Odśwież listę nagród"
   },
   "obsCloseBtn": {
     "closeObsSetup": "Zamknij konfigurację OBS"

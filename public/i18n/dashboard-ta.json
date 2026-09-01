@@ -215,6 +215,20 @@
       "searching": "தேடுகிறது…",
       "voiceUnknown": "இந்தக் குரல் கிடைக்கக்கூடிய குரல்களின் பட்டியலில் இல்லை."
     },
+    "mutedRewards": {
+      "announceLabel": "{title} ரிடீம்களை அறிவி",
+      "announced": "{title} ரிடீம்கள் மீண்டும் அறிவிக்கப்படும்.",
+      "badgeDisabled": "Twitch-இல் முடக்கப்பட்டது",
+      "badgeMissing": "இனி Twitch-இல் இல்லை",
+      "badgePaused": "Twitch-இல் இடைநிறுத்தப்பட்டது",
+      "empty": "இந்த சேனலில் தனிப்பயன் Channel Points ரிவார்டுகள் எதுவும் இல்லை.",
+      "loadFailed": "Channel Points ரிவார்டுகளை ஏற்ற முடியவில்லை.",
+      "loading": "Channel Points ரிவார்டுகள் ஏற்றப்படுகின்றன…",
+      "muted": "{title} ரிடீம்கள் அறிவிக்கப்படாது.",
+      "removeLabel": "{title} ஒலியடக்கத்தை நீக்கு",
+      "unavailable": "Twitch இந்த சேனலின் ரிவார்டுகளைப் பட்டியலிடவில்லை. Channel Points-க்கு affiliate அல்லது partner நிலை தேவை, மேலும் டாஷ்போர்டில் நீங்கள் மீண்டும் உள்நுழைய வேண்டியிருக்கலாம்.",
+      "updateFailed": "{title}-ஐப் புதுப்பிக்க முடியவில்லை: {reason}"
+    },
     "obs": {
       "cannotCopy": "URL ஐ நகலெடுக்க முடியவில்லை.",
       "cannotDetermine": "TTS URL-ஐத் தீர்மானிக்க முடியவில்லை.",
@@ -284,6 +298,15 @@
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "YouTube TTS-ஐ இயக்குவதற்கு முன் ஒரு YouTube handle-ஐ உள்ளிடவும்."
     }
+  },
+  "mutedRewardsHeading": {
+    "rewardsToAnnounce": "அறிவிக்க வேண்டிய ரிவார்டுகள்"
+  },
+  "mutedRewardsHelp": {
+    "switchOffAnyRewardThat": "சொந்த ஒலியைக் கொண்டிருக்கும் soundboard போன்ற அறிவிக்கப்படக் கூடாத எந்தவொரு ரிவார்டையும் முடக்கவும். இயக்கத்தில் உள்ளவை அனைத்தும் அறிவிக்கப்படும். மாடரேட்டர்கள் சாட்டிலிருந்தே <code>!tts redeems mute &lt;reward&gt;</code> மூலம் இதைச் செய்யலாம்."
+  },
+  "mutedRewardsRefresh": {
+    "refreshRewardList": "ரிவார்டு பட்டியலைப் புதுப்பி"
   },
   "obsCloseBtn": {
     "closeObsSetup": "OBS அமைவை மூடு"

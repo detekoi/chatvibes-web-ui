@@ -215,6 +215,20 @@
       "searching": "Mencari…",
       "voiceUnknown": "Suara ini tiada dalam senarai suara yang tersedia."
     },
+    "mutedRewards": {
+      "announceLabel": "Umumkan penebusan {title}",
+      "announced": "Penebusan {title} akan diumumkan semula.",
+      "badgeDisabled": "Dinyahdayakan di Twitch",
+      "badgeMissing": "Tiada lagi di Twitch",
+      "badgePaused": "Dijeda di Twitch",
+      "empty": "Saluran ini tiada ganjaran Channel Points tersuai.",
+      "loadFailed": "Tidak dapat memuatkan ganjaran Channel Points.",
+      "loading": "Memuatkan ganjaran Channel Points…",
+      "muted": "Penebusan {title} tidak akan diumumkan.",
+      "removeLabel": "Berhenti senyapkan {title}",
+      "unavailable": "Twitch tidak dapat menyenaraikan ganjaran saluran ini. Channel Points memerlukan status affiliate atau partner, dan papan pemuka mungkin memerlukan anda log masuk semula.",
+      "updateFailed": "Tidak dapat mengemas kini {title}: {reason}"
+    },
     "obs": {
       "cannotCopy": "Tidak dapat menyalin URL.",
       "cannotDetermine": "Tidak dapat menentukan URL TTS.",
@@ -284,6 +298,15 @@
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Masukkan pemegang YouTube sebelum anda menghidupkan YouTube TTS."
     }
+  },
+  "mutedRewardsHeading": {
+    "rewardsToAnnounce": "Ganjaran untuk Diumumkan"
+  },
+  "mutedRewardsHelp": {
+    "switchOffAnyRewardThat": "Matikan mana-mana ganjaran yang tidak sepatutnya diumumkan, seperti papan bunyi yang memainkan bunyinya sendiri. Semua yang dibiarkan aktif akan diumumkan. Moderator boleh melakukan perkara yang sama daripada sembang dengan <code>!tts redeems mute &lt;reward&gt;</code>."
+  },
+  "mutedRewardsRefresh": {
+    "refreshRewardList": "Muat semula senarai ganjaran"
   },
   "obsCloseBtn": {
     "closeObsSetup": "Tutup persediaan OBS"

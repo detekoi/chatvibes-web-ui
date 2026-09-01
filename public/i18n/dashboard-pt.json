@@ -215,6 +215,20 @@
       "searching": "Buscando…",
       "voiceUnknown": "Esta voz não está na lista de vozes disponíveis."
     },
+    "mutedRewards": {
+      "announceLabel": "Anunciar resgates de {title}",
+      "announced": "Os resgates de {title} serão anunciados novamente.",
+      "badgeDisabled": "Desativado na Twitch",
+      "badgeMissing": "Não existe mais na Twitch",
+      "badgePaused": "Pausado na Twitch",
+      "empty": "Este canal não tem recompensas personalizadas de Pontos do Canal.",
+      "loadFailed": "Não foi possível carregar as recompensas de Pontos do Canal.",
+      "loading": "Carregando recompensas de Pontos do Canal…",
+      "muted": "Os resgates de {title} não serão anunciados.",
+      "removeLabel": "Parar de silenciar {title}",
+      "unavailable": "A Twitch não listou as recompensas deste canal. Os Pontos do Canal exigem status de afiliado ou parceiro, e o painel pode exigir que você entre novamente.",
+      "updateFailed": "Não foi possível atualizar {title}: {reason}"
+    },
     "obs": {
       "cannotCopy": "Não foi possível copiar o URL.",
       "cannotDetermine": "Não foi possível determinar a URL do TTS.",
@@ -284,6 +298,15 @@
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Insira um identificador do YouTube antes de ativar o TTS do YouTube."
     }
+  },
+  "mutedRewardsHeading": {
+    "rewardsToAnnounce": "Recompensas para anunciar"
+  },
+  "mutedRewardsHelp": {
+    "switchOffAnyRewardThat": "Desative qualquer recompensa que não deva ser anunciada, como uma soundboard que já reproduz o próprio som. Tudo o que permanecer ativado será anunciado. Moderadores podem fazer o mesmo pelo chat com <code>!tts redeems mute &lt;reward&gt;</code>."
+  },
+  "mutedRewardsRefresh": {
+    "refreshRewardList": "Atualizar lista de recompensas"
   },
   "obsCloseBtn": {
     "closeObsSetup": "Fechar configuração do OBS"

@@ -215,6 +215,20 @@
       "searching": "खोजा जा रहा है…",
       "voiceUnknown": "यह voice उपलब्ध voices की सूची में नहीं है।"
     },
+    "mutedRewards": {
+      "announceLabel": "{title} के रिडीम की घोषणा करें",
+      "announced": "{title} के रिडीम की फिर से घोषणा की जाएगी।",
+      "badgeDisabled": "Twitch पर अक्षम",
+      "badgeMissing": "अब Twitch पर उपलब्ध नहीं",
+      "badgePaused": "Twitch पर रोका गया",
+      "empty": "इस चैनल पर कोई कस्टम Channel Points रिवॉर्ड नहीं हैं।",
+      "loadFailed": "Channel Points रिवॉर्ड लोड नहीं किए जा सके।",
+      "loading": "Channel Points रिवॉर्ड लोड हो रहे हैं…",
+      "muted": "{title} के रिडीम की घोषणा नहीं की जाएगी।",
+      "removeLabel": "{title} को म्यूट करना बंद करें",
+      "unavailable": "Twitch इस चैनल के रिवॉर्ड लोड नहीं कर सका। Channel Points के लिए अफ़िलिएट या पार्टनर स्टेटस ज़रूरी है, और हो सकता है आपको डैशबोर्ड में फिर से साइन इन करना पड़े।",
+      "updateFailed": "{title} को अपडेट नहीं किया जा सका: {reason}"
+    },
     "obs": {
       "cannotCopy": "URL कॉपी नहीं किया जा सका।",
       "cannotDetermine": "TTS URL का पता नहीं लगाया जा सका।",
@@ -284,6 +298,15 @@
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "YouTube TTS चालू करने से पहले एक YouTube हैंडल दर्ज करें।"
     }
+  },
+  "mutedRewardsHeading": {
+    "rewardsToAnnounce": "घोषणा किए जाने वाले रिवॉर्ड"
+  },
+  "mutedRewardsHelp": {
+    "switchOffAnyRewardThat": "ऐसे किसी भी रिवॉर्ड को बंद कर दें जिसकी घोषणा नहीं की जानी चाहिए, जैसे कि कोई साउंडबोर्ड जो अपनी आवाज़ खुद बजाता है। जो भी चालू रहेगा उसकी घोषणा की जाएगी। मॉडरेटर चैट में <code>!tts redeems mute &lt;reward&gt;</code> का इस्तेमाल करके भी ऐसा कर सकते हैं।"
+  },
+  "mutedRewardsRefresh": {
+    "refreshRewardList": "रिवॉर्ड लिस्ट रीफ़्रेश करें"
   },
   "obsCloseBtn": {
     "closeObsSetup": "OBS सेटअप बंद करें"

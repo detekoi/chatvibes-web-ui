@@ -7,6 +7,7 @@ import { SettingsApi } from './services/settings-api.js';
 import { VoiceDropdown } from './components/voice-dropdown.js';
 import { VoiceCalibration } from './components/voice-calibration.js';
 import type { StoredIgnoreValue } from '../common/ignoreEntries.js';
+import type { StoredMutedRewardValue } from './muted-rewards.js';
 
 const previewState = {
   currentlyPlayingAudio: null as HTMLAudioElement | null,
@@ -24,6 +25,7 @@ export interface SettingsModuleDependencies {
   displayIgnoreList: (type: 'tts', entries: Record<string, StoredIgnoreValue>) => void;
   displayBannedWords: (words: string[]) => void;
   displayPronunciations: (entries: Record<string, string>) => void;
+  displayMutedRewards: (muted: Record<string, StoredMutedRewardValue>, ttsRewardId?: string | null) => void;
 }
 
 export interface SettingsModule {
@@ -670,12 +672,14 @@ export function initSettingsModule(
         },
         pronunciationEnabled: true,
         profanityFilterEnabled: false,
-        pronunciations: { wcat: 'wildcat', lfg: '' }
+        pronunciations: { wcat: 'wildcat', lfg: '' },
+        mutedRewardIds: { 'demo-horn': { title: 'Air Horn', by: null, at: null } },
       };
       applyTtsSettings(demoTts);
       displayIgnoreList('tts', demoTts.ignoredUserIds || {});
       dependencies.displayBannedWords(['testbadword', 'naughtyword']);
       dependencies.displayPronunciations(demoTts.pronunciations || {});
+      dependencies.displayMutedRewards(demoTts.mutedRewardIds || {}, null);
       return;
     }
 
@@ -690,6 +694,7 @@ export function initSettingsModule(
       displayIgnoreList('tts', response.settings?.ignoredUserIds || {});
       dependencies.displayBannedWords(response.settings?.bannedWords || []);
       dependencies.displayPronunciations(response.settings?.pronunciations || {});
+      dependencies.displayMutedRewards(response.settings?.mutedRewardIds || {}, response.settings?.channelPoints?.rewardId || null);
     }
   }
 

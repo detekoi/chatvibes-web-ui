@@ -215,6 +215,20 @@
       "searching": "Searching…",
       "voiceUnknown": "This voice is not in the list of available voices."
     },
+    "mutedRewards": {
+      "announceLabel": "Announce redeems of {title}",
+      "announced": "Redeems of {title} will be announced again.",
+      "badgeDisabled": "Disabled on Twitch",
+      "badgeMissing": "No longer on Twitch",
+      "badgePaused": "Paused on Twitch",
+      "empty": "This channel has no custom channel point rewards.",
+      "loadFailed": "Cannot load the channel point rewards.",
+      "loading": "Loading channel point rewards…",
+      "muted": "Redeems of {title} will not be announced.",
+      "removeLabel": "Stop muting {title}",
+      "unavailable": "Twitch would not list this channel's rewards. Channel points need affiliate or partner status, and the dashboard may need you to sign in again.",
+      "updateFailed": "Cannot update {title}: {reason}"
+    },
     "obs": {
       "cannotCopy": "Cannot copy URL.",
       "cannotDetermine": "Cannot determine TTS URL.",
@@ -284,6 +298,15 @@
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Enter a YouTube handle before you turn on YouTube TTS."
     }
+  },
+  "mutedRewardsHeading": {
+    "rewardsToAnnounce": "Rewards to Announce"
+  },
+  "mutedRewardsHelp": {
+    "switchOffAnyRewardThat": "Switch off any reward that should not be announced, such as a soundboard that plays its own sound. Everything left on is announced. Moderators can do the same from chat with <code>!tts redeems mute &lt;reward&gt;</code>."
+  },
+  "mutedRewardsRefresh": {
+    "refreshRewardList": "Refresh reward list"
   },
   "obsCloseBtn": {
     "closeObsSetup": "Close OBS setup"

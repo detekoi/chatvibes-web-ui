@@ -13,6 +13,7 @@ import { normalizeMatchKey, validateSay, PRONUNCIATION_LIMITS } from "../service
 import { getUserByUsername } from "../services/twitch";
 import { secrets } from "../config";
 import { buildIgnoreEntry, IGNORE_SOURCE_MODERATOR } from "../services/ignoreEntries";
+import { buildMutedRewardEntry, isValidRewardId, MUTED_REWARD_TITLE_MAX } from "../services/mutedRewards";
 
 const router: Router = express.Router();
 
@@ -235,6 +236,69 @@ router.delete("/tts/ignore/channel/:channelName", authenticateApiRequest, author
         }
         logger.error({ error, channelName, key }, "Error removing user from ignore list");
         apiError(res, 500, "ignore_remove_failed", "Failed to remove user from ignore list");
+    }
+}) as RequestHandler);
+
+// ==========================================
+// MUTED REWARDS (redemptions that are not announced)
+// ==========================================
+//
+// Same write mechanics as the ignore list: a nested map under merge:true to add,
+// a FieldPath delete to remove. The dashboard picks from the reward list Helix
+// returns (GET /api/rewards/all), so the ID it sends is one Twitch issued; the
+// shape check here only keeps junk out of the map key.
+
+// POST /tts/muted-rewards/channel/:channelName - Stop announcing one reward
+router.post("/tts/muted-rewards/channel/:channelName", authenticateApiRequest, authorizeChannelAccess, (async (req: AuthenticatedRequest, res: Response): Promise<void> => {
+    const { channelName } = req.params;
+    const { rewardId, title } = req.body;
+
+    if (!isValidRewardId(rewardId)) {
+        apiError(res, 400, "reward_id_invalid", "A reward ID is required");
+        return;
+    }
+    if (typeof title !== "string" || !title.trim() || title.length > MUTED_REWARD_TITLE_MAX) {
+        apiError(res, 400, "reward_title_invalid", "A reward title is required");
+        return;
+    }
+
+    try {
+        const docRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(req.user.userId);
+        const entry = buildMutedRewardEntry({ title, by: `twitch:${req.user.userId}` });
+        await docRef.set({ mutedRewardIds: { [rewardId]: entry } }, { merge: true });
+
+        logger.info({ channelName, rewardId, title: entry.title }, "Muted reward announcements");
+        res.json({ success: true, message: "Reward muted", entry: { rewardId, title: entry.title } });
+    } catch (error) {
+        logger.error({ error, channelName, rewardId }, "Error muting reward");
+        apiError(res, 500, "reward_mute_failed", "Failed to mute reward");
+    }
+}) as RequestHandler);
+
+// DELETE /tts/muted-rewards/channel/:channelName - Announce one reward again
+router.delete("/tts/muted-rewards/channel/:channelName", authenticateApiRequest, authorizeChannelAccess, (async (req: AuthenticatedRequest, res: Response): Promise<void> => {
+    const { channelName } = req.params;
+    const { rewardId } = req.body;
+
+    if (!isValidRewardId(rewardId)) {
+        apiError(res, 400, "reward_id_invalid", "A reward ID is required");
+        return;
+    }
+
+    try {
+        const docRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(req.user.userId);
+        await docRef.update(new FieldPath("mutedRewardIds", rewardId), FieldValue.delete());
+
+        logger.info({ channelName, rewardId }, "Unmuted reward announcements");
+        res.json({ success: true, message: "Reward unmuted" });
+    } catch (error) {
+        // 5 is NOT_FOUND: the entry was already gone, which is the desired end state.
+        if ((error as { code?: number }).code === 5) {
+            res.json({ success: true, message: "Reward unmuted" });
+            return;
+        }
+        logger.error({ error, channelName, rewardId }, "Error unmuting reward");
+        apiError(res, 500, "reward_unmute_failed", "Failed to unmute reward");
     }
 }) as RequestHandler);
 

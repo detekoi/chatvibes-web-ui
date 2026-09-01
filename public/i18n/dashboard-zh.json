@@ -215,6 +215,20 @@
       "searching": "正在搜索…",
       "voiceUnknown": "此声音不在可用声音列表中。"
     },
+    "mutedRewards": {
+      "announceLabel": "播报 {title} 的兑换",
+      "announced": "将恢复播报 {title} 的兑换。",
+      "badgeDisabled": "Twitch 上已停用",
+      "badgeMissing": "Twitch 上已不存在",
+      "badgePaused": "Twitch 上已暂停",
+      "empty": "此频道没有自定义 Channel Points 奖励。",
+      "loadFailed": "无法加载 Channel Points 奖励。",
+      "loading": "正在加载 Channel Points 奖励…",
+      "muted": "将不会播报 {title} 的兑换。",
+      "removeLabel": "取消静音 {title}",
+      "unavailable": "Twitch 无法列出此频道的奖励。使用 Channel Points 需要实况盟友或合作伙伴资格，且控制台可能需要你重新登录。",
+      "updateFailed": "无法更新 {title}：{reason}"
+    },
     "obs": {
       "cannotCopy": "无法复制 URL。",
       "cannotDetermine": "无法确定 TTS URL。",
@@ -284,6 +298,15 @@
       "saveFailed": "{label}：{reason}",
       "youtubeHandleRequired": "开启 YouTube TTS 前请输入 YouTube Handle。"
     }
+  },
+  "mutedRewardsHeading": {
+    "rewardsToAnnounce": "要播报的奖励"
+  },
+  "mutedRewardsHelp": {
+    "switchOffAnyRewardThat": "关闭不需要播报的任何奖励，例如自带音效的声音板。保持开启的奖励均会播报。房管也可以在聊天中通过 <code>!tts redeems mute &lt;reward&gt;</code> 进行此操作。"
+  },
+  "mutedRewardsRefresh": {
+    "refreshRewardList": "刷新奖励列表"
   },
   "obsCloseBtn": {
     "closeObsSetup": "关闭 OBS 设置"

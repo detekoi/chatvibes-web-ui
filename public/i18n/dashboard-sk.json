@@ -215,6 +215,20 @@
       "searching": "Vyhľadáva sa…",
       "voiceUnknown": "Tento hlas nie je v zozname dostupných hlasov."
     },
+    "mutedRewards": {
+      "announceLabel": "Oznamovať uplatnenie odmeny {title}",
+      "announced": "Uplatnenia odmeny {title} sa budú opäť oznamovať.",
+      "badgeDisabled": "Vypnuté na Twitchi",
+      "badgeMissing": "Už nie je na Twitchi",
+      "badgePaused": "Pozastavené na Twitchi",
+      "empty": "Tento kanál nemá žiadne vlastné odmeny za Channel Points.",
+      "loadFailed": "Nepodarilo sa načítať odmeny za Channel Points.",
+      "loading": "Načítavajú sa odmeny za Channel Points…",
+      "muted": "Uplatnenia odmeny {title} sa nebudú oznamovať.",
+      "removeLabel": "Zrušiť stlmenie odmeny {title}",
+      "unavailable": "Twitch neposkytol zoznam odmien tohto kanála. Channel Points vyžadujú status affiliate alebo partnera a v ovládacom paneli sa možno budeš musieť znova prihlásiť.",
+      "updateFailed": "Nepodarilo sa aktualizovať {title}: {reason}"
+    },
     "obs": {
       "cannotCopy": "URL sa nepodarilo skopírovať.",
       "cannotDetermine": "Nemožno určiť TTS URL.",
@@ -284,6 +298,15 @@
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Pred zapnutím YouTube TTS zadajte YouTube handle."
     }
+  },
+  "mutedRewardsHeading": {
+    "rewardsToAnnounce": "Odmeny na oznamovanie"
+  },
+  "mutedRewardsHelp": {
+    "switchOffAnyRewardThat": "Vypni každú odmenu, ktorá sa nemá oznamovať, napríklad soundboard prehrávajúci vlastný zvuk. Všetko ponechané zapnuté sa bude oznamovať. Moderátori môžu urobiť to isté z chatu pomocou <code>!tts redeems mute &lt;reward&gt;</code>."
+  },
+  "mutedRewardsRefresh": {
+    "refreshRewardList": "Obnoviť zoznam odmien"
   },
   "obsCloseBtn": {
     "closeObsSetup": "Zavrieť nastavenie OBS"

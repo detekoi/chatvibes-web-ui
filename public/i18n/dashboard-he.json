@@ -215,6 +215,20 @@
       "searching": "מחפש…",
       "voiceUnknown": "קול זה אינו מופיע ברשימת הקולות הזמינים."
     },
+    "mutedRewards": {
+      "announceLabel": "הכרזה על מימושים של {title}",
+      "announced": "מימושים של {title} יוכרזו שוב.",
+      "badgeDisabled": "מושבת ב-Twitch",
+      "badgeMissing": "אינו קיים עוד ב-Twitch",
+      "badgePaused": "מושהה ב-Twitch",
+      "empty": "בערוץ הזה אין פרסי Channel Points מותאמים אישית.",
+      "loadFailed": "לא ניתן לטעון את פרסי ה-Channel Points.",
+      "loading": "טוען פרסי Channel Points…",
+      "muted": "מימושים של {title} לא יוכרזו.",
+      "removeLabel": "בטל השתקה של {title}",
+      "unavailable": "Twitch לא הציג את הפרסים של הערוץ הזה. Channel Points דורשים מעמד Affiliate או Partner, וייתכן שצריך להתחבר מחדש ללוח הבקרה.",
+      "updateFailed": "לא ניתן לעדכן את {title}: {reason}"
+    },
     "obs": {
       "cannotCopy": "לא ניתן להעתיק את ה-URL.",
       "cannotDetermine": "לא ניתן לזהות את ה-TTS URL.",
@@ -284,6 +298,15 @@
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "יש להזין כינוי (handle) של YouTube לפני הפעלת YouTube TTS."
     }
+  },
+  "mutedRewardsHeading": {
+    "rewardsToAnnounce": "פרסים להכרזה"
+  },
+  "mutedRewardsHelp": {
+    "switchOffAnyRewardThat": "כבה כל פרס שאין להכריז עליו, כמו soundboard שמשמיע צליל משלו. כל מה שיישאר דלוק יוכרז. מודרטורים יכולים לעשות זאת גם מהצ'אט עם <code>!tts redeems mute &lt;reward&gt;</code>."
+  },
+  "mutedRewardsRefresh": {
+    "refreshRewardList": "רענון רשימת הפרסים"
   },
   "obsCloseBtn": {
     "closeObsSetup": "סגירת הגדרת OBS"

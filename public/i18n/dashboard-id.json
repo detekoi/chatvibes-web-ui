@@ -215,6 +215,20 @@
       "searching": "Mencari…",
       "voiceUnknown": "Suara ini tidak ada dalam daftar suara yang tersedia."
     },
+    "mutedRewards": {
+      "announceLabel": "Umumkan penukaran {title}",
+      "announced": "Penukaran {title} akan diumumkan kembali.",
+      "badgeDisabled": "Dinonaktifkan di Twitch",
+      "badgeMissing": "Tidak ada lagi di Twitch",
+      "badgePaused": "Dijeda di Twitch",
+      "empty": "Saluran ini tidak memiliki reward Channel Points kustom.",
+      "loadFailed": "Tidak dapat memuat reward Channel Points.",
+      "loading": "Memuat reward Channel Points…",
+      "muted": "Penukaran {title} tidak akan diumumkan.",
+      "removeLabel": "Berhenti membisukan {title}",
+      "unavailable": "Twitch tidak dapat menampilkan reward saluran ini. Channel Points memerlukan status affiliate atau partner, dan kamu mungkin perlu masuk kembali ke dasbor.",
+      "updateFailed": "Tidak dapat memperbarui {title}: {reason}"
+    },
     "obs": {
       "cannotCopy": "Tidak dapat menyalin URL.",
       "cannotDetermine": "Tidak dapat menentukan URL TTS.",
@@ -284,6 +298,15 @@
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Masukkan handle YouTube sebelum mengaktifkan YouTube TTS."
     }
+  },
+  "mutedRewardsHeading": {
+    "rewardsToAnnounce": "Reward untuk Diumumkan"
+  },
+  "mutedRewardsHelp": {
+    "switchOffAnyRewardThat": "Nonaktifkan reward apa pun yang tidak ingin diumumkan, seperti soundboard yang memutar suaranya sendiri. Semua yang dibiarkan aktif akan diumumkan. Moderator dapat melakukan hal yang sama dari obrolan dengan <code>!tts redeems mute &lt;reward&gt;</code>."
+  },
+  "mutedRewardsRefresh": {
+    "refreshRewardList": "Segarkan daftar reward"
   },
   "obsCloseBtn": {
     "closeObsSetup": "Tutup penyiapan OBS"

@@ -215,6 +215,20 @@
       "searching": "Đang tìm kiếm…",
       "voiceUnknown": "Giọng nói này không có trong danh sách giọng nói khả dụng."
     },
+    "mutedRewards": {
+      "announceLabel": "Thông báo khi đổi {title}",
+      "announced": "Lượt đổi {title} sẽ được thông báo lại.",
+      "badgeDisabled": "Đã tắt trên Twitch",
+      "badgeMissing": "Không còn trên Twitch",
+      "badgePaused": "Tạm dừng trên Twitch",
+      "empty": "Kênh này không có phần thưởng Channel Points tùy chỉnh nào.",
+      "loadFailed": "Không thể tải phần thưởng Channel Points.",
+      "loading": "Đang tải phần thưởng Channel Points…",
+      "muted": "Lượt đổi {title} sẽ không được thông báo.",
+      "removeLabel": "Bỏ tắt tiếng {title}",
+      "unavailable": "Twitch không thể liệt kê phần thưởng của kênh này. Channel Points yêu cầu tư cách Affiliate hoặc Partner, và bảng điều khiển có thể yêu cầu bạn đăng nhập lại.",
+      "updateFailed": "Không thể cập nhật {title}: {reason}"
+    },
     "obs": {
       "cannotCopy": "Không thể sao chép URL.",
       "cannotDetermine": "Không thể xác định URL TTS.",
@@ -284,6 +298,15 @@
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Nhập tên người dùng YouTube trước khi bật YouTube TTS."
     }
+  },
+  "mutedRewardsHeading": {
+    "rewardsToAnnounce": "Phần thưởng cần thông báo"
+  },
+  "mutedRewardsHelp": {
+    "switchOffAnyRewardThat": "Tắt bất kỳ phần thưởng nào không cần thông báo, chẳng hạn như soundboard tự phát âm thanh riêng. Mọi mục còn bật sẽ được thông báo. Người kiểm duyệt cũng có thể làm việc này trong chat bằng <code>!tts redeems mute &lt;reward&gt;</code>."
+  },
+  "mutedRewardsRefresh": {
+    "refreshRewardList": "Làm mới danh sách phần thưởng"
   },
   "obsCloseBtn": {
     "closeObsSetup": "Đóng thiết lập OBS"

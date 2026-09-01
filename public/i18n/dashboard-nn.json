@@ -215,6 +215,20 @@
       "searching": "Søkjer…",
       "voiceUnknown": "Denne røysta er ikkje i lista over tilgjengelege røyster."
     },
+    "mutedRewards": {
+      "announceLabel": "Kunngjer innløysingar av {title}",
+      "announced": "Innløysingar av {title} blir kunngjorde igjen.",
+      "badgeDisabled": "Slått av på Twitch",
+      "badgeMissing": "Ikkje lenger på Twitch",
+      "badgePaused": "Pausa på Twitch",
+      "empty": "Denne kanalen har ingen tilpassa Channel Points-premiar.",
+      "loadFailed": "Kan ikkje lasta inn Channel Points-premiane.",
+      "loading": "Lastar inn Channel Points-premiar …",
+      "muted": "Innløysingar av {title} blir ikkje kunngjorde.",
+      "removeLabel": "Slutt å dempa {title}",
+      "unavailable": "Twitch kunne ikkje lista opp premiane til denne kanalen. Channel Points krev Affiliate- eller Partner-status, og dashbordet krev kanskje at du loggar inn på nytt.",
+      "updateFailed": "Kan ikkje oppdatera {title}: {reason}"
+    },
     "obs": {
       "cannotCopy": "Kan ikkje kopiere URL.",
       "cannotDetermine": "Kan ikkje fastslå TTS-URL.",
@@ -284,6 +298,15 @@
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Skriv inn eit YouTube-brukarnamn før du slår på YouTube TTS."
     }
+  },
+  "mutedRewardsHeading": {
+    "rewardsToAnnounce": "Premiar som skal kunngjerast"
+  },
+  "mutedRewardsHelp": {
+    "switchOffAnyRewardThat": "Slå av alle premiar som ikkje skal kunngjerast, til dømes eit lydbrett som spelar sin eigen lyd. Alt som står på, blir kunngjort. Moderatorar kan gjera det same frå chatten med <code>!tts redeems mute &lt;reward&gt;</code>."
+  },
+  "mutedRewardsRefresh": {
+    "refreshRewardList": "Oppdater premielista"
   },
   "obsCloseBtn": {
     "closeObsSetup": "Lukk OBS-oppsett"

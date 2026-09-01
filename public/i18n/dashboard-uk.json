@@ -215,6 +215,20 @@
       "searching": "Пошук…",
       "voiceUnknown": "Цього голосу немає в списку доступних голосів."
     },
+    "mutedRewards": {
+      "announceLabel": "Оголошувати активації {title}",
+      "announced": "Активації {title} знову оголошуватимуться.",
+      "badgeDisabled": "Вимкнено на Twitch",
+      "badgeMissing": "Більше немає на Twitch",
+      "badgePaused": "Призупинено на Twitch",
+      "empty": "На цьому каналі немає власних нагород за Channel Points.",
+      "loadFailed": "Не вдалося завантажити нагороди за Channel Points.",
+      "loading": "Завантаження нагород за Channel Points…",
+      "muted": "Активації {title} не оголошуватимуться.",
+      "removeLabel": "Припинити заглушення {title}",
+      "unavailable": "Twitch не повернув список нагород цього каналу. Для Channel Points потрібен статус компаньйона або партнера, а також може знадобитися повторно ввійти на панель керування.",
+      "updateFailed": "Не вдалося оновити {title}: {reason}"
+    },
     "obs": {
       "cannotCopy": "Не вдалося скопіювати URL.",
       "cannotDetermine": "Не вдалося визначити URL для TTS.",
@@ -284,6 +298,15 @@
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Введіть хендл YouTube перед тим, як увімкнути YouTube TTS."
     }
+  },
+  "mutedRewardsHeading": {
+    "rewardsToAnnounce": "Нагороди для оголошення"
+  },
+  "mutedRewardsHelp": {
+    "switchOffAnyRewardThat": "Вимкніть будь-яку нагороду, яку не потрібно оголошувати (наприклад, саундборд, який має власний звук). Усе увімкнене оголошуватиметься. Модератори можуть зробити те саме з чату командою <code>!tts redeems mute &lt;reward&gt;</code>."
+  },
+  "mutedRewardsRefresh": {
+    "refreshRewardList": "Оновити список нагород"
   },
   "obsCloseBtn": {
     "closeObsSetup": "Закрити налаштування OBS"

@@ -215,6 +215,20 @@
       "searching": "Vyhledávání…",
       "voiceUnknown": "Tento hlas není v seznamu dostupných hlasů."
     },
+    "mutedRewards": {
+      "announceLabel": "Ohlašovat uplatnění {title}",
+      "announced": "Uplatnění {title} se bude znovu ohlašovat.",
+      "badgeDisabled": "Vypnuto na Twitchi",
+      "badgeMissing": "Již není na Twitchi",
+      "badgePaused": "Pozastaveno na Twitchi",
+      "empty": "Tento kanál nemá žádné vlastní odměny za Channel Points.",
+      "loadFailed": "Odměny za Channel Points nelze načíst.",
+      "loading": "Načítání odměn za Channel Points…",
+      "muted": "Uplatnění {title} se nebude ohlašovat.",
+      "removeLabel": "Zrušit ztlumení {title}",
+      "unavailable": "Twitch nenačetl odměny tohoto kanálu. Channel Points vyžadují status Affiliate nebo Partner a možná se budete muset znovu přihlásit do dashboardu.",
+      "updateFailed": "Nelze aktualizovat {title}: {reason}"
+    },
     "obs": {
       "cannotCopy": "URL nelze zkopírovat.",
       "cannotDetermine": "Nelze určit URL pro TTS.",
@@ -284,6 +298,15 @@
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Před zapnutím YouTube TTS zadejte svůj YouTube handle."
     }
+  },
+  "mutedRewardsHeading": {
+    "rewardsToAnnounce": "Odměny k ohlašování"
+  },
+  "mutedRewardsHelp": {
+    "switchOffAnyRewardThat": "Vypněte odměny, které se nemají ohlašovat, například soundboard s vlastním zvukem. Všechno zapnuté bude ohlašováno. Moderátoři mohou udělat totéž z chatu pomocí <code>!tts redeems mute &lt;reward&gt;</code>."
+  },
+  "mutedRewardsRefresh": {
+    "refreshRewardList": "Obnovit seznam odměn"
   },
   "obsCloseBtn": {
     "closeObsSetup": "Zavřít nastavení OBS"

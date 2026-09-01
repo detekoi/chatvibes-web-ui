@@ -215,6 +215,20 @@
       "searching": "Recherche…",
       "voiceUnknown": "Cette voix ne figure pas dans la liste des voix disponibles."
     },
+    "mutedRewards": {
+      "announceLabel": "Annoncer les utilisations de {title}",
+      "announced": "Les utilisations de {title} seront à nouveau annoncées.",
+      "badgeDisabled": "Désactivée sur Twitch",
+      "badgeMissing": "Supprimée de Twitch",
+      "badgePaused": "En pause sur Twitch",
+      "empty": "Cette chaîne ne possède aucune récompense personnalisée de points de chaîne.",
+      "loadFailed": "Impossible de charger les récompenses de points de chaîne.",
+      "loading": "Chargement des récompenses de points de chaîne…",
+      "muted": "Les utilisations de {title} ne seront pas annoncées.",
+      "removeLabel": "Ne plus masquer {title}",
+      "unavailable": "Twitch n'a pas pu lister les récompenses de cette chaîne. Les points de chaîne nécessitent le statut d'affilié ou de partenaire, et le tableau de bord nécessite peut-être une reconnexion.",
+      "updateFailed": "Impossible de mettre à jour {title} : {reason}"
+    },
     "obs": {
       "cannotCopy": "Impossible de copier l'URL.",
       "cannotDetermine": "Impossible de déterminer l'URL TTS.",
@@ -284,6 +298,15 @@
       "saveFailed": "{label} : {reason}",
       "youtubeHandleRequired": "Saisissez un identifiant YouTube avant d'activer le TTS YouTube."
     }
+  },
+  "mutedRewardsHeading": {
+    "rewardsToAnnounce": "Récompenses à annoncer"
+  },
+  "mutedRewardsHelp": {
+    "switchOffAnyRewardThat": "Désactivez les récompenses qui ne doivent pas être annoncées, comme une boîte à sons qui émet déjà son propre son. Tout ce qui reste activé sera annoncé. Les modérateurs peuvent faire de même depuis le chat avec <code>!tts redeems mute &lt;reward&gt;</code>."
+  },
+  "mutedRewardsRefresh": {
+    "refreshRewardList": "Actualiser la liste des récompenses"
   },
   "obsCloseBtn": {
     "closeObsSetup": "Fermer la configuration OBS"

@@ -215,6 +215,20 @@
       "searching": "Søger…",
       "voiceUnknown": "Denne stemme er ikke på listen over tilgængelige stemmer."
     },
+    "mutedRewards": {
+      "announceLabel": "Annoncér indløsninger af {title}",
+      "announced": "Indløsninger af {title} vil blive annonceret igen.",
+      "badgeDisabled": "Deaktiveret på Twitch",
+      "badgeMissing": "Ikke længere på Twitch",
+      "badgePaused": "Sat på pause på Twitch",
+      "empty": "Denne kanal har ingen tilpassede Channel Points-belønninger.",
+      "loadFailed": "Kan ikke indlæse Channel Points-belønninger.",
+      "loading": "Indlæser Channel Points-belønninger…",
+      "muted": "Indløsninger af {title} vil ikke blive annonceret.",
+      "removeLabel": "Fjern dæmpning af {title}",
+      "unavailable": "Twitch kunne ikke vise denne kanals belønninger. Channel Points kræver Affiliate- eller Partner-status, og kontrolpanelet kræver muligvis, at du logger ind igen.",
+      "updateFailed": "Kan ikke opdatere {title}: {reason}"
+    },
     "obs": {
       "cannotCopy": "Kan ikke kopiere URL.",
       "cannotDetermine": "Kan ikke bestemme TTS-URL.",
@@ -284,6 +298,15 @@
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Indtast et YouTube-handle, før du aktiverer YouTube-TTS."
     }
+  },
+  "mutedRewardsHeading": {
+    "rewardsToAnnounce": "Belønninger, der skal annonceres"
+  },
+  "mutedRewardsHelp": {
+    "switchOffAnyRewardThat": "Slå eventuelle belønninger fra, som ikke skal annonceres, såsom et soundboard, der afspiller sin egen lyd. Alt, der er slået til, annonceres. Moderatorer kan gøre det samme fra chatten med <code>!tts redeems mute &lt;reward&gt;</code>."
+  },
+  "mutedRewardsRefresh": {
+    "refreshRewardList": "Opdater belønningsliste"
   },
   "obsCloseBtn": {
     "closeObsSetup": "Luk OBS-opsætning"

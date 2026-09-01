@@ -215,6 +215,20 @@
       "searching": "Cercant…",
       "voiceUnknown": "Aquesta veu no és a la llista de veus disponibles."
     },
+    "mutedRewards": {
+      "announceLabel": "Anuncia els bescanvis de {title}",
+      "announced": "Es tornaran a anunciar els bescanvis de {title}.",
+      "badgeDisabled": "Desactivat a Twitch",
+      "badgeMissing": "Ja no és a Twitch",
+      "badgePaused": "En pausa a Twitch",
+      "empty": "Aquest canal no té recompenses personalitzades de Channel Points.",
+      "loadFailed": "No s'han pogut carregar les recompenses de Channel Points.",
+      "loading": "S'estan carregant les recompenses de Channel Points…",
+      "muted": "No s'anunciaran els bescanvis de {title}.",
+      "removeLabel": "Deixa de silenciar {title}",
+      "unavailable": "Twitch no ha pogut llistar les recompenses d'aquest canal. Els Channel Points requereixen l'estat d'afiliat o soci, i pot ser que hagis de tornar a iniciar sessió al tauler.",
+      "updateFailed": "No s'ha pogut actualitzar {title}: {reason}"
+    },
     "obs": {
       "cannotCopy": "No es pot copiar l'URL.",
       "cannotDetermine": "No es pot determinar l'URL de TTS.",
@@ -284,6 +298,15 @@
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Introdueix un identificador de YouTube abans d'activar el TTS de YouTube."
     }
+  },
+  "mutedRewardsHeading": {
+    "rewardsToAnnounce": "Recompenses per anunciar"
+  },
+  "mutedRewardsHelp": {
+    "switchOffAnyRewardThat": "Desactiva qualsevol recompensa que no s'hagi d'anunciar, com ara una taula de sons que ja reprodueix el seu propi so. Tot el que quedi activat s'anunciarà. Els moderadors poden fer el mateix des del xat amb <code>!tts redeems mute &lt;reward&gt;</code>."
+  },
+  "mutedRewardsRefresh": {
+    "refreshRewardList": "Actualitza la llista de recompenses"
   },
   "obsCloseBtn": {
     "closeObsSetup": "Tanca la configuració d'OBS"
