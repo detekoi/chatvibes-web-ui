@@ -160,7 +160,10 @@ export function initMutedRewardsModule(
       remove.className = 'muted-reward-chip__remove';
       remove.setAttribute('aria-label', t('msg.mutedRewards.announceLabel', { title: entry.title }));
       remove.textContent = '×';
-      remove.addEventListener('click', () => void unmute(entry.id, entry.title, null));
+      remove.addEventListener('click', () => {
+        remove.disabled = true;
+        void unmute(entry.id, entry.title, null).finally(() => { remove.disabled = false; });
+      });
       chip.appendChild(remove);
 
       summaryEl.appendChild(chip);
@@ -288,6 +291,27 @@ export function initMutedRewardsModule(
     applySearch();
   }
 
+  /**
+   * Reflect an unmute in the open list without redrawing it: a redraw would
+   * destroy the switch that has focus. A reward Twitch still lists gets its
+   * switch set on; an orphan row is removed, and focus moves to the search
+   * box if it was on that row.
+   */
+  function syncRow(rewardId: string): void {
+    if (!listEl || !dialog?.open) return;
+    const li = listEl.querySelector<HTMLLIElement>(`li[data-reward-id="${CSS.escape(rewardId)}"]`);
+    if (!li) return;
+    if (rewards?.some(r => r.id === rewardId)) {
+      const sw = li.querySelector<HTMLInputElement>('input[type="checkbox"]');
+      if (sw) sw.checked = true;
+      return;
+    }
+    const hadFocus = li.contains(document.activeElement);
+    li.remove();
+    if (hadFocus) (searchEl ?? closeBtn)?.focus();
+    if (!listEl.querySelector('li')) renderList(); // nothing left: show the empty state
+  }
+
   function applySearch(): void {
     if (!listEl) return;
     const query = (searchEl?.value || '').trim().toLowerCase();
@@ -365,7 +389,7 @@ export function initMutedRewardsModule(
       delete next[rewardId];
       muted = next;
       renderSummary();
-      if (!input || rewards === null || !rewards.some(r => r.id === rewardId)) renderList(); // orphan row goes away
+      syncRow(rewardId);
     };
 
     if (testMode) {
@@ -401,7 +425,9 @@ export function initMutedRewardsModule(
   }
 
   function openDialog(): void {
-    if (!dialog) return;
+    // showModal() throws on a dialog that is already open, which a double
+    // click on the button would otherwise trigger.
+    if (!dialog || dialog.open) return;
     if (searchEl) searchEl.value = '';
     // Fresh from Twitch on every open, so a reward created since the page
     // loaded is here. The dialog shows the loading line meanwhile.
@@ -410,7 +436,7 @@ export function initMutedRewardsModule(
     // showModal() puts the dialog in the top layer, traps focus inside it,
     // closes on Escape, and returns focus to the button that opened it.
     dialog.showModal();
-    void ensureRewards().then(renderList);
+    void ensureRewards().then(() => { if (dialog.open) renderList(); });
   }
 
   function displayMutedRewards(next: Record<string, StoredMutedRewardValue>, nextTtsRewardId?: string | null): void {
@@ -423,9 +449,17 @@ export function initMutedRewardsModule(
   if (openBtn) openBtn.addEventListener('click', openDialog);
   if (closeBtn && dialog) closeBtn.addEventListener('click', () => dialog.close());
   if (dialog) {
-    // A click on the backdrop lands on the dialog element itself, not on its content.
+    // A click on the backdrop lands on the dialog element itself, not on its
+    // content. It has to start there too: a drag that begins on the content
+    // (selecting text, say) and ends over the backdrop also reports the
+    // dialog as its click target, and must not close it.
+    let pressedOnBackdrop = false;
+    dialog.addEventListener('mousedown', (event: MouseEvent) => {
+      pressedOnBackdrop = event.target === dialog;
+    });
     dialog.addEventListener('click', (event: MouseEvent) => {
-      if (event.target === dialog) dialog.close();
+      if (pressedOnBackdrop && event.target === dialog) dialog.close();
+      pressedOnBackdrop = false;
     });
   }
   if (searchEl) searchEl.addEventListener('input', applySearch);
