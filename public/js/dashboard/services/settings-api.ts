@@ -45,15 +45,6 @@ export class SettingsApi {
         return this.handleVoidResponse(response);
     }
 
-    async saveMusicSetting(channelName: string, key: string, value: any): Promise<void> {
-        const response = await fetch(`${this.apiBaseUrl}/music/settings/channel/${channelName}`, {
-            method: 'PUT',
-            headers: this.authHeaders(),
-            body: JSON.stringify({ key, value })
-        });
-        return this.handleVoidResponse(response);
-    }
-
     async getVoices(): Promise<VoicesResponse> {
         try {
             const response = await fetch(`${this.apiBaseUrl}/voices`);

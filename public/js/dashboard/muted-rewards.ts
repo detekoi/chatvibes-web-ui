@@ -155,15 +155,18 @@ export function initMutedRewardsModule(
     if (!listEl) return;
     listEl.innerHTML = '';
 
+    // Nothing to compare against until Twitch has answered: without the list,
+    // every muted reward would look like an orphan and be offered for removal.
+    // The status line already says the list is loading or why it failed.
+    if (rewards === null) return;
+
     // Rewards Twitch knows, minus the TTS reward, plus muted IDs Twitch no
     // longer returns (a deleted reward) so they can be cleared.
-    const known = (rewards || []).filter(r => r.id !== ttsRewardId);
+    const known = rewards.filter(r => r.id !== ttsRewardId);
     const knownIds = new Set(known.map(r => r.id));
     const orphans = Object.keys(muted)
       .filter(id => !knownIds.has(id) && id !== ttsRewardId)
       .map(id => ({ id, ...normalizeMutedRewardEntry(muted[id], id) }));
-
-    if (rewards === null && orphans.length === 0) return; // status line says why
 
     if (known.length === 0 && orphans.length === 0) {
       const li = document.createElement('li');
@@ -253,8 +256,9 @@ export function initMutedRewardsModule(
 
   async function mute(reward: TwitchReward, input: HTMLInputElement): Promise<void> {
     if (testMode) {
+      // No reload in test mode: settings would hand back the static demo map
+      // and undo the toggle that was just made.
       muted = { ...muted, [reward.id]: { title: reward.title, by: null, at: null } };
-      onChangeCallback?.();
       render();
       return;
     }
@@ -291,7 +295,6 @@ export function initMutedRewardsModule(
       const next = { ...muted };
       delete next[rewardId];
       muted = next;
-      onChangeCallback?.();
       render();
       return;
     }
