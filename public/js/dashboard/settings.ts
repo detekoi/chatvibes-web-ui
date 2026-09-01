@@ -186,19 +186,6 @@ export function initSettingsModule(
       bitsAmountInput.addEventListener('input', () => { if (!isInitializing) debouncedBitsAmountSave(); });
       bitsAmountInput.addEventListener('change', () => saveSettingWrapper('bitsMinimumAmount', Math.max(1, parseInt(bitsAmountInput.value || '1', 10) || 1), t('msg.setting.minimumBits')));
     }
-  }
-
-  // bits_points_only always reads cheer messages (that is what the mode is
-  // for), so the toggle is shown on and locked there rather than offering a
-  // switch that would do nothing. The stored value is left alone, so the
-  // channel's choice comes back when it changes mode again.
-  function syncReadCheerMessagesToMode(): void {
-    if (!readCheerMessagesCheckbox) return;
-    const locked = ttsModeSelect?.value === 'bits_points_only';
-    readCheerMessagesCheckbox.disabled = locked;
-    if (locked) readCheerMessagesCheckbox.checked = true;
-    else readCheerMessagesCheckbox.checked = lastStoredReadCheerMessages;
-    if (readCheerMessagesModeNote) readCheerMessagesModeNote.hidden = !locked;
 
     if (defaultEmotionSelect) defaultEmotionSelect.addEventListener('change', () => {
       saveSettingWrapper('emotion', defaultEmotionSelect.value || 'neutral', t('msg.setting.defaultEmotion'));
@@ -275,6 +262,19 @@ export function initSettingsModule(
         saveSettingWrapper('youtubeHandle', handle, t('msg.setting.youtubeHandle'));
       });
     }
+  }
+
+  // bits_points_only always reads cheer messages (that is what the mode is
+  // for), so the toggle is shown on and locked there rather than offering a
+  // switch that would do nothing. The stored value is left alone, so the
+  // channel's choice comes back when it changes mode again.
+  function syncReadCheerMessagesToMode(): void {
+    if (!readCheerMessagesCheckbox) return;
+    const locked = ttsModeSelect?.value === 'bits_points_only';
+    readCheerMessagesCheckbox.disabled = locked;
+    if (locked) readCheerMessagesCheckbox.checked = true;
+    else readCheerMessagesCheckbox.checked = lastStoredReadCheerMessages;
+    if (readCheerMessagesModeNote) readCheerMessagesModeNote.hidden = !locked;
   }
 
   function getEffectiveTtsSettings(): Omit<TTSPayload, 'text'> {
