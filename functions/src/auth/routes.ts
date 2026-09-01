@@ -389,13 +389,27 @@ router.get("/twitch/callback", async (req: Request, res: Response): Promise<void
             grantedScopes: scopeArray,
           }, { merge: true });
 
-          // Sync botRespondsInChat in ttsChannelConfigs for the TTS bot service
-          // Default to true (bot responds to commands in chat)
+          // Seed ttsChannelConfigs defaults for the TTS bot service. Each field is
+          // written only when the channel has never set it: a new channel starts
+          // responding in chat and in command mode, and an existing choice is
+          // never overwritten. botRespondsInChat used to be written
+          // unconditionally, which flipped a silent-mode channel back to
+          // responding every time the streamer signed in to the dashboard. The
+          // bot's own fallback for mode is also 'command', so what the dashboard
+          // shows and what the bot does stay in step.
           const ttsConfigDocRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(twitchUser.id);
-          await ttsConfigDocRef.set({
-            botRespondsInChat: true,
-          }, { merge: true });
-          logger.info({ userLogin: twitchUser.login, botRespondsInChat: true }, "Synced botRespondsInChat to ttsChannelConfigs");
+          const existingTtsConfig = (await ttsConfigDocRef.get()).data() ?? {};
+          const ttsConfigUpdate: Record<string, unknown> = {};
+          if (existingTtsConfig.botRespondsInChat === undefined) {
+            ttsConfigUpdate.botRespondsInChat = true;
+          }
+          if (existingTtsConfig.mode === undefined) {
+            ttsConfigUpdate.mode = "command";
+          }
+          if (Object.keys(ttsConfigUpdate).length > 0) {
+            await ttsConfigDocRef.set(ttsConfigUpdate, { merge: true });
+            logger.info({ userLogin: twitchUser.login, ...ttsConfigUpdate }, "Seeded ttsChannelConfigs defaults");
+          }
 
           logger.info({ userLogin: twitchUser.login }, "Secret reference stored in Firestore");
         } catch (dbError) {

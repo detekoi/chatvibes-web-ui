@@ -148,7 +148,7 @@
     "loadChannel": "بارگیری کانال…"
   },
   "page": {
-    "setHowYourMessagesSound": "نحوه خوانده شدن پیام‌هایتان توسط Wildcat TTS را تنظیم کنید. ترجیحات شما سراسری است و در همه کانال‌ها اعمال می‌شود.",
+    "setHowYourMessagesSound": "نحوه خوانده شدن پیام‌هایتان توسط WildcatTTS را تنظیم کنید. ترجیحات شما سراسری است و در همه کانال‌ها اعمال می‌شود.",
     "viewerTtsPreferences": "ترجیحات TTS بیننده",
     "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">تنظیمات بیننده</span>"
   },

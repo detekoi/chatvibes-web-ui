@@ -148,7 +148,7 @@
     "loadChannel": "Učitaj kanal…"
   },
   "page": {
-    "setHowYourMessagesSound": "Postavite kako vaše poruke zvuče kada ih Wildcat TTS čita. Vaše su postavke globalne i primjenjuju se na sve kanale.",
+    "setHowYourMessagesSound": "Postavite kako vaše poruke zvuče kada ih WildcatTTS čita. Vaše su postavke globalne i primjenjuju se na sve kanale.",
     "viewerTtsPreferences": "TTS postavke za gledatelje",
     "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Postavke za gledatelje</span>"
   },

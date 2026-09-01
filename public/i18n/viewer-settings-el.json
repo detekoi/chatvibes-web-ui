@@ -148,7 +148,7 @@
     "loadChannel": "Φόρτωση καναλιού…"
   },
   "page": {
-    "setHowYourMessagesSound": "Ορίστε πώς θα ακούγονται τα μηνύματά σας όταν τα διαβάζει το Wildcat TTS. Οι προτιμήσεις σας είναι καθολικές και ισχύουν για όλα τα κανάλια.",
+    "setHowYourMessagesSound": "Ορίστε πώς θα ακούγονται τα μηνύματά σας όταν τα διαβάζει το WildcatTTS. Οι προτιμήσεις σας είναι καθολικές και ισχύουν για όλα τα κανάλια.",
     "viewerTtsPreferences": "Προτιμήσεις TTS θεατή",
     "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Ρυθμίσεις θεατή</span>"
   },

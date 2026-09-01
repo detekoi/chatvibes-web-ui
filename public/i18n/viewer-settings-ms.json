@@ -148,7 +148,7 @@
     "loadChannel": "Muat Saluran…"
   },
   "page": {
-    "setHowYourMessagesSound": "Tetapkan bunyi mesej anda apabila Wildcat TTS membacanya. Keutamaan anda adalah global dan terpakai untuk semua saluran.",
+    "setHowYourMessagesSound": "Tetapkan bunyi mesej anda apabila WildcatTTS membacanya. Keutamaan anda adalah global dan terpakai untuk semua saluran.",
     "viewerTtsPreferences": "Keutamaan TTS penonton",
     "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Tetapan penonton</span>"
   },

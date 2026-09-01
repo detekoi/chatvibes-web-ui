@@ -148,7 +148,7 @@
     "loadChannel": "Завантажити канал…"
   },
   "page": {
-    "setHowYourMessagesSound": "Налаштуйте звучання своїх повідомлень під час озвучення Wildcat TTS. Ваші налаштування є глобальними та застосовуються до всіх каналів.",
+    "setHowYourMessagesSound": "Налаштуйте звучання своїх повідомлень під час озвучення WildcatTTS. Ваші налаштування є глобальними та застосовуються до всіх каналів.",
     "viewerTtsPreferences": "Налаштування TTS для глядача",
     "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Налаштування глядача</span>"
   },

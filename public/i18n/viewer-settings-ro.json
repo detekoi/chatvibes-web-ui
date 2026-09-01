@@ -148,7 +148,7 @@
     "loadChannel": "Încarcă canalul…"
   },
   "page": {
-    "setHowYourMessagesSound": "Setează cum se aud mesajele tale când le citește Wildcat TTS. Preferințele tale sunt globale și se aplică pe toate canalele.",
+    "setHowYourMessagesSound": "Setează cum se aud mesajele tale când le citește WildcatTTS. Preferințele tale sunt globale și se aplică pe toate canalele.",
     "viewerTtsPreferences": "Preferințe TTS spectator",
     "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Setări spectator</span>"
   },

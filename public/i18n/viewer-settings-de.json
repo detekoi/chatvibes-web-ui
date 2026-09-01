@@ -148,7 +148,7 @@
     "loadChannel": "Kanal laden…"
   },
   "page": {
-    "setHowYourMessagesSound": "Lege fest, wie deine Nachrichten klingen, wenn Wildcat TTS sie vorliest. Deine Einstellungen sind global und gelten für alle Kanäle.",
+    "setHowYourMessagesSound": "Lege fest, wie deine Nachrichten klingen, wenn WildcatTTS sie vorliest. Deine Einstellungen sind global und gelten für alle Kanäle.",
     "viewerTtsPreferences": "Zuschauer-TTS-Einstellungen",
     "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Zuschauer-Einstellungen</span>"
   },

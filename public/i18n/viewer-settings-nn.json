@@ -148,7 +148,7 @@
     "loadChannel": "Last inn kanal…"
   },
   "page": {
-    "setHowYourMessagesSound": "Vel korleis meldingane dine skal høyrast ut når Wildcat TTS les dei. Innstillingane dine er globale og gjeld for alle kanalar.",
+    "setHowYourMessagesSound": "Vel korleis meldingane dine skal høyrast ut når WildcatTTS les dei. Innstillingane dine er globale og gjeld for alle kanalar.",
     "viewerTtsPreferences": "TTS-innstillingar for sjåarar",
     "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Sjåarinnstillingar</span>"
   },

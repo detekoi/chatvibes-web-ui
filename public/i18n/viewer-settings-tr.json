@@ -148,7 +148,7 @@
     "loadChannel": "Kanalı Yükle…"
   },
   "page": {
-    "setHowYourMessagesSound": "Mesajların Wildcat TTS tarafından okunduğunda nasıl duyulacağını ayarla. Tercihlerin geneldir ve tüm kanallara uygulanır.",
+    "setHowYourMessagesSound": "Mesajların WildcatTTS tarafından okunduğunda nasıl duyulacağını ayarla. Tercihlerin geneldir ve tüm kanallara uygulanır.",
     "viewerTtsPreferences": "İzleyici TTS tercihleri",
     "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">İzleyici ayarları</span>"
   },

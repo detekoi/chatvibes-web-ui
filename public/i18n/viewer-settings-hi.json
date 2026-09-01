@@ -148,7 +148,7 @@
     "loadChannel": "चैनल लोड करें…"
   },
   "page": {
-    "setHowYourMessagesSound": "सेट करें कि Wildcat TTS द्वारा पढ़े जाने पर आपके संदेश कैसे सुनाई दें। आपकी प्राथमिकताएं वैश्विक हैं और सभी चैनलों पर लागू होती हैं।",
+    "setHowYourMessagesSound": "सेट करें कि WildcatTTS द्वारा पढ़े जाने पर आपके संदेश कैसे सुनाई दें। आपकी प्राथमिकताएं वैश्विक हैं और सभी चैनलों पर लागू होती हैं।",
     "viewerTtsPreferences": "दर्शक TTS प्राथमिकताएं",
     "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">दर्शक सेटिंग्स</span>"
   },

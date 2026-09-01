@@ -148,7 +148,7 @@
     "loadChannel": "சேனலை ஏற்று…"
   },
   "page": {
-    "setHowYourMessagesSound": "Wildcat TTS உங்கள் செய்திகளை வாசிக்கும்போது அவை எவ்வாறு ஒலிக்க வேண்டும் என்பதை அமைக்கவும். உங்கள் விருப்பத்தேர்வுகள் அனைத்து சேனல்களுக்கும் பொருந்தும்.",
+    "setHowYourMessagesSound": "WildcatTTS உங்கள் செய்திகளை வாசிக்கும்போது அவை எவ்வாறு ஒலிக்க வேண்டும் என்பதை அமைக்கவும். உங்கள் விருப்பத்தேர்வுகள் அனைத்து சேனல்களுக்கும் பொருந்தும்.",
     "viewerTtsPreferences": "பார்வையாளர் TTS விருப்பத்தேர்வுகள்",
     "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">பார்வையாளர் அமைப்புகள்</span>"
   },

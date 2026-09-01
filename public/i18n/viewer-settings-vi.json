@@ -148,7 +148,7 @@
     "loadChannel": "Tải kênh…"
   },
   "page": {
-    "setHowYourMessagesSound": "Tùy chỉnh cách phát âm tin nhắn của bạn khi Wildcat TTS đọc. Tùy chọn của bạn được áp dụng cho tất cả các kênh.",
+    "setHowYourMessagesSound": "Tùy chỉnh cách phát âm tin nhắn của bạn khi WildcatTTS đọc. Tùy chọn của bạn được áp dụng cho tất cả các kênh.",
     "viewerTtsPreferences": "Tùy chọn TTS của người xem",
     "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Cài đặt người xem</span>"
   },

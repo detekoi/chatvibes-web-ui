@@ -148,7 +148,7 @@
     "loadChannel": "채널 불러오기…"
   },
   "page": {
-    "setHowYourMessagesSound": "Wildcat TTS가 메시지를 읽을 때의 음성을 설정합니다. 설정은 전역으로 적용되며 모든 채널에 반영됩니다.",
+    "setHowYourMessagesSound": "WildcatTTS가 메시지를 읽을 때의 음성을 설정합니다. 설정은 전역으로 적용되며 모든 채널에 반영됩니다.",
     "viewerTtsPreferences": "시청자 TTS 설정",
     "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">시청자 설정</span>"
   },

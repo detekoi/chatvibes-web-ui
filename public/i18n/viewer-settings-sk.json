@@ -148,7 +148,7 @@
     "loadChannel": "Načítať kanál…"
   },
   "page": {
-    "setHowYourMessagesSound": "Nastavte, ako budú znieť vaše správy, keď ich číta Wildcat TTS. Vaše predvoľby sú globálne a platia pre všetky kanály.",
+    "setHowYourMessagesSound": "Nastavte, ako budú znieť vaše správy, keď ich číta WildcatTTS. Vaše predvoľby sú globálne a platia pre všetky kanály.",
     "viewerTtsPreferences": "Predvoľby TTS pre diváka",
     "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Nastavenia pre divákov</span>"
   },

@@ -148,7 +148,7 @@
     "loadChannel": "Load Channel…"
   },
   "page": {
-    "setHowYourMessagesSound": "Set how your messages sound when Wildcat TTS reads them. Your preferences are global and apply to all channels.",
+    "setHowYourMessagesSound": "Set how your messages sound when WildcatTTS reads them. Your preferences are global and apply to all channels.",
     "viewerTtsPreferences": "Viewer TTS preferences",
     "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Viewer settings</span>"
   },

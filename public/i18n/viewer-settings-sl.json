@@ -148,7 +148,7 @@
     "loadChannel": "Naloži kanal …"
   },
   "page": {
-    "setHowYourMessagesSound": "Nastavite, kako naj zvenijo vaša sporočila, ko jih bere Wildcat TTS. Vaše nastavitve so globalne in veljajo za vse kanale.",
+    "setHowYourMessagesSound": "Nastavite, kako naj zvenijo vaša sporočila, ko jih bere WildcatTTS. Vaše nastavitve so globalne in veljajo za vse kanale.",
     "viewerTtsPreferences": "Nastavitve TTS za gledalce",
     "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Nastavitve za gledalce</span>"
   },

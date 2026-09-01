@@ -148,7 +148,7 @@
     "loadChannel": "Csatorna betöltése…"
   },
   "page": {
-    "setHowYourMessagesSound": "Állítsd be, hogyan hangzanak az üzeneteid, amikor a Wildcat TTS felolvassa őket. A beállításaid globálisak, és minden csatornára érvényesek.",
+    "setHowYourMessagesSound": "Állítsd be, hogyan hangzanak az üzeneteid, amikor a WildcatTTS felolvassa őket. A beállításaid globálisak, és minden csatornára érvényesek.",
     "viewerTtsPreferences": "Nézői TTS-beállítások",
     "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Nézői beállítások</span>"
   },

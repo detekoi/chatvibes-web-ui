@@ -148,7 +148,7 @@
     "loadChannel": "Laai kanaal…"
   },
   "page": {
-    "setHowYourMessagesSound": "Stel hoe jou boodskappe klink wanneer Wildcat TTS dit lees. Jou voorkeure is globaal en geld vir alle kanale.",
+    "setHowYourMessagesSound": "Stel hoe jou boodskappe klink wanneer WildcatTTS dit lees. Jou voorkeure is globaal en geld vir alle kanale.",
     "viewerTtsPreferences": "Kyker-TTS-voorkeure",
     "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Kykerinstellings</span>"
   },

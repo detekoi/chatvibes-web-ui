@@ -148,7 +148,7 @@
     "loadChannel": "Charger la chaîne…"
   },
   "page": {
-    "setHowYourMessagesSound": "Configurez la voix de vos messages lorsqu'ils sont lus par Wildcat TTS. Vos préférences sont globales et s'appliquent à toutes les chaînes.",
+    "setHowYourMessagesSound": "Configurez la voix de vos messages lorsqu'ils sont lus par WildcatTTS. Vos préférences sont globales et s'appliquent à toutes les chaînes.",
     "viewerTtsPreferences": "Préférences TTS spectateur",
     "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Paramètres spectateur</span>"
   },

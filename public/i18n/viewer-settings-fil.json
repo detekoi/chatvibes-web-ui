@@ -148,7 +148,7 @@
     "loadChannel": "I-load ang Channel…"
   },
   "page": {
-    "setHowYourMessagesSound": "Itakda kung paano tutunog ang mga mensahe mo kapag binasa ng Wildcat TTS. Pangkalahatan ang iyong preferences at nalalapat sa lahat ng channel.",
+    "setHowYourMessagesSound": "Itakda kung paano tutunog ang mga mensahe mo kapag binasa ng WildcatTTS. Pangkalahatan ang iyong preferences at nalalapat sa lahat ng channel.",
     "viewerTtsPreferences": "Mga preference ng viewer sa TTS",
     "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Mga setting ng viewer</span>"
   },

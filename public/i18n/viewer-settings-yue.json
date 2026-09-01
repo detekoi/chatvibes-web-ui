@@ -148,7 +148,7 @@
     "loadChannel": "載入頻道…"
   },
   "page": {
-    "setHowYourMessagesSound": "設定 Wildcat TTS 朗讀你嘅訊息時嘅聲音效果。你嘅偏好設定係全域設定，適用於所有頻道。",
+    "setHowYourMessagesSound": "設定 WildcatTTS 朗讀你嘅訊息時嘅聲音效果。你嘅偏好設定係全域設定，適用於所有頻道。",
     "viewerTtsPreferences": "觀眾 TTS 偏好設定",
     "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">觀眾設定</span>"
   },
