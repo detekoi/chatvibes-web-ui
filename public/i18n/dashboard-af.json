@@ -284,6 +284,7 @@
       "minimumBits": "Minimum bits",
       "profanityFilter": "Vloektaalfilter",
       "readCheerMessages": "Lees cheer-boodskappe",
+      "readCommandMessages": "Lees kletsopdragte",
       "readFullUrls": "Lees volledige URL's",
       "redemptionAnnouncements": "Inwisselingaankondigings",
       "ttsEngine": "TTS-enjin",
@@ -358,6 +359,12 @@
   },
   "readCheerMessagesModeNote": {
     "alwaysOnInBitsPoints": "Altyd aan in Slegs Bits/Punte-modus"
+  },
+  "readCommandMessages": {
+    "readChatCommands": "Lees kletsopdragte"
+  },
+  "readCommandMessagesModeNote": {
+    "onlyUsedInAllMessages": "Slegs gebruik in 'Alle boodskappe'-modus; die ander modusse lees dit nooit"
   },
   "readFullUrls": {
     "readFullUrls": "Lees volledige URL's"
@@ -437,7 +444,9 @@
     "perUserPerStream": "Per gebruiker per stroom",
     "profanityFilter": "Vloekwoordfilter",
     "pronunciationDictionary": "<strong>Uitspraakwoordeboek</strong>",
+    "readAloudChatMessagesThat": "Lees kletsboodskappe hardop wat met \"!\" begin, soos !lurk of !so wat vir 'n ander bot bedoel is. !tts werk altyd.",
     "readAloudTheMessageA": "Lees die boodskap wat 'n kyker by 'n cheer insluit hardop",
+    "readChatCommands": "Lees kletsopdragte",
     "readCheerMessages": "Lees cheer-boodskappe",
     "readFullUrls": "Lees volledige URL's",
     "readYoutubeLiveChatMessages": "Lees YouTube-regstreekse kletsboodskappe deur TTS. Hierdie kenmerk vereis 'n aktiewe YouTube-regstreekse stroom.",

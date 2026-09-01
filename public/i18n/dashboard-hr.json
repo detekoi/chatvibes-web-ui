@@ -284,6 +284,7 @@
       "minimumBits": "Minimalno Bits",
       "profanityFilter": "Filtar vulgarnosti",
       "readCheerMessages": "Čitaj Cheer poruke",
+      "readCommandMessages": "Čitaj chat naredbe",
       "readFullUrls": "Čitaj cijele URL-ove",
       "redemptionAnnouncements": "Najave preuzimanja nagrada",
       "ttsEngine": "TTS mehanizam",
@@ -358,6 +359,12 @@
   },
   "readCheerMessagesModeNote": {
     "alwaysOnInBitsPoints": "Uvijek uključeno u načinu rada Samo Bits/Points"
+  },
+  "readCommandMessages": {
+    "readChatCommands": "Čitaj chat naredbe"
+  },
+  "readCommandMessagesModeNote": {
+    "onlyUsedInAllMessages": "Koristi se samo u načinu rada „Sve poruke”; ostali načini rada ovo nikad ne čitaju"
   },
   "readFullUrls": {
     "readFullUrls": "Čitaj cijele URL-ove"
@@ -437,7 +444,9 @@
     "perUserPerStream": "Po korisniku po streamu",
     "profanityFilter": "Filtar psovki",
     "pronunciationDictionary": "<strong>Rječnik izgovora</strong>",
+    "readAloudChatMessagesThat": "Čitaj naglas poruke iz chata koje počinju znakom „!”, kao što su !lurk ili !so namijenjene drugom botu. !tts uvijek radi.",
     "readAloudTheMessageA": "Naglas pročitaj poruku koju gledatelj priloži uz cheer",
+    "readChatCommands": "Čitaj chat naredbe",
     "readCheerMessages": "Čitaj Cheer poruke",
     "readFullUrls": "Čitaj cijele URL-ove",
     "readYoutubeLiveChatMessages": "Čitaj poruke YouTube chata uživo putem TTS-a. Ova značajka zahtijeva aktivan YouTube livestream.",

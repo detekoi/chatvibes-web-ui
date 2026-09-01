@@ -284,6 +284,7 @@
       "minimumBits": "Bits Minimum",
       "profanityFilter": "Filter Kata Kasar",
       "readCheerMessages": "Baca Pesan Cheer",
+      "readCommandMessages": "Baca Perintah Obrolan",
       "readFullUrls": "Baca URL Lengkap",
       "redemptionAnnouncements": "Pengumuman Penukaran",
       "ttsEngine": "Mesin TTS",
@@ -358,6 +359,12 @@
   },
   "readCheerMessagesModeNote": {
     "alwaysOnInBitsPoints": "Selalu aktif dalam mode Hanya Bits/Points"
+  },
+  "readCommandMessages": {
+    "readChatCommands": "Baca Perintah Obrolan"
+  },
+  "readCommandMessagesModeNote": {
+    "onlyUsedInAllMessages": "Hanya digunakan dalam mode Semua Pesan; mode lain tidak pernah membacanya"
   },
   "readFullUrls": {
     "readFullUrls": "Baca URL Lengkap"
@@ -437,7 +444,9 @@
     "perUserPerStream": "Per pengguna per stream",
     "profanityFilter": "Filter Kata Kasar",
     "pronunciationDictionary": "<strong>Kamus Pengucapan</strong>",
+    "readAloudChatMessagesThat": "Bacakan pesan obrolan yang diawali dengan \"!\", seperti !lurk atau !so yang ditujukan untuk bot lain. !tts selalu berfungsi.",
     "readAloudTheMessageA": "Bacakan pesan yang disertakan penonton pada cheer",
+    "readChatCommands": "Baca Perintah Obrolan",
     "readCheerMessages": "Baca Pesan Cheer",
     "readFullUrls": "Baca URL Lengkap",
     "readYoutubeLiveChatMessages": "Baca pesan live chat YouTube melalui TTS. Fitur ini memerlukan livestream YouTube yang sedang aktif.",

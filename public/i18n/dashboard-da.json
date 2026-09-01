@@ -284,6 +284,7 @@
       "minimumBits": "Minimum bits",
       "profanityFilter": "Bandeordsfilter",
       "readCheerMessages": "Læs cheer-beskeder",
+      "readCommandMessages": "Læs chatkommandoer",
       "readFullUrls": "Læs hele URL'er",
       "redemptionAnnouncements": "Indløsningsannonceringer",
       "ttsEngine": "TTS-motor",
@@ -358,6 +359,12 @@
   },
   "readCheerMessagesModeNote": {
     "alwaysOnInBitsPoints": "Altid aktiv i tilstanden Kun bits/point"
+  },
+  "readCommandMessages": {
+    "readChatCommands": "Læs chatkommandoer"
+  },
+  "readCommandMessagesModeNote": {
+    "onlyUsedInAllMessages": "Bruges kun i tilstanden Alle beskeder; de andre tilstande læser aldrig disse"
   },
   "readFullUrls": {
     "readFullUrls": "Læs fulde URL'er"
@@ -437,7 +444,9 @@
     "perUserPerStream": "Pr. bruger pr. stream",
     "profanityFilter": "Bandeordsfilter",
     "pronunciationDictionary": "<strong>Udtaleordbog</strong>",
+    "readAloudChatMessagesThat": "Oplæs chatbeskeder, der starter med \"!\", f.eks. !lurk eller !so tiltænkt en anden bot. !tts virker altid.",
     "readAloudTheMessageA": "Læs beskeden højt, som en seer vedhæfter en cheer",
+    "readChatCommands": "Læs chatkommandoer",
     "readCheerMessages": "Læs cheer-beskeder",
     "readFullUrls": "Læs hele URL'er",
     "readYoutubeLiveChatMessages": "Læs YouTube-livechatbeskeder via TTS. Denne funktion kræver et aktivt YouTube-livestream.",

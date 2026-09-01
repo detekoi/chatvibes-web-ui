@@ -284,6 +284,7 @@
       "minimumBits": "최소 Bits",
       "profanityFilter": "비속어 필터",
       "readCheerMessages": "응원 메시지 읽기",
+      "readCommandMessages": "채팅 명령어 읽기",
       "readFullUrls": "전체 URL 읽기",
       "redemptionAnnouncements": "리워드 수령 알림",
       "ttsEngine": "TTS 엔진",
@@ -358,6 +359,12 @@
   },
   "readCheerMessagesModeNote": {
     "alwaysOnInBitsPoints": "Bits/Points 전용 모드에서는 항상 켜짐"
+  },
+  "readCommandMessages": {
+    "readChatCommands": "채팅 명령어 읽기"
+  },
+  "readCommandMessagesModeNote": {
+    "onlyUsedInAllMessages": "모든 메시지 모드에서만 사용되며, 다른 모드에서는 읽지 않습니다"
   },
   "readFullUrls": {
     "readFullUrls": "전체 URL 읽기"
@@ -437,7 +444,9 @@
     "perUserPerStream": "사용자별 방송당 제한",
     "profanityFilter": "비속어 필터",
     "pronunciationDictionary": "<strong>발음 사전</strong>",
+    "readAloudChatMessagesThat": "다른 봇을 위한 !lurk 또는 !so와 같이 \"!\"로 시작하는 채팅 메시지를 소리 내어 읽습니다. !tts는 항상 작동합니다.",
     "readAloudTheMessageA": "시청자가 응원에 첨부한 메시지 읽기",
+    "readChatCommands": "채팅 명령어 읽기",
     "readCheerMessages": "응원 메시지 읽기",
     "readFullUrls": "전체 URL 읽기",
     "readYoutubeLiveChatMessages": "TTS로 YouTube 실시간 채팅 메시지를 읽습니다. 이 기능을 사용하려면 YouTube 라이브 스트림이 활성화되어 있어야 합니다.",

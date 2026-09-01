@@ -284,6 +284,7 @@
       "minimumBits": "Bits-vähimmäismäärä",
       "profanityFilter": "Kirosanasuodatin",
       "readCheerMessages": "Lue Cheer-viestit",
+      "readCommandMessages": "Lue chat-komennot",
       "readFullUrls": "Lue täydet URL-osoitteet",
       "redemptionAnnouncements": "Lunastusilmoitukset",
       "ttsEngine": "TTS-moottori",
@@ -358,6 +359,12 @@
   },
   "readCheerMessagesModeNote": {
     "alwaysOnInBitsPoints": "Aina käytössä Vain Bits/Points -tilassa"
+  },
+  "readCommandMessages": {
+    "readChatCommands": "Lue chat-komennot"
+  },
+  "readCommandMessagesModeNote": {
+    "onlyUsedInAllMessages": "Käytössä vain Kaikki viestit -tilassa; muissa tiloissa näitä ei lueta koskaan"
   },
   "readFullUrls": {
     "readFullUrls": "Lue koko URL-osoitteet"
@@ -437,7 +444,9 @@
     "perUserPerStream": "Käyttäjäkohtainen per lähetys",
     "profanityFilter": "Kiroilusuodatin",
     "pronunciationDictionary": "<strong>Ääntämissanakirja</strong>",
+    "readAloudChatMessagesThat": "Lue ääneen chat-viestit, jotka alkavat merkillä \"!\", kuten toiselle botille tarkoitetut !lurk tai !so. !tts toimii aina.",
     "readAloudTheMessageA": "Lue ääneen katsojan Cheeriin liittämä viesti",
+    "readChatCommands": "Lue chat-komennot",
     "readCheerMessages": "Lue Cheer-viestit",
     "readFullUrls": "Lue koko URL-osoitteet",
     "readYoutubeLiveChatMessages": "Lue YouTube-livelähetyksen chat-viestit TTS:llä. Tämä ominaisuus vaatii aktiivisen YouTube-livelähetyksen.",

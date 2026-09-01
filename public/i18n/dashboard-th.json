@@ -284,6 +284,7 @@
       "minimumBits": "Bits ขั้นต่ำ",
       "profanityFilter": "ตัวกรองคำหยาบคาย",
       "readCheerMessages": "อ่านข้อความ Cheer",
+      "readCommandMessages": "อ่านคำสั่งแชท",
       "readFullUrls": "อ่าน URL แบบเต็ม",
       "redemptionAnnouncements": "การประกาศการแลกรับ",
       "ttsEngine": "TTS Engine",
@@ -358,6 +359,12 @@
   },
   "readCheerMessagesModeNote": {
     "alwaysOnInBitsPoints": "เปิดใช้งานเสมอในโหมด Bits/Points Only"
+  },
+  "readCommandMessages": {
+    "readChatCommands": "อ่านคำสั่งแชท"
+  },
+  "readCommandMessagesModeNote": {
+    "onlyUsedInAllMessages": "ใช้เฉพาะในโหมดข้อความทั้งหมดเท่านั้น โหมดอื่นๆ จะไม่อ่านข้อความเหล่านี้"
   },
   "readFullUrls": {
     "readFullUrls": "อ่าน URL แบบเต็ม"
@@ -437,7 +444,9 @@
     "perUserPerStream": "ต่อผู้ใช้ต่อสตรีม",
     "profanityFilter": "ตัวกรองคำหยาบคาย",
     "pronunciationDictionary": "<strong>พจนานุกรมการออกเสียง</strong>",
+    "readAloudChatMessagesThat": "อ่านออกเสียงข้อความแชทที่ขึ้นต้นด้วย \"!\" เช่น !lurk หรือ !so ที่มีไว้สำหรับบอทตัวอื่น คำสั่ง !tts จะทำงานได้เสมอ",
     "readAloudTheMessageA": "อ่านออกเสียงข้อความที่ผู้ชมแนบมากับ Cheer",
+    "readChatCommands": "อ่านคำสั่งแชท",
     "readCheerMessages": "อ่านข้อความ Cheer",
     "readFullUrls": "อ่าน URL ทั้งหมด",
     "readYoutubeLiveChatMessages": "อ่านข้อความแชทสดของ YouTube ผ่าน TTS ฟีเจอร์นี้ต้องมีการไลฟ์สตรีม YouTube ที่กำลังดำเนินอยู่",

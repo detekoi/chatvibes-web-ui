@@ -284,6 +284,7 @@
       "minimumBits": "न्यूनतम Bits",
       "profanityFilter": "अपशब्द फ़िल्टर",
       "readCheerMessages": "Cheer संदेश पढ़ें",
+      "readCommandMessages": "चैट कमांड पढ़ें",
       "readFullUrls": "पूरे URLs पढ़ें",
       "redemptionAnnouncements": "रिडेम्पशन घोषणाएँ",
       "ttsEngine": "TTS इंजन",
@@ -358,6 +359,12 @@
   },
   "readCheerMessagesModeNote": {
     "alwaysOnInBitsPoints": "Bits/Points Only मोड में हमेशा चालू"
+  },
+  "readCommandMessages": {
+    "readChatCommands": "चैट कमांड पढ़ें"
+  },
+  "readCommandMessagesModeNote": {
+    "onlyUsedInAllMessages": "केवल 'All Messages' मोड में उपयोग किया जाता है; अन्य मोड इन्हें कभी नहीं पढ़ते"
   },
   "readFullUrls": {
     "readFullUrls": "पूरे URL पढ़ें"
@@ -437,7 +444,9 @@
     "perUserPerStream": "प्रति-यूज़र प्रति-स्ट्रीम",
     "profanityFilter": "अपशब्द फ़िल्टर",
     "pronunciationDictionary": "<strong>उच्चारण डिक्शनरी</strong>",
+    "readAloudChatMessagesThat": "\"!\" से शुरू होने वाले चैट संदेशों को बोलकर पढ़ें, जैसे किसी अन्य बॉट के लिए बने !lurk या !so। !tts हमेशा काम करता है।",
     "readAloudTheMessageA": "दर्शक द्वारा cheer के साथ जोड़े गए संदेश को बोलकर पढ़ें",
+    "readChatCommands": "चैट कमांड पढ़ें",
     "readCheerMessages": "Cheer संदेश पढ़ें",
     "readFullUrls": "पूरे URL पढ़ें",
     "readYoutubeLiveChatMessages": "TTS के ज़रिए YouTube लाइव चैट संदेश पढ़ें। इस सुविधा के लिए एक सक्रिय YouTube लाइवस्ट्रीम आवश्यक है।",

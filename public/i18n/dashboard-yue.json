@@ -284,6 +284,7 @@
       "minimumBits": "最低 Bits 數",
       "profanityFilter": "粗口過濾器",
       "readCheerMessages": "朗讀 Cheer 訊息",
+      "readCommandMessages": "朗讀聊天室指令",
       "readFullUrls": "朗讀完整 URL",
       "redemptionAnnouncements": "兌換播報",
       "ttsEngine": "TTS 引擎",
@@ -358,6 +359,12 @@
   },
   "readCheerMessagesModeNote": {
     "alwaysOnInBitsPoints": "喺「只限 Bits/Points」模式下會保持開啟"
+  },
+  "readCommandMessages": {
+    "readChatCommands": "朗讀聊天室指令"
+  },
+  "readCommandMessagesModeNote": {
+    "onlyUsedInAllMessages": "淨係喺「所有訊息」模式下生效；其他模式永遠唔會讀出呢啲訊息"
   },
   "readFullUrls": {
     "readFullUrls": "讀出完整 URL"
@@ -437,7 +444,9 @@
     "perUserPerStream": "每位使用者每次直播上限",
     "profanityFilter": "不雅用語過濾器",
     "pronunciationDictionary": "<strong>發音字典</strong>",
+    "readAloudChatMessagesThat": "朗讀以「!」開頭嘅聊天室訊息，例如畀其他 Bot 嘅 !lurk 或 !so。!tts 隨時都可以用。",
     "readAloudTheMessageA": "朗讀觀眾喺 Cheer 附帶嘅訊息",
+    "readChatCommands": "朗讀聊天室指令",
     "readCheerMessages": "朗讀 Cheer 訊息",
     "readFullUrls": "讀出完整 URL",
     "readYoutubeLiveChatMessages": "透過 TTS 讀出 YouTube 直播聊天室訊息。呢個功能需要進行緊嘅 YouTube 直播。",

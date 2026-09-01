@@ -284,6 +284,7 @@
       "minimumBits": "Ελάχιστα bits",
       "profanityFilter": "Φίλτρο βωμολοχιών",
       "readCheerMessages": "Ανάγνωση μηνυμάτων Cheer",
+      "readCommandMessages": "Ανάγνωση εντολών συνομιλίας",
       "readFullUrls": "Ανάγνωση πλήρων URL",
       "redemptionAnnouncements": "Ανακοινώσεις εξαργυρώσεων",
       "ttsEngine": "Μηχανή TTS",
@@ -358,6 +359,12 @@
   },
   "readCheerMessagesModeNote": {
     "alwaysOnInBitsPoints": "Πάντα ενεργό στη λειτουργία Μόνο Bits/Πόντοι"
+  },
+  "readCommandMessages": {
+    "readChatCommands": "Ανάγνωση εντολών συνομιλίας"
+  },
+  "readCommandMessagesModeNote": {
+    "onlyUsedInAllMessages": "Χρησιμοποιείται μόνο στη λειτουργία «Όλα τα μηνύματα»· οι άλλες λειτουργίες δεν τα διαβάζουν ποτέ"
   },
   "readFullUrls": {
     "readFullUrls": "Ανάγνωση πλήρων URL"
@@ -437,7 +444,9 @@
     "perUserPerStream": "Ανά χρήστη ανά stream",
     "profanityFilter": "Φίλτρο βωμολοχιών",
     "pronunciationDictionary": "<strong>Λεξικό προφοράς</strong>",
+    "readAloudChatMessagesThat": "Εκφώνηση μηνυμάτων συνομιλίας που ξεκινούν με «!», όπως !lurk ή !so που προορίζονται για άλλο bot. Το !tts λειτουργεί πάντα.",
     "readAloudTheMessageA": "Εκφώνηση του μηνύματος που επισυνάπτει ένας θεατής σε ένα cheer",
+    "readChatCommands": "Ανάγνωση εντολών συνομιλίας",
     "readCheerMessages": "Ανάγνωση μηνυμάτων Cheer",
     "readFullUrls": "Ανάγνωση πλήρων URL",
     "readYoutubeLiveChatMessages": "Ανάγνωση μηνυμάτων ζωντανής συνομιλίας YouTube μέσω TTS. Αυτή η λειτουργία απαιτεί ενεργό livestream στο YouTube.",

@@ -47,6 +47,7 @@ export interface TtsSettings {
   allowViewerPreferences?: boolean;
   readFullUrls?: boolean;
   readCheerMessages?: boolean;
+  readCommandMessages?: boolean;
   bitsMinimumAmount?: number;
   voiceId?: string;
   emotion?: string;

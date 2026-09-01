@@ -284,6 +284,7 @@
       "minimumBits": "Số Bits tối thiểu",
       "profanityFilter": "Bộ lọc từ ngữ phản cảm",
       "readCheerMessages": "Đọc tin nhắn Cheer",
+      "readCommandMessages": "Đọc lệnh chat",
       "readFullUrls": "Đọc toàn bộ URL",
       "redemptionAnnouncements": "Thông báo đổi thưởng",
       "ttsEngine": "Công cụ TTS",
@@ -358,6 +359,12 @@
   },
   "readCheerMessagesModeNote": {
     "alwaysOnInBitsPoints": "Luôn bật ở chế độ Chỉ Bits/Points"
+  },
+  "readCommandMessages": {
+    "readChatCommands": "Đọc lệnh chat"
+  },
+  "readCommandMessagesModeNote": {
+    "onlyUsedInAllMessages": "Chỉ áp dụng trong chế độ Tất cả tin nhắn; các chế độ khác không bao giờ đọc những tin này"
   },
   "readFullUrls": {
     "readFullUrls": "Đọc toàn bộ URL"
@@ -437,7 +444,9 @@
     "perUserPerStream": "Mỗi người dùng/buổi stream",
     "profanityFilter": "Bộ lọc từ tục tĩu",
     "pronunciationDictionary": "<strong>Từ điển phát âm</strong>",
+    "readAloudChatMessagesThat": "Đọc to các tin nhắn chat bắt đầu bằng \"!\", ví dụ như !lurk hoặc !so dành cho bot khác. !tts luôn hoạt động.",
     "readAloudTheMessageA": "Đọc to tin nhắn người xem đính kèm khi cheer",
+    "readChatCommands": "Đọc lệnh chat",
     "readCheerMessages": "Đọc tin nhắn Cheer",
     "readFullUrls": "Đọc toàn bộ URL",
     "readYoutubeLiveChatMessages": "Đọc tin nhắn trò chuyện trực tiếp trên YouTube qua TTS. Tính năng này yêu cầu luồng trực tiếp YouTube đang hoạt động.",

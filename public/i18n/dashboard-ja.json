@@ -284,6 +284,7 @@
       "minimumBits": "最小Bits",
       "profanityFilter": "不適切表現フィルター",
       "readCheerMessages": "Cheerメッセージを読み上げる",
+      "readCommandMessages": "チャットコマンドを読み上げる",
       "readFullUrls": "URLを最後まで読み上げる",
       "redemptionAnnouncements": "引き換え通知",
       "ttsEngine": "TTSエンジン",
@@ -358,6 +359,12 @@
   },
   "readCheerMessagesModeNote": {
     "alwaysOnInBitsPoints": "Bits/Points専用モードでは常に有効"
+  },
+  "readCommandMessages": {
+    "readChatCommands": "チャットコマンドを読み上げる"
+  },
+  "readCommandMessagesModeNote": {
+    "onlyUsedInAllMessages": "「すべてのメッセージ」モードでのみ有効です。他のモードでは読み上げられません。"
   },
   "readFullUrls": {
     "readFullUrls": "URLを省略せず読み上げる"
@@ -437,7 +444,9 @@
     "perUserPerStream": "ユーザーごと・配信ごとの上限",
     "profanityFilter": "不適切な表現のフィルター",
     "pronunciationDictionary": "<strong>発音辞書</strong>",
+    "readAloudChatMessagesThat": "他のボット向けの!lurkや!soなど、「!」で始まるチャットメッセージを読み上げます。!ttsは常に機能します。",
     "readAloudTheMessageA": "視聴者がCheerに添付したメッセージを読み上げます",
+    "readChatCommands": "チャットコマンドを読み上げる",
     "readCheerMessages": "Cheerメッセージを読み上げる",
     "readFullUrls": "URL全体を読み上げる",
     "readYoutubeLiveChatMessages": "YouTubeライブチャットのメッセージをTTSで読み上げます。この機能には進行中のYouTubeライブ配信が必要です。",

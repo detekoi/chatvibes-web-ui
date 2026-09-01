@@ -284,6 +284,7 @@
       "minimumBits": "Minimum bits",
       "profanityFilter": "Káromkodásszűrő",
       "readCheerMessages": "Cheer üzenetek felolvasása",
+      "readCommandMessages": "Chatparancsok felolvasása",
       "readFullUrls": "Teljes URL-ek felolvasása",
       "redemptionAnnouncements": "Beváltás-bejelentések",
       "ttsEngine": "TTS-motor",
@@ -358,6 +359,12 @@
   },
   "readCheerMessagesModeNote": {
     "alwaysOnInBitsPoints": "Mindig bekapcsolva a „Csak Bits/Points” módban"
+  },
+  "readCommandMessages": {
+    "readChatCommands": "Chatparancsok felolvasása"
+  },
+  "readCommandMessagesModeNote": {
+    "onlyUsedInAllMessages": "Csak az „Összes üzenet” módban érvényes; a többi mód soha nem olvassa fel ezeket"
   },
   "readFullUrls": {
     "readFullUrls": "Teljes URL-ek felolvasása"
@@ -437,7 +444,9 @@
     "perUserPerStream": "Felhasználónként és streamenként",
     "profanityFilter": "Káromkodásszűrő",
     "pronunciationDictionary": "<strong>Kiejtési szótár</strong>",
+    "readAloudChatMessagesThat": "A „!” jellel kezdődő chatüzenetek felolvasása, mint például a más botoknak szánt !lurk vagy !so. A !tts mindig működik.",
     "readAloudTheMessageA": "A néző által a cheerhez csatolt üzenet felolvasása",
+    "readChatCommands": "Chatparancsok felolvasása",
     "readCheerMessages": "Cheer üzenetek felolvasása",
     "readFullUrls": "Teljes URL-ek felolvasása",
     "readYoutubeLiveChatMessages": "A YouTube élő csevegési üzeneteinek felolvasása TTS-sel. Ehhez a funkcióhoz aktív YouTube élő közvetítés szükséges.",

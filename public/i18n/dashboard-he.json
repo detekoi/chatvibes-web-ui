@@ -284,6 +284,7 @@
       "minimumBits": "מינימום Bits",
       "profanityFilter": "מסנן שפה בוטה",
       "readCheerMessages": "הקראת הודעות Cheer",
+      "readCommandMessages": "הקראת פקודות צ'אט",
       "readFullUrls": "הקרא כתובות URL מלאות",
       "redemptionAnnouncements": "הכרזות על מימושים",
       "ttsEngine": "מנוע TTS",
@@ -358,6 +359,12 @@
   },
   "readCheerMessagesModeNote": {
     "alwaysOnInBitsPoints": "פועל תמיד במצב Bits/Points בלבד"
+  },
+  "readCommandMessages": {
+    "readChatCommands": "הקראת פקודות צ'אט"
+  },
+  "readCommandMessagesModeNote": {
+    "onlyUsedInAllMessages": "בשימוש רק במצב \"כל ההודעות\"; המצבים האחרים לא מקריאים אותן לעולם"
   },
   "readFullUrls": {
     "readFullUrls": "הקראת כתובות URL מלאות"
@@ -437,7 +444,9 @@
     "perUserPerStream": "למשתמש בכל שידור",
     "profanityFilter": "מסנן ניבולי פה",
     "pronunciationDictionary": "<strong>מילון הגייה</strong>",
+    "readAloudChatMessagesThat": "הקראה בקול של הודעות צ'אט שמתחילות ב-\"!\", כגון !lurk או !so המיועדות לבוט אחר. הפקודה !tts תמיד פועלת.",
     "readAloudTheMessageA": "הקרא בקול את ההודעה שצופה מצרף ל-Cheer",
+    "readChatCommands": "הקראת פקודות צ'אט",
     "readCheerMessages": "הקראת הודעות Cheer",
     "readFullUrls": "הקראת כתובות URL מלאות",
     "readYoutubeLiveChatMessages": "הקראת הודעות צ'אט חי של YouTube באמצעות TTS. תכונה זו דורשת שידור חי פעיל ב-YouTube.",

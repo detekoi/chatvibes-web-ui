@@ -284,6 +284,7 @@
       "minimumBits": "Mindest-Bits",
       "profanityFilter": "Schimpfwortfilter",
       "readCheerMessages": "Cheer-Nachrichten vorlesen",
+      "readCommandMessages": "Chatbefehle vorlesen",
       "readFullUrls": "Vollständige URLs vorlesen",
       "redemptionAnnouncements": "Einlösungs-Ansagen",
       "ttsEngine": "TTS-Engine",
@@ -358,6 +359,12 @@
   },
   "readCheerMessagesModeNote": {
     "alwaysOnInBitsPoints": "Im Modus „Nur Bits/Punkte“ immer aktiv"
+  },
+  "readCommandMessages": {
+    "readChatCommands": "Chatbefehle vorlesen"
+  },
+  "readCommandMessagesModeNote": {
+    "onlyUsedInAllMessages": "Wird nur im Modus „Alle Nachrichten“ verwendet; die anderen Modi lesen diese nie vor."
   },
   "readFullUrls": {
     "readFullUrls": "Vollständige URLs vorlesen"
@@ -437,7 +444,9 @@
     "perUserPerStream": "Pro Benutzer pro Stream",
     "profanityFilter": "Schimpfwortfilter",
     "pronunciationDictionary": "<strong>Aussprachewörterbuch</strong>",
+    "readAloudChatMessagesThat": "Chatnachrichten vorlesen, die mit „!“ beginnen, wie z. B. !lurk oder !so für einen anderen Bot. !tts funktioniert immer.",
     "readAloudTheMessageA": "Die Nachricht vorlesen, die ein Zuschauer an einen Cheer anhängt",
+    "readChatCommands": "Chatbefehle vorlesen",
     "readCheerMessages": "Cheer-Nachrichten vorlesen",
     "readFullUrls": "Vollständige URLs vorlesen",
     "readYoutubeLiveChatMessages": "YouTube-Livechat-Nachrichten per TTS vorlesen. Erfordert einen aktiven YouTube-Livestream.",

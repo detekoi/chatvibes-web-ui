@@ -76,6 +76,9 @@ export function initSettingsModule(
   const readCheerMessagesModeNote = document.getElementById('read-cheer-messages-mode-note') as HTMLElement | null;
   const bitsAmountInput = document.getElementById('bits-amount') as HTMLInputElement | null;
   let lastStoredReadCheerMessages = true;
+  const readCommandMessagesCheckbox = document.getElementById('read-command-messages') as HTMLInputElement | null;
+  const readCommandMessagesModeNote = document.getElementById('read-command-messages-mode-note') as HTMLElement | null;
+  let lastStoredReadCommandMessages = true;
   const anonymizeFollowersCheckbox = document.getElementById('anonymize-followers') as HTMLInputElement | null;
 
   // YouTube integration elements
@@ -160,6 +163,7 @@ export function initSettingsModule(
     if (ttsModeSelect) ttsModeSelect.addEventListener('change', () => {
       saveSettingWrapper('mode', ttsModeSelect.value || 'command', t('msg.setting.ttsMode'));
       syncReadCheerMessagesToMode();
+      syncReadCommandMessagesToMode();
     });
     if (ttsPermissionSelect) ttsPermissionSelect.addEventListener('change', () => saveSettingWrapper('ttsPermissionLevel', ttsPermissionSelect.value || 'everyone', t('msg.setting.ttsPermission')));
     if (eventsEnabledCheckbox) eventsEnabledCheckbox.addEventListener('change', () => saveSettingWrapper('speakEvents', eventsEnabledCheckbox.checked !== false, t('msg.setting.eventAnnouncements')));
@@ -179,6 +183,10 @@ export function initSettingsModule(
     if (readCheerMessagesCheckbox) readCheerMessagesCheckbox.addEventListener('change', () => {
       lastStoredReadCheerMessages = readCheerMessagesCheckbox.checked !== false;
       saveSettingWrapper('readCheerMessages', lastStoredReadCheerMessages, t('msg.setting.readCheerMessages'));
+    });
+    if (readCommandMessagesCheckbox) readCommandMessagesCheckbox.addEventListener('change', () => {
+      lastStoredReadCommandMessages = readCommandMessagesCheckbox.checked !== false;
+      saveSettingWrapper('readCommandMessages', lastStoredReadCommandMessages, t('msg.setting.readCommandMessages'));
     });
     if (bitsAmountInput) {
       const debouncedBitsAmountSave = debounce(
@@ -277,6 +285,18 @@ export function initSettingsModule(
     if (locked) readCheerMessagesCheckbox.checked = true;
     else readCheerMessagesCheckbox.checked = lastStoredReadCheerMessages;
     if (readCheerMessagesModeNote) readCheerMessagesModeNote.hidden = !locked;
+  }
+
+  // The mirror image for chat commands: only All Chat mode ever reads a
+  // "!"-prefixed message, so in the other two modes the switch is shown off
+  // and locked. The stored value is kept, as above.
+  function syncReadCommandMessagesToMode(): void {
+    if (!readCommandMessagesCheckbox) return;
+    const locked = ttsModeSelect?.value !== 'all';
+    readCommandMessagesCheckbox.disabled = locked;
+    if (locked) readCommandMessagesCheckbox.checked = false;
+    else readCommandMessagesCheckbox.checked = lastStoredReadCommandMessages;
+    if (readCommandMessagesModeNote) readCommandMessagesModeNote.hidden = !locked;
   }
 
   function getEffectiveTtsSettings(): Omit<TTSPayload, 'text'> {
@@ -657,6 +677,7 @@ export function initSettingsModule(
         speakEvents: true,
         readFullUrls: false,
         readCheerMessages: true,
+        readCommandMessages: true,
         bitsMinimumAmount: 1,
         voiceId: 'Friendly_Person',
         emotion: 'auto',
@@ -739,6 +760,8 @@ export function initSettingsModule(
     // On unless the channel turned it off, matching the bot's default.
     lastStoredReadCheerMessages = settings.readCheerMessages !== false;
     syncReadCheerMessagesToMode();
+    lastStoredReadCommandMessages = settings.readCommandMessages !== false;
+    syncReadCommandMessagesToMode();
     if (bitsAmountInput) bitsAmountInput.value = String(Math.max(1, Number(settings.bitsMinimumAmount) || 1));
 
     if (defaultVoiceDropdown && settings.voiceId) {

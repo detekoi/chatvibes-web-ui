@@ -32,6 +32,7 @@ const BOOLEAN_SETTINGS = [
     "speakWatchStreakEvents",
     "anonymizeFollowers",
     "readCheerMessages",
+    "readCommandMessages",
     "readFullUrls",
     "allowViewerPreferences",
     "botRespondsInChat",

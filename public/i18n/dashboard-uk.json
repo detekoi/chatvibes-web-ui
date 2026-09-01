@@ -284,6 +284,7 @@
       "minimumBits": "Мінімум Bits",
       "profanityFilter": "Фільтр ненормативної лексики",
       "readCheerMessages": "Читати повідомлення Cheer",
+      "readCommandMessages": "Читати команди чату",
       "readFullUrls": "Читати повні URL",
       "redemptionAnnouncements": "Оголошення про нагороди",
       "ttsEngine": "Рушій TTS",
@@ -358,6 +359,12 @@
   },
   "readCheerMessagesModeNote": {
     "alwaysOnInBitsPoints": "Завжди увімкнено в режимі «Лише Bits/Points»"
+  },
+  "readCommandMessages": {
+    "readChatCommands": "Читати команди чату"
+  },
+  "readCommandMessagesModeNote": {
+    "onlyUsedInAllMessages": "Використовується лише в режимі «Усі повідомлення»; інші режими їх ніколи не читають"
   },
   "readFullUrls": {
     "readFullUrls": "Читати URL повністю"
@@ -437,7 +444,9 @@
     "perUserPerStream": "На користувача за трансляцію",
     "profanityFilter": "Фільтр ненормативної лексики",
     "pronunciationDictionary": "<strong>Словник вимови</strong>",
+    "readAloudChatMessagesThat": "Озвучувати повідомлення чату, які починаються з «!», наприклад !lurk або !so, призначені для іншого бота. !tts працює завжди.",
     "readAloudTheMessageA": "Озвучувати повідомлення, яке глядач додає до cheer",
+    "readChatCommands": "Читати команди чату",
     "readCheerMessages": "Читати повідомлення Cheer",
     "readFullUrls": "Читати повні URL",
     "readYoutubeLiveChatMessages": "Озвучувати повідомлення чату YouTube за допомогою TTS. Для цієї функції потрібна активна пряма трансляція YouTube.",

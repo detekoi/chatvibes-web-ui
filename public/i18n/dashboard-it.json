@@ -284,6 +284,7 @@
       "minimumBits": "Bits minimi",
       "profanityFilter": "Filtro volgarità",
       "readCheerMessages": "Leggi i messaggi dei Cheer",
+      "readCommandMessages": "Leggi comandi della chat",
       "readFullUrls": "Leggi URL completi",
       "redemptionAnnouncements": "Annunci riscatti",
       "ttsEngine": "Motore TTS",
@@ -358,6 +359,12 @@
   },
   "readCheerMessagesModeNote": {
     "alwaysOnInBitsPoints": "Sempre attivo nella modalità Solo Bits/Channel Points"
+  },
+  "readCommandMessages": {
+    "readChatCommands": "Leggi comandi della chat"
+  },
+  "readCommandMessagesModeNote": {
+    "onlyUsedInAllMessages": "Usato solo nella modalità Tutti i messaggi; le altre modalità non li leggono mai"
   },
   "readFullUrls": {
     "readFullUrls": "Leggi URL completi"
@@ -437,7 +444,9 @@
     "perUserPerStream": "Per utente per stream",
     "profanityFilter": "Filtro volgarità",
     "pronunciationDictionary": "<strong>Dizionario di pronuncia</strong>",
+    "readAloudChatMessagesThat": "Leggi ad alta voce i messaggi della chat che iniziano con \"!\", come !lurk o !so destinati a un altro bot. !tts funziona sempre.",
     "readAloudTheMessageA": "Leggi ad alta voce il messaggio che uno spettatore allega a un cheer",
+    "readChatCommands": "Leggi comandi della chat",
     "readCheerMessages": "Leggi i messaggi dei Cheer",
     "readFullUrls": "Leggi URL completi",
     "readYoutubeLiveChatMessages": "Leggi i messaggi della chat dal vivo di YouTube tramite TTS. Questa funzione richiede una live streaming YouTube attiva.",

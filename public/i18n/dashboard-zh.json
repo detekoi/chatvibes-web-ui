@@ -284,6 +284,7 @@
       "minimumBits": "最低 bits",
       "profanityFilter": "不当用语过滤",
       "readCheerMessages": "朗读 Cheer 消息",
+      "readCommandMessages": "朗读聊天指令",
       "readFullUrls": "朗读完整 URL",
       "redemptionAnnouncements": "兑换播报",
       "ttsEngine": "TTS 引擎",
@@ -358,6 +359,12 @@
   },
   "readCheerMessagesModeNote": {
     "alwaysOnInBitsPoints": "在“仅限 Bits/Points”模式下始终开启"
+  },
+  "readCommandMessages": {
+    "readChatCommands": "朗读聊天指令"
+  },
+  "readCommandMessagesModeNote": {
+    "onlyUsedInAllMessages": "仅在“所有消息”模式下生效；其他模式不会朗读这些内容"
   },
   "readFullUrls": {
     "readFullUrls": "朗读完整 URL"
@@ -437,7 +444,9 @@
     "perUserPerStream": "每人每场直播",
     "profanityFilter": "脏话过滤器",
     "pronunciationDictionary": "<strong>发音词典</strong>",
+    "readAloudChatMessagesThat": "朗读以“!”开头的聊天消息，例如发送给其他机器人的 !lurk 或 !so。!tts 始终有效。",
     "readAloudTheMessageA": "朗读观众随 Cheer 附带的消息",
+    "readChatCommands": "朗读聊天指令",
     "readCheerMessages": "朗读 Cheer 消息",
     "readFullUrls": "朗读完整 URL",
     "readYoutubeLiveChatMessages": "通过 TTS 朗读 YouTube 直播聊天消息。此功能需要正在进行的 YouTube 直播。",

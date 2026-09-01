@@ -284,6 +284,7 @@
       "minimumBits": "Minsta antal bits",
       "profanityFilter": "Svordomsfilter",
       "readCheerMessages": "Läs upp Cheer-meddelanden",
+      "readCommandMessages": "Läs chattkommandon",
       "readFullUrls": "Läs upp hela URL:er",
       "redemptionAnnouncements": "Inlösningsaviseringar",
       "ttsEngine": "TTS-motor",
@@ -358,6 +359,12 @@
   },
   "readCheerMessagesModeNote": {
     "alwaysOnInBitsPoints": "Alltid på i läget Endast Bits/Points"
+  },
+  "readCommandMessages": {
+    "readChatCommands": "Läs chattkommandon"
+  },
+  "readCommandMessagesModeNote": {
+    "onlyUsedInAllMessages": "Används bara i läget Alla meddelanden; övriga lägen läser aldrig dessa"
   },
   "readFullUrls": {
     "readFullUrls": "Läs upp fullständiga URL:er"
@@ -437,7 +444,9 @@
     "perUserPerStream": "Per användare och stream",
     "profanityFilter": "Svordomsfilter",
     "pronunciationDictionary": "<strong>Uttalsordlista</strong>",
+    "readAloudChatMessagesThat": "Läs upp chattmeddelanden som börjar med \"!\", som till exempel !lurk eller !so avsedda för en annan bot. !tts fungerar alltid.",
     "readAloudTheMessageA": "Läs upp meddelandet en tittare bifogar till en cheer",
+    "readChatCommands": "Läs chattkommandon",
     "readCheerMessages": "Läs upp Cheer-meddelanden",
     "readFullUrls": "Läs fullständiga URL:er",
     "readYoutubeLiveChatMessages": "Läs livechattmeddelanden från YouTube via TTS. Denna funktion kräver en aktiv YouTube-livestream.",

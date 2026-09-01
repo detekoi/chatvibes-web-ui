@@ -284,6 +284,7 @@
       "minimumBits": "Minimum Bits",
       "profanityFilter": "Küfür Filtresi",
       "readCheerMessages": "Cheer Mesajlarını Oku",
+      "readCommandMessages": "Sohbet Komutlarını Oku",
       "readFullUrls": "URL'lerin Tamamını Oku",
       "redemptionAnnouncements": "Ödül Kullanım Duyuruları",
       "ttsEngine": "TTS Motoru",
@@ -358,6 +359,12 @@
   },
   "readCheerMessagesModeNote": {
     "alwaysOnInBitsPoints": "Yalnızca Bits/Puan modunda her zaman açıktır"
+  },
+  "readCommandMessages": {
+    "readChatCommands": "Sohbet Komutlarını Oku"
+  },
+  "readCommandMessagesModeNote": {
+    "onlyUsedInAllMessages": "Yalnızca Tüm Mesajlar modunda kullanılır; diğer modlar bunları asla okumaz"
   },
   "readFullUrls": {
     "readFullUrls": "Tam URL'leri Oku"
@@ -437,7 +444,9 @@
     "perUserPerStream": "Kullanıcı ve yayın başına",
     "profanityFilter": "Küfür Filtresi",
     "pronunciationDictionary": "<strong>Telaffuz Sözlüğü</strong>",
+    "readAloudChatMessagesThat": "\"!\" ile başlayan sohbet mesajlarını sesli oku (başka bir bot için olan !lurk veya !so gibi). !tts her zaman çalışır.",
     "readAloudTheMessageA": "İzleyicinin bir Cheer'a eklediği mesajı sesli oku",
+    "readChatCommands": "Sohbet Komutlarını Oku",
     "readCheerMessages": "Cheer Mesajlarını Oku",
     "readFullUrls": "Tam URL'leri Oku",
     "readYoutubeLiveChatMessages": "YouTube canlı sohbet mesajlarını TTS ile okuyun. Bu özellik aktif bir YouTube canlı yayını gerektirir.",

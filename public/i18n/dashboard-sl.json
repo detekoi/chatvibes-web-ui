@@ -284,6 +284,7 @@
       "minimumBits": "Najmanjše število bits",
       "profanityFilter": "Filter kletvic",
       "readCheerMessages": "Preberi sporočila ob cheerih",
+      "readCommandMessages": "Beri ukaze v klepetu",
       "readFullUrls": "Preberi celotne URL-je",
       "redemptionAnnouncements": "Obvestila o unovčitvah",
       "ttsEngine": "Pogon TTS",
@@ -358,6 +359,12 @@
   },
   "readCheerMessagesModeNote": {
     "alwaysOnInBitsPoints": "Vedno vklopljeno v načinu Samo bits/točke"
+  },
+  "readCommandMessages": {
+    "readChatCommands": "Beri ukaze v klepetu"
+  },
+  "readCommandMessagesModeNote": {
+    "onlyUsedInAllMessages": "Uporablja se samo v načinu Vsa sporočila; drugi načini teh nikoli ne berejo"
   },
   "readFullUrls": {
     "readFullUrls": "Preberi celotne naslove URL"
@@ -437,7 +444,9 @@
     "perUserPerStream": "Na uporabnika na stream",
     "profanityFilter": "Filter kletvic",
     "pronunciationDictionary": "<strong>Slovar izgovarjave</strong>",
+    "readAloudChatMessagesThat": "Glasno beri sporočila v klepetu, ki se začnejo z \"!\", kot sta !lurk ali !so, namenjena drugemu botu. !tts deluje vedno.",
     "readAloudTheMessageA": "Glasno preberi sporočilo, ki ga gledalec priloži cheeru",
+    "readChatCommands": "Beri ukaze v klepetu",
     "readCheerMessages": "Preberi sporočila ob cheerih",
     "readFullUrls": "Beri celotne URL-je",
     "readYoutubeLiveChatMessages": "Preberi sporočila klepeta v živo na platformi YouTube prek TTS. Ta funkcija zahteva aktiven prenos v živo na platformi YouTube.",

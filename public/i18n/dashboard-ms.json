@@ -284,6 +284,7 @@
       "minimumBits": "Bits Minimum",
       "profanityFilter": "Penapis Kata Kesat",
       "readCheerMessages": "Baca Mesej Cheer",
+      "readCommandMessages": "Baca Perintah Sembang",
       "readFullUrls": "Baca URL Penuh",
       "redemptionAnnouncements": "Pengumuman Penebusan",
       "ttsEngine": "Enjin TTS",
@@ -358,6 +359,12 @@
   },
   "readCheerMessagesModeNote": {
     "alwaysOnInBitsPoints": "Sentiasa aktif dalam mod Bits/Points Sahaja"
+  },
+  "readCommandMessages": {
+    "readChatCommands": "Baca Perintah Sembang"
+  },
+  "readCommandMessagesModeNote": {
+    "onlyUsedInAllMessages": "Hanya digunakan dalam mod Semua Mesej; mod lain tidak akan membaca ini"
   },
   "readFullUrls": {
     "readFullUrls": "Baca URL Penuh"
@@ -437,7 +444,9 @@
     "perUserPerStream": "Setiap pengguna setiap penstriman",
     "profanityFilter": "Penapis Kata Kesat",
     "pronunciationDictionary": "<strong>Kamus Sebutan</strong>",
+    "readAloudChatMessagesThat": "Baca dengan kuat mesej sembang yang bermula dengan \"!\", seperti !lurk atau !so yang ditujukan untuk bot lain. !tts sentiasa berfungsi.",
     "readAloudTheMessageA": "Baca dengan kuat mesej yang disertakan penonton pada cheer",
+    "readChatCommands": "Baca Perintah Sembang",
     "readCheerMessages": "Baca Mesej Cheer",
     "readFullUrls": "Baca URL Penuh",
     "readYoutubeLiveChatMessages": "Baca mesej sembang langsung YouTube melalui TTS. Ciri ini memerlukan siaran langsung YouTube yang aktif.",

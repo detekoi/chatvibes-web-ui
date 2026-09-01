@@ -284,6 +284,7 @@
       "minimumBits": "Minimum bits",
       "profanityFilter": "Bannskapsfilter",
       "readCheerMessages": "Les cheer-meldingar",
+      "readCommandMessages": "Les chat-kommandoar",
       "readFullUrls": "Les heile URL-ar",
       "redemptionAnnouncements": "Innløysingskunngjeringar",
       "ttsEngine": "TTS-motor",
@@ -358,6 +359,12 @@
   },
   "readCheerMessagesModeNote": {
     "alwaysOnInBitsPoints": "Alltid på i modusen «Berre bits/poeng»"
+  },
+  "readCommandMessages": {
+    "readChatCommands": "Les chat-kommandoar"
+  },
+  "readCommandMessagesModeNote": {
+    "onlyUsedInAllMessages": "Vert berre brukt i modusen «Alle meldingar»; dei andre modusane les aldri desse"
   },
   "readFullUrls": {
     "readFullUrls": "Les heile URL-ar"
@@ -437,7 +444,9 @@
     "perUserPerStream": "Per brukar per sending",
     "profanityFilter": "Banneordfilter",
     "pronunciationDictionary": "<strong>Uttaleordbok</strong>",
+    "readAloudChatMessagesThat": "Les opp chat-meldingar som startar med «!», som til dømes !lurk eller !so meint for ein annan bot. !tts fungerer alltid.",
     "readAloudTheMessageA": "Les opp meldinga ein sjåar legg ved eit cheer",
+    "readChatCommands": "Les chat-kommandoar",
     "readCheerMessages": "Les cheer-meldingar",
     "readFullUrls": "Les heile URL-ar",
     "readYoutubeLiveChatMessages": "Les YouTube-nettpratmeldingar med TTS. Denne funksjonen krev ei aktiv direktesending på YouTube.",

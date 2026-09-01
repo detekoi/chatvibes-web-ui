@@ -284,6 +284,7 @@
       "minimumBits": "Minimum na Bits",
       "profanityFilter": "Filter ng Pagmumura",
       "readCheerMessages": "Basahin ang mga Mensahe ng Cheer",
+      "readCommandMessages": "Basahin ang mga Chat Command",
       "readFullUrls": "Basahin ang Buong mga URL",
       "redemptionAnnouncements": "Mga Anunsyo ng Redemption",
       "ttsEngine": "TTS Engine",
@@ -358,6 +359,12 @@
   },
   "readCheerMessagesModeNote": {
     "alwaysOnInBitsPoints": "Palaging naka-on sa Bits/Points Only mode"
+  },
+  "readCommandMessages": {
+    "readChatCommands": "Basahin ang mga Chat Command"
+  },
+  "readCommandMessagesModeNote": {
+    "onlyUsedInAllMessages": "Ginagamit lang sa mode na All Messages; hindi kailanman binabasa ng ibang mga mode ang mga ito"
   },
   "readFullUrls": {
     "readFullUrls": "Basahin ang Buong mga URL"
@@ -437,7 +444,9 @@
     "perUserPerStream": "Bawat user bawat stream",
     "profanityFilter": "Filter ng Kabastusan",
     "pronunciationDictionary": "<strong>Pronunciation Dictionary</strong>",
+    "readAloudChatMessagesThat": "Basahin nang malakas ang mga mensahe sa chat na nagsisimula sa \"!\", tulad ng !lurk o !so na para sa ibang bot. Laging gumagana ang !tts.",
     "readAloudTheMessageA": "Basahin nang malakas ang mensaheng inilakip ng viewer sa isang cheer",
+    "readChatCommands": "Basahin ang mga Chat Command",
     "readCheerMessages": "Basahin ang mga Mensahe ng Cheer",
     "readFullUrls": "Basahin ang Buong mga URL",
     "readYoutubeLiveChatMessages": "Basahin ang mga live chat message sa YouTube gamit ang TTS. Nangangailangan ang feature na ito ng aktibong YouTube livestream.",

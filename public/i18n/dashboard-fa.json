@@ -284,6 +284,7 @@
       "minimumBits": "حداقل Bits",
       "profanityFilter": "فیلتر الفاظ رکیک",
       "readCheerMessages": "خواندن پیام‌های Cheer",
+      "readCommandMessages": "خواندن دستورات چت",
       "readFullUrls": "خواندن کامل URLها",
       "redemptionAnnouncements": "اعلام دریافت‌های پاداش",
       "ttsEngine": "موتور TTS",
@@ -358,6 +359,12 @@
   },
   "readCheerMessagesModeNote": {
     "alwaysOnInBitsPoints": "همیشه در حالت «فقط Bits/Points» فعال است"
+  },
+  "readCommandMessages": {
+    "readChatCommands": "خواندن دستورات چت"
+  },
+  "readCommandMessagesModeNote": {
+    "onlyUsedInAllMessages": "فقط در حالت «همه پیام‌ها» استفاده می‌شود؛ سایر حالت‌ها هرگز این موارد را نمی‌خوانند"
   },
   "readFullUrls": {
     "readFullUrls": "خواندن کامل URLها"
@@ -437,7 +444,9 @@
     "perUserPerStream": "به ازای هر کاربر در هر استریم",
     "profanityFilter": "فیلتر کلمات رکیک",
     "pronunciationDictionary": "<strong>فرهنگ تلفظ</strong>",
+    "readAloudChatMessagesThat": "خواندن پیام‌های چتی که با «!» شروع می‌شوند با صدای بلند، مثل !lurk یا !so که برای ربات دیگری هستند. !tts همیشه کار می‌کند.",
     "readAloudTheMessageA": "خواندن با صدای بلند پیامی که بیننده به یک cheer پیوست می‌کند",
+    "readChatCommands": "خواندن دستورات چت",
     "readCheerMessages": "خواندن پیام‌های Cheer",
     "readFullUrls": "خواندن کامل URLها",
     "readYoutubeLiveChatMessages": "خواندن پیام‌های چت زنده YouTube با TTS. این قابلیت نیازمند پخش زنده فعال در YouTube است.",

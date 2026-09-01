@@ -284,6 +284,7 @@
       "minimumBits": "Minimum Bits",
       "profanityFilter": "Filter vulgarizmov",
       "readCheerMessages": "Čítať správy s cheerom",
+      "readCommandMessages": "Čítať príkazy z chatu",
       "readFullUrls": "Čítať celé URL",
       "redemptionAnnouncements": "Oznámenia o uplatnení odmien",
       "ttsEngine": "TTS Engine",
@@ -358,6 +359,12 @@
   },
   "readCheerMessagesModeNote": {
     "alwaysOnInBitsPoints": "V režime Iba Bits/Points je vždy zapnuté"
+  },
+  "readCommandMessages": {
+    "readChatCommands": "Čítať príkazy z chatu"
+  },
+  "readCommandMessagesModeNote": {
+    "onlyUsedInAllMessages": "Používa sa iba v režime Všetky správy; ostatné režimy ich nikdy nečítajú"
   },
   "readFullUrls": {
     "readFullUrls": "Čítať celé URL adresy"
@@ -437,7 +444,9 @@
     "perUserPerStream": "Na používateľa na stream",
     "profanityFilter": "Filter vulgarizmov",
     "pronunciationDictionary": "<strong>Slovník výslovnosti</strong>",
+    "readAloudChatMessagesThat": "Čítať nahlas správy z chatu začínajúce na „!“, ako napríklad !lurk alebo !so určené pre iného bota. !tts funguje vždy.",
     "readAloudTheMessageA": "Prečítať nahlas správu, ktorú divák pripojí k cheeru",
+    "readChatCommands": "Čítať príkazy z chatu",
     "readCheerMessages": "Čítať správy s cheerom",
     "readFullUrls": "Čítať celé adresy URL",
     "readYoutubeLiveChatMessages": "Čítať správy zo živého chatu YouTube cez TTS. Táto funkcia vyžaduje aktívny živý prenos na YouTube.",

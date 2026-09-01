@@ -284,6 +284,7 @@
       "minimumBits": "Număr minim de bits",
       "profanityFilter": "Filtru de vulgaritate",
       "readCheerMessages": "Citește mesajele Cheer",
+      "readCommandMessages": "Citește comenzile din chat",
       "readFullUrls": "Citește URL-urile complete",
       "redemptionAnnouncements": "Anunțuri de revendicare",
       "ttsEngine": "Motor TTS",
@@ -358,6 +359,12 @@
   },
   "readCheerMessagesModeNote": {
     "alwaysOnInBitsPoints": "Întotdeauna activ în modul Doar Bits/Puncte"
+  },
+  "readCommandMessages": {
+    "readChatCommands": "Citește comenzile din chat"
+  },
+  "readCommandMessagesModeNote": {
+    "onlyUsedInAllMessages": "Se folosește doar în modul Toate mesajele; celelalte moduri nu le citesc niciodată"
   },
   "readFullUrls": {
     "readFullUrls": "Citește URL-urile complete"
@@ -437,7 +444,9 @@
     "perUserPerStream": "Per utilizator per stream",
     "profanityFilter": "Filtru de vulgaritate",
     "pronunciationDictionary": "<strong>Dicționar de pronunție</strong>",
+    "readAloudChatMessagesThat": "Citește cu voce tare mesajele din chat care încep cu „!”, cum ar fi !lurk sau !so destinate unui alt bot. !tts funcționează întotdeauna.",
     "readAloudTheMessageA": "Citește cu voce tare mesajul pe care un spectator îl atașează la un cheer",
+    "readChatCommands": "Citește comenzile din chat",
     "readCheerMessages": "Citește mesajele Cheer",
     "readFullUrls": "Citește URL-urile complete",
     "readYoutubeLiveChatMessages": "Citește mesajele din chatul live YouTube prin TTS. Această funcție necesită un livestream YouTube activ.",

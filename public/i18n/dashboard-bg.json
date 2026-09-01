@@ -284,6 +284,7 @@
       "minimumBits": "Минимум bits",
       "profanityFilter": "Филтър за нецензурен език",
       "readCheerMessages": "Четене на Cheer съобщения",
+      "readCommandMessages": "Четене на чат команди",
       "readFullUrls": "Изчитане на пълни URL адреси",
       "redemptionAnnouncements": "Обявяване на активирани награди",
       "ttsEngine": "TTS система",
@@ -358,6 +359,12 @@
   },
   "readCheerMessagesModeNote": {
     "alwaysOnInBitsPoints": "Винаги включено в режим „Само Bits/точки“"
+  },
+  "readCommandMessages": {
+    "readChatCommands": "Четене на чат команди"
+  },
+  "readCommandMessagesModeNote": {
+    "onlyUsedInAllMessages": "Използва се само в режим „Всички съобщения“; останалите режими никога не ги четат"
   },
   "readFullUrls": {
     "readFullUrls": "Изчитане на пълни URL адреси"
@@ -437,7 +444,9 @@
     "perUserPerStream": "На потребител за стрийм",
     "profanityFilter": "Филтър за вулгаризми",
     "pronunciationDictionary": "<strong>Речник за произношение</strong>",
+    "readAloudChatMessagesThat": "Изчитане на глас на съобщения от чата, които започват с „!“, като !lurk или !so за друг бот. !tts винаги работи.",
     "readAloudTheMessageA": "Прочитане на глас на съобщението, което зрител добавя към cheer",
+    "readChatCommands": "Четене на чат команди",
     "readCheerMessages": "Четене на Cheer съобщения",
     "readFullUrls": "Четене на пълни URL адреси",
     "readYoutubeLiveChatMessages": "Четете съобщенията от чата на живо в YouTube чрез TTS. Тази функция изисква активен стрийм в YouTube.",

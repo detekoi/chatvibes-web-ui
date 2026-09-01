@@ -284,6 +284,7 @@
       "minimumBits": "Bits mínims",
       "profanityFilter": "Filtre de vulgaritats",
       "readCheerMessages": "Llegir missatges de cheer",
+      "readCommandMessages": "Llegeix les ordres del xat",
       "readFullUrls": "Llegeix els URL sencers",
       "redemptionAnnouncements": "Anuncis de bescanvis",
       "ttsEngine": "Motor de TTS",
@@ -358,6 +359,12 @@
   },
   "readCheerMessagesModeNote": {
     "alwaysOnInBitsPoints": "Sempre actiu en el mode Només Bits/Points"
+  },
+  "readCommandMessages": {
+    "readChatCommands": "Llegeix les ordres del xat"
+  },
+  "readCommandMessagesModeNote": {
+    "onlyUsedInAllMessages": "Només s'utilitza en el mode «Tots els missatges»; els altres modes no les llegeixen mai"
   },
   "readFullUrls": {
     "readFullUrls": "Llegeix els URL complets"
@@ -437,7 +444,9 @@
     "perUserPerStream": "Per usuari i emissió",
     "profanityFilter": "Filtre de llenguatge vulgar",
     "pronunciationDictionary": "<strong>Diccionari de pronunciació</strong>",
+    "readAloudChatMessagesThat": "Llegeix en veu alta els missatges del xat que comencen per «!», com ara !lurk o !so destinats a un altre bot. !tts funciona sempre.",
     "readAloudTheMessageA": "Llegeix en veu alta el missatge que un espectador adjunta a un cheer",
+    "readChatCommands": "Llegeix les ordres del xat",
     "readCheerMessages": "Llegir missatges de cheer",
     "readFullUrls": "Llegeix els URL complets",
     "readYoutubeLiveChatMessages": "Llegeix els missatges del xat en directe de YouTube amb el TTS. Aquesta funció requereix una emissió en directe activa a YouTube.",

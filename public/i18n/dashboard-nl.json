@@ -284,6 +284,7 @@
       "minimumBits": "Minimum aantal Bits",
       "profanityFilter": "Scheldwoordenfilter",
       "readCheerMessages": "Cheer-berichten voorlezen",
+      "readCommandMessages": "Chatcommando's voorlezen",
       "readFullUrls": "Volledige URL's voorlezen",
       "redemptionAnnouncements": "Inwisselaankondigingen",
       "ttsEngine": "TTS-engine",
@@ -358,6 +359,12 @@
   },
   "readCheerMessagesModeNote": {
     "alwaysOnInBitsPoints": "Altijd actief in de modus Alleen bits/punten"
+  },
+  "readCommandMessages": {
+    "readChatCommands": "Chatcommando's voorlezen"
+  },
+  "readCommandMessagesModeNote": {
+    "onlyUsedInAllMessages": "Alleen gebruikt in de modus Alle berichten; de andere modi lezen deze nooit voor"
   },
   "readFullUrls": {
     "readFullUrls": "Volledige URL's voorlezen"
@@ -437,7 +444,9 @@
     "perUserPerStream": "Per gebruiker per stream",
     "profanityFilter": "Scheldwoordenfilter",
     "pronunciationDictionary": "<strong>Uitspraakwoordenboek</strong>",
+    "readAloudChatMessagesThat": "Lees chatberichten voor die beginnen met \"!\", zoals !lurk of !so bedoeld voor een andere bot. !tts werkt altijd.",
     "readAloudTheMessageA": "Het bericht voorlezen dat een kijker toevoegt aan een cheer",
+    "readChatCommands": "Chatcommando's voorlezen",
     "readCheerMessages": "Cheer-berichten voorlezen",
     "readFullUrls": "Volledige URL's voorlezen",
     "readYoutubeLiveChatMessages": "Lees YouTube-livechatberichten voor via TTS. Deze functie vereist een actieve YouTube-livestream.",

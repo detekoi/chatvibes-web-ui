@@ -284,6 +284,7 @@
       "minimumBits": "الحد الأدنى لـ bits",
       "profanityFilter": "فلتر الألفاظ النابية",
       "readCheerMessages": "قراءة رسائل Cheer",
+      "readCommandMessages": "قراءة أوامر الدردشة",
       "readFullUrls": "قراءة عناوين URL كاملة",
       "redemptionAnnouncements": "إعلانات الاسترداد",
       "ttsEngine": "محرك TTS",
@@ -358,6 +359,12 @@
   },
   "readCheerMessagesModeNote": {
     "alwaysOnInBitsPoints": "مفعّل دائمًا في وضع Bits/Points فقط"
+  },
+  "readCommandMessages": {
+    "readChatCommands": "قراءة أوامر الدردشة"
+  },
+  "readCommandMessagesModeNote": {
+    "onlyUsedInAllMessages": "يُستخدم فقط في وضع «كل الرسائل»؛ لا تقرأ الأوضاع الأخرى هذه الأوامر أبدًا"
   },
   "readFullUrls": {
     "readFullUrls": "قراءة عناوين URL كاملة"
@@ -437,7 +444,9 @@
     "perUserPerStream": "لكل مستخدم في كل بث",
     "profanityFilter": "فلتر الألفاظ النابية",
     "pronunciationDictionary": "<strong>قاموس النطق</strong>",
+    "readAloudChatMessagesThat": "قراءة رسائل الدردشة التي تبدأ بـ \"!\" بصوت عالٍ، مثل !lurk أو !so الموجهة لبوت آخر. يعمل !tts دائمًا.",
     "readAloudTheMessageA": "قراءة الرسالة التي يرفقها المشاهد مع الـ Cheer بصوت مسموع",
+    "readChatCommands": "قراءة أوامر الدردشة",
     "readCheerMessages": "قراءة رسائل Cheer",
     "readFullUrls": "قراءة عناوين URL الكاملة",
     "readYoutubeLiveChatMessages": "قراءة رسائل الدردشة المباشرة على YouTube عبر TTS. تتطلب هذه الميزة بثًا مباشرًا نشطًا على YouTube.",

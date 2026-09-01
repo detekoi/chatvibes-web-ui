@@ -284,6 +284,7 @@
       "minimumBits": "குறைந்தபட்ச Bits",
       "profanityFilter": "முறையற்ற சொல் வடிகட்டி",
       "readCheerMessages": "Cheer செய்திகளைப் படிக்கவும்",
+      "readCommandMessages": "அரட்டை கட்டளைகளை வாசி",
       "readFullUrls": "முழு URL-களையும் வாசி",
       "redemptionAnnouncements": "Redemption அறிவிப்புகள்",
       "ttsEngine": "TTS என்ஜின்",
@@ -358,6 +359,12 @@
   },
   "readCheerMessagesModeNote": {
     "alwaysOnInBitsPoints": "Bits/Points Only பயன்முறையில் எப்போதும் இயக்கத்தில் இருக்கும்"
+  },
+  "readCommandMessages": {
+    "readChatCommands": "அரட்டை கட்டளைகளை வாசி"
+  },
+  "readCommandMessagesModeNote": {
+    "onlyUsedInAllMessages": "'அனைத்து செய்திகள்' பயன்முறையில் மட்டுமே பயன்படுத்தப்படும்; பிற பயன்முறைகளில் இவை ஒருபோதும் வாசிக்கப்படாது"
   },
   "readFullUrls": {
     "readFullUrls": "முழு URL-களையும் படி"
@@ -437,7 +444,9 @@
     "perUserPerStream": "ஒரு ஸ்ட்ரீமுக்கு ஒரு பயனர் வரம்பு",
     "profanityFilter": "முறையற்ற சொல் வடிகட்டி",
     "pronunciationDictionary": "<strong>உச்சரிப்பு அகராதி</strong>",
+    "readAloudChatMessagesThat": "வேறொரு பாட்டிற்கான !lurk அல்லது !so போன்ற \"!\" உடன் தொடங்கும் அரட்டைச் செய்திகளை சத்தமாக வாசிக்கவும். !tts எப்போதும் செயல்படும்.",
     "readAloudTheMessageA": "பார்வையாளர் cheer உடன் இணைக்கும் செய்தியை சத்தமாகப் படிக்கவும்",
+    "readChatCommands": "அரட்டை கட்டளைகளை வாசி",
     "readCheerMessages": "Cheer செய்திகளைப் படிக்கவும்",
     "readFullUrls": "முழு URL-களையும் வாசி",
     "readYoutubeLiveChatMessages": "YouTube நேரலை அரட்டைச் செய்திகளை TTS மூலம் வாசிக்கவும். இந்த அம்சத்திற்கு செயலில் உள்ள YouTube நேரலை ஸ்ட்ரீம் தேவை.",
