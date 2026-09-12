@@ -70,7 +70,9 @@ Rules:
   `:is(.settings-section, .wc-card)` on purpose: this app's markup says
   `.settings-section`, chatsage's says `.wc-card`.
 - `custom.css` keeps `!important` only where it must beat a Bootstrap utility
-  that is itself `!important` (`.text-muted`, `.rounded-*`, `.shadow`).
+  that is itself `!important` (`.text-muted`, `.rounded-*`, `.shadow`); the
+  shared design system does the same for its bot-status and row-description
+  colour rules.
 - Edit source CSS, then `npm run build:frontend`; `app.min.css` and its map are
   committed.
 - Verifying a CSS change: snapshot `getComputedStyle` for every element on each
