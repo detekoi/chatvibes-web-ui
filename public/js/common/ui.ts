@@ -3,19 +3,6 @@
  */
 import { t } from './i18n.js';
 
-// Extend window for Bootstrap types
-declare global {
-  interface Window {
-    bootstrap: {
-      Toast: new (element: HTMLElement, options?: { delay?: number }) => {
-        show(): void;
-        hide(): void;
-        dispose(): void;
-      };
-    };
-  }
-}
-
 function getToastContainer(): HTMLElement {
   let toastContainer = document.getElementById('toast-container');
   if (!toastContainer) {
@@ -153,7 +140,6 @@ export function showToast(
   const btn = document.createElement('button');
   btn.type = 'button';
   btn.className = 'btn-close btn-close-white me-2 m-auto';
-  btn.setAttribute('data-bs-dismiss', 'toast');
   btn.setAttribute('aria-label', t('msg.action.close'));
 
   inner.appendChild(body);
@@ -161,22 +147,17 @@ export function showToast(
   toastEl.appendChild(inner);
   toastContainer.appendChild(toastEl);
 
-  if (window.bootstrap?.Toast) {
-    const bsToast = new window.bootstrap.Toast(toastEl, { delay: 5000 });
-    bsToast.show();
-    toastEl.addEventListener('hidden.bs.toast', () => toastEl.remove());
-  } else {
-    toastEl.classList.add('show');
-    const timer = setTimeout(() => {
-      toastEl.classList.remove('show');
-      setTimeout(() => toastEl.remove(), 300);
-    }, 5000);
-    btn.addEventListener('click', () => {
-      clearTimeout(timer);
-      toastEl.classList.remove('show');
-      setTimeout(() => toastEl.remove(), 300);
-    });
-  }
+  // Bootstrap's JS is not loaded; .toast / .show come from its CSS only.
+  toastEl.classList.add('show');
+  const timer = setTimeout(() => {
+    toastEl.classList.remove('show');
+    setTimeout(() => toastEl.remove(), 300);
+  }, 5000);
+  btn.addEventListener('click', () => {
+    clearTimeout(timer);
+    toastEl.classList.remove('show');
+    setTimeout(() => toastEl.remove(), 300);
+  });
 }
 
 /**
