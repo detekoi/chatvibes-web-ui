@@ -56,15 +56,20 @@ and the same Post-Industrial theme. Stylesheets are bundled by
 | 2 | `public/css/reset.css` | normalize |
 | 3 | `public/css/custom.css` | theme: tokens, Post-Industrial look, Bootstrap re-theming |
 | 4 | `public/css/design-system.css` | **shared** Wildcat design system: `--wc-*` tokens, `wc-*` components |
+| 5 | `public/css/chatvibes-specific.css` | app layer: markup only WildcatTTS has (dashboard container, loading overlay) |
 
 Rules:
 
-- **`design-system.css` should stay identical to the copy in
-  `../chatsage-web-ui/public/styles/design-system.css`.** Do not add rules
-  there for markup only this app has. Fixes to the design system are made in
-  both repos. (ChatSage already runs without Bootstrap and carries a utility
-  shim in its copy; dropping Bootstrap here is the step that lets the two
-  files converge fully.)
+- **`design-system.css` is meant to converge with the copy in
+  `../chatsage-web-ui/public/styles/design-system.css`** and eventually be one
+  shared file. Do not add rules there for markup only this app has; put them
+  in `chatvibes-specific.css`. Fixes to the design system are made in both
+  repos. Known differences today: this copy carries the RTL logical-property
+  work and keeps `!important` on the `.text-*` colour rules because Bootstrap's
+  utilities are `!important`; the chatsage copy carries a utility shim
+  (section 14) and the fixes that went with dropping Bootstrap. Section-card
+  selectors are written `:is(.settings-section, .wc-card)` on purpose: this
+  app's markup says `.settings-section`, chatsage's says `.wc-card`.
 - `custom.css` keeps `!important` only where it must beat a Bootstrap utility
   that is itself `!important` (`.text-muted`, `.rounded-*`, `.shadow`).
 - Edit source CSS, then `npm run build:frontend`; `app.min.css` and its map are

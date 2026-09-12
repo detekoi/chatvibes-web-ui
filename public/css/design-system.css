@@ -2,10 +2,17 @@
    WILDCAT DESIGN SYSTEM
    Implements the "Wildcat Bot UIs" handoff spec.
 
-   Loads AFTER custom.css. Section 1 redefines the shared
-   tokens (and remaps the legacy names onto them) so the
-   existing Bootstrap overrides inherit the new palette.
-   Sections 2+ add the components the spec introduces.
+   Shared with chatsage-web-ui: keep this file free of
+   rules that only one app's markup uses. Bundle order is
+   vendor/bootstrap.min.css, reset.css, custom.css (theme),
+   this file, then the app layer (chatvibes-specific.css).
+   Section 1 redefines the shared tokens (and remaps the
+   legacy names onto them) so the theme rules in custom.css
+   inherit the new palette. Sections 2+ add the components
+   the spec introduces. The few !important flags here beat
+   Bootstrap utilities that are themselves !important
+   (.text-*); the chatsage copy, which does not load
+   Bootstrap, carries them without the flag.
 
    Two values differ from the spec sheet, both to clear the
    project's WCAG AA bar; hue and role are unchanged:
@@ -940,14 +947,7 @@ a[target="_blank"].no-arrow::after {
     text-wrap: pretty;
 }
 
-/* main.ts flips #dashboard-content to display:flex, so the direction is set
-   here rather than fought with there. */
-#dashboard-content {
-    flex-direction: column;
-}
-
-.wc-main > .alert,
-.wc-main > #loading-overlay {
+.wc-main > .alert {
     margin: 20px 24px 0;
 }
 
@@ -1298,13 +1298,6 @@ a[target="_blank"].no-arrow::after {
     line-height: 1.5;
     color: var(--wc-text-3) !important;
     text-wrap: pretty;
-}
-
-/* Sage renders command and timer rows as .list-group-item > .cmd-row. Let the
-   row fill the item so its actions land in the same control column. */
-:root :is(.settings-section, .wc-card) .list-group-item > .cmd-row {
-    flex: 1;
-    min-width: 0;
 }
 
 /* Footer rail of a section card. */

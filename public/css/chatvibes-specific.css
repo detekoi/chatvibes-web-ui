@@ -1,0 +1,17 @@
+/* =====================================================
+   CHATVIBES SPECIFIC STYLES
+   App layer, bundled after design-system.css by
+   scripts/build-frontend.js. Rules for markup that only
+   WildcatTTS has live here so design-system.css can stay
+   identical to the copy in chatsage-web-ui.
+   ===================================================== */
+
+/* main.ts flips #dashboard-content to display:flex, so the direction is set
+   here rather than fought with there. */
+#dashboard-content {
+    flex-direction: column;
+}
+
+.wc-main > #loading-overlay {
+    margin: 20px 24px 0;
+}
