@@ -44,6 +44,35 @@ WildcatTTS TTS bot management web application with:
   - `managedChannels` - Bot status, OAuth tokens (managed by this app)
   - `ttsChannelConfigs` - TTS settings (managed by main TTS app)
 
+## CSS Architecture (shared with chatsage-web-ui)
+
+Sister project: **chatsage-web-ui** (WildcatSage) shares the same design system
+and the same Post-Industrial theme. Stylesheets are bundled by
+`scripts/build-frontend.js` into `public/css/app.min.css` in this order:
+
+| Layer | File | Role |
+|-------|------|------|
+| 1 | `public/css/vendor/bootstrap.min.css` | trimmed Bootstrap 5.3.3, **CSS only** (the JS bundle is not loaded; toasts, tabs and dialogs are hand-rolled) |
+| 2 | `public/css/reset.css` | normalize |
+| 3 | `public/css/custom.css` | theme: tokens, Post-Industrial look, Bootstrap re-theming |
+| 4 | `public/css/design-system.css` | **shared** Wildcat design system: `--wc-*` tokens, `wc-*` components |
+
+Rules:
+
+- **`design-system.css` should stay identical to the copy in
+  `../chatsage-web-ui/public/styles/design-system.css`.** Do not add rules
+  there for markup only this app has. Fixes to the design system are made in
+  both repos. (ChatSage already runs without Bootstrap and carries a utility
+  shim in its copy; dropping Bootstrap here is the step that lets the two
+  files converge fully.)
+- `custom.css` keeps `!important` only where it must beat a Bootstrap utility
+  that is itself `!important` (`.text-muted`, `.rounded-*`, `.shadow`).
+- Edit source CSS, then `npm run build:frontend`; `app.min.css` and its map are
+  committed.
+- Verifying a CSS change: snapshot `getComputedStyle` for every element on each
+  page (`dashboard.html?test` and `viewer-settings.html?test` render without
+  auth) before and after, and expect zero differences unless intended.
+
 ## Code Style
 
 - Use 2nd gen Cloud Functions patterns
