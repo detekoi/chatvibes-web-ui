@@ -114,3 +114,6 @@ Icon
 
 # Local development documentation
 CLAUDE.local.md
+
+# Computed-style baselines (scripts/css-snapshot.mjs)
+.css-baseline/

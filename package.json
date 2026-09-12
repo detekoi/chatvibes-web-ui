@@ -13,7 +13,9 @@
     "i18n:extract": "node scripts/extract-i18n.js",
     "i18n:validate": "node scripts/validate-i18n.js",
     "test:i18n": "node --test \"tests/**/*.test.mjs\"",
-    "check": "npm run typecheck:frontend && npm run i18n:validate && npm run test:i18n"
+    "check": "npm run typecheck:frontend && npm run i18n:validate && npm run test:i18n",
+    "css:baseline": "node scripts/css-snapshot.mjs --save",
+    "css:check": "node scripts/css-snapshot.mjs --check"
   },
   "keywords": [
     "tts",
@@ -29,7 +31,8 @@
   "devDependencies": {
     "esbuild": "^0.28.1",
     "lucide": "^1.31.0",
-    "typescript": "^5.9.0",
-    "parse5": "^7.3.0"
+    "parse5": "^7.3.0",
+    "playwright": "^1.63.0",
+    "typescript": "^5.9.0"
   }
 }

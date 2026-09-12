@@ -26,6 +26,10 @@ npm run check                    # typecheck + i18n validate + i18n tests
 npm run typecheck:frontend       # tsc over public/tsconfig.json
 npm run i18n:extract             # re-annotate the HTML, regenerate en catalogs
 npm run i18n:validate            # every catalog, every referenced key
+
+# CSS (see the CSS Architecture section)
+npm run css:baseline             # snapshot computed styles before a CSS change
+npm run css:check                # diff against the baseline after it
 ```
 
 ## Project Overview
@@ -75,9 +79,17 @@ Rules:
   colour rules.
 - Edit source CSS, then `npm run build:frontend`; `app.min.css` and its map are
   committed.
-- Verifying a CSS change: snapshot `getComputedStyle` for every element on each
-  page (`dashboard.html?test` and `viewer-settings.html?test` render without
-  auth) before and after, and expect zero differences unless intended.
+- Verifying a CSS change: `npm run css:baseline` on a clean checkout, then
+  `npm run css:check` after the change (exit 1 on any difference). The script,
+  `scripts/css-snapshot.mjs` (Playwright; `npx playwright install
+  chromium-headless-shell` once on a fresh machine), rebuilds the bundle, serves
+  `public/`, loads every page in `scripts/css-snapshot.config.json` at 1100px and
+  400px in both themes (`dashboard.html?test` and `viewer-settings.html?test`
+  render without auth), disables transitions, and records `getComputedStyle`
+  for every element. Expect zero differences unless the change is meant to be
+  visible; re-save the baseline when markup changes on purpose. `.css-baseline/`
+  is not committed. The script is identical to the copy in chatsage-web-ui;
+  only the config differs.
 
 ## Code Style
 
