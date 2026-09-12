@@ -1009,23 +1009,41 @@
             }
         });
 
-        // Native accessible tab switching
-        document.querySelectorAll('[data-bs-toggle="tab"]').forEach((btn) => {
-            btn.addEventListener('click', () => {
-                const target = btn.getAttribute('data-bs-target');
-                document.querySelectorAll('[data-bs-toggle="tab"]').forEach((b) => {
-                    b.classList.remove('active');
-                    b.setAttribute('aria-selected', 'false');
-                });
-                document.querySelectorAll('.tab-pane').forEach((p) => {
-                    p.classList.remove('show', 'active');
-                });
-                btn.classList.add('active');
-                btn.setAttribute('aria-selected', 'true');
-                if (target) {
-                    const panel = document.querySelector(target);
-                    if (panel) panel.classList.add('show', 'active');
-                }
+        // Native accessible tab switching (WAI-ARIA tabs pattern, automatic
+        // activation: arrow keys move focus and select; Home/End jump to the ends).
+        const tabButtons = Array.from(document.querySelectorAll('[data-bs-toggle="tab"]'));
+        const activateTab = (btn) => {
+            const target = btn.getAttribute('data-bs-target');
+            tabButtons.forEach((b) => {
+                b.classList.remove('active');
+                b.setAttribute('aria-selected', 'false');
+                b.setAttribute('tabindex', '-1');
+            });
+            document.querySelectorAll('.tab-pane').forEach((p) => {
+                p.classList.remove('show', 'active');
+            });
+            btn.classList.add('active');
+            btn.setAttribute('aria-selected', 'true');
+            btn.removeAttribute('tabindex');
+            if (target) {
+                const panel = document.querySelector(target);
+                if (panel) panel.classList.add('show', 'active');
+            }
+        };
+        tabButtons.forEach((btn) => {
+            if (!btn.classList.contains('active')) btn.setAttribute('tabindex', '-1');
+            btn.addEventListener('click', () => activateTab(btn));
+            btn.addEventListener('keydown', (event) => {
+                const i = tabButtons.indexOf(btn);
+                let next = -1;
+                if (event.key === 'ArrowRight' || event.key === 'ArrowDown') next = (i + 1) % tabButtons.length;
+                else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') next = (i - 1 + tabButtons.length) % tabButtons.length;
+                else if (event.key === 'Home') next = 0;
+                else if (event.key === 'End') next = tabButtons.length - 1;
+                if (next === -1) return;
+                event.preventDefault();
+                tabButtons[next].focus();
+                activateTab(tabButtons[next]);
             });
         });
 

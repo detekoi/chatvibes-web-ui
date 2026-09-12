@@ -109,7 +109,8 @@ export function showToast(
   const toastContainer = getToastContainer();
 
   const toastEl = document.createElement('div');
-  toastEl.className = 'toast align-items-center border-0';
+  // .fade gives Bootstrap's opacity transition; its Toast JS used to add it.
+  toastEl.className = 'toast align-items-center border-0 fade';
   toastEl.setAttribute('role', 'alert');
   toastEl.setAttribute('aria-live', 'assertive');
   toastEl.setAttribute('aria-atomic', 'true');
@@ -147,16 +148,24 @@ export function showToast(
   toastEl.appendChild(inner);
   toastContainer.appendChild(toastEl);
 
-  // Bootstrap's JS is not loaded; .toast / .show come from its CSS only.
-  toastEl.classList.add('show');
-  const timer = setTimeout(() => {
-    toastEl.classList.remove('show');
-    setTimeout(() => toastEl.remove(), 300);
-  }, 5000);
+  // Bootstrap's JS is not loaded, so this mirrors its Toast show/hide sequence
+  // using only its CSS: `.showing` holds opacity at 0 while `.show` keeps the
+  // element displayed, and `.fade` supplies the 150ms opacity transition.
+  const FADE_MS = 150;
+  toastEl.classList.add('show', 'showing');
+  void toastEl.offsetWidth; // reflow so the fade-in starts from opacity 0
+  toastEl.classList.remove('showing');
+  let hidden = false;
+  const hide = () => {
+    if (hidden) return;
+    hidden = true;
+    toastEl.classList.add('showing');
+    setTimeout(() => toastEl.remove(), FADE_MS);
+  };
+  const timer = setTimeout(hide, 5000);
   btn.addEventListener('click', () => {
     clearTimeout(timer);
-    toastEl.classList.remove('show');
-    setTimeout(() => toastEl.remove(), 300);
+    hide();
   });
 }
 
