@@ -60,16 +60,15 @@ and the same Post-Industrial theme. Stylesheets are bundled by
 
 Rules:
 
-- **`design-system.css` is meant to converge with the copy in
-  `../chatsage-web-ui/public/styles/design-system.css`** and eventually be one
-  shared file. Do not add rules there for markup only this app has; put them
-  in `chatvibes-specific.css`. Fixes to the design system are made in both
-  repos. Known differences today: this copy carries the RTL logical-property
-  work and keeps `!important` on the `.text-*` colour rules because Bootstrap's
-  utilities are `!important`; the chatsage copy carries a utility shim
-  (section 14) and the fixes that went with dropping Bootstrap. Section-card
-  selectors are written `:is(.settings-section, .wc-card)` on purpose: this
-  app's markup says `.settings-section`, chatsage's says `.wc-card`.
+- **`design-system.css` is identical to the copy in
+  `../chatsage-web-ui/public/styles/design-system.css` except for section 14,
+  the utility shim, which only the chatsage copy has (this app still loads
+  Bootstrap for those classes). `diff` the two files after any change; a change
+  to the design system is made in both repos in the same session. Do not add
+  rules there for markup only this app has; put them in
+  `chatvibes-specific.css`. Section-card selectors are written
+  `:is(.settings-section, .wc-card)` on purpose: this app's markup says
+  `.settings-section`, chatsage's says `.wc-card`.
 - `custom.css` keeps `!important` only where it must beat a Bootstrap utility
   that is itself `!important` (`.text-muted`, `.rounded-*`, `.shadow`).
 - Edit source CSS, then `npm run build:frontend`; `app.min.css` and its map are
