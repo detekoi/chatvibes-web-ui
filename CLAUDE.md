@@ -22,7 +22,7 @@ firebase deploy --only functions # Deploy functions
 firebase deploy                  # Deploy all
 
 # Checks (esbuild does NOT typecheck; run these before you believe a change)
-npm run check                    # design-system sync + typecheck + i18n validate + i18n tests
+npm run check                    # design-system drift check + typecheck + i18n validate + i18n tests
 npm run sync:design-system       # copy design-system.css + css-snapshot.mjs from ../wildcat-design-system
 npm run typecheck:frontend       # tsc over public/tsconfig.json
 npm run i18n:extract             # re-annotate the HTML, regenerate en catalogs
