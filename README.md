@@ -25,7 +25,7 @@ The WildcatTTS web UI is hosted at [https://tts.wildcat.chat/](https://tts.wildc
     * HTML
     * CSS
     * TypeScript (compiles to JavaScript)
-    * Bootstrap 5.3.3 (CSS only; the JS bundle is not loaded)
+    * Shared Wildcat design system (no CSS framework)
 * **Backend:**
     * Node.js
     * Express.js

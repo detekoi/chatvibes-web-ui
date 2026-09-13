@@ -8,13 +8,14 @@
    those go in the app layer (chatsage-specific.css /
    chatvibes-specific.css), which loads after this file.
    Load order in both apps: reset.css, custom.css (theme),
-   this file, app layer. WildcatTTS additionally loads a
-   trimmed Bootstrap CSS before everything; ChatSage does
-   not, and instead uses section 14, the utility shim,
-   which is the one section the TTS copy omits. The few
-   !important flags outside the shim exist because
-   Bootstrap's .text-* utilities (including .text-muted on
-   row descriptions) are !important in TTS.
+   this file, app layer; WildcatTTS also loads base.css
+   (the Bootstrap-era element and component bases) before
+   custom.css. Neither app loads Bootstrap: section 14 is
+   the utility shim that replaces it. The few !important
+   flags outside the shim exist because the shim's .text-*
+   utilities are !important, as Bootstrap's were, and a
+   component rule that must recolour such an element has
+   to match that.
    Section 1 redefines the shared tokens (and remaps the
    legacy names onto them) so the theme rules in custom.css
    inherit the new palette. Sections 2+ add the components
@@ -1014,7 +1015,7 @@ a[target="_blank"].no-arrow::after {
 
 /* The bot status readout is keyed off the .text-* utility classes the app's
    script toggles (bot-status.js in Sage, bot-management.ts in TTS). The flags
-   beat Bootstrap's own .text-* utilities in TTS. */
+   beat the shim's own .text-* utilities. */
 .wc-stat dd .text-success { color: var(--wc-ok) !important; }
 .wc-stat dd .text-secondary { color: var(--wc-text-2) !important; }
 .wc-stat dd .text-danger { color: var(--wc-danger) !important; }
@@ -1196,7 +1197,7 @@ a[target="_blank"].no-arrow::after {
 .wc-row-desc {
     font-size: 12px;
     line-height: 1.5;
-    color: var(--wc-text-3) !important; /* beats Bootstrap's .text-muted in TTS */
+    color: var(--wc-text-3) !important; /* beats the .text-muted utility */
     margin: 0;
     text-wrap: pretty;
 }
@@ -1819,6 +1820,258 @@ a[target="_blank"].no-arrow::after {
     top: 16px;
     outline: 2px solid var(--wc-accent);
     outline-offset: 2px;
+}
+
+/* =====================================================
+   14. UTILITY SHIM
+   The few Bootstrap-style utilities the markup uses.
+   !important is deliberate here: a utility class must win
+   over any component rule, which is the whole point of it.
+   ===================================================== */
+.d-none { display: none !important; }
+.d-grid { display: grid !important; }
+.position-fixed { position: fixed !important; }
+.bottom-0 { bottom: 0 !important; }
+.end-0 { inset-inline-end: 0 !important; }
+.flex-grow-1 { flex-grow: 1 !important; }
+.flex-shrink-0 { flex-shrink: 0 !important; }
+.align-items-end { align-items: flex-end !important; }
+.w-100 { width: 100% !important; }
+.fw-bold { font-weight: 700 !important; }
+.fw-semibold { font-weight: 600 !important; }
+.fst-italic { font-style: italic !important; }
+.text-uppercase { text-transform: uppercase !important; }
+.text-decoration-none { text-decoration: none !important; }
+.text-truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.border-danger { border-color: var(--wc-danger) !important; }
+/* Colour utilities. Bootstrap's are !important, and so are these, so a
+   component rule with more specificity cannot swallow an explicit .text-*. */
+.text-muted { color: var(--wc-text-3) !important; }
+.text-secondary { color: var(--wc-text-2) !important; }
+.text-success { color: var(--wc-ok) !important; }
+.text-danger { color: var(--wc-danger) !important; }
+.text-warning { color: #d97706 !important; }
+.small { font-size: .875em; }
+
+/* Gutters. Bootstrap's default is 24px; --wc-gutter-x on :root (WildcatTTS
+   sets it) or on a row (.g-*) changes it; without it rows use 16px. */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(var(--wc-gutter-y, 0px) * -1);
+    margin-inline: calc(var(--wc-gutter-x, 16px) * -0.5);
+}
+
+.row > * {
+    box-sizing: border-box;
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    margin-top: var(--wc-gutter-y, 0px);
+    padding-inline: calc(var(--wc-gutter-x, 16px) * 0.5);
+}
+.g-2 { --wc-gutter-x: 8px; --wc-gutter-y: 8px; }
+.g-3 { --wc-gutter-x: 16px; --wc-gutter-y: 16px; }
+
+.col { flex: 1 0 0%; }
+.col-auto { flex: 0 0 auto; width: auto; }
+.col-12 { flex: 0 0 auto; width: 100%; }
+.col-4 { flex: 0 0 auto; width: 33.33333333%; }
+.col-8 { flex: 0 0 auto; width: 66.66666667%; }
+@media (min-width: 768px) {
+    .col-md-2 { flex: 0 0 auto; width: 16.66666667%; }
+    .col-md-3 { flex: 0 0 auto; width: 25%; }
+    .col-md-4 { flex: 0 0 auto; width: 33.33333333%; }
+    .col-md-5 { flex: 0 0 auto; width: 41.66666667%; }
+    .col-md-6 { flex: 0 0 auto; width: 50%; }
+}
+
+.d-flex { display: flex !important; }
+.d-block { display: block !important; }
+.align-items-center { align-items: center !important; }
+.justify-content-between { justify-content: space-between !important; }
+.justify-content-center { justify-content: center !important; }
+.justify-content-end { justify-content: flex-end !important; }
+.flex-wrap { flex-wrap: wrap !important; }
+.text-center { text-align: center !important; }
+
+.gap-1 { gap: 4px !important; }
+.gap-2 { gap: 8px !important; }
+.gap-3 { gap: 16px !important; }
+
+/* Spacing */
+.mb-0 { margin-bottom: 0 !important; }
+.mb-1 { margin-bottom: 4px !important; }
+.mb-2 { margin-bottom: 8px !important; }
+.mb-3 { margin-bottom: 16px !important; }
+.mb-4 { margin-bottom: 24px !important; }
+.mt-1 { margin-top: 4px !important; }
+.mt-2 { margin-top: 8px !important; }
+.mt-3 { margin-top: 16px !important; }
+.ms-2 { margin-inline-start: 8px !important; }
+.me-2 { margin-inline-end: 8px !important; }
+.p-0 { padding: 0 !important; }
+.p-3 { padding: 16px !important; }
+.py-3 { padding-top: 16px !important; padding-bottom: 16px !important; }
+
+/* Native Forms & Controls */
+/* (0,2,0) so it beats the :root control base rule above; keep it no higher,
+   so later two-class rules (including the app layer's) can still override it. */
+:root .btn-sm,
+.btn-sm {
+    min-height: 32px;
+    min-width: 44px;
+    padding: 6px 12px;
+    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+summary,
+details > summary {
+    min-height: 32px;
+    line-height: 32px;
+    display: list-item;
+    padding: 4px 0;
+    cursor: pointer;
+}
+
+.form-label {
+    display: inline-block;
+    margin-bottom: 5px;
+    font-size: 11.5px;
+    font-family: var(--wc-font-name);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--wc-text-1);
+}
+
+.form-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    min-height: 24px;
+}
+
+.form-check-label {
+    font-size: 13px;
+    color: var(--wc-text-1);
+    cursor: pointer;
+    user-select: none;
+    margin-bottom: 0;
+}
+
+.form-check-input {
+    flex-shrink: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+.form-switch {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Bootstrap's base layout for fields; the shared rules above only re-theme. */
+.form-control:not(textarea),
+.form-select {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    height: var(--wc-control-h);
+    min-width: 0;
+    max-width: 100%;
+    border: 1px solid var(--wc-border-strong);
+    border-radius: var(--wc-radius-field);
+    background-color: var(--wc-field);
+    color: var(--wc-text-1);
+    font-family: var(--wc-font-body);
+    font-size: 13px;
+    padding: 0 11px;
+    line-height: var(--wc-control-h);
+}
+
+textarea.form-control {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid var(--wc-border-strong);
+    border-radius: var(--wc-radius-field);
+    background-color: var(--wc-field);
+    color: var(--wc-text-1);
+    font-family: var(--wc-font-body);
+    font-size: 13px;
+    line-height: 1.5;
+    padding: 10px 12px;
+    resize: vertical;
+}
+
+.input-group > :is(.form-control, .form-select):not(textarea) {
+    flex: 1 1 auto;
+    width: 1%;
+}
+
+.form-text {
+    margin-top: 4px;
+    font-size: 12px;
+    color: var(--wc-text-3);
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.35em 0.65em;
+    font-family: var(--wc-font-name);
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0.04em;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: var(--wc-radius-card);
+}
+.text-bg-danger { color: #fff !important; background-color: var(--wc-danger) !important; }
+
+/* Standalone Alert Styles */
+.alert {
+    position: relative;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    border: 1px solid var(--wc-border);
+    border-radius: var(--wc-radius-card);
+    font-size: 13px;
+    line-height: 1.5;
+    background: var(--wc-surface-1);
+    color: var(--wc-text-1);
+}
+
+.alert-info {
+    border-color: var(--wc-border-strong);
+    background: var(--wc-surface-2);
+    color: var(--wc-text-1);
+}
+
+.alert-danger {
+    border-color: var(--wc-danger-border);
+    background: var(--wc-danger-bg);
+    color: var(--wc-danger);
+}
+
+.alert-success {
+    border-color: color-mix(in oklab, var(--wc-ok) 40%, transparent);
+    background: color-mix(in oklab, var(--wc-ok) 12%, var(--wc-surface-1));
+    color: var(--wc-ok);
+}
+
+.alert-warning {
+    border-color: color-mix(in oklab, #d97706 40%, transparent);
+    background: color-mix(in oklab, #d97706 12%, var(--wc-surface-1));
+    color: var(--wc-text-1);
 }
 
 /* =====================================================

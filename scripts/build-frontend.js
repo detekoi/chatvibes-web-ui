@@ -46,7 +46,7 @@ async function findTypeScriptFiles(dir) {
  */
 async function buildCss() {
   try {
-    const cssFiles = ['vendor/bootstrap.min.css', 'reset.css', 'custom.css', 'design-system.css', 'chatvibes-specific.css'];
+    const cssFiles = ['reset.css', 'base.css', 'custom.css', 'design-system.css', 'chatvibes-specific.css'];
     let combined = '';
     for (const f of cssFiles) {
       const content = await readFile(join(cssDir, f), 'utf8');

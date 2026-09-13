@@ -1,8 +1,9 @@
 /* =====================================================
    WildcatTTS theme layer: Post-Industrial Modernism.
-   Bundle order (scripts/build-frontend.js): vendor/bootstrap.min.css,
-   reset.css, custom.css, design-system.css. This file re-themes the Bootstrap
-   components the markup uses; Bootstrap's JS bundle is not loaded.
+   Bundle order (scripts/build-frontend.js): reset.css, base.css, custom.css,
+   design-system.css, chatvibes-specific.css. Bootstrap is no longer bundled;
+   base.css carries the reboot and component bases the markup still expects,
+   and this file themes them.
    ===================================================== */
 
 /* =====================================================
@@ -108,7 +109,7 @@ p, label, .form-label, .form-check-label, .form-text, .card-body, .card-body p, 
 }
 
 .text-muted {
-    color: var(--text-muted) !important;
+    color: var(--text-muted);
 }
 
 /* =====================================================
@@ -147,7 +148,7 @@ button:not(.form-check-input) {
 .rounded-end,
 .rounded-bottom,
 .rounded-start {
-    border-radius: 0 !important;
+    border-radius: 0;
 }
 
 /* Range sliders */
@@ -222,7 +223,7 @@ button:not(.form-check-input) {
 }
 /* Remove Bootstrap shadows */
 .shadow, .shadow-sm, .shadow-lg {
-    box-shadow: none !important;
+    box-shadow: none;
 }
 
 .card-header {

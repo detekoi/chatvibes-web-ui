@@ -51,32 +51,32 @@ WildcatTTS TTS bot management web application with:
 ## CSS Architecture (shared with chatsage-web-ui)
 
 Sister project: **chatsage-web-ui** (WildcatSage) shares the same design system
-and the same Post-Industrial theme. Stylesheets are bundled by
-`scripts/build-frontend.js` into `public/css/app.min.css` in this order:
+and the same Post-Industrial theme. Bootstrap is **not loaded** (neither its CSS
+nor its JS; toasts, tabs and dialogs are hand-rolled). The `.btn`, `.card`,
+`.form-*`, `.row`, `.mb-*` class names in the markup are Bootstrap naming only.
+Stylesheets are bundled by `scripts/build-frontend.js` into
+`public/css/app.min.css` in this order:
 
 | Layer | File | Role |
 |-------|------|------|
-| 1 | `public/css/vendor/bootstrap.min.css` | trimmed Bootstrap 5.3.3, **CSS only** (the JS bundle is not loaded; toasts, tabs and dialogs are hand-rolled) |
-| 2 | `public/css/reset.css` | normalize |
-| 3 | `public/css/custom.css` | theme: tokens, Post-Industrial look, Bootstrap re-theming |
-| 4 | `public/css/design-system.css` | **shared** Wildcat design system: `--wc-*` tokens, `wc-*` components |
+| 1 | `public/css/reset.css` | normalize |
+| 2 | `public/css/base.css` | the element and component bases Bootstrap used to supply (headings, buttons, cards, lists, fields, tabs, toasts), in Bootstrap's values |
+| 3 | `public/css/custom.css` | theme: tokens, Post-Industrial look, component re-theming |
+| 4 | `public/css/design-system.css` | **shared** Wildcat design system: `--wc-*` tokens, `wc-*` components, utility shim (section 14) |
 | 5 | `public/css/chatvibes-specific.css` | app layer: markup only WildcatTTS has (dashboard container, loading overlay) |
 
 Rules:
 
 - **`design-system.css` is identical to the copy in
-  `../chatsage-web-ui/public/styles/design-system.css` except for section 14,
-  the utility shim, which only the chatsage copy has (this app still loads
-  Bootstrap for those classes). `diff` the two files after any change; a change
-  to the design system is made in both repos in the same session. Do not add
-  rules there for markup only this app has; put them in
-  `chatvibes-specific.css`. Section-card selectors are written
+  `../chatsage-web-ui/public/styles/design-system.css`.** `diff` the two files
+  after any change; a change to the design system is made in both repos in the
+  same session. Do not add rules there for markup only this app has; put them
+  in `chatvibes-specific.css`. Section-card selectors are written
   `:is(.settings-section, .wc-card)` on purpose: this app's markup says
   `.settings-section`, chatsage's says `.wc-card`.
-- `custom.css` keeps `!important` only where it must beat a Bootstrap utility
-  that is itself `!important` (`.text-muted`, `.rounded-*`, `.shadow`); the
-  shared design system does the same for its bot-status and row-description
-  colour rules.
+- `!important` is reserved for the utility shim, the `[hidden]` rule, and the
+  colour rules in the shared file that must beat a `.text-*` utility (all
+  documented inline). Do not add more.
 - Edit source CSS, then `npm run build:frontend`; `app.min.css` and its map are
   committed.
 - Verifying a CSS change: `npm run css:baseline` on a clean checkout, then
