@@ -108,9 +108,6 @@ p, label, .form-label, .form-check-label, .form-text, .card-body, .card-body p, 
     color: var(--text-primary);
 }
 
-.text-muted {
-    color: var(--text-muted);
-}
 
 /* =====================================================
    SHARP CORNERS - POST-INDUSTRIAL
