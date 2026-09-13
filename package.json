@@ -13,9 +13,11 @@
     "i18n:extract": "node scripts/extract-i18n.js",
     "i18n:validate": "node scripts/validate-i18n.js",
     "test:i18n": "node --test \"tests/**/*.test.mjs\"",
-    "check": "npm run typecheck:frontend && npm run i18n:validate && npm run test:i18n",
+    "check": "npm run check:design-system && npm run typecheck:frontend && npm run i18n:validate && npm run test:i18n",
     "css:baseline": "node scripts/css-snapshot.mjs --save",
-    "css:check": "node scripts/css-snapshot.mjs --check"
+    "css:check": "node scripts/css-snapshot.mjs --check",
+    "sync:design-system": "node scripts/sync-design-system.mjs",
+    "check:design-system": "node scripts/sync-design-system.mjs --check"
   },
   "keywords": [
     "tts",

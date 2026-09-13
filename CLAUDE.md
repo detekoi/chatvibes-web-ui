@@ -22,7 +22,8 @@ firebase deploy --only functions # Deploy functions
 firebase deploy                  # Deploy all
 
 # Checks (esbuild does NOT typecheck; run these before you believe a change)
-npm run check                    # typecheck + i18n validate + i18n tests
+npm run check                    # design-system sync + typecheck + i18n validate + i18n tests
+npm run sync:design-system       # copy design-system.css + css-snapshot.mjs from ../wildcat-design-system
 npm run typecheck:frontend       # tsc over public/tsconfig.json
 npm run i18n:extract             # re-annotate the HTML, regenerate en catalogs
 npm run i18n:validate            # every catalog, every referenced key
@@ -67,13 +68,15 @@ Stylesheets are bundled by `scripts/build-frontend.js` into
 
 Rules:
 
-- **`design-system.css` is identical to the copy in
-  `../chatsage-web-ui/public/styles/design-system.css`.** `diff` the two files
-  after any change; a change to the design system is made in both repos in the
-  same session. Do not add rules there for markup only this app has; put them
-  in `chatvibes-specific.css`. Section-card selectors are written
-  `:is(.settings-section, .wc-card)` on purpose: this app's markup says
-  `.settings-section`, chatsage's says `.wc-card`.
+- **`design-system.css` is a synced copy; its source is the sibling repo
+  `../wildcat-design-system`.** Do not edit the copy here. Edit the source,
+  then run `npm run sync:design-system` in this repo and in
+  `../chatsage-web-ui` (it also syncs `scripts/css-snapshot.mjs`), and verify
+  each with `npm run css:check`. `npm run check` fails while a copy has
+  drifted. Rules for markup only this app has go in `chatvibes-specific.css`.
+  Section-card selectors are written `:is(.settings-section, .wc-card)` on
+  purpose: this app's markup says `.settings-section`, chatsage's says
+  `.wc-card`.
 - `!important` is reserved for the utility shim, the `[hidden]` rule, and the
   colour rules in the shared file that must beat a `.text-*` utility (all
   documented inline). Do not add more.
@@ -88,8 +91,8 @@ Rules:
   render without auth), disables transitions, and records `getComputedStyle`
   for every element. Expect zero differences unless the change is meant to be
   visible; re-save the baseline when markup changes on purpose. `.css-baseline/`
-  is not committed. The script is identical to the copy in chatsage-web-ui;
-  only the config differs.
+  is not committed. The script is synced from `../wildcat-design-system` like
+  the stylesheet; only the config is local.
 
 ## Code Style
 
