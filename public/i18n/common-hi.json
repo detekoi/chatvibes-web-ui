@@ -85,7 +85,7 @@
     "word_required": "शब्द या वाक्यांश आवश्यक है।"
   },
   "logoutLink": {
-    "logout": "लॉग आउट"
+    "logout": "साइन आउट"
   },
   "mainContent": {
     "documentationTtsWildcatChat": "<a class=\"wc-link\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\">दस्तावेज़</a> <span>tts.wildcat.chat</span>"

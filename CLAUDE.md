@@ -74,9 +74,10 @@ Rules:
   `../chatsage-web-ui` (it also syncs `scripts/css-snapshot.mjs`), and verify
   each with `npm run css:check`. `npm run check` fails while a copy has
   drifted. Rules for markup only this app has go in `chatvibes-specific.css`.
-  Section-card selectors are written `:is(.settings-section, .wc-card)` on
-  purpose: this app's markup says `.settings-section`, chatsage's says
-  `.wc-card`.
+  A settings section is the same markup in both apps: `.card.wc-card >
+  .card-header > h2.wc-card-title` then `.card-body` holding a `p.wc-card-desc`
+  lead and the row stacks. The inline script at the foot of each page appends
+  the `.wc-card-meta` row count to the header.
 - `!important` is reserved for the utility shim, the `[hidden]` rule, and the
   colour rules in the shared file that must beat a `.text-*` utility (all
   documented inline). Do not add more.

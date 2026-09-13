@@ -81,7 +81,7 @@
                 aria-label="Toggle dark mode">
                 <i data-lucide="moon" aria-hidden="true"></i>
             </button>
-            <a data-i18n="logoutLink.logout" href="#" id="logout-link" class="wc-chipbtn wc-chipbtn--danger">Logout</a>
+            <a data-i18n="logoutLink.logout" href="#" id="logout-link" class="wc-chipbtn wc-chipbtn--danger">Sign out</a>
         </div>
     </header>
 
@@ -150,128 +150,132 @@
                     </div>
 
                     <!-- Voice Settings -->
-                    <div class="settings-section">
-                        <h2 data-i18n="preferencesPanel.voiceSettings" class="settings-section-title">Voice Settings</h2>
-                        <p data-i18n="preferencesPanel.setHowYourMessagesSound" class="settings-section-description">Set how your messages sound when TTS reads them</p>
-                        <div class="list-group mb-4 shadow">
-                            <div class="list-group-item">
-                                <div class="row align-items-center">
-                                    <div class="col">
-                                        <label data-i18n="preferencesPanel.voice" for="voice-search" class="form-label mb-1"><strong>Voice</strong></label>
-                                        <p data-i18n="preferencesPanel.selectYourPreferredTtsVoice" class="text-muted mb-0">Select your preferred TTS voice</p>
-                                        <small class="form-text text-muted" id="hint-voice"
-                                            style="display:none;"></small>
-                                    </div>
-                                    <div class="col-auto d-flex align-items-center gap-2">
-                                        <div class="custom-voice-dropdown" id="voice-dropdown">
-                                            <input data-i18n-placeholder="voiceSearch.searchVoices2" data-i18n-aria-label="voiceSearch.searchVoices" type="text" id="voice-search" class="form-control"
-                                                placeholder="Search voices..." aria-label="Search voices" readonly>
-                                            <input type="hidden" id="voice-select" value="">
-                                            <div class="voice-dropdown-menu" id="voice-menu">
-                                                <div class="voice-dropdown-list"></div>
+                    <div class="card wc-card">
+                        <div class="card-header">
+                            <h2 data-i18n="preferencesPanel.voiceSettings" class="wc-card-title mb-0">Voice Settings</h2>
+                        </div>
+                        <div class="card-body">
+                            <p data-i18n="preferencesPanel.setHowYourMessagesSound" class="wc-card-desc">Set how your messages sound when TTS reads them</p>
+                            <div class="list-group mb-4 shadow">
+                                <div class="list-group-item">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <label data-i18n="preferencesPanel.voice" for="voice-search" class="form-label mb-1"><strong>Voice</strong></label>
+                                            <p data-i18n="preferencesPanel.selectYourPreferredTtsVoice" class="text-muted mb-0">Select your preferred TTS voice</p>
+                                            <small class="form-text text-muted" id="hint-voice"
+                                                style="display:none;"></small>
+                                        </div>
+                                        <div class="col-auto d-flex align-items-center gap-2">
+                                            <div class="custom-voice-dropdown" id="voice-dropdown">
+                                                <input data-i18n-placeholder="voiceSearch.searchVoices2" data-i18n-aria-label="voiceSearch.searchVoices" type="text" id="voice-search" class="form-control"
+                                                    placeholder="Search voices..." aria-label="Search voices" readonly>
+                                                <input type="hidden" id="voice-select" value="">
+                                                <div class="voice-dropdown-menu" id="voice-menu">
+                                                    <div class="voice-dropdown-list"></div>
+                                                </div>
                                             </div>
+                                            <button data-i18n="voiceReset.clear" data-i18n-aria-label="voiceReset.resetVoiceToDefault" type="button" class="btn btn-outline-secondary btn-sm"
+                                                id="voice-reset" aria-label="Reset voice to default">Clear</button>
                                         </div>
-                                        <button data-i18n="voiceReset.clear" data-i18n-aria-label="voiceReset.resetVoiceToDefault" type="button" class="btn btn-outline-secondary btn-sm"
-                                            id="voice-reset" aria-label="Reset voice to default">Clear</button>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="list-group-item">
-                                <div class="row align-items-center">
-                                    <div class="col">
-                                        <label for="pitch-slider" class="form-label mb-1"><strong><span data-i18n="preferencesPanel.pitch12To12">Pitch (-12 to +12):</span> <span id="pitch-value">0</span></strong></label>
-                                        <p data-i18n="preferencesPanel.adjustTheVoicePitchHigher" class="text-muted mb-0">Adjust the voice pitch higher or lower</p>
-                                        <small class="form-text text-muted" id="hint-pitch"
-                                            style="display:none;"></small>
-                                    </div>
-                                    <div class="col-auto d-flex align-items-center gap-2" style="min-width: 200px;">
-                                        <input data-i18n-aria-label="pitchSlider.pitchAdjustment12To12" type="range" id="pitch-slider" class="form-range" min="-12" max="12"
-                                            step="1" value="0" aria-label="Pitch adjustment (-12 to +12)">
-                                        <button data-i18n="pitchReset.clear" data-i18n-aria-label="pitchReset.resetPitchToDefault" type="button" class="btn btn-outline-secondary btn-sm"
-                                            id="pitch-reset" aria-label="Reset pitch to default">Clear</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="list-group-item">
-                                <div class="row align-items-center">
-                                    <div class="col">
-                                        <label for="speed-slider" class="form-label mb-1"><strong><span data-i18n="preferencesPanel.speed05To2">Speed (0.5 to 2.0):</span> <span id="speed-value">1.0</span></strong></label>
-                                        <p data-i18n="preferencesPanel.controlHowFastTheVoice" class="text-muted mb-0">Control how fast the voice speaks</p>
-                                        <small class="form-text text-muted" id="hint-speed"
-                                            style="display:none;"></small>
-                                    </div>
-                                    <div class="col-auto d-flex align-items-center gap-2" style="min-width: 200px;">
-                                        <input data-i18n-aria-label="speedSlider.speedAdjustment05To" type="range" id="speed-slider" class="form-range" min="0.5" max="2"
-                                            step="0.05" value="1" aria-label="Speed adjustment (0.5 to 2.0)">
-                                        <button data-i18n="speedReset.clear" data-i18n-aria-label="speedReset.resetSpeedToDefault" type="button" class="btn btn-outline-secondary btn-sm"
-                                            id="speed-reset" aria-label="Reset speed to default">Clear</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="list-group-item">
-                                <div class="row align-items-center">
-                                    <div class="col">
-                                        <label data-i18n="preferencesPanel.emotion" for="emotion-select"
-                                            class="form-label mb-1"><strong>Emotion</strong></label>
-                                        <p data-i18n="preferencesPanel.setTheEmotionalToneOf" class="text-muted mb-0">Set the emotional tone of the voice</p>
-                                        <small class="form-text text-muted" id="hint-emotion"
-                                            style="display:none;"></small>
-                                    </div>
-                                    <div class="col-auto d-flex align-items-center gap-2">
-                                        <select id="emotion-select" class="form-select">
-                                            <option data-i18n="emotionSelect.useChannelDefault" value="">Use channel default</option>
-                                            <option data-i18n="emotionSelect.neutral" value="neutral">Neutral</option>
-                                            <option data-i18n="emotionSelect.happy" value="happy">Happy</option>
-                                            <option data-i18n="emotionSelect.sad" value="sad">Sad</option>
-                                            <option data-i18n="emotionSelect.angry" value="angry">Angry</option>
-                                            <option data-i18n="emotionSelect.fearful" value="fearful">Fearful</option>
-                                            <option data-i18n="emotionSelect.disgusted" value="disgusted">Disgusted</option>
-                                            <option data-i18n="emotionSelect.surprised" value="surprised">Surprised</option>
-                                        </select>
-                                        <button data-i18n="emotionReset.clear" data-i18n-aria-label="emotionReset.resetEmotionToDefault" type="button" class="btn btn-outline-secondary btn-sm"
-                                            id="emotion-reset" aria-label="Reset emotion to default">Clear</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="list-group-item">
-                                <div class="row align-items-center">
-                                    <div class="col">
-                                        <label data-i18n="preferencesPanel.languageBoost" for="language-select" class="form-label mb-1"><strong>Language
-                                                Boost</strong></label>
-                                        <p data-i18n="preferencesPanel.improvePronunciationForSpecificLanguages" class="text-muted mb-0">Improve pronunciation for specific languages</p>
-                                        <small class="form-text text-muted" id="hint-language"
-                                            style="display:none;"></small>
-                                    </div>
-                                    <div class="col-auto d-flex align-items-center gap-2">
-                                        <select id="language-select" class="form-select">
-                                            <!-- Filled at runtime by fillLanguageSelect() from locales.json, which is the
-                                                 single source of truth for the 40 languages and labels each in its own
-                                                 script. This markup held 26 hardcoded English names that had already
-                                                 drifted from the 42 the code offers, and every one of them was dead. -->
-                                            <option data-i18n-skip value="">Use channel default</option>
-                                        </select>
-                                        <button data-i18n="languageReset.clear" data-i18n-aria-label="languageReset.resetLanguageToDefault" type="button" class="btn btn-outline-secondary btn-sm"
-                                            id="language-reset" aria-label="Reset language to default">Clear</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="list-group-item">
-                                <div class="row align-items-center">
-                                    <div class="col">
-                                        <strong class="mb-0"><span data-i18n="preferencesPanel.englishNormalization">English Normalization</span> <span data-i18n-tooltip="preferencesPanel.ifTtsReadsNumbersIncorrectly" class="help-icon"
-                                                data-tooltip="If TTS reads numbers incorrectly, turn on English text normalization. This setting slightly increases latency."><i data-lucide="circle-help" class="inline-icon"></i></span></strong>
-                                        <p data-i18n="preferencesPanel.improveThePronunciationOfNumbers" class="text-muted mb-0">Improve the pronunciation of numbers and text</p>
-                                        <small class="form-text text-muted" id="hint-englishNormalization"
-                                            style="display:none;"></small>
-                                    </div>
-                                    <div class="col-auto d-flex align-items-center gap-2">
-                                        <div class="form-check form-switch">
-                                            <input data-i18n-aria-label="englishNormalizationCheckbox.englishNormalization" class="form-check-input" type="checkbox"
-                                                id="english-normalization-checkbox" aria-label="English Normalization">
-                                            <span class="form-check-label"></span>
+                                <div class="list-group-item">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <label for="pitch-slider" class="form-label mb-1"><strong><span data-i18n="preferencesPanel.pitch12To12">Pitch (-12 to +12):</span> <span id="pitch-value">0</span></strong></label>
+                                            <p data-i18n="preferencesPanel.adjustTheVoicePitchHigher" class="text-muted mb-0">Adjust the voice pitch higher or lower</p>
+                                            <small class="form-text text-muted" id="hint-pitch"
+                                                style="display:none;"></small>
                                         </div>
-                                        <button data-i18n="englishNormalizationReset.clear" data-i18n-aria-label="englishNormalizationReset.resetEnglishNormalizationToDefault" type="button" class="btn btn-outline-secondary btn-sm"
-                                            id="english-normalization-reset" aria-label="Reset English normalization to default">Clear</button>
+                                        <div class="col-auto d-flex align-items-center gap-2" style="min-width: 200px;">
+                                            <input data-i18n-aria-label="pitchSlider.pitchAdjustment12To12" type="range" id="pitch-slider" class="form-range" min="-12" max="12"
+                                                step="1" value="0" aria-label="Pitch adjustment (-12 to +12)">
+                                            <button data-i18n="pitchReset.clear" data-i18n-aria-label="pitchReset.resetPitchToDefault" type="button" class="btn btn-outline-secondary btn-sm"
+                                                id="pitch-reset" aria-label="Reset pitch to default">Clear</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-group-item">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <label for="speed-slider" class="form-label mb-1"><strong><span data-i18n="preferencesPanel.speed05To2">Speed (0.5 to 2.0):</span> <span id="speed-value">1.0</span></strong></label>
+                                            <p data-i18n="preferencesPanel.controlHowFastTheVoice" class="text-muted mb-0">Control how fast the voice speaks</p>
+                                            <small class="form-text text-muted" id="hint-speed"
+                                                style="display:none;"></small>
+                                        </div>
+                                        <div class="col-auto d-flex align-items-center gap-2" style="min-width: 200px;">
+                                            <input data-i18n-aria-label="speedSlider.speedAdjustment05To" type="range" id="speed-slider" class="form-range" min="0.5" max="2"
+                                                step="0.05" value="1" aria-label="Speed adjustment (0.5 to 2.0)">
+                                            <button data-i18n="speedReset.clear" data-i18n-aria-label="speedReset.resetSpeedToDefault" type="button" class="btn btn-outline-secondary btn-sm"
+                                                id="speed-reset" aria-label="Reset speed to default">Clear</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-group-item">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <label data-i18n="preferencesPanel.emotion" for="emotion-select"
+                                                class="form-label mb-1"><strong>Emotion</strong></label>
+                                            <p data-i18n="preferencesPanel.setTheEmotionalToneOf" class="text-muted mb-0">Set the emotional tone of the voice</p>
+                                            <small class="form-text text-muted" id="hint-emotion"
+                                                style="display:none;"></small>
+                                        </div>
+                                        <div class="col-auto d-flex align-items-center gap-2">
+                                            <select id="emotion-select" class="form-select">
+                                                <option data-i18n="emotionSelect.useChannelDefault" value="">Use channel default</option>
+                                                <option data-i18n="emotionSelect.neutral" value="neutral">Neutral</option>
+                                                <option data-i18n="emotionSelect.happy" value="happy">Happy</option>
+                                                <option data-i18n="emotionSelect.sad" value="sad">Sad</option>
+                                                <option data-i18n="emotionSelect.angry" value="angry">Angry</option>
+                                                <option data-i18n="emotionSelect.fearful" value="fearful">Fearful</option>
+                                                <option data-i18n="emotionSelect.disgusted" value="disgusted">Disgusted</option>
+                                                <option data-i18n="emotionSelect.surprised" value="surprised">Surprised</option>
+                                            </select>
+                                            <button data-i18n="emotionReset.clear" data-i18n-aria-label="emotionReset.resetEmotionToDefault" type="button" class="btn btn-outline-secondary btn-sm"
+                                                id="emotion-reset" aria-label="Reset emotion to default">Clear</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-group-item">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <label data-i18n="preferencesPanel.languageBoost" for="language-select" class="form-label mb-1"><strong>Language
+                                                    Boost</strong></label>
+                                            <p data-i18n="preferencesPanel.improvePronunciationForSpecificLanguages" class="text-muted mb-0">Improve pronunciation for specific languages</p>
+                                            <small class="form-text text-muted" id="hint-language"
+                                                style="display:none;"></small>
+                                        </div>
+                                        <div class="col-auto d-flex align-items-center gap-2">
+                                            <select id="language-select" class="form-select">
+                                                <!-- Filled at runtime by fillLanguageSelect() from locales.json, which is the
+                                                     single source of truth for the 40 languages and labels each in its own
+                                                     script. This markup held 26 hardcoded English names that had already
+                                                     drifted from the 42 the code offers, and every one of them was dead. -->
+                                                <option data-i18n-skip value="">Use channel default</option>
+                                            </select>
+                                            <button data-i18n="languageReset.clear" data-i18n-aria-label="languageReset.resetLanguageToDefault" type="button" class="btn btn-outline-secondary btn-sm"
+                                                id="language-reset" aria-label="Reset language to default">Clear</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-group-item">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <strong class="mb-0"><span data-i18n="preferencesPanel.englishNormalization">English Normalization</span> <span data-i18n-tooltip="preferencesPanel.ifTtsReadsNumbersIncorrectly" class="help-icon"
+                                                    data-tooltip="If TTS reads numbers incorrectly, turn on English text normalization. This setting slightly increases latency."><i data-lucide="circle-help" class="inline-icon"></i></span></strong>
+                                            <p data-i18n="preferencesPanel.improveThePronunciationOfNumbers" class="text-muted mb-0">Improve the pronunciation of numbers and text</p>
+                                            <small class="form-text text-muted" id="hint-englishNormalization"
+                                                style="display:none;"></small>
+                                        </div>
+                                        <div class="col-auto d-flex align-items-center gap-2">
+                                            <div class="form-check form-switch">
+                                                <input data-i18n-aria-label="englishNormalizationCheckbox.englishNormalization" class="form-check-input" type="checkbox"
+                                                    id="english-normalization-checkbox" aria-label="English Normalization">
+                                                <span class="form-check-label"></span>
+                                            </div>
+                                            <button data-i18n="englishNormalizationReset.clear" data-i18n-aria-label="englishNormalizationReset.resetEnglishNormalizationToDefault" type="button" class="btn btn-outline-secondary btn-sm"
+                                                id="english-normalization-reset" aria-label="Reset English normalization to default">Clear</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -279,31 +283,35 @@
                     </div>
 
                     <!-- Danger Zone -->
-                    <div class="settings-section d-none" id="danger-zone-section">
-                        <h2 data-i18n="dangerZoneSection.dangerZone" class="settings-section-title text-danger">Danger Zone</h2>
-                        <p data-i18n="dangerZoneSection.theseSettingsStopTheBot" class="settings-section-description fst-italic text-danger">These settings stop the bot
-                            from reading your messages in a channel. You can reverse any setting that you choose. If a
-                            moderator opted you out, only a moderator can undo that.</p>
-                        <div class="list-group mb-4 shadow border-danger">
-                            <div class="list-group-item list-group-item-danger" id="danger-tts-toggle"
-                                style="display:none;">
-                                <div class="row align-items-center">
-                                    <div class="col">
-                                        <strong data-i18n="dangerTtsToggle.optOutOfTtsIn" class="mb-0 text-danger">Opt out of TTS in this channel</strong>
-                                        <p data-i18n="dangerTtsToggle.ttsWillNotReadYour" class="text-muted mb-0">TTS will not read your messages in this channel</p>
-                                        <!-- Filled in by danger-zone.ts, which knows whether the viewer opted
-                                             out themselves or a moderator did it for them. -->
-                                        <p class="text-muted mb-0 mt-1 small d-none" id="ignore-tts-note"></p>
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="form-check form-switch">
-                                            <input data-i18n-aria-label="ignoreTts.optOutOfTtsIn" class="form-check-input" type="checkbox" id="ignore-tts" aria-label="Opt out of TTS in this channel" aria-describedby="ignore-tts-note">
-                                            <span class="form-check-label"></span>
+                    <div class="card wc-card d-none" id="danger-zone-section">
+                        <div class="card-header">
+                            <h2 data-i18n="dangerZoneSection.dangerZone" class="wc-card-title mb-0 text-danger">Danger Zone</h2>
+                        </div>
+                        <div class="card-body">
+                            <p data-i18n="dangerZoneSection.theseSettingsStopTheBot" class="wc-card-desc fst-italic text-danger">These settings stop the bot
+                                from reading your messages in a channel. You can reverse any setting that you choose. If a
+                                moderator opted you out, only a moderator can undo that.</p>
+                            <div class="list-group mb-4 shadow border-danger">
+                                <div class="list-group-item list-group-item-danger" id="danger-tts-toggle"
+                                    style="display:none;">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <strong data-i18n="dangerTtsToggle.optOutOfTtsIn" class="mb-0 text-danger">Opt out of TTS in this channel</strong>
+                                            <p data-i18n="dangerTtsToggle.ttsWillNotReadYour" class="text-muted mb-0">TTS will not read your messages in this channel</p>
+                                            <!-- Filled in by danger-zone.ts, which knows whether the viewer opted
+                                                 out themselves or a moderator did it for them. -->
+                                            <p class="text-muted mb-0 mt-1 small d-none" id="ignore-tts-note"></p>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="form-check form-switch">
+                                                <input data-i18n-aria-label="ignoreTts.optOutOfTtsIn" class="form-check-input" type="checkbox" id="ignore-tts" aria-label="Opt out of TTS in this channel" aria-describedby="ignore-tts-note">
+                                                <span class="form-check-label"></span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
+                            </div>
                         </div>
                     </div>
 
@@ -415,15 +423,14 @@
 
         // Section headers carry a mono count on the right. Derived from the DOM
         // so it can't drift as settings are added or removed.
-        document.querySelectorAll('.settings-section').forEach((section) => {
-            const title = section.querySelector('.settings-section-title');
-            if (!title || title.querySelector('.wc-card-meta')) return;
-            const count = section.querySelectorAll('.list-group > .list-group-item').length;
+        document.querySelectorAll('.wc-card > .card-header').forEach((header) => {
+            if (header.querySelector('.wc-card-meta')) return;
+            const count = header.parentElement.querySelectorAll('.list-group > .list-group-item').length;
             if (!count) return;
             const meta = document.createElement('span');
             meta.className = 'wc-card-meta';
             meta.textContent = count === 1 ? '1 setting' : `${count} settings`;
-            title.appendChild(meta);
+            header.appendChild(meta);
         });
     </script>
 </body>

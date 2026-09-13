@@ -85,7 +85,7 @@
     "word_required": "Kelime veya kelime öbeği gerekli."
   },
   "logoutLink": {
-    "logout": "Çıkış Yap"
+    "logout": "Çıkış yap"
   },
   "mainContent": {
     "documentationTtsWildcatChat": "<a class=\"wc-link\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\">Dokümantasyon</a> <span>tts.wildcat.chat</span>"

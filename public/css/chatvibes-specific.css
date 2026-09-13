@@ -16,10 +16,13 @@
     margin: 20px 24px 0;
 }
 
+/* Section cards stack down the page with a gap between them. */
+.wc-card { margin-bottom: 2rem; }
+
 /* A card that IS the section's content would just double the frame. */
-:root .settings-section > .card {
+:root .wc-card > .card-body > .card {
     border: 0;
     background: transparent;
 }
 
-:root .settings-section > .card > .card-body { padding: 0; }
+:root .wc-card > .card-body > .card > .card-body { padding: 0; }

@@ -85,7 +85,7 @@
     "word_required": "Kailangan ng salita o parirala."
   },
   "logoutLink": {
-    "logout": "Mag-log out"
+    "logout": "Mag-sign out"
   },
   "mainContent": {
     "documentationTtsWildcatChat": "<a class=\"wc-link\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\">Dokumentasyon</a> <span>tts.wildcat.chat</span>"
