@@ -96,6 +96,9 @@
       "remove": "Вилучити",
       "saved": "Збережено"
     },
+    "cardMeta": {
+      "settings": "{count, plural, one {# налаштування} few {# налаштування} many {# налаштувань} other {# налаштування}}"
+    },
     "api": {
       "authFailed": "Помилка автентифікації. Увійдіть знову.",
       "notAuthenticated": "Ви не увійшли.",

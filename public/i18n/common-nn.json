@@ -96,6 +96,9 @@
       "remove": "Fjern",
       "saved": "Lagra"
     },
+    "cardMeta": {
+      "settings": "{count, plural, one {# innstilling} other {# innstillingar}}"
+    },
     "api": {
       "authFailed": "Autentisering mislukkast. Logg inn på nytt.",
       "notAuthenticated": "Du er ikkje logga inn.",

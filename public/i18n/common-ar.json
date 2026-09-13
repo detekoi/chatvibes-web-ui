@@ -96,6 +96,9 @@
       "remove": "إزالة",
       "saved": "تم الحفظ"
     },
+    "cardMeta": {
+      "settings": "{count, plural, zero {لا إعدادات} one {إعداد واحد} two {إعدادان} few {# إعدادات} many {# إعدادًا} other {# إعداد}}"
+    },
     "api": {
       "authFailed": "فشلت المصادقة. سجّل دخولك مجددًا.",
       "notAuthenticated": "لم تسجل دخولك.",

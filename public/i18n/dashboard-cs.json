@@ -468,7 +468,7 @@
     "whoCanUseTextTo": "Kdo může používat převod textu na řeč",
     "yourYoutubeChannelHandleFor": "Identifikátor (handle) vašeho YouTube kanálu (například <code>@yourhandle</code>)",
     "youtubeHandle": "<strong>YouTube handle</strong>",
-    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>Integrace YouTube",
+    "youtubeIntegration": "Integrace YouTube",
     "youtubeTtsEnabled": "YouTube TTS povoleno"
   },
   "tabBtnBroadcaster": {

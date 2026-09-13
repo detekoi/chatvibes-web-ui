@@ -468,7 +468,7 @@
     "whoCanUseTextTo": "من يمكنه استخدام تحويل النص إلى كلام",
     "yourYoutubeChannelHandleFor": "معرّف قناتك على YouTube (على سبيل المثال، <code>@yourhandle</code>)",
     "youtubeHandle": "<strong>معرّف YouTube</strong>",
-    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>تكامل YouTube",
+    "youtubeIntegration": "تكامل YouTube",
     "youtubeTtsEnabled": "YouTube TTS مفعّل"
   },
   "tabBtnBroadcaster": {

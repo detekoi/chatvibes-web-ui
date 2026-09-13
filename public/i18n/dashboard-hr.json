@@ -468,7 +468,7 @@
     "whoCanUseTextTo": "Tko može koristiti pretvaranje teksta u govor",
     "yourYoutubeChannelHandleFor": "Korisnička oznaka tvog YouTube kanala (npr. <code>@tvojaoznaka</code>)",
     "youtubeHandle": "<strong>YouTube korisnička oznaka</strong>",
-    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>YouTube integracija",
+    "youtubeIntegration": "YouTube integracija",
     "youtubeTtsEnabled": "YouTube TTS omogućen"
   },
   "tabBtnBroadcaster": {

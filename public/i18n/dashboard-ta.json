@@ -468,7 +468,7 @@
     "whoCanUseTextTo": "உரையிலிருந்து பேச்சை யார் பயன்படுத்தலாம்",
     "yourYoutubeChannelHandleFor": "உங்கள் YouTube சேனல் ஹேண்டில் (உதாரணமாக, <code>@yourhandle</code>)",
     "youtubeHandle": "<strong>YouTube ஹேண்டில்</strong>",
-    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>YouTube ஒருங்கிணைப்பு",
+    "youtubeIntegration": "YouTube ஒருங்கிணைப்பு",
     "youtubeTtsEnabled": "YouTube TTS இயக்கப்பட்டது"
   },
   "tabBtnBroadcaster": {

@@ -468,7 +468,7 @@
     "whoCanUseTextTo": "מי רשאי להשתמש ב-text-to-speech",
     "yourYoutubeChannelHandleFor": "כינוי ערוץ ה-YouTube שלך (לדוגמה, <code>@yourhandle</code>)",
     "youtubeHandle": "<strong>כינוי ב-YouTube</strong>",
-    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>אינטגרציית YouTube",
+    "youtubeIntegration": "אינטגרציה עם YouTube",
     "youtubeTtsEnabled": "YouTube TTS מופעל"
   },
   "tabBtnBroadcaster": {

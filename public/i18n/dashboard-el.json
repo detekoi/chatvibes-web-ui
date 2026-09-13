@@ -468,7 +468,7 @@
     "whoCanUseTextTo": "Ποιος μπορεί να χρησιμοποιήσει το text-to-speech",
     "yourYoutubeChannelHandleFor": "Το handle του καναλιού σας στο YouTube (π.χ. <code>@yourhandle</code>)",
     "youtubeHandle": "<strong>YouTube Handle</strong>",
-    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>Ενσωμάτωση YouTube",
+    "youtubeIntegration": "Ενσωμάτωση YouTube",
     "youtubeTtsEnabled": "YouTube TTS ενεργοποιημένο"
   },
   "tabBtnBroadcaster": {

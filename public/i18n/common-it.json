@@ -96,6 +96,9 @@
       "remove": "Rimuovi",
       "saved": "Salvato"
     },
+    "cardMeta": {
+      "settings": "{count, plural, one {# impostazione} many {# di impostazioni} other {# impostazioni}}"
+    },
     "api": {
       "authFailed": "Autenticazione non riuscita. Accedi di nuovo.",
       "notAuthenticated": "Non hai effettuato l'accesso.",

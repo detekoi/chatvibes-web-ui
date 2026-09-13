@@ -468,7 +468,7 @@
     "whoCanUseTextTo": "Cine poate folosi text-to-speech",
     "yourYoutubeChannelHandleFor": "Identificatorul canalului tău YouTube (de exemplu, <code>@yourhandle</code>)",
     "youtubeHandle": "<strong>Identificator YouTube</strong>",
-    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>Integrare YouTube",
+    "youtubeIntegration": "Integrare YouTube",
     "youtubeTtsEnabled": "TTS YouTube activat"
   },
   "tabBtnBroadcaster": {

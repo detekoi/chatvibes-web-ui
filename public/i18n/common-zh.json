@@ -96,6 +96,9 @@
       "remove": "移除",
       "saved": "已保存"
     },
+    "cardMeta": {
+      "settings": "{count, plural, other {# 项设置}}"
+    },
     "api": {
       "authFailed": "身份验证失败。请重新登录。",
       "notAuthenticated": "你尚未登录。",

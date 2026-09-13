@@ -96,6 +96,9 @@
       "remove": "Usuń",
       "saved": "Zapisano"
     },
+    "cardMeta": {
+      "settings": "{count, plural, one {# ustawienie} few {# ustawienia} many {# ustawień} other {# ustawienia}}"
+    },
     "api": {
       "authFailed": "Uwierzytelnianie nie powiodło się. Zaloguj się ponownie.",
       "notAuthenticated": "Nie jesteś zalogowany.",

@@ -468,7 +468,7 @@
     "whoCanUseTextTo": "Кой може да използва преобразуване на текст в реч",
     "yourYoutubeChannelHandleFor": "Идентификатор на канала ви в YouTube (например <code>@yourhandle</code>)",
     "youtubeHandle": "<strong>Идентификатор в YouTube</strong>",
-    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>Интеграция с YouTube",
+    "youtubeIntegration": "Интеграция с YouTube",
     "youtubeTtsEnabled": "YouTube TTS е активиран"
   },
   "tabBtnBroadcaster": {

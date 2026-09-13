@@ -468,7 +468,7 @@
     "whoCanUseTextTo": "टेक्स्ट-टू-स्पीच का उपयोग कौन कर सकता है",
     "yourYoutubeChannelHandleFor": "आपका YouTube चैनल हैंडल (उदाहरण के लिए, <code>@yourhandle</code>)",
     "youtubeHandle": "<strong>YouTube हैंडल</strong>",
-    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>YouTube इंटीग्रेशन",
+    "youtubeIntegration": "YouTube एकीकरण",
     "youtubeTtsEnabled": "YouTube TTS सक्षम"
   },
   "tabBtnBroadcaster": {

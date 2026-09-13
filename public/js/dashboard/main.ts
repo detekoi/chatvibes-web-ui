@@ -10,6 +10,7 @@ import { initBannedWordsModule, BannedWordsModule } from './banned-words.js';
 import { initPronunciationsModule, PronunciationsModule } from './pronunciations.js';
 import { initMutedRewardsModule, MutedRewardsModule } from './muted-rewards.js';
 import { initI18n, t } from '../common/i18n.js';
+import { decorateCardHeaders } from '../common/card-meta.js';
 
 /**
  * Dashboard application state
@@ -49,6 +50,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   // modules below build markup from `t()` against an empty catalog, which
   // renders bare keys.
   await initI18n();
+  decorateCardHeaders();
   const testMode = new URLSearchParams(window.location.search).has('test');
   const authStatus = document.getElementById('auth-status') as HTMLDivElement | null;
   const loadingOverlay = document.getElementById('loading-overlay') as HTMLDivElement | null;

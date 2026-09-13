@@ -96,6 +96,9 @@
       "remove": "हटाएं",
       "saved": "सहेजा गया"
     },
+    "cardMeta": {
+      "settings": "{count, plural, one {# सेटिंग} other {# सेटिंग्स}}"
+    },
     "api": {
       "authFailed": "प्रमाणीकरण विफल रहा। फिर से साइन इन करें।",
       "notAuthenticated": "आप साइन इन नहीं हैं।",

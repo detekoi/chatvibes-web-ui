@@ -420,18 +420,6 @@
                 window.themeManager.toggleTheme();
             }
         });
-
-        // Section headers carry a mono count on the right. Derived from the DOM
-        // so it can't drift as settings are added or removed.
-        document.querySelectorAll('.wc-card > .card-header').forEach((header) => {
-            if (header.querySelector('.wc-card-meta')) return;
-            const count = header.parentElement.querySelectorAll('.list-group > .list-group-item').length;
-            if (!count) return;
-            const meta = document.createElement('span');
-            meta.className = 'wc-card-meta';
-            meta.textContent = count === 1 ? '1 setting' : `${count} settings`;
-            header.appendChild(meta);
-        });
     </script>
 </body>
 

@@ -468,7 +468,7 @@
     "whoCanUseTextTo": "Кто может использовать озвучивание текста",
     "yourYoutubeChannelHandleFor": "Хэндл вашего канала YouTube (например, <code>@yourhandle</code>)",
     "youtubeHandle": "<strong>Хэндл YouTube</strong>",
-    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>Интеграция с YouTube",
+    "youtubeIntegration": "Интеграция с YouTube",
     "youtubeTtsEnabled": "TTS для YouTube включен"
   },
   "tabBtnBroadcaster": {

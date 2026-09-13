@@ -468,7 +468,7 @@
     "whoCanUseTextTo": "Chi può usare la sintesi vocale",
     "yourYoutubeChannelHandleFor": "L'handle del tuo canale YouTube (ad esempio, <code>@iltuohandle</code>)",
     "youtubeHandle": "<strong>Handle YouTube</strong>",
-    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>Integrazione YouTube",
+    "youtubeIntegration": "Integrazione YouTube",
     "youtubeTtsEnabled": "TTS YouTube abilitato"
   },
   "tabBtnBroadcaster": {

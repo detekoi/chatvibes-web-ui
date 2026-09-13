@@ -468,7 +468,7 @@
     "whoCanUseTextTo": "Ki használhatja a szövegfelolvasást",
     "yourYoutubeChannelHandleFor": "A YouTube-csatornád azonosítója (például <code>@yourhandle</code>)",
     "youtubeHandle": "<strong>YouTube-azonosító</strong>",
-    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>YouTube-integráció",
+    "youtubeIntegration": "YouTube-integráció",
     "youtubeTtsEnabled": "YouTube TTS engedélyezve"
   },
   "tabBtnBroadcaster": {

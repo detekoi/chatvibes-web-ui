@@ -468,7 +468,7 @@
     "whoCanUseTextTo": "谁可以使用文本转语音",
     "yourYoutubeChannelHandleFor": "你的 YouTube 频道 Handle（例如 <code>@yourhandle</code>）",
     "youtubeHandle": "<strong>YouTube Handle</strong>",
-    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>YouTube 集成",
+    "youtubeIntegration": "YouTube 集成",
     "youtubeTtsEnabled": "已启用 YouTube TTS"
   },
   "tabBtnBroadcaster": {

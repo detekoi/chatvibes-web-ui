@@ -468,7 +468,7 @@
     "whoCanUseTextTo": "Metin okumayı kimler kullanabilir",
     "yourYoutubeChannelHandleFor": "YouTube kanal kullanıcı adınız (örneğin <code>@kullaniciadiniz</code>)",
     "youtubeHandle": "<strong>YouTube Kullanıcı Adı</strong>",
-    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>YouTube Entegrasyonu",
+    "youtubeIntegration": "YouTube Entegrasyonu",
     "youtubeTtsEnabled": "YouTube TTS Etkin"
   },
   "tabBtnBroadcaster": {

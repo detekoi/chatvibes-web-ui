@@ -96,6 +96,9 @@
       "remove": "削除",
       "saved": "保存しました"
     },
+    "cardMeta": {
+      "settings": "{count, plural, other {#件の設定}}"
+    },
     "api": {
       "authFailed": "認証に失敗しました。再度ログインしてください。",
       "notAuthenticated": "ログインしていません。",

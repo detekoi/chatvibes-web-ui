@@ -96,6 +96,9 @@
       "remove": "Αφαίρεση",
       "saved": "Αποθηκεύτηκε"
     },
+    "cardMeta": {
+      "settings": "{count, plural, one {# ρύθμιση} other {# ρυθμίσεις}}"
+    },
     "api": {
       "authFailed": "Ο έλεγχος ταυτότητας απέτυχε. Συνδεθείτε ξανά.",
       "notAuthenticated": "Δεν είστε συνδεδεμένοι.",

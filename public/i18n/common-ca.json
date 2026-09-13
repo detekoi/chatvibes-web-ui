@@ -96,6 +96,9 @@
       "remove": "Suprimeix",
       "saved": "Desat"
     },
+    "cardMeta": {
+      "settings": "{count, plural, one {# ajust} many {# d'ajustos} other {# ajustos}}"
+    },
     "api": {
       "authFailed": "Ha fallat l'autenticació. Torna a iniciar sessió.",
       "notAuthenticated": "No has iniciat sessió.",

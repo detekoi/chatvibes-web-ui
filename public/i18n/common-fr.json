@@ -96,6 +96,9 @@
       "remove": "Supprimer",
       "saved": "Enregistré"
     },
+    "cardMeta": {
+      "settings": "{count, plural, one {# paramètre} many {# de paramètres} other {# paramètres}}"
+    },
     "api": {
       "authFailed": "Échec de l'authentification. Reconnectez-vous.",
       "notAuthenticated": "Vous n'êtes pas connecté.",

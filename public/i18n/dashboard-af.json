@@ -468,7 +468,7 @@
     "whoCanUseTextTo": "Wie teks-na-spraak kan gebruik",
     "yourYoutubeChannelHandleFor": "Jou YouTube-kanaalhandvatsel (byvoorbeeld <code>@jouhandvatsel</code>)",
     "youtubeHandle": "<strong>YouTube-handvatsel</strong>",
-    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>YouTube-integrasie",
+    "youtubeIntegration": "YouTube-integrasie",
     "youtubeTtsEnabled": "YouTube-TTS geaktiveer"
   },
   "tabBtnBroadcaster": {

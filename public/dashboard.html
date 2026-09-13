@@ -698,7 +698,8 @@
                         <!-- YouTube Integration -->
                         <div class="card wc-card">
                             <div class="card-header">
-                                <h2 data-i18n="tabBroadcaster.youtubeIntegration" class="wc-card-title mb-0"><i data-lucide="youtube" class="inline-icon" style="margin-right: 6px; color: #ff0000;"></i>YouTube Integration</h2>
+                                <!-- YouTube mark: Simple Icons (CC0). Lucide dropped brand glyphs, so it is inlined. -->
+                                <h2 class="wc-card-title mb-0"><svg class="inline-icon inline-icon--youtube" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg><span data-i18n="tabBroadcaster.youtubeIntegration">YouTube Integration</span></h2>
                             </div>
                             <div class="card-body">
                                 <p data-i18n="tabBroadcaster.readYoutubeLiveChatMessages" class="wc-card-desc">Read YouTube live chat messages through TTS. This feature requires an active YouTube livestream.</p>
@@ -1073,18 +1074,6 @@
                 tabButtons[next].focus();
                 activateTab(tabButtons[next]);
             });
-        });
-
-        // Section headers carry a mono count on the right. Derived from the DOM
-        // so it can't drift as settings are added or removed.
-        document.querySelectorAll('.wc-card > .card-header').forEach((header) => {
-            if (header.querySelector('.wc-card-meta')) return;
-            const count = header.parentElement.querySelectorAll('.list-group > .list-group-item').length;
-            if (!count) return;
-            const meta = document.createElement('span');
-            meta.className = 'wc-card-meta';
-            meta.textContent = count === 1 ? '1 setting' : `${count} settings`;
-            header.appendChild(meta);
         });
     </script>
 </body>

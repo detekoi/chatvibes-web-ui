@@ -96,6 +96,9 @@
       "remove": "Verwyder",
       "saved": "Gestoor"
     },
+    "cardMeta": {
+      "settings": "{count, plural, one {# instelling} other {# instellings}}"
+    },
     "api": {
       "authFailed": "Stawing het misluk. Meld weer aan.",
       "notAuthenticated": "Jy is nie aangemeld nie.",

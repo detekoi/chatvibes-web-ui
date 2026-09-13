@@ -96,6 +96,9 @@
       "remove": "Удалить",
       "saved": "Сохранено"
     },
+    "cardMeta": {
+      "settings": "{count, plural, one {# настройка} few {# настройки} many {# настроек} other {# настроек}}"
+    },
     "api": {
       "authFailed": "Ошибка аутентификации. Войдите снова.",
       "notAuthenticated": "Вы не вошли в систему.",

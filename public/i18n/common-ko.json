@@ -96,6 +96,9 @@
       "remove": "삭제",
       "saved": "저장됨"
     },
+    "cardMeta": {
+      "settings": "{count, plural, other {설정 #개}}"
+    },
     "api": {
       "authFailed": "인증에 실패했습니다. 다시 로그인하세요.",
       "notAuthenticated": "로그인되어 있지 않습니다.",

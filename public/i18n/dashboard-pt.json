@@ -468,7 +468,7 @@
     "whoCanUseTextTo": "Quem pode usar a conversão de texto em fala",
     "yourYoutubeChannelHandleFor": "O identificador do seu canal do YouTube (por exemplo, <code>@seuidentificador</code>)",
     "youtubeHandle": "<strong>Identificador do YouTube</strong>",
-    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>Integração com o YouTube",
+    "youtubeIntegration": "Integração com o YouTube",
     "youtubeTtsEnabled": "TTS do YouTube ativado"
   },
   "tabBtnBroadcaster": {

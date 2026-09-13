@@ -468,7 +468,7 @@
     "whoCanUseTextTo": "Kuka voi käyttää puhesynteesiä",
     "yourYoutubeChannelHandleFor": "YouTube-kanavasi tunnus (esimerkiksi <code>@tunnus</code>)",
     "youtubeHandle": "<strong>YouTube-tunnus</strong>",
-    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>YouTube-integraatio",
+    "youtubeIntegration": "YouTube-integraatio",
     "youtubeTtsEnabled": "YouTube-TTS käytössä"
   },
   "tabBtnBroadcaster": {

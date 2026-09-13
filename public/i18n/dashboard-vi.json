@@ -468,7 +468,7 @@
     "whoCanUseTextTo": "Ai có thể dùng tính năng chuyển văn bản thành giọng nói",
     "yourYoutubeChannelHandleFor": "Tên người dùng kênh YouTube của bạn (ví dụ: <code>@yourhandle</code>)",
     "youtubeHandle": "<strong>Tên người dùng YouTube</strong>",
-    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>Tích hợp YouTube",
+    "youtubeIntegration": "Tích hợp YouTube",
     "youtubeTtsEnabled": "Đã bật YouTube TTS"
   },
   "tabBtnBroadcaster": {

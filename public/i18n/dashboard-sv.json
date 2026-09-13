@@ -468,7 +468,7 @@
     "whoCanUseTextTo": "Vilka som kan använda text-till-tal",
     "yourYoutubeChannelHandleFor": "Ditt YouTube-användarnamn (till exempel <code>@yourhandle</code>)",
     "youtubeHandle": "<strong>YouTube-användarnamn</strong>",
-    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>YouTube-integration",
+    "youtubeIntegration": "YouTube-integration",
     "youtubeTtsEnabled": "YouTube-TTS aktiverat"
   },
   "tabBtnBroadcaster": {

@@ -468,7 +468,7 @@
     "whoCanUseTextTo": "Qui pot utilitzar el text a veu",
     "yourYoutubeChannelHandleFor": "L'identificador del teu canal de YouTube (per exemple, <code>@elteuusuari</code>)",
     "youtubeHandle": "<strong>Identificador de YouTube</strong>",
-    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>Integració amb YouTube",
+    "youtubeIntegration": "Integració de YouTube",
     "youtubeTtsEnabled": "TTS de YouTube activat"
   },
   "tabBtnBroadcaster": {

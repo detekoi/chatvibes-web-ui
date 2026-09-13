@@ -96,6 +96,9 @@
       "remove": "Verwijderen",
       "saved": "Opgeslagen"
     },
+    "cardMeta": {
+      "settings": "{count, plural, one {# instelling} other {# instellingen}}"
+    },
     "api": {
       "authFailed": "Authenticatie mislukt. Log opnieuw in.",
       "notAuthenticated": "Je bent niet ingelogd.",

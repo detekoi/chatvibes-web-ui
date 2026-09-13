@@ -96,6 +96,9 @@
       "remove": "Eltávolítás",
       "saved": "Mentve"
     },
+    "cardMeta": {
+      "settings": "{count, plural, one {# beállítás} other {# beállítás}}"
+    },
     "api": {
       "authFailed": "A hitelesítés sikertelen. Jelentkezz be újra.",
       "notAuthenticated": "Nem vagy bejelentkezve.",

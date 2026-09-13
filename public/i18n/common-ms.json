@@ -96,6 +96,9 @@
       "remove": "Buang",
       "saved": "Disimpan"
     },
+    "cardMeta": {
+      "settings": "{count, plural, other {# tetapan}}"
+    },
     "api": {
       "authFailed": "Pengesahan gagal. Log masuk semula.",
       "notAuthenticated": "Anda belum log masuk.",

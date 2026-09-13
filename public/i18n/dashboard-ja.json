@@ -468,7 +468,7 @@
     "whoCanUseTextTo": "音声読み上げを使用できるユーザー",
     "yourYoutubeChannelHandleFor": "YouTubeチャンネルハンドル（例: <code>@yourhandle</code>）",
     "youtubeHandle": "<strong>YouTubeハンドル</strong>",
-    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>YouTube連携",
+    "youtubeIntegration": "YouTube連携",
     "youtubeTtsEnabled": "YouTube TTS有効"
   },
   "tabBtnBroadcaster": {

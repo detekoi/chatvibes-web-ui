@@ -468,7 +468,7 @@
     "whoCanUseTextTo": "邊個可以使用文字語音轉換 (TTS)",
     "yourYoutubeChannelHandleFor": "你嘅 YouTube 頻道代稱（例如 <code>@yourhandle</code>）",
     "youtubeHandle": "<strong>YouTube 頻道代稱</strong>",
-    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>YouTube 整合",
+    "youtubeIntegration": "YouTube 整合",
     "youtubeTtsEnabled": "已啟用 YouTube TTS"
   },
   "tabBtnBroadcaster": {

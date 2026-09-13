@@ -468,7 +468,7 @@
     "whoCanUseTextTo": "Siapa yang boleh menggunakan teks-ke-pertuturan",
     "yourYoutubeChannelHandleFor": "Pemegang saluran YouTube anda (contohnya, <code>@yourhandle</code>)",
     "youtubeHandle": "<strong>Pemegang YouTube</strong>",
-    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>Penyepaduan YouTube",
+    "youtubeIntegration": "Integrasi YouTube",
     "youtubeTtsEnabled": "TTS YouTube Didayakan"
   },
   "tabBtnBroadcaster": {

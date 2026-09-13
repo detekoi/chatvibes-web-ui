@@ -96,6 +96,9 @@
       "remove": "Eliminar",
       "saved": "Guardado"
     },
+    "cardMeta": {
+      "settings": "{count, plural, one {# ajuste} many {# de ajustes} other {# ajustes}}"
+    },
     "api": {
       "authFailed": "Error de autenticación. Inicia sesión de nuevo.",
       "notAuthenticated": "No has iniciado sesión.",

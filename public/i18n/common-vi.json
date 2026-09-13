@@ -96,6 +96,9 @@
       "remove": "Xóa",
       "saved": "Đã lưu"
     },
+    "cardMeta": {
+      "settings": "{count, plural, other {# cài đặt}}"
+    },
     "api": {
       "authFailed": "Xác thực thất bại. Hãy đăng nhập lại.",
       "notAuthenticated": "Bạn chưa đăng nhập.",

@@ -96,6 +96,9 @@
       "remove": "Ukloni",
       "saved": "Spremljeno"
     },
+    "cardMeta": {
+      "settings": "{count, plural, one {# postavka} few {# postavke} other {# postavki}}"
+    },
     "api": {
       "authFailed": "Autentifikacija nije uspjela. Prijavite se ponovno.",
       "notAuthenticated": "Niste prijavljeni.",

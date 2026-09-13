@@ -468,7 +468,7 @@
     "whoCanUseTextTo": "TTS를 사용할 수 있는 대상",
     "yourYoutubeChannelHandleFor": "YouTube 채널 핸들(예: <code>@yourhandle</code>)",
     "youtubeHandle": "<strong>YouTube 핸들</strong>",
-    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>YouTube 연동",
+    "youtubeIntegration": "YouTube 연동",
     "youtubeTtsEnabled": "YouTube TTS 활성화됨"
   },
   "tabBtnBroadcaster": {

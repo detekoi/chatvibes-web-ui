@@ -468,7 +468,7 @@
     "whoCanUseTextTo": "چه کسانی می‌توانند از تبدیل متن به گفتار استفاده کنند",
     "yourYoutubeChannelHandleFor": "شناسه کانال YouTube شما (مثلاً <code>@yourhandle</code>)",
     "youtubeHandle": "<strong>شناسه YouTube</strong>",
-    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>ادغام با YouTube",
+    "youtubeIntegration": "یکپارچه‌سازی YouTube",
     "youtubeTtsEnabled": "TTS مربوط به YouTube فعال است"
   },
   "tabBtnBroadcaster": {

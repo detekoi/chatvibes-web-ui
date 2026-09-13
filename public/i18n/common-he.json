@@ -96,6 +96,9 @@
       "remove": "הסרה",
       "saved": "נשמר"
     },
+    "cardMeta": {
+      "settings": "{count, plural, one {# הגדרה} two {# הגדרות} other {# הגדרות}}"
+    },
     "api": {
       "authFailed": "האימות נכשל. יש להתחבר מחדש.",
       "notAuthenticated": "אינך מחובר.",

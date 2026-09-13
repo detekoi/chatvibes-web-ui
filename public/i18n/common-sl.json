@@ -96,6 +96,9 @@
       "remove": "Odstrani",
       "saved": "Shranjeno"
     },
+    "cardMeta": {
+      "settings": "{count, plural, one {# nastavitev} two {# nastavitvi} few {# nastavitve} other {# nastavitev}}"
+    },
     "api": {
       "authFailed": "Preverjanje pristnosti ni uspelo. Znova se prijavite.",
       "notAuthenticated": "Niste prijavljeni.",

@@ -96,6 +96,9 @@
       "remove": "Odstrániť",
       "saved": "Uložené"
     },
+    "cardMeta": {
+      "settings": "{count, plural, one {# nastavenie} few {# nastavenia} many {# nastavenia} other {# nastavení}}"
+    },
     "api": {
       "authFailed": "Overenie zlyhalo. Prihláste sa znova.",
       "notAuthenticated": "Nie ste prihlásený.",

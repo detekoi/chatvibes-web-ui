@@ -96,6 +96,9 @@
       "remove": "移除",
       "saved": "已儲存"
     },
+    "cardMeta": {
+      "settings": "{count, plural, other {# 個設定}}"
+    },
     "api": {
       "authFailed": "驗證失敗。請重新登入。",
       "notAuthenticated": "你仲未登入。",

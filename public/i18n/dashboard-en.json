@@ -468,7 +468,7 @@
     "whoCanUseTextTo": "Who can use text-to-speech",
     "yourYoutubeChannelHandleFor": "Your YouTube channel handle (for example, <code>@yourhandle</code>)",
     "youtubeHandle": "<strong>YouTube Handle</strong>",
-    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>YouTube Integration",
+    "youtubeIntegration": "YouTube Integration",
     "youtubeTtsEnabled": "YouTube TTS Enabled"
   },
   "tabBtnBroadcaster": {

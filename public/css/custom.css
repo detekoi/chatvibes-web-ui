@@ -19,7 +19,6 @@
 :root {
   /* dialog.modal::backdrop; the rest of the palette is the design system's. */
   --modal-backdrop: rgba(0, 0, 0, 0.5);
-  --spacing-unit: 8px;
 }
 
 [data-theme="dark"] {
@@ -66,18 +65,6 @@ input:not(.form-check-input),
 textarea,
 select,
 button:not(.form-check-input) {
-    border-radius: 0;
-}
-
-/* Explicitly remove Bootstrap's default rounded corners */
-.rounded,
-.rounded-1,
-.rounded-2,
-.rounded-3,
-.rounded-top,
-.rounded-end,
-.rounded-bottom,
-.rounded-start {
     border-radius: 0;
 }
 
@@ -139,18 +126,8 @@ button:not(.form-check-input) {
    ===================================================== */
 .card {
     border: 2px solid var(--border-color);
-    box-shadow: none;
     background-color: var(--bg-secondary);
     padding: 2rem;
-}
-
-/* Special styling for voice preview card */
-#voice-preview-player {
-    border-color: var(--accent-primary);
-}
-/* Remove Bootstrap shadows */
-.shadow, .shadow-sm, .shadow-lg {
-    box-shadow: none;
 }
 
 /* Nested cards (a card inside a section body) keep this header; section
@@ -158,7 +135,6 @@ button:not(.form-check-input) {
 .card-header {
     background-color: transparent;
     border-bottom: 1px solid var(--border-color);
-    color: var(--text-primary);
     padding: 0 0 1rem 0;
     margin-bottom: 1.5rem;
     font-weight: 800;
@@ -267,11 +243,7 @@ button:not(.form-check-input) {
 }
 
 .btn-outline-primary {
-    background-color: transparent;
-    color: var(--text-primary);
     border: 2px solid var(--text-primary);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
 }
 
 .btn-outline-primary:hover,
@@ -391,28 +363,6 @@ button:not(.form-check-input) {
 }
 
 /* =====================================================
-   ENHANCED LIST-GROUP STYLING - POST-INDUSTRIAL
-   ===================================================== */
-.list-group {
-    display: flex;
-    flex-direction: column;
-    padding-inline-start: 0;
-    margin-bottom: 0;
-}
-.list-group-item {
-    position: relative;
-    display: block;
-    padding: 0.75rem 1.25rem;
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.list-group-item + .list-group-item {
-    border-top-width: 0;
-}
-
-/* =====================================================
    DANGER ZONE CARD STYLING
    ===================================================== */
 .card.danger-zone {
@@ -464,9 +414,6 @@ button:not(.form-check-input) {
 /* [class*="wc-"] opts design-system components out: they carry their own
    link treatment in design-system.css. */
 a:not(.btn):not(.nav-link):not([class*="wc-"]) {
-    color: var(--accent-primary);
-    text-decoration: underline;
-    text-decoration-color: var(--accent-primary);
     transition: color 0.2s ease;
 }
 
@@ -477,10 +424,6 @@ a:not(.btn):not(.nav-link):not([class*="wc-"]):focus {
 }
 /* Ensure all a tags with href use purple.
    Design-system components ([class*="wc-"]) opt out — they set their own. */
-a[href]:not([class*="wc-"]) {
-    color: var(--accent-primary);
-    text-decoration-color: var(--accent-primary);
-}
 
 a[href]:not([class*="wc-"]):hover {
     color: var(--accent-primary-hover);
@@ -489,8 +432,6 @@ a[href]:not([class*="wc-"]):hover {
 
 /* Force underline color */
 a[href][target="_blank"]:not([class*="wc-"]) {
-    -webkit-text-decoration-color: var(--accent-primary);
-    -moz-text-decoration-color: var(--accent-primary);
     text-decoration-color: var(--accent-primary);
 }
 
@@ -598,11 +539,6 @@ dialog.modal::backdrop {
     padding: 1.5rem;
 }
 
-.modal-content p {
-    color: var(--modal-text);
-    margin-bottom: 1rem;
-}
-
 .modal-actions {
     display: flex;
     justify-content: flex-end;
@@ -673,7 +609,6 @@ dialog.modal.modal--wide {
    VOICE PREVIEW AUDIO PLAYER
    ===================================================== */
 .voice-preview-player {
-    display: none;
     margin-top: 1rem;
     padding: 0.75rem;
     background-color: var(--bg-tertiary);
@@ -682,9 +617,7 @@ dialog.modal.modal--wide {
 }
 
 .voice-preview-player audio {
-    width: 100%;
     height: 40px;
-    outline: none;
 }
 
 /* Light mode audio controls */
@@ -710,7 +643,6 @@ dialog.modal.modal--wide {
 /* Dark mode audio player enhancements */
 [data-theme="dark"] .voice-preview-player {
     background-color: #2a2a2a;
-    border-color: var(--accent-primary);
 }
 
 [data-theme="dark"] .voice-preview-player audio {
@@ -728,15 +660,7 @@ dialog.modal.modal--wide {
 
 /* Settings changed hint */
 .settings-changed-hint {
-    display: block;
-    font-size: 0.875rem;
     font-style: italic;
-    color: var(--danger-text);
-    margin-top: 0.5rem;
-}
-
-[data-theme="dark"] .settings-changed-hint {
-    color: #ffc107;
 }
 
 /* =====================================================
@@ -782,7 +706,6 @@ dialog.modal.modal--wide {
     border: 1px solid var(--border-color);
     box-shadow: 0 4px 12px var(--shadow-color);
     max-height: 400px;
-    overflow-y: auto;
     overflow-x: hidden;
     display: none;
 }
@@ -791,18 +714,8 @@ dialog.modal.modal--wide {
     display: block;
 }
 
-[data-theme="dark"] .voice-dropdown-menu {
-    background: var(--bg-secondary);
-    border-color: var(--border-color);
-    box-shadow: 0 4px 12px var(--shadow-color);
-}
-
 .voice-dropdown-list {
     padding: 0.5rem 0;
-}
-
-[data-theme="dark"] .voice-dropdown-list {
-    background: transparent;
 }
 
 .voice-dropdown-item {
@@ -817,11 +730,6 @@ dialog.modal.modal--wide {
 
 .voice-dropdown-item:hover {
     background-color: var(--bg-tertiary);
-}
-
-[data-theme="dark"] .voice-dropdown-item {
-    background-color: transparent;
-    color: var(--text-primary);
 }
 
 [data-theme="dark"] .voice-dropdown-item:hover {
@@ -845,30 +753,22 @@ dialog.modal.modal--wide {
 
 .voice-label {
     flex: 1;
-    color: var(--text-primary);
     font-size: 0.875rem;
-}
-
-[data-theme="dark"] .voice-label {
-    color: var(--text-primary);
 }
 
 /* Voice play button styles */
 .voice-play-btn {
     background: var(--accent-primary);
     border: none;
-    border-radius: 50%;
     width: 28px;
     height: 28px;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
     transition: all 0.2s ease;
     color: white;
     flex-shrink: 0;
     padding: 0;
-    margin: 0;
 }
 
 .voice-play-btn:hover {
@@ -904,15 +804,7 @@ dialog.modal.modal--wide {
 }
 
 .voice-play-btn svg {
-    width: 12px;
-    height: 12px;
     pointer-events: none;
-    display: block;
-    fill: currentColor;
-}
-
-[data-theme="dark"] .voice-play-btn svg {
-    fill: currentColor;
 }
 
 /* ===== OBS POPOVER ===== */
@@ -1011,7 +903,7 @@ details[open] > .obs-step-summary::after { content: '−'; }
   flex-shrink: 0;
 }
 .obs-step-content { padding: 0 14px 14px 14px; }
-.obs-step-content p { font-size: .8rem; line-height: 1.5; color: var(--text-primary); margin: 0; }
+.obs-step-content p { font-size: .8rem; line-height: 1.5; margin: 0; }
 /* =====================================================
    RESPONSIVE ADJUSTMENTS
    ===================================================== */

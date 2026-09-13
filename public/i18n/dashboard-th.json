@@ -468,7 +468,7 @@
     "whoCanUseTextTo": "ผู้ที่สามารถใช้การแปลงข้อความเป็นเสียงพูดได้",
     "yourYoutubeChannelHandleFor": "แฮนเดิลช่อง YouTube ของคุณ (เช่น <code>@yourhandle</code>)",
     "youtubeHandle": "<strong>แฮนเดิล YouTube</strong>",
-    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>การผสานรวม YouTube",
+    "youtubeIntegration": "การผสานรวม YouTube",
     "youtubeTtsEnabled": "เปิดใช้งาน YouTube TTS แล้ว"
   },
   "tabBtnBroadcaster": {

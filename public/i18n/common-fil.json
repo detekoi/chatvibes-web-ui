@@ -96,6 +96,9 @@
       "remove": "Alisin",
       "saved": "Nai-save"
     },
+    "cardMeta": {
+      "settings": "{count, plural, one {# setting} other {# na setting}}"
+    },
     "api": {
       "authFailed": "Nabigo ang authentication. Mag-sign in muli.",
       "notAuthenticated": "Hindi ka naka-sign in.",

@@ -468,7 +468,7 @@
     "whoCanUseTextTo": "Siapa yang dapat menggunakan text-to-speech",
     "yourYoutubeChannelHandleFor": "Handle saluran YouTube Anda (misalnya, <code>@handleanda</code>)",
     "youtubeHandle": "<strong>Handle YouTube</strong>",
-    "youtubeIntegration": "<i data-lucide=\"youtube\" class=\"inline-icon\" style=\"margin-right: 6px; color: #ff0000;\"></i>Integrasi YouTube",
+    "youtubeIntegration": "Integrasi YouTube",
     "youtubeTtsEnabled": "TTS YouTube Diaktifkan"
   },
   "tabBtnBroadcaster": {

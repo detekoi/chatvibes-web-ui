@@ -96,6 +96,9 @@
       "remove": "ลบ",
       "saved": "บันทึกแล้ว"
     },
+    "cardMeta": {
+      "settings": "{count, plural, other {การตั้งค่า # รายการ}}"
+    },
     "api": {
       "authFailed": "ยืนยันตัวตนไม่สำเร็จ โปรดเข้าสู่ระบบอีกครั้ง",
       "notAuthenticated": "คุณยังไม่ได้เข้าสู่ระบบ",

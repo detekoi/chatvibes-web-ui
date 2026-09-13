@@ -96,6 +96,9 @@
       "remove": "Kaldır",
       "saved": "Kaydedildi"
     },
+    "cardMeta": {
+      "settings": "{count, plural, one {# ayar} other {# ayar}}"
+    },
     "api": {
       "authFailed": "Kimlik doğrulama başarısız oldu. Tekrar giriş yapın.",
       "notAuthenticated": "Giriş yapmadınız.",
