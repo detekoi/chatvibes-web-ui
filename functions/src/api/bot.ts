@@ -116,14 +116,6 @@ router.post("/add", authenticateApiRequest, async (req: Request, res: Response):
       addedAt: new Date(),
     }, { merge: true });
 
-    // Sync botMode in ttsChannelConfigs for the TTS bot service
-    // Always use 'authenticated' mode (bot mode only)
-    const ttsConfigRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(twitchUserId);
-    await ttsConfigRef.set({
-      botMode: 'authenticated',
-    }, { merge: true });
-    log.info({ botMode: 'authenticated' }, "Synced botMode to ttsChannelConfigs");
-
     log.info("Bot successfully added to channel");
 
     // Automatically add bot as moderator
