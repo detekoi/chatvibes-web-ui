@@ -42,7 +42,6 @@
     "@types/supertest": "^6.0.3",
     "eslint": "^8.15.0",
     "eslint-config-google": "^0.14.0",
-    "firebase-functions-test": "^3.1.0",
     "jest": "^30.2.0",
     "pino-pretty": "^13.1.2",
     "supertest": "^7.1.4",
@@ -52,7 +51,7 @@
   "overrides": {
     "glob": "^10.5.0",
     "@tootallnate/once": "^3.0.1",
-    "protobufjs": "^7.5.8",
+    "protobufjs": "^7.6.6",
     "fast-xml-builder": "^1.1.7",
     "uuid": "^11.1.1"
   },
