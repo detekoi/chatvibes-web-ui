@@ -3,15 +3,16 @@
  */
 
 import * as jwt from 'jsonwebtoken';
-import * as admin from 'firebase-admin';
+import { getApps, initializeApp } from 'firebase-admin/app';
+import { getFirestore } from 'firebase-admin/firestore';
 
 // Initialize Firebase Admin for emulator
 // Set emulator environment variables before initializing
 process.env.FIRESTORE_EMULATOR_HOST = process.env.FIRESTORE_EMULATOR_HOST || 'localhost:8080';
 process.env.GCLOUD_PROJECT = process.env.GCLOUD_PROJECT || 'test-project';
 
-if (!admin.apps.length) {
-  admin.initializeApp({
+if (!getApps().length) {
+  initializeApp({
     projectId: process.env.GCLOUD_PROJECT,
   });
 }
@@ -61,7 +62,7 @@ export function createTestUser(login: string = 'testuser') {
  * Get Firestore instance for testing
  */
 export function getTestDb() {
-  return admin.firestore();
+  return getFirestore();
 }
 
 /**

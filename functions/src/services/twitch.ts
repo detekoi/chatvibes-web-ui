@@ -4,8 +4,7 @@
  */
 
 import axios, { AxiosRequestConfig } from "axios";
-import admin from "firebase-admin";
-import { db, COLLECTIONS } from "./firestore";
+import { db, FieldValue, COLLECTIONS } from "./firestore";
 import { logger, redactSensitive } from "../logger";
 import type { Secrets } from "../config";
 
@@ -179,7 +178,7 @@ async function getValidTwitchTokenForUser(userId: string, secrets: Secrets): Pro
     await db.collection("users").doc(twitchUserId).collection("private").doc("oauth").set({
       twitchAccessToken: newAccessToken,
       twitchRefreshToken: newRefreshToken,
-      updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+      updatedAt: FieldValue.serverTimestamp(),
     }, { merge: true });
 
     // Update expiration in main user document
