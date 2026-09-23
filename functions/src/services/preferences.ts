@@ -1,6 +1,6 @@
 /**
  * Viewer preferences service
- * Centralizes loading of global user preferences with ID-first, username-fallback lookup.
+ * Centralizes loading of global user preferences, keyed by Twitch user ID.
  */
 
 import { db, COLLECTIONS } from "./firestore";
@@ -17,18 +17,9 @@ export interface ViewerPreferences {
 }
 
 /**
- * Load global user preferences, trying by userId first with a
- * username fallback for backward compatibility.
+ * Load global user preferences for a Twitch user ID.
  */
-export async function loadGlobalUserPreferences(
-  userId: string,
-  username: string
-): Promise<ViewerPreferences> {
-  let userDoc = await db.collection(COLLECTIONS.TTS_USER_PREFS).doc(userId).get();
-
-  if (!userDoc.exists) {
-    userDoc = await db.collection(COLLECTIONS.TTS_USER_PREFS).doc(username).get();
-  }
-
+export async function loadGlobalUserPreferences(userId: string): Promise<ViewerPreferences> {
+  const userDoc = await db.collection(COLLECTIONS.TTS_USER_PREFS).doc(userId).get();
   return userDoc.exists ? (userDoc.data() as ViewerPreferences) : {};
 }

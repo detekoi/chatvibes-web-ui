@@ -149,7 +149,7 @@ router.get("/preferences/:channel", authenticateApiRequest, async (req: Request,
     // Load GLOBAL user preferences
     let globalPrefs: ViewerPreferences = {};
     try {
-      globalPrefs = await loadGlobalUserPreferences(req.user.userId, username);
+      globalPrefs = await loadGlobalUserPreferences(req.user.userId);
     } catch (e) {
       const err = e as Error;
       log.warn({ error: err.message }, "Failed to load global user prefs");
@@ -255,7 +255,7 @@ router.get("/preferences", authenticateApiRequest, async (req: Request, res: Res
     // Load GLOBAL user preferences
     let globalPrefs: ViewerPreferences = {};
     try {
-      globalPrefs = await loadGlobalUserPreferences(req.user.userId, username);
+      globalPrefs = await loadGlobalUserPreferences(req.user.userId);
     } catch (e) {
       const err = e as Error;
       log.warn({ error: err.message }, "Failed to load global user prefs");

@@ -30,14 +30,6 @@ interface ShortlinkData {
 
 
 
-interface ChannelDefaults {
-  voiceId?: string | null;
-  emotion?: string | null;
-  pitch?: number | null;
-  speed?: number | null;
-  languageBoost?: string | null;
-}
-
 interface WavespeedInput {
   text: string;
   voice_id: string;
@@ -163,20 +155,9 @@ apiRouter.get("/tts/user-voice/:username", authenticateApiRequest, async (req: R
   }
 
   try {
-    // 1. First, resolve username to Twitch User ID
+    // Preferences are keyed by Twitch user ID; the login is only how the caller names the user.
     const userId = await getUserIdFromUsername(username, secrets);
-    
-    let docSnap;
-    if (userId) {
-      const docRef = db.collection(COLLECTIONS.TTS_USER_PREFS).doc(userId);
-      docSnap = await docRef.get();
-    }
-    
-    // 2. If not found by userId (or userId lookup failed), fallback to legacy username key
-    if (!docSnap || !docSnap.exists) {
-      const docRef = db.collection(COLLECTIONS.TTS_USER_PREFS).doc(username.toLowerCase());
-      docSnap = await docRef.get();
-    }
+    const docSnap = userId ? await db.collection(COLLECTIONS.TTS_USER_PREFS).doc(userId).get() : null;
 
     if (docSnap && docSnap.exists) {
       const data = docSnap.data();
@@ -205,7 +186,7 @@ apiRouter.get("/tts/user-voice/:username", authenticateApiRequest, async (req: R
 apiRouter.post("/tts/test", ttsTestLimiter, authenticateApiRequest, async (req: Request, res: Response): Promise<void> => {
   assertAuthenticated(req);
 
-  const { text, voiceId, emotion, pitch, speed, volume, languageBoost, channel } = req.body || {};
+  const { text, voiceId, emotion, pitch, speed, volume, languageBoost } = req.body || {};
   const channelLogin = req.user.userLogin;
   const log = logger.child({ endpoint: "/api/tts/test", channelLogin, voiceId: voiceId || "default" });
 
@@ -217,7 +198,7 @@ apiRouter.post("/tts/test", ttsTestLimiter, authenticateApiRequest, async (req: 
 
     log.info({ textLength: text.length }, "TTS test requested");
 
-    // Resolve effective parameters in order: request override -> viewer global prefs -> channel defaults
+    // Resolve effective parameters in order: request override -> viewer global prefs
     let effective: {
       voiceId: string | null;
       emotion: string | null;
@@ -236,37 +217,20 @@ apiRouter.post("/tts/test", ttsTestLimiter, authenticateApiRequest, async (req: 
 
     try {
       // Load viewer global preferences
-      const userPrefs = await loadGlobalUserPreferences(req.user.userId, channelLogin);
+      const userPrefs = await loadGlobalUserPreferences(req.user.userId);
 
-      // Optionally load channel defaults if a channel is provided
-      let channelDefaults: ChannelDefaults = {};
-      if (channel) {
-        const channelDoc = await db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(channel).get();
-        if (channelDoc.exists) {
-          const d = channelDoc.data() || {};
-          channelDefaults = {
-            voiceId: d.voiceId ?? null,
-            emotion: d.emotion ?? null,
-            pitch: (d.pitch !== undefined) ? d.pitch : null,
-            speed: (d.speed !== undefined) ? d.speed : null,
-            languageBoost: d.languageBoost ?? null,
-          };
-        }
-      }
-
-      const pick = (reqVal: unknown, userVal: unknown, chanVal: unknown): unknown => {
+      const pick = (reqVal: unknown, userVal: unknown): unknown => {
         if (reqVal !== undefined && reqVal !== null && reqVal !== "") return reqVal; // explicit request
-        if (userVal !== undefined && userVal !== null && userVal !== "") return userVal; // viewer global
-        return (chanVal !== undefined && chanVal !== null && chanVal !== "") ? chanVal : null; // channel default
+        return (userVal !== undefined && userVal !== null && userVal !== "") ? userVal : null; // viewer global
       };
 
       effective = {
-        voiceId: pick(voiceId, userPrefs.voiceId, channelDefaults.voiceId) as string | null,
-        emotion: normalizeEmotion(pick(emotion, userPrefs.emotion, channelDefaults.emotion) as string | null),
-        pitch: pick(pitch, userPrefs.pitch, channelDefaults.pitch) as number | null,
-        speed: pick(speed, userPrefs.speed, channelDefaults.speed) as number | null,
-        volume: pick(volume, null, null) as number | null, // users/channel don't have simple volume field yet in this service
-        languageBoost: pick(languageBoost, userPrefs.languageBoost, channelDefaults.languageBoost) as string | null,
+        voiceId: pick(voiceId, userPrefs.voiceId) as string | null,
+        emotion: normalizeEmotion(pick(emotion, userPrefs.emotion) as string | null),
+        pitch: pick(pitch, userPrefs.pitch) as number | null,
+        speed: pick(speed, userPrefs.speed) as number | null,
+        volume: pick(volume, null) as number | null, // viewers have no volume preference
+        languageBoost: pick(languageBoost, userPrefs.languageBoost) as string | null,
       };
       log.debug({ effective }, "Effective params");
     } catch (resolveErr) {

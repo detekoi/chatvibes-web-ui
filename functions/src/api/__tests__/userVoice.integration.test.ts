@@ -1,16 +1,26 @@
 /**
- * Reproduction test for User Voice Lookup 400 Error
+ * User voice lookup: resolves the login to a Twitch user ID and reads the
+ * preferences stored under that ID. A login-keyed document is never read.
  */
 
-import { describe, it, expect, beforeAll, beforeEach } from '@jest/globals';
+import { describe, it, expect, beforeAll, beforeEach, jest } from '@jest/globals';
+
+const mockGetUserIdFromUsername = jest.fn<any>();
+jest.mock('../../services/twitch', () => ({
+  ...(jest.requireActual('../../services/twitch') as object),
+  getUserIdFromUsername: mockGetUserIdFromUsername,
+}));
+
 import request from 'supertest';
 import { createTestApp } from './appHelper';
 import { createTestToken, createTestUser, getTestDb, clearTestData } from './testHelpers';
 
-describe('User Voice Lookup Reproduction', () => {
+describe('User Voice Lookup', () => {
     let app: any;
     let db: any;
     const testUser = createTestUser('testuser');
+    const username = 'pedromarvarez';
+    const userId = '424242';
 
     beforeAll(async () => {
         app = await createTestApp();
@@ -19,54 +29,55 @@ describe('User Voice Lookup Reproduction', () => {
 
     beforeEach(async () => {
         await clearTestData();
+        mockGetUserIdFromUsername.mockReset();
+        mockGetUserIdFromUsername.mockResolvedValue(userId);
     });
 
     describe('GET /api/tts/user-voice/:username', () => {
-        it('should return 200 for valid username', async () => {
-            const token = createTestToken(testUser);
-            const username = 'pedromarvarez';
-
+        it('should return 200 with no voice when none is set', async () => {
             const response = await request(app)
                 .get(`/api/tts/user-voice/${username}`)
-                .set('Authorization', `Bearer ${token}`)
+                .set('Authorization', `Bearer ${createTestToken(testUser)}`)
                 .expect(200);
 
             expect(response.body.success).toBe(true);
             expect(response.body.username).toBe(username);
-            expect(response.body.voiceId).toBeNull(); // No voice set yet
+            expect(response.body.voiceId).toBeNull();
         });
 
-        it('should return 200 with voiceId when voice is set', async () => {
-            const token = createTestToken(testUser);
-            const username = 'pedromarvarez';
-
-            await db.collection('ttsUserPreferences').doc(username).set({
-                voiceId: 'Test_Voice_ID'
-            });
+        it('should return the voice stored under the user ID', async () => {
+            await db.collection('ttsUserPreferences').doc(userId).set({ voiceId: 'Test_Voice_ID' });
 
             const response = await request(app)
                 .get(`/api/tts/user-voice/${username}`)
-                .set('Authorization', `Bearer ${token}`)
+                .set('Authorization', `Bearer ${createTestToken(testUser)}`)
                 .expect(200);
 
-            expect(response.body.success).toBe(true);
-            expect(response.body.username).toBe(username);
+            expect(mockGetUserIdFromUsername).toHaveBeenCalledWith(username, expect.anything());
             expect(response.body.voiceId).toBe('Test_Voice_ID');
         });
 
-        it('should return 400 if somehow username is missing (empty)', async () => {
-            // This tests if the code checks for emptiness, though express might not match route
-            const token = createTestToken(testUser);
-            // We can't really get /api/tts/user-voice/ because it won't match the route
-            // But let's try calling handler directly if we could, but here we integration test route
+        it('should ignore a legacy document keyed by login', async () => {
+            await db.collection('ttsUserPreferences').doc(username).set({ voiceId: 'Legacy_Voice' });
 
-            // Try passing empty string as param?
-            await request(app)
-                .get(`/api/tts/user-voice/ `) // Space?
-                .set('Authorization', `Bearer ${token}`)
-            // Expect 404 typically unless encoded
+            const response = await request(app)
+                .get(`/api/tts/user-voice/${username}`)
+                .set('Authorization', `Bearer ${createTestToken(testUser)}`)
+                .expect(200);
 
-            // What if we try to simulate the exact request from user?
+            expect(response.body.voiceId).toBeNull();
+        });
+
+        it('should return no voice when the login does not resolve', async () => {
+            mockGetUserIdFromUsername.mockResolvedValue(null);
+            await db.collection('ttsUserPreferences').doc(username).set({ voiceId: 'Legacy_Voice' });
+
+            const response = await request(app)
+                .get(`/api/tts/user-voice/${username}`)
+                .set('Authorization', `Bearer ${createTestToken(testUser)}`)
+                .expect(200);
+
+            expect(response.body.voiceId).toBeNull();
         });
     });
 });
