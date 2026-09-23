@@ -51,6 +51,7 @@ describe('Twitch service', () => {
 
     // Load twitch module AFTER mocks are set up
     twitch = require('../twitch');
+    twitch.clearAppAccessTokenCache();
   });
 
   afterEach(() => {
@@ -250,6 +251,37 @@ describe('Twitch service', () => {
       );
     });
 
+    it('should reuse a cached token until shortly before it expires', async () => {
+      const mockSecrets = {
+        TWITCH_CLIENT_ID: 'test-client-id',
+        TWITCH_CLIENT_SECRET: 'test-client-secret',
+      };
+      mockedAxios.post
+        .mockResolvedValueOnce({ data: { access_token: 'first', expires_in: 3600 } })
+        .mockResolvedValueOnce({ data: { access_token: 'second', expires_in: 3600 } });
+
+      const now = Date.now();
+      const clock = jest.spyOn(Date, 'now').mockReturnValue(now);
+
+      expect(await twitch.getAppAccessToken(mockSecrets)).toBe('first');
+      expect(await twitch.getAppAccessToken(mockSecrets)).toBe('first');
+      expect(mockedAxios.post).toHaveBeenCalledTimes(1);
+
+      // Inside the five-minute renewal window
+      clock.mockReturnValue(now + (3600 - 60) * 1000);
+      expect(await twitch.getAppAccessToken(mockSecrets)).toBe('second');
+      expect(mockedAxios.post).toHaveBeenCalledTimes(2);
+    });
+
+    it('should not reuse a token cached for a different client ID', async () => {
+      mockedAxios.post
+        .mockResolvedValueOnce({ data: { access_token: 'first', expires_in: 3600 } })
+        .mockResolvedValueOnce({ data: { access_token: 'second', expires_in: 3600 } });
+
+      await twitch.getAppAccessToken({ TWITCH_CLIENT_ID: 'a', TWITCH_CLIENT_SECRET: 's' });
+      expect(await twitch.getAppAccessToken({ TWITCH_CLIENT_ID: 'b', TWITCH_CLIENT_SECRET: 's' })).toBe('second');
+    });
+
     it('should throw error if no access token in response', async () => {
       const mockSecrets = {
         TWITCH_CLIENT_ID: 'test-client-id',
@@ -280,6 +312,26 @@ describe('Twitch service', () => {
   });
 
   describe('getUserIdFromUsername', () => {
+    it('should drop the cached app token when Helix rejects it', async () => {
+      const mockSecrets = {
+        TWITCH_CLIENT_ID: 'test-client-id',
+        TWITCH_CLIENT_SECRET: 'test-client-secret',
+      };
+      mockedAxios.post
+        .mockResolvedValueOnce({ data: { access_token: 'revoked', expires_in: 3600 } })
+        .mockResolvedValueOnce({ data: { access_token: 'fresh', expires_in: 3600 } });
+      mockedAxios.get
+        .mockRejectedValueOnce(Object.assign(new Error('Unauthorized'), { response: { status: 401, data: {} } }))
+        .mockResolvedValueOnce({ data: { data: [{ id: '12345', login: 'testuser', display_name: 'TestUser' }] } });
+
+      expect(await twitch.getUserIdFromUsername('testuser', mockSecrets)).toBeNull();
+      expect(await twitch.getUserIdFromUsername('testuser', mockSecrets)).toBe('12345');
+      expect(mockedAxios.get).toHaveBeenLastCalledWith(
+        `${twitch.TWITCH_HELIX_BASE}/users`,
+        expect.objectContaining({ headers: expect.objectContaining({ Authorization: 'Bearer fresh' }) })
+      );
+    });
+
     it('should successfully get user ID from username', async () => {
       const mockSecrets = {
         TWITCH_CLIENT_ID: 'test-client-id',

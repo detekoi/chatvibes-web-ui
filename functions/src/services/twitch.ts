@@ -260,7 +260,24 @@ async function makeTwitchApiRequest<T = unknown>(
  * @param secrets - The loaded secrets object
  * @return An app access token
  */
+// App access tokens last about 60 days. One is kept per function instance and
+// renewed this long before it expires, or as soon as Helix rejects it.
+const APP_TOKEN_EXPIRY_BUFFER_MS = 5 * 60 * 1000;
+let appTokenCache: { clientId: string; token: string; expiresAt: number } | null = null;
+
+/** Drops the cached app access token. Also used by tests to isolate cases. */
+function clearAppAccessTokenCache(): void {
+  appTokenCache = null;
+}
+
 async function getAppAccessToken(secrets: Secrets): Promise<string> {
+  if (
+    appTokenCache &&
+    appTokenCache.clientId === secrets.TWITCH_CLIENT_ID &&
+    Date.now() < appTokenCache.expiresAt - APP_TOKEN_EXPIRY_BUFFER_MS
+  ) {
+    return appTokenCache.token;
+  }
   try {
     const response = await axios.post<TwitchTokenResponse>(TWITCH_TOKEN_URL, null, {
       params: {
@@ -275,6 +292,13 @@ async function getAppAccessToken(secrets: Secrets): Promise<string> {
       throw new Error("No access token in response");
     }
 
+    if (response.data.expires_in) {
+      appTokenCache = {
+        clientId: secrets.TWITCH_CLIENT_ID,
+        token: response.data.access_token,
+        expiresAt: Date.now() + response.data.expires_in * 1000,
+      };
+    }
     return response.data.access_token;
   } catch (error) {
     const err = error as { message: string; response?: { data: unknown } };
@@ -314,7 +338,9 @@ async function getUserByUsername(username: string, secrets: Secrets): Promise<Tw
     if (!user) return null;
     return { id: user.id, login: user.login, displayName: user.display_name || user.login };
   } catch (error) {
-    const err = error as { message: string; response?: { data: unknown } };
+    const err = error as { message: string; response?: { status?: number; data: unknown } };
+    // A revoked or expired token: fetch a fresh one on the next lookup.
+    if (err.response?.status === 401) clearAppAccessTokenCache();
     logger.error({
       username: redactSensitive(username),
       error: err.message,
@@ -415,6 +441,7 @@ export {
   validateTwitchToken,
   makeTwitchApiRequest,
   getAppAccessToken,
+  clearAppAccessTokenCache,
   getUserByUsername,
   getUserIdFromUsername,
   addModerator,

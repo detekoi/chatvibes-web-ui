@@ -183,7 +183,9 @@ apiRouter.get("/tts/user-voice/:username", authenticateApiRequest, async (req: R
 });
 
 // Route: /api/tts/test - Test TTS functionality
-apiRouter.post("/tts/test", ttsTestLimiter, authenticateApiRequest, async (req: Request, res: Response): Promise<void> => {
+// Authenticate first: ttsTestLimiter keys on req.user.userId and falls back to
+// the (shared, proxied) IP when it is not set yet.
+apiRouter.post("/tts/test", authenticateApiRequest, ttsTestLimiter, async (req: Request, res: Response): Promise<void> => {
   assertAuthenticated(req);
 
   const { text, voiceId, emotion, pitch, speed, volume, languageBoost } = req.body || {};
