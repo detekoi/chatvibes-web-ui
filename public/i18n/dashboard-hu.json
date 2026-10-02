@@ -364,7 +364,7 @@
     "readChatCommands": "Chatparancsok felolvasása"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "Csak az „Összes üzenet” módban érvényes; a többi mód soha nem olvassa fel ezeket"
+    "onlyUsedInAllMessages": "A TTS csak a „Minden üzenet” módban olvassa fel a chatparancsokat. A többi mód soha nem olvassa fel őket."
   },
   "readFullUrls": {
     "readFullUrls": "Teljes URL-ek felolvasása"
@@ -514,6 +514,7 @@
   "ttsMode": {
     "allMessages": "Minden üzenet",
     "bitsPointsOnly": "Csak Bits/Pontok",
+    "highlightedOnly": "Csak kiemelt üzenetek",
     "ttsCommandOnly": "Csak !tts parancs"
   },
   "ttsPermission": {

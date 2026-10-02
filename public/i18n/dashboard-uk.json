@@ -364,7 +364,7 @@
     "readChatCommands": "Читати команди чату"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "Використовується лише в режимі «Усі повідомлення»; інші режими їх ніколи не читають"
+    "onlyUsedInAllMessages": "TTS озвучує команди чату лише в режимі «Усі повідомлення». В інших режимах вони ніколи не озвучуються."
   },
   "readFullUrls": {
     "readFullUrls": "Читати URL повністю"
@@ -514,6 +514,7 @@
   "ttsMode": {
     "allMessages": "Усі повідомлення",
     "bitsPointsOnly": "Лише Bits/Channel Points",
+    "highlightedOnly": "Лише виділені повідомлення",
     "ttsCommandOnly": "Лише команда !tts"
   },
   "ttsPermission": {

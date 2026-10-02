@@ -364,7 +364,7 @@
     "readChatCommands": "Beri ukaze v klepetu"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "Uporablja se samo v načinu Vsa sporočila; drugi načini teh nikoli ne berejo"
+    "onlyUsedInAllMessages": "TTS bere ukaze v klepetu samo v načinu Vsa sporočila. Drugi načini jih nikoli ne berejo."
   },
   "readFullUrls": {
     "readFullUrls": "Preberi celotne naslove URL"
@@ -514,6 +514,7 @@
   "ttsMode": {
     "allMessages": "Vsa sporočila",
     "bitsPointsOnly": "Samo bits/točke",
+    "highlightedOnly": "Samo poudarjena sporočila",
     "ttsCommandOnly": "Samo ukaz !tts"
   },
   "ttsPermission": {

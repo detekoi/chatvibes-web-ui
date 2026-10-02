@@ -364,7 +364,7 @@
     "readChatCommands": "Läs chattkommandon"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "Används bara i läget Alla meddelanden; övriga lägen läser aldrig dessa"
+    "onlyUsedInAllMessages": "TTS läser bara upp chattkommandon i läget Alla meddelanden. De andra lägena läser aldrig upp dem."
   },
   "readFullUrls": {
     "readFullUrls": "Läs upp fullständiga URL:er"
@@ -514,6 +514,7 @@
   "ttsMode": {
     "allMessages": "Alla meddelanden",
     "bitsPointsOnly": "Endast bits/poäng",
+    "highlightedOnly": "Endast markerade meddelanden",
     "ttsCommandOnly": "Endast !tts-kommando"
   },
   "ttsPermission": {

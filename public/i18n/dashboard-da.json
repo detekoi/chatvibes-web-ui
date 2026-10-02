@@ -364,7 +364,7 @@
     "readChatCommands": "Læs chatkommandoer"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "Bruges kun i tilstanden Alle beskeder; de andre tilstande læser aldrig disse"
+    "onlyUsedInAllMessages": "TTS læser kun chatkommandoer i tilstanden Alle beskeder. De andre tilstande læser dem aldrig."
   },
   "readFullUrls": {
     "readFullUrls": "Læs fulde URL'er"
@@ -514,6 +514,7 @@
   "ttsMode": {
     "allMessages": "Alle beskeder",
     "bitsPointsOnly": "Kun bits/point",
+    "highlightedOnly": "Kun fremhævede beskeder",
     "ttsCommandOnly": "Kun !tts-kommando"
   },
   "ttsPermission": {

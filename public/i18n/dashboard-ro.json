@@ -364,7 +364,7 @@
     "readChatCommands": "Citește comenzile din chat"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "Se folosește doar în modul Toate mesajele; celelalte moduri nu le citesc niciodată"
+    "onlyUsedInAllMessages": "TTS citește comenzile de chat doar în modul Toate mesajele. Celelalte moduri nu le citesc niciodată."
   },
   "readFullUrls": {
     "readFullUrls": "Citește URL-urile complete"
@@ -514,6 +514,7 @@
   "ttsMode": {
     "allMessages": "Toate mesajele",
     "bitsPointsOnly": "Doar Bits/Puncte",
+    "highlightedOnly": "Doar mesajele evidențiate",
     "ttsCommandOnly": "Doar comanda !tts"
   },
   "ttsPermission": {

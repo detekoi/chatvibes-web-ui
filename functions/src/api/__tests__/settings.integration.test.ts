@@ -160,6 +160,7 @@ describe('Settings API Integration Tests (Mocked Firestore)', () => {
       ['a boolean setting given a string', { key: 'engineEnabled', value: 'yes' }],
       ['an out-of-range speed', { key: 'speed', value: 99 }],
       ['an unknown emote mode', { key: 'emoteMode', value: 'shout' }],
+      ['an unknown TTS mode', { key: 'mode', value: 'bogus' }],
       ['a negative bits minimum', { key: 'bitsMinimumAmount', value: -1 }],
       ['an unknown voice', { key: 'voiceId', value: 'Not_A_Real_Voice' }],
       ['a volume for an unknown voice', { key: 'voiceVolumes.Not_A_Real_Voice', value: 2 }],
@@ -177,6 +178,7 @@ describe('Settings API Integration Tests (Mocked Firestore)', () => {
       ['auto', 'languageBoost', 'auto'],
       ['the dashboard\'s "Automatic" alias', 'languageBoost', 'Automatic'],
       ['a canonical emotion', 'emotion', 'happy'],
+      ['the highlighted_only mode', 'mode', 'highlighted_only'],
     ])('should accept %s', async (_label, key, value) => {
       ((db as any).set as any).mockResolvedValueOnce({} as any);
 

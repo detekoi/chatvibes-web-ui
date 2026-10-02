@@ -364,7 +364,7 @@
     "readChatCommands": "Baca Perintah Sembang"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "Hanya digunakan dalam mod Semua Mesej; mod lain tidak akan membaca ini"
+    "onlyUsedInAllMessages": "TTS hanya membaca arahan sembang dalam mod Semua Mesej. Mod lain tidak pernah membacanya."
   },
   "readFullUrls": {
     "readFullUrls": "Baca URL Penuh"
@@ -514,6 +514,7 @@
   "ttsMode": {
     "allMessages": "Semua Mesej",
     "bitsPointsOnly": "Bits/Mata Sahaja",
+    "highlightedOnly": "Mesej Diserlahkan Sahaja",
     "ttsCommandOnly": "Perintah !tts Sahaja"
   },
   "ttsPermission": {

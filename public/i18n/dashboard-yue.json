@@ -364,7 +364,7 @@
     "readChatCommands": "朗讀聊天室指令"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "淨係喺「所有訊息」模式下生效；其他模式永遠唔會讀出呢啲訊息"
+    "onlyUsedInAllMessages": "TTS 只會喺「所有訊息」模式讀出聊天指令。其他模式永遠唔會讀。"
   },
   "readFullUrls": {
     "readFullUrls": "讀出完整 URL"
@@ -514,6 +514,7 @@
   "ttsMode": {
     "allMessages": "所有訊息",
     "bitsPointsOnly": "只限 Bits／Channel Points",
+    "highlightedOnly": "只限醒目提示訊息",
     "ttsCommandOnly": "只限 !tts 指令"
   },
   "ttsPermission": {

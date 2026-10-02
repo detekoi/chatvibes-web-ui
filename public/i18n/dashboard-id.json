@@ -364,7 +364,7 @@
     "readChatCommands": "Baca Perintah Obrolan"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "Hanya digunakan dalam mode Semua Pesan; mode lain tidak pernah membacanya"
+    "onlyUsedInAllMessages": "TTS hanya membaca perintah obrolan dalam mode Semua Pesan. Mode lainnya tidak pernah membacanya."
   },
   "readFullUrls": {
     "readFullUrls": "Baca URL Lengkap"
@@ -514,6 +514,7 @@
   "ttsMode": {
     "allMessages": "Semua Pesan",
     "bitsPointsOnly": "Hanya Bits/Poin",
+    "highlightedOnly": "Hanya Pesan yang Disorot",
     "ttsCommandOnly": "Hanya Perintah !tts"
   },
   "ttsPermission": {

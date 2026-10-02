@@ -364,7 +364,7 @@
     "readChatCommands": "அரட்டை கட்டளைகளை வாசி"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "'அனைத்து செய்திகள்' பயன்முறையில் மட்டுமே பயன்படுத்தப்படும்; பிற பயன்முறைகளில் இவை ஒருபோதும் வாசிக்கப்படாது"
+    "onlyUsedInAllMessages": "TTS, 'அனைத்து செய்திகளும்' பயன்முறையில் மட்டுமே அரட்டைக் கட்டளைகளை வாசிக்கும். பிற பயன்முறைகள் அவற்றை ஒருபோதும் வாசிப்பதில்லை."
   },
   "readFullUrls": {
     "readFullUrls": "முழு URL-களையும் படி"
@@ -514,6 +514,7 @@
   "ttsMode": {
     "allMessages": "அனைத்து செய்திகளும்",
     "bitsPointsOnly": "Bits/Points மட்டும்",
+    "highlightedOnly": "ஹைலைட் செய்யப்பட்ட செய்திகள் மட்டும்",
     "ttsCommandOnly": "!tts கட்டளை மட்டும்"
   },
   "ttsPermission": {

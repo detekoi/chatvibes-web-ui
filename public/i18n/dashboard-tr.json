@@ -364,7 +364,7 @@
     "readChatCommands": "Sohbet Komutlarını Oku"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "Yalnızca Tüm Mesajlar modunda kullanılır; diğer modlar bunları asla okumaz"
+    "onlyUsedInAllMessages": "TTS, sohbet komutlarını yalnızca Tüm Mesajlar modunda okur. Diğer modlar bunları asla okumaz."
   },
   "readFullUrls": {
     "readFullUrls": "Tam URL'leri Oku"
@@ -514,6 +514,7 @@
   "ttsMode": {
     "allMessages": "Tüm Mesajlar",
     "bitsPointsOnly": "Yalnızca Bits/Points",
+    "highlightedOnly": "Yalnızca Vurgulanan Mesajlar",
     "ttsCommandOnly": "Yalnızca !tts Komutu"
   },
   "ttsPermission": {

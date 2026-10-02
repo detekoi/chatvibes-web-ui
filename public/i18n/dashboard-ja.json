@@ -364,7 +364,7 @@
     "readChatCommands": "チャットコマンドを読み上げる"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "「すべてのメッセージ」モードでのみ有効です。他のモードでは読み上げられません。"
+    "onlyUsedInAllMessages": "TTSがチャットコマンドを読み上げるのは「すべてのメッセージ」モードのみです。他のモードでは読み上げられません。"
   },
   "readFullUrls": {
     "readFullUrls": "URLを省略せず読み上げる"
@@ -514,6 +514,7 @@
   "ttsMode": {
     "allMessages": "すべてのメッセージ",
     "bitsPointsOnly": "Bits/Pointsのみ",
+    "highlightedOnly": "ハイライトされたメッセージのみ",
     "ttsCommandOnly": "!ttsコマンドのみ"
   },
   "ttsPermission": {

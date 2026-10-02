@@ -364,7 +364,7 @@
     "readChatCommands": "Czytaj komendy czatu"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "Używane tylko w trybie Wszystkie wiadomości; pozostałe tryby nigdy ich nie czytają"
+    "onlyUsedInAllMessages": "TTS czyta polecenia czatu tylko w trybie Wszystkie wiadomości. Pozostałe tryby nigdy ich nie czytają."
   },
   "readFullUrls": {
     "readFullUrls": "Czytaj pełne adresy URL"
@@ -514,6 +514,7 @@
   "ttsMode": {
     "allMessages": "Wszystkie wiadomości",
     "bitsPointsOnly": "Tylko Bits/punkty",
+    "highlightedOnly": "Tylko wyróżnione wiadomości",
     "ttsCommandOnly": "Tylko komenda !tts"
   },
   "ttsPermission": {

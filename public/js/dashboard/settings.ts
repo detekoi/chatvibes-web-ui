@@ -288,7 +288,7 @@ export function initSettingsModule(
   }
 
   // The mirror image for chat commands: only All Chat mode ever reads a
-  // "!"-prefixed message, so in the other two modes the switch is shown off
+  // "!"-prefixed message, so in every other mode the switch is shown off
   // and locked. The stored value is kept, as above.
   function syncReadCommandMessagesToMode(): void {
     if (!readCommandMessagesCheckbox) return;

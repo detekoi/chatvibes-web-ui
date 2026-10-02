@@ -364,7 +364,7 @@
     "readChatCommands": "Čitaj chat naredbe"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "Koristi se samo u načinu rada „Sve poruke”; ostali načini rada ovo nikad ne čitaju"
+    "onlyUsedInAllMessages": "TTS čita naredbe u chatu samo u načinu rada Sve poruke. Ostali načini ih nikada ne čitaju."
   },
   "readFullUrls": {
     "readFullUrls": "Čitaj cijele URL-ove"
@@ -514,6 +514,7 @@
   "ttsMode": {
     "allMessages": "Sve poruke",
     "bitsPointsOnly": "Samo Bits/bodovi",
+    "highlightedOnly": "Samo istaknute poruke",
     "ttsCommandOnly": "Samo naredba !tts"
   },
   "ttsPermission": {

@@ -364,7 +364,7 @@
     "readChatCommands": "Čítať príkazy z chatu"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "Používa sa iba v režime Všetky správy; ostatné režimy ich nikdy nečítajú"
+    "onlyUsedInAllMessages": "TTS číta chatové príkazy len v režime Všetky správy. Ostatné režimy ich nikdy nečítajú."
   },
   "readFullUrls": {
     "readFullUrls": "Čítať celé URL adresy"
@@ -514,6 +514,7 @@
   "ttsMode": {
     "allMessages": "Všetky správy",
     "bitsPointsOnly": "Iba Bits/body",
+    "highlightedOnly": "Iba zvýraznené správy",
     "ttsCommandOnly": "Iba príkaz !tts"
   },
   "ttsPermission": {
