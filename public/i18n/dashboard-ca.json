@@ -514,6 +514,7 @@
   "ttsMode": {
     "allMessages": "Tots els missatges",
     "bitsPointsOnly": "Només bits/punts",
+    "highlightedOnly": "Només missatges destacats",
     "ttsCommandOnly": "Només ordre !tts"
   },
   "ttsPermission": {

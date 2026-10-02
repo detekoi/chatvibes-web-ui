@@ -514,6 +514,7 @@
   "ttsMode": {
     "allMessages": "所有消息",
     "bitsPointsOnly": "仅限 Bits/Channel Points",
+    "highlightedOnly": "仅限高亮消息",
     "ttsCommandOnly": "仅限 !tts 命令"
   },
   "ttsPermission": {

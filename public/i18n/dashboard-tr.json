@@ -514,6 +514,7 @@
   "ttsMode": {
     "allMessages": "Tüm Mesajlar",
     "bitsPointsOnly": "Yalnızca Bits/Points",
+    "highlightedOnly": "Yalnızca Vurgulanan Mesajlar",
     "ttsCommandOnly": "Yalnızca !tts Komutu"
   },
   "ttsPermission": {

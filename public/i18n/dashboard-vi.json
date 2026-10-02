@@ -514,6 +514,7 @@
   "ttsMode": {
     "allMessages": "Tất cả tin nhắn",
     "bitsPointsOnly": "Chỉ Bits/Points",
+    "highlightedOnly": "Chỉ tin nhắn được làm nổi bật",
     "ttsCommandOnly": "Chỉ lệnh !tts"
   },
   "ttsPermission": {

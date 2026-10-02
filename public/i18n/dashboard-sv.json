@@ -514,6 +514,7 @@
   "ttsMode": {
     "allMessages": "Alla meddelanden",
     "bitsPointsOnly": "Endast bits/poäng",
+    "highlightedOnly": "Endast markerade meddelanden",
     "ttsCommandOnly": "Endast !tts-kommando"
   },
   "ttsPermission": {

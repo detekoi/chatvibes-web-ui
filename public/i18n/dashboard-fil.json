@@ -514,6 +514,7 @@
   "ttsMode": {
     "allMessages": "Lahat ng Mensahe",
     "bitsPointsOnly": "Bits/Points Lamang",
+    "highlightedOnly": "Mga Naka-highlight na Mensahe Lamang",
     "ttsCommandOnly": "!tts Command Lamang"
   },
   "ttsPermission": {

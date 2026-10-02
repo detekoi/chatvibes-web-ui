@@ -514,6 +514,7 @@
   "ttsMode": {
     "allMessages": "Alle meldingar",
     "bitsPointsOnly": "Berre bits/poeng",
+    "highlightedOnly": "Berre utheva meldingar",
     "ttsCommandOnly": "Berre !tts-kommando"
   },
   "ttsPermission": {

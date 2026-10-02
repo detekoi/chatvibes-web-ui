@@ -6482,7 +6482,8 @@
     "voiceTestBtn.sendPreview": "0edc12f3dbc03792",
     "watchStreakEventsEnabled.announceWatchStreaks": "cffe63ec96558d1d",
     "youtubeEnabled.youtubeTtsEnabled": "f93b82eefcf672e5",
-    "youtubeHandle.yourhandle": "ac5a1476564b0497"
+    "youtubeHandle.yourhandle": "ac5a1476564b0497",
+    "ttsMode.highlightedOnly": "bd150c5480abe597"
   },
   "dashboard/zh": {
     "_prompt": "713852ebb72e5d88",
@@ -6844,7 +6845,8 @@
     "voiceTestBtn.sendPreview": "0edc12f3dbc03792",
     "watchStreakEventsEnabled.announceWatchStreaks": "cffe63ec96558d1d",
     "youtubeEnabled.youtubeTtsEnabled": "f93b82eefcf672e5",
-    "youtubeHandle.yourhandle": "ac5a1476564b0497"
+    "youtubeHandle.yourhandle": "ac5a1476564b0497",
+    "ttsMode.highlightedOnly": "bd150c5480abe597"
   },
   "dashboard/ar": {
     "_prompt": "713852ebb72e5d88",
@@ -7206,7 +7208,8 @@
     "voiceTestBtn.sendPreview": "0edc12f3dbc03792",
     "watchStreakEventsEnabled.announceWatchStreaks": "cffe63ec96558d1d",
     "youtubeEnabled.youtubeTtsEnabled": "f93b82eefcf672e5",
-    "youtubeHandle.yourhandle": "ac5a1476564b0497"
+    "youtubeHandle.yourhandle": "ac5a1476564b0497",
+    "ttsMode.highlightedOnly": "bd150c5480abe597"
   },
   "dashboard/ru": {
     "_prompt": "713852ebb72e5d88",
@@ -7568,7 +7571,8 @@
     "voiceTestBtn.sendPreview": "0edc12f3dbc03792",
     "watchStreakEventsEnabled.announceWatchStreaks": "cffe63ec96558d1d",
     "youtubeEnabled.youtubeTtsEnabled": "f93b82eefcf672e5",
-    "youtubeHandle.yourhandle": "ac5a1476564b0497"
+    "youtubeHandle.yourhandle": "ac5a1476564b0497",
+    "ttsMode.highlightedOnly": "bd150c5480abe597"
   },
   "dashboard/es": {
     "_prompt": "713852ebb72e5d88",
@@ -7930,7 +7934,8 @@
     "voiceTestBtn.sendPreview": "0edc12f3dbc03792",
     "watchStreakEventsEnabled.announceWatchStreaks": "cffe63ec96558d1d",
     "youtubeEnabled.youtubeTtsEnabled": "f93b82eefcf672e5",
-    "youtubeHandle.yourhandle": "ac5a1476564b0497"
+    "youtubeHandle.yourhandle": "ac5a1476564b0497",
+    "ttsMode.highlightedOnly": "bd150c5480abe597"
   },
   "dashboard/fr": {
     "_prompt": "713852ebb72e5d88",
@@ -8292,7 +8297,8 @@
     "voiceTestBtn.sendPreview": "0edc12f3dbc03792",
     "watchStreakEventsEnabled.announceWatchStreaks": "cffe63ec96558d1d",
     "youtubeEnabled.youtubeTtsEnabled": "f93b82eefcf672e5",
-    "youtubeHandle.yourhandle": "ac5a1476564b0497"
+    "youtubeHandle.yourhandle": "ac5a1476564b0497",
+    "ttsMode.highlightedOnly": "bd150c5480abe597"
   },
   "dashboard/pt": {
     "_prompt": "713852ebb72e5d88",
@@ -8654,7 +8660,8 @@
     "voiceTestBtn.sendPreview": "0edc12f3dbc03792",
     "watchStreakEventsEnabled.announceWatchStreaks": "cffe63ec96558d1d",
     "youtubeEnabled.youtubeTtsEnabled": "f93b82eefcf672e5",
-    "youtubeHandle.yourhandle": "ac5a1476564b0497"
+    "youtubeHandle.yourhandle": "ac5a1476564b0497",
+    "ttsMode.highlightedOnly": "bd150c5480abe597"
   },
   "dashboard/de": {
     "_prompt": "713852ebb72e5d88",
@@ -9016,7 +9023,8 @@
     "voiceTestBtn.sendPreview": "0edc12f3dbc03792",
     "watchStreakEventsEnabled.announceWatchStreaks": "cffe63ec96558d1d",
     "youtubeEnabled.youtubeTtsEnabled": "f93b82eefcf672e5",
-    "youtubeHandle.yourhandle": "ac5a1476564b0497"
+    "youtubeHandle.yourhandle": "ac5a1476564b0497",
+    "ttsMode.highlightedOnly": "bd150c5480abe597"
   },
   "dashboard/nl": {
     "_prompt": "713852ebb72e5d88",
@@ -9378,7 +9386,8 @@
     "voiceTestBtn.sendPreview": "0edc12f3dbc03792",
     "watchStreakEventsEnabled.announceWatchStreaks": "cffe63ec96558d1d",
     "youtubeEnabled.youtubeTtsEnabled": "f93b82eefcf672e5",
-    "youtubeHandle.yourhandle": "ac5a1476564b0497"
+    "youtubeHandle.yourhandle": "ac5a1476564b0497",
+    "ttsMode.highlightedOnly": "bd150c5480abe597"
   },
   "dashboard/tr": {
     "_prompt": "713852ebb72e5d88",
@@ -9740,7 +9749,8 @@
     "voiceTestBtn.sendPreview": "0edc12f3dbc03792",
     "watchStreakEventsEnabled.announceWatchStreaks": "cffe63ec96558d1d",
     "youtubeEnabled.youtubeTtsEnabled": "f93b82eefcf672e5",
-    "youtubeHandle.yourhandle": "ac5a1476564b0497"
+    "youtubeHandle.yourhandle": "ac5a1476564b0497",
+    "ttsMode.highlightedOnly": "bd150c5480abe597"
   },
   "dashboard/uk": {
     "_prompt": "713852ebb72e5d88",
@@ -10102,7 +10112,8 @@
     "voiceTestBtn.sendPreview": "0edc12f3dbc03792",
     "watchStreakEventsEnabled.announceWatchStreaks": "cffe63ec96558d1d",
     "youtubeEnabled.youtubeTtsEnabled": "f93b82eefcf672e5",
-    "youtubeHandle.yourhandle": "ac5a1476564b0497"
+    "youtubeHandle.yourhandle": "ac5a1476564b0497",
+    "ttsMode.highlightedOnly": "bd150c5480abe597"
   },
   "dashboard/vi": {
     "_prompt": "713852ebb72e5d88",
@@ -10464,7 +10475,8 @@
     "voiceTestBtn.sendPreview": "0edc12f3dbc03792",
     "watchStreakEventsEnabled.announceWatchStreaks": "cffe63ec96558d1d",
     "youtubeEnabled.youtubeTtsEnabled": "f93b82eefcf672e5",
-    "youtubeHandle.yourhandle": "ac5a1476564b0497"
+    "youtubeHandle.yourhandle": "ac5a1476564b0497",
+    "ttsMode.highlightedOnly": "bd150c5480abe597"
   },
   "dashboard/id": {
     "_prompt": "713852ebb72e5d88",
@@ -10826,7 +10838,8 @@
     "voiceTestBtn.sendPreview": "0edc12f3dbc03792",
     "watchStreakEventsEnabled.announceWatchStreaks": "cffe63ec96558d1d",
     "youtubeEnabled.youtubeTtsEnabled": "f93b82eefcf672e5",
-    "youtubeHandle.yourhandle": "ac5a1476564b0497"
+    "youtubeHandle.yourhandle": "ac5a1476564b0497",
+    "ttsMode.highlightedOnly": "bd150c5480abe597"
   },
   "dashboard/ja": {
     "_prompt": "713852ebb72e5d88",
@@ -11188,7 +11201,8 @@
     "voiceTestBtn.sendPreview": "0edc12f3dbc03792",
     "watchStreakEventsEnabled.announceWatchStreaks": "cffe63ec96558d1d",
     "youtubeEnabled.youtubeTtsEnabled": "f93b82eefcf672e5",
-    "youtubeHandle.yourhandle": "ac5a1476564b0497"
+    "youtubeHandle.yourhandle": "ac5a1476564b0497",
+    "ttsMode.highlightedOnly": "bd150c5480abe597"
   },
   "dashboard/it": {
     "_prompt": "713852ebb72e5d88",
@@ -11550,7 +11564,8 @@
     "voiceTestBtn.sendPreview": "0edc12f3dbc03792",
     "watchStreakEventsEnabled.announceWatchStreaks": "cffe63ec96558d1d",
     "youtubeEnabled.youtubeTtsEnabled": "f93b82eefcf672e5",
-    "youtubeHandle.yourhandle": "ac5a1476564b0497"
+    "youtubeHandle.yourhandle": "ac5a1476564b0497",
+    "ttsMode.highlightedOnly": "bd150c5480abe597"
   },
   "dashboard/ko": {
     "_prompt": "713852ebb72e5d88",
@@ -11912,7 +11927,8 @@
     "voiceTestBtn.sendPreview": "0edc12f3dbc03792",
     "watchStreakEventsEnabled.announceWatchStreaks": "cffe63ec96558d1d",
     "youtubeEnabled.youtubeTtsEnabled": "f93b82eefcf672e5",
-    "youtubeHandle.yourhandle": "ac5a1476564b0497"
+    "youtubeHandle.yourhandle": "ac5a1476564b0497",
+    "ttsMode.highlightedOnly": "bd150c5480abe597"
   },
   "dashboard/th": {
     "_prompt": "713852ebb72e5d88",
@@ -12274,7 +12290,8 @@
     "voiceTestBtn.sendPreview": "0edc12f3dbc03792",
     "watchStreakEventsEnabled.announceWatchStreaks": "cffe63ec96558d1d",
     "youtubeEnabled.youtubeTtsEnabled": "f93b82eefcf672e5",
-    "youtubeHandle.yourhandle": "ac5a1476564b0497"
+    "youtubeHandle.yourhandle": "ac5a1476564b0497",
+    "ttsMode.highlightedOnly": "bd150c5480abe597"
   },
   "dashboard/pl": {
     "_prompt": "713852ebb72e5d88",
@@ -12636,7 +12653,8 @@
     "voiceTestBtn.sendPreview": "0edc12f3dbc03792",
     "watchStreakEventsEnabled.announceWatchStreaks": "cffe63ec96558d1d",
     "youtubeEnabled.youtubeTtsEnabled": "f93b82eefcf672e5",
-    "youtubeHandle.yourhandle": "ac5a1476564b0497"
+    "youtubeHandle.yourhandle": "ac5a1476564b0497",
+    "ttsMode.highlightedOnly": "bd150c5480abe597"
   },
   "dashboard/ro": {
     "_prompt": "713852ebb72e5d88",
@@ -12998,7 +13016,8 @@
     "voiceTestBtn.sendPreview": "0edc12f3dbc03792",
     "watchStreakEventsEnabled.announceWatchStreaks": "cffe63ec96558d1d",
     "youtubeEnabled.youtubeTtsEnabled": "f93b82eefcf672e5",
-    "youtubeHandle.yourhandle": "ac5a1476564b0497"
+    "youtubeHandle.yourhandle": "ac5a1476564b0497",
+    "ttsMode.highlightedOnly": "bd150c5480abe597"
   },
   "dashboard/el": {
     "_prompt": "713852ebb72e5d88",
@@ -13360,7 +13379,8 @@
     "voiceTestBtn.sendPreview": "0edc12f3dbc03792",
     "watchStreakEventsEnabled.announceWatchStreaks": "cffe63ec96558d1d",
     "youtubeEnabled.youtubeTtsEnabled": "f93b82eefcf672e5",
-    "youtubeHandle.yourhandle": "ac5a1476564b0497"
+    "youtubeHandle.yourhandle": "ac5a1476564b0497",
+    "ttsMode.highlightedOnly": "bd150c5480abe597"
   },
   "dashboard/cs": {
     "_prompt": "713852ebb72e5d88",
@@ -13722,7 +13742,8 @@
     "voiceTestBtn.sendPreview": "0edc12f3dbc03792",
     "watchStreakEventsEnabled.announceWatchStreaks": "cffe63ec96558d1d",
     "youtubeEnabled.youtubeTtsEnabled": "f93b82eefcf672e5",
-    "youtubeHandle.yourhandle": "ac5a1476564b0497"
+    "youtubeHandle.yourhandle": "ac5a1476564b0497",
+    "ttsMode.highlightedOnly": "bd150c5480abe597"
   },
   "dashboard/fi": {
     "_prompt": "713852ebb72e5d88",
@@ -14084,7 +14105,8 @@
     "voiceTestBtn.sendPreview": "0edc12f3dbc03792",
     "watchStreakEventsEnabled.announceWatchStreaks": "cffe63ec96558d1d",
     "youtubeEnabled.youtubeTtsEnabled": "f93b82eefcf672e5",
-    "youtubeHandle.yourhandle": "ac5a1476564b0497"
+    "youtubeHandle.yourhandle": "ac5a1476564b0497",
+    "ttsMode.highlightedOnly": "bd150c5480abe597"
   },
   "dashboard/hi": {
     "_prompt": "713852ebb72e5d88",
@@ -14446,7 +14468,8 @@
     "voiceTestBtn.sendPreview": "0edc12f3dbc03792",
     "watchStreakEventsEnabled.announceWatchStreaks": "cffe63ec96558d1d",
     "youtubeEnabled.youtubeTtsEnabled": "f93b82eefcf672e5",
-    "youtubeHandle.yourhandle": "ac5a1476564b0497"
+    "youtubeHandle.yourhandle": "ac5a1476564b0497",
+    "ttsMode.highlightedOnly": "bd150c5480abe597"
   },
   "dashboard/bg": {
     "_prompt": "713852ebb72e5d88",
@@ -14808,7 +14831,8 @@
     "voiceTestBtn.sendPreview": "0edc12f3dbc03792",
     "watchStreakEventsEnabled.announceWatchStreaks": "cffe63ec96558d1d",
     "youtubeEnabled.youtubeTtsEnabled": "f93b82eefcf672e5",
-    "youtubeHandle.yourhandle": "ac5a1476564b0497"
+    "youtubeHandle.yourhandle": "ac5a1476564b0497",
+    "ttsMode.highlightedOnly": "bd150c5480abe597"
   },
   "dashboard/da": {
     "_prompt": "713852ebb72e5d88",
@@ -15170,7 +15194,8 @@
     "voiceTestBtn.sendPreview": "0edc12f3dbc03792",
     "watchStreakEventsEnabled.announceWatchStreaks": "cffe63ec96558d1d",
     "youtubeEnabled.youtubeTtsEnabled": "f93b82eefcf672e5",
-    "youtubeHandle.yourhandle": "ac5a1476564b0497"
+    "youtubeHandle.yourhandle": "ac5a1476564b0497",
+    "ttsMode.highlightedOnly": "bd150c5480abe597"
   },
   "dashboard/he": {
     "_prompt": "713852ebb72e5d88",
@@ -15532,7 +15557,8 @@
     "voiceTestBtn.sendPreview": "0edc12f3dbc03792",
     "watchStreakEventsEnabled.announceWatchStreaks": "cffe63ec96558d1d",
     "youtubeEnabled.youtubeTtsEnabled": "f93b82eefcf672e5",
-    "youtubeHandle.yourhandle": "ac5a1476564b0497"
+    "youtubeHandle.yourhandle": "ac5a1476564b0497",
+    "ttsMode.highlightedOnly": "bd150c5480abe597"
   },
   "dashboard/ms": {
     "_prompt": "713852ebb72e5d88",
@@ -15894,7 +15920,8 @@
     "voiceTestBtn.sendPreview": "0edc12f3dbc03792",
     "watchStreakEventsEnabled.announceWatchStreaks": "cffe63ec96558d1d",
     "youtubeEnabled.youtubeTtsEnabled": "f93b82eefcf672e5",
-    "youtubeHandle.yourhandle": "ac5a1476564b0497"
+    "youtubeHandle.yourhandle": "ac5a1476564b0497",
+    "ttsMode.highlightedOnly": "bd150c5480abe597"
   },
   "dashboard/fa": {
     "_prompt": "713852ebb72e5d88",
@@ -16256,7 +16283,8 @@
     "voiceTestBtn.sendPreview": "0edc12f3dbc03792",
     "watchStreakEventsEnabled.announceWatchStreaks": "cffe63ec96558d1d",
     "youtubeEnabled.youtubeTtsEnabled": "f93b82eefcf672e5",
-    "youtubeHandle.yourhandle": "ac5a1476564b0497"
+    "youtubeHandle.yourhandle": "ac5a1476564b0497",
+    "ttsMode.highlightedOnly": "bd150c5480abe597"
   },
   "dashboard/sk": {
     "_prompt": "713852ebb72e5d88",
@@ -16618,7 +16646,8 @@
     "voiceTestBtn.sendPreview": "0edc12f3dbc03792",
     "watchStreakEventsEnabled.announceWatchStreaks": "cffe63ec96558d1d",
     "youtubeEnabled.youtubeTtsEnabled": "f93b82eefcf672e5",
-    "youtubeHandle.yourhandle": "ac5a1476564b0497"
+    "youtubeHandle.yourhandle": "ac5a1476564b0497",
+    "ttsMode.highlightedOnly": "bd150c5480abe597"
   },
   "dashboard/sv": {
     "_prompt": "713852ebb72e5d88",
@@ -16980,7 +17009,8 @@
     "voiceTestBtn.sendPreview": "0edc12f3dbc03792",
     "watchStreakEventsEnabled.announceWatchStreaks": "cffe63ec96558d1d",
     "youtubeEnabled.youtubeTtsEnabled": "f93b82eefcf672e5",
-    "youtubeHandle.yourhandle": "ac5a1476564b0497"
+    "youtubeHandle.yourhandle": "ac5a1476564b0497",
+    "ttsMode.highlightedOnly": "bd150c5480abe597"
   },
   "dashboard/hr": {
     "_prompt": "713852ebb72e5d88",
@@ -17342,7 +17372,8 @@
     "voiceTestBtn.sendPreview": "0edc12f3dbc03792",
     "watchStreakEventsEnabled.announceWatchStreaks": "cffe63ec96558d1d",
     "youtubeEnabled.youtubeTtsEnabled": "f93b82eefcf672e5",
-    "youtubeHandle.yourhandle": "ac5a1476564b0497"
+    "youtubeHandle.yourhandle": "ac5a1476564b0497",
+    "ttsMode.highlightedOnly": "bd150c5480abe597"
   },
   "dashboard/fil": {
     "_prompt": "713852ebb72e5d88",
@@ -17704,7 +17735,8 @@
     "voiceTestBtn.sendPreview": "0edc12f3dbc03792",
     "watchStreakEventsEnabled.announceWatchStreaks": "cffe63ec96558d1d",
     "youtubeEnabled.youtubeTtsEnabled": "f93b82eefcf672e5",
-    "youtubeHandle.yourhandle": "ac5a1476564b0497"
+    "youtubeHandle.yourhandle": "ac5a1476564b0497",
+    "ttsMode.highlightedOnly": "bd150c5480abe597"
   },
   "dashboard/hu": {
     "_prompt": "713852ebb72e5d88",
@@ -18066,7 +18098,8 @@
     "voiceTestBtn.sendPreview": "0edc12f3dbc03792",
     "watchStreakEventsEnabled.announceWatchStreaks": "cffe63ec96558d1d",
     "youtubeEnabled.youtubeTtsEnabled": "f93b82eefcf672e5",
-    "youtubeHandle.yourhandle": "ac5a1476564b0497"
+    "youtubeHandle.yourhandle": "ac5a1476564b0497",
+    "ttsMode.highlightedOnly": "bd150c5480abe597"
   },
   "dashboard/nb": {
     "_prompt": "713852ebb72e5d88",
@@ -18428,7 +18461,8 @@
     "voiceTestBtn.sendPreview": "0edc12f3dbc03792",
     "watchStreakEventsEnabled.announceWatchStreaks": "cffe63ec96558d1d",
     "youtubeEnabled.youtubeTtsEnabled": "f93b82eefcf672e5",
-    "youtubeHandle.yourhandle": "ac5a1476564b0497"
+    "youtubeHandle.yourhandle": "ac5a1476564b0497",
+    "ttsMode.highlightedOnly": "bd150c5480abe597"
   },
   "dashboard/sl": {
     "_prompt": "713852ebb72e5d88",
@@ -18790,7 +18824,8 @@
     "voiceTestBtn.sendPreview": "0edc12f3dbc03792",
     "watchStreakEventsEnabled.announceWatchStreaks": "cffe63ec96558d1d",
     "youtubeEnabled.youtubeTtsEnabled": "f93b82eefcf672e5",
-    "youtubeHandle.yourhandle": "ac5a1476564b0497"
+    "youtubeHandle.yourhandle": "ac5a1476564b0497",
+    "ttsMode.highlightedOnly": "bd150c5480abe597"
   },
   "dashboard/ca": {
     "_prompt": "713852ebb72e5d88",
@@ -19152,7 +19187,8 @@
     "voiceTestBtn.sendPreview": "0edc12f3dbc03792",
     "watchStreakEventsEnabled.announceWatchStreaks": "cffe63ec96558d1d",
     "youtubeEnabled.youtubeTtsEnabled": "f93b82eefcf672e5",
-    "youtubeHandle.yourhandle": "ac5a1476564b0497"
+    "youtubeHandle.yourhandle": "ac5a1476564b0497",
+    "ttsMode.highlightedOnly": "bd150c5480abe597"
   },
   "dashboard/nn": {
     "_prompt": "713852ebb72e5d88",
@@ -19514,7 +19550,8 @@
     "voiceTestBtn.sendPreview": "0edc12f3dbc03792",
     "watchStreakEventsEnabled.announceWatchStreaks": "cffe63ec96558d1d",
     "youtubeEnabled.youtubeTtsEnabled": "f93b82eefcf672e5",
-    "youtubeHandle.yourhandle": "ac5a1476564b0497"
+    "youtubeHandle.yourhandle": "ac5a1476564b0497",
+    "ttsMode.highlightedOnly": "bd150c5480abe597"
   },
   "dashboard/ta": {
     "_prompt": "713852ebb72e5d88",
@@ -19876,7 +19913,8 @@
     "voiceTestBtn.sendPreview": "0edc12f3dbc03792",
     "watchStreakEventsEnabled.announceWatchStreaks": "cffe63ec96558d1d",
     "youtubeEnabled.youtubeTtsEnabled": "f93b82eefcf672e5",
-    "youtubeHandle.yourhandle": "ac5a1476564b0497"
+    "youtubeHandle.yourhandle": "ac5a1476564b0497",
+    "ttsMode.highlightedOnly": "bd150c5480abe597"
   },
   "dashboard/af": {
     "_prompt": "713852ebb72e5d88",
@@ -20238,7 +20276,8 @@
     "voiceTestBtn.sendPreview": "0edc12f3dbc03792",
     "watchStreakEventsEnabled.announceWatchStreaks": "cffe63ec96558d1d",
     "youtubeEnabled.youtubeTtsEnabled": "f93b82eefcf672e5",
-    "youtubeHandle.yourhandle": "ac5a1476564b0497"
+    "youtubeHandle.yourhandle": "ac5a1476564b0497",
+    "ttsMode.highlightedOnly": "bd150c5480abe597"
   },
   "viewer-settings/zh": {
     "_prompt": "713852ebb72e5d88",

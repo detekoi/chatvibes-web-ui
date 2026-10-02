@@ -514,6 +514,7 @@
   "ttsMode": {
     "allMessages": "Semua Pesan",
     "bitsPointsOnly": "Hanya Bits/Poin",
+    "highlightedOnly": "Hanya Pesan yang Disorot",
     "ttsCommandOnly": "Hanya Perintah !tts"
   },
   "ttsPermission": {

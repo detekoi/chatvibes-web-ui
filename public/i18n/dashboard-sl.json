@@ -514,6 +514,7 @@
   "ttsMode": {
     "allMessages": "Vsa sporočila",
     "bitsPointsOnly": "Samo bits/točke",
+    "highlightedOnly": "Samo poudarjena sporočila",
     "ttsCommandOnly": "Samo ukaz !tts"
   },
   "ttsPermission": {

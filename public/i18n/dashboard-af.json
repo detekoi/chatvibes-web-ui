@@ -514,6 +514,7 @@
   "ttsMode": {
     "allMessages": "Alle boodskappe",
     "bitsPointsOnly": "Slegs Bits/Punte",
+    "highlightedOnly": "Slegs Uitgeligte Boodskappe",
     "ttsCommandOnly": "Slegs !tts-opdrag"
   },
   "ttsPermission": {

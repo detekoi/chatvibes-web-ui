@@ -514,6 +514,7 @@
   "ttsMode": {
     "allMessages": "Toate mesajele",
     "bitsPointsOnly": "Doar Bits/Puncte",
+    "highlightedOnly": "Doar mesajele evidențiate",
     "ttsCommandOnly": "Doar comanda !tts"
   },
   "ttsPermission": {

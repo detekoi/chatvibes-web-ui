@@ -514,6 +514,7 @@
   "ttsMode": {
     "allMessages": "Kaikki viestit",
     "bitsPointsOnly": "Vain bitit/pisteet",
+    "highlightedOnly": "Vain korostetut viestit",
     "ttsCommandOnly": "Vain !tts-komento"
   },
   "ttsPermission": {

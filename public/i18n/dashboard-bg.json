@@ -514,6 +514,7 @@
   "ttsMode": {
     "allMessages": "Всички съобщения",
     "bitsPointsOnly": "Само bits/точки",
+    "highlightedOnly": "Само откроени съобщения",
     "ttsCommandOnly": "Само команда !tts"
   },
   "ttsPermission": {

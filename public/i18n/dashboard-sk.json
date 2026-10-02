@@ -514,6 +514,7 @@
   "ttsMode": {
     "allMessages": "Všetky správy",
     "bitsPointsOnly": "Iba Bits/body",
+    "highlightedOnly": "Iba zvýraznené správy",
     "ttsCommandOnly": "Iba príkaz !tts"
   },
   "ttsPermission": {

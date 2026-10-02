@@ -514,6 +514,7 @@
   "ttsMode": {
     "allMessages": "Všechny zprávy",
     "bitsPointsOnly": "Pouze Bits / Channel Points",
+    "highlightedOnly": "Pouze zvýrazněné zprávy",
     "ttsCommandOnly": "Pouze příkaz !tts"
   },
   "ttsPermission": {

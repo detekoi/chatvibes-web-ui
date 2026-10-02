@@ -514,6 +514,7 @@
   "ttsMode": {
     "allMessages": "Όλα τα μηνύματα",
     "bitsPointsOnly": "Μόνο Bits/Πόντοι",
+    "highlightedOnly": "Μόνο επισημασμένα μηνύματα",
     "ttsCommandOnly": "Μόνο εντολή !tts"
   },
   "ttsPermission": {

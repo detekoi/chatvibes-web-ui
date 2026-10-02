@@ -514,6 +514,7 @@
   "ttsMode": {
     "allMessages": "அனைத்து செய்திகளும்",
     "bitsPointsOnly": "Bits/Points மட்டும்",
+    "highlightedOnly": "ஹைலைட் செய்யப்பட்ட செய்திகள் மட்டும்",
     "ttsCommandOnly": "!tts கட்டளை மட்டும்"
   },
   "ttsPermission": {
