@@ -55,7 +55,7 @@ function validateTtsSetting(key: string, value: unknown): boolean {
 
     switch (key) {
     case "mode":
-        return ["all", "command", "bits_points_only"].includes(value as string);
+        return ["all", "command", "bits_points_only", "highlighted_only"].includes(value as string);
     case "ttsPermissionLevel":
         return ["everyone", "subs", "mods", "vip"].includes(value as string);
     case "emoteMode":
