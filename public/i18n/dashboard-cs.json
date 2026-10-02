@@ -358,13 +358,13 @@
     "readCheerMessages": "Předčítat zprávy z cheerů"
   },
   "readCheerMessagesModeNote": {
-    "alwaysOnInBitsPoints": "Vždy zapnuto v režimu Pouze Bits/Points"
+    "alwaysOnInBitsPoints": "Vždy zapnuto v režimu Pouze cheery a odměny."
   },
   "readCommandMessages": {
     "readChatCommands": "Číst příkazy v chatu"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "TTS čte chatové příkazy pouze v režimu Všechny zprávy. Ostatní režimy je nikdy nečtou."
+    "onlyUsedInAllMessages": "TTS čte chatové příkazy pouze v režimu Všechny zprávy v chatu. Ostatní režimy je nikdy nečtou."
   },
   "readFullUrls": {
     "readFullUrls": "Předčítat celé URL"
@@ -421,7 +421,7 @@
     "channelPointsTts": "Channel Points → TTS",
     "cheers": "Cheery",
     "cheersBelowThisAmountAre": "Cheery pod touto částkou se nečtou. 1 znamená každý cheer, který obsahuje zprávu.",
-    "chooseWhichMessagesTriggerTts": "Zvolte zprávy, které spouští TTS",
+    "chooseWhichMessagesTriggerTts": "Zvol, které zprávy v chatu TTS čte. Pokud jsou cheery a odměna TTS za Channel Points zapnuté, TTS je čte v každém režimu.",
     "configureChannelPointsRewardsFor": "Nastavit odměny za Channel Points pro TTS",
     "configureTtsEngineSettingsAnd": "Nastavit TTS engine a oprávnění",
     "controlHowTtsPronouncesSpecific": "Nastavte, jak má TTS vyslovovat konkrétní slova. Běžné zkratky na Twitchi jsou zpracovány automaticky. Přidejte záznam pro přepsání výchozí výslovnosti nebo přidání nového slova.",
@@ -512,10 +512,16 @@
     "usernameToIgnore": "Uživatelské jméno k ignorování"
   },
   "ttsMode": {
-    "allMessages": "Všechny zprávy",
-    "bitsPointsOnly": "Pouze Bits / Channel Points",
-    "highlightedOnly": "Pouze zvýrazněné zprávy",
-    "ttsCommandOnly": "Pouze příkaz !tts"
+    "allMessages": "Všechny zprávy v chatu",
+    "bitsPointsOnly": "Pouze cheery a odměny",
+    "highlightedOnly": "Zvýrazněné zprávy",
+    "ttsCommandOnly": "Zprávy s !tts"
+  },
+  "ttsModeSummary": {
+    "all": "TTS čte každou zprávu v chatu. To zahrnuje zprávy, které začínají na !tts.",
+    "bitsPointsOnly": "TTS čte pouze cheery a odměnu TTS za Channel Points. Nečte zprávy s !tts, zvýrazněné zprávy ani jiné zprávy v chatu.",
+    "command": "TTS čte zprávy, které začínají na !tts. Nečte jiné zprávy v chatu.",
+    "highlightedOnly": "TTS čte zprávy, které diváci zvýrazní pomocí Channel Points. Nečte zprávy s !tts ani jiné zprávy v chatu."
   },
   "ttsPermission": {
     "everyone": "Všichni",

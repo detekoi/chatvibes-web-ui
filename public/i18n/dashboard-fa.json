@@ -358,13 +358,13 @@
     "readCheerMessages": "خواندن پیام‌های Cheer"
   },
   "readCheerMessagesModeNote": {
-    "alwaysOnInBitsPoints": "همیشه در حالت «فقط Bits/Points» فعال است"
+    "alwaysOnInBitsPoints": "همیشه در حالت «فقط Cheers و پاداش‌ها» فعال است."
   },
   "readCommandMessages": {
     "readChatCommands": "خواندن دستورات چت"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "TTS دستورات چت را فقط در حالت «همه پیام‌ها» می‌خواند. سایر حالت‌ها هرگز آن‌ها را نمی‌خوانند."
+    "onlyUsedInAllMessages": "TTS دستورات چت را فقط در حالت «همه پیام‌های چت» می‌خواند. سایر حالت‌ها هرگز آن‌ها را نمی‌خوانند."
   },
   "readFullUrls": {
     "readFullUrls": "خواندن کامل URLها"
@@ -421,7 +421,7 @@
     "channelPointsTts": "Channel Points → TTS",
     "cheers": "Cheers",
     "cheersBelowThisAmountAre": "Cheers کمتر از این مقدار خوانده نمی‌شوند. ۱ به این معنی است که هر cheer دارای پیام خوانده می‌شود.",
-    "chooseWhichMessagesTriggerTts": "انتخاب پیام‌هایی که TTS را فعال می‌کنند",
+    "chooseWhichMessagesTriggerTts": "انتخاب کنید TTS کدام پیام‌های چت را بخواند. اگر Cheers و پاداش TTS در Channel Points فعال باشند، TTS آن‌ها را در همه حالت‌ها می‌خواند.",
     "configureChannelPointsRewardsFor": "پیکربندی پاداش‌های Channel Points برای TTS",
     "configureTtsEngineSettingsAnd": "پیکربندی تنظیمات و دسترسی‌های موتور TTS",
     "controlHowTtsPronouncesSpecific": "کنترل نحوه تلفظ کلمات خاص توسط TTS. سرواژه‌های رایج Twitch به‌طور پیش‌فرض مدیریت می‌شوند. برای لغو یک تلفظ پیش‌فرض یا افزودن کلمه جدید، یک مورد اضافه کنید.",
@@ -512,10 +512,16 @@
     "usernameToIgnore": "نام کاربری برای نادیده گرفتن"
   },
   "ttsMode": {
-    "allMessages": "همه پیام‌ها",
-    "bitsPointsOnly": "فقط Bits/Points",
-    "highlightedOnly": "فقط پیام‌های برجسته‌شده",
-    "ttsCommandOnly": "فقط دستور !tts"
+    "allMessages": "همه پیام‌های چت",
+    "bitsPointsOnly": "فقط Cheers و پاداش‌ها",
+    "highlightedOnly": "پیام‌های برجسته‌شده",
+    "ttsCommandOnly": "پیام‌های ‎!tts"
+  },
+  "ttsModeSummary": {
+    "all": "TTS همه پیام‌های چت را می‌خواند. این شامل پیام‌هایی است که با ‎!tts شروع می‌شوند.",
+    "bitsPointsOnly": "TTS فقط Cheers و پاداش TTS در Channel Points را می‌خواند. پیام‌های ‎!tts، پیام‌های برجسته‌شده و سایر پیام‌های چت را نمی‌خواند.",
+    "command": "TTS پیام‌هایی را می‌خواند که با ‎!tts شروع می‌شوند. سایر پیام‌های چت را نمی‌خواند.",
+    "highlightedOnly": "TTS پیام‌هایی را می‌خواند که بینندگان با Channel Points برجسته می‌کنند. پیام‌های ‎!tts و سایر پیام‌های چت را نمی‌خواند."
   },
   "ttsPermission": {
     "everyone": "همه",

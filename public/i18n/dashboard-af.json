@@ -358,13 +358,13 @@
     "readCheerMessages": "Lees cheer-boodskappe"
   },
   "readCheerMessagesModeNote": {
-    "alwaysOnInBitsPoints": "Altyd aan in Slegs Bits/Punte-modus"
+    "alwaysOnInBitsPoints": "Altyd aan in Slegs Cheers en Belonings-modus."
   },
   "readCommandMessages": {
     "readChatCommands": "Lees kletsopdragte"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "TTS lees kletsopdragte slegs in Alle Boodskappe-modus. Die ander modusse lees dit nooit."
+    "onlyUsedInAllMessages": "TTS lees kletsopdragte slegs in Alle Kletsboodskappe-modus. Die ander modusse lees dit nooit."
   },
   "readFullUrls": {
     "readFullUrls": "Lees volledige URL's"
@@ -421,7 +421,7 @@
     "channelPointsTts": "Channel Points → TTS",
     "cheers": "Cheers",
     "cheersBelowThisAmountAre": "Cheers onder hierdie bedrag word nie gelees nie. 1 beteken elke cheer wat 'n boodskap bevat.",
-    "chooseWhichMessagesTriggerTts": "Kies watter boodskappe TTS aktiveer",
+    "chooseWhichMessagesTriggerTts": "Kies watter kletsboodskappe TTS lees. As cheers en die Channel Points TTS-beloning aan is, lees TTS dit in elke modus.",
     "configureChannelPointsRewardsFor": "Stel Channel Points-belonings vir teks-na-spraak op",
     "configureTtsEngineSettingsAnd": "Stel TTS-enjinstellings en toestemmings op",
     "controlHowTtsPronouncesSpecific": "Beheer hoe TTS spesifieke woorde uitspreek. Algemene Twitch-akronieme word by verstek hanteer. Voeg 'n inskrywing by om 'n verstekuitspraak te ignoreer of 'n nuwe woord by te voeg.",
@@ -512,10 +512,16 @@
     "usernameToIgnore": "Gebruikersnaam om te ignoreer"
   },
   "ttsMode": {
-    "allMessages": "Alle boodskappe",
-    "bitsPointsOnly": "Slegs Bits/Punte",
-    "highlightedOnly": "Slegs Uitgeligte Boodskappe",
-    "ttsCommandOnly": "Slegs !tts-opdrag"
+    "allMessages": "Alle Kletsboodskappe",
+    "bitsPointsOnly": "Slegs Cheers en Belonings",
+    "highlightedOnly": "Uitgeligte Boodskappe",
+    "ttsCommandOnly": "!tts-boodskappe"
+  },
+  "ttsModeSummary": {
+    "all": "TTS lees elke kletsboodskap. Dit sluit boodskappe in wat met !tts begin.",
+    "bitsPointsOnly": "TTS lees slegs cheers en die Channel Points TTS-beloning. Dit lees nie !tts-boodskappe, uitgeligte boodskappe of ander kletsboodskappe nie.",
+    "command": "TTS lees boodskappe wat met !tts begin. Dit lees nie ander kletsboodskappe nie.",
+    "highlightedOnly": "TTS lees boodskappe wat kykers met Channel Points uitlig. Dit lees nie !tts-boodskappe of ander kletsboodskappe nie."
   },
   "ttsPermission": {
     "everyone": "Almal",

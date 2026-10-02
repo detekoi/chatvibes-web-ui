@@ -358,13 +358,13 @@
     "readCheerMessages": "Read Cheer Messages"
   },
   "readCheerMessagesModeNote": {
-    "alwaysOnInBitsPoints": "Always on in Bits/Points Only mode"
+    "alwaysOnInBitsPoints": "Always on in Cheers and Rewards Only mode."
   },
   "readCommandMessages": {
     "readChatCommands": "Read Chat Commands"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "TTS reads chat commands only in All Messages mode. The other modes never read them."
+    "onlyUsedInAllMessages": "TTS reads chat commands only in All Chat Messages mode. The other modes never read them."
   },
   "readFullUrls": {
     "readFullUrls": "Read Full URLs"
@@ -421,7 +421,7 @@
     "channelPointsTts": "Channel Points → TTS",
     "cheers": "Cheers",
     "cheersBelowThisAmountAre": "Cheers below this amount are not read. 1 means every cheer that carries a message.",
-    "chooseWhichMessagesTriggerTts": "Choose which messages trigger TTS",
+    "chooseWhichMessagesTriggerTts": "Choose which chat messages TTS reads. If cheers and the Channel Points TTS reward are on, TTS reads them in every mode.",
     "configureChannelPointsRewardsFor": "Configure channel points rewards for text-to-speech",
     "configureTtsEngineSettingsAnd": "Configure TTS engine settings and permissions",
     "controlHowTtsPronouncesSpecific": "Control how TTS pronounces specific words. Common Twitch acronyms are handled by default. Add an entry to override a default pronunciation or add a new word.",
@@ -512,10 +512,16 @@
     "usernameToIgnore": "Username to ignore"
   },
   "ttsMode": {
-    "allMessages": "All Messages",
-    "bitsPointsOnly": "Bits/Points Only",
-    "highlightedOnly": "Highlighted Messages Only",
-    "ttsCommandOnly": "!tts Command Only"
+    "allMessages": "All Chat Messages",
+    "bitsPointsOnly": "Cheers and Rewards Only",
+    "highlightedOnly": "Highlighted Messages",
+    "ttsCommandOnly": "!tts Messages"
+  },
+  "ttsModeSummary": {
+    "all": "TTS reads every chat message. This includes messages that start with !tts.",
+    "bitsPointsOnly": "TTS reads only cheers and the Channel Points TTS reward. It does not read !tts messages, highlighted messages, or other chat messages.",
+    "command": "TTS reads messages that start with !tts. It does not read other chat messages.",
+    "highlightedOnly": "TTS reads messages that viewers highlight with Channel Points. It does not read !tts messages or other chat messages."
   },
   "ttsPermission": {
     "everyone": "Everyone",

@@ -358,13 +358,13 @@
     "readCheerMessages": "Preberi sporočila ob cheerih"
   },
   "readCheerMessagesModeNote": {
-    "alwaysOnInBitsPoints": "Vedno vklopljeno v načinu Samo bits/točke"
+    "alwaysOnInBitsPoints": "Vedno vklopljeno v načinu Samo cheeri in nagrade."
   },
   "readCommandMessages": {
     "readChatCommands": "Beri ukaze v klepetu"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "TTS bere ukaze v klepetu samo v načinu Vsa sporočila. Drugi načini jih nikoli ne berejo."
+    "onlyUsedInAllMessages": "TTS bere ukaze v klepetu samo v načinu Vsa sporočila v klepetu. Drugi načini jih nikoli ne berejo."
   },
   "readFullUrls": {
     "readFullUrls": "Preberi celotne naslove URL"
@@ -421,7 +421,7 @@
     "channelPointsTts": "Channel Points → TTS",
     "cheers": "Cheeri",
     "cheersBelowThisAmountAre": "Cheeri pod tem zneskom se ne preberejo. 1 pomeni vsak cheer, ki vsebuje sporočilo.",
-    "chooseWhichMessagesTriggerTts": "Izberi, katera sporočila sprožijo TTS",
+    "chooseWhichMessagesTriggerTts": "Izberi, katera sporočila v klepetu bere TTS. Če so cheeri in nagrada TTS za Channel Points vklopljeni, jih TTS bere v vsakem načinu.",
     "configureChannelPointsRewardsFor": "Konfiguriraj nagrade Channel Points za pretvorbo besedila v govor",
     "configureTtsEngineSettingsAnd": "Konfiguriraj nastavitve in dovoljenja pogona TTS",
     "controlHowTtsPronouncesSpecific": "Nadzoruj, kako TTS izgovarja določene besede. Običajne kratice na platformi Twitch so privzeto podprte. Dodaj vnos, če želiš preglasiti privzeto izgovorjavo ali dodati novo besedo.",
@@ -512,10 +512,16 @@
     "usernameToIgnore": "Uporabniško ime za prezrtje"
   },
   "ttsMode": {
-    "allMessages": "Vsa sporočila",
-    "bitsPointsOnly": "Samo bits/točke",
-    "highlightedOnly": "Samo poudarjena sporočila",
-    "ttsCommandOnly": "Samo ukaz !tts"
+    "allMessages": "Vsa sporočila v klepetu",
+    "bitsPointsOnly": "Samo cheeri in nagrade",
+    "highlightedOnly": "Poudarjena sporočila",
+    "ttsCommandOnly": "Sporočila z !tts"
+  },
+  "ttsModeSummary": {
+    "all": "TTS bere vsako sporočilo v klepetu. To vključuje sporočila, ki se začnejo z !tts.",
+    "bitsPointsOnly": "TTS bere samo cheere in nagrado TTS za Channel Points. Ne bere sporočil z !tts, poudarjenih sporočil ali drugih sporočil v klepetu.",
+    "command": "TTS bere sporočila, ki se začnejo z !tts. Ne bere drugih sporočil v klepetu.",
+    "highlightedOnly": "TTS bere sporočila, ki jih gledalci poudarijo s Channel Points. Ne bere sporočil z !tts ali drugih sporočil v klepetu."
   },
   "ttsPermission": {
     "everyone": "Vsi",

@@ -358,13 +358,13 @@
     "readCheerMessages": "อ่านข้อความ Cheer"
   },
   "readCheerMessagesModeNote": {
-    "alwaysOnInBitsPoints": "เปิดใช้งานเสมอในโหมด Bits/Points Only"
+    "alwaysOnInBitsPoints": "เปิดใช้งานเสมอในโหมดเฉพาะ Cheers และรางวัล"
   },
   "readCommandMessages": {
     "readChatCommands": "อ่านคำสั่งแชท"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "TTS จะอ่านคำสั่งแชทเฉพาะในโหมดทุกข้อความ ส่วนโหมดอื่นจะไม่อ่านเลย"
+    "onlyUsedInAllMessages": "TTS จะอ่านคำสั่งแชทเฉพาะในโหมดทุกข้อความแชท ส่วนโหมดอื่นจะไม่อ่านเลย"
   },
   "readFullUrls": {
     "readFullUrls": "อ่าน URL แบบเต็ม"
@@ -421,7 +421,7 @@
     "channelPointsTts": "Channel Points → TTS",
     "cheers": "Cheers",
     "cheersBelowThisAmountAre": "จะไม่อ่าน Cheer ที่ต่ำกว่าจำนวนนี้ ค่า 1 หมายถึงอ่านทุก Cheer ที่มีข้อความ",
-    "chooseWhichMessagesTriggerTts": "เลือกข้อความที่จะทริกเกอร์ TTS",
+    "chooseWhichMessagesTriggerTts": "เลือกข้อความแชทที่ TTS จะอ่าน หากเปิด Cheers และรางวัล TTS ของ Channel Points ไว้ TTS จะอ่านสิ่งเหล่านี้ในทุกโหมด",
     "configureChannelPointsRewardsFor": "กำหนดรางวัล Channel Points สำหรับ TTS",
     "configureTtsEngineSettingsAnd": "กำหนดการตั้งค่าและสิทธิ์ของ TTS Engine",
     "controlHowTtsPronouncesSpecific": "ควบคุมวิธีที่ TTS ออกเสียงคำเฉพาะ โดยค่าเริ่มต้นจะรองรับคำย่อ Twitch ทั่วไปอยู่แล้ว คุณสามารถเพิ่มรายการเพื่อแทนที่การออกเสียงเริ่มต้นหรือเพิ่มคำใหม่ได้",
@@ -512,10 +512,16 @@
     "usernameToIgnore": "ชื่อผู้ใช้ที่ต้องการละเว้น"
   },
   "ttsMode": {
-    "allMessages": "ทุกข้อความ",
-    "bitsPointsOnly": "เฉพาะ Bits/Points",
-    "highlightedOnly": "เฉพาะข้อความที่ไฮไลต์",
-    "ttsCommandOnly": "เฉพาะคำสั่ง !tts"
+    "allMessages": "ทุกข้อความแชท",
+    "bitsPointsOnly": "เฉพาะ Cheers และรางวัล",
+    "highlightedOnly": "ข้อความที่ไฮไลต์",
+    "ttsCommandOnly": "ข้อความ !tts"
+  },
+  "ttsModeSummary": {
+    "all": "TTS จะอ่านทุกข้อความในแชท รวมถึงข้อความที่ขึ้นต้นด้วย !tts",
+    "bitsPointsOnly": "TTS จะอ่านเฉพาะ Cheers และรางวัล TTS ของ Channel Points โดยจะไม่อ่านข้อความ !tts ข้อความที่ไฮไลต์ หรือข้อความแชทอื่น",
+    "command": "TTS จะอ่านข้อความที่ขึ้นต้นด้วย !tts และจะไม่อ่านข้อความแชทอื่น",
+    "highlightedOnly": "TTS จะอ่านข้อความที่ผู้ชมไฮไลต์ด้วย Channel Points และจะไม่อ่านข้อความ !tts หรือข้อความแชทอื่น"
   },
   "ttsPermission": {
     "everyone": "ทุกคน",

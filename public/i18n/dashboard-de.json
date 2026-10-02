@@ -358,13 +358,13 @@
     "readCheerMessages": "Cheer-Nachrichten vorlesen"
   },
   "readCheerMessagesModeNote": {
-    "alwaysOnInBitsPoints": "Im Modus „Nur Bits/Punkte“ immer aktiv"
+    "alwaysOnInBitsPoints": "Im Modus „Nur Cheers und Belohnungen“ immer aktiv."
   },
   "readCommandMessages": {
     "readChatCommands": "Chatbefehle vorlesen"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "TTS liest Chat-Befehle nur im Modus „Alle Nachrichten“ vor. Die anderen Modi lesen sie nie vor."
+    "onlyUsedInAllMessages": "TTS liest Chat-Befehle nur im Modus „Alle Chatnachrichten“ vor. Die anderen Modi lesen sie nie vor."
   },
   "readFullUrls": {
     "readFullUrls": "Vollständige URLs vorlesen"
@@ -421,7 +421,7 @@
     "channelPointsTts": "Channel Points → TTS",
     "cheers": "Cheers",
     "cheersBelowThisAmountAre": "Cheers unter diesem Betrag werden nicht vorgelesen. 1 bedeutet jeder Cheer mit einer Nachricht.",
-    "chooseWhichMessagesTriggerTts": "Auswählen, welche Nachrichten TTS auslösen",
+    "chooseWhichMessagesTriggerTts": "Wähle, welche Chatnachrichten TTS vorliest. Wenn Cheers und die TTS-Belohnung für Channel Points aktiv sind, liest TTS sie in jedem Modus vor.",
     "configureChannelPointsRewardsFor": "Channel-Points-Belohnungen für Text-to-Speech konfigurieren",
     "configureTtsEngineSettingsAnd": "TTS-Engine-Einstellungen und -Berechtigungen konfigurieren",
     "controlHowTtsPronouncesSpecific": "Steuere, wie TTS bestimmte Wörter ausspricht. Gängige Twitch-Akronyme werden standardmäßig unterstützt. Füge einen Eintrag hinzu, um eine Standardaussprache zu überschreiben oder ein neues Wort hinzuzufügen.",
@@ -512,10 +512,16 @@
     "usernameToIgnore": "Zu ignorierender Benutzername"
   },
   "ttsMode": {
-    "allMessages": "Alle Nachrichten",
-    "bitsPointsOnly": "Nur Bits/Punkte",
-    "highlightedOnly": "Nur hervorgehobene Nachrichten",
-    "ttsCommandOnly": "Nur !tts-Befehl"
+    "allMessages": "Alle Chatnachrichten",
+    "bitsPointsOnly": "Nur Cheers und Belohnungen",
+    "highlightedOnly": "Hervorgehobene Nachrichten",
+    "ttsCommandOnly": "!tts-Nachrichten"
+  },
+  "ttsModeSummary": {
+    "all": "TTS liest jede Chatnachricht vor. Dazu gehören Nachrichten, die mit !tts beginnen.",
+    "bitsPointsOnly": "TTS liest nur Cheers und die TTS-Belohnung für Channel Points vor. !tts-Nachrichten, hervorgehobene Nachrichten und andere Chatnachrichten liest es nicht vor.",
+    "command": "TTS liest Nachrichten vor, die mit !tts beginnen. Andere Chatnachrichten liest es nicht vor.",
+    "highlightedOnly": "TTS liest Nachrichten vor, die Zuschauer mit Channel Points hervorheben. !tts-Nachrichten und andere Chatnachrichten liest es nicht vor."
   },
   "ttsPermission": {
     "everyone": "Alle",

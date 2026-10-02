@@ -358,13 +358,13 @@
     "readCheerMessages": "Les cheer-meldingar"
   },
   "readCheerMessagesModeNote": {
-    "alwaysOnInBitsPoints": "Alltid på i modusen «Berre bits/poeng»"
+    "alwaysOnInBitsPoints": "Alltid på i modusen «Berre cheers og belønningar»."
   },
   "readCommandMessages": {
     "readChatCommands": "Les chat-kommandoar"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "TTS les berre chat-kommandoar i modusen Alle meldingar. Dei andre modusane les dei aldri."
+    "onlyUsedInAllMessages": "TTS les berre chat-kommandoar i modusen Alle chatmeldingar. Dei andre modusane les dei aldri."
   },
   "readFullUrls": {
     "readFullUrls": "Les heile URL-ar"
@@ -421,7 +421,7 @@
     "channelPointsTts": "Channel Points → TTS",
     "cheers": "Cheers",
     "cheersBelowThisAmountAre": "Cheers under dette beløpet blir ikkje lesne opp. 1 tyder kvart cheer som inneheld ei melding.",
-    "chooseWhichMessagesTriggerTts": "Vel kva meldingar som skal utløysa TTS",
+    "chooseWhichMessagesTriggerTts": "Vel kva chatmeldingar TTS les opp. Viss cheers og TTS-belønninga for Channel Points er slått på, les TTS dei i alle modusar.",
     "configureChannelPointsRewardsFor": "Konfigurer Channel Points-belønningar for tekst-til-tale",
     "configureTtsEngineSettingsAnd": "Konfigurer innstillingar og tilgangar for TTS-motor",
     "controlHowTtsPronouncesSpecific": "Styr korleis TTS uttalar spesifikke ord. Vanlege Twitch-forkortingar blir handterte som standard. Legg til ei oppføring for å overstyra ein standarduttale eller leggja til eit nytt ord.",
@@ -512,10 +512,16 @@
     "usernameToIgnore": "Brukarnamn som skal ignorerast"
   },
   "ttsMode": {
-    "allMessages": "Alle meldingar",
-    "bitsPointsOnly": "Berre bits/poeng",
-    "highlightedOnly": "Berre utheva meldingar",
-    "ttsCommandOnly": "Berre !tts-kommando"
+    "allMessages": "Alle chatmeldingar",
+    "bitsPointsOnly": "Berre cheers og belønningar",
+    "highlightedOnly": "Utheva meldingar",
+    "ttsCommandOnly": "!tts-meldingar"
+  },
+  "ttsModeSummary": {
+    "all": "TTS les opp alle chatmeldingar. Dette inkluderer meldingar som byrjar med !tts.",
+    "bitsPointsOnly": "TTS les berre opp cheers og TTS-belønninga for Channel Points. TTS les ikkje opp !tts-meldingar, utheva meldingar eller andre chatmeldingar.",
+    "command": "TTS les opp meldingar som byrjar med !tts. TTS les ikkje opp andre chatmeldingar.",
+    "highlightedOnly": "TTS les opp meldingar som sjåarane uthevar med Channel Points. TTS les ikkje opp !tts-meldingar eller andre chatmeldingar."
   },
   "ttsPermission": {
     "everyone": "Alle",

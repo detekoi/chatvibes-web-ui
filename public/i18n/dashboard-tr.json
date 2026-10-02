@@ -358,13 +358,13 @@
     "readCheerMessages": "Cheer Mesajlarını Oku"
   },
   "readCheerMessagesModeNote": {
-    "alwaysOnInBitsPoints": "Yalnızca Bits/Puan modunda her zaman açıktır"
+    "alwaysOnInBitsPoints": "Yalnızca Cheer'lar ve Ödüller modunda her zaman açıktır."
   },
   "readCommandMessages": {
     "readChatCommands": "Sohbet Komutlarını Oku"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "TTS, sohbet komutlarını yalnızca Tüm Mesajlar modunda okur. Diğer modlar bunları asla okumaz."
+    "onlyUsedInAllMessages": "TTS, sohbet komutlarını yalnızca Tüm Sohbet Mesajları modunda okur. Diğer modlar bunları asla okumaz."
   },
   "readFullUrls": {
     "readFullUrls": "Tam URL'leri Oku"
@@ -421,7 +421,7 @@
     "channelPointsTts": "Channel Points → TTS",
     "cheers": "Cheer'lar",
     "cheersBelowThisAmountAre": "Bu miktarın altındaki Cheer'lar okunmaz. 1, mesaj içeren her Cheer anlamına gelir.",
-    "chooseWhichMessagesTriggerTts": "Hangi mesajların TTS'yi tetikleyeceğini seç",
+    "chooseWhichMessagesTriggerTts": "TTS'nin hangi sohbet mesajlarını okuyacağını seç. Cheer'lar ve Channel Points TTS ödülü açıksa TTS bunları her modda okur.",
     "configureChannelPointsRewardsFor": "Metin okuma için Channel Points ödüllerini yapılandır",
     "configureTtsEngineSettingsAnd": "TTS motoru ayarlarını ve izinlerini yapılandır",
     "controlHowTtsPronouncesSpecific": "TTS'nin belirli kelimeleri nasıl telaffuz edeceğini kontrol et. Yaygın Twitch kısaltmaları varsayılan olarak desteklenir. Varsayılan bir telaffuzu geçersiz kılmak veya yeni bir kelime eklemek için bir girdi ekle.",
@@ -512,10 +512,16 @@
     "usernameToIgnore": "Göz ardı edilecek kullanıcı adı"
   },
   "ttsMode": {
-    "allMessages": "Tüm Mesajlar",
-    "bitsPointsOnly": "Yalnızca Bits/Points",
-    "highlightedOnly": "Yalnızca Vurgulanan Mesajlar",
-    "ttsCommandOnly": "Yalnızca !tts Komutu"
+    "allMessages": "Tüm Sohbet Mesajları",
+    "bitsPointsOnly": "Yalnızca Cheer'lar ve Ödüller",
+    "highlightedOnly": "Vurgulanan Mesajlar",
+    "ttsCommandOnly": "!tts Mesajları"
+  },
+  "ttsModeSummary": {
+    "all": "TTS her sohbet mesajını okur. Buna !tts ile başlayan mesajlar da dahildir.",
+    "bitsPointsOnly": "TTS yalnızca Cheer'ları ve Channel Points TTS ödülünü okur. !tts mesajlarını, vurgulanan mesajları veya diğer sohbet mesajlarını okumaz.",
+    "command": "TTS, !tts ile başlayan mesajları okur. Diğer sohbet mesajlarını okumaz.",
+    "highlightedOnly": "TTS, izleyicilerin Channel Points ile vurguladığı mesajları okur. !tts mesajlarını veya diğer sohbet mesajlarını okumaz."
   },
   "ttsPermission": {
     "everyone": "Herkes",

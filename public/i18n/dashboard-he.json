@@ -358,13 +358,13 @@
     "readCheerMessages": "הקראת הודעות Cheer"
   },
   "readCheerMessagesModeNote": {
-    "alwaysOnInBitsPoints": "פועל תמיד במצב Bits/Points בלבד"
+    "alwaysOnInBitsPoints": "פועל תמיד במצב Cheers ופרסים בלבד."
   },
   "readCommandMessages": {
     "readChatCommands": "הקראת פקודות צ'אט"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "TTS מקריא פקודות צ'אט רק במצב \"כל ההודעות\". שאר המצבים לעולם לא מקריאים אותן."
+    "onlyUsedInAllMessages": "TTS מקריא פקודות צ'אט רק במצב \"כל הודעות הצ'אט\". שאר המצבים לעולם לא מקריאים אותן."
   },
   "readFullUrls": {
     "readFullUrls": "הקראת כתובות URL מלאות"
@@ -421,7 +421,7 @@
     "channelPointsTts": "Channel Points → TTS",
     "cheers": "Cheers",
     "cheersBelowThisAmountAre": "צ'ירים מתחת לסכום זה לא יוקראו. 1 מציין כל צ'יר שמכיל הודעה.",
-    "chooseWhichMessagesTriggerTts": "בחירת ההודעות שיפעילו TTS",
+    "chooseWhichMessagesTriggerTts": "בחירת הודעות הצ'אט ש-TTS מקריא. אם Cheers ופרס ה-TTS של Channel Points פעילים, TTS מקריא אותם בכל מצב.",
     "configureChannelPointsRewardsFor": "הגדרת פרסי Channel Points עבור TTS",
     "configureTtsEngineSettingsAnd": "הגדרת מנוע ה-TTS והרשאות",
     "controlHowTtsPronouncesSpecific": "שליטה באופן שבו ה-TTS הוגה מילים מסוימות. קיצורים נפוצים ב-Twitch נתמכים כברירת מחדל. ניתן להוסיף רשומה כדי לעקוף הגיית ברירת מחדל או להוסיף מילה חדשה.",
@@ -512,10 +512,16 @@
     "usernameToIgnore": "שם משתמש להתעלמות"
   },
   "ttsMode": {
-    "allMessages": "כל ההודעות",
-    "bitsPointsOnly": "Bits/נקודות בלבד",
-    "highlightedOnly": "הודעות מודגשות בלבד",
-    "ttsCommandOnly": "פקודת ‎!tts בלבד"
+    "allMessages": "כל הודעות הצ'אט",
+    "bitsPointsOnly": "Cheers ופרסים בלבד",
+    "highlightedOnly": "הודעות מודגשות",
+    "ttsCommandOnly": "הודעות ‎!tts"
+  },
+  "ttsModeSummary": {
+    "all": "TTS מקריא כל הודעה בצ'אט. זה כולל הודעות שמתחילות ב-‎!tts.",
+    "bitsPointsOnly": "TTS מקריא רק Cheers ואת פרס ה-TTS של Channel Points. הוא לא מקריא הודעות ‎!tts, הודעות מודגשות או הודעות צ'אט אחרות.",
+    "command": "TTS מקריא הודעות שמתחילות ב-‎!tts. הוא לא מקריא הודעות צ'אט אחרות.",
+    "highlightedOnly": "TTS מקריא הודעות שצופים מדגישים באמצעות Channel Points. הוא לא מקריא הודעות ‎!tts או הודעות צ'אט אחרות."
   },
   "ttsPermission": {
     "everyone": "כולם",

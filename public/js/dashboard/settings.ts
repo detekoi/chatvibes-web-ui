@@ -66,6 +66,7 @@ export function initSettingsModule(
   const ttsEnabledCheckbox = document.getElementById('tts-enabled') as HTMLInputElement | null;
   const botRespondsInChatCheckbox = document.getElementById('bot-responds-in-chat') as HTMLInputElement | null;
   const ttsModeSelect = document.getElementById('tts-mode') as HTMLSelectElement | null;
+  const ttsModeSummaries = document.querySelectorAll<HTMLElement>('[data-tts-mode-summary]');
   const ttsPermissionSelect = document.getElementById('tts-permission') as HTMLSelectElement | null;
   const eventsEnabledCheckbox = document.getElementById('events-enabled') as HTMLInputElement | null;
   const allowViewerPreferencesCheckbox = document.getElementById('allow-viewer-preferences') as HTMLInputElement | null;
@@ -162,6 +163,7 @@ export function initSettingsModule(
     if (botRespondsInChatCheckbox) botRespondsInChatCheckbox.addEventListener('change', () => saveSettingWrapper('botRespondsInChat', !!botRespondsInChatCheckbox.checked, t('msg.setting.botRespondsInChat')));
     if (ttsModeSelect) ttsModeSelect.addEventListener('change', () => {
       saveSettingWrapper('mode', ttsModeSelect.value || 'command', t('msg.setting.ttsMode'));
+      syncTtsModeSummary();
       syncReadCheerMessagesToMode();
       syncReadCommandMessagesToMode();
     });
@@ -272,6 +274,14 @@ export function initSettingsModule(
         saveSettingWrapper('youtubeHandle', handle, t('msg.setting.youtubeHandle'));
       });
     }
+  }
+
+  // Cheers and the Channel Points reward are read in every mode; the mode only
+  // decides which unpaid chat is read, so the line under the select spells out
+  // what the selected one reads. Matched on the option value, never its label.
+  function syncTtsModeSummary(): void {
+    const mode = ttsModeSelect?.value;
+    ttsModeSummaries.forEach((el) => { el.hidden = el.dataset.ttsModeSummary !== mode; });
   }
 
   // bits_points_only always reads cheer messages (that is what the mode is
@@ -728,6 +738,7 @@ export function initSettingsModule(
     if (ttsEnabledCheckbox) ttsEnabledCheckbox.checked = settings.engineEnabled || false;
     if (botRespondsInChatCheckbox) botRespondsInChatCheckbox.checked = settings.botRespondsInChat !== false;
     if (ttsModeSelect) ttsModeSelect.value = settings.mode || 'command';
+    syncTtsModeSummary();
     if (ttsPermissionSelect) ttsPermissionSelect.value = settings.ttsPermissionLevel || 'everyone';
     if (eventsEnabledCheckbox) eventsEnabledCheckbox.checked = settings.speakEvents !== false;
     const cheerEventsEnabledCheckbox = document.getElementById('cheer-events-enabled') as HTMLInputElement | null;

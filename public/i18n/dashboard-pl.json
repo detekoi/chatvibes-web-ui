@@ -358,13 +358,13 @@
     "readCheerMessages": "Czytaj wiadomości z cheerami"
   },
   "readCheerMessagesModeNote": {
-    "alwaysOnInBitsPoints": "Zawsze włączone w trybie Tylko Bits/Punkty"
+    "alwaysOnInBitsPoints": "Zawsze włączone w trybie Tylko cheery i nagrody."
   },
   "readCommandMessages": {
     "readChatCommands": "Czytaj komendy czatu"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "TTS czyta polecenia czatu tylko w trybie Wszystkie wiadomości. Pozostałe tryby nigdy ich nie czytają."
+    "onlyUsedInAllMessages": "TTS czyta polecenia czatu tylko w trybie Wszystkie wiadomości na czacie. Pozostałe tryby nigdy ich nie czytają."
   },
   "readFullUrls": {
     "readFullUrls": "Czytaj pełne adresy URL"
@@ -421,7 +421,7 @@
     "channelPointsTts": "Channel Points → TTS",
     "cheers": "Cheery",
     "cheersBelowThisAmountAre": "Cheery poniżej tej kwoty nie są odczytywane. 1 oznacza każdy cheer zawierający wiadomość.",
-    "chooseWhichMessagesTriggerTts": "Wybierz, które wiadomości aktywują TTS",
+    "chooseWhichMessagesTriggerTts": "Wybierz, które wiadomości na czacie czyta TTS. Jeśli cheery i nagroda TTS za Channel Points są włączone, TTS czyta je w każdym trybie.",
     "configureChannelPointsRewardsFor": "Skonfiguruj nagrody Channel Points dla TTS",
     "configureTtsEngineSettingsAnd": "Skonfiguruj ustawienia silnika TTS i uprawnienia",
     "controlHowTtsPronouncesSpecific": "Kontroluj wymowę poszczególnych słów w TTS. Popularne skróty na Twitch są obsługiwane domyślnie. Dodaj wpis, aby zmienić domyślną wymowę lub dodać nowe słowo.",
@@ -512,10 +512,16 @@
     "usernameToIgnore": "Nazwa użytkownika do ignorowania"
   },
   "ttsMode": {
-    "allMessages": "Wszystkie wiadomości",
-    "bitsPointsOnly": "Tylko Bits/punkty",
-    "highlightedOnly": "Tylko wyróżnione wiadomości",
-    "ttsCommandOnly": "Tylko komenda !tts"
+    "allMessages": "Wszystkie wiadomości na czacie",
+    "bitsPointsOnly": "Tylko cheery i nagrody",
+    "highlightedOnly": "Wyróżnione wiadomości",
+    "ttsCommandOnly": "Wiadomości z !tts"
+  },
+  "ttsModeSummary": {
+    "all": "TTS czyta każdą wiadomość na czacie. Obejmuje to wiadomości zaczynające się od !tts.",
+    "bitsPointsOnly": "TTS czyta tylko cheery i nagrodę TTS za Channel Points. Nie czyta wiadomości z !tts, wyróżnionych wiadomości ani innych wiadomości na czacie.",
+    "command": "TTS czyta wiadomości zaczynające się od !tts. Nie czyta innych wiadomości na czacie.",
+    "highlightedOnly": "TTS czyta wiadomości, które widzowie wyróżniają za pomocą Channel Points. Nie czyta wiadomości z !tts ani innych wiadomości na czacie."
   },
   "ttsPermission": {
     "everyone": "Wszyscy",

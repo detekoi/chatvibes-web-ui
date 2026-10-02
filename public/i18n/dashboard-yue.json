@@ -358,13 +358,13 @@
     "readCheerMessages": "朗讀 Cheer 訊息"
   },
   "readCheerMessagesModeNote": {
-    "alwaysOnInBitsPoints": "喺「只限 Bits/Points」模式下會保持開啟"
+    "alwaysOnInBitsPoints": "喺「只限 Cheers 同獎勵」模式下會保持開啟。"
   },
   "readCommandMessages": {
     "readChatCommands": "朗讀聊天室指令"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "TTS 只會喺「所有訊息」模式讀出聊天指令。其他模式永遠唔會讀。"
+    "onlyUsedInAllMessages": "TTS 只會喺「所有聊天訊息」模式讀出聊天指令。其他模式永遠唔會讀。"
   },
   "readFullUrls": {
     "readFullUrls": "讀出完整 URL"
@@ -421,7 +421,7 @@
     "channelPointsTts": "Channel Points → TTS",
     "cheers": "Cheers",
     "cheersBelowThisAmountAre": "少過呢個數量嘅 Cheer 唔會朗讀。設為 1 代表朗讀所有附帶訊息嘅 Cheer。",
-    "chooseWhichMessagesTriggerTts": "選擇邊啲訊息會觸發 TTS",
+    "chooseWhichMessagesTriggerTts": "揀 TTS 會讀出邊啲聊天訊息。如果 Cheers 同 Channel Points 嘅 TTS 獎勵已開啟，TTS 喺每個模式都會讀出佢哋。",
     "configureChannelPointsRewardsFor": "設定 TTS 嘅 Channel Points 獎勵",
     "configureTtsEngineSettingsAnd": "設定 TTS 引擎選項同權限",
     "controlHowTtsPronouncesSpecific": "控制 TTS 點樣讀出特定字詞。系統預設會處理常見嘅 Twitch 縮寫。你可以新增項目去覆蓋預設讀音或者加入新字詞。",
@@ -512,10 +512,16 @@
     "usernameToIgnore": "要忽略嘅使用者名稱"
   },
   "ttsMode": {
-    "allMessages": "所有訊息",
-    "bitsPointsOnly": "只限 Bits／Channel Points",
-    "highlightedOnly": "只限醒目提示訊息",
-    "ttsCommandOnly": "只限 !tts 指令"
+    "allMessages": "所有聊天訊息",
+    "bitsPointsOnly": "只限 Cheers 同獎勵",
+    "highlightedOnly": "醒目提示訊息",
+    "ttsCommandOnly": "!tts 訊息"
+  },
+  "ttsModeSummary": {
+    "all": "TTS 會讀出每一條聊天訊息，包括以 !tts 開頭嘅訊息。",
+    "bitsPointsOnly": "TTS 只會讀出 Cheers 同 Channel Points 嘅 TTS 獎勵。佢唔會讀 !tts 訊息、醒目提示訊息或者其他聊天訊息。",
+    "command": "TTS 會讀出以 !tts 開頭嘅訊息。佢唔會讀其他聊天訊息。",
+    "highlightedOnly": "TTS 會讀出觀眾用 Channel Points 醒目提示嘅訊息。佢唔會讀 !tts 訊息或者其他聊天訊息。"
   },
   "ttsPermission": {
     "everyone": "所有人",

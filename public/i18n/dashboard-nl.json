@@ -358,13 +358,13 @@
     "readCheerMessages": "Cheer-berichten voorlezen"
   },
   "readCheerMessagesModeNote": {
-    "alwaysOnInBitsPoints": "Altijd actief in de modus Alleen bits/punten"
+    "alwaysOnInBitsPoints": "Altijd actief in de modus Alleen cheers en beloningen."
   },
   "readCommandMessages": {
     "readChatCommands": "Chatcommando's voorlezen"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "TTS leest chatcommando's alleen voor in de modus Alle berichten. De andere modi lezen ze nooit voor."
+    "onlyUsedInAllMessages": "TTS leest chatcommando's alleen voor in de modus Alle chatberichten. De andere modi lezen ze nooit voor."
   },
   "readFullUrls": {
     "readFullUrls": "Volledige URL's voorlezen"
@@ -421,7 +421,7 @@
     "channelPointsTts": "Channel Points → TTS",
     "cheers": "Cheers",
     "cheersBelowThisAmountAre": "Cheers onder dit aantal worden niet voorgelezen. 1 betekent elke cheer met een bericht.",
-    "chooseWhichMessagesTriggerTts": "Kies welke berichten TTS activeren",
+    "chooseWhichMessagesTriggerTts": "Kies welke chatberichten TTS voorleest. Als cheers en de TTS-beloning voor Channel Points aan staan, leest TTS ze in elke modus voor.",
     "configureChannelPointsRewardsFor": "Channel Points-beloningen configureren voor text-to-speech",
     "configureTtsEngineSettingsAnd": "TTS-engine-instellingen en machtigingen configureren",
     "controlHowTtsPronouncesSpecific": "Bepaal hoe TTS specifieke woorden uitspreekt. Veelvoorkomende Twitch-afkortingen worden standaard verwerkt. Voeg een item toe om een standaarduitspraak te overschrijven of een nieuw woord toe te voegen.",
@@ -512,10 +512,16 @@
     "usernameToIgnore": "Te negeren gebruikersnaam"
   },
   "ttsMode": {
-    "allMessages": "Alle berichten",
-    "bitsPointsOnly": "Alleen bits/punten",
-    "highlightedOnly": "Alleen gemarkeerde berichten",
-    "ttsCommandOnly": "Alleen !tts-commando"
+    "allMessages": "Alle chatberichten",
+    "bitsPointsOnly": "Alleen cheers en beloningen",
+    "highlightedOnly": "Gemarkeerde berichten",
+    "ttsCommandOnly": "!tts-berichten"
+  },
+  "ttsModeSummary": {
+    "all": "TTS leest elk chatbericht voor. Dit omvat berichten die met !tts beginnen.",
+    "bitsPointsOnly": "TTS leest alleen cheers en de TTS-beloning voor Channel Points voor. Het leest geen !tts-berichten, gemarkeerde berichten of andere chatberichten voor.",
+    "command": "TTS leest berichten voor die met !tts beginnen. Het leest geen andere chatberichten voor.",
+    "highlightedOnly": "TTS leest berichten voor die kijkers met Channel Points markeren. Het leest geen !tts-berichten of andere chatberichten voor."
   },
   "ttsPermission": {
     "everyone": "Iedereen",

@@ -358,13 +358,13 @@
     "readCheerMessages": "Ανάγνωση μηνυμάτων Cheer"
   },
   "readCheerMessagesModeNote": {
-    "alwaysOnInBitsPoints": "Πάντα ενεργό στη λειτουργία Μόνο Bits/Πόντοι"
+    "alwaysOnInBitsPoints": "Πάντα ενεργό στη λειτουργία Μόνο Cheers και ανταμοιβές."
   },
   "readCommandMessages": {
     "readChatCommands": "Ανάγνωση εντολών συνομιλίας"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "Το TTS διαβάζει εντολές συνομιλίας μόνο στη λειτουργία «Όλα τα μηνύματα». Οι άλλες λειτουργίες δεν τις διαβάζουν ποτέ."
+    "onlyUsedInAllMessages": "Το TTS διαβάζει εντολές συνομιλίας μόνο στη λειτουργία «Όλα τα μηνύματα συνομιλίας». Οι άλλες λειτουργίες δεν τις διαβάζουν ποτέ."
   },
   "readFullUrls": {
     "readFullUrls": "Ανάγνωση πλήρων URL"
@@ -421,7 +421,7 @@
     "channelPointsTts": "Channel Points → TTS",
     "cheers": "Cheers",
     "cheersBelowThisAmountAre": "Τα cheers κάτω από αυτό το ποσό δεν διαβάζονται. Το 1 σημαίνει κάθε cheer που συνοδεύεται από μήνυμα.",
-    "chooseWhichMessagesTriggerTts": "Επιλέξτε ποια μηνύματα ενεργοποιούν το TTS",
+    "chooseWhichMessagesTriggerTts": "Επιλέξτε ποια μηνύματα συνομιλίας διαβάζει το TTS. Αν τα Cheers και η ανταμοιβή TTS των Channel Points είναι ενεργά, το TTS τα διαβάζει σε κάθε λειτουργία.",
     "configureChannelPointsRewardsFor": "Διαμόρφωση ανταμοιβών Channel Points για μετατροπή κειμένου σε ομιλία",
     "configureTtsEngineSettingsAnd": "Διαμόρφωση ρυθμίσεων μηχανής TTS και δικαιωμάτων",
     "controlHowTtsPronouncesSpecific": "Ελέγξτε πώς προφέρει το TTS συγκεκριμένες λέξεις. Τα συνήθη ακρωνύμια του Twitch υποστηρίζονται από προεπιλογή. Προσθέστε μια καταχώριση για να αλλάξετε μια προεπιλεγμένη προφορά ή να προσθέσετε νέα λέξη.",
@@ -512,10 +512,16 @@
     "usernameToIgnore": "Όνομα χρήστη προς παράβλεψη"
   },
   "ttsMode": {
-    "allMessages": "Όλα τα μηνύματα",
-    "bitsPointsOnly": "Μόνο Bits/Πόντοι",
-    "highlightedOnly": "Μόνο επισημασμένα μηνύματα",
-    "ttsCommandOnly": "Μόνο εντολή !tts"
+    "allMessages": "Όλα τα μηνύματα συνομιλίας",
+    "bitsPointsOnly": "Μόνο Cheers και ανταμοιβές",
+    "highlightedOnly": "Επισημασμένα μηνύματα",
+    "ttsCommandOnly": "Μηνύματα !tts"
+  },
+  "ttsModeSummary": {
+    "all": "Το TTS διαβάζει κάθε μήνυμα συνομιλίας. Αυτό περιλαμβάνει τα μηνύματα που ξεκινούν με !tts.",
+    "bitsPointsOnly": "Το TTS διαβάζει μόνο Cheers και την ανταμοιβή TTS των Channel Points. Δεν διαβάζει μηνύματα !tts, επισημασμένα μηνύματα ή άλλα μηνύματα συνομιλίας.",
+    "command": "Το TTS διαβάζει μηνύματα που ξεκινούν με !tts. Δεν διαβάζει άλλα μηνύματα συνομιλίας.",
+    "highlightedOnly": "Το TTS διαβάζει μηνύματα που οι θεατές επισημαίνουν με Channel Points. Δεν διαβάζει μηνύματα !tts ή άλλα μηνύματα συνομιλίας."
   },
   "ttsPermission": {
     "everyone": "Όλοι",

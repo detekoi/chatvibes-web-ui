@@ -358,13 +358,13 @@
     "readCheerMessages": "Читати повідомлення Cheer"
   },
   "readCheerMessagesModeNote": {
-    "alwaysOnInBitsPoints": "Завжди увімкнено в режимі «Лише Bits/Points»"
+    "alwaysOnInBitsPoints": "Завжди увімкнено в режимі «Лише Cheers і нагороди»."
   },
   "readCommandMessages": {
     "readChatCommands": "Читати команди чату"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "TTS озвучує команди чату лише в режимі «Усі повідомлення». В інших режимах вони ніколи не озвучуються."
+    "onlyUsedInAllMessages": "TTS озвучує команди чату лише в режимі «Усі повідомлення чату». В інших режимах вони ніколи не озвучуються."
   },
   "readFullUrls": {
     "readFullUrls": "Читати URL повністю"
@@ -421,7 +421,7 @@
     "channelPointsTts": "Channel Points → TTS",
     "cheers": "Cheers",
     "cheersBelowThisAmountAre": "Cheers менше цієї суми не читаються. 1 означає кожен cheer із повідомленням.",
-    "chooseWhichMessagesTriggerTts": "Виберіть, які повідомлення активують TTS",
+    "chooseWhichMessagesTriggerTts": "Виберіть, які повідомлення чату озвучує TTS. Якщо Cheers і нагороду TTS за Channel Points увімкнено, TTS озвучує їх у будь-якому режимі.",
     "configureChannelPointsRewardsFor": "Налаштувати нагороди за Channel Points для TTS",
     "configureTtsEngineSettingsAnd": "Налаштувати рушій TTS і дозволи",
     "controlHowTtsPronouncesSpecific": "Керуйте вимовою окремих слів у TTS. Поширені абревіатури Twitch підтримуються типово. Додайте запис, щоб змінити стандартну вимову або додати нове слово.",
@@ -512,10 +512,16 @@
     "usernameToIgnore": "Ім'я користувача для ігнорування"
   },
   "ttsMode": {
-    "allMessages": "Усі повідомлення",
-    "bitsPointsOnly": "Лише Bits/Channel Points",
-    "highlightedOnly": "Лише виділені повідомлення",
-    "ttsCommandOnly": "Лише команда !tts"
+    "allMessages": "Усі повідомлення чату",
+    "bitsPointsOnly": "Лише Cheers і нагороди",
+    "highlightedOnly": "Виділені повідомлення",
+    "ttsCommandOnly": "Повідомлення з !tts"
+  },
+  "ttsModeSummary": {
+    "all": "TTS озвучує кожне повідомлення чату. Сюди входять повідомлення, що починаються з !tts.",
+    "bitsPointsOnly": "TTS озвучує лише Cheers і нагороду TTS за Channel Points. Повідомлення з !tts, виділені повідомлення та інші повідомлення чату не озвучуються.",
+    "command": "TTS озвучує повідомлення, що починаються з !tts. Інші повідомлення чату не озвучуються.",
+    "highlightedOnly": "TTS озвучує повідомлення, які глядачі виділяють за допомогою Channel Points. Повідомлення з !tts та інші повідомлення чату не озвучуються."
   },
   "ttsPermission": {
     "everyone": "Усі",

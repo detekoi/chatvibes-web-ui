@@ -358,13 +358,13 @@
     "readCheerMessages": "朗读 Cheer 消息"
   },
   "readCheerMessagesModeNote": {
-    "alwaysOnInBitsPoints": "在“仅限 Bits/Points”模式下始终开启"
+    "alwaysOnInBitsPoints": "在“仅限 Cheers 和奖励”模式下始终开启。"
   },
   "readCommandMessages": {
     "readChatCommands": "朗读聊天指令"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "TTS 仅在“所有消息”模式下朗读聊天指令。其他模式均不朗读。"
+    "onlyUsedInAllMessages": "TTS 仅在“所有聊天消息”模式下朗读聊天指令。其他模式均不朗读。"
   },
   "readFullUrls": {
     "readFullUrls": "朗读完整 URL"
@@ -421,7 +421,7 @@
     "channelPointsTts": "Channel Points → TTS",
     "cheers": "Cheers",
     "cheersBelowThisAmountAre": "低于此数量的 Cheer 不会被朗读。设为 1 表示朗读所有附带消息的 Cheer。",
-    "chooseWhichMessagesTriggerTts": "选择哪些消息触发 TTS",
+    "chooseWhichMessagesTriggerTts": "选择 TTS 朗读哪些聊天消息。如果 Cheers 和 Channel Points 的 TTS 奖励已开启，TTS 在所有模式下都会朗读它们。",
     "configureChannelPointsRewardsFor": "配置 TTS 的 Channel Points 奖励",
     "configureTtsEngineSettingsAnd": "配置 TTS 引擎设置和权限",
     "controlHowTtsPronouncesSpecific": "控制 TTS 对特定词语的发音。默认支持常见的 Twitch 缩写。添加条目可覆盖默认发音或添加新词语。",
@@ -512,10 +512,16 @@
     "usernameToIgnore": "要忽略的用户名"
   },
   "ttsMode": {
-    "allMessages": "所有消息",
-    "bitsPointsOnly": "仅限 Bits/Channel Points",
-    "highlightedOnly": "仅限高亮消息",
-    "ttsCommandOnly": "仅限 !tts 命令"
+    "allMessages": "所有聊天消息",
+    "bitsPointsOnly": "仅限 Cheers 和奖励",
+    "highlightedOnly": "高亮消息",
+    "ttsCommandOnly": "!tts 消息"
+  },
+  "ttsModeSummary": {
+    "all": "TTS 朗读每条聊天消息，包括以 !tts 开头的消息。",
+    "bitsPointsOnly": "TTS 仅朗读 Cheers 和 Channel Points 的 TTS 奖励。不朗读 !tts 消息、高亮消息或其他聊天消息。",
+    "command": "TTS 朗读以 !tts 开头的消息。不朗读其他聊天消息。",
+    "highlightedOnly": "TTS 朗读观众使用 Channel Points 高亮的消息。不朗读 !tts 消息或其他聊天消息。"
   },
   "ttsPermission": {
     "everyone": "所有人",

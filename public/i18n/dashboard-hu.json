@@ -358,13 +358,13 @@
     "readCheerMessages": "Cheer üzenetek felolvasása"
   },
   "readCheerMessagesModeNote": {
-    "alwaysOnInBitsPoints": "Mindig bekapcsolva a „Csak Bits/Points” módban"
+    "alwaysOnInBitsPoints": "Mindig bekapcsolva a „Csak cheerek és jutalmak” módban."
   },
   "readCommandMessages": {
     "readChatCommands": "Chatparancsok felolvasása"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "A TTS csak a „Minden üzenet” módban olvassa fel a chatparancsokat. A többi mód soha nem olvassa fel őket."
+    "onlyUsedInAllMessages": "A TTS csak a „Minden chatüzenet” módban olvassa fel a chatparancsokat. A többi mód soha nem olvassa fel őket."
   },
   "readFullUrls": {
     "readFullUrls": "Teljes URL-ek felolvasása"
@@ -421,7 +421,7 @@
     "channelPointsTts": "Channel Points → TTS",
     "cheers": "Cheerek",
     "cheersBelowThisAmountAre": "Az ezen összeg alatti cheereket nem olvassa fel a rendszer. Az 1 minden üzenettel rendelkező cheert jelent.",
-    "chooseWhichMessagesTriggerTts": "Válaszd ki, mely üzenetek aktiválják a TTS-t",
+    "chooseWhichMessagesTriggerTts": "Válaszd ki, mely chatüzeneteket olvassa fel a TTS. Ha a cheerek és a TTS Channel Points-jutalom be vannak kapcsolva, a TTS minden módban felolvassa őket.",
     "configureChannelPointsRewardsFor": "A szövegfelolvasás Channel Points jutalmainak beállítása",
     "configureTtsEngineSettingsAnd": "A TTS-motor beállításainak és engedélyeinek konfigurálása",
     "controlHowTtsPronouncesSpecific": "Szabályozd, hogyan ejtse ki a TTS az egyes szavakat. A gyakori Twitch-mozaikszavakat alapértelmezetten kezeli. Hozz létre egy bejegyzést az alapértelmezett kiejtés felülírásához vagy egy új szó hozzáadásához.",
@@ -512,10 +512,16 @@
     "usernameToIgnore": "Mellőzendő felhasználónév"
   },
   "ttsMode": {
-    "allMessages": "Minden üzenet",
-    "bitsPointsOnly": "Csak Bits/Pontok",
-    "highlightedOnly": "Csak kiemelt üzenetek",
-    "ttsCommandOnly": "Csak !tts parancs"
+    "allMessages": "Minden chatüzenet",
+    "bitsPointsOnly": "Csak cheerek és jutalmak",
+    "highlightedOnly": "Kiemelt üzenetek",
+    "ttsCommandOnly": "!tts-üzenetek"
+  },
+  "ttsModeSummary": {
+    "all": "A TTS minden chatüzenetet felolvas. Ebbe beletartoznak a !tts-sel kezdődő üzenetek is.",
+    "bitsPointsOnly": "A TTS csak a cheereket és a TTS Channel Points-jutalmat olvassa fel. A !tts-üzeneteket, a kiemelt üzeneteket és a többi chatüzenetet nem olvassa fel.",
+    "command": "A TTS a !tts-sel kezdődő üzeneteket olvassa fel. A többi chatüzenetet nem olvassa fel.",
+    "highlightedOnly": "A TTS azokat az üzeneteket olvassa fel, amelyeket a nézők Channel Points segítségével kiemelnek. A !tts-üzeneteket és a többi chatüzenetet nem olvassa fel."
   },
   "ttsPermission": {
     "everyone": "Mindenki",
