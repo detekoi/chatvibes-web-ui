@@ -358,13 +358,13 @@
     "readCheerMessages": "Четене на Cheer съобщения"
   },
   "readCheerMessagesModeNote": {
-    "alwaysOnInBitsPoints": "Винаги включено в режим „Само Bits/точки“"
+    "alwaysOnInBitsPoints": "Винаги включено в режим „Само Cheers и награди“."
   },
   "readCommandMessages": {
     "readChatCommands": "Четене на чат команди"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "TTS чете командите в чата само в режим „Всички съобщения“. Другите режими никога не ги четат."
+    "onlyUsedInAllMessages": "TTS чете командите в чата само в режим „Всички съобщения в чата“. Другите режими никога не ги четат."
   },
   "readFullUrls": {
     "readFullUrls": "Изчитане на пълни URL адреси"
@@ -421,7 +421,7 @@
     "channelPointsTts": "Channel Points → TTS",
     "cheers": "Cheers",
     "cheersBelowThisAmountAre": "Cheers под тази стойност не се четат. 1 означава всеки cheer, който съдържа съобщение.",
-    "chooseWhichMessagesTriggerTts": "Изберете кои съобщения да задействат TTS",
+    "chooseWhichMessagesTriggerTts": "Избери кои съобщения в чата да чете TTS. Ако Cheers и наградата за TTS с Channel Points са включени, TTS ги чете във всеки режим.",
     "configureChannelPointsRewardsFor": "Конфигуриране на наградите с Channel Points за TTS",
     "configureTtsEngineSettingsAnd": "Конфигуриране на настройките и разрешенията за TTS системата",
     "controlHowTtsPronouncesSpecific": "Контролирайте как TTS произнася определени думи. Често срещаните съкращения в Twitch се обработват по подразбиране. Добавете запис, за да замените произношение по подразбиране или да добавите нова дума.",
@@ -512,10 +512,16 @@
     "usernameToIgnore": "Потребителско име за игнориране"
   },
   "ttsMode": {
-    "allMessages": "Всички съобщения",
-    "bitsPointsOnly": "Само bits/точки",
-    "highlightedOnly": "Само откроени съобщения",
-    "ttsCommandOnly": "Само команда !tts"
+    "allMessages": "Всички съобщения в чата",
+    "bitsPointsOnly": "Само Cheers и награди",
+    "highlightedOnly": "Откроени съобщения",
+    "ttsCommandOnly": "Съобщения с !tts"
+  },
+  "ttsModeSummary": {
+    "all": "TTS чете всяко съобщение в чата. Това включва съобщенията, които започват с !tts.",
+    "bitsPointsOnly": "TTS чете само Cheers и наградата за TTS с Channel Points. Не чете съобщения с !tts, откроени съобщения или други съобщения в чата.",
+    "command": "TTS чете съобщенията, които започват с !tts. Не чете други съобщения в чата.",
+    "highlightedOnly": "TTS чете съобщенията, които зрителите открояват с Channel Points. Не чете съобщения с !tts или други съобщения в чата."
   },
   "ttsPermission": {
     "everyone": "Всички",

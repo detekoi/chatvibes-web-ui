@@ -358,13 +358,13 @@
     "readCheerMessages": "Lue Cheer-viestit"
   },
   "readCheerMessagesModeNote": {
-    "alwaysOnInBitsPoints": "Aina käytössä Vain Bits/Points -tilassa"
+    "alwaysOnInBitsPoints": "Aina käytössä Vain cheerit ja palkinnot -tilassa."
   },
   "readCommandMessages": {
     "readChatCommands": "Lue chat-komennot"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "TTS lukee chat-komennot vain Kaikki viestit -tilassa. Muut tilat eivät koskaan lue niitä."
+    "onlyUsedInAllMessages": "TTS lukee chat-komennot vain Kaikki chat-viestit -tilassa. Muut tilat eivät koskaan lue niitä."
   },
   "readFullUrls": {
     "readFullUrls": "Lue koko URL-osoitteet"
@@ -421,7 +421,7 @@
     "channelPointsTts": "Channel Points → TTS",
     "cheers": "Cheerit",
     "cheersBelowThisAmountAre": "Tätä määrää pienempiä Cheerejä ei lueta. 1 tarkoittaa kaikkia viestin sisältäviä Cheerejä.",
-    "chooseWhichMessagesTriggerTts": "Valitse, mitkä viestit käynnistävät TTS:n",
+    "chooseWhichMessagesTriggerTts": "Valitse, mitkä chat-viestit TTS lukee. Jos cheerit ja Channel Points -palkinto TTS:lle ovat käytössä, TTS lukee ne kaikissa tiloissa.",
     "configureChannelPointsRewardsFor": "Määritä Channel Points -palkinnot tekstistä puheeksi -toiminnolle",
     "configureTtsEngineSettingsAnd": "Määritä TTS-moottorin asetukset ja käyttöoikeudet",
     "controlHowTtsPronouncesSpecific": "Määritä, miten TTS ääntää tietyt sanat. Tavalliset Twitch-lyhenteet käsitellään oletuksena. Lisää tietue korvataksesi oletusääntämyksen tai lisätäksesi uuden sanan.",
@@ -512,10 +512,16 @@
     "usernameToIgnore": "Ohitettava käyttäjänimi"
   },
   "ttsMode": {
-    "allMessages": "Kaikki viestit",
-    "bitsPointsOnly": "Vain bitit/pisteet",
-    "highlightedOnly": "Vain korostetut viestit",
-    "ttsCommandOnly": "Vain !tts-komento"
+    "allMessages": "Kaikki chat-viestit",
+    "bitsPointsOnly": "Vain cheerit ja palkinnot",
+    "highlightedOnly": "Korostetut viestit",
+    "ttsCommandOnly": "!tts-viestit"
+  },
+  "ttsModeSummary": {
+    "all": "TTS lukee jokaisen chat-viestin. Tähän kuuluvat myös viestit, jotka alkavat !tts:llä.",
+    "bitsPointsOnly": "TTS lukee vain cheerit ja Channel Points -palkinnon TTS:lle. Se ei lue !tts-viestejä, korostettuja viestejä tai muita chat-viestejä.",
+    "command": "TTS lukee viestit, jotka alkavat !tts:llä. Se ei lue muita chat-viestejä.",
+    "highlightedOnly": "TTS lukee viestit, jotka katsojat korostavat Channel Pointsilla. Se ei lue !tts-viestejä tai muita chat-viestejä."
   },
   "ttsPermission": {
     "everyone": "Kaikki",

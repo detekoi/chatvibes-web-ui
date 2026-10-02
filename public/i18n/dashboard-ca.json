@@ -358,13 +358,13 @@
     "readCheerMessages": "Llegir missatges de cheer"
   },
   "readCheerMessagesModeNote": {
-    "alwaysOnInBitsPoints": "Sempre actiu en el mode Només Bits/Points"
+    "alwaysOnInBitsPoints": "Sempre actiu en el mode Només cheers i recompenses."
   },
   "readCommandMessages": {
     "readChatCommands": "Llegeix les ordres del xat"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "El TTS només llegeix les ordres del xat al mode «Tots els missatges». Els altres modes no les llegeixen mai."
+    "onlyUsedInAllMessages": "El TTS només llegeix les ordres del xat al mode «Tots els missatges del xat». Els altres modes no les llegeixen mai."
   },
   "readFullUrls": {
     "readFullUrls": "Llegeix els URL complets"
@@ -421,7 +421,7 @@
     "channelPointsTts": "Channel Points → TTS",
     "cheers": "Cheers",
     "cheersBelowThisAmountAre": "Els cheers per sota d'aquesta quantitat no es llegeixen. 1 vol dir tots els cheers que incloguin un missatge.",
-    "chooseWhichMessagesTriggerTts": "Tria quins missatges activen el TTS",
+    "chooseWhichMessagesTriggerTts": "Tria quins missatges del xat llegeix el TTS. Si els cheers i la recompensa de TTS de Channel Points estan actius, el TTS els llegeix en tots els modes.",
     "configureChannelPointsRewardsFor": "Configura les recompenses de Channel Points per al text a veu",
     "configureTtsEngineSettingsAnd": "Configura el motor de TTS i els permisos",
     "controlHowTtsPronouncesSpecific": "Controla com el TTS pronuncia paraules concretes. Els acrònims habituals de Twitch es gestionen per defecte. Afegeix una entrada per modificar una pronunciació per defecte o afegir una paraula nova.",
@@ -512,10 +512,16 @@
     "usernameToIgnore": "Nom d'usuari a ignorar"
   },
   "ttsMode": {
-    "allMessages": "Tots els missatges",
-    "bitsPointsOnly": "Només bits/punts",
-    "highlightedOnly": "Només missatges destacats",
-    "ttsCommandOnly": "Només ordre !tts"
+    "allMessages": "Tots els missatges del xat",
+    "bitsPointsOnly": "Només cheers i recompenses",
+    "highlightedOnly": "Missatges destacats",
+    "ttsCommandOnly": "Missatges amb !tts"
+  },
+  "ttsModeSummary": {
+    "all": "El TTS llegeix tots els missatges del xat. Això inclou els missatges que comencen amb !tts.",
+    "bitsPointsOnly": "El TTS només llegeix els cheers i la recompensa de TTS de Channel Points. No llegeix missatges amb !tts, missatges destacats ni altres missatges del xat.",
+    "command": "El TTS llegeix els missatges que comencen amb !tts. No llegeix altres missatges del xat.",
+    "highlightedOnly": "El TTS llegeix els missatges que els espectadors destaquen amb Channel Points. No llegeix missatges amb !tts ni altres missatges del xat."
   },
   "ttsPermission": {
     "everyone": "Tothom",

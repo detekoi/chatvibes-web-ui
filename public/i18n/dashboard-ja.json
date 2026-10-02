@@ -358,13 +358,13 @@
     "readCheerMessages": "Cheerメッセージを読み上げる"
   },
   "readCheerMessagesModeNote": {
-    "alwaysOnInBitsPoints": "Bits/Points専用モードでは常に有効"
+    "alwaysOnInBitsPoints": "「Cheerとリワードのみ」モードでは常に有効です。"
   },
   "readCommandMessages": {
     "readChatCommands": "チャットコマンドを読み上げる"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "TTSがチャットコマンドを読み上げるのは「すべてのメッセージ」モードのみです。他のモードでは読み上げられません。"
+    "onlyUsedInAllMessages": "TTSがチャットコマンドを読み上げるのは「すべてのチャットメッセージ」モードのみです。他のモードでは読み上げられません。"
   },
   "readFullUrls": {
     "readFullUrls": "URLを省略せず読み上げる"
@@ -421,7 +421,7 @@
     "channelPointsTts": "Channel Points → TTS",
     "cheers": "Cheer",
     "cheersBelowThisAmountAre": "この数量未満のCheerは読み上げられません。1にすると、メッセージ付きのすべてのCheerが読み上げられます。",
-    "chooseWhichMessagesTriggerTts": "TTSをトリガーするメッセージを選択",
+    "chooseWhichMessagesTriggerTts": "TTSが読み上げるチャットメッセージを選択します。CheerとChannel PointsのTTSリワードがオンの場合、TTSはどのモードでもそれらを読み上げます。",
     "configureChannelPointsRewardsFor": "TTSのChannel Pointsリワードを設定",
     "configureTtsEngineSettingsAnd": "TTSエンジンの設定と権限を設定",
     "controlHowTtsPronouncesSpecific": "特定の単語のTTSでの発音を管理します。一般的なTwitchの略語はデフォルトで処理されます。エントリを追加してデフォルトの発音を上書きするか、新しい単語を追加してください。",
@@ -512,10 +512,16 @@
     "usernameToIgnore": "無視するユーザー名"
   },
   "ttsMode": {
-    "allMessages": "すべてのメッセージ",
-    "bitsPointsOnly": "Bits/Pointsのみ",
-    "highlightedOnly": "ハイライトされたメッセージのみ",
-    "ttsCommandOnly": "!ttsコマンドのみ"
+    "allMessages": "すべてのチャットメッセージ",
+    "bitsPointsOnly": "Cheerとリワードのみ",
+    "highlightedOnly": "ハイライトされたメッセージ",
+    "ttsCommandOnly": "!ttsメッセージ"
+  },
+  "ttsModeSummary": {
+    "all": "TTSはすべてのチャットメッセージを読み上げます。!ttsで始まるメッセージも含まれます。",
+    "bitsPointsOnly": "TTSはCheerとChannel PointsのTTSリワードのみを読み上げます。!ttsメッセージ、ハイライトされたメッセージ、その他のチャットメッセージは読み上げません。",
+    "command": "TTSは!ttsで始まるメッセージを読み上げます。その他のチャットメッセージは読み上げません。",
+    "highlightedOnly": "TTSは視聴者がChannel Pointsでハイライトしたメッセージを読み上げます。!ttsメッセージやその他のチャットメッセージは読み上げません。"
   },
   "ttsPermission": {
     "everyone": "全員",

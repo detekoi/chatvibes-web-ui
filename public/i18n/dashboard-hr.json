@@ -358,13 +358,13 @@
     "readCheerMessages": "Čitaj Cheer poruke"
   },
   "readCheerMessagesModeNote": {
-    "alwaysOnInBitsPoints": "Uvijek uključeno u načinu rada Samo Bits/Points"
+    "alwaysOnInBitsPoints": "Uvijek uključeno u načinu rada Samo cheerovi i nagrade."
   },
   "readCommandMessages": {
     "readChatCommands": "Čitaj chat naredbe"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "TTS čita naredbe u chatu samo u načinu rada Sve poruke. Ostali načini ih nikada ne čitaju."
+    "onlyUsedInAllMessages": "TTS čita naredbe u chatu samo u načinu rada Sve poruke u chatu. Ostali načini ih nikada ne čitaju."
   },
   "readFullUrls": {
     "readFullUrls": "Čitaj cijele URL-ove"
@@ -421,7 +421,7 @@
     "channelPointsTts": "Channel Points → TTS",
     "cheers": "Cheerovi",
     "cheersBelowThisAmountAre": "Cheerovi ispod ovog iznosa se ne čitaju. 1 znači svaki cheer koji sadrži poruku.",
-    "chooseWhichMessagesTriggerTts": "Odaberi koje poruke pokreću TTS",
+    "chooseWhichMessagesTriggerTts": "Odaberi koje poruke u chatu TTS čita. Ako su cheerovi i TTS nagrada za Channel Points uključeni, TTS ih čita u svakom načinu rada.",
     "configureChannelPointsRewardsFor": "Konfiguriraj Channel Points nagrade za pretvaranje teksta u govor",
     "configureTtsEngineSettingsAnd": "Konfiguriraj postavke TTS mehanizma i dopuštenja",
     "controlHowTtsPronouncesSpecific": "Upravljaj načinom na koji TTS izgovara određene riječi. Uobičajeni Twitch akronimi obrađuju se prema zadanim postavkama. Dodaj unos za nadjačavanje zadanog izgovora ili dodaj novu riječ.",
@@ -512,10 +512,16 @@
     "usernameToIgnore": "Korisničko ime za zanemarivanje"
   },
   "ttsMode": {
-    "allMessages": "Sve poruke",
-    "bitsPointsOnly": "Samo Bits/bodovi",
-    "highlightedOnly": "Samo istaknute poruke",
-    "ttsCommandOnly": "Samo naredba !tts"
+    "allMessages": "Sve poruke u chatu",
+    "bitsPointsOnly": "Samo cheerovi i nagrade",
+    "highlightedOnly": "Istaknute poruke",
+    "ttsCommandOnly": "Poruke s !tts"
+  },
+  "ttsModeSummary": {
+    "all": "TTS čita svaku poruku u chatu. To uključuje poruke koje počinju s !tts.",
+    "bitsPointsOnly": "TTS čita samo cheerove i TTS nagradu za Channel Points. Ne čita poruke s !tts, istaknute poruke ni druge poruke u chatu.",
+    "command": "TTS čita poruke koje počinju s !tts. Ne čita druge poruke u chatu.",
+    "highlightedOnly": "TTS čita poruke koje gledatelji istaknu pomoću Channel Points. Ne čita poruke s !tts ni druge poruke u chatu."
   },
   "ttsPermission": {
     "everyone": "Svi",

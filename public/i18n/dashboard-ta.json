@@ -358,13 +358,13 @@
     "readCheerMessages": "Cheer செய்திகளைப் படிக்கவும்"
   },
   "readCheerMessagesModeNote": {
-    "alwaysOnInBitsPoints": "Bits/Points Only பயன்முறையில் எப்போதும் இயக்கத்தில் இருக்கும்"
+    "alwaysOnInBitsPoints": "'Cheers மற்றும் ரிவார்டுகள் மட்டும்' பயன்முறையில் எப்போதும் இயக்கத்தில் இருக்கும்."
   },
   "readCommandMessages": {
     "readChatCommands": "அரட்டை கட்டளைகளை வாசி"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "TTS, 'அனைத்து செய்திகளும்' பயன்முறையில் மட்டுமே அரட்டைக் கட்டளைகளை வாசிக்கும். பிற பயன்முறைகள் அவற்றை ஒருபோதும் வாசிப்பதில்லை."
+    "onlyUsedInAllMessages": "TTS, 'அனைத்து அரட்டைச் செய்திகளும்' பயன்முறையில் மட்டுமே அரட்டைக் கட்டளைகளை வாசிக்கும். பிற பயன்முறைகள் அவற்றை ஒருபோதும் வாசிப்பதில்லை."
   },
   "readFullUrls": {
     "readFullUrls": "முழு URL-களையும் படி"
@@ -421,7 +421,7 @@
     "channelPointsTts": "Channel Points → TTS",
     "cheers": "Cheers",
     "cheersBelowThisAmountAre": "இந்த அளவுக்குக் குறைவான Cheers படிக்கப்படாது. 1 என்பது செய்தி உள்ள ஒவ்வொரு cheer-ஐயும் குறிக்கும்.",
-    "chooseWhichMessagesTriggerTts": "எந்தச் செய்திகள் TTS-ஐத் தூண்ட வேண்டும் என்பதைத் தேர்ந்தெடுக்கவும்",
+    "chooseWhichMessagesTriggerTts": "TTS எந்த அரட்டைச் செய்திகளை வாசிக்க வேண்டும் என்பதைத் தேர்ந்தெடுக்கவும். Cheers மற்றும் Channel Points TTS ரிவார்டு இயக்கத்தில் இருந்தால், TTS அவற்றை எல்லாப் பயன்முறைகளிலும் வாசிக்கும்.",
     "configureChannelPointsRewardsFor": "Text-to-speech-க்கான Channel Points வெகுமதிகளை உள்ளமைக்கவும்",
     "configureTtsEngineSettingsAnd": "TTS என்ஜின் அமைப்புகளையும் அனுமதிகளையும் உள்ளமைக்கவும்",
     "controlHowTtsPronouncesSpecific": "குறிப்பிட்ட சொற்களை TTS எவ்வாறு உச்சரிக்கிறது என்பதைக் கட்டுப்படுத்துங்கள். பொதுவான Twitch சுருக்கப்பெயர்கள் இயல்பாகவே கையாளப்படுகின்றன. இயல்புநிலை உச்சரிப்பை மாற்றியமைக்க அல்லது புதிய சொல்லைச் சேர்க்க ஒரு உள்ளீட்டைச் சேர்க்கவும்.",
@@ -512,10 +512,16 @@
     "usernameToIgnore": "புறக்கணிக்க வேண்டிய பயனர்பெயர்"
   },
   "ttsMode": {
-    "allMessages": "அனைத்து செய்திகளும்",
-    "bitsPointsOnly": "Bits/Points மட்டும்",
-    "highlightedOnly": "ஹைலைட் செய்யப்பட்ட செய்திகள் மட்டும்",
-    "ttsCommandOnly": "!tts கட்டளை மட்டும்"
+    "allMessages": "அனைத்து அரட்டைச் செய்திகளும்",
+    "bitsPointsOnly": "Cheers மற்றும் ரிவார்டுகள் மட்டும்",
+    "highlightedOnly": "ஹைலைட் செய்யப்பட்ட செய்திகள்",
+    "ttsCommandOnly": "!tts செய்திகள்"
+  },
+  "ttsModeSummary": {
+    "all": "TTS ஒவ்வொரு அரட்டைச் செய்தியையும் வாசிக்கும். !tts என்று தொடங்கும் செய்திகளும் இதில் அடங்கும்.",
+    "bitsPointsOnly": "TTS, Cheers மற்றும் Channel Points TTS ரிவார்டை மட்டுமே வாசிக்கும். !tts செய்திகள், ஹைலைட் செய்யப்பட்ட செய்திகள் அல்லது பிற அரட்டைச் செய்திகளை அது வாசிக்காது.",
+    "command": "TTS, !tts என்று தொடங்கும் செய்திகளை வாசிக்கும். பிற அரட்டைச் செய்திகளை அது வாசிக்காது.",
+    "highlightedOnly": "பார்வையாளர்கள் Channel Points மூலம் ஹைலைட் செய்யும் செய்திகளை TTS வாசிக்கும். !tts செய்திகள் அல்லது பிற அரட்டைச் செய்திகளை அது வாசிக்காது."
   },
   "ttsPermission": {
     "everyone": "அனைவரும்",

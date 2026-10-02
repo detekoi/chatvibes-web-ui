@@ -358,13 +358,13 @@
     "readCheerMessages": "Ler mensagens de cheer"
   },
   "readCheerMessagesModeNote": {
-    "alwaysOnInBitsPoints": "Sempre ativo no modo Apenas Bits/Pontos"
+    "alwaysOnInBitsPoints": "Sempre ativo no modo Apenas cheers e recompensas."
   },
   "readCommandMessages": {
     "readChatCommands": "Ler comandos do chat"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "O TTS lê comandos do chat apenas no modo Todas as Mensagens. Os outros modos nunca os leem."
+    "onlyUsedInAllMessages": "O TTS lê comandos do chat apenas no modo Todas as mensagens do chat. Os outros modos nunca os leem."
   },
   "readFullUrls": {
     "readFullUrls": "Ler URLs completos"
@@ -421,7 +421,7 @@
     "channelPointsTts": "Channel Points → TTS",
     "cheers": "Cheers",
     "cheersBelowThisAmountAre": "Cheers abaixo deste valor não são lidos. 1 significa qualquer cheer que contenha uma mensagem.",
-    "chooseWhichMessagesTriggerTts": "Escolha quais mensagens acionam o TTS",
+    "chooseWhichMessagesTriggerTts": "Escolha quais mensagens do chat o TTS lê. Se os cheers e a recompensa de TTS dos Channel Points estiverem ativos, o TTS os lê em todos os modos.",
     "configureChannelPointsRewardsFor": "Configurar recompensas de Channel Points para TTS",
     "configureTtsEngineSettingsAnd": "Configurar ajustes e permissões do mecanismo de TTS",
     "controlHowTtsPronouncesSpecific": "Controle como o TTS pronuncia palavras específicas. Siglas comuns da Twitch são tratadas por padrão. Adicione uma entrada para substituir uma pronúncia padrão ou incluir uma nova palavra.",
@@ -512,10 +512,16 @@
     "usernameToIgnore": "Nome de usuário a ignorar"
   },
   "ttsMode": {
-    "allMessages": "Todas as mensagens",
-    "bitsPointsOnly": "Apenas Bits/Pontos",
-    "highlightedOnly": "Apenas mensagens destacadas",
-    "ttsCommandOnly": "Apenas comando !tts"
+    "allMessages": "Todas as mensagens do chat",
+    "bitsPointsOnly": "Apenas cheers e recompensas",
+    "highlightedOnly": "Mensagens destacadas",
+    "ttsCommandOnly": "Mensagens com !tts"
+  },
+  "ttsModeSummary": {
+    "all": "O TTS lê todas as mensagens do chat. Isso inclui as mensagens que começam com !tts.",
+    "bitsPointsOnly": "O TTS lê apenas cheers e a recompensa de TTS dos Channel Points. Ele não lê mensagens com !tts, mensagens destacadas nem outras mensagens do chat.",
+    "command": "O TTS lê as mensagens que começam com !tts. Ele não lê outras mensagens do chat.",
+    "highlightedOnly": "O TTS lê as mensagens que os espectadores destacam com Channel Points. Ele não lê mensagens com !tts nem outras mensagens do chat."
   },
   "ttsPermission": {
     "everyone": "Todos",

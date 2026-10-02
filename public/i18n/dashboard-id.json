@@ -358,13 +358,13 @@
     "readCheerMessages": "Baca Pesan Cheer"
   },
   "readCheerMessagesModeNote": {
-    "alwaysOnInBitsPoints": "Selalu aktif dalam mode Hanya Bits/Points"
+    "alwaysOnInBitsPoints": "Selalu aktif dalam mode Hanya Cheer dan Hadiah."
   },
   "readCommandMessages": {
     "readChatCommands": "Baca Perintah Obrolan"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "TTS hanya membaca perintah obrolan dalam mode Semua Pesan. Mode lainnya tidak pernah membacanya."
+    "onlyUsedInAllMessages": "TTS hanya membaca perintah obrolan dalam mode Semua Pesan Obrolan. Mode lainnya tidak pernah membacanya."
   },
   "readFullUrls": {
     "readFullUrls": "Baca URL Lengkap"
@@ -421,7 +421,7 @@
     "channelPointsTts": "Channel Points → TTS",
     "cheers": "Cheers",
     "cheersBelowThisAmountAre": "Cheer di bawah jumlah ini tidak dibaca. Nilai 1 berarti setiap cheer yang menyertakan pesan akan dibaca.",
-    "chooseWhichMessagesTriggerTts": "Pilih pesan mana yang memicu TTS",
+    "chooseWhichMessagesTriggerTts": "Pilih pesan obrolan mana yang dibaca TTS. Jika cheer dan hadiah TTS Channel Points aktif, TTS membacanya di setiap mode.",
     "configureChannelPointsRewardsFor": "Konfigurasikan hadiah Channel Points untuk text-to-speech",
     "configureTtsEngineSettingsAnd": "Konfigurasikan pengaturan dan izin mesin TTS",
     "controlHowTtsPronouncesSpecific": "Kontrol cara TTS melafalkan kata tertentu. Singkatan umum Twitch ditangani secara default. Tambahkan entri untuk mengganti pelafalan default atau menambahkan kata baru.",
@@ -512,10 +512,16 @@
     "usernameToIgnore": "Username yang diabaikan"
   },
   "ttsMode": {
-    "allMessages": "Semua Pesan",
-    "bitsPointsOnly": "Hanya Bits/Poin",
-    "highlightedOnly": "Hanya Pesan yang Disorot",
-    "ttsCommandOnly": "Hanya Perintah !tts"
+    "allMessages": "Semua Pesan Obrolan",
+    "bitsPointsOnly": "Hanya Cheer dan Hadiah",
+    "highlightedOnly": "Pesan yang Disorot",
+    "ttsCommandOnly": "Pesan !tts"
+  },
+  "ttsModeSummary": {
+    "all": "TTS membaca setiap pesan obrolan. Ini termasuk pesan yang diawali dengan !tts.",
+    "bitsPointsOnly": "TTS hanya membaca cheer dan hadiah TTS Channel Points. TTS tidak membaca pesan !tts, pesan yang disorot, atau pesan obrolan lainnya.",
+    "command": "TTS membaca pesan yang diawali dengan !tts. TTS tidak membaca pesan obrolan lainnya.",
+    "highlightedOnly": "TTS membaca pesan yang disorot penonton dengan Channel Points. TTS tidak membaca pesan !tts atau pesan obrolan lainnya."
   },
   "ttsPermission": {
     "everyone": "Semua Orang",

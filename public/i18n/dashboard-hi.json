@@ -358,13 +358,13 @@
     "readCheerMessages": "Cheer संदेश पढ़ें"
   },
   "readCheerMessagesModeNote": {
-    "alwaysOnInBitsPoints": "Bits/Points Only मोड में हमेशा चालू"
+    "alwaysOnInBitsPoints": "'केवल Cheers और रिवॉर्ड' मोड में हमेशा चालू।"
   },
   "readCommandMessages": {
     "readChatCommands": "चैट कमांड पढ़ें"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "TTS चैट कमांड केवल 'सभी संदेश' मोड में पढ़ता है। अन्य मोड उन्हें कभी नहीं पढ़ते।"
+    "onlyUsedInAllMessages": "TTS चैट कमांड केवल 'सभी चैट संदेश' मोड में पढ़ता है। अन्य मोड उन्हें कभी नहीं पढ़ते।"
   },
   "readFullUrls": {
     "readFullUrls": "पूरे URL पढ़ें"
@@ -421,7 +421,7 @@
     "channelPointsTts": "Channel Points → TTS",
     "cheers": "Cheers",
     "cheersBelowThisAmountAre": "इस राशि से कम के Cheers नहीं पढ़े जाते। 1 का अर्थ है संदेश वाला हर cheer।",
-    "chooseWhichMessagesTriggerTts": "चुनें कि कौन-से संदेश TTS ट्रिगर करेंगे",
+    "chooseWhichMessagesTriggerTts": "चुनें कि TTS कौन-से चैट संदेश पढ़ेगा। अगर Cheers और Channel Points का TTS रिवॉर्ड चालू हैं, तो TTS उन्हें हर मोड में पढ़ता है।",
     "configureChannelPointsRewardsFor": "टेक्स्ट-टू-स्पीच के लिए Channel Points रिवॉर्ड कॉन्फ़िगर करें",
     "configureTtsEngineSettingsAnd": "TTS इंजन सेटिंग्स और अनुमतियां कॉन्फ़िगर करें",
     "controlHowTtsPronouncesSpecific": "नियंत्रित करें कि TTS विशिष्ट शब्दों का उच्चारण कैसे करे। Twitch के सामान्य संक्षिप्त रूपों को डिफ़ॉल्ट रूप से संभाला जाता है। डिफ़ॉल्ट उच्चारण बदलने या नया शब्द जोड़ने के लिए एक एंट्री जोड़ें।",
@@ -512,10 +512,16 @@
     "usernameToIgnore": "अनदेखा करने के लिए यूज़रनेम"
   },
   "ttsMode": {
-    "allMessages": "सभी संदेश",
-    "bitsPointsOnly": "केवल Bits/Points",
-    "highlightedOnly": "केवल हाइलाइट किए गए संदेश",
-    "ttsCommandOnly": "केवल !tts कमांड"
+    "allMessages": "सभी चैट संदेश",
+    "bitsPointsOnly": "केवल Cheers और रिवॉर्ड",
+    "highlightedOnly": "हाइलाइट किए गए संदेश",
+    "ttsCommandOnly": "!tts संदेश"
+  },
+  "ttsModeSummary": {
+    "all": "TTS हर चैट संदेश पढ़ता है। इसमें !tts से शुरू होने वाले संदेश भी शामिल हैं।",
+    "bitsPointsOnly": "TTS केवल Cheers और Channel Points का TTS रिवॉर्ड पढ़ता है। यह !tts संदेश, हाइलाइट किए गए संदेश या अन्य चैट संदेश नहीं पढ़ता।",
+    "command": "TTS उन संदेशों को पढ़ता है जो !tts से शुरू होते हैं। यह अन्य चैट संदेश नहीं पढ़ता।",
+    "highlightedOnly": "TTS उन संदेशों को पढ़ता है जिन्हें दर्शक Channel Points से हाइलाइट करते हैं। यह !tts संदेश या अन्य चैट संदेश नहीं पढ़ता।"
   },
   "ttsPermission": {
     "everyone": "सभी",

@@ -358,13 +358,13 @@
     "readCheerMessages": "قراءة رسائل Cheer"
   },
   "readCheerMessagesModeNote": {
-    "alwaysOnInBitsPoints": "مفعّل دائمًا في وضع Bits/Points فقط"
+    "alwaysOnInBitsPoints": "مفعّل دائمًا في وضع \"Cheers والمكافآت فقط\"."
   },
   "readCommandMessages": {
     "readChatCommands": "قراءة أوامر الدردشة"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "يقرأ TTS أوامر الدردشة في وضع \"جميع الرسائل\" فقط. ولا تقرأها الأوضاع الأخرى أبدًا."
+    "onlyUsedInAllMessages": "يقرأ TTS أوامر الدردشة في وضع \"جميع رسائل الدردشة\" فقط. ولا تقرأها الأوضاع الأخرى أبدًا."
   },
   "readFullUrls": {
     "readFullUrls": "قراءة عناوين URL كاملة"
@@ -421,7 +421,7 @@
     "channelPointsTts": "Channel Points → TTS",
     "cheers": "Cheers",
     "cheersBelowThisAmountAre": "لن تُقرأ الـ Cheers الأقل من هذه القيمة. 1 تعني قراءة كل Cheer يتضمن رسالة.",
-    "chooseWhichMessagesTriggerTts": "اختر الرسائل التي تُشغّل TTS",
+    "chooseWhichMessagesTriggerTts": "اختر رسائل الدردشة التي يقرأها TTS. إذا كانت Cheers ومكافأة TTS في Channel Points مفعّلة، يقرأها TTS في كل الأوضاع.",
     "configureChannelPointsRewardsFor": "تهيئة مكافآت Channel Points لتحويل النص إلى كلام",
     "configureTtsEngineSettingsAnd": "تهيئة إعدادات وأذونات محرك TTS",
     "controlHowTtsPronouncesSpecific": "التحكم في كيفية نطق TTS لكلمات محددة. يتم التعامل مع اختصارات Twitch الشائعة افتراضياً. أضف إدخالاً لتجاوز النطق الافتراضي أو إضافة كلمة جديدة.",
@@ -512,10 +512,16 @@
     "usernameToIgnore": "اسم مستخدم لتجاهله"
   },
   "ttsMode": {
-    "allMessages": "جميع الرسائل",
-    "bitsPointsOnly": "bits/النقاط فقط",
-    "highlightedOnly": "الرسائل المميّزة فقط",
-    "ttsCommandOnly": "أمر ‎!tts فقط"
+    "allMessages": "جميع رسائل الدردشة",
+    "bitsPointsOnly": "Cheers والمكافآت فقط",
+    "highlightedOnly": "الرسائل المميّزة",
+    "ttsCommandOnly": "رسائل ‎!tts"
+  },
+  "ttsModeSummary": {
+    "all": "يقرأ TTS كل رسالة في الدردشة. ويشمل ذلك الرسائل التي تبدأ بـ ‎!tts.",
+    "bitsPointsOnly": "يقرأ TTS فقط Cheers ومكافأة TTS في Channel Points. ولا يقرأ رسائل ‎!tts أو الرسائل المميّزة أو رسائل الدردشة الأخرى.",
+    "command": "يقرأ TTS الرسائل التي تبدأ بـ ‎!tts. ولا يقرأ رسائل الدردشة الأخرى.",
+    "highlightedOnly": "يقرأ TTS الرسائل التي يميّزها المشاهدون باستخدام Channel Points. ولا يقرأ رسائل ‎!tts أو رسائل الدردشة الأخرى."
   },
   "ttsPermission": {
     "everyone": "الجميع",

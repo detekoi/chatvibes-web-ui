@@ -358,13 +358,13 @@
     "readCheerMessages": "Citește mesajele Cheer"
   },
   "readCheerMessagesModeNote": {
-    "alwaysOnInBitsPoints": "Întotdeauna activ în modul Doar Bits/Puncte"
+    "alwaysOnInBitsPoints": "Întotdeauna activ în modul Doar cheers și recompense."
   },
   "readCommandMessages": {
     "readChatCommands": "Citește comenzile din chat"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "TTS citește comenzile de chat doar în modul Toate mesajele. Celelalte moduri nu le citesc niciodată."
+    "onlyUsedInAllMessages": "TTS citește comenzile de chat doar în modul Toate mesajele din chat. Celelalte moduri nu le citesc niciodată."
   },
   "readFullUrls": {
     "readFullUrls": "Citește URL-urile complete"
@@ -421,7 +421,7 @@
     "channelPointsTts": "Channel Points → TTS",
     "cheers": "Cheers",
     "cheersBelowThisAmountAre": "Cheer-urile sub această valoare nu sunt citite. 1 înseamnă fiecare cheer care conține un mesaj.",
-    "chooseWhichMessagesTriggerTts": "Alege ce mesaje declanșează TTS",
+    "chooseWhichMessagesTriggerTts": "Alege ce mesaje din chat citește TTS. Dacă cheers și recompensa TTS din Channel Points sunt active, TTS le citește în fiecare mod.",
     "configureChannelPointsRewardsFor": "Configurează recompensele Channel Points pentru text-to-speech",
     "configureTtsEngineSettingsAnd": "Configurează setările motorului TTS și permisiunile",
     "controlHowTtsPronouncesSpecific": "Controlează modul în care TTS pronunță anumite cuvinte. Acronimele comune de pe Twitch sunt gestionate implicit. Adaugă o intrare pentru a suprascrie o pronunție implicită sau pentru a adăuga un cuvânt nou.",
@@ -512,10 +512,16 @@
     "usernameToIgnore": "Nume de utilizator de ignorat"
   },
   "ttsMode": {
-    "allMessages": "Toate mesajele",
-    "bitsPointsOnly": "Doar Bits/Puncte",
-    "highlightedOnly": "Doar mesajele evidențiate",
-    "ttsCommandOnly": "Doar comanda !tts"
+    "allMessages": "Toate mesajele din chat",
+    "bitsPointsOnly": "Doar cheers și recompense",
+    "highlightedOnly": "Mesaje evidențiate",
+    "ttsCommandOnly": "Mesaje cu !tts"
+  },
+  "ttsModeSummary": {
+    "all": "TTS citește fiecare mesaj din chat. Sunt incluse și mesajele care încep cu !tts.",
+    "bitsPointsOnly": "TTS citește doar cheers și recompensa TTS din Channel Points. Nu citește mesaje cu !tts, mesaje evidențiate sau alte mesaje din chat.",
+    "command": "TTS citește mesajele care încep cu !tts. Nu citește alte mesaje din chat.",
+    "highlightedOnly": "TTS citește mesajele pe care spectatorii le evidențiază cu Channel Points. Nu citește mesaje cu !tts sau alte mesaje din chat."
   },
   "ttsPermission": {
     "everyone": "Oricine",

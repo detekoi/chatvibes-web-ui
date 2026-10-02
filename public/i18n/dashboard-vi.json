@@ -358,13 +358,13 @@
     "readCheerMessages": "Đọc tin nhắn Cheer"
   },
   "readCheerMessagesModeNote": {
-    "alwaysOnInBitsPoints": "Luôn bật ở chế độ Chỉ Bits/Points"
+    "alwaysOnInBitsPoints": "Luôn bật ở chế độ Chỉ Cheer và phần thưởng."
   },
   "readCommandMessages": {
     "readChatCommands": "Đọc lệnh chat"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "TTS chỉ đọc lệnh trò chuyện ở chế độ Tất cả tin nhắn. Các chế độ khác không bao giờ đọc."
+    "onlyUsedInAllMessages": "TTS chỉ đọc lệnh trò chuyện ở chế độ Tất cả tin nhắn trò chuyện. Các chế độ khác không bao giờ đọc."
   },
   "readFullUrls": {
     "readFullUrls": "Đọc toàn bộ URL"
@@ -421,7 +421,7 @@
     "channelPointsTts": "Channel Points → TTS",
     "cheers": "Cheers",
     "cheersBelowThisAmountAre": "Cheer dưới mức này sẽ không được đọc. 1 nghĩa là đọc mọi cheer có đính kèm tin nhắn.",
-    "chooseWhichMessagesTriggerTts": "Chọn tin nhắn kích hoạt TTS",
+    "chooseWhichMessagesTriggerTts": "Chọn tin nhắn trò chuyện mà TTS đọc. Nếu Cheer và phần thưởng TTS của Channel Points đang bật, TTS sẽ đọc chúng ở mọi chế độ.",
     "configureChannelPointsRewardsFor": "Thiết lập phần thưởng Channel Points cho TTS",
     "configureTtsEngineSettingsAnd": "Thiết lập công cụ TTS và phân quyền",
     "controlHowTtsPronouncesSpecific": "Kiểm soát cách TTS phát âm các từ cụ thể. Các từ viết tắt Twitch phổ biến được xử lý theo mặc định. Thêm mục để ghi đè cách phát âm mặc định hoặc thêm từ mới.",
@@ -512,10 +512,16 @@
     "usernameToIgnore": "Tên người dùng cần bỏ qua"
   },
   "ttsMode": {
-    "allMessages": "Tất cả tin nhắn",
-    "bitsPointsOnly": "Chỉ Bits/Points",
-    "highlightedOnly": "Chỉ tin nhắn được làm nổi bật",
-    "ttsCommandOnly": "Chỉ lệnh !tts"
+    "allMessages": "Tất cả tin nhắn trò chuyện",
+    "bitsPointsOnly": "Chỉ Cheer và phần thưởng",
+    "highlightedOnly": "Tin nhắn được làm nổi bật",
+    "ttsCommandOnly": "Tin nhắn !tts"
+  },
+  "ttsModeSummary": {
+    "all": "TTS đọc mọi tin nhắn trò chuyện. Điều này bao gồm cả tin nhắn bắt đầu bằng !tts.",
+    "bitsPointsOnly": "TTS chỉ đọc Cheer và phần thưởng TTS của Channel Points. TTS không đọc tin nhắn !tts, tin nhắn được làm nổi bật hoặc các tin nhắn trò chuyện khác.",
+    "command": "TTS đọc tin nhắn bắt đầu bằng !tts. TTS không đọc các tin nhắn trò chuyện khác.",
+    "highlightedOnly": "TTS đọc tin nhắn mà người xem làm nổi bật bằng Channel Points. TTS không đọc tin nhắn !tts hoặc các tin nhắn trò chuyện khác."
   },
   "ttsPermission": {
     "everyone": "Mọi người",

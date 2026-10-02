@@ -358,13 +358,13 @@
     "readCheerMessages": "Basahin ang mga Mensahe ng Cheer"
   },
   "readCheerMessagesModeNote": {
-    "alwaysOnInBitsPoints": "Palaging naka-on sa Bits/Points Only mode"
+    "alwaysOnInBitsPoints": "Palaging naka-on sa Mga Cheer at Reward Lamang mode."
   },
   "readCommandMessages": {
     "readChatCommands": "Basahin ang mga Chat Command"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "Binabasa lang ng TTS ang mga chat command sa \"Lahat ng Mensahe\" mode. Hindi kailanman binabasa ng iba pang mga mode ang mga ito."
+    "onlyUsedInAllMessages": "Binabasa lang ng TTS ang mga chat command sa \"Lahat ng Mensahe sa Chat\" mode. Hindi kailanman binabasa ng iba pang mga mode ang mga ito."
   },
   "readFullUrls": {
     "readFullUrls": "Basahin ang Buong mga URL"
@@ -421,7 +421,7 @@
     "channelPointsTts": "Channel Points → TTS",
     "cheers": "Mga Cheer",
     "cheersBelowThisAmountAre": "Hindi binabasa ang mga cheer na mas mababa sa halagang ito. Ang ibig sabihin ng 1 ay bawat cheer na may kasamang mensahe.",
-    "chooseWhichMessagesTriggerTts": "Piliin kung aling mga mensahe ang magti-trigger ng TTS",
+    "chooseWhichMessagesTriggerTts": "Piliin kung aling mga mensahe sa chat ang babasahin ng TTS. Kung naka-on ang mga cheer at ang TTS reward sa Channel Points, binabasa ito ng TTS sa bawat mode.",
     "configureChannelPointsRewardsFor": "I-configure ang mga reward sa Channel Points para sa text-to-speech",
     "configureTtsEngineSettingsAnd": "I-configure ang mga setting at pahintulot ng TTS engine",
     "controlHowTtsPronouncesSpecific": "Kontrolin kung paano binibigkas ng TTS ang mga partikular na salita. Karaniwang pinangangasiwaan na ang mga acronym sa Twitch bilang default. Magdagdag ng entry upang baguhin ang default na pagbigkas o magdagdag ng bagong salita.",
@@ -512,10 +512,16 @@
     "usernameToIgnore": "Username na babalewalain"
   },
   "ttsMode": {
-    "allMessages": "Lahat ng Mensahe",
-    "bitsPointsOnly": "Bits/Points Lamang",
-    "highlightedOnly": "Mga Naka-highlight na Mensahe Lamang",
-    "ttsCommandOnly": "!tts Command Lamang"
+    "allMessages": "Lahat ng Mensahe sa Chat",
+    "bitsPointsOnly": "Mga Cheer at Reward Lamang",
+    "highlightedOnly": "Mga Naka-highlight na Mensahe",
+    "ttsCommandOnly": "Mga Mensaheng !tts"
+  },
+  "ttsModeSummary": {
+    "all": "Binabasa ng TTS ang bawat mensahe sa chat. Kasama rito ang mga mensaheng nagsisimula sa !tts.",
+    "bitsPointsOnly": "Ang mga cheer at ang TTS reward sa Channel Points lang ang binabasa ng TTS. Hindi nito binabasa ang mga mensaheng !tts, mga naka-highlight na mensahe, o iba pang mensahe sa chat.",
+    "command": "Binabasa ng TTS ang mga mensaheng nagsisimula sa !tts. Hindi nito binabasa ang iba pang mensahe sa chat.",
+    "highlightedOnly": "Binabasa ng TTS ang mga mensaheng hina-highlight ng mga manonood gamit ang Channel Points. Hindi nito binabasa ang mga mensaheng !tts o iba pang mensahe sa chat."
   },
   "ttsPermission": {
     "everyone": "Lahat",
