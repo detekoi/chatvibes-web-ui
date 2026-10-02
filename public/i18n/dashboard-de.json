@@ -364,7 +364,7 @@
     "readChatCommands": "Chatbefehle vorlesen"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "Wird nur im Modus „Alle Nachrichten“ verwendet; die anderen Modi lesen diese nie vor."
+    "onlyUsedInAllMessages": "TTS liest Chat-Befehle nur im Modus „Alle Nachrichten“ vor. Die anderen Modi lesen sie nie vor."
   },
   "readFullUrls": {
     "readFullUrls": "Vollständige URLs vorlesen"

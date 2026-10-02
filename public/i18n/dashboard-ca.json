@@ -364,7 +364,7 @@
     "readChatCommands": "Llegeix les ordres del xat"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "Només s'utilitza en el mode «Tots els missatges»; els altres modes no les llegeixen mai"
+    "onlyUsedInAllMessages": "El TTS només llegeix les ordres del xat al mode «Tots els missatges». Els altres modes no les llegeixen mai."
   },
   "readFullUrls": {
     "readFullUrls": "Llegeix els URL complets"

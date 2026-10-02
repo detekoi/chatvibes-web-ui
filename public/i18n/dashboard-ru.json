@@ -364,7 +364,7 @@
     "readChatCommands": "Озвучивать команды чата"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "Используется только в режиме «Все сообщения»; в других режимах они никогда не озвучиваются"
+    "onlyUsedInAllMessages": "TTS озвучивает команды чата только в режиме «Все сообщения». В остальных режимах они не озвучиваются."
   },
   "readFullUrls": {
     "readFullUrls": "Читать URL полностью"

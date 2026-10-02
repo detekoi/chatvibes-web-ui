@@ -364,7 +364,7 @@
     "readChatCommands": "Четене на чат команди"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "Използва се само в режим „Всички съобщения“; останалите режими никога не ги четат"
+    "onlyUsedInAllMessages": "TTS чете командите в чата само в режим „Всички съобщения“. Другите режими никога не ги четат."
   },
   "readFullUrls": {
     "readFullUrls": "Изчитане на пълни URL адреси"

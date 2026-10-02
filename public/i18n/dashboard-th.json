@@ -364,7 +364,7 @@
     "readChatCommands": "อ่านคำสั่งแชท"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "ใช้เฉพาะในโหมดข้อความทั้งหมดเท่านั้น โหมดอื่นๆ จะไม่อ่านข้อความเหล่านี้"
+    "onlyUsedInAllMessages": "TTS จะอ่านคำสั่งแชทเฉพาะในโหมดทุกข้อความ ส่วนโหมดอื่นจะไม่อ่านเลย"
   },
   "readFullUrls": {
     "readFullUrls": "อ่าน URL แบบเต็ม"

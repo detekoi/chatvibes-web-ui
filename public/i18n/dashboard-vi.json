@@ -364,7 +364,7 @@
     "readChatCommands": "Đọc lệnh chat"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "Chỉ áp dụng trong chế độ Tất cả tin nhắn; các chế độ khác không bao giờ đọc những tin này"
+    "onlyUsedInAllMessages": "TTS chỉ đọc lệnh trò chuyện ở chế độ Tất cả tin nhắn. Các chế độ khác không bao giờ đọc."
   },
   "readFullUrls": {
     "readFullUrls": "Đọc toàn bộ URL"

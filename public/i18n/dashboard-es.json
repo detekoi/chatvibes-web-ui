@@ -364,7 +364,7 @@
     "readChatCommands": "Leer comandos del chat"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "Solo se usa en el modo Todos los mensajes; los demás modos nunca los leen"
+    "onlyUsedInAllMessages": "El TTS solo lee comandos de chat en el modo Todos los mensajes. Los demás modos nunca los leen."
   },
   "readFullUrls": {
     "readFullUrls": "Leer URLs completas"

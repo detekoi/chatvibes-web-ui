@@ -364,7 +364,7 @@
     "readChatCommands": "Les chat-kommandoar"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "Vert berre brukt i modusen «Alle meldingar»; dei andre modusane les aldri desse"
+    "onlyUsedInAllMessages": "TTS les berre chat-kommandoar i modusen Alle meldingar. Dei andre modusane les dei aldri."
   },
   "readFullUrls": {
     "readFullUrls": "Les heile URL-ar"

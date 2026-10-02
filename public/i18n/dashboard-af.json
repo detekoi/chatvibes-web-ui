@@ -364,7 +364,7 @@
     "readChatCommands": "Lees kletsopdragte"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "Slegs gebruik in 'Alle boodskappe'-modus; die ander modusse lees dit nooit"
+    "onlyUsedInAllMessages": "TTS lees kletsopdragte slegs in Alle Boodskappe-modus. Die ander modusse lees dit nooit."
   },
   "readFullUrls": {
     "readFullUrls": "Lees volledige URL's"

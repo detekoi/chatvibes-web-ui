@@ -364,7 +364,7 @@
     "readChatCommands": "चैट कमांड पढ़ें"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "केवल 'All Messages' मोड में उपयोग किया जाता है; अन्य मोड इन्हें कभी नहीं पढ़ते"
+    "onlyUsedInAllMessages": "TTS चैट कमांड केवल 'सभी संदेश' मोड में पढ़ता है। अन्य मोड उन्हें कभी नहीं पढ़ते।"
   },
   "readFullUrls": {
     "readFullUrls": "पूरे URL पढ़ें"

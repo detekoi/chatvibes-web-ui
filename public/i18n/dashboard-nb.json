@@ -364,7 +364,7 @@
     "readChatCommands": "Les chatkommandoer"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "Brukes bare i «Alle meldinger»-modus; de andre modusene leser aldri disse"
+    "onlyUsedInAllMessages": "TTS leser bare chatkommandoer i modusen «Alle meldinger». De andre modusene leser dem aldri."
   },
   "readFullUrls": {
     "readFullUrls": "Les opp hele URL-er"

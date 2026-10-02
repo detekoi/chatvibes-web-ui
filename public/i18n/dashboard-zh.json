@@ -364,7 +364,7 @@
     "readChatCommands": "朗读聊天指令"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "仅在“所有消息”模式下生效；其他模式不会朗读这些内容"
+    "onlyUsedInAllMessages": "TTS 仅在“所有消息”模式下朗读聊天指令。其他模式均不朗读。"
   },
   "readFullUrls": {
     "readFullUrls": "朗读完整 URL"

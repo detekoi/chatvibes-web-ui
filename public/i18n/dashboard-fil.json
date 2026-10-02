@@ -364,7 +364,7 @@
     "readChatCommands": "Basahin ang mga Chat Command"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "Ginagamit lang sa mode na All Messages; hindi kailanman binabasa ng ibang mga mode ang mga ito"
+    "onlyUsedInAllMessages": "Binabasa lang ng TTS ang mga chat command sa \"Lahat ng Mensahe\" mode. Hindi kailanman binabasa ng iba pang mga mode ang mga ito."
   },
   "readFullUrls": {
     "readFullUrls": "Basahin ang Buong mga URL"

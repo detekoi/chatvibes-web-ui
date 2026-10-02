@@ -364,7 +364,7 @@
     "readChatCommands": "Lue chat-komennot"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "Käytössä vain Kaikki viestit -tilassa; muissa tiloissa näitä ei lueta koskaan"
+    "onlyUsedInAllMessages": "TTS lukee chat-komennot vain Kaikki viestit -tilassa. Muut tilat eivät koskaan lue niitä."
   },
   "readFullUrls": {
     "readFullUrls": "Lue koko URL-osoitteet"

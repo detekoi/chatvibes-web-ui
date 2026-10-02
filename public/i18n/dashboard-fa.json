@@ -364,7 +364,7 @@
     "readChatCommands": "خواندن دستورات چت"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "فقط در حالت «همه پیام‌ها» استفاده می‌شود؛ سایر حالت‌ها هرگز این موارد را نمی‌خوانند"
+    "onlyUsedInAllMessages": "TTS دستورات چت را فقط در حالت «همه پیام‌ها» می‌خواند. سایر حالت‌ها هرگز آن‌ها را نمی‌خوانند."
   },
   "readFullUrls": {
     "readFullUrls": "خواندن کامل URLها"

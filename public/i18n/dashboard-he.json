@@ -364,7 +364,7 @@
     "readChatCommands": "הקראת פקודות צ'אט"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "בשימוש רק במצב \"כל ההודעות\"; המצבים האחרים לא מקריאים אותן לעולם"
+    "onlyUsedInAllMessages": "TTS מקריא פקודות צ'אט רק במצב \"כל ההודעות\". שאר המצבים לעולם לא מקריאים אותן."
   },
   "readFullUrls": {
     "readFullUrls": "הקראת כתובות URL מלאות"

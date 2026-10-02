@@ -364,7 +364,7 @@
     "readChatCommands": "채팅 명령어 읽기"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "모든 메시지 모드에서만 사용되며, 다른 모드에서는 읽지 않습니다"
+    "onlyUsedInAllMessages": "TTS는 '모든 메시지' 모드에서만 채팅 명령어를 읽습니다. 다른 모드에서는 읽지 않습니다."
   },
   "readFullUrls": {
     "readFullUrls": "전체 URL 읽기"

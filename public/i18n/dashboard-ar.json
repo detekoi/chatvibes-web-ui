@@ -364,7 +364,7 @@
     "readChatCommands": "قراءة أوامر الدردشة"
   },
   "readCommandMessagesModeNote": {
-    "onlyUsedInAllMessages": "يُستخدم فقط في وضع «كل الرسائل»؛ لا تقرأ الأوضاع الأخرى هذه الأوامر أبدًا"
+    "onlyUsedInAllMessages": "يقرأ TTS أوامر الدردشة في وضع \"جميع الرسائل\" فقط. ولا تقرأها الأوضاع الأخرى أبدًا."
   },
   "readFullUrls": {
     "readFullUrls": "قراءة عناوين URL كاملة"
