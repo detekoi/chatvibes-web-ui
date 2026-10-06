@@ -21,7 +21,9 @@ process.env.FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:5002";
 // that same port, and its more specific bind takes the connection, so a test
 // gets a response from an unrelated local server. Binding to 127.0.0.1 makes the
 // OS pick a port that is free there. Passing a host makes listen() asynchronous,
-// so the URL is filled in once the server is listening.
+// so the real port is filled in once the server is listening. Until then the URL
+// carries port 0, because request.agent() parses it as soon as the request is
+// created.
 const {Test} = require("supertest");
 
 const LOOPBACK = "127.0.0.1";
@@ -31,7 +33,7 @@ Test.prototype.serverAddress = function(app, path) {
   if (app.address()) return serverAddress.call(this, app, path);
   this._server = app.listen(0, LOOPBACK);
   this._loopbackPath = path;
-  return path;
+  return `http://${LOOPBACK}:0${path}`;
 };
 Test.prototype.end = function(fn) {
   const server = this._server;
