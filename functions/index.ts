@@ -24,13 +24,14 @@ import viewerRoutes from "./src/api/viewer";
 import settingsRoutes from "./src/api/settings";
 import { apiRouter as miscApiRoutes, redirectRouter as redirectsRoutes } from "./src/api/misc";
 import { authLimiter, apiLimiter } from "./src/middleware/rateLimit";
+import { trustCloudRunProxies } from "./src/middleware/trustProxy";
 
 // Create Express app
 const app: Application = express();
 
-// Trust Firebase/Cloud Run's load balancer so req.ip reflects the real client IP
-// (used by rate limiters — without this all users share one bucket)
-app.set("trust proxy", 1);
+// Trust Cloud Run's front end and Firebase Hosting, and only those, so req.ip is
+// the real client for the rate limiters whichever way the request came in.
+app.set("trust proxy", trustCloudRunProxies);
 
 // Middleware to ensure secrets are loaded before processing any requests
 app.use(async (_req: Request, res: Response, next: NextFunction): Promise<void> => {
