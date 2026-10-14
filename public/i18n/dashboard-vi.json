@@ -71,7 +71,7 @@
     "channelService": "Dịch vụ kênh",
     "dashboardConfigurationTabs": "Các tab cấu hình bảng điều khiển",
     "deactivationStopsTheBotFrom": "Việc hủy kích hoạt sẽ dừng bot đọc tin nhắn chat. Cài đặt của bạn vẫn được lưu. Bạn có thể kích hoạt lại dịch vụ bất kỳ lúc nào.",
-    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Tài liệu </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>Cài đặt người xem </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Tài liệu",
     "emotion": "Cảm xúc",
     "engNormalization": "Chuẩn hóa tiếng Anh",
     "language": "Ngôn ngữ",
@@ -81,6 +81,7 @@
     "signedInAs": "Đã đăng nhập với tên",
     "speed": "Tốc độ",
     "testMessage": "Tin nhắn thử nghiệm",
+    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Cài đặt người xem",
     "voicePreview": "Nghe thử giọng",
     "volume": "Âm lượng"
   },
@@ -345,8 +346,8 @@
   },
   "page": {
     "channelDashboard": "Bảng điều khiển kênh",
-    "textToSpeechSettingsFor": "Cài đặt chuyển văn bản thành giọng nói cho kênh của bạn. Thay đổi sẽ được lưu ngay khi bạn thực hiện.",
-    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Bảng điều khiển</span>"
+    "dashboard": "Bảng điều khiển",
+    "textToSpeechSettingsFor": "Cài đặt chuyển văn bản thành giọng nói cho kênh của bạn. Thay đổi sẽ được lưu ngay khi bạn thực hiện."
   },
   "profanityFilterEnabled": {
     "profanityFilter": "Bộ lọc ngôn từ tục tĩu"

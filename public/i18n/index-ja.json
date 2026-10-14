@@ -18,9 +18,9 @@
     "colorTheme": "カラーテーマ",
     "iAmAViewer": "<span class=\"wc-rule-name\">視聴者</span>",
     "iRunTheChannel": "<span class=\"wc-rule-name\">チャンネル運営者</span>",
+    "inviteOnly": "招待制",
     "setHowYourMessagesSound": "訪れたチャンネルでTTSがメッセージを読み上げる際の声を設定します。",
     "textToSpeechForYour": "配信者と視聴者のための、Twitchチャンネル向けテキスト読み上げ（TTS）。",
-    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">招待制</span>",
     "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">テキスト読み上げボット管理</span>"
   },
   "meta": {

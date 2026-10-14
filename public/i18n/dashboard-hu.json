@@ -71,7 +71,7 @@
     "channelService": "Csatornaszolgáltatás",
     "dashboardConfigurationTabs": "Vezérlőpult-beállítási fülek",
     "deactivationStopsTheBotFrom": "A kikapcsolás megállítja a botot a csevegési üzenetek felolvasásában. A beállításaid megmaradnak. A szolgáltatást bármikor újra aktiválhatod.",
-    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentáció </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>Nézői beállítások </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentáció",
     "emotion": "Érzelem",
     "engNormalization": "Angol normalizálás",
     "language": "Nyelv",
@@ -81,6 +81,7 @@
     "signedInAs": "Bejelentkezve mint",
     "speed": "Sebesség",
     "testMessage": "Tesztüzenet",
+    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Nézői beállítások",
     "voicePreview": "Hang előhallgatása",
     "volume": "Hangerő"
   },
@@ -345,8 +346,8 @@
   },
   "page": {
     "channelDashboard": "Csatorna-vezérlőpult",
-    "textToSpeechSettingsFor": "Szövegfelolvasási beállítások a csatornádhoz. A módosítások azonnal mentésre kerülnek.",
-    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Vezérlőpult</span>"
+    "dashboard": "Vezérlőpult",
+    "textToSpeechSettingsFor": "Szövegfelolvasási beállítások a csatornádhoz. A módosítások azonnal mentésre kerülnek."
   },
   "profanityFilterEnabled": {
     "profanityFilter": "Káromkodásszűrő"

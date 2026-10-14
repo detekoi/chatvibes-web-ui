@@ -18,9 +18,9 @@
     "colorTheme": "Renk teması",
     "iAmAViewer": "<span class=\"wc-rule-name\">İzleyiciyim</span>",
     "iRunTheChannel": "<span class=\"wc-rule-name\">Kanalı yönetiyorum</span>",
+    "inviteOnly": "Yalnızca davetle",
     "setHowYourMessagesSound": "Ziyaret ettiğin herhangi bir kanalda TTS mesajlarını okurken sesinin nasıl çıkacağını ayarla.",
     "textToSpeechForYour": "Twitch kanalın için metin okuma; yayıncılar ve izleyiciler için.",
-    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">Yalnızca davetle</span>",
     "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">Metin okuma botu yönetimi</span>"
   },
   "meta": {

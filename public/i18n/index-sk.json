@@ -18,9 +18,9 @@
     "colorTheme": "Farebný motív",
     "iAmAViewer": "<span class=\"wc-rule-name\">Som divák</span>",
     "iRunTheChannel": "<span class=\"wc-rule-name\">Spravujem kanál</span>",
+    "inviteOnly": "Len na pozvánku",
     "setHowYourMessagesSound": "Nastav si, ako budú tvoje správy znieť, keď ich TTS prečíta na akomkoľvek kanáli, ktorý navštíviš.",
     "textToSpeechForYour": "Text-to-speech pre tvoj Twitch kanál, pre streamerov aj divákov.",
-    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">Len na pozvánku</span>",
     "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">Správa text-to-speech bota</span>"
   },
   "meta": {

@@ -149,8 +149,8 @@
   },
   "page": {
     "setHowYourMessagesSound": "Настройте звучание ваших сообщений при озвучивании через WildcatTTS. Ваши настройки глобальны и применяются ко всем каналам.",
-    "viewerTtsPreferences": "Настройки TTS зрителя",
-    "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Настройки зрителя</span>"
+    "viewerSettings": "Настройки зрителя",
+    "viewerTtsPreferences": "Настройки TTS зрителя"
   },
   "pitchReset": {
     "clear": "Сбросить",

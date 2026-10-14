@@ -71,7 +71,7 @@
     "channelService": "Услуга за канал",
     "dashboardConfigurationTabs": "Раздели за конфигурация на таблото",
     "deactivationStopsTheBotFrom": "Деактивирането спира бота да чете съобщения от чата. Настройките ти се запазват. Можеш да активираш услугата отново по всяко време.",
-    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Документация </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>Настройки за зрители </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Документация",
     "emotion": "Емоция",
     "engNormalization": "Нормализация на англ.",
     "language": "Език",
@@ -81,6 +81,7 @@
     "signedInAs": "Вход като",
     "speed": "Скорост",
     "testMessage": "Тестово съобщение",
+    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Настройки за зрители",
     "voicePreview": "Преглед на гласа",
     "volume": "Сила на звука"
   },
@@ -345,8 +346,8 @@
   },
   "page": {
     "channelDashboard": "Табло на канала",
-    "textToSpeechSettingsFor": "Настройки за преобразуване на текст в реч за твоя канал. Промените се запазват автоматично.",
-    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Табло</span>"
+    "dashboard": "Табло",
+    "textToSpeechSettingsFor": "Настройки за преобразуване на текст в реч за твоя канал. Промените се запазват автоматично."
   },
   "profanityFilterEnabled": {
     "profanityFilter": "Филтър за вулгарен език"

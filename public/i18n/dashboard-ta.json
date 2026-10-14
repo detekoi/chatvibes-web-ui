@@ -71,7 +71,7 @@
     "channelService": "சேனல் சேவை",
     "dashboardConfigurationTabs": "கட்டுப்பாட்டுப் பலக உள்ளமைவுத் தாவல்கள்",
     "deactivationStopsTheBotFrom": "செயலிழக்கச் செய்வது, பாட் சாட் செய்திகளை வாசிப்பதை நிறுத்தும். உங்கள் அமைப்புகள் சேமிக்கப்பட்டே இருக்கும். நீங்கள் எப்போது வேண்டுமானாலும் மீண்டும் சேவையைச் செயல்படுத்தலாம்.",
-    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>ஆவணங்கள் </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>பார்வையாளர் அமைப்புகள் </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>ஆவணங்கள்",
     "emotion": "உணர்ச்சி",
     "engNormalization": "ஆங்கில சீராக்கம்",
     "language": "மொழி",
@@ -81,6 +81,7 @@
     "signedInAs": "உள்நுழைந்துள்ள கணக்கு",
     "speed": "வேகம்",
     "testMessage": "சோதனைச் செய்தி",
+    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>பார்வையாளர் அமைப்புகள்",
     "voicePreview": "குரல் முன்னோட்டம்",
     "volume": "ஒலி அளவு"
   },
@@ -345,8 +346,8 @@
   },
   "page": {
     "channelDashboard": "சேனல் டாஷ்போர்டு",
-    "textToSpeechSettingsFor": "உங்கள் சேனலுக்கான Text-to-speech அமைப்புகள். மாற்றங்கள் உடனுக்குடன் சேமிக்கப்படும்.",
-    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">டாஷ்போர்டு</span>"
+    "dashboard": "டாஷ்போர்டு",
+    "textToSpeechSettingsFor": "உங்கள் சேனலுக்கான Text-to-speech அமைப்புகள். மாற்றங்கள் உடனுக்குடன் சேமிக்கப்படும்."
   },
   "profanityFilterEnabled": {
     "profanityFilter": "தகாத சொல் வடிகட்டி"

@@ -71,7 +71,7 @@
     "channelService": "سرویس کانال",
     "dashboardConfigurationTabs": "برگه‌های پیکربندی داشبورد",
     "deactivationStopsTheBotFrom": "غیرفعال‌سازی مانع از خواندن پیام‌های چت توسط ربات می‌شود. تنظیمات شما ذخیره می‌ماند. می‌توانید هر زمان که بخواهید سرویس را دوباره فعال کنید.",
-    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>مستندات </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>تنظیمات بیننده </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>مستندات",
     "emotion": "احساس",
     "engNormalization": "نرمال‌سازی انگلیسی",
     "language": "زبان",
@@ -81,6 +81,7 @@
     "signedInAs": "واردشده با حساب",
     "speed": "سرعت",
     "testMessage": "پیام آزمایشی",
+    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>تنظیمات بیننده",
     "voicePreview": "پیش‌نمایش صدا",
     "volume": "بلندی صدا"
   },
@@ -345,8 +346,8 @@
   },
   "page": {
     "channelDashboard": "داشبورد کانال",
-    "textToSpeechSettingsFor": "تنظیمات تبدیل متن به گفتار برای کانال شما. تغییرات بلافاصله ذخیره می‌شوند.",
-    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">داشبورد</span>"
+    "dashboard": "داشبورد",
+    "textToSpeechSettingsFor": "تنظیمات تبدیل متن به گفتار برای کانال شما. تغییرات بلافاصله ذخیره می‌شوند."
   },
   "profanityFilterEnabled": {
     "profanityFilter": "فیلتر کلمات نامناسب"

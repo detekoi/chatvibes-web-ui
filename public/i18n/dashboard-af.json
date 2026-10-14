@@ -71,7 +71,7 @@
     "channelService": "Kanaaldiens",
     "dashboardConfigurationTabs": "Kontroleskerm-konfigurasie-oortjies",
     "deactivationStopsTheBotFrom": "Deaktivering keer dat die bot kletsboodskappe lees. Jou instellings bly gestoor. Jy kan die diens te eniger tyd weer aktiveer.",
-    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentasie </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>Kykerinstellings </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentasie",
     "emotion": "Emosie",
     "engNormalization": "Eng. normalisering",
     "language": "Taal",
@@ -81,6 +81,7 @@
     "signedInAs": "Aangemeld as",
     "speed": "Spoed",
     "testMessage": "Toetsboodskap",
+    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Kykerinstellings",
     "voicePreview": "Stemvoorskou",
     "volume": "Volume"
   },
@@ -345,8 +346,8 @@
   },
   "page": {
     "channelDashboard": "Kanaalpaneelbord",
-    "textToSpeechSettingsFor": "Teks-na-spraak-instellings vir jou kanaal. Veranderinge word outomaties gestoor.",
-    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Paneelbord</span>"
+    "dashboard": "Paneelbord",
+    "textToSpeechSettingsFor": "Teks-na-spraak-instellings vir jou kanaal. Veranderinge word outomaties gestoor."
   },
   "profanityFilterEnabled": {
     "profanityFilter": "Vloektaalfilter"

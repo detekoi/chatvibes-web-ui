@@ -71,7 +71,7 @@
     "channelService": "Layanan saluran",
     "dashboardConfigurationTabs": "Tab konfigurasi dasbor",
     "deactivationStopsTheBotFrom": "Penonaktifan akan menghentikan bot membaca pesan obrolan. Pengaturan Anda tetap tersimpan. Anda dapat mengaktifkan kembali layanan ini kapan saja.",
-    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentasi </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>Pengaturan penonton </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentasi",
     "emotion": "Emosi",
     "engNormalization": "Normalisasi bhs. Inggris",
     "language": "Bahasa",
@@ -81,6 +81,7 @@
     "signedInAs": "Masuk sebagai",
     "speed": "Kecepatan",
     "testMessage": "Pesan uji",
+    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Pengaturan penonton",
     "voicePreview": "Pratinjau suara",
     "volume": "Volume"
   },
@@ -345,8 +346,8 @@
   },
   "page": {
     "channelDashboard": "Dasbor channel",
-    "textToSpeechSettingsFor": "Pengaturan text-to-speech untuk channel Anda. Perubahan langsung disimpan otomatis.",
-    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Dasbor</span>"
+    "dashboard": "Dasbor",
+    "textToSpeechSettingsFor": "Pengaturan text-to-speech untuk channel Anda. Perubahan langsung disimpan otomatis."
   },
   "profanityFilterEnabled": {
     "profanityFilter": "Filter Kata Kasar"

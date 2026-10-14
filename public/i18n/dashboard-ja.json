@@ -71,7 +71,7 @@
     "channelService": "チャンネルサービス",
     "dashboardConfigurationTabs": "ダッシュボード設定タブ",
     "deactivationStopsTheBotFrom": "無効化するとBotがチャットメッセージを読み上げなくなります。設定は保存されたまま残り、いつでもサービスを再開できます。",
-    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>ドキュメント </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>視聴者設定 </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>ドキュメント",
     "emotion": "感情",
     "engNormalization": "英語の正規化",
     "language": "言語",
@@ -81,6 +81,7 @@
     "signedInAs": "ログイン中:",
     "speed": "速度",
     "testMessage": "テストメッセージ",
+    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>視聴者設定",
     "voicePreview": "ボイスプレビュー",
     "volume": "音量"
   },
@@ -345,8 +346,8 @@
   },
   "page": {
     "channelDashboard": "チャンネルダッシュボード",
-    "textToSpeechSettingsFor": "チャンネルのTTS設定。変更は自動的に保存されます。",
-    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">ダッシュボード</span>"
+    "dashboard": "ダッシュボード",
+    "textToSpeechSettingsFor": "チャンネルのTTS設定。変更は自動的に保存されます。"
   },
   "profanityFilterEnabled": {
     "profanityFilter": "不適切表現フィルター"

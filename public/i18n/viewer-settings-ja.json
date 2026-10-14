@@ -149,8 +149,8 @@
   },
   "page": {
     "setHowYourMessagesSound": "WildcatTTSで読み上げられるメッセージの音声をカスタマイズします。設定は全体に適用され、全チャンネルで有効です。",
-    "viewerTtsPreferences": "視聴者TTS設定",
-    "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">視聴者設定</span>"
+    "viewerSettings": "視聴者設定",
+    "viewerTtsPreferences": "視聴者TTS設定"
   },
   "pitchReset": {
     "clear": "クリア",

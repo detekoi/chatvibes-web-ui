@@ -149,8 +149,8 @@
   },
   "page": {
     "setHowYourMessagesSound": "Stel in hoe je berichten klinken wanneer WildcatTTS ze voorleest. Je voorkeuren zijn globaal en gelden voor alle kanalen.",
-    "viewerTtsPreferences": "TTS-voorkeuren voor kijkers",
-    "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Kijkersinstellingen</span>"
+    "viewerSettings": "Kijkersinstellingen",
+    "viewerTtsPreferences": "TTS-voorkeuren voor kijkers"
   },
   "pitchReset": {
     "clear": "Wissen",

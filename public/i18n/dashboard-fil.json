@@ -71,7 +71,7 @@
     "channelService": "Serbisyo ng channel",
     "dashboardConfigurationTabs": "Mga tab sa configuration ng dashboard",
     "deactivationStopsTheBotFrom": "Hihinto ang bot sa pagbasa ng mga mensahe sa chat kapag na-deactivate. Mananatiling naka-save ang iyong mga setting. Maaari mong i-activate muli ang serbisyo anumang oras.",
-    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentasyon </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>Mga setting ng viewer </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentasyon",
     "emotion": "Emosyon",
     "engNormalization": "Eng. normalization",
     "language": "Wika",
@@ -81,6 +81,7 @@
     "signedInAs": "Naka-sign in bilang",
     "speed": "Bilis",
     "testMessage": "Pansubok na mensahe",
+    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Mga setting ng viewer",
     "voicePreview": "Preview ng boses",
     "volume": "Volume"
   },
@@ -345,8 +346,8 @@
   },
   "page": {
     "channelDashboard": "Dashboard ng channel",
-    "textToSpeechSettingsFor": "Mga setting ng text-to-speech para sa iyong channel. Awtomatikong mase-save ang mga pagbabago habang ginagawa mo ang mga ito.",
-    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Dashboard</span>"
+    "dashboard": "Dashboard",
+    "textToSpeechSettingsFor": "Mga setting ng text-to-speech para sa iyong channel. Awtomatikong mase-save ang mga pagbabago habang ginagawa mo ang mga ito."
   },
   "profanityFilterEnabled": {
     "profanityFilter": "Profanity Filter"

@@ -71,7 +71,7 @@
     "channelService": "Channel service",
     "dashboardConfigurationTabs": "Dashboard configuration tabs",
     "deactivationStopsTheBotFrom": "Deactivation stops the bot from reading chat messages. Your settings remain saved. You can activate the service again at any time.",
-    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Documentation </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>Viewer settings </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Documentation",
     "emotion": "Emotion",
     "engNormalization": "Eng. normalization",
     "language": "Language",
@@ -81,6 +81,7 @@
     "signedInAs": "Signed in as",
     "speed": "Speed",
     "testMessage": "Test message",
+    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Viewer settings",
     "voicePreview": "Voice preview",
     "volume": "Volume"
   },
@@ -345,8 +346,8 @@
   },
   "page": {
     "channelDashboard": "Channel dashboard",
-    "textToSpeechSettingsFor": "Text-to-speech settings for your channel. Changes save as you make them.",
-    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Dashboard</span>"
+    "dashboard": "Dashboard",
+    "textToSpeechSettingsFor": "Text-to-speech settings for your channel. Changes save as you make them."
   },
   "profanityFilterEnabled": {
     "profanityFilter": "Profanity Filter"

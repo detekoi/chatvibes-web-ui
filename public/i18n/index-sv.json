@@ -18,9 +18,9 @@
     "colorTheme": "Färgtema",
     "iAmAViewer": "<span class=\"wc-rule-name\">Jag är en tittare</span>",
     "iRunTheChannel": "<span class=\"wc-rule-name\">Jag driver kanalen</span>",
+    "inviteOnly": "Endast inbjudan",
     "setHowYourMessagesSound": "Ställ in hur dina meddelanden låter när TTS läser upp dem i kanaler du besöker.",
     "textToSpeechForYour": "Text-till-tal för din Twitch-kanal, för streamare och tittare.",
-    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">Endast inbjudan</span>",
     "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">Hantering av text-till-tal-bot</span>"
   },
   "meta": {

@@ -18,9 +18,9 @@
     "colorTheme": "Tema de cores",
     "iAmAViewer": "<span class=\"wc-rule-name\">Sou espectador</span>",
     "iRunTheChannel": "<span class=\"wc-rule-name\">Gerencio o canal</span>",
+    "inviteOnly": "Apenas por convite",
     "setHowYourMessagesSound": "Defina o som das suas mensagens quando o TTS as ler em qualquer canal que você visitar.",
     "textToSpeechForYour": "Conversão de texto em fala para seu canal da Twitch, para streamers e espectadores.",
-    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">Apenas por convite</span>",
     "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">Gerenciamento de bot de conversão de texto em fala</span>"
   },
   "meta": {

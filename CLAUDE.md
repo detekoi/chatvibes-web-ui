@@ -200,6 +200,12 @@ generated at build time and committed; nothing is translated at runtime.
   catalogs — `auth-complete.ts`, `auth-error.ts` and `index-page.ts` exist for
   that reason, and the sign-in error copy a locked-out user reads is the most
   important text on the site to get right.
+- **A brand name inside translatable markup carries `data-i18n-skip`.** The
+  extractor then translates its siblings one by one instead of as a block. A
+  block would carry the brand markup into every locale catalog, so changing the
+  markup later (the lockup's `wildcat.chat` link, a new Quick link) would mean
+  editing 40 catalogs, and until then the other 39 would put the old markup
+  back.
 - **Do not translate:** voice IDs and names, brand names, and the two sample
   phrases `Welcome, everyone, to the stream!` / `Chat is this real?` — those name
   pre-rendered files in `public/assets/voices/*.mp3`, so translating the caption

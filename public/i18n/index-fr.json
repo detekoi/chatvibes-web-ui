@@ -18,9 +18,9 @@
     "colorTheme": "Thème de couleur",
     "iAmAViewer": "<span class=\"wc-rule-name\">Je suis spectateur</span>",
     "iRunTheChannel": "<span class=\"wc-rule-name\">Je gère la chaîne</span>",
+    "inviteOnly": "Sur invitation uniquement",
     "setHowYourMessagesSound": "Définissez la façon dont vos messages sont lus par le TTS sur chaque chaîne que vous visitez.",
     "textToSpeechForYour": "Synthèse vocale pour votre chaîne Twitch, destinée aux streamers et aux spectateurs.",
-    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">Sur invitation uniquement</span>",
     "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">Gestion du bot de synthèse vocale</span>"
   },
   "meta": {

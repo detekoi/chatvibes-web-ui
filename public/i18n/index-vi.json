@@ -18,9 +18,9 @@
     "colorTheme": "Chủ đề màu",
     "iAmAViewer": "<span class=\"wc-rule-name\">Tôi là người xem</span>",
     "iRunTheChannel": "<span class=\"wc-rule-name\">Tôi là chủ kênh</span>",
+    "inviteOnly": "Chỉ người được mời",
     "setHowYourMessagesSound": "Tùy chỉnh giọng đọc tin nhắn của bạn khi TTS phát âm trên bất kỳ kênh nào bạn ghé thăm.",
     "textToSpeechForYour": "Chuyển văn bản thành giọng nói cho kênh Twitch của bạn, dành cho streamer và người xem.",
-    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">Chỉ người được mời</span>",
     "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">Quản lý bot chuyển văn bản thành giọng nói</span>"
   },
   "meta": {

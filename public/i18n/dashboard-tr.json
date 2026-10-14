@@ -71,7 +71,7 @@
     "channelService": "Kanal hizmeti",
     "dashboardConfigurationTabs": "Kontrol paneli yapılandırma sekmeleri",
     "deactivationStopsTheBotFrom": "Devre dışı bırakıldığında bot sohbet mesajlarını okumayı durdurur. Ayarlarınız kayıtlı kalır. Hizmeti istediğiniz zaman tekrar etkinleştirebilirsiniz.",
-    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokümantasyon </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>İzleyici ayarları </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokümantasyon",
     "emotion": "Duygu",
     "engNormalization": "İng. normalizasyon",
     "language": "Dil",
@@ -81,6 +81,7 @@
     "signedInAs": "Şu hesapla oturum açıldı:",
     "speed": "Hız",
     "testMessage": "Test mesajı",
+    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>İzleyici ayarları",
     "voicePreview": "Ses önizleme",
     "volume": "Ses düzeyi"
   },
@@ -345,8 +346,8 @@
   },
   "page": {
     "channelDashboard": "Kanal paneli",
-    "textToSpeechSettingsFor": "Kanalınız için metin okuma ayarları. Değişiklikler anında kaydedilir.",
-    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Panel</span>"
+    "dashboard": "Panel",
+    "textToSpeechSettingsFor": "Kanalınız için metin okuma ayarları. Değişiklikler anında kaydedilir."
   },
   "profanityFilterEnabled": {
     "profanityFilter": "Küfür Filtresi"

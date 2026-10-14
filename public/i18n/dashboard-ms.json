@@ -71,7 +71,7 @@
     "channelService": "Perkhidmatan saluran",
     "dashboardConfigurationTabs": "Tab konfigurasi papan pemuka",
     "deactivationStopsTheBotFrom": "Penyahaktifan menghalang bot daripada membaca mesej sembang. Tetapan anda akan kekal disimpan. Anda boleh mengaktifkan perkhidmatan ini semula pada bila-bila masa.",
-    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentasi </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>Tetapan penonton </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentasi",
     "emotion": "Emosi",
     "engNormalization": "Penormalan B. Inggeris",
     "language": "Bahasa",
@@ -81,6 +81,7 @@
     "signedInAs": "Log masuk sebagai",
     "speed": "Kelajuan",
     "testMessage": "Mesej ujian",
+    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Tetapan penonton",
     "voicePreview": "Pratonton suara",
     "volume": "Kelantangan"
   },
@@ -345,8 +346,8 @@
   },
   "page": {
     "channelDashboard": "Papan pemuka saluran",
-    "textToSpeechSettingsFor": "Tetapan teks-ke-pertuturan untuk saluran anda. Perubahan disimpan sebaik sahaja dibuat.",
-    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Papan Pemuka</span>"
+    "dashboard": "Papan Pemuka",
+    "textToSpeechSettingsFor": "Tetapan teks-ke-pertuturan untuk saluran anda. Perubahan disimpan sebaik sahaja dibuat."
   },
   "profanityFilterEnabled": {
     "profanityFilter": "Penapis Kata Kesat"

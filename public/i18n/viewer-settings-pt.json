@@ -149,8 +149,8 @@
   },
   "page": {
     "setHowYourMessagesSound": "Defina como suas mensagens soarão quando lidas pelo WildcatTTS. Suas preferências são globais e se aplicam a todos os canais.",
-    "viewerTtsPreferences": "Preferências de TTS do espectador",
-    "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Configurações do espectador</span>"
+    "viewerSettings": "Configurações do espectador",
+    "viewerTtsPreferences": "Preferências de TTS do espectador"
   },
   "pitchReset": {
     "clear": "Limpar",

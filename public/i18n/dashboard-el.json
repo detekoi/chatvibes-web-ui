@@ -71,7 +71,7 @@
     "channelService": "Υπηρεσία καναλιού",
     "dashboardConfigurationTabs": "Καρτέλες ρυθμίσεων πίνακα ελέγχου",
     "deactivationStopsTheBotFrom": "Η απενεργοποίηση εμποδίζει το bot να διαβάζει μηνύματα συνομιλίας. Οι ρυθμίσεις σας παραμένουν αποθηκευμένες. Μπορείτε να ενεργοποιήσετε ξανά την υπηρεσία ανά πάσα στιγμή.",
-    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Τεκμηρίωση </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>Ρυθμίσεις θεατή </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Τεκμηρίωση",
     "emotion": "Συναίσθημα",
     "engNormalization": "Κανονικοποίηση αγγλικών",
     "language": "Γλώσσα",
@@ -81,6 +81,7 @@
     "signedInAs": "Σύνδεση ως",
     "speed": "Ταχύτητα",
     "testMessage": "Δοκιμαστικό μήνυμα",
+    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Ρυθμίσεις θεατή",
     "voicePreview": "Προεπισκόπηση φωνής",
     "volume": "Ένταση"
   },
@@ -345,8 +346,8 @@
   },
   "page": {
     "channelDashboard": "Πίνακας ελέγχου καναλιού",
-    "textToSpeechSettingsFor": "Ρυθμίσεις Text-to-speech για το κανάλι σας. Οι αλλαγές αποθηκεύονται αυτόματα.",
-    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Πίνακας ελέγχου</span>"
+    "dashboard": "Πίνακας ελέγχου",
+    "textToSpeechSettingsFor": "Ρυθμίσεις Text-to-speech για το κανάλι σας. Οι αλλαγές αποθηκεύονται αυτόματα."
   },
   "profanityFilterEnabled": {
     "profanityFilter": "Φίλτρο βωμολοχιών"

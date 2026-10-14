@@ -136,6 +136,10 @@ function isTranslatableLeaf(node) {
     if (!INLINE_TAGS.has(child.tagName)) return false;
     // An inline child carrying an id is a JS render target, not prose.
     if (attrOf(child, 'id')) return false;
+    // A skipped child (a brand lockup, a product name) is not part of any
+    // message, so its siblings are translated one by one instead of as a block
+    // that would carry the skipped markup into every locale.
+    if (attrOf(child, 'data-i18n-skip') !== undefined) return false;
     if (hasLetter(getText(child))) sawText = true;
     if (!isTranslatableLeaf(child) && child.childNodes?.length) return false;
   }

@@ -149,8 +149,8 @@
   },
   "page": {
     "setHowYourMessagesSound": "กำหนดเสียงข้อความของคุณเมื่อ WildcatTTS อ่านออกเสียง การตั้งค่าของคุณเป็นแบบสากลและมีผลกับทุกช่อง",
-    "viewerTtsPreferences": "การตั้งค่า TTS ของผู้ชม",
-    "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">การตั้งค่าผู้ชม</span>"
+    "viewerSettings": "การตั้งค่าผู้ชม",
+    "viewerTtsPreferences": "การตั้งค่า TTS ของผู้ชม"
   },
   "pitchReset": {
     "clear": "ล้าง",
