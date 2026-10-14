@@ -16,18 +16,18 @@
     margin: 20px 24px 0;
 }
 
-/* Section cards stack down the page with a gap between them. */
-.wc-card { margin-bottom: 2rem; }
+/* Sections inside a tab pane are not shell-main's direct children, so its
+   gap does not reach them; space them, and the save bar after them, to the
+   same 44px rhythm here. */
+.tab-pane > .wc-card + :is(.wc-card, .d-grid) { margin-top: 44px; }
+
+/* The muted-rewards dialog sits inside a section in the markup, so the
+   section's edge-to-edge row rule reaches its list. A dialog keeps its frame;
+   restore the inset so the switches clear the scroll container's edge. */
+:root .wc-card dialog .list-group-item { padding-inline: 16px; }
 
 /* A brand mark leading a section title (the YouTube card): sized to the
    heading, on the text baseline's middle. */
 .wc-card-title > .inline-icon { width: 1.25em; height: 1.25em; margin-inline-end: 6px; vertical-align: -0.25em; }
 .inline-icon--youtube { color: #ff0000; }
 
-/* A card that IS the section's content would just double the frame. */
-:root .wc-card > .card-body > .card {
-    border: 0;
-    background: transparent;
-}
-
-:root .wc-card > .card-body > .card > .card-body { padding: 0; }
