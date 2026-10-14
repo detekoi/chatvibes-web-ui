@@ -149,8 +149,8 @@
   },
   "page": {
     "setHowYourMessagesSound": "Nastavte, jak budou vaše zprávy znít, když je předčítá WildcatTTS. Vaše předvolby jsou globální a platí pro všechny kanály.",
-    "viewerTtsPreferences": "Předvolby TTS pro diváky",
-    "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Nastavení pro diváky</span>"
+    "viewerSettings": "Nastavení pro diváky",
+    "viewerTtsPreferences": "Předvolby TTS pro diváky"
   },
   "pitchReset": {
     "clear": "Vymazat",

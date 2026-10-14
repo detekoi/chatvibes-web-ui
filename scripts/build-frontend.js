@@ -101,7 +101,9 @@ import {
   Globe,
   Sparkles,
   ArrowRight,
-  LogIn
+  LogIn,
+  Bot,
+  MessageSquare
 } from 'lucide';
 
 const Youtube = [
@@ -136,6 +138,8 @@ window.lucide = {
         Sparkles,
         ArrowRight,
         LogIn,
+        Bot,
+        MessageSquare,
         Youtube
       },
       ...options

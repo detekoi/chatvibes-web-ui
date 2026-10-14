@@ -17,10 +17,10 @@
     "changeTtsSettingsControlBot": "Change TTS settings • Control bot chat responses • Configure channel points • Set voice preferences",
     "colorTheme": "Color theme",
     "iAmAViewer": "<span class=\"wc-rule-name\">I am a viewer</span>",
+    "inviteOnly": "Invite-only",
     "iRunTheChannel": "<span class=\"wc-rule-name\">I run the channel</span>",
     "setHowYourMessagesSound": "Set how your messages sound when TTS reads them in any channel you visit.",
     "textToSpeechForYour": "Text-to-speech for your Twitch channel, for streamers and viewers.",
-    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">Invite-only</span>",
     "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">Text-to-speech bot management</span>"
   },
   "meta": {

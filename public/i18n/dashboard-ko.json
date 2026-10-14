@@ -71,7 +71,7 @@
     "channelService": "채널 서비스",
     "dashboardConfigurationTabs": "대시보드 설정 탭",
     "deactivationStopsTheBotFrom": "비활성화하면 봇이 채팅 메시지를 읽지 않습니다. 설정은 저장된 상태로 유지됩니다. 언제든지 서비스를 다시 활성화할 수 있습니다.",
-    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>문서 </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>시청자 설정 </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>문서",
     "emotion": "감정",
     "engNormalization": "영어 정규화",
     "language": "언어",
@@ -81,6 +81,7 @@
     "signedInAs": "로그인 계정:",
     "speed": "속도",
     "testMessage": "테스트 메시지",
+    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>시청자 설정",
     "voicePreview": "음성 미리듣기",
     "volume": "음량"
   },
@@ -345,8 +346,8 @@
   },
   "page": {
     "channelDashboard": "채널 대시보드",
-    "textToSpeechSettingsFor": "채널용 TTS 설정입니다. 변경 사항은 즉시 저장됩니다.",
-    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">대시보드</span>"
+    "dashboard": "대시보드",
+    "textToSpeechSettingsFor": "채널용 TTS 설정입니다. 변경 사항은 즉시 저장됩니다."
   },
   "profanityFilterEnabled": {
     "profanityFilter": "비속어 필터"

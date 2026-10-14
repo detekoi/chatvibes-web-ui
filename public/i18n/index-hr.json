@@ -18,9 +18,9 @@
     "colorTheme": "Tema boja",
     "iAmAViewer": "<span class=\"wc-rule-name\">Gledatelj sam</span>",
     "iRunTheChannel": "<span class=\"wc-rule-name\">Vodim kanal</span>",
+    "inviteOnly": "Samo uz pozivnicu",
     "setHowYourMessagesSound": "Postavite kako vaše poruke zvuče kada ih TTS čita na bilo kojem kanalu koji posjetite.",
     "textToSpeechForYour": "Text-to-speech za vaš Twitch kanal, za streamere i gledatelje.",
-    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">Samo uz pozivnicu</span>",
     "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">Upravljanje text-to-speech botom</span>"
   },
   "meta": {

@@ -71,7 +71,7 @@
     "channelService": "Služba kanálu",
     "dashboardConfigurationTabs": "Záložky nastavení přehledu",
     "deactivationStopsTheBotFrom": "Deaktivací zabráníte botovi ve čtení zpráv v chatu. Vaše nastavení zůstane uložené. Službu můžete kdykoli znovu aktivovat.",
-    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentace </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>Nastavení pro diváky </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentace",
     "emotion": "Emoce",
     "engNormalization": "Normalizace angl.",
     "language": "Jazyk",
@@ -81,6 +81,7 @@
     "signedInAs": "Přihlášen jako",
     "speed": "Rychlost",
     "testMessage": "Zkušební zpráva",
+    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Nastavení pro diváky",
     "voicePreview": "Ukázka hlasu",
     "volume": "Hlasitost"
   },
@@ -345,8 +346,8 @@
   },
   "page": {
     "channelDashboard": "Přehled kanálu",
-    "textToSpeechSettingsFor": "Nastavení převodu textu na řeč pro váš kanál. Změny se ukládají průběžně.",
-    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Dashboard</span>"
+    "dashboard": "Dashboard",
+    "textToSpeechSettingsFor": "Nastavení převodu textu na řeč pro váš kanál. Změny se ukládají průběžně."
   },
   "profanityFilterEnabled": {
     "profanityFilter": "Filtr vulgarismů"

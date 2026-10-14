@@ -18,9 +18,9 @@
     "colorTheme": "Kleurtema",
     "iAmAViewer": "<span class=\"wc-rule-name\">Ek is 'n kyker</span>",
     "iRunTheChannel": "<span class=\"wc-rule-name\">Ek bestuur die kanaal</span>",
+    "inviteOnly": "Slegs op uitnodiging",
     "setHowYourMessagesSound": "Stel in hoe jou boodskappe klink wanneer TTS dit voorlees in enige kanaal wat jy besoek.",
     "textToSpeechForYour": "Teks-na-spraak vir jou Twitch-kanaal, vir stromers en kykers.",
-    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">Slegs op uitnodiging</span>",
     "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">Teks-na-spraak-botbestuur</span>"
   },
   "meta": {

@@ -71,7 +71,7 @@
     "channelService": "שירות ערוץ",
     "dashboardConfigurationTabs": "לשוניות הגדרת לוח הבקרה",
     "deactivationStopsTheBotFrom": "השבתה מפסיקה את הקראת הודעות הצ'אט על ידי הבוט. ההגדרות שלך יישמרו. תוכל להפעיל מחדש את השירות בכל עת.",
-    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>תיעוד </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>הגדרות צופה </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>תיעוד",
     "emotion": "רגש",
     "engNormalization": "נרמול אנגלית",
     "language": "שפה",
@@ -81,6 +81,7 @@
     "signedInAs": "מחובר בתור",
     "speed": "מהירות",
     "testMessage": "הודעת בדיקה",
+    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>הגדרות צופה",
     "voicePreview": "תצוגה מקדימה של הקול",
     "volume": "עוצמת שמע"
   },
@@ -345,8 +346,8 @@
   },
   "page": {
     "channelDashboard": "לוח בקרה של הערוץ",
-    "textToSpeechSettingsFor": "הגדרות המרת טקסט לדיבור עבור הערוץ שלך. השינויים נשמרים אוטומטית.",
-    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">לוח בקרה</span>"
+    "dashboard": "לוח בקרה",
+    "textToSpeechSettingsFor": "הגדרות המרת טקסט לדיבור עבור הערוץ שלך. השינויים נשמרים אוטומטית."
   },
   "profanityFilterEnabled": {
     "profanityFilter": "סינון ניבולי פה"

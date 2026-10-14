@@ -18,9 +18,9 @@
     "colorTheme": "Fargetema",
     "iAmAViewer": "<span class=\"wc-rule-name\">Eg er sjåar</span>",
     "iRunTheChannel": "<span class=\"wc-rule-name\">Eg driv kanalen</span>",
+    "inviteOnly": "Berre for inviterte",
     "setHowYourMessagesSound": "Vel korleis meldingane dine skal høyrast ut når TTS les dei i kanalar du vitjar.",
     "textToSpeechForYour": "Tekst-til-tale for Twitch-kanalen din, for strøymarar og sjåarar.",
-    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">Berre for inviterte</span>",
     "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">Administrasjon av tekst-til-tale-bot</span>"
   },
   "meta": {

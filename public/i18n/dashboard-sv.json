@@ -71,7 +71,7 @@
     "channelService": "Kanaltjänst",
     "dashboardConfigurationTabs": "Konfigurationsflikar för instrumentpanelen",
     "deactivationStopsTheBotFrom": "Inaktivering stoppar botten från att läsa chattmeddelanden. Dina inställningar sparas. Du kan aktivera tjänsten igen när som helst.",
-    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentation </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>Tittarinställningar </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentation",
     "emotion": "Känsla",
     "engNormalization": "Eng. normalisering",
     "language": "Språk",
@@ -81,6 +81,7 @@
     "signedInAs": "Inloggad som",
     "speed": "Hastighet",
     "testMessage": "Testmeddelande",
+    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Tittarinställningar",
     "voicePreview": "Förhandsgranska röst",
     "volume": "Volym"
   },
@@ -345,8 +346,8 @@
   },
   "page": {
     "channelDashboard": "Kanalöversikt",
-    "textToSpeechSettingsFor": "Text-till-tal-inställningar för din kanal. Ändringar sparas automatiskt.",
-    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Översikt</span>"
+    "dashboard": "Översikt",
+    "textToSpeechSettingsFor": "Text-till-tal-inställningar för din kanal. Ändringar sparas automatiskt."
   },
   "profanityFilterEnabled": {
     "profanityFilter": "Svordomsfilter"

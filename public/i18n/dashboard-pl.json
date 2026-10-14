@@ -71,7 +71,7 @@
     "channelService": "Usługa kanału",
     "dashboardConfigurationTabs": "Karty konfiguracji panelu",
     "deactivationStopsTheBotFrom": "Dezaktywacja sprawi, że bot przestanie czytać wiadomości z czatu. Twoje ustawienia zostaną zachowane. Możesz ponownie aktywować usługę w dowolnym momencie.",
-    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentacja </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>Ustawienia widza </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentacja",
     "emotion": "Emocje",
     "engNormalization": "Normalizacja ang.",
     "language": "Język",
@@ -81,6 +81,7 @@
     "signedInAs": "Zalogowano jako",
     "speed": "Prędkość",
     "testMessage": "Wiadomość testowa",
+    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Ustawienia widza",
     "voicePreview": "Próbka głosu",
     "volume": "Głośność"
   },
@@ -345,8 +346,8 @@
   },
   "page": {
     "channelDashboard": "Panel kanału",
-    "textToSpeechSettingsFor": "Ustawienia syntezy mowy dla Twojego kanału. Zmiany są zapisywane na bieżąco.",
-    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Panel</span>"
+    "dashboard": "Panel",
+    "textToSpeechSettingsFor": "Ustawienia syntezy mowy dla Twojego kanału. Zmiany są zapisywane na bieżąco."
   },
   "profanityFilterEnabled": {
     "profanityFilter": "Filtr wulgaryzmów"

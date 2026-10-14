@@ -71,7 +71,7 @@
     "channelService": "خدمة القناة",
     "dashboardConfigurationTabs": "علامات تبويب إعداد لوحة التحكم",
     "deactivationStopsTheBotFrom": "يؤدي إلغاء التفعيل إلى إيقاف البوت عن قراءة رسائل الدردشة. ستظل إعداداتك محفوظة. يمكنك تفعيل الخدمة مرة أخرى في أي وقت.",
-    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>التوثيق </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>إعدادات المشاهد </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>التوثيق",
     "emotion": "المشاعر",
     "engNormalization": "تسوية الإنجليزية",
     "language": "اللغة",
@@ -81,6 +81,7 @@
     "signedInAs": "تم تسجيل الدخول باسم",
     "speed": "السرعة",
     "testMessage": "رسالة اختبار",
+    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>إعدادات المشاهد",
     "voicePreview": "معاينة الصوت",
     "volume": "مستوى الصوت"
   },
@@ -345,8 +346,8 @@
   },
   "page": {
     "channelDashboard": "لوحة تحكم القناة",
-    "textToSpeechSettingsFor": "إعدادات تحويل النص إلى كلام لقناتك. تُحفظ التغييرات تلقائياً فور إجرائها.",
-    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">لوحة التحكم</span>"
+    "dashboard": "لوحة التحكم",
+    "textToSpeechSettingsFor": "إعدادات تحويل النص إلى كلام لقناتك. تُحفظ التغييرات تلقائياً فور إجرائها."
   },
   "profanityFilterEnabled": {
     "profanityFilter": "فلتر الألفاظ النابية"

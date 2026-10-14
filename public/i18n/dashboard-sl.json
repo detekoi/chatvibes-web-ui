@@ -71,7 +71,7 @@
     "channelService": "Storitev kanala",
     "dashboardConfigurationTabs": "Zavihki za konfiguracijo nadzorne plošče",
     "deactivationStopsTheBotFrom": "Deaktivacija prepreči botu branje sporočil v klepetu. Tvoje nastavitve ostanejo shranjene. Storitev lahko kadar koli znova aktiviraš.",
-    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentacija </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>Nastavitve za gledalce </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentacija",
     "emotion": "Čustvo",
     "engNormalization": "Angl. normalizacija",
     "language": "Jezik",
@@ -81,6 +81,7 @@
     "signedInAs": "Prijavljen kot",
     "speed": "Hitrost",
     "testMessage": "Preizkusno sporočilo",
+    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Nastavitve za gledalce",
     "voicePreview": "Predposlušanje glasu",
     "volume": "Glasnost"
   },
@@ -345,8 +346,8 @@
   },
   "page": {
     "channelDashboard": "Nadzorna plošča kanala",
-    "textToSpeechSettingsFor": "Nastavitve pretvorbe besedila v govor za tvoj kanal. Spremembe se sproti shranjujejo.",
-    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Nadzorna plošča</span>"
+    "dashboard": "Nadzorna plošča",
+    "textToSpeechSettingsFor": "Nastavitve pretvorbe besedila v govor za tvoj kanal. Spremembe se sproti shranjujejo."
   },
   "profanityFilterEnabled": {
     "profanityFilter": "Filter kletvic"

@@ -18,9 +18,9 @@
     "colorTheme": "Temă de culori",
     "iAmAViewer": "<span class=\"wc-rule-name\">Sunt spectator</span>",
     "iRunTheChannel": "<span class=\"wc-rule-name\">Gestionez canalul</span>",
+    "inviteOnly": "Doar pe bază de invitație",
     "setHowYourMessagesSound": "Setează cum sună mesajele tale când TTS le citește în orice canal pe care îl vizitezi.",
     "textToSpeechForYour": "Text-to-speech pentru canalul tău de Twitch, pentru streameri și spectatori.",
-    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">Doar pe bază de invitație</span>",
     "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">Gestionare bot text-to-speech</span>"
   },
   "meta": {

@@ -71,7 +71,7 @@
     "channelService": "频道服务",
     "dashboardConfigurationTabs": "控制面板配置标签页",
     "deactivationStopsTheBotFrom": "停用后，机器人将停止朗读聊天消息。你的设置仍会保留。你可以随时重新启用该服务。",
-    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>文档 </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>观众设置 </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>文档",
     "emotion": "情绪",
     "engNormalization": "英语规范化",
     "language": "语言",
@@ -81,6 +81,7 @@
     "signedInAs": "登录身份为",
     "speed": "语速",
     "testMessage": "测试消息",
+    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>观众设置",
     "voicePreview": "声音试听",
     "volume": "音量"
   },
@@ -345,8 +346,8 @@
   },
   "page": {
     "channelDashboard": "频道控制面板",
-    "textToSpeechSettingsFor": "频道的文本转语音设置。更改会实时自动保存。",
-    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">控制面板</span>"
+    "dashboard": "控制面板",
+    "textToSpeechSettingsFor": "频道的文本转语音设置。更改会实时自动保存。"
   },
   "profanityFilterEnabled": {
     "profanityFilter": "脏话过滤"

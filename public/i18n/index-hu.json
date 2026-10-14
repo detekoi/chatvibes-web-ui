@@ -18,9 +18,9 @@
     "colorTheme": "Színtéma",
     "iAmAViewer": "<span class=\"wc-rule-name\">Néző vagyok</span>",
     "iRunTheChannel": "<span class=\"wc-rule-name\">Én kezelem a csatornát</span>",
+    "inviteOnly": "Csak meghívóval",
     "setHowYourMessagesSound": "Állítsd be, hogyan hangozzanak az üzeneteid, amikor a TTS felolvassa őket a meglátogatott csatornákon.",
     "textToSpeechForYour": "Szövegfelolvasás a Twitch-csatornádhoz, streamereknek és nézőknek.",
-    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">Csak meghívóval</span>",
     "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">Szövegfelolvasó bot kezelése</span>"
   },
   "meta": {

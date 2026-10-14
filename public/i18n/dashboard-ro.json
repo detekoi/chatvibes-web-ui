@@ -71,7 +71,7 @@
     "channelService": "Serviciu canal",
     "dashboardConfigurationTabs": "File de configurare a panoului de control",
     "deactivationStopsTheBotFrom": "Dezactivarea împiedică botul să citească mesajele din chat. Setările tale rămân salvate. Poți reactiva serviciul în orice moment.",
-    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Documentație </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>Setări spectator </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Documentație",
     "emotion": "Emoție",
     "engNormalization": "Normalizare eng.",
     "language": "Limbă",
@@ -81,6 +81,7 @@
     "signedInAs": "Conectat ca",
     "speed": "Viteză",
     "testMessage": "Mesaj de test",
+    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Setări spectator",
     "voicePreview": "Previzualizare voce",
     "volume": "Volum"
   },
@@ -345,8 +346,8 @@
   },
   "page": {
     "channelDashboard": "Panou de control canal",
-    "textToSpeechSettingsFor": "Setări text-to-speech pentru canalul tău. Modificările se salvează automat.",
-    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Panou de control</span>"
+    "dashboard": "Panou de control",
+    "textToSpeechSettingsFor": "Setări text-to-speech pentru canalul tău. Modificările se salvează automat."
   },
   "profanityFilterEnabled": {
     "profanityFilter": "Filtru de vulgarități"

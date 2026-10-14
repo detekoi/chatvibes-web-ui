@@ -18,9 +18,9 @@
     "colorTheme": "Χρωματικό θέμα",
     "iAmAViewer": "<span class=\"wc-rule-name\">Είμαι θεατής</span>",
     "iRunTheChannel": "<span class=\"wc-rule-name\">Διαχειρίζομαι το κανάλι</span>",
+    "inviteOnly": "Μόνο με πρόσκληση",
     "setHowYourMessagesSound": "Όρισε πώς ακούγονται τα μηνύματά σου όταν τα διαβάζει το TTS σε κάθε κανάλι που επισκέπτεσαι.",
     "textToSpeechForYour": "Μετατροπή κειμένου σε ομιλία για το κανάλι σου στο Twitch, για streamer και θεατές.",
-    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">Μόνο με πρόσκληση</span>",
     "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">Διαχείριση bot μετατροπής κειμένου σε ομιλία</span>"
   },
   "meta": {

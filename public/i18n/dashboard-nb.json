@@ -71,7 +71,7 @@
     "channelService": "Kanaltjeneste",
     "dashboardConfigurationTabs": "Faner for dashbordkonfigurasjon",
     "deactivationStopsTheBotFrom": "Deaktivering stopper boten fra å lese chatmeldinger. Innstillingene dine forblir lagret. Du kan aktivere tjenesten igjen når som helst.",
-    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentasjon </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>Seerinnstillinger </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentasjon",
     "emotion": "Følelse",
     "engNormalization": "Eng. normalisering",
     "language": "Språk",
@@ -81,6 +81,7 @@
     "signedInAs": "Logget inn som",
     "speed": "Hastighet",
     "testMessage": "Testmelding",
+    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Seerinnstillinger",
     "voicePreview": "Forhåndsvisning av stemme",
     "volume": "Volum"
   },
@@ -345,8 +346,8 @@
   },
   "page": {
     "channelDashboard": "Kanaldashbord",
-    "textToSpeechSettingsFor": "Tekst-til-tale-innstillinger for kanalen din. Endringer lagres automatisk.",
-    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Dashbord</span>"
+    "dashboard": "Dashbord",
+    "textToSpeechSettingsFor": "Tekst-til-tale-innstillinger for kanalen din. Endringer lagres automatisk."
   },
   "profanityFilterEnabled": {
     "profanityFilter": "Bannskapsfilter"

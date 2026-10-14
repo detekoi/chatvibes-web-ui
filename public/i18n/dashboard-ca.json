@@ -71,7 +71,7 @@
     "channelService": "Servei del canal",
     "dashboardConfigurationTabs": "Pestanyes de configuració del tauler",
     "deactivationStopsTheBotFrom": "La desactivació impedeix que el bot llegeixi missatges del xat. La teva configuració es mantindrà desada. Pots tornar a activar el servei en qualsevol moment.",
-    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Documentació </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>Configuració d'espectador </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Documentació",
     "emotion": "Emoció",
     "engNormalization": "Normalització d'anglès",
     "language": "Idioma",
@@ -81,6 +81,7 @@
     "signedInAs": "Sessió iniciada com a",
     "speed": "Velocitat",
     "testMessage": "Missatge de prova",
+    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Configuració d'espectador",
     "voicePreview": "Previsualització de veu",
     "volume": "Volum"
   },
@@ -345,8 +346,8 @@
   },
   "page": {
     "channelDashboard": "Tauler del canal",
-    "textToSpeechSettingsFor": "Configuració de text a veu per al teu canal. Els canvis es desen automàticament.",
-    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Tauler de control</span>"
+    "dashboard": "Tauler de control",
+    "textToSpeechSettingsFor": "Configuració de text a veu per al teu canal. Els canvis es desen automàticament."
   },
   "profanityFilterEnabled": {
     "profanityFilter": "Filtre de llenguatge vulgar"

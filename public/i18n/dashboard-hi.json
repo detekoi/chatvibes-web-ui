@@ -71,7 +71,7 @@
     "channelService": "चैनल सेवा",
     "dashboardConfigurationTabs": "डैशबोर्ड कॉन्फ़िगरेशन टैब",
     "deactivationStopsTheBotFrom": "निष्क्रिय करने पर बॉट चैट संदेश पढ़ना बंद कर देता है। आपकी सेटिंग्स सहेजी रहेंगी। आप किसी भी समय सेवा को फिर से सक्रिय कर सकते हैं।",
-    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>दस्तावेज़ </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>दर्शक सेटिंग्स </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>दस्तावेज़",
     "emotion": "भाव",
     "engNormalization": "Eng. सामान्यीकरण",
     "language": "भाषा",
@@ -81,6 +81,7 @@
     "signedInAs": "के रूप में साइन इन हैं",
     "speed": "गति",
     "testMessage": "परीक्षण संदेश",
+    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>दर्शक सेटिंग्स",
     "voicePreview": "आवाज़ पूर्वावलोकन",
     "volume": "वॉल्यूम"
   },
@@ -345,8 +346,8 @@
   },
   "page": {
     "channelDashboard": "चैनल डैशबोर्ड",
-    "textToSpeechSettingsFor": "आपके चैनल के लिए टेक्स्ट-टू-स्पीच सेटिंग्स। बदलाव करने पर वे अपने आप सेव हो जाते हैं।",
-    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">डैशबोर्ड</span>"
+    "dashboard": "डैशबोर्ड",
+    "textToSpeechSettingsFor": "आपके चैनल के लिए टेक्स्ट-टू-स्पीच सेटिंग्स। बदलाव करने पर वे अपने आप सेव हो जाते हैं।"
   },
   "profanityFilterEnabled": {
     "profanityFilter": "अपशब्द फ़िल्टर"

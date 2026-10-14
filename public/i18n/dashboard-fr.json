@@ -71,7 +71,7 @@
     "channelService": "Service de la chaîne",
     "dashboardConfigurationTabs": "Onglets de configuration du tableau de bord",
     "deactivationStopsTheBotFrom": "La désactivation empêche le bot de lire les messages du chat. Vos paramètres restent enregistrés. Vous pouvez réactiver le service à tout moment.",
-    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Documentation </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>Paramètres spectateur </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Documentation",
     "emotion": "Émotion",
     "engNormalization": "Normalisation angl.",
     "language": "Langue",
@@ -81,6 +81,7 @@
     "signedInAs": "Connecté en tant que",
     "speed": "Vitesse",
     "testMessage": "Message de test",
+    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Paramètres spectateur",
     "voicePreview": "Aperçu de la voix",
     "volume": "Volume"
   },
@@ -345,8 +346,8 @@
   },
   "page": {
     "channelDashboard": "Tableau de bord de la chaîne",
-    "textToSpeechSettingsFor": "Paramètres de synthèse vocale pour votre chaîne. Les modifications sont enregistrées au fur et à mesure.",
-    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Tableau de bord</span>"
+    "dashboard": "Tableau de bord",
+    "textToSpeechSettingsFor": "Paramètres de synthèse vocale pour votre chaîne. Les modifications sont enregistrées au fur et à mesure."
   },
   "profanityFilterEnabled": {
     "profanityFilter": "Filtre de vulgarités"

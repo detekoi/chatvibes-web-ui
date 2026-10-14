@@ -71,7 +71,7 @@
     "channelService": "Сервіс каналу",
     "dashboardConfigurationTabs": "Вкладки налаштувань панелі керування",
     "deactivationStopsTheBotFrom": "Деактивація зупиняє читання ботом повідомлень чату. Ваші налаштування збережуться. Ви можете знову активувати сервіс будь-коли.",
-    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Документація </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>Налаштування глядача </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Документація",
     "emotion": "Емоція",
     "engNormalization": "Англ. нормалізація",
     "language": "Мова",
@@ -81,6 +81,7 @@
     "signedInAs": "Ви увійшли як",
     "speed": "Швидкість",
     "testMessage": "Тестове повідомлення",
+    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Налаштування глядача",
     "voicePreview": "Прослуховування голосу",
     "volume": "Гучність"
   },
@@ -345,8 +346,8 @@
   },
   "page": {
     "channelDashboard": "Панель керування каналом",
-    "textToSpeechSettingsFor": "Налаштування синтезу мовлення для вашого каналу. Зміни зберігаються автоматично.",
-    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Панель керування</span>"
+    "dashboard": "Панель керування",
+    "textToSpeechSettingsFor": "Налаштування синтезу мовлення для вашого каналу. Зміни зберігаються автоматично."
   },
   "profanityFilterEnabled": {
     "profanityFilter": "Фільтр ненормативної лексики"

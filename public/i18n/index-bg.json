@@ -18,9 +18,9 @@
     "colorTheme": "Цветова тема",
     "iAmAViewer": "<span class=\"wc-rule-name\">Аз съм зрител</span>",
     "iRunTheChannel": "<span class=\"wc-rule-name\">Управлявам канала</span>",
+    "inviteOnly": "Само с покана",
     "setHowYourMessagesSound": "Настрой как да звучат съобщенията ти, когато TTS ги чете в каналите, които посещаваш.",
     "textToSpeechForYour": "Текст към реч за твоя Twitch канал – за стриймъри и зрители.",
-    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">Само с покана</span>",
     "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">Управление на бота за текст към реч</span>"
   },
   "meta": {

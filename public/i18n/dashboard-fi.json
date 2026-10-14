@@ -71,7 +71,7 @@
     "channelService": "Kanavapalvelu",
     "dashboardConfigurationTabs": "Ohjauspaneelin asetusvälilehdet",
     "deactivationStopsTheBotFrom": "Käytöstä poistaminen estää bottia lukemasta chat-viestejä. Asetuksesi säilyvät tallennettuina. Voit aktivoida palvelun uudelleen milloin tahansa.",
-    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentaatio </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>Katsojan asetukset </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentaatio",
     "emotion": "Tunne",
     "engNormalization": "Engl. normalisointi",
     "language": "Kieli",
@@ -81,6 +81,7 @@
     "signedInAs": "Kirjautuneena käyttäjänä",
     "speed": "Nopeus",
     "testMessage": "Testiviesti",
+    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Katsojan asetukset",
     "voicePreview": "Äänen esikuuntelu",
     "volume": "Äänenvoimakkuus"
   },
@@ -345,8 +346,8 @@
   },
   "page": {
     "channelDashboard": "Kanavan hallintapaneeli",
-    "textToSpeechSettingsFor": "Kanavasi puhesynteesiasetukset. Muutokset tallentuvat sitä mukaa kuin teet niitä.",
-    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Hallintapaneeli</span>"
+    "dashboard": "Hallintapaneeli",
+    "textToSpeechSettingsFor": "Kanavasi puhesynteesiasetukset. Muutokset tallentuvat sitä mukaa kuin teet niitä."
   },
   "profanityFilterEnabled": {
     "profanityFilter": "Kiroilusuodatin"

@@ -71,7 +71,7 @@
     "channelService": "บริการของช่อง",
     "dashboardConfigurationTabs": "แท็บการกำหนดค่าแดชบอร์ด",
     "deactivationStopsTheBotFrom": "การปิดใช้งานจะหยุดบอทไม่ให้อ่านข้อความในแชท การตั้งค่าของคุณจะยังคงได้รับการบันทึกไว้ คุณสามารถเปิดใช้งานบริการได้อีกครั้งทุกเมื่อ",
-    "documentationViewerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>เอกสารคู่มือ </a> <a class=\"wc-link wc-link--muted\" href=\"viewer-settings.html\"> <i data-lucide=\"settings\" aria-hidden=\"true\"></i>การตั้งค่าผู้ชม </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
+    "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>เอกสารคู่มือ",
     "emotion": "อารมณ์",
     "engNormalization": "การปรับมาตรฐานภาษาอังกฤษ",
     "language": "ภาษา",
@@ -81,6 +81,7 @@
     "signedInAs": "ลงชื่อเข้าใช้ในชื่อ",
     "speed": "ความเร็ว",
     "testMessage": "ข้อความทดสอบ",
+    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>การตั้งค่าผู้ชม",
     "voicePreview": "ตัวอย่างเสียง",
     "volume": "ระดับเสียง"
   },
@@ -345,8 +346,8 @@
   },
   "page": {
     "channelDashboard": "แดชบอร์ดช่อง",
-    "textToSpeechSettingsFor": "การตั้งค่า Text-to-speech สำหรับช่องของคุณ การเปลี่ยนแปลงจะถูกบันทึกโดยอัตโนมัติ",
-    "wildcatTtsDashboard": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">แดชบอร์ด</span>"
+    "dashboard": "แดชบอร์ด",
+    "textToSpeechSettingsFor": "การตั้งค่า Text-to-speech สำหรับช่องของคุณ การเปลี่ยนแปลงจะถูกบันทึกโดยอัตโนมัติ"
   },
   "profanityFilterEnabled": {
     "profanityFilter": "ตัวกรองคำหยาบคาย"

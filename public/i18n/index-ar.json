@@ -18,9 +18,9 @@
     "colorTheme": "سمة الألوان",
     "iAmAViewer": "<span class=\"wc-rule-name\">أنا مشاهد</span>",
     "iRunTheChannel": "<span class=\"wc-rule-name\">أنا أدير القناة</span>",
+    "inviteOnly": "بدعوة فقط",
     "setHowYourMessagesSound": "اضبط كيف تبدو رسائلك عند قراءتها بواسطة TTS في أي قناة تزورها.",
     "textToSpeechForYour": "تحويل النص إلى كلام لقناتك على Twitch، لصناع البث والمشاهدين.",
-    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">بدعوة فقط</span>",
     "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">إدارة بوت تحويل النص إلى كلام</span>"
   },
   "meta": {

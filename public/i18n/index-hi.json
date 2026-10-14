@@ -18,9 +18,9 @@
     "colorTheme": "कलर थीम",
     "iAmAViewer": "<span class=\"wc-rule-name\">मैं एक व्यूअर हूँ</span>",
     "iRunTheChannel": "<span class=\"wc-rule-name\">मैं चैनल चलाता हूँ</span>",
+    "inviteOnly": "केवल इनवाइट द्वारा",
     "setHowYourMessagesSound": "सेट करें कि जब आप किसी भी चैनल पर जाएँ, तो TTS द्वारा आपके मैसेज पढ़े जाने पर वे कैसे सुनाई दें।",
     "textToSpeechForYour": "आपके Twitch चैनल के लिए टेक्स्ट-टू-स्पीच, स्ट्रीमर्स और व्यूअर्स के लिए।",
-    "wildcatTtsInviteOnly": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-readout\">केवल इनवाइट द्वारा</span>",
     "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">टेक्स्ट-टू-स्पीच बॉट मैनेजमेंट</span>"
   },
   "meta": {

@@ -42,10 +42,10 @@
     <a data-i18n="page.skipToMainContent" href="#main-content" class="wc-skip-link">Skip to main content</a>
 
     <header class="wc-appbar">
-        <div data-i18n="page.wildcatTtsDashboard" class="wc-appbar-brand">
-            <span class="wc-lockup">Wildcat<b>TTS</b></span>
+        <div class="wc-appbar-brand">
+            <span class="wc-lockup" data-i18n-skip><a class="wc-lockup-link" href="https://wildcat.chat">Wildcat</a><b>TTS</b></span>
             <span class="wc-sep"></span>
-            <span class="wc-appbar-page">Dashboard</span>
+            <span data-i18n="page.dashboard" class="wc-appbar-page">Dashboard</span>
         </div>
         <div class="wc-appbar-actions">
                 <!-- OBS Setup Button & Popover -->
@@ -1005,14 +1005,20 @@
                 <section class="wc-aside-card">
                     <header data-i18n="dashboardContent.quickLinks">Quick links</header>
                     <div class="wc-aside-body">
-                        <div data-i18n="dashboardContent.documentationViewerSettingsWildcatChat" class="wc-links">
-                            <a class="wc-link wc-link--muted" href="https://docs.wildcat.chat/wildcatttsdocs.html" target="_blank" rel="noopener">
+                        <div class="wc-links">
+                            <a data-i18n="dashboardContent.documentation" class="wc-link wc-link--muted" href="https://docs.wildcat.chat/wildcatttsdocs.html" target="_blank" rel="noopener">
                                 <i data-lucide="book" aria-hidden="true"></i>Documentation
                             </a>
-                            <a class="wc-link wc-link--muted" href="viewer-settings.html">
+                            <a data-i18n="dashboardContent.viewerSettings" class="wc-link wc-link--muted" href="viewer-settings.html">
                                 <i data-lucide="settings" aria-hidden="true"></i>Viewer settings
                             </a>
-                            <a class="wc-link wc-link--muted" href="https://wildcat.chat" target="_blank" rel="noopener">
+                            <a class="wc-link wc-link--muted" href="https://bot.wildcat.chat" target="_blank" rel="noopener" data-i18n-skip>
+                                <i data-lucide="bot" aria-hidden="true"></i>WildcatSage
+                            </a>
+                            <a class="wc-link wc-link--muted" href="https://wildcat.chat/chat-overlay/" target="_blank" rel="noopener" data-i18n-skip>
+                                <i data-lucide="message-square" aria-hidden="true"></i>Chat Overlay
+                            </a>
+                            <a class="wc-link wc-link--muted" href="https://wildcat.chat" target="_blank" rel="noopener" data-i18n-skip>
                                 <i data-lucide="external-link" aria-hidden="true"></i>Wildcat Chat
                             </a>
                         </div>

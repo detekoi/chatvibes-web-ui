@@ -149,8 +149,8 @@
   },
   "page": {
     "setHowYourMessagesSound": "Määritä, miltä viestisi kuulostavat, kun WildcatTTS lukee ne. Asetuksesi ovat yleisiä ja koskevat kaikkia kanavia.",
-    "viewerTtsPreferences": "Katsojan TTS-asetukset",
-    "wildcatTtsViewerSettings": "<span class=\"wc-lockup\">Wildcat<b>TTS</b></span> <span class=\"wc-sep\"></span> <span class=\"wc-appbar-page\">Katsojan asetukset</span>"
+    "viewerSettings": "Katsojan asetukset",
+    "viewerTtsPreferences": "Katsojan TTS-asetukset"
   },
   "pitchReset": {
     "clear": "Tyhjennä",
