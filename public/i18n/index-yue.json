@@ -17,8 +17,8 @@
     "changeTtsSettingsControlBot": "更改 TTS 設定 • 控制 Bot 聊天室回覆 • 設定 Channel Points • 自訂語音偏好",
     "colorTheme": "顏色主題",
     "iAmAViewer": "<span class=\"wc-rule-name\">我係觀眾</span>",
-    "iRunTheChannel": "<span class=\"wc-rule-name\">我係台主</span>",
     "inviteOnly": "只限受邀",
+    "iRunTheChannel": "<span class=\"wc-rule-name\">我係台主</span>",
     "setHowYourMessagesSound": "設定你去親任何頻道，TTS 讀出你嘅訊息時嘅聲音。",
     "textToSpeechForYour": "專為你嘅 Twitch 頻道而設嘅 TTS 語音功能，實況主同觀眾都適用。",
     "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">TTS Bot 管理</span>"

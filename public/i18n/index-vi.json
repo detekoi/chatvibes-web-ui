@@ -17,8 +17,8 @@
     "changeTtsSettingsControlBot": "Đổi cài đặt TTS • Quản lý phản hồi chat của bot • Cấu hình Channel Points • Tùy chỉnh giọng đọc",
     "colorTheme": "Chủ đề màu",
     "iAmAViewer": "<span class=\"wc-rule-name\">Tôi là người xem</span>",
+    "inviteOnly": "Chỉ mời",
     "iRunTheChannel": "<span class=\"wc-rule-name\">Tôi là chủ kênh</span>",
-    "inviteOnly": "Chỉ người được mời",
     "setHowYourMessagesSound": "Tùy chỉnh giọng đọc tin nhắn của bạn khi TTS phát âm trên bất kỳ kênh nào bạn ghé thăm.",
     "textToSpeechForYour": "Chuyển văn bản thành giọng nói cho kênh Twitch của bạn, dành cho streamer và người xem.",
     "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">Quản lý bot chuyển văn bản thành giọng nói</span>"

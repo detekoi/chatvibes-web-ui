@@ -81,7 +81,7 @@
     "signedInAs": "Sessió iniciada com a",
     "speed": "Velocitat",
     "testMessage": "Missatge de prova",
-    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Configuració d'espectador",
+    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Ajustos de l'espectador",
     "voicePreview": "Previsualització de veu",
     "volume": "Volum"
   },

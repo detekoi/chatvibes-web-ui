@@ -81,7 +81,7 @@
     "signedInAs": "Prijavljeni kao",
     "speed": "Brzina",
     "testMessage": "Testna poruka",
-    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Postavke za gledatelje",
+    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Postavke gledatelja",
     "voicePreview": "Pretpregled glasa",
     "volume": "Glasnoća"
   },

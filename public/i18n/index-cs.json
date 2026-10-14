@@ -17,8 +17,8 @@
     "changeTtsSettingsControlBot": "Změna nastavení TTS • Ovládání odpovědí bota v chatu • Konfigurace Channel Points • Nastavení předvoleb hlasů",
     "colorTheme": "Barevný motiv",
     "iAmAViewer": "<span class=\"wc-rule-name\">Jsem divák</span>",
-    "iRunTheChannel": "<span class=\"wc-rule-name\">Spravuji kanál</span>",
     "inviteOnly": "Pouze na pozvání",
+    "iRunTheChannel": "<span class=\"wc-rule-name\">Spravuji kanál</span>",
     "setHowYourMessagesSound": "Nastavte si, jak budou znít vaše zprávy, když je TTS předčítá na jakémkoliv kanálu, který navštívíte.",
     "textToSpeechForYour": "Text-to-speech pro váš kanál Twitch, pro streamery i diváky.",
     "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">Správa text-to-speech bota</span>"

@@ -71,7 +71,7 @@
     "channelService": "บริการของช่อง",
     "dashboardConfigurationTabs": "แท็บการกำหนดค่าแดชบอร์ด",
     "deactivationStopsTheBotFrom": "การปิดใช้งานจะหยุดบอทไม่ให้อ่านข้อความในแชท การตั้งค่าของคุณจะยังคงได้รับการบันทึกไว้ คุณสามารถเปิดใช้งานบริการได้อีกครั้งทุกเมื่อ",
-    "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>เอกสารคู่มือ",
+    "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>เอกสาร",
     "emotion": "อารมณ์",
     "engNormalization": "การปรับมาตรฐานภาษาอังกฤษ",
     "language": "ภาษา",
@@ -81,7 +81,7 @@
     "signedInAs": "ลงชื่อเข้าใช้ในชื่อ",
     "speed": "ความเร็ว",
     "testMessage": "ข้อความทดสอบ",
-    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>การตั้งค่าผู้ชม",
+    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>ตั้งค่าผู้ชม",
     "voicePreview": "ตัวอย่างเสียง",
     "volume": "ระดับเสียง"
   },

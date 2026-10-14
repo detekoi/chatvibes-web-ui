@@ -17,8 +17,8 @@
     "changeTtsSettingsControlBot": "تغییر تنظیمات TTS • کنترل پاسخ‌های چت ربات • پیکربندی Channel Points • تنظیم اولویت‌های صدا",
     "colorTheme": "تم رنگی",
     "iAmAViewer": "<span class=\"wc-rule-name\">من بیننده هستم</span>",
-    "iRunTheChannel": "<span class=\"wc-rule-name\">من مدیر کانال هستم</span>",
     "inviteOnly": "فقط با دعوت",
+    "iRunTheChannel": "<span class=\"wc-rule-name\">من مدیر کانال هستم</span>",
     "setHowYourMessagesSound": "تنظیم نحوه خوانده شدن پیام‌هایتان با TTS در هر کانالی که بازدید می‌کنید.",
     "textToSpeechForYour": "تبدیل متن به گفتار برای کانال Twitch شما، برای استریمرها و بینندگان.",
     "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">مدیریت ربات تبدیل متن به گفتار</span>"

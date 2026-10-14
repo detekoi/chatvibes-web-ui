@@ -81,7 +81,7 @@
     "signedInAs": "Prihlásený ako",
     "speed": "Rýchlosť",
     "testMessage": "Testovacia správa",
-    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Nastavenia diváka",
+    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Nastavenia pre divákov",
     "voicePreview": "Ukážka hlasu",
     "volume": "Hlasitosť"
   },
@@ -346,7 +346,7 @@
   },
   "page": {
     "channelDashboard": "Prehľad kanála",
-    "dashboard": "Ovládací panel",
+    "dashboard": "Prehľad",
     "textToSpeechSettingsFor": "Nastavenia prevodu textu na reč pre váš kanál. Zmeny sa ukladajú priebežne."
   },
   "profanityFilterEnabled": {

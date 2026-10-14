@@ -81,7 +81,7 @@
     "signedInAs": "Angemeldet als",
     "speed": "Geschwindigkeit",
     "testMessage": "Testnachricht",
-    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Zuschauer-Einstellungen",
+    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Zuschauereinstellungen",
     "voicePreview": "Stimmvorschau",
     "volume": "Lautstärke"
   },
