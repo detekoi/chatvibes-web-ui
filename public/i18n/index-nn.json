@@ -17,8 +17,8 @@
     "changeTtsSettingsControlBot": "Endre TTS-innstillingar • Styr botsvar i chatten • Konfigurer Channel Points • Vel stemmepreferansar",
     "colorTheme": "Fargetema",
     "iAmAViewer": "<span class=\"wc-rule-name\">Eg er sjåar</span>",
-    "iRunTheChannel": "<span class=\"wc-rule-name\">Eg driv kanalen</span>",
     "inviteOnly": "Berre for inviterte",
+    "iRunTheChannel": "<span class=\"wc-rule-name\">Eg driv kanalen</span>",
     "setHowYourMessagesSound": "Vel korleis meldingane dine skal høyrast ut når TTS les dei i kanalar du vitjar.",
     "textToSpeechForYour": "Tekst-til-tale for Twitch-kanalen din, for strøymarar og sjåarar.",
     "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">Administrasjon av tekst-til-tale-bot</span>"

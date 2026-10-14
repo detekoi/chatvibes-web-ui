@@ -149,7 +149,7 @@
   },
   "page": {
     "setHowYourMessagesSound": "Lege fest, wie deine Nachrichten klingen, wenn WildcatTTS sie vorliest. Deine Einstellungen sind global und gelten für alle Kanäle.",
-    "viewerSettings": "Zuschauer-Einstellungen",
+    "viewerSettings": "Zuschauereinstellungen",
     "viewerTtsPreferences": "Zuschauer-TTS-Einstellungen"
   },
   "pitchReset": {

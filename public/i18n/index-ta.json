@@ -17,8 +17,8 @@
     "changeTtsSettingsControlBot": "TTS அமைப்புகளை மாற்றவும் • போட் சாட் பதில்களைக் கட்டுப்படுத்தவும் • Channel Points கட்டமைக்கவும் • குரல் விருப்பங்களை அமைக்கவும்",
     "colorTheme": "வண்ண தீம்",
     "iAmAViewer": "<span class=\"wc-rule-name\">நான் ஒரு பார்வையாளர்</span>",
+    "inviteOnly": "அழைப்பின் பேரில் மட்டும்",
     "iRunTheChannel": "<span class=\"wc-rule-name\">நான் சேனலை நடத்துகிறேன்</span>",
-    "inviteOnly": "அழைப்பு மூலம் மட்டுமே",
     "setHowYourMessagesSound": "நீங்கள் செல்லும் எந்த சேனலிலும் TTS வாசிக்கும் போது உங்கள் செய்திகள் எவ்வாறு ஒலிக்க வேண்டும் என்பதை அமைக்கவும்.",
     "textToSpeechForYour": "உங்கள் Twitch சேனலுக்கான டெக்ஸ்ட்-டு-ஸ்பீச், ஸ்ட்ரீமர்கள் மற்றும் பார்வையாளர்களுக்கு.",
     "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">டெக்ஸ்ட்-டு-ஸ்பீச் போட் நிர்வாகம்</span>"

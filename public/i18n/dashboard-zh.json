@@ -346,7 +346,7 @@
   },
   "page": {
     "channelDashboard": "频道控制面板",
-    "dashboard": "控制面板",
+    "dashboard": "仪表盘",
     "textToSpeechSettingsFor": "频道的文本转语音设置。更改会实时自动保存。"
   },
   "profanityFilterEnabled": {

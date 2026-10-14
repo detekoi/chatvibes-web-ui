@@ -81,7 +81,7 @@
     "signedInAs": "Kirjautuneena käyttäjänä",
     "speed": "Nopeus",
     "testMessage": "Testiviesti",
-    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Katsojan asetukset",
+    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Katsoja-asetukset",
     "voicePreview": "Äänen esikuuntelu",
     "volume": "Äänenvoimakkuus"
   },
@@ -346,7 +346,7 @@
   },
   "page": {
     "channelDashboard": "Kanavan hallintapaneeli",
-    "dashboard": "Hallintapaneeli",
+    "dashboard": "Ohjauspaneeli",
     "textToSpeechSettingsFor": "Kanavasi puhesynteesiasetukset. Muutokset tallentuvat sitä mukaa kuin teet niitä."
   },
   "profanityFilterEnabled": {

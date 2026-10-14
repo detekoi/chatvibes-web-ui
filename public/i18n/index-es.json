@@ -17,8 +17,8 @@
     "changeTtsSettingsControlBot": "Cambia los ajustes de TTS • Controla las respuestas del bot en el chat • Configura Channel Points • Define preferencias de voz",
     "colorTheme": "Tema de color",
     "iAmAViewer": "<span class=\"wc-rule-name\">Soy espectador</span>",
-    "iRunTheChannel": "<span class=\"wc-rule-name\">Administro el canal</span>",
     "inviteOnly": "Solo por invitación",
+    "iRunTheChannel": "<span class=\"wc-rule-name\">Administro el canal</span>",
     "setHowYourMessagesSound": "Elige cómo suenan tus mensajes cuando el TTS los lea en cualquier canal que visites.",
     "textToSpeechForYour": "Texto a voz para tu canal de Twitch, para streamers y espectadores.",
     "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">Gestión del bot de texto a voz</span>"

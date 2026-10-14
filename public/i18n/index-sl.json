@@ -17,8 +17,8 @@
     "changeTtsSettingsControlBot": "Spremeni nastavitve TTS • Nadzoruj odgovore bota v klepetu • Konfiguriraj Channel Points • Nastavi želeni glas",
     "colorTheme": "Barvna tema",
     "iAmAViewer": "<span class=\"wc-rule-name\">Sem gledalec</span>",
-    "iRunTheChannel": "<span class=\"wc-rule-name\">Upravljam kanal</span>",
     "inviteOnly": "Samo s povabilom",
+    "iRunTheChannel": "<span class=\"wc-rule-name\">Upravljam kanal</span>",
     "setHowYourMessagesSound": "Nastavi, kako zvenijo tvoja sporočila, ko jih TTS bere v katerem koli kanalu, ki ga obiščeš.",
     "textToSpeechForYour": "Pretvorba besedila v govor za tvoj kanal Twitch – za ustvarjalce in gledalce.",
     "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">Upravljanje bota za pretvorbo besedila v govor</span>"

@@ -17,8 +17,8 @@
     "changeTtsSettingsControlBot": "تغيير إعدادات TTS • التحكم في ردود دردشة البوت • ضبط Channel Points • تعيين تفضيلات الصوت",
     "colorTheme": "سمة الألوان",
     "iAmAViewer": "<span class=\"wc-rule-name\">أنا مشاهد</span>",
-    "iRunTheChannel": "<span class=\"wc-rule-name\">أنا أدير القناة</span>",
     "inviteOnly": "بدعوة فقط",
+    "iRunTheChannel": "<span class=\"wc-rule-name\">أنا أدير القناة</span>",
     "setHowYourMessagesSound": "اضبط كيف تبدو رسائلك عند قراءتها بواسطة TTS في أي قناة تزورها.",
     "textToSpeechForYour": "تحويل النص إلى كلام لقناتك على Twitch، لصناع البث والمشاهدين.",
     "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">إدارة بوت تحويل النص إلى كلام</span>"

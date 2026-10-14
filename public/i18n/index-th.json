@@ -17,8 +17,8 @@
     "changeTtsSettingsControlBot": "เปลี่ยนการตั้งค่า TTS • ควบคุมการตอบกลับแชทของบอท • กำหนดค่า Channel Points • ตั้งค่าเสียงที่ต้องการ",
     "colorTheme": "ธีมสี",
     "iAmAViewer": "<span class=\"wc-rule-name\">ฉันเป็นผู้ชม</span>",
-    "iRunTheChannel": "<span class=\"wc-rule-name\">ฉันเป็นเจ้าของช่อง</span>",
     "inviteOnly": "เฉพาะผู้ได้รับเชิญ",
+    "iRunTheChannel": "<span class=\"wc-rule-name\">ฉันเป็นเจ้าของช่อง</span>",
     "setHowYourMessagesSound": "ตั้งค่าเสียงข้อความของคุณเมื่อ TTS อ่านออกเสียงในทุกช่องที่คุณเข้าชม",
     "textToSpeechForYour": "ระบบ Text-to-speech สำหรับช่อง Twitch ของคุณ เพื่อสตรีมเมอร์และผู้ชม",
     "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">การจัดการบอท Text-to-speech</span>"

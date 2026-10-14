@@ -17,8 +17,8 @@
     "changeTtsSettingsControlBot": "TTS 설정 변경 • 봇 채팅 응답 제어 • Channel Points 구성 • 음성 환경설정 지정",
     "colorTheme": "색상 테마",
     "iAmAViewer": "<span class=\"wc-rule-name\">시청자입니다</span>",
-    "iRunTheChannel": "<span class=\"wc-rule-name\">채널 운영자입니다</span>",
     "inviteOnly": "초대 전용",
+    "iRunTheChannel": "<span class=\"wc-rule-name\">채널 운영자입니다</span>",
     "setHowYourMessagesSound": "방문하는 모든 채널에서 TTS가 내 메시지를 읽을 때 들리는 음성을 설정합니다.",
     "textToSpeechForYour": "스트리머와 시청자를 위한 Twitch 채널용 TTS입니다.",
     "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">TTS 봇 관리</span>"

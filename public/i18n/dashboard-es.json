@@ -81,7 +81,7 @@
     "signedInAs": "Sesión iniciada como",
     "speed": "Velocidad",
     "testMessage": "Mensaje de prueba",
-    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Ajustes de espectador",
+    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Ajustes del espectador",
     "voicePreview": "Vista previa de voz",
     "volume": "Volumen"
   },
@@ -346,7 +346,7 @@
   },
   "page": {
     "channelDashboard": "Panel del canal",
-    "dashboard": "Panel",
+    "dashboard": "Panel de control",
     "textToSpeechSettingsFor": "Ajustes de texto a voz para tu canal. Los cambios se guardan al realizarlos."
   },
   "profanityFilterEnabled": {

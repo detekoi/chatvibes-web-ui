@@ -149,7 +149,7 @@
   },
   "page": {
     "setHowYourMessagesSound": "Define cómo suenan tus mensajes cuando WildcatTTS los lee. Tus preferencias son globales y se aplican a todos los canales.",
-    "viewerSettings": "Ajustes de espectador",
+    "viewerSettings": "Ajustes del espectador",
     "viewerTtsPreferences": "Preferencias de TTS del espectador"
   },
   "pitchReset": {

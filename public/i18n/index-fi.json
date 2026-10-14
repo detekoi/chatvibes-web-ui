@@ -17,8 +17,8 @@
     "changeTtsSettingsControlBot": "Muuta TTS-asetuksia • Hallitse botin chat-vastauksia • Määritä Channel Points • Valitse ääniasetukset",
     "colorTheme": "Väriteema",
     "iAmAViewer": "<span class=\"wc-rule-name\">Olen katsoja</span>",
+    "inviteOnly": "Vain kutsusta",
     "iRunTheChannel": "<span class=\"wc-rule-name\">Ylläpidän kanavaa</span>",
-    "inviteOnly": "Vain kutsulla",
     "setHowYourMessagesSound": "Määritä, miltä viestisi kuulostavat, kun TTS lukee ne vierailemillasi kanavilla.",
     "textToSpeechForYour": "Puhesynteesi Twitch-kanavallesi, striimaajille ja katsojille.",
     "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">Puhesynteesibotin hallinta</span>"

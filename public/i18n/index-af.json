@@ -17,8 +17,8 @@
     "changeTtsSettingsControlBot": "Verander TTS-instellings • Beheer bot-kletsantwoorde • Stel Channel Points op • Stel stemvoorkeure in",
     "colorTheme": "Kleurtema",
     "iAmAViewer": "<span class=\"wc-rule-name\">Ek is 'n kyker</span>",
-    "iRunTheChannel": "<span class=\"wc-rule-name\">Ek bestuur die kanaal</span>",
     "inviteOnly": "Slegs op uitnodiging",
+    "iRunTheChannel": "<span class=\"wc-rule-name\">Ek bestuur die kanaal</span>",
     "setHowYourMessagesSound": "Stel in hoe jou boodskappe klink wanneer TTS dit voorlees in enige kanaal wat jy besoek.",
     "textToSpeechForYour": "Teks-na-spraak vir jou Twitch-kanaal, vir stromers en kykers.",
     "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">Teks-na-spraak-botbestuur</span>"

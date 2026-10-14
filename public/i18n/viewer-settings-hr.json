@@ -149,7 +149,7 @@
   },
   "page": {
     "setHowYourMessagesSound": "Postavite kako vaše poruke zvuče kada ih WildcatTTS čita. Vaše su postavke globalne i primjenjuju se na sve kanale.",
-    "viewerSettings": "Postavke za gledatelje",
+    "viewerSettings": "Postavke gledatelja",
     "viewerTtsPreferences": "TTS postavke za gledatelje"
   },
   "pitchReset": {

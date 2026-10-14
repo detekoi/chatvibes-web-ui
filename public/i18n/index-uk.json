@@ -17,8 +17,8 @@
     "changeTtsSettingsControlBot": "Змінюйте налаштування TTS • Керуйте відповідями бота в чаті • Налаштовуйте Channel Points • Обирайте власний голос",
     "colorTheme": "Колірна тема",
     "iAmAViewer": "<span class=\"wc-rule-name\">Я глядач</span>",
-    "iRunTheChannel": "<span class=\"wc-rule-name\">Я веду канал</span>",
     "inviteOnly": "Лише за запрошенням",
+    "iRunTheChannel": "<span class=\"wc-rule-name\">Я веду канал</span>",
     "setHowYourMessagesSound": "Налаштуйте звучання своїх повідомлень, коли TTS озвучує їх на каналах, які ви відвідуєте.",
     "textToSpeechForYour": "Озвучення тексту для вашого каналу Twitch: для стрімерів і глядачів.",
     "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">Керування ботом озвучення тексту</span>"

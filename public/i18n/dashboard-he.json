@@ -81,7 +81,7 @@
     "signedInAs": "מחובר בתור",
     "speed": "מהירות",
     "testMessage": "הודעת בדיקה",
-    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>הגדרות צופה",
+    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>הגדרות צופים",
     "voicePreview": "תצוגה מקדימה של הקול",
     "volume": "עוצמת שמע"
   },

@@ -17,8 +17,8 @@
     "changeTtsSettingsControlBot": "TTS ayarlarını değiştir • Bot sohbet yanıtlarını yönet • Kanal Puanlarını yapılandır • Ses tercihlerini ayarla",
     "colorTheme": "Renk teması",
     "iAmAViewer": "<span class=\"wc-rule-name\">İzleyiciyim</span>",
+    "inviteOnly": "Sadece davetle",
     "iRunTheChannel": "<span class=\"wc-rule-name\">Kanalı yönetiyorum</span>",
-    "inviteOnly": "Yalnızca davetle",
     "setHowYourMessagesSound": "Ziyaret ettiğin herhangi bir kanalda TTS mesajlarını okurken sesinin nasıl çıkacağını ayarla.",
     "textToSpeechForYour": "Twitch kanalın için metin okuma; yayıncılar ve izleyiciler için.",
     "wildcatTtsTextToSpeech": "<span class=\"wc-title-brand\">Wildcat</span><span class=\"wc-title-suffix\">TTS</span> <span class=\"wc-title-line\">Metin okuma botu yönetimi</span>"

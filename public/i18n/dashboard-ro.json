@@ -81,7 +81,7 @@
     "signedInAs": "Conectat ca",
     "speed": "Viteză",
     "testMessage": "Mesaj de test",
-    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Setări spectator",
+    "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Setări spectatori",
     "voicePreview": "Previzualizare voce",
     "volume": "Volum"
   },
