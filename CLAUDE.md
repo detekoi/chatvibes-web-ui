@@ -87,8 +87,8 @@ Rules:
   `npm run css:check` after the change (exit 1 on any difference). The script,
   `scripts/css-snapshot.mjs` (Playwright; `npx playwright install
   chromium-headless-shell` once on a fresh machine), rebuilds the bundle, serves
-  `public/`, loads every page in `scripts/css-snapshot.config.json` at 1100px and
-  400px in both themes (`dashboard.html?test` and `viewer-settings.html?test`
+  `public/`, loads every page in `scripts/css-snapshot.config.json` at 1440px
+  (above the `--wc-page-w` cap), 1100px and 400px in both themes (`dashboard.html?test` and `viewer-settings.html?test`
   render without auth), disables transitions, and records `getComputedStyle`
   for every element. Expect zero differences unless the change is meant to be
   visible; re-save the baseline when markup changes on purpose. `.css-baseline/`
