@@ -207,8 +207,20 @@ export function apiErrorMessage(data: unknown, fallbackKey: string): string {
  * moderator mute from a network blip. That prefix is machine signalling and has
  * no business in a toast, so it is stripped here rather than at each call site,
  * where one of the two that needed it had it and the other did not.
+ *
+ * Our own errors are plain `Error`s carrying translated text. A built-in error
+ * type is never ours: it is either a dropped connection, which `fetch` reports
+ * as a TypeError, or a bug in the page, such as reading `toFixed` off null.
+ * Neither message means anything to a viewer, and both are English.
  */
 export function displayError(error: unknown): string {
+  if (error instanceof TypeError && /fetch|network|load failed/i.test(error.message)) {
+    return t('err.network_error');
+  }
+  if (error instanceof TypeError || error instanceof RangeError ||
+      error instanceof ReferenceError || error instanceof SyntaxError) {
+    return t('msg.api.unexpected');
+  }
   const message = error instanceof Error ? error.message : String(error);
   return message.match(/^API Error: \d+ (.+)$/s)?.[1] ?? message;
 }

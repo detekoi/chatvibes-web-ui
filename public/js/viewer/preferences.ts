@@ -617,8 +617,11 @@ export function initPreferencesModule(
       const response = await fetchWithAuth(endpoint, { method: 'GET' });
       data = await response.json() as PreferencesData;
     } catch (error) {
+      // The reason itself, not a fixed "Cannot load preferences": a channel
+      // without TTS, a dropped connection and a server error need different
+      // things from the viewer.
       console.error('Failed to load preferences:', error);
-      showToast(t('msg.prefs.loadFailed'), 'error');
+      showToast(displayError(error), 'error');
       throw error;
     }
 
@@ -745,16 +748,19 @@ export function initPreferencesModule(
 
   async function savePreference(key: PreferenceKey, value: PreferenceValue): Promise<void> {
     const previous = state.currentPreferences ? state.currentPreferences[key] : undefined;
-    if (state.currentPreferences) {
-      (state.currentPreferences as Record<string, PreferenceValue>)[key] = value;
-      updateHints([key]);
-      updateSidebarMeta();
-    }
-    if (testMode) {
-      showToast(t('msg.prefs.updatedTestMode'), 'success');
-      return;
-    }
+    // The local update sits inside the try. Outside it, a bug in redrawing the
+    // sidebar threw before the request went out, so Clear did nothing at all:
+    // no save, no toast, and a page that no longer matched the server.
     try {
+      if (state.currentPreferences) {
+        (state.currentPreferences as Record<string, PreferenceValue>)[key] = value;
+        updateHints([key]);
+        updateSidebarMeta();
+      }
+      if (testMode) {
+        showToast(t('msg.prefs.updatedTestMode'), 'success');
+        return;
+      }
       const currentChannel = getCurrentChannel();
       const body = { [key]: value };
       const url = currentChannel
@@ -769,8 +775,11 @@ export function initPreferencesModule(
         updateHints([key]);
         updateSidebarMeta();
       }
+      // The reason alone. "Cannot save {key}: {reason}" put the internal field
+      // name in front of a reason that already says what failed, for example
+      // "Cannot save englishNormalization: Cannot save your preferences."
       console.error(`Failed to save ${key}:`, error);
-      showToast(t('msg.prefs.saveFailed', { key, reason: displayError(error) }), 'error');
+      showToast(displayError(error), 'error');
     }
   }
 
