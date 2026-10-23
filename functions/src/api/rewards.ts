@@ -144,7 +144,11 @@ async function ensureTtsChannelPointReward(channelLogin: string, twitchUserId: s
     cost: 500,
     prompt: "Enter a message to be read aloud by the TTS bot",
     is_user_input_required: true,
-    should_redemptions_skip_request_queue: true,
+    // Always off on Twitch. A redemption that skips the queue is FULFILLED at
+    // once, and Twitch refunds only an UNFULFILLED one, so the bot could never
+    // refund a message it refuses. The bot settles each redemption itself
+    // instead; see redemptionStatus.js in the bot.
+    should_redemptions_skip_request_queue: false,
     is_enabled: true,
   };
 
@@ -171,7 +175,8 @@ async function ensureTtsChannelPointReward(channelLogin: string, twitchUserId: s
         title: desiredBody.title,
         cost: desiredBody.cost,
         prompt: desiredBody.prompt,
-        skipQueue: !!desiredBody.should_redemptions_skip_request_queue,
+        // "Approve automatically": the bot fulfills a clean redemption at once.
+        skipQueue: true,
         cooldownSeconds: 0,
         perStreamLimit: 0,
         perUserPerStreamLimit: 0,
@@ -452,7 +457,9 @@ async function handleUpsertTtsReward(req: Request, res: Response): Promise<void>
           cost,
           prompt,
           is_enabled: enabled,
-          should_redemptions_skip_request_queue: skipQueue,
+          // Off whatever the toggle says; `skipQueue` tells the bot whether to
+          // approve at once or wait for the streamer (see desiredBody above).
+          should_redemptions_skip_request_queue: false,
           // Cooldown and limits must include the corresponding enable flags per Twitch docs
           is_global_cooldown_enabled: limitsEnabled ? !!effectiveGlobalEnabled : false,
           global_cooldown_seconds: normalizedCooldown,
