@@ -171,6 +171,7 @@ router.get("/preferences/:channel", authenticateApiRequest, async (req: Request,
       language: globalPrefs.languageBoost ?? null,
       englishNormalization: (globalPrefs.englishNormalization !== undefined) ? globalPrefs.englishNormalization : undefined,
       emoteMode: globalPrefs.emoteMode ?? null,
+      globalOptOut: globalPrefs.globalOptOut === true,
       ignoreStatus: {
         tts: ttsIgnored,
         ttsSource: ttsEntry?.source ?? null,
@@ -270,6 +271,7 @@ router.get("/preferences", authenticateApiRequest, async (req: Request, res: Res
       language: globalPrefs.languageBoost ?? null,
       englishNormalization: (globalPrefs.englishNormalization !== undefined) ? globalPrefs.englishNormalization : undefined,
       emoteMode: globalPrefs.emoteMode ?? null,
+      globalOptOut: globalPrefs.globalOptOut === true,
     };
 
     log.info("Global preferences retrieved");
@@ -304,6 +306,42 @@ router.put("/preferences", authenticateApiRequest, async (req: Request, res: Res
     const err = error as Error;
     log.error({ error: err.message }, "Error updating global preferences");
     apiError(res, 500, "prefs_global_update_failed", "Failed to update global preferences");
+  }
+});
+
+// Route: /api/viewer/opt-out - Opt out of TTS in every channel, or back in
+//
+// Takes the state to set rather than toggling, so a retried request cannot undo
+// itself. The flag sits on the viewer's own preferences document; it is theirs
+// alone, so there is no moderator path and nothing to refuse. The bot drops the
+// viewer's speech everywhere while it is set (chatvibes src/lib/globalOptOut.js).
+router.put("/opt-out", authenticateApiRequest, async (req: Request, res: Response): Promise<void> => {
+  assertAuthenticated(req);
+
+  const username = req.user.userLogin;
+  const log = logger.child({ endpoint: "/api/viewer/opt-out", username });
+
+  const optedOut = req.body?.optedOut;
+  if (typeof optedOut !== "boolean") {
+    apiError(res, 400, "invalid_opt_out", "optedOut must be true or false");
+    return;
+  }
+
+  try {
+    // set + merge rather than update, so opting back in on a viewer who never
+    // saved a preference does not fail on a missing document.
+    await db.collection(COLLECTIONS.TTS_USER_PREFS).doc(req.user.userId).set(
+      optedOut ?
+        { globalOptOut: true, globalOptOutAt: new Date().toISOString() } :
+        { globalOptOut: FieldValue.delete(), globalOptOutAt: FieldValue.delete() },
+      { merge: true },
+    );
+    log.info({ optedOut }, "Updated global TTS opt-out");
+    res.json({ success: true, globalOptOut: optedOut });
+  } catch (error) {
+    const err = error as Error;
+    log.error({ error: err.message }, "Error updating global TTS opt-out");
+    apiError(res, 500, "opt_out_update_failed", "Failed to update your opt-out");
   }
 });
 

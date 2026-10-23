@@ -31,26 +31,6 @@
   "clearChannelContextBtn": {
     "clear": "Effacer"
   },
-  "confirmNo": {
-    "cancel": "Annuler"
-  },
-  "confirmText": {
-    "yourMessagesWillNotBe": "Vos messages ne seront pas lus à voix haute. Vous pouvez réactiver cette option à tout moment."
-  },
-  "confirmTitle": {
-    "confirmAction": "Confirmer l'action"
-  },
-  "confirmYes": {
-    "confirm": "Confirmer"
-  },
-  "dangerTtsToggle": {
-    "optOutOfTtsIn": "Désactiver le TTS pour vous sur cette chaîne",
-    "ttsWillNotReadYour": "Le TTS ne lira pas vos messages sur cette chaîne"
-  },
-  "dangerZoneSection": {
-    "dangerZone": "Zone de danger",
-    "theseSettingsStopTheBot": "Ces paramètres empêchent le bot de lire vos messages sur une chaîne. Vous pouvez annuler vos propres choix. Si un modérateur vous a exclu, seul un modérateur peut annuler cette action."
-  },
   "emotionReset": {
     "clear": "Effacer",
     "resetEmotionToDefault": "Rétablir l'émotion par défaut"
@@ -73,7 +53,7 @@
     "resetEnglishNormalizationToDefault": "Rétablir la normalisation de l'anglais par défaut"
   },
   "ignoreTts": {
-    "optOutOfTtsIn": "Désactiver le TTS pour vous sur cette chaîne"
+    "optOutInThisChannel": "Désactiver sur cette chaîne"
   },
   "languageReset": {
     "clear": "Effacer",
@@ -116,10 +96,9 @@
       "viewingDefaults": "Vous consultez les paramètres par défaut de {channel}."
     },
     "optout": {
-      "confirm": "Voulez-vous désactiver le TTS sur {channel} ? Le TTS ne lira plus vos messages sur cette chaîne. Vous pouvez le réactiver à tout moment.",
-      "confirmDescription": "Entrez le nom de la chaîne pour continuer :",
-      "confirmTitle": "Confirmer la chaîne pour l'exclusion du TTS",
-      "continue": "Continuer",
+      "globalOptedIn": "Vous avez réactivé le TTS. Vos exclusions pour des chaînes précises restent actives.",
+      "globalOptedOut": "Vous avez désactivé le TTS sur toutes les chaînes.",
+      "globalOptedOutTestMode": "Vous avez désactivé le TTS sur toutes les chaînes (mode test).",
       "moderatorNote": "Un modérateur de la chaîne a désactivé le TTS pour vous ici. Seul un modérateur peut annuler cette action.",
       "optInFailed": "Votre modification n'a pas été enregistrée. TTS ne lit toujours pas vos messages. Réessayez.",
       "optOutFailed": "Votre désactivation n'a pas été enregistrée. TTS lit toujours vos messages. Réessayez.",
@@ -127,9 +106,7 @@
       "optedInTestMode": "Vous avez réactivé le TTS (mode test).",
       "optedOut": "Vous avez désactivé le TTS.",
       "optedOutTestMode": "Vous avez désactivé le TTS (mode test).",
-      "selectChannel": "Sélectionnez d'abord une chaîne.",
-      "selfNote": "Vous avez désactivé le TTS ici. Vous pouvez le réactiver à tout moment.",
-      "specifyChannel": "Indiquez une chaîne."
+      "selfNote": "Vous avez désactivé le TTS ici. Vous pouvez le réactiver à tout moment."
     },
     "prefs": {
       "hintChannel": "Utilise la valeur par défaut de la chaîne : {value}",
@@ -144,6 +121,21 @@
   },
   "openChannelContextModalBtn": {
     "loadChannel": "Charger la chaîne…"
+  },
+  "optOutChannelRow": {
+    "optOutInThisChannel": "Désactiver sur cette chaîne",
+    "ttsDoesNotReadYour": "Le TTS ne lit pas vos messages sur cette chaîne."
+  },
+  "optOutGlobal": {
+    "optOutInEveryChannel": "Désactiver sur toutes les chaînes"
+  },
+  "optOutGlobalRow": {
+    "optOutInEveryChannel": "Désactiver sur toutes les chaînes",
+    "ttsDoesNotReadYour": "Le TTS ne lit vos messages sur aucune chaîne. Le TTS annonce toujours vos abonnements, cheers et cadeaux, mais pas le message que vous ajoutez. Cela ne s'applique qu'à Twitch."
+  },
+  "optOutSection": {
+    "optOutOfTts": "Désactiver le TTS pour vous",
+    "turnOnASettingTo": "Activez un réglage pour que le TTS arrête de lire vos messages. Vous pouvez désactiver un réglage que vous avez activé. Si un modérateur vous a exclu d'une chaîne, seul un modérateur peut annuler cela."
   },
   "page": {
     "setHowYourMessagesSound": "Configurez la voix de vos messages lorsqu'ils sont lus par WildcatTTS. Vos préférences sont globales et s'appliquent à toutes les chaînes.",

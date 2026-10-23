@@ -31,26 +31,6 @@
   "clearChannelContextBtn": {
     "clear": "Vee uit"
   },
-  "confirmNo": {
-    "cancel": "Kanselleer"
-  },
-  "confirmText": {
-    "yourMessagesWillNotBe": "Jou boodskappe sal nie hardop gelees word nie. Jy kan dit enige tyd weer aanskakel."
-  },
-  "confirmTitle": {
-    "confirmAction": "Bevestig aksie"
-  },
-  "confirmYes": {
-    "confirm": "Bevestig"
-  },
-  "dangerTtsToggle": {
-    "optOutOfTtsIn": "Onttrek van TTS in hierdie kanaal",
-    "ttsWillNotReadYour": "TTS sal nie jou boodskappe in hierdie kanaal lees nie"
-  },
-  "dangerZoneSection": {
-    "dangerZone": "Gevaarsone",
-    "theseSettingsStopTheBot": "Hierdie instellings keer dat die bot jou boodskappe in 'n kanaal lees. Jy kan enige instelling wat jy kies, terugstel. As 'n moderator jou onttrek het, kan net 'n moderator dit ongedaan maak."
-  },
   "emotionReset": {
     "clear": "Vee uit",
     "resetEmotionToDefault": "Stel emosie terug na verstek"
@@ -73,7 +53,7 @@
     "resetEnglishNormalizationToDefault": "Stel Engelse normalisering terug na verstek"
   },
   "ignoreTts": {
-    "optOutOfTtsIn": "Onttrek van TTS in hierdie kanaal"
+    "optOutInThisChannel": "Onttrek in hierdie kanaal"
   },
   "languageReset": {
     "clear": "Vee uit",
@@ -116,10 +96,9 @@
       "viewingDefaults": "Jy bekyk tans verstekinstellings vir {channel}."
     },
     "optout": {
-      "confirm": "Wil jy jou aan TTS in {channel} onttrek? TTS sal ophou om jou boodskappe in daardie kanaal te lees. Jy kan dit enige tyd weer aanskakel.",
-      "confirmDescription": "Voer die kanaalnaam in om voort te gaan:",
-      "confirmTitle": "Bevestig kanaal vir TTS-opt-out",
-      "continue": "Gaan voort",
+      "globalOptedIn": "Jy het weer by TTS aangesluit. Jou onttrekkings vir enkele kanale bly aan.",
+      "globalOptedOut": "Jy het in elke kanaal van TTS onttrek.",
+      "globalOptedOutTestMode": "Jy het in elke kanaal van TTS onttrek (toetsmodus).",
       "moderatorNote": "'n Kanaalmoderator het jou hier van TTS onttrek. Slegs 'n moderator kan dit ongedaan maak.",
       "optInFailed": "Jou verandering is nie gestoor nie. TTS lees steeds nie jou boodskappe nie. Probeer weer.",
       "optOutFailed": "Jou uitsluiting is nie gestoor nie. TTS lees steeds jou boodskappe. Probeer weer.",
@@ -127,9 +106,7 @@
       "optedInTestMode": "Jy het weer by TTS aangesluit (toetsmodus).",
       "optedOut": "Jy het van TTS onttrek.",
       "optedOutTestMode": "Jy het van TTS onttrek (toetsmodus).",
-      "selectChannel": "Kies eers 'n kanaal.",
-      "selfNote": "Jy het hier van TTS onttrek. Jy kan dit enige tyd weer aanskakel.",
-      "specifyChannel": "Spesifiseer 'n kanaal."
+      "selfNote": "Jy het hier van TTS onttrek. Jy kan dit enige tyd weer aanskakel."
     },
     "prefs": {
       "hintChannel": "Gebruik kanaalverstek: {value}",
@@ -144,6 +121,21 @@
   },
   "openChannelContextModalBtn": {
     "loadChannel": "Laai kanaal…"
+  },
+  "optOutChannelRow": {
+    "optOutInThisChannel": "Onttrek in hierdie kanaal",
+    "ttsDoesNotReadYour": "TTS lees nie jou boodskappe in hierdie kanaal nie."
+  },
+  "optOutGlobal": {
+    "optOutInEveryChannel": "Onttrek in elke kanaal"
+  },
+  "optOutGlobalRow": {
+    "optOutInEveryChannel": "Onttrek in elke kanaal",
+    "ttsDoesNotReadYour": "TTS lees nie jou boodskappe in enige kanaal nie. TTS kondig steeds jou subs, cheers en geskenke aan, maar nie die boodskap wat jy byvoeg nie. Dit geld slegs vir Twitch."
+  },
+  "optOutSection": {
+    "optOutOfTts": "Onttrek van TTS",
+    "turnOnASettingTo": "Skakel 'n instelling aan om TTS te keer om jou boodskappe te lees. Jy kan 'n instelling afskakel wat jy aangeskakel het. As 'n moderator jou uit 'n kanaal onttrek het, kan slegs 'n moderator dit ongedaan maak."
   },
   "page": {
     "setHowYourMessagesSound": "Stel hoe jou boodskappe klink wanneer WildcatTTS dit lees. Jou voorkeure is globaal en geld vir alle kanale.",

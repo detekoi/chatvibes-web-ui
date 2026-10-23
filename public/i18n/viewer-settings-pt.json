@@ -31,26 +31,6 @@
   "clearChannelContextBtn": {
     "clear": "Limpar"
   },
-  "confirmNo": {
-    "cancel": "Cancelar"
-  },
-  "confirmText": {
-    "yourMessagesWillNotBe": "Suas mensagens não serão lidas em voz alta. Você pode reativar isso a qualquer momento."
-  },
-  "confirmTitle": {
-    "confirmAction": "Confirmar ação"
-  },
-  "confirmYes": {
-    "confirm": "Confirmar"
-  },
-  "dangerTtsToggle": {
-    "optOutOfTtsIn": "Desativar TTS neste canal",
-    "ttsWillNotReadYour": "O TTS não lerá suas mensagens neste canal"
-  },
-  "dangerZoneSection": {
-    "dangerZone": "Zona de perigo",
-    "theseSettingsStopTheBot": "Estas configurações impedem o bot de ler suas mensagens em um canal. Você pode reverter qualquer opção que escolher. Se um moderador tiver desativado suas mensagens, apenas um moderador poderá desfazer a ação."
-  },
   "emotionReset": {
     "clear": "Limpar",
     "resetEmotionToDefault": "Redefinir emoção para o padrão"
@@ -73,7 +53,7 @@
     "resetEnglishNormalizationToDefault": "Redefinir normalização de inglês para o padrão"
   },
   "ignoreTts": {
-    "optOutOfTtsIn": "Desativar TTS neste canal"
+    "optOutInThisChannel": "Desativar neste canal"
   },
   "languageReset": {
     "clear": "Limpar",
@@ -116,10 +96,9 @@
       "viewingDefaults": "Você está visualizando as configurações padrão de {channel}."
     },
     "optout": {
-      "confirm": "Deseja desativar o TTS em {channel}? O TTS deixará de ler suas mensagens nesse canal. Você pode reativá-lo a qualquer momento.",
-      "confirmDescription": "Digite o nome do canal para continuar:",
-      "confirmTitle": "Confirmar canal para opt-out de TTS",
-      "continue": "Continuar",
+      "globalOptedIn": "Você reativou o TTS. Suas desativações de canais específicos continuam ativas.",
+      "globalOptedOut": "Você desativou o TTS em todos os canais.",
+      "globalOptedOutTestMode": "Você desativou o TTS em todos os canais (modo de teste).",
       "moderatorNote": "Um moderador do canal desativou seu TTS aqui. Apenas um moderador pode desfazer isso.",
       "optInFailed": "Sua alteração não foi salva. O TTS ainda não lê suas mensagens. Tente novamente.",
       "optOutFailed": "Sua opção de exclusão não foi salva. O TTS ainda lê suas mensagens. Tente novamente.",
@@ -127,9 +106,7 @@
       "optedInTestMode": "Você reativou o TTS (modo de teste).",
       "optedOut": "Você desativou o TTS.",
       "optedOutTestMode": "Você desativou o TTS (modo de teste).",
-      "selectChannel": "Selecione um canal primeiro.",
-      "selfNote": "Você desativou o TTS aqui. Você pode reativá-lo a qualquer momento.",
-      "specifyChannel": "Especifique um canal."
+      "selfNote": "Você desativou o TTS aqui. Você pode reativá-lo a qualquer momento."
     },
     "prefs": {
       "hintChannel": "Usando o padrão do canal: {value}",
@@ -144,6 +121,21 @@
   },
   "openChannelContextModalBtn": {
     "loadChannel": "Carregar canal…"
+  },
+  "optOutChannelRow": {
+    "optOutInThisChannel": "Desativar neste canal",
+    "ttsDoesNotReadYour": "O TTS não lê suas mensagens neste canal."
+  },
+  "optOutGlobal": {
+    "optOutInEveryChannel": "Desativar em todos os canais"
+  },
+  "optOutGlobalRow": {
+    "optOutInEveryChannel": "Desativar em todos os canais",
+    "ttsDoesNotReadYour": "O TTS não lê suas mensagens em nenhum canal. O TTS ainda anuncia suas inscrições, cheers e presentes, mas não a mensagem que você adiciona. Isso vale só para a Twitch."
+  },
+  "optOutSection": {
+    "optOutOfTts": "Desativar TTS",
+    "turnOnASettingTo": "Ative uma configuração para que o TTS pare de ler suas mensagens. Você pode desativar uma configuração que você ativou. Se um moderador desativou o TTS para você em um canal, só um moderador pode desfazer isso."
   },
   "page": {
     "setHowYourMessagesSound": "Defina como suas mensagens soarão quando lidas pelo WildcatTTS. Suas preferências são globais e se aplicam a todos os canais.",

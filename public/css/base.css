@@ -132,7 +132,6 @@ select { overflow-wrap: normal; }
 .list-group-flush { border-radius: 0; }
 .list-group-flush > .list-group-item { border-width: 0 0 1px; }
 .list-group-flush > .list-group-item:last-child { border-bottom-width: 0; }
-.list-group-item-danger { color: #58151c; background-color: #f8d7da; border-color: #f1aeb5; }
 .list-group-item-warning { color: #664d03; background-color: #fff3cd; border-color: #ffe69c; }
 
 /* ---- form controls ---- */

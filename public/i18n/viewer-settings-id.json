@@ -31,26 +31,6 @@
   "clearChannelContextBtn": {
     "clear": "Hapus"
   },
-  "confirmNo": {
-    "cancel": "Batal"
-  },
-  "confirmText": {
-    "yourMessagesWillNotBe": "Pesan Anda tidak akan dibacakan. Anda dapat mengaktifkannya kembali kapan saja."
-  },
-  "confirmTitle": {
-    "confirmAction": "Konfirmasi tindakan"
-  },
-  "confirmYes": {
-    "confirm": "Konfirmasi"
-  },
-  "dangerTtsToggle": {
-    "optOutOfTtsIn": "Pilih keluar dari TTS di channel ini",
-    "ttsWillNotReadYour": "TTS tidak akan membacakan pesan Anda di channel ini"
-  },
-  "dangerZoneSection": {
-    "dangerZone": "Zona Berbahaya",
-    "theseSettingsStopTheBot": "Pengaturan ini menghentikan bot membaca pesan Anda di channel. Anda dapat membatalkan pengaturan apa pun yang Anda pilih. Jika moderator mengeluarkan Anda, hanya moderator yang dapat membatalkannya."
-  },
   "emotionReset": {
     "clear": "Hapus",
     "resetEmotionToDefault": "Atur ulang emosi ke default"
@@ -73,7 +53,7 @@
     "resetEnglishNormalizationToDefault": "Atur ulang normalisasi bahasa Inggris ke default"
   },
   "ignoreTts": {
-    "optOutOfTtsIn": "Pilih keluar dari TTS di channel ini"
+    "optOutInThisChannel": "Pilih keluar di channel ini"
   },
   "languageReset": {
     "clear": "Hapus",
@@ -116,10 +96,9 @@
       "viewingDefaults": "Anda sedang melihat pengaturan default untuk {channel}."
     },
     "optout": {
-      "confirm": "Apakah kamu ingin memilih keluar dari TTS di {channel}? TTS akan berhenti membaca pesanmu di saluran tersebut. Kamu dapat mengaktifkannya kembali kapan saja.",
-      "confirmDescription": "Masukkan nama saluran untuk melanjutkan:",
-      "confirmTitle": "Konfirmasi saluran untuk opt-out TTS",
-      "continue": "Lanjutkan",
+      "globalOptedIn": "Anda memilih kembali ikut TTS. Pilihan keluar Anda untuk channel tertentu tetap aktif.",
+      "globalOptedOut": "Anda memilih keluar dari TTS di semua channel.",
+      "globalOptedOutTestMode": "Anda memilih keluar dari TTS di semua channel (mode uji).",
       "moderatorNote": "Moderator saluran telah mengeluarkan Anda dari TTS di sini. Hanya moderator yang dapat membatalkannya.",
       "optInFailed": "Perubahan Anda tidak tersimpan. TTS tetap tidak membaca pesan Anda. Coba lagi.",
       "optOutFailed": "Pilihan opt-out Anda tidak tersimpan. TTS masih membaca pesan Anda. Coba lagi.",
@@ -127,9 +106,7 @@
       "optedInTestMode": "Anda memilih kembali ikut TTS (mode uji).",
       "optedOut": "Anda memilih keluar dari TTS.",
       "optedOutTestMode": "Anda memilih keluar dari TTS (mode uji).",
-      "selectChannel": "Pilih saluran terlebih dahulu.",
-      "selfNote": "Anda memilih keluar dari TTS di sini. Anda dapat mengaktifkannya kembali kapan saja.",
-      "specifyChannel": "Tentukan saluran."
+      "selfNote": "Anda memilih keluar dari TTS di sini. Anda dapat mengaktifkannya kembali kapan saja."
     },
     "prefs": {
       "hintChannel": "Menggunakan default saluran: {value}",
@@ -144,6 +121,21 @@
   },
   "openChannelContextModalBtn": {
     "loadChannel": "Muat Saluran…"
+  },
+  "optOutChannelRow": {
+    "optOutInThisChannel": "Pilih keluar di channel ini",
+    "ttsDoesNotReadYour": "TTS tidak membacakan pesan Anda di channel ini."
+  },
+  "optOutGlobal": {
+    "optOutInEveryChannel": "Pilih keluar di semua channel"
+  },
+  "optOutGlobalRow": {
+    "optOutInEveryChannel": "Pilih keluar di semua channel",
+    "ttsDoesNotReadYour": "TTS tidak membacakan pesan Anda di channel mana pun. TTS tetap mengumumkan sub, cheer, dan hadiah Anda, tetapi tidak dengan pesan yang Anda tambahkan. Ini hanya berlaku untuk Twitch."
+  },
+  "optOutSection": {
+    "optOutOfTts": "Pilih keluar dari TTS",
+    "turnOnASettingTo": "Aktifkan pengaturan untuk menghentikan TTS membacakan pesan Anda. Anda dapat menonaktifkan pengaturan yang Anda aktifkan. Jika moderator mengeluarkan Anda dari TTS di sebuah channel, hanya moderator yang dapat membatalkannya."
   },
   "page": {
     "setHowYourMessagesSound": "Atur bagaimana pesan Anda terdengar saat WildcatTTS membacanya. Preferensi Anda bersifat global dan berlaku untuk semua saluran.",

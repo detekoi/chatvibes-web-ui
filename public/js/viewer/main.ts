@@ -13,9 +13,9 @@ import {
     type ChannelContextAPI,
 } from './channel-context.js';
 import {
-    initDangerZoneModule,
-    type DangerZoneModule,
-} from './danger-zone.js';
+    initOptOutModule,
+    type OptOutModule,
+} from './opt-out.js';
 
 // JWT payload structure
 interface JWTPayload {
@@ -124,22 +124,17 @@ document.addEventListener('DOMContentLoaded', async () => {
             { apiBaseUrl, testMode: TEST_MODE },
             { getCurrentChannel: (() => state.currentChannel || '') as () => string },
             {
-                onPreferencesLoaded: ({ ignoreStatus }: PreferencesInfo) => {
-                    if (state.currentChannel) {
-                        dangerZoneModule.updateChannel(state.currentChannel, ignoreStatus);
-                    } else {
-                        dangerZoneModule.clear();
-                    }
+                // Every successful load, with or without a channel, carries the
+                // opt-out state, so this is the one place the card is filled.
+                onPreferencesLoaded: ({ ignoreStatus, globalOptOut }: PreferencesInfo) => {
+                    optOutModule.update({ channel: state.currentChannel, ignoreStatus, globalOptOut });
                 },
             }
         );
 
-        const dangerZoneModule: DangerZoneModule = initDangerZoneModule(
+        const optOutModule: OptOutModule = initOptOutModule(
             { apiBaseUrl, testMode: TEST_MODE },
             { getCurrentChannel: services.getCurrentChannel },
-            {
-                requestChannel: channelContextModule.openChannelPrompt,
-            }
         );
 
         if (elements.logoutLink) {
@@ -178,18 +173,15 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
 
             try {
-                const info = await preferencesModule.loadPreferences();
-                if (channelName) {
-                    channelContextModule.showChannelResult(null);
-                    dangerZoneModule.updateChannel(channelName, info?.ignoreStatus);
-                } else {
-                    dangerZoneModule.clear();
-                }
+                // onPreferencesLoaded fills the opt-out card.
+                await preferencesModule.loadPreferences();
+                if (channelName) channelContextModule.showChannelResult(null);
             } catch (error) {
-                // Without a response the opt-out state is unknown, so the toggle
-                // hides, including one left over from the previous channel. The
-                // card says why, so the missing section is not a mystery.
-                dangerZoneModule.clear();
+                // Without a response the opt-out state is unknown, so the card
+                // hides, including a channel row left over from the previous
+                // channel. The quiet reload below brings it back for the
+                // every-channel toggle. The channel card says why it failed.
+                optOutModule.clear();
                 if (!channelName) return;
                 channelContextModule.showChannelResult(displayError(error));
                 // Drop the channel and fall back to global preferences. Kept,

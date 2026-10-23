@@ -31,26 +31,6 @@
   "clearChannelContextBtn": {
     "clear": "Xóa"
   },
-  "confirmNo": {
-    "cancel": "Hủy"
-  },
-  "confirmText": {
-    "yourMessagesWillNotBe": "Tin nhắn của bạn sẽ không được đọc to. Bạn có thể bật lại bất kỳ lúc nào."
-  },
-  "confirmTitle": {
-    "confirmAction": "Xác nhận hành động"
-  },
-  "confirmYes": {
-    "confirm": "Xác nhận"
-  },
-  "dangerTtsToggle": {
-    "optOutOfTtsIn": "Chọn không dùng TTS trong kênh này",
-    "ttsWillNotReadYour": "TTS sẽ không đọc tin nhắn của bạn trong kênh này"
-  },
-  "dangerZoneSection": {
-    "dangerZone": "Khu vực nguy hiểm",
-    "theseSettingsStopTheBot": "Các cài đặt này ngăn bot đọc tin nhắn của bạn trong kênh. Bạn có thể hủy bất kỳ cài đặt nào mình đã chọn. Nếu người kiểm duyệt tắt đọc tin nhắn của bạn, chỉ họ mới có thể hoàn tác."
-  },
   "emotionReset": {
     "clear": "Xóa",
     "resetEmotionToDefault": "Đặt lại cảm xúc về mặc định"
@@ -73,7 +53,7 @@
     "resetEnglishNormalizationToDefault": "Đặt lại chuẩn hóa tiếng Anh về mặc định"
   },
   "ignoreTts": {
-    "optOutOfTtsIn": "Chọn không dùng TTS trong kênh này"
+    "optOutInThisChannel": "Chọn không dùng trong kênh này"
   },
   "languageReset": {
     "clear": "Xóa",
@@ -116,10 +96,9 @@
       "viewingDefaults": "Bạn đang xem cài đặt mặc định cho {channel}."
     },
     "optout": {
-      "confirm": "Bạn có muốn chọn không dùng TTS trong {channel} không? TTS sẽ ngừng đọc tin nhắn của bạn trong kênh đó. Bạn có thể bật lại bất cứ lúc nào.",
-      "confirmDescription": "Nhập tên kênh để tiếp tục:",
-      "confirmTitle": "Xác nhận kênh để từ chối đọc TTS",
-      "continue": "Tiếp tục",
+      "globalOptedIn": "Bạn đã bật lại TTS. Lựa chọn không dùng cho từng kênh riêng vẫn được giữ.",
+      "globalOptedOut": "Bạn đã chọn không dùng TTS trong mọi kênh.",
+      "globalOptedOutTestMode": "Bạn đã chọn không dùng TTS trong mọi kênh (chế độ thử nghiệm).",
       "moderatorNote": "Người kiểm duyệt kênh đã tắt TTS của bạn tại đây. Chỉ người kiểm duyệt mới có thể hoàn tác điều này.",
       "optInFailed": "Thay đổi của bạn chưa được lưu. TTS vẫn không đọc tin nhắn của bạn. Hãy thử lại.",
       "optOutFailed": "Lựa chọn từ chối của bạn chưa được lưu. TTS vẫn đọc tin nhắn của bạn. Hãy thử lại.",
@@ -127,9 +106,7 @@
       "optedInTestMode": "Bạn đã bật lại TTS (chế độ thử nghiệm).",
       "optedOut": "Bạn đã chọn không dùng TTS.",
       "optedOutTestMode": "Bạn đã chọn không dùng TTS (chế độ thử nghiệm).",
-      "selectChannel": "Chọn một kênh trước.",
-      "selfNote": "Bạn đã chọn không dùng TTS tại đây. Bạn có thể bật lại bất kỳ lúc nào.",
-      "specifyChannel": "Chỉ định một kênh."
+      "selfNote": "Bạn đã chọn không dùng TTS tại đây. Bạn có thể bật lại bất kỳ lúc nào."
     },
     "prefs": {
       "hintChannel": "Dùng mặc định của kênh: {value}",
@@ -144,6 +121,21 @@
   },
   "openChannelContextModalBtn": {
     "loadChannel": "Tải kênh…"
+  },
+  "optOutChannelRow": {
+    "optOutInThisChannel": "Chọn không dùng trong kênh này",
+    "ttsDoesNotReadYour": "TTS không đọc tin nhắn của bạn trong kênh này."
+  },
+  "optOutGlobal": {
+    "optOutInEveryChannel": "Chọn không dùng trong mọi kênh"
+  },
+  "optOutGlobalRow": {
+    "optOutInEveryChannel": "Chọn không dùng trong mọi kênh",
+    "ttsDoesNotReadYour": "TTS không đọc tin nhắn của bạn trong bất kỳ kênh nào. TTS vẫn thông báo lượt sub, cheer và quà tặng của bạn, nhưng không đọc tin nhắn bạn thêm vào. Điều này chỉ áp dụng cho Twitch."
+  },
+  "optOutSection": {
+    "optOutOfTts": "Chọn không dùng TTS",
+    "turnOnASettingTo": "Bật một cài đặt để TTS ngừng đọc tin nhắn của bạn. Bạn có thể tắt cài đặt mà bạn đã bật. Nếu người kiểm duyệt đã tắt TTS cho bạn trong một kênh, chỉ người kiểm duyệt mới có thể hoàn tác."
   },
   "page": {
     "setHowYourMessagesSound": "Tùy chỉnh cách phát âm tin nhắn của bạn khi WildcatTTS đọc. Tùy chọn của bạn được áp dụng cho tất cả các kênh.",

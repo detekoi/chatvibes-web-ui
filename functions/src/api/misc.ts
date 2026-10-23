@@ -160,11 +160,13 @@ apiRouter.get("/tts/user-voice/:username", authenticateApiRequest, async (req: R
     const docSnap = userId ? await db.collection(COLLECTIONS.TTS_USER_PREFS).doc(userId).get() : null;
 
     if (docSnap && docSnap.exists) {
-      const data = docSnap.data();
+      // The opt-out is the viewer's own business. Any signed-in broadcaster can
+      // call this for any login, so it must not report where a viewer stands.
+      const { globalOptOut: _optOut, globalOptOutAt: _optOutAt, ...data } = docSnap.data() || {};
       res.json({
         success: true,
         username: username,
-        voiceId: data?.voiceId || null,
+        voiceId: data.voiceId || null,
         data: data // Return full data in case we want emotion/etc later
       });
     } else {

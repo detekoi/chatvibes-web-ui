@@ -31,26 +31,6 @@
   "clearChannelContextBtn": {
     "clear": "Rensa"
   },
-  "confirmNo": {
-    "cancel": "Avbryt"
-  },
-  "confirmText": {
-    "yourMessagesWillNotBe": "Dina meddelanden kommer inte att läsas upp. Du kan aktivera detta igen när som helst."
-  },
-  "confirmTitle": {
-    "confirmAction": "Bekräfta åtgärd"
-  },
-  "confirmYes": {
-    "confirm": "Bekräfta"
-  },
-  "dangerTtsToggle": {
-    "optOutOfTtsIn": "Välj bort TTS i den här kanalen",
-    "ttsWillNotReadYour": "TTS kommer inte att läsa dina meddelanden i den här kanalen"
-  },
-  "dangerZoneSection": {
-    "dangerZone": "Riskzon",
-    "theseSettingsStopTheBot": "Dessa inställningar hindrar boten från att läsa dina meddelanden i en kanal. Du kan ångra alla val du själv gör. Om en moderator har valt bort dig kan endast en moderator ångra det."
-  },
   "emotionReset": {
     "clear": "Rensa",
     "resetEmotionToDefault": "Återställ känsla till standard"
@@ -73,7 +53,7 @@
     "resetEnglishNormalizationToDefault": "Återställ engelsk normalisering till standard"
   },
   "ignoreTts": {
-    "optOutOfTtsIn": "Välj bort TTS i den här kanalen"
+    "optOutInThisChannel": "Välj bort i den här kanalen"
   },
   "languageReset": {
     "clear": "Rensa",
@@ -116,10 +96,9 @@
       "viewingDefaults": "Du visar standardinställningar för {channel}."
     },
     "optout": {
-      "confirm": "Vill du välja bort TTS i {channel}? TTS kommer att sluta läsa upp dina meddelanden i den kanalen. Du kan aktivera det igen när som helst.",
-      "confirmDescription": "Ange kanalnamnet för att fortsätta:",
-      "confirmTitle": "Bekräfta kanal för TTS-opt-out",
-      "continue": "Fortsätt",
+      "globalOptedIn": "Du har aktiverat TTS igen. Dina bortval för enskilda kanaler förblir på.",
+      "globalOptedOut": "Du har valt bort TTS i alla kanaler.",
+      "globalOptedOutTestMode": "Du har valt bort TTS i alla kanaler (testläge).",
       "moderatorNote": "En kanalmoderator har inaktiverat TTS för dig här. Endast en moderator kan ångra detta.",
       "optInFailed": "Din ändring sparades inte. TTS läser fortfarande inte upp dina meddelanden. Försök igen.",
       "optOutFailed": "Din avanmälan sparades inte. TTS läser fortfarande upp dina meddelanden. Försök igen.",
@@ -127,9 +106,7 @@
       "optedInTestMode": "Du har aktiverat TTS igen (testläge).",
       "optedOut": "Du har valt bort TTS.",
       "optedOutTestMode": "Du har valt bort TTS (testläge).",
-      "selectChannel": "Välj en kanal först.",
-      "selfNote": "Du har valt bort TTS här. Du kan aktivera det igen när som helst.",
-      "specifyChannel": "Ange en kanal."
+      "selfNote": "Du har valt bort TTS här. Du kan aktivera det igen när som helst."
     },
     "prefs": {
       "hintChannel": "Använder kanalens standard: {value}",
@@ -144,6 +121,21 @@
   },
   "openChannelContextModalBtn": {
     "loadChannel": "Läs in kanal…"
+  },
+  "optOutChannelRow": {
+    "optOutInThisChannel": "Välj bort i den här kanalen",
+    "ttsDoesNotReadYour": "TTS läser inte dina meddelanden i den här kanalen."
+  },
+  "optOutGlobal": {
+    "optOutInEveryChannel": "Välj bort i alla kanaler"
+  },
+  "optOutGlobalRow": {
+    "optOutInEveryChannel": "Välj bort i alla kanaler",
+    "ttsDoesNotReadYour": "TTS läser inte dina meddelanden i någon kanal. TTS meddelar fortfarande dina subs, cheers och gåvor, men inte meddelandet som du lägger till. Detta gäller bara Twitch."
+  },
+  "optOutSection": {
+    "optOutOfTts": "Välj bort TTS",
+    "turnOnASettingTo": "Slå på en inställning för att hindra TTS från att läsa dina meddelanden. Du kan stänga av en inställning som du har slagit på. Om en moderator har valt bort dig i en kanal kan bara en moderator ångra det."
   },
   "page": {
     "setHowYourMessagesSound": "Ställ in hur dina meddelanden låter när WildcatTTS läser upp dem. Dina inställningar är globala och gäller för alla kanaler.",

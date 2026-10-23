@@ -31,26 +31,6 @@
   "clearChannelContextBtn": {
     "clear": "Wissen"
   },
-  "confirmNo": {
-    "cancel": "Annuleren"
-  },
-  "confirmText": {
-    "yourMessagesWillNotBe": "Je berichten worden niet voorgelezen. Je kunt dit op elk moment weer inschakelen."
-  },
-  "confirmTitle": {
-    "confirmAction": "Actie bevestigen"
-  },
-  "confirmYes": {
-    "confirm": "Bevestigen"
-  },
-  "dangerTtsToggle": {
-    "optOutOfTtsIn": "Afmelden voor TTS in dit kanaal",
-    "ttsWillNotReadYour": "TTS leest je berichten in dit kanaal niet voor"
-  },
-  "dangerZoneSection": {
-    "dangerZone": "Gevarenzone",
-    "theseSettingsStopTheBot": "Deze instellingen zorgen ervoor dat de bot je berichten in een kanaal niet voorleest. Je kunt elke zelfgekozen instelling ongedaan maken. Als een moderator je heeft afgemeld, kan alleen een moderator dat ongedaan maken."
-  },
   "emotionReset": {
     "clear": "Wissen",
     "resetEmotionToDefault": "Emotie herstellen naar standaard"
@@ -73,7 +53,7 @@
     "resetEnglishNormalizationToDefault": "Engelse normalisatie herstellen naar standaard"
   },
   "ignoreTts": {
-    "optOutOfTtsIn": "Afmelden voor TTS in dit kanaal"
+    "optOutInThisChannel": "Afmelden in dit kanaal"
   },
   "languageReset": {
     "clear": "Wissen",
@@ -116,10 +96,9 @@
       "viewingDefaults": "Je bekijkt de standaardinstellingen voor {channel}."
     },
     "optout": {
-      "confirm": "Wil je je afmelden voor TTS in {channel}? TTS stopt met het voorlezen van je berichten in dat kanaal. Je kunt dit op elk moment weer inschakelen.",
-      "confirmDescription": "Voer de kanaalnaam in om door te gaan:",
-      "confirmTitle": "Kanaal bevestigen voor TTS-opt-out",
-      "continue": "Doorgaan",
+      "globalOptedIn": "Je hebt je weer aangemeld voor TTS. Je afmeldingen voor afzonderlijke kanalen blijven aan.",
+      "globalOptedOut": "Je hebt je in alle kanalen afgemeld voor TTS.",
+      "globalOptedOutTestMode": "Je hebt je in alle kanalen afgemeld voor TTS (testmodus).",
       "moderatorNote": "Een kanaalmoderator heeft TTS voor jou hier uitgeschakeld. Alleen een moderator kan dit ongedaan maken.",
       "optInFailed": "Je wijziging is niet opgeslagen. TTS leest je berichten nog steeds niet voor. Probeer het opnieuw.",
       "optOutFailed": "Je opt-out is niet opgeslagen. TTS leest je berichten nog steeds voor. Probeer het opnieuw.",
@@ -127,9 +106,7 @@
       "optedInTestMode": "Je hebt je weer aangemeld voor TTS (testmodus).",
       "optedOut": "Je hebt je afgemeld voor TTS.",
       "optedOutTestMode": "Je hebt je afgemeld voor TTS (testmodus).",
-      "selectChannel": "Selecteer eerst een kanaal.",
-      "selfNote": "Je hebt je hier afgemeld voor TTS. Je kunt dit op elk gewenst moment weer inschakelen.",
-      "specifyChannel": "Geef een kanaal op."
+      "selfNote": "Je hebt je hier afgemeld voor TTS. Je kunt dit op elk gewenst moment weer inschakelen."
     },
     "prefs": {
       "hintChannel": "Gebruikt kanaalstandaard: {value}",
@@ -144,6 +121,21 @@
   },
   "openChannelContextModalBtn": {
     "loadChannel": "Kanaal laden…"
+  },
+  "optOutChannelRow": {
+    "optOutInThisChannel": "Afmelden in dit kanaal",
+    "ttsDoesNotReadYour": "TTS leest je berichten in dit kanaal niet voor."
+  },
+  "optOutGlobal": {
+    "optOutInEveryChannel": "Afmelden in alle kanalen"
+  },
+  "optOutGlobalRow": {
+    "optOutInEveryChannel": "Afmelden in alle kanalen",
+    "ttsDoesNotReadYour": "TTS leest je berichten in geen enkel kanaal voor. TTS kondigt je subs, cheers en cadeaus nog steeds aan, maar niet het bericht dat je toevoegt. Dit geldt alleen voor Twitch."
+  },
+  "optOutSection": {
+    "optOutOfTts": "Afmelden voor TTS",
+    "turnOnASettingTo": "Zet een instelling aan om te voorkomen dat TTS je berichten voorleest. Je kunt een instelling die je zelf hebt aangezet weer uitzetten. Als een moderator je in een kanaal heeft afgemeld, kan alleen een moderator dat ongedaan maken."
   },
   "page": {
     "setHowYourMessagesSound": "Stel in hoe je berichten klinken wanneer WildcatTTS ze voorleest. Je voorkeuren zijn globaal en gelden voor alle kanalen.",

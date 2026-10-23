@@ -31,26 +31,6 @@
   "clearChannelContextBtn": {
     "clear": "Očisti"
   },
-  "confirmNo": {
-    "cancel": "Odustani"
-  },
-  "confirmText": {
-    "yourMessagesWillNotBe": "Vaše se poruke neće čitati naglas. Ovo možete ponovno uključiti u bilo kojem trenutku."
-  },
-  "confirmTitle": {
-    "confirmAction": "Potvrda radnje"
-  },
-  "confirmYes": {
-    "confirm": "Potvrdi"
-  },
-  "dangerTtsToggle": {
-    "optOutOfTtsIn": "Isključi TTS na ovom kanalu",
-    "ttsWillNotReadYour": "TTS neće čitati vaše poruke na ovom kanalu"
-  },
-  "dangerZoneSection": {
-    "dangerZone": "Opasna zona",
-    "theseSettingsStopTheBot": "Ove postavke sprječavaju bota u čitanju vaših poruka na kanalu. Možete poništiti bilo koju postavku koju odaberete. Ako vas je isključio moderator, samo to moderator može poništiti."
-  },
   "emotionReset": {
     "clear": "Očisti",
     "resetEmotionToDefault": "Vrati emociju na zadano"
@@ -73,7 +53,7 @@
     "resetEnglishNormalizationToDefault": "Vrati normalizaciju engleskog na zadano"
   },
   "ignoreTts": {
-    "optOutOfTtsIn": "Isključi TTS na ovom kanalu"
+    "optOutInThisChannel": "Isključi na ovom kanalu"
   },
   "languageReset": {
     "clear": "Očisti",
@@ -116,10 +96,9 @@
       "viewingDefaults": "Pregledavaš zadane postavke za {channel}."
     },
     "optout": {
-      "confirm": "Želite li se isključiti iz TTS-a na kanalu {channel}? TTS više neće čitati vaše poruke na tom kanalu. Možete ga ponovno uključiti u bilo kojem trenutku.",
-      "confirmDescription": "Unesi naziv kanala za nastavak:",
-      "confirmTitle": "Potvrdi kanal za isključivanje iz TTS-a",
-      "continue": "Nastavi",
+      "globalOptedIn": "Ponovno ste uključili TTS. Vaša isključenja za pojedinačne kanale ostaju uključena.",
+      "globalOptedOut": "Isključili ste TTS na svim kanalima.",
+      "globalOptedOutTestMode": "Isključili ste TTS na svim kanalima (testni način).",
       "moderatorNote": "Moderator kanala isključio ti je TTS na ovom kanalu. Samo moderator može to poništiti.",
       "optInFailed": "Promjena nije spremljena. TTS i dalje ne čita tvoje poruke. Pokušaj ponovno.",
       "optOutFailed": "Izuzimanje nije spremljeno. TTS i dalje čita tvoje poruke. Pokušaj ponovno.",
@@ -127,9 +106,7 @@
       "optedInTestMode": "Ponovno ste uključili TTS (testni način).",
       "optedOut": "Isključili ste TTS.",
       "optedOutTestMode": "Isključili ste TTS (testni način).",
-      "selectChannel": "Prvo odaberite kanal.",
-      "selfNote": "Ovdje ste isključili TTS. Možete ga ponovno uključiti u bilo kojem trenutku.",
-      "specifyChannel": "Navedite kanal."
+      "selfNote": "Ovdje ste isključili TTS. Možete ga ponovno uključiti u bilo kojem trenutku."
     },
     "prefs": {
       "hintChannel": "Koristi se zadano za kanal: {value}",
@@ -144,6 +121,21 @@
   },
   "openChannelContextModalBtn": {
     "loadChannel": "Učitaj kanal…"
+  },
+  "optOutChannelRow": {
+    "optOutInThisChannel": "Isključi na ovom kanalu",
+    "ttsDoesNotReadYour": "TTS ne čita vaše poruke na ovom kanalu."
+  },
+  "optOutGlobal": {
+    "optOutInEveryChannel": "Isključi na svim kanalima"
+  },
+  "optOutGlobalRow": {
+    "optOutInEveryChannel": "Isključi na svim kanalima",
+    "ttsDoesNotReadYour": "TTS ne čita vaše poruke ni na jednom kanalu. TTS i dalje najavljuje vaše pretplate, cheerove i darove, ali ne i poruku koju dodate. To vrijedi samo za Twitch."
+  },
+  "optOutSection": {
+    "optOutOfTts": "Isključi TTS",
+    "turnOnASettingTo": "Uključite postavku kako TTS ne bi čitao vaše poruke. Možete isključiti postavku koju ste uključili. Ako vas je moderator isključio na nekom kanalu, samo moderator to može poništiti."
   },
   "page": {
     "setHowYourMessagesSound": "Postavite kako vaše poruke zvuče kada ih WildcatTTS čita. Vaše su postavke globalne i primjenjuju se na sve kanale.",

@@ -31,26 +31,6 @@
   "clearChannelContextBtn": {
     "clear": "Kosongkan"
   },
-  "confirmNo": {
-    "cancel": "Batal"
-  },
-  "confirmText": {
-    "yourMessagesWillNotBe": "Mesej anda tidak akan dibacakan. Anda boleh menghidupkannya semula pada bila-bila masa."
-  },
-  "confirmTitle": {
-    "confirmAction": "Sahkan tindakan"
-  },
-  "confirmYes": {
-    "confirm": "Sahkan"
-  },
-  "dangerTtsToggle": {
-    "optOutOfTtsIn": "Tarik diri daripada TTS dalam saluran ini",
-    "ttsWillNotReadYour": "TTS tidak akan membaca mesej anda dalam saluran ini"
-  },
-  "dangerZoneSection": {
-    "dangerZone": "Zon Bahaya",
-    "theseSettingsStopTheBot": "Tetapan ini menghentikan bot daripada membaca mesej anda dalam saluran. Anda boleh membalikkan sebarang tetapan yang anda pilih. Jika moderator telah mengecualikan anda, hanya moderator yang boleh membatalkannya."
-  },
   "emotionReset": {
     "clear": "Kosongkan",
     "resetEmotionToDefault": "Tetapkan semula emosi kepada lalai"
@@ -73,7 +53,7 @@
     "resetEnglishNormalizationToDefault": "Tetapkan semula penormalan Bahasa Inggeris kepada lalai"
   },
   "ignoreTts": {
-    "optOutOfTtsIn": "Tarik diri daripada TTS dalam saluran ini"
+    "optOutInThisChannel": "Tarik diri dalam saluran ini"
   },
   "languageReset": {
     "clear": "Kosongkan",
@@ -116,10 +96,9 @@
       "viewingDefaults": "Anda sedang melihat tetapan lalai untuk {channel}."
     },
     "optout": {
-      "confirm": "Adakah anda mahu menarik diri daripada TTS dalam {channel}? TTS akan berhenti membaca mesej anda dalam saluran tersebut. Anda boleh menghidupkannya semula pada bila-bila masa.",
-      "confirmDescription": "Masukkan nama saluran untuk meneruskan:",
-      "confirmTitle": "Sahkan saluran untuk penarikan diri TTS",
-      "continue": "Teruskan",
+      "globalOptedIn": "Anda menyertai semula TTS. Penarikan diri anda untuk saluran tertentu kekal aktif.",
+      "globalOptedOut": "Anda menarik diri daripada TTS dalam semua saluran.",
+      "globalOptedOutTestMode": "Anda menarik diri daripada TTS dalam semua saluran (mod ujian).",
       "moderatorNote": "Penyederhana saluran telah mengecualikan anda daripada TTS di sini. Hanya penyederhana boleh membatalkan ini.",
       "optInFailed": "Perubahan anda tidak disimpan. TTS masih tidak membaca mesej anda. Cuba lagi.",
       "optOutFailed": "Pilihan keluar anda tidak disimpan. TTS masih membaca mesej anda. Cuba lagi.",
@@ -127,9 +106,7 @@
       "optedInTestMode": "Anda menyertai semula TTS (mod ujian).",
       "optedOut": "Anda menarik diri daripada TTS.",
       "optedOutTestMode": "Anda menarik diri daripada TTS (mod ujian).",
-      "selectChannel": "Pilih saluran terlebih dahulu.",
-      "selfNote": "Anda telah menarik diri daripada TTS di sini. Anda boleh mengaktifkannya semula pada bila-bila masa.",
-      "specifyChannel": "Nyatakan saluran."
+      "selfNote": "Anda telah menarik diri daripada TTS di sini. Anda boleh mengaktifkannya semula pada bila-bila masa."
     },
     "prefs": {
       "hintChannel": "Menggunakan lalai saluran: {value}",
@@ -144,6 +121,21 @@
   },
   "openChannelContextModalBtn": {
     "loadChannel": "Muat Saluran…"
+  },
+  "optOutChannelRow": {
+    "optOutInThisChannel": "Tarik diri dalam saluran ini",
+    "ttsDoesNotReadYour": "TTS tidak membaca mesej anda dalam saluran ini."
+  },
+  "optOutGlobal": {
+    "optOutInEveryChannel": "Tarik diri dalam semua saluran"
+  },
+  "optOutGlobalRow": {
+    "optOutInEveryChannel": "Tarik diri dalam semua saluran",
+    "ttsDoesNotReadYour": "TTS tidak membaca mesej anda dalam mana-mana saluran. TTS masih mengumumkan sub, cheer dan hadiah anda, tetapi bukan mesej yang anda tambah. Ini terpakai untuk Twitch sahaja."
+  },
+  "optOutSection": {
+    "optOutOfTts": "Tarik diri daripada TTS",
+    "turnOnASettingTo": "Hidupkan tetapan untuk menghentikan TTS daripada membaca mesej anda. Anda boleh mematikan tetapan yang anda hidupkan. Jika moderator menarik anda keluar daripada saluran, hanya moderator boleh membatalkannya."
   },
   "page": {
     "setHowYourMessagesSound": "Tetapkan bunyi mesej anda apabila WildcatTTS membacanya. Keutamaan anda adalah global dan terpakai untuk semua saluran.",

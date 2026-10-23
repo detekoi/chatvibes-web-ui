@@ -31,26 +31,6 @@
   "clearChannelContextBtn": {
     "clear": "Zurücksetzen"
   },
-  "confirmNo": {
-    "cancel": "Abbrechen"
-  },
-  "confirmText": {
-    "yourMessagesWillNotBe": "Deine Nachrichten werden nicht vorgelesen. Du kannst dies jederzeit wieder aktivieren."
-  },
-  "confirmTitle": {
-    "confirmAction": "Aktion bestätigen"
-  },
-  "confirmYes": {
-    "confirm": "Bestätigen"
-  },
-  "dangerTtsToggle": {
-    "optOutOfTtsIn": "TTS in diesem Kanal deaktivieren",
-    "ttsWillNotReadYour": "TTS liest deine Nachrichten in diesem Kanal nicht vor"
-  },
-  "dangerZoneSection": {
-    "dangerZone": "Gefahrenbereich",
-    "theseSettingsStopTheBot": "Diese Einstellungen verhindern, dass der Bot deine Nachrichten in einem Kanal vorliest. Du kannst alle von dir gewählten Einstellungen rückgängig machen. Wurdest du von einem Moderator abgemeldet, kann nur ein Moderator dies rückgängig machen."
-  },
   "emotionReset": {
     "clear": "Zurücksetzen",
     "resetEmotionToDefault": "Emotion auf Standard zurücksetzen"
@@ -73,7 +53,7 @@
     "resetEnglishNormalizationToDefault": "Englische Normalisierung auf Standard zurücksetzen"
   },
   "ignoreTts": {
-    "optOutOfTtsIn": "TTS in diesem Kanal deaktivieren"
+    "optOutInThisChannel": "In diesem Kanal deaktivieren"
   },
   "languageReset": {
     "clear": "Zurücksetzen",
@@ -116,10 +96,9 @@
       "viewingDefaults": "Du siehst die Standardeinstellungen für {channel}."
     },
     "optout": {
-      "confirm": "Möchtest du dich in {channel} von TTS abmelden? TTS wird deine Nachrichten in diesem Kanal nicht mehr vorlesen. Du kannst es jederzeit wieder aktivieren.",
-      "confirmDescription": "Gib den Kanalnamen ein, um fortzufahren:",
-      "confirmTitle": "Kanal für TTS-Opt-out bestätigen",
-      "continue": "Weiter",
+      "globalOptedIn": "Du hast TTS wieder aktiviert. Deine Deaktivierungen für einzelne Kanäle bleiben bestehen.",
+      "globalOptedOut": "Du hast TTS in allen Kanälen deaktiviert.",
+      "globalOptedOutTestMode": "Du hast TTS in allen Kanälen deaktiviert (Testmodus).",
       "moderatorNote": "Ein Kanalmoderator hat TTS hier für dich deaktiviert. Nur ein Moderator kann dies rückgängig machen.",
       "optInFailed": "Deine Änderung wurde nicht gespeichert. TTS liest deine Nachrichten weiterhin nicht vor. Versuche es erneut.",
       "optOutFailed": "Dein Opt-out wurde nicht gespeichert. TTS liest deine Nachrichten weiterhin vor. Versuche es erneut.",
@@ -127,9 +106,7 @@
       "optedInTestMode": "Du hast TTS wieder aktiviert (Testmodus).",
       "optedOut": "Du hast TTS deaktiviert.",
       "optedOutTestMode": "Du hast TTS deaktiviert (Testmodus).",
-      "selectChannel": "Wähle zuerst einen Kanal.",
-      "selfNote": "Du hast TTS hier deaktiviert. Du kannst es jederzeit wieder aktivieren.",
-      "specifyChannel": "Gib einen Kanal an."
+      "selfNote": "Du hast TTS hier deaktiviert. Du kannst es jederzeit wieder aktivieren."
     },
     "prefs": {
       "hintChannel": "Kanalstandard wird verwendet: {value}",
@@ -144,6 +121,21 @@
   },
   "openChannelContextModalBtn": {
     "loadChannel": "Kanal laden…"
+  },
+  "optOutChannelRow": {
+    "optOutInThisChannel": "In diesem Kanal deaktivieren",
+    "ttsDoesNotReadYour": "TTS liest deine Nachrichten in diesem Kanal nicht vor."
+  },
+  "optOutGlobal": {
+    "optOutInEveryChannel": "In allen Kanälen deaktivieren"
+  },
+  "optOutGlobalRow": {
+    "optOutInEveryChannel": "In allen Kanälen deaktivieren",
+    "ttsDoesNotReadYour": "TTS liest deine Nachrichten in keinem Kanal vor. TTS kündigt deine Subs, Cheers und Geschenke weiterhin an, aber nicht die Nachricht, die du hinzufügst. Das gilt nur für Twitch."
+  },
+  "optOutSection": {
+    "optOutOfTts": "TTS deaktivieren",
+    "turnOnASettingTo": "Schalte eine Einstellung ein, damit TTS deine Nachrichten nicht mehr vorliest. Du kannst eine Einstellung ausschalten, die du eingeschaltet hast. Wenn ein Moderator TTS für dich in einem Kanal deaktiviert hat, kann nur ein Moderator das rückgängig machen."
   },
   "page": {
     "setHowYourMessagesSound": "Lege fest, wie deine Nachrichten klingen, wenn WildcatTTS sie vorliest. Deine Einstellungen sind global und gelten für alle Kanäle.",

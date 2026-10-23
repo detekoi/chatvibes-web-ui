@@ -31,26 +31,6 @@
   "clearChannelContextBtn": {
     "clear": "クリア"
   },
-  "confirmNo": {
-    "cancel": "キャンセル"
-  },
-  "confirmText": {
-    "yourMessagesWillNotBe": "あなたのメッセージは読み上げられなくなります。この設定はいつでも元に戻せます。"
-  },
-  "confirmTitle": {
-    "confirmAction": "操作の確認"
-  },
-  "confirmYes": {
-    "confirm": "確認"
-  },
-  "dangerTtsToggle": {
-    "optOutOfTtsIn": "このチャンネルでTTS読み上げから除外する",
-    "ttsWillNotReadYour": "このチャンネルではTTSがメッセージを読み上げません"
-  },
-  "dangerZoneSection": {
-    "dangerZone": "デンジャーゾーン",
-    "theseSettingsStopTheBot": "これらの設定により、Botがチャンネル内であなたのメッセージを読み上げなくなります。自分で選択した設定は元に戻せます。モデレーターによって除外された場合は、モデレーターのみが解除できます。"
-  },
   "emotionReset": {
     "clear": "クリア",
     "resetEmotionToDefault": "感情をデフォルトにリセット"
@@ -73,7 +53,7 @@
     "resetEnglishNormalizationToDefault": "英語の正規化をデフォルトにリセット"
   },
   "ignoreTts": {
-    "optOutOfTtsIn": "このチャンネルでTTS読み上げから除外する"
+    "optOutInThisChannel": "このチャンネルで除外する"
   },
   "languageReset": {
     "clear": "クリア",
@@ -116,10 +96,9 @@
       "viewingDefaults": "{channel} のデフォルト設定を表示しています。"
     },
     "optout": {
-      "confirm": "{channel}でTTSをオプトアウトしますか？そのチャンネルではTTSがあなたのメッセージを読み上げなくなります。いつでも再度有効にできます。",
-      "confirmDescription": "続行するにはチャンネル名を入力してください:",
-      "confirmTitle": "TTSオプトアウト対象チャンネルの確認",
-      "continue": "続行",
+      "globalOptedIn": "TTSの読み上げを再度有効にしました。個別のチャンネルでのオプトアウトはオンのままです。",
+      "globalOptedOut": "すべてのチャンネルでTTSをオプトアウトしました。",
+      "globalOptedOutTestMode": "すべてのチャンネルでTTSをオプトアウトしました（テストモード）。",
       "moderatorNote": "チャンネルのモデレーターによってTTSからオプトアウトされました。解除できるのはモデレーターのみです。",
       "optInFailed": "変更は保存されませんでした。TTSは引き続きメッセージを読み上げません。もう一度お試しください。",
       "optOutFailed": "オプトアウトは保存されませんでした。TTSは引き続きメッセージを読み上げます。もう一度お試しください。",
@@ -127,9 +106,7 @@
       "optedInTestMode": "TTSの読み上げを再度有効にしました（テストモード）。",
       "optedOut": "TTSをオプトアウトしました。",
       "optedOutTestMode": "TTSをオプトアウトしました（テストモード）。",
-      "selectChannel": "最初にチャンネルを選択してください。",
-      "selfNote": "ここでTTSをオプトアウトしました。いつでも元に戻せます。",
-      "specifyChannel": "チャンネルを指定してください。"
+      "selfNote": "ここでTTSをオプトアウトしました。いつでも元に戻せます。"
     },
     "prefs": {
       "hintChannel": "チャンネルのデフォルトを使用中: {value}",
@@ -144,6 +121,21 @@
   },
   "openChannelContextModalBtn": {
     "loadChannel": "チャンネルを読み込む…"
+  },
+  "optOutChannelRow": {
+    "optOutInThisChannel": "このチャンネルで除外する",
+    "ttsDoesNotReadYour": "このチャンネルではTTSがメッセージを読み上げません。"
+  },
+  "optOutGlobal": {
+    "optOutInEveryChannel": "すべてのチャンネルで除外する"
+  },
+  "optOutGlobalRow": {
+    "optOutInEveryChannel": "すべてのチャンネルで除外する",
+    "ttsDoesNotReadYour": "どのチャンネルでもTTSがメッセージを読み上げません。サブスク、Cheer、ギフトのアナウンスは引き続き行われますが、追加したメッセージは読み上げられません。これはTwitchにのみ適用されます。"
+  },
+  "optOutSection": {
+    "optOutOfTts": "TTS読み上げから除外",
+    "turnOnASettingTo": "設定をオンにすると、TTSがメッセージを読み上げなくなります。自分でオンにした設定はオフにできます。モデレーターがチャンネルであなたを除外した場合、元に戻せるのはモデレーターだけです。"
   },
   "page": {
     "setHowYourMessagesSound": "WildcatTTSで読み上げられるメッセージの音声をカスタマイズします。設定は全体に適用され、全チャンネルで有効です。",

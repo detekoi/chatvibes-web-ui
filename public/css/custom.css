@@ -363,24 +363,6 @@ button:not(.form-check-input) {
 }
 
 /* =====================================================
-   DANGER ZONE CARD STYLING
-   ===================================================== */
-.card.danger-zone {
-    border: 2px solid var(--danger-primary);
-    background-color: var(--danger-bg);
-}
-
-.card.danger-zone .card-header,
-.card.danger-zone h5 {
-    color: var(--danger-secondary);
-    font-weight: 700;
-}
-
-.card.danger-zone p {
-    color: var(--danger-text);
-}
-
-/* =====================================================
    ALERT STYLES - POST-INDUSTRIAL
    ===================================================== */
 /* The light palette is the design system's; these dark overrides outrank it

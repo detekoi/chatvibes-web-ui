@@ -31,26 +31,6 @@
   "clearChannelContextBtn": {
     "clear": "Wyczyść"
   },
-  "confirmNo": {
-    "cancel": "Anuluj"
-  },
-  "confirmText": {
-    "yourMessagesWillNotBe": "Twoje wiadomości nie będą czytane na głos. Możesz to włączyć ponownie w dowolnym momencie."
-  },
-  "confirmTitle": {
-    "confirmAction": "Potwierdź akcję"
-  },
-  "confirmYes": {
-    "confirm": "Potwierdź"
-  },
-  "dangerTtsToggle": {
-    "optOutOfTtsIn": "Zrezygnuj z TTS na tym kanale",
-    "ttsWillNotReadYour": "TTS nie będzie czytać Twoich wiadomości na tym kanale"
-  },
-  "dangerZoneSection": {
-    "dangerZone": "Strefa niebezpieczna",
-    "theseSettingsStopTheBot": "Te ustawienia wyłączają czytanie Twoich wiadomości przez bota na kanale. Możesz cofnąć każde wybrane przez siebie ustawienie. Jeśli wyłączenia dokonał moderator, tylko moderator może je cofnąć."
-  },
   "emotionReset": {
     "clear": "Wyczyść",
     "resetEmotionToDefault": "Przywróć domyślne emocje"
@@ -73,7 +53,7 @@
     "resetEnglishNormalizationToDefault": "Przywróć domyślną normalizację angielskiego"
   },
   "ignoreTts": {
-    "optOutOfTtsIn": "Zrezygnuj z TTS na tym kanale"
+    "optOutInThisChannel": "Zrezygnuj na tym kanale"
   },
   "languageReset": {
     "clear": "Wyczyść",
@@ -116,10 +96,9 @@
       "viewingDefaults": "Przeglądasz ustawienia domyślne dla kanału {channel}."
     },
     "optout": {
-      "confirm": "Czy chcesz zrezygnować z TTS na kanale {channel}? TTS przestanie czytać Twoje wiadomości na tym kanale. Możesz to włączyć ponownie w każdej chwili.",
-      "confirmDescription": "Wpisz nazwę kanału, aby kontynuować:",
-      "confirmTitle": "Potwierdź kanał dla rezygnacji z TTS",
-      "continue": "Dalej",
+      "globalOptedIn": "Włączono ponownie TTS. Rezygnacje z poszczególnych kanałów pozostają włączone.",
+      "globalOptedOut": "Wyłączono TTS na wszystkich kanałach.",
+      "globalOptedOutTestMode": "Wyłączono TTS na wszystkich kanałach (tryb testowy).",
       "moderatorNote": "Moderator kanału wyłączył dla Ciebie TTS na tym kanale. Tylko moderator może to cofnąć.",
       "optInFailed": "Twoja zmiana nie została zapisana. TTS nadal nie odczytuje Twoich wiadomości. Spróbuj ponownie.",
       "optOutFailed": "Twoja rezygnacja nie została zapisana. TTS nadal odczytuje Twoje wiadomości. Spróbuj ponownie.",
@@ -127,9 +106,7 @@
       "optedInTestMode": "Włączono ponownie TTS (tryb testowy).",
       "optedOut": "Wyłączono TTS.",
       "optedOutTestMode": "Wyłączono TTS (tryb testowy).",
-      "selectChannel": "Najpierw wybierz kanał.",
-      "selfNote": "Wyłączono tutaj TTS. Możesz włączyć go ponownie w każdej chwili.",
-      "specifyChannel": "Wskaż kanał."
+      "selfNote": "Wyłączono tutaj TTS. Możesz włączyć go ponownie w każdej chwili."
     },
     "prefs": {
       "hintChannel": "Domyślne ustawienie kanału: {value}",
@@ -144,6 +121,21 @@
   },
   "openChannelContextModalBtn": {
     "loadChannel": "Wczytaj kanał…"
+  },
+  "optOutChannelRow": {
+    "optOutInThisChannel": "Zrezygnuj na tym kanale",
+    "ttsDoesNotReadYour": "TTS nie czyta Twoich wiadomości na tym kanale."
+  },
+  "optOutGlobal": {
+    "optOutInEveryChannel": "Zrezygnuj na wszystkich kanałach"
+  },
+  "optOutGlobalRow": {
+    "optOutInEveryChannel": "Zrezygnuj na wszystkich kanałach",
+    "ttsDoesNotReadYour": "TTS nie czyta Twoich wiadomości na żadnym kanale. TTS nadal ogłasza Twoje suby, cheery i prezenty, ale bez wiadomości, którą dodajesz. Dotyczy to tylko Twitcha."
+  },
+  "optOutSection": {
+    "optOutOfTts": "Zrezygnuj z TTS",
+    "turnOnASettingTo": "Włącz ustawienie, aby TTS przestał czytać Twoje wiadomości. Możesz wyłączyć ustawienie, które sam włączyłeś. Jeśli moderator wyłączył Ci TTS na kanale, tylko moderator może to cofnąć."
   },
   "page": {
     "setHowYourMessagesSound": "Ustaw, jak brzmią Twoje wiadomości, gdy odczytuje je WildcatTTS. Twoje preferencje są globalne i dotyczą wszystkich kanałów.",

@@ -31,26 +31,6 @@
   "clearChannelContextBtn": {
     "clear": "Clear"
   },
-  "confirmNo": {
-    "cancel": "Cancel"
-  },
-  "confirmText": {
-    "yourMessagesWillNotBe": "Your messages will not be read aloud. You can turn this back on at any time."
-  },
-  "confirmTitle": {
-    "confirmAction": "Confirm action"
-  },
-  "confirmYes": {
-    "confirm": "Confirm"
-  },
-  "dangerTtsToggle": {
-    "optOutOfTtsIn": "Opt out of TTS in this channel",
-    "ttsWillNotReadYour": "TTS will not read your messages in this channel"
-  },
-  "dangerZoneSection": {
-    "dangerZone": "Danger Zone",
-    "theseSettingsStopTheBot": "These settings stop the bot from reading your messages in a channel. You can reverse any setting that you choose. If a moderator opted you out, only a moderator can undo that."
-  },
   "emotionReset": {
     "clear": "Clear",
     "resetEmotionToDefault": "Reset emotion to default"
@@ -73,7 +53,7 @@
     "resetEnglishNormalizationToDefault": "Reset English normalization to default"
   },
   "ignoreTts": {
-    "optOutOfTtsIn": "Opt out of TTS in this channel"
+    "optOutInThisChannel": "Opt out in this channel"
   },
   "languageReset": {
     "clear": "Clear",
@@ -116,10 +96,9 @@
       "viewingDefaults": "You are viewing default settings for {channel}."
     },
     "optout": {
-      "confirm": "Do you want to opt out of TTS in {channel}? TTS will stop reading your messages in that channel. You can turn it back on at any time.",
-      "confirmDescription": "Enter the channel name to continue:",
-      "confirmTitle": "Confirm channel for TTS opt-out",
-      "continue": "Continue",
+      "globalOptedIn": "You opted back in to TTS. Your opt-outs for single channels stay on.",
+      "globalOptedOut": "You opted out of TTS in every channel.",
+      "globalOptedOutTestMode": "You opted out of TTS in every channel (test mode).",
       "moderatorNote": "A channel moderator opted you out of TTS here. Only a moderator can undo this.",
       "optInFailed": "Your change was not saved. TTS still does not read your messages. Try again.",
       "optOutFailed": "Your opt-out was not saved. TTS still reads your messages. Try again.",
@@ -127,9 +106,7 @@
       "optedInTestMode": "You opted back in to TTS (test mode).",
       "optedOut": "You opted out of TTS.",
       "optedOutTestMode": "You opted out of TTS (test mode).",
-      "selectChannel": "Select a channel first.",
-      "selfNote": "You opted out of TTS here. You can turn this back on at any time.",
-      "specifyChannel": "Specify a channel."
+      "selfNote": "You opted out of TTS here. You can turn this back on at any time."
     },
     "prefs": {
       "hintChannel": "Using channel default: {value}",
@@ -144,6 +121,21 @@
   },
   "openChannelContextModalBtn": {
     "loadChannel": "Load Channel…"
+  },
+  "optOutChannelRow": {
+    "optOutInThisChannel": "Opt out in this channel",
+    "ttsDoesNotReadYour": "TTS does not read your messages in this channel."
+  },
+  "optOutGlobal": {
+    "optOutInEveryChannel": "Opt out in every channel"
+  },
+  "optOutGlobalRow": {
+    "optOutInEveryChannel": "Opt out in every channel",
+    "ttsDoesNotReadYour": "TTS does not read your messages in any channel. TTS still announces your subs, cheers and gifts, but not the message that you add. This applies to Twitch only."
+  },
+  "optOutSection": {
+    "optOutOfTts": "Opt out of TTS",
+    "turnOnASettingTo": "Turn on a setting to stop TTS from reading your messages. You can turn off a setting that you turned on. If a moderator opted you out of a channel, only a moderator can undo that."
   },
   "page": {
     "setHowYourMessagesSound": "Set how your messages sound when WildcatTTS reads them. Your preferences are global and apply to all channels.",

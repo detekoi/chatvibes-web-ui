@@ -31,26 +31,6 @@
   "clearChannelContextBtn": {
     "clear": "I-clear"
   },
-  "confirmNo": {
-    "cancel": "Kanselahin"
-  },
-  "confirmText": {
-    "yourMessagesWillNotBe": "Hindi babasahin nang malakas ang iyong mga mensahe. Maaari mo itong i-on muli anumang oras."
-  },
-  "confirmTitle": {
-    "confirmAction": "Kumpirmahin ang aksyon"
-  },
-  "confirmYes": {
-    "confirm": "Kumpirmahin"
-  },
-  "dangerTtsToggle": {
-    "optOutOfTtsIn": "Mag-opt out sa TTS sa channel na ito",
-    "ttsWillNotReadYour": "Hindi babasahin ng TTS ang iyong mga mensahe sa channel na ito"
-  },
-  "dangerZoneSection": {
-    "dangerZone": "Danger Zone",
-    "theseSettingsStopTheBot": "Pinipigilan ng mga setting na ito ang bot na basahin ang iyong mga mensahe sa isang channel. Maaari mong baguhin muli ang anumang setting na pinili mo. Kung moderator ang nag-opt out sa iyo, moderator lang ang makakapagbalik nito."
-  },
   "emotionReset": {
     "clear": "I-clear",
     "resetEmotionToDefault": "I-reset ang emosyon sa default"
@@ -73,7 +53,7 @@
     "resetEnglishNormalizationToDefault": "I-reset ang English normalization sa default"
   },
   "ignoreTts": {
-    "optOutOfTtsIn": "Mag-opt out sa TTS sa channel na ito"
+    "optOutInThisChannel": "Mag-opt out sa channel na ito"
   },
   "languageReset": {
     "clear": "I-clear",
@@ -116,10 +96,9 @@
       "viewingDefaults": "Tinitingnan mo ang mga default na setting para sa {channel}."
     },
     "optout": {
-      "confirm": "Gusto mo bang mag-opt out sa TTS sa {channel}? Hindi na babasahin ng TTS ang mga mensahe mo sa channel na iyon. Maaari mo itong i-on muli anumang oras.",
-      "confirmDescription": "Ilagay ang pangalan ng channel para magpatuloy:",
-      "confirmTitle": "Kumpirmahin ang channel para sa TTS opt-out",
-      "continue": "Magpatuloy",
+      "globalOptedIn": "Nag-opt in ka ulit sa TTS. Mananatiling naka-on ang mga opt-out mo para sa mga partikular na channel.",
+      "globalOptedOut": "Nag-opt out ka sa TTS sa lahat ng channel.",
+      "globalOptedOutTestMode": "Nag-opt out ka sa TTS sa lahat ng channel (test mode).",
       "moderatorNote": "In-opt out ka ng moderator ng channel sa TTS dito. Moderator lang ang makakapagbago nito.",
       "optInFailed": "Hindi na-save ang iyong pagbabago. Hindi pa rin binabasa ng TTS ang iyong mga mensahe. Subukan muli.",
       "optOutFailed": "Hindi na-save ang iyong pag-opt out. Binabasa pa rin ng TTS ang iyong mga mensahe. Subukan muli.",
@@ -127,9 +106,7 @@
       "optedInTestMode": "Nag-opt in ka ulit sa TTS (test mode).",
       "optedOut": "Nag-opt out ka sa TTS.",
       "optedOutTestMode": "Nag-opt out ka sa TTS (test mode).",
-      "selectChannel": "Pumili muna ng channel.",
-      "selfNote": "Nag-opt out ka sa TTS dito. Puwede mo itong i-on ulit anumang oras.",
-      "specifyChannel": "Tumukoy ng channel."
+      "selfNote": "Nag-opt out ka sa TTS dito. Puwede mo itong i-on ulit anumang oras."
     },
     "prefs": {
       "hintChannel": "Ginagamit ang default ng channel: {value}",
@@ -144,6 +121,21 @@
   },
   "openChannelContextModalBtn": {
     "loadChannel": "I-load ang Channel…"
+  },
+  "optOutChannelRow": {
+    "optOutInThisChannel": "Mag-opt out sa channel na ito",
+    "ttsDoesNotReadYour": "Hindi binabasa ng TTS ang iyong mga mensahe sa channel na ito."
+  },
+  "optOutGlobal": {
+    "optOutInEveryChannel": "Mag-opt out sa lahat ng channel"
+  },
+  "optOutGlobalRow": {
+    "optOutInEveryChannel": "Mag-opt out sa lahat ng channel",
+    "ttsDoesNotReadYour": "Hindi binabasa ng TTS ang iyong mga mensahe sa anumang channel. Inaanunsyo pa rin ng TTS ang iyong mga sub, cheer at gift, pero hindi ang mensaheng idinagdag mo. Para sa Twitch lang ito."
+  },
+  "optOutSection": {
+    "optOutOfTts": "Mag-opt out sa TTS",
+    "turnOnASettingTo": "I-on ang isang setting para pigilan ang TTS na basahin ang iyong mga mensahe. Maaari mong i-off ang setting na ikaw ang nag-on. Kung isang moderator ang nag-opt out sa iyo sa isang channel, moderator lang ang makakapag-undo nito."
   },
   "page": {
     "setHowYourMessagesSound": "Itakda kung paano tutunog ang mga mensahe mo kapag binasa ng WildcatTTS. Pangkalahatan ang iyong preferences at nalalapat sa lahat ng channel.",

@@ -31,26 +31,6 @@
   "clearChannelContextBtn": {
     "clear": "Neteja"
   },
-  "confirmNo": {
-    "cancel": "Cancel·la"
-  },
-  "confirmText": {
-    "yourMessagesWillNotBe": "Els teus missatges no es llegiran en veu alta. Pots tornar-ho a activar en qualsevol moment."
-  },
-  "confirmTitle": {
-    "confirmAction": "Confirma l'acció"
-  },
-  "confirmYes": {
-    "confirm": "Confirma"
-  },
-  "dangerTtsToggle": {
-    "optOutOfTtsIn": "Exclou-te del TTS en aquest canal",
-    "ttsWillNotReadYour": "El TTS no llegirà els teus missatges en aquest canal"
-  },
-  "dangerZoneSection": {
-    "dangerZone": "Zona de perill",
-    "theseSettingsStopTheBot": "Aquesta configuració impedeix que el bot llegeixi els teus missatges en un canal. Pots revertir qualsevol opció que triïs. Si t'ha exclòs un moderador, només un moderador podrà desfer-ho."
-  },
   "emotionReset": {
     "clear": "Restableix",
     "resetEmotionToDefault": "Restableix l'emoció al valor per defecte"
@@ -73,7 +53,7 @@
     "resetEnglishNormalizationToDefault": "Restableix la normalització de l'anglès al valor per defecte"
   },
   "ignoreTts": {
-    "optOutOfTtsIn": "Exclou-te del TTS en aquest canal"
+    "optOutInThisChannel": "Exclou-te en aquest canal"
   },
   "languageReset": {
     "clear": "Restableix",
@@ -116,10 +96,9 @@
       "viewingDefaults": "Estàs veient la configuració per defecte de {channel}."
     },
     "optout": {
-      "confirm": "Vols desactivar el TTS a {channel}? El TTS deixarà de llegir els teus missatges en aquest canal. Pots tornar-lo a activar en qualsevol moment.",
-      "confirmDescription": "Introdueix el nom del canal per continuar:",
-      "confirmTitle": "Confirma el canal per desactivar el TTS",
-      "continue": "Continua",
+      "globalOptedIn": "Has tornat a activar el TTS. Les exclusions de canals concrets continuen actives.",
+      "globalOptedOut": "T'has exclòs del TTS en tots els canals.",
+      "globalOptedOutTestMode": "T'has exclòs del TTS en tots els canals (mode de prova).",
       "moderatorNote": "Un moderador del canal t'ha desactivat el TTS aquí. Només un moderador pot desfer-ho.",
       "optInFailed": "No s'ha desat el canvi. El TTS encara no llegeix els teus missatges. Torna-ho a provar.",
       "optOutFailed": "No s'ha desat l'exclusió. El TTS encara llegeix els teus missatges. Torna-ho a provar.",
@@ -127,9 +106,7 @@
       "optedInTestMode": "Has tornat a activar el TTS (mode de prova).",
       "optedOut": "Has desactivat el TTS.",
       "optedOutTestMode": "Has desactivat el TTS (mode de prova).",
-      "selectChannel": "Selecciona primer un canal.",
-      "selfNote": "Has desactivat el TTS aquí. Pots tornar-lo a activar en qualsevol moment.",
-      "specifyChannel": "Especifica un canal."
+      "selfNote": "Has desactivat el TTS aquí. Pots tornar-lo a activar en qualsevol moment."
     },
     "prefs": {
       "hintChannel": "S'usa el valor per defecte del canal: {value}",
@@ -144,6 +121,21 @@
   },
   "openChannelContextModalBtn": {
     "loadChannel": "Carrega el canal…"
+  },
+  "optOutChannelRow": {
+    "optOutInThisChannel": "Exclou-te en aquest canal",
+    "ttsDoesNotReadYour": "El TTS no llegeix els teus missatges en aquest canal."
+  },
+  "optOutGlobal": {
+    "optOutInEveryChannel": "Exclou-te en tots els canals"
+  },
+  "optOutGlobalRow": {
+    "optOutInEveryChannel": "Exclou-te en tots els canals",
+    "ttsDoesNotReadYour": "El TTS no llegeix els teus missatges en cap canal. El TTS encara anuncia les teves subscripcions, cheers i regals, però no el missatge que hi afegeixes. Això només s'aplica a Twitch."
+  },
+  "optOutSection": {
+    "optOutOfTts": "Exclou-te del TTS",
+    "turnOnASettingTo": "Activa una opció perquè el TTS deixi de llegir els teus missatges. Pots desactivar una opció que hagis activat tu. Si un moderador t'ha exclòs d'un canal, només un moderador ho pot desfer."
   },
   "page": {
     "setHowYourMessagesSound": "Configura com sonen els teus missatges quan WildcatTTS els llegeixi. Les teves preferències són globals i s'apliquen a tots els canals.",

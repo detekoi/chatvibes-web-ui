@@ -203,7 +203,7 @@ export function apiErrorMessage(data: unknown, fallbackKey: string): string {
  * The part of a thrown API error a person should read.
  *
  * `fetchWithAuth` prefixes its errors with `API Error: <status> ` because two
- * callers key on that — `danger-zone.ts` tests for `API Error: 403` to tell a
+ * callers key on that — `opt-out.ts` tests for `API Error: 403` to tell a
  * moderator mute from a network blip. That prefix is machine signalling and has
  * no business in a toast, so it is stripped here rather than at each call site,
  * where one of the two that needed it had it and the other did not.

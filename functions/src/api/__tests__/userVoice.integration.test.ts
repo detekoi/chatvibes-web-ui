@@ -57,6 +57,22 @@ describe('User Voice Lookup', () => {
             expect(response.body.voiceId).toBe('Test_Voice_ID');
         });
 
+        it('should not reveal whether the viewer opted out of TTS in every channel', async () => {
+            // Any signed-in broadcaster can look up any login here.
+            await db.collection('ttsUserPreferences').doc(userId).set({
+                voiceId: 'Test_Voice_ID',
+                globalOptOut: true,
+                globalOptOutAt: '2026-01-01T00:00:00.000Z',
+            });
+
+            const response = await request(app)
+                .get(`/api/tts/user-voice/${username}`)
+                .set('Authorization', `Bearer ${createTestToken(testUser)}`)
+                .expect(200);
+
+            expect(response.body.data).toEqual({ voiceId: 'Test_Voice_ID' });
+        });
+
         it('should ignore a legacy document keyed by login', async () => {
             await db.collection('ttsUserPreferences').doc(username).set({ voiceId: 'Legacy_Voice' });
 

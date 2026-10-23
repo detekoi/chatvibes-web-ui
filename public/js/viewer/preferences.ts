@@ -3,7 +3,7 @@ import { showToast } from '../common/ui.js';
 import { displayError, fillLanguageSelect, languageBoostOptions, t } from '../common/i18n.js';
 import { formatNumberCompact, formatVoiceName } from '../common/utils.js';
 import { performVoiceTest, TTSPayload, PlayerElements, HintElements } from '../common/voice-preview.js';
-import type { IgnoreStatus } from './danger-zone.js';
+import type { IgnoreStatus } from './opt-out.js';
 
 /**
  * Viewer voice preferences module.
@@ -45,7 +45,7 @@ export interface ChannelPolicy {
 // The ignore status carries who imposed the opt-out, not just whether one
 // exists, because that is what decides whether the viewer can lift it. Defined
 // alongside the toggle that consumes it so the two cannot drift apart.
-export type { IgnoreStatus } from './danger-zone.js';
+export type { IgnoreStatus } from './opt-out.js';
 
 /**
  * Full preferences data structure from API
@@ -60,6 +60,7 @@ export interface PreferencesData {
   channelDefaults?: ChannelDefaults;
   channelPolicy?: ChannelPolicy;
   ignoreStatus?: IgnoreStatus;
+  globalOptOut?: boolean;
   [key: string]: string | number | boolean | null | undefined | ChannelDefaults | ChannelPolicy | IgnoreStatus;
 }
 
@@ -69,6 +70,7 @@ export interface PreferencesData {
 export interface PreferencesInfo {
   allowViewerPreferences: boolean;
   ignoreStatus: IgnoreStatus;
+  globalOptOut: boolean;
   channelDefaults: ChannelDefaults;
 }
 
@@ -604,11 +606,13 @@ export function initPreferencesModule(
         },
         channelPolicy: { allowViewerPreferences: true },
         ignoreStatus: { tts: false },
+        globalOptOut: false,
       };
       applyPreferences(demo);
       return {
         allowViewerPreferences: true,
         ignoreStatus: demo.ignoreStatus || {},
+        globalOptOut: demo.globalOptOut === true,
         channelDefaults: demo.channelDefaults || {},
       };
     }
@@ -631,8 +635,8 @@ export function initPreferencesModule(
 
     // The request succeeded, so a bug in drawing the voice controls is not a
     // failed load. Rethrowing it told the viewer "Cannot load preferences" and
-    // stopped the caller from showing the opt-out toggle, which needs only
-    // `ignoreStatus`.
+    // stopped the caller from showing the opt-out toggles, which need only
+    // `ignoreStatus` and `globalOptOut`.
     try {
       applyPreferences(data);
     } catch (error) {
@@ -641,6 +645,7 @@ export function initPreferencesModule(
     return {
       allowViewerPreferences: data?.channelPolicy?.allowViewerPreferences !== false,
       ignoreStatus: data?.ignoreStatus || {},
+      globalOptOut: data?.globalOptOut === true,
       channelDefaults: data?.channelDefaults || {},
     };
   }

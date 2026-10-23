@@ -282,51 +282,54 @@
                         </div>
                     </div>
 
-                    <!-- Danger Zone -->
-                    <div class="card wc-card d-none" id="danger-zone-section">
+                    <!-- Opt out of TTS. Both rows are reversible by the viewer, except a
+                         channel opt-out that a moderator set. The channel row needs a
+                         loaded channel; opt-out.ts shows it. -->
+                    <div class="card wc-card d-none" id="opt-out-section">
                         <div class="card-header">
-                            <h2 data-i18n="dangerZoneSection.dangerZone" class="wc-card-title mb-0 text-danger">Danger Zone</h2>
+                            <h2 data-i18n="optOutSection.optOutOfTts" class="wc-card-title mb-0">Opt out of TTS</h2>
                         </div>
                         <div class="card-body">
-                            <p data-i18n="dangerZoneSection.theseSettingsStopTheBot" class="wc-card-desc fst-italic text-danger">These settings stop the bot
-                                from reading your messages in a channel. You can reverse any setting that you choose. If a
-                                moderator opted you out, only a moderator can undo that.</p>
-                            <div class="list-group shadow border-danger">
-                                <div class="list-group-item list-group-item-danger" id="danger-tts-toggle"
-                                    style="display:none;">
+                            <p data-i18n="optOutSection.turnOnASettingTo" class="wc-card-desc">Turn on a setting to stop TTS from reading your messages.
+                                You can turn off a setting that you turned on. If a moderator opted you out of a
+                                channel, only a moderator can undo that.</p>
+                            <div class="list-group">
+                                <div class="list-group-item" id="opt-out-global-row">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <strong data-i18n="dangerTtsToggle.optOutOfTtsIn" class="mb-0 text-danger">Opt out of TTS in this channel</strong>
-                                            <p data-i18n="dangerTtsToggle.ttsWillNotReadYour" class="text-muted mb-0">TTS will not read your messages in this channel</p>
-                                            <!-- Filled in by danger-zone.ts, which knows whether the viewer opted
-                                                 out themselves or a moderator did it for them. -->
-                                            <p class="text-muted mb-0 mt-1 small d-none" id="ignore-tts-note"></p>
+                                            <strong data-i18n="optOutGlobalRow.optOutInEveryChannel" class="mb-0">Opt out in every channel</strong>
+                                            <p data-i18n="optOutGlobalRow.ttsDoesNotReadYour" class="text-muted mb-0">TTS does not read your messages in any channel.
+                                                TTS still announces your subs, cheers and gifts, but not the message that
+                                                you add. This applies to Twitch only.</p>
                                         </div>
                                         <div class="col-auto">
                                             <div class="form-check form-switch">
-                                                <input data-i18n-aria-label="ignoreTts.optOutOfTtsIn" class="form-check-input" type="checkbox" id="ignore-tts" aria-label="Opt out of TTS in this channel" aria-describedby="ignore-tts-note">
+                                                <input data-i18n-aria-label="optOutGlobal.optOutInEveryChannel" class="form-check-input" type="checkbox" id="opt-out-global" aria-label="Opt out in every channel">
                                                 <span class="form-check-label"></span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
+                                <div class="list-group-item" id="opt-out-channel-row" hidden>
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <strong data-i18n="optOutChannelRow.optOutInThisChannel" class="mb-0">Opt out in this channel</strong>
+                                            <p data-i18n="optOutChannelRow.ttsDoesNotReadYour" class="text-muted mb-0">TTS does not read your messages in this channel.</p>
+                                            <!-- Filled in by opt-out.ts, which knows whether the viewer opted
+                                                 out themselves or a moderator did it for them. -->
+                                            <p class="text-muted mb-0 mt-1 d-none" id="ignore-tts-note"></p>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="form-check form-switch">
+                                                <input data-i18n-aria-label="ignoreTts.optOutInThisChannel" class="form-check-input" type="checkbox" id="ignore-tts" aria-label="Opt out in this channel" aria-describedby="ignore-tts-note">
+                                                <span class="form-check-label"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Confirm dialog -->
-                    <dialog id="confirm-modal" class="modal" aria-labelledby="confirm-title" aria-modal="true">
-                        <div class="modal-content">
-                            <h2 data-i18n="confirmTitle.confirmAction" id="confirm-title" class="h3">Confirm action</h2>
-                            <p data-i18n="confirmText.yourMessagesWillNotBe" id="confirm-text">Your messages will not be read aloud. You can turn this back on at
-                                any time.</p>
-                            <div class="modal-actions">
-                                <button data-i18n="confirmYes.confirm" type="button" id="confirm-yes" class="btn btn-danger">Confirm</button>
-                                <button data-i18n="confirmNo.cancel" type="button" id="confirm-no" class="btn btn-secondary">Cancel</button>
-                            </div>
-                        </div>
-                    </dialog>
 
                     <!-- Channel input modal (used to load channel context) -->
                     <dialog id="channel-input-modal" class="modal" aria-labelledby="channel-input-title" aria-modal="true">
