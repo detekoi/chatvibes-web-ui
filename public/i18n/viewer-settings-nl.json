@@ -100,8 +100,6 @@
       "globalOptedOut": "Je hebt je in alle kanalen afgemeld voor TTS.",
       "globalOptedOutTestMode": "Je hebt je in alle kanalen afgemeld voor TTS (testmodus).",
       "moderatorNote": "Een kanaalmoderator heeft TTS voor jou hier uitgeschakeld. Alleen een moderator kan dit ongedaan maken.",
-      "optInFailed": "Je wijziging is niet opgeslagen. TTS leest je berichten nog steeds niet voor. Probeer het opnieuw.",
-      "optOutFailed": "Je opt-out is niet opgeslagen. TTS leest je berichten nog steeds voor. Probeer het opnieuw.",
       "optedIn": "Je hebt je weer aangemeld voor TTS.",
       "optedInTestMode": "Je hebt je weer aangemeld voor TTS (testmodus).",
       "optedOut": "Je hebt je afgemeld voor TTS.",

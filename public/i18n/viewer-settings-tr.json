@@ -100,8 +100,6 @@
       "globalOptedOut": "TTS'i tüm kanallarda devre dışı bıraktın.",
       "globalOptedOutTestMode": "TTS'i tüm kanallarda devre dışı bıraktın (test modu).",
       "moderatorNote": "Bir kanal moderatörü burada sizi TTS'den çıkardı. Bunu yalnızca bir moderatör geri alabilir.",
-      "optInFailed": "Değişikliğiniz kaydedilmedi. TTS hâlâ mesajlarınızı okumuyor. Tekrar deneyin.",
-      "optOutFailed": "Devre dışı bırakma tercihiniz kaydedilmedi. TTS hâlâ mesajlarınızı okuyor. Tekrar deneyin.",
       "optedIn": "TTS'i tekrar etkinleştirdin.",
       "optedInTestMode": "TTS'i tekrar etkinleştirdin (test modu).",
       "optedOut": "TTS'i devre dışı bıraktın.",

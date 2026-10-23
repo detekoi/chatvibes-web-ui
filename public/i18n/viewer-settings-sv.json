@@ -100,8 +100,6 @@
       "globalOptedOut": "Du har valt bort TTS i alla kanaler.",
       "globalOptedOutTestMode": "Du har valt bort TTS i alla kanaler (testläge).",
       "moderatorNote": "En kanalmoderator har inaktiverat TTS för dig här. Endast en moderator kan ångra detta.",
-      "optInFailed": "Din ändring sparades inte. TTS läser fortfarande inte upp dina meddelanden. Försök igen.",
-      "optOutFailed": "Din avanmälan sparades inte. TTS läser fortfarande upp dina meddelanden. Försök igen.",
       "optedIn": "Du har aktiverat TTS igen.",
       "optedInTestMode": "Du har aktiverat TTS igen (testläge).",
       "optedOut": "Du har valt bort TTS.",

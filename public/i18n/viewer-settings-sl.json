@@ -100,8 +100,6 @@
       "globalOptedOut": "Odjavili ste se iz TTS na vseh kanalih.",
       "globalOptedOutTestMode": "Odjavili ste se iz TTS na vseh kanalih (preizkusni način).",
       "moderatorNote": "Moderator kanala te je tukaj odjavil od TTS. To lahko razveljavi le moderator.",
-      "optInFailed": "Vaša sprememba ni bila shranjena. TTS še vedno ne bere vaših sporočil. Poskusite znova.",
-      "optOutFailed": "Vaša odjava ni bila shranjena. TTS še vedno bere vaša sporočila. Poskusite znova.",
       "optedIn": "Znova ste omogočili TTS.",
       "optedInTestMode": "Znova ste omogočili TTS (preizkusni način).",
       "optedOut": "Odjavili ste se iz TTS.",

@@ -7,10 +7,11 @@ import { t } from './i18n.js';
  * a row with the `hidden` attribute is not shown, so it is not counted either.
  *
  * Safe to call again after a row is shown or hidden: it rewrites the count
- * rather than adding a second one.
+ * rather than adding a second one. Pass the card that changed as `root` to
+ * recount only that one.
  */
-export function decorateCardHeaders(): void {
-  document.querySelectorAll<HTMLElement>('.wc-card > .card-header').forEach((header) => {
+export function decorateCardHeaders(root: ParentNode = document): void {
+  root.querySelectorAll<HTMLElement>('.wc-card > .card-header').forEach((header) => {
     const card = header.parentElement;
     if (!card) return;
     const count = card.querySelectorAll(':scope > .card-body > .list-group > .list-group-item:not([hidden])').length;

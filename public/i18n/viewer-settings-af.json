@@ -100,8 +100,6 @@
       "globalOptedOut": "Jy het in elke kanaal van TTS onttrek.",
       "globalOptedOutTestMode": "Jy het in elke kanaal van TTS onttrek (toetsmodus).",
       "moderatorNote": "'n Kanaalmoderator het jou hier van TTS onttrek. Slegs 'n moderator kan dit ongedaan maak.",
-      "optInFailed": "Jou verandering is nie gestoor nie. TTS lees steeds nie jou boodskappe nie. Probeer weer.",
-      "optOutFailed": "Jou uitsluiting is nie gestoor nie. TTS lees steeds jou boodskappe. Probeer weer.",
       "optedIn": "Jy het weer by TTS aangesluit.",
       "optedInTestMode": "Jy het weer by TTS aangesluit (toetsmodus).",
       "optedOut": "Jy het van TTS onttrek.",

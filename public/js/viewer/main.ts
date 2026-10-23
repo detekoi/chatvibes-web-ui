@@ -125,9 +125,13 @@ document.addEventListener('DOMContentLoaded', async () => {
             { getCurrentChannel: (() => state.currentChannel || '') as () => string },
             {
                 // Every successful load, with or without a channel, carries the
-                // opt-out state, so this is the one place the card is filled.
-                onPreferencesLoaded: ({ ignoreStatus, globalOptOut }: PreferencesInfo) => {
-                    optOutModule.update({ channel: state.currentChannel, ignoreStatus, globalOptOut });
+                // opt-out state, so this is the one place the card is filled. A
+                // reply for a channel the viewer has since left is dropped: its
+                // ignore status belongs to that channel, and the load for the
+                // current one fills the card when it lands.
+                onPreferencesLoaded: ({ channel, ignoreStatus, globalOptOut }: PreferencesInfo) => {
+                    if (channel !== (state.currentChannel || null)) return;
+                    optOutModule.update({ channel, ignoreStatus, globalOptOut });
                 },
             }
         );

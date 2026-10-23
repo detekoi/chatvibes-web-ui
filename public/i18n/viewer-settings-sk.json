@@ -100,8 +100,6 @@
       "globalOptedOut": "Odhlásili ste sa z TTS na všetkých kanáloch.",
       "globalOptedOutTestMode": "Odhlásili ste sa z TTS na všetkých kanáloch (testovací režim).",
       "moderatorNote": "Moderátor kanála vás tu odhlásil z TTS. Vrátiť to môže iba moderátor.",
-      "optInFailed": "Zmena sa neuložila. TTS stále nečíta tvoje správy. Skús to znova.",
-      "optOutFailed": "Odhlásenie sa neuložilo. TTS stále číta tvoje správy. Skús to znova.",
       "optedIn": "Opäť ste sa prihlásili k TTS.",
       "optedInTestMode": "Opäť ste sa prihlásili k TTS (testovací režim).",
       "optedOut": "Odhlásili ste sa z TTS.",

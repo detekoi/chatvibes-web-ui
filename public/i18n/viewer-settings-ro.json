@@ -100,8 +100,6 @@
       "globalOptedOut": "Ai dezactivat TTS pe toate canalele.",
       "globalOptedOutTestMode": "Ai dezactivat TTS pe toate canalele (mod test).",
       "moderatorNote": "Un moderator al canalului te-a exclus de la TTS aici. Doar un moderator poate anula această acțiune.",
-      "optInFailed": "Modificarea ta nu a fost salvată. TTS încă nu îți citește mesajele. Încearcă din nou.",
-      "optOutFailed": "Opțiunea ta de excludere nu a fost salvată. TTS încă îți citește mesajele. Încearcă din nou.",
       "optedIn": "Ai reactivat TTS.",
       "optedInTestMode": "Ai reactivat TTS (mod test).",
       "optedOut": "Ai dezactivat TTS.",

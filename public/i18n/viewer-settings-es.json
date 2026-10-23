@@ -100,8 +100,6 @@
       "globalOptedOut": "Has desactivado el TTS en todos los canales.",
       "globalOptedOutTestMode": "Has desactivado el TTS en todos los canales (modo de prueba).",
       "moderatorNote": "Un moderador del canal desactivó tu TTS aquí. Solo un moderador puede deshacer esto.",
-      "optInFailed": "No se guardó tu cambio. TTS sigue sin leer tus mensajes. Inténtalo de nuevo.",
-      "optOutFailed": "No se guardó tu exclusión. TTS sigue leyendo tus mensajes. Inténtalo de nuevo.",
       "optedIn": "Has vuelto a activar el TTS.",
       "optedInTestMode": "Has vuelto a activar el TTS (modo de prueba).",
       "optedOut": "Has desactivado el TTS.",

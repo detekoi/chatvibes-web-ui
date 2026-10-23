@@ -100,8 +100,6 @@
       "globalOptedOut": "Kieltäydyit TTS:stä kaikilla kanavilla.",
       "globalOptedOutTestMode": "Kieltäydyit TTS:stä kaikilla kanavilla (testitila).",
       "moderatorNote": "Kanavan moderaattori on estänyt sinulta TTS:n käytön täällä. Vain moderaattori voi kumota tämän.",
-      "optInFailed": "Muutostasi ei tallennettu. TTS ei edelleenkään lue viestejäsi. Yritä uudelleen.",
-      "optOutFailed": "Kieltäytymistäsi ei tallennettu. TTS lukee edelleen viestejäsi. Yritä uudelleen.",
       "optedIn": "Otit TTS:n takaisin käyttöön.",
       "optedInTestMode": "Otit TTS:n takaisin käyttöön (testitila).",
       "optedOut": "Kieltäydyit TTS:stä.",

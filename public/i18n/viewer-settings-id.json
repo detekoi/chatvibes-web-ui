@@ -100,8 +100,6 @@
       "globalOptedOut": "Anda memilih keluar dari TTS di semua channel.",
       "globalOptedOutTestMode": "Anda memilih keluar dari TTS di semua channel (mode uji).",
       "moderatorNote": "Moderator saluran telah mengeluarkan Anda dari TTS di sini. Hanya moderator yang dapat membatalkannya.",
-      "optInFailed": "Perubahan Anda tidak tersimpan. TTS tetap tidak membaca pesan Anda. Coba lagi.",
-      "optOutFailed": "Pilihan opt-out Anda tidak tersimpan. TTS masih membaca pesan Anda. Coba lagi.",
       "optedIn": "Anda memilih kembali ikut TTS.",
       "optedInTestMode": "Anda memilih kembali ikut TTS (mode uji).",
       "optedOut": "Anda memilih keluar dari TTS.",

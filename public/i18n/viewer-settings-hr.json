@@ -100,8 +100,6 @@
       "globalOptedOut": "Isključili ste TTS na svim kanalima.",
       "globalOptedOutTestMode": "Isključili ste TTS na svim kanalima (testni način).",
       "moderatorNote": "Moderator kanala isključio ti je TTS na ovom kanalu. Samo moderator može to poništiti.",
-      "optInFailed": "Promjena nije spremljena. TTS i dalje ne čita tvoje poruke. Pokušaj ponovno.",
-      "optOutFailed": "Izuzimanje nije spremljeno. TTS i dalje čita tvoje poruke. Pokušaj ponovno.",
       "optedIn": "Ponovno ste uključili TTS.",
       "optedInTestMode": "Ponovno ste uključili TTS (testni način).",
       "optedOut": "Isključili ste TTS.",

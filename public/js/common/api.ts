@@ -74,9 +74,9 @@ export async function fetchWithAuth(url: string, options: RequestInit = {}): Pro
       // Ignore JSON parse errors and fall back to statusText.
     }
 
-    // The `API Error: <status> ` prefix is load-bearing: voice-preview.ts strips
-    // it back off for display and opt-out.ts tests for "API Error: 403" to
-    // tell a moderator mute from a network blip. Keep the shape.
+    // The `API Error: <status> ` prefix is load-bearing: voice-preview.ts and
+    // displayError strip it back off for display. Keep the shape. To react to a
+    // status, test `error.status` on the ApiError, as opt-out.ts does.
     throw new ApiError(`API Error: ${response.status} ${errorMessage}`, response.status, body);
   }
 

@@ -100,8 +100,6 @@
       "globalOptedOut": "Du har fravalgt TTS på alle kanaler.",
       "globalOptedOutTestMode": "Du har fravalgt TTS på alle kanaler (testtilstand).",
       "moderatorNote": "En kanalmoderator har fravalgt TTS for dig her. Kun en moderator kan fortryde dette.",
-      "optInFailed": "Din ændring blev ikke gemt. TTS læser stadig ikke dine beskeder. Prøv igen.",
-      "optOutFailed": "Dit fravalg blev ikke gemt. TTS læser stadig dine beskeder. Prøv igen.",
       "optedIn": "Du har tilvalgt TTS igen.",
       "optedInTestMode": "Du har tilvalgt TTS igen (testtilstand).",
       "optedOut": "Du har fravalgt TTS.",

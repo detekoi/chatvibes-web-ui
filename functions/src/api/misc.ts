@@ -159,24 +159,16 @@ apiRouter.get("/tts/user-voice/:username", authenticateApiRequest, async (req: R
     const userId = await getUserIdFromUsername(username, secrets);
     const docSnap = userId ? await db.collection(COLLECTIONS.TTS_USER_PREFS).doc(userId).get() : null;
 
-    if (docSnap && docSnap.exists) {
-      // The opt-out is the viewer's own business. Any signed-in broadcaster can
-      // call this for any login, so it must not report where a viewer stands.
-      const { globalOptOut: _optOut, globalOptOutAt: _optOutAt, ...data } = docSnap.data() || {};
-      res.json({
-        success: true,
-        username: username,
-        voiceId: data.voiceId || null,
-        data: data // Return full data in case we want emotion/etc later
-      });
-    } else {
-      res.json({
-        success: true,
-        username: username,
-        voiceId: null,
-        message: "User has no custom voice set"
-      });
-    }
+    // Only the voice. Any signed-in broadcaster can call this for any login, so
+    // the rest of the document (the opt-out among it) is the viewer's business,
+    // and the response must not change shape with what else the document holds.
+    const voiceId: string | null = (docSnap?.exists && docSnap.data()?.voiceId) || null;
+    res.json({
+      success: true,
+      username: username,
+      voiceId,
+      ...(voiceId ? {} : { message: "User has no custom voice set" }),
+    });
   } catch (error) {
     const err = error as Error;
     log.error({ error: err.message }, "Error looking up user voice");

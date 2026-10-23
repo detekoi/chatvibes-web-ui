@@ -60,7 +60,7 @@ export interface PreferencesData {
   channelDefaults?: ChannelDefaults;
   channelPolicy?: ChannelPolicy;
   ignoreStatus?: IgnoreStatus;
-  globalOptOut?: boolean;
+  globalOptOut?: boolean | null;
   [key: string]: string | number | boolean | null | undefined | ChannelDefaults | ChannelPolicy | IgnoreStatus;
 }
 
@@ -68,9 +68,12 @@ export interface PreferencesData {
  * Information returned from loadPreferences
  */
 export interface PreferencesInfo {
+  /** The channel this load asked about, or null for global preferences. */
+  channel: string | null;
   allowViewerPreferences: boolean;
   ignoreStatus: IgnoreStatus;
-  globalOptOut: boolean;
+  /** Null when the server could not read it. */
+  globalOptOut: boolean | null;
   channelDefaults: ChannelDefaults;
 }
 
@@ -610,6 +613,7 @@ export function initPreferencesModule(
       };
       applyPreferences(demo);
       return {
+        channel: currentChannel || null,
         allowViewerPreferences: true,
         ignoreStatus: demo.ignoreStatus || {},
         globalOptOut: demo.globalOptOut === true,
@@ -643,9 +647,11 @@ export function initPreferencesModule(
       console.error('Failed to render preferences:', error);
     }
     return {
+      channel: currentChannel || null,
       allowViewerPreferences: data?.channelPolicy?.allowViewerPreferences !== false,
       ignoreStatus: data?.ignoreStatus || {},
-      globalOptOut: data?.globalOptOut === true,
+      // An older server sends no field; read that as "not opted out", as before.
+      globalOptOut: data?.globalOptOut === undefined ? false : data.globalOptOut,
       channelDefaults: data?.channelDefaults || {},
     };
   }

@@ -100,8 +100,6 @@
       "globalOptedOut": "Wyłączono TTS na wszystkich kanałach.",
       "globalOptedOutTestMode": "Wyłączono TTS na wszystkich kanałach (tryb testowy).",
       "moderatorNote": "Moderator kanału wyłączył dla Ciebie TTS na tym kanale. Tylko moderator może to cofnąć.",
-      "optInFailed": "Twoja zmiana nie została zapisana. TTS nadal nie odczytuje Twoich wiadomości. Spróbuj ponownie.",
-      "optOutFailed": "Twoja rezygnacja nie została zapisana. TTS nadal odczytuje Twoje wiadomości. Spróbuj ponownie.",
       "optedIn": "Włączono ponownie TTS.",
       "optedInTestMode": "Włączono ponownie TTS (tryb testowy).",
       "optedOut": "Wyłączono TTS.",

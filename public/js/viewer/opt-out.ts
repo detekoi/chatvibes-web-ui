@@ -1,6 +1,6 @@
-import { fetchWithAuth } from '../common/api.js';
+import { ApiError, fetchWithAuth } from '../common/api.js';
 import { showToast } from '../common/ui.js';
-import { t } from '../common/i18n.js';
+import { displayError, t } from '../common/i18n.js';
 import { decorateCardHeaders } from '../common/card-meta.js';
 
 /**
@@ -34,11 +34,19 @@ export interface IgnoreStatus {
 /**
  * What the card shows. `channel` is null when no channel context is loaded,
  * which hides the channel row; the every-channel row needs no channel.
+ * `globalOptOut` is null when the server could not read it, which hides that
+ * row rather than showing a guess.
  */
 export interface OptOutState {
   channel: string | null;
   ignoreStatus?: IgnoreStatus;
-  globalOptOut?: boolean;
+  globalOptOut?: boolean | null;
+}
+
+/** What the channel opt-out endpoint answers with. */
+interface IgnoreResponse {
+  ignored?: boolean;
+  source?: 'self' | 'moderator' | null;
 }
 
 /**
@@ -46,6 +54,7 @@ export interface OptOutState {
  */
 interface OptOutElements {
   section: HTMLElement | null;
+  globalRow: HTMLElement | null;
   globalCheckbox: HTMLInputElement | null;
   channelRow: HTMLElement | null;
   ignoreTtsCheckbox: HTMLInputElement | null;
@@ -58,6 +67,10 @@ interface OptOutElements {
 // English copy in place for the whole session.
 const moderatorNote = (): string => t('msg.optout.moderatorNote');
 const selfNote = (): string => t('msg.optout.selfNote');
+
+/** The status a self opt-out has, which the viewer can lift. */
+const SELF_OPT_OUT: IgnoreStatus = { tts: true, ttsSource: 'self', ttsCanSelfUndo: true };
+const MODERATOR_MUTE: IgnoreStatus = { tts: true, ttsSource: 'moderator', ttsCanSelfUndo: false };
 
 /**
  * Return type of the opt-out module.
@@ -72,6 +85,11 @@ export interface OptOutModule {
  * channel. Both apply at once and need no confirmation, because the viewer can
  * turn either back off. The one exception is a channel opt-out that a moderator
  * set, which locks the channel toggle.
+ *
+ * Both switches send the state they want rather than asking the server to
+ * toggle, and hold still until it answers. A toggle flipped the viewer the
+ * wrong way on a double click or from a tab showing stale state, and the page
+ * then claimed the opposite of what the server stored.
  */
 export function initOptOutModule(
   context: OptOutContext,
@@ -82,6 +100,7 @@ export function initOptOutModule(
 
   const elements: OptOutElements = {
     section: document.getElementById('opt-out-section'),
+    globalRow: document.getElementById('opt-out-global-row'),
     globalCheckbox: document.getElementById('opt-out-global') as HTMLInputElement | null,
     channelRow: document.getElementById('opt-out-channel-row'),
     ignoreTtsCheckbox: document.getElementById('ignore-tts') as HTMLInputElement | null,
@@ -91,17 +110,15 @@ export function initOptOutModule(
   attachListeners();
 
   return {
-    update({ channel, ignoreStatus = {}, globalOptOut = false }: OptOutState): void {
-      elements.section?.classList.remove('d-none');
-      if (elements.globalCheckbox) elements.globalCheckbox.checked = globalOptOut;
-      setChannelRowVisible(Boolean(channel));
+    update({ channel, ignoreStatus = {}, globalOptOut = null }: OptOutState): void {
+      if (elements.globalCheckbox) elements.globalCheckbox.checked = globalOptOut === true;
+      setRowsVisible(globalOptOut !== null, Boolean(channel));
       updateIgnoreCheckboxes(channel ? ignoreStatus : {});
     },
     clear(): void {
       // Without a response the opt-out state is unknown, so neither toggle can
       // show a value it does not have.
-      elements.section?.classList.add('d-none');
-      setChannelRowVisible(false);
+      setRowsVisible(false, false);
       updateIgnoreCheckboxes({});
     },
   };
@@ -111,15 +128,17 @@ export function initOptOutModule(
       void setGlobalOptOut(Boolean(elements.globalCheckbox?.checked));
     });
     elements.ignoreTtsCheckbox?.addEventListener('change', () => {
-      if (elements.ignoreTtsCheckbox?.checked) void handleIgnoreAction();
-      else void handleUnignoreAction();
+      void setChannelOptOut(Boolean(elements.ignoreTtsCheckbox?.checked));
     });
   }
 
-  function setChannelRowVisible(visible: boolean): void {
-    if (elements.channelRow) elements.channelRow.hidden = !visible;
+  /** Shows the rows whose state is known, and the card only if one of them is. */
+  function setRowsVisible(globalRow: boolean, channelRow: boolean): void {
+    if (elements.globalRow) elements.globalRow.hidden = !globalRow;
+    if (elements.channelRow) elements.channelRow.hidden = !channelRow;
+    elements.section?.classList.toggle('d-none', !globalRow && !channelRow);
     // The header counts the rows it shows.
-    decorateCardHeaders();
+    if (elements.section) decorateCardHeaders(elements.section);
   }
 
   function updateIgnoreCheckboxes(ignoreStatus: IgnoreStatus): void {
@@ -142,10 +161,7 @@ export function initOptOutModule(
     }
   }
 
-  /**
-   * Opt out of, or back in to, TTS in every channel. The request carries the
-   * state to set rather than a toggle, so a retry cannot undo itself.
-   */
+  /** Opt out of, or back in to, TTS in every channel. */
   async function setGlobalOptOut(optedOut: boolean): Promise<void> {
     const checkbox = elements.globalCheckbox;
     if (!checkbox) return;
@@ -163,71 +179,59 @@ export function initOptOutModule(
     } catch (error) {
       console.error('Failed to change the opt-out for every channel:', error);
       checkbox.checked = !optedOut;
-      showToast(t(optedOut ? 'msg.optout.optOutFailed' : 'msg.optout.optInFailed'), 'error');
+      showToast(displayError(error), 'error');
     } finally {
       checkbox.disabled = false;
     }
   }
 
-  /** Opt out of TTS in the loaded channel. Self-imposed, so it stays reversible. */
-  async function handleIgnoreAction(): Promise<void> {
-    const targetChannel = getCurrentChannel();
+  /**
+   * Opt out of, or back in to, TTS in the loaded channel. The switch shows what
+   * the server stored, not what was asked for: a moderator's mute answers an
+   * opt-out request with `ignored: true` and stays a moderator's mute.
+   */
+  async function setChannelOptOut(optedOut: boolean): Promise<void> {
+    const checkbox = elements.ignoreTtsCheckbox;
+    if (!checkbox) return;
+    const previous: IgnoreStatus = optedOut ? { tts: false } : SELF_OPT_OUT;
+
     if (testMode) {
-      updateIgnoreCheckboxes({ tts: true, ttsSource: 'self', ttsCanSelfUndo: true });
-      showToast(t('msg.optout.optedOutTestMode'), 'success');
+      updateIgnoreCheckboxes(optedOut ? SELF_OPT_OUT : { tts: false });
+      showToast(t(optedOut ? 'msg.optout.optedOutTestMode' : 'msg.optout.optedInTestMode'), 'success');
       return;
     }
+    const targetChannel = getCurrentChannel();
     if (!targetChannel) {
       // The row is hidden without a channel, so this is a page state bug.
-      updateIgnoreCheckboxes({});
+      updateIgnoreCheckboxes(previous);
       return;
     }
 
+    // Held until the answer arrives, so a second click cannot race the first.
+    checkbox.disabled = true;
     try {
-      await fetchWithAuth(`${apiBaseUrl}/api/viewer/ignore/tts/${encodeURIComponent(targetChannel)}`, { method: 'POST' });
-      updateIgnoreCheckboxes({ tts: true, ttsSource: 'self', ttsCanSelfUndo: true });
-      showToast(t('msg.optout.optedOut'), 'success');
+      const response = await fetchWithAuth(
+        `${apiBaseUrl}/api/viewer/ignore/tts/${encodeURIComponent(targetChannel)}`,
+        { method: 'POST', body: JSON.stringify({ ignored: optedOut }) },
+      );
+      const { ignored, source } = await response.json() as IgnoreResponse;
+      const stored = typeof ignored === 'boolean' ? ignored : optedOut;
+      // Asking to opt out where a moderator already muted the viewer changes
+      // nothing, and the switch must lock as it would on a fresh load.
+      updateIgnoreCheckboxes(!stored ? { tts: false } : (source === 'moderator' ? MODERATOR_MUTE : SELF_OPT_OUT));
+      showToast(t(stored ? 'msg.optout.optedOut' : 'msg.optout.optedIn'), 'success');
     } catch (error) {
-      console.error('Failed to opt out of TTS:', error);
-      updateIgnoreCheckboxes({});
-      showToast(t('msg.optout.optOutFailed'), 'error');
-    }
-  }
-
-  /**
-   * Turn TTS back on for this viewer. Only ever reachable for an opt-out they
-   * imposed themselves; a moderator's mute leaves the control disabled, and the
-   * server refuses it regardless.
-   */
-  async function handleUnignoreAction(): Promise<void> {
-    const targetChannel = getCurrentChannel();
-    if (testMode) {
-      updateIgnoreCheckboxes({ tts: false });
-      showToast(t('msg.optout.optedInTestMode'), 'success');
-      return;
-    }
-    if (!targetChannel) {
-      updateIgnoreCheckboxes({});
-      return;
-    }
-
-    try {
-      await fetchWithAuth(`${apiBaseUrl}/api/viewer/ignore/tts/${encodeURIComponent(targetChannel)}`, { method: 'POST' });
-      updateIgnoreCheckboxes({ tts: false });
-      showToast(t('msg.optout.optedIn'), 'success');
-    } catch (error) {
-      // Either way the viewer is still opted out, so the toggle goes back on. Only
-      // a real 403 means a moderator took the entry over while the page was open
-      // and the control should lock; a network blip or a 500 must not tell someone
-      // they were muted. fetchWithAuth folds the status into the message, which is
-      // the only signal it passes through.
-      console.error('Failed to opt back in to TTS:', error);
-      const message = error instanceof Error ? error.message : String(error);
-      const moderatorImposed = message.includes('API Error: 403');
-      updateIgnoreCheckboxes(moderatorImposed ?
-        { tts: true, ttsSource: 'moderator', ttsCanSelfUndo: false } :
-        { tts: true, ttsSource: 'self', ttsCanSelfUndo: true });
-      showToast(moderatorImposed ? moderatorNote() : t('msg.optout.optInFailed'), 'error');
+      console.error('Failed to change the opt-out for this channel:', error);
+      // Only a real 403 means a moderator took the entry over while the page was
+      // open, and the control should lock. A network blip or a 500 must not tell
+      // someone they were muted.
+      if (error instanceof ApiError && error.status === 403) {
+        updateIgnoreCheckboxes(MODERATOR_MUTE);
+        showToast(moderatorNote(), 'error');
+      } else {
+        updateIgnoreCheckboxes(previous);
+        showToast(displayError(error), 'error');
+      }
     }
   }
 }

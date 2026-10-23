@@ -100,8 +100,6 @@
       "globalOptedOut": "Bạn đã chọn không dùng TTS trong mọi kênh.",
       "globalOptedOutTestMode": "Bạn đã chọn không dùng TTS trong mọi kênh (chế độ thử nghiệm).",
       "moderatorNote": "Người kiểm duyệt kênh đã tắt TTS của bạn tại đây. Chỉ người kiểm duyệt mới có thể hoàn tác điều này.",
-      "optInFailed": "Thay đổi của bạn chưa được lưu. TTS vẫn không đọc tin nhắn của bạn. Hãy thử lại.",
-      "optOutFailed": "Lựa chọn từ chối của bạn chưa được lưu. TTS vẫn đọc tin nhắn của bạn. Hãy thử lại.",
       "optedIn": "Bạn đã bật lại TTS.",
       "optedInTestMode": "Bạn đã bật lại TTS (chế độ thử nghiệm).",
       "optedOut": "Bạn đã chọn không dùng TTS.",

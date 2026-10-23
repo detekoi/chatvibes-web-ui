@@ -100,8 +100,6 @@
       "globalOptedOut": "Du har valt bort TTS i alle kanalar.",
       "globalOptedOutTestMode": "Du har valt bort TTS i alle kanalar (testmodus).",
       "moderatorNote": "Ein kanalmoderator har meldt deg ut av TTS her. Berre ein moderator kan gjere om på dette.",
-      "optInFailed": "Endringa di vart ikkje lagra. TTS les framleis ikkje meldingane dine. Prøv igjen.",
-      "optOutFailed": "Reservasjonen din vart ikkje lagra. TTS les framleis meldingane dine. Prøv igjen.",
       "optedIn": "Du har aktivert TTS att.",
       "optedInTestMode": "Du har aktivert TTS att (testmodus).",
       "optedOut": "Du har valt bort TTS.",

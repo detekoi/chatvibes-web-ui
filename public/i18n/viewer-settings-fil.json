@@ -100,8 +100,6 @@
       "globalOptedOut": "Nag-opt out ka sa TTS sa lahat ng channel.",
       "globalOptedOutTestMode": "Nag-opt out ka sa TTS sa lahat ng channel (test mode).",
       "moderatorNote": "In-opt out ka ng moderator ng channel sa TTS dito. Moderator lang ang makakapagbago nito.",
-      "optInFailed": "Hindi na-save ang iyong pagbabago. Hindi pa rin binabasa ng TTS ang iyong mga mensahe. Subukan muli.",
-      "optOutFailed": "Hindi na-save ang iyong pag-opt out. Binabasa pa rin ng TTS ang iyong mga mensahe. Subukan muli.",
       "optedIn": "Nag-opt in ka ulit sa TTS.",
       "optedInTestMode": "Nag-opt in ka ulit sa TTS (test mode).",
       "optedOut": "Nag-opt out ka sa TTS.",

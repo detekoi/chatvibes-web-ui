@@ -100,8 +100,6 @@
       "globalOptedOut": "Minden csatornán letiltottad a TTS-t.",
       "globalOptedOutTestMode": "Minden csatornán letiltottad a TTS-t (tesztmód).",
       "moderatorNote": "A csatorna egyik moderátora leiratkoztatott a TTS-ről itt. Ezt csak egy moderátor vonhatja vissza.",
-      "optInFailed": "A módosításodat nem sikerült menteni. A TTS továbbra sem olvassa fel az üzeneteidet. Próbáld újra.",
-      "optOutFailed": "A letiltást nem sikerült menteni. A TTS továbbra is felolvassa az üzeneteidet. Próbáld újra.",
       "optedIn": "Visszakapcsoltad a TTS-t.",
       "optedInTestMode": "Visszakapcsoltad a TTS-t (tesztmód).",
       "optedOut": "Letiltottad a TTS-t.",

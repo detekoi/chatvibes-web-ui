@@ -100,8 +100,6 @@
       "globalOptedOut": "你已喺所有頻道退出 TTS。",
       "globalOptedOutTestMode": "你已喺所有頻道退出 TTS（測試模式）。",
       "moderatorNote": "頻道管理員已喺呢度為你停用 TTS。只有管理員先可以復原呢個設定。",
-      "optInFailed": "未能儲存你嘅變更。TTS 仲係唔會讀出你嘅訊息。請再試多次。",
-      "optOutFailed": "未能儲存你嘅退出設定。TTS 仲係會讀出你嘅訊息。請再試多次。",
       "optedIn": "你已重新加入 TTS。",
       "optedInTestMode": "你已重新加入 TTS（測試模式）。",
       "optedOut": "你已退出 TTS。",

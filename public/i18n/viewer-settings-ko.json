@@ -100,8 +100,6 @@
       "globalOptedOut": "모든 채널에서 TTS 읽기에서 제외되었습니다.",
       "globalOptedOutTestMode": "모든 채널에서 TTS 읽기에서 제외되었습니다(테스트 모드).",
       "moderatorNote": "채널 매니저가 이 채널의 TTS를 비활성화했습니다. 매니저만 이를 되돌릴 수 있습니다.",
-      "optInFailed": "변경 사항이 저장되지 않았습니다. TTS가 여전히 메시지를 읽지 않습니다. 다시 시도해 주세요.",
-      "optOutFailed": "제외 설정이 저장되지 않았습니다. TTS가 여전히 메시지를 읽습니다. 다시 시도해 주세요.",
       "optedIn": "TTS 읽기를 다시 켰습니다.",
       "optedInTestMode": "TTS 읽기를 다시 켰습니다(테스트 모드).",
       "optedOut": "TTS 읽기에서 제외되었습니다.",
