@@ -25,12 +25,13 @@ export interface ViewerPreferences {
 /**
  * Channel default settings
  */
+// Nullable because the API sends null for a field the channel never set.
 export interface ChannelDefaults {
-  voiceId?: string;
-  pitch?: number;
-  speed?: number;
-  emotion?: string;
-  language?: string;
+  voiceId?: string | null;
+  pitch?: number | null;
+  speed?: number | null;
+  emotion?: string | null;
+  language?: string | null;
   englishNormalization?: boolean;
 }
 
@@ -334,8 +335,8 @@ export function initPreferencesModule(
       const payload: TTSPayload = {
         text,
         voiceId: voiceSelect?.value || cd.voiceId || undefined,
-        pitch: pitchHasOverride ? Number(pitchSlider?.value ?? 0) : (cd.pitch !== undefined ? cd.pitch : undefined),
-        speed: speedHasOverride ? Number(speedSlider?.value ?? 1) : (cd.speed !== undefined ? cd.speed : undefined),
+        pitch: pitchHasOverride ? Number(pitchSlider?.value ?? 0) : (cd.pitch ?? undefined),
+        speed: speedHasOverride ? Number(speedSlider?.value ?? 1) : (cd.speed ?? undefined),
         emotion: emotionSelect?.value || cd.emotion || undefined,
         languageBoost: languageSelect?.value || cd.language || undefined,
       };
@@ -608,23 +609,33 @@ export function initPreferencesModule(
       };
     }
 
+    let data: PreferencesData;
     try {
       const endpoint = currentChannel
         ? `${apiBaseUrl}/api/viewer/preferences/${encodeURIComponent(currentChannel)}`
         : `${apiBaseUrl}/api/viewer/preferences`;
       const response = await fetchWithAuth(endpoint, { method: 'GET' });
-      const data = await response.json() as PreferencesData;
-      applyPreferences(data);
-      return {
-        allowViewerPreferences: data?.channelPolicy?.allowViewerPreferences !== false,
-        ignoreStatus: data?.ignoreStatus || {},
-        channelDefaults: data?.channelDefaults || {},
-      };
+      data = await response.json() as PreferencesData;
     } catch (error) {
       console.error('Failed to load preferences:', error);
       showToast(t('msg.prefs.loadFailed'), 'error');
       throw error;
     }
+
+    // The request succeeded, so a bug in drawing the voice controls is not a
+    // failed load. Rethrowing it told the viewer "Cannot load preferences" and
+    // stopped the caller from showing the opt-out toggle, which needs only
+    // `ignoreStatus`.
+    try {
+      applyPreferences(data);
+    } catch (error) {
+      console.error('Failed to render preferences:', error);
+    }
+    return {
+      allowViewerPreferences: data?.channelPolicy?.allowViewerPreferences !== false,
+      ignoreStatus: data?.ignoreStatus || {},
+      channelDefaults: data?.channelDefaults || {},
+    };
   }
 
   function applyPreferences(data: PreferencesData): void {
@@ -788,6 +799,10 @@ export function initPreferencesModule(
 
   function updateSidebarMeta(liveOverrides: { pitch?: number, speed?: number } = {}): void {
     const prefs = state.currentPreferences || {};
+    // The API sends null, not undefined, for a field the channel never set
+    // (slymutt has no `speed`), so every channel fallback below uses `??`. A
+    // `!== undefined` test let null through to `speed.toFixed`, which threw
+    // inside loadPreferences and hid the opt-out toggle.
     const cd = prefs.channelDefaults || {};
 
     const hasVoice = prefs.voiceId !== undefined && prefs.voiceId !== null && prefs.voiceId !== '';
@@ -798,7 +813,7 @@ export function initPreferencesModule(
       pitch = liveOverrides.pitch;
     } else {
       const hasOverride = prefs.pitch !== undefined && prefs.pitch !== null;
-      pitch = hasOverride ? Number(prefs.pitch) : (cd.pitch !== undefined ? cd.pitch : 0);
+      pitch = hasOverride ? Number(prefs.pitch) : (cd.pitch ?? 0);
     }
 
     let speed: number;
@@ -806,17 +821,17 @@ export function initPreferencesModule(
       speed = liveOverrides.speed;
     } else {
       const hasOverride = prefs.speed !== undefined && prefs.speed !== null;
-      speed = hasOverride ? Number(prefs.speed) : (cd.speed !== undefined ? cd.speed : 1.0);
+      speed = hasOverride ? Number(prefs.speed) : (cd.speed ?? 1.0);
     }
 
     const hasEmotion = prefs.emotion !== undefined && prefs.emotion !== null && prefs.emotion !== '';
     const emotion = hasEmotion ? String(prefs.emotion) : (cd.emotion || 'neutral');
 
     const hasEngNorm = prefs.englishNormalization !== undefined && prefs.englishNormalization !== null;
-    const engNorm = hasEngNorm ? Boolean(prefs.englishNormalization) : (cd.englishNormalization !== undefined ? cd.englishNormalization : false);
+    const engNorm = hasEngNorm ? Boolean(prefs.englishNormalization) : (cd.englishNormalization ?? false);
 
     const hasLanguage = prefs.language !== undefined && prefs.language !== null && prefs.language !== '';
-    let language = hasLanguage ? String(prefs.language) : (cd.language !== undefined ? cd.language : 'auto');
+    let language = hasLanguage ? String(prefs.language) : (cd.language ?? 'auto');
     if (language === 'Automatic') language = 'auto'; // Normalize backend channel default mismatch
 
     const voiceNameEl = document.getElementById('sidebar-voice-name');

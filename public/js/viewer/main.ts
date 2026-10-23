@@ -1,7 +1,7 @@
 import { getApiBaseUrl, fetchWithAuth } from '../common/api.js';
 import { logout, getStoredSessionToken, decodeJwtPayload } from '../common/auth.js';
 import { setProgress } from '../common/ui.js';
-import { apiErrorMessage, initI18n, t } from '../common/i18n.js';
+import { apiErrorMessage, displayError, initI18n, t } from '../common/i18n.js';
 import { decorateCardHeaders } from '../common/card-meta.js';
 import {
     initPreferencesModule,
@@ -180,14 +180,19 @@ document.addEventListener('DOMContentLoaded', async () => {
             try {
                 const info = await preferencesModule.loadPreferences();
                 if (channelName) {
+                    channelContextModule.showChannelResult(null);
                     dangerZoneModule.updateChannel(channelName, info?.ignoreStatus);
                 } else {
                     dangerZoneModule.clear();
                 }
-            } catch (_) {
-                if (!channelName) {
-                    dangerZoneModule.clear();
+            } catch (error) {
+                // Without a response the opt-out state is unknown, so the toggle
+                // hides, including one left over from the previous channel. The
+                // card says why, so the missing section is not a mystery.
+                if (channelName) {
+                    channelContextModule.showChannelResult(displayError(error));
                 }
+                dangerZoneModule.clear();
             }
         }
 

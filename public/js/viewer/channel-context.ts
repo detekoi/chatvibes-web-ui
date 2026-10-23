@@ -58,6 +58,7 @@ export interface OpenChannelPromptOptions {
 export interface ChannelContextAPI {
     setChannelUI: (channelName: string) => void;
     clearChannelUI: () => void;
+    showChannelResult: (errorMessage: string | null) => void;
     openChannelPrompt: (options: OpenChannelPromptOptions) => void;
 }
 
@@ -93,6 +94,7 @@ export function initChannelContextModule(
     const api: ChannelContextAPI = {
         setChannelUI,
         clearChannelUI,
+        showChannelResult,
         openChannelPrompt,
     };
 
@@ -174,7 +176,25 @@ export function initChannelContextModule(
             elements.channelContextNameEl.textContent = t('msg.channel.viewingDefaults', { channel: channelName });
         }
         setContextStat(channelName);
+        // Blank until the preferences request answers. This used to say
+        // "Channel found" before anything was fetched, and kept saying it in
+        // green beside a "Cannot load preferences" toast.
         if (elements.channelHint) {
+            elements.channelHint.textContent = '';
+            elements.channelHint.className = 'form-text';
+        }
+    }
+
+    /**
+     * Reports how loading the channel went: found, or the reason it failed.
+     * @param errorMessage - The translated reason, or null on success
+     */
+    function showChannelResult(errorMessage: string | null): void {
+        if (!elements.channelHint) return;
+        if (errorMessage) {
+            elements.channelHint.textContent = errorMessage;
+            elements.channelHint.className = 'form-text text-danger';
+        } else {
             elements.channelHint.textContent = t(testMode ? 'msg.channel.foundTestMode' : 'msg.channel.found');
             elements.channelHint.className = 'form-text text-success';
         }
