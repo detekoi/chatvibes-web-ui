@@ -31,26 +31,6 @@
   "clearChannelContextBtn": {
     "clear": "Temizle"
   },
-  "confirmNo": {
-    "cancel": "İptal"
-  },
-  "confirmText": {
-    "yourMessagesWillNotBe": "Mesajlarınız sesli okunmayacak. Bunu istediğiniz zaman tekrar açabilirsiniz."
-  },
-  "confirmTitle": {
-    "confirmAction": "İşlemi onayla"
-  },
-  "confirmYes": {
-    "confirm": "Onayla"
-  },
-  "dangerTtsToggle": {
-    "optOutOfTtsIn": "Bu kanalda TTS kapsamı dışına çık",
-    "ttsWillNotReadYour": "TTS bu kanalda mesajlarınızı okumayacak"
-  },
-  "dangerZoneSection": {
-    "dangerZone": "Tehlike Bölgesi",
-    "theseSettingsStopTheBot": "Bu ayarlar, botun bir kanalda mesajlarınızı okumasını engeller. Seçtiğiniz herhangi bir ayarı geri alabilirsiniz. Bir moderatör sizi kapsam dışı bıraktıysa, bunu yalnızca bir moderatör geri alabilir."
-  },
   "emotionReset": {
     "clear": "Temizle",
     "resetEmotionToDefault": "Duyguyu varsayılana sıfırla"
@@ -73,7 +53,7 @@
     "resetEnglishNormalizationToDefault": "İngilizce normalizasyonunu varsayılana sıfırla"
   },
   "ignoreTts": {
-    "optOutOfTtsIn": "Bu kanalda TTS kapsamı dışına çık"
+    "optOutInThisChannel": "Bu kanalda kapsam dışına çık"
   },
   "languageReset": {
     "clear": "Temizle",
@@ -116,20 +96,15 @@
       "viewingDefaults": "{channel} için varsayılan ayarları görüntülüyorsunuz."
     },
     "optout": {
-      "confirm": "{channel} kanalında TTS'den çıkmak istiyor musunuz? TTS bu kanalda mesajlarınızı okumayı durduracak. İstediğiniz zaman tekrar açabilirsiniz.",
-      "confirmDescription": "Devam etmek için kanal adını girin:",
-      "confirmTitle": "TTS muafiyeti için kanalı onaylayın",
-      "continue": "Devam Et",
+      "globalOptedIn": "TTS'i tekrar etkinleştirdin. Tek tek kanallar için kapsam dışı ayarların açık kalır.",
+      "globalOptedOut": "TTS'i tüm kanallarda devre dışı bıraktın.",
+      "globalOptedOutTestMode": "TTS'i tüm kanallarda devre dışı bıraktın (test modu).",
       "moderatorNote": "Bir kanal moderatörü burada sizi TTS'den çıkardı. Bunu yalnızca bir moderatör geri alabilir.",
-      "optInFailed": "Değişikliğiniz kaydedilmedi. TTS hâlâ mesajlarınızı okumuyor. Tekrar deneyin.",
-      "optOutFailed": "Devre dışı bırakma tercihiniz kaydedilmedi. TTS hâlâ mesajlarınızı okuyor. Tekrar deneyin.",
       "optedIn": "TTS'i tekrar etkinleştirdin.",
       "optedInTestMode": "TTS'i tekrar etkinleştirdin (test modu).",
       "optedOut": "TTS'i devre dışı bıraktın.",
       "optedOutTestMode": "TTS'i devre dışı bıraktın (test modu).",
-      "selectChannel": "Önce bir kanal seç.",
-      "selfNote": "Burada TTS'i devre dışı bıraktın. İstediğin zaman tekrar açabilirsin.",
-      "specifyChannel": "Bir kanal belirt."
+      "selfNote": "Burada TTS'i devre dışı bıraktın. İstediğin zaman tekrar açabilirsin."
     },
     "prefs": {
       "hintChannel": "Kanal varsayılanı kullanılıyor: {value}",
@@ -144,6 +119,21 @@
   },
   "openChannelContextModalBtn": {
     "loadChannel": "Kanalı Yükle…"
+  },
+  "optOutChannelRow": {
+    "optOutInThisChannel": "Bu kanalda kapsam dışına çık",
+    "ttsDoesNotReadYour": "TTS bu kanalda mesajlarını okumaz."
+  },
+  "optOutGlobal": {
+    "optOutInEveryChannel": "Tüm kanallarda kapsam dışına çık"
+  },
+  "optOutGlobalRow": {
+    "optOutInEveryChannel": "Tüm kanallarda kapsam dışına çık",
+    "ttsDoesNotReadYour": "TTS hiçbir kanalda mesajlarını okumaz. TTS aboneliklerini, cheer'larını ve hediyelerini yine duyurur, ancak eklediğin mesajı okumaz. TTS ödülünü kullanırsan TTS o mesajı okur. Bu yalnızca Twitch için geçerlidir."
+  },
+  "optOutSection": {
+    "optOutOfTts": "TTS kapsamı dışına çık",
+    "turnOnASettingTo": "TTS'in mesajlarını okumasını durdurmak için bir ayarı aç. Kendi açtığın bir ayarı kapatabilirsin. Bir moderatör seni bir kanalda kapsam dışına aldıysa, bunu yalnızca bir moderatör geri alabilir."
   },
   "page": {
     "setHowYourMessagesSound": "Mesajların WildcatTTS tarafından okunduğunda nasıl duyulacağını ayarla. Tercihlerin geneldir ve tüm kanallara uygulanır.",

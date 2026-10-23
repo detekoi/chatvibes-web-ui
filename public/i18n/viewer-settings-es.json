@@ -31,26 +31,6 @@
   "clearChannelContextBtn": {
     "clear": "Borrar"
   },
-  "confirmNo": {
-    "cancel": "Cancelar"
-  },
-  "confirmText": {
-    "yourMessagesWillNotBe": "Tus mensajes no se leerán en voz alta. Puedes volver a activarlo en cualquier momento."
-  },
-  "confirmTitle": {
-    "confirmAction": "Confirmar acción"
-  },
-  "confirmYes": {
-    "confirm": "Confirmar"
-  },
-  "dangerTtsToggle": {
-    "optOutOfTtsIn": "Desactivar TTS en este canal",
-    "ttsWillNotReadYour": "El TTS no leerá tus mensajes en este canal"
-  },
-  "dangerZoneSection": {
-    "dangerZone": "Zona de peligro",
-    "theseSettingsStopTheBot": "Estos ajustes evitan que el bot lea tus mensajes en un canal. Puedes revertir cualquier ajuste que elijas. Si un moderador te ha excluido, solo un moderador puede deshacerlo."
-  },
   "emotionReset": {
     "clear": "Borrar",
     "resetEmotionToDefault": "Restablecer emoción al valor predeterminado"
@@ -73,7 +53,7 @@
     "resetEnglishNormalizationToDefault": "Restablecer normalización en inglés al valor predeterminado"
   },
   "ignoreTts": {
-    "optOutOfTtsIn": "Desactivar TTS en este canal"
+    "optOutInThisChannel": "Desactivar en este canal"
   },
   "languageReset": {
     "clear": "Borrar",
@@ -116,20 +96,15 @@
       "viewingDefaults": "Estás viendo la configuración predeterminada de {channel}."
     },
     "optout": {
-      "confirm": "¿Quieres desactivar el TTS en {channel}? El TTS dejará de leer tus mensajes en ese canal. Puedes volver a activarlo en cualquier momento.",
-      "confirmDescription": "Introduce el nombre del canal para continuar:",
-      "confirmTitle": "Confirmar canal para exclusión de TTS",
-      "continue": "Continuar",
+      "globalOptedIn": "Has vuelto a activar el TTS. Tus exclusiones de canales concretos siguen activas.",
+      "globalOptedOut": "Has desactivado el TTS en todos los canales.",
+      "globalOptedOutTestMode": "Has desactivado el TTS en todos los canales (modo de prueba).",
       "moderatorNote": "Un moderador del canal desactivó tu TTS aquí. Solo un moderador puede deshacer esto.",
-      "optInFailed": "No se guardó tu cambio. TTS sigue sin leer tus mensajes. Inténtalo de nuevo.",
-      "optOutFailed": "No se guardó tu exclusión. TTS sigue leyendo tus mensajes. Inténtalo de nuevo.",
       "optedIn": "Has vuelto a activar el TTS.",
       "optedInTestMode": "Has vuelto a activar el TTS (modo de prueba).",
       "optedOut": "Has desactivado el TTS.",
       "optedOutTestMode": "Has desactivado el TTS (modo de prueba).",
-      "selectChannel": "Selecciona un canal primero.",
-      "selfNote": "Has desactivado el TTS aquí. Puedes volver a activarlo en cualquier momento.",
-      "specifyChannel": "Especifica un canal."
+      "selfNote": "Has desactivado el TTS aquí. Puedes volver a activarlo en cualquier momento."
     },
     "prefs": {
       "hintChannel": "Usando el valor predeterminado del canal: {value}",
@@ -144,6 +119,21 @@
   },
   "openChannelContextModalBtn": {
     "loadChannel": "Cargar canal…"
+  },
+  "optOutChannelRow": {
+    "optOutInThisChannel": "Desactivar en este canal",
+    "ttsDoesNotReadYour": "El TTS no lee tus mensajes en este canal."
+  },
+  "optOutGlobal": {
+    "optOutInEveryChannel": "Desactivar en todos los canales"
+  },
+  "optOutGlobalRow": {
+    "optOutInEveryChannel": "Desactivar en todos los canales",
+    "ttsDoesNotReadYour": "El TTS no lee tus mensajes en ningún canal. El TTS sigue anunciando tus suscripciones, cheers y regalos, pero no el mensaje que añades. Si canjeas la recompensa de TTS, el TTS lee ese mensaje. Esto solo se aplica a Twitch."
+  },
+  "optOutSection": {
+    "optOutOfTts": "Desactivar TTS",
+    "turnOnASettingTo": "Activa una opción para que el TTS deje de leer tus mensajes. Puedes desactivar una opción que activaste tú. Si un moderador te excluyó de un canal, solo un moderador puede deshacerlo."
   },
   "page": {
     "setHowYourMessagesSound": "Define cómo suenan tus mensajes cuando WildcatTTS los lee. Tus preferencias son globales y se aplican a todos los canales.",

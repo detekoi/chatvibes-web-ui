@@ -14,6 +14,11 @@ export interface ViewerPreferences {
   languageBoost?: string | null;
   englishNormalization?: boolean;
   emoteMode?: string | null;
+  // The viewer's opt-out from TTS in every channel. Written only by
+  // PUT /api/viewer/opt-out, never by the preference routes, and read by the bot
+  // in ttsQueue.enqueue (chatvibes src/lib/globalOptOut.js).
+  globalOptOut?: boolean;
+  globalOptOutAt?: string;
 }
 
 /**

@@ -148,10 +148,15 @@ router.get("/preferences/:channel", authenticateApiRequest, async (req: Request,
 
     // Load GLOBAL user preferences
     let globalPrefs: ViewerPreferences = {};
+    // Without the document the opt-out state is unknown. The voice controls can
+    // fall back to defaults, but reporting `false` would show a viewer who opted
+    // out as opted in, so the flag goes out as null and the page hides it.
+    let prefsLoaded = true;
     try {
       globalPrefs = await loadGlobalUserPreferences(req.user.userId);
     } catch (e) {
       const err = e as Error;
+      prefsLoaded = false;
       log.warn({ error: err.message }, "Failed to load global user prefs");
     }
 
@@ -171,6 +176,7 @@ router.get("/preferences/:channel", authenticateApiRequest, async (req: Request,
       language: globalPrefs.languageBoost ?? null,
       englishNormalization: (globalPrefs.englishNormalization !== undefined) ? globalPrefs.englishNormalization : undefined,
       emoteMode: globalPrefs.emoteMode ?? null,
+      globalOptOut: prefsLoaded ? globalPrefs.globalOptOut === true : null,
       ignoreStatus: {
         tts: ttsIgnored,
         ttsSource: ttsEntry?.source ?? null,
@@ -254,10 +260,15 @@ router.get("/preferences", authenticateApiRequest, async (req: Request, res: Res
   try {
     // Load GLOBAL user preferences
     let globalPrefs: ViewerPreferences = {};
+    // Without the document the opt-out state is unknown. The voice controls can
+    // fall back to defaults, but reporting `false` would show a viewer who opted
+    // out as opted in, so the flag goes out as null and the page hides it.
+    let prefsLoaded = true;
     try {
       globalPrefs = await loadGlobalUserPreferences(req.user.userId);
     } catch (e) {
       const err = e as Error;
+      prefsLoaded = false;
       log.warn({ error: err.message }, "Failed to load global user prefs");
     }
 
@@ -270,6 +281,7 @@ router.get("/preferences", authenticateApiRequest, async (req: Request, res: Res
       language: globalPrefs.languageBoost ?? null,
       englishNormalization: (globalPrefs.englishNormalization !== undefined) ? globalPrefs.englishNormalization : undefined,
       emoteMode: globalPrefs.emoteMode ?? null,
+      globalOptOut: prefsLoaded ? globalPrefs.globalOptOut === true : null,
     };
 
     log.info("Global preferences retrieved");
@@ -307,13 +319,59 @@ router.put("/preferences", authenticateApiRequest, async (req: Request, res: Res
   }
 });
 
-// Route: /api/viewer/ignore/tts/:channel - Toggle TTS ignore status
+// Route: /api/viewer/opt-out - Opt out of TTS in every channel, or back in
+//
+// Takes the state to set rather than toggling, so a retried request cannot undo
+// itself. The flag sits on the viewer's own preferences document; it is theirs
+// alone, so there is no moderator path and nothing to refuse. The bot drops the
+// viewer's speech everywhere while it is set (chatvibes src/lib/globalOptOut.js).
+router.put("/opt-out", authenticateApiRequest, async (req: Request, res: Response): Promise<void> => {
+  assertAuthenticated(req);
+
+  const username = req.user.userLogin;
+  const log = logger.child({ endpoint: "/api/viewer/opt-out", username });
+
+  const optedOut = req.body?.optedOut;
+  if (typeof optedOut !== "boolean") {
+    apiError(res, 400, "invalid_opt_out", "optedOut must be true or false");
+    return;
+  }
+
+  try {
+    // set + merge rather than update, so opting back in on a viewer who never
+    // saved a preference does not fail on a missing document.
+    await db.collection(COLLECTIONS.TTS_USER_PREFS).doc(req.user.userId).set(
+      optedOut ?
+        { globalOptOut: true, globalOptOutAt: new Date().toISOString() } :
+        { globalOptOut: FieldValue.delete(), globalOptOutAt: FieldValue.delete() },
+      { merge: true },
+    );
+    log.info({ optedOut }, "Updated global TTS opt-out");
+    res.json({ success: true, globalOptOut: optedOut });
+  } catch (error) {
+    const err = error as Error;
+    log.error({ error: err.message }, "Error updating global TTS opt-out");
+    apiError(res, 500, "opt_out_update_failed", "Failed to update your opt-out");
+  }
+});
+
+// Route: /api/viewer/ignore/tts/:channel - Set or toggle TTS ignore status
+//
+// The body `{ ignored: boolean }` names the state to end in, so a double click or
+// a tab showing stale state cannot flip the viewer the wrong way. Without a body
+// the route toggles, which is what a page cached from before that change sends.
 router.post("/ignore/tts/:channel", authenticateApiRequest, async (req: Request, res: Response): Promise<void> => {
   const { channel } = req.params;
   assertAuthenticated(req);
 
   const username = req.user.userLogin;
   const log = logger.child({ endpoint: "/api/viewer/ignore/tts/:channel", channel, username });
+
+  const wanted: unknown = req.body?.ignored;
+  if (wanted !== undefined && typeof wanted !== "boolean") {
+    apiError(res, 400, "invalid_opt_out", "ignored must be true or false");
+    return;
+  }
 
   try {
     if (!channel) {
@@ -344,6 +402,15 @@ router.post("/ignore/tts/:channel", authenticateApiRequest, async (req: Request,
     // no Helix lookup needed to key their own entry.
     const entryKey = `twitch:${req.user.userId}`;
     const existing = getIgnoreEntry(channelData.ignoredUserIds, entryKey);
+    const target = typeof wanted === "boolean" ? wanted : !existing;
+
+    if (target === Boolean(existing)) {
+      // Already there: a repeated request, or a moderator's entry when the viewer
+      // asks to be opted out. Nothing to write either way. `source` lets the page
+      // tell a moderator's mute from the viewer's own and lock the switch.
+      res.json({ success: true, ignored: target, source: existing?.source ?? null, message: "TTS ignore status unchanged" });
+      return;
+    }
 
     if (existing && !canSelfUnignore(existing)) {
       // A moderator put them here, so they do not get to leave. This endpoint used
@@ -369,7 +436,7 @@ router.post("/ignore/tts/:channel", authenticateApiRequest, async (req: Request,
       // Their own opt-out, so they may lift it.
       await channelDocRef.update(new FieldPath("ignoredUserIds", entryKey), FieldValue.delete());
       log.info("Removed user from TTS ignore list");
-      res.json({ success: true, ignored: false, message: "Removed from TTS ignore list" });
+      res.json({ success: true, ignored: false, source: null, message: "Removed from TTS ignore list" });
     } else {
       // Add to ignore list, recorded as self-imposed so it stays reversible.
       await channelDocRef.set({
@@ -378,7 +445,7 @@ router.post("/ignore/tts/:channel", authenticateApiRequest, async (req: Request,
         },
       }, { merge: true });
       log.info("Added user to TTS ignore list");
-      res.json({ success: true, ignored: true, message: "Added to TTS ignore list" });
+      res.json({ success: true, ignored: true, source: IGNORE_SOURCE_SELF, message: "Added to TTS ignore list" });
     }
   } catch (error) {
     const err = error as Error;

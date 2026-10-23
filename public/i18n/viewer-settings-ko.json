@@ -31,26 +31,6 @@
   "clearChannelContextBtn": {
     "clear": "지우기"
   },
-  "confirmNo": {
-    "cancel": "취소"
-  },
-  "confirmText": {
-    "yourMessagesWillNotBe": "메시지를 소리 내어 읽지 않습니다. 언제든지 다시 켤 수 있습니다."
-  },
-  "confirmTitle": {
-    "confirmAction": "작업 확인"
-  },
-  "confirmYes": {
-    "confirm": "확인"
-  },
-  "dangerTtsToggle": {
-    "optOutOfTtsIn": "이 채널에서 TTS 읽기 제외",
-    "ttsWillNotReadYour": "이 채널에서 TTS가 내 메시지를 읽지 않습니다"
-  },
-  "dangerZoneSection": {
-    "dangerZone": "위험 구역",
-    "theseSettingsStopTheBot": "이 설정은 봇이 채널에서 내 메시지를 읽지 않도록 차단합니다. 직접 설정한 항목은 언제든 되돌릴 수 있습니다. 매니저가 제외한 경우 매니저만 되돌릴 수 있습니다."
-  },
   "emotionReset": {
     "clear": "지우기",
     "resetEmotionToDefault": "감정을 기본값으로 초기화"
@@ -73,7 +53,7 @@
     "resetEnglishNormalizationToDefault": "영어 텍스트 정규화를 기본값으로 초기화"
   },
   "ignoreTts": {
-    "optOutOfTtsIn": "이 채널에서 TTS 읽기 제외"
+    "optOutInThisChannel": "이 채널에서 제외"
   },
   "languageReset": {
     "clear": "지우기",
@@ -116,20 +96,15 @@
       "viewingDefaults": "{channel}의 기본 설정을 보고 있습니다."
     },
     "optout": {
-      "confirm": "{channel}에서 TTS를 제외하시겠습니까? 해당 채널에서 TTS가 메시지를 더 이상 읽지 않습니다. 언제든지 다시 켤 수 있습니다.",
-      "confirmDescription": "계속하려면 채널 이름을 입력하세요:",
-      "confirmTitle": "TTS 제외 채널 확인",
-      "continue": "계속",
+      "globalOptedIn": "TTS 읽기를 다시 켰습니다. 개별 채널의 제외 설정은 그대로 유지됩니다.",
+      "globalOptedOut": "모든 채널에서 TTS 읽기에서 제외되었습니다.",
+      "globalOptedOutTestMode": "모든 채널에서 TTS 읽기에서 제외되었습니다(테스트 모드).",
       "moderatorNote": "채널 매니저가 이 채널의 TTS를 비활성화했습니다. 매니저만 이를 되돌릴 수 있습니다.",
-      "optInFailed": "변경 사항이 저장되지 않았습니다. TTS가 여전히 메시지를 읽지 않습니다. 다시 시도해 주세요.",
-      "optOutFailed": "제외 설정이 저장되지 않았습니다. TTS가 여전히 메시지를 읽습니다. 다시 시도해 주세요.",
       "optedIn": "TTS 읽기를 다시 켰습니다.",
       "optedInTestMode": "TTS 읽기를 다시 켰습니다(테스트 모드).",
       "optedOut": "TTS 읽기에서 제외되었습니다.",
       "optedOutTestMode": "TTS 읽기에서 제외되었습니다(테스트 모드).",
-      "selectChannel": "먼저 채널을 선택하세요.",
-      "selfNote": "여기서 TTS 읽기를 제외하도록 설정했습니다. 언제든지 다시 켤 수 있습니다.",
-      "specifyChannel": "채널을 지정하세요."
+      "selfNote": "여기서 TTS 읽기를 제외하도록 설정했습니다. 언제든지 다시 켤 수 있습니다."
     },
     "prefs": {
       "hintChannel": "채널 기본값 사용 중: {value}",
@@ -144,6 +119,21 @@
   },
   "openChannelContextModalBtn": {
     "loadChannel": "채널 불러오기…"
+  },
+  "optOutChannelRow": {
+    "optOutInThisChannel": "이 채널에서 제외",
+    "ttsDoesNotReadYour": "이 채널에서 TTS가 내 메시지를 읽지 않습니다."
+  },
+  "optOutGlobal": {
+    "optOutInEveryChannel": "모든 채널에서 제외"
+  },
+  "optOutGlobalRow": {
+    "optOutInEveryChannel": "모든 채널에서 제외",
+    "ttsDoesNotReadYour": "모든 채널에서 TTS가 내 메시지를 읽지 않습니다. TTS는 구독, 치어, 선물은 계속 알리지만 추가한 메시지는 읽지 않습니다. TTS 보상을 교환하면 TTS가 그 메시지를 읽습니다. Twitch에만 적용됩니다."
+  },
+  "optOutSection": {
+    "optOutOfTts": "TTS 읽기 제외",
+    "turnOnASettingTo": "설정을 켜면 TTS가 내 메시지를 읽지 않습니다. 직접 켠 설정은 끌 수 있습니다. 모더레이터가 채널에서 나를 제외했다면 모더레이터만 되돌릴 수 있습니다."
   },
   "page": {
     "setHowYourMessagesSound": "WildcatTTS가 메시지를 읽을 때의 음성을 설정합니다. 설정은 전역으로 적용되며 모든 채널에 반영됩니다.",

@@ -31,26 +31,6 @@
   "clearChannelContextBtn": {
     "clear": "清除"
   },
-  "confirmNo": {
-    "cancel": "取消"
-  },
-  "confirmText": {
-    "yourMessagesWillNotBe": "系统将不会朗读你的消息。你可以随时重新开启。"
-  },
-  "confirmTitle": {
-    "confirmAction": "确认操作"
-  },
-  "confirmYes": {
-    "confirm": "确认"
-  },
-  "dangerTtsToggle": {
-    "optOutOfTtsIn": "在此频道停用 TTS",
-    "ttsWillNotReadYour": "TTS 不会在此频道朗读你的消息"
-  },
-  "dangerZoneSection": {
-    "dangerZone": "危险区域",
-    "theseSettingsStopTheBot": "这些设置会阻止机器人朗读你在频道中的消息。你可以随时恢复自己更改的设置。如果是由房管为你停用，则只有房管才能撤销。"
-  },
   "emotionReset": {
     "clear": "清除",
     "resetEmotionToDefault": "重置情感为默认"
@@ -73,7 +53,7 @@
     "resetEnglishNormalizationToDefault": "重置英语规范化为默认"
   },
   "ignoreTts": {
-    "optOutOfTtsIn": "在此频道停用 TTS"
+    "optOutInThisChannel": "在此频道停用"
   },
   "languageReset": {
     "clear": "清除",
@@ -116,20 +96,15 @@
       "viewingDefaults": "你正在查看 {channel} 的默认设置。"
     },
     "optout": {
-      "confirm": "你要在 {channel} 中退出 TTS 吗？TTS 将停止朗读你在该频道的消息。你可以随时重新开启。",
-      "confirmDescription": "输入频道名称以继续：",
-      "confirmTitle": "确认停用 TTS 的频道",
-      "continue": "继续",
+      "globalOptedIn": "你已重新加入 TTS。你在单个频道的停用设置保持开启。",
+      "globalOptedOut": "你已在所有频道退出 TTS。",
+      "globalOptedOutTestMode": "你已在所有频道退出 TTS（测试模式）。",
       "moderatorNote": "频道管理员已在此处为你停用 TTS。只有管理员可以撤销此操作。",
-      "optInFailed": "你的更改未保存。TTS 仍不会朗读你的消息。请重试。",
-      "optOutFailed": "你的退出设置未保存。TTS 仍会朗读你的消息。请重试。",
       "optedIn": "你已重新加入 TTS。",
       "optedInTestMode": "你已重新加入 TTS（测试模式）。",
       "optedOut": "你已退出 TTS。",
       "optedOutTestMode": "你已退出 TTS（测试模式）。",
-      "selectChannel": "请先选择频道。",
-      "selfNote": "你已在此停用 TTS。你可以随时重新开启。",
-      "specifyChannel": "指定频道。"
+      "selfNote": "你已在此停用 TTS。你可以随时重新开启。"
     },
     "prefs": {
       "hintChannel": "正在使用频道默认值：{value}",
@@ -144,6 +119,21 @@
   },
   "openChannelContextModalBtn": {
     "loadChannel": "加载频道…"
+  },
+  "optOutChannelRow": {
+    "optOutInThisChannel": "在此频道停用",
+    "ttsDoesNotReadYour": "TTS 不会在此频道朗读你的消息。"
+  },
+  "optOutGlobal": {
+    "optOutInEveryChannel": "在所有频道停用"
+  },
+  "optOutGlobalRow": {
+    "optOutInEveryChannel": "在所有频道停用",
+    "ttsDoesNotReadYour": "TTS 不会在任何频道朗读你的消息。TTS 仍会播报你的订阅、Cheer 和礼物，但不会朗读你附加的消息。如果你兑换 TTS 奖励，TTS 会朗读那条消息。此设置仅适用于 Twitch。"
+  },
+  "optOutSection": {
+    "optOutOfTts": "停用 TTS",
+    "turnOnASettingTo": "开启某项设置即可让 TTS 不再朗读你的消息。你可以关闭你自己开启的设置。如果是管理员在某个频道为你停用了 TTS，只有管理员可以撤销。"
   },
   "page": {
     "setHowYourMessagesSound": "设置 WildcatTTS 朗读你的消息时的声音效果。你的偏好设置为全局设置，适用于所有频道。",

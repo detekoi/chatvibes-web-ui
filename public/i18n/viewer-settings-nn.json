@@ -31,26 +31,6 @@
   "clearChannelContextBtn": {
     "clear": "Tøm"
   },
-  "confirmNo": {
-    "cancel": "Avbryt"
-  },
-  "confirmText": {
-    "yourMessagesWillNotBe": "Meldingane dine vert ikkje lesne høgt. Du kan slå dette på att når som helst."
-  },
-  "confirmTitle": {
-    "confirmAction": "Stadfest handling"
-  },
-  "confirmYes": {
-    "confirm": "Stadfest"
-  },
-  "dangerTtsToggle": {
-    "optOutOfTtsIn": "Reserver deg mot TTS i denne kanalen",
-    "ttsWillNotReadYour": "TTS vil ikkje lese meldingane dine i denne kanalen"
-  },
-  "dangerZoneSection": {
-    "dangerZone": "Faresone",
-    "theseSettingsStopTheBot": "Desse innstillingane hindrar boten i å lese meldingane dine i ein kanal. Du kan gjere om alle val du tek sjølv. Dersom ein moderator har reservert deg, kan berre ein moderator gjere det om."
-  },
   "emotionReset": {
     "clear": "Tøm",
     "resetEmotionToDefault": "Tilbakestill kjensle til standard"
@@ -73,7 +53,7 @@
     "resetEnglishNormalizationToDefault": "Tilbakestill engelsk normalisering til standard"
   },
   "ignoreTts": {
-    "optOutOfTtsIn": "Reserver deg mot TTS i denne kanalen"
+    "optOutInThisChannel": "Reserver deg i denne kanalen"
   },
   "languageReset": {
     "clear": "Tøm",
@@ -116,20 +96,15 @@
       "viewingDefaults": "Du ser på standardinnstillingane for {channel}."
     },
     "optout": {
-      "confirm": "Vil du reservere deg mot TTS i {channel}? TTS vil slutte å lese opp meldingane dine i den kanalen. Du kan slå det på att når som helst.",
-      "confirmDescription": "Skriv inn kanalnamnet for å halde fram:",
-      "confirmTitle": "Stadfest kanal for TTS-opt-out",
-      "continue": "Hald fram",
+      "globalOptedIn": "Du har aktivert TTS att. Reservasjonane dine for einskilde kanalar blir verande på.",
+      "globalOptedOut": "Du har valt bort TTS i alle kanalar.",
+      "globalOptedOutTestMode": "Du har valt bort TTS i alle kanalar (testmodus).",
       "moderatorNote": "Ein kanalmoderator har meldt deg ut av TTS her. Berre ein moderator kan gjere om på dette.",
-      "optInFailed": "Endringa di vart ikkje lagra. TTS les framleis ikkje meldingane dine. Prøv igjen.",
-      "optOutFailed": "Reservasjonen din vart ikkje lagra. TTS les framleis meldingane dine. Prøv igjen.",
       "optedIn": "Du har aktivert TTS att.",
       "optedInTestMode": "Du har aktivert TTS att (testmodus).",
       "optedOut": "Du har valt bort TTS.",
       "optedOutTestMode": "Du har valt bort TTS (testmodus).",
-      "selectChannel": "Vel ein kanal først.",
-      "selfNote": "Du har valt bort TTS her. Du kan slå det på att kva tid som helst.",
-      "specifyChannel": "Oppgje ein kanal."
+      "selfNote": "Du har valt bort TTS her. Du kan slå det på att kva tid som helst."
     },
     "prefs": {
       "hintChannel": "Brukar kanalstandard: {value}",
@@ -144,6 +119,21 @@
   },
   "openChannelContextModalBtn": {
     "loadChannel": "Last inn kanal…"
+  },
+  "optOutChannelRow": {
+    "optOutInThisChannel": "Reserver deg i denne kanalen",
+    "ttsDoesNotReadYour": "TTS les ikkje meldingane dine i denne kanalen."
+  },
+  "optOutGlobal": {
+    "optOutInEveryChannel": "Reserver deg i alle kanalar"
+  },
+  "optOutGlobalRow": {
+    "optOutInEveryChannel": "Reserver deg i alle kanalar",
+    "ttsDoesNotReadYour": "TTS les ikkje meldingane dine i nokon kanal. TTS kunngjer framleis abonnementa, cheers og gåvene dine, men ikkje meldinga du legg til. Viss du løyser inn TTS-påskjønninga, les TTS den meldinga. Dette gjeld berre Twitch."
+  },
+  "optOutSection": {
+    "optOutOfTts": "Reserver deg mot TTS",
+    "turnOnASettingTo": "Slå på ei innstilling for å hindre TTS i å lese meldingane dine. Du kan slå av ei innstilling som du har slått på. Viss ein moderator har reservert deg i ein kanal, kan berre ein moderator angre det."
   },
   "page": {
     "setHowYourMessagesSound": "Vel korleis meldingane dine skal høyrast ut når WildcatTTS les dei. Innstillingane dine er globale og gjeld for alle kanalar.",

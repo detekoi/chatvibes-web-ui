@@ -34,7 +34,7 @@ export interface ApiErrorBody {
  * channel was written against `res.status === 403` and could not run, so a
  * locked-out streamer saw a generic "cannot activate" with no way forward.
  * Carrying `status` and the body on the error is what makes that reachable, and
- * it lets `danger-zone.ts` test a number instead of matching on a message.
+ * it lets `opt-out.ts` test a number instead of matching on a message.
  */
 export class ApiError extends Error {
   constructor(message: string, readonly status: number, readonly body: ApiErrorBody = {}) {
@@ -74,9 +74,9 @@ export async function fetchWithAuth(url: string, options: RequestInit = {}): Pro
       // Ignore JSON parse errors and fall back to statusText.
     }
 
-    // The `API Error: <status> ` prefix is load-bearing: voice-preview.ts strips
-    // it back off for display and danger-zone.ts tests for "API Error: 403" to
-    // tell a moderator mute from a network blip. Keep the shape.
+    // The `API Error: <status> ` prefix is load-bearing: voice-preview.ts and
+    // displayError strip it back off for display. Keep the shape. To react to a
+    // status, test `error.status` on the ApiError, as opt-out.ts does.
     throw new ApiError(`API Error: ${response.status} ${errorMessage}`, response.status, body);
   }
 

@@ -31,26 +31,6 @@
   "clearChannelContextBtn": {
     "clear": "Ryd"
   },
-  "confirmNo": {
-    "cancel": "Annuller"
-  },
-  "confirmText": {
-    "yourMessagesWillNotBe": "Dine beskeder vil ikke blive læst højt. Du kan altid slå dette til igen."
-  },
-  "confirmTitle": {
-    "confirmAction": "Bekræft handling"
-  },
-  "confirmYes": {
-    "confirm": "Bekræft"
-  },
-  "dangerTtsToggle": {
-    "optOutOfTtsIn": "Fravælg TTS på denne kanal",
-    "ttsWillNotReadYour": "TTS vil ikke læse dine beskeder på denne kanal"
-  },
-  "dangerZoneSection": {
-    "dangerZone": "Farezone",
-    "theseSettingsStopTheBot": "Disse indstillinger forhindrer botten i at læse dine beskeder på en kanal. Du kan ændre enhver indstilling, du selv vælger. Hvis en moderator har fravalgt dig, kan kun en moderator fortryde det."
-  },
   "emotionReset": {
     "clear": "Nulstil",
     "resetEmotionToDefault": "Nulstil følelse til standard"
@@ -73,7 +53,7 @@
     "resetEnglishNormalizationToDefault": "Nulstil engelsk normalisering til standard"
   },
   "ignoreTts": {
-    "optOutOfTtsIn": "Fravælg TTS på denne kanal"
+    "optOutInThisChannel": "Fravælg på denne kanal"
   },
   "languageReset": {
     "clear": "Nulstil",
@@ -116,20 +96,15 @@
       "viewingDefaults": "Du ser standardindstillingerne for {channel}."
     },
     "optout": {
-      "confirm": "Vil du fravælge TTS i {channel}? TTS stopper med at læse dine beskeder i den kanal. Du kan til enhver tid slå det til igen.",
-      "confirmDescription": "Indtast kanalnavnet for at fortsætte:",
-      "confirmTitle": "Bekræft kanal til TTS-fravalg",
-      "continue": "Fortsæt",
+      "globalOptedIn": "Du har tilvalgt TTS igen. Dine fravalg for enkelte kanaler forbliver slået til.",
+      "globalOptedOut": "Du har fravalgt TTS på alle kanaler.",
+      "globalOptedOutTestMode": "Du har fravalgt TTS på alle kanaler (testtilstand).",
       "moderatorNote": "En kanalmoderator har fravalgt TTS for dig her. Kun en moderator kan fortryde dette.",
-      "optInFailed": "Din ændring blev ikke gemt. TTS læser stadig ikke dine beskeder. Prøv igen.",
-      "optOutFailed": "Dit fravalg blev ikke gemt. TTS læser stadig dine beskeder. Prøv igen.",
       "optedIn": "Du har tilvalgt TTS igen.",
       "optedInTestMode": "Du har tilvalgt TTS igen (testtilstand).",
       "optedOut": "Du har fravalgt TTS.",
       "optedOutTestMode": "Du har fravalgt TTS (testtilstand).",
-      "selectChannel": "Vælg en kanal først.",
-      "selfNote": "Du har fravalgt TTS her. Du kan altid slå det til igen.",
-      "specifyChannel": "Angiv en kanal."
+      "selfNote": "Du har fravalgt TTS her. Du kan altid slå det til igen."
     },
     "prefs": {
       "hintChannel": "Bruger kanalstandard: {value}",
@@ -144,6 +119,21 @@
   },
   "openChannelContextModalBtn": {
     "loadChannel": "Indlæs kanal…"
+  },
+  "optOutChannelRow": {
+    "optOutInThisChannel": "Fravælg på denne kanal",
+    "ttsDoesNotReadYour": "TTS læser ikke dine beskeder på denne kanal."
+  },
+  "optOutGlobal": {
+    "optOutInEveryChannel": "Fravælg på alle kanaler"
+  },
+  "optOutGlobalRow": {
+    "optOutInEveryChannel": "Fravælg på alle kanaler",
+    "ttsDoesNotReadYour": "TTS læser ikke dine beskeder på nogen kanal. TTS annoncerer stadig dine subs, cheers og gaver, men ikke den besked, du tilføjer. Hvis du indløser TTS-belønningen, læser TTS den besked. Det gælder kun Twitch."
+  },
+  "optOutSection": {
+    "optOutOfTts": "Fravælg TTS",
+    "turnOnASettingTo": "Slå en indstilling til for at forhindre TTS i at læse dine beskeder. Du kan slå en indstilling fra, som du selv har slået til. Hvis en moderator har fravalgt dig på en kanal, kan kun en moderator fortryde det."
   },
   "page": {
     "setHowYourMessagesSound": "Indstil, hvordan dine beskeder lyder, når WildcatTTS læser dem op. Dine præferencer er globale og gælder for alle kanaler.",

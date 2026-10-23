@@ -59,7 +59,6 @@ export interface ChannelContextAPI {
     setChannelUI: (channelName: string) => void;
     clearChannelUI: () => void;
     showChannelResult: (errorMessage: string | null) => void;
-    openChannelPrompt: (options: OpenChannelPromptOptions) => void;
 }
 
 /**
@@ -95,7 +94,6 @@ export function initChannelContextModule(
         setChannelUI,
         clearChannelUI,
         showChannelResult,
-        openChannelPrompt,
     };
 
     attachBaseListeners();

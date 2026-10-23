@@ -31,26 +31,6 @@
   "clearChannelContextBtn": {
     "clear": "Șterge"
   },
-  "confirmNo": {
-    "cancel": "Anulează"
-  },
-  "confirmText": {
-    "yourMessagesWillNotBe": "Mesajele tale nu vor fi citite cu voce tare. Poți reactiva această opțiune oricând."
-  },
-  "confirmTitle": {
-    "confirmAction": "Confirmă acțiunea"
-  },
-  "confirmYes": {
-    "confirm": "Confirmă"
-  },
-  "dangerTtsToggle": {
-    "optOutOfTtsIn": "Dezactivează TTS pe acest canal",
-    "ttsWillNotReadYour": "TTS nu îți va citi mesajele pe acest canal"
-  },
-  "dangerZoneSection": {
-    "dangerZone": "Zonă periculoasă",
-    "theseSettingsStopTheBot": "Aceste setări împiedică botul să-ți citească mesajele pe un canal. Poți anula orice setare pe care o alegi. Dacă un moderator te-a exclus, doar un moderator poate anula asta."
-  },
   "emotionReset": {
     "clear": "Șterge",
     "resetEmotionToDefault": "Resetează emoția la valoarea implicită"
@@ -73,7 +53,7 @@
     "resetEnglishNormalizationToDefault": "Resetează normalizarea engleză la valoarea implicită"
   },
   "ignoreTts": {
-    "optOutOfTtsIn": "Dezactivează TTS pe acest canal"
+    "optOutInThisChannel": "Dezactivează pe acest canal"
   },
   "languageReset": {
     "clear": "Șterge",
@@ -116,20 +96,15 @@
       "viewingDefaults": "Vezi setările implicite pentru {channel}."
     },
     "optout": {
-      "confirm": "Vrei să renunți la TTS pe {channel}? TTS nu va mai citi mesajele tale pe acel canal. Îl poți reactiva oricând.",
-      "confirmDescription": "Introdu numele canalului pentru a continua:",
-      "confirmTitle": "Confirmă canalul pentru opt-out TTS",
-      "continue": "Continuă",
+      "globalOptedIn": "Ai reactivat TTS. Excluderile tale pentru canale individuale rămân active.",
+      "globalOptedOut": "Ai dezactivat TTS pe toate canalele.",
+      "globalOptedOutTestMode": "Ai dezactivat TTS pe toate canalele (mod test).",
       "moderatorNote": "Un moderator al canalului te-a exclus de la TTS aici. Doar un moderator poate anula această acțiune.",
-      "optInFailed": "Modificarea ta nu a fost salvată. TTS încă nu îți citește mesajele. Încearcă din nou.",
-      "optOutFailed": "Opțiunea ta de excludere nu a fost salvată. TTS încă îți citește mesajele. Încearcă din nou.",
       "optedIn": "Ai reactivat TTS.",
       "optedInTestMode": "Ai reactivat TTS (mod test).",
       "optedOut": "Ai dezactivat TTS.",
       "optedOutTestMode": "Ai dezactivat TTS (mod test).",
-      "selectChannel": "Selectează mai întâi un canal.",
-      "selfNote": "Ai dezactivat TTS aici. Îl poți reactiva oricând.",
-      "specifyChannel": "Specifică un canal."
+      "selfNote": "Ai dezactivat TTS aici. Îl poți reactiva oricând."
     },
     "prefs": {
       "hintChannel": "Se folosește setarea implicită a canalului: {value}",
@@ -144,6 +119,21 @@
   },
   "openChannelContextModalBtn": {
     "loadChannel": "Încarcă canalul…"
+  },
+  "optOutChannelRow": {
+    "optOutInThisChannel": "Dezactivează pe acest canal",
+    "ttsDoesNotReadYour": "TTS nu îți citește mesajele pe acest canal."
+  },
+  "optOutGlobal": {
+    "optOutInEveryChannel": "Dezactivează pe toate canalele"
+  },
+  "optOutGlobalRow": {
+    "optOutInEveryChannel": "Dezactivează pe toate canalele",
+    "ttsDoesNotReadYour": "TTS nu îți citește mesajele pe niciun canal. TTS anunță în continuare abonamentele, cheer-urile și cadourile tale, dar nu și mesajul pe care îl adaugi. Dacă răscumperi recompensa TTS, TTS citește acel mesaj. Se aplică doar pentru Twitch."
+  },
+  "optOutSection": {
+    "optOutOfTts": "Dezactivează TTS",
+    "turnOnASettingTo": "Activează o setare ca TTS să nu îți mai citească mesajele. Poți dezactiva o setare pe care ai activat-o. Dacă un moderator te-a exclus de pe un canal, doar un moderator poate anula asta."
   },
   "page": {
     "setHowYourMessagesSound": "Setează cum se aud mesajele tale când le citește WildcatTTS. Preferințele tale sunt globale și se aplică pe toate canalele.",

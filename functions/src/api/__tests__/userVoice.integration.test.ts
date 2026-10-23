@@ -57,6 +57,43 @@ describe('User Voice Lookup', () => {
             expect(response.body.voiceId).toBe('Test_Voice_ID');
         });
 
+        it('should return only the voice, never the rest of the document', async () => {
+            // Any signed-in broadcaster can look up any login here.
+            await db.collection('ttsUserPreferences').doc(userId).set({
+                voiceId: 'Test_Voice_ID',
+                pitch: 2,
+                globalOptOut: true,
+                globalOptOutAt: '2026-01-01T00:00:00.000Z',
+            });
+
+            const response = await request(app)
+                .get(`/api/tts/user-voice/${username}`)
+                .set('Authorization', `Bearer ${createTestToken(testUser)}`)
+                .expect(200);
+
+            expect(response.body).toEqual({ success: true, username, voiceId: 'Test_Voice_ID' });
+        });
+
+        it('should answer the same for an opted-out viewer with no voice as for no document', async () => {
+            // A different shape would tell the broadcaster that the viewer opted out.
+            const token = createTestToken(testUser);
+            const none = await request(app)
+                .get(`/api/tts/user-voice/${username}`)
+                .set('Authorization', `Bearer ${token}`)
+                .expect(200);
+
+            await db.collection('ttsUserPreferences').doc(userId).set({
+                globalOptOut: true,
+                globalOptOutAt: '2026-01-01T00:00:00.000Z',
+            });
+            const optedOut = await request(app)
+                .get(`/api/tts/user-voice/${username}`)
+                .set('Authorization', `Bearer ${token}`)
+                .expect(200);
+
+            expect(optedOut.body).toEqual(none.body);
+        });
+
         it('should ignore a legacy document keyed by login', async () => {
             await db.collection('ttsUserPreferences').doc(username).set({ voiceId: 'Legacy_Voice' });
 

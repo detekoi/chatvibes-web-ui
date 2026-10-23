@@ -31,26 +31,6 @@
   "clearChannelContextBtn": {
     "clear": "Tyhjennä"
   },
-  "confirmNo": {
-    "cancel": "Peruuta"
-  },
-  "confirmText": {
-    "yourMessagesWillNotBe": "Viestejäsi ei lueta ääneen. Voit ottaa tämän milloin vain takaisin käyttöön."
-  },
-  "confirmTitle": {
-    "confirmAction": "Vahvista toiminto"
-  },
-  "confirmYes": {
-    "confirm": "Vahvista"
-  },
-  "dangerTtsToggle": {
-    "optOutOfTtsIn": "Kieltäydy TTS:stä tällä kanavalla",
-    "ttsWillNotReadYour": "TTS ei lue viestejäsi tällä kanavalla"
-  },
-  "dangerZoneSection": {
-    "dangerZone": "Vaara-alue",
-    "theseSettingsStopTheBot": "Nämä asetukset estävät bottia lukemasta viestejäsi kanavalla. Voit kumota minkä tahansa itse valitsemasi asetuksen. Jos moderaattori esti viestiesi lukemisen, vain moderaattori voi kumota sen."
-  },
   "emotionReset": {
     "clear": "Tyhjennä",
     "resetEmotionToDefault": "Palauta tunnetila oletukseen"
@@ -73,7 +53,7 @@
     "resetEnglishNormalizationToDefault": "Palauta englannin normalisointi oletukseen"
   },
   "ignoreTts": {
-    "optOutOfTtsIn": "Kieltäydy TTS:stä tällä kanavalla"
+    "optOutInThisChannel": "Kieltäydy tällä kanavalla"
   },
   "languageReset": {
     "clear": "Tyhjennä",
@@ -116,20 +96,15 @@
       "viewingDefaults": "Tarkastelet kanavan {channel} oletusasetuksia."
     },
     "optout": {
-      "confirm": "Haluatko kieltäytyä TTS:stä kanavalla {channel}? TTS lakkaa lukemasta viestejäsi kyseisellä kanavalla. Voit ottaa sen takaisin käyttöön milloin tahansa.",
-      "confirmDescription": "Jatka kirjoittamalla kanavan nimi:",
-      "confirmTitle": "Vahvista kanava TTS-kieltäytymistä varten",
-      "continue": "Jatka",
+      "globalOptedIn": "Otit TTS:n takaisin käyttöön. Yksittäisten kanavien kieltäytymiset pysyvät voimassa.",
+      "globalOptedOut": "Kieltäydyit TTS:stä kaikilla kanavilla.",
+      "globalOptedOutTestMode": "Kieltäydyit TTS:stä kaikilla kanavilla (testitila).",
       "moderatorNote": "Kanavan moderaattori on estänyt sinulta TTS:n käytön täällä. Vain moderaattori voi kumota tämän.",
-      "optInFailed": "Muutostasi ei tallennettu. TTS ei edelleenkään lue viestejäsi. Yritä uudelleen.",
-      "optOutFailed": "Kieltäytymistäsi ei tallennettu. TTS lukee edelleen viestejäsi. Yritä uudelleen.",
       "optedIn": "Otit TTS:n takaisin käyttöön.",
       "optedInTestMode": "Otit TTS:n takaisin käyttöön (testitila).",
       "optedOut": "Kieltäydyit TTS:stä.",
       "optedOutTestMode": "Kieltäydyit TTS:stä (testitila).",
-      "selectChannel": "Valitse ensin kanava.",
-      "selfNote": "Olet kieltäytynyt TTS:stä täällä. Voit ottaa sen takaisin käyttöön milloin tahansa.",
-      "specifyChannel": "Määritä kanava."
+      "selfNote": "Olet kieltäytynyt TTS:stä täällä. Voit ottaa sen takaisin käyttöön milloin tahansa."
     },
     "prefs": {
       "hintChannel": "Käytetään kanavan oletusta: {value}",
@@ -144,6 +119,21 @@
   },
   "openChannelContextModalBtn": {
     "loadChannel": "Lataa kanava…"
+  },
+  "optOutChannelRow": {
+    "optOutInThisChannel": "Kieltäydy tällä kanavalla",
+    "ttsDoesNotReadYour": "TTS ei lue viestejäsi tällä kanavalla."
+  },
+  "optOutGlobal": {
+    "optOutInEveryChannel": "Kieltäydy kaikilla kanavilla"
+  },
+  "optOutGlobalRow": {
+    "optOutInEveryChannel": "Kieltäydy kaikilla kanavilla",
+    "ttsDoesNotReadYour": "TTS ei lue viestejäsi millään kanavalla. TTS ilmoittaa yhä tilauksesi, cheerisi ja lahjasi, mutta ei viestiä, jonka lisäät. Jos lunastat TTS-palkinnon, TTS lukee sen viestin. Tämä koskee vain Twitchiä."
+  },
+  "optOutSection": {
+    "optOutOfTts": "Kieltäydy TTS:stä",
+    "turnOnASettingTo": "Ota asetus käyttöön, niin TTS lopettaa viestiesi lukemisen. Voit poistaa käytöstä asetuksen, jonka otit käyttöön. Jos moderaattori kieltäytyi puolestasi kanavalla, vain moderaattori voi perua sen."
   },
   "page": {
     "setHowYourMessagesSound": "Määritä, miltä viestisi kuulostavat, kun WildcatTTS lukee ne. Asetuksesi ovat yleisiä ja koskevat kaikkia kanavia.",

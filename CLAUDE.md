@@ -144,8 +144,9 @@ generated at build time and committed; nothing is translated at runtime.
   endpoint that has not been migrated degrades to English rather than to a bare
   key. `fetchWithAuth` resolves the code once, centrally, which is what gets the
   whole failure path out of English — but keep its `API Error: <status> ` prefix:
-  `voice-preview.ts` strips it for display and `danger-zone.ts` tests for
-  `API Error: 403` to tell a moderator mute from a network blip.
+  `voice-preview.ts` and `displayError` strip it for display. To react to a
+  status, test `error.status` on the `ApiError`, as `opt-out.ts` does for a
+  moderator mute (403).
 - **A validator whose message is composed returns a code, not prose.**
   `validateSay` in `services/pronunciation.ts` and
   `validateChannelPointsTestMessage` in `api/rewards.ts` both used to return

@@ -31,26 +31,6 @@
   "clearChannelContextBtn": {
     "clear": "ניקוי"
   },
-  "confirmNo": {
-    "cancel": "ביטול"
-  },
-  "confirmText": {
-    "yourMessagesWillNotBe": "ההודעות שלך לא יוקראו בקול. תוכל להפעיל זאת מחדש בכל עת."
-  },
-  "confirmTitle": {
-    "confirmAction": "אישור פעולה"
-  },
-  "confirmYes": {
-    "confirm": "אישור"
-  },
-  "dangerTtsToggle": {
-    "optOutOfTtsIn": "ביטול TTS בערוץ זה",
-    "ttsWillNotReadYour": "ה-TTS לא יקריא את ההודעות שלך בערוץ זה"
-  },
-  "dangerZoneSection": {
-    "dangerZone": "אזור סכנה",
-    "theseSettingsStopTheBot": "הגדרות אלה מונעות מהבוט להקריא את ההודעות שלך בערוץ. תוכל לשנות בחזרה כל הגדרה שתבחר. אם מנהל ביטל את השתתפותך, רק מנהל יוכל לבטל זאת."
-  },
   "emotionReset": {
     "clear": "ניקוי",
     "resetEmotionToDefault": "איפוס הרגש לברירת המחדל"
@@ -73,7 +53,7 @@
     "resetEnglishNormalizationToDefault": "איפוס נורמליזציה לאנגלית לברירת המחדל"
   },
   "ignoreTts": {
-    "optOutOfTtsIn": "ביטול TTS בערוץ זה"
+    "optOutInThisChannel": "ביטול בערוץ זה"
   },
   "languageReset": {
     "clear": "ניקוי",
@@ -116,20 +96,15 @@
       "viewingDefaults": "אתה צופה בהגדרות ברירת המחדל עבור {channel}."
     },
     "optout": {
-      "confirm": "האם ברצונך לבטל את ההשתתפות ב-TTS ב-{channel}? ה-TTS יפסיק להקריא את ההודעות שלך בערוץ זה. ניתן להפעיל אותו מחדש בכל עת.",
-      "confirmDescription": "הזן את שם הערוץ כדי להמשיך:",
-      "confirmTitle": "אישור ערוץ להחרגה מ-TTS",
-      "continue": "המשך",
+      "globalOptedIn": "הצטרפת מחדש ל-TTS. הביטולים שלך לערוצים בודדים נשארים פעילים.",
+      "globalOptedOut": "ביטלת את ה-TTS בכל הערוצים.",
+      "globalOptedOutTestMode": "ביטלת את ה-TTS בכל הערוצים (מצב בדיקה).",
       "moderatorNote": "מנהל ערוץ ביטל עבורך את ה-TTS כאן. רק מנהל יכול לבטל זאת.",
-      "optInFailed": "השינוי שלך לא נשמר. TTS עדיין לא מקריא את ההודעות שלך. נסה שוב.",
-      "optOutFailed": "ההחרגה שלך לא נשמרה. TTS עדיין מקריא את ההודעות שלך. נסה שוב.",
       "optedIn": "הצטרפת מחדש ל-TTS.",
       "optedInTestMode": "הצטרפת מחדש ל-TTS (מצב בדיקה).",
       "optedOut": "ביטלת את ההצטרפות ל-TTS.",
       "optedOutTestMode": "ביטלת את ההצטרפות ל-TTS (מצב בדיקה).",
-      "selectChannel": "יש לבחור ערוץ תחילה.",
-      "selfNote": "ביטלת כאן את ההצטרפות ל-TTS. באפשרותך להפעיל זאת מחדש בכל עת.",
-      "specifyChannel": "נא לציין ערוץ."
+      "selfNote": "ביטלת כאן את ההצטרפות ל-TTS. באפשרותך להפעיל זאת מחדש בכל עת."
     },
     "prefs": {
       "hintChannel": "שימוש בברירת המחדל של הערוץ: {value}",
@@ -144,6 +119,21 @@
   },
   "openChannelContextModalBtn": {
     "loadChannel": "טעינת ערוץ…"
+  },
+  "optOutChannelRow": {
+    "optOutInThisChannel": "ביטול בערוץ זה",
+    "ttsDoesNotReadYour": "ה-TTS לא מקריא את ההודעות שלך בערוץ זה."
+  },
+  "optOutGlobal": {
+    "optOutInEveryChannel": "ביטול בכל הערוצים"
+  },
+  "optOutGlobalRow": {
+    "optOutInEveryChannel": "ביטול בכל הערוצים",
+    "ttsDoesNotReadYour": "ה-TTS לא מקריא את ההודעות שלך באף ערוץ. ה-TTS עדיין מכריז על המינויים, ה-cheers והמתנות שלך, אבל לא על ההודעה שאתה מוסיף. אם תממש את פרס ה-TTS, ה-TTS יקריא את ההודעה הזו. זה חל על Twitch בלבד."
+  },
+  "optOutSection": {
+    "optOutOfTts": "ביטול TTS",
+    "turnOnASettingTo": "הפעל הגדרה כדי שה-TTS יפסיק להקריא את ההודעות שלך. אפשר לכבות הגדרה שהפעלת בעצמך. אם מנחה ביטל לך את ה-TTS בערוץ, רק מנחה יכול לבטל זאת."
   },
   "page": {
     "setHowYourMessagesSound": "קבע כיצד ההודעות שלך יישמעו כאשר WildcatTTS מקריא אותן. ההעדפות שלך הן גלובליות וחלות על כל הערוצים.",

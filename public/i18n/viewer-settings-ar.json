@@ -31,26 +31,6 @@
   "clearChannelContextBtn": {
     "clear": "مسح"
   },
-  "confirmNo": {
-    "cancel": "إلغاء"
-  },
-  "confirmText": {
-    "yourMessagesWillNotBe": "لن تُقرأ رسائلك بصوت عالٍ. يمكنك إعادة تفعيل هذا في أي وقت."
-  },
-  "confirmTitle": {
-    "confirmAction": "تأكيد الإجراء"
-  },
-  "confirmYes": {
-    "confirm": "تأكيد"
-  },
-  "dangerTtsToggle": {
-    "optOutOfTtsIn": "إلغاء تفعيل TTS في هذه القناة",
-    "ttsWillNotReadYour": "لن يقرأ TTS رسائلك في هذه القناة"
-  },
-  "dangerZoneSection": {
-    "dangerZone": "منطقة الخطر",
-    "theseSettingsStopTheBot": "تمنع هذه الإعدادات البوت من قراءة رسائلك في القناة. يمكنك التراجع عن أي إعداد تختاره. إذا قام مشرف بتعطيل القراءة لك، فلا يمكن التراجع عن ذلك إلا بواسطة مشرف."
-  },
   "emotionReset": {
     "clear": "مسح",
     "resetEmotionToDefault": "إعادة تعيين المشاعر إلى الافتراضي"
@@ -73,7 +53,7 @@
     "resetEnglishNormalizationToDefault": "إعادة تعيين تسوية النصوص الإنجليزية إلى الافتراضي"
   },
   "ignoreTts": {
-    "optOutOfTtsIn": "إلغاء تفعيل TTS في هذه القناة"
+    "optOutInThisChannel": "إلغاء التفعيل في هذه القناة"
   },
   "languageReset": {
     "clear": "مسح",
@@ -116,20 +96,15 @@
       "viewingDefaults": "أنت تعرض الإعدادات الافتراضية لـ {channel}."
     },
     "optout": {
-      "confirm": "هل تريد تعطيل TTS في {channel}؟ سيتوقف TTS عن قراءة رسائلك في تلك القناة. يمكنك إعادة تفعيله في أي وقت.",
-      "confirmDescription": "أدخل اسم القناة للمتابعة:",
-      "confirmTitle": "تأكيد القناة للاستبعاد من TTS",
-      "continue": "متابعة",
+      "globalOptedIn": "أعدت تفعيل TTS. تبقى إلغاءات التفعيل الخاصة بقنوات منفردة قائمة.",
+      "globalOptedOut": "ألغيت تفعيل TTS في كل القنوات.",
+      "globalOptedOutTestMode": "ألغيت تفعيل TTS في كل القنوات (وضع الاختبار).",
       "moderatorNote": "قام مشرف القناة بإلغاء اشتراكك في TTS هنا. يمكن للمشرف فقط التراجع عن هذا الإجراء.",
-      "optInFailed": "لم يُحفظ تغييرك. لا يزال TTS لا يقرأ رسائلك. حاول مجددًا.",
-      "optOutFailed": "لم يُحفظ خيار الاستبعاد الخاص بك. لا يزال TTS يقرأ رسائلك. حاول مجددًا.",
       "optedIn": "أعدت تفعيل TTS.",
       "optedInTestMode": "أعدت تفعيل TTS (وضع الاختبار).",
       "optedOut": "ألغيت تفعيل TTS.",
       "optedOutTestMode": "ألغيت تفعيل TTS (وضع الاختبار).",
-      "selectChannel": "اختر قناة أولاً.",
-      "selfNote": "لقد ألغيت تفعيل TTS هنا. يمكنك إعادة تفعيله في أي وقت.",
-      "specifyChannel": "حدد قناة."
+      "selfNote": "لقد ألغيت تفعيل TTS هنا. يمكنك إعادة تفعيله في أي وقت."
     },
     "prefs": {
       "hintChannel": "استخدام القيمة الافتراضية للقناة: {value}",
@@ -144,6 +119,21 @@
   },
   "openChannelContextModalBtn": {
     "loadChannel": "تحميل القناة…"
+  },
+  "optOutChannelRow": {
+    "optOutInThisChannel": "إلغاء التفعيل في هذه القناة",
+    "ttsDoesNotReadYour": "لا يقرأ TTS رسائلك في هذه القناة."
+  },
+  "optOutGlobal": {
+    "optOutInEveryChannel": "إلغاء التفعيل في كل القنوات"
+  },
+  "optOutGlobalRow": {
+    "optOutInEveryChannel": "إلغاء التفعيل في كل القنوات",
+    "ttsDoesNotReadYour": "لا يقرأ TTS رسائلك في أي قناة. لا يزال TTS يعلن عن اشتراكاتك وتشجيعاتك وهداياك، لكن ليس الرسالة التي تضيفها. إذا استبدلت مكافأة TTS، فسيقرأ TTS تلك الرسالة. ينطبق هذا على Twitch فقط."
+  },
+  "optOutSection": {
+    "optOutOfTts": "إلغاء تفعيل TTS",
+    "turnOnASettingTo": "فعّل إعدادًا لإيقاف TTS عن قراءة رسائلك. يمكنك إيقاف إعداد فعّلته بنفسك. إذا ألغى أحد المشرفين تفعيل TTS لك في قناة، فلا يمكن التراجع عن ذلك إلا لمشرف."
   },
   "page": {
     "setHowYourMessagesSound": "حدد كيف تبدو رسائلك عندما يقرؤها WildcatTTS. تفضيلاتك عامة وتُطبق على جميع القنوات.",

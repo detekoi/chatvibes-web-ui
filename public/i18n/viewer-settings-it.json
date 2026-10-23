@@ -31,26 +31,6 @@
   "clearChannelContextBtn": {
     "clear": "Cancella"
   },
-  "confirmNo": {
-    "cancel": "Annulla"
-  },
-  "confirmText": {
-    "yourMessagesWillNotBe": "I tuoi messaggi non verranno letti ad alta voce. Puoi riattivare l'opzione in qualsiasi momento."
-  },
-  "confirmTitle": {
-    "confirmAction": "Conferma azione"
-  },
-  "confirmYes": {
-    "confirm": "Conferma"
-  },
-  "dangerTtsToggle": {
-    "optOutOfTtsIn": "Disattiva il TTS in questo canale",
-    "ttsWillNotReadYour": "Il TTS non leggerà i tuoi messaggi in questo canale"
-  },
-  "dangerZoneSection": {
-    "dangerZone": "Zona di pericolo",
-    "theseSettingsStopTheBot": "Queste impostazioni impediscono al bot di leggere i tuoi messaggi in un canale. Puoi annullare qualsiasi impostazione da te scelta. Se l'esclusione è stata impostata da un moderatore, solo un moderatore può annullarla."
-  },
   "emotionReset": {
     "clear": "Cancella",
     "resetEmotionToDefault": "Reimposta emozione sul valore predefinito"
@@ -73,7 +53,7 @@
     "resetEnglishNormalizationToDefault": "Reimposta normalizzazione inglese sul valore predefinito"
   },
   "ignoreTts": {
-    "optOutOfTtsIn": "Disattiva il TTS in questo canale"
+    "optOutInThisChannel": "Disattiva in questo canale"
   },
   "languageReset": {
     "clear": "Cancella",
@@ -116,20 +96,15 @@
       "viewingDefaults": "Stai visualizzando le impostazioni predefinite per {channel}."
     },
     "optout": {
-      "confirm": "Vuoi escluderti dal TTS in {channel}? Il TTS smetterà di leggere i tuoi messaggi in quel canale. Puoi riattivarlo in qualsiasi momento.",
-      "confirmDescription": "Inserisci il nome del canale per continuare:",
-      "confirmTitle": "Conferma canale per opt-out dal TTS",
-      "continue": "Continua",
+      "globalOptedIn": "Hai riattivato il TTS. Le esclusioni per singoli canali restano attive.",
+      "globalOptedOut": "Hai disattivato il TTS in tutti i canali.",
+      "globalOptedOutTestMode": "Hai disattivato il TTS in tutti i canali (modalità test).",
       "moderatorNote": "Un moderatore del canale ha disattivato il TTS per te qui. Solo un moderatore può annullare questa operazione.",
-      "optInFailed": "La modifica non è stata salvata. Il TTS continua a non leggere i tuoi messaggi. Riprova.",
-      "optOutFailed": "L'esclusione non è stata salvata. Il TTS continua a leggere i tuoi messaggi. Riprova.",
       "optedIn": "Hai riattivato il TTS.",
       "optedInTestMode": "Hai riattivato il TTS (modalità test).",
       "optedOut": "Hai disattivato il TTS.",
       "optedOutTestMode": "Hai disattivato il TTS (modalità test).",
-      "selectChannel": "Seleziona prima un canale.",
-      "selfNote": "Hai disattivato il TTS qui. Puoi riattivarlo in qualsiasi momento.",
-      "specifyChannel": "Specifica un canale."
+      "selfNote": "Hai disattivato il TTS qui. Puoi riattivarlo in qualsiasi momento."
     },
     "prefs": {
       "hintChannel": "In uso predefinito del canale: {value}",
@@ -144,6 +119,21 @@
   },
   "openChannelContextModalBtn": {
     "loadChannel": "Carica canale…"
+  },
+  "optOutChannelRow": {
+    "optOutInThisChannel": "Disattiva in questo canale",
+    "ttsDoesNotReadYour": "Il TTS non legge i tuoi messaggi in questo canale."
+  },
+  "optOutGlobal": {
+    "optOutInEveryChannel": "Disattiva in tutti i canali"
+  },
+  "optOutGlobalRow": {
+    "optOutInEveryChannel": "Disattiva in tutti i canali",
+    "ttsDoesNotReadYour": "Il TTS non legge i tuoi messaggi in nessun canale. Il TTS annuncia comunque i tuoi abbonamenti, cheer e regali, ma non il messaggio che aggiungi. Se riscatti la ricompensa TTS, il TTS legge quel messaggio. Vale solo per Twitch."
+  },
+  "optOutSection": {
+    "optOutOfTts": "Disattiva il TTS",
+    "turnOnASettingTo": "Attiva un'impostazione per impedire al TTS di leggere i tuoi messaggi. Puoi disattivare un'impostazione che hai attivato tu. Se un moderatore ti ha escluso da un canale, solo un moderatore può annullarlo."
   },
   "page": {
     "setHowYourMessagesSound": "Imposta come suonano i tuoi messaggi quando WildcatTTS li legge. Le tue preferenze sono globali e si applicano a tutti i canali.",

@@ -31,26 +31,6 @@
   "clearChannelContextBtn": {
     "clear": "Vymazat"
   },
-  "confirmNo": {
-    "cancel": "Zrušit"
-  },
-  "confirmText": {
-    "yourMessagesWillNotBe": "Vaše zprávy nebudou čteny nahlas. Kdykoli to můžete znovu zapnout."
-  },
-  "confirmTitle": {
-    "confirmAction": "Potvrdit akci"
-  },
-  "confirmYes": {
-    "confirm": "Potvrdit"
-  },
-  "dangerTtsToggle": {
-    "optOutOfTtsIn": "Odhlásit se z TTS na tomto kanálu",
-    "ttsWillNotReadYour": "TTS nebude číst vaše zprávy na tomto kanálu"
-  },
-  "dangerZoneSection": {
-    "dangerZone": "Nebezpečná zóna",
-    "theseSettingsStopTheBot": "Tato nastavení zabrání botovi číst vaše zprávy v kanálu. Jakékoli vámi zvolené nastavení můžete změnit zpět. Pokud vás odhlásil moderátor, může to vrátit pouze moderátor."
-  },
   "emotionReset": {
     "clear": "Vymazat",
     "resetEmotionToDefault": "Obnovit emoci na výchozí"
@@ -73,7 +53,7 @@
     "resetEnglishNormalizationToDefault": "Obnovit normalizaci angličtiny na výchozí"
   },
   "ignoreTts": {
-    "optOutOfTtsIn": "Odhlásit se z TTS na tomto kanálu"
+    "optOutInThisChannel": "Odhlásit se na tomto kanálu"
   },
   "languageReset": {
     "clear": "Vymazat",
@@ -116,20 +96,15 @@
       "viewingDefaults": "Prohlížíte výchozí nastavení pro {channel}."
     },
     "optout": {
-      "confirm": "Chcete se odhlásit z TTS na kanálu {channel}? TTS přestane na tomto kanálu předčítat vaše zprávy. Kdykoli to můžete znovu zapnout.",
-      "confirmDescription": "Pro pokračování zadejte název kanálu:",
-      "confirmTitle": "Potvrdit kanál pro odhlášení z TTS",
-      "continue": "Pokračovat",
+      "globalOptedIn": "Znovu jste se přihlásili k TTS. Odhlášení z jednotlivých kanálů zůstávají zapnutá.",
+      "globalOptedOut": "Odhlásili jste se z TTS na všech kanálech.",
+      "globalOptedOutTestMode": "Odhlásili jste se z TTS na všech kanálech (testovací režim).",
       "moderatorNote": "Moderátor kanálu vás zde odhlásil z TTS. Toto nastavení může zrušit pouze moderátor.",
-      "optInFailed": "Změnu se nepodařilo uložit. TTS stále nečte vaše zprávy. Zkuste to znovu.",
-      "optOutFailed": "Odhlášení se nepodařilo uložit. TTS stále čte vaše zprávy. Zkuste to znovu.",
       "optedIn": "Znovu jste se přihlásili k TTS.",
       "optedInTestMode": "Znovu jste se přihlásili k TTS (testovací režim).",
       "optedOut": "Odhlásili jste se z TTS.",
       "optedOutTestMode": "Odhlásili jste se z TTS (testovací režim).",
-      "selectChannel": "Nejprve vyberte kanál.",
-      "selfNote": "Zde jste se odhlásili z TTS. Kdykoli to můžete znovu zapnout.",
-      "specifyChannel": "Zadejte kanál."
+      "selfNote": "Zde jste se odhlásili z TTS. Kdykoli to můžete znovu zapnout."
     },
     "prefs": {
       "hintChannel": "Používá se výchozí nastavení kanálu: {value}",
@@ -144,6 +119,21 @@
   },
   "openChannelContextModalBtn": {
     "loadChannel": "Načíst kanál…"
+  },
+  "optOutChannelRow": {
+    "optOutInThisChannel": "Odhlásit se na tomto kanálu",
+    "ttsDoesNotReadYour": "TTS nečte vaše zprávy na tomto kanálu."
+  },
+  "optOutGlobal": {
+    "optOutInEveryChannel": "Odhlásit se na všech kanálech"
+  },
+  "optOutGlobalRow": {
+    "optOutInEveryChannel": "Odhlásit se na všech kanálech",
+    "ttsDoesNotReadYour": "TTS nečte vaše zprávy na žádném kanálu. TTS dál oznamuje vaše předplatné, cheery a dárky, ale ne zprávu, kterou k nim přidáte. Pokud uplatníte odměnu TTS, TTS tuto zprávu přečte. Platí to jen pro Twitch."
+  },
+  "optOutSection": {
+    "optOutOfTts": "Odhlásit se z TTS",
+    "turnOnASettingTo": "Zapněte nastavení, aby TTS přestalo číst vaše zprávy. Nastavení, které jste zapnuli, můžete vypnout. Pokud vás z kanálu odhlásil moderátor, může to vrátit jen moderátor."
   },
   "page": {
     "setHowYourMessagesSound": "Nastavte, jak budou vaše zprávy znít, když je předčítá WildcatTTS. Vaše předvolby jsou globální a platí pro všechny kanály.",

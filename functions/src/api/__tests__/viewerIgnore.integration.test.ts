@@ -181,6 +181,110 @@ describe('Viewer TTS opt-out (Mocked Firestore)', () => {
     expect(Object.keys(payload.ignoredUserIds)).toEqual([entryKey]);
   });
 
+  // The page sends the state it wants, so a double click or a stale tab cannot
+  // flip the viewer the wrong way. The toggle above is kept for cached pages.
+  describe('with a wanted state in the body', () => {
+    const selfEntry = { label: 'Viewer', source: 'self', by: entryKey, at: 'then' };
+    const modEntry = { label: 'Viewer', source: 'moderator', by: 'twitch:99', at: 'then' };
+
+    it('opts the viewer out when asked to', async () => {
+      seed({});
+      ((db as any).set as any).mockResolvedValueOnce({} as any);
+
+      const response = await request(app)
+        .post(endpoint)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ ignored: true })
+        .expect(200);
+
+      expect(response.body).toMatchObject({ success: true, ignored: true, source: 'self' });
+      expect((db as any).set).toHaveBeenCalledTimes(1);
+    });
+
+    it('writes nothing when the viewer is already opted out', async () => {
+      // The second request of a double click must not opt them back in.
+      seed({ [entryKey]: selfEntry });
+
+      const response = await request(app)
+        .post(endpoint)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ ignored: true })
+        .expect(200);
+
+      expect(response.body).toMatchObject({ success: true, ignored: true });
+      expect((db as any).set).not.toHaveBeenCalled();
+      expect((db as any).update).not.toHaveBeenCalled();
+    });
+
+    it('reports a moderator mute as opted out, and writes nothing', async () => {
+      seed({ [entryKey]: modEntry });
+
+      const response = await request(app)
+        .post(endpoint)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ ignored: true })
+        .expect(200);
+
+      expect(response.body).toMatchObject({ success: true, ignored: true, source: 'moderator' });
+      expect((db as any).set).not.toHaveBeenCalled();
+      expect((db as any).update).not.toHaveBeenCalled();
+    });
+
+    it('lifts a self opt-out when asked to', async () => {
+      seed({ [entryKey]: selfEntry });
+      ((db as any).update as any).mockResolvedValueOnce({} as any);
+
+      const response = await request(app)
+        .post(endpoint)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ ignored: false })
+        .expect(200);
+
+      expect(response.body).toMatchObject({ success: true, ignored: false });
+      const [path] = ((db as any).update as any).mock.calls[0];
+      expect(path.segments).toEqual(['ignoredUserIds', entryKey]);
+    });
+
+    it('writes nothing when the viewer is already opted in', async () => {
+      // A stale tab that still shows the switch on must not opt them out.
+      seed({});
+
+      const response = await request(app)
+        .post(endpoint)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ ignored: false })
+        .expect(200);
+
+      expect(response.body).toMatchObject({ success: true, ignored: false });
+      expect((db as any).set).not.toHaveBeenCalled();
+      expect((db as any).update).not.toHaveBeenCalled();
+    });
+
+    it('still refuses to lift a moderator mute', async () => {
+      seed({ [entryKey]: modEntry });
+
+      const response = await request(app)
+        .post(endpoint)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ ignored: false })
+        .expect(403);
+
+      expect(response.body).toMatchObject({ reason: 'moderator_imposed', ignored: true });
+      expect((db as any).update).not.toHaveBeenCalled();
+    });
+
+    it.each(['yes', 1, null])('refuses ignored=%p and reads nothing', async (ignored) => {
+      const response = await request(app)
+        .post(endpoint)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ ignored })
+        .expect(400);
+
+      expect(response.body.code).toBe('invalid_opt_out');
+      expect((db as any).get).not.toHaveBeenCalled();
+    });
+  });
+
   describe('GET /api/viewer/preferences/:channel', () => {
     const prefsEndpoint = `/api/viewer/preferences/${channelName}`;
 
@@ -221,6 +325,130 @@ describe('Viewer TTS opt-out (Mocked Firestore)', () => {
       expect(response.body.ignoreStatus).toEqual({
         tts: false, ttsSource: null, ttsCanSelfUndo: false,
       });
+    });
+
+    it('reports the opt-out as unknown when the preferences read fails', async () => {
+      seed({});
+      mockLoadGlobalUserPreferences.mockRejectedValueOnce(new Error('unavailable'));
+
+      const response = await request(app)
+        .get(prefsEndpoint)
+        .set('Authorization', `Bearer ${authToken}`)
+        .expect(200);
+
+      expect(response.body.globalOptOut).toBeNull();
+    });
+
+    it('reports the opt-out from every channel', async () => {
+      seed({});
+      mockLoadGlobalUserPreferences.mockResolvedValueOnce({ globalOptOut: true, globalOptOutAt: 'then' });
+
+      const response = await request(app)
+        .get(prefsEndpoint)
+        .set('Authorization', `Bearer ${authToken}`)
+        .expect(200);
+
+      expect(response.body.globalOptOut).toBe(true);
+    });
+  });
+
+  describe('GET /api/viewer/preferences', () => {
+    it('reports the opt-out as unknown when the preferences read fails', async () => {
+      mockLoadGlobalUserPreferences.mockRejectedValueOnce(new Error('unavailable'));
+
+      const response = await request(app)
+        .get('/api/viewer/preferences')
+        .set('Authorization', `Bearer ${authToken}`)
+        .expect(200);
+
+      expect(response.body.globalOptOut).toBeNull();
+    });
+
+    it('reports the opt-out from every channel', async () => {
+      mockLoadGlobalUserPreferences.mockResolvedValueOnce({ globalOptOut: true });
+
+      const response = await request(app)
+        .get('/api/viewer/preferences')
+        .set('Authorization', `Bearer ${authToken}`)
+        .expect(200);
+
+      expect(response.body.globalOptOut).toBe(true);
+    });
+
+    it('reports false when the flag is absent', async () => {
+      const response = await request(app)
+        .get('/api/viewer/preferences')
+        .set('Authorization', `Bearer ${authToken}`)
+        .expect(200);
+
+      expect(response.body.globalOptOut).toBe(false);
+    });
+  });
+
+  // The opt-out from every channel lives on the viewer's own preferences
+  // document. It takes the state to set rather than toggling, so a retried
+  // request cannot undo itself.
+  describe('PUT /api/viewer/opt-out', () => {
+    const optOutEndpoint = '/api/viewer/opt-out';
+
+    it('should return 401 without authentication', async () => {
+      await request(app).put(optOutEndpoint).send({ optedOut: true }).expect(401);
+    });
+
+    it('opts the viewer out on their own preferences document', async () => {
+      ((db as any).set as any).mockResolvedValueOnce({} as any);
+
+      const response = await request(app)
+        .put(optOutEndpoint)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ optedOut: true })
+        .expect(200);
+
+      expect(response.body).toEqual({ success: true, globalOptOut: true });
+      expect((db as any).collection).toHaveBeenCalledWith('ttsUserPreferences');
+      expect((db as any).doc).toHaveBeenCalledWith(viewer.userId);
+      const [payload, options] = ((db as any).set as any).mock.calls[0];
+      expect(options).toEqual({ merge: true });
+      expect(payload.globalOptOut).toBe(true);
+      expect(Date.parse(payload.globalOptOutAt)).not.toBeNaN();
+    });
+
+    it('opts the viewer back in by deleting both fields', async () => {
+      ((db as any).set as any).mockResolvedValueOnce({} as any);
+
+      const response = await request(app)
+        .put(optOutEndpoint)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ optedOut: false })
+        .expect(200);
+
+      expect(response.body).toEqual({ success: true, globalOptOut: false });
+      const [payload, options] = ((db as any).set as any).mock.calls[0];
+      expect(options).toEqual({ merge: true });
+      expect(payload).toEqual({ globalOptOut: { type: 'delete' }, globalOptOutAt: { type: 'delete' } });
+    });
+
+    it.each([undefined, 'true', 1, null])('refuses optedOut=%p and writes nothing', async (optedOut) => {
+      const response = await request(app)
+        .put(optOutEndpoint)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ optedOut })
+        .expect(400);
+
+      expect(response.body.code).toBe('invalid_opt_out');
+      expect((db as any).set).not.toHaveBeenCalled();
+    });
+
+    it('reports a failed write', async () => {
+      ((db as any).set as any).mockRejectedValueOnce(new Error('unavailable'));
+
+      const response = await request(app)
+        .put(optOutEndpoint)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ optedOut: true })
+        .expect(500);
+
+      expect(response.body.code).toBe('opt_out_update_failed');
     });
   });
 });
