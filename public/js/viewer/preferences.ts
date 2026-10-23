@@ -147,7 +147,7 @@ export interface PreferencesDependencies {
  */
 export interface PreferencesModule {
   loadVoices: () => Promise<void>;
-  loadPreferences: () => Promise<PreferencesInfo>;
+  loadPreferences: (options?: { quiet?: boolean }) => Promise<PreferencesInfo>;
   clearCachedAudio: () => void;
   getCurrentPreferences: () => PreferencesData;
 }
@@ -227,8 +227,8 @@ export function initPreferencesModule(
     async loadVoices(): Promise<void> {
       await loadVoices();
     },
-    async loadPreferences(): Promise<PreferencesInfo> {
-      const info = await loadPreferences();
+    async loadPreferences(options: { quiet?: boolean } = {}): Promise<PreferencesInfo> {
+      const info = await loadPreferences(options);
       onPreferencesLoaded?.(info);
       return info;
     },
@@ -579,7 +579,11 @@ export function initPreferencesModule(
     }
   }
 
-  async function loadPreferences(): Promise<PreferencesInfo> {
+  /**
+   * @param options.quiet - Skip the error toast. For a retry after a failure
+   * that already showed one, which would otherwise repeat it.
+   */
+  async function loadPreferences({ quiet = false }: { quiet?: boolean } = {}): Promise<PreferencesInfo> {
     const currentChannel = getCurrentChannel();
 
     if (testMode) {
@@ -621,7 +625,7 @@ export function initPreferencesModule(
       // without TTS, a dropped connection and a server error need different
       // things from the viewer.
       console.error('Failed to load preferences:', error);
-      showToast(displayError(error), 'error');
+      if (!quiet) showToast(displayError(error), 'error');
       throw error;
     }
 

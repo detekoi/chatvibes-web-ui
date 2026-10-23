@@ -189,10 +189,19 @@ document.addEventListener('DOMContentLoaded', async () => {
                 // Without a response the opt-out state is unknown, so the toggle
                 // hides, including one left over from the previous channel. The
                 // card says why, so the missing section is not a mystery.
-                if (channelName) {
-                    channelContextModule.showChannelResult(displayError(error));
-                }
                 dangerZoneModule.clear();
+                if (!channelName) return;
+                channelContextModule.showChannelResult(displayError(error));
+                // Drop the channel and fall back to global preferences. Kept,
+                // it sent every save to PUT /preferences/<bad channel>, which
+                // 404s, and left the last good channel's defaults and policy
+                // (possibly every control disabled) under the failed name.
+                state.currentChannel = null;
+                try {
+                    await preferencesModule.loadPreferences({ quiet: true });
+                } catch (_) {
+                    // Same cause as the failure above, which already showed a toast.
+                }
             }
         }
 

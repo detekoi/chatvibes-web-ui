@@ -190,6 +190,13 @@ export function initChannelContextModule(
      * @param errorMessage - The translated reason, or null on success
      */
     function showChannelResult(errorMessage: string | null): void {
+        if (errorMessage) {
+            // Nothing from the channel is on screen after a failure, so
+            // neither line may claim that it is. The card stays open to
+            // carry the reason.
+            if (elements.channelContextNameEl) elements.channelContextNameEl.textContent = '';
+            setContextStat(null);
+        }
         if (!elements.channelHint) return;
         if (errorMessage) {
             elements.channelHint.textContent = errorMessage;
