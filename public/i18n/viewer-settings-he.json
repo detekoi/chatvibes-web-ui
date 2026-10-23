@@ -129,7 +129,7 @@
   },
   "optOutGlobalRow": {
     "optOutInEveryChannel": "ביטול בכל הערוצים",
-    "ttsDoesNotReadYour": "ה-TTS לא מקריא את ההודעות שלך באף ערוץ. ה-TTS עדיין מכריז על המינויים, ה-cheers והמתנות שלך, אבל לא על ההודעה שאתה מוסיף. זה חל על Twitch בלבד."
+    "ttsDoesNotReadYour": "ה-TTS לא מקריא את ההודעות שלך באף ערוץ. ה-TTS עדיין מכריז על המינויים, ה-cheers והמתנות שלך, אבל לא על ההודעה שאתה מוסיף. אם תממש את פרס ה-TTS, ה-TTS יקריא את ההודעה הזו. זה חל על Twitch בלבד."
   },
   "optOutSection": {
     "optOutOfTts": "ביטול TTS",

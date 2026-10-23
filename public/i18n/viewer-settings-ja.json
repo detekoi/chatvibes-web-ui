@@ -129,7 +129,7 @@
   },
   "optOutGlobalRow": {
     "optOutInEveryChannel": "すべてのチャンネルで除外する",
-    "ttsDoesNotReadYour": "どのチャンネルでもTTSがメッセージを読み上げません。サブスク、Cheer、ギフトのアナウンスは引き続き行われますが、追加したメッセージは読み上げられません。これはTwitchにのみ適用されます。"
+    "ttsDoesNotReadYour": "どのチャンネルでもTTSがメッセージを読み上げません。サブスク、Cheer、ギフトのアナウンスは引き続き行われますが、追加したメッセージは読み上げられません。TTSリワードを引き換えた場合、そのメッセージはTTSで読み上げられます。これはTwitchにのみ適用されます。"
   },
   "optOutSection": {
     "optOutOfTts": "TTS読み上げから除外",

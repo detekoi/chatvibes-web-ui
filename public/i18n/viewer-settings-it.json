@@ -129,7 +129,7 @@
   },
   "optOutGlobalRow": {
     "optOutInEveryChannel": "Disattiva in tutti i canali",
-    "ttsDoesNotReadYour": "Il TTS non legge i tuoi messaggi in nessun canale. Il TTS annuncia comunque i tuoi abbonamenti, cheer e regali, ma non il messaggio che aggiungi. Vale solo per Twitch."
+    "ttsDoesNotReadYour": "Il TTS non legge i tuoi messaggi in nessun canale. Il TTS annuncia comunque i tuoi abbonamenti, cheer e regali, ma non il messaggio che aggiungi. Se riscatti la ricompensa TTS, il TTS legge quel messaggio. Vale solo per Twitch."
   },
   "optOutSection": {
     "optOutOfTts": "Disattiva il TTS",

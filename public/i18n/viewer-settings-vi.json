@@ -129,7 +129,7 @@
   },
   "optOutGlobalRow": {
     "optOutInEveryChannel": "Chọn không dùng trong mọi kênh",
-    "ttsDoesNotReadYour": "TTS không đọc tin nhắn của bạn trong bất kỳ kênh nào. TTS vẫn thông báo lượt sub, cheer và quà tặng của bạn, nhưng không đọc tin nhắn bạn thêm vào. Điều này chỉ áp dụng cho Twitch."
+    "ttsDoesNotReadYour": "TTS không đọc tin nhắn của bạn trong bất kỳ kênh nào. TTS vẫn thông báo lượt sub, cheer và quà tặng của bạn, nhưng không đọc tin nhắn bạn thêm vào. Nếu bạn đổi phần thưởng TTS, TTS sẽ đọc tin nhắn đó. Điều này chỉ áp dụng cho Twitch."
   },
   "optOutSection": {
     "optOutOfTts": "Chọn không dùng TTS",

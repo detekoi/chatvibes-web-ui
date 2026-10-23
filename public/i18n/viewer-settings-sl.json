@@ -129,7 +129,7 @@
   },
   "optOutGlobalRow": {
     "optOutInEveryChannel": "Izklopi na vseh kanalih",
-    "ttsDoesNotReadYour": "TTS ne bere tvojih sporočil na nobenem kanalu. TTS še vedno najavi tvoje naročnine, cheere in darila, ne pa sporočila, ki ga dodaš. To velja samo za Twitch."
+    "ttsDoesNotReadYour": "TTS ne bere tvojih sporočil na nobenem kanalu. TTS še vedno najavi tvoje naročnine, cheere in darila, ne pa sporočila, ki ga dodaš. Če unovčiš nagrado TTS, TTS prebere to sporočilo. To velja samo za Twitch."
   },
   "optOutSection": {
     "optOutOfTts": "Izklopi TTS zame",

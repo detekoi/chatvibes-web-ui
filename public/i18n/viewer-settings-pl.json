@@ -129,7 +129,7 @@
   },
   "optOutGlobalRow": {
     "optOutInEveryChannel": "Zrezygnuj na wszystkich kanałach",
-    "ttsDoesNotReadYour": "TTS nie czyta Twoich wiadomości na żadnym kanale. TTS nadal ogłasza Twoje suby, cheery i prezenty, ale bez wiadomości, którą dodajesz. Dotyczy to tylko Twitcha."
+    "ttsDoesNotReadYour": "TTS nie czyta Twoich wiadomości na żadnym kanale. TTS nadal ogłasza Twoje suby, cheery i prezenty, ale bez wiadomości, którą dodajesz. Jeśli odbierzesz nagrodę TTS, TTS przeczyta tę wiadomość. Dotyczy to tylko Twitcha."
   },
   "optOutSection": {
     "optOutOfTts": "Zrezygnuj z TTS",

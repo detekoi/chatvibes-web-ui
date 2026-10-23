@@ -129,7 +129,7 @@
   },
   "optOutGlobalRow": {
     "optOutInEveryChannel": "Dezactivează pe toate canalele",
-    "ttsDoesNotReadYour": "TTS nu îți citește mesajele pe niciun canal. TTS anunță în continuare abonamentele, cheer-urile și cadourile tale, dar nu și mesajul pe care îl adaugi. Se aplică doar pentru Twitch."
+    "ttsDoesNotReadYour": "TTS nu îți citește mesajele pe niciun canal. TTS anunță în continuare abonamentele, cheer-urile și cadourile tale, dar nu și mesajul pe care îl adaugi. Dacă răscumperi recompensa TTS, TTS citește acel mesaj. Se aplică doar pentru Twitch."
   },
   "optOutSection": {
     "optOutOfTts": "Dezactivează TTS",

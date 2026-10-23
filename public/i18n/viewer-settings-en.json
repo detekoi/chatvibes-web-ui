@@ -129,7 +129,7 @@
   },
   "optOutGlobalRow": {
     "optOutInEveryChannel": "Opt out in every channel",
-    "ttsDoesNotReadYour": "TTS does not read your messages in any channel. TTS still announces your subs, cheers and gifts, but not the message that you add. This applies to Twitch only."
+    "ttsDoesNotReadYour": "TTS does not read your messages in any channel. TTS still announces your subs, cheers and gifts, but not the message that you add. If you redeem the TTS reward, TTS reads that message. This applies to Twitch only."
   },
   "optOutSection": {
     "optOutOfTts": "Opt out of TTS",

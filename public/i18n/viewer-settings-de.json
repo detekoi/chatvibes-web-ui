@@ -129,7 +129,7 @@
   },
   "optOutGlobalRow": {
     "optOutInEveryChannel": "In allen Kanälen deaktivieren",
-    "ttsDoesNotReadYour": "TTS liest deine Nachrichten in keinem Kanal vor. TTS kündigt deine Subs, Cheers und Geschenke weiterhin an, aber nicht die Nachricht, die du hinzufügst. Das gilt nur für Twitch."
+    "ttsDoesNotReadYour": "TTS liest deine Nachrichten in keinem Kanal vor. TTS kündigt deine Subs, Cheers und Geschenke weiterhin an, aber nicht die Nachricht, die du hinzufügst. Wenn du die TTS-Belohnung einlöst, liest TTS diese Nachricht vor. Das gilt nur für Twitch."
   },
   "optOutSection": {
     "optOutOfTts": "TTS deaktivieren",

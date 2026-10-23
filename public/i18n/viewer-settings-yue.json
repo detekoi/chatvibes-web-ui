@@ -129,7 +129,7 @@
   },
   "optOutGlobalRow": {
     "optOutInEveryChannel": "喺所有頻道退出",
-    "ttsDoesNotReadYour": "TTS 唔會喺任何頻道朗讀你嘅訊息。TTS 仍然會宣佈你嘅訂閱、Cheer 同禮物，但唔會讀你加上嘅訊息。呢個設定只適用於 Twitch。"
+    "ttsDoesNotReadYour": "TTS 唔會喺任何頻道朗讀你嘅訊息。TTS 仍然會宣佈你嘅訂閱、Cheer 同禮物，但唔會讀你加上嘅訊息。如果你兌換 TTS 獎勵，TTS 會朗讀嗰條訊息。呢個設定只適用於 Twitch。"
   },
   "optOutSection": {
     "optOutOfTts": "退出 TTS",

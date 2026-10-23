@@ -129,7 +129,7 @@
   },
   "optOutGlobalRow": {
     "optOutInEveryChannel": "Odhlásiť sa na všetkých kanáloch",
-    "ttsDoesNotReadYour": "TTS nečíta vaše správy na žiadnom kanáli. TTS stále oznamuje vaše predplatné, cheery a darčeky, ale nie správu, ktorú pridáte. Platí to len pre Twitch."
+    "ttsDoesNotReadYour": "TTS nečíta vaše správy na žiadnom kanáli. TTS stále oznamuje vaše predplatné, cheery a darčeky, ale nie správu, ktorú pridáte. Ak uplatníte odmenu TTS, TTS túto správu prečíta. Platí to len pre Twitch."
   },
   "optOutSection": {
     "optOutOfTts": "Odhlásiť sa z TTS",

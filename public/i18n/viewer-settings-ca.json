@@ -129,7 +129,7 @@
   },
   "optOutGlobalRow": {
     "optOutInEveryChannel": "Exclou-te en tots els canals",
-    "ttsDoesNotReadYour": "El TTS no llegeix els teus missatges en cap canal. El TTS encara anuncia les teves subscripcions, cheers i regals, però no el missatge que hi afegeixes. Això només s'aplica a Twitch."
+    "ttsDoesNotReadYour": "El TTS no llegeix els teus missatges en cap canal. El TTS encara anuncia les teves subscripcions, cheers i regals, però no el missatge que hi afegeixes. Si bescanvies la recompensa del TTS, el TTS llegeix aquest missatge. Això només s'aplica a Twitch."
   },
   "optOutSection": {
     "optOutOfTts": "Exclou-te del TTS",

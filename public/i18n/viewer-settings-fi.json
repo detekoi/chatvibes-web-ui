@@ -129,7 +129,7 @@
   },
   "optOutGlobalRow": {
     "optOutInEveryChannel": "Kieltäydy kaikilla kanavilla",
-    "ttsDoesNotReadYour": "TTS ei lue viestejäsi millään kanavalla. TTS ilmoittaa yhä tilauksesi, cheerisi ja lahjasi, mutta ei viestiä, jonka lisäät. Tämä koskee vain Twitchiä."
+    "ttsDoesNotReadYour": "TTS ei lue viestejäsi millään kanavalla. TTS ilmoittaa yhä tilauksesi, cheerisi ja lahjasi, mutta ei viestiä, jonka lisäät. Jos lunastat TTS-palkinnon, TTS lukee sen viestin. Tämä koskee vain Twitchiä."
   },
   "optOutSection": {
     "optOutOfTts": "Kieltäydy TTS:stä",

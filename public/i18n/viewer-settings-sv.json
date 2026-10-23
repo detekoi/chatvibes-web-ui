@@ -129,7 +129,7 @@
   },
   "optOutGlobalRow": {
     "optOutInEveryChannel": "Välj bort i alla kanaler",
-    "ttsDoesNotReadYour": "TTS läser inte dina meddelanden i någon kanal. TTS meddelar fortfarande dina subs, cheers och gåvor, men inte meddelandet som du lägger till. Detta gäller bara Twitch."
+    "ttsDoesNotReadYour": "TTS läser inte dina meddelanden i någon kanal. TTS meddelar fortfarande dina subs, cheers och gåvor, men inte meddelandet som du lägger till. Om du löser in TTS-belöningen läser TTS det meddelandet. Detta gäller bara Twitch."
   },
   "optOutSection": {
     "optOutOfTts": "Välj bort TTS",

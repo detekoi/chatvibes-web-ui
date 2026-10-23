@@ -129,7 +129,7 @@
   },
   "optOutGlobalRow": {
     "optOutInEveryChannel": "Mag-opt out sa lahat ng channel",
-    "ttsDoesNotReadYour": "Hindi binabasa ng TTS ang iyong mga mensahe sa anumang channel. Inaanunsyo pa rin ng TTS ang iyong mga sub, cheer at gift, pero hindi ang mensaheng idinagdag mo. Para sa Twitch lang ito."
+    "ttsDoesNotReadYour": "Hindi binabasa ng TTS ang iyong mga mensahe sa anumang channel. Inaanunsyo pa rin ng TTS ang iyong mga sub, cheer at gift, pero hindi ang mensaheng idinagdag mo. Kung i-redeem mo ang TTS reward, babasahin ng TTS ang mensaheng iyon. Para sa Twitch lang ito."
   },
   "optOutSection": {
     "optOutOfTts": "Mag-opt out sa TTS",

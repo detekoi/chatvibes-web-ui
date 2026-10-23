@@ -129,7 +129,7 @@
   },
   "optOutGlobalRow": {
     "optOutInEveryChannel": "在所有频道停用",
-    "ttsDoesNotReadYour": "TTS 不会在任何频道朗读你的消息。TTS 仍会播报你的订阅、Cheer 和礼物，但不会朗读你附加的消息。此设置仅适用于 Twitch。"
+    "ttsDoesNotReadYour": "TTS 不会在任何频道朗读你的消息。TTS 仍会播报你的订阅、Cheer 和礼物，但不会朗读你附加的消息。如果你兑换 TTS 奖励，TTS 会朗读那条消息。此设置仅适用于 Twitch。"
   },
   "optOutSection": {
     "optOutOfTts": "停用 TTS",

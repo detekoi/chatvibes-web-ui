@@ -129,7 +129,7 @@
   },
   "optOutGlobalRow": {
     "optOutInEveryChannel": "Afmelden in alle kanalen",
-    "ttsDoesNotReadYour": "TTS leest je berichten in geen enkel kanaal voor. TTS kondigt je subs, cheers en cadeaus nog steeds aan, maar niet het bericht dat je toevoegt. Dit geldt alleen voor Twitch."
+    "ttsDoesNotReadYour": "TTS leest je berichten in geen enkel kanaal voor. TTS kondigt je subs, cheers en cadeaus nog steeds aan, maar niet het bericht dat je toevoegt. Als je de TTS-beloning inwisselt, leest TTS dat bericht voor. Dit geldt alleen voor Twitch."
   },
   "optOutSection": {
     "optOutOfTts": "Afmelden voor TTS",

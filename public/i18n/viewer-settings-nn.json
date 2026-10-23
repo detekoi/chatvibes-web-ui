@@ -129,7 +129,7 @@
   },
   "optOutGlobalRow": {
     "optOutInEveryChannel": "Reserver deg i alle kanalar",
-    "ttsDoesNotReadYour": "TTS les ikkje meldingane dine i nokon kanal. TTS kunngjer framleis abonnementa, cheers og gåvene dine, men ikkje meldinga du legg til. Dette gjeld berre Twitch."
+    "ttsDoesNotReadYour": "TTS les ikkje meldingane dine i nokon kanal. TTS kunngjer framleis abonnementa, cheers og gåvene dine, men ikkje meldinga du legg til. Viss du løyser inn TTS-påskjønninga, les TTS den meldinga. Dette gjeld berre Twitch."
   },
   "optOutSection": {
     "optOutOfTts": "Reserver deg mot TTS",

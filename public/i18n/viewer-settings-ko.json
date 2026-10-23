@@ -129,7 +129,7 @@
   },
   "optOutGlobalRow": {
     "optOutInEveryChannel": "모든 채널에서 제외",
-    "ttsDoesNotReadYour": "모든 채널에서 TTS가 내 메시지를 읽지 않습니다. TTS는 구독, 치어, 선물은 계속 알리지만 추가한 메시지는 읽지 않습니다. Twitch에만 적용됩니다."
+    "ttsDoesNotReadYour": "모든 채널에서 TTS가 내 메시지를 읽지 않습니다. TTS는 구독, 치어, 선물은 계속 알리지만 추가한 메시지는 읽지 않습니다. TTS 보상을 교환하면 TTS가 그 메시지를 읽습니다. Twitch에만 적용됩니다."
   },
   "optOutSection": {
     "optOutOfTts": "TTS 읽기 제외",

@@ -129,7 +129,7 @@
   },
   "optOutGlobalRow": {
     "optOutInEveryChannel": "Tüm kanallarda kapsam dışına çık",
-    "ttsDoesNotReadYour": "TTS hiçbir kanalda mesajlarını okumaz. TTS aboneliklerini, cheer'larını ve hediyelerini yine duyurur, ancak eklediğin mesajı okumaz. Bu yalnızca Twitch için geçerlidir."
+    "ttsDoesNotReadYour": "TTS hiçbir kanalda mesajlarını okumaz. TTS aboneliklerini, cheer'larını ve hediyelerini yine duyurur, ancak eklediğin mesajı okumaz. TTS ödülünü kullanırsan TTS o mesajı okur. Bu yalnızca Twitch için geçerlidir."
   },
   "optOutSection": {
     "optOutOfTts": "TTS kapsamı dışına çık",

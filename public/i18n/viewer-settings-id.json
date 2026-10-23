@@ -129,7 +129,7 @@
   },
   "optOutGlobalRow": {
     "optOutInEveryChannel": "Pilih keluar di semua channel",
-    "ttsDoesNotReadYour": "TTS tidak membacakan pesan Anda di channel mana pun. TTS tetap mengumumkan sub, cheer, dan hadiah Anda, tetapi tidak dengan pesan yang Anda tambahkan. Ini hanya berlaku untuk Twitch."
+    "ttsDoesNotReadYour": "TTS tidak membacakan pesan Anda di channel mana pun. TTS tetap mengumumkan sub, cheer, dan hadiah Anda, tetapi tidak dengan pesan yang Anda tambahkan. Jika Anda menukarkan hadiah TTS, TTS membacakan pesan itu. Ini hanya berlaku untuk Twitch."
   },
   "optOutSection": {
     "optOutOfTts": "Pilih keluar dari TTS",

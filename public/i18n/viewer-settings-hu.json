@@ -129,7 +129,7 @@
   },
   "optOutGlobalRow": {
     "optOutInEveryChannel": "Letiltás minden csatornán",
-    "ttsDoesNotReadYour": "A TTS egyik csatornán sem olvassa fel az üzeneteidet. A TTS továbbra is bejelenti a feliratkozásaidat, cheerjeidet és ajándékaidat, de az általad hozzáadott üzenetet nem. Ez csak a Twitchre vonatkozik."
+    "ttsDoesNotReadYour": "A TTS egyik csatornán sem olvassa fel az üzeneteidet. A TTS továbbra is bejelenti a feliratkozásaidat, cheerjeidet és ajándékaidat, de az általad hozzáadott üzenetet nem. Ha beváltod a TTS-jutalmat, a TTS felolvassa azt az üzenetet. Ez csak a Twitchre vonatkozik."
   },
   "optOutSection": {
     "optOutOfTts": "TTS felolvasás letiltása",

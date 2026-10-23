@@ -129,7 +129,7 @@
   },
   "optOutGlobalRow": {
     "optOutInEveryChannel": "Onttrek in elke kanaal",
-    "ttsDoesNotReadYour": "TTS lees nie jou boodskappe in enige kanaal nie. TTS kondig steeds jou subs, cheers en geskenke aan, maar nie die boodskap wat jy byvoeg nie. Dit geld slegs vir Twitch."
+    "ttsDoesNotReadYour": "TTS lees nie jou boodskappe in enige kanaal nie. TTS kondig steeds jou subs, cheers en geskenke aan, maar nie die boodskap wat jy byvoeg nie. As jy die TTS-beloning aflos, lees TTS daardie boodskap. Dit geld slegs vir Twitch."
   },
   "optOutSection": {
     "optOutOfTts": "Onttrek van TTS",
