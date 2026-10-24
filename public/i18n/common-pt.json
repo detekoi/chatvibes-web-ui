@@ -98,9 +98,6 @@
       "remove": "Remover",
       "saved": "Salvo"
     },
-    "cardMeta": {
-      "settings": "{count, plural, one {# configuração} many {# de configurações} other {# configurações}}"
-    },
     "api": {
       "authFailed": "Falha na autenticação. Faça login novamente.",
       "notAuthenticated": "Você não iniciou sessão.",

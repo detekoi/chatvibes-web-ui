@@ -98,9 +98,6 @@
       "remove": "Ta bort",
       "saved": "Sparat"
     },
-    "cardMeta": {
-      "settings": "{count, plural, one {# inställning} other {# inställningar}}"
-    },
     "api": {
       "authFailed": "Autentiseringen misslyckades. Logga in igen.",
       "notAuthenticated": "Du är inte inloggad.",

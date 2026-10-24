@@ -98,9 +98,6 @@
       "remove": "Премахване",
       "saved": "Запазено"
     },
-    "cardMeta": {
-      "settings": "{count, plural, one {# настройка} other {# настройки}}"
-    },
     "api": {
       "authFailed": "Неуспешно удостоверяване. Влезте отново.",
       "notAuthenticated": "Не сте влезли в профила си.",

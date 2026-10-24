@@ -2,7 +2,6 @@ import { getApiBaseUrl, fetchWithAuth } from '../common/api.js';
 import { logout, getStoredSessionToken, decodeJwtPayload } from '../common/auth.js';
 import { setProgress } from '../common/ui.js';
 import { apiErrorMessage, displayError, initI18n, t } from '../common/i18n.js';
-import { decorateCardHeaders } from '../common/card-meta.js';
 import {
     initPreferencesModule,
     type PreferencesModule,
@@ -67,7 +66,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   // modules below build markup from `t()` against an empty catalog, which
   // renders bare keys.
   await initI18n();
-  decorateCardHeaders();
     (async function bootstrap(): Promise<void> {
         const TEST_MODE = new URLSearchParams(window.location.search).has('test');
         const urlParams = new URLSearchParams(window.location.search);

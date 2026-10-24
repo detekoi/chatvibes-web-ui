@@ -98,9 +98,6 @@
       "remove": "Hapus",
       "saved": "Tersimpan"
     },
-    "cardMeta": {
-      "settings": "{count, plural, other {# pengaturan}}"
-    },
     "api": {
       "authFailed": "Autentikasi gagal. Masuk kembali.",
       "notAuthenticated": "Anda belum masuk.",

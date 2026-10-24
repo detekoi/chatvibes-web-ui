@@ -98,9 +98,6 @@
       "remove": "Poista",
       "saved": "Tallennettu"
     },
-    "cardMeta": {
-      "settings": "{count, plural, one {# asetus} other {# asetusta}}"
-    },
     "api": {
       "authFailed": "Tunnistautuminen epäonnistui. Kirjaudu sisään uudelleen.",
       "notAuthenticated": "Et ole kirjautunut sisään.",

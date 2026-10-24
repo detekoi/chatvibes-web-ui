@@ -98,9 +98,6 @@
       "remove": "Odebrat",
       "saved": "Uloženo"
     },
-    "cardMeta": {
-      "settings": "{count, plural, one {# nastavení} few {# nastavení} many {# nastavení} other {# nastavení}}"
-    },
     "api": {
       "authFailed": "Ověření selhalo. Přihlaste se znovu.",
       "notAuthenticated": "Nejste přihlášeni.",

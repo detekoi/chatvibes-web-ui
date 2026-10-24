@@ -98,9 +98,6 @@
       "remove": "Entfernen",
       "saved": "Gespeichert"
     },
-    "cardMeta": {
-      "settings": "{count, plural, one {# Einstellung} other {# Einstellungen}}"
-    },
     "api": {
       "authFailed": "Authentifizierung fehlgeschlagen. Melde dich erneut an.",
       "notAuthenticated": "Du bist nicht angemeldet.",

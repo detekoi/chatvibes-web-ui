@@ -98,9 +98,6 @@
       "remove": "Fjern",
       "saved": "Gemt"
     },
-    "cardMeta": {
-      "settings": "{count, plural, one {# indstilling} other {# indstillinger}}"
-    },
     "api": {
       "authFailed": "Godkendelse mislykkedes. Log ind igen.",
       "notAuthenticated": "Du er ikke logget ind.",

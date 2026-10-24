@@ -98,9 +98,6 @@
       "remove": "Fjern",
       "saved": "Lagret"
     },
-    "cardMeta": {
-      "settings": "{count, plural, one {# innstilling} other {# innstillinger}}"
-    },
     "api": {
       "authFailed": "Autentisering mislyktes. Logg inn på nytt.",
       "notAuthenticated": "Du er ikke logget inn.",

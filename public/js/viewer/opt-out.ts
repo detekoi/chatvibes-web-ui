@@ -1,7 +1,6 @@
 import { ApiError, fetchWithAuth } from '../common/api.js';
 import { showToast } from '../common/ui.js';
 import { displayError, t } from '../common/i18n.js';
-import { decorateCardHeaders } from '../common/card-meta.js';
 
 /**
  * Context object passed to the opt-out module.
@@ -137,8 +136,6 @@ export function initOptOutModule(
     if (elements.globalRow) elements.globalRow.hidden = !globalRow;
     if (elements.channelRow) elements.channelRow.hidden = !channelRow;
     elements.section?.classList.toggle('d-none', !globalRow && !channelRow);
-    // The header counts the rows it shows.
-    if (elements.section) decorateCardHeaders(elements.section);
   }
 
   function updateIgnoreCheckboxes(ignoreStatus: IgnoreStatus): void {

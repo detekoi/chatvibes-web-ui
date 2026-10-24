@@ -98,9 +98,6 @@
       "remove": "Elimină",
       "saved": "Salvat"
     },
-    "cardMeta": {
-      "settings": "{count, plural, one {# setare} few {# setări} other {# de setări}}"
-    },
     "api": {
       "authFailed": "Autentificarea a eșuat. Conectează-te din nou.",
       "notAuthenticated": "Nu ești conectat.",

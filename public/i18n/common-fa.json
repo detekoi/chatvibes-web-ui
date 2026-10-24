@@ -98,9 +98,6 @@
       "remove": "حذف",
       "saved": "ذخیره شد"
     },
-    "cardMeta": {
-      "settings": "{count, plural, one {# تنظیم} other {# تنظیم}}"
-    },
     "api": {
       "authFailed": "احراز هویت ناموفق بود. دوباره وارد شوید.",
       "notAuthenticated": "وارد حساب خود نشده‌اید.",

@@ -76,8 +76,7 @@ Rules:
   drifted. Rules for markup only this app has go in `chatvibes-specific.css`.
   A settings section is the same markup in both apps: `.card.wc-card >
   .card-header > h2.wc-card-title` then `.card-body` holding a `p.wc-card-desc`
-  lead and the row stacks. The inline script at the foot of each page appends
-  the `.wc-card-meta` row count to the header.
+  lead and the row stacks.
 - `!important` is reserved for the utility shim, the `[hidden]` rule, and the
   colour rules in the shared file that must beat a `.text-*` utility (all
   documented inline). Do not add more.
