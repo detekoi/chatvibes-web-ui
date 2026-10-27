@@ -473,10 +473,10 @@
     "youtubeTtsEnabled": "已启用 YouTube TTS"
   },
   "tabBtnBroadcaster": {
-    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>主播"
+    "broadcaster": "主播"
   },
   "tabBtnViewerDefaults": {
-    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>默认语音"
+    "voiceDefaults": "默认语音"
   },
   "tabViewerDefaults": {
     "adjustThePitchForThe": "调整默认语音的音调",

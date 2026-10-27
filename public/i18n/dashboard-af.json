@@ -473,10 +473,10 @@
     "youtubeTtsEnabled": "YouTube-TTS geaktiveer"
   },
   "tabBtnBroadcaster": {
-    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Uitsaaier"
+    "broadcaster": "Uitsaaier"
   },
   "tabBtnViewerDefaults": {
-    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Stemverstekke"
+    "voiceDefaults": "Stemverstekke"
   },
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Pas die toonhoogte vir die verstekstem aan",

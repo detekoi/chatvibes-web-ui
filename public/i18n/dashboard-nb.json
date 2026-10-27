@@ -473,10 +473,10 @@
     "youtubeTtsEnabled": "YouTube-TTS aktivert"
   },
   "tabBtnBroadcaster": {
-    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Kringkaster"
+    "broadcaster": "Kringkaster"
   },
   "tabBtnViewerDefaults": {
-    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Standardstemmer"
+    "voiceDefaults": "Standardstemmer"
   },
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Juster tonehøyden for standardstemmen",

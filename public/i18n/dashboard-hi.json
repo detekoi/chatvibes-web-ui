@@ -473,10 +473,10 @@
     "youtubeTtsEnabled": "YouTube TTS सक्षम"
   },
   "tabBtnBroadcaster": {
-    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>ब्रॉडकास्टर"
+    "broadcaster": "ब्रॉडकास्टर"
   },
   "tabBtnViewerDefaults": {
-    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>डिफ़ॉल्ट वॉइस"
+    "voiceDefaults": "डिफ़ॉल्ट वॉइस"
   },
   "tabViewerDefaults": {
     "adjustThePitchForThe": "डिफ़ॉल्ट वॉइस के लिए पिच समायोजित करें",

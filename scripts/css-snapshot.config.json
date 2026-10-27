@@ -8,6 +8,7 @@
   "pages": [
     { "name": "index", "path": "/index.html", "settleMs": 1500 },
     { "name": "dashboard", "path": "/dashboard.html?test", "settleMs": 3000 },
+    { "name": "dashboard-voice-defaults", "path": "/dashboard.html?test#viewer-defaults", "settleMs": 3000 },
     { "name": "viewer-settings", "path": "/viewer-settings.html?test", "settleMs": 3000 },
     { "name": "404", "path": "/404.html", "settleMs": 1000 },
     { "name": "auth-complete", "path": "/auth-complete.html", "settleMs": 1000 },

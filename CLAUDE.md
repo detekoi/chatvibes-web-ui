@@ -53,7 +53,8 @@ WildcatTTS TTS bot management web application with:
 
 Sister project: **chatsage-web-ui** (WildcatSage) shares the same design system
 and the same Post-Industrial theme. Bootstrap is **not loaded** (neither its CSS
-nor its JS; toasts, tabs and dialogs are hand-rolled). The `.btn`, `.card`,
+nor its JS; toasts and dialogs are hand-rolled, and the tabs use the shared
+`wc-tabs.js`). The `.btn`, `.card`,
 `.form-*`, `.row`, `.mb-*` class names in the markup are Bootstrap naming only.
 Stylesheets are bundled by `scripts/build-frontend.js` into
 `public/css/app.min.css` in this order:
@@ -71,7 +72,8 @@ Rules:
 - **`design-system.css` is a synced copy; its source is the sibling repo
   `../wildcat-design-system`.** Do not edit the copy here. Edit the source,
   then run `npm run sync:design-system` in this repo and in
-  `../chatsage-web-ui` (it also syncs `scripts/css-snapshot.mjs`), and verify
+  `../chatsage-web-ui` (it also syncs `public/js/vendor/wc-tabs.js` and
+  `scripts/css-snapshot.mjs`), and verify
   each with `npm run css:check`. `npm run check` fails while a copy has
   drifted. Rules for markup only this app has go in `chatvibes-specific.css`.
   A settings section is the same markup in both apps: `.card.wc-card >

@@ -473,10 +473,10 @@
     "youtubeTtsEnabled": "YouTube TTS povoleno"
   },
   "tabBtnBroadcaster": {
-    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Vysílající"
+    "broadcaster": "Vysílající"
   },
   "tabBtnViewerDefaults": {
-    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Výchozí hlasy"
+    "voiceDefaults": "Výchozí hlasy"
   },
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Upravit výšku tónu pro výchozí hlas",

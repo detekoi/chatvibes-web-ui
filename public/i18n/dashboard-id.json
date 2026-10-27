@@ -473,10 +473,10 @@
     "youtubeTtsEnabled": "TTS YouTube Diaktifkan"
   },
   "tabBtnBroadcaster": {
-    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Penyiar"
+    "broadcaster": "Penyiar"
   },
   "tabBtnViewerDefaults": {
-    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Default Suara"
+    "voiceDefaults": "Default Suara"
   },
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Sesuaikan titinada (pitch) untuk suara default",

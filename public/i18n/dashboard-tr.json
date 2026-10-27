@@ -473,10 +473,10 @@
     "youtubeTtsEnabled": "YouTube TTS Etkin"
   },
   "tabBtnBroadcaster": {
-    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Yayıncı"
+    "broadcaster": "Yayıncı"
   },
   "tabBtnViewerDefaults": {
-    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Varsayılan Ses Ayarları"
+    "voiceDefaults": "Varsayılan Ses Ayarları"
   },
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Varsayılan sesin tonunu ayarlayın",

@@ -473,10 +473,10 @@
     "youtubeTtsEnabled": "Naka-enable ang YouTube TTS"
   },
   "tabBtnBroadcaster": {
-    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Broadcaster"
+    "broadcaster": "Broadcaster"
   },
   "tabBtnViewerDefaults": {
-    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Voice Defaults"
+    "voiceDefaults": "Voice Defaults"
   },
   "tabViewerDefaults": {
     "adjustThePitchForThe": "I-adjust ang pitch para sa default na boses",
