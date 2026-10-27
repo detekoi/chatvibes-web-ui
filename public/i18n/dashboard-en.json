@@ -473,10 +473,10 @@
     "youtubeTtsEnabled": "YouTube TTS Enabled"
   },
   "tabBtnBroadcaster": {
-    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Broadcaster"
+    "broadcaster": "Broadcaster"
   },
   "tabBtnViewerDefaults": {
-    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Voice Defaults"
+    "voiceDefaults": "Voice Defaults"
   },
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Adjust the pitch for the default voice",

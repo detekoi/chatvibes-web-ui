@@ -161,12 +161,10 @@
             <!-- Tabs -->
             <ul data-i18n-aria-label="dashboardContent.dashboardConfigurationTabs" class="nav nav-tabs" role="tablist" aria-label="Dashboard configuration tabs">
                     <li class="nav-item" role="presentation">
-                        <button data-i18n="tabBtnBroadcaster.broadcaster" class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-broadcaster"
-                            type="button" role="tab" id="tab-btn-broadcaster" aria-selected="true" aria-controls="tab-broadcaster"><i data-lucide="radio" class="inline-icon" style="margin-right: 6px;"></i>Broadcaster</button>
+                        <button class="nav-link active" type="button" role="tab" id="tab-btn-broadcaster" aria-selected="true" aria-controls="tab-broadcaster"><i data-lucide="radio" class="inline-icon" aria-hidden="true" data-i18n-skip></i><span data-i18n="tabBtnBroadcaster.broadcaster">Broadcaster</span></button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button data-i18n="tabBtnViewerDefaults.voiceDefaults" class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-viewer-defaults" type="button"
-                            role="tab" id="tab-btn-viewer-defaults" aria-selected="false" aria-controls="tab-viewer-defaults"><i data-lucide="sliders-horizontal" class="inline-icon" style="margin-right: 6px;"></i>Voice Defaults</button>
+                        <button class="nav-link" type="button" role="tab" id="tab-btn-viewer-defaults" aria-selected="false" aria-controls="tab-viewer-defaults" tabindex="-1"><i data-lucide="sliders-horizontal" class="inline-icon" aria-hidden="true" data-i18n-skip></i><span data-i18n="tabBtnViewerDefaults.voiceDefaults">Voice Defaults</span></button>
                     </li>
             </ul>
 
@@ -174,7 +172,7 @@
                 <div class="wc-shell-main">
                 <div class="tab-content">
                     <!-- Broadcaster Tab -->
-                    <div class="tab-pane fade show active" id="tab-broadcaster" role="tabpanel" aria-labelledby="tab-btn-broadcaster">
+                    <div class="tab-pane" id="tab-broadcaster" role="tabpanel" aria-labelledby="tab-btn-broadcaster">
                         <!-- Engine & Mode -->
                         <div class="card wc-card">
                             <div class="card-header">
@@ -748,7 +746,7 @@
                     </div>
 
                     <!-- Voice Defaults Tab -->
-                    <div class="tab-pane fade" id="tab-viewer-defaults" role="tabpanel" aria-labelledby="tab-btn-viewer-defaults">
+                    <div class="tab-pane" id="tab-viewer-defaults" role="tabpanel" hidden aria-labelledby="tab-btn-viewer-defaults">
                         <div class="card wc-card">
                             <div class="card-header">
                                 <h2 data-i18n="tabViewerDefaults.defaultVoiceSettings" class="wc-card-title mb-0">Default Voice Settings</h2>
@@ -1050,44 +1048,10 @@
                 window.themeManager.toggleTheme();
             }
         });
-
-        // Native accessible tab switching (WAI-ARIA tabs pattern, automatic
-        // activation: arrow keys move focus and select; Home/End jump to the ends).
-        const tabButtons = Array.from(document.querySelectorAll('[data-bs-toggle="tab"]'));
-        const activateTab = (btn) => {
-            const target = btn.getAttribute('data-bs-target');
-            tabButtons.forEach((b) => {
-                b.classList.remove('active');
-                b.setAttribute('aria-selected', 'false');
-                b.setAttribute('tabindex', '-1');
-            });
-            document.querySelectorAll('.tab-pane').forEach((p) => {
-                p.classList.remove('show', 'active');
-            });
-            btn.classList.add('active');
-            btn.setAttribute('aria-selected', 'true');
-            btn.removeAttribute('tabindex');
-            if (target) {
-                const panel = document.querySelector(target);
-                if (panel) panel.classList.add('show', 'active');
-            }
-        };
-        tabButtons.forEach((btn) => {
-            if (!btn.classList.contains('active')) btn.setAttribute('tabindex', '-1');
-            btn.addEventListener('click', () => activateTab(btn));
-            btn.addEventListener('keydown', (event) => {
-                const i = tabButtons.indexOf(btn);
-                let next = -1;
-                if (event.key === 'ArrowRight' || event.key === 'ArrowDown') next = (i + 1) % tabButtons.length;
-                else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') next = (i - 1 + tabButtons.length) % tabButtons.length;
-                else if (event.key === 'Home') next = 0;
-                else if (event.key === 'End') next = tabButtons.length - 1;
-                if (next === -1) return;
-                event.preventDefault();
-                tabButtons[next].focus();
-                activateTab(tabButtons[next]);
-            });
-        });
+    </script>
+    <script type="module">
+        import { initTabs } from './js/vendor/wc-tabs.js';
+        initTabs(document.querySelector('.nav-tabs[role="tablist"]'));
     </script>
 </body>
 

@@ -473,10 +473,10 @@
     "youtubeTtsEnabled": "YouTube TTS מופעל"
   },
   "tabBtnBroadcaster": {
-    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>שדרן"
+    "broadcaster": "שדרן"
   },
   "tabBtnViewerDefaults": {
-    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>ברירות מחדל לקול"
+    "voiceDefaults": "ברירות מחדל לקול"
   },
   "tabViewerDefaults": {
     "adjustThePitchForThe": "כוונן את גובה הצליל עבור קול ברירת המחדל",

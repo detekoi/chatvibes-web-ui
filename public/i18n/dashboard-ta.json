@@ -473,10 +473,10 @@
     "youtubeTtsEnabled": "YouTube TTS இயக்கப்பட்டது"
   },
   "tabBtnBroadcaster": {
-    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>ஒளிபரப்பாளர்"
+    "broadcaster": "ஒளிபரப்பாளர்"
   },
   "tabBtnViewerDefaults": {
-    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>குரல் இயல்புநிலைகள்"
+    "voiceDefaults": "குரல் இயல்புநிலைகள்"
   },
   "tabViewerDefaults": {
     "adjustThePitchForThe": "இயல்புநிலைக் குரலுக்கான சுருதியைச் சரிசெய்யவும்",

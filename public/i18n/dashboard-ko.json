@@ -473,10 +473,10 @@
     "youtubeTtsEnabled": "YouTube TTS 활성화됨"
   },
   "tabBtnBroadcaster": {
-    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>스트리머"
+    "broadcaster": "스트리머"
   },
   "tabBtnViewerDefaults": {
-    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>기본 음성 설정"
+    "voiceDefaults": "기본 음성 설정"
   },
   "tabViewerDefaults": {
     "adjustThePitchForThe": "기본 음성의 음높이 조정",

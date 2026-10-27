@@ -16,11 +16,6 @@
     margin: 20px 24px 0;
 }
 
-/* Sections inside a tab pane are not shell-main's direct children, so its
-   gap does not reach them; space them, and the save bar after them, to the
-   same 44px rhythm here. */
-.tab-pane > .wc-card + :is(.wc-card, .d-grid) { margin-top: 44px; }
-
 /* The muted-rewards dialog sits inside a section in the markup, so the
    section's edge-to-edge row rule reaches its list. A dialog keeps its frame;
    restore the inset so the switches clear the scroll container's edge. */

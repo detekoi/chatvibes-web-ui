@@ -473,10 +473,10 @@
     "youtubeTtsEnabled": "TTS для YouTube включен"
   },
   "tabBtnBroadcaster": {
-    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Стример"
+    "broadcaster": "Стример"
   },
   "tabBtnViewerDefaults": {
-    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Голос по умолчанию"
+    "voiceDefaults": "Голос по умолчанию"
   },
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Настройка высоты тона для голоса по умолчанию",

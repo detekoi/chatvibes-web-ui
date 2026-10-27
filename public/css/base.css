@@ -234,26 +234,6 @@ textarea.form-control { min-height: calc(1.5em + .75rem + 2px); }
   border-end-end-radius: 0;
 }
 
-/* ---- nav tabs ---- */
-.nav { display: flex; flex-wrap: wrap; padding-inline-start: 0; margin-bottom: 0; list-style: none; }
-.nav-link {
-  display: block;
-  padding: .5rem 1rem;
-  color: #0d6efd;
-  text-decoration: none;
-  background: none;
-  border: 0;
-}
-.nav-tabs { border-bottom: 1px solid #dee2e6; }
-.nav-tabs .nav-link {
-  margin-bottom: -1px;
-  border: 1px solid transparent;
-  border-start-start-radius: .375rem;
-  border-start-end-radius: .375rem;
-}
-.nav-tabs .nav-link.active { color: #000; background-color: #fff; border-color: #dee2e6 #dee2e6 #fff; }
-.tab-content > .tab-pane { display: none; }
-.tab-content > .active { display: block; }
 .fade { transition: opacity .15s linear; }
 .fade:not(.show) { opacity: 0; }
 

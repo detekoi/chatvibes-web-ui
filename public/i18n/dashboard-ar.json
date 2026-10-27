@@ -473,10 +473,10 @@
     "youtubeTtsEnabled": "YouTube TTS مفعّل"
   },
   "tabBtnBroadcaster": {
-    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>منشئ البث"
+    "broadcaster": "منشئ البث"
   },
   "tabBtnViewerDefaults": {
-    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>القيم الافتراضية للصوت"
+    "voiceDefaults": "القيم الافتراضية للصوت"
   },
   "tabViewerDefaults": {
     "adjustThePitchForThe": "ضبط طبقة الصوت للصوت الافتراضي",

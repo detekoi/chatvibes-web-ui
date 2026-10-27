@@ -473,10 +473,10 @@
     "youtubeTtsEnabled": "TTS de YouTube activat"
   },
   "tabBtnBroadcaster": {
-    "broadcaster": "<i data-lucide=\"radio\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Emissor"
+    "broadcaster": "Emissor"
   },
   "tabBtnViewerDefaults": {
-    "voiceDefaults": "<i data-lucide=\"sliders-horizontal\" class=\"inline-icon\" style=\"margin-right: 6px;\"></i>Veus per defecte"
+    "voiceDefaults": "Veus per defecte"
   },
   "tabViewerDefaults": {
     "adjustThePitchForThe": "Ajusta el to per a la veu per defecte",
