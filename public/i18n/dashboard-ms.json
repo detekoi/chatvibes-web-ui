@@ -459,7 +459,7 @@
     "ttsDoesNotReadMessages": "TTS tidak membaca mesej daripada pengguna dalam senarai ini.",
     "ttsEngineEnabled": "Enjin TTS Didayakan",
     "ttsExpandsCommonTwitchAcronyms": "TTS mengembangkan akronim lazim Twitch kepada perkataan. Contohnya, “ngl” menjadi “not gonna lie”. Matikan untuk mengeja setiap huruf.",
-    "ttsIgnoreList": "Senarai Abaikan TTS",
+    "ttsIgnoreList": "Senarai Abai TTS",
     "ttsMode": "<strong>Mod TTS</strong>",
     "ttsPermission": "<strong>Kebenaran TTS</strong>",
     "ttsReplacesProfanityWithMilder": "TTS menggantikan kata kesat dengan perkataan yang lebih sopan sebelum bertutur. Penapis ini menggunakan bahasa saluran dan bahasa penonton. Jika bahasa ditetapkan kepada Automatik, penapis menggunakan senarai bahasa Inggeris. Kata yang dilarang tetap melangkau keseluruhan mesej.",

@@ -170,8 +170,8 @@
         "medium": "Tonalitate medie",
         "high": "Tonalitate înaltă"
       },
-      "studioOnly": "Doar voci Studio",
-      "studioTag": "Studio",
+      "studioOnly": "Doar voci care vorbesc toate limbile",
+      "studioTag": "Toate limbile",
       "count": "Voci găsite: {count}",
       "legacy": "Voce veche ({id})",
       "stopSample": "Oprește mostra pentru {voice}"

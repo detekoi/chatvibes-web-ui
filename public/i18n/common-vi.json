@@ -170,8 +170,8 @@
         "medium": "Cao độ trung bình",
         "high": "Cao độ cao"
       },
-      "studioOnly": "Chỉ giọng Studio",
-      "studioTag": "Studio",
+      "studioOnly": "Chỉ giọng đọc mọi ngôn ngữ",
+      "studioTag": "Mọi ngôn ngữ",
       "count": "Số giọng tìm thấy: {count}",
       "legacy": "Giọng cũ ({id})",
       "stopSample": "Dừng mẫu nghe thử của {voice}"

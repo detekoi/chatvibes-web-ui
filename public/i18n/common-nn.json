@@ -170,8 +170,8 @@
         "medium": "Middels tonehøgd",
         "high": "Høg tonehøgd"
       },
-      "studioOnly": "Berre studiostemmer",
-      "studioTag": "Studio",
+      "studioOnly": "Berre stemmer som snakkar alle språk",
+      "studioTag": "Alle språk",
       "count": "Stemmer funne: {count}",
       "legacy": "Eldre stemme ({id})",
       "stopSample": "Stopp lydprøva av {voice}"

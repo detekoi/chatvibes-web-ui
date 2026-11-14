@@ -170,8 +170,8 @@
         "medium": "Stredný tón",
         "high": "Vysoký tón"
       },
-      "studioOnly": "Len štúdiové hlasy",
-      "studioTag": "Štúdio",
+      "studioOnly": "Iba hlasy, ktoré hovoria každým jazykom",
+      "studioTag": "Každý jazyk",
       "count": "Nájdené hlasy: {count}",
       "legacy": "Starší hlas ({id})",
       "stopSample": "Zastaviť ukážku hlasu {voice}"

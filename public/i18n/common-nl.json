@@ -170,8 +170,8 @@
         "medium": "Gemiddelde toonhoogte",
         "high": "Hoge toonhoogte"
       },
-      "studioOnly": "Alleen studiostemmen",
-      "studioTag": "Studio",
+      "studioOnly": "Alleen stemmen die elke taal spreken",
+      "studioTag": "Elke taal",
       "count": "Gevonden stemmen: {count}",
       "legacy": "Verouderde stem ({id})",
       "stopSample": "Voorbeeld van {voice} stoppen"

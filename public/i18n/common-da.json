@@ -170,8 +170,8 @@
         "medium": "Mellem tonehøjde",
         "high": "Høj tonehøjde"
       },
-      "studioOnly": "Kun studiestemmer",
-      "studioTag": "Studie",
+      "studioOnly": "Kun stemmer, der taler alle sprog",
+      "studioTag": "Alle sprog",
       "count": "Stemmer fundet: {count}",
       "legacy": "Ældre stemme ({id})",
       "stopSample": "Stop lydprøven af {voice}"

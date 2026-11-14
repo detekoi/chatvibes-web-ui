@@ -459,7 +459,7 @@
     "ttsDoesNotReadMessages": "A TTS nem olvassa fel a listán szereplő felhasználók üzeneteit.",
     "ttsEngineEnabled": "TTS-motor engedélyezve",
     "ttsExpandsCommonTwitchAcronyms": "A TTS feloldja a gyakori Twitch-mozaikszavakat szavakká. Például az „ngl” „not gonna lie”-ként hangzik el. Kapcsold ki a betűzéshez.",
-    "ttsIgnoreList": "TTS-mellőzési lista",
+    "ttsIgnoreList": "TTS mellőzési lista",
     "ttsMode": "<strong>TTS-mód</strong>",
     "ttsPermission": "<strong>TTS-jogosultság</strong>",
     "ttsReplacesProfanityWithMilder": "A TTS enyhébb szavakkal helyettesíti a káromkodásokat a felolvasás előtt. A szűrő a csatorna és a néző nyelvét használja. Ha a nyelv Automatikusra van állítva, a szűrő az angol listát használja. A tiltott szavak esetén a teljes üzenet kimarad.",

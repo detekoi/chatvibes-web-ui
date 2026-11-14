@@ -459,7 +459,7 @@
     "ttsDoesNotReadMessages": "TTS nečíta správy od používateľov na tomto zozname.",
     "ttsEngineEnabled": "Modul TTS zapnutý",
     "ttsExpandsCommonTwitchAcronyms": "TTS rozširuje bežné skratky na Twitchi na celé slová. Napríklad „ngl“ sa prečíta ako „not gonna lie“. Vypnutím sa bude hláskovať každé písmeno.",
-    "ttsIgnoreList": "Zoznam ignorovaných v TTS",
+    "ttsIgnoreList": "Zoznam ignorovaných pre TTS",
     "ttsMode": "<strong>Režim TTS</strong>",
     "ttsPermission": "<strong>Oprávnenie TTS</strong>",
     "ttsReplacesProfanityWithMilder": "TTS pred prečítaním nahradí vulgarizmy miernejšími slovami. Filter používa jazyk kanála a jazyk diváka. Ak je jazyk nastavený na Automatický, filter použije anglický zoznam. Zakázané slová celú správu preskočia.",
@@ -481,7 +481,7 @@
   },
   "tabViewerDefaults": {
     "adjustTheVolumeForThe": "Upraviť hlasitosť vybraného hlasu. UPOZORNENIE: Hodnoty vyššie ako 1.0 môžu spôsobiť skreslenie.",
-    "calibratedVoices": "Nakalibrované hlasy",
+    "calibratedVoices": "Kalibrované hlasy",
     "calibrateVolumeForSpecificVoices": "Kalibrovať hlasitosť pre konkrétne hlasy. UPOZORNENIE: Hodnoty vyššie ako 1.0 môžu spôsobiť skreslenie.",
     "defaultEmotion": "<strong>Predvolená emócia</strong>",
     "defaultLanguage": "<strong>Predvolený jazyk</strong>",

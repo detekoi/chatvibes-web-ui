@@ -170,8 +170,8 @@
         "medium": "中くらいのピッチ",
         "high": "高いピッチ"
       },
-      "studioOnly": "スタジオボイスのみ",
-      "studioTag": "スタジオ",
+      "studioOnly": "全言語対応のボイスのみ",
+      "studioTag": "全言語対応",
       "count": "見つかったボイス: {count}",
       "legacy": "レガシーボイス ({id})",
       "stopSample": "{voice}のサンプルを停止"

@@ -170,8 +170,8 @@
         "medium": "Keskikorkea sävelkorkeus",
         "high": "Korkea sävelkorkeus"
       },
-      "studioOnly": "Vain studioäänet",
-      "studioTag": "Studio",
+      "studioOnly": "Vain kaikkia kieliä puhuvat äänet",
+      "studioTag": "Kaikki kielet",
       "count": "Ääniä löytyi: {count}",
       "legacy": "Vanha ääni ({id})",
       "stopSample": "Pysäytä näyte äänestä {voice}"

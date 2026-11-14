@@ -170,8 +170,8 @@
         "medium": "Srednji ton",
         "high": "Visok ton"
       },
-      "studioOnly": "Samo studijski glasovi",
-      "studioTag": "Studio",
+      "studioOnly": "Samo glasovi koji govore svaki jezik",
+      "studioTag": "Svaki jezik",
       "count": "Pronađeno glasova: {count}",
       "legacy": "Naslijeđeni glas ({id})",
       "stopSample": "Zaustavi uzorak glasa {voice}"

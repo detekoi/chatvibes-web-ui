@@ -170,8 +170,8 @@
         "medium": "Średni ton",
         "high": "Wysoki ton"
       },
-      "studioOnly": "Tylko głosy studyjne",
-      "studioTag": "Studio",
+      "studioOnly": "Tylko głosy mówiące w każdym języku",
+      "studioTag": "Każdy język",
       "count": "Znalezione głosy: {count}",
       "legacy": "Starszy głos ({id})",
       "stopSample": "Zatrzymaj próbkę głosu {voice}"

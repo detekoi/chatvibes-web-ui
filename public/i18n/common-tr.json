@@ -170,8 +170,8 @@
         "medium": "Orta perde",
         "high": "Yüksek perde"
       },
-      "studioOnly": "Yalnızca stüdyo sesleri",
-      "studioTag": "Stüdyo",
+      "studioOnly": "Sadece her dili konuşan sesler",
+      "studioTag": "Her dil",
       "count": "Bulunan ses: {count}",
       "legacy": "Eski ses ({id})",
       "stopSample": "{voice} ses örneğini durdur"

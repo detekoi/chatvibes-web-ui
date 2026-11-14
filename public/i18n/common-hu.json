@@ -170,8 +170,8 @@
         "medium": "Közepes hang",
         "high": "Magas hang"
       },
-      "studioOnly": "Csak stúdióhangok",
-      "studioTag": "Stúdió",
+      "studioOnly": "Csak minden nyelven beszélő hangok",
+      "studioTag": "Minden nyelv",
       "count": "Talált hangok: {count}",
       "legacy": "Régi hang ({id})",
       "stopSample": "{voice} hangmintájának leállítása"

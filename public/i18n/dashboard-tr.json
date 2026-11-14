@@ -459,7 +459,7 @@
     "ttsDoesNotReadMessages": "TTS bu listedeki kullanıcıların mesajlarını okumaz.",
     "ttsEngineEnabled": "TTS Motoru Etkin",
     "ttsExpandsCommonTwitchAcronyms": "TTS yaygın Twitch kısaltmalarını kelimelere dönüştürür. Örneğin “ngl”, “not gonna lie” olur. Harf harf okunması için kapatın.",
-    "ttsIgnoreList": "TTS Yok Sayma Listesi",
+    "ttsIgnoreList": "TTS Yoksayma Listesi",
     "ttsMode": "<strong>TTS Modu</strong>",
     "ttsPermission": "<strong>TTS İzni</strong>",
     "ttsReplacesProfanityWithMilder": "TTS küfürleri seslendirmeden önce daha hafif kelimelerle değiştirir. Filtre, kanal dilini ve izleyici dilini kullanır. Dil Otomatik olarak ayarlanmışsa filtre İngilizce listeyi kullanır. Yasaklı kelimeler yine de mesajın tamamını atlar.",

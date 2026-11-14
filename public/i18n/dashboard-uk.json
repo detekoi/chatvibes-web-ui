@@ -481,7 +481,7 @@
   },
   "tabViewerDefaults": {
     "adjustTheVolumeForThe": "Налаштуйте гучність вибраного голосу. УВАГА: значення понад 1.0 можуть спричинити спотворення звуку.",
-    "calibratedVoices": "Калібровані голоси",
+    "calibratedVoices": "Відкалібровані голоси",
     "calibrateVolumeForSpecificVoices": "Калібруйте гучність для окремих голосів. УВАГА: значення понад 1.0 можуть спричинити спотворення звуку.",
     "defaultEmotion": "<strong>Типова емоція</strong>",
     "defaultLanguage": "<strong>Типова мова</strong>",

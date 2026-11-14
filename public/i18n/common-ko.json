@@ -170,8 +170,8 @@
         "medium": "중간 음높이",
         "high": "높은 음높이"
       },
-      "studioOnly": "스튜디오 음성만",
-      "studioTag": "스튜디오",
+      "studioOnly": "모든 언어 지원 음성만",
+      "studioTag": "모든 언어",
       "count": "검색된 음성: {count}",
       "legacy": "기존 음성 ({id})",
       "stopSample": "{voice} 샘플 중지"

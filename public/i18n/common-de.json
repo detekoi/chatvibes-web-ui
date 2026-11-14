@@ -170,8 +170,8 @@
         "medium": "Mittlere Tonhöhe",
         "high": "Hohe Tonhöhe"
       },
-      "studioOnly": "Nur Studio-Stimmen",
-      "studioTag": "Studio",
+      "studioOnly": "Nur Stimmen, die jede Sprache sprechen",
+      "studioTag": "Jede Sprache",
       "count": "Gefundene Stimmen: {count}",
       "legacy": "Legacy-Stimme ({id})",
       "stopSample": "Hörprobe von {voice} stoppen"

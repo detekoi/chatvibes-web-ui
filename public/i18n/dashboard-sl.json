@@ -481,7 +481,7 @@
   },
   "tabViewerDefaults": {
     "adjustTheVolumeForThe": "Prilagodi glasnost za izbrani glas. POZOR: Vrednosti, večje od 1,0, lahko povzročijo popačenje.",
-    "calibratedVoices": "Umerjeni glasovi",
+    "calibratedVoices": "Kalibrirani glasovi",
     "calibrateVolumeForSpecificVoices": "Umeri glasnost za določene glasove. POZOR: Vrednosti, večje od 1,0, lahko povzročijo popačenje.",
     "defaultEmotion": "<strong>Privzeto čustvo</strong>",
     "defaultLanguage": "<strong>Privzeti jezik</strong>",

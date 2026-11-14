@@ -170,8 +170,8 @@
         "medium": "Medium pitch",
         "high": "High pitch"
       },
-      "studioOnly": "Studio voices only",
-      "studioTag": "Studio",
+      "studioOnly": "Only voices that speak every language",
+      "studioTag": "Every language",
       "count": "Voices found: {count}",
       "legacy": "Legacy voice ({id})",
       "stopSample": "Stop the sample of {voice}"

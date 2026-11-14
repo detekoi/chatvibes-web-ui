@@ -170,8 +170,8 @@
         "medium": "צליל בינוני",
         "high": "צליל גבוה"
       },
-      "studioOnly": "קולות אולפן בלבד",
-      "studioTag": "אולפן",
+      "studioOnly": "רק קולות שמדברים כל שפה",
+      "studioTag": "כל שפה",
       "count": "קולות שנמצאו: {count}",
       "legacy": "קול ישן ({id})",
       "stopSample": "עצור את הדגימה של {voice}"

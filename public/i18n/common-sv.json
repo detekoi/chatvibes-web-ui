@@ -170,8 +170,8 @@
         "medium": "Medelhögt tonläge",
         "high": "Högt tonläge"
       },
-      "studioOnly": "Endast studioröster",
-      "studioTag": "Studio",
+      "studioOnly": "Endast röster som talar alla språk",
+      "studioTag": "Alla språk",
       "count": "Hittade röster: {count}",
       "legacy": "Äldre röst ({id})",
       "stopSample": "Stoppa röstprovet med {voice}"

@@ -417,7 +417,7 @@
     "announceWhenAViewerRedeems": "Kunngjer når ein sjåar løyser inn ein Channel Points-belønning",
     "anonymizeNewFollowers": "Gjer nye følgjarar anonyme",
     "bannedWordsCommaSeparated": "Bannlyste ord (kommaseparerte)",
-    "bannedWordsPhrases": "Bannlyste ord / frasar",
+    "bannedWordsPhrases": "Forbodne ord / uttrykk",
     "blockLinks": "Blokker lenkjer",
     "botRespondsInChat": "Bot svarar i chatten",
     "channelPointsTts": "Channel Points → TTS",
@@ -481,7 +481,7 @@
   },
   "tabViewerDefaults": {
     "adjustTheVolumeForThe": "Juster lydstyrken for den valde røysta. ÅTVARING: Verdiar over 1,0 kan føre til forvrenging.",
-    "calibratedVoices": "Kalibrerte røyster",
+    "calibratedVoices": "Kalibrerte stemmer",
     "calibrateVolumeForSpecificVoices": "Kalibrer lydstyrken for einskilde røyster. ÅTVARING: Verdiar over 1,0 kan føre til forvrenging.",
     "defaultEmotion": "<strong>Standardkjensle</strong>",
     "defaultLanguage": "<strong>Standardspråk</strong>",
