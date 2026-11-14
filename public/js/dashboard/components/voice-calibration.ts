@@ -55,7 +55,7 @@ export class VoiceCalibration {
         const currentVol = this.currentVoiceVolumes[voiceId] ?? 1.0;
         if (this.slider && this.valueSpan) {
             this.slider.value = String(currentVol);
-            this.valueSpan.textContent = String(currentVol);
+            this.valueSpan.textContent = this.slider.value;
         }
 
         if (this.saveBtn) {
@@ -105,7 +105,7 @@ export class VoiceCalibration {
         if (this.voiceDropdown.getValue() !== voiceId || !this.slider) return;
         const volume = String(this.currentVoiceVolumes[voiceId] ?? 1.0);
         this.slider.value = volume;
-        if (this.valueSpan) this.valueSpan.textContent = volume;
+        if (this.valueSpan) this.valueSpan.textContent = this.slider.value;
     }
 
     /** The server refused the change: show the value that it still holds, and say why. */

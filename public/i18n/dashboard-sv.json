@@ -115,7 +115,7 @@
     "defaultVoice": "<strong>Standardröst</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "Röstvolym (0,1 till 10)"
+    "voiceVolume01To": "Röstvolym (0,1 till 2,0)"
   },
   "emoteMode": {
     "describeEmotes": "Beskriv emotes",
@@ -497,7 +497,7 @@
     "viewerVoiceLookup": "Sök tittarröst",
     "voiceCalibration": "Röstkalibrering",
     "voicesWithCustomVolumeSettings": "Röster med anpassade volyminställningar.",
-    "voiceVolume01To": "Röstvolym (0,1 till 10):",
+    "voiceVolume01To": "Röstvolym (0,1 till 2,0):",
     "volumeOverride": "Åsidosätt volym:"
   },
   "ttsBannedWordInput": {

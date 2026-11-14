@@ -115,7 +115,7 @@
     "defaultVoice": "<strong>デフォルトボイス</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "ボイス音量（0.1～10）"
+    "voiceVolume01To": "ボイス音量（0.1～2.0）"
   },
   "emoteMode": {
     "describeEmotes": "エモートを読み上げる",
@@ -497,7 +497,7 @@
     "viewerVoiceLookup": "視聴者音声の検索",
     "voiceCalibration": "音声キャリブレーション",
     "voicesWithCustomVolumeSettings": "音量がカスタム設定されている音声。",
-    "voiceVolume01To": "ボイスの音量 (0.1〜10):",
+    "voiceVolume01To": "ボイスの音量 (0.1〜2.0):",
     "volumeOverride": "音量の上書き:"
   },
   "ttsBannedWordInput": {

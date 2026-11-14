@@ -115,7 +115,7 @@
     "defaultVoice": "<strong>Голос по умолчанию</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "Громкость голоса (от 0.1 до 10)"
+    "voiceVolume01To": "Громкость голоса (от 0.1 до 2.0)"
   },
   "emoteMode": {
     "describeEmotes": "Описывать смайлы",
@@ -497,7 +497,7 @@
     "viewerVoiceLookup": "Поиск голоса зрителя",
     "voiceCalibration": "Калибровка голоса",
     "voicesWithCustomVolumeSettings": "Голоса с индивидуальной настройкой громкости.",
-    "voiceVolume01To": "Громкость голоса (от 0.1 до 10):",
+    "voiceVolume01To": "Громкость голоса (от 0.1 до 2.0):",
     "volumeOverride": "Переопределение громкости:"
   },
   "ttsBannedWordInput": {

@@ -115,7 +115,7 @@
     "defaultVoice": "<strong>預設聲音</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "語音音量 (0.1 至 10)"
+    "voiceVolume01To": "語音音量 (0.1 至 2.0)"
   },
   "emoteMode": {
     "describeEmotes": "描述表情符號",
@@ -497,7 +497,7 @@
     "viewerVoiceLookup": "觀眾聲音查詢",
     "voiceCalibration": "聲音校準",
     "voicesWithCustomVolumeSettings": "自訂咗音量嘅聲音。",
-    "voiceVolume01To": "語音音量 (0.1 至 10)：",
+    "voiceVolume01To": "語音音量 (0.1 至 2.0)：",
     "volumeOverride": "覆寫音量："
   },
   "ttsBannedWordInput": {

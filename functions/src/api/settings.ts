@@ -115,7 +115,7 @@ function prepareTtsSetting(key: string, value: unknown): PreparedSetting {
         // MiniMax ID that the map does not have). The owner must be able to reset
         // it, so a reset to 1 is accepted for any ID that looks like a voice ID.
         const voiceId = canonicalVoiceId(rawId) ?? (value === 1 && STALE_VOICE_ID.test(rawId) ? rawId : null);
-        if (!voiceId || typeof value !== "number" || !(value > 0 && value <= 10)) return invalid;
+        if (!voiceId || typeof value !== "number" || !(value > 0 && value <= 2)) return invalid;
         // set() treats a dotted key as a literal field name, not a path, so
         // "voiceVolumes.<voiceId>" has to be written as a nested map for the bot
         // to find it under config.voiceVolumes. merge:true keeps sibling voices.

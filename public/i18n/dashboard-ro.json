@@ -115,7 +115,7 @@
     "defaultVoice": "<strong>Voce implicită</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "Volum voce (de la 0,1 la 10)"
+    "voiceVolume01To": "Volum voce (de la 0,1 la 2,0)"
   },
   "emoteMode": {
     "describeEmotes": "Descrie emoticoanele",
@@ -497,7 +497,7 @@
     "viewerVoiceLookup": "Căutare voce spectator",
     "voiceCalibration": "Calibrare voce",
     "voicesWithCustomVolumeSettings": "Voci cu setări de volum personalizate.",
-    "voiceVolume01To": "Volum voce (0.1 la 10):",
+    "voiceVolume01To": "Volum voce (0.1 la 2.0):",
     "volumeOverride": "Suprascriere volum:"
   },
   "ttsBannedWordInput": {

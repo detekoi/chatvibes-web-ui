@@ -115,7 +115,7 @@
     "defaultVoice": "<strong>डिफ़ॉल्ट आवाज़</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "आवाज़ का वॉल्यूम (0.1 से 10)"
+    "voiceVolume01To": "आवाज़ का वॉल्यूम (0.1 से 2.0)"
   },
   "emoteMode": {
     "describeEmotes": "इमोट्स का वर्णन करें",
@@ -497,7 +497,7 @@
     "viewerVoiceLookup": "दर्शक आवाज़ खोज",
     "voiceCalibration": "आवाज़ कैलिब्रेशन",
     "voicesWithCustomVolumeSettings": "कस्टम वॉल्यूम सेटिंग्स वाली आवाज़ें।",
-    "voiceVolume01To": "वॉइस वॉल्यूम (0.1 से 10):",
+    "voiceVolume01To": "वॉइस वॉल्यूम (0.1 से 2.0):",
     "volumeOverride": "वॉल्यूम ओवरराइड:"
   },
   "ttsBannedWordInput": {

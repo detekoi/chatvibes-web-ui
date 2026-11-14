@@ -246,9 +246,10 @@ export function initSettingsModule(
 
   function updateVolumeSlider(voiceId: string): void {
     if (!defaultVolumeSlider || !volumeValueSpan) return;
-    const vol = currentVoiceVolumes[voiceId] ?? 1.0;
+    const raw = currentVoiceVolumes[voiceId] ?? 1.0;
+    const vol = Number.isFinite(raw) ? Math.min(2.0, Math.max(0.1, raw)) : 1.0;
     defaultVolumeSlider.value = String(vol);
-    volumeValueSpan.textContent = String(vol);
+    volumeValueSpan.textContent = defaultVolumeSlider.value;
   }
 
   function setupAutoSaveListeners(): void {

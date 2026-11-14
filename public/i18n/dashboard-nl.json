@@ -115,7 +115,7 @@
     "defaultVoice": "<strong>Standaardstem</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "Stemvolume (0,1 tot 10)"
+    "voiceVolume01To": "Stemvolume (0,1 tot 2,0)"
   },
   "emoteMode": {
     "describeEmotes": "Emotes beschrijven",
@@ -497,7 +497,7 @@
     "viewerVoiceLookup": "Kijkersstem opzoeken",
     "voiceCalibration": "Stemkalibratie",
     "voicesWithCustomVolumeSettings": "Stemmen met aangepaste volume-instellingen.",
-    "voiceVolume01To": "Stemvolume (0,1 tot 10):",
+    "voiceVolume01To": "Stemvolume (0,1 tot 2,0):",
     "volumeOverride": "Volume overschrijven:"
   },
   "ttsBannedWordInput": {

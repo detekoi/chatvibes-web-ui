@@ -115,7 +115,7 @@
     "defaultVoice": "<strong>Standardstemme</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "Stemmevolum (0,1 til 10)"
+    "voiceVolume01To": "Stemmevolum (0,1 til 2,0)"
   },
   "emoteMode": {
     "describeEmotes": "Beskriv emotes",
@@ -497,7 +497,7 @@
     "viewerVoiceLookup": "Oppslag av seerstemme",
     "voiceCalibration": "Stemmekalibrering",
     "voicesWithCustomVolumeSettings": "Stemmer med tilpasset volum.",
-    "voiceVolume01To": "Stemmevolum (0,1 til 10):",
+    "voiceVolume01To": "Stemmevolum (0,1 til 2,0):",
     "volumeOverride": "Volumoverstyring:"
   },
   "ttsBannedWordInput": {

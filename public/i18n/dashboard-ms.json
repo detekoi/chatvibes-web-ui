@@ -115,7 +115,7 @@
     "defaultVoice": "<strong>Suara Lalai</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "Kelantangan Suara (0.1 hingga 10)"
+    "voiceVolume01To": "Kelantangan Suara (0.1 hingga 2.0)"
   },
   "emoteMode": {
     "describeEmotes": "Huraikan emot",
@@ -497,7 +497,7 @@
     "viewerVoiceLookup": "Carian Suara Penonton",
     "voiceCalibration": "Penentukuran Suara",
     "voicesWithCustomVolumeSettings": "Suara dengan tetapan kelantangan tersuai.",
-    "voiceVolume01To": "Kelantangan Suara (0.1 hingga 10):",
+    "voiceVolume01To": "Kelantangan Suara (0.1 hingga 2.0):",
     "volumeOverride": "Gantian Kelantangan:"
   },
   "ttsBannedWordInput": {

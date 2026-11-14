@@ -115,7 +115,7 @@
     "defaultVoice": "<strong>Προεπιλεγμένη φωνή</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "Ένταση φωνής (0.1 έως 10)"
+    "voiceVolume01To": "Ένταση φωνής (0.1 έως 2.0)"
   },
   "emoteMode": {
     "describeEmotes": "Περιγραφή emotes",
@@ -497,7 +497,7 @@
     "viewerVoiceLookup": "Αναζήτηση φωνής θεατή",
     "voiceCalibration": "Βαθμονόμηση φωνής",
     "voicesWithCustomVolumeSettings": "Φωνές με προσαρμοσμένες ρυθμίσεις έντασης.",
-    "voiceVolume01To": "Ένταση φωνής (0.1 έως 10):",
+    "voiceVolume01To": "Ένταση φωνής (0.1 έως 2.0):",
     "volumeOverride": "Παράκαμψη έντασης:"
   },
   "ttsBannedWordInput": {

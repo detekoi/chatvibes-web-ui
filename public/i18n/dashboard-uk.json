@@ -115,7 +115,7 @@
     "defaultVoice": "<strong>Голос за замовчуванням</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "Гучність голосу (від 0.1 до 10)"
+    "voiceVolume01To": "Гучність голосу (від 0.1 до 2.0)"
   },
   "emoteMode": {
     "describeEmotes": "Описувати емоути",
@@ -497,7 +497,7 @@
     "viewerVoiceLookup": "Пошук голосу глядача",
     "voiceCalibration": "Калібрування голосу",
     "voicesWithCustomVolumeSettings": "Голоси з власними налаштуваннями гучності.",
-    "voiceVolume01To": "Гучність голосу (0.1 до 10):",
+    "voiceVolume01To": "Гучність голосу (0.1 до 2.0):",
     "volumeOverride": "Перевизначення гучності:"
   },
   "ttsBannedWordInput": {

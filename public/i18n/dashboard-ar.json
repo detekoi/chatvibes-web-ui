@@ -115,7 +115,7 @@
     "defaultVoice": "<strong>الصوت الافتراضي</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "مستوى صوت الصوت (0.1 إلى 10)"
+    "voiceVolume01To": "مستوى صوت الصوت (0.1 إلى 2.0)"
   },
   "emoteMode": {
     "describeEmotes": "وصف الرموز التعبيرية",
@@ -497,7 +497,7 @@
     "viewerVoiceLookup": "البحث عن صوت المشاهد",
     "voiceCalibration": "معايرة الصوت",
     "voicesWithCustomVolumeSettings": "أصوات بإعدادات مخصصة لمستوى الصوت.",
-    "voiceVolume01To": "مستوى صوت المتحدث (0.1 إلى 10):",
+    "voiceVolume01To": "مستوى صوت المتحدث (0.1 إلى 2.0):",
     "volumeOverride": "تجاوز مستوى الصوت:"
   },
   "ttsBannedWordInput": {

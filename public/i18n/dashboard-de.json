@@ -115,7 +115,7 @@
     "defaultVoice": "<strong>Standardstimme</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "Stimmenlautstärke (0,1 bis 10)"
+    "voiceVolume01To": "Stimmenlautstärke (0,1 bis 2,0)"
   },
   "emoteMode": {
     "describeEmotes": "Emotes beschreiben",
@@ -497,7 +497,7 @@
     "viewerVoiceLookup": "Zuschauerstimmen-Suche",
     "voiceCalibration": "Stimmen-Kalibrierung",
     "voicesWithCustomVolumeSettings": "Stimmen mit benutzerdefinierter Lautstärke.",
-    "voiceVolume01To": "Stimmlautstärke (0,1 bis 10):",
+    "voiceVolume01To": "Stimmlautstärke (0,1 bis 2,0):",
     "volumeOverride": "Lautstärke-Überschreibung:"
   },
   "ttsBannedWordInput": {
