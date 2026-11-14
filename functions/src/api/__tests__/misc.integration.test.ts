@@ -142,6 +142,23 @@ describe('Misc API Integration Tests', () => {
 
       await request(app).get('/api/voices').set('If-None-Match', first.headers['etag']).expect(304);
     });
+
+    // A proxy that compresses the body makes the tag weak.
+    it('should answer 304 for the weak form of the ETag, with no Content-Encoding', async () => {
+      const first = await request(app).get('/api/voices').expect(200);
+
+      const second = await request(app)
+          .get('/api/voices')
+          .set('Accept-Encoding', 'gzip')
+          .set('If-None-Match', `W/${first.headers['etag']}`)
+          .expect(304);
+
+      expect(second.headers['content-encoding']).toBeUndefined();
+    });
+
+    it('should send the body for an ETag that does not match', async () => {
+      await request(app).get('/api/voices').set('If-None-Match', '"another-version"').expect(200);
+    });
   });
 
   describe('POST /api/tts/test', () => {

@@ -116,7 +116,11 @@ apiRouter.get("/voices", (req: Request, res: Response): void => {
   res.set("Cache-Control", "public, max-age=3600");
   res.set("ETag", body.etag);
   res.vary("Accept-Encoding");
-  if (req.headers["if-none-match"] === body.etag) {
+  // req.fresh compares the ETag as Express does in res.send(), where a weak
+  // tag (W/"...", which a proxy makes when it compresses) also matches. A plain
+  // string comparison missed the weak tag, and res.send() then answered 304
+  // with Content-Encoding: gzip and no body.
+  if (req.fresh) {
     res.status(304).end();
     return;
   }

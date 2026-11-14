@@ -308,8 +308,8 @@ export function initPreferencesModule(
         const style = styleInput.value.trim().slice(0, STYLE_MAX_LENGTH);
         const stored = state.currentPreferences.style || '';
         if (style !== stored) {
-          // Clear removes the style in its own save. A save of the text first is a wasted request.
-          if (next && next === elements.emotionReset) return;
+          // Also when the focus goes to Clear: the Tab key takes it there with no
+          // click. A click on Clear saves after this one, because the saves keep their order.
           markSettingsAsDirty();
           void savePreferences({ style: style || null });
         } else if (!next || next !== elements.emotionSelect) {
