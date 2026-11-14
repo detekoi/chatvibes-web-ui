@@ -69,29 +69,17 @@
     "dashboardConfigurationTabs": "File de configurare a panoului de control",
     "deactivationStopsTheBotFrom": "Dezactivarea împiedică botul să citească mesajele din chat. Setările tale rămân salvate. Poți reactiva serviciul în orice moment.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Documentație",
-    "emotion": "Emoție",
     "language": "Limbă",
     "pitch": "Tonalitate",
     "quickLinks": "Linkuri rapide",
     "service": "Serviciu",
     "signedInAs": "Conectat ca",
     "speed": "Viteză",
+    "style": "Stil",
     "testMessage": "Mesaj de test",
     "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Setări spectatori",
     "voicePreview": "Previzualizare voce",
     "volume": "Volum"
-  },
-  "defaultEmotion": {
-    "angry": "Furios",
-    "calm": "Calm",
-    "custom": "Personalizat…",
-    "disgusted": "Dezgustat",
-    "fearful": "Speriat",
-    "fluent": "Fluent",
-    "happy": "Fericit",
-    "neutral": "Neutru",
-    "sad": "Trist",
-    "surprised": "Surprins"
   },
   "defaultPitchLabel": {
     "defaultPitch": "<strong>Înălțime implicită</strong>"
@@ -105,17 +93,14 @@
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Exemplu: calm și rar, ca un prezentator de radio noaptea"
   },
-  "defaultStyleGroup": {
-    "style": "Stil"
-  },
-  "defaultStyleHint": {
-    "describeInAFewWords": "Descrie în câteva cuvinte cum vorbește vocea."
+  "defaultStylePresetsLabel": {
+    "orStartWithAPreset": "Sau începe cu o presetare. Poți schimba cuvintele."
   },
   "defaultVoiceLabel": {
     "defaultVoice": "<strong>Voce implicită</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "Volum voce (de la 0,1 la 2,0)"
+    "voiceVolume01To": "Volum voce (0.1 la 2.0)"
   },
   "emoteMode": {
     "describeEmotes": "Descrie emoticoanele",
@@ -281,7 +266,6 @@
       "anonymizeFollowers": "Anonimizează urmăritorii",
       "botRespondsInChat": "Botul răspunde în chat",
       "cheerAnnouncements": "Anunțuri Cheer",
-      "defaultEmotion": "Emoție implicită",
       "defaultLanguage": "Limbă implicită",
       "defaultPitch": "Înălțime tonală implicită",
       "defaultSpeed": "Viteză implicită",
@@ -296,7 +280,7 @@
       "readFullUrls": "Citește URL-urile complete",
       "redemptionAnnouncements": "Anunțuri de revendicare",
       "soundTags": "Etichete sonore",
-      "style": "Stil",
+      "style": "Stil implicit al vocii",
       "ttsEngine": "Motor TTS",
       "ttsMode": "Mod TTS",
       "ttsPermission": "Permisiune TTS",
@@ -483,15 +467,15 @@
     "adjustTheVolumeForThe": "Ajustează volumul pentru vocea selectată. ATENȚIE: Valorile mai mari de 1,0 pot provoca distorsiuni.",
     "calibratedVoices": "Voci calibrate",
     "calibrateVolumeForSpecificVoices": "Calibrează volumul pentru anumite voci. ATENȚIE: Valorile mai mari de 1,0 pot provoca distorsiuni.",
-    "defaultEmotion": "<strong>Emoție implicită</strong>",
     "defaultLanguage": "<strong>Limbă implicită</strong>",
     "defaultVoiceSettings": "Setări voce implicită",
+    "defaultVoiceStyle": "<strong>Stil implicit al vocii</strong>",
+    "describeHowTheVoiceSpeaks": "Descrie cu cuvintele tale cum vorbește vocea. Dacă caseta este goală, vocea nu are stil.",
     "selectHowFastTheDefault": "Alege cât de repede vorbește vocea implicită",
     "selectHowHighOrLow": "Alege cât de ascuțit sau de grav vorbește vocea implicită",
     "selectTheVoiceThatTts": "Alege vocea pe care o folosește TTS pentru spectatorii care nu au o voce proprie",
     "selectVoice": "Selectează vocea",
     "setDefaultVoiceSettingsFor": "Setează opțiunile implicite de voce pentru canal",
-    "setTheEmotionOfThe": "Setează emoția vocii implicite. Selectează Personalizat pentru a descrie vocea cu propriile cuvinte.",
     "theVoiceModelReadsThe": "Modelul vocal detectează limba din text. Dacă textul este scurt sau neclar, această setare oferă un indiciu modelului. De asemenea, setează limba implicită pentru anunțuri și alege lista de cuvinte pentru filtrul de limbaj vulgar.",
     "viewersCanTypeASound": "Spectatorii pot scrie o etichetă sonoră într-un mesaj, iar vocea va reda acel sunet. Exemple: <code>&lt;laugh&gt;</code> și <code>&lt;sigh&gt;</code>. Toate etichetele sunt activate implicit. Pentru a dezactiva o etichetă, debifează caseta ei.",
     "viewerVoiceLookup": "Căutare voce spectator",

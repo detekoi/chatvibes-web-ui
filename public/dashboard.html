@@ -773,33 +773,18 @@
                                         </div>
                                     </div>
                                     <div class="list-group-item">
-                                        <div class="row align-items-center">
+                                        <div class="row style-row">
                                             <div class="col">
-                                                <label data-i18n="tabViewerDefaults.defaultEmotion" for="default-emotion" class="form-label mb-1"><strong>Default
-                                                        Emotion</strong></label>
-                                                <p data-i18n="tabViewerDefaults.setTheEmotionOfThe" class="text-muted mb-0">Set the emotion of the default voice. Select Custom to describe the voice in your own words.</p>
+                                                <label data-i18n="tabViewerDefaults.defaultVoiceStyle" for="default-style" class="form-label mb-1"><strong>Default voice style</strong></label>
+                                                <p data-i18n="tabViewerDefaults.describeHowTheVoiceSpeaks" class="text-muted mb-0">Describe how the voice speaks, in your own words. If the box is empty, the voice has no style.</p>
                                             </div>
-                                            <div class="col-auto d-flex align-items-center" style="gap:8px;">
-                                                <div class="emotion-control">
-                                                    <select id="default-emotion" class="form-select">
-                                                        <option data-i18n="defaultEmotion.neutral" value="neutral">Neutral</option>
-                                                        <option data-i18n="defaultEmotion.happy" value="happy">Happy</option>
-                                                        <option data-i18n="defaultEmotion.sad" value="sad">Sad</option>
-                                                        <option data-i18n="defaultEmotion.angry" value="angry">Angry</option>
-                                                        <option data-i18n="defaultEmotion.fearful" value="fearful">Fearful</option>
-                                                        <option data-i18n="defaultEmotion.disgusted" value="disgusted">Disgusted</option>
-                                                        <option data-i18n="defaultEmotion.surprised" value="surprised">Surprised</option>
-                                                        <option data-i18n="defaultEmotion.calm" value="calm">Calm</option>
-                                                        <option data-i18n="defaultEmotion.fluent" value="fluent">Fluent</option>
-                                                        <option data-i18n="defaultEmotion.custom" value="__custom__">Custom…</option>
-                                                    </select>
-                                                    <div class="style-group" id="default-style-group" hidden>
-                                                        <label data-i18n="defaultStyleGroup.style" for="default-style" class="visually-hidden">Style</label>
-                                                        <input data-i18n-placeholder="defaultStyle.exampleCalmAndSlowLike" type="text" id="default-style" class="form-control" maxlength="120"
-                                                            placeholder="Example: calm and slow, like a radio host at night" aria-describedby="default-style-hint default-style-count">
-                                                        <small data-i18n="defaultStyleHint.describeInAFewWords" class="form-text text-muted" id="default-style-hint">Describe in a few words how the voice speaks.</small>
-                                                        <small class="form-text text-muted" id="default-style-count"></small>
-                                                    </div>
+                                            <div class="col-12 col-md-6 d-flex align-items-start" style="gap:8px;">
+                                                <div class="style-control">
+                                                    <input data-i18n-placeholder="defaultStyle.exampleCalmAndSlowLike" type="text" id="default-style" class="form-control" maxlength="120"
+                                                        placeholder="Example: calm and slow, like a radio host at night" aria-describedby="default-style-count">
+                                                    <small class="form-text text-muted style-count" id="default-style-count"></small>
+                                                    <span data-i18n="defaultStylePresetsLabel.orStartWithAPreset" class="style-presets-label" id="default-style-presets-label">Or start with a preset. You can change the words.</span>
+                                                    <div class="style-presets" id="default-style-presets" role="group" aria-labelledby="default-style-presets-label"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -990,7 +975,7 @@
                             <div><dt data-i18n="dashboardContent.pitch">Pitch</dt><dd id="sidebar-pitch-val">—</dd></div>
                             <div><dt data-i18n="dashboardContent.speed">Speed</dt><dd id="sidebar-speed-val">—</dd></div>
                             <div><dt data-i18n="dashboardContent.volume">Volume</dt><dd id="sidebar-volume-val">1.0</dd></div>
-                            <div><dt data-i18n="dashboardContent.emotion">Emotion</dt><dd id="sidebar-emotion-val">—</dd></div>
+                            <div><dt data-i18n="dashboardContent.style">Style</dt><dd id="sidebar-style-val">—</dd></div>
                             <div><dt data-i18n="dashboardContent.language">Language</dt><dd data-i18n="sidebarLanguageVal.automatic" id="sidebar-language-val">Automatic</dd></div>
                         </dl>
                     </div>

@@ -69,29 +69,17 @@
     "dashboardConfigurationTabs": "डैशबोर्ड कॉन्फ़िगरेशन टैब",
     "deactivationStopsTheBotFrom": "निष्क्रिय करने पर बॉट चैट संदेश पढ़ना बंद कर देता है। आपकी सेटिंग्स सहेजी रहेंगी। आप किसी भी समय सेवा को फिर से सक्रिय कर सकते हैं।",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>दस्तावेज़",
-    "emotion": "भाव",
     "language": "भाषा",
     "pitch": "पिच",
     "quickLinks": "त्वरित लिंक",
     "service": "सेवा",
     "signedInAs": "के रूप में साइन इन हैं",
     "speed": "गति",
+    "style": "शैली",
     "testMessage": "परीक्षण संदेश",
     "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>दर्शक सेटिंग",
     "voicePreview": "आवाज़ पूर्वावलोकन",
     "volume": "वॉल्यूम"
-  },
-  "defaultEmotion": {
-    "angry": "क्रोधित",
-    "calm": "शांत",
-    "custom": "कस्टम…",
-    "disgusted": "घृणा",
-    "fearful": "भयभीत",
-    "fluent": "धाराप्रवाह",
-    "happy": "खुश",
-    "neutral": "तटस्थ",
-    "sad": "उदास",
-    "surprised": "हैरान"
   },
   "defaultPitchLabel": {
     "defaultPitch": "<strong>डिफ़ॉल्ट पिच</strong>"
@@ -105,11 +93,8 @@
   "defaultStyle": {
     "exampleCalmAndSlowLike": "उदाहरण: शांत और धीमा, जैसे रात के समय कोई रेडियो होस्ट"
   },
-  "defaultStyleGroup": {
-    "style": "शैली"
-  },
-  "defaultStyleHint": {
-    "describeInAFewWords": "कुछ शब्दों में बताएं कि आवाज़ कैसे बोलती है।"
+  "defaultStylePresetsLabel": {
+    "orStartWithAPreset": "या किसी प्रीसेट से शुरू करें। आप शब्द बदल सकते हैं।"
   },
   "defaultVoiceLabel": {
     "defaultVoice": "<strong>डिफ़ॉल्ट आवाज़</strong>"
@@ -281,7 +266,6 @@
       "anonymizeFollowers": "फ़ॉलोअर्स को अनाम रखें",
       "botRespondsInChat": "बॉट चैट में जवाब दे",
       "cheerAnnouncements": "Cheer घोषणाएँ",
-      "defaultEmotion": "डिफ़ॉल्ट भाव",
       "defaultLanguage": "डिफ़ॉल्ट भाषा",
       "defaultPitch": "डिफ़ॉल्ट पिच",
       "defaultSpeed": "डिफ़ॉल्ट गति",
@@ -296,7 +280,7 @@
       "readFullUrls": "पूरे URLs पढ़ें",
       "redemptionAnnouncements": "रिडेम्पशन घोषणाएँ",
       "soundTags": "साउंड टैग",
-      "style": "शैली",
+      "style": "डिफ़ॉल्ट आवाज़ शैली",
       "ttsEngine": "TTS इंजन",
       "ttsMode": "TTS मोड",
       "ttsPermission": "TTS अनुमति",
@@ -483,21 +467,21 @@
     "adjustTheVolumeForThe": "चुनी गई वॉइस के लिए वॉल्यूम समायोजित करें। सावधानी: 1.0 से अधिक मान डिस्टॉर्शन पैदा कर सकते हैं।",
     "calibratedVoices": "कैलिब्रेटेड आवाज़ें",
     "calibrateVolumeForSpecificVoices": "विशिष्ट आवाज़ों के लिए वॉल्यूम कैलिब्रेट करें। सावधानी: 1.0 से अधिक मान डिस्टॉर्शन पैदा कर सकते हैं।",
-    "defaultEmotion": "<strong>डिफ़ॉल्ट भावना</strong>",
     "defaultLanguage": "<strong>डिफ़ॉल्ट भाषा</strong>",
     "defaultVoiceSettings": "डिफ़ॉल्ट आवाज़ सेटिंग्स",
+    "defaultVoiceStyle": "<strong>डिफ़ॉल्ट आवाज़ शैली</strong>",
+    "describeHowTheVoiceSpeaks": "अपने शब्दों में बताएं कि आवाज़ किस तरह बोलती है। अगर बॉक्स खाली है, तो आवाज़ की कोई शैली नहीं है।",
     "selectHowFastTheDefault": "चुनें कि डिफ़ॉल्ट आवाज़ कितनी तेज़ी से बोलती है",
     "selectHowHighOrLow": "चुनें कि डिफ़ॉल्ट आवाज़ कितनी ऊँची या नीची बोलती है",
     "selectTheVoiceThatTts": "वह आवाज़ चुनें जिसका उपयोग TTS उन दर्शकों के लिए करता है जिनकी अपनी कोई आवाज़ नहीं है",
     "selectVoice": "आवाज़ चुनें",
     "setDefaultVoiceSettingsFor": "अपने चैनल के लिए डिफ़ॉल्ट आवाज़ सेटिंग्स सेट करें",
-    "setTheEmotionOfThe": "डिफ़ॉल्ट आवाज़ का भाव सेट करें। अपने शब्दों में आवाज़ का वर्णन करने के लिए कस्टम चुनें।",
     "theVoiceModelReadsThe": "वॉइस मॉडल टेक्स्ट से भाषा को पहचानता है। यदि टेक्स्ट छोटा या अस्पष्ट है, तो यह सेटिंग मॉडल को संकेत देती है। यह घोषणाओं के लिए डिफ़ॉल्ट भाषा भी सेट करती है और अपशब्द फ़िल्टर के लिए शब्द सूची चुनती है।",
     "viewersCanTypeASound": "दर्शक संदेश में एक साउंड टैग टाइप कर सकते हैं, और आवाज़ वैसी ध्वनि निकालती है। उदाहरण के लिए <code>&lt;laugh&gt;</code> और <code>&lt;sigh&gt;</code>। सभी टैग डिफ़ॉल्ट रूप से चालू होते हैं। किसी टैग को बंद करने के लिए, उसका चेक बॉक्स अनचेक करें।",
     "viewerVoiceLookup": "दर्शक आवाज़ खोज",
     "voiceCalibration": "आवाज़ कैलिब्रेशन",
     "voicesWithCustomVolumeSettings": "कस्टम वॉल्यूम सेटिंग्स वाली आवाज़ें।",
-    "voiceVolume01To": "वॉइस वॉल्यूम (0.1 से 2.0):",
+    "voiceVolume01To": "आवाज़ का वॉल्यूम (0.1 से 2.0):",
     "volumeOverride": "वॉल्यूम ओवरराइड:"
   },
   "ttsBannedWordInput": {

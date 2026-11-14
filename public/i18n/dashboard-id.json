@@ -69,29 +69,17 @@
     "dashboardConfigurationTabs": "Tab konfigurasi dasbor",
     "deactivationStopsTheBotFrom": "Penonaktifan akan menghentikan bot membaca pesan obrolan. Pengaturan Anda tetap tersimpan. Anda dapat mengaktifkan kembali layanan ini kapan saja.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentasi",
-    "emotion": "Emosi",
     "language": "Bahasa",
     "pitch": "Nada",
     "quickLinks": "Tautan cepat",
     "service": "Layanan",
     "signedInAs": "Masuk sebagai",
     "speed": "Kecepatan",
+    "style": "Gaya",
     "testMessage": "Pesan uji",
     "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Pengaturan penonton",
     "voicePreview": "Pratinjau suara",
     "volume": "Volume"
-  },
-  "defaultEmotion": {
-    "angry": "Marah",
-    "calm": "Tenang",
-    "custom": "Kustom…",
-    "disgusted": "Jijik",
-    "fearful": "Takut",
-    "fluent": "Fasih",
-    "happy": "Senang",
-    "neutral": "Netral",
-    "sad": "Sedih",
-    "surprised": "Terkejut"
   },
   "defaultPitchLabel": {
     "defaultPitch": "<strong>Nada Default</strong>"
@@ -105,17 +93,14 @@
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Contoh: tenang dan lambat, seperti penyiar radio di malam hari"
   },
-  "defaultStyleGroup": {
-    "style": "Gaya"
-  },
-  "defaultStyleHint": {
-    "describeInAFewWords": "Jelaskan dalam beberapa kata bagaimana suara ini berbicara."
+  "defaultStylePresetsLabel": {
+    "orStartWithAPreset": "Atau mulai dengan preset. Anda bisa mengubah kata-katanya."
   },
   "defaultVoiceLabel": {
     "defaultVoice": "<strong>Suara Default</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "Volume Suara (0,1 hingga 2,0)"
+    "voiceVolume01To": "Volume Suara (0.1 hingga 2.0)"
   },
   "emoteMode": {
     "describeEmotes": "Deskripsikan emote",
@@ -281,7 +266,6 @@
       "anonymizeFollowers": "Anonimkan Pengikut",
       "botRespondsInChat": "Bot Merespons di Obrolan",
       "cheerAnnouncements": "Pengumuman Cheer",
-      "defaultEmotion": "Emosi Default",
       "defaultLanguage": "Bahasa Default",
       "defaultPitch": "Pitch Default",
       "defaultSpeed": "Kecepatan Default",
@@ -296,7 +280,7 @@
       "readFullUrls": "Baca URL Lengkap",
       "redemptionAnnouncements": "Pengumuman Penukaran",
       "soundTags": "Tag Suara",
-      "style": "Gaya",
+      "style": "Gaya suara bawaan",
       "ttsEngine": "Mesin TTS",
       "ttsMode": "Mode TTS",
       "ttsPermission": "Izin TTS",
@@ -483,15 +467,15 @@
     "adjustTheVolumeForThe": "Sesuaikan volume untuk suara yang dipilih. PERHATIAN: Nilai lebih dari 1.0 dapat menyebabkan distorsi.",
     "calibratedVoices": "Suara Terkalibrasi",
     "calibrateVolumeForSpecificVoices": "Kalibrasi volume untuk suara tertentu. PERHATIAN: Nilai lebih dari 1.0 dapat menyebabkan distorsi.",
-    "defaultEmotion": "<strong>Emosi Default</strong>",
     "defaultLanguage": "<strong>Bahasa Default</strong>",
     "defaultVoiceSettings": "Pengaturan Suara Default",
+    "defaultVoiceStyle": "<strong>Gaya suara bawaan</strong>",
+    "describeHowTheVoiceSpeaks": "Jelaskan cara suara berbicara dengan kata-kata Anda sendiri. Jika kotak kosong, suara tidak memiliki gaya.",
     "selectHowFastTheDefault": "Pilih seberapa cepat suara default berbicara",
     "selectHowHighOrLow": "Pilih seberapa tinggi atau rendah suara default berbicara",
     "selectTheVoiceThatTts": "Pilih suara yang digunakan TTS untuk penonton yang belum memiliki suara sendiri",
     "selectVoice": "Pilih Suara",
     "setDefaultVoiceSettingsFor": "Atur pengaturan suara default untuk channel Anda",
-    "setTheEmotionOfThe": "Atur emosi suara default. Pilih Kustom untuk menjelaskan suara dengan kata-kata Anda sendiri.",
     "theVoiceModelReadsThe": "Model suara membaca bahasa dari teks. Jika teks pendek atau tidak jelas, pengaturan ini memberi petunjuk pada model. Pengaturan ini juga menetapkan bahasa default untuk pengumuman dan memilih daftar kata untuk filter kata kasar.",
     "viewersCanTypeASound": "Penonton dapat mengetik tag suara dalam pesan, dan suara akan mengeluarkan bunyi tersebut. Contohnya <code>&lt;laugh&gt;</code> dan <code>&lt;sigh&gt;</code>. Semua tag aktif secara default. Untuk menonaktifkan tag, hapus centang pada kotaknya.",
     "viewerVoiceLookup": "Pencarian Suara Penonton",

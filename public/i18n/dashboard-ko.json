@@ -69,29 +69,17 @@
     "dashboardConfigurationTabs": "대시보드 설정 탭",
     "deactivationStopsTheBotFrom": "비활성화하면 봇이 채팅 메시지를 읽지 않습니다. 설정은 저장된 상태로 유지됩니다. 언제든지 서비스를 다시 활성화할 수 있습니다.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>문서",
-    "emotion": "감정",
     "language": "언어",
     "pitch": "음높이",
     "quickLinks": "빠른 링크",
     "service": "서비스",
     "signedInAs": "로그인 계정:",
     "speed": "속도",
+    "style": "스타일",
     "testMessage": "테스트 메시지",
     "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>시청자 설정",
     "voicePreview": "음성 미리듣기",
     "volume": "음량"
-  },
-  "defaultEmotion": {
-    "angry": "분노",
-    "calm": "차분함",
-    "custom": "사용자 지정…",
-    "disgusted": "혐오",
-    "fearful": "공포",
-    "fluent": "유창함",
-    "happy": "행복",
-    "neutral": "중립",
-    "sad": "슬픔",
-    "surprised": "놀람"
   },
   "defaultPitchLabel": {
     "defaultPitch": "<strong>기본 음높이</strong>"
@@ -105,17 +93,14 @@
   "defaultStyle": {
     "exampleCalmAndSlowLike": "예: 밤 시간대 라디오 진행자처럼 차분하고 느리게"
   },
-  "defaultStyleGroup": {
-    "style": "스타일"
-  },
-  "defaultStyleHint": {
-    "describeInAFewWords": "음성이 말하는 방식을 몇 단어로 설명하세요."
+  "defaultStylePresetsLabel": {
+    "orStartWithAPreset": "또는 프리셋으로 시작하세요. 문구는 바꿀 수 있습니다."
   },
   "defaultVoiceLabel": {
     "defaultVoice": "<strong>기본 음성</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "음성 음량 (0.1 ~ 2.0)"
+    "voiceVolume01To": "음성 볼륨 (0.1~2.0)"
   },
   "emoteMode": {
     "describeEmotes": "이모티콘 설명",
@@ -281,7 +266,6 @@
       "anonymizeFollowers": "팔로워 익명화",
       "botRespondsInChat": "봇 채팅 응답 활성화",
       "cheerAnnouncements": "응원 알림",
-      "defaultEmotion": "기본 감정",
       "defaultLanguage": "기본 언어",
       "defaultPitch": "기본 음높이",
       "defaultSpeed": "기본 속도",
@@ -296,7 +280,7 @@
       "readFullUrls": "전체 URL 읽기",
       "redemptionAnnouncements": "리워드 수령 알림",
       "soundTags": "사운드 태그",
-      "style": "스타일",
+      "style": "기본 음성 스타일",
       "ttsEngine": "TTS 엔진",
       "ttsMode": "TTS 모드",
       "ttsPermission": "TTS 권한",
@@ -483,21 +467,21 @@
     "adjustTheVolumeForThe": "선택한 음성의 음량을 조정합니다. 주의: 1.0보다 큰 값은 음왜곡을 일으킬 수 있습니다.",
     "calibratedVoices": "보정된 음성",
     "calibrateVolumeForSpecificVoices": "특정 음성의 음량을 보정합니다. 주의: 1.0보다 큰 값은 음왜곡을 일으킬 수 있습니다.",
-    "defaultEmotion": "<strong>기본 감정</strong>",
     "defaultLanguage": "<strong>기본 언어</strong>",
     "defaultVoiceSettings": "기본 음성 설정",
+    "defaultVoiceStyle": "<strong>기본 음성 스타일</strong>",
+    "describeHowTheVoiceSpeaks": "음성이 말하는 방식을 직접 설명하세요. 입력란을 비워 두면 스타일이 적용되지 않습니다.",
     "selectHowFastTheDefault": "기본 음성의 말하기 속도를 선택하세요",
     "selectHowHighOrLow": "기본 음성의 높낮이를 선택하세요",
     "selectTheVoiceThatTts": "개별 음성이 없는 시청자에게 TTS가 사용할 음성을 선택하세요",
     "selectVoice": "음성 선택",
     "setDefaultVoiceSettingsFor": "채널의 기본 음성 설정을 지정하세요",
-    "setTheEmotionOfThe": "기본 음성의 감정을 설정하세요. 음성을 직접 설명하려면 '사용자 지정'을 선택하세요.",
     "theVoiceModelReadsThe": "음성 모델은 텍스트에서 언어를 파악합니다. 텍스트가 짧거나 불분명한 경우 이 설정이 모델에 힌트를 제공합니다. 또한 안내 메시지의 기본 언어와 비속어 필터의 단어 목록을 설정합니다.",
     "viewersCanTypeASound": "시청자가 메시지에 사운드 태그를 입력하면 음성이 해당 소리를 냅니다. 예: <code>&lt;laugh&gt;</code>, <code>&lt;sigh&gt;</code>. 모든 태그는 기본적으로 켜져 있습니다. 태그를 끄려면 체크박스를 해제하세요.",
     "viewerVoiceLookup": "시청자 음성 조회",
     "voiceCalibration": "음성 보정",
     "voicesWithCustomVolumeSettings": "맞춤 음량 설정이 적용된 음성 목록입니다.",
-    "voiceVolume01To": "음성 볼륨(0.1 ~ 2.0):",
+    "voiceVolume01To": "음성 볼륨 (0.1~2.0):",
     "volumeOverride": "볼륨 재지정:"
   },
   "ttsBannedWordInput": {

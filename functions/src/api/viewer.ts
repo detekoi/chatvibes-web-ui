@@ -7,7 +7,7 @@ import { db, COLLECTIONS, FieldValue, FieldPath } from "../services/firestore";
 import { validateSpeed, validatePitch, validateEmotion, validateLanguageBoost, normalizeEmotion } from "../services/utils";
 import { loadGlobalUserPreferences, ViewerPreferences } from "../services/preferences";
 import { canonicalVoiceId } from "../services/voices";
-import { validateStyle } from "../services/style";
+import { validateStyle, styleForEmotion } from "../services/style";
 import { authenticateApiRequest, assertAuthenticated } from "../middleware/auth";
 import { logger } from "../logger";
 import { getIgnoreEntry, buildIgnoreEntry, canSelfUnignore, IGNORE_SOURCE_SELF } from "../services/ignoreEntries";
@@ -92,10 +92,13 @@ function validateAndBuildUpdateData(
   if (updates.emotion !== undefined) {
     const normalized = updates.emotion === null ? null : normalizeEmotion(updates.emotion);
     if (normalized === null || validateEmotion(normalized)) {
-      updateData.emotion = normalized;
-      // An emotion preset and a custom style are alternatives. The bot lets the
-      // style win, so the new emotion would not be heard while a style is stored.
-      updateData.style = FieldValue.delete();
+      // The emotion is a setting of the old provider. A page that still sends
+      // one (a cached copy) gets the style words of that emotion. Null removes
+      // the choice, and the viewer then uses the style of the channel.
+      updateData.emotion = FieldValue.delete();
+      // The typed value, not the normalized one: normalizeEmotion turns "auto"
+      // into "neutral", and only "auto" means no style for a viewer.
+      updateData.style = (normalized && styleForEmotion(updates.emotion, { viewer: true })) || FieldValue.delete();
     } else {
       apiError(res, 400, "prefs_invalid_emotion", "Invalid emotion value");
       return null;
@@ -122,7 +125,14 @@ function validateAndBuildUpdateData(
       return null;
     }
     // "" clears the style, and the viewer then uses the style of the channel.
-    updateData.style = style.value || FieldValue.delete();
+    // An old page sends an emotion together with a null style. The style words
+    // of that emotion stay.
+    if (style.value || typeof updates.emotion !== "string") {
+      updateData.style = style.value || FieldValue.delete();
+    }
+    // The page writes only the style. An emotion that an old record holds must
+    // not come back into effect when the style is removed.
+    updateData.emotion = FieldValue.delete();
   }
   if (updates.emoteMode !== undefined) {
     if (updates.emoteMode === null || VALID_EMOTE_MODES.includes(updates.emoteMode)) {

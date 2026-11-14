@@ -116,18 +116,6 @@
       "signedOut": "Je bent niet ingelogd.",
       "tokenMissing": "Authenticatietoken ontbreekt. Log opnieuw in."
     },
-    "emotion": {
-      "angry": "Boos",
-      "calm": "Kalm",
-      "disgusted": "Walgend",
-      "fearful": "Angstig",
-      "fluent": "Vloeiend",
-      "happy": "Blij",
-      "neutral": "Neutraal",
-      "sad": "Verdrietig",
-      "surprised": "Verrast",
-      "custom": "Aangepast"
-    },
     "ignore": {
       "enterUsername": "Voer een gebruikersnaam in."
     },
@@ -193,7 +181,40 @@
       }
     },
     "style": {
-      "count": "{count} van {max} tekens"
+      "count": "{count} van {max} tekens",
+      "none": "Geen stijl"
+    },
+    "stylePreset": {
+      "label": {
+        "neutral": "Neutraal",
+        "happy": "Blij",
+        "excited": "Enthousiast",
+        "calm": "Kalm",
+        "sad": "Verdrietig",
+        "angry": "Boos",
+        "fearful": "Bang",
+        "surprised": "Verrast",
+        "sarcastic": "Sarcastisch",
+        "whisper": "Fluisteren",
+        "dramatic": "Dramatisch",
+        "announcer": "Sportcommentator"
+      },
+      "text": {
+        "neutral": "op een neutrale toon",
+        "happy": "blij en vrolijk",
+        "excited": "enthousiast en vol energie",
+        "calm": "kalm en ontspannen",
+        "sad": "verdrietig en neerslachtig",
+        "angry": "boos",
+        "fearful": "angstig en bang",
+        "surprised": "verrast en verbaasd",
+        "sarcastic": "droog en sarcastisch",
+        "whisper": "fluisterend, alsof je een geheim vertelt",
+        "dramatic": "dramatisch, als de verteller van een filmtrailer",
+        "announcer": "als een enthousiaste sportcommentator",
+        "disgusted": "vol afschuw",
+        "fluent": "soepel en vloeiend"
+      }
     }
   },
   "page": {

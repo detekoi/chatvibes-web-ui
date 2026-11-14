@@ -33,20 +33,7 @@
   },
   "emotionReset": {
     "clear": "Törlés",
-    "resetEmotionToDefault": "Érzelem visszaállítása alapértelmezettre"
-  },
-  "emotionSelect": {
-    "angry": "Dühös",
-    "calm": "Nyugodt",
-    "custom": "Egyéni…",
-    "disgusted": "Undorodó",
-    "fearful": "Rémült",
-    "fluent": "Gördülékeny",
-    "happy": "Boldog",
-    "neutral": "Semleges",
-    "sad": "Szomorú",
-    "surprised": "Meglepett",
-    "useChannelDefault": "Csatorna alapértelmezése"
+    "resetEmotionToDefault": "Hangstílus visszaállítása alapértelmezettre"
   },
   "ignoreTts": {
     "optOutInThisChannel": "Letiltás ezen a csatornán"
@@ -109,8 +96,7 @@
       "sendPreview": "Előnézet küldése",
       "testCompletedTestMode": "Teszt befejezve (tesztmód).",
       "updated": "Beállítás frissítve.",
-      "updatedTestMode": "Beállítás frissítve (tesztmód).",
-      "customStyle": "Egyéni ({style})"
+      "updatedTestMode": "Beállítás frissítve (tesztmód)."
     }
   },
   "openChannelContextModalBtn": {
@@ -144,9 +130,8 @@
     "resetPitchToDefault": "Hangmagasság visszaállítása alapértelmezettre"
   },
   "preferencesPanel": {
+    "describeHowTheVoiceSpeaks": "Írd le saját szavaiddal, hogyan beszéljen a hang. Ha a mező üres, a csatorna alapértelmezett beállítása érvényes.",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentáció </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Streamer-beállítások </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
-    "emotion": "<strong>Érzelem</strong>",
-    "emotion2": "Érzelem",
     "ifYourTextIsShort": "Ha a szöveged rövid vagy nem egyértelmű, ez a beállítás támpontot ad a hangmodellnek. Emellett ez választja ki a káromkodásszűrő szólistáját is.",
     "language": "Nyelv",
     "languageLabel": "<strong>Nyelv</strong>",
@@ -156,11 +141,12 @@
     "selectHowHighOrLow": "Válaszd ki, milyen magas vagy mély legyen a hang",
     "selectTheVoiceThatTts": "Válaszd ki a hangot, amelyet a TTS az üzeneteidhez használ",
     "setHowYourMessagesSound": "Állítsd be, hogyan hangzanak az üzeneteid a TTS felolvasásakor",
-    "setTheEmotionOfThe": "Állítsd be a hang érzelmét. Válaszd az Egyéni lehetőséget, ha saját szavaiddal írnád le a hangot.",
     "speed": "Sebesség",
+    "style": "Stílus",
     "testMessage": "Tesztüzenet",
     "voicePreview": "Hang előnézete",
-    "voiceSettings": "Hangbeállítások"
+    "voiceSettings": "Hangbeállítások",
+    "voiceStyle": "<strong>Hangstílus</strong>"
   },
   "prefsDisabledNote": {
     "theStreamerDisabledPersonalVoice": "A streamer kikapcsolta az egyéni hangbeállításokat ezen a csatornán. A csatorna az alapértelmezett hangját fogja használni a beállításaid helyett."
@@ -181,14 +167,11 @@
   "stepsHint": {
     "pitchAndSpeedAreApproximate": "A hangmagasság és a sebesség hozzávetőleges. A hangmodell ezeket a beállításokat szavakként kapja meg, nem számokként."
   },
-  "styleGroup": {
-    "style": "Stílus"
-  },
-  "styleHint": {
-    "describeInAFewWords": "Írd le néhány szóban, hogyan beszéljen a hang."
-  },
   "styleInput": {
     "exampleCalmAndSlowLike": "Példa: nyugodt és lassú, mint egy éjszakai rádiós műsorvezető"
+  },
+  "stylePresetsLabel": {
+    "orStartWithAPreset": "Vagy kezdj egy előbeállítással. A szavakat megváltoztathatod."
   },
   "voiceLabel": {
     "voice": "<strong>Hang</strong>"

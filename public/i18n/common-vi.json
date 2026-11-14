@@ -116,18 +116,6 @@
       "signedOut": "Bạn chưa đăng nhập.",
       "tokenMissing": "Thiếu mã xác thực. Hãy đăng nhập lại."
     },
-    "emotion": {
-      "angry": "Tức giận",
-      "calm": "Bình tĩnh",
-      "disgusted": "Ghê tởm",
-      "fearful": "Sợ hãi",
-      "fluent": "Lưu loát",
-      "happy": "Vui vẻ",
-      "neutral": "Trung tính",
-      "sad": "Buồn",
-      "surprised": "Ngạc nhiên",
-      "custom": "Tùy chỉnh"
-    },
     "ignore": {
       "enterUsername": "Nhập tên người dùng."
     },
@@ -193,7 +181,40 @@
       }
     },
     "style": {
-      "count": "{count}/{max} ký tự"
+      "count": "{count}/{max} ký tự",
+      "none": "Không có phong cách"
+    },
+    "stylePreset": {
+      "label": {
+        "neutral": "Trung tính",
+        "happy": "Vui vẻ",
+        "excited": "Hào hứng",
+        "calm": "Bình tĩnh",
+        "sad": "Buồn bã",
+        "angry": "Tức giận",
+        "fearful": "Sợ hãi",
+        "surprised": "Ngạc nhiên",
+        "sarcastic": "Mỉa mai",
+        "whisper": "Thì thầm",
+        "dramatic": "Kịch tính",
+        "announcer": "Bình luận viên thể thao"
+      },
+      "text": {
+        "neutral": "với giọng trung tính",
+        "happy": "vui vẻ và tươi tắn",
+        "excited": "hào hứng và tràn đầy năng lượng",
+        "calm": "bình tĩnh và thư thái",
+        "sad": "buồn bã và ủ rũ",
+        "angry": "tức giận",
+        "fearful": "sợ hãi và hoảng hốt",
+        "surprised": "ngạc nhiên và sửng sốt",
+        "sarcastic": "khô khan và mỉa mai",
+        "whisper": "thì thầm, như đang kể một bí mật",
+        "dramatic": "kịch tính, như người dẫn chuyện trailer phim",
+        "announcer": "như một bình luận viên thể thao hào hứng",
+        "disgusted": "ghê tởm",
+        "fluent": "mượt mà và lưu loát"
+      }
     }
   },
   "page": {

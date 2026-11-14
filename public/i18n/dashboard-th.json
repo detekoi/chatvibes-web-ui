@@ -69,29 +69,17 @@
     "dashboardConfigurationTabs": "แท็บการกำหนดค่าแดชบอร์ด",
     "deactivationStopsTheBotFrom": "การปิดใช้งานจะหยุดบอทไม่ให้อ่านข้อความในแชท การตั้งค่าของคุณจะยังคงได้รับการบันทึกไว้ คุณสามารถเปิดใช้งานบริการได้อีกครั้งทุกเมื่อ",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>เอกสาร",
-    "emotion": "อารมณ์",
     "language": "ภาษา",
     "pitch": "ระดับเสียง",
     "quickLinks": "ลิงก์ด่วน",
     "service": "บริการ",
     "signedInAs": "ลงชื่อเข้าใช้ในชื่อ",
     "speed": "ความเร็ว",
+    "style": "สไตล์",
     "testMessage": "ข้อความทดสอบ",
     "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>ตั้งค่าผู้ชม",
     "voicePreview": "ตัวอย่างเสียง",
     "volume": "ระดับเสียง"
-  },
-  "defaultEmotion": {
-    "angry": "โกรธ",
-    "calm": "สงบ",
-    "custom": "กำหนดเอง…",
-    "disgusted": "รังเกียจ",
-    "fearful": "กลัว",
-    "fluent": "ลื่นไหล",
-    "happy": "มีความสุข",
-    "neutral": "เป็นกลาง",
-    "sad": "เศร้า",
-    "surprised": "ประหลาดใจ"
   },
   "defaultPitchLabel": {
     "defaultPitch": "<strong>ระดับเสียงเริ่มต้น</strong>"
@@ -105,17 +93,14 @@
   "defaultStyle": {
     "exampleCalmAndSlowLike": "ตัวอย่าง: สงบและช้า เหมือนนักจัดรายการวิทยุตอนกลางคืน"
   },
-  "defaultStyleGroup": {
-    "style": "สไตล์"
-  },
-  "defaultStyleHint": {
-    "describeInAFewWords": "อธิบายสั้นๆ ว่าเสียงพูดควรเป็นอย่างไร"
+  "defaultStylePresetsLabel": {
+    "orStartWithAPreset": "หรือเริ่มจากพรีเซ็ต คุณสามารถเปลี่ยนคำได้"
   },
   "defaultVoiceLabel": {
     "defaultVoice": "<strong>เสียงเริ่มต้น</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "ระดับเสียง (0.1 ถึง 2.0)"
+    "voiceVolume01To": "ระดับเสียงพูด (0.1 ถึง 2.0)"
   },
   "emoteMode": {
     "describeEmotes": "อธิบายอีโมต",
@@ -281,7 +266,6 @@
       "anonymizeFollowers": "ซ่อนชื่อผู้ติดตาม",
       "botRespondsInChat": "บอทตอบกลับในแชท",
       "cheerAnnouncements": "การประกาศ Cheer",
-      "defaultEmotion": "อารมณ์เริ่มต้น",
       "defaultLanguage": "ภาษาเริ่มต้น",
       "defaultPitch": "ระดับเสียงเริ่มต้น",
       "defaultSpeed": "ความเร็วเริ่มต้น",
@@ -296,7 +280,7 @@
       "readFullUrls": "อ่าน URL แบบเต็ม",
       "redemptionAnnouncements": "การประกาศการแลกรับ",
       "soundTags": "แท็กเสียง",
-      "style": "สไตล์",
+      "style": "สไตล์เสียงเริ่มต้น",
       "ttsEngine": "TTS Engine",
       "ttsMode": "โหมด TTS",
       "ttsPermission": "สิทธิ์การใช้งาน TTS",
@@ -483,21 +467,21 @@
     "adjustTheVolumeForThe": "ปรับระดับเสียงสำหรับเสียงที่เลือก ข้อควรระวัง: ค่าที่มากกว่า 1.0 อาจทำให้เสียงแตกพร่าได้",
     "calibratedVoices": "เสียงที่ปรับเทียบแล้ว",
     "calibrateVolumeForSpecificVoices": "ปรับเทียบระดับเสียงสำหรับแต่ละเสียง ข้อควรระวัง: ค่าที่มากกว่า 1.0 อาจทำให้เสียงแตกพร่าได้",
-    "defaultEmotion": "<strong>อารมณ์เริ่มต้น</strong>",
     "defaultLanguage": "<strong>ภาษาเริ่มต้น</strong>",
     "defaultVoiceSettings": "การตั้งค่าเสียงเริ่มต้น",
+    "defaultVoiceStyle": "<strong>สไตล์เสียงเริ่มต้น</strong>",
+    "describeHowTheVoiceSpeaks": "อธิบายลักษณะการพูดของเสียงด้วยคำของคุณเอง หากเว้นว่างไว้ เสียงจะไม่มีสไตล์",
     "selectHowFastTheDefault": "เลือกความเร็วในการพูดของเสียงเริ่มต้น",
     "selectHowHighOrLow": "เลือกระดับเสียงสูงหรือต่ำของเสียงเริ่มต้น",
     "selectTheVoiceThatTts": "เลือกเสียงที่ TTS ใช้สำหรับผู้ชมที่ยังไม่มีเสียงของตนเอง",
     "selectVoice": "เลือกเสียง",
     "setDefaultVoiceSettingsFor": "กำหนดการตั้งค่าเสียงเริ่มต้นสำหรับช่องของคุณ",
-    "setTheEmotionOfThe": "ตั้งค่าอารมณ์ของเสียงเริ่มต้น เลือก กำหนดเอง เพื่ออธิบายเสียงด้วยคำพูดของคุณเอง",
     "theVoiceModelReadsThe": "โมเดลเสียงจะตรวจจับภาษาจากข้อความ หากข้อความสั้นหรือไม่ชัดเจน การตั้งค่านี้จะช่วยบอกใบ้โมเดล นอกจากนี้ยังใช้ตั้งค่าภาษาเริ่มต้นสำหรับการประกาศและเลือกรายการคำสำหรับตัวกรองคำหยาบคายอีกด้วย",
     "viewersCanTypeASound": "ผู้ชมสามารถพิมพ์แท็กเสียงในข้อความได้ แล้วเสียงจะทำเสียงนั้นออกมา ตัวอย่างเช่น <code>&lt;laugh&gt;</code> และ <code>&lt;sigh&gt;</code> แท็กทั้งหมดเปิดใช้งานอยู่โดยค่าเริ่มต้น หากต้องการปิดแท็กใด ให้ยกเลิกการเลือกในช่องทำเครื่องหมาย",
     "viewerVoiceLookup": "ค้นหาเสียงของผู้ชม",
     "voiceCalibration": "การปรับเทียบระดับเสียง",
     "voicesWithCustomVolumeSettings": "เสียงที่มีการปรับระดับเสียงแบบกำหนดเอง",
-    "voiceVolume01To": "ระดับความดังเสียง (0.1 ถึง 2.0):",
+    "voiceVolume01To": "ระดับเสียงพูด (0.1 ถึง 2.0):",
     "volumeOverride": "แทนที่ระดับความดัง:"
   },
   "ttsBannedWordInput": {

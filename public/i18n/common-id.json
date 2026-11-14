@@ -116,18 +116,6 @@
       "signedOut": "Anda belum masuk.",
       "tokenMissing": "Token autentikasi tidak ditemukan. Masuk kembali."
     },
-    "emotion": {
-      "angry": "Marah",
-      "calm": "Tenang",
-      "disgusted": "Jijik",
-      "fearful": "Takut",
-      "fluent": "Fasih",
-      "happy": "Senang",
-      "neutral": "Netral",
-      "sad": "Sedih",
-      "surprised": "Terkejut",
-      "custom": "Kustom"
-    },
     "ignore": {
       "enterUsername": "Masukkan nama pengguna."
     },
@@ -193,7 +181,40 @@
       }
     },
     "style": {
-      "count": "{count} dari {max} karakter"
+      "count": "{count} dari {max} karakter",
+      "none": "Tanpa gaya"
+    },
+    "stylePreset": {
+      "label": {
+        "neutral": "Netral",
+        "happy": "Senang",
+        "excited": "Bersemangat",
+        "calm": "Tenang",
+        "sad": "Sedih",
+        "angry": "Marah",
+        "fearful": "Takut",
+        "surprised": "Terkejut",
+        "sarcastic": "Sarkastik",
+        "whisper": "Berbisik",
+        "dramatic": "Dramatis",
+        "announcer": "Komentator olahraga"
+      },
+      "text": {
+        "neutral": "dengan nada netral",
+        "happy": "senang dan ceria",
+        "excited": "bersemangat dan penuh energi",
+        "calm": "tenang dan santai",
+        "sad": "sedih dan murung",
+        "angry": "marah",
+        "fearful": "takut dan cemas",
+        "surprised": "terkejut dan tercengang",
+        "sarcastic": "datar dan sarkastik",
+        "whisper": "berbisik, seolah memberi tahu rahasia",
+        "dramatic": "dramatis, seperti narator trailer film",
+        "announcer": "seperti komentator olahraga yang bersemangat",
+        "disgusted": "jijik",
+        "fluent": "lancar dan fasih"
+      }
     }
   },
   "page": {

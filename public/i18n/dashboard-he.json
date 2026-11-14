@@ -69,29 +69,17 @@
     "dashboardConfigurationTabs": "לשוניות הגדרת לוח הבקרה",
     "deactivationStopsTheBotFrom": "השבתה מפסיקה את הקראת הודעות הצ'אט על ידי הבוט. ההגדרות שלך יישמרו. תוכל להפעיל מחדש את השירות בכל עת.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>תיעוד",
-    "emotion": "רגש",
     "language": "שפה",
     "pitch": "גובה צליל",
     "quickLinks": "קישורים מהירים",
     "service": "שירות",
     "signedInAs": "מחובר בתור",
     "speed": "מהירות",
+    "style": "סגנון",
     "testMessage": "הודעת בדיקה",
     "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>הגדרות צופים",
     "voicePreview": "תצוגה מקדימה של הקול",
     "volume": "עוצמת שמע"
-  },
-  "defaultEmotion": {
-    "angry": "כועס",
-    "calm": "רגוע",
-    "custom": "מותאם אישית…",
-    "disgusted": "נגעל",
-    "fearful": "מפוחד",
-    "fluent": "שוטף",
-    "happy": "שמח",
-    "neutral": "ניטרלי",
-    "sad": "עצוב",
-    "surprised": "מופתע"
   },
   "defaultPitchLabel": {
     "defaultPitch": "<strong>גובה צליל ברירת מחדל</strong>"
@@ -105,11 +93,8 @@
   "defaultStyle": {
     "exampleCalmAndSlowLike": "דוגמה: רגוע ואיטי, כמו שדרן רדיו בלילה"
   },
-  "defaultStyleGroup": {
-    "style": "סגנון"
-  },
-  "defaultStyleHint": {
-    "describeInAFewWords": "תאר בכמה מילים איך הקול מדבר."
+  "defaultStylePresetsLabel": {
+    "orStartWithAPreset": "או התחילו עם תבנית מוכנה. אפשר לשנות את המילים."
   },
   "defaultVoiceLabel": {
     "defaultVoice": "<strong>קול ברירת מחדל</strong>"
@@ -281,7 +266,6 @@
       "anonymizeFollowers": "הסתר שמות עוקבים",
       "botRespondsInChat": "הבוט מגיב בצ'אט",
       "cheerAnnouncements": "הכרזות Cheer",
-      "defaultEmotion": "רגש ברירת מחדל",
       "defaultLanguage": "שפת ברירת מחדל",
       "defaultPitch": "גובה קול ברירת מחדל",
       "defaultSpeed": "מהירות ברירת מחדל",
@@ -296,7 +280,7 @@
       "readFullUrls": "הקרא כתובות URL מלאות",
       "redemptionAnnouncements": "הכרזות על מימושים",
       "soundTags": "תגיות צליל",
-      "style": "סגנון",
+      "style": "סגנון קול ברירת מחדל",
       "ttsEngine": "מנוע TTS",
       "ttsMode": "מצב TTS",
       "ttsPermission": "הרשאת TTS",
@@ -483,15 +467,15 @@
     "adjustTheVolumeForThe": "כוונן את עוצמת השמע עבור הקול שנבחר. זהירות: ערכים מעל 1.0 עלולים לגרום לעיוות.",
     "calibratedVoices": "קולות מכוילים",
     "calibrateVolumeForSpecificVoices": "כיול עוצמת השמע עבור קולות ספציפיים. זהירות: ערכים מעל 1.0 עלולים לגרום לעיוות.",
-    "defaultEmotion": "<strong>רגש ברירת מחדל</strong>",
     "defaultLanguage": "<strong>שפת ברירת מחדל</strong>",
     "defaultVoiceSettings": "הגדרות קול ברירת מחדל",
+    "defaultVoiceStyle": "<strong>סגנון קול ברירת מחדל</strong>",
+    "describeHowTheVoiceSpeaks": "תארו איך הקול מדבר, במילים שלכם. אם התיבה ריקה, לקול אין סגנון.",
     "selectHowFastTheDefault": "בחר באיזו מהירות קול ברירת המחדל מדבר",
     "selectHowHighOrLow": "בחר כמה גבוה או נמוך קול ברירת המחדל מדבר",
     "selectTheVoiceThatTts": "בחר את הקול ש-TTS משתמש בו עבור צופים שאין להם קול משלהם",
     "selectVoice": "בחירת קול",
     "setDefaultVoiceSettingsFor": "הגדרת קול ברירת המחדל לערוץ שלך",
-    "setTheEmotionOfThe": "הגדר את הרגש של קול ברירת המחדל. בחר מותאם אישית כדי לתאר את הקול במילים שלך.",
     "theVoiceModelReadsThe": "מודל הקול קורא את השפה מתוך הטקסט. אם הטקסט קצר או לא ברור, הגדרה זו נותנת למודל רמז. היא גם קובעת את שפת ברירת המחדל להכרזות ובוחרת את רשימת המילים למסנן השפה הגסה.",
     "viewersCanTypeASound": "צופים יכולים להקליד תגית צליל בהודעה, והקול ישמיע את הצליל הזה. דוגמאות הן <code>&lt;laugh&gt;</code> ו-<code>&lt;sigh&gt;</code>. כל התגיות מופעלות כברירת מחדל. כדי לכבות תגית, בטל את סימון תיבת הסימון שלה.",
     "viewerVoiceLookup": "חיפוש קול צופה",

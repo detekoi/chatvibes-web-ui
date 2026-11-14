@@ -69,29 +69,17 @@
     "dashboardConfigurationTabs": "Dashboard-configuratietabbladen",
     "deactivationStopsTheBotFrom": "Deactivatie zorgt ervoor dat de bot stopt met het voorlezen van chatberichten. Je instellingen blijven bewaard. Je kunt de service op elk moment weer activeren.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Documentatie",
-    "emotion": "Emotie",
     "language": "Taal",
     "pitch": "Toonhoogte",
     "quickLinks": "Snelle links",
     "service": "Service",
     "signedInAs": "Ingelogd als",
     "speed": "Snelheid",
+    "style": "Stijl",
     "testMessage": "Testbericht",
     "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Kijkersinstellingen",
     "voicePreview": "Stemvoorbeeld",
     "volume": "Volume"
-  },
-  "defaultEmotion": {
-    "angry": "Boos",
-    "calm": "Kalm",
-    "custom": "Aangepast…",
-    "disgusted": "Walgend",
-    "fearful": "Bang",
-    "fluent": "Vloeiend",
-    "happy": "Blij",
-    "neutral": "Neutraal",
-    "sad": "Verdrietig",
-    "surprised": "Verrast"
   },
   "defaultPitchLabel": {
     "defaultPitch": "<strong>Standaard toonhoogte</strong>"
@@ -105,11 +93,8 @@
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Bijvoorbeeld: kalm en langzaam, zoals een radiopresentator 's nachts"
   },
-  "defaultStyleGroup": {
-    "style": "Stijl"
-  },
-  "defaultStyleHint": {
-    "describeInAFewWords": "Beschrijf in een paar woorden hoe de stem spreekt."
+  "defaultStylePresetsLabel": {
+    "orStartWithAPreset": "Of begin met een voorinstelling. Je kunt de woorden aanpassen."
   },
   "defaultVoiceLabel": {
     "defaultVoice": "<strong>Standaardstem</strong>"
@@ -281,7 +266,6 @@
       "anonymizeFollowers": "Volgers anonimiseren",
       "botRespondsInChat": "Bot antwoordt in chat",
       "cheerAnnouncements": "Cheer-aankondigingen",
-      "defaultEmotion": "Standaardemotie",
       "defaultLanguage": "Standaardtaal",
       "defaultPitch": "Standaardtoonhoogte",
       "defaultSpeed": "Standaardsnelheid",
@@ -296,7 +280,7 @@
       "readFullUrls": "Volledige URL's voorlezen",
       "redemptionAnnouncements": "Inwisselaankondigingen",
       "soundTags": "Geluidstags",
-      "style": "Stijl",
+      "style": "Standaard stemstijl",
       "ttsEngine": "TTS-engine",
       "ttsMode": "TTS-modus",
       "ttsPermission": "TTS-toestemming",
@@ -483,15 +467,15 @@
     "adjustTheVolumeForThe": "Pas het volume aan voor de geselecteerde stem. LET OP: Waarden hoger dan 1,0 kunnen vervorming veroorzaken.",
     "calibratedVoices": "Gekalibreerde stemmen",
     "calibrateVolumeForSpecificVoices": "Kalibreer het volume voor specifieke stemmen. LET OP: Waarden hoger dan 1,0 kunnen vervorming veroorzaken.",
-    "defaultEmotion": "<strong>Standaardemotie</strong>",
     "defaultLanguage": "<strong>Standaardtaal</strong>",
     "defaultVoiceSettings": "Standaard steminstellingen",
+    "defaultVoiceStyle": "<strong>Standaard stemstijl</strong>",
+    "describeHowTheVoiceSpeaks": "Beschrijf in je eigen woorden hoe de stem spreekt. Als het vak leeg is, heeft de stem geen stijl.",
     "selectHowFastTheDefault": "Kies hoe snel de standaardstem spreekt",
     "selectHowHighOrLow": "Kies hoe hoog of laag de standaardstem spreekt",
     "selectTheVoiceThatTts": "Kies de stem die TTS gebruikt voor kijkers zonder eigen stem",
     "selectVoice": "Stem selecteren",
     "setDefaultVoiceSettingsFor": "Stel standaard steminstellingen in voor je kanaal",
-    "setTheEmotionOfThe": "Stel de emotie van de standaardstem in. Kies Aangepast om de stem in je eigen woorden te beschrijven.",
     "theVoiceModelReadsThe": "Het stemmodel leest de taal uit de tekst. Als de tekst kort of onduidelijk is, geeft deze instelling het model een hint. Deze stelt ook de standaardtaal voor aankondigingen in en kiest de woordenlijst voor het scheldwoordenfilter.",
     "viewersCanTypeASound": "Kijkers kunnen een geluidstag in een bericht typen en de stem maakt dat geluid. Voorbeelden zijn <code>&lt;laugh&gt;</code> en <code>&lt;sigh&gt;</code>. Alle tags staan standaard aan. Haal het vinkje weg om een tag uit te schakelen.",
     "viewerVoiceLookup": "Kijkersstem opzoeken",

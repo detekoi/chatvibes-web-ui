@@ -116,18 +116,6 @@
       "signedOut": "サインインしていません。",
       "tokenMissing": "認証トークンが見つかりません。再度サインインしてください。"
     },
-    "emotion": {
-      "angry": "怒り",
-      "calm": "穏やか",
-      "disgusted": "嫌悪",
-      "fearful": "恐怖",
-      "fluent": "流暢",
-      "happy": "喜び",
-      "neutral": "ニュートラル",
-      "sad": "悲しみ",
-      "surprised": "驚き",
-      "custom": "カスタム"
-    },
     "ignore": {
       "enterUsername": "ユーザー名を入力してください。"
     },
@@ -193,7 +181,40 @@
       }
     },
     "style": {
-      "count": "{count} / {max}文字"
+      "count": "{count} / {max}文字",
+      "none": "スタイルなし"
+    },
+    "stylePreset": {
+      "label": {
+        "neutral": "ニュートラル",
+        "happy": "ハッピー",
+        "excited": "興奮",
+        "calm": "穏やか",
+        "sad": "悲しい",
+        "angry": "怒り",
+        "fearful": "怯え",
+        "surprised": "驚き",
+        "sarcastic": "皮肉",
+        "whisper": "ささやき",
+        "dramatic": "ドラマチック",
+        "announcer": "スポーツ実況"
+      },
+      "text": {
+        "neutral": "ニュートラルな口調で",
+        "happy": "嬉しそうで明るい",
+        "excited": "興奮してエネルギッシュ",
+        "calm": "落ち着いてリラックスした",
+        "sad": "悲しげで落ち込んだ",
+        "angry": "怒った",
+        "fearful": "怯えて怖がっている",
+        "surprised": "驚いてびっくりした",
+        "sarcastic": "淡々として皮肉っぽい",
+        "whisper": "秘密を打ち明けるようなささやき声",
+        "dramatic": "映画の予告編のナレーターのようにドラマチック",
+        "announcer": "興奮したスポーツ実況アナウンサーのように",
+        "disgusted": "うんざりした",
+        "fluent": "滑らかで流暢"
+      }
     }
   },
   "page": {

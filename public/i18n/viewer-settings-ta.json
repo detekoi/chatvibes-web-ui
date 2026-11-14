@@ -33,20 +33,7 @@
   },
   "emotionReset": {
     "clear": "அழி",
-    "resetEmotionToDefault": "உணர்வை இயல்புநிலைக்கு மீட்டமை"
-  },
-  "emotionSelect": {
-    "angry": "கோபம்",
-    "calm": "அமைதியான",
-    "custom": "தனிப்பயன்…",
-    "disgusted": "வெறுப்பு",
-    "fearful": "பயம்",
-    "fluent": "சரளமான",
-    "happy": "மகிழ்ச்சி",
-    "neutral": "நடுநிலை",
-    "sad": "வருத்தம்",
-    "surprised": "ஆச்சரியம்",
-    "useChannelDefault": "சேனலின் இயல்புநிலையைப் பயன்படுத்து"
+    "resetEmotionToDefault": "குரல் பாணியை இயல்புநிலைக்கு மீட்டமை"
   },
   "ignoreTts": {
     "optOutInThisChannel": "இந்தச் சேனலில் தவிர்"
@@ -109,8 +96,7 @@
       "sendPreview": "முன்னோட்டத்தை அனுப்பு",
       "testCompletedTestMode": "சோதனை முடிந்தது (சோதனைப் பயன்முறை).",
       "updated": "விருப்பத்தேர்வு புதுப்பிக்கப்பட்டது.",
-      "updatedTestMode": "விருப்பத்தேர்வு புதுப்பிக்கப்பட்டது (சோதனைப் பயன்முறை).",
-      "customStyle": "தனிப்பயன் ({style})"
+      "updatedTestMode": "விருப்பத்தேர்வு புதுப்பிக்கப்பட்டது (சோதனைப் பயன்முறை)."
     }
   },
   "openChannelContextModalBtn": {
@@ -144,9 +130,8 @@
     "resetPitchToDefault": "சுருதியை இயல்புநிலைக்கு மீட்டமை"
   },
   "preferencesPanel": {
+    "describeHowTheVoiceSpeaks": "குரல் பேசும் விதத்தை உங்கள் சொந்த வார்த்தைகளில் விவரிக்கவும். பெட்டி காலியாக இருந்தால், சேனல் இயல்புநிலை பொருந்தும்.",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>ஆவணங்கள் </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>ஸ்ட்ரீமர் அமைப்புகள் </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
-    "emotion": "<strong>உணர்ச்சி</strong>",
-    "emotion2": "உணர்ச்சி",
     "ifYourTextIsShort": "உங்கள் உரை சிறியதாகவோ தெளிவற்றதாகவோ இருந்தால், இந்த அமைப்பு குரல் மாதிரிக்கு ஒரு குறிப்பை வழங்கும். இது தகாத சொல் வடிகட்டிக்கான சொல் பட்டியலையும் தேர்ந்தெடுக்கும்.",
     "language": "மொழி",
     "languageLabel": "<strong>மொழி</strong>",
@@ -156,11 +141,12 @@
     "selectHowHighOrLow": "குரல் எவ்வளவு உயர்ந்த அல்லது தாழ்ந்த தொனியில் பேசும் என்பதைத் தேர்ந்தெடுக்கவும்",
     "selectTheVoiceThatTts": "உங்கள் செய்திகளுக்கு TTS பயன்படுத்தும் குரலைத் தேர்ந்தெடுக்கவும்",
     "setHowYourMessagesSound": "TTS உங்கள் செய்திகளை வாசிக்கும்போது அவை எவ்வாறு ஒலிக்க வேண்டும் என்பதை அமைக்கவும்",
-    "setTheEmotionOfThe": "குரலின் உணர்வை அமைக்கவும். உங்கள் சொந்த வார்த்தைகளில் குரலை விவரிக்க 'தனிப்பயன்' என்பதைத் தேர்ந்தெடுக்கவும்.",
     "speed": "வேகம்",
+    "style": "பாணி",
     "testMessage": "சோதனைச் செய்தி",
     "voicePreview": "குரல் முன்னோட்டம்",
-    "voiceSettings": "குரல் அமைப்புகள்"
+    "voiceSettings": "குரல் அமைப்புகள்",
+    "voiceStyle": "<strong>குரல் பாணி</strong>"
   },
   "prefsDisabledNote": {
     "theStreamerDisabledPersonalVoice": "இந்தச் சேனலுக்கான தனிப்பட்ட குரல் அமைப்புகளை ஸ்ட்ரீமர் முடக்கியுள்ளார். உங்கள் விருப்பங்களுக்குப் பதிலாக இந்தச் சேனலின் இயல்புநிலைக் குரல் பயன்படுத்தப்படும்."
@@ -181,14 +167,11 @@
   "stepsHint": {
     "pitchAndSpeedAreApproximate": "சுருதியும் வேகமும் தோராயமானவை. குரல் மாதிரி இந்த அமைப்புகளை எண்களாக அல்லாமல் சொற்களாகப் பெறுகிறது."
   },
-  "styleGroup": {
-    "style": "பாணி"
-  },
-  "styleHint": {
-    "describeInAFewWords": "குரல் எவ்வாறு பேசுகிறது என்பதைச் சில சொற்களில் விவரிக்கவும்."
-  },
   "styleInput": {
     "exampleCalmAndSlowLike": "எடுத்துக்காட்டு: இரவு நேர வானொலி தொகுப்பாளர் போல அமைதியாகவும் மெதுவாகவும்"
+  },
+  "stylePresetsLabel": {
+    "orStartWithAPreset": "அல்லது முன்னமைவுடன் தொடங்கவும். நீங்கள் வார்த்தைகளை மாற்றலாம்."
   },
   "voiceLabel": {
     "voice": "<strong>குரல்</strong>"

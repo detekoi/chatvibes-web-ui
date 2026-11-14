@@ -9,7 +9,7 @@ import { logger } from "../logger";
 import { apiError } from "./utils";
 import { validateSpeed, validatePitch, validateEmotion, validateLanguageBoost } from "../services/utils";
 import { canonicalVoiceId } from "../services/voices";
-import { validateStyle, validateDisabledSoundTags } from "../services/style";
+import { validateStyle, validateDisabledSoundTags, styleForEmotion } from "../services/style";
 import { normalizeMatchKey, validateSay, PRONUNCIATION_LIMITS } from "../services/pronunciation";
 import { getUserByUsername } from "../services/twitch";
 import { secrets } from "../config";
@@ -124,7 +124,9 @@ function prepareTtsSetting(key: string, value: unknown): PreparedSetting {
 
     if (key === "style") {
         const style = validateStyle(value);
-        if (style.ok) return { ok: true, update: { style: style.value } };
+        // The page writes only the style. An emotion that an old record holds
+        // must not come back into effect when the style is removed.
+        if (style.ok) return { ok: true, update: { style: style.value, emotion: FieldValue.delete() } };
         if (style.reasonCode === "style_too_long") {
             const max = style.reasonParams?.max;
             return { ok: false, code: "style_too_long", error: `Style must be ${max} characters or fewer`, params: { key, max } };
@@ -144,9 +146,11 @@ function prepareTtsSetting(key: string, value: unknown): PreparedSetting {
 
     if (!validateTtsSetting(key, value)) return invalid;
 
-    // An emotion preset and a custom style are alternatives. The bot lets the
-    // style win, so the new emotion would not be heard while a style is stored.
-    if (key === "emotion") return { ok: true, update: { emotion: value, style: "" } };
+    // The emotion is a setting of the old provider. A page that still sends one
+    // (a cached copy) gets the style words of that emotion.
+    if (key === "emotion") {
+        return { ok: true, update: { style: styleForEmotion(value) ?? "", emotion: FieldValue.delete() } };
+    }
 
     return { ok: true, update: { [key]: value } };
 }

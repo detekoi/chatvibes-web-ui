@@ -69,29 +69,17 @@
     "dashboardConfigurationTabs": "Kontroleskerm-konfigurasie-oortjies",
     "deactivationStopsTheBotFrom": "Deaktivering keer dat die bot kletsboodskappe lees. Jou instellings bly gestoor. Jy kan die diens te eniger tyd weer aktiveer.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentasie",
-    "emotion": "Emosie",
     "language": "Taal",
     "pitch": "Toonhoogte",
     "quickLinks": "Vinnige skakels",
     "service": "Diens",
     "signedInAs": "Aangemeld as",
     "speed": "Spoed",
+    "style": "Styl",
     "testMessage": "Toetsboodskap",
     "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Kykerinstellings",
     "voicePreview": "Stemvoorskou",
     "volume": "Volume"
-  },
-  "defaultEmotion": {
-    "angry": "Kwaad",
-    "calm": "Kalm",
-    "custom": "Pasgemaak…",
-    "disgusted": "Gewalg",
-    "fearful": "Bang",
-    "fluent": "Vlot",
-    "happy": "Bly",
-    "neutral": "Neutraal",
-    "sad": "Hartseer",
-    "surprised": "Verras"
   },
   "defaultPitchLabel": {
     "defaultPitch": "<strong>Verstektoonhoogte</strong>"
@@ -105,11 +93,8 @@
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Voorbeeld: kalm en stadig, soos 'n radio-aanbieder in die nag"
   },
-  "defaultStyleGroup": {
-    "style": "Styl"
-  },
-  "defaultStyleHint": {
-    "describeInAFewWords": "Beskryf in 'n paar woorde hoe die stem praat."
+  "defaultStylePresetsLabel": {
+    "orStartWithAPreset": "Of begin met 'n voorafinstelling. Jy kan die woorde verander."
   },
   "defaultVoiceLabel": {
     "defaultVoice": "<strong>Verstekstem</strong>"
@@ -281,7 +266,6 @@
       "anonymizeFollowers": "Anonimiseer volgers",
       "botRespondsInChat": "Bot antwoord in klets",
       "cheerAnnouncements": "Cheer-aankondigings",
-      "defaultEmotion": "Verstekemotie",
       "defaultLanguage": "Verstektaal",
       "defaultPitch": "Verstektoonhoogte",
       "defaultSpeed": "Verstekspoed",
@@ -296,7 +280,7 @@
       "readFullUrls": "Lees volledige URL's",
       "redemptionAnnouncements": "Inwisselingaankondigings",
       "soundTags": "Klankmerkers",
-      "style": "Styl",
+      "style": "Verstekstemstyl",
       "ttsEngine": "TTS-enjin",
       "ttsMode": "TTS-modus",
       "ttsPermission": "TTS-toestemming",
@@ -483,15 +467,15 @@
     "adjustTheVolumeForThe": "Pas die volume vir die gekose stem aan. VERSIGTIG: Waardes hoër as 1.0 kan vervorming veroorsaak.",
     "calibratedVoices": "Gekalibreerde stemme",
     "calibrateVolumeForSpecificVoices": "Kalibreer volume vir spesifieke stemme. VERSIGTIG: Waardes hoër as 1.0 kan vervorming veroorsaak.",
-    "defaultEmotion": "<strong>Verstek-emosie</strong>",
     "defaultLanguage": "<strong>Verstektaal</strong>",
     "defaultVoiceSettings": "Versteksteminstellings",
+    "defaultVoiceStyle": "<strong>Verstekstemstyl</strong>",
+    "describeHowTheVoiceSpeaks": "Beskryf in jou eie woorde hoe die stem praat. As die kassie leeg is, het die stem geen styl nie.",
     "selectHowFastTheDefault": "Kies hoe vinnig die verstekstem praat",
     "selectHowHighOrLow": "Kies hoe hoog of laag die verstekstem praat",
     "selectTheVoiceThatTts": "Kies die stem wat TTS gebruik vir kykers wat nie hul eie stem het nie",
     "selectVoice": "Kies stem",
     "setDefaultVoiceSettingsFor": "Stel versteksteminstellings vir jou kanaal in",
-    "setTheEmotionOfThe": "Stel die emosie van die verstekstem in. Kies Pasgemaak om die stem in jou eie woorde te beskryf.",
     "theVoiceModelReadsThe": "Die stemmodel lees die taal uit die teks. As die teks kort of onduidelik is, gee hierdie instelling vir die model 'n wenk. Dit stel ook die verstektaal vir aankondigings in en kies die woordelys vir die vloekwoordfilter.",
     "viewersCanTypeASound": "Kykers kan 'n klankmerker in 'n boodskap tik, en die stem maak daardie klank. Voorbeelde is <code>&lt;laugh&gt;</code> en <code>&lt;sigh&gt;</code>. Alle merkers is by verstek aan. Om 'n merker af te skakel, ontmerk sy merkblokkie.",
     "viewerVoiceLookup": "Kykers-stemopsoek",

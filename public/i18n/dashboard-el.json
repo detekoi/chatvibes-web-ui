@@ -69,29 +69,17 @@
     "dashboardConfigurationTabs": "Καρτέλες ρυθμίσεων πίνακα ελέγχου",
     "deactivationStopsTheBotFrom": "Η απενεργοποίηση εμποδίζει το bot να διαβάζει μηνύματα συνομιλίας. Οι ρυθμίσεις σας παραμένουν αποθηκευμένες. Μπορείτε να ενεργοποιήσετε ξανά την υπηρεσία ανά πάσα στιγμή.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Τεκμηρίωση",
-    "emotion": "Συναίσθημα",
     "language": "Γλώσσα",
     "pitch": "Τόνος",
     "quickLinks": "Γρήγοροι σύνδεσμοι",
     "service": "Υπηρεσία",
     "signedInAs": "Σύνδεση ως",
     "speed": "Ταχύτητα",
+    "style": "Στυλ",
     "testMessage": "Δοκιμαστικό μήνυμα",
     "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Ρυθμίσεις θεατή",
     "voicePreview": "Προεπισκόπηση φωνής",
     "volume": "Ένταση"
-  },
-  "defaultEmotion": {
-    "angry": "Θυμωμένος",
-    "calm": "Ήρεμο",
-    "custom": "Προσαρμοσμένο…",
-    "disgusted": "Αηδιασμένος",
-    "fearful": "Φοβισμένος",
-    "fluent": "Ευφραδές",
-    "happy": "Χαρούμενος",
-    "neutral": "Ουδέτερος",
-    "sad": "Λυπημένος",
-    "surprised": "Έκπληκτος"
   },
   "defaultPitchLabel": {
     "defaultPitch": "<strong>Προεπιλεγμένος τόνος</strong>"
@@ -105,11 +93,8 @@
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Παράδειγμα: ήρεμα και αργά, όπως ένας βραδινός ραδιοφωνικός παραγωγός"
   },
-  "defaultStyleGroup": {
-    "style": "Στυλ"
-  },
-  "defaultStyleHint": {
-    "describeInAFewWords": "Περιγράψτε με λίγα λόγια πώς μιλάει η φωνή."
+  "defaultStylePresetsLabel": {
+    "orStartWithAPreset": "Ή ξεκίνησε με μια προεπιλογή. Μπορείς να αλλάξεις τις λέξεις."
   },
   "defaultVoiceLabel": {
     "defaultVoice": "<strong>Προεπιλεγμένη φωνή</strong>"
@@ -281,7 +266,6 @@
       "anonymizeFollowers": "Ανωνυμοποίηση ακολούθων",
       "botRespondsInChat": "Το bot απαντά στο chat",
       "cheerAnnouncements": "Ανακοινώσεις Cheer",
-      "defaultEmotion": "Προεπιλεγμένο συναίσθημα",
       "defaultLanguage": "Προεπιλεγμένη γλώσσα",
       "defaultPitch": "Προεπιλεγμένος τόνος",
       "defaultSpeed": "Προεπιλεγμένη ταχύτητα",
@@ -296,7 +280,7 @@
       "readFullUrls": "Ανάγνωση πλήρων URL",
       "redemptionAnnouncements": "Ανακοινώσεις εξαργυρώσεων",
       "soundTags": "Ετικέτες ήχου",
-      "style": "Στυλ",
+      "style": "Προεπιλεγμένο στυλ φωνής",
       "ttsEngine": "Μηχανή TTS",
       "ttsMode": "Λειτουργία TTS",
       "ttsPermission": "Δικαιώματα TTS",
@@ -483,15 +467,15 @@
     "adjustTheVolumeForThe": "Ρύθμιση έντασης για την επιλεγμένη φωνή. ΠΡΟΣΟΧΗ: Τιμές άνω του 1.0 μπορεί να προκαλέσουν παραμόρφωση.",
     "calibratedVoices": "Βαθμονομημένες φωνές",
     "calibrateVolumeForSpecificVoices": "Βαθμονόμηση έντασης για συγκεκριμένες φωνές. ΠΡΟΣΟΧΗ: Τιμές άνω του 1.0 μπορεί να προκαλέσουν παραμόρφωση.",
-    "defaultEmotion": "<strong>Προεπιλεγμένο συναίσθημα</strong>",
     "defaultLanguage": "<strong>Προεπιλεγμένη γλώσσα</strong>",
     "defaultVoiceSettings": "Προεπιλεγμένες ρυθμίσεις φωνής",
+    "defaultVoiceStyle": "<strong>Προεπιλεγμένο στυλ φωνής</strong>",
+    "describeHowTheVoiceSpeaks": "Περίγραψε πώς μιλάει η φωνή, με δικά σου λόγια. Αν το πεδίο είναι κενό, η φωνή δεν έχει στυλ.",
     "selectHowFastTheDefault": "Επιλέξτε πόσο γρήγορα μιλάει η προεπιλεγμένη φωνή",
     "selectHowHighOrLow": "Επιλέξτε πόσο ψηλά ή χαμηλά μιλάει η προεπιλεγμένη φωνή",
     "selectTheVoiceThatTts": "Επιλέξτε τη φωνή που χρησιμοποιεί το TTS για θεατές που δεν έχουν δική τους φωνή",
     "selectVoice": "Επιλογή φωνής",
     "setDefaultVoiceSettingsFor": "Ορίστε προεπιλεγμένες ρυθμίσεις φωνής για το κανάλι σας",
-    "setTheEmotionOfThe": "Ορίστε το συναίσθημα της προεπιλεγμένης φωνής. Επιλέξτε «Προσαρμοσμένο» για να περιγράψετε τη φωνή με δικά σας λόγια.",
     "theVoiceModelReadsThe": "Το μοντέλο φωνής αναγνωρίζει τη γλώσσα από το κείμενο. Αν το κείμενο είναι σύντομο ή ασαφές, αυτή η ρύθμιση δίνει μια υπόδειξη στο μοντέλο. Επίσης, ορίζει την προεπιλεγμένη γλώσσα για τις ανακοινώσεις και επιλέγει τη λίστα λέξεων για το φίλτρο βωμολοχιών.",
     "viewersCanTypeASound": "Οι θεατές μπορούν να πληκτρολογήσουν μια ετικέτα ήχου σε ένα μήνυμα και η φωνή παράγει αυτόν τον ήχο. Παραδείγματα είναι τα <code>&lt;laugh&gt;</code> και <code>&lt;sigh&gt;</code>. Όλες οι ετικέτες είναι ενεργοποιημένες από προεπιλογή. Για να απενεργοποιήσετε μια ετικέτα, καταργήστε την επιλογή στο πλαίσιό της.",
     "viewerVoiceLookup": "Αναζήτηση φωνής θεατή",

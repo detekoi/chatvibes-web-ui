@@ -116,18 +116,6 @@
       "signedOut": "Nu ești conectat.",
       "tokenMissing": "Tokenul de autentificare lipsește. Conectează-te din nou."
     },
-    "emotion": {
-      "angry": "Furios",
-      "calm": "Calm",
-      "disgusted": "Dezgustat",
-      "fearful": "Speriat",
-      "fluent": "Fluent",
-      "happy": "Fericit",
-      "neutral": "Neutru",
-      "sad": "Trist",
-      "surprised": "Surprins",
-      "custom": "Personalizat"
-    },
     "ignore": {
       "enterUsername": "Introdu un nume de utilizator."
     },
@@ -193,7 +181,40 @@
       }
     },
     "style": {
-      "count": "{count} din {max} caractere"
+      "count": "{count} din {max} caractere",
+      "none": "Fără stil"
+    },
+    "stylePreset": {
+      "label": {
+        "neutral": "Neutru",
+        "happy": "Fericit",
+        "excited": "Entuziasmat",
+        "calm": "Calm",
+        "sad": "Trist",
+        "angry": "Furios",
+        "fearful": "Speriat",
+        "surprised": "Surprins",
+        "sarcastic": "Sarcastic",
+        "whisper": "Șoaptă",
+        "dramatic": "Dramatic",
+        "announcer": "Comentator sportiv"
+      },
+      "text": {
+        "neutral": "pe un ton neutru",
+        "happy": "fericit și vesel",
+        "excited": "entuziasmat și plin de energie",
+        "calm": "calm și relaxat",
+        "sad": "trist și abătut",
+        "angry": "furios",
+        "fearful": "temător și speriat",
+        "surprised": "surprins și uimit",
+        "sarcastic": "sec și sarcastic",
+        "whisper": "șoptind, ca și cum ar spune un secret",
+        "dramatic": "dramatic, ca naratorul unui trailer de film",
+        "announcer": "ca un comentator sportiv entuziasmat",
+        "disgusted": "dezgustat",
+        "fluent": "cursiv și fluent"
+      }
     }
   },
   "page": {

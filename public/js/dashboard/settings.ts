@@ -5,8 +5,9 @@ import { performVoiceTest, TTSPayload, PlayerElements, HintElements } from '../c
 import { VoicePicker } from '../common/voice-picker.js';
 import { buildVoiceCatalog, languageName, loadVoiceCatalog, type VoiceCatalog } from '../common/voice-catalog.js';
 import {
-  CUSTOM_EMOTION, SOUND_TAGS, STYLE_MAX_LENGTH, VALID_EMOTIONS,
-  createStepControl, emotionLabel, stepLabel, type StepControl,
+  SOUND_TAGS, STYLE_MAX_LENGTH, VALID_EMOTIONS,
+  createStepControl, createStylePresets, emotionStyleText, stepLabel, styleSummary,
+  type StepControl, type StylePresetControl,
 } from '../common/tts-options.js';
 import { DashboardServices, TtsSettings } from './types.js';
 import { SettingsApi } from './services/settings-api.js';
@@ -47,8 +48,7 @@ export function initSettingsModule(
   const api = new SettingsApi(apiPrefix, getSessionToken);
 
   // Settings Panel Elements
-  const defaultEmotionSelect = document.getElementById('default-emotion') as HTMLSelectElement | null;
-  const defaultStyleGroup = document.getElementById('default-style-group') as HTMLElement | null;
+  const defaultStylePresets = document.getElementById('default-style-presets') as HTMLElement | null;
   const defaultStyleInput = document.getElementById('default-style') as HTMLInputElement | null;
   const defaultStyleCount = document.getElementById('default-style-count') as HTMLElement | null;
   const soundTagsList = document.getElementById('sound-tags-list') as HTMLElement | null;
@@ -101,11 +101,16 @@ export function initSettingsModule(
 
   let catalog: VoiceCatalog = buildVoiceCatalog([]);
   let currentVoiceVolumes: Record<string, number> = {};
-  // The emotion and the style as the server holds them. The server clears the
-  // style when it saves an emotion, and a style that is not empty replaces the
-  // emotion. The select shows Custom while the style is not empty.
+  // The emotion and the style as the server holds them. The page writes only
+  // the style. An emotion is a setting of the old provider that an old record
+  // can still hold. The box shows it as words, and a save of the style removes it.
   let storedEmotion = 'neutral';
   let storedStyle = '';
+  let stylePresets: StylePresetControl | null = null;
+  // The saves of the style go out one at a time, in the order of the clicks.
+  // With two requests in flight, the older text can arrive last and stay stored.
+  // Declared above the `return`, because a `let` below it never gets its value.
+  let styleSaveQueue: Promise<unknown> = Promise.resolve();
   let disabledSoundTags = new Set<string>();
 
   // Components
@@ -157,14 +162,9 @@ export function initSettingsModule(
     }
   }
 
-  // The emotion and the style are one choice, and the server removes the style
-  // when it saves an emotion. Their saves go out one at a time, in the order of
-  // the clicks: with two requests in flight, a style that arrives after the
-  // emotion stays stored and replaces it.
-  let emotionSaveQueue: Promise<unknown> = Promise.resolve();
-  function saveEmotionOrStyle(key: 'emotion' | 'style', value: string, label: string): Promise<boolean> {
-    const run = emotionSaveQueue.then(() => saveSettingWrapper(key, value, label));
-    emotionSaveQueue = run;
+  function saveStyleSetting(value: string, label: string): Promise<boolean> {
+    const run = styleSaveQueue.then(() => saveSettingWrapper('style', value, label));
+    styleSaveQueue = run;
     return run;
   }
 
@@ -183,8 +183,12 @@ export function initSettingsModule(
   }
 
   function currentStyle(): string {
-    if (defaultEmotionSelect?.value !== CUSTOM_EMOTION) return '';
     return (defaultStyleInput?.value || '').trim().slice(0, STYLE_MAX_LENGTH);
+  }
+
+  /** The words that the box shows for the stored values. */
+  function shownStyle(): string {
+    return storedStyle || emotionStyleText(storedEmotion);
   }
 
   function updateStyleCount(): void {
@@ -195,27 +199,33 @@ export function initSettingsModule(
     });
   }
 
-  function showEmotionAndStyle(): void {
-    if (defaultEmotionSelect) defaultEmotionSelect.value = storedStyle ? CUSTOM_EMOTION : storedEmotion;
-    if (defaultStyleInput) defaultStyleInput.value = storedStyle;
-    if (defaultStyleGroup) defaultStyleGroup.hidden = !storedStyle;
+  function showStyle(): void {
+    if (defaultStyleInput) defaultStyleInput.value = shownStyle();
     updateStyleCount();
+    stylePresets?.refresh();
   }
 
   function saveStyle(): void {
     const style = currentStyle();
-    if (style === storedStyle) return;
-    const previous = storedStyle;
+    if (style === shownStyle()) return;
+    const previousEmotion = storedEmotion;
+    const previousStyle = storedStyle;
+    // The server removes the emotion of an old record when it saves a style,
+    // so an empty box means no style at all.
+    storedEmotion = 'neutral';
     storedStyle = style;
     updateSidebarPreview();
-    void saveEmotionOrStyle('style', style, t('msg.setting.style')).then((saved) => {
-      // A newer change owns the value now.
+    void saveStyleSetting(style, t('msg.setting.style')).then((saved) => {
+      // A newer change owns the values now.
       if (saved || storedStyle !== style) return;
-      // The server still holds the previous style. The text stays in the box, so
-      // that the next blur sends it again.
-      storedStyle = previous;
-      // A style that was not removed is still the one that applies: show it again.
-      if (!style) showEmotionAndStyle();
+      // The server still holds the previous values.
+      storedEmotion = previousEmotion;
+      storedStyle = previousStyle;
+      // Text that the person still types stays in the box, so that the next blur
+      // sends it again. In every other case (a removed style, a click on a chip)
+      // no blur follows, so the box, the chips and the sidebar go back to the
+      // stored style.
+      if (!style || document.activeElement !== defaultStyleInput) showStyle();
       updateSidebarPreview();
     });
   }
@@ -296,33 +306,6 @@ export function initSettingsModule(
     // While the reader types, an empty box is a step on the way to new text. Do not save it.
     const debouncedStyleSave = debounce(() => { if (currentStyle()) saveStyle(); }, 800);
 
-    if (defaultEmotionSelect) defaultEmotionSelect.addEventListener('change', () => {
-      // The choice is made. A style save that still waits would undo it.
-      debouncedStyleSave.cancel();
-      if (defaultEmotionSelect.value === CUSTOM_EMOTION) {
-        // Nothing to save until there is text: an empty style means that the emotion applies.
-        if (defaultStyleGroup) defaultStyleGroup.hidden = false;
-        updateStyleCount();
-        defaultStyleInput?.focus();
-      } else {
-        const previousEmotion = storedEmotion;
-        const previousStyle = storedStyle;
-        const emotion = defaultEmotionSelect.value || 'neutral';
-        storedEmotion = emotion;
-        storedStyle = '';
-        showEmotionAndStyle();
-        void saveEmotionOrStyle('emotion', emotion, t('msg.setting.defaultEmotion')).then((saved) => {
-          // A newer change owns the values now.
-          if (saved || storedEmotion !== emotion || storedStyle !== '') return;
-          storedEmotion = previousEmotion;
-          storedStyle = previousStyle;
-          showEmotionAndStyle();
-          updateSidebarPreview();
-        });
-      }
-      updateSidebarPreview();
-    });
-
     if (defaultStyleInput) {
       defaultStyleInput.maxLength = STYLE_MAX_LENGTH;
       defaultStyleInput.addEventListener('input', () => {
@@ -330,15 +313,24 @@ export function initSettingsModule(
         if (!isInitializing) debouncedStyleSave();
       });
       defaultStyleInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') defaultStyleInput.blur(); });
-      defaultStyleInput.addEventListener('blur', (e) => {
+      defaultStyleInput.addEventListener('blur', () => {
         debouncedStyleSave.cancel();
         saveStyle();
-        // An empty style means that the emotion applies, so show the emotion again.
-        // Not while the reader opens the emotion list, which this would change under them.
-        if (!storedStyle && (e as FocusEvent).relatedTarget !== defaultEmotionSelect) showEmotionAndStyle();
         updateSidebarPreview();
       });
     }
+
+    stylePresets = createStylePresets(defaultStylePresets, defaultStyleInput, {
+      onPick: () => {
+        // The choice is made. A save of typed text that still waits would undo it.
+        debouncedStyleSave.cancel();
+        updateStyleCount();
+        saveStyle();
+        // The preview listens for this event to know that it is out of date.
+        defaultStyleInput?.dispatchEvent(new Event('change'));
+        updateSidebarPreview();
+      },
+    });
 
     if (defaultVolumeSlider) {
       const debouncedVolumeSave = debounce(() => saveVoiceVolume(parseFloat(defaultVolumeSlider.value || '1.0')), 400);
@@ -412,7 +404,9 @@ export function initSettingsModule(
   }
 
   function getEffectiveTtsSettings(): Omit<TTSPayload, 'text'> {
-    const style = currentStyle();
+    const typed = currentStyle();
+    // The words of an old emotion are not a style: the bot reads the emotion.
+    const style = !storedStyle && typed === emotionStyleText(storedEmotion) ? '' : typed;
     return {
       voiceId: currentVoiceId() || undefined,
       emotion: storedEmotion,
@@ -431,7 +425,7 @@ export function initSettingsModule(
     const pitchValEl = document.getElementById('sidebar-pitch-val');
     const speedValEl = document.getElementById('sidebar-speed-val');
     const volumeValEl = document.getElementById('sidebar-volume-val');
-    const emotionValEl = document.getElementById('sidebar-emotion-val');
+    const styleValEl = document.getElementById('sidebar-style-val');
     const languageValEl = document.getElementById('sidebar-language-val');
 
     if (voiceNameEl) voiceNameEl.textContent = catalog.displayName(voiceId) || '—';
@@ -441,7 +435,7 @@ export function initSettingsModule(
     if (pitchValEl) pitchValEl.textContent = stepLabel('pitch', pitch);
     if (speedValEl) speedValEl.textContent = stepLabel('speed', speed);
     if (volumeValEl) volumeValEl.textContent = (volume ?? 1).toFixed(1);
-    if (emotionValEl) emotionValEl.textContent = emotionLabel(emotion, style);
+    if (styleValEl) styleValEl.textContent = styleSummary(emotion, style);
     if (languageValEl) {
       // The endonym, matching both language pickers, rather than the English
       // name the `languageBoost` enum happens to use.
@@ -490,7 +484,6 @@ export function initSettingsModule(
 
     // Watch for changes that invalidate preview. The voice picker and the step
     // controls call markPreviewStale from their own callbacks.
-    defaultEmotionSelect?.addEventListener('change', markPreviewStale);
     defaultStyleInput?.addEventListener('change', markPreviewStale);
     defaultVolumeSlider?.addEventListener('change', markPreviewStale);
     defaultLanguageSelect?.addEventListener('change', markPreviewStale);
@@ -803,7 +796,7 @@ export function initSettingsModule(
     // "auto" and any other value that is not a preset read as neutral, as on the server.
     storedEmotion = (VALID_EMOTIONS as readonly string[]).includes(settings.emotion || '') ? settings.emotion! : 'neutral';
     storedStyle = (settings.style || '').trim();
-    showEmotionAndStyle();
+    showStyle();
     pitchControl?.setValue(settings.pitch ?? 0);
     speedControl?.setValue(settings.speed ?? 1.0);
 

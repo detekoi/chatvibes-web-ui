@@ -69,29 +69,17 @@
     "dashboardConfigurationTabs": "Вкладки настроек панели",
     "deactivationStopsTheBotFrom": "Деактивация запретит боту читать сообщения из чата. Ваши настройки сохранятся. Вы можете снова включить сервис в любое время.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Документация",
-    "emotion": "Эмоция",
     "language": "Язык",
     "pitch": "Высота тона",
     "quickLinks": "Быстрые ссылки",
     "service": "Сервис",
     "signedInAs": "Вы вошли как",
     "speed": "Скорость",
+    "style": "Стиль",
     "testMessage": "Тестовое сообщение",
     "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Настройки зрителя",
     "voicePreview": "Предпрослушивание голоса",
     "volume": "Громкость"
-  },
-  "defaultEmotion": {
-    "angry": "Злой",
-    "calm": "Спокойный",
-    "custom": "Свой…",
-    "disgusted": "С отвращением",
-    "fearful": "Испуганный",
-    "fluent": "Плавный",
-    "happy": "Радостный",
-    "neutral": "Нейтральный",
-    "sad": "Грустный",
-    "surprised": "Удивленный"
   },
   "defaultPitchLabel": {
     "defaultPitch": "<strong>Тон по умолчанию</strong>"
@@ -105,11 +93,8 @@
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Пример: спокойно и медленно, как ночной радиоведущий"
   },
-  "defaultStyleGroup": {
-    "style": "Стиль"
-  },
-  "defaultStyleHint": {
-    "describeInAFewWords": "Опишите в нескольких словах, как говорит голос."
+  "defaultStylePresetsLabel": {
+    "orStartWithAPreset": "Или начните с пресета. Слова можно изменить."
   },
   "defaultVoiceLabel": {
     "defaultVoice": "<strong>Голос по умолчанию</strong>"
@@ -281,7 +266,6 @@
       "anonymizeFollowers": "Анонимизировать фолловеров",
       "botRespondsInChat": "Ответы бота в чате",
       "cheerAnnouncements": "Оповещения о Cheer",
-      "defaultEmotion": "Эмоция по умолчанию",
       "defaultLanguage": "Язык по умолчанию",
       "defaultPitch": "Высота голоса по умолчанию",
       "defaultSpeed": "Скорость по умолчанию",
@@ -296,7 +280,7 @@
       "readFullUrls": "Зачитывать URL полностью",
       "redemptionAnnouncements": "Оповещения об активации наград",
       "soundTags": "Звуковые теги",
-      "style": "Стиль",
+      "style": "Стиль голоса по умолчанию",
       "ttsEngine": "Движок TTS",
       "ttsMode": "Режим TTS",
       "ttsPermission": "Доступ к TTS",
@@ -483,15 +467,15 @@
     "adjustTheVolumeForThe": "Настройка громкости для выбранного голоса. ВНИМАНИЕ: значения выше 1.0 могут вызывать искажения.",
     "calibratedVoices": "Откалиброванные голоса",
     "calibrateVolumeForSpecificVoices": "Калибровка громкости для отдельных голосов. ВНИМАНИЕ: значения выше 1.0 могут вызывать искажения.",
-    "defaultEmotion": "<strong>Эмоция по умолчанию</strong>",
     "defaultLanguage": "<strong>Язык по умолчанию</strong>",
     "defaultVoiceSettings": "Настройки голоса по умолчанию",
+    "defaultVoiceStyle": "<strong>Стиль голоса по умолчанию</strong>",
+    "describeHowTheVoiceSpeaks": "Опишите своими словами, как говорит голос. Если поле пустое, у голоса нет стиля.",
     "selectHowFastTheDefault": "Выберите, с какой скоростью говорит голос по умолчанию",
     "selectHowHighOrLow": "Выберите, насколько высоко или низко звучит голос по умолчанию",
     "selectTheVoiceThatTts": "Выберите голос, который TTS использует для зрителей без собственного голоса",
     "selectVoice": "Выбрать голос",
     "setDefaultVoiceSettingsFor": "Настройте параметры голоса по умолчанию для канала",
-    "setTheEmotionOfThe": "Задайте эмоцию голоса по умолчанию. Выберите «Свой», чтобы описать голос своими словами.",
     "theVoiceModelReadsThe": "Голосовая модель определяет язык по тексту. Если текст короткий или неясный, эта настройка служит подсказкой для модели. Она также задаёт язык по умолчанию для объявлений и выбирает список слов для фильтра ненормативной лексики.",
     "viewersCanTypeASound": "Зрители могут указать в сообщении звуковой тег, и голос воспроизведёт этот звук. Например, <code>&lt;laugh&gt;</code> и <code>&lt;sigh&gt;</code>. По умолчанию включены все теги. Чтобы отключить тег, снимите флажок.",
     "viewerVoiceLookup": "Поиск голоса зрителя",

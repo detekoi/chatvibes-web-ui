@@ -69,29 +69,17 @@
     "dashboardConfigurationTabs": "Faner til dashboardkonfiguration",
     "deactivationStopsTheBotFrom": "Deaktivering stopper botten i at læse chatbeskeder. Dine indstillinger forbliver gemt. Du kan aktivere tjenesten igen når som helst.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentation",
-    "emotion": "Følelse",
     "language": "Sprog",
     "pitch": "Tonehøjde",
     "quickLinks": "Hurtige links",
     "service": "Tjeneste",
     "signedInAs": "Logget ind som",
     "speed": "Hastighed",
+    "style": "Stil",
     "testMessage": "Testbesked",
     "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Seerindstillinger",
     "voicePreview": "Forhåndsvisning af stemme",
     "volume": "Lydstyrke"
-  },
-  "defaultEmotion": {
-    "angry": "Vred",
-    "calm": "Rolig",
-    "custom": "Tilpasset…",
-    "disgusted": "Væmmet",
-    "fearful": "Frygtsom",
-    "fluent": "Flydende",
-    "happy": "Glad",
-    "neutral": "Neutral",
-    "sad": "Trist",
-    "surprised": "Overrasket"
   },
   "defaultPitchLabel": {
     "defaultPitch": "<strong>Standardtoneleje</strong>"
@@ -105,11 +93,8 @@
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Eksempel: rolig og langsom, som en radiovært om natten"
   },
-  "defaultStyleGroup": {
-    "style": "Stil"
-  },
-  "defaultStyleHint": {
-    "describeInAFewWords": "Beskriv med få ord, hvordan stemmen taler."
+  "defaultStylePresetsLabel": {
+    "orStartWithAPreset": "Eller start med en forudindstilling. Du kan ændre ordene."
   },
   "defaultVoiceLabel": {
     "defaultVoice": "<strong>Standardstemme</strong>"
@@ -281,7 +266,6 @@
       "anonymizeFollowers": "Anonymiser følgere",
       "botRespondsInChat": "Bot svarer i chatten",
       "cheerAnnouncements": "Cheer-annonceringer",
-      "defaultEmotion": "Standardfølelse",
       "defaultLanguage": "Standardsprog",
       "defaultPitch": "Standardtonehøjde",
       "defaultSpeed": "Standardhastighed",
@@ -296,7 +280,7 @@
       "readFullUrls": "Læs hele URL'er",
       "redemptionAnnouncements": "Indløsningsannonceringer",
       "soundTags": "Lydtags",
-      "style": "Stil",
+      "style": "Standard stemmestil",
       "ttsEngine": "TTS-motor",
       "ttsMode": "TTS-tilstand",
       "ttsPermission": "TTS-tilladelse",
@@ -483,15 +467,15 @@
     "adjustTheVolumeForThe": "Juster lydstyrken for den valgte stemme. ADVARSEL: Værdier over 1,0 kan forårsage forvrængning.",
     "calibratedVoices": "Kalibrerede stemmer",
     "calibrateVolumeForSpecificVoices": "Kalibrer lydstyrke for specifikke stemmer. ADVARSEL: Værdier over 1,0 kan forårsage forvrængning.",
-    "defaultEmotion": "<strong>Standardfølelse</strong>",
     "defaultLanguage": "<strong>Standardsprog</strong>",
     "defaultVoiceSettings": "Standardstemmeindstillinger",
+    "defaultVoiceStyle": "<strong>Standard stemmestil</strong>",
+    "describeHowTheVoiceSpeaks": "Beskriv med dine egne ord, hvordan stemmen taler. Hvis feltet er tomt, har stemmen ingen stil.",
     "selectHowFastTheDefault": "Vælg, hvor hurtigt standardstemmen taler",
     "selectHowHighOrLow": "Vælg, hvor højt eller dybt standardstemmen taler",
     "selectTheVoiceThatTts": "Vælg den stemme, som TTS bruger til seere, der ikke har deres egen stemme",
     "selectVoice": "Vælg stemme",
     "setDefaultVoiceSettingsFor": "Angiv standardstemmeindstillinger for din kanal",
-    "setTheEmotionOfThe": "Indstil standardstemmens følelse. Vælg Tilpasset for at beskrive stemmen med dine egne ord.",
     "theVoiceModelReadsThe": "Stemmemodellen aflæser sproget ud fra teksten. Hvis teksten er kort eller uklar, giver denne indstilling modellen et hint. Den angiver også standardsproget for annonceringer og vælger ordlisten til bandeordsfilteret.",
     "viewersCanTypeASound": "Seere kan skrive et lydtag i en besked, hvorefter stemmen laver den lyd. Eksempler er <code>&lt;laugh&gt;</code> og <code>&lt;sigh&gt;</code>. Alle tags er slået til som standard. Fjern markeringen i afkrydsningsfeltet for at slå et tag fra.",
     "viewerVoiceLookup": "Opslag af seerstemme",

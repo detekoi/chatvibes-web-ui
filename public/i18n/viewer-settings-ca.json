@@ -33,20 +33,7 @@
   },
   "emotionReset": {
     "clear": "Restableix",
-    "resetEmotionToDefault": "Restableix l'emoció al valor per defecte"
-  },
-  "emotionSelect": {
-    "angry": "Enfadat",
-    "calm": "Tranquil",
-    "custom": "Personalitzat…",
-    "disgusted": "Disgustat",
-    "fearful": "Espantat",
-    "fluent": "Fluid",
-    "happy": "Content",
-    "neutral": "Neutre",
-    "sad": "Trist",
-    "surprised": "Sorprès",
-    "useChannelDefault": "Utilitza el valor per defecte del canal"
+    "resetEmotionToDefault": "Restableix l'estil de veu per defecte"
   },
   "ignoreTts": {
     "optOutInThisChannel": "Exclou-te en aquest canal"
@@ -109,8 +96,7 @@
       "sendPreview": "Envia la vista prèvia",
       "testCompletedTestMode": "Prova completada (mode de prova).",
       "updated": "Preferència actualitzada.",
-      "updatedTestMode": "Preferència actualitzada (mode de prova).",
-      "customStyle": "Personalitzat ({style})"
+      "updatedTestMode": "Preferència actualitzada (mode de prova)."
     }
   },
   "openChannelContextModalBtn": {
@@ -144,9 +130,8 @@
     "resetPitchToDefault": "Restableix el to per defecte"
   },
   "preferencesPanel": {
+    "describeHowTheVoiceSpeaks": "Descriu com parla la veu amb les teves paraules. Si el quadre és buit, s'aplica el valor predeterminat del canal.",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Documentació </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Configuració de streamer </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
-    "emotion": "<strong>Emoció</strong>",
-    "emotion2": "Emoció",
     "ifYourTextIsShort": "Si el teu text és curt o poc clar, aquest paràmetre dona una pista al model de veu. També selecciona la llista de paraules del filtre de llenguatge malsonant.",
     "language": "Idioma",
     "languageLabel": "<strong>Idioma</strong>",
@@ -156,11 +141,12 @@
     "selectHowHighOrLow": "Selecciona com d'aguda o greu parla la veu",
     "selectTheVoiceThatTts": "Selecciona la veu que TTS fa servir per als teus missatges",
     "setHowYourMessagesSound": "Configura com sonen els teus missatges quan el TTS els llegeixi",
-    "setTheEmotionOfThe": "Defineix l'emoció de la veu. Selecciona Personalitzat per descriure la veu amb les teves paraules.",
     "speed": "Velocitat",
+    "style": "Estil",
     "testMessage": "Missatge de prova",
     "voicePreview": "Previsualització de la veu",
-    "voiceSettings": "Configuració de la veu"
+    "voiceSettings": "Configuració de la veu",
+    "voiceStyle": "<strong>Estil de veu</strong>"
   },
   "prefsDisabledNote": {
     "theStreamerDisabledPersonalVoice": "L'streamer ha desactivat la configuració de veu personalitzada per a aquest canal. Aquest canal farà servir la veu per defecte en lloc de les teves preferències."
@@ -181,14 +167,11 @@
   "stepsHint": {
     "pitchAndSpeedAreApproximate": "El to i la velocitat són aproximats. El model de veu rep aquests paràmetres com a paraules, no com a números."
   },
-  "styleGroup": {
-    "style": "Estil"
-  },
-  "styleHint": {
-    "describeInAFewWords": "Descriu en poques paraules com parla la veu."
-  },
   "styleInput": {
     "exampleCalmAndSlowLike": "Exemple: tranquil i lent, com un locutor de ràdio de nit"
+  },
+  "stylePresetsLabel": {
+    "orStartWithAPreset": "O comença amb un estil predefinit. Pots canviar les paraules."
   },
   "voiceLabel": {
     "voice": "<strong>Veu</strong>"

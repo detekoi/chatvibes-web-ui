@@ -69,29 +69,17 @@
     "dashboardConfigurationTabs": "Ohjauspaneelin asetusvälilehdet",
     "deactivationStopsTheBotFrom": "Käytöstä poistaminen estää bottia lukemasta chat-viestejä. Asetuksesi säilyvät tallennettuina. Voit aktivoida palvelun uudelleen milloin tahansa.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentaatio",
-    "emotion": "Tunne",
     "language": "Kieli",
     "pitch": "Sävelkorkeus",
     "quickLinks": "Pikalinkit",
     "service": "Palvelu",
     "signedInAs": "Kirjautuneena käyttäjänä",
     "speed": "Nopeus",
+    "style": "Tyyli",
     "testMessage": "Testiviesti",
     "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Katsoja-asetukset",
     "voicePreview": "Äänen esikuuntelu",
     "volume": "Äänenvoimakkuus"
-  },
-  "defaultEmotion": {
-    "angry": "Vihainen",
-    "calm": "Rauhallinen",
-    "custom": "Mukautettu…",
-    "disgusted": "Inhostunut",
-    "fearful": "Pelokas",
-    "fluent": "Sujuva",
-    "happy": "Iloinen",
-    "neutral": "Neutraali",
-    "sad": "Surullinen",
-    "surprised": "Yllättynyt"
   },
   "defaultPitchLabel": {
     "defaultPitch": "<strong>Oletuskorkeus</strong>"
@@ -105,11 +93,8 @@
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Esimerkki: rauhallinen ja hidas, kuin myöhäisillan radiojuontaja"
   },
-  "defaultStyleGroup": {
-    "style": "Tyyli"
-  },
-  "defaultStyleHint": {
-    "describeInAFewWords": "Kuvaile muutamalla sanalla, miten ääni puhuu."
+  "defaultStylePresetsLabel": {
+    "orStartWithAPreset": "Tai aloita esiasetuksella. Voit muuttaa sanoja."
   },
   "defaultVoiceLabel": {
     "defaultVoice": "<strong>Oletusääni</strong>"
@@ -281,7 +266,6 @@
       "anonymizeFollowers": "Anonymisoi seuraajat",
       "botRespondsInChat": "Botti vastaa chatissa",
       "cheerAnnouncements": "Cheer-ilmoitukset",
-      "defaultEmotion": "Oletustunnetila",
       "defaultLanguage": "Oletuskieli",
       "defaultPitch": "Oletusäänenkorkeus",
       "defaultSpeed": "Oletusnopeus",
@@ -296,7 +280,7 @@
       "readFullUrls": "Lue täydet URL-osoitteet",
       "redemptionAnnouncements": "Lunastusilmoitukset",
       "soundTags": "Äänitagit",
-      "style": "Tyyli",
+      "style": "Äänen oletustyyli",
       "ttsEngine": "TTS-moottori",
       "ttsMode": "TTS-tila",
       "ttsPermission": "TTS-käyttöoikeus",
@@ -483,15 +467,15 @@
     "adjustTheVolumeForThe": "Säädä valitun äänen äänenvoimakkuutta. VAROITUS: Yli 1.0 arvot voivat aiheuttaa säröytymistä.",
     "calibratedVoices": "Kalibroidut äänet",
     "calibrateVolumeForSpecificVoices": "Kalibroi tiettyjen äänten äänenvoimakkuus. VAROITUS: Yli 1.0 arvot voivat aiheuttaa säröytymistä.",
-    "defaultEmotion": "<strong>Oletustunnetila</strong>",
     "defaultLanguage": "<strong>Oletuskieli</strong>",
     "defaultVoiceSettings": "Oletusääniasetukset",
+    "defaultVoiceStyle": "<strong>Äänen oletustyyli</strong>",
+    "describeHowTheVoiceSpeaks": "Kuvaile omin sanoin, miten ääni puhuu. Jos kenttä on tyhjä, äänellä ei ole tyyliä.",
     "selectHowFastTheDefault": "Valitse, kuinka nopeasti oletusääni puhuu",
     "selectHowHighOrLow": "Valitse, kuinka korkealla tai matalalla äänellä oletusääni puhuu",
     "selectTheVoiceThatTts": "Valitse ääni, jota TTS käyttää katsojille, joilla ei ole omaa ääntä",
     "selectVoice": "Valitse ääni",
     "setDefaultVoiceSettingsFor": "Määritä kanavasi oletusääniasetukset",
-    "setTheEmotionOfThe": "Aseta oletusäänen tunnetila. Valitse Mukautettu, jos haluat kuvailla ääntä omin sanoin.",
     "theVoiceModelReadsThe": "Äänimalli tunnistaa kielen tekstistä. Jos teksti on lyhyt tai epäselvä, tämä asetus antaa mallille vihjeen. Se asettaa myös ilmoitusten oletuskielen ja valitsee sanalistan kirosanasuodattimelle.",
     "viewersCanTypeASound": "Katsojat voivat kirjoittaa viestiin äänitagin, jolloin puheääni tuottaa kyseisen äänen. Esimerkkejä ovat <code>&lt;laugh&gt;</code> ja <code>&lt;sigh&gt;</code>. Kaikki tagit ovat oletuksena käytössä. Voit poistaa tagin käytöstä tyhjentämällä sen valintaruudun.",
     "viewerVoiceLookup": "Katsojan äänen haku",

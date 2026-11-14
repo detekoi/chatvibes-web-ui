@@ -116,18 +116,6 @@
       "signedOut": "Nem vagy bejelentkezve.",
       "tokenMissing": "Hiányzik az azonosítási token. Jelentkezz be újra."
     },
-    "emotion": {
-      "angry": "Dühös",
-      "calm": "Nyugodt",
-      "disgusted": "Undorodó",
-      "fearful": "Rémült",
-      "fluent": "Folyékony",
-      "happy": "Boldog",
-      "neutral": "Semleges",
-      "sad": "Szomorú",
-      "surprised": "Meglepett",
-      "custom": "Egyéni"
-    },
     "ignore": {
       "enterUsername": "Adj meg egy felhasználónevet."
     },
@@ -193,7 +181,40 @@
       }
     },
     "style": {
-      "count": "{count} / {max} karakter"
+      "count": "{count} / {max} karakter",
+      "none": "Nincs stílus"
+    },
+    "stylePreset": {
+      "label": {
+        "neutral": "Semleges",
+        "happy": "Vidám",
+        "excited": "Izgatott",
+        "calm": "Nyugodt",
+        "sad": "Szomorú",
+        "angry": "Dühös",
+        "fearful": "Ijedt",
+        "surprised": "Meglepett",
+        "sarcastic": "Szarkasztikus",
+        "whisper": "Suttogás",
+        "dramatic": "Drámai",
+        "announcer": "Sportriporter"
+      },
+      "text": {
+        "neutral": "semleges hangnemben",
+        "happy": "boldog és vidám",
+        "excited": "izgatott és energiával teli",
+        "calm": "nyugodt és ellazult",
+        "sad": "szomorú és levert",
+        "angry": "dühös",
+        "fearful": "rémült és ijedt",
+        "surprised": "meglepett és elképedt",
+        "sarcastic": "száraz és szarkasztikus",
+        "whisper": "suttogva, mintha titkot árulna el",
+        "dramatic": "drámai, mint egy filmelőzetes narrátora",
+        "announcer": "mint egy izgatott sportriporter",
+        "disgusted": "undorodó",
+        "fluent": "gördülékeny és folyékony"
+      }
     }
   },
   "page": {

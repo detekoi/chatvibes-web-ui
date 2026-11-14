@@ -271,16 +271,16 @@ describe('Viewer API Integration Tests', () => {
       expect(await stored()).toEqual({ voiceId: null });
     });
 
-    it('should store a clean style and leave the emotion alone', async () => {
+    it('should store a clean style and remove the emotion of an old record', async () => {
       await prefs().set({ emotion: 'happy' });
 
       await put({ style: '  like a <tired>\n pirate ' }).expect(200);
 
-      expect(await stored()).toEqual({ emotion: 'happy', style: 'like a tired pirate' });
+      expect(await stored()).toEqual({ style: 'like a tired pirate' });
     });
 
-    it.each([[''], [null]])('should remove the style field for %p', async (style) => {
-      await prefs().set({ style: 'like a tired pirate', pitch: 2 });
+    it.each([[''], [null]])('should remove the style and the emotion for %p', async (style) => {
+      await prefs().set({ style: 'like a tired pirate', emotion: 'happy', pitch: 2 });
 
       await put({ style }).expect(200);
 
@@ -300,18 +300,49 @@ describe('Viewer API Integration Tests', () => {
       expect(response.body.code).toBe('prefs_invalid_style');
     });
 
-    it('should remove the style when an emotion is written', async () => {
-      await prefs().set({ style: 'like a tired pirate' });
+    // The emotion is a setting of the old provider. A cached page can still send one.
+    it('should write an emotion as its style words', async () => {
+      await prefs().set({ style: 'like a tired pirate', emotion: 'happy' });
 
       await put({ emotion: 'sad' }).expect(200);
 
-      expect(await stored()).toEqual({ emotion: 'sad' });
+      expect(await stored()).toEqual({ style: 'sad and downcast' });
+    });
+
+    it('should keep the style words of an emotion that an old page sends with a null style', async () => {
+      await put({ emotion: 'sad', style: null }).expect(200);
+
+      expect(await stored()).toEqual({ style: 'sad and downcast' });
+    });
+
+    // A viewer with no style gets the style of the channel, so neutral needs words.
+    it('should write the emotion neutral as the neutral style', async () => {
+      await put({ emotion: 'neutral' }).expect(200);
+
+      expect(await stored()).toEqual({ style: 'in a neutral tone' });
+    });
+
+    // "auto" was the word for "use the channel default".
+    it('should remove the style and the emotion for the emotion auto', async () => {
+      await prefs().set({ style: 'like a tired pirate', emotion: 'happy', pitch: 2 });
+
+      await put({ emotion: 'auto' }).expect(200);
+
+      expect(await stored()).toEqual({ pitch: 2 });
+    });
+
+    it('should remove the style and the emotion for a null emotion', async () => {
+      await prefs().set({ style: 'like a tired pirate', emotion: 'happy', pitch: 2 });
+
+      await put({ emotion: null }).expect(200);
+
+      expect(await stored()).toEqual({ pitch: 2 });
     });
 
     it('should keep a style sent together with an emotion', async () => {
       await put({ emotion: 'sad', style: 'like a tired pirate' }).expect(200);
 
-      expect(await stored()).toEqual({ emotion: 'sad', style: 'like a tired pirate' });
+      expect(await stored()).toEqual({ style: 'like a tired pirate' });
     });
 
     it('should ignore englishNormalization from an old client', async () => {

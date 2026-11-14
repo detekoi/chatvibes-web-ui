@@ -33,20 +33,7 @@
   },
   "emotionReset": {
     "clear": "Hapus",
-    "resetEmotionToDefault": "Atur ulang emosi ke default"
-  },
-  "emotionSelect": {
-    "angry": "Marah",
-    "calm": "Tenang",
-    "custom": "Kustom…",
-    "disgusted": "Jijik",
-    "fearful": "Takut",
-    "fluent": "Fasih",
-    "happy": "Senang",
-    "neutral": "Netral",
-    "sad": "Sedih",
-    "surprised": "Terkejut",
-    "useChannelDefault": "Gunakan default channel"
+    "resetEmotionToDefault": "Reset gaya suara ke default"
   },
   "ignoreTts": {
     "optOutInThisChannel": "Pilih keluar di channel ini"
@@ -109,8 +96,7 @@
       "sendPreview": "Kirim Pratinjau",
       "testCompletedTestMode": "Uji selesai (mode uji).",
       "updated": "Preferensi diperbarui.",
-      "updatedTestMode": "Preferensi diperbarui (mode uji).",
-      "customStyle": "Kustom ({style})"
+      "updatedTestMode": "Preferensi diperbarui (mode uji)."
     }
   },
   "openChannelContextModalBtn": {
@@ -144,9 +130,8 @@
     "resetPitchToDefault": "Atur ulang pitch ke default"
   },
   "preferencesPanel": {
+    "describeHowTheVoiceSpeaks": "Jelaskan cara suara berbicara dengan kata-kata Anda sendiri. Jika kotak kosong, default channel yang berlaku.",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentasi </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Pengaturan streamer </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
-    "emotion": "<strong>Emosi</strong>",
-    "emotion2": "Emosi",
     "ifYourTextIsShort": "Jika teks Anda singkat atau kurang jelas, setelan ini memberi petunjuk kepada model suara. Setelan ini juga memilih daftar kata untuk filter kata kasar.",
     "language": "Bahasa",
     "languageLabel": "<strong>Bahasa</strong>",
@@ -156,11 +141,12 @@
     "selectHowHighOrLow": "Pilih seberapa tinggi atau rendah suara berbicara",
     "selectTheVoiceThatTts": "Pilih suara yang digunakan TTS untuk pesan Anda",
     "setHowYourMessagesSound": "Atur bagaimana pesan Anda terdengar saat TTS membacanya",
-    "setTheEmotionOfThe": "Atur emosi suara. Pilih Kustom untuk mendeskripsikan suara dengan kata-kata Anda sendiri.",
     "speed": "Kecepatan",
+    "style": "Gaya",
     "testMessage": "Pesan uji",
     "voicePreview": "Pratinjau suara",
-    "voiceSettings": "Pengaturan Suara"
+    "voiceSettings": "Pengaturan Suara",
+    "voiceStyle": "<strong>Gaya suara</strong>"
   },
   "prefsDisabledNote": {
     "theStreamerDisabledPersonalVoice": "Streamer menonaktifkan pengaturan suara pribadi untuk saluran ini. Saluran ini akan menggunakan suara default alih-alih preferensi Anda."
@@ -181,14 +167,11 @@
   "stepsHint": {
     "pitchAndSpeedAreApproximate": "Nada dan kecepatan bersifat perkiraan. Model suara menerima setelan ini sebagai kata-kata, bukan angka."
   },
-  "styleGroup": {
-    "style": "Gaya"
-  },
-  "styleHint": {
-    "describeInAFewWords": "Jelaskan dengan beberapa kata bagaimana suara berbicara."
-  },
   "styleInput": {
     "exampleCalmAndSlowLike": "Contoh: tenang dan lambat, seperti penyiar radio malam hari"
+  },
+  "stylePresetsLabel": {
+    "orStartWithAPreset": "Atau mulai dengan preset. Anda bisa mengubah kata-katanya."
   },
   "voiceLabel": {
     "voice": "<strong>Suara</strong>"

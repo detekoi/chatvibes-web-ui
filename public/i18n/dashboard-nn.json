@@ -69,29 +69,17 @@
     "dashboardConfigurationTabs": "Faner for dashbordoppsett",
     "deactivationStopsTheBotFrom": "Deaktivering gjer at boten sluttar å lese opp chatmeldingar. Innstillingane dine blir framleis lagra. Du kan aktivere tenesta att når som helst.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentasjon",
-    "emotion": "Kjensle",
     "language": "Språk",
     "pitch": "Tonehøgd",
     "quickLinks": "Snøgglenkjer",
     "service": "Teneste",
     "signedInAs": "Logga inn som",
     "speed": "Fart",
+    "style": "Stil",
     "testMessage": "Testmelding",
     "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Sjåarinnstillingar",
     "voicePreview": "Førehandsvising av stemme",
     "volume": "Volum"
-  },
-  "defaultEmotion": {
-    "angry": "Sint",
-    "calm": "Roleg",
-    "custom": "Tilpassa…",
-    "disgusted": "Fråstøytt",
-    "fearful": "Redd",
-    "fluent": "Flytande",
-    "happy": "Glad",
-    "neutral": "Nøytral",
-    "sad": "Trist",
-    "surprised": "Overraska"
   },
   "defaultPitchLabel": {
     "defaultPitch": "<strong>Standard tonehøgd</strong>"
@@ -105,11 +93,8 @@
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Døme: roleg og sakte, som ein radiovert om natta"
   },
-  "defaultStyleGroup": {
-    "style": "Stil"
-  },
-  "defaultStyleHint": {
-    "describeInAFewWords": "Skildra med nokre få ord korleis stemma snakkar."
+  "defaultStylePresetsLabel": {
+    "orStartWithAPreset": "Eller start med eit førehandsval. Du kan endre orda."
   },
   "defaultVoiceLabel": {
     "defaultVoice": "<strong>Standardstemme</strong>"
@@ -281,7 +266,6 @@
       "anonymizeFollowers": "Anonymiser følgjarar",
       "botRespondsInChat": "Boten svarer i chatten",
       "cheerAnnouncements": "Cheer-kunngjeringar",
-      "defaultEmotion": "Standardkjensle",
       "defaultLanguage": "Standardspråk",
       "defaultPitch": "Standard tonehøgd",
       "defaultSpeed": "Standardfart",
@@ -296,7 +280,7 @@
       "readFullUrls": "Les heile URL-ar",
       "redemptionAnnouncements": "Innløysingskunngjeringar",
       "soundTags": "Lydtaggar",
-      "style": "Stil",
+      "style": "Standard stemmestil",
       "ttsEngine": "TTS-motor",
       "ttsMode": "TTS-modus",
       "ttsPermission": "TTS-løyve",
@@ -483,15 +467,15 @@
     "adjustTheVolumeForThe": "Juster lydstyrken for den valde røysta. ÅTVARING: Verdiar over 1,0 kan føre til forvrenging.",
     "calibratedVoices": "Kalibrerte stemmer",
     "calibrateVolumeForSpecificVoices": "Kalibrer lydstyrken for einskilde røyster. ÅTVARING: Verdiar over 1,0 kan føre til forvrenging.",
-    "defaultEmotion": "<strong>Standardkjensle</strong>",
     "defaultLanguage": "<strong>Standardspråk</strong>",
     "defaultVoiceSettings": "Standard stemmeinnstillingar",
+    "defaultVoiceStyle": "<strong>Standard stemmestil</strong>",
+    "describeHowTheVoiceSpeaks": "Skildre korleis stemma snakkar, med eigne ord. Om boksen er tom, har stemma ingen stil.",
     "selectHowFastTheDefault": "Vel kor fort standardstemma snakkar",
     "selectHowHighOrLow": "Vel kor høgt eller lågt standardstemma snakkar",
     "selectTheVoiceThatTts": "Vel stemma som TTS brukar for sjåarar som ikkje har ei eiga stemme",
     "selectVoice": "Vel stemme",
     "setDefaultVoiceSettingsFor": "Set standard stemmeinnstillingar for kanalen din",
-    "setTheEmotionOfThe": "Still inn kjensla til standardstemma. Vel Tilpassa for å skildre stemma med eigne ord.",
     "theVoiceModelReadsThe": "Stemmemodellen les språket frå teksten. Om teksten er kort eller uklar, gir denne innstillinga modellen eit hint. Ho set òg standardspråket for kunngjeringar og vel ordlista for bannefilteret.",
     "viewersCanTypeASound": "Sjåarar kan skrive ein lydtagg i ei melding, så lagar stemma den lyden. Døme er <code>&lt;laugh&gt;</code> og <code>&lt;sigh&gt;</code>. Alle taggar er på som standard. Fjern avkryssinga i boksen for å slå av ein tagg.",
     "viewerVoiceLookup": "Søk etter sjåarstemme",

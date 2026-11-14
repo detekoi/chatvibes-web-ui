@@ -116,18 +116,6 @@
       "signedOut": "Nie jesteś zalogowany.",
       "tokenMissing": "Brak tokenu uwierzytelniającego. Zaloguj się ponownie."
     },
-    "emotion": {
-      "angry": "Zły",
-      "calm": "Spokojny",
-      "disgusted": "Zniesmaczony",
-      "fearful": "Przestraszony",
-      "fluent": "Płynny",
-      "happy": "Radosny",
-      "neutral": "Neutralny",
-      "sad": "Smutny",
-      "surprised": "Zaskoczony",
-      "custom": "Własny"
-    },
     "ignore": {
       "enterUsername": "Wpisz nazwę użytkownika."
     },
@@ -193,7 +181,40 @@
       }
     },
     "style": {
-      "count": "{count} z {max} znaków"
+      "count": "{count} z {max} znaków",
+      "none": "Brak stylu"
+    },
+    "stylePreset": {
+      "label": {
+        "neutral": "Neutralny",
+        "happy": "Wesoły",
+        "excited": "Podekscytowany",
+        "calm": "Spokojny",
+        "sad": "Smutny",
+        "angry": "Zły",
+        "fearful": "Przestraszony",
+        "surprised": "Zaskoczony",
+        "sarcastic": "Sarkastyczny",
+        "whisper": "Szept",
+        "dramatic": "Dramatyczny",
+        "announcer": "Komentator sportowy"
+      },
+      "text": {
+        "neutral": "w neutralnym tonie",
+        "happy": "wesoło i radośnie",
+        "excited": "z ekscytacją i pełnią energii",
+        "calm": "spokojnie i swobodnie",
+        "sad": "smutno i z przygnębieniem",
+        "angry": "ze złością",
+        "fearful": "lękliwie i ze strachem",
+        "surprised": "z zaskoczeniem i zdumieniem",
+        "sarcastic": "oschle i sarkastycznie",
+        "whisper": "szeptem, jakby zdradzając sekret",
+        "dramatic": "dramatycznie, jak lektor zwiastuna filmowego",
+        "announcer": "jak podekscytowany komentator sportowy",
+        "disgusted": "z obrzydzeniem",
+        "fluent": "gładko i płynnie"
+      }
     }
   },
   "page": {

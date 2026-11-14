@@ -69,29 +69,17 @@
     "dashboardConfigurationTabs": "Karty nastavení nástenky",
     "deactivationStopsTheBotFrom": "Deaktivácia zastaví čítanie správ z chatu botom. Vaše nastavenia zostanú uložené. Službu môžete kedykoľvek znova aktivovať.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentácia",
-    "emotion": "Emócia",
     "language": "Jazyk",
     "pitch": "Výška hlasu",
     "quickLinks": "Rýchle odkazy",
     "service": "Služba",
     "signedInAs": "Prihlásený ako",
     "speed": "Rýchlosť",
+    "style": "Štýl",
     "testMessage": "Testovacia správa",
     "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Nastavenia pre divákov",
     "voicePreview": "Ukážka hlasu",
     "volume": "Hlasitosť"
-  },
-  "defaultEmotion": {
-    "angry": "Nahnevaný",
-    "calm": "Pokojný",
-    "custom": "Vlastný…",
-    "disgusted": "Znechutený",
-    "fearful": "Vystrašený",
-    "fluent": "Plynulý",
-    "happy": "Šťastný",
-    "neutral": "Neutrálny",
-    "sad": "Smutný",
-    "surprised": "Prekvapený"
   },
   "defaultPitchLabel": {
     "defaultPitch": "<strong>Predvolená výška hlasu</strong>"
@@ -105,11 +93,8 @@
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Príklad: pokojný a pomalý, ako nočný moderátor v rádiu"
   },
-  "defaultStyleGroup": {
-    "style": "Štýl"
-  },
-  "defaultStyleHint": {
-    "describeInAFewWords": "Niekoľkými slovami opíšte, ako hlas hovorí."
+  "defaultStylePresetsLabel": {
+    "orStartWithAPreset": "Alebo začnite s predvoľbou. Slová môžete zmeniť."
   },
   "defaultVoiceLabel": {
     "defaultVoice": "<strong>Predvolený hlas</strong>"
@@ -281,7 +266,6 @@
       "anonymizeFollowers": "Anonymizovať sledovateľov",
       "botRespondsInChat": "Bot odpovedá v chate",
       "cheerAnnouncements": "Oznámenia Cheer",
-      "defaultEmotion": "Predvolená emócia",
       "defaultLanguage": "Predvolený jazyk",
       "defaultPitch": "Predvolená výška hlasu",
       "defaultSpeed": "Predvolená rýchlosť",
@@ -296,7 +280,7 @@
       "readFullUrls": "Čítať celé URL",
       "redemptionAnnouncements": "Oznámenia o uplatnení odmien",
       "soundTags": "Zvukové značky",
-      "style": "Štýl",
+      "style": "Predvolený štýl hlasu",
       "ttsEngine": "TTS Engine",
       "ttsMode": "Režim TTS",
       "ttsPermission": "Oprávnenie TTS",
@@ -483,15 +467,15 @@
     "adjustTheVolumeForThe": "Upraviť hlasitosť vybraného hlasu. UPOZORNENIE: Hodnoty vyššie ako 1.0 môžu spôsobiť skreslenie.",
     "calibratedVoices": "Kalibrované hlasy",
     "calibrateVolumeForSpecificVoices": "Kalibrovať hlasitosť pre konkrétne hlasy. UPOZORNENIE: Hodnoty vyššie ako 1.0 môžu spôsobiť skreslenie.",
-    "defaultEmotion": "<strong>Predvolená emócia</strong>",
     "defaultLanguage": "<strong>Predvolený jazyk</strong>",
     "defaultVoiceSettings": "Predvolené nastavenia hlasu",
+    "defaultVoiceStyle": "<strong>Predvolený štýl hlasu</strong>",
+    "describeHowTheVoiceSpeaks": "Vlastnými slovami opíšte, ako hlas hovorí. Ak je pole prázdne, hlas nemá žiadny štýl.",
     "selectHowFastTheDefault": "Vyberte, ako rýchlo hovorí predvolený hlas",
     "selectHowHighOrLow": "Vyberte, ako vysoko alebo nízko hovorí predvolený hlas",
     "selectTheVoiceThatTts": "Vyberte hlas, ktorý TTS používa pre divákov bez vlastného hlasu",
     "selectVoice": "Vybrať hlas",
     "setDefaultVoiceSettingsFor": "Nastavte predvolené nastavenia hlasu pre svoj kanál",
-    "setTheEmotionOfThe": "Nastavte emóciu predvoleného hlasu. Ak chcete hlas opísať vlastnými slovami, vyberte Vlastný.",
     "theVoiceModelReadsThe": "Hlasový model rozpozná jazyk z textu. Ak je text krátky alebo nejasný, toto nastavenie mu poskytne nápovedu. Zároveň nastavuje predvolený jazyk oznámení a vyberá zoznam slov pre filter vulgarizmov.",
     "viewersCanTypeASound": "Diváci môžu do správy napísať zvukovú značku a hlas tento zvuk vydá. Príkladom sú <code>&lt;laugh&gt;</code> a <code>&lt;sigh&gt;</code>. Všetky značky sú predvolene zapnuté. Ak chcete značku vypnúť, zrušte jej začiarknutie.",
     "viewerVoiceLookup": "Vyhľadávanie hlasu diváka",

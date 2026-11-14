@@ -116,18 +116,6 @@
       "signedOut": "Nisi prijavljen.",
       "tokenMissing": "Nedostaje token za autentifikaciju. Prijavi se ponovno."
     },
-    "emotion": {
-      "angry": "Ljutito",
-      "calm": "Smireno",
-      "disgusted": "Zgađeno",
-      "fearful": "Uplašeno",
-      "fluent": "Tečno",
-      "happy": "Sretno",
-      "neutral": "Neutralno",
-      "sad": "Tužno",
-      "surprised": "Iznenađeno",
-      "custom": "Prilagođeno"
-    },
     "ignore": {
       "enterUsername": "Unesi korisničko ime."
     },
@@ -193,7 +181,40 @@
       }
     },
     "style": {
-      "count": "{count} od {max} znakova"
+      "count": "{count} od {max} znakova",
+      "none": "Bez stila"
+    },
+    "stylePreset": {
+      "label": {
+        "neutral": "Neutralno",
+        "happy": "Sretno",
+        "excited": "Uzbuđeno",
+        "calm": "Smireno",
+        "sad": "Tužno",
+        "angry": "Ljutito",
+        "fearful": "Uplašeno",
+        "surprised": "Iznenađeno",
+        "sarcastic": "Sarkastično",
+        "whisper": "Šapat",
+        "dramatic": "Dramatično",
+        "announcer": "Sportski komentator"
+      },
+      "text": {
+        "neutral": "neutralnim tonom",
+        "happy": "sretno i veselo",
+        "excited": "uzbuđeno i puno energije",
+        "calm": "smireno i opušteno",
+        "sad": "tužno i potišteno",
+        "angry": "ljutito",
+        "fearful": "plašljivo i uplašeno",
+        "surprised": "iznenađeno i zapanjeno",
+        "sarcastic": "suho i sarkastično",
+        "whisper": "šapatom, kao da otkriva tajnu",
+        "dramatic": "dramatično, kao narator filmske najave",
+        "announcer": "kao uzbuđeni sportski komentator",
+        "disgusted": "zgađeno",
+        "fluent": "glatko i tečno"
+      }
     }
   },
   "page": {

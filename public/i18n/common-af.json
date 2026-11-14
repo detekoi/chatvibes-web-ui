@@ -116,18 +116,6 @@
       "signedOut": "Jy is nie ingeteken nie.",
       "tokenMissing": "Verifikasieteken ontbreek. Teken weer in."
     },
-    "emotion": {
-      "angry": "Kwaad",
-      "calm": "Kalm",
-      "disgusted": "Gevalg",
-      "fearful": "Bang",
-      "fluent": "Vlot",
-      "happy": "Bly",
-      "neutral": "Neutraal",
-      "sad": "Hartseer",
-      "surprised": "Verras",
-      "custom": "Pasgemaak"
-    },
     "ignore": {
       "enterUsername": "Voer 'n gebruikersnaam in."
     },
@@ -193,7 +181,40 @@
       }
     },
     "style": {
-      "count": "{count} van {max} karakters"
+      "count": "{count} van {max} karakters",
+      "none": "Geen styl"
+    },
+    "stylePreset": {
+      "label": {
+        "neutral": "Neutraal",
+        "happy": "Gelukkig",
+        "excited": "Opgewonde",
+        "calm": "Kalm",
+        "sad": "Hartseer",
+        "angry": "Kwaad",
+        "fearful": "Bang",
+        "surprised": "Verras",
+        "sarcastic": "Sarkasties",
+        "whisper": "Fluister",
+        "dramatic": "Dramaties",
+        "announcer": "Sportomroeper"
+      },
+      "text": {
+        "neutral": "op 'n neutrale toon",
+        "happy": "gelukkig en vrolik",
+        "excited": "opgewonde en vol energie",
+        "calm": "kalm en ontspanne",
+        "sad": "hartseer en neerslagtig",
+        "angry": "kwaad",
+        "fearful": "vreesagtig en bang",
+        "surprised": "verras en verbaas",
+        "sarcastic": "droog en sarkasties",
+        "whisper": "fluisterend, asof jy 'n geheim vertel",
+        "dramatic": "dramaties, soos 'n verteller in 'n rolprentlokprent",
+        "announcer": "soos 'n opgewonde sportomroeper",
+        "disgusted": "vol afsku",
+        "fluent": "vloeiend en vlot"
+      }
     }
   },
   "page": {

@@ -5,8 +5,9 @@ import { performVoiceTest, TTSPayload, PlayerElements, HintElements } from '../c
 import { VoicePicker } from '../common/voice-picker.js';
 import { buildVoiceCatalog, languageName, loadVoiceCatalog, type VoiceCatalog } from '../common/voice-catalog.js';
 import {
-  CUSTOM_EMOTION, STYLE_MAX_LENGTH,
-  createStepControl, emotionLabel, stepLabel, type StepControl,
+  STYLE_MAX_LENGTH,
+  createStepControl, createStylePresets, emotionStyleText, stepLabel, styleSummary,
+  type StepControl, type StylePresetControl,
 } from '../common/tts-options.js';
 import type { IgnoreStatus } from './opt-out.js';
 
@@ -88,8 +89,7 @@ export interface PreferencesInfo {
  * DOM elements used by the preferences module
  */
 interface PreferencesElements {
-  emotionSelect: HTMLSelectElement | null;
-  styleGroup: HTMLElement | null;
+  stylePresetList: HTMLElement | null;
   styleInput: HTMLInputElement | null;
   styleCount: HTMLElement | null;
   languageSelect: HTMLSelectElement | null;
@@ -177,8 +177,7 @@ export function initPreferencesModule(
   const { onPreferencesLoaded } = deps;
 
   const elements: PreferencesElements = {
-    emotionSelect: document.getElementById('emotion-select') as HTMLSelectElement | null,
-    styleGroup: document.getElementById('style-group'),
+    stylePresetList: document.getElementById('style-presets'),
     styleInput: document.getElementById('style-input') as HTMLInputElement | null,
     styleCount: document.getElementById('style-count'),
     languageSelect: document.getElementById('language-select') as HTMLSelectElement | null,
@@ -222,6 +221,12 @@ export function initPreferencesModule(
   });
   // Pitch and speed: five steps each, stored as the same numbers as before.
   // No step is checked while the viewer has no value of their own.
+  let stylePresets: StylePresetControl | null = null;
+  // The style of the newest save that still waits or runs. A save changes
+  // state.currentPreferences only when its turn in the queue comes. Until then
+  // this is the style that the viewer chose, and the next choice compares with it.
+  // Declared above the `return`, because a `let` below it never gets its value.
+  let pendingStyle: string | undefined;
   const pitchControl: StepControl = createStepControl(document.getElementById('pitch-steps'), 'pitch', (value) => {
     markSettingsAsDirty();
     void savePreferences({ pitch: value });
@@ -281,44 +286,55 @@ export function initPreferencesModule(
     });
   }
 
-  function attachPreferenceSaves(): void {
-    const { emotionSelect, styleGroup, styleInput, languageSelect } = elements;
+  /**
+   * The words that the box shows: the style of a save that still waits, else
+   * the stored preferences. An emotion comes from an old record, and the box
+   * shows it as words.
+   */
+  function shownStyle(): string {
+    if (pendingStyle !== undefined) return pendingStyle;
+    const prefs = state.currentPreferences || {};
+    return prefs.style || emotionStyleText(prefs.emotion, { viewer: true });
+  }
 
-    if (emotionSelect) emotionSelect.addEventListener('change', () => {
-      markSettingsAsDirty();
-      if (emotionSelect.value === CUSTOM_EMOTION) {
-        // Nothing to save until there is text: an empty style means that the emotion applies.
-        if (styleGroup) styleGroup.hidden = false;
-        updateStyleCount();
-        styleInput?.focus();
-        return;
-      }
-      // The server removes the style when it saves an emotion. Send both, so
-      // the page and the server hold the same values.
-      void savePreferences({ emotion: emotionSelect.value || null, style: null });
+  /** Save the text in the box, if it differs from the stored preferences. */
+  function saveTypedStyle(): boolean {
+    const style = (elements.styleInput?.value || '').trim().slice(0, STYLE_MAX_LENGTH);
+    if (style === shownStyle()) return false;
+    pendingStyle = style;
+    markSettingsAsDirty();
+    // An empty box means "use the channel default". The emotion of an old
+    // record goes away with each save, here and on the server.
+    void savePreferences({ emotion: null, style: style || null }).finally(() => {
+      // A newer choice owns the value now.
+      if (pendingStyle !== style) return;
+      pendingStyle = undefined;
+      // After a failed save the box still shows the style that was not saved.
+      // Not while the viewer types: that text is newer than this save.
+      if (document.activeElement !== elements.styleInput) renderControls();
     });
+    return true;
+  }
+
+  function attachPreferenceSaves(): void {
+    const { stylePresetList, styleInput, languageSelect } = elements;
 
     if (styleInput) {
       styleInput.maxLength = STYLE_MAX_LENGTH;
       styleInput.addEventListener('input', updateStyleCount);
       styleInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') styleInput.blur(); });
-      styleInput.addEventListener('blur', (e) => {
-        // A click on another control takes the focus away before its own event.
-        const next = (e as FocusEvent).relatedTarget;
-        const style = styleInput.value.trim().slice(0, STYLE_MAX_LENGTH);
-        const stored = state.currentPreferences.style || '';
-        if (style !== stored) {
-          // Also when the focus goes to Clear: the Tab key takes it there with no
-          // click. A click on Clear saves after this one, because the saves keep their order.
-          markSettingsAsDirty();
-          void savePreferences({ style: style || null });
-        } else if (!next || next !== elements.emotionSelect) {
-          // No text and nothing stored: show the emotion that applies again. Not
-          // while the viewer opens the emotion list, which this would change under them.
-          renderControls();
-        }
-      });
+      // Also when the focus goes to Clear: the Tab key takes it there with no
+      // click. A click on Clear saves after this one, because the saves keep their order.
+      styleInput.addEventListener('blur', () => { saveTypedStyle(); });
     }
+
+    stylePresets = createStylePresets(stylePresetList, styleInput, {
+      onPick: () => {
+        updateStyleCount();
+        if (!saveTypedStyle()) renderControls();
+        else updateSidebarMeta();
+      },
+    });
 
     if (languageSelect) languageSelect.addEventListener('change', () => {
       markSettingsAsDirty();
@@ -338,19 +354,18 @@ export function initPreferencesModule(
 
     let emotion: string | undefined;
     let style = '';
-    // The style in the box counts while the viewer still types it.
-    const typedStyle = elements.emotionSelect?.value === CUSTOM_EMOTION
-      ? (elements.styleInput?.value || '').trim().slice(0, STYLE_MAX_LENGTH)
-      : '';
-    if (typedStyle) {
-      style = typedStyle;
+    // The style in the box counts while the viewer still types it. The words of
+    // an old emotion are not a style: the bot reads the emotion.
+    const boxStyle = (elements.styleInput?.value || '').trim().slice(0, STYLE_MAX_LENGTH);
+    const emotionWords = prefs.style ? '' : emotionStyleText(prefs.emotion, { viewer: true });
+    if (boxStyle && boxStyle !== emotionWords) {
+      style = boxStyle;
       emotion = prefs.emotion || cd.emotion || undefined;
-    } else if (prefs.style) {
-      style = prefs.style;
-      emotion = prefs.emotion || cd.emotion || undefined;
-    } else if (prefs.emotion) {
-      emotion = prefs.emotion;
+    } else if (boxStyle) {
+      emotion = prefs.emotion || undefined;
     } else {
+      // An empty box means "use the channel default", also before the save of
+      // the empty box ran. The stored style is then older than the box.
       style = cd.style || '';
       emotion = cd.emotion || undefined;
     }
@@ -487,13 +502,14 @@ export function initPreferencesModule(
     renderControls();
 
     const allowViewerPrefs = state.currentPreferences?.channelPolicy?.allowViewerPreferences !== false;
-    const { emotionSelect, styleInput, languageSelect, voiceReset, pitchReset, speedReset, emotionReset, languageReset, prefsDisabledNote } = elements;
+    const { styleInput, languageSelect, voiceReset, pitchReset, speedReset, emotionReset, languageReset, prefsDisabledNote } = elements;
     voicePicker.setDisabled(!allowViewerPrefs);
     pitchControl.setDisabled(!allowViewerPrefs);
     speedControl.setDisabled(!allowViewerPrefs);
-    [emotionSelect, styleInput, languageSelect, voiceReset, pitchReset, speedReset, emotionReset, languageReset].forEach(el => {
+    [styleInput, languageSelect, voiceReset, pitchReset, speedReset, emotionReset, languageReset].forEach(el => {
       if (el) el.disabled = !allowViewerPrefs;
     });
+    stylePresets?.setDisabled(!allowViewerPrefs);
     if (prefsDisabledNote) {
       prefsDisabledNote.classList.toggle('d-none', allowViewerPrefs);
     }
@@ -502,22 +518,16 @@ export function initPreferencesModule(
   /** Draw every control, hint and sidebar value from the current preferences. */
   function renderControls(): void {
     const prefs = state.currentPreferences || {};
-    const { emotionSelect, styleGroup, styleInput, languageSelect } = elements;
+    const { styleInput, languageSelect } = elements;
 
     // The stored ID can still be a MiniMax ID. The picker shows it as a legacy voice.
     voicePicker.setValue(prefs.voiceId || '');
     pitchControl.setValue(prefs.pitch ?? null);
     speedControl.setValue(prefs.speed ?? null);
 
-    const style = prefs.style || '';
-    if (emotionSelect) {
-      emotionSelect.value = style ? CUSTOM_EMOTION : (prefs.emotion || '');
-      // A stored emotion that is not an option reads as "use channel default".
-      if (emotionSelect.selectedIndex === -1) emotionSelect.value = '';
-    }
-    if (styleInput) styleInput.value = style;
-    if (styleGroup) styleGroup.hidden = !style;
+    if (styleInput) styleInput.value = shownStyle();
     updateStyleCount();
+    stylePresets?.refresh();
     if (languageSelect) {
       languageSelect.value = prefs.language || '';
       if (languageSelect.selectedIndex === -1) languageSelect.value = '';
@@ -549,8 +559,8 @@ export function initPreferencesModule(
     // The emotion row stands for the style too: either one is a value.
     const hasUser = hasValue(prefs[key]) || (key === 'emotion' && hasValue(prefs.style));
     const hasDef = hasValue(cd[key]) || (key === 'emotion' && hasValue(cd.style));
-    if (hasUser) return t('msg.prefs.hintUser', { value: formatValueForHint(key, prefs) });
-    if (hasDef) return t('msg.prefs.hintChannel', { value: formatValueForHint(key, cd) });
+    if (hasUser) return t('msg.prefs.hintUser', { value: formatValueForHint(key, prefs, true) });
+    if (hasDef) return t('msg.prefs.hintChannel', { value: formatValueForHint(key, cd, false) });
     return t('msg.prefs.hintSystem');
   }
 
@@ -566,15 +576,13 @@ export function initPreferencesModule(
   }
 
   /** A stored value as the reader sees it in the control, not as the API stores it. */
-  function formatValueForHint(key: HintKey, source: ViewerPreferences | ChannelDefaults): string {
+  function formatValueForHint(key: HintKey, source: ViewerPreferences | ChannelDefaults, viewer: boolean): string {
     switch (key) {
       case 'voiceId': return describeVoice(String(source.voiceId));
       case 'pitch': return stepLabel('pitch', source.pitch);
       case 'speed': return stepLabel('speed', source.speed);
       case 'emotion':
-        return source.style
-          ? t('msg.prefs.customStyle', { style: source.style })
-          : emotionLabel(source.emotion);
+        return styleSummary(source.emotion, source.style, { viewer });
       case 'language': return describeLanguage(String(source.language));
       default: return '';
     }
@@ -635,7 +643,7 @@ export function initPreferencesModule(
     const voiceNameEl = document.getElementById('sidebar-voice-name');
     const pitchValEl = document.getElementById('sidebar-pitch-val');
     const speedValEl = document.getElementById('sidebar-speed-val');
-    const emotionValEl = document.getElementById('sidebar-emotion-val');
+    const styleValEl = document.getElementById('sidebar-style-val');
     const languageValEl = document.getElementById('sidebar-language-val');
 
     if (voiceNameEl) voiceNameEl.textContent = state.catalog.displayName(voiceId) || '—';
@@ -644,7 +652,7 @@ export function initPreferencesModule(
     // back into every locale's sidebar.
     if (pitchValEl) pitchValEl.textContent = stepLabel('pitch', pitch);
     if (speedValEl) speedValEl.textContent = stepLabel('speed', speed);
-    if (emotionValEl) emotionValEl.textContent = emotionLabel(emotion, style);
+    if (styleValEl) styleValEl.textContent = styleSummary(emotion, style, { viewer: !!(state.currentPreferences?.emotion) });
     if (languageValEl) languageValEl.textContent = describeLanguage(languageBoost || 'auto');
   }
 

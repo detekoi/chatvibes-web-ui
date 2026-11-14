@@ -69,29 +69,17 @@
     "dashboardConfigurationTabs": "Kartice za konfiguraciju nadzorne ploče",
     "deactivationStopsTheBotFrom": "Deaktivacijom bot prestaje čitati poruke iz chata. Vaše postavke ostaju spremljene. Uslugu možete ponovno aktivirati u bilo kojem trenutku.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentacija",
-    "emotion": "Emocija",
     "language": "Jezik",
     "pitch": "Visina tona",
     "quickLinks": "Brze veze",
     "service": "Usluga",
     "signedInAs": "Prijavljeni kao",
     "speed": "Brzina",
+    "style": "Stil",
     "testMessage": "Testna poruka",
     "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Postavke gledatelja",
     "voicePreview": "Pretpregled glasa",
     "volume": "Glasnoća"
-  },
-  "defaultEmotion": {
-    "angry": "Ljutit",
-    "calm": "Smireno",
-    "custom": "Prilagođeno…",
-    "disgusted": "Zgađen",
-    "fearful": "Uplašen",
-    "fluent": "Tečno",
-    "happy": "Sretan",
-    "neutral": "Neutralan",
-    "sad": "Tužan",
-    "surprised": "Iznenađen"
   },
   "defaultPitchLabel": {
     "defaultPitch": "<strong>Zadana visina glasa</strong>"
@@ -105,17 +93,14 @@
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Primjer: smireno i polako, poput noćnog radijskog voditelja"
   },
-  "defaultStyleGroup": {
-    "style": "Stil"
-  },
-  "defaultStyleHint": {
-    "describeInAFewWords": "Opiši u nekoliko riječi kako glas govori."
+  "defaultStylePresetsLabel": {
+    "orStartWithAPreset": "Ili započni s predloškom. Riječi možeš promijeniti."
   },
   "defaultVoiceLabel": {
     "defaultVoice": "<strong>Zadani glas</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "Glasnoća glasa (0,1 do 2,0)"
+    "voiceVolume01To": "Glasnoća glasa (0.1 do 2.0)"
   },
   "emoteMode": {
     "describeEmotes": "Opiši emotikone",
@@ -281,7 +266,6 @@
       "anonymizeFollowers": "Anonimiziraj pratitelje",
       "botRespondsInChat": "Bot odgovara u chatu",
       "cheerAnnouncements": "Cheer najave",
-      "defaultEmotion": "Zadana emocija",
       "defaultLanguage": "Zadani jezik",
       "defaultPitch": "Zadana visina glasa",
       "defaultSpeed": "Zadana brzina",
@@ -296,7 +280,7 @@
       "readFullUrls": "Čitaj cijele URL-ove",
       "redemptionAnnouncements": "Najave preuzimanja nagrada",
       "soundTags": "Zvučne oznake",
-      "style": "Stil",
+      "style": "Zadani stil glasa",
       "ttsEngine": "TTS mehanizam",
       "ttsMode": "TTS način rada",
       "ttsPermission": "TTS dopuštenja",
@@ -483,15 +467,15 @@
     "adjustTheVolumeForThe": "Prilagodi glasnoću za odabrani glas. OPREZ: Vrijednosti veće od 1.0 mogu uzrokovati izobličenje zvuka.",
     "calibratedVoices": "Kalibrirani glasovi",
     "calibrateVolumeForSpecificVoices": "Kalibriraj glasnoću za pojedine glasove. OPREZ: Vrijednosti veće od 1.0 mogu uzrokovati izobličenje zvuka.",
-    "defaultEmotion": "<strong>Zadana emocija</strong>",
     "defaultLanguage": "<strong>Zadani jezik</strong>",
     "defaultVoiceSettings": "Postavke zadanog glasa",
+    "defaultVoiceStyle": "<strong>Zadani stil glasa</strong>",
+    "describeHowTheVoiceSpeaks": "Opiši svojim riječima kako glas govori. Ako je polje prazno, glas nema stil.",
     "selectHowFastTheDefault": "Odaberi koliko brzo govori zadani glas",
     "selectHowHighOrLow": "Odaberi koliko visoko ili nisko govori zadani glas",
     "selectTheVoiceThatTts": "Odaberi glas koji TTS koristi za gledatelje koji nemaju vlastiti glas",
     "selectVoice": "Odaberi glas",
     "setDefaultVoiceSettingsFor": "Postavi zadane postavke glasa za svoj kanal",
-    "setTheEmotionOfThe": "Postavi emociju zadanog glasa. Odaberi Prilagođeno za opis glasa vlastitim riječima.",
     "theVoiceModelReadsThe": "Glasovni model prepoznaje jezik iz teksta. Ako je tekst kratak ili nejasan, ova postavka daje modelu smjernicu. Također postavlja zadani jezik za obavijesti i odabire popis riječi za filtar prostota.",
     "viewersCanTypeASound": "Gledatelji mogu upisati zvučnu oznaku u poruku, a glas će proizvesti taj zvuk. Primjeri su <code>&lt;laugh&gt;</code> i <code>&lt;sigh&gt;</code>. Sve su oznake zadano uključene. Za isključivanje oznake poništi njezin potvrdni okvir.",
     "viewerVoiceLookup": "Pretraživanje glasa gledatelja",

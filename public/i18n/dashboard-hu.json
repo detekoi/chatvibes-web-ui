@@ -69,29 +69,17 @@
     "dashboardConfigurationTabs": "Vezérlőpult-beállítási fülek",
     "deactivationStopsTheBotFrom": "A kikapcsolás megállítja a botot a csevegési üzenetek felolvasásában. A beállításaid megmaradnak. A szolgáltatást bármikor újra aktiválhatod.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentáció",
-    "emotion": "Érzelem",
     "language": "Nyelv",
     "pitch": "Hangmagasság",
     "quickLinks": "Gyorshivatkozások",
     "service": "Szolgáltatás",
     "signedInAs": "Bejelentkezve mint",
     "speed": "Sebesség",
+    "style": "Stílus",
     "testMessage": "Tesztüzenet",
     "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Nézői beállítások",
     "voicePreview": "Hang előhallgatása",
     "volume": "Hangerő"
-  },
-  "defaultEmotion": {
-    "angry": "Dühös",
-    "calm": "Nyugodt",
-    "custom": "Egyéni…",
-    "disgusted": "Undorodó",
-    "fearful": "Rémült",
-    "fluent": "Folyékony",
-    "happy": "Boldog",
-    "neutral": "Semleges",
-    "sad": "Szomorú",
-    "surprised": "Meglepett"
   },
   "defaultPitchLabel": {
     "defaultPitch": "<strong>Alapértelmezett hangmagasság</strong>"
@@ -105,17 +93,14 @@
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Például: nyugodt és lassú, mint egy éjszakai rádiós műsorvezető"
   },
-  "defaultStyleGroup": {
-    "style": "Stílus"
-  },
-  "defaultStyleHint": {
-    "describeInAFewWords": "Írd le néhány szóban, hogyan beszéljen a hang."
+  "defaultStylePresetsLabel": {
+    "orStartWithAPreset": "Vagy kezdj egy előbeállítással. A szavakat átírhatod."
   },
   "defaultVoiceLabel": {
     "defaultVoice": "<strong>Alapértelmezett hang</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "Hang hangereje (0,1-től 2,0-ig)"
+    "voiceVolume01To": "Hang hangereje (0.1–2.0)"
   },
   "emoteMode": {
     "describeEmotes": "Emote-ok leírása",
@@ -281,7 +266,6 @@
       "anonymizeFollowers": "Követők anonimizálása",
       "botRespondsInChat": "A bot válaszol a csevegésben",
       "cheerAnnouncements": "Cheer-bejelentések",
-      "defaultEmotion": "Alapértelmezett érzelem",
       "defaultLanguage": "Alapértelmezett nyelv",
       "defaultPitch": "Alapértelmezett hangmagasság",
       "defaultSpeed": "Alapértelmezett sebesség",
@@ -296,7 +280,7 @@
       "readFullUrls": "Teljes URL-ek felolvasása",
       "redemptionAnnouncements": "Beváltás-bejelentések",
       "soundTags": "Hangcímkék",
-      "style": "Stílus",
+      "style": "Alapértelmezett hangstílus",
       "ttsEngine": "TTS-motor",
       "ttsMode": "TTS-mód",
       "ttsPermission": "TTS-jogosultság",
@@ -483,21 +467,21 @@
     "adjustTheVolumeForThe": "A kiválasztott hang hangerejének beállítása. VIGYÁZAT: Az 1,0-nál nagyobb értékek torzítást okozhatnak.",
     "calibratedVoices": "Kalibrált hangok",
     "calibrateVolumeForSpecificVoices": "Hangerő kalibrálása adott hangokhoz. VIGYÁZAT: Az 1,0-nál nagyobb értékek torzítást okozhatnak.",
-    "defaultEmotion": "<strong>Alapértelmezett érzelem</strong>",
     "defaultLanguage": "<strong>Alapértelmezett nyelv</strong>",
     "defaultVoiceSettings": "Alapértelmezett hangbeállítások",
+    "defaultVoiceStyle": "<strong>Alapértelmezett hangstílus</strong>",
+    "describeHowTheVoiceSpeaks": "Írd le saját szavaiddal, hogyan beszéljen a hang. Ha a mező üres, a hangnak nincs stílusa.",
     "selectHowFastTheDefault": "Válaszd ki, milyen gyorsan beszéljen az alapértelmezett hang",
     "selectHowHighOrLow": "Válaszd ki, milyen magas vagy mély legyen az alapértelmezett hang",
     "selectTheVoiceThatTts": "Válaszd ki azt a hangot, amelyet a TTS használ azon nézők számára, akiknek nincs saját hangjuk",
     "selectVoice": "Hang kiválasztása",
     "setDefaultVoiceSettingsFor": "Állíts be alapértelmezett hangbeállításokat a csatornádhoz",
-    "setTheEmotionOfThe": "Állítsd be az alapértelmezett hang érzelmét. Válaszd az Egyéni lehetőséget, hogy saját szavaiddal írd le a hangot.",
     "theVoiceModelReadsThe": "A hangmodell a szövegből olvassa ki a nyelvet. Ha a szöveg rövid vagy nem egyértelmű, ez a beállítás támpontot ad a modellnek. Emellett beállítja a bejelentések alapértelmezett nyelvét, és kiválasztja a káromkodásszűrő szólistáját.",
     "viewersCanTypeASound": "A nézők hangcímkét írhatnak az üzenetbe, és a hang kiadja azt a hangot. Például: <code>&lt;laugh&gt;</code> és <code>&lt;sigh&gt;</code>. Alapértelmezés szerint minden címke be van kapcsolva. Egy címke kikapcsolásához vedd ki a pipát a jelölőnégyzetéből.",
     "viewerVoiceLookup": "Nézői hang keresése",
     "voiceCalibration": "Hang kalibrálása",
     "voicesWithCustomVolumeSettings": "Egyéni hangerő-beállításokkal rendelkező hangok.",
-    "voiceVolume01To": "Hang hangereje (0,1 – 2,0):",
+    "voiceVolume01To": "Hang hangereje (0.1–2.0):",
     "volumeOverride": "Hangerő felülbírálása:"
   },
   "ttsBannedWordInput": {

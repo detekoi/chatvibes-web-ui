@@ -69,29 +69,17 @@
     "dashboardConfigurationTabs": "Schede di configurazione della dashboard",
     "deactivationStopsTheBotFrom": "La disattivazione impedisce al bot di leggere i messaggi in chat. Le tue impostazioni rimarranno salvate. Puoi riattivare il servizio in qualsiasi momento.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Documentazione",
-    "emotion": "Emozione",
     "language": "Lingua",
     "pitch": "Tonalità",
     "quickLinks": "Link rapidi",
     "service": "Servizio",
     "signedInAs": "Accesso eseguito come",
     "speed": "Velocità",
+    "style": "Stile",
     "testMessage": "Messaggio di prova",
     "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Impostazioni spettatore",
     "voicePreview": "Anteprima voce",
     "volume": "Volume"
-  },
-  "defaultEmotion": {
-    "angry": "Arrabbiato",
-    "calm": "Calmo",
-    "custom": "Personalizzato…",
-    "disgusted": "Disgustato",
-    "fearful": "Spaventato",
-    "fluent": "Fluente",
-    "happy": "Felice",
-    "neutral": "Neutro",
-    "sad": "Triste",
-    "surprised": "Sorpreso"
   },
   "defaultPitchLabel": {
     "defaultPitch": "<strong>Tono predefinito</strong>"
@@ -105,11 +93,8 @@
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Esempio: calmo e lento, come un conduttore radiofonico notturno"
   },
-  "defaultStyleGroup": {
-    "style": "Stile"
-  },
-  "defaultStyleHint": {
-    "describeInAFewWords": "Descrivi in poche parole come parla la voce."
+  "defaultStylePresetsLabel": {
+    "orStartWithAPreset": "Oppure inizia con un preset. Puoi modificare le parole."
   },
   "defaultVoiceLabel": {
     "defaultVoice": "<strong>Voce predefinita</strong>"
@@ -281,7 +266,6 @@
       "anonymizeFollowers": "Anonimizza follower",
       "botRespondsInChat": "Risposta del bot in chat",
       "cheerAnnouncements": "Annunci Cheer",
-      "defaultEmotion": "Emozione predefinita",
       "defaultLanguage": "Lingua predefinita",
       "defaultPitch": "Tonalità predefinita",
       "defaultSpeed": "Velocità predefinita",
@@ -296,7 +280,7 @@
       "readFullUrls": "Leggi URL completi",
       "redemptionAnnouncements": "Annunci riscatti",
       "soundTags": "Tag sonori",
-      "style": "Stile",
+      "style": "Stile voce predefinito",
       "ttsEngine": "Motore TTS",
       "ttsMode": "Modalità TTS",
       "ttsPermission": "Permessi TTS",
@@ -483,15 +467,15 @@
     "adjustTheVolumeForThe": "Regola il volume per la voce selezionata. ATTENZIONE: valori superiori a 1.0 possono causare distorsioni.",
     "calibratedVoices": "Voci calibrate",
     "calibrateVolumeForSpecificVoices": "Calibra il volume per voci specifiche. ATTENZIONE: valori superiori a 1.0 possono causare distorsioni.",
-    "defaultEmotion": "<strong>Emozione predefinita</strong>",
     "defaultLanguage": "<strong>Lingua predefinita</strong>",
     "defaultVoiceSettings": "Impostazioni voce predefinita",
+    "defaultVoiceStyle": "<strong>Stile voce predefinito</strong>",
+    "describeHowTheVoiceSpeaks": "Descrivi come parla la voce, con parole tue. Se il campo è vuoto, la voce non ha stile.",
     "selectHowFastTheDefault": "Seleziona quanto velocemente parla la voce predefinita",
     "selectHowHighOrLow": "Seleziona quanto acuta o grave parla la voce predefinita",
     "selectTheVoiceThatTts": "Seleziona la voce che TTS usa per gli spettatori che non hanno una propria voce",
     "selectVoice": "Seleziona voce",
     "setDefaultVoiceSettingsFor": "Imposta le opzioni voce predefinite per il tuo canale",
-    "setTheEmotionOfThe": "Imposta l'emozione della voce predefinita. Seleziona Personalizzato per descrivere la voce con parole tue.",
     "theVoiceModelReadsThe": "Il modello vocale rileva la lingua dal testo. Se il testo è breve o poco chiaro, questa impostazione fornisce un suggerimento al modello. Imposta anche la lingua predefinita per gli annunci e seleziona l'elenco di parole per il filtro delle volgarità.",
     "viewersCanTypeASound": "Gli spettatori possono digitare un tag sonoro in un messaggio e la voce riproduce quel suono. Esempi sono <code>&lt;laugh&gt;</code> e <code>&lt;sigh&gt;</code>. Tutti i tag sono attivi per impostazione predefinita. Per disattivare un tag, deseleziona la relativa casella.",
     "viewerVoiceLookup": "Ricerca voce spettatore",

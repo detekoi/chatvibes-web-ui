@@ -116,18 +116,6 @@
       "signedOut": "You are not signed in.",
       "tokenMissing": "Authentication token is missing. Sign in again."
     },
-    "emotion": {
-      "angry": "Angry",
-      "calm": "Calm",
-      "disgusted": "Disgusted",
-      "fearful": "Fearful",
-      "fluent": "Fluent",
-      "happy": "Happy",
-      "neutral": "Neutral",
-      "sad": "Sad",
-      "surprised": "Surprised",
-      "custom": "Custom"
-    },
     "ignore": {
       "enterUsername": "Enter a username."
     },
@@ -193,7 +181,40 @@
       }
     },
     "style": {
-      "count": "{count} of {max} characters"
+      "count": "{count} of {max} characters",
+      "none": "No style"
+    },
+    "stylePreset": {
+      "label": {
+        "neutral": "Neutral",
+        "happy": "Happy",
+        "excited": "Excited",
+        "calm": "Calm",
+        "sad": "Sad",
+        "angry": "Angry",
+        "fearful": "Scared",
+        "surprised": "Surprised",
+        "sarcastic": "Sarcastic",
+        "whisper": "Whisper",
+        "dramatic": "Dramatic",
+        "announcer": "Sports announcer"
+      },
+      "text": {
+        "neutral": "in a neutral tone",
+        "happy": "happy and cheerful",
+        "excited": "excited and full of energy",
+        "calm": "calm and relaxed",
+        "sad": "sad and downcast",
+        "angry": "angry",
+        "fearful": "fearful and scared",
+        "surprised": "surprised and astonished",
+        "sarcastic": "dry and sarcastic",
+        "whisper": "whispering, as if telling a secret",
+        "dramatic": "dramatic, like a movie trailer narrator",
+        "announcer": "like an excited sports announcer",
+        "disgusted": "disgusted",
+        "fluent": "smooth and fluent"
+      }
     }
   },
   "page": {

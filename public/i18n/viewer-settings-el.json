@@ -33,20 +33,7 @@
   },
   "emotionReset": {
     "clear": "Εκκαθάριση",
-    "resetEmotionToDefault": "Επαναφορά συναισθήματος στην προεπιλογή"
-  },
-  "emotionSelect": {
-    "angry": "Θυμωμένο",
-    "calm": "Ήρεμο",
-    "custom": "Προσαρμοσμένο…",
-    "disgusted": "Αηδιασμένο",
-    "fearful": "Φοβισμένο",
-    "fluent": "Ομαλό",
-    "happy": "Χαρούμενο",
-    "neutral": "Ουδέτερο",
-    "sad": "Λυπημένο",
-    "surprised": "Έκπληκτο",
-    "useChannelDefault": "Χρήση προεπιλογής καναλιού"
+    "resetEmotionToDefault": "Επαναφορά στυλ φωνής στην προεπιλογή"
   },
   "ignoreTts": {
     "optOutInThisChannel": "Εξαίρεση σε αυτό το κανάλι"
@@ -109,8 +96,7 @@
       "sendPreview": "Αποστολή προεπισκόπησης",
       "testCompletedTestMode": "Η δοκιμή ολοκληρώθηκε (λειτουργία δοκιμής).",
       "updated": "Η προτίμηση ενημερώθηκε.",
-      "updatedTestMode": "Η προτίμηση ενημερώθηκε (λειτουργία δοκιμής).",
-      "customStyle": "Προσαρμοσμένο ({style})"
+      "updatedTestMode": "Η προτίμηση ενημερώθηκε (λειτουργία δοκιμής)."
     }
   },
   "openChannelContextModalBtn": {
@@ -144,9 +130,8 @@
     "resetPitchToDefault": "Επαναφορά τονικού ύψους στην προεπιλογή"
   },
   "preferencesPanel": {
+    "describeHowTheVoiceSpeaks": "Περίγραψε πώς μιλάει η φωνή, με δικά σου λόγια. Αν το πεδίο είναι κενό, ισχύει η προεπιλογή του καναλιού.",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Τεκμηρίωση </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Ρυθμίσεις streamer </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
-    "emotion": "<strong>Συναίσθημα</strong>",
-    "emotion2": "Συναίσθημα",
     "ifYourTextIsShort": "Αν το κείμενό σου είναι σύντομο ή ασαφές, αυτή η ρύθμιση δίνει μια ένδειξη στο μοντέλο φωνής. Επιλέγει επίσης τη λίστα λέξεων για το φίλτρο βωμολοχιών.",
     "language": "Γλώσσα",
     "languageLabel": "<strong>Γλώσσα</strong>",
@@ -156,11 +141,12 @@
     "selectHowHighOrLow": "Επίλεξε πόσο ψηλά ή χαμηλά μιλάει η φωνή",
     "selectTheVoiceThatTts": "Επίλεξε τη φωνή που χρησιμοποιεί το TTS για τα μηνύματά σου",
     "setHowYourMessagesSound": "Ορίστε πώς θα ακούγονται τα μηνύματά σας όταν τα διαβάζει το TTS",
-    "setTheEmotionOfThe": "Όρισε το συναίσθημα της φωνής. Επίλεξε «Προσαρμοσμένο» για να περιγράψεις τη φωνή με δικά σου λόγια.",
     "speed": "Ταχύτητα",
+    "style": "Στυλ",
     "testMessage": "Δοκιμαστικό μήνυμα",
     "voicePreview": "Προεπισκόπηση φωνής",
-    "voiceSettings": "Ρυθμίσεις φωνής"
+    "voiceSettings": "Ρυθμίσεις φωνής",
+    "voiceStyle": "<strong>Στυλ φωνής</strong>"
   },
   "prefsDisabledNote": {
     "theStreamerDisabledPersonalVoice": "Ο streamer απενεργοποίησε τις προσωπικές ρυθμίσεις φωνής για αυτό το κανάλι. Αυτό το κανάλι θα χρησιμοποιεί την προεπιλεγμένη του φωνή αντί για τις προτιμήσεις σας."
@@ -181,14 +167,11 @@
   "stepsHint": {
     "pitchAndSpeedAreApproximate": "Ο τόνος και η ταχύτητα είναι κατά προσέγγιση. Το μοντέλο φωνής λαμβάνει αυτές τις ρυθμίσεις ως λέξεις, όχι ως αριθμούς."
   },
-  "styleGroup": {
-    "style": "Στυλ"
-  },
-  "styleHint": {
-    "describeInAFewWords": "Περίγραψε με λίγα λόγια πώς μιλάει η φωνή."
-  },
   "styleInput": {
     "exampleCalmAndSlowLike": "Παράδειγμα: ήρεμα και αργά, σαν ραδιοφωνικός παραγωγός τη νύχτα"
+  },
+  "stylePresetsLabel": {
+    "orStartWithAPreset": "Ή ξεκίνα με μια προρύθμιση. Μπορείς να αλλάξεις τις λέξεις."
   },
   "voiceLabel": {
     "voice": "<strong>Φωνή</strong>"

@@ -116,18 +116,6 @@
       "signedOut": "Nisi prijavljen.",
       "tokenMissing": "Žeton za preverjanje pristnosti manjka. Znova se prijavi."
     },
-    "emotion": {
-      "angry": "Jezen",
-      "calm": "Umirjeno",
-      "disgusted": "Zgrožen",
-      "fearful": "Prestrašen",
-      "fluent": "Tekoče",
-      "happy": "Vesel",
-      "neutral": "Nevtralen",
-      "sad": "Žalosten",
-      "surprised": "Presenečen",
-      "custom": "Po meri"
-    },
     "ignore": {
       "enterUsername": "Vnesi uporabniško ime."
     },
@@ -193,7 +181,40 @@
       }
     },
     "style": {
-      "count": "{count} od {max} znakov"
+      "count": "{count} od {max} znakov",
+      "none": "Brez sloga"
+    },
+    "stylePreset": {
+      "label": {
+        "neutral": "Nevtralno",
+        "happy": "Vesel",
+        "excited": "Navdušen",
+        "calm": "Miren",
+        "sad": "Žalosten",
+        "angry": "Jezen",
+        "fearful": "Prestrašen",
+        "surprised": "Presenečen",
+        "sarcastic": "Sarkastičen",
+        "whisper": "Šepet",
+        "dramatic": "Dramatičen",
+        "announcer": "Športni napovedovalec"
+      },
+      "text": {
+        "neutral": "v nevtralnem tonu",
+        "happy": "veselo in vedro",
+        "excited": "navdušeno in polno energije",
+        "calm": "mirno in sproščeno",
+        "sad": "žalostno in potrto",
+        "angry": "jezno",
+        "fearful": "boječe in prestrašeno",
+        "surprised": "presenečeno in začudeno",
+        "sarcastic": "suho in sarkastično",
+        "whisper": "šepetajoče, kot da zaupa skrivnost",
+        "dramatic": "dramatično, kot napovedovalec filmskih napovednikov",
+        "announcer": "kot navdušen športni napovedovalec",
+        "disgusted": "z gnusom",
+        "fluent": "gladko in tekoče"
+      }
     }
   },
   "page": {

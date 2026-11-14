@@ -116,18 +116,6 @@
       "signedOut": "Et ole kirjautunut sisään.",
       "tokenMissing": "Todennustunniste puuttuu. Kirjaudu sisään uudelleen."
     },
-    "emotion": {
-      "angry": "Vihainen",
-      "calm": "Rauhallinen",
-      "disgusted": "Inhostunut",
-      "fearful": "Pelokas",
-      "fluent": "Sujuva",
-      "happy": "Iloinen",
-      "neutral": "Neutraali",
-      "sad": "Surullinen",
-      "surprised": "Yllättynyt",
-      "custom": "Mukautettu"
-    },
     "ignore": {
       "enterUsername": "Syötä käyttäjätunnus."
     },
@@ -193,7 +181,40 @@
       }
     },
     "style": {
-      "count": "{count} / {max} merkkiä"
+      "count": "{count} / {max} merkkiä",
+      "none": "Ei tyyliä"
+    },
+    "stylePreset": {
+      "label": {
+        "neutral": "Neutraali",
+        "happy": "Iloinen",
+        "excited": "Innostunut",
+        "calm": "Rauhallinen",
+        "sad": "Surullinen",
+        "angry": "Vihainen",
+        "fearful": "Peloissaan",
+        "surprised": "Yllättynyt",
+        "sarcastic": "Sarkastinen",
+        "whisper": "Kuiskaus",
+        "dramatic": "Dramaattinen",
+        "announcer": "Urheiluselostaja"
+      },
+      "text": {
+        "neutral": "neutraaliin sävyyn",
+        "happy": "iloinen ja pirteä",
+        "excited": "innostunut ja täynnä energiaa",
+        "calm": "rauhallinen ja rento",
+        "sad": "surullinen ja alakuloinen",
+        "angry": "vihainen",
+        "fearful": "pelokas ja säikähtänyt",
+        "surprised": "yllättynyt ja hämmästynyt",
+        "sarcastic": "kuiva ja sarkastinen",
+        "whisper": "kuiskaava, kuin kertoisi salaisuutta",
+        "dramatic": "dramaattinen, kuin elokuvatrailerin kertoja",
+        "announcer": "kuin innostunut urheiluselostaja",
+        "disgusted": "inhoissaan",
+        "fluent": "sujuva ja luonteva"
+      }
     }
   },
   "page": {

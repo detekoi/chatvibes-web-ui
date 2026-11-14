@@ -69,29 +69,17 @@
     "dashboardConfigurationTabs": "Các tab cấu hình bảng điều khiển",
     "deactivationStopsTheBotFrom": "Việc hủy kích hoạt sẽ dừng bot đọc tin nhắn chat. Cài đặt của bạn vẫn được lưu. Bạn có thể kích hoạt lại dịch vụ bất kỳ lúc nào.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Tài liệu",
-    "emotion": "Cảm xúc",
     "language": "Ngôn ngữ",
     "pitch": "Cao độ",
     "quickLinks": "Liên kết nhanh",
     "service": "Dịch vụ",
     "signedInAs": "Đã đăng nhập với tên",
     "speed": "Tốc độ",
+    "style": "Phong cách",
     "testMessage": "Tin nhắn thử nghiệm",
     "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Cài đặt người xem",
     "voicePreview": "Nghe thử giọng",
     "volume": "Âm lượng"
-  },
-  "defaultEmotion": {
-    "angry": "Tức giận",
-    "calm": "Điềm tĩnh",
-    "custom": "Tùy chỉnh…",
-    "disgusted": "Ghê tởm",
-    "fearful": "Sợ hãi",
-    "fluent": "Lưu loát",
-    "happy": "Vui vẻ",
-    "neutral": "Trung tính",
-    "sad": "Buồn",
-    "surprised": "Ngạc nhiên"
   },
   "defaultPitchLabel": {
     "defaultPitch": "<strong>Cao độ mặc định</strong>"
@@ -105,17 +93,14 @@
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Ví dụ: điềm tĩnh và chậm rãi, như người dẫn chương trình radio ban đêm"
   },
-  "defaultStyleGroup": {
-    "style": "Phong cách"
-  },
-  "defaultStyleHint": {
-    "describeInAFewWords": "Mô tả ngắn gọn cách giọng này nói."
+  "defaultStylePresetsLabel": {
+    "orStartWithAPreset": "Hoặc bắt đầu với mẫu có sẵn. Bạn có thể thay đổi từ ngữ."
   },
   "defaultVoiceLabel": {
     "defaultVoice": "<strong>Giọng mặc định</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "Âm lượng giọng (0.1 đến 2.0)"
+    "voiceVolume01To": "Âm lượng giọng nói (0.1 đến 2.0)"
   },
   "emoteMode": {
     "describeEmotes": "Mô tả emote",
@@ -281,7 +266,6 @@
       "anonymizeFollowers": "Ẩn danh người theo dõi",
       "botRespondsInChat": "Bot phản hồi trong chat",
       "cheerAnnouncements": "Thông báo Cheer",
-      "defaultEmotion": "Cảm xúc mặc định",
       "defaultLanguage": "Ngôn ngữ mặc định",
       "defaultPitch": "Cao độ mặc định",
       "defaultSpeed": "Tốc độ mặc định",
@@ -296,7 +280,7 @@
       "readFullUrls": "Đọc toàn bộ URL",
       "redemptionAnnouncements": "Thông báo đổi thưởng",
       "soundTags": "Thẻ âm thanh",
-      "style": "Phong cách",
+      "style": "Phong cách giọng mặc định",
       "ttsEngine": "Công cụ TTS",
       "ttsMode": "Chế độ TTS",
       "ttsPermission": "Quyền sử dụng TTS",
@@ -483,21 +467,21 @@
     "adjustTheVolumeForThe": "Điều chỉnh âm lượng cho giọng đọc đã chọn. LƯU Ý: Giá trị lớn hơn 1.0 có thể gây méo tiếng.",
     "calibratedVoices": "Giọng đọc đã hiệu chỉnh",
     "calibrateVolumeForSpecificVoices": "Hiệu chỉnh âm lượng cho từng giọng đọc cụ thể. LƯU Ý: Giá trị lớn hơn 1.0 có thể gây méo tiếng.",
-    "defaultEmotion": "<strong>Cảm xúc mặc định</strong>",
     "defaultLanguage": "<strong>Ngôn ngữ mặc định</strong>",
     "defaultVoiceSettings": "Cài đặt giọng đọc mặc định",
+    "defaultVoiceStyle": "<strong>Phong cách giọng mặc định</strong>",
+    "describeHowTheVoiceSpeaks": "Mô tả cách giọng nói thể hiện bằng lời của bạn. Nếu ô này trống, giọng nói sẽ không có phong cách.",
     "selectHowFastTheDefault": "Chọn tốc độ nói của giọng mặc định",
     "selectHowHighOrLow": "Chọn độ cao hoặc thấp của giọng mặc định",
     "selectTheVoiceThatTts": "Chọn giọng mà TTS sử dụng cho người xem chưa có giọng riêng",
     "selectVoice": "Chọn giọng đọc",
     "setDefaultVoiceSettingsFor": "Cài đặt giọng đọc mặc định cho kênh của bạn",
-    "setTheEmotionOfThe": "Đặt cảm xúc cho giọng mặc định. Chọn Tùy chỉnh để tự mô tả giọng đọc theo ý bạn.",
     "theVoiceModelReadsThe": "Mô hình giọng đọc tự nhận diện ngôn ngữ từ văn bản. Nếu văn bản ngắn hoặc không rõ ràng, thiết lập này sẽ gợi ý cho mô hình. Nó cũng đặt ngôn ngữ mặc định cho thông báo và chọn danh sách từ cho bộ lọc từ ngữ thô tục.",
     "viewersCanTypeASound": "Người xem có thể nhập thẻ âm thanh vào tin nhắn để giọng đọc phát ra âm thanh đó. Ví dụ như <code>&lt;laugh&gt;</code> và <code>&lt;sigh&gt;</code>. Mọi thẻ đều được bật mặc định. Để tắt thẻ, hãy bỏ chọn ô tương ứng.",
     "viewerVoiceLookup": "Tra cứu giọng người xem",
     "voiceCalibration": "Hiệu chỉnh giọng đọc",
     "voicesWithCustomVolumeSettings": "Các giọng có cài đặt âm lượng tùy chỉnh.",
-    "voiceVolume01To": "Âm lượng giọng (0.1 đến 2.0):",
+    "voiceVolume01To": "Âm lượng giọng nói (0.1 đến 2.0):",
     "volumeOverride": "Ghi đè âm lượng:"
   },
   "ttsBannedWordInput": {

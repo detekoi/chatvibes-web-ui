@@ -69,29 +69,17 @@
     "dashboardConfigurationTabs": "Zavihki za konfiguracijo nadzorne plošče",
     "deactivationStopsTheBotFrom": "Deaktivacija prepreči botu branje sporočil v klepetu. Tvoje nastavitve ostanejo shranjene. Storitev lahko kadar koli znova aktiviraš.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentacija",
-    "emotion": "Čustvo",
     "language": "Jezik",
     "pitch": "Višina glasu",
     "quickLinks": "Hitre povezave",
     "service": "Storitev",
     "signedInAs": "Prijavljen kot",
     "speed": "Hitrost",
+    "style": "Slog",
     "testMessage": "Preizkusno sporočilo",
     "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Nastavitve za gledalce",
     "voicePreview": "Predposlušanje glasu",
     "volume": "Glasnost"
-  },
-  "defaultEmotion": {
-    "angry": "Jezen",
-    "calm": "Umirjen",
-    "custom": "Po meri…",
-    "disgusted": "Zgrožen",
-    "fearful": "Prestrašen",
-    "fluent": "Tekoč",
-    "happy": "Vesel",
-    "neutral": "Nevtralen",
-    "sad": "Žalosten",
-    "surprised": "Presenečen"
   },
   "defaultPitchLabel": {
     "defaultPitch": "<strong>Privzeta višina</strong>"
@@ -105,11 +93,8 @@
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Primer: umirjen in počasen, kot nočni radijski voditelj"
   },
-  "defaultStyleGroup": {
-    "style": "Slog"
-  },
-  "defaultStyleHint": {
-    "describeInAFewWords": "V nekaj besedah opišite, kako glas govori."
+  "defaultStylePresetsLabel": {
+    "orStartWithAPreset": "Ali pa začni s prednastavitvijo. Besede lahko spremeniš."
   },
   "defaultVoiceLabel": {
     "defaultVoice": "<strong>Privzeti glas</strong>"
@@ -281,7 +266,6 @@
       "anonymizeFollowers": "Anonimiziraj sledilce",
       "botRespondsInChat": "Bot odgovarja v klepetu",
       "cheerAnnouncements": "Obvestila o Cheerih",
-      "defaultEmotion": "Privzeto čustvo",
       "defaultLanguage": "Privzeti jezik",
       "defaultPitch": "Privzeta višina tona",
       "defaultSpeed": "Privzeta hitrost",
@@ -296,7 +280,7 @@
       "readFullUrls": "Preberi celotne URL-je",
       "redemptionAnnouncements": "Obvestila o unovčitvah",
       "soundTags": "Zvočne oznake",
-      "style": "Slog",
+      "style": "Privzeti slog glasu",
       "ttsEngine": "Pogon TTS",
       "ttsMode": "Način TTS",
       "ttsPermission": "Dovoljenje za TTS",
@@ -483,15 +467,15 @@
     "adjustTheVolumeForThe": "Prilagodi glasnost za izbrani glas. POZOR: Vrednosti, večje od 1,0, lahko povzročijo popačenje.",
     "calibratedVoices": "Kalibrirani glasovi",
     "calibrateVolumeForSpecificVoices": "Umeri glasnost za določene glasove. POZOR: Vrednosti, večje od 1,0, lahko povzročijo popačenje.",
-    "defaultEmotion": "<strong>Privzeto čustvo</strong>",
     "defaultLanguage": "<strong>Privzeti jezik</strong>",
     "defaultVoiceSettings": "Privzete nastavitve glasu",
+    "defaultVoiceStyle": "<strong>Privzeti slog glasu</strong>",
+    "describeHowTheVoiceSpeaks": "S svojimi besedami opiši, kako glas govori. Če je polje prazno, glas nima sloga.",
     "selectHowFastTheDefault": "Izberite, kako hitro govori privzeti glas",
     "selectHowHighOrLow": "Izberite, kako visoko ali nizko govori privzeti glas",
     "selectTheVoiceThatTts": "Izberite glas, ki ga TTS uporablja za gledalce brez lastnega glasu",
     "selectVoice": "Izberite glas",
     "setDefaultVoiceSettingsFor": "Nastavite privzete nastavitve glasu za svoj kanal",
-    "setTheEmotionOfThe": "Nastavite čustvo privzetega glasu. Izberite Po meri, da glas opišete s svojimi besedami.",
     "theVoiceModelReadsThe": "Glasovni model razbere jezik iz besedila. Če je besedilo kratko ali nejasno, ta nastavitev modelu da namig. Prav tako nastavi privzeti jezik za obvestila in izbere seznam besed za filter neprimernih besed.",
     "viewersCanTypeASound": "Gledalci lahko v sporočilo vnesejo zvočno oznako in glas ustvari ta zvok. Primera sta <code>&lt;laugh&gt;</code> in <code>&lt;sigh&gt;</code>. Privzeto so vklopljene vse oznake. Če želite oznako izklopiti, počistite njeno potrditveno polje.",
     "viewerVoiceLookup": "Iskanje glasu gledalca",

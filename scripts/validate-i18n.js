@@ -275,23 +275,6 @@ async function main() {
     }
   }
 
-  // Every emotion the API accepts needs a label, or the sidebar renders the bare
-  // key. `VALID_EMOTIONS` is synced from the bot's tts-config.json and has grown
-  // before — it gained `calm` and `fluent` after the labels were written, and
-  // nothing noticed until someone set one.
-  try {
-    const ttsConfig = JSON.parse(
-      await readFile(join(rootDir, 'functions', 'src', 'services', 'tts-config.json'), 'utf8'),
-    );
-    for (const emotion of ttsConfig.VALID_EMOTIONS ?? []) {
-      if (!commonKeys.has(`msg.emotion.${emotion}`)) {
-        fail(`VALID_EMOTIONS has "${emotion}" but there is no msg.emotion.${emotion} label`);
-      }
-    }
-  } catch (error) {
-    fail(`cannot read tts-config.json for the emotion check: ${error.message}`);
-  }
-
   if (errors.length) {
     for (const error of errors) console.error(`  ✗ ${error}`);
     console.error(`\n${errors.length} i18n problem(s).`);

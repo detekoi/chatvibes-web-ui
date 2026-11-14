@@ -116,18 +116,6 @@
       "signedOut": "Hindi ka naka-sign in.",
       "tokenMissing": "Nawawala ang authentication token. Mag-sign in muli."
     },
-    "emotion": {
-      "angry": "Galit",
-      "calm": "Kalmado",
-      "disgusted": "Nandidiri",
-      "fearful": "Natatakot",
-      "fluent": "Matatas",
-      "happy": "Masaya",
-      "neutral": "Neutral",
-      "sad": "Malungkot",
-      "surprised": "Nagulat",
-      "custom": "Custom"
-    },
     "ignore": {
       "enterUsername": "Maglagay ng username."
     },
@@ -193,7 +181,40 @@
       }
     },
     "style": {
-      "count": "{count} sa {max} na karakter"
+      "count": "{count} sa {max} na karakter",
+      "none": "Walang istilo"
+    },
+    "stylePreset": {
+      "label": {
+        "neutral": "Neutral",
+        "happy": "Masaya",
+        "excited": "Sabik",
+        "calm": "Kalmado",
+        "sad": "Malungkot",
+        "angry": "Galit",
+        "fearful": "Takot",
+        "surprised": "Gulat",
+        "sarcastic": "Sarkastiko",
+        "whisper": "Bulong",
+        "dramatic": "Dramatiko",
+        "announcer": "Tagapag-anunsyo sa sports"
+      },
+      "text": {
+        "neutral": "sa neutral na tono",
+        "happy": "masaya at masigla",
+        "excited": "sabik at puno ng sigla",
+        "calm": "kalmado at relaks",
+        "sad": "malungkot at nanlulumo",
+        "angry": "galit",
+        "fearful": "takot at nangangamba",
+        "surprised": "gulat at namamangha",
+        "sarcastic": "malamig at sarkastiko",
+        "whisper": "pabulong, na parang nagsasabi ng sikreto",
+        "dramatic": "dramatiko, na parang tagapagsalaysay sa trailer ng pelikula",
+        "announcer": "na parang sabik na tagapag-anunsyo sa sports",
+        "disgusted": "nandidiri",
+        "fluent": "swabe at matatas"
+      }
     }
   },
   "page": {

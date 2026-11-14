@@ -116,18 +116,6 @@
       "signedOut": "Anda belum log masuk.",
       "tokenMissing": "Token pengesahan tiada. Log masuk semula."
     },
-    "emotion": {
-      "angry": "Marah",
-      "calm": "Tenang",
-      "disgusted": "Jijik",
-      "fearful": "Takut",
-      "fluent": "Lancar",
-      "happy": "Gembira",
-      "neutral": "Neutral",
-      "sad": "Sedih",
-      "surprised": "Terkejut",
-      "custom": "Tersuai"
-    },
     "ignore": {
       "enterUsername": "Masukkan nama pengguna."
     },
@@ -193,7 +181,40 @@
       }
     },
     "style": {
-      "count": "{count} daripada {max} aksara"
+      "count": "{count} daripada {max} aksara",
+      "none": "Tiada gaya"
+    },
+    "stylePreset": {
+      "label": {
+        "neutral": "Neutral",
+        "happy": "Gembira",
+        "excited": "Teruja",
+        "calm": "Tenang",
+        "sad": "Sedih",
+        "angry": "Marah",
+        "fearful": "Takut",
+        "surprised": "Terkejut",
+        "sarcastic": "Sarkastik",
+        "whisper": "Bisik",
+        "dramatic": "Dramatik",
+        "announcer": "Pengulas sukan"
+      },
+      "text": {
+        "neutral": "dengan nada neutral",
+        "happy": "gembira dan ceria",
+        "excited": "teruja dan penuh tenaga",
+        "calm": "tenang dan santai",
+        "sad": "sedih dan murung",
+        "angry": "marah",
+        "fearful": "gentar dan ketakutan",
+        "surprised": "terkejut dan hairan",
+        "sarcastic": "datar dan sarkastik",
+        "whisper": "berbisik, seperti memberitahu rahsia",
+        "dramatic": "dramatik, seperti pencerita treler filem",
+        "announcer": "seperti pengulas sukan yang teruja",
+        "disgusted": "jijik",
+        "fluent": "lancar dan fasih"
+      }
     }
   },
   "page": {

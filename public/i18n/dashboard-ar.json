@@ -69,29 +69,17 @@
     "dashboardConfigurationTabs": "علامات تبويب إعداد لوحة التحكم",
     "deactivationStopsTheBotFrom": "يؤدي إلغاء التفعيل إلى إيقاف البوت عن قراءة رسائل الدردشة. ستظل إعداداتك محفوظة. يمكنك تفعيل الخدمة مرة أخرى في أي وقت.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>التوثيق",
-    "emotion": "المشاعر",
     "language": "اللغة",
     "pitch": "طبقة الصوت",
     "quickLinks": "روابط سريعة",
     "service": "الخدمة",
     "signedInAs": "تم تسجيل الدخول باسم",
     "speed": "السرعة",
+    "style": "الأسلوب",
     "testMessage": "رسالة اختبار",
     "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>إعدادات المشاهد",
     "voicePreview": "معاينة الصوت",
     "volume": "مستوى الصوت"
-  },
-  "defaultEmotion": {
-    "angry": "غاضب",
-    "calm": "هادئ",
-    "custom": "مخصص…",
-    "disgusted": "مشمئز",
-    "fearful": "خائف",
-    "fluent": "سلس",
-    "happy": "سعيد",
-    "neutral": "محايد",
-    "sad": "حزين",
-    "surprised": "متفاجئ"
   },
   "defaultPitchLabel": {
     "defaultPitch": "<strong>طبقة الصوت الافتراضية</strong>"
@@ -105,17 +93,14 @@
   "defaultStyle": {
     "exampleCalmAndSlowLike": "مثال: هادئ وبطيء، كمذيع راديو في الليل"
   },
-  "defaultStyleGroup": {
-    "style": "الأسلوب"
-  },
-  "defaultStyleHint": {
-    "describeInAFewWords": "صف في بضع كلمات كيف يتحدث الصوت."
+  "defaultStylePresetsLabel": {
+    "orStartWithAPreset": "أو ابدأ بإعداد مسبق. يمكنك تغيير الكلمات."
   },
   "defaultVoiceLabel": {
     "defaultVoice": "<strong>الصوت الافتراضي</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "مستوى صوت الصوت (0.1 إلى 2.0)"
+    "voiceVolume01To": "مستوى الصوت (0.1 إلى 2.0)"
   },
   "emoteMode": {
     "describeEmotes": "وصف الرموز التعبيرية",
@@ -281,7 +266,6 @@
       "anonymizeFollowers": "إخفاء هوية المتابعين",
       "botRespondsInChat": "رد البوت في الدردشة",
       "cheerAnnouncements": "إعلانات Cheer",
-      "defaultEmotion": "المشاعر الافتراضية",
       "defaultLanguage": "اللغة الافتراضية",
       "defaultPitch": "طبقة الصوت الافتراضية",
       "defaultSpeed": "السرعة الافتراضية",
@@ -296,7 +280,7 @@
       "readFullUrls": "قراءة عناوين URL كاملة",
       "redemptionAnnouncements": "إعلانات الاسترداد",
       "soundTags": "وسوم الصوت",
-      "style": "الأسلوب",
+      "style": "أسلوب الصوت الافتراضي",
       "ttsEngine": "محرك TTS",
       "ttsMode": "وضع TTS",
       "ttsPermission": "إذن TTS",
@@ -483,21 +467,21 @@
     "adjustTheVolumeForThe": "ضبط مستوى الصوت للصوت المحدد. تنبيه: القيم الأكبر من 1.0 قد تؤدي إلى تشويش الصوت.",
     "calibratedVoices": "الأصوات المُعايرة",
     "calibrateVolumeForSpecificVoices": "معايرة مستوى الصوت لأصوات معينة. تنبيه: القيم الأكبر من 1.0 قد تؤدي إلى تشويش الصوت.",
-    "defaultEmotion": "<strong>الشعور الافتراضي</strong>",
     "defaultLanguage": "<strong>اللغة الافتراضية</strong>",
     "defaultVoiceSettings": "إعدادات الصوت الافتراضي",
+    "defaultVoiceStyle": "<strong>أسلوب الصوت الافتراضي</strong>",
+    "describeHowTheVoiceSpeaks": "صِف كيف يتحدث الصوت بكلماتك الخاصة. إذا كان المربع فارغًا، فلن يكون للصوت أسلوب.",
     "selectHowFastTheDefault": "اختر سرعة تحدث الصوت الافتراضي",
     "selectHowHighOrLow": "اختر ارتفاع أو انخفاض طبقة الصوت الافتراضي",
     "selectTheVoiceThatTts": "اختر الصوت الذي يستخدمه TTS للمشاهدين الذين ليس لديهم صوت خاص بهم",
     "selectVoice": "اختر الصوت",
     "setDefaultVoiceSettingsFor": "ضبط إعدادات الصوت الافتراضية لقناتك",
-    "setTheEmotionOfThe": "حدد عاطفة الصوت الافتراضي. اختر «مخصص» لوصف الصوت بكلماتك.",
     "theVoiceModelReadsThe": "يقرأ نموذج الصوت اللغة من النص. إذا كان النص قصيراً أو غير واضح، يعطي هذا الإعداد تلميحاً للنموذج. كما يحدد اللغة الافتراضية للإعلانات ويختار قائمة الكلمات لمرشح الألفاظ النابية.",
     "viewersCanTypeASound": "يمكن للمشاهدين كتابة وسم صوتي في الرسالة، وسيُصدر الصوت ذلك المؤثر. من الأمثلة: <code>&lt;laugh&gt;</code> و<code>&lt;sigh&gt;</code>. جميع الوسوم مفعّلة افتراضياً. لإيقاف وسم، ألغِ تحديد خانة الاختيار الخاصة به.",
     "viewerVoiceLookup": "البحث عن صوت المشاهد",
     "voiceCalibration": "معايرة الصوت",
     "voicesWithCustomVolumeSettings": "أصوات بإعدادات مخصصة لمستوى الصوت.",
-    "voiceVolume01To": "مستوى صوت المتحدث (0.1 إلى 2.0):",
+    "voiceVolume01To": "مستوى الصوت (0.1 إلى 2.0):",
     "volumeOverride": "تجاوز مستوى الصوت:"
   },
   "ttsBannedWordInput": {

@@ -33,20 +33,7 @@
   },
   "emotionReset": {
     "clear": "Temizle",
-    "resetEmotionToDefault": "Duyguyu varsayılana sıfırla"
-  },
-  "emotionSelect": {
-    "angry": "Kızgın",
-    "calm": "Sakin",
-    "custom": "Özel…",
-    "disgusted": "İğrenmiş",
-    "fearful": "Korkmuş",
-    "fluent": "Akıcı",
-    "happy": "Mutlu",
-    "neutral": "Nötr",
-    "sad": "Üzgün",
-    "surprised": "Şaşırmış",
-    "useChannelDefault": "Kanal varsayılanını kullan"
+    "resetEmotionToDefault": "Ses stilini varsayılana sıfırla"
   },
   "ignoreTts": {
     "optOutInThisChannel": "Bu kanalda kapsam dışına çık"
@@ -109,8 +96,7 @@
       "sendPreview": "Önizleme Gönder",
       "testCompletedTestMode": "Test tamamlandı (test modu).",
       "updated": "Tercih güncellendi.",
-      "updatedTestMode": "Tercih güncellendi (test modu).",
-      "customStyle": "Özel ({style})"
+      "updatedTestMode": "Tercih güncellendi (test modu)."
     }
   },
   "openChannelContextModalBtn": {
@@ -144,9 +130,8 @@
     "resetPitchToDefault": "Ses perdesini varsayılana sıfırla"
   },
   "preferencesPanel": {
+    "describeHowTheVoiceSpeaks": "Sesin nasıl konuşacağını kendi kelimelerinle tarif et. Kutu boşsa kanal varsayılanı uygulanır.",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokümantasyon </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Yayıncı ayarları </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
-    "emotion": "<strong>Duygu</strong>",
-    "emotion2": "Duygu",
     "ifYourTextIsShort": "Metnin kısa veya belirsizse bu ayar ses modeline bir ipucu verir. Ayrıca küfür filtresi için kelime listesini seçer.",
     "language": "Dil",
     "languageLabel": "<strong>Dil</strong>",
@@ -156,11 +141,12 @@
     "selectHowHighOrLow": "Sesin ne kadar tiz veya pes konuşacağını seç",
     "selectTheVoiceThatTts": "TTS'in mesajların için kullanacağı sesi seç",
     "setHowYourMessagesSound": "Mesajların TTS tarafından okunduğunda nasıl duyulacağını ayarla",
-    "setTheEmotionOfThe": "Sesin duygusunu ayarla. Sesi kendi kelimelerinle tarif etmek için Özel'i seç.",
     "speed": "Hız",
+    "style": "Stil",
     "testMessage": "Test mesajı",
     "voicePreview": "Ses önizlemesi",
-    "voiceSettings": "Ses Ayarları"
+    "voiceSettings": "Ses Ayarları",
+    "voiceStyle": "<strong>Ses stili</strong>"
   },
   "prefsDisabledNote": {
     "theStreamerDisabledPersonalVoice": "Yayıncı, bu kanal için kişisel ses ayarlarını devre dışı bıraktı. Bu kanal tercihleriniz yerine varsayılan sesini kullanacak."
@@ -181,14 +167,11 @@
   "stepsHint": {
     "pitchAndSpeedAreApproximate": "Perde ve hız yaklaşık değerlerdir. Ses modeli bu ayarları sayı olarak değil, kelime olarak alır."
   },
-  "styleGroup": {
-    "style": "Stil"
-  },
-  "styleHint": {
-    "describeInAFewWords": "Sesin nasıl konuşacağını birkaç kelimeyle tarif et."
-  },
   "styleInput": {
     "exampleCalmAndSlowLike": "Örnek: gece yayın yapan bir radyo sunucusu gibi sakin ve yavaş"
+  },
+  "stylePresetsLabel": {
+    "orStartWithAPreset": "Veya bir ön ayarla başla. Kelimeleri değiştirebilirsin."
   },
   "voiceLabel": {
     "voice": "<strong>Ses</strong>"
