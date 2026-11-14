@@ -1,9 +1,10 @@
-import { formatVoiceName } from '../../common/utils.js';
-import { VoiceDropdown } from './voice-dropdown.js';
+import { VoicePicker } from '../../common/voice-picker.js';
 import { t } from '../../common/i18n.js';
 
 export interface VoiceCalibrationOptions {
-    voiceDropdown: VoiceDropdown;
+    voiceDropdown: VoicePicker;
+    /** The display name of a voice ID. A volume can still belong to an ID that is not in the catalog. */
+    voiceName: (voiceId: string) => string;
     currentVoiceVolumes: Record<string, number>;
     onSave: (voiceId: string, volume: number) => Promise<void>;
     onReset: (voiceId: string) => Promise<void>;
@@ -15,7 +16,8 @@ export interface VoiceCalibrationOptions {
 }
 
 export class VoiceCalibration {
-    private voiceDropdown: VoiceDropdown;
+    private voiceDropdown: VoicePicker;
+    private voiceName: (voiceId: string) => string;
     private currentVoiceVolumes: Record<string, number>;
     private onSave: (voiceId: string, volume: number) => Promise<void>;
     private onReset: (voiceId: string) => Promise<void>;
@@ -27,6 +29,7 @@ export class VoiceCalibration {
 
     constructor(options: VoiceCalibrationOptions) {
         this.voiceDropdown = options.voiceDropdown;
+        this.voiceName = options.voiceName;
         this.currentVoiceVolumes = options.currentVoiceVolumes;
         this.onSave = options.onSave;
         this.onReset = options.onReset;
@@ -114,7 +117,7 @@ export class VoiceCalibration {
             li.className = 'list-group-item d-flex justify-content-between align-items-center';
 
             const nameSpan = document.createElement('span');
-            nameSpan.textContent = t('msg.calibration.row', { voice: formatVoiceName(voiceId), volume: vol });
+            nameSpan.textContent = t('msg.calibration.row', { voice: this.voiceName(voiceId), volume: vol });
 
             const actionsDiv = document.createElement('div');
 
@@ -129,7 +132,7 @@ export class VoiceCalibration {
             resetBtn.className = 'btn btn-sm btn-outline-danger';
             resetBtn.textContent = t('msg.calibration.reset');
             resetBtn.onclick = async () => {
-                if (confirm(t('msg.calibration.confirmReset', { voice: formatVoiceName(voiceId) }))) {
+                if (confirm(t('msg.calibration.confirmReset', { voice: this.voiceName(voiceId) }))) {
                     // Optimistic update
                     this.currentVoiceVolumes[voiceId] = 1.0;
                     this.renderList();

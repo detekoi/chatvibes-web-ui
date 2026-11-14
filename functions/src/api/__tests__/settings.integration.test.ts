@@ -49,6 +49,17 @@ import request from 'supertest';
 import { createTestApp } from './appHelper';
 import { createTestToken } from './testHelpers';
 import { db, FieldValue } from '../../services/firestore';
+import { loadLegacyVoiceMap } from '../../services/voices';
+import { mkdtempSync, writeFileSync } from 'fs';
+import { tmpdir } from 'os';
+import { join } from 'path';
+
+// The synced MiniMax map is optional, so the tests bring their own.
+const legacyMapFile = join(mkdtempSync(join(tmpdir(), 'voice-map-')), 'map.json');
+writeFileSync(legacyMapFile, JSON.stringify({
+  'Friendly_Person': { voice: 'puck', style: 'warm and friendly' },
+  'Chinese (Mandarin)_News_Anchor': { voice: 'kore', languageCode: 'cmn-CN' },
+}));
 
 describe('Settings API Integration Tests (Mocked Firestore)', () => {
   let app: any;
@@ -67,6 +78,7 @@ describe('Settings API Integration Tests (Mocked Firestore)', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
+    loadLegacyVoiceMap([legacyMapFile]);
     ((db as any).collection as any).mockReturnValue(db);
     ((db as any).doc as any).mockReturnValue(db);
     (FieldValue.arrayUnion as any).mockImplementation((val: any) => ({ type: 'arrayUnion', value: val }));
@@ -94,7 +106,7 @@ describe('Settings API Integration Tests (Mocked Firestore)', () => {
     });
 
     it('should fetch settings successfully (happy path)', async () => {
-      const mockSettings = { voiceId: 'brian', rate: 1.1 };
+      const mockSettings = { voiceId: 'puck', speed: 1.1, style: 'like a pirate', disabledSoundTags: ['laugh'] };
       ((db as any).get as any).mockResolvedValueOnce({
         exists: true,
         data: () => mockSettings,
@@ -120,7 +132,35 @@ describe('Settings API Integration Tests (Mocked Firestore)', () => {
         .set('Authorization', `Bearer ${authToken}`)
         .expect(200);
 
-      expect(response.body).toEqual({ settings: {} });
+      expect(response.body).toEqual({ settings: { style: '', disabledSoundTags: [] } });
+    });
+
+    it('should add style and disabledSoundTags when the document has neither', async () => {
+      ((db as any).get as any).mockResolvedValueOnce({
+        exists: true,
+        data: () => ({ voiceId: 'puck' }),
+      });
+
+      const response = await request(app)
+        .get(`/api/tts/settings/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .expect(200);
+
+      expect(response.body).toEqual({ settings: { voiceId: 'puck', style: '', disabledSoundTags: [] } });
+    });
+
+    it('should not return the retired englishNormalization setting', async () => {
+      ((db as any).get as any).mockResolvedValueOnce({
+        exists: true,
+        data: () => ({ voiceId: 'puck', englishNormalization: true }),
+      });
+
+      const response = await request(app)
+        .get(`/api/tts/settings/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .expect(200);
+
+      expect(response.body.settings).not.toHaveProperty('englishNormalization');
     });
   });
 
@@ -128,7 +168,7 @@ describe('Settings API Integration Tests (Mocked Firestore)', () => {
     it('should return 401 without authentication', async () => {
       await request(app)
         .put(`/api/tts/settings/channel/${channelName}`)
-        .send({ key: 'voiceId', value: 'Friendly_Person' })
+        .send({ key: 'voiceId', value: 'puck' })
         .expect(401);
     });
 
@@ -136,7 +176,7 @@ describe('Settings API Integration Tests (Mocked Firestore)', () => {
       await request(app)
         .put(`/api/tts/settings/channel/${channelName}`)
         .set('Authorization', `Bearer ${authToken}`)
-        .send({ value: 'Friendly_Person' })
+        .send({ value: 'puck' })
         .expect(400);
     });
 
@@ -146,13 +186,56 @@ describe('Settings API Integration Tests (Mocked Firestore)', () => {
       const response = await request(app)
         .put(`/api/tts/settings/channel/${channelName}`)
         .set('Authorization', `Bearer ${authToken}`)
-        .send({ key: 'voiceId', value: 'Friendly_Person' })
+        .send({ key: 'voiceId', value: 'puck' })
         .expect(200);
 
       expect(response.body).toEqual({ success: true, message: 'Setting updated' });
       expect(db.collection).toHaveBeenCalledWith('ttsChannelConfigs');
       expect(db.doc).toHaveBeenCalledWith(testUser.userId);
-      expect((db as any).set).toHaveBeenCalledWith({ voiceId: 'Friendly_Person' }, { merge: true });
+      // voiceStyle belongs to the voice that was stored before, so it is reset.
+      expect((db as any).set).toHaveBeenCalledWith({ voiceId: 'puck', voiceStyle: '', voiceLanguage: '' }, { merge: true });
+    });
+
+    it.each([
+      ['a regional Gemini voice', 'ar-001-advisor-1', 'ar-001-advisor-1'],
+      ['a Gemini voice in another letter case', 'Puck', 'puck'],
+      ['a MiniMax voice of the mapping', 'Friendly_Person', 'Friendly_Person'],
+    ])('should accept %s as voiceId', async (_label, value, stored) => {
+      ((db as any).set as any).mockResolvedValueOnce({} as any);
+
+      await request(app)
+        .put(`/api/tts/settings/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ key: 'voiceId', value })
+        .expect(200);
+
+      expect((db as any).set).toHaveBeenCalledWith({ voiceId: stored, voiceStyle: '', voiceLanguage: '' }, { merge: true });
+    });
+
+    it.each([
+      ['voiceId', { key: 'voiceId', value: 'Friendly_Person' }],
+      ['a per-voice volume', { key: 'voiceVolumes.Friendly_Person', value: 2 }],
+    ])('should reject a MiniMax ID for %s when the mapping is missing', async (_label, body) => {
+      loadLegacyVoiceMap([join(tmpdir(), 'no-such-voice-map.json')]);
+
+      await request(app)
+        .put(`/api/tts/settings/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send(body)
+        .expect(400);
+
+      expect((db as any).set).not.toHaveBeenCalled();
+    });
+
+    it('should accept the retired englishNormalization setting without writing', async () => {
+      const response = await request(app)
+        .put(`/api/tts/settings/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ key: 'englishNormalization', value: true })
+        .expect(200);
+
+      expect(response.body.success).toBe(true);
+      expect((db as any).set).not.toHaveBeenCalled();
     });
 
     it.each([
@@ -164,6 +247,11 @@ describe('Settings API Integration Tests (Mocked Firestore)', () => {
       ['a negative bits minimum', { key: 'bitsMinimumAmount', value: -1 }],
       ['an unknown voice', { key: 'voiceId', value: 'Not_A_Real_Voice' }],
       ['a volume for an unknown voice', { key: 'voiceVolumes.Not_A_Real_Voice', value: 2 }],
+      ['a volume above the maximum', { key: 'voiceVolumes.puck', value: 11 }],
+      ['a style that is not a string', { key: 'style', value: 5 }],
+      ['sound tags that are not a list', { key: 'disabledSoundTags', value: 'laugh' }],
+      ['a sound tag that is not a string', { key: 'disabledSoundTags', value: [1] }],
+      ['a key that is not a string', { key: { voiceId: 1 }, value: 'puck' }],
     ])('should reject %s without writing', async (_label, body) => {
       await request(app)
         .put(`/api/tts/settings/channel/${channelName}`)
@@ -177,7 +265,6 @@ describe('Settings API Integration Tests (Mocked Firestore)', () => {
     it.each([
       ['auto', 'languageBoost', 'auto'],
       ['the dashboard\'s "Automatic" alias', 'languageBoost', 'Automatic'],
-      ['a canonical emotion', 'emotion', 'happy'],
       ['the highlighted_only mode', 'mode', 'highlighted_only'],
     ])('should accept %s', async (_label, key, value) => {
       ((db as any).set as any).mockResolvedValueOnce({} as any);
@@ -191,25 +278,107 @@ describe('Settings API Integration Tests (Mocked Firestore)', () => {
       expect((db as any).set).toHaveBeenCalledWith({ [key]: value }, { merge: true });
     });
 
+    it.each(['happy', 'auto'])('should clear the custom style when the emotion %s is written', async (value) => {
+      ((db as any).set as any).mockResolvedValueOnce({} as any);
+
+      await request(app)
+        .put(`/api/tts/settings/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ key: 'emotion', value })
+        .expect(200);
+
+      expect((db as any).set).toHaveBeenCalledWith({ emotion: value, style: '' }, { merge: true });
+    });
+
+    it.each([
+      ['a plain style', 'like a tired pirate', 'like a tired pirate'],
+      ['an empty style, which clears it', '', ''],
+      ['a style with markup and line breaks', '  <b>calm</b>\n{slow}  ', 'b calm /b slow'],
+      ['a style of the maximum length', 'a'.repeat(120), 'a'.repeat(120)],
+    ])('should store %s and leave the emotion alone', async (_label, value, stored) => {
+      ((db as any).set as any).mockResolvedValueOnce({} as any);
+
+      await request(app)
+        .put(`/api/tts/settings/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ key: 'style', value })
+        .expect(200);
+
+      expect((db as any).set).toHaveBeenCalledWith({ style: stored }, { merge: true });
+    });
+
+    it('should reject a style that is too long with its own code', async () => {
+      const response = await request(app)
+        .put(`/api/tts/settings/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ key: 'style', value: 'a'.repeat(121) })
+        .expect(400);
+
+      expect(response.body).toMatchObject({ success: false, code: 'style_too_long', params: { key: 'style', max: 120 } });
+      expect((db as any).set).not.toHaveBeenCalled();
+    });
+
+    it('should store sound tags without duplicates, in catalog order', async () => {
+      ((db as any).set as any).mockResolvedValueOnce({} as any);
+
+      await request(app)
+        .put(`/api/tts/settings/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ key: 'disabledSoundTags', value: ['scream', 'Laugh', 'long pause', 'laugh', 'cough'] })
+        .expect(200);
+
+      expect((db as any).set).toHaveBeenCalledWith(
+        { disabledSoundTags: ['cough', 'laugh', 'scream', 'long pause'] },
+        { merge: true }
+      );
+    });
+
+    it('should store an empty sound tag list', async () => {
+      ((db as any).set as any).mockResolvedValueOnce({} as any);
+
+      await request(app)
+        .put(`/api/tts/settings/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ key: 'disabledSoundTags', value: [] })
+        .expect(200);
+
+      expect((db as any).set).toHaveBeenCalledWith({ disabledSoundTags: [] }, { merge: true });
+    });
+
+    it.each([
+      ['an unknown name', 'burp'],
+      // Only canonical names are stored. "laughs" is a spelling the bot reads.
+      ['a variant spelling', 'laughs'],
+    ])('should reject %s as a sound tag with its own code', async (_label, tag) => {
+      const response = await request(app)
+        .put(`/api/tts/settings/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ key: 'disabledSoundTags', value: ['laugh', tag] })
+        .expect(400);
+
+      expect(response.body).toMatchObject({ success: false, code: 'sound_tag_unknown', params: { key: 'disabledSoundTags', tag } });
+      expect((db as any).set).not.toHaveBeenCalled();
+    });
+
     it('should write a per-voice volume as a nested map, not a dotted field', async () => {
       ((db as any).set as any).mockResolvedValueOnce({} as any);
 
       await request(app)
         .put(`/api/tts/settings/channel/${channelName}`)
         .set('Authorization', `Bearer ${authToken}`)
-        .send({ key: 'voiceVolumes.Friendly_Person', value: 2.5 })
+        .send({ key: 'voiceVolumes.puck', value: 2.5 })
         .expect(200);
 
       expect((db as any).set).toHaveBeenCalledWith(
-        { voiceVolumes: { Friendly_Person: 2.5 } },
+        { voiceVolumes: { puck: 2.5 } },
         { merge: true }
       );
     });
 
-    // Voice IDs are not plain identifiers: many contain hyphens, spaces and
-    // parentheses, and a charset-based check silently rejects ~14% of the catalogue.
+    // Voice IDs are not plain identifiers: Gemini IDs contain hyphens, and the
+    // MiniMax IDs of the mapping contain spaces and parentheses.
     it.each([
-      'English_Gentle-voiced_man',
+      'ar-001-advisor-1',
       'Chinese (Mandarin)_News_Anchor',
     ])('should accept a volume for voice %s', async (voiceId) => {
       ((db as any).set as any).mockResolvedValueOnce({} as any);

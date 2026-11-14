@@ -757,19 +757,12 @@
                                     <div class="list-group-item">
                                         <div class="row align-items-center">
                                             <div class="col">
-                                                <label data-i18n="tabViewerDefaults.defaultVoice" for="default-voice-search" class="form-label mb-1"><strong>Default
-                                                        Voice</strong></label>
-                                                <p data-i18n="tabViewerDefaults.selectTheDefaultTtsVoice" class="text-muted mb-0">Select the default TTS voice for the channel</p>
+                                                <span data-i18n="defaultVoiceLabel.defaultVoice" id="default-voice-label" class="form-label mb-1"><strong>Default
+                                                        Voice</strong></span>
+                                                <p data-i18n="tabViewerDefaults.selectTheVoiceThatTts" class="text-muted mb-0">Select the voice that TTS uses for viewers who have no voice of their own</p>
                                             </div>
                                             <div class="col-auto d-flex align-items-center" style="gap:8px;">
-                                                <div class="custom-voice-dropdown" id="default-voice-dropdown">
-                                                    <input data-i18n-placeholder="defaultVoiceSearch.searchVoices" data-i18n-aria-label="defaultVoiceSearch.searchDefaultVoices" type="text" id="default-voice-search" class="form-control"
-                                                        placeholder="Search voices..." aria-label="Search default voices" readonly>
-                                                    <input type="hidden" id="default-voice" value="Friendly_Person">
-                                                    <div class="voice-dropdown-menu" id="default-voice-menu">
-                                                        <div class="voice-dropdown-list"></div>
-                                                    </div>
-                                                </div>
+                                                <div class="voice-picker" id="default-voice-picker"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -778,48 +771,55 @@
                                             <div class="col">
                                                 <label data-i18n="tabViewerDefaults.defaultEmotion" for="default-emotion" class="form-label mb-1"><strong>Default
                                                         Emotion</strong></label>
-                                                <p data-i18n="tabViewerDefaults.setTheEmotionalToneOf" class="text-muted mb-0">Set the emotional tone of the default voice</p>
+                                                <p data-i18n="tabViewerDefaults.setTheEmotionOfThe" class="text-muted mb-0">Set the emotion of the default voice. Select Custom to describe the voice in your own words.</p>
                                             </div>
                                             <div class="col-auto d-flex align-items-center" style="gap:8px;">
-                                                <select id="default-emotion" class="form-select">
-                                                    <option data-i18n="defaultEmotion.neutral" value="neutral">Neutral</option>
-                                                    <option data-i18n="defaultEmotion.happy" value="happy">Happy</option>
-                                                    <option data-i18n="defaultEmotion.sad" value="sad">Sad</option>
-                                                    <option data-i18n="defaultEmotion.angry" value="angry">Angry</option>
-                                                    <option data-i18n="defaultEmotion.fearful" value="fearful">Fearful</option>
-                                                    <option data-i18n="defaultEmotion.disgusted" value="disgusted">Disgusted</option>
-                                                    <option data-i18n="defaultEmotion.surprised" value="surprised">Surprised</option>
-                                                </select>
+                                                <div class="emotion-control">
+                                                    <select id="default-emotion" class="form-select">
+                                                        <option data-i18n="defaultEmotion.neutral" value="neutral">Neutral</option>
+                                                        <option data-i18n="defaultEmotion.happy" value="happy">Happy</option>
+                                                        <option data-i18n="defaultEmotion.sad" value="sad">Sad</option>
+                                                        <option data-i18n="defaultEmotion.angry" value="angry">Angry</option>
+                                                        <option data-i18n="defaultEmotion.fearful" value="fearful">Fearful</option>
+                                                        <option data-i18n="defaultEmotion.disgusted" value="disgusted">Disgusted</option>
+                                                        <option data-i18n="defaultEmotion.surprised" value="surprised">Surprised</option>
+                                                        <option data-i18n="defaultEmotion.calm" value="calm">Calm</option>
+                                                        <option data-i18n="defaultEmotion.fluent" value="fluent">Fluent</option>
+                                                        <option data-i18n="defaultEmotion.custom" value="__custom__">Custom…</option>
+                                                    </select>
+                                                    <div class="style-group" id="default-style-group" hidden>
+                                                        <label data-i18n="defaultStyleGroup.style" for="default-style" class="visually-hidden">Style</label>
+                                                        <input data-i18n-placeholder="defaultStyle.exampleCalmAndSlowLike" type="text" id="default-style" class="form-control" maxlength="120"
+                                                            placeholder="Example: calm and slow, like a radio host at night" aria-describedby="default-style-hint default-style-count">
+                                                        <small data-i18n="defaultStyleHint.describeInAFewWords" class="form-text text-muted" id="default-style-hint">Describe in a few words how the voice speaks.</small>
+                                                        <small class="form-text text-muted" id="default-style-count"></small>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="list-group-item">
                                         <div class="row align-items-center">
                                             <div class="col">
-                                                <label for="default-pitch" class="form-label mb-1"><strong><span data-i18n="tabViewerDefaults.defaultPitch12To12">Default Pitch (-12 to +12):</span> <span id="pitch-value">0</span></strong></label>
-                                                <p data-i18n="tabViewerDefaults.adjustThePitchForThe" class="text-muted mb-0">Adjust the pitch for the default voice</p>
+                                                <span data-i18n="defaultPitchLabel.defaultPitch" id="default-pitch-label" class="form-label mb-1"><strong>Default Pitch</strong></span>
+                                                <p data-i18n="tabViewerDefaults.selectHowHighOrLow" class="text-muted mb-0">Select how high or low the default voice speaks</p>
                                             </div>
-                                            <div class="col-auto d-flex align-items-center"
-                                                style="gap:8px; min-width: 260px;">
-                                                <input data-i18n-aria-label="defaultPitch.defaultPitch12To12" type="range" id="default-pitch" class="form-range" min="-12" max="12"
-                                                    value="0" aria-label="Default Pitch (-12 to +12)">
-                                                <button data-i18n="resetPitchBtn.reset" data-i18n-aria-label="resetPitchBtn.resetDefaultPitchTo0" id="reset-pitch-btn" class="btn btn-outline-secondary btn-sm"
-                                                    type="button" aria-label="Reset default pitch to 0">Reset</button>
+                                            <div class="col-auto d-flex align-items-center" style="gap:8px;">
+                                                <div class="step-control" id="default-pitch" role="radiogroup"
+                                                    aria-labelledby="default-pitch-label" aria-describedby="default-steps-hint"></div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="list-group-item">
                                         <div class="row align-items-center">
                                             <div class="col">
-                                                <label for="default-speed" class="form-label mb-1"><strong><span data-i18n="tabViewerDefaults.defaultSpeed05To">Default Speed (0.5 to 2.0):</span> <span id="speed-value">1.0</span></strong></label>
-                                                <p data-i18n="tabViewerDefaults.controlHowFastTheDefault" class="text-muted mb-0">Control how fast the default voice speaks</p>
+                                                <span data-i18n="defaultSpeedLabel.defaultSpeed" id="default-speed-label" class="form-label mb-1"><strong>Default Speed</strong></span>
+                                                <p data-i18n="tabViewerDefaults.selectHowFastTheDefault" class="text-muted mb-0">Select how fast the default voice speaks</p>
+                                                <small data-i18n="defaultStepsHint.pitchAndSpeedAreApproximate" class="form-text text-muted" id="default-steps-hint">Pitch and speed are approximate. The voice model gets these settings as words, not as numbers.</small>
                                             </div>
-                                            <div class="col-auto d-flex align-items-center"
-                                                style="gap:8px; min-width: 260px;">
-                                                <input data-i18n-aria-label="defaultSpeed.defaultSpeed05To" type="range" id="default-speed" class="form-range" min="0.5"
-                                                    max="2.0" step="0.1" value="1.0" aria-label="Default Speed (0.5 to 2.0)">
-                                                <button data-i18n="resetSpeedBtn.reset" data-i18n-aria-label="resetSpeedBtn.resetDefaultSpeedTo1" id="reset-speed-btn" class="btn btn-outline-secondary btn-sm"
-                                                    type="button" aria-label="Reset default speed to 1.0">Reset</button>
+                                            <div class="col-auto d-flex align-items-center" style="gap:8px;">
+                                                <div class="step-control" id="default-speed" role="radiogroup"
+                                                    aria-labelledby="default-speed-label" aria-describedby="default-steps-hint"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -844,7 +844,7 @@
                                             <div class="col">
                                                 <label data-i18n="tabViewerDefaults.defaultLanguage" for="default-language" class="form-label mb-1"><strong>Default
                                                         Language</strong></label>
-                                                <p data-i18n="tabViewerDefaults.improvePronunciationForSpecificLanguages" class="text-muted mb-0">Improve pronunciation for specific languages</p>
+                                                <p data-i18n="tabViewerDefaults.theVoiceModelReadsThe" class="text-muted mb-0">The voice model reads the language from the text. If the text is short or unclear, this setting gives the model a hint. It also sets the default language for announcements and selects the word list for the profanity filter.</p>
                                             </div>
                                             <div class="col-auto d-flex align-items-center" style="gap:8px;">
                                                 <select id="default-language" class="form-select">
@@ -857,23 +857,19 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="list-group-item">
-                                        <div class="row align-items-center">
-                                            <div class="col">
-                                                <strong data-i18n="tabViewerDefaults.englishNormalization" class="mb-0">English Normalization</strong>
-                                                <p data-i18n="tabViewerDefaults.improveThePronunciationOfNumbers" class="text-muted mb-0">Improve the pronunciation of numbers and text</p>
-                                            </div>
-                                            <div class="col-auto">
-                                                <div class="form-check form-switch">
-                                                    <input data-i18n-aria-label="englishNormalization.englishNormalization" class="form-check-input" type="checkbox"
-                                                        id="english-normalization" aria-label="English Normalization">
-                                                    <span class="form-check-label"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
 
                                 </div>
+                            </div>
+                        </div>
+
+                        <!-- Sound Tags -->
+                        <div class="card wc-card">
+                            <div class="card-header">
+                                <h2 data-i18n="soundTagsTitle.soundTags" class="wc-card-title mb-0" id="sound-tags-title">Sound Tags</h2>
+                            </div>
+                            <div class="card-body">
+                                <p data-i18n="tabViewerDefaults.viewersCanTypeASound" class="wc-card-desc">Viewers can type a sound tag in a message, and the voice makes that sound. Examples are <code>&lt;laugh&gt;</code> and <code>&lt;sigh&gt;</code>. All tags are on by default. To turn off a tag, clear its check box.</p>
+                                <div class="sound-tags" id="sound-tags-list" role="group" aria-labelledby="sound-tags-title"></div>
                             </div>
                         </div>
 
@@ -905,15 +901,8 @@
                                     <div class="card-body">
                                         <div class="row g-3 align-items-end">
                                             <div class="col-12 col-md-5">
-                                                <label data-i18n="tabViewerDefaults.selectVoice" for="calibration-voice-search" class="form-label">Select Voice</label>
-                                                <div class="custom-voice-dropdown" id="calibration-voice-dropdown">
-                                                    <input data-i18n-placeholder="calibrationVoiceSearch.searchVoicesToCalibrate" type="text" id="calibration-voice-search" class="form-control"
-                                                        placeholder="Search voices to calibrate..." readonly>
-                                                    <input type="hidden" id="calibration-voice" value="">
-                                                    <div class="voice-dropdown-menu" id="calibration-voice-menu">
-                                                        <div class="voice-dropdown-list"></div>
-                                                    </div>
-                                                </div>
+                                                <span data-i18n="tabViewerDefaults.selectVoice" id="calibration-voice-label" class="form-label">Select Voice</span>
+                                                <div class="voice-picker voice-picker--start" id="calibration-voice-picker"></div>
                                             </div>
                                             <div class="col-12 col-md-4">
                                                 <label for="calibration-volume" class="form-label"><span data-i18n="tabViewerDefaults.volumeOverride">Volume Override:</span> <span
@@ -971,7 +960,7 @@
                 <section class="wc-aside-card">
                     <header data-i18n="dashboardContent.voicePreview">Voice preview</header>
                     <div class="wc-aside-body">
-                        <span data-i18n="sidebarVoiceName.friendlyPerson" id="sidebar-voice-name" class="wc-aside-headline">Friendly Person</span>
+                        <span id="sidebar-voice-name" class="wc-aside-headline">—</span>
                         <label data-i18n="dashboardContent.testMessage" class="wc-code-label" for="voice-test-text">Test message</label>
                         <textarea id="voice-test-text" class="form-control" rows="3"
                             maxlength="500">Welcome, everyone, to the stream!</textarea>
@@ -979,7 +968,7 @@
                         <!-- Audio Player Container -->
                         <div id="voice-preview-player" class="voice-preview-player" style="display: none;">
                             <audio controls class="w-100">
-                                <source id="voice-preview-source" type="audio/mpeg">
+                                <source id="voice-preview-source">
                                 <span data-i18n="voicePreviewPlayer.yourBrowserDoesNotSupport">Your browser does not support the audio element.</span>
                             </audio>
                             <small data-i18n="voicePreviewHint.settingsChangedGenerateANew" id="voice-preview-hint" class="settings-changed-hint text-warning mt-1"
@@ -989,12 +978,11 @@
                         </div>
                         <!-- Current voice settings display -->
                         <dl class="wc-kv">
-                            <div><dt data-i18n="dashboardContent.pitch">Pitch</dt><dd id="sidebar-pitch-val">0</dd></div>
-                            <div><dt data-i18n="dashboardContent.speed">Speed</dt><dd id="sidebar-speed-val">1.0×</dd></div>
+                            <div><dt data-i18n="dashboardContent.pitch">Pitch</dt><dd id="sidebar-pitch-val">—</dd></div>
+                            <div><dt data-i18n="dashboardContent.speed">Speed</dt><dd id="sidebar-speed-val">—</dd></div>
                             <div><dt data-i18n="dashboardContent.volume">Volume</dt><dd id="sidebar-volume-val">1.0</dd></div>
                             <div><dt data-i18n="dashboardContent.emotion">Emotion</dt><dd id="sidebar-emotion-val">—</dd></div>
                             <div><dt data-i18n="dashboardContent.language">Language</dt><dd data-i18n="sidebarLanguageVal.automatic" id="sidebar-language-val">Automatic</dd></div>
-                            <div><dt data-i18n="dashboardContent.engNormalization">Eng. normalization</dt><dd data-i18n="sidebarEngNormVal.off" id="sidebar-eng-norm-val">Off</dd></div>
                         </dl>
                     </div>
                 </section>

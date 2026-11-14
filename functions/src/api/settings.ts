@@ -8,7 +8,8 @@ import { authenticateApiRequest, authorizeChannelAccess, AuthenticatedRequest } 
 import { logger } from "../logger";
 import { apiError } from "./utils";
 import { validateSpeed, validatePitch, validateEmotion, validateLanguageBoost } from "../services/utils";
-import { RELEASED_VOICES } from "../services/voice-list";
+import { canonicalVoiceId } from "../services/voices";
+import { validateStyle, validateDisabledSoundTags } from "../services/style";
 import { normalizeMatchKey, validateSay, PRONUNCIATION_LIMITS } from "../services/pronunciation";
 import { getUserByUsername } from "../services/twitch";
 import { secrets } from "../config";
@@ -16,8 +17,6 @@ import { buildIgnoreEntry, IGNORE_SOURCE_MODERATOR } from "../services/ignoreEnt
 import { buildMutedRewardEntry, isValidRewardId, MUTED_REWARD_TITLE_MAX } from "../services/mutedRewards";
 
 const router: Router = express.Router();
-
-const VOICE_IDS = new Set(RELEASED_VOICES);
 
 // ==========================================
 // TTS SETTINGS
@@ -36,11 +35,20 @@ const BOOLEAN_SETTINGS = [
     "readFullUrls",
     "allowViewerPreferences",
     "botRespondsInChat",
-    "englishNormalization",
     "youtubeEnabled",
     "pronunciationEnabled",
     "profanityFilterEnabled",
 ];
+
+// Settings of the previous TTS provider. A dashboard cached from before the
+// change can still send them, so they are accepted and not stored.
+const RETIRED_SETTINGS = ["englishNormalization"];
+
+const VOICE_VOLUME_PREFIX = "voiceVolumes.";
+
+type PreparedSetting =
+    | { ok: true; update: Record<string, unknown> }
+    | { ok: false; code: string; error: string; params: Record<string, unknown> };
 
 /**
  * Validates a single channel setting before it is merged into the channel's
@@ -73,20 +81,68 @@ function validateTtsSetting(key: string, value: unknown): boolean {
         return validateSpeed(value as number);
     case "bitsMinimumAmount":
         return typeof value === "number" && Number.isInteger(value) && value >= 1;
-    case "voiceId":
-        return typeof value === "string" && VOICE_IDS.has(value);
     case "youtubeHandle":
         return typeof value === "string" && value.length <= 100;
     default:
-        // Voice IDs are not restricted to a simple charset — many contain
-        // hyphens, spaces and parentheses ("Chinese (Mandarin)_News_Anchor") —
-        // so match the prefix and check the remainder against the voice list.
-        if (key.startsWith("voiceVolumes.")) {
-            return VOICE_IDS.has(key.slice("voiceVolumes.".length)) &&
-                typeof value === "number" && value > 0 && value <= 10;
-        }
         return false;
     }
+}
+
+/**
+ * Validates one channel setting and builds the fields to merge into the
+ * channel's config document. Some settings also reset a related field.
+ * @param key - The setting key being written
+ * @param value - The proposed value
+ * @return The fields to write, or the error to send
+ */
+function prepareTtsSetting(key: string, value: unknown): PreparedSetting {
+    const invalid: PreparedSetting = { ok: false, code: "setting_invalid", error: `Invalid setting: ${key}`, params: { key } };
+
+    if (key === "voiceId") {
+        // A Gemini voice, or a MiniMax voice of the mapping until the backfill ran.
+        const voiceId = canonicalVoiceId(value);
+        if (!voiceId) return invalid;
+        // voiceStyle and voiceLanguage are the manner and the language that the
+        // backfill wrote for the voice it replaced.
+        return { ok: true, update: { voiceId, voiceStyle: "", voiceLanguage: "" } };
+    }
+
+    if (key.startsWith(VOICE_VOLUME_PREFIX)) {
+        const voiceId = canonicalVoiceId(key.slice(VOICE_VOLUME_PREFIX.length));
+        if (!voiceId || typeof value !== "number" || !(value > 0 && value <= 10)) return invalid;
+        // set() treats a dotted key as a literal field name, not a path, so
+        // "voiceVolumes.<voiceId>" has to be written as a nested map for the bot
+        // to find it under config.voiceVolumes. merge:true keeps sibling voices.
+        return { ok: true, update: { voiceVolumes: { [voiceId]: value } } };
+    }
+
+    if (key === "style") {
+        const style = validateStyle(value);
+        if (style.ok) return { ok: true, update: { style: style.value } };
+        if (style.reasonCode === "style_too_long") {
+            const max = style.reasonParams?.max;
+            return { ok: false, code: "style_too_long", error: `Style must be ${max} characters or fewer`, params: { key, max } };
+        }
+        return invalid;
+    }
+
+    if (key === "disabledSoundTags") {
+        const tags = validateDisabledSoundTags(value);
+        if (tags.ok) return { ok: true, update: { disabledSoundTags: tags.value } };
+        if (tags.reasonCode === "sound_tag_unknown") {
+            const tag = tags.reasonParams?.tag;
+            return { ok: false, code: "sound_tag_unknown", error: `Unknown sound tag: ${tag}`, params: { key, tag } };
+        }
+        return invalid;
+    }
+
+    if (!validateTtsSetting(key, value)) return invalid;
+
+    // An emotion preset and a custom style are alternatives. The bot lets the
+    // style win, so the new emotion would not be heard while a style is stored.
+    if (key === "emotion") return { ok: true, update: { emotion: value, style: "" } };
+
+    return { ok: true, update: { [key]: value } };
 }
 
 // GET /tts/settings/channel/:channelName
@@ -97,11 +153,15 @@ router.get("/tts/settings/channel/:channelName", authenticateApiRequest, authori
         const docRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(req.user.userId);
         const docSnap = await docRef.get();
 
-        if (docSnap.exists) {
-            res.json({ settings: docSnap.data() || {} });
-        } else {
-            res.json({ settings: {} });
-        }
+        const stored: Record<string, unknown> = { ...((docSnap.exists && docSnap.data()) || {}) };
+        for (const retired of RETIRED_SETTINGS) delete stored[retired];
+        res.json({
+            settings: {
+                ...stored,
+                style: typeof stored.style === "string" ? stored.style : "",
+                disabledSoundTags: Array.isArray(stored.disabledSoundTags) ? stored.disabledSoundTags : [],
+            },
+        });
     } catch (error) {
         logger.error({ error, channelName }, "Error fetching TTS settings");
         apiError(res, 500, "settings_fetch_failed", "Failed to fetch TTS settings");
@@ -113,28 +173,27 @@ router.put("/tts/settings/channel/:channelName", authenticateApiRequest, authori
     const { channelName } = req.params;
     const { key, value } = req.body;
 
-    if (!key) {
+    if (!key || typeof key !== "string") {
         apiError(res, 400, "key_required", "Key is required");
         return;
     }
 
-    if (!validateTtsSetting(key, value)) {
+    if (RETIRED_SETTINGS.includes(key)) {
+        res.json({ success: true, message: "Setting is no longer used" });
+        return;
+    }
+
+    const prepared = prepareTtsSetting(key, value);
+    if (!prepared.ok) {
         logger.warn({ channelName, key, value }, "Rejected invalid TTS setting");
-        apiError(res, 400, "setting_invalid", `Invalid setting: ${key}`, { key });
+        apiError(res, 400, prepared.code, prepared.error, prepared.params);
         return;
     }
 
     try {
         const docRef = db.collection(COLLECTIONS.TTS_CHANNEL_CONFIGS).doc(req.user.userId);
 
-        // set() treats a dotted key as a literal field name, not a path, so
-        // "voiceVolumes.<voiceId>" has to be written as a nested map for the bot
-        // to find it under config.voiceVolumes. merge:true keeps sibling voices.
-        const update = key.startsWith("voiceVolumes.") ?
-            { voiceVolumes: { [key.slice("voiceVolumes.".length)]: value } } :
-            { [key]: value };
-
-        await docRef.set(update, { merge: true });
+        await docRef.set(prepared.update, { merge: true });
 
         logger.info({ channelName, key, value }, "Updated TTS setting");
         res.json({ success: true, message: "Setting updated" });

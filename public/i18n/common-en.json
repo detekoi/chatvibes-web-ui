@@ -37,6 +37,7 @@
     "prefs_invalid_language": "That is not a valid language.",
     "prefs_invalid_pitch": "That is not a valid pitch.",
     "prefs_invalid_speed": "That is not a valid speed.",
+    "prefs_invalid_style": "That is not a valid style.",
     "prefs_invalid_voice": "That is not a valid voice.",
     "prefs_missing_data": "No changes were sent.",
     "prefs_update_failed": "Your change was not saved because of a server error. Try again.",
@@ -68,11 +69,13 @@
     "setting_update_failed": "Cannot update the TTS setting.",
     "settings_fetch_failed": "Cannot load TTS settings.",
     "shortlink_failed": "Cannot create the short link.",
+    "sound_tag_unknown": "The sound tag \"{tag}\" is not in the list. Reload the page and try again.",
     "storage_unavailable": "Storage is unavailable.",
+    "style_too_long": "The style is too long. Use {max} characters or fewer.",
+    "tts_blocked": "The speech service refused this text. Change the text and try again.",
     "tts_generation_failed": "Speech generation failed: {reason}",
     "tts_no_audio": "The speech provider returned no audio.",
     "tts_not_configured": "No speech provider is configured.",
-    "tts_provider_failed": "The speech provider could not generate audio.",
     "tts_test_failed": "The speech test failed.",
     "tts_text_required": "Enter some text to test.",
     "twitch_reauth_required": "Your Twitch sign-in has expired. Reconnect your account.",
@@ -80,8 +83,6 @@
     "url_required": "A URL is required.",
     "username_invalid": "That username is not valid.",
     "username_required": "A username is required.",
-    "voice_access_denied": "The voice \"{voice}\" needs special access. Try a different voice.",
-    "voice_invalid": "The voice \"{voice}\" is not available. Check the voice and try again.",
     "voice_lookup_failed": "Cannot look up that user’s voice.",
     "word_invalid": "That word or phrase is not valid.",
     "word_required": "A word or phrase is required."
@@ -117,7 +118,6 @@
     },
     "emotion": {
       "angry": "Angry",
-      "auto": "Auto",
       "calm": "Calm",
       "disgusted": "Disgusted",
       "fearful": "Fearful",
@@ -125,7 +125,8 @@
       "happy": "Happy",
       "neutral": "Neutral",
       "sad": "Sad",
-      "surprised": "Surprised"
+      "surprised": "Surprised",
+      "custom": "Custom"
     },
     "ignore": {
       "enterUsername": "Enter a username."
@@ -138,27 +139,65 @@
     },
     "preview": {
       "enterText": "Enter text to test.",
-      "unavailable": "No preview available."
-    },
-    "value": {
-      "off": "Off",
-      "on": "On"
+      "unavailable": "No sample is available for this voice."
     },
     "voice": {
       "cannotPlay": "Cannot play audio sample.",
       "generating": "Generating…",
       "noAudio": "The server returned no audio.",
       "noneFound": "No voices found.",
-      "preview": "Preview {voice}",
+      "preview": "Play a sample of {voice}",
       "regenerate": "Regenerate",
-      "testFailed": "Test failed: {reason}"
+      "testFailed": "Test failed: {reason}",
+      "choose": "Select a voice",
+      "panelLabel": "Voice search",
+      "listLabel": "Voices",
+      "searchLabel": "Search voices",
+      "searchHint": "Type one or more words, for example \"german calm low\". The search finds the voices that contain every word. Voice descriptions are in English only.",
+      "filterLanguage": "Filter by language",
+      "anyLanguage": "All languages",
+      "filterGender": "Filter by gender",
+      "anyGender": "All genders",
+      "gender": {
+        "female": "Female",
+        "male": "Male",
+        "neutral": "Neutral"
+      },
+      "filterPitch": "Filter by pitch",
+      "anyPitch": "All pitches",
+      "pitch": {
+        "low": "Low pitch",
+        "medium": "Medium pitch",
+        "high": "High pitch"
+      },
+      "studioOnly": "Studio voices only",
+      "studioTag": "Studio",
+      "count": "Voices found: {count}",
+      "legacy": "Legacy voice ({id})",
+      "stopSample": "Stop the sample of {voice}"
+    },
+    "step": {
+      "speed": {
+        "very_slow": "Very slow",
+        "slow": "Slow",
+        "normal": "Normal",
+        "fast": "Fast",
+        "very_fast": "Very fast"
+      },
+      "pitch": {
+        "very_low": "Very low",
+        "low": "Low",
+        "normal": "Normal",
+        "high": "High",
+        "very_high": "Very high"
+      }
+    },
+    "style": {
+      "count": "{count} of {max} characters"
     }
   },
   "page": {
     "skipToMainContent": "Skip to main content"
-  },
-  "sidebarEngNormVal": {
-    "off": "Off"
   },
   "sidebarLanguageVal": {
     "automatic": "Automatic"

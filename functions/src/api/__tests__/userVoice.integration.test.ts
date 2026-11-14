@@ -14,6 +14,14 @@ jest.mock('../../services/twitch', () => ({
 import request from 'supertest';
 import { createTestApp } from './appHelper';
 import { createTestToken, createTestUser, getTestDb, clearTestData } from './testHelpers';
+import { loadLegacyVoiceMap } from '../../services/voices';
+import { mkdtempSync, writeFileSync } from 'fs';
+import { tmpdir } from 'os';
+import { join } from 'path';
+
+// The synced MiniMax map is optional, so the tests bring their own.
+const legacyMapFile = join(mkdtempSync(join(tmpdir(), 'voice-map-')), 'map.json');
+writeFileSync(legacyMapFile, JSON.stringify({ 'Friendly_Person': { voice: 'kore', style: 'warm and friendly' } }));
 
 describe('User Voice Lookup', () => {
     let app: any;
@@ -31,6 +39,7 @@ describe('User Voice Lookup', () => {
         await clearTestData();
         mockGetUserIdFromUsername.mockReset();
         mockGetUserIdFromUsername.mockResolvedValue(userId);
+        loadLegacyVoiceMap([legacyMapFile]);
     });
 
     describe('GET /api/tts/user-voice/:username', () => {
@@ -46,7 +55,7 @@ describe('User Voice Lookup', () => {
         });
 
         it('should return the voice stored under the user ID', async () => {
-            await db.collection('ttsUserPreferences').doc(userId).set({ voiceId: 'Test_Voice_ID' });
+            await db.collection('ttsUserPreferences').doc(userId).set({ voiceId: 'kore' });
 
             const response = await request(app)
                 .get(`/api/tts/user-voice/${username}`)
@@ -54,13 +63,35 @@ describe('User Voice Lookup', () => {
                 .expect(200);
 
             expect(mockGetUserIdFromUsername).toHaveBeenCalledWith(username, expect.anything());
-            expect(response.body.voiceId).toBe('Test_Voice_ID');
+            expect(response.body).toEqual({ success: true, username, voiceId: 'kore' });
+        });
+
+        it('should return the Gemini voice of a stored MiniMax ID, and the stored ID', async () => {
+            await db.collection('ttsUserPreferences').doc(userId).set({ voiceId: 'Friendly_Person', voiceStyle: 'warm and friendly' });
+
+            const response = await request(app)
+                .get(`/api/tts/user-voice/${username}`)
+                .set('Authorization', `Bearer ${createTestToken(testUser)}`)
+                .expect(200);
+
+            expect(response.body).toEqual({ success: true, username, voiceId: 'kore', storedVoiceId: 'Friendly_Person' });
+        });
+
+        it('should return the default voice for a stored ID that no catalog knows', async () => {
+            await db.collection('ttsUserPreferences').doc(userId).set({ voiceId: 'Not_A_Real_Voice' });
+
+            const response = await request(app)
+                .get(`/api/tts/user-voice/${username}`)
+                .set('Authorization', `Bearer ${createTestToken(testUser)}`)
+                .expect(200);
+
+            expect(response.body).toEqual({ success: true, username, voiceId: 'puck', storedVoiceId: 'Not_A_Real_Voice' });
         });
 
         it('should return only the voice, never the rest of the document', async () => {
             // Any signed-in broadcaster can look up any login here.
             await db.collection('ttsUserPreferences').doc(userId).set({
-                voiceId: 'Test_Voice_ID',
+                voiceId: 'kore',
                 pitch: 2,
                 globalOptOut: true,
                 globalOptOutAt: '2026-01-01T00:00:00.000Z',
@@ -71,7 +102,7 @@ describe('User Voice Lookup', () => {
                 .set('Authorization', `Bearer ${createTestToken(testUser)}`)
                 .expect(200);
 
-            expect(response.body).toEqual({ success: true, username, voiceId: 'Test_Voice_ID' });
+            expect(response.body).toEqual({ success: true, username, voiceId: 'kore' });
         });
 
         it('should answer the same for an opted-out viewer with no voice as for no document', async () => {

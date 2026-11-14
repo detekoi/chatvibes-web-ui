@@ -29,12 +29,8 @@
           "secret": "jwt-secret-key"
         },
         {
-          "key": "WAVESPEED_API_KEY",
-          "secret": "WAVESPEED_API_KEY"
-        },
-        {
-          "key": "302_KEY",
-          "secret": "302_KEY"
+          "key": "GEMINI_API_KEY",
+          "secret": "GEMINI_API_KEY"
         }
       ],
       "ignore": [
@@ -53,6 +49,8 @@
       ],
       "predeploy": [
         "cp ../tts-twitch/src/components/tts/tts-config.json functions/src/services/tts-config.json 2>/dev/null || echo '⚠️  tts-twitch not found as sibling — using committed tts-config.json'",
+        "cp ../tts-twitch/src/components/tts/gemini-voices.json functions/src/services/gemini-voices.json 2>/dev/null || echo '⚠️  tts-twitch not found as sibling — using committed gemini-voices.json'",
+        "cp ../tts-twitch/src/components/tts/minimax-to-gemini-voices.json functions/src/services/minimax-to-gemini-voices.json 2>/dev/null || echo 'ℹ️  no MiniMax voice map in tts-twitch — using the committed one, if any'",
         "npm --prefix \"$RESOURCE_DIR\" run lint",
         "npm --prefix \"$RESOURCE_DIR\" run build"
       ]

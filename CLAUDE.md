@@ -208,12 +208,11 @@ generated at build time and committed; nothing is translated at runtime.
   markup later (the lockup's `wildcat.chat` link, a new Quick link) would mean
   editing 40 catalogs, and until then the other 39 would put the old markup
   back.
-- **Do not translate:** voice IDs and names, brand names, and the two sample
-  phrases `Welcome, everyone, to the stream!` / `Chat is this real?` — those name
-  pre-rendered files in `public/assets/voices/*.mp3`, so translating the caption
-  desynchronizes it from the audio. The reward title and prompt placeholders in
-  `dashboard.html` carry `data-i18n-skip` for a related reason: they preview a
-  default that is sent to Twitch in English, and Twitch shows it in its own UI.
+- **Do not translate:** voice IDs and names, and brand names. The voice samples in
+  `public/assets/voices/gemini/` are audio, and each voice says its phrase in its own
+  language (`public/assets/voices/README.md`).
+- The reward title and prompt placeholders in `dashboard.html` carry `data-i18n-skip`. They
+  preview a default that is sent to Twitch in English, and Twitch shows it in its own UI.
 
 ## Written Documentation
 

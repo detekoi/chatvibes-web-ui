@@ -194,9 +194,9 @@ The server-side handler shape, both repos:
 
 ### Do not sign the cookie — and you do not need a key
 
-`chatvibes-web-ui/functions/src/config.ts` exposes exactly five secrets
-(`TWITCH_CLIENT_ID`, `TWITCH_CLIENT_SECRET`, `JWT_SECRET`, `WAVESPEED_API_KEY`,
-`302_KEY`) and `firebase.json` binds only those. Sage mounts `cookieParser()`
+`chatvibes-web-ui/functions/src/config.ts` exposes exactly four secrets
+(`TWITCH_CLIENT_ID`, `TWITCH_CLIENT_SECRET`, `JWT_SECRET`, `GEMINI_API_KEY`)
+and `firebase.json` binds only those. Sage mounts `cookieParser()`
 **with no secret**, so `req.signedCookies` is permanently empty there and
 `res.cookie(..., { signed: true })` would throw. There is no cookie signing key
 in either repo.

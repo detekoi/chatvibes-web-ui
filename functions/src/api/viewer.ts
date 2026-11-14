@@ -6,17 +6,19 @@ import express, { Request, Response, Router } from "express";
 import { db, COLLECTIONS, FieldValue, FieldPath } from "../services/firestore";
 import { validateSpeed, validatePitch, validateEmotion, validateLanguageBoost, normalizeEmotion } from "../services/utils";
 import { loadGlobalUserPreferences, ViewerPreferences } from "../services/preferences";
-import { RELEASED_VOICES } from "../services/voice-list";
+import { canonicalVoiceId } from "../services/voices";
+import { validateStyle } from "../services/style";
 import { authenticateApiRequest, assertAuthenticated } from "../middleware/auth";
 import { logger } from "../logger";
 import { getIgnoreEntry, buildIgnoreEntry, canSelfUnignore, IGNORE_SOURCE_SELF } from "../services/ignoreEntries";
 import { apiError } from "./utils";
 
-const VOICE_IDS = new Set(RELEASED_VOICES);
-
 const router: Router = express.Router();
 
 
+
+// What a preference write merges into the document. A field can be removed.
+type ViewerPreferencesWrite = { [K in keyof ViewerPreferences]?: ViewerPreferences[K] | FirebaseFirestore.FieldValue };
 
 interface PreferencesUpdate {
   voiceId?: string | null;
@@ -24,7 +26,7 @@ interface PreferencesUpdate {
   speed?: number | null;
   emotion?: string | null;
   language?: string | null;
-  englishNormalization?: boolean;
+  style?: string | null;
   emoteMode?: string | null;
 }
 
@@ -48,18 +50,24 @@ async function getChannelIdFromName(channelName: string): Promise<string | null>
 function validateAndBuildUpdateData(
   updates: PreferencesUpdate,
   res: Response
-): Partial<ViewerPreferences> | null {
+): ViewerPreferencesWrite | null {
   if (!updates) {
     apiError(res, 400, "prefs_missing_data", "Missing update data");
     return null;
   }
-  const updateData: Partial<ViewerPreferences> = {};
+  const updateData: ViewerPreferencesWrite = {};
 
   if (updates.voiceId !== undefined) {
     // Unlike its siblings this used to accept any string, which let a viewer
     // store arbitrary text that the broadcaster's dashboard later renders.
-    if (!updates.voiceId || VOICE_IDS.has(updates.voiceId)) {
-      updateData.voiceId = updates.voiceId || null;
+    // A Gemini voice, or a MiniMax voice of the mapping until the backfill ran.
+    const voiceId = updates.voiceId ? canonicalVoiceId(updates.voiceId) : null;
+    if (!updates.voiceId || voiceId) {
+      updateData.voiceId = voiceId;
+      // voiceStyle and voiceLanguage are the manner and the language that the
+      // backfill wrote for the voice it replaced.
+      updateData.voiceStyle = FieldValue.delete();
+      updateData.voiceLanguage = FieldValue.delete();
     } else {
       apiError(res, 400, "prefs_invalid_voice", "Invalid voiceId value");
       return null;
@@ -85,6 +93,9 @@ function validateAndBuildUpdateData(
     const normalized = updates.emotion === null ? null : normalizeEmotion(updates.emotion);
     if (normalized === null || validateEmotion(normalized)) {
       updateData.emotion = normalized;
+      // An emotion preset and a custom style are alternatives. The bot lets the
+      // style win, so the new emotion would not be heard while a style is stored.
+      updateData.style = FieldValue.delete();
     } else {
       apiError(res, 400, "prefs_invalid_emotion", "Invalid emotion value");
       return null;
@@ -98,8 +109,20 @@ function validateAndBuildUpdateData(
       return null;
     }
   }
-  if (updates.englishNormalization !== undefined) {
-    updateData.englishNormalization = !!updates.englishNormalization;
+  // After the emotion, so that a style sent with an emotion is kept.
+  if (updates.style !== undefined) {
+    const style = validateStyle(updates.style ?? "");
+    if (!style.ok && style.reasonCode === "style_too_long") {
+      const max = style.reasonParams?.max;
+      apiError(res, 400, "style_too_long", `Style must be ${max} characters or fewer`, { max });
+      return null;
+    }
+    if (!style.ok) {
+      apiError(res, 400, "prefs_invalid_style", "Invalid style value");
+      return null;
+    }
+    // "" clears the style, and the viewer then uses the style of the channel.
+    updateData.style = style.value || FieldValue.delete();
   }
   if (updates.emoteMode !== undefined) {
     if (updates.emoteMode === null || VALID_EMOTE_MODES.includes(updates.emoteMode)) {
@@ -174,7 +197,7 @@ router.get("/preferences/:channel", authenticateApiRequest, async (req: Request,
       speed: (globalPrefs.speed !== undefined) ? globalPrefs.speed : null,
       emotion: globalPrefs.emotion ?? null,
       language: globalPrefs.languageBoost ?? null,
-      englishNormalization: (globalPrefs.englishNormalization !== undefined) ? globalPrefs.englishNormalization : undefined,
+      style: globalPrefs.style || null,
       emoteMode: globalPrefs.emoteMode ?? null,
       globalOptOut: prefsLoaded ? globalPrefs.globalOptOut === true : null,
       ignoreStatus: {
@@ -192,7 +215,9 @@ router.get("/preferences/:channel", authenticateApiRequest, async (req: Request,
         speed: channelData.speed !== undefined ? channelData.speed : null,
         emotion: channelData.emotion || null,
         language: channelData.languageBoost || null,
-        englishNormalization: channelData.englishNormalization,
+        style: channelData.style || null,
+        // Sound tags the channel turned off. The bot removes them from the text.
+        disabledSoundTags: Array.isArray(channelData.disabledSoundTags) ? channelData.disabledSoundTags : [],
         emoteMode: channelData.emoteMode || null,
       },
     };
@@ -279,7 +304,7 @@ router.get("/preferences", authenticateApiRequest, async (req: Request, res: Res
       speed: (globalPrefs.speed !== undefined) ? globalPrefs.speed : null,
       emotion: globalPrefs.emotion ?? null,
       language: globalPrefs.languageBoost ?? null,
-      englishNormalization: (globalPrefs.englishNormalization !== undefined) ? globalPrefs.englishNormalization : undefined,
+      style: globalPrefs.style || null,
       emoteMode: globalPrefs.emoteMode ?? null,
       globalOptOut: prefsLoaded ? globalPrefs.globalOptOut === true : null,
     };

@@ -1,7 +1,6 @@
 import {
 
     SettingsResponse,
-    VoicesResponse,
     ErrorResponse,
     VoiceLookupResponse
 } from '../types.js';
@@ -43,19 +42,6 @@ export class SettingsApi {
             body: JSON.stringify({ key, value })
         });
         return this.handleVoidResponse(response);
-    }
-
-    async getVoices(): Promise<VoicesResponse> {
-        try {
-            const response = await fetch(`${this.apiBaseUrl}/voices`);
-            if (response.ok) {
-                return await response.json() as VoicesResponse;
-            }
-            return { voices: [] };
-        } catch (error) {
-            console.warn('Failed to load voices:', error);
-            return { voices: [] };
-        }
     }
 
     async lookupUserVoice(username: string): Promise<VoiceLookupResponse> {

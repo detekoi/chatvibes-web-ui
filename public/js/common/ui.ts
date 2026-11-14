@@ -219,16 +219,3 @@ export function closeDialog(dialogEl: HTMLDialogElement | null): void {
     dialogEl.removeAttribute('open');
   }
 }
-
-/**
- * Synchronise values between two textarea elements.
- */
-export function syncTextareas(el1: HTMLTextAreaElement | null, el2: HTMLTextAreaElement | null): void {
-  if (!el1 || !el2) return;
-  el1.addEventListener('input', () => {
-    el2.value = el1.value;
-  });
-  el2.addEventListener('input', () => {
-    el1.value = el2.value;
-  });
-}
