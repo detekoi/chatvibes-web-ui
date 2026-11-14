@@ -264,7 +264,10 @@ router.put("/preferences/:channel", authenticateApiRequest, async (req: Request,
     if (!updateData) return;
 
     // Update global user preferences using User ID
-    await db.collection(COLLECTIONS.TTS_USER_PREFS).doc(req.user.userId).set(updateData, { merge: true });
+    // The bot keeps these preferences in memory. It listens for documents with a
+    // newer updatedAt and reads them again, so every write here sets the field.
+    await db.collection(COLLECTIONS.TTS_USER_PREFS).doc(req.user.userId)
+        .set({ ...updateData, updatedAt: FieldValue.serverTimestamp() }, { merge: true });
 
     log.info("Preferences updated");
     res.json({ success: true, message: "Preferences updated successfully" });
@@ -333,7 +336,10 @@ router.put("/preferences", authenticateApiRequest, async (req: Request, res: Res
     if (!updateData) return;
 
     // Update global user preferences using User ID
-    await db.collection(COLLECTIONS.TTS_USER_PREFS).doc(req.user.userId).set(updateData, { merge: true });
+    // The bot keeps these preferences in memory. It listens for documents with a
+    // newer updatedAt and reads them again, so every write here sets the field.
+    await db.collection(COLLECTIONS.TTS_USER_PREFS).doc(req.user.userId)
+        .set({ ...updateData, updatedAt: FieldValue.serverTimestamp() }, { merge: true });
 
     log.info("Global preferences updated");
     res.json({ success: true, message: "Global preferences updated successfully" });
@@ -366,9 +372,11 @@ router.put("/opt-out", authenticateApiRequest, async (req: Request, res: Respons
     // set + merge rather than update, so opting back in on a viewer who never
     // saved a preference does not fail on a missing document.
     await db.collection(COLLECTIONS.TTS_USER_PREFS).doc(req.user.userId).set(
+      // updatedAt tells the bot to read the document again, so the opt-out
+      // applies to the next message of the viewer.
       optedOut ?
-        { globalOptOut: true, globalOptOutAt: new Date().toISOString() } :
-        { globalOptOut: FieldValue.delete(), globalOptOutAt: FieldValue.delete() },
+        { globalOptOut: true, globalOptOutAt: new Date().toISOString(), updatedAt: FieldValue.serverTimestamp() } :
+        { globalOptOut: FieldValue.delete(), globalOptOutAt: FieldValue.delete(), updatedAt: FieldValue.serverTimestamp() },
       { merge: true },
     );
     log.info({ optedOut }, "Updated global TTS opt-out");

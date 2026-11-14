@@ -41,7 +41,7 @@ jest.mock('../../services/firestore', () => {
       TTS_CHANNEL_CONFIGS: 'ttsChannelConfigs',
       TTS_USER_PREFS: 'ttsUserPreferences',
     },
-    FieldValue: { delete: jest.fn(() => ({ type: 'delete' })) },
+    FieldValue: { delete: jest.fn(() => ({ type: 'delete' })), serverTimestamp: jest.fn(() => ({ type: 'serverTimestamp' })) },
     FieldPath: MockFieldPath,
   };
 });
@@ -86,6 +86,7 @@ describe('Viewer TTS opt-out (Mocked Firestore)', () => {
     ((db as any).where as any).mockReturnValue(db);
     ((db as any).limit as any).mockReturnValue(db);
     (FieldValue.delete as any).mockImplementation(() => ({ type: 'delete' }));
+    (FieldValue.serverTimestamp as any).mockImplementation(() => ({ type: 'serverTimestamp' }));
     mockLoadGlobalUserPreferences.mockResolvedValue({});
   });
 
@@ -411,6 +412,8 @@ describe('Viewer TTS opt-out (Mocked Firestore)', () => {
       expect(options).toEqual({ merge: true });
       expect(payload.globalOptOut).toBe(true);
       expect(Date.parse(payload.globalOptOutAt)).not.toBeNaN();
+      // The bot reads the document again when updatedAt changes.
+      expect(payload.updatedAt).toEqual({ type: 'serverTimestamp' });
     });
 
     it('opts the viewer back in by deleting both fields', async () => {
@@ -425,7 +428,9 @@ describe('Viewer TTS opt-out (Mocked Firestore)', () => {
       expect(response.body).toEqual({ success: true, globalOptOut: false });
       const [payload, options] = ((db as any).set as any).mock.calls[0];
       expect(options).toEqual({ merge: true });
-      expect(payload).toEqual({ globalOptOut: { type: 'delete' }, globalOptOutAt: { type: 'delete' } });
+      expect(payload).toEqual({
+        globalOptOut: { type: 'delete' }, globalOptOutAt: { type: 'delete' }, updatedAt: { type: 'serverTimestamp' },
+      });
     });
 
     it.each([undefined, 'true', 1, null])('refuses optedOut=%p and writes nothing', async (optedOut) => {
