@@ -115,7 +115,7 @@
     "defaultVoice": "<strong>기본 음성</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "음성 음량 (0.1 ~ 10)"
+    "voiceVolume01To": "음성 음량 (0.1 ~ 2.0)"
   },
   "emoteMode": {
     "describeEmotes": "이모티콘 설명",
@@ -497,7 +497,7 @@
     "viewerVoiceLookup": "시청자 음성 조회",
     "voiceCalibration": "음성 보정",
     "voicesWithCustomVolumeSettings": "맞춤 음량 설정이 적용된 음성 목록입니다.",
-    "voiceVolume01To": "음성 볼륨(0.1 ~ 10):",
+    "voiceVolume01To": "음성 볼륨(0.1 ~ 2.0):",
     "volumeOverride": "볼륨 재지정:"
   },
   "ttsBannedWordInput": {

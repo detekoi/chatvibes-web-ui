@@ -115,7 +115,7 @@
     "defaultVoice": "<strong>Глас по подразбиране</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "Сила на гласа (0.1 до 10)"
+    "voiceVolume01To": "Сила на гласа (0.1 до 2.0)"
   },
   "emoteMode": {
     "describeEmotes": "Описване на емотиконите",
@@ -497,7 +497,7 @@
     "viewerVoiceLookup": "Търсене на глас на зрител",
     "voiceCalibration": "Калибриране на гласа",
     "voicesWithCustomVolumeSettings": "Гласове с персонализирани настройки на силата на звука.",
-    "voiceVolume01To": "Сила на гласа (0.1 до 10):",
+    "voiceVolume01To": "Сила на гласа (0.1 до 2.0):",
     "volumeOverride": "Заместване на силата на звука:"
   },
   "ttsBannedWordInput": {

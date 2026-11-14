@@ -115,7 +115,7 @@
     "defaultVoice": "<strong>Varsayılan Ses</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "Ses Düzeyi (0.1 ila 10)"
+    "voiceVolume01To": "Ses Düzeyi (0.1 ila 2.0)"
   },
   "emoteMode": {
     "describeEmotes": "İfadeleri betimle",
@@ -497,7 +497,7 @@
     "viewerVoiceLookup": "İzleyici Sesi Arama",
     "voiceCalibration": "Ses Kalibrasyonu",
     "voicesWithCustomVolumeSettings": "Özel ses düzeyi ayarları olan sesler.",
-    "voiceVolume01To": "Ses Düzeyi (0.1 ila 10):",
+    "voiceVolume01To": "Ses Düzeyi (0.1 ila 2.0):",
     "volumeOverride": "Ses Düzeyi Geçersiz Kılma:"
   },
   "ttsBannedWordInput": {

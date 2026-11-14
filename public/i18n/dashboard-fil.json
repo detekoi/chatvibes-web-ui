@@ -115,7 +115,7 @@
     "defaultVoice": "<strong>Default na Boses</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "Volume ng Boses (0.1 hanggang 10)"
+    "voiceVolume01To": "Volume ng Boses (0.1 hanggang 2.0)"
   },
   "emoteMode": {
     "describeEmotes": "Ilarawan ang mga emote",
@@ -497,7 +497,7 @@
     "viewerVoiceLookup": "Paghahanap ng Boses ng Manonood",
     "voiceCalibration": "Voice Calibration",
     "voicesWithCustomVolumeSettings": "Mga boses na may custom na setting ng volume.",
-    "voiceVolume01To": "Volume ng Boses (0.1 hanggang 10):",
+    "voiceVolume01To": "Volume ng Boses (0.1 hanggang 2.0):",
     "volumeOverride": "Override sa Volume:"
   },
   "ttsBannedWordInput": {

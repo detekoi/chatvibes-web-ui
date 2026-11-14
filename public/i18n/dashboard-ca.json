@@ -115,7 +115,7 @@
     "defaultVoice": "<strong>Veu predeterminada</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "Volum de la veu (0,1 a 10)"
+    "voiceVolume01To": "Volum de la veu (0,1 a 2,0)"
   },
   "emoteMode": {
     "describeEmotes": "Descriu les emoticones",
@@ -497,7 +497,7 @@
     "viewerVoiceLookup": "Cerca de veu d'espectador",
     "voiceCalibration": "Calibració de veu",
     "voicesWithCustomVolumeSettings": "Veus amb ajustos de volum personalitzats.",
-    "voiceVolume01To": "Volum de la veu (0.1 a 10):",
+    "voiceVolume01To": "Volum de la veu (0.1 a 2.0):",
     "volumeOverride": "Sobreescriptura de volum:"
   },
   "ttsBannedWordInput": {

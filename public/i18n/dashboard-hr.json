@@ -115,7 +115,7 @@
     "defaultVoice": "<strong>Zadani glas</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "Glasnoća glasa (0,1 do 10)"
+    "voiceVolume01To": "Glasnoća glasa (0,1 do 2,0)"
   },
   "emoteMode": {
     "describeEmotes": "Opiši emotikone",
@@ -497,7 +497,7 @@
     "viewerVoiceLookup": "Pretraživanje glasa gledatelja",
     "voiceCalibration": "Kalibracija glasa",
     "voicesWithCustomVolumeSettings": "Glasovi s prilagođenom glasnoćom.",
-    "voiceVolume01To": "Glasnoća glasa (0.1 do 10):",
+    "voiceVolume01To": "Glasnoća glasa (0.1 do 2.0):",
     "volumeOverride": "Nadjačavanje glasnoće:"
   },
   "ttsBannedWordInput": {

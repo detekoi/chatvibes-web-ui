@@ -247,7 +247,7 @@ describe('Settings API Integration Tests (Mocked Firestore)', () => {
       ['a negative bits minimum', { key: 'bitsMinimumAmount', value: -1 }],
       ['an unknown voice', { key: 'voiceId', value: 'Not_A_Real_Voice' }],
       ['a volume for an unknown voice', { key: 'voiceVolumes.Not_A_Real_Voice', value: 2 }],
-      ['a volume above the maximum', { key: 'voiceVolumes.puck', value: 11 }],
+      ['a volume above the maximum', { key: 'voiceVolumes.puck', value: 2.1 }],
       ['a style that is not a string', { key: 'style', value: 5 }],
       ['sound tags that are not a list', { key: 'disabledSoundTags', value: 'laugh' }],
       ['a sound tag that is not a string', { key: 'disabledSoundTags', value: [1] }],
@@ -366,11 +366,11 @@ describe('Settings API Integration Tests (Mocked Firestore)', () => {
       await request(app)
         .put(`/api/tts/settings/channel/${channelName}`)
         .set('Authorization', `Bearer ${authToken}`)
-        .send({ key: 'voiceVolumes.puck', value: 2.5 })
+        .send({ key: 'voiceVolumes.puck', value: 1.5 })
         .expect(200);
 
       expect((db as any).set).toHaveBeenCalledWith(
-        { voiceVolumes: { puck: 2.5 } },
+        { voiceVolumes: { puck: 1.5 } },
         { merge: true }
       );
     });
@@ -386,11 +386,11 @@ describe('Settings API Integration Tests (Mocked Firestore)', () => {
       await request(app)
         .put(`/api/tts/settings/channel/${channelName}`)
         .set('Authorization', `Bearer ${authToken}`)
-        .send({ key: `voiceVolumes.${voiceId}`, value: 2.5 })
+        .send({ key: `voiceVolumes.${voiceId}`, value: 1.5 })
         .expect(200);
 
       expect((db as any).set).toHaveBeenCalledWith(
-        { voiceVolumes: { [voiceId]: 2.5 } },
+        { voiceVolumes: { [voiceId]: 1.5 } },
         { merge: true }
       );
     });

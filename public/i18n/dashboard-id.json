@@ -115,7 +115,7 @@
     "defaultVoice": "<strong>Suara Default</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "Volume Suara (0,1 hingga 10)"
+    "voiceVolume01To": "Volume Suara (0,1 hingga 2,0)"
   },
   "emoteMode": {
     "describeEmotes": "Deskripsikan emote",
@@ -497,7 +497,7 @@
     "viewerVoiceLookup": "Pencarian Suara Penonton",
     "voiceCalibration": "Kalibrasi Suara",
     "voicesWithCustomVolumeSettings": "Suara dengan pengaturan volume kustom.",
-    "voiceVolume01To": "Volume Suara (0.1 hingga 10):",
+    "voiceVolume01To": "Volume Suara (0.1 hingga 2.0):",
     "volumeOverride": "Penggantian Volume:"
   },
   "ttsBannedWordInput": {

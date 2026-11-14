@@ -115,7 +115,7 @@
     "defaultVoice": "<strong>Voce predefinita</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "Volume voce (da 0.1 a 10)"
+    "voiceVolume01To": "Volume voce (da 0.1 a 2.0)"
   },
   "emoteMode": {
     "describeEmotes": "Descrivi emote",
@@ -497,7 +497,7 @@
     "viewerVoiceLookup": "Ricerca voce spettatore",
     "voiceCalibration": "Calibrazione voce",
     "voicesWithCustomVolumeSettings": "Voci con impostazioni di volume personalizzate.",
-    "voiceVolume01To": "Volume voce (da 0.1 a 10):",
+    "voiceVolume01To": "Volume voce (da 0.1 a 2.0):",
     "volumeOverride": "Override volume:"
   },
   "ttsBannedWordInput": {

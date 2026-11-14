@@ -246,9 +246,10 @@ export function initSettingsModule(
 
   function updateVolumeSlider(voiceId: string): void {
     if (!defaultVolumeSlider || !volumeValueSpan) return;
-    const vol = currentVoiceVolumes[voiceId] ?? 1.0;
+    const raw = currentVoiceVolumes[voiceId] ?? 1.0;
+    const vol = Number.isFinite(raw) ? Math.min(2.0, Math.max(0.1, raw)) : 1.0;
     defaultVolumeSlider.value = String(vol);
-    volumeValueSpan.textContent = String(vol);
+    volumeValueSpan.textContent = defaultVolumeSlider.value;
   }
 
   function setupAutoSaveListeners(): void {
@@ -572,11 +573,17 @@ export function initSettingsModule(
         if (currentVoiceId() === voiceId && defaultVolumeSlider) {
           defaultVolumeSlider.value = String(volume);
           if (volumeValueSpan) volumeValueSpan.textContent = String(volume);
+          updateSidebarPreview();
         }
       },
       onReset: async (voiceId) => {
         await api.saveTtsSetting(getChannelName() || '', `voiceVolumes.${voiceId}`, 1.0);
         maybeSuccessToast(t('msg.action.saved'));
+        if (currentVoiceId() === voiceId && defaultVolumeSlider) {
+          defaultVolumeSlider.value = '1.0';
+          if (volumeValueSpan) volumeValueSpan.textContent = '1.0';
+          updateSidebarPreview();
+        }
       },
       sliderId: 'calibration-volume',
       valueSpanId: 'calibration-volume-value',

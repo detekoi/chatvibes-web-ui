@@ -181,7 +181,7 @@ apiRouter.get("/tts/user-voice/:username", authenticateApiRequest, async (req: R
 });
 
 // The highest volume a channel can store for a voice (see settings.ts).
-const MAX_TEST_VOLUME = 10;
+const MAX_TEST_VOLUME = 2;
 
 // Route: /api/tts/test - Test TTS functionality
 // Authenticate first: ttsTestLimiter keys on req.user.userId and falls back to

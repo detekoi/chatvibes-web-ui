@@ -115,7 +115,7 @@
     "defaultVoice": "<strong>Výchozí hlas</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "Hlasitost hlasu (0,1 až 10)"
+    "voiceVolume01To": "Hlasitost hlasu (0,1 až 2,0)"
   },
   "emoteMode": {
     "describeEmotes": "Popisovat emotikony",
@@ -497,7 +497,7 @@
     "viewerVoiceLookup": "Vyhledání hlasu diváka",
     "voiceCalibration": "Kalibrace hlasu",
     "voicesWithCustomVolumeSettings": "Hlasy s vlastním nastavením hlasitosti.",
-    "voiceVolume01To": "Hlasitost hlasu (0,1 až 10):",
+    "voiceVolume01To": "Hlasitost hlasu (0,1 až 2,0):",
     "volumeOverride": "Přepsání hlasitosti:"
   },
   "ttsBannedWordInput": {

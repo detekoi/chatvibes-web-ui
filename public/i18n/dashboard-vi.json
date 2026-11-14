@@ -115,7 +115,7 @@
     "defaultVoice": "<strong>Giọng mặc định</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "Âm lượng giọng (0.1 đến 10)"
+    "voiceVolume01To": "Âm lượng giọng (0.1 đến 2.0)"
   },
   "emoteMode": {
     "describeEmotes": "Mô tả emote",
@@ -497,7 +497,7 @@
     "viewerVoiceLookup": "Tra cứu giọng người xem",
     "voiceCalibration": "Hiệu chỉnh giọng đọc",
     "voicesWithCustomVolumeSettings": "Các giọng có cài đặt âm lượng tùy chỉnh.",
-    "voiceVolume01To": "Âm lượng giọng (0.1 đến 10):",
+    "voiceVolume01To": "Âm lượng giọng (0.1 đến 2.0):",
     "volumeOverride": "Ghi đè âm lượng:"
   },
   "ttsBannedWordInput": {

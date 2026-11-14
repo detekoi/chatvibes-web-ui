@@ -115,7 +115,7 @@
     "defaultVoice": "<strong>เสียงเริ่มต้น</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "ระดับเสียง (0.1 ถึง 10)"
+    "voiceVolume01To": "ระดับเสียง (0.1 ถึง 2.0)"
   },
   "emoteMode": {
     "describeEmotes": "อธิบายอีโมต",
@@ -497,7 +497,7 @@
     "viewerVoiceLookup": "ค้นหาเสียงของผู้ชม",
     "voiceCalibration": "การปรับเทียบระดับเสียง",
     "voicesWithCustomVolumeSettings": "เสียงที่มีการปรับระดับเสียงแบบกำหนดเอง",
-    "voiceVolume01To": "ระดับความดังเสียง (0.1 ถึง 10):",
+    "voiceVolume01To": "ระดับความดังเสียง (0.1 ถึง 2.0):",
     "volumeOverride": "แทนที่ระดับความดัง:"
   },
   "ttsBannedWordInput": {

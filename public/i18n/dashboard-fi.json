@@ -115,7 +115,7 @@
     "defaultVoice": "<strong>Oletusääni</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "Äänenvoimakkuus (0,1–10)"
+    "voiceVolume01To": "Äänenvoimakkuus (0,1–2,0)"
   },
   "emoteMode": {
     "describeEmotes": "Kuvaile hymiöt",
@@ -497,7 +497,7 @@
     "viewerVoiceLookup": "Katsojan äänen haku",
     "voiceCalibration": "Äänen kalibrointi",
     "voicesWithCustomVolumeSettings": "Äänet, joilla on mukautettu äänenvoimakkuus.",
-    "voiceVolume01To": "Äänenvoimakkuus (0,1–10):",
+    "voiceVolume01To": "Äänenvoimakkuus (0,1–2,0):",
     "volumeOverride": "Äänenvoimakkuuden ohitus:"
   },
   "ttsBannedWordInput": {

@@ -115,7 +115,7 @@
     "defaultVoice": "<strong>Domyślny głos</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "Głośność głosu (od 0,1 do 10)"
+    "voiceVolume01To": "Głośność głosu (od 0,1 do 2,0)"
   },
   "emoteMode": {
     "describeEmotes": "Opisuj emotki",
@@ -497,7 +497,7 @@
     "viewerVoiceLookup": "Wyszukiwanie głosu widza",
     "voiceCalibration": "Kalibracja głosu",
     "voicesWithCustomVolumeSettings": "Głosy z niestandardowymi ustawieniami głośności.",
-    "voiceVolume01To": "Głośność głosu (0,1 do 10):",
+    "voiceVolume01To": "Głośność głosu (0,1 do 2,0):",
     "volumeOverride": "Nadpisanie głośności:"
   },
   "ttsBannedWordInput": {

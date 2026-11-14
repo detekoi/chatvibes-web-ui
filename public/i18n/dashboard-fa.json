@@ -115,7 +115,7 @@
     "defaultVoice": "<strong>صدای پیش‌فرض</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "بلندی صدا (0.1 تا 10)"
+    "voiceVolume01To": "بلندی صدا (0.1 تا 2.0)"
   },
   "emoteMode": {
     "describeEmotes": "توصیف ایموت‌ها",
@@ -497,7 +497,7 @@
     "viewerVoiceLookup": "جستجوی صدای بیننده",
     "voiceCalibration": "کالیبراسیون صدا",
     "voicesWithCustomVolumeSettings": "صداهای دارای تنظیمات بلندی صدای سفارشی.",
-    "voiceVolume01To": "بلندی صدا (0.1 تا 10):",
+    "voiceVolume01To": "بلندی صدا (0.1 تا 2.0):",
     "volumeOverride": "جایگزینی بلندی صدا:"
   },
   "ttsBannedWordInput": {

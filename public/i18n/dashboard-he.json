@@ -115,7 +115,7 @@
     "defaultVoice": "<strong>קול ברירת מחדל</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "עוצמת קול (0.1 עד 10)"
+    "voiceVolume01To": "עוצמת קול (0.1 עד 2.0)"
   },
   "emoteMode": {
     "describeEmotes": "תיאור אימוטים",
@@ -497,7 +497,7 @@
     "viewerVoiceLookup": "חיפוש קול צופה",
     "voiceCalibration": "כיול קול",
     "voicesWithCustomVolumeSettings": "קולות עם הגדרות עוצמת שמע מותאמות אישית.",
-    "voiceVolume01To": "עוצמת קול (0.1 עד 10):",
+    "voiceVolume01To": "עוצמת קול (0.1 עד 2.0):",
     "volumeOverride": "דריסת עוצמת קול:"
   },
   "ttsBannedWordInput": {

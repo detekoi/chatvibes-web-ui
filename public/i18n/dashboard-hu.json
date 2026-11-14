@@ -115,7 +115,7 @@
     "defaultVoice": "<strong>Alapértelmezett hang</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "Hang hangereje (0,1-től 10-ig)"
+    "voiceVolume01To": "Hang hangereje (0,1-től 2,0-ig)"
   },
   "emoteMode": {
     "describeEmotes": "Emote-ok leírása",
@@ -497,7 +497,7 @@
     "viewerVoiceLookup": "Nézői hang keresése",
     "voiceCalibration": "Hang kalibrálása",
     "voicesWithCustomVolumeSettings": "Egyéni hangerő-beállításokkal rendelkező hangok.",
-    "voiceVolume01To": "Hang hangereje (0,1 – 10):",
+    "voiceVolume01To": "Hang hangereje (0,1 – 2,0):",
     "volumeOverride": "Hangerő felülbírálása:"
   },
   "ttsBannedWordInput": {
