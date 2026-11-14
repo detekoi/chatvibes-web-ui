@@ -170,8 +170,8 @@
         "medium": "Nada sederhana",
         "high": "Nada tinggi"
       },
-      "studioOnly": "Suara Studio sahaja",
-      "studioTag": "Studio",
+      "studioOnly": "Hanya suara yang bertutur semua bahasa",
+      "studioTag": "Semua bahasa",
       "count": "Suara ditemui: {count}",
       "legacy": "Suara legasi ({id})",
       "stopSample": "Hentikan sampel {voice}"

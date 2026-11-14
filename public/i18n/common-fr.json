@@ -170,8 +170,8 @@
         "medium": "Moyen",
         "high": "Aigu"
       },
-      "studioOnly": "Voix Studio uniquement",
-      "studioTag": "Studio",
+      "studioOnly": "Uniquement les voix parlant toutes les langues",
+      "studioTag": "Toutes les langues",
       "count": "Voix trouvées : {count}",
       "legacy": "Ancienne voix ({id})",
       "stopSample": "Arrêter l'extrait de {voice}"

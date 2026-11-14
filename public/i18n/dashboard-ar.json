@@ -481,7 +481,7 @@
   },
   "tabViewerDefaults": {
     "adjustTheVolumeForThe": "ضبط مستوى الصوت للصوت المحدد. تنبيه: القيم الأكبر من 1.0 قد تؤدي إلى تشويش الصوت.",
-    "calibratedVoices": "الأصوات المعايرة",
+    "calibratedVoices": "الأصوات المُعايرة",
     "calibrateVolumeForSpecificVoices": "معايرة مستوى الصوت لأصوات معينة. تنبيه: القيم الأكبر من 1.0 قد تؤدي إلى تشويش الصوت.",
     "defaultEmotion": "<strong>الشعور الافتراضي</strong>",
     "defaultLanguage": "<strong>اللغة الافتراضية</strong>",

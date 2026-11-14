@@ -170,8 +170,8 @@
         "medium": "To mitjà",
         "high": "To agut"
       },
-      "studioOnly": "Només veus d'estudi",
-      "studioTag": "Estudi",
+      "studioOnly": "Només veus que parlen tots els idiomes",
+      "studioTag": "Tots els idiomes",
       "count": "Veus trobades: {count}",
       "legacy": "Veu antiga ({id})",
       "stopSample": "Atura la mostra de {voice}"

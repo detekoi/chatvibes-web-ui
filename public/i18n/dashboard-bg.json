@@ -445,7 +445,7 @@
     "perStreamLimit": "Лимит за стрийм",
     "perUserPerStream": "На потребител за стрийм",
     "profanityFilter": "Филтър за вулгаризми",
-    "pronunciationDictionary": "Речник за произношение",
+    "pronunciationDictionary": "Речник на произношението",
     "readAloudChatMessagesThat": "Изчитане на глас на съобщения от чата, които започват с „!“, като !lurk или !so за друг бот. !tts винаги работи.",
     "readAloudTheMessageA": "Прочитане на глас на съобщението, което зрител добавя към cheer",
     "readChatCommands": "Четене на чат команди",

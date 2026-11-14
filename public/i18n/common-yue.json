@@ -170,8 +170,8 @@
         "medium": "中音",
         "high": "高音"
       },
-      "studioOnly": "只顯示錄音室語音",
-      "studioTag": "錄音室",
+      "studioOnly": "只限識講所有語言嘅語音",
+      "studioTag": "所有語言",
       "count": "搵到嘅語音：{count}",
       "legacy": "舊版語音 ({id})",
       "stopSample": "停止播放 {voice} 嘅試聽樣本"

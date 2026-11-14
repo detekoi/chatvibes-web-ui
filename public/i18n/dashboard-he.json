@@ -459,7 +459,7 @@
     "ttsDoesNotReadMessages": "TTS אינו מקריא הודעות ממשתמשים ברשימה זו.",
     "ttsEngineEnabled": "מנוע ה-TTS מופעל",
     "ttsExpandsCommonTwitchAcronyms": "TTS מרחיב קיצורי Twitch נפוצים למילים. לדוגמה, “ngl” הופך ל-“not gonna lie”. כבה כדי לאיית כל אות בנפרד.",
-    "ttsIgnoreList": "רשימת התעלמות של TTS",
+    "ttsIgnoreList": "רשימת התעלמות TTS",
     "ttsMode": "<strong>מצב TTS</strong>",
     "ttsPermission": "<strong>הרשאת TTS</strong>",
     "ttsReplacesProfanityWithMilder": "TTS מחליף ניבולי פה במילים עדינות יותר לפני ההקראה. המסנן משתמש בשפת הערוץ ובשפת הצופה. אם השפה מוגדרת כאוטומטית, המסנן משתמש ברשימה באנגלית. מילים חסומות עדיין ידלגו על ההודעה כולה.",

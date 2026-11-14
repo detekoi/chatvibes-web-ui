@@ -417,7 +417,7 @@
     "announceWhenAViewerRedeems": "시청자가 Channel Points 보상을 사용했을 때 알림",
     "anonymizeNewFollowers": "새 팔로워 익명 처리",
     "bannedWordsCommaSeparated": "금지어 (쉼표로 구분)",
-    "bannedWordsPhrases": "금지 단어 / 문구",
+    "bannedWordsPhrases": "금지어 / 문구",
     "blockLinks": "링크 차단",
     "botRespondsInChat": "봇의 채팅 응답",
     "channelPointsTts": "Channel Points → TTS",

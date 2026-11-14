@@ -170,8 +170,8 @@
         "medium": "Srednja višina",
         "high": "Visoka višina"
       },
-      "studioOnly": "Samo studijski glasovi",
-      "studioTag": "Studio",
+      "studioOnly": "Samo glasovi, ki govorijo vse jezike",
+      "studioTag": "Vsak jezik",
       "count": "Najdeni glasovi: {count}",
       "legacy": "Starejši glas ({id})",
       "stopSample": "Ustavi vzorec glasu {voice}"

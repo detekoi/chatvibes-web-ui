@@ -170,8 +170,8 @@
         "medium": "Střední výška",
         "high": "Vysoká výška"
       },
-      "studioOnly": "Pouze studiové hlasy",
-      "studioTag": "Studio",
+      "studioOnly": "Pouze hlasy mluvící všemi jazyky",
+      "studioTag": "Všechny jazyky",
       "count": "Nalezených hlasů: {count}",
       "legacy": "Starší hlas ({id})",
       "stopSample": "Zastavit ukázku hlasu {voice}"

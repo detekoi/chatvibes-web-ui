@@ -459,7 +459,7 @@
     "ttsDoesNotReadMessages": "El TTS no llegeix els missatges dels usuaris d'aquesta llista.",
     "ttsEngineEnabled": "Motor de TTS activat",
     "ttsExpandsCommonTwitchAcronyms": "El TTS expandeix els acrònims comuns de Twitch en paraules. Per exemple, «ngl» es converteix en «not gonna lie». Desactiva-ho per lletrejar cada lletra.",
-    "ttsIgnoreList": "Llista d'ignorats del TTS",
+    "ttsIgnoreList": "Llista d'ignorats de TTS",
     "ttsMode": "<strong>Mode de TTS</strong>",
     "ttsPermission": "<strong>Permís de TTS</strong>",
     "ttsReplacesProfanityWithMilder": "El TTS substitueix les paraules vulgars per altres de més suaus abans de parlar. El filtre utilitza l'idioma del canal i el de l'espectador. Si l'idioma està definit com a automàtic, el filtre utilitza la llista en anglès. Les paraules vetades continuen ometent tot el missatge.",

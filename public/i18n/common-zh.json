@@ -170,8 +170,8 @@
         "medium": "中音调",
         "high": "高音调"
       },
-      "studioOnly": "仅限录音室语音",
-      "studioTag": "录音室",
+      "studioOnly": "仅限支持所有语言的语音",
+      "studioTag": "所有语言",
       "count": "已找到 {count} 个语音",
       "legacy": "旧版语音 ({id})",
       "stopSample": "停止播放 {voice} 的试听样本"

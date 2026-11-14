@@ -170,8 +170,8 @@
         "medium": "Tono medio",
         "high": "Tono agudo"
       },
-      "studioOnly": "Solo voces de estudio",
-      "studioTag": "Estudio",
+      "studioOnly": "Solo voces que hablan todos los idiomas",
+      "studioTag": "Todos los idiomas",
       "count": "Voces encontradas: {count}",
       "legacy": "Voz heredada ({id})",
       "stopSample": "Detener muestra de {voice}"

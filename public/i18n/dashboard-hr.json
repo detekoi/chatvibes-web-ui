@@ -459,7 +459,7 @@
     "ttsDoesNotReadMessages": "TTS ne čita poruke korisnika s ovog popisa.",
     "ttsEngineEnabled": "TTS mehanizam omogućen",
     "ttsExpandsCommonTwitchAcronyms": "TTS proširuje uobičajene Twitch kratice u riječi. Na primjer, „ngl” postaje „not gonna lie”. Isključi kako bi se sricalo slovo po slovo.",
-    "ttsIgnoreList": "TTS popis ignoriranih",
+    "ttsIgnoreList": "TTS popis za ignoriranje",
     "ttsMode": "<strong>TTS način rada</strong>",
     "ttsPermission": "<strong>TTS dopuštenje</strong>",
     "ttsReplacesProfanityWithMilder": "TTS zamjenjuje psovke blažim riječima prije izgovora. Filtar koristi jezik kanala i jezik gledatelja. Ako je jezik postavljen na Automatski, filtar koristi engleski popis. Zabranjene riječi i dalje preskaču cijelu poruku.",

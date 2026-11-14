@@ -459,7 +459,7 @@
     "ttsDoesNotReadMessages": "Le TTS ne lit pas les messages des utilisateurs de cette liste.",
     "ttsEngineEnabled": "Moteur TTS activé",
     "ttsExpandsCommonTwitchAcronyms": "Le TTS développe les acronymes courants de Twitch en mots complets. Par exemple, « ngl » devient « not gonna lie ». Désactivez pour épeler chaque lettre.",
-    "ttsIgnoreList": "Liste d'utilisateurs ignorés par le TTS",
+    "ttsIgnoreList": "Liste d'exclusion TTS",
     "ttsMode": "<strong>Mode TTS</strong>",
     "ttsPermission": "<strong>Permissions TTS</strong>",
     "ttsReplacesProfanityWithMilder": "Le TTS remplace les vulgarités par des termes plus doux avant la lecture. Le filtre utilise la langue de la chaîne et celle du viewer. Si la langue est définie sur Automatique, le filtre utilise la liste anglaise. Les mots bannis ignorent tout le message.",

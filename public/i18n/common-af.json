@@ -170,8 +170,8 @@
         "medium": "Medium toonhoogte",
         "high": "Hoë toonhoogte"
       },
-      "studioOnly": "Slegs ateljeestemme",
-      "studioTag": "Ateljee",
+      "studioOnly": "Net stemme wat elke taal praat",
+      "studioTag": "Elke taal",
       "count": "Stemme gevind: {count}",
       "legacy": "Verouderde stem ({id})",
       "stopSample": "Stop die voorbeeld van {voice}"

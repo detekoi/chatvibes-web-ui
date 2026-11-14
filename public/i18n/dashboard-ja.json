@@ -459,7 +459,7 @@
     "ttsDoesNotReadMessages": "TTSはこのリストに含まれるユーザーからのメッセージを読み上げません。",
     "ttsEngineEnabled": "TTSエンジン有効",
     "ttsExpandsCommonTwitchAcronyms": "TTSは一般的なTwitchの略語を単語に展開して読み上げます（例: 「ngl」→「not gonna lie」）。無効にすると1文字ずつ読み上げます。",
-    "ttsIgnoreList": "TTS無視リスト",
+    "ttsIgnoreList": "TTS 除外リスト",
     "ttsMode": "<strong>TTSモード</strong>",
     "ttsPermission": "<strong>TTS権限</strong>",
     "ttsReplacesProfanityWithMilder": "TTSは不適切な表現をマイルドな言葉に置き換えて読み上げます。フィルターにはチャンネル言語と視聴者言語が使用されます。言語が「自動」に設定されている場合は英語リストが適用されます。禁止ワードを含むメッセージは全体がスキップされます。",

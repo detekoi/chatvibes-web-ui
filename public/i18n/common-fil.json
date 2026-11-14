@@ -170,8 +170,8 @@
         "medium": "Katamtamang tono",
         "high": "Mataas na tono"
       },
-      "studioOnly": "Mga Studio voice lang",
-      "studioTag": "Studio",
+      "studioOnly": "Mga boses lang na nagsasalita ng bawat wika",
+      "studioTag": "Bawat wika",
       "count": "Mga nahanap na boses: {count}",
       "legacy": "Legacy na boses ({id})",
       "stopSample": "Ihinto ang sample ng {voice}"
