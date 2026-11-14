@@ -69,7 +69,8 @@
       "*.local",
       ".env",
       "public/js/**/*.ts",
-      "public/js/**/*.js.map"
+      "public/js/**/*.js.map",
+      "assets/voices/*.mp3"
     ],
     "rewrites": [
       {

@@ -36,6 +36,8 @@ export interface ResolvedVoice {
   voice: string;
   // The manner the mapping adds for a MiniMax voice. Empty for a Gemini voice.
   voiceStyle: string;
+  // The BCP-47 language hint that the voice brings, or null.
+  language: string | null;
   legacy: boolean;
   // True when the ID was unknown and the default voice was used.
   fallback: boolean;
@@ -117,14 +119,30 @@ export function getDefaultVoiceId(): string {
   return resolveKnown(process.env.TTS_DEFAULT_VOICE_ID)?.voice ?? LAST_RESORT_VOICE;
 }
 
+const isEnglish = (tag: unknown): boolean => typeof tag !== "string" || tag.toLowerCase().startsWith("en");
+
+/**
+ * The language that a voice brings with it, as a hint for the speech model.
+ * A library voice is a native speaker of one language. A studio voice speaks
+ * every language and brings none. English is never a hint: the model assumes it.
+ * @param voice - A catalog voice
+ * @return The BCP-47 tag, or null
+ */
+function nativeLanguage(voice: GeminiVoice): string | null {
+  return voice.studio || isEnglish(voice.language) ? null : voice.language;
+}
+
 function resolveKnown(voiceId: unknown): Omit<ResolvedVoice, "fallback"> | null {
   const gemini = getGeminiVoice(voiceId);
-  if (gemini) return { voice: gemini.id, voiceStyle: "", legacy: false };
+  if (gemini) return { voice: gemini.id, voiceStyle: "", language: nativeLanguage(gemini), legacy: false };
   if (typeof voiceId !== "string") return null;
   const row = legacyByLower.get(voiceId.trim().toLowerCase());
   const mapped = row ? getGeminiVoice(row.voice) : null;
   if (row && mapped) {
-    return { voice: mapped.id, voiceStyle: typeof row.style === "string" ? row.style : "", legacy: true };
+    // A MiniMax voice had a language of its own. Many of them (Cantonese, Thai)
+    // map to a studio voice, which has none, so the language comes from the map row.
+    const language = isEnglish(row.languageCode) ? nativeLanguage(mapped) : (row.languageCode as string);
+    return { voice: mapped.id, voiceStyle: typeof row.style === "string" ? row.style : "", language, legacy: true };
   }
   return null;
 }
@@ -132,12 +150,12 @@ function resolveKnown(voiceId: unknown): Omit<ResolvedVoice, "fallback"> | null 
 /**
  * The Gemini voice to synthesize with for whatever ID is stored.
  * @param storedVoiceId - A Gemini ID, a MiniMax ID, or anything else
- * @return The voice, the manner the mapping adds, and how it was found
+ * @return The voice, the manner and the language it brings, and how it was found
  */
 export function resolveVoice(storedVoiceId: unknown): ResolvedVoice {
   const known = resolveKnown(storedVoiceId);
   if (known) return { ...known, fallback: false };
-  return { voice: getDefaultVoiceId(), voiceStyle: "", legacy: false, fallback: true };
+  return { voice: getDefaultVoiceId(), voiceStyle: "", language: null, legacy: false, fallback: true };
 }
 
 // A short hash of the catalog, so a client can tell when its copy is old.

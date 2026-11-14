@@ -1,5 +1,6 @@
 import { VoicePicker } from '../../common/voice-picker.js';
-import { t } from '../../common/i18n.js';
+import { displayError, t } from '../../common/i18n.js';
+import { showToast } from '../../common/ui.js';
 
 export interface VoiceCalibrationOptions {
     voiceDropdown: VoicePicker;
@@ -82,6 +83,7 @@ export class VoiceCalibration {
             if (!voiceId) return;
 
             const vol = parseFloat(this.slider!.value);
+            const previous = this.currentVoiceVolumes[voiceId];
 
             // Optimistic update
             this.currentVoiceVolumes[voiceId] = vol;
@@ -92,9 +94,27 @@ export class VoiceCalibration {
                 await this.onSave(voiceId, vol);
             } catch (e) {
                 console.error('Failed to save calibration', e);
-                this.saveBtn!.disabled = false; // Re-enable on error?
+                this.restoreVolume(voiceId, previous, e);
+                this.saveBtn!.disabled = false;
             }
         });
+    }
+
+    /** Show the stored volume on the slider when the slider is for this voice. */
+    private showVolumeOf(voiceId: string): void {
+        if (this.voiceDropdown.getValue() !== voiceId || !this.slider) return;
+        const volume = String(this.currentVoiceVolumes[voiceId] ?? 1.0);
+        this.slider.value = volume;
+        if (this.valueSpan) this.valueSpan.textContent = volume;
+    }
+
+    /** The server refused the change: show the value that it still holds, and say why. */
+    private restoreVolume(voiceId: string, previous: number | undefined, error: unknown): void {
+        if (previous === undefined) delete this.currentVoiceVolumes[voiceId];
+        else this.currentVoiceVolumes[voiceId] = previous;
+        this.renderList();
+        this.showVolumeOf(voiceId);
+        showToast(t('msg.settings.saveFailed', { label: t('msg.setting.voiceVolume'), reason: displayError(error) }), 'error');
     }
 
     private renderList(): void {
@@ -133,19 +153,17 @@ export class VoiceCalibration {
             resetBtn.textContent = t('msg.calibration.reset');
             resetBtn.onclick = async () => {
                 if (confirm(t('msg.calibration.confirmReset', { voice: this.voiceName(voiceId) }))) {
+                    const previous = this.currentVoiceVolumes[voiceId];
                     // Optimistic update
                     this.currentVoiceVolumes[voiceId] = 1.0;
                     this.renderList();
-
-                    if (this.voiceDropdown.getValue() === voiceId && this.slider) {
-                        this.slider.value = '1.0';
-                        if (this.valueSpan) this.valueSpan.textContent = '1.0';
-                    }
+                    this.showVolumeOf(voiceId);
 
                     try {
                         await this.onReset(voiceId);
                     } catch (e) {
                         console.error('Failed to reset', e);
+                        this.restoreVolume(voiceId, previous, e);
                     }
                 }
             };

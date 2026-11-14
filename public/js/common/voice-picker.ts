@@ -14,6 +14,7 @@ import { t } from './i18n.js';
 import {
   adoptSampleButton,
   languageName,
+  stopVoiceSample,
   toggleVoiceSample,
   type VoiceCatalog,
   type VoiceEntry,
@@ -340,6 +341,8 @@ export class VoicePicker {
     this.panel.hidden = true;
     this.trigger.setAttribute('aria-expanded', 'false');
     this.search.removeAttribute('aria-activedescendant');
+    // The rows go away with their stop buttons, so a sample must not play on.
+    stopVoiceSample();
     this.list.replaceChildren();
     this.rendered = 0;
     if (returnFocus) this.trigger.focus();

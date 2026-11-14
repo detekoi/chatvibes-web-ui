@@ -32,4 +32,4 @@ The bot repository renders the samples, because it owns the voice catalog and th
 
 ## Old MiniMax files
 
-The MP3 files directly in this directory are from the MiniMax voices. Their names end with `-welcome-everyone-to-the-stream.mp3` or `-chat-is-this-real.mp3`. The pages do not load these files.
+The MP3 files directly in this directory are from the MiniMax voices. Their names end with `-welcome-everyone-to-the-stream.mp3` or `-chat-is-this-real.mp3`. The pages do not load these files. Firebase Hosting does not deploy them: `firebase.json` lists `assets/voices/*.mp3` under `hosting.ignore`.

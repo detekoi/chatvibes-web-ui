@@ -134,24 +134,38 @@ export function initSettingsModule(
     return getLoggedInUser()?.login?.toLowerCase();
   }
 
-  async function saveSettingWrapper(key: string, value: any, label: string): Promise<void> {
-    if (isInitializing) return;
+  /** Save one setting. A failure ends in a toast. Resolves to true when the server holds the value. */
+  async function saveSettingWrapper(key: string, value: any, label: string): Promise<boolean> {
+    if (isInitializing) return false;
     const channelName = getChannelName();
     if (testMode) {
       maybeSuccessToast(t('msg.action.saved'));
-      return;
+      return true;
     }
     if (!channelName) {
       showToast(t('msg.auth.signedOut'), 'error');
-      return;
+      return false;
     }
     try {
       await api.saveTtsSetting(channelName, key, value);
       maybeSuccessToast(t('msg.action.saved'));
+      return true;
     } catch (e) {
       const err = e as Error;
       showToast(t('msg.settings.saveFailed', { label, reason: displayError(err) }), 'error');
+      return false;
     }
+  }
+
+  // The emotion and the style are one choice, and the server removes the style
+  // when it saves an emotion. Their saves go out one at a time, in the order of
+  // the clicks: with two requests in flight, a style that arrives after the
+  // emotion stays stored and replaces it.
+  let emotionSaveQueue: Promise<unknown> = Promise.resolve();
+  function saveEmotionOrStyle(key: 'emotion' | 'style', value: string, label: string): Promise<boolean> {
+    const run = emotionSaveQueue.then(() => saveSettingWrapper(key, value, label));
+    emotionSaveQueue = run;
+    return run;
   }
 
   /** The voice that the channel uses: the stored one, else the default that the API reports. */
@@ -191,9 +205,19 @@ export function initSettingsModule(
   function saveStyle(): void {
     const style = currentStyle();
     if (style === storedStyle) return;
+    const previous = storedStyle;
     storedStyle = style;
-    saveSettingWrapper('style', style, t('msg.setting.style'));
     updateSidebarPreview();
+    void saveEmotionOrStyle('style', style, t('msg.setting.style')).then((saved) => {
+      // A newer change owns the value now.
+      if (saved || storedStyle !== style) return;
+      // The server still holds the previous style. The text stays in the box, so
+      // that the next blur sends it again.
+      storedStyle = previous;
+      // A style that was not removed is still the one that applies: show it again.
+      if (!style) showEmotionAndStyle();
+      updateSidebarPreview();
+    });
   }
 
   function renderSoundTags(): void {
@@ -268,34 +292,49 @@ export function initSettingsModule(
       bitsAmountInput.addEventListener('change', () => saveSettingWrapper('bitsMinimumAmount', Math.max(1, parseInt(bitsAmountInput.value || '1', 10) || 1), t('msg.setting.minimumBits')));
     }
 
+    // While the reader types, an empty box is a step on the way to new text. Do not save it.
+    const debouncedStyleSave = debounce(() => { if (currentStyle()) saveStyle(); }, 800);
+
     if (defaultEmotionSelect) defaultEmotionSelect.addEventListener('change', () => {
+      // The choice is made. A style save that still waits would undo it.
+      debouncedStyleSave.cancel();
       if (defaultEmotionSelect.value === CUSTOM_EMOTION) {
         // Nothing to save until there is text: an empty style means that the emotion applies.
         if (defaultStyleGroup) defaultStyleGroup.hidden = false;
         updateStyleCount();
         defaultStyleInput?.focus();
       } else {
-        storedEmotion = defaultEmotionSelect.value || 'neutral';
+        const previousEmotion = storedEmotion;
+        const previousStyle = storedStyle;
+        const emotion = defaultEmotionSelect.value || 'neutral';
+        storedEmotion = emotion;
         storedStyle = '';
         showEmotionAndStyle();
-        saveSettingWrapper('emotion', storedEmotion, t('msg.setting.defaultEmotion'));
+        void saveEmotionOrStyle('emotion', emotion, t('msg.setting.defaultEmotion')).then((saved) => {
+          // A newer change owns the values now.
+          if (saved || storedEmotion !== emotion || storedStyle !== '') return;
+          storedEmotion = previousEmotion;
+          storedStyle = previousStyle;
+          showEmotionAndStyle();
+          updateSidebarPreview();
+        });
       }
       updateSidebarPreview();
     });
 
     if (defaultStyleInput) {
       defaultStyleInput.maxLength = STYLE_MAX_LENGTH;
-      // While the reader types, an empty box is a step on the way to new text. Do not save it.
-      const debouncedStyleSave = debounce(() => { if (currentStyle()) saveStyle(); }, 800);
       defaultStyleInput.addEventListener('input', () => {
         updateStyleCount();
         if (!isInitializing) debouncedStyleSave();
       });
       defaultStyleInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') defaultStyleInput.blur(); });
-      defaultStyleInput.addEventListener('blur', () => {
+      defaultStyleInput.addEventListener('blur', (e) => {
+        debouncedStyleSave.cancel();
         saveStyle();
         // An empty style means that the emotion applies, so show the emotion again.
-        if (!storedStyle) showEmotionAndStyle();
+        // Not while the reader opens the emotion list, which this would change under them.
+        if (!storedStyle && (e as FocusEvent).relatedTarget !== defaultEmotionSelect) showEmotionAndStyle();
         updateSidebarPreview();
       });
     }

@@ -35,6 +35,11 @@ describe("style", () => {
     it.each([[undefined], [null], [""], ["fast"], [NaN], [{}]])("should use the normal step for %p", (speed) => {
       expect(speedStep(speed)?.key).toBe("normal");
     });
+
+    // A speed of 0 or less is not a stored value. Without the guard it was "very slow".
+    it.each([[0], ["0"], [-1], [false], ["   "]])("should use the normal step for %p, which is not a speed", (speed) => {
+      expect(speedStep(speed)?.key).toBe("normal");
+    });
   });
 
   describe("pitchStep", () => {

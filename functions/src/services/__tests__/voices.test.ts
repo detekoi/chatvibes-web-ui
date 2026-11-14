@@ -23,6 +23,8 @@ const mapFile = join(dir, "map.json");
 writeFileSync(mapFile, JSON.stringify({
   "Friendly_Person": { voice: "kore", style: "warm and friendly" },
   "Chinese (Mandarin)_News_Anchor": { voice: "Zephyr", languageCode: "cmn-CN" },
+  "English_To_Arabic": { voice: "ar-001-advisor-1", languageCode: "en-US" },
+  "No_Code_To_Arabic": { voice: "ar-001-advisor-1" },
   // A row that points at no Gemini voice is not usable.
   "Broken_Voice": { voice: "not-a-gemini-voice" },
   // A MiniMax ID never hides a Gemini ID.
@@ -127,20 +129,43 @@ describe("voices", () => {
 
   describe("resolveVoice", () => {
     it("should resolve a Gemini ID to itself", () => {
-      expect(resolveVoice("Kore")).toEqual({ voice: "kore", voiceStyle: "", legacy: false, fallback: false });
+      expect(resolveVoice("Kore")).toEqual({ voice: "kore", voiceStyle: "", language: null, legacy: false, fallback: false });
     });
 
     it("should resolve a MiniMax ID through the map, with its manner", () => {
-      expect(resolveVoice("Friendly_Person")).toEqual({ voice: "kore", voiceStyle: "warm and friendly", legacy: true, fallback: false });
-      expect(resolveVoice("Chinese (Mandarin)_News_Anchor")).toEqual({ voice: "zephyr", voiceStyle: "", legacy: true, fallback: false });
+      expect(resolveVoice("Friendly_Person"))
+          .toEqual({ voice: "kore", voiceStyle: "warm and friendly", language: null, legacy: true, fallback: false });
+    });
+
+    // The same rules as resolveVoice in voiceResolver.js of the bot.
+    describe("language", () => {
+      it("should give the language of a library voice that is not English", () => {
+        expect(resolveVoice("ar-001-advisor-1").language).toBe("ar-001");
+      });
+
+      it("should give no language for an English library voice or a studio voice", () => {
+        expect(resolveVoice("en-au-advisor-1").language).toBeNull();
+        expect(resolveVoice("zephyr").language).toBeNull();
+      });
+
+      it("should give the language of the map row when a MiniMax voice maps to a studio voice", () => {
+        expect(resolveVoice("Chinese (Mandarin)_News_Anchor"))
+            .toEqual({ voice: "zephyr", voiceStyle: "", language: "cmn-CN", legacy: true, fallback: false });
+      });
+
+      it("should give the language of the target when the map row is English or has none", () => {
+        expect(resolveVoice("English_To_Arabic").language).toBe("ar-001");
+        expect(resolveVoice("No_Code_To_Arabic").language).toBe("ar-001");
+        expect(resolveVoice("Friendly_Person").language).toBeNull();
+      });
     });
 
     it("should prefer the Gemini voice when a MiniMax ID has the same name", () => {
-      expect(resolveVoice("puck")).toEqual({ voice: "puck", voiceStyle: "", legacy: false, fallback: false });
+      expect(resolveVoice("puck")).toEqual({ voice: "puck", voiceStyle: "", language: null, legacy: false, fallback: false });
     });
 
     it("should fall back to the default voice for anything else", () => {
-      const fallback = { voice: "puck", voiceStyle: "", legacy: false, fallback: true };
+      const fallback = { voice: "puck", voiceStyle: "", language: null, legacy: false, fallback: true };
       expect(resolveVoice("Not_A_Real_Voice")).toEqual(fallback);
       expect(resolveVoice("Broken_Voice")).toEqual(fallback);
       expect(resolveVoice(null)).toEqual(fallback);
@@ -149,7 +174,8 @@ describe("voices", () => {
 
     it("should fall back for a MiniMax ID when the map file is missing", () => {
       loadLegacyVoiceMap([missingFile]);
-      expect(resolveVoice("Friendly_Person")).toEqual({ voice: "puck", voiceStyle: "", legacy: false, fallback: true });
+      expect(resolveVoice("Friendly_Person"))
+          .toEqual({ voice: "puck", voiceStyle: "", language: null, legacy: false, fallback: true });
     });
   });
 

@@ -2,22 +2,27 @@
  * Generic utility helpers shared across pages.
  */
 
+/** A debounced function. `cancel` drops a call that waits. */
+export type Debounced<T extends (...args: unknown[]) => void> = ((...args: Parameters<T>) => void) & { cancel: () => void };
+
 /**
  * Creates a debounced function.
  */
 export function debounce<T extends (...args: unknown[]) => void>(
   func: T,
   wait: number
-): (...args: Parameters<T>) => void {
+): Debounced<T> {
   let timeout: ReturnType<typeof setTimeout> | undefined;
-  return function executedFunction(this: any, ...args: Parameters<T>): void {
+  const debounced = function executedFunction(this: any, ...args: Parameters<T>): void {
     const later = (): void => {
       clearTimeout(timeout);
       func.apply(this, args);
     };
     clearTimeout(timeout);
     timeout = setTimeout(later, wait);
-  };
+  } as Debounced<T>;
+  debounced.cancel = (): void => { clearTimeout(timeout); };
+  return debounced;
 }
 
 /**

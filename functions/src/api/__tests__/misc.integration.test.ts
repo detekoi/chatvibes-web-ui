@@ -14,7 +14,10 @@ import {join} from 'path';
 
 // The synced MiniMax map is optional, so the tests bring their own.
 const legacyMapFile = join(mkdtempSync(join(tmpdir(), 'voice-map-')), 'map.json');
-writeFileSync(legacyMapFile, JSON.stringify({'Friendly_Person': {voice: 'kore', style: 'warm and friendly'}}));
+writeFileSync(legacyMapFile, JSON.stringify({
+  'Friendly_Person': {voice: 'kore', style: 'warm and friendly'},
+  'Cantonese_Voice': {voice: 'zephyr', languageCode: 'yue-HK'},
+}));
 
 describe('Misc API Integration Tests', () => {
   let app: any;
@@ -291,6 +294,43 @@ describe('Misc API Integration Tests', () => {
 
       expect(sentBody().generation_config.speech_config).toEqual([{ voice: 'kore' }]);
       expect(sentBody().input[0].content[0].annotations[0].style).toBe('angry');
+    });
+
+    // The viewer page always names the voice in the request, also when it is the stored one.
+    it('should keep the stored manner and language when the request names the stored voice', async () => {
+      await db.collection('ttsUserPreferences').doc(testUser.userId).set({
+        voiceId: 'zephyr', voiceStyle: 'in a soft voice', voiceLanguage: 'th-TH',
+      });
+
+      await post({text: 'Hello world', voiceId: 'Zephyr'}).expect(200);
+
+      expect(sentBody().generation_config.speech_config).toEqual([{ voice: 'zephyr', language: 'th-TH' }]);
+      expect(sentBody().input[0].content[0].annotations[0].style).toBe('in a soft voice');
+    });
+
+    it('should not carry the stored language over to a different voice', async () => {
+      await db.collection('ttsUserPreferences').doc(testUser.userId).set({
+        voiceId: 'zephyr', voiceLanguage: 'th-TH',
+      });
+
+      await post({text: 'Hello world', voiceId: 'kore'}).expect(200);
+
+      expect(sentBody().generation_config.speech_config).toEqual([{ voice: 'kore' }]);
+    });
+
+    it('should send the language that the voice brings, as the bot does', async () => {
+      await post({text: 'Hello world', voiceId: 'ar-001-advisor-1'}).expect(200);
+      expect(sentBody().generation_config.speech_config).toEqual([{ voice: 'ar-001-advisor-1', language: 'ar-001' }]);
+    });
+
+    it('should send the language of a mapped MiniMax voice', async () => {
+      await post({text: 'Hello world', voiceId: 'Cantonese_Voice'}).expect(200);
+      expect(sentBody().generation_config.speech_config).toEqual([{ voice: 'zephyr', language: 'yue-HK' }]);
+    });
+
+    it('should let an explicit language win over the language of the voice', async () => {
+      await post({text: 'Hello world', voiceId: 'ar-001-advisor-1', languageBoost: 'Japanese'}).expect(200);
+      expect(sentBody().generation_config.speech_config).toEqual([{ voice: 'ar-001-advisor-1', language: 'ja' }]);
     });
 
     it('should apply the volume to the samples and clip at full scale', async () => {

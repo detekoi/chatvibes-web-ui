@@ -394,6 +394,30 @@ describe('Settings API Integration Tests (Mocked Firestore)', () => {
         { merge: true }
       );
     });
+    // A volume can be stored under an ID that is no voice any more. The dashboard
+    // lists it with a Reset button, so the reset must not be refused.
+    it('should accept a reset to 1 for a stored ID that is not a voice', async () => {
+      ((db as any).set as any).mockResolvedValueOnce({} as any);
+
+      await request(app)
+        .put(`/api/tts/settings/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ key: 'voiceVolumes.Not_A_Real_Voice', value: 1 })
+        .expect(200);
+
+      expect((db as any).set).toHaveBeenCalledWith(
+        { voiceVolumes: { 'Not_A_Real_Voice': 1 } },
+        { merge: true }
+      );
+    });
+
+    it.each(['', '__name__', 'a/b', 'x'.repeat(200)])('should refuse a reset for the ID %p', async (voiceId) => {
+      await request(app)
+        .put(`/api/tts/settings/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ key: `voiceVolumes.${voiceId}`, value: 1 })
+        .expect(400);
+    });
   });
 
   describe('POST /api/tts/ignore/channel/:channelName', () => {

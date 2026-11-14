@@ -203,6 +203,7 @@ apiRouter.post("/tts/test", authenticateApiRequest, ttsTestLimiter, async (req: 
     let effective: {
       voiceId: string | null;
       voiceStyle: string | null;
+      voiceLanguage: string | null;
       emotion: string | null;
       style: string | null;
       pitch: number | null;
@@ -212,6 +213,7 @@ apiRouter.post("/tts/test", authenticateApiRequest, ttsTestLimiter, async (req: 
     } = {
       voiceId: voiceId ?? null,
       voiceStyle: null,
+      voiceLanguage: null,
       emotion: normalizeEmotion(emotion),
       style: given(style) ? style : null,
       pitch: (pitch !== undefined) ? pitch : null,
@@ -229,11 +231,17 @@ apiRouter.post("/tts/test", authenticateApiRequest, ttsTestLimiter, async (req: 
         return given(userVal) ? userVal : null; // viewer global
       };
 
+      const sameVoice = (a: unknown, b: unknown): boolean =>
+        typeof a === "string" && typeof b === "string" && a.trim().toLowerCase() === b.trim().toLowerCase();
+      const usesStoredVoice = !given(voiceId) || sameVoice(voiceId, userPrefs.voiceId);
+
       effective = {
         voiceId: pick(voiceId, userPrefs.voiceId) as string | null,
-        // The stored manner belongs to the stored voice, so a voice named in
-        // the request does not take it.
-        voiceStyle: given(voiceId) ? null : pick(null, userPrefs.voiceStyle) as string | null,
+        // The stored manner and language belong to the stored voice. A different
+        // voice named in the request does not take them. The viewer page always
+        // names the voice, so the same voice must keep them.
+        voiceStyle: usesStoredVoice ? pick(null, userPrefs.voiceStyle) as string | null : null,
+        voiceLanguage: usesStoredVoice ? pick(null, userPrefs.voiceLanguage) as string | null : null,
         emotion: normalizeEmotion(pick(emotion, userPrefs.emotion) as string | null),
         // A custom style replaces the emotion. An emotion named in the request
         // is the one to hear, so the stored style does not replace it.
@@ -277,7 +285,9 @@ apiRouter.post("/tts/test", authenticateApiRequest, ttsTestLimiter, async (req: 
         text,
         voice: resolved.voice,
         style: requestStyle,
-        language: languageHint(effective.languageBoost),
+        // As in the bot: an explicit language wins, then the language stored
+        // beside the voice, then the language that the voice brings.
+        language: languageHint(effective.languageBoost) ?? (effective.voiceLanguage || resolved.language),
         volume: gain,
       });
       res.json({ success: true, audioBase64: wav.toString("base64"), mimeType: "audio/wav", provider: "gemini", model });

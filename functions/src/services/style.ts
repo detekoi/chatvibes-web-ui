@@ -30,17 +30,16 @@ export const PITCH_STEPS = ttsConfig.PITCH_STEPS as Step[];
 export const SOUND_TAG_NAMES: string[] = ttsConfig.SOUND_TAGS.map((entry) => entry.tag);
 
 function stepFor(steps: Step[], value: unknown, fallbackKey = "normal"): Step | undefined {
-  // Number(null) and Number("") are 0, which is a real speed step. An unset
-  // value must give the normal step. The bot never passes one: it fills in
-  // its defaults first.
-  const number = value === null || value === "" ? NaN : Number(value);
+  // Number(null) and Number("") are 0, which is not a speed or a pitch anyone chose.
+  const number = value === null || value === undefined || value === "" ? NaN : Number(value);
   if (!Number.isFinite(number)) return steps.find((step) => step.key === fallbackKey);
   return steps.find((step) => step.upTo === null || number <= step.upTo);
 }
 
 /** The step that a stored speed (0.5 to 2.0) belongs to. */
 export function speedStep(speed: unknown): Step | undefined {
-  return stepFor(SPEED_STEPS, speed);
+  // A speed of 0 or less is not a valid stored value.
+  return stepFor(SPEED_STEPS, Number(speed) > 0 ? speed : null);
 }
 
 /** The step that a stored pitch (-12 to 12) belongs to. */

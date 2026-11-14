@@ -38,7 +38,7 @@ export interface HintElements {
 export interface VoiceTestOptions {
   playerElements?: PlayerElements;
   hintElements?: HintElements;
-  onAudioGenerated?: (audioUrl: string, payload: TTSPayload) => void;
+  onAudioGenerated?: (audioUrl: string) => void;
 }
 
 /**
@@ -104,10 +104,16 @@ export async function performVoiceTest(
     } else {
       const audio = new Audio(audioUrl);
       audio.addEventListener('ended', () => URL.revokeObjectURL(audioUrl));
-      await audio.play();
+      try {
+        await audio.play();
+      } catch (playError) {
+        // No "ended" event comes for audio that never played, and no caller gets the URL.
+        URL.revokeObjectURL(audioUrl);
+        throw playError;
+      }
     }
 
-    options.onAudioGenerated?.(audioUrl, payload);
+    options.onAudioGenerated?.(audioUrl);
     return audioUrl;
   } catch (error) {
     console.error('Voice test failed:', error);

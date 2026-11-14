@@ -118,8 +118,6 @@ interface PreferencesState {
   catalog: VoiceCatalog;
   currentPreferences: PreferencesData;
   cachedAudioUrl: string | null;
-  cachedSettings: TTSPayload | null;
-  isDirty: boolean;
 }
 
 /**
@@ -210,8 +208,6 @@ export function initPreferencesModule(
     catalog: buildVoiceCatalog([]),
     currentPreferences: {},
     cachedAudioUrl: null,
-    cachedSettings: null,
-    isDirty: false,
   };
 
   // The same picker as the dashboard. The empty row means "use the channel default".
@@ -235,6 +231,8 @@ export function initPreferencesModule(
     void savePreferences({ speed: value });
   });
 
+  let saveQueue: Promise<void> = Promise.resolve();
+
   attachResetButtons();
   attachPreferenceSaves();
   attachPreviewHandlers();
@@ -254,8 +252,8 @@ export function initPreferencesModule(
     getCurrentPreferences: (): PreferencesData => state.currentPreferences,
   };
 
+  /** The preview that the page holds no longer matches the settings: say so. */
   function markSettingsAsDirty(): void {
-    state.isDirty = true;
     if (elements.previewHint && state.cachedAudioUrl) elements.previewHint.style.display = 'block';
   }
 
@@ -304,14 +302,19 @@ export function initPreferencesModule(
       styleInput.maxLength = STYLE_MAX_LENGTH;
       styleInput.addEventListener('input', updateStyleCount);
       styleInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') styleInput.blur(); });
-      styleInput.addEventListener('blur', () => {
+      styleInput.addEventListener('blur', (e) => {
+        // A click on another control takes the focus away before its own event.
+        const next = (e as FocusEvent).relatedTarget;
         const style = styleInput.value.trim().slice(0, STYLE_MAX_LENGTH);
         const stored = state.currentPreferences.style || '';
         if (style !== stored) {
+          // Clear removes the style in its own save. A save of the text first is a wasted request.
+          if (next && next === elements.emotionReset) return;
           markSettingsAsDirty();
           void savePreferences({ style: style || null });
-        } else {
-          // No text and nothing stored: show the emotion that applies again.
+        } else if (!next || next !== elements.emotionSelect) {
+          // No text and nothing stored: show the emotion that applies again. Not
+          // while the viewer opens the emotion list, which this would change under them.
           renderControls();
         }
       });
@@ -397,11 +400,9 @@ export function initPreferencesModule(
         hintEl: elements.previewHint,
       };
 
-      const onAudioGenerated = (audioUrl: string, settings: TTSPayload): void => {
+      const onAudioGenerated = (audioUrl: string): void => {
         if (state.cachedAudioUrl) URL.revokeObjectURL(state.cachedAudioUrl);
         state.cachedAudioUrl = audioUrl;
-        state.cachedSettings = settings;
-        state.isDirty = false;
         if (elements.previewHint) elements.previewHint.style.display = 'none';
       };
 
@@ -583,7 +584,18 @@ export function initPreferencesModule(
    * Save one or more preferences in one request. Null removes a preference.
    * On a failure the page goes back to the values that the server holds.
    */
-  async function savePreferences(patch: Partial<Record<PreferenceKey, PreferenceValue>>): Promise<void> {
+  function savePreferences(patch: Partial<Record<PreferenceKey, PreferenceValue>>): Promise<void> {
+    // One save at a time, in the order of the clicks. Two requests in flight
+    // can arrive in the other order (the style box saves on blur, and the next
+    // click saves too), and the later save needs the result of the earlier one
+    // to know what to go back to.
+    const run = saveQueue.then(() => saveOnePatch(patch));
+    saveQueue = run;
+    return run;
+  }
+
+  /** One save. It does not reject: a failure ends in a toast. */
+  async function saveOnePatch(patch: Partial<Record<PreferenceKey, PreferenceValue>>): Promise<void> {
     const keys = Object.keys(patch) as PreferenceKey[];
     const current = state.currentPreferences as Record<string, unknown>;
     const previous = new Map(keys.map(key => [key, current[key]]));
@@ -641,9 +653,7 @@ export function initPreferencesModule(
       URL.revokeObjectURL(state.cachedAudioUrl);
       state.cachedAudioUrl = null;
     }
-    state.cachedSettings = null;
     if (elements.previewPlayer) elements.previewPlayer.style.display = 'none';
     if (elements.previewBtn) elements.previewBtn.textContent = t('msg.prefs.sendPreview');
-    state.isDirty = false;
   }
 }

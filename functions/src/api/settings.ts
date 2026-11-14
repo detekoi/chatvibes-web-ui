@@ -45,6 +45,8 @@ const BOOLEAN_SETTINGS = [
 const RETIRED_SETTINGS = ["englishNormalization"];
 
 const VOICE_VOLUME_PREFIX = "voiceVolumes.";
+// The characters of the old MiniMax voice IDs, such as "Chinese (Mandarin)_News_Anchor".
+const STALE_VOICE_ID = /^[A-Za-z0-9][A-Za-z0-9 _()\-]{0,127}$/;
 
 type PreparedSetting =
     | { ok: true; update: Record<string, unknown> }
@@ -108,7 +110,11 @@ function prepareTtsSetting(key: string, value: unknown): PreparedSetting {
     }
 
     if (key.startsWith(VOICE_VOLUME_PREFIX)) {
-        const voiceId = canonicalVoiceId(key.slice(VOICE_VOLUME_PREFIX.length));
+        const rawId = key.slice(VOICE_VOLUME_PREFIX.length);
+        // A volume can still be stored under an ID that is no voice any more (a
+        // MiniMax ID that the map does not have). The owner must be able to reset
+        // it, so a reset to 1 is accepted for any ID that looks like a voice ID.
+        const voiceId = canonicalVoiceId(rawId) ?? (value === 1 && STALE_VOICE_ID.test(rawId) ? rawId : null);
         if (!voiceId || typeof value !== "number" || !(value > 0 && value <= 10)) return invalid;
         // set() treats a dotted key as a literal field name, not a path, so
         // "voiceVolumes.<voiceId>" has to be written as a nested map for the bot
