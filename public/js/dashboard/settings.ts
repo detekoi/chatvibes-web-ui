@@ -573,11 +573,17 @@ export function initSettingsModule(
         if (currentVoiceId() === voiceId && defaultVolumeSlider) {
           defaultVolumeSlider.value = String(volume);
           if (volumeValueSpan) volumeValueSpan.textContent = String(volume);
+          updateSidebarPreview();
         }
       },
       onReset: async (voiceId) => {
         await api.saveTtsSetting(getChannelName() || '', `voiceVolumes.${voiceId}`, 1.0);
         maybeSuccessToast(t('msg.action.saved'));
+        if (currentVoiceId() === voiceId && defaultVolumeSlider) {
+          defaultVolumeSlider.value = '1.0';
+          if (volumeValueSpan) volumeValueSpan.textContent = '1.0';
+          updateSidebarPreview();
+        }
       },
       sliderId: 'calibration-volume',
       valueSpanId: 'calibration-volume-value',
