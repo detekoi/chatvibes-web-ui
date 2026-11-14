@@ -222,6 +222,13 @@ describe('Viewer API Integration Tests', () => {
 
   describe('PUT /api/viewer/preferences (voice, style and emotion)', () => {
     const prefs = () => db.collection('ttsUserPreferences').doc(testUser.userId);
+    // Every write sets updatedAt, which tells the bot to read the document again.
+    // The helper makes sure that it is there and compares the other fields.
+    const stored = async () => {
+      const { updatedAt, ...rest } = (await prefs().get()).data();
+      expect(updatedAt).toBeDefined();
+      return rest;
+    };
     const put = (body: object) => request(app)
       .put('/api/viewer/preferences')
       .set('Authorization', `Bearer ${createTestToken(testUser)}`)
@@ -232,7 +239,7 @@ describe('Viewer API Integration Tests', () => {
 
       await put({ voiceId: 'Kore' }).expect(200);
 
-      expect((await prefs().get()).data()).toEqual({ voiceId: 'kore', pitch: 2 });
+      expect(await stored()).toEqual({ voiceId: 'kore', pitch: 2 });
     });
 
     it('should accept a MiniMax voice of the mapping', async () => {
@@ -261,7 +268,7 @@ describe('Viewer API Integration Tests', () => {
 
       await put({ voiceId: null }).expect(200);
 
-      expect((await prefs().get()).data()).toEqual({ voiceId: null });
+      expect(await stored()).toEqual({ voiceId: null });
     });
 
     it('should store a clean style and leave the emotion alone', async () => {
@@ -269,7 +276,7 @@ describe('Viewer API Integration Tests', () => {
 
       await put({ style: '  like a <tired>\n pirate ' }).expect(200);
 
-      expect((await prefs().get()).data()).toEqual({ emotion: 'happy', style: 'like a tired pirate' });
+      expect(await stored()).toEqual({ emotion: 'happy', style: 'like a tired pirate' });
     });
 
     it.each([[''], [null]])('should remove the style field for %p', async (style) => {
@@ -277,7 +284,7 @@ describe('Viewer API Integration Tests', () => {
 
       await put({ style }).expect(200);
 
-      expect((await prefs().get()).data()).toEqual({ pitch: 2 });
+      expect(await stored()).toEqual({ pitch: 2 });
     });
 
     it('should reject a style that is too long', async () => {
@@ -298,19 +305,19 @@ describe('Viewer API Integration Tests', () => {
 
       await put({ emotion: 'sad' }).expect(200);
 
-      expect((await prefs().get()).data()).toEqual({ emotion: 'sad' });
+      expect(await stored()).toEqual({ emotion: 'sad' });
     });
 
     it('should keep a style sent together with an emotion', async () => {
       await put({ emotion: 'sad', style: 'like a tired pirate' }).expect(200);
 
-      expect((await prefs().get()).data()).toEqual({ emotion: 'sad', style: 'like a tired pirate' });
+      expect(await stored()).toEqual({ emotion: 'sad', style: 'like a tired pirate' });
     });
 
     it('should ignore englishNormalization from an old client', async () => {
       await put({ englishNormalization: true, pitch: 3 }).expect(200);
 
-      expect((await prefs().get()).data()).toEqual({ pitch: 3 });
+      expect(await stored()).toEqual({ pitch: 3 });
     });
 
     it('should return the style from GET /api/viewer/preferences', async () => {
