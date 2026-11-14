@@ -37,20 +37,16 @@
   },
   "emotionSelect": {
     "angry": "Galit",
+    "calm": "Kalmado",
+    "custom": "Pasadya…",
     "disgusted": "Nasusuklam",
     "fearful": "Natatakot",
+    "fluent": "Matatas",
     "happy": "Masaya",
     "neutral": "Neutral",
     "sad": "Malungkot",
     "surprised": "Nagulat",
     "useChannelDefault": "Gamitin ang default ng channel"
-  },
-  "englishNormalizationCheckbox": {
-    "englishNormalization": "English Normalization"
-  },
-  "englishNormalizationReset": {
-    "clear": "I-clear",
-    "resetEnglishNormalizationToDefault": "I-reset ang English normalization sa default"
   },
   "ignoreTts": {
     "optOutInThisChannel": "Mag-opt out sa channel na ito"
@@ -110,11 +106,11 @@
       "hintChannel": "Ginagamit ang default ng channel: {value}",
       "hintSystem": "Ginagamit ang default ng system",
       "hintUser": "Ginagamit ang iyong global preference: {value}",
-      "noVoicesFound": "Walang nakitang boses",
       "sendPreview": "Magpadala ng Preview",
       "testCompletedTestMode": "Tapos na ang test (test mode).",
       "updated": "Na-update ang preference.",
-      "updatedTestMode": "Na-update ang preference (test mode)."
+      "updatedTestMode": "Na-update ang preference (test mode).",
+      "customStyle": "Pasadya ({style})"
     }
   },
   "openChannelContextModalBtn": {
@@ -140,36 +136,29 @@
     "viewerSettings": "Mga setting ng viewer",
     "viewerTtsPreferences": "Mga preference ng viewer sa TTS"
   },
+  "pitchLabel": {
+    "pitch": "<strong>Tono</strong>"
+  },
   "pitchReset": {
     "clear": "I-clear",
     "resetPitchToDefault": "I-reset ang pitch sa default"
   },
-  "pitchSlider": {
-    "pitchAdjustment12To12": "Pagsasaayos ng pitch (-12 hanggang +12)"
-  },
   "preferencesPanel": {
-    "adjustTheVoicePitchHigher": "Isaayos ang pitch ng boses pataas o pababa",
-    "controlHowFastTheVoice": "Kontrolin kung gaano kabilis magsalita ang boses",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentasyon </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Mga setting ng streamer </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
     "emotion": "<strong>Emosyon</strong>",
     "emotion2": "Emosyon",
-    "englishNormalization": "English Normalization",
-    "engNormalization": "Normalisasyon ng Eng.",
-    "ifTtsReadsNumbersIncorrectly": "Kung mali ang pagbasa ng TTS sa mga numero, i-on ang English text normalization. Bahagyang pinapataas ng setting na ito ang latency.",
-    "improvePronunciationForSpecificLanguages": "Pahusayin ang pagbigkas para sa mga partikular na wika",
-    "improveThePronunciationOfNumbers": "Pahusayin ang pagbigkas ng mga numero at teksto",
+    "ifYourTextIsShort": "Kung maikli o hindi malinaw ang teksto mo, binibigyan ng setting na ito ng pahiwatig ang modelo ng boses. Pinipili rin nito ang listahan ng mga salita para sa filter ng pagmumura.",
     "language": "Wika",
-    "languageBoost": "<strong>Language Boost</strong>",
+    "languageLabel": "<strong>Wika</strong>",
     "pitch": "Pitch",
-    "pitch12To12": "Pitch (-12 hanggang +12):",
     "quickLinks": "Mga mabilisang link",
-    "selectYourPreferredTtsVoice": "Piliin ang nais mong boses sa TTS",
+    "selectHowFastTheVoice": "Piliin kung gaano kabilis magsalita ang boses",
+    "selectHowHighOrLow": "Piliin kung gaano kataas o kababa magsalita ang boses",
+    "selectTheVoiceThatTts": "Piliin ang boses na gagamitin ng TTS para sa mga mensahe mo",
     "setHowYourMessagesSound": "Itakda kung paano tutunog ang mga mensahe mo kapag binasa ng TTS",
-    "setTheEmotionalToneOf": "Itakda ang tono ng emosyon ng boses",
+    "setTheEmotionOfThe": "Itakda ang emosyon ng boses. Piliin ang Pasadya para ilarawan ang boses sa sarili mong mga salita.",
     "speed": "Bilis",
-    "speed05To2": "Bilis (0.5 hanggang 2.0):",
     "testMessage": "Subok na mensahe",
-    "voice": "<strong>Boses</strong>",
     "voicePreview": "Preview ng boses",
     "voiceSettings": "Mga Setting ng Boses"
   },
@@ -179,22 +168,33 @@
   "previewBtn": {
     "sendPreview": "Ipadala ang preview"
   },
+  "speedLabel": {
+    "speed": "<strong>Bilis</strong>"
+  },
   "speedReset": {
     "clear": "I-clear",
     "resetSpeedToDefault": "I-reset ang bilis sa default"
   },
-  "speedSlider": {
-    "speedAdjustment05To": "Pagsasaayos ng bilis (0.5 hanggang 2.0)"
-  },
   "statChannelContext": {
     "noneLoaded": "Walang na-load"
+  },
+  "stepsHint": {
+    "pitchAndSpeedAreApproximate": "Tinatantya lang ang tono at bilis. Natatanggap ng modelo ng boses ang mga setting na ito bilang mga salita, hindi bilang mga numero."
+  },
+  "styleGroup": {
+    "style": "Estilo"
+  },
+  "styleHint": {
+    "describeInAFewWords": "Ilarawan sa ilang salita kung paano magsalita ang boses."
+  },
+  "styleInput": {
+    "exampleCalmAndSlowLike": "Halimbawa: kalmado at mabagal, parang radio host sa gabi"
+  },
+  "voiceLabel": {
+    "voice": "<strong>Boses</strong>"
   },
   "voiceReset": {
     "clear": "I-clear",
     "resetVoiceToDefault": "I-reset ang boses sa default"
-  },
-  "voiceSearch": {
-    "searchVoices": "Maghanap ng boses",
-    "searchVoices2": "Maghanap ng boses..."
   }
 }

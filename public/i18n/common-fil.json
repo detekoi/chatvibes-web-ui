@@ -37,6 +37,7 @@
     "prefs_invalid_language": "Hindi iyon wastong wika.",
     "prefs_invalid_pitch": "Hindi iyon wastong pitch.",
     "prefs_invalid_speed": "Hindi iyon wastong bilis.",
+    "prefs_invalid_style": "Hindi wasto ang istilong iyon.",
     "prefs_invalid_voice": "Hindi iyon wastong voice.",
     "prefs_missing_data": "Walang ipinadalang pagbabago.",
     "prefs_update_failed": "Hindi na-save ang iyong pagbabago dahil sa error sa server. Subukang muli.",
@@ -68,11 +69,13 @@
     "setting_update_failed": "Hindi ma-update ang setting ng TTS.",
     "settings_fetch_failed": "Hindi ma-load ang mga setting ng TTS.",
     "shortlink_failed": "Hindi magawa ang maikling link.",
+    "sound_tag_unknown": "Wala sa listahan ang sound tag na \"{tag}\". I-reload ang page at subukan ulit.",
     "storage_unavailable": "Hindi available ang storage.",
+    "style_too_long": "Masyadong mahaba ang istilo. Gumamit ng {max} karakter o mas kaunti.",
+    "tts_blocked": "Tinanggihan ng speech service ang text na ito. Palitan ang text at subukan ulit.",
     "tts_generation_failed": "Nabigo ang pagbuo ng speech: {reason}",
     "tts_no_audio": "Walang ibinalik na audio ang speech provider.",
     "tts_not_configured": "Walang naka-configure na speech provider.",
-    "tts_provider_failed": "Hindi makabuo ng audio ang speech provider.",
     "tts_test_failed": "Nabigo ang speech test.",
     "tts_text_required": "Maglagay ng text para subukan.",
     "twitch_reauth_required": "Nag-expire na ang iyong Twitch sign-in. Ikonekta muli ang iyong account.",
@@ -80,8 +83,6 @@
     "url_required": "Kailangan ng URL.",
     "username_invalid": "Hindi wasto ang username na iyon.",
     "username_required": "Kailangan ng username.",
-    "voice_access_denied": "Kailangan ng espesyal na access ang boses na \"{voice}\". Sumubok ng ibang boses.",
-    "voice_invalid": "Hindi available ang boses na \"{voice}\". Suriin ang boses at subukang muli.",
     "voice_lookup_failed": "Hindi mahanap ang boses ng user na iyon.",
     "word_invalid": "Hindi wasto ang salita o pariralang iyon.",
     "word_required": "Kailangan ng salita o parirala."
@@ -117,7 +118,6 @@
     },
     "emotion": {
       "angry": "Galit",
-      "auto": "Auto",
       "calm": "Kalmado",
       "disgusted": "Nandidiri",
       "fearful": "Natatakot",
@@ -125,7 +125,8 @@
       "happy": "Masaya",
       "neutral": "Neutral",
       "sad": "Malungkot",
-      "surprised": "Nagulat"
+      "surprised": "Nagulat",
+      "custom": "Custom"
     },
     "ignore": {
       "enterUsername": "Maglagay ng username."
@@ -138,27 +139,65 @@
     },
     "preview": {
       "enterText": "Maglagay ng text para subukan.",
-      "unavailable": "Walang available na preview."
-    },
-    "value": {
-      "off": "Naka-off",
-      "on": "Naka-on"
+      "unavailable": "Walang available na sample para sa boses na ito."
     },
     "voice": {
       "cannotPlay": "Hindi ma-play ang audio sample.",
       "generating": "Bumubuo…",
       "noAudio": "Walang ibinalik na audio ang server.",
       "noneFound": "Walang nakitang boses.",
-      "preview": "I-preview ang {voice}",
+      "preview": "I-play ang sample ng {voice}",
       "regenerate": "Bumuo ulit",
-      "testFailed": "Nabigo ang pagsubok: {reason}"
+      "testFailed": "Nabigo ang pagsubok: {reason}",
+      "choose": "Pumili ng boses",
+      "panelLabel": "Paghahanap ng boses",
+      "listLabel": "Mga boses",
+      "searchLabel": "Maghanap ng boses",
+      "searchHint": "Mag-type ng isa o higit pang salita, halimbawa \"german calm low\". Hahanapin nito ang mga boses na naglalaman ng bawat salita. Nasa English lang ang mga paglalarawan ng boses.",
+      "filterLanguage": "I-filter ayon sa wika",
+      "anyLanguage": "Lahat ng wika",
+      "filterGender": "I-filter ayon sa kasarian",
+      "anyGender": "Lahat ng kasarian",
+      "gender": {
+        "female": "Babae",
+        "male": "Lalaki",
+        "neutral": "Neutral"
+      },
+      "filterPitch": "I-filter ayon sa tono",
+      "anyPitch": "Lahat ng tono",
+      "pitch": {
+        "low": "Mababang tono",
+        "medium": "Katamtamang tono",
+        "high": "Mataas na tono"
+      },
+      "studioOnly": "Mga Studio voice lang",
+      "studioTag": "Studio",
+      "count": "Mga nahanap na boses: {count}",
+      "legacy": "Legacy na boses ({id})",
+      "stopSample": "Ihinto ang sample ng {voice}"
+    },
+    "step": {
+      "speed": {
+        "very_slow": "Napakabagal",
+        "slow": "Mabagal",
+        "normal": "Normal",
+        "fast": "Mabilis",
+        "very_fast": "Napakabilis"
+      },
+      "pitch": {
+        "very_low": "Napakababa",
+        "low": "Mababa",
+        "normal": "Normal",
+        "high": "Mataas",
+        "very_high": "Napakataas"
+      }
+    },
+    "style": {
+      "count": "{count} sa {max} na karakter"
     }
   },
   "page": {
     "skipToMainContent": "Lumaktaw sa pangunahing nilalaman"
-  },
-  "sidebarEngNormVal": {
-    "off": "Naka-off"
   },
   "sidebarLanguageVal": {
     "automatic": "Awtomatiko"

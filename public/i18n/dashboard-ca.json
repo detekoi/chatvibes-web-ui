@@ -35,9 +35,6 @@
   "calibrationSaveBtn": {
     "save": "Desa"
   },
-  "calibrationVoiceSearch": {
-    "searchVoicesToCalibrate": "Cerca veus per calibrar..."
-  },
   "channelNameStatus": {
     "yourChannel": "el teu canal"
   },
@@ -73,7 +70,6 @@
     "deactivationStopsTheBotFrom": "La desactivació impedeix que el bot llegeixi missatges del xat. La teva configuració es mantindrà desada. Pots tornar a activar el servei en qualsevol moment.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Documentació",
     "emotion": "Emoció",
-    "engNormalization": "Normalització d'anglès",
     "language": "Idioma",
     "pitch": "To",
     "quickLinks": "Enllaços ràpids",
@@ -87,22 +83,36 @@
   },
   "defaultEmotion": {
     "angry": "Enfadat",
+    "calm": "Tranquil",
+    "custom": "Personalitzat…",
     "disgusted": "Disgustat",
     "fearful": "Espantat",
+    "fluent": "Fluid",
     "happy": "Alegre",
     "neutral": "Neutral",
     "sad": "Trist",
     "surprised": "Sorprès"
   },
-  "defaultPitch": {
-    "defaultPitch12To12": "To predeterminat (-12 a +12)"
+  "defaultPitchLabel": {
+    "defaultPitch": "<strong>To predeterminat</strong>"
   },
-  "defaultSpeed": {
-    "defaultSpeed05To": "Velocitat predeterminada (0,5 a 2,0)"
+  "defaultSpeedLabel": {
+    "defaultSpeed": "<strong>Velocitat predeterminada</strong>"
   },
-  "defaultVoiceSearch": {
-    "searchDefaultVoices": "Cerca veus predeterminades",
-    "searchVoices": "Cerca veus..."
+  "defaultStepsHint": {
+    "pitchAndSpeedAreApproximate": "El to i la velocitat són aproximats. El model de veu rep aquests ajustos com a paraules, no com a números."
+  },
+  "defaultStyle": {
+    "exampleCalmAndSlowLike": "Exemple: tranquil i lent, com un locutor de ràdio de nit"
+  },
+  "defaultStyleGroup": {
+    "style": "Estil"
+  },
+  "defaultStyleHint": {
+    "describeInAFewWords": "Descriu en poques paraules com parla la veu."
+  },
+  "defaultVoiceLabel": {
+    "defaultVoice": "<strong>Veu predeterminada</strong>"
   },
   "defaultVolume": {
     "voiceVolume01To": "Volum de la veu (0,1 a 10)"
@@ -111,9 +121,6 @@
     "describeEmotes": "Descriu les emoticones",
     "readEmoteNames": "Llegeix els noms d'emoticones",
     "skipEmotes": "Omet les emoticones"
-  },
-  "englishNormalization": {
-    "englishNormalization": "Normalització de l'anglès"
   },
   "eventsEnabled": {
     "announceEvents": "Anuncia esdeveniments"
@@ -214,7 +221,8 @@
       "hasVoice": "L'usuari {user} ha definit una veu personalitzada: {voice}",
       "noVoice": "L'usuari {user} no té cap veu personalitzada definida.",
       "searching": "Cercant…",
-      "voiceUnknown": "Aquesta veu no és a la llista de veus disponibles."
+      "voiceUnknown": "Aquesta veu no és a la llista de veus disponibles.",
+      "storedVoice": "Aquest espectador havia desat la veu antiga {stored}. En lloc d'això, TTS fa servir la veu de dalt."
     },
     "mutedRewards": {
       "announceLabel": "Anuncia els bescanvis de {title}",
@@ -279,7 +287,6 @@
       "defaultSpeed": "Velocitat predeterminada",
       "defaultVoice": "Veu predeterminada",
       "emoteMode": "Mode d'emoticones",
-      "englishNormalization": "Normalització de l'anglès",
       "eventAnnouncements": "Anuncis d'esdeveniments",
       "expandAcronyms": "Desplega els acrònims del xat",
       "minimumBits": "Bits mínims",
@@ -288,6 +295,8 @@
       "readCommandMessages": "Llegeix les ordres del xat",
       "readFullUrls": "Llegeix els URL sencers",
       "redemptionAnnouncements": "Anuncis de bescanvis",
+      "soundTags": "Etiquetes de so",
+      "style": "Estil",
       "ttsEngine": "Motor de TTS",
       "ttsMode": "Mode de TTS",
       "ttsPermission": "Permís de TTS",
@@ -380,14 +389,6 @@
   "removeBotBtn": {
     "deactivateTtsService": "Desactiva el servei de TTS"
   },
-  "resetPitchBtn": {
-    "reset": "Restableix",
-    "resetDefaultPitchTo0": "Restableix el to predeterminat a 0"
-  },
-  "resetSpeedBtn": {
-    "reset": "Restableix",
-    "resetDefaultSpeedTo1": "Restableix la velocitat per defecte a 1.0"
-  },
   "resetVolumeBtn": {
     "reset": "Restableix",
     "resetVoiceVolumeTo1": "Restableix el volum de la veu a 1.0"
@@ -398,8 +399,8 @@
   "serviceHeadline": {
     "ttsService": "Servei de TTS"
   },
-  "sidebarVoiceName": {
-    "friendlyPerson": "Persona amable"
+  "soundTagsTitle": {
+    "soundTags": "Etiquetes de so"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Permet que el bot respongui a ordres del xat com ara !myvoice",
@@ -476,27 +477,23 @@
     "broadcaster": "Emissor"
   },
   "tabBtnViewerDefaults": {
-    "voiceDefaults": "Veus per defecte"
+    "voiceDefaults": "Veu per defecte"
   },
   "tabViewerDefaults": {
-    "adjustThePitchForThe": "Ajusta el to per a la veu per defecte",
     "adjustTheVolumeForThe": "Ajusta el volum per a la veu seleccionada. ATENCIÓ: Els valors superiors a 1.0 poden causar distorsió.",
     "calibratedVoices": "Veus calibrades",
     "calibrateVolumeForSpecificVoices": "Calibra el volum per a veus específiques. ATENCIÓ: Els valors superiors a 1.0 poden causar distorsió.",
-    "controlHowFastTheDefault": "Controla la velocitat de la veu predeterminada",
     "defaultEmotion": "<strong>Emoció predeterminada</strong>",
     "defaultLanguage": "<strong>Idioma predeterminat</strong>",
-    "defaultPitch12To12": "To per defecte (-12 a +12):",
-    "defaultSpeed05To": "Velocitat per defecte (0.5 a 2.0):",
-    "defaultVoice": "<strong>Veu predeterminada</strong>",
     "defaultVoiceSettings": "Configuració de la veu predeterminada",
-    "englishNormalization": "Normalització de l'anglès",
-    "improvePronunciationForSpecificLanguages": "Millora la pronunciació per a idiomes específics",
-    "improveThePronunciationOfNumbers": "Millora la pronunciació de números i text",
-    "selectTheDefaultTtsVoice": "Selecciona la veu TTS predeterminada per al canal",
+    "selectHowFastTheDefault": "Selecciona a quina velocitat parla la veu predeterminada",
+    "selectHowHighOrLow": "Selecciona com d'agut o greu parla la veu predeterminada",
+    "selectTheVoiceThatTts": "Selecciona la veu que TTS fa servir per als espectadors que no tenen veu pròpia",
     "selectVoice": "Selecciona una veu",
     "setDefaultVoiceSettingsFor": "Defineix la configuració de veu predeterminada del teu canal",
-    "setTheEmotionalToneOf": "Defineix el to emocional de la veu predeterminada",
+    "setTheEmotionOfThe": "Defineix l'emoció de la veu predeterminada. Selecciona Personalitzat per descriure la veu amb les teves paraules.",
+    "theVoiceModelReadsThe": "El model de veu detecta l'idioma a partir del text. Si el text és curt o poc clar, aquest ajust dona una pista al model. També estableix l'idioma predeterminat per als anuncis i selecciona la llista de paraules per al filtre de paraules malsonants.",
+    "viewersCanTypeASound": "Els espectadors poden escriure una etiqueta de so en un missatge i la veu farà aquest so. Alguns exemples són <code>&lt;laugh&gt;</code> i <code>&lt;sigh&gt;</code>. Totes les etiquetes estan activades per defecte. Per desactivar-ne una, desmarca la casella corresponent.",
     "viewerVoiceLookup": "Cerca de veu d'espectador",
     "voiceCalibration": "Calibració de veu",
     "voicesWithCustomVolumeSettings": "Veus amb ajustos de volum personalitzats.",

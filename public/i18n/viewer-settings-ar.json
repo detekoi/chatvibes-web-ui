@@ -37,20 +37,16 @@
   },
   "emotionSelect": {
     "angry": "غاضب",
+    "calm": "هادئ",
+    "custom": "مخصص…",
     "disgusted": "مشمئز",
     "fearful": "خائف",
+    "fluent": "طليق",
     "happy": "سعيد",
     "neutral": "محايد",
     "sad": "حزين",
     "surprised": "متفاجئ",
     "useChannelDefault": "استخدام الإعداد الافتراضي للقناة"
-  },
-  "englishNormalizationCheckbox": {
-    "englishNormalization": "تسوية النصوص الإنجليزية"
-  },
-  "englishNormalizationReset": {
-    "clear": "مسح",
-    "resetEnglishNormalizationToDefault": "إعادة تعيين تسوية النصوص الإنجليزية إلى الافتراضي"
   },
   "ignoreTts": {
     "optOutInThisChannel": "إلغاء التفعيل في هذه القناة"
@@ -110,11 +106,11 @@
       "hintChannel": "استخدام القيمة الافتراضية للقناة: {value}",
       "hintSystem": "استخدام القيمة الافتراضية للنظام",
       "hintUser": "استخدام تفضيلك العام: {value}",
-      "noVoicesFound": "لم يتم العثور على أصوات",
       "sendPreview": "إرسال معاينة",
       "testCompletedTestMode": "اكتمل الاختبار (وضع الاختبار).",
       "updated": "تم تحديث التفضيل.",
-      "updatedTestMode": "تم تحديث التفضيل (وضع الاختبار)."
+      "updatedTestMode": "تم تحديث التفضيل (وضع الاختبار).",
+      "customStyle": "مخصص ({style})"
     }
   },
   "openChannelContextModalBtn": {
@@ -140,36 +136,29 @@
     "viewerSettings": "إعدادات المشاهد",
     "viewerTtsPreferences": "تفضيلات TTS للمشاهد"
   },
+  "pitchLabel": {
+    "pitch": "<strong>طبقة الصوت</strong>"
+  },
   "pitchReset": {
     "clear": "مسح",
     "resetPitchToDefault": "إعادة ضبط طبقة الصوت للافتراضي"
   },
-  "pitchSlider": {
-    "pitchAdjustment12To12": "تعديل طبقة الصوت (-12 إلى +12)"
-  },
   "preferencesPanel": {
-    "adjustTheVoicePitchHigher": "تعديل طبقة الصوت لأعلى أو لأسفل",
-    "controlHowFastTheVoice": "التحكم في سرعة نطق الصوت",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>التوثيق </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>إعدادات البث </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
     "emotion": "<strong>المشاعر</strong>",
     "emotion2": "المشاعر",
-    "englishNormalization": "تسوية النصوص الإنجليزية",
-    "engNormalization": "تطبيع النصوص الإنجليزية",
-    "ifTtsReadsNumbersIncorrectly": "إذا كان TTS يقرأ الأرقام بشكل غير صحيح، فعِّل تسوية النصوص الإنجليزية. يؤدي هذا الإعداد إلى زيادة طفيفة في وقت الاستجابة.",
-    "improvePronunciationForSpecificLanguages": "تحسين النطق للغات معينة",
-    "improveThePronunciationOfNumbers": "تحسين نطق الأرقام والنصوص",
+    "ifYourTextIsShort": "إذا كان نصك قصيرًا أو غير واضح، يمنح هذا الإعداد نموذج الصوت تلميحًا، كما يحدد قائمة الكلمات لمرشح الألفاظ النابية.",
     "language": "اللغة",
-    "languageBoost": "<strong>تعزيز اللغة</strong>",
+    "languageLabel": "<strong>اللغة</strong>",
     "pitch": "طبقة الصوت",
-    "pitch12To12": "طبقة الصوت (-12 إلى +12):",
     "quickLinks": "روابط سريعة",
-    "selectYourPreferredTtsVoice": "اختر صوت TTS المفضل لديك",
+    "selectHowFastTheVoice": "اختر سرعة تحدث الصوت",
+    "selectHowHighOrLow": "اختر ارتفاع أو انخفاض طبقة الصوت",
+    "selectTheVoiceThatTts": "اختر الصوت الذي يستخدمه TTS لرسائلك",
     "setHowYourMessagesSound": "حدد كيف تبدو رسائلك عندما يقرؤها TTS",
-    "setTheEmotionalToneOf": "تحديد نبرة المشاعر للصوت",
+    "setTheEmotionOfThe": "اضبط انفعال الصوت. اختر «مخصص» لوصف الصوت بكلماتك الخاصة.",
     "speed": "السرعة",
-    "speed05To2": "السرعة (0.5 إلى 2.0):",
     "testMessage": "رسالة اختبار",
-    "voice": "<strong>الصوت</strong>",
     "voicePreview": "معاينة الصوت",
     "voiceSettings": "إعدادات الصوت"
   },
@@ -179,22 +168,33 @@
   "previewBtn": {
     "sendPreview": "إرسال معاينة"
   },
+  "speedLabel": {
+    "speed": "<strong>السرعة</strong>"
+  },
   "speedReset": {
     "clear": "مسح",
     "resetSpeedToDefault": "إعادة ضبط السرعة إلى الوضع الافتراضي"
   },
-  "speedSlider": {
-    "speedAdjustment05To": "ضبط السرعة (من 0.5 إلى 2.0)"
-  },
   "statChannelContext": {
     "noneLoaded": "لم يُحمَّل شيء"
+  },
+  "stepsHint": {
+    "pitchAndSpeedAreApproximate": "طبقة الصوت والسرعة تقريبيتان. يتلقى نموذج الصوت هذه الإعدادات ككلمات، لا كأرقام."
+  },
+  "styleGroup": {
+    "style": "الأسلوب"
+  },
+  "styleHint": {
+    "describeInAFewWords": "صف في كلمات قليلة كيف يتحدث الصوت."
+  },
+  "styleInput": {
+    "exampleCalmAndSlowLike": "مثال: هادئ وبطيء، مثل مذيع راديو في الليل"
+  },
+  "voiceLabel": {
+    "voice": "<strong>الصوت</strong>"
   },
   "voiceReset": {
     "clear": "مسح",
     "resetVoiceToDefault": "إعادة ضبط الصوت إلى الوضع الافتراضي"
-  },
-  "voiceSearch": {
-    "searchVoices": "البحث عن الأصوات",
-    "searchVoices2": "البحث عن الأصوات..."
   }
 }

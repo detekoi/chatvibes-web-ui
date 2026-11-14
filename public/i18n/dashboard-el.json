@@ -35,9 +35,6 @@
   "calibrationSaveBtn": {
     "save": "Αποθήκευση"
   },
-  "calibrationVoiceSearch": {
-    "searchVoicesToCalibrate": "Αναζήτηση φωνών για βαθμονόμηση..."
-  },
   "channelNameStatus": {
     "yourChannel": "το κανάλι σας"
   },
@@ -73,7 +70,6 @@
     "deactivationStopsTheBotFrom": "Η απενεργοποίηση εμποδίζει το bot να διαβάζει μηνύματα συνομιλίας. Οι ρυθμίσεις σας παραμένουν αποθηκευμένες. Μπορείτε να ενεργοποιήσετε ξανά την υπηρεσία ανά πάσα στιγμή.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Τεκμηρίωση",
     "emotion": "Συναίσθημα",
-    "engNormalization": "Κανονικοποίηση αγγλικών",
     "language": "Γλώσσα",
     "pitch": "Τόνος",
     "quickLinks": "Γρήγοροι σύνδεσμοι",
@@ -87,22 +83,36 @@
   },
   "defaultEmotion": {
     "angry": "Θυμωμένος",
+    "calm": "Ήρεμο",
+    "custom": "Προσαρμοσμένο…",
     "disgusted": "Αηδιασμένος",
     "fearful": "Φοβισμένος",
+    "fluent": "Ευφραδές",
     "happy": "Χαρούμενος",
     "neutral": "Ουδέτερος",
     "sad": "Λυπημένος",
     "surprised": "Έκπληκτος"
   },
-  "defaultPitch": {
-    "defaultPitch12To12": "Προεπιλεγμένος τόνος (-12 έως +12)"
+  "defaultPitchLabel": {
+    "defaultPitch": "<strong>Προεπιλεγμένος τόνος</strong>"
   },
-  "defaultSpeed": {
-    "defaultSpeed05To": "Προεπιλεγμένη ταχύτητα (0.5 έως 2.0)"
+  "defaultSpeedLabel": {
+    "defaultSpeed": "<strong>Προεπιλεγμένη ταχύτητα</strong>"
   },
-  "defaultVoiceSearch": {
-    "searchDefaultVoices": "Αναζήτηση προεπιλεγμένων φωνών",
-    "searchVoices": "Αναζήτηση φωνών..."
+  "defaultStepsHint": {
+    "pitchAndSpeedAreApproximate": "Ο τόνος και η ταχύτητα είναι κατά προσέγγιση. Το μοντέλο φωνής λαμβάνει αυτές τις ρυθμίσεις ως λέξεις και όχι ως αριθμούς."
+  },
+  "defaultStyle": {
+    "exampleCalmAndSlowLike": "Παράδειγμα: ήρεμα και αργά, όπως ένας βραδινός ραδιοφωνικός παραγωγός"
+  },
+  "defaultStyleGroup": {
+    "style": "Στυλ"
+  },
+  "defaultStyleHint": {
+    "describeInAFewWords": "Περιγράψτε με λίγα λόγια πώς μιλάει η φωνή."
+  },
+  "defaultVoiceLabel": {
+    "defaultVoice": "<strong>Προεπιλεγμένη φωνή</strong>"
   },
   "defaultVolume": {
     "voiceVolume01To": "Ένταση φωνής (0.1 έως 10)"
@@ -111,9 +121,6 @@
     "describeEmotes": "Περιγραφή emotes",
     "readEmoteNames": "Ανάγνωση ονομάτων emote",
     "skipEmotes": "Παράλειψη emote"
-  },
-  "englishNormalization": {
-    "englishNormalization": "Κανονικοποίηση αγγλικών"
   },
   "eventsEnabled": {
     "announceEvents": "Ανακοίνωση συμβάντων"
@@ -214,7 +221,8 @@
       "hasVoice": "Ο χρήστης {user} όρισε προσαρμοσμένη φωνή: {voice}",
       "noVoice": "Ο χρήστης {user} δεν έχει ορίσει προσαρμοσμένη φωνή.",
       "searching": "Αναζήτηση…",
-      "voiceUnknown": "Αυτή η φωνή δεν βρίσκεται στη λίστα διαθέσιμων φωνών."
+      "voiceUnknown": "Αυτή η φωνή δεν βρίσκεται στη λίστα διαθέσιμων φωνών.",
+      "storedVoice": "Αυτός ο θεατής αποθήκευσε την παλιά φωνή {stored}. Το TTS χρησιμοποιεί αντ' αυτής την παραπάνω φωνή."
     },
     "mutedRewards": {
       "announceLabel": "Ανακοίνωση εξαργυρώσεων για {title}",
@@ -279,7 +287,6 @@
       "defaultSpeed": "Προεπιλεγμένη ταχύτητα",
       "defaultVoice": "Προεπιλεγμένη φωνή",
       "emoteMode": "Λειτουργία Emote",
-      "englishNormalization": "Κανονικοποίηση αγγλικών",
       "eventAnnouncements": "Ανακοινώσεις συμβάντων",
       "expandAcronyms": "Ανάπτυξη ακρωνυμίων chat",
       "minimumBits": "Ελάχιστα bits",
@@ -288,6 +295,8 @@
       "readCommandMessages": "Ανάγνωση εντολών συνομιλίας",
       "readFullUrls": "Ανάγνωση πλήρων URL",
       "redemptionAnnouncements": "Ανακοινώσεις εξαργυρώσεων",
+      "soundTags": "Ετικέτες ήχου",
+      "style": "Στυλ",
       "ttsEngine": "Μηχανή TTS",
       "ttsMode": "Λειτουργία TTS",
       "ttsPermission": "Δικαιώματα TTS",
@@ -380,14 +389,6 @@
   "removeBotBtn": {
     "deactivateTtsService": "Απενεργοποίηση υπηρεσίας TTS"
   },
-  "resetPitchBtn": {
-    "reset": "Επαναφορά",
-    "resetDefaultPitchTo0": "Επαναφορά προεπιλεγμένου τονικού ύψους στο 0"
-  },
-  "resetSpeedBtn": {
-    "reset": "Επαναφορά",
-    "resetDefaultSpeedTo1": "Επαναφορά προεπιλεγμένης ταχύτητας σε 1.0"
-  },
   "resetVolumeBtn": {
     "reset": "Επαναφορά",
     "resetVoiceVolumeTo1": "Επαναφορά έντασης φωνής σε 1.0"
@@ -398,8 +399,8 @@
   "serviceHeadline": {
     "ttsService": "Υπηρεσία TTS"
   },
-  "sidebarVoiceName": {
-    "friendlyPerson": "Φιλικό άτομο"
+  "soundTagsTitle": {
+    "soundTags": "Ετικέτες ήχου"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Να επιτρέπεται στο bot να απαντά σε εντολές chat όπως !myvoice",
@@ -473,30 +474,26 @@
     "youtubeTtsEnabled": "YouTube TTS ενεργοποιημένο"
   },
   "tabBtnBroadcaster": {
-    "broadcaster": "Broadcaster"
+    "broadcaster": "Μεταδότης"
   },
   "tabBtnViewerDefaults": {
     "voiceDefaults": "Προεπιλογές φωνής"
   },
   "tabViewerDefaults": {
-    "adjustThePitchForThe": "Ρύθμιση του τόνου για την προεπιλεγμένη φωνή",
     "adjustTheVolumeForThe": "Ρύθμιση έντασης για την επιλεγμένη φωνή. ΠΡΟΣΟΧΗ: Τιμές άνω του 1.0 μπορεί να προκαλέσουν παραμόρφωση.",
     "calibratedVoices": "Βαθμονομημένες φωνές",
     "calibrateVolumeForSpecificVoices": "Βαθμονόμηση έντασης για συγκεκριμένες φωνές. ΠΡΟΣΟΧΗ: Τιμές άνω του 1.0 μπορεί να προκαλέσουν παραμόρφωση.",
-    "controlHowFastTheDefault": "Ρυθμίστε πόσο γρήγορα μιλάει η προεπιλεγμένη φωνή",
     "defaultEmotion": "<strong>Προεπιλεγμένο συναίσθημα</strong>",
     "defaultLanguage": "<strong>Προεπιλεγμένη γλώσσα</strong>",
-    "defaultPitch12To12": "Προεπιλεγμένο τονικό ύψος (-12 έως +12):",
-    "defaultSpeed05To": "Προεπιλεγμένη ταχύτητα (0.5 έως 2.0):",
-    "defaultVoice": "<strong>Προεπιλεγμένη φωνή</strong>",
     "defaultVoiceSettings": "Προεπιλεγμένες ρυθμίσεις φωνής",
-    "englishNormalization": "Κανονικοποίηση αγγλικών",
-    "improvePronunciationForSpecificLanguages": "Βελτίωση προφοράς για συγκεκριμένες γλώσσες",
-    "improveThePronunciationOfNumbers": "Βελτίωση προφοράς αριθμών και κειμένου",
-    "selectTheDefaultTtsVoice": "Επιλέξτε την προεπιλεγμένη φωνή TTS για το κανάλι",
+    "selectHowFastTheDefault": "Επιλέξτε πόσο γρήγορα μιλάει η προεπιλεγμένη φωνή",
+    "selectHowHighOrLow": "Επιλέξτε πόσο ψηλά ή χαμηλά μιλάει η προεπιλεγμένη φωνή",
+    "selectTheVoiceThatTts": "Επιλέξτε τη φωνή που χρησιμοποιεί το TTS για θεατές που δεν έχουν δική τους φωνή",
     "selectVoice": "Επιλογή φωνής",
     "setDefaultVoiceSettingsFor": "Ορίστε προεπιλεγμένες ρυθμίσεις φωνής για το κανάλι σας",
-    "setTheEmotionalToneOf": "Ορίστε τον συναισθηματικό τόνο της προεπιλεγμένης φωνής",
+    "setTheEmotionOfThe": "Ορίστε το συναίσθημα της προεπιλεγμένης φωνής. Επιλέξτε «Προσαρμοσμένο» για να περιγράψετε τη φωνή με δικά σας λόγια.",
+    "theVoiceModelReadsThe": "Το μοντέλο φωνής αναγνωρίζει τη γλώσσα από το κείμενο. Αν το κείμενο είναι σύντομο ή ασαφές, αυτή η ρύθμιση δίνει μια υπόδειξη στο μοντέλο. Επίσης, ορίζει την προεπιλεγμένη γλώσσα για τις ανακοινώσεις και επιλέγει τη λίστα λέξεων για το φίλτρο βωμολοχιών.",
+    "viewersCanTypeASound": "Οι θεατές μπορούν να πληκτρολογήσουν μια ετικέτα ήχου σε ένα μήνυμα και η φωνή παράγει αυτόν τον ήχο. Παραδείγματα είναι τα <code>&lt;laugh&gt;</code> και <code>&lt;sigh&gt;</code>. Όλες οι ετικέτες είναι ενεργοποιημένες από προεπιλογή. Για να απενεργοποιήσετε μια ετικέτα, καταργήστε την επιλογή στο πλαίσιό της.",
     "viewerVoiceLookup": "Αναζήτηση φωνής θεατή",
     "voiceCalibration": "Βαθμονόμηση φωνής",
     "voicesWithCustomVolumeSettings": "Φωνές με προσαρμοσμένες ρυθμίσεις έντασης.",

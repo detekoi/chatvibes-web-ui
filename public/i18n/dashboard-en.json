@@ -35,9 +35,6 @@
   "calibrationSaveBtn": {
     "save": "Save"
   },
-  "calibrationVoiceSearch": {
-    "searchVoicesToCalibrate": "Search voices to calibrate..."
-  },
   "channelNameStatus": {
     "yourChannel": "your channel"
   },
@@ -73,7 +70,6 @@
     "deactivationStopsTheBotFrom": "Deactivation stops the bot from reading chat messages. Your settings remain saved. You can activate the service again at any time.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Documentation",
     "emotion": "Emotion",
-    "engNormalization": "Eng. normalization",
     "language": "Language",
     "pitch": "Pitch",
     "quickLinks": "Quick links",
@@ -87,22 +83,36 @@
   },
   "defaultEmotion": {
     "angry": "Angry",
+    "calm": "Calm",
+    "custom": "Custom…",
     "disgusted": "Disgusted",
     "fearful": "Fearful",
+    "fluent": "Fluent",
     "happy": "Happy",
     "neutral": "Neutral",
     "sad": "Sad",
     "surprised": "Surprised"
   },
-  "defaultPitch": {
-    "defaultPitch12To12": "Default Pitch (-12 to +12)"
+  "defaultPitchLabel": {
+    "defaultPitch": "<strong>Default Pitch</strong>"
   },
-  "defaultSpeed": {
-    "defaultSpeed05To": "Default Speed (0.5 to 2.0)"
+  "defaultSpeedLabel": {
+    "defaultSpeed": "<strong>Default Speed</strong>"
   },
-  "defaultVoiceSearch": {
-    "searchDefaultVoices": "Search default voices",
-    "searchVoices": "Search voices..."
+  "defaultStepsHint": {
+    "pitchAndSpeedAreApproximate": "Pitch and speed are approximate. The voice model gets these settings as words, not as numbers."
+  },
+  "defaultStyle": {
+    "exampleCalmAndSlowLike": "Example: calm and slow, like a radio host at night"
+  },
+  "defaultStyleGroup": {
+    "style": "Style"
+  },
+  "defaultStyleHint": {
+    "describeInAFewWords": "Describe in a few words how the voice speaks."
+  },
+  "defaultVoiceLabel": {
+    "defaultVoice": "<strong>Default Voice</strong>"
   },
   "defaultVolume": {
     "voiceVolume01To": "Voice Volume (0.1 to 10)"
@@ -111,9 +121,6 @@
     "describeEmotes": "Describe emotes",
     "readEmoteNames": "Read emote names",
     "skipEmotes": "Skip emotes"
-  },
-  "englishNormalization": {
-    "englishNormalization": "English Normalization"
   },
   "eventsEnabled": {
     "announceEvents": "Announce Events"
@@ -214,7 +221,8 @@
       "hasVoice": "User {user} set custom voice: {voice}",
       "noVoice": "User {user} has no custom voice set.",
       "searching": "Searching…",
-      "voiceUnknown": "This voice is not in the list of available voices."
+      "voiceUnknown": "This voice is not in the list of available voices.",
+      "storedVoice": "This viewer saved the old voice {stored}. TTS uses the voice above instead."
     },
     "mutedRewards": {
       "announceLabel": "Announce redeems of {title}",
@@ -279,7 +287,6 @@
       "defaultSpeed": "Default Speed",
       "defaultVoice": "Default Voice",
       "emoteMode": "Emote Mode",
-      "englishNormalization": "English Normalization",
       "eventAnnouncements": "Event Announcements",
       "expandAcronyms": "Expand Chat Acronyms",
       "minimumBits": "Minimum Bits",
@@ -288,6 +295,8 @@
       "readCommandMessages": "Read Chat Commands",
       "readFullUrls": "Read Full URLs",
       "redemptionAnnouncements": "Redemption Announcements",
+      "soundTags": "Sound Tags",
+      "style": "Style",
       "ttsEngine": "TTS Engine",
       "ttsMode": "TTS Mode",
       "ttsPermission": "TTS Permission",
@@ -380,14 +389,6 @@
   "removeBotBtn": {
     "deactivateTtsService": "Deactivate TTS service"
   },
-  "resetPitchBtn": {
-    "reset": "Reset",
-    "resetDefaultPitchTo0": "Reset default pitch to 0"
-  },
-  "resetSpeedBtn": {
-    "reset": "Reset",
-    "resetDefaultSpeedTo1": "Reset default speed to 1.0"
-  },
   "resetVolumeBtn": {
     "reset": "Reset",
     "resetVoiceVolumeTo1": "Reset voice volume to 1.0"
@@ -398,8 +399,8 @@
   "serviceHeadline": {
     "ttsService": "TTS service"
   },
-  "sidebarVoiceName": {
-    "friendlyPerson": "Friendly Person"
+  "soundTagsTitle": {
+    "soundTags": "Sound Tags"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Allow the bot to respond to chat commands such as !myvoice",
@@ -479,24 +480,20 @@
     "voiceDefaults": "Voice Defaults"
   },
   "tabViewerDefaults": {
-    "adjustThePitchForThe": "Adjust the pitch for the default voice",
     "adjustTheVolumeForThe": "Adjust the volume for the selected voice. CAUTION: Values greater than 1.0 can cause distortion.",
     "calibratedVoices": "Calibrated Voices",
     "calibrateVolumeForSpecificVoices": "Calibrate volume for specific voices. CAUTION: Values greater than 1.0 can cause distortion.",
-    "controlHowFastTheDefault": "Control how fast the default voice speaks",
     "defaultEmotion": "<strong>Default Emotion</strong>",
     "defaultLanguage": "<strong>Default Language</strong>",
-    "defaultPitch12To12": "Default Pitch (-12 to +12):",
-    "defaultSpeed05To": "Default Speed (0.5 to 2.0):",
-    "defaultVoice": "<strong>Default Voice</strong>",
     "defaultVoiceSettings": "Default Voice Settings",
-    "englishNormalization": "English Normalization",
-    "improvePronunciationForSpecificLanguages": "Improve pronunciation for specific languages",
-    "improveThePronunciationOfNumbers": "Improve the pronunciation of numbers and text",
-    "selectTheDefaultTtsVoice": "Select the default TTS voice for the channel",
+    "selectHowFastTheDefault": "Select how fast the default voice speaks",
+    "selectHowHighOrLow": "Select how high or low the default voice speaks",
+    "selectTheVoiceThatTts": "Select the voice that TTS uses for viewers who have no voice of their own",
     "selectVoice": "Select Voice",
     "setDefaultVoiceSettingsFor": "Set default voice settings for your channel",
-    "setTheEmotionalToneOf": "Set the emotional tone of the default voice",
+    "setTheEmotionOfThe": "Set the emotion of the default voice. Select Custom to describe the voice in your own words.",
+    "theVoiceModelReadsThe": "The voice model reads the language from the text. If the text is short or unclear, this setting gives the model a hint. It also sets the default language for announcements and selects the word list for the profanity filter.",
+    "viewersCanTypeASound": "Viewers can type a sound tag in a message, and the voice makes that sound. Examples are <code>&lt;laugh&gt;</code> and <code>&lt;sigh&gt;</code>. All tags are on by default. To turn off a tag, clear its check box.",
     "viewerVoiceLookup": "Viewer Voice Lookup",
     "voiceCalibration": "Voice Calibration",
     "voicesWithCustomVolumeSettings": "Voices with custom volume settings.",

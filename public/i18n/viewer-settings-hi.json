@@ -37,20 +37,16 @@
   },
   "emotionSelect": {
     "angry": "क्रोधित",
+    "calm": "शांत",
+    "custom": "कस्टम…",
     "disgusted": "घृणा",
     "fearful": "भयभीत",
+    "fluent": "धाराप्रवाह",
     "happy": "खुश",
     "neutral": "तटस्थ",
     "sad": "उदास",
     "surprised": "हैरान",
     "useChannelDefault": "चैनल डिफ़ॉल्ट का उपयोग करें"
-  },
-  "englishNormalizationCheckbox": {
-    "englishNormalization": "अंग्रेज़ी नॉर्मलाइज़ेशन"
-  },
-  "englishNormalizationReset": {
-    "clear": "साफ़ करें",
-    "resetEnglishNormalizationToDefault": "अंग्रेज़ी नॉर्मलाइज़ेशन को डिफ़ॉल्ट पर रीसेट करें"
   },
   "ignoreTts": {
     "optOutInThisChannel": "इस चैनल में ऑप्ट-आउट करें"
@@ -110,11 +106,11 @@
       "hintChannel": "चैनल डिफ़ॉल्ट का उपयोग किया जा रहा है: {value}",
       "hintSystem": "सिस्टम डिफ़ॉल्ट का उपयोग किया जा रहा है",
       "hintUser": "आपकी ग्लोबल प्राथमिकता का उपयोग किया जा रहा है: {value}",
-      "noVoicesFound": "कोई आवाज़ नहीं मिली",
       "sendPreview": "पूर्वावलोकन भेजें",
       "testCompletedTestMode": "परीक्षण पूरा हुआ (टेस्ट मोड)।",
       "updated": "प्राथमिकता अपडेट की गई।",
-      "updatedTestMode": "प्राथमिकता अपडेट की गई (टेस्ट मोड)।"
+      "updatedTestMode": "प्राथमिकता अपडेट की गई (टेस्ट मोड)।",
+      "customStyle": "कस्टम ({style})"
     }
   },
   "openChannelContextModalBtn": {
@@ -140,36 +136,29 @@
     "viewerSettings": "दर्शक सेटिंग्स",
     "viewerTtsPreferences": "दर्शक TTS प्राथमिकताएं"
   },
+  "pitchLabel": {
+    "pitch": "<strong>पिच</strong>"
+  },
   "pitchReset": {
     "clear": "साफ़ करें",
     "resetPitchToDefault": "पिच को डिफ़ॉल्ट पर रीसेट करें"
   },
-  "pitchSlider": {
-    "pitchAdjustment12To12": "पिच समायोजन (-12 से +12)"
-  },
   "preferencesPanel": {
-    "adjustTheVoicePitchHigher": "आवाज़ की पिच को ऊँचा या नीचा समायोजित करें",
-    "controlHowFastTheVoice": "नियंत्रित करें कि आवाज़ कितनी तेज़ी से बोले",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>दस्तावेज़ </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>स्ट्रीमर सेटिंग्स </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
     "emotion": "<strong>भाव</strong>",
     "emotion2": "भाव",
-    "englishNormalization": "अंग्रेज़ी नॉर्मलाइज़ेशन",
-    "engNormalization": "अंग्रेज़ी सामान्यीकरण",
-    "ifTtsReadsNumbersIncorrectly": "अगर TTS नंबर गलत पढ़ता है, तो अंग्रेज़ी टेक्स्ट नॉर्मलाइज़ेशन चालू करें। इससे लेटेंसी थोड़ी बढ़ जाती है।",
-    "improvePronunciationForSpecificLanguages": "विशिष्ट भाषाओं के लिए उच्चारण बेहतर बनाएं",
-    "improveThePronunciationOfNumbers": "संख्याओं और टेक्स्ट का उच्चारण बेहतर बनाएं",
+    "ifYourTextIsShort": "यदि आपका टेक्स्ट छोटा या अस्पष्ट है, तो यह सेटिंग वॉइस मॉडल को एक संकेत देती है। यह अपशब्द फ़िल्टर के लिए शब्द सूची भी चुनती है।",
     "language": "भाषा",
-    "languageBoost": "<strong>भाषा बूस्ट</strong>",
+    "languageLabel": "<strong>भाषा</strong>",
     "pitch": "पिच",
-    "pitch12To12": "पिच (-12 से +12):",
     "quickLinks": "त्वरित लिंक",
-    "selectYourPreferredTtsVoice": "अपनी पसंदीदा TTS आवाज़ चुनें",
+    "selectHowFastTheVoice": "चुनें कि आवाज़ कितनी तेज़ी से बोलती है",
+    "selectHowHighOrLow": "चुनें कि आवाज़ कितनी ऊँची या नीची बोलती है",
+    "selectTheVoiceThatTts": "वह आवाज़ चुनें जिसका उपयोग TTS आपके संदेशों के लिए करता है",
     "setHowYourMessagesSound": "सेट करें कि TTS द्वारा पढ़े जाने पर आपके संदेश कैसे सुनाई दें",
-    "setTheEmotionalToneOf": "आवाज़ का भावनात्मक लहज़ा सेट करें",
+    "setTheEmotionOfThe": "आवाज़ का भाव सेट करें। अपने शब्दों में आवाज़ का वर्णन करने के लिए 'कस्टम' चुनें।",
     "speed": "गति",
-    "speed05To2": "गति (0.5 से 2.0):",
     "testMessage": "टेस्ट संदेश",
-    "voice": "<strong>आवाज़</strong>",
     "voicePreview": "वॉइस प्रीव्यू",
     "voiceSettings": "वॉइस सेटिंग्स"
   },
@@ -179,22 +168,33 @@
   "previewBtn": {
     "sendPreview": "प्रीव्यू भेजें"
   },
+  "speedLabel": {
+    "speed": "<strong>गति</strong>"
+  },
   "speedReset": {
     "clear": "साफ़ करें",
     "resetSpeedToDefault": "स्पीड डिफ़ॉल्ट पर रीसेट करें"
   },
-  "speedSlider": {
-    "speedAdjustment05To": "स्पीड एडजस्टमेंट (0.5 से 2.0)"
-  },
   "statChannelContext": {
     "noneLoaded": "कोई लोड नहीं हुआ"
+  },
+  "stepsHint": {
+    "pitchAndSpeedAreApproximate": "पिच और गति अनुमानित हैं। वॉइस मॉडल को ये सेटिंग्स संख्याओं के रूप में नहीं, बल्कि शब्दों के रूप में मिलती हैं।"
+  },
+  "styleGroup": {
+    "style": "शैली"
+  },
+  "styleHint": {
+    "describeInAFewWords": "कुछ शब्दों में बताएँ कि आवाज़ कैसे बोलती है।"
+  },
+  "styleInput": {
+    "exampleCalmAndSlowLike": "उदाहरण: शांत और धीमी, रात के रेडियो होस्ट की तरह"
+  },
+  "voiceLabel": {
+    "voice": "<strong>आवाज़</strong>"
   },
   "voiceReset": {
     "clear": "साफ़ करें",
     "resetVoiceToDefault": "वॉइस डिफ़ॉल्ट पर रीसेट करें"
-  },
-  "voiceSearch": {
-    "searchVoices": "वॉइस खोजें",
-    "searchVoices2": "वॉइस खोजें..."
   }
 }

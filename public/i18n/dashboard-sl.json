@@ -35,9 +35,6 @@
   "calibrationSaveBtn": {
     "save": "Shrani"
   },
-  "calibrationVoiceSearch": {
-    "searchVoicesToCalibrate": "Išči glasove za umerjanje..."
-  },
   "channelNameStatus": {
     "yourChannel": "tvoj kanal"
   },
@@ -73,7 +70,6 @@
     "deactivationStopsTheBotFrom": "Deaktivacija prepreči botu branje sporočil v klepetu. Tvoje nastavitve ostanejo shranjene. Storitev lahko kadar koli znova aktiviraš.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentacija",
     "emotion": "Čustvo",
-    "engNormalization": "Angl. normalizacija",
     "language": "Jezik",
     "pitch": "Višina glasu",
     "quickLinks": "Hitre povezave",
@@ -87,22 +83,36 @@
   },
   "defaultEmotion": {
     "angry": "Jezen",
+    "calm": "Umirjen",
+    "custom": "Po meri…",
     "disgusted": "Zgrožen",
     "fearful": "Prestrašen",
+    "fluent": "Tekoč",
     "happy": "Vesel",
     "neutral": "Nevtralen",
     "sad": "Žalosten",
     "surprised": "Presenečen"
   },
-  "defaultPitch": {
-    "defaultPitch12To12": "Privzeta višina tona (-12 do +12)"
+  "defaultPitchLabel": {
+    "defaultPitch": "<strong>Privzeta višina</strong>"
   },
-  "defaultSpeed": {
-    "defaultSpeed05To": "Privzeta hitrost (0,5 do 2,0)"
+  "defaultSpeedLabel": {
+    "defaultSpeed": "<strong>Privzeta hitrost</strong>"
   },
-  "defaultVoiceSearch": {
-    "searchDefaultVoices": "Išči privzete glasove",
-    "searchVoices": "Išči glasove ..."
+  "defaultStepsHint": {
+    "pitchAndSpeedAreApproximate": "Višina in hitrost sta približni. Glasovni model prejme te nastavitve kot besede, ne kot številke."
+  },
+  "defaultStyle": {
+    "exampleCalmAndSlowLike": "Primer: umirjen in počasen, kot nočni radijski voditelj"
+  },
+  "defaultStyleGroup": {
+    "style": "Slog"
+  },
+  "defaultStyleHint": {
+    "describeInAFewWords": "V nekaj besedah opišite, kako glas govori."
+  },
+  "defaultVoiceLabel": {
+    "defaultVoice": "<strong>Privzeti glas</strong>"
   },
   "defaultVolume": {
     "voiceVolume01To": "Glasnost glasu (0,1 do 10)"
@@ -111,9 +121,6 @@
     "describeEmotes": "Opiši emotikone",
     "readEmoteNames": "Preberi imena emotov",
     "skipEmotes": "Preskoči emote"
-  },
-  "englishNormalization": {
-    "englishNormalization": "Normalizacija angleščine"
   },
   "eventsEnabled": {
     "announceEvents": "Naznani dogodke"
@@ -214,7 +221,8 @@
       "hasVoice": "Uporabnik {user} ima nastavljen glas po meri: {voice}",
       "noVoice": "Uporabnik {user} nima nastavljenega glasu po meri.",
       "searching": "Iskanje…",
-      "voiceUnknown": "Ta glas ni na seznamu razpoložljivih glasov."
+      "voiceUnknown": "Ta glas ni na seznamu razpoložljivih glasov.",
+      "storedVoice": "Ta gledalec ima shranjen star glas {stored}. TTS namesto tega uporablja zgornji glas."
     },
     "mutedRewards": {
       "announceLabel": "Oznani unovčitve za {title}",
@@ -279,7 +287,6 @@
       "defaultSpeed": "Privzeta hitrost",
       "defaultVoice": "Privzeti glas",
       "emoteMode": "Način za emotikone",
-      "englishNormalization": "Normalizacija angleščine",
       "eventAnnouncements": "Obvestila o dogodkih",
       "expandAcronyms": "Razširi kratice v klepetu",
       "minimumBits": "Najmanjše število bits",
@@ -288,6 +295,8 @@
       "readCommandMessages": "Beri ukaze v klepetu",
       "readFullUrls": "Preberi celotne URL-je",
       "redemptionAnnouncements": "Obvestila o unovčitvah",
+      "soundTags": "Zvočne oznake",
+      "style": "Slog",
       "ttsEngine": "Pogon TTS",
       "ttsMode": "Način TTS",
       "ttsPermission": "Dovoljenje za TTS",
@@ -380,14 +389,6 @@
   "removeBotBtn": {
     "deactivateTtsService": "Deaktiviraj storitev TTS"
   },
-  "resetPitchBtn": {
-    "reset": "Ponastavi",
-    "resetDefaultPitchTo0": "Ponastavi privzeto višino tona na 0"
-  },
-  "resetSpeedBtn": {
-    "reset": "Ponastavi",
-    "resetDefaultSpeedTo1": "Ponastavi privzeto hitrost na 1.0"
-  },
   "resetVolumeBtn": {
     "reset": "Ponastavi",
     "resetVoiceVolumeTo1": "Ponastavi glasnost glasu na 1.0"
@@ -398,8 +399,8 @@
   "serviceHeadline": {
     "ttsService": "Storitev TTS"
   },
-  "sidebarVoiceName": {
-    "friendlyPerson": "Prijazna oseba"
+  "soundTagsTitle": {
+    "soundTags": "Zvočne oznake"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Dovoli botu odzivanje na ukaze v klepetu, kot je !myvoice",
@@ -479,24 +480,20 @@
     "voiceDefaults": "Privzete nastavitve glasu"
   },
   "tabViewerDefaults": {
-    "adjustThePitchForThe": "Prilagodi višino tona za privzeti glas",
     "adjustTheVolumeForThe": "Prilagodi glasnost za izbrani glas. POZOR: Vrednosti, večje od 1,0, lahko povzročijo popačenje.",
     "calibratedVoices": "Umerjeni glasovi",
     "calibrateVolumeForSpecificVoices": "Umeri glasnost za določene glasove. POZOR: Vrednosti, večje od 1,0, lahko povzročijo popačenje.",
-    "controlHowFastTheDefault": "Nadzorujte hitrost govorjenja privzetega glasu",
     "defaultEmotion": "<strong>Privzeto čustvo</strong>",
     "defaultLanguage": "<strong>Privzeti jezik</strong>",
-    "defaultPitch12To12": "Privzeta višina tona (-12 do +12):",
-    "defaultSpeed05To": "Privzeta hitrost (0,5 do 2,0):",
-    "defaultVoice": "<strong>Privzeti glas</strong>",
     "defaultVoiceSettings": "Privzete nastavitve glasu",
-    "englishNormalization": "Normalizacija angleščine",
-    "improvePronunciationForSpecificLanguages": "Izboljšajte izgovorjavo za določene jezike",
-    "improveThePronunciationOfNumbers": "Izboljšajte izgovorjavo številk in besedila",
-    "selectTheDefaultTtsVoice": "Izberite privzeti glas TTS za kanal",
+    "selectHowFastTheDefault": "Izberite, kako hitro govori privzeti glas",
+    "selectHowHighOrLow": "Izberite, kako visoko ali nizko govori privzeti glas",
+    "selectTheVoiceThatTts": "Izberite glas, ki ga TTS uporablja za gledalce brez lastnega glasu",
     "selectVoice": "Izberite glas",
     "setDefaultVoiceSettingsFor": "Nastavite privzete nastavitve glasu za svoj kanal",
-    "setTheEmotionalToneOf": "Nastavite čustveni ton privzetega glasu",
+    "setTheEmotionOfThe": "Nastavite čustvo privzetega glasu. Izberite Po meri, da glas opišete s svojimi besedami.",
+    "theVoiceModelReadsThe": "Glasovni model razbere jezik iz besedila. Če je besedilo kratko ali nejasno, ta nastavitev modelu da namig. Prav tako nastavi privzeti jezik za obvestila in izbere seznam besed za filter neprimernih besed.",
+    "viewersCanTypeASound": "Gledalci lahko v sporočilo vnesejo zvočno oznako in glas ustvari ta zvok. Primera sta <code>&lt;laugh&gt;</code> in <code>&lt;sigh&gt;</code>. Privzeto so vklopljene vse oznake. Če želite oznako izklopiti, počistite njeno potrditveno polje.",
     "viewerVoiceLookup": "Iskanje glasu gledalca",
     "voiceCalibration": "Umerjanje glasu",
     "voicesWithCustomVolumeSettings": "Glasovi s prilagojenimi nastavitvami glasnosti.",

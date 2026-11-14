@@ -60,7 +60,6 @@ p, label, .form-label, .form-check-label, .form-text, .card-body, .card-body p, 
 .badge,
 .dropdown-menu,
 .nav-tabs .nav-link,
-.voice-dropdown-menu,
 input:not(.form-check-input),
 textarea,
 select,
@@ -645,98 +644,7 @@ dialog.modal.modal--wide {
     font-style: italic;
 }
 
-/* =====================================================
-   CUSTOM VOICE DROPDOWN
-   ===================================================== */
-.custom-voice-dropdown {
-    position: relative;
-    width: 100%;
-}
-
-/* Wider dropdown on medium+ screens to prevent voice name wrapping */
-@media (min-width: 768px) {
-    #default-voice-dropdown,
-    #calibration-voice-dropdown,
-    #voice-dropdown {
-        min-width: 280px;
-    }
-}
-
-.custom-voice-dropdown input[type="text"] {
-    cursor: pointer;
-}
-
-.custom-voice-dropdown input[type="text"]:focus {
-    cursor: text;
-    border-color: var(--text-primary);
-    box-shadow: none;
-}
-
-[data-theme="dark"] .custom-voice-dropdown input[type="text"]::placeholder {
-    color: var(--text-muted);
-    opacity: 0.8;
-}
-
-.voice-dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    margin-top: 0.25rem;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    box-shadow: 0 4px 12px var(--shadow-color);
-    max-height: 400px;
-    overflow-x: hidden;
-    display: none;
-}
-
-.voice-dropdown-menu.show {
-    display: block;
-}
-
-.voice-dropdown-list {
-    padding: 0.5rem 0;
-}
-
-.voice-dropdown-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.75rem 1rem;
-    cursor: pointer;
-    transition: background-color 0.15s ease;
-    gap: 0.5rem;
-}
-
-.voice-dropdown-item:hover {
-    background-color: var(--bg-tertiary);
-}
-
-[data-theme="dark"] .voice-dropdown-item:hover {
-    background-color: var(--bg-tertiary);
-    color: var(--text-primary);
-}
-
-.voice-dropdown-item.no-results {
-    cursor: default;
-    color: var(--text-muted);
-    justify-content: center;
-}
-
-.voice-dropdown-item.no-results:hover {
-    background-color: transparent;
-}
-
-[data-theme="dark"] .voice-dropdown-item.no-results {
-    color: var(--text-muted);
-}
-
-.voice-label {
-    flex: 1;
-    font-size: 0.875rem;
-}
+/* The voice picker itself is styled in chatvibes-specific.css. */
 
 /* Voice play button styles */
 .voice-play-btn {

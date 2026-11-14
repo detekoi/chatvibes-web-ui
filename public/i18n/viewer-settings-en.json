@@ -37,20 +37,16 @@
   },
   "emotionSelect": {
     "angry": "Angry",
+    "calm": "Calm",
+    "custom": "Custom…",
     "disgusted": "Disgusted",
     "fearful": "Fearful",
+    "fluent": "Fluent",
     "happy": "Happy",
     "neutral": "Neutral",
     "sad": "Sad",
     "surprised": "Surprised",
     "useChannelDefault": "Use channel default"
-  },
-  "englishNormalizationCheckbox": {
-    "englishNormalization": "English Normalization"
-  },
-  "englishNormalizationReset": {
-    "clear": "Clear",
-    "resetEnglishNormalizationToDefault": "Reset English normalization to default"
   },
   "ignoreTts": {
     "optOutInThisChannel": "Opt out in this channel"
@@ -110,11 +106,11 @@
       "hintChannel": "Using channel default: {value}",
       "hintSystem": "Using system default",
       "hintUser": "Using your global preference: {value}",
-      "noVoicesFound": "No voices found",
       "sendPreview": "Send Preview",
       "testCompletedTestMode": "Test completed (test mode).",
       "updated": "Preference updated.",
-      "updatedTestMode": "Preference updated (test mode)."
+      "updatedTestMode": "Preference updated (test mode).",
+      "customStyle": "Custom ({style})"
     }
   },
   "openChannelContextModalBtn": {
@@ -140,36 +136,29 @@
     "viewerSettings": "Viewer settings",
     "viewerTtsPreferences": "Viewer TTS preferences"
   },
+  "pitchLabel": {
+    "pitch": "<strong>Pitch</strong>"
+  },
   "pitchReset": {
     "clear": "Clear",
     "resetPitchToDefault": "Reset pitch to default"
   },
-  "pitchSlider": {
-    "pitchAdjustment12To12": "Pitch adjustment (-12 to +12)"
-  },
   "preferencesPanel": {
-    "adjustTheVoicePitchHigher": "Adjust the voice pitch higher or lower",
-    "controlHowFastTheVoice": "Control how fast the voice speaks",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Documentation </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Streamer settings </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
     "emotion": "<strong>Emotion</strong>",
     "emotion2": "Emotion",
-    "englishNormalization": "English Normalization",
-    "engNormalization": "Eng. normalization",
-    "ifTtsReadsNumbersIncorrectly": "If TTS reads numbers incorrectly, turn on English text normalization. This setting slightly increases latency.",
-    "improvePronunciationForSpecificLanguages": "Improve pronunciation for specific languages",
-    "improveThePronunciationOfNumbers": "Improve the pronunciation of numbers and text",
+    "ifYourTextIsShort": "If your text is short or unclear, this setting gives the voice model a hint. It also selects the word list for the profanity filter.",
     "language": "Language",
-    "languageBoost": "<strong>Language Boost</strong>",
+    "languageLabel": "<strong>Language</strong>",
     "pitch": "Pitch",
-    "pitch12To12": "Pitch (-12 to +12):",
     "quickLinks": "Quick links",
-    "selectYourPreferredTtsVoice": "Select your preferred TTS voice",
+    "selectHowFastTheVoice": "Select how fast the voice speaks",
+    "selectHowHighOrLow": "Select how high or low the voice speaks",
+    "selectTheVoiceThatTts": "Select the voice that TTS uses for your messages",
     "setHowYourMessagesSound": "Set how your messages sound when TTS reads them",
-    "setTheEmotionalToneOf": "Set the emotional tone of the voice",
+    "setTheEmotionOfThe": "Set the emotion of the voice. Select Custom to describe the voice in your own words.",
     "speed": "Speed",
-    "speed05To2": "Speed (0.5 to 2.0):",
     "testMessage": "Test message",
-    "voice": "<strong>Voice</strong>",
     "voicePreview": "Voice preview",
     "voiceSettings": "Voice Settings"
   },
@@ -179,22 +168,33 @@
   "previewBtn": {
     "sendPreview": "Send preview"
   },
+  "speedLabel": {
+    "speed": "<strong>Speed</strong>"
+  },
   "speedReset": {
     "clear": "Clear",
     "resetSpeedToDefault": "Reset speed to default"
   },
-  "speedSlider": {
-    "speedAdjustment05To": "Speed adjustment (0.5 to 2.0)"
-  },
   "statChannelContext": {
     "noneLoaded": "None loaded"
+  },
+  "stepsHint": {
+    "pitchAndSpeedAreApproximate": "Pitch and speed are approximate. The voice model gets these settings as words, not as numbers."
+  },
+  "styleGroup": {
+    "style": "Style"
+  },
+  "styleHint": {
+    "describeInAFewWords": "Describe in a few words how the voice speaks."
+  },
+  "styleInput": {
+    "exampleCalmAndSlowLike": "Example: calm and slow, like a radio host at night"
+  },
+  "voiceLabel": {
+    "voice": "<strong>Voice</strong>"
   },
   "voiceReset": {
     "clear": "Clear",
     "resetVoiceToDefault": "Reset voice to default"
-  },
-  "voiceSearch": {
-    "searchVoices": "Search voices",
-    "searchVoices2": "Search voices..."
   }
 }

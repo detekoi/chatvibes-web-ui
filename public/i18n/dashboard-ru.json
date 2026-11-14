@@ -35,9 +35,6 @@
   "calibrationSaveBtn": {
     "save": "Сохранить"
   },
-  "calibrationVoiceSearch": {
-    "searchVoicesToCalibrate": "Поиск голосов для калибровки..."
-  },
   "channelNameStatus": {
     "yourChannel": "ваш канал"
   },
@@ -73,7 +70,6 @@
     "deactivationStopsTheBotFrom": "Деактивация запретит боту читать сообщения из чата. Ваши настройки сохранятся. Вы можете снова включить сервис в любое время.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Документация",
     "emotion": "Эмоция",
-    "engNormalization": "Нормализация англ.",
     "language": "Язык",
     "pitch": "Высота тона",
     "quickLinks": "Быстрые ссылки",
@@ -87,22 +83,36 @@
   },
   "defaultEmotion": {
     "angry": "Злой",
+    "calm": "Спокойный",
+    "custom": "Свой…",
     "disgusted": "С отвращением",
     "fearful": "Испуганный",
+    "fluent": "Плавный",
     "happy": "Радостный",
     "neutral": "Нейтральный",
     "sad": "Грустный",
     "surprised": "Удивленный"
   },
-  "defaultPitch": {
-    "defaultPitch12To12": "Высота тона по умолчанию (от -12 до +12)"
+  "defaultPitchLabel": {
+    "defaultPitch": "<strong>Тон по умолчанию</strong>"
   },
-  "defaultSpeed": {
-    "defaultSpeed05To": "Скорость по умолчанию (от 0.5 до 2.0)"
+  "defaultSpeedLabel": {
+    "defaultSpeed": "<strong>Скорость по умолчанию</strong>"
   },
-  "defaultVoiceSearch": {
-    "searchDefaultVoices": "Поиск голосов по умолчанию",
-    "searchVoices": "Поиск голосов..."
+  "defaultStepsHint": {
+    "pitchAndSpeedAreApproximate": "Тон и скорость задаются приблизительно. Голосовая модель получает эти настройки в виде слов, а не чисел."
+  },
+  "defaultStyle": {
+    "exampleCalmAndSlowLike": "Пример: спокойно и медленно, как ночной радиоведущий"
+  },
+  "defaultStyleGroup": {
+    "style": "Стиль"
+  },
+  "defaultStyleHint": {
+    "describeInAFewWords": "Опишите в нескольких словах, как говорит голос."
+  },
+  "defaultVoiceLabel": {
+    "defaultVoice": "<strong>Голос по умолчанию</strong>"
   },
   "defaultVolume": {
     "voiceVolume01To": "Громкость голоса (от 0.1 до 10)"
@@ -111,9 +121,6 @@
     "describeEmotes": "Описывать смайлы",
     "readEmoteNames": "Озвучивать названия смайлов",
     "skipEmotes": "Пропускать смайлы"
-  },
-  "englishNormalization": {
-    "englishNormalization": "Нормализация английского"
   },
   "eventsEnabled": {
     "announceEvents": "Озвучивать события"
@@ -214,7 +221,8 @@
       "hasVoice": "Пользователь {user} выбрал голос: {voice}",
       "noVoice": "Пользователь {user} не выбрал голос.",
       "searching": "Поиск…",
-      "voiceUnknown": "Этого голоса нет в списке доступных."
+      "voiceUnknown": "Этого голоса нет в списке доступных.",
+      "storedVoice": "У этого зрителя сохранён старый голос {stored}. Вместо него TTS использует голос, указанный выше."
     },
     "mutedRewards": {
       "announceLabel": "Озвучивать активации «{title}»",
@@ -279,7 +287,6 @@
       "defaultSpeed": "Скорость по умолчанию",
       "defaultVoice": "Голос по умолчанию",
       "emoteMode": "Режим смайлов",
-      "englishNormalization": "Нормализация английского текста",
       "eventAnnouncements": "Оповещения о событиях",
       "expandAcronyms": "Расшифровывать сокращения в чате",
       "minimumBits": "Минимум Bits",
@@ -288,6 +295,8 @@
       "readCommandMessages": "Озвучивать команды чата",
       "readFullUrls": "Зачитывать URL полностью",
       "redemptionAnnouncements": "Оповещения об активации наград",
+      "soundTags": "Звуковые теги",
+      "style": "Стиль",
       "ttsEngine": "Движок TTS",
       "ttsMode": "Режим TTS",
       "ttsPermission": "Доступ к TTS",
@@ -380,14 +389,6 @@
   "removeBotBtn": {
     "deactivateTtsService": "Отключить сервис TTS"
   },
-  "resetPitchBtn": {
-    "reset": "Сбросить",
-    "resetDefaultPitchTo0": "Сбросить высоту тона по умолчанию на 0"
-  },
-  "resetSpeedBtn": {
-    "reset": "Сбросить",
-    "resetDefaultSpeedTo1": "Сбросить скорость по умолчанию на 1.0"
-  },
   "resetVolumeBtn": {
     "reset": "Сбросить",
     "resetVoiceVolumeTo1": "Сбросить громкость голоса на 1.0"
@@ -398,8 +399,8 @@
   "serviceHeadline": {
     "ttsService": "Сервис TTS"
   },
-  "sidebarVoiceName": {
-    "friendlyPerson": "Дружелюбный голос"
+  "soundTagsTitle": {
+    "soundTags": "Звуковые теги"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Разрешить боту отвечать на команды в чате, такие как !myvoice",
@@ -479,24 +480,20 @@
     "voiceDefaults": "Голос по умолчанию"
   },
   "tabViewerDefaults": {
-    "adjustThePitchForThe": "Настройка высоты тона для голоса по умолчанию",
     "adjustTheVolumeForThe": "Настройка громкости для выбранного голоса. ВНИМАНИЕ: значения выше 1.0 могут вызывать искажения.",
     "calibratedVoices": "Откалиброванные голоса",
     "calibrateVolumeForSpecificVoices": "Калибровка громкости для отдельных голосов. ВНИМАНИЕ: значения выше 1.0 могут вызывать искажения.",
-    "controlHowFastTheDefault": "Настройте скорость стандартного голоса",
     "defaultEmotion": "<strong>Эмоция по умолчанию</strong>",
     "defaultLanguage": "<strong>Язык по умолчанию</strong>",
-    "defaultPitch12To12": "Высота тона по умолчанию (от -12 до +12):",
-    "defaultSpeed05To": "Скорость по умолчанию (от 0.5 до 2.0):",
-    "defaultVoice": "<strong>Голос по умолчанию</strong>",
     "defaultVoiceSettings": "Настройки голоса по умолчанию",
-    "englishNormalization": "Нормализация английского языка",
-    "improvePronunciationForSpecificLanguages": "Улучшить произношение для отдельных языков",
-    "improveThePronunciationOfNumbers": "Улучшить произношение чисел и текста",
-    "selectTheDefaultTtsVoice": "Выберите голос TTS по умолчанию для канала",
+    "selectHowFastTheDefault": "Выберите, с какой скоростью говорит голос по умолчанию",
+    "selectHowHighOrLow": "Выберите, насколько высоко или низко звучит голос по умолчанию",
+    "selectTheVoiceThatTts": "Выберите голос, который TTS использует для зрителей без собственного голоса",
     "selectVoice": "Выбрать голос",
     "setDefaultVoiceSettingsFor": "Настройте параметры голоса по умолчанию для канала",
-    "setTheEmotionalToneOf": "Задайте эмоциональный тон голоса по умолчанию",
+    "setTheEmotionOfThe": "Задайте эмоцию голоса по умолчанию. Выберите «Свой», чтобы описать голос своими словами.",
+    "theVoiceModelReadsThe": "Голосовая модель определяет язык по тексту. Если текст короткий или неясный, эта настройка служит подсказкой для модели. Она также задаёт язык по умолчанию для объявлений и выбирает список слов для фильтра ненормативной лексики.",
+    "viewersCanTypeASound": "Зрители могут указать в сообщении звуковой тег, и голос воспроизведёт этот звук. Например, <code>&lt;laugh&gt;</code> и <code>&lt;sigh&gt;</code>. По умолчанию включены все теги. Чтобы отключить тег, снимите флажок.",
     "viewerVoiceLookup": "Поиск голоса зрителя",
     "voiceCalibration": "Калибровка голоса",
     "voicesWithCustomVolumeSettings": "Голоса с индивидуальной настройкой громкости.",

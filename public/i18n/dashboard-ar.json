@@ -35,9 +35,6 @@
   "calibrationSaveBtn": {
     "save": "حفظ"
   },
-  "calibrationVoiceSearch": {
-    "searchVoicesToCalibrate": "البحث عن أصوات لمعايرتها..."
-  },
   "channelNameStatus": {
     "yourChannel": "قناتك"
   },
@@ -73,7 +70,6 @@
     "deactivationStopsTheBotFrom": "يؤدي إلغاء التفعيل إلى إيقاف البوت عن قراءة رسائل الدردشة. ستظل إعداداتك محفوظة. يمكنك تفعيل الخدمة مرة أخرى في أي وقت.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>التوثيق",
     "emotion": "المشاعر",
-    "engNormalization": "تسوية الإنجليزية",
     "language": "اللغة",
     "pitch": "طبقة الصوت",
     "quickLinks": "روابط سريعة",
@@ -87,22 +83,36 @@
   },
   "defaultEmotion": {
     "angry": "غاضب",
+    "calm": "هادئ",
+    "custom": "مخصص…",
     "disgusted": "مشمئز",
     "fearful": "خائف",
+    "fluent": "سلس",
     "happy": "سعيد",
     "neutral": "محايد",
     "sad": "حزين",
     "surprised": "متفاجئ"
   },
-  "defaultPitch": {
-    "defaultPitch12To12": "طبقة الصوت الافتراضية (-12 إلى +12)"
+  "defaultPitchLabel": {
+    "defaultPitch": "<strong>طبقة الصوت الافتراضية</strong>"
   },
-  "defaultSpeed": {
-    "defaultSpeed05To": "السرعة الافتراضية (0.5 إلى 2.0)"
+  "defaultSpeedLabel": {
+    "defaultSpeed": "<strong>السرعة الافتراضية</strong>"
   },
-  "defaultVoiceSearch": {
-    "searchDefaultVoices": "البحث في الأصوات الافتراضية",
-    "searchVoices": "البحث في الأصوات..."
+  "defaultStepsHint": {
+    "pitchAndSpeedAreApproximate": "طبقة الصوت والسرعة تقريبيتان. يتلقى نموذج الصوت هذه الإعدادات ككلمات، لا كأرقام."
+  },
+  "defaultStyle": {
+    "exampleCalmAndSlowLike": "مثال: هادئ وبطيء، كمذيع راديو في الليل"
+  },
+  "defaultStyleGroup": {
+    "style": "الأسلوب"
+  },
+  "defaultStyleHint": {
+    "describeInAFewWords": "صف في بضع كلمات كيف يتحدث الصوت."
+  },
+  "defaultVoiceLabel": {
+    "defaultVoice": "<strong>الصوت الافتراضي</strong>"
   },
   "defaultVolume": {
     "voiceVolume01To": "مستوى صوت الصوت (0.1 إلى 10)"
@@ -111,9 +121,6 @@
     "describeEmotes": "وصف الرموز التعبيرية",
     "readEmoteNames": "قراءة أسماء الرموز التعبيرية",
     "skipEmotes": "تخطي الرموز التعبيرية"
-  },
-  "englishNormalization": {
-    "englishNormalization": "تسوية الإنجليزية"
   },
   "eventsEnabled": {
     "announceEvents": "الإعلان عن الأحداث"
@@ -214,7 +221,8 @@
       "hasVoice": "عيّن المستخدم {user} صوتاً مخصصاً: {voice}",
       "noVoice": "لم يقم المستخدم {user} بتعيين صوت مخصص.",
       "searching": "جارٍ البحث…",
-      "voiceUnknown": "هذا الصوت غير موجود في قائمة الأصوات المتاحة."
+      "voiceUnknown": "هذا الصوت غير موجود في قائمة الأصوات المتاحة.",
+      "storedVoice": "حفظ هذا المشاهد الصوت القديم {stored}. يستخدم TTS الصوت أعلاه بدلاً من ذلك."
     },
     "mutedRewards": {
       "announceLabel": "الإعلان عن عمليات استرداد {title}",
@@ -279,7 +287,6 @@
       "defaultSpeed": "السرعة الافتراضية",
       "defaultVoice": "الصوت الافتراضي",
       "emoteMode": "وضع الرموز التعبيرية",
-      "englishNormalization": "المعالجة القياسية للإنجليزية",
       "eventAnnouncements": "إعلانات الأحداث",
       "expandAcronyms": "توسيع اختصارات الدردشة",
       "minimumBits": "الحد الأدنى لـ bits",
@@ -288,6 +295,8 @@
       "readCommandMessages": "قراءة أوامر الدردشة",
       "readFullUrls": "قراءة عناوين URL كاملة",
       "redemptionAnnouncements": "إعلانات الاسترداد",
+      "soundTags": "وسوم الصوت",
+      "style": "الأسلوب",
       "ttsEngine": "محرك TTS",
       "ttsMode": "وضع TTS",
       "ttsPermission": "إذن TTS",
@@ -380,14 +389,6 @@
   "removeBotBtn": {
     "deactivateTtsService": "إلغاء تفعيل خدمة TTS"
   },
-  "resetPitchBtn": {
-    "reset": "إعادة ضبط",
-    "resetDefaultPitchTo0": "إعادة ضبط طبقة الصوت الافتراضية إلى 0"
-  },
-  "resetSpeedBtn": {
-    "reset": "إعادة ضبط",
-    "resetDefaultSpeedTo1": "إعادة ضبط السرعة الافتراضية إلى 1.0"
-  },
   "resetVolumeBtn": {
     "reset": "إعادة ضبط",
     "resetVoiceVolumeTo1": "إعادة ضبط مستوى صوت الصوت إلى 1.0"
@@ -398,8 +399,8 @@
   "serviceHeadline": {
     "ttsService": "خدمة TTS"
   },
-  "sidebarVoiceName": {
-    "friendlyPerson": "شخص ودود"
+  "soundTagsTitle": {
+    "soundTags": "وسوم الصوت"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "السماح للبوت بالرد على أوامر الدردشة مثل !myvoice",
@@ -473,30 +474,26 @@
     "youtubeTtsEnabled": "YouTube TTS مفعّل"
   },
   "tabBtnBroadcaster": {
-    "broadcaster": "منشئ البث"
+    "broadcaster": "المذيع"
   },
   "tabBtnViewerDefaults": {
-    "voiceDefaults": "القيم الافتراضية للصوت"
+    "voiceDefaults": "إعدادات الصوت الافتراضية"
   },
   "tabViewerDefaults": {
-    "adjustThePitchForThe": "ضبط طبقة الصوت للصوت الافتراضي",
     "adjustTheVolumeForThe": "ضبط مستوى الصوت للصوت المحدد. تنبيه: القيم الأكبر من 1.0 قد تؤدي إلى تشويش الصوت.",
     "calibratedVoices": "الأصوات المعايرة",
     "calibrateVolumeForSpecificVoices": "معايرة مستوى الصوت لأصوات معينة. تنبيه: القيم الأكبر من 1.0 قد تؤدي إلى تشويش الصوت.",
-    "controlHowFastTheDefault": "تحكّم في سرعة تحدث الصوت الافتراضي",
     "defaultEmotion": "<strong>الشعور الافتراضي</strong>",
     "defaultLanguage": "<strong>اللغة الافتراضية</strong>",
-    "defaultPitch12To12": "طبقة الصوت الافتراضية (-12 إلى +12):",
-    "defaultSpeed05To": "السرعة الافتراضية (0.5 إلى 2.0):",
-    "defaultVoice": "<strong>الصوت الافتراضي</strong>",
     "defaultVoiceSettings": "إعدادات الصوت الافتراضي",
-    "englishNormalization": "تسوية النصوص الإنجليزية",
-    "improvePronunciationForSpecificLanguages": "تحسين النطق للغات معينة",
-    "improveThePronunciationOfNumbers": "تحسين نطق الأرقام والنصوص",
-    "selectTheDefaultTtsVoice": "اختر صوت TTS الافتراضي للقناة",
+    "selectHowFastTheDefault": "اختر سرعة تحدث الصوت الافتراضي",
+    "selectHowHighOrLow": "اختر ارتفاع أو انخفاض طبقة الصوت الافتراضي",
+    "selectTheVoiceThatTts": "اختر الصوت الذي يستخدمه TTS للمشاهدين الذين ليس لديهم صوت خاص بهم",
     "selectVoice": "اختر الصوت",
     "setDefaultVoiceSettingsFor": "ضبط إعدادات الصوت الافتراضية لقناتك",
-    "setTheEmotionalToneOf": "تحديد النبرة الشعورية للصوت الافتراضي",
+    "setTheEmotionOfThe": "حدد عاطفة الصوت الافتراضي. اختر «مخصص» لوصف الصوت بكلماتك.",
+    "theVoiceModelReadsThe": "يقرأ نموذج الصوت اللغة من النص. إذا كان النص قصيراً أو غير واضح، يعطي هذا الإعداد تلميحاً للنموذج. كما يحدد اللغة الافتراضية للإعلانات ويختار قائمة الكلمات لمرشح الألفاظ النابية.",
+    "viewersCanTypeASound": "يمكن للمشاهدين كتابة وسم صوتي في الرسالة، وسيُصدر الصوت ذلك المؤثر. من الأمثلة: <code>&lt;laugh&gt;</code> و<code>&lt;sigh&gt;</code>. جميع الوسوم مفعّلة افتراضياً. لإيقاف وسم، ألغِ تحديد خانة الاختيار الخاصة به.",
     "viewerVoiceLookup": "البحث عن صوت المشاهد",
     "voiceCalibration": "معايرة الصوت",
     "voicesWithCustomVolumeSettings": "أصوات بإعدادات مخصصة لمستوى الصوت.",

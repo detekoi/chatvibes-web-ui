@@ -37,20 +37,16 @@
   },
   "emotionSelect": {
     "angry": "כועס",
+    "calm": "רגוע",
+    "custom": "מותאם אישית…",
     "disgusted": "נגעל",
     "fearful": "מפחד",
+    "fluent": "שוטף",
     "happy": "שמח",
     "neutral": "ניטרלי",
     "sad": "עצוב",
     "surprised": "מופתע",
     "useChannelDefault": "השתמש בברירת המחדל של הערוץ"
-  },
-  "englishNormalizationCheckbox": {
-    "englishNormalization": "נורמליזציה לאנגלית"
-  },
-  "englishNormalizationReset": {
-    "clear": "ניקוי",
-    "resetEnglishNormalizationToDefault": "איפוס נורמליזציה לאנגלית לברירת המחדל"
   },
   "ignoreTts": {
     "optOutInThisChannel": "ביטול בערוץ זה"
@@ -110,11 +106,11 @@
       "hintChannel": "שימוש בברירת המחדל של הערוץ: {value}",
       "hintSystem": "שימוש בברירת המחדל של המערכת",
       "hintUser": "שימוש בהעדפה הגלובלית שלך: {value}",
-      "noVoicesFound": "לא נמצאו קולות",
       "sendPreview": "שליחת תצוגה מקדימה",
       "testCompletedTestMode": "הבדיקה הושלמה (מצב בדיקה).",
       "updated": "ההעדפה עודכנה.",
-      "updatedTestMode": "ההעדפה עודכנה (מצב בדיקה)."
+      "updatedTestMode": "ההעדפה עודכנה (מצב בדיקה).",
+      "customStyle": "מותאם אישית ({style})"
     }
   },
   "openChannelContextModalBtn": {
@@ -140,36 +136,29 @@
     "viewerSettings": "הגדרות צופה",
     "viewerTtsPreferences": "העדפות TTS לצופה"
   },
+  "pitchLabel": {
+    "pitch": "<strong>גובה צליל</strong>"
+  },
   "pitchReset": {
     "clear": "איפוס",
     "resetPitchToDefault": "איפוס גובה הקול לברירת המחדל"
   },
-  "pitchSlider": {
-    "pitchAdjustment12To12": "כוונון גובה קול (-12 עד +12)"
-  },
   "preferencesPanel": {
-    "adjustTheVoicePitchHigher": "כוונון גובה הקול לגבוה או לנמוך יותר",
-    "controlHowFastTheVoice": "שליטה במהירות הדיבור של הקול",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>תיעוד </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>הגדרות סטרימר </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
     "emotion": "<strong>רגש</strong>",
     "emotion2": "רגש",
-    "englishNormalization": "נרמול אנגלית",
-    "engNormalization": "נרמול אנגלית",
-    "ifTtsReadsNumbersIncorrectly": "אם TTS מקריא מספרים באופן שגוי, הפעל נרמול טקסט באנגלית. הגדרה זו מגדילה מעט את זמן ההשהיה.",
-    "improvePronunciationForSpecificLanguages": "שיפור ההגייה עבור שפות מסוימות",
-    "improveThePronunciationOfNumbers": "שיפור הגיית מספרים וטקסט",
+    "ifYourTextIsShort": "אם הטקסט שלך קצר או לא ברור, הגדרה זו נותנת למודל הקול רמז. היא גם בוחרת את רשימת המילים למסנן הקללות.",
     "language": "שפה",
-    "languageBoost": "<strong>Language Boost</strong>",
+    "languageLabel": "<strong>שפה</strong>",
     "pitch": "גובה קול",
-    "pitch12To12": "גובה קול (-12 עד +12):",
     "quickLinks": "קישורים מהירים",
-    "selectYourPreferredTtsVoice": "בחירת קול ה-TTS המועדף עליך",
+    "selectHowFastTheVoice": "בחר באיזו מהירות הקול מדבר",
+    "selectHowHighOrLow": "בחר עד כמה גבוה או נמוך הקול מדבר",
+    "selectTheVoiceThatTts": "בחר את הקול שבו TTS משתמש עבור ההודעות שלך",
     "setHowYourMessagesSound": "הגדרת האופן שבו ההודעות שלך יישמעו כאשר TTS מקריא אותן",
-    "setTheEmotionalToneOf": "הגדרת הטון הרגשי של הקול",
+    "setTheEmotionOfThe": "הגדר את הרגש של הקול. בחר \"מותאם אישית\" כדי לתאר את הקול במילים שלך.",
     "speed": "מהירות",
-    "speed05To2": "מהירות (0.5 עד 2.0):",
     "testMessage": "הודעת בדיקה",
-    "voice": "<strong>קול</strong>",
     "voicePreview": "תצוגה מקדימה של הקול",
     "voiceSettings": "הגדרות קול"
   },
@@ -179,22 +168,33 @@
   "previewBtn": {
     "sendPreview": "שלח תצוגה מקדימה"
   },
+  "speedLabel": {
+    "speed": "<strong>מהירות</strong>"
+  },
   "speedReset": {
     "clear": "נקה",
     "resetSpeedToDefault": "איפוס המהירות לברירת המחדל"
   },
-  "speedSlider": {
-    "speedAdjustment05To": "כוונון מהירות (0.5 עד 2.0)"
-  },
   "statChannelContext": {
     "noneLoaded": "לא נטען דבר"
+  },
+  "stepsHint": {
+    "pitchAndSpeedAreApproximate": "גובה הצליל והמהירות הם משוערים. מודל הקול מקבל הגדרות אלו כמילים, ולא כמספרים."
+  },
+  "styleGroup": {
+    "style": "סגנון"
+  },
+  "styleHint": {
+    "describeInAFewWords": "תאר בכמה מילים איך הקול מדבר."
+  },
+  "styleInput": {
+    "exampleCalmAndSlowLike": "דוגמה: רגוע ואיטי, כמו שדרן רדיו בלילה"
+  },
+  "voiceLabel": {
+    "voice": "<strong>קול</strong>"
   },
   "voiceReset": {
     "clear": "נקה",
     "resetVoiceToDefault": "איפוס הקול לברירת המחדל"
-  },
-  "voiceSearch": {
-    "searchVoices": "חיפוש קולות",
-    "searchVoices2": "חיפוש קולות..."
   }
 }

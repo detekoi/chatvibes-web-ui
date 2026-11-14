@@ -35,9 +35,6 @@
   "calibrationSaveBtn": {
     "save": "ذخیره"
   },
-  "calibrationVoiceSearch": {
-    "searchVoicesToCalibrate": "جستجوی صداها برای کالیبره کردن..."
-  },
   "channelNameStatus": {
     "yourChannel": "کانال شما"
   },
@@ -73,7 +70,6 @@
     "deactivationStopsTheBotFrom": "غیرفعال‌سازی مانع از خواندن پیام‌های چت توسط ربات می‌شود. تنظیمات شما ذخیره می‌ماند. می‌توانید هر زمان که بخواهید سرویس را دوباره فعال کنید.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>مستندات",
     "emotion": "احساس",
-    "engNormalization": "نرمال‌سازی انگلیسی",
     "language": "زبان",
     "pitch": "زیروبمی صدا",
     "quickLinks": "لینک‌های سریع",
@@ -87,22 +83,36 @@
   },
   "defaultEmotion": {
     "angry": "عصبانی",
+    "calm": "آرام",
+    "custom": "سفارشی…",
     "disgusted": "بیزار",
     "fearful": "ترسیده",
+    "fluent": "روان",
     "happy": "خوشحال",
     "neutral": "خنثی",
     "sad": "غمگین",
     "surprised": "شگفت‌زده"
   },
-  "defaultPitch": {
-    "defaultPitch12To12": "زیروبمی پیش‌فرض (-12 تا +12)"
+  "defaultPitchLabel": {
+    "defaultPitch": "<strong>زیر و بم پیش‌فرض</strong>"
   },
-  "defaultSpeed": {
-    "defaultSpeed05To": "سرعت پیش‌فرض (0.5 تا 2.0)"
+  "defaultSpeedLabel": {
+    "defaultSpeed": "<strong>سرعت پیش‌فرض</strong>"
   },
-  "defaultVoiceSearch": {
-    "searchDefaultVoices": "جستجوی صداهای پیش‌فرض",
-    "searchVoices": "جستجوی صداها..."
+  "defaultStepsHint": {
+    "pitchAndSpeedAreApproximate": "زیر و بم و سرعت تقریبی هستند. مدل صدا این تنظیمات را به صورت کلمه دریافت می‌کند، نه عدد."
+  },
+  "defaultStyle": {
+    "exampleCalmAndSlowLike": "مثال: آرام و آهسته، مثل مجری رادیو در شب"
+  },
+  "defaultStyleGroup": {
+    "style": "سبک"
+  },
+  "defaultStyleHint": {
+    "describeInAFewWords": "در چند کلمه توضیح دهید صدا چگونه صحبت کند."
+  },
+  "defaultVoiceLabel": {
+    "defaultVoice": "<strong>صدای پیش‌فرض</strong>"
   },
   "defaultVolume": {
     "voiceVolume01To": "بلندی صدا (0.1 تا 10)"
@@ -111,9 +121,6 @@
     "describeEmotes": "توصیف ایموت‌ها",
     "readEmoteNames": "خواندن نام ایموت‌ها",
     "skipEmotes": "رد کردن ایموت‌ها"
-  },
-  "englishNormalization": {
-    "englishNormalization": "استانداردسازی انگلیسی"
   },
   "eventsEnabled": {
     "announceEvents": "اعلام رویدادها"
@@ -214,7 +221,8 @@
       "hasVoice": "کاربر {user} صدای سفارشی تعیین کرده است: {voice}",
       "noVoice": "کاربر {user} هیچ صدای سفارشی‌ای تنظیم نکرده است.",
       "searching": "در حال جستجو…",
-      "voiceUnknown": "این صدا در فهرست صداهای موجود نیست."
+      "voiceUnknown": "این صدا در فهرست صداهای موجود نیست.",
+      "storedVoice": "این بیننده صدای قدیمی {stored} را ذخیره کرده است. TTS به جای آن از صدای بالا استفاده می‌کند."
     },
     "mutedRewards": {
       "announceLabel": "اعلام دریافت‌های {title}",
@@ -279,7 +287,6 @@
       "defaultSpeed": "سرعت پیش‌فرض",
       "defaultVoice": "صدای پیش‌فرض",
       "emoteMode": "حالت ایموت",
-      "englishNormalization": "نرمال‌سازی انگلیسی",
       "eventAnnouncements": "اعلام رویدادها",
       "expandAcronyms": "گسترش اختصارات چت",
       "minimumBits": "حداقل Bits",
@@ -288,6 +295,8 @@
       "readCommandMessages": "خواندن دستورات چت",
       "readFullUrls": "خواندن کامل URLها",
       "redemptionAnnouncements": "اعلام دریافت‌های پاداش",
+      "soundTags": "برچسب‌های صوتی",
+      "style": "سبک",
       "ttsEngine": "موتور TTS",
       "ttsMode": "حالت TTS",
       "ttsPermission": "دسترسی TTS",
@@ -380,14 +389,6 @@
   "removeBotBtn": {
     "deactivateTtsService": "غیرفعال‌سازی سرویس TTS"
   },
-  "resetPitchBtn": {
-    "reset": "بازنشانی",
-    "resetDefaultPitchTo0": "بازنشانی زیروبمی پیش‌فرض به ۰"
-  },
-  "resetSpeedBtn": {
-    "reset": "بازنشانی",
-    "resetDefaultSpeedTo1": "بازنشانی سرعت پیش‌فرض به ۱.۰"
-  },
   "resetVolumeBtn": {
     "reset": "بازنشانی",
     "resetVoiceVolumeTo1": "بازنشانی بلندی صدا به ۱.۰"
@@ -398,8 +399,8 @@
   "serviceHeadline": {
     "ttsService": "سرویس TTS"
   },
-  "sidebarVoiceName": {
-    "friendlyPerson": "شخص صمیمی"
+  "soundTagsTitle": {
+    "soundTags": "برچسب‌های صوتی"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "اجازه دادن به بات برای پاسخ به دستورات چت مانند ‎!myvoice",
@@ -473,30 +474,26 @@
     "youtubeTtsEnabled": "TTS مربوط به YouTube فعال است"
   },
   "tabBtnBroadcaster": {
-    "broadcaster": "استریمر"
+    "broadcaster": "پخش‌کننده"
   },
   "tabBtnViewerDefaults": {
     "voiceDefaults": "پیش‌فرض‌های صدا"
   },
   "tabViewerDefaults": {
-    "adjustThePitchForThe": "تنظیم زیروبمی برای صدای پیش‌فرض",
     "adjustTheVolumeForThe": "تنظیم بلندی صدای انتخاب‌شده. احتیاط: مقادیر بیشتر از ۱٫۰ می‌توانند باعث اعوجاج صدا شوند.",
     "calibratedVoices": "صداهای کالیبره‌شده",
     "calibrateVolumeForSpecificVoices": "تنظیم بلندی صدا برای صداهای خاص. احتیاط: مقادیر بیشتر از ۱٫۰ می‌توانند باعث اعوجاج صدا شوند.",
-    "controlHowFastTheDefault": "کنترل سرعت خواندن صدای پیش‌فرض",
     "defaultEmotion": "<strong>احساس پیش‌فرض</strong>",
     "defaultLanguage": "<strong>زبان پیش‌فرض</strong>",
-    "defaultPitch12To12": "زیروبمی پیش‌فرض (-12 تا +12):",
-    "defaultSpeed05To": "سرعت پیش‌فرض (0.5 تا 2.0):",
-    "defaultVoice": "<strong>صدای پیش‌فرض</strong>",
     "defaultVoiceSettings": "تنظیمات صدای پیش‌فرض",
-    "englishNormalization": "استانداردسازی انگلیسی",
-    "improvePronunciationForSpecificLanguages": "بهبود تلفظ برای زبان‌های خاص",
-    "improveThePronunciationOfNumbers": "بهبود تلفظ اعداد و متن",
-    "selectTheDefaultTtsVoice": "انتخاب صدای TTS پیش‌فرض برای کانال",
+    "selectHowFastTheDefault": "سرعت صحبت کردن صدای پیش‌فرض را انتخاب کنید",
+    "selectHowHighOrLow": "میزان زیر و بم بودن صدای پیش‌فرض را انتخاب کنید",
+    "selectTheVoiceThatTts": "صدایی را انتخاب کنید که TTS برای بینندگانی که صدای اختصاصی ندارند استفاده کند",
     "selectVoice": "انتخاب صدا",
     "setDefaultVoiceSettingsFor": "تنظیمات صدای پیش‌فرض را برای کانال خود تعیین کنید",
-    "setTheEmotionalToneOf": "تعیین لحن احساسی صدای پیش‌فرض",
+    "setTheEmotionOfThe": "احساس صدای پیش‌فرض را تنظیم کنید. برای توصیف صدا با کلمات خودتان، «سفارشی» را انتخاب کنید.",
+    "theVoiceModelReadsThe": "مدل صدا زبان را از روی متن تشخیص می‌دهد. اگر متن کوتاه یا نامشخص باشد، این تنظیم به مدل سرنخ می‌دهد. همچنین زبان پیش‌فرض اعلان‌ها را تنظیم کرده و فهرست کلمات فیلتر الفاظ رکیک را انتخاب می‌کند.",
+    "viewersCanTypeASound": "بینندگان می‌توانند یک برچسب صوتی در پیام تایپ کنند تا آن صدا ایجاد شود. نمونه‌های آن <code>&lt;laugh&gt;</code> و <code>&lt;sigh&gt;</code> هستند. همه برچسب‌ها به طور پیش‌فرض فعال هستند. برای غیرفعال کردن یک برچسب، تیک آن را بردارید.",
     "viewerVoiceLookup": "جستجوی صدای بیننده",
     "voiceCalibration": "کالیبراسیون صدا",
     "voicesWithCustomVolumeSettings": "صداهای دارای تنظیمات بلندی صدای سفارشی.",

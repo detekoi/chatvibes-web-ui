@@ -6,6 +6,14 @@ import { describe, it, expect, beforeAll, beforeEach } from '@jest/globals';
 import request from 'supertest';
 import { createTestApp } from './appHelper';
 import { createTestToken, createTestUser, getTestDb, clearTestData } from './testHelpers';
+import { loadLegacyVoiceMap } from '../../services/voices';
+import { mkdtempSync, writeFileSync } from 'fs';
+import { tmpdir } from 'os';
+import { join } from 'path';
+
+// The synced MiniMax map is optional, so the tests bring their own.
+const legacyMapFile = join(mkdtempSync(join(tmpdir(), 'voice-map-')), 'map.json');
+writeFileSync(legacyMapFile, JSON.stringify({ 'Friendly_Person': { voice: 'kore', style: 'warm and friendly' } }));
 
 describe('Viewer API Integration Tests', () => {
   let app: any;
@@ -21,6 +29,7 @@ describe('Viewer API Integration Tests', () => {
 
   beforeEach(async () => {
     await clearTestData();
+    loadLegacyVoiceMap([legacyMapFile]);
   });
 
   describe('POST /api/viewer/auth', () => {
@@ -48,7 +57,7 @@ describe('Viewer API Integration Tests', () => {
       // Channel config must exist for the route to proceed
       await db.collection("managedChannels").doc(testChannelId).set({ channelName: testChannel, twitchUserId: testChannelId });
       await db.collection("ttsChannelConfigs").doc(testChannelId).set({
-        voiceId: 'test-voice',
+        voiceId: 'puck',
         speed: 1.2,
       });
 
@@ -73,7 +82,7 @@ describe('Viewer API Integration Tests', () => {
       // Channel config must exist
       await db.collection("managedChannels").doc(testChannelId).set({ channelName: testChannel, twitchUserId: testChannelId });
       await db.collection("ttsChannelConfigs").doc(testChannelId).set({
-        voiceId: 'default-voice',
+        voiceId: 'puck',
       });
 
       const token = createTestToken(testUser);
@@ -83,6 +92,45 @@ describe('Viewer API Integration Tests', () => {
         .expect(200);
 
       expect(response.body.channelExists).toBe(true);
+    });
+
+    it('should return the style of the viewer and of the channel, and no englishNormalization', async () => {
+      await db.collection("managedChannels").doc(testChannelId).set({ channelName: testChannel, twitchUserId: testChannelId });
+      await db.collection("ttsChannelConfigs").doc(testChannelId).set({
+        voiceId: 'puck',
+        style: 'like a newsreader',
+        disabledSoundTags: ['laugh'],
+        englishNormalization: true,
+      });
+      await db.collection('ttsUserPreferences').doc(testUser.userId).set({
+        style: 'like a tired pirate',
+        englishNormalization: true,
+      });
+
+      const response = await request(app)
+        .get(`/api/viewer/preferences/${testChannel}`)
+        .set('Authorization', `Bearer ${createTestToken(testUser)}`)
+        .expect(200);
+
+      expect(response.body.style).toBe('like a tired pirate');
+      expect(response.body.channelDefaults.style).toBe('like a newsreader');
+      expect(response.body.channelDefaults.disabledSoundTags).toEqual(['laugh']);
+      expect(response.body).not.toHaveProperty('englishNormalization');
+      expect(response.body.channelDefaults).not.toHaveProperty('englishNormalization');
+    });
+
+    it('should return a null style and no disabled sound tags when none are stored', async () => {
+      await db.collection("managedChannels").doc(testChannelId).set({ channelName: testChannel, twitchUserId: testChannelId });
+      await db.collection("ttsChannelConfigs").doc(testChannelId).set({ voiceId: 'puck' });
+
+      const response = await request(app)
+        .get(`/api/viewer/preferences/${testChannel}`)
+        .set('Authorization', `Bearer ${createTestToken(testUser)}`)
+        .expect(200);
+
+      expect(response.body.style).toBeNull();
+      expect(response.body.channelDefaults.style).toBeNull();
+      expect(response.body.channelDefaults.disabledSoundTags).toEqual([]);
     });
 
     it('should return channel policy when allowViewerPreferences is false', async () => {
@@ -116,7 +164,7 @@ describe('Viewer API Integration Tests', () => {
       // Channel config must exist for the route to proceed
       await db.collection("managedChannels").doc(testChannelId).set({ channelName: testChannel, twitchUserId: testChannelId });
       await db.collection("ttsChannelConfigs").doc(testChannelId).set({
-        voiceId: 'default-voice',
+        voiceId: 'puck',
       });
 
       const token = createTestToken(testUser);
@@ -142,7 +190,7 @@ describe('Viewer API Integration Tests', () => {
     it('should return 400 for invalid speed', async () => {
       await db.collection("managedChannels").doc(testChannelId).set({ channelName: testChannel, twitchUserId: testChannelId });
       await db.collection("ttsChannelConfigs").doc(testChannelId).set({
-        voiceId: 'default-voice',
+        voiceId: 'puck',
       });
 
       const token = createTestToken(testUser);
@@ -158,7 +206,7 @@ describe('Viewer API Integration Tests', () => {
     it('should return 400 for invalid pitch', async () => {
       await db.collection("managedChannels").doc(testChannelId).set({ channelName: testChannel, twitchUserId: testChannelId });
       await db.collection("ttsChannelConfigs").doc(testChannelId).set({
-        voiceId: 'default-voice',
+        voiceId: 'puck',
       });
 
       const token = createTestToken(testUser);
@@ -169,6 +217,112 @@ describe('Viewer API Integration Tests', () => {
         .expect(400);
 
       expect(response.body.error).toBeDefined();
+    });
+  });
+
+  describe('PUT /api/viewer/preferences (voice, style and emotion)', () => {
+    const prefs = () => db.collection('ttsUserPreferences').doc(testUser.userId);
+    const put = (body: object) => request(app)
+      .put('/api/viewer/preferences')
+      .set('Authorization', `Bearer ${createTestToken(testUser)}`)
+      .send(body);
+
+    it('should store a Gemini voice in its catalog spelling and remove voiceStyle', async () => {
+      await prefs().set({ voiceId: 'Friendly_Person', voiceStyle: 'warm and friendly', pitch: 2 });
+
+      await put({ voiceId: 'Kore' }).expect(200);
+
+      expect((await prefs().get()).data()).toEqual({ voiceId: 'kore', pitch: 2 });
+    });
+
+    it('should accept a MiniMax voice of the mapping', async () => {
+      await put({ voiceId: 'Friendly_Person' }).expect(200);
+
+      expect((await prefs().get()).data().voiceId).toBe('Friendly_Person');
+    });
+
+    it('should reject a MiniMax voice when the mapping is missing', async () => {
+      loadLegacyVoiceMap([join(tmpdir(), 'no-such-voice-map.json')]);
+
+      const response = await put({ voiceId: 'Friendly_Person' }).expect(400);
+
+      expect(response.body.code).toBe('prefs_invalid_voice');
+    });
+
+    it('should reject an unknown voice', async () => {
+      const response = await put({ voiceId: 'Not_A_Real_Voice' }).expect(400);
+
+      expect(response.body.code).toBe('prefs_invalid_voice');
+      expect((await prefs().get()).exists).toBe(false);
+    });
+
+    it('should remove voiceStyle when the voice is cleared', async () => {
+      await prefs().set({ voiceId: 'Friendly_Person', voiceStyle: 'warm and friendly' });
+
+      await put({ voiceId: null }).expect(200);
+
+      expect((await prefs().get()).data()).toEqual({ voiceId: null });
+    });
+
+    it('should store a clean style and leave the emotion alone', async () => {
+      await prefs().set({ emotion: 'happy' });
+
+      await put({ style: '  like a <tired>\n pirate ' }).expect(200);
+
+      expect((await prefs().get()).data()).toEqual({ emotion: 'happy', style: 'like a tired pirate' });
+    });
+
+    it.each([[''], [null]])('should remove the style field for %p', async (style) => {
+      await prefs().set({ style: 'like a tired pirate', pitch: 2 });
+
+      await put({ style }).expect(200);
+
+      expect((await prefs().get()).data()).toEqual({ pitch: 2 });
+    });
+
+    it('should reject a style that is too long', async () => {
+      const response = await put({ style: 'a'.repeat(121) }).expect(400);
+
+      expect(response.body).toMatchObject({ success: false, code: 'style_too_long', params: { max: 120 } });
+      expect((await prefs().get()).exists).toBe(false);
+    });
+
+    it('should reject a style that is not a string', async () => {
+      const response = await put({ style: 5 }).expect(400);
+
+      expect(response.body.code).toBe('prefs_invalid_style');
+    });
+
+    it('should remove the style when an emotion is written', async () => {
+      await prefs().set({ style: 'like a tired pirate' });
+
+      await put({ emotion: 'sad' }).expect(200);
+
+      expect((await prefs().get()).data()).toEqual({ emotion: 'sad' });
+    });
+
+    it('should keep a style sent together with an emotion', async () => {
+      await put({ emotion: 'sad', style: 'like a tired pirate' }).expect(200);
+
+      expect((await prefs().get()).data()).toEqual({ emotion: 'sad', style: 'like a tired pirate' });
+    });
+
+    it('should ignore englishNormalization from an old client', async () => {
+      await put({ englishNormalization: true, pitch: 3 }).expect(200);
+
+      expect((await prefs().get()).data()).toEqual({ pitch: 3 });
+    });
+
+    it('should return the style from GET /api/viewer/preferences', async () => {
+      await prefs().set({ style: 'like a tired pirate', englishNormalization: true });
+
+      const response = await request(app)
+        .get('/api/viewer/preferences')
+        .set('Authorization', `Bearer ${createTestToken(testUser)}`)
+        .expect(200);
+
+      expect(response.body.style).toBe('like a tired pirate');
+      expect(response.body).not.toHaveProperty('englishNormalization');
     });
   });
 });

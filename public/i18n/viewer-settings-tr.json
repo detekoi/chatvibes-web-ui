@@ -37,20 +37,16 @@
   },
   "emotionSelect": {
     "angry": "Kızgın",
+    "calm": "Sakin",
+    "custom": "Özel…",
     "disgusted": "İğrenmiş",
     "fearful": "Korkmuş",
+    "fluent": "Akıcı",
     "happy": "Mutlu",
     "neutral": "Nötr",
     "sad": "Üzgün",
     "surprised": "Şaşırmış",
     "useChannelDefault": "Kanal varsayılanını kullan"
-  },
-  "englishNormalizationCheckbox": {
-    "englishNormalization": "İngilizce Normalizasyonu"
-  },
-  "englishNormalizationReset": {
-    "clear": "Temizle",
-    "resetEnglishNormalizationToDefault": "İngilizce normalizasyonunu varsayılana sıfırla"
   },
   "ignoreTts": {
     "optOutInThisChannel": "Bu kanalda kapsam dışına çık"
@@ -110,11 +106,11 @@
       "hintChannel": "Kanal varsayılanı kullanılıyor: {value}",
       "hintSystem": "Sistem varsayılanı kullanılıyor",
       "hintUser": "Genel tercihiniz kullanılıyor: {value}",
-      "noVoicesFound": "Ses bulunamadı",
       "sendPreview": "Önizleme Gönder",
       "testCompletedTestMode": "Test tamamlandı (test modu).",
       "updated": "Tercih güncellendi.",
-      "updatedTestMode": "Tercih güncellendi (test modu)."
+      "updatedTestMode": "Tercih güncellendi (test modu).",
+      "customStyle": "Özel ({style})"
     }
   },
   "openChannelContextModalBtn": {
@@ -140,36 +136,29 @@
     "viewerSettings": "İzleyici ayarları",
     "viewerTtsPreferences": "İzleyici TTS tercihleri"
   },
+  "pitchLabel": {
+    "pitch": "<strong>Perde</strong>"
+  },
   "pitchReset": {
     "clear": "Temizle",
     "resetPitchToDefault": "Ses perdesini varsayılana sıfırla"
   },
-  "pitchSlider": {
-    "pitchAdjustment12To12": "Ses perdesi ayarı (-12 ila +12)"
-  },
   "preferencesPanel": {
-    "adjustTheVoicePitchHigher": "Ses perdesini yükselt veya alçalt",
-    "controlHowFastTheVoice": "Sesin ne kadar hızlı konuşacağını kontrol et",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokümantasyon </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Yayıncı ayarları </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
     "emotion": "<strong>Duygu</strong>",
     "emotion2": "Duygu",
-    "englishNormalization": "İngilizce Normalizasyonu",
-    "engNormalization": "İng. normalizasyonu",
-    "ifTtsReadsNumbersIncorrectly": "TTS sayıları yanlış okuyorsa İngilizce metin normalizasyonunu açın. Bu ayar gecikmeyi biraz artırır.",
-    "improvePronunciationForSpecificLanguages": "Belirli diller için telaffuzu iyileştir",
-    "improveThePronunciationOfNumbers": "Sayıların ve metinlerin telaffuzunu iyileştir",
+    "ifYourTextIsShort": "Metnin kısa veya belirsizse bu ayar ses modeline bir ipucu verir. Ayrıca küfür filtresi için kelime listesini seçer.",
     "language": "Dil",
-    "languageBoost": "<strong>Dil Güçlendirme</strong>",
+    "languageLabel": "<strong>Dil</strong>",
     "pitch": "Ses Perdesi",
-    "pitch12To12": "Ses Perdesi (-12 ila +12):",
     "quickLinks": "Hızlı bağlantılar",
-    "selectYourPreferredTtsVoice": "Tercih ettiğin TTS sesini seç",
+    "selectHowFastTheVoice": "Sesin ne kadar hızlı konuşacağını seç",
+    "selectHowHighOrLow": "Sesin ne kadar tiz veya pes konuşacağını seç",
+    "selectTheVoiceThatTts": "TTS'in mesajların için kullanacağı sesi seç",
     "setHowYourMessagesSound": "Mesajların TTS tarafından okunduğunda nasıl duyulacağını ayarla",
-    "setTheEmotionalToneOf": "Sesin duygu tonunu ayarla",
+    "setTheEmotionOfThe": "Sesin duygusunu ayarla. Sesi kendi kelimelerinle tarif etmek için Özel'i seç.",
     "speed": "Hız",
-    "speed05To2": "Hız (0.5 ila 2.0):",
     "testMessage": "Test mesajı",
-    "voice": "<strong>Ses</strong>",
     "voicePreview": "Ses önizlemesi",
     "voiceSettings": "Ses Ayarları"
   },
@@ -179,22 +168,33 @@
   "previewBtn": {
     "sendPreview": "Önizleme gönder"
   },
+  "speedLabel": {
+    "speed": "<strong>Hız</strong>"
+  },
   "speedReset": {
     "clear": "Temizle",
     "resetSpeedToDefault": "Hızı varsayılana sıfırla"
   },
-  "speedSlider": {
-    "speedAdjustment05To": "Hız ayarı (0,5 - 2,0)"
-  },
   "statChannelContext": {
     "noneLoaded": "Hiçbiri yüklenmedi"
+  },
+  "stepsHint": {
+    "pitchAndSpeedAreApproximate": "Perde ve hız yaklaşık değerlerdir. Ses modeli bu ayarları sayı olarak değil, kelime olarak alır."
+  },
+  "styleGroup": {
+    "style": "Stil"
+  },
+  "styleHint": {
+    "describeInAFewWords": "Sesin nasıl konuşacağını birkaç kelimeyle tarif et."
+  },
+  "styleInput": {
+    "exampleCalmAndSlowLike": "Örnek: gece yayın yapan bir radyo sunucusu gibi sakin ve yavaş"
+  },
+  "voiceLabel": {
+    "voice": "<strong>Ses</strong>"
   },
   "voiceReset": {
     "clear": "Temizle",
     "resetVoiceToDefault": "Sesi varsayılana sıfırla"
-  },
-  "voiceSearch": {
-    "searchVoices": "Sesleri ara",
-    "searchVoices2": "Sesleri ara..."
   }
 }

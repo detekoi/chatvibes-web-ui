@@ -37,6 +37,7 @@
     "prefs_invalid_language": "Ngôn ngữ đó không hợp lệ.",
     "prefs_invalid_pitch": "Cao độ đó không hợp lệ.",
     "prefs_invalid_speed": "Tốc độ đó không hợp lệ.",
+    "prefs_invalid_style": "Phong cách đó không hợp lệ.",
     "prefs_invalid_voice": "Giọng đọc đó không hợp lệ.",
     "prefs_missing_data": "Chưa có thay đổi nào được gửi.",
     "prefs_update_failed": "Không thể lưu thay đổi của bạn do lỗi máy chủ. Hãy thử lại.",
@@ -68,11 +69,13 @@
     "setting_update_failed": "Không thể cập nhật cài đặt TTS.",
     "settings_fetch_failed": "Không thể tải cài đặt TTS.",
     "shortlink_failed": "Không thể tạo liên kết rút gọn.",
+    "sound_tag_unknown": "Thẻ âm thanh \"{tag}\" không có trong danh sách. Hãy tải lại trang và thử lại.",
     "storage_unavailable": "Bộ lưu trữ hiện không khả dụng.",
+    "style_too_long": "Phong cách quá dài. Chỉ dùng tối đa {max} ký tự.",
+    "tts_blocked": "Dịch vụ đọc văn bản đã từ chối nội dung này. Hãy đổi nội dung và thử lại.",
     "tts_generation_failed": "Tạo giọng nói thất bại: {reason}",
     "tts_no_audio": "Nhà cung cấp giọng nói không trả về âm thanh.",
     "tts_not_configured": "Chưa cấu hình nhà cung cấp giọng nói.",
-    "tts_provider_failed": "Nhà cung cấp giọng nói không thể tạo âm thanh.",
     "tts_test_failed": "Kiểm tra giọng nói thất bại.",
     "tts_text_required": "Nhập văn bản để thử nghiệm.",
     "twitch_reauth_required": "Phiên đăng nhập Twitch đã hết hạn. Hãy kết nối lại tài khoản của bạn.",
@@ -80,8 +83,6 @@
     "url_required": "Cần có URL.",
     "username_invalid": "Tên người dùng không hợp lệ.",
     "username_required": "Cần có tên người dùng.",
-    "voice_access_denied": "Giọng đọc \"{voice}\" yêu cầu quyền truy cập đặc biệt. Hãy thử giọng khác.",
-    "voice_invalid": "Giọng đọc \"{voice}\" không khả dụng. Hãy kiểm tra lại giọng đọc và thử lại.",
     "voice_lookup_failed": "Không thể tra cứu giọng đọc của người dùng đó.",
     "word_invalid": "Từ hoặc cụm từ đó không hợp lệ.",
     "word_required": "Cần có từ hoặc cụm từ."
@@ -117,7 +118,6 @@
     },
     "emotion": {
       "angry": "Tức giận",
-      "auto": "Tự động",
       "calm": "Bình tĩnh",
       "disgusted": "Ghê tởm",
       "fearful": "Sợ hãi",
@@ -125,7 +125,8 @@
       "happy": "Vui vẻ",
       "neutral": "Trung tính",
       "sad": "Buồn",
-      "surprised": "Ngạc nhiên"
+      "surprised": "Ngạc nhiên",
+      "custom": "Tùy chỉnh"
     },
     "ignore": {
       "enterUsername": "Nhập tên người dùng."
@@ -138,27 +139,65 @@
     },
     "preview": {
       "enterText": "Nhập văn bản để nghe thử.",
-      "unavailable": "Không có bản nghe thử."
-    },
-    "value": {
-      "off": "Tắt",
-      "on": "Bật"
+      "unavailable": "Không có mẫu nghe thử cho giọng đọc này."
     },
     "voice": {
       "cannotPlay": "Không thể phát mẫu âm thanh.",
       "generating": "Đang tạo…",
       "noAudio": "Máy chủ không trả về âm thanh.",
       "noneFound": "Không tìm thấy giọng nào.",
-      "preview": "Nghe thử {voice}",
+      "preview": "Phát mẫu nghe thử của {voice}",
       "regenerate": "Tạo lại",
-      "testFailed": "Kiểm tra thất bại: {reason}"
+      "testFailed": "Kiểm tra thất bại: {reason}",
+      "choose": "Chọn giọng đọc",
+      "panelLabel": "Tìm kiếm giọng đọc",
+      "listLabel": "Giọng đọc",
+      "searchLabel": "Tìm giọng đọc",
+      "searchHint": "Nhập một hoặc nhiều từ, ví dụ \"german calm low\". Hệ thống sẽ tìm các giọng chứa tất cả các từ đó. Mô tả giọng đọc chỉ có bằng tiếng Anh.",
+      "filterLanguage": "Lọc theo ngôn ngữ",
+      "anyLanguage": "Tất cả ngôn ngữ",
+      "filterGender": "Lọc theo giới tính",
+      "anyGender": "Tất cả giới tính",
+      "gender": {
+        "female": "Nữ",
+        "male": "Nam",
+        "neutral": "Trung tính"
+      },
+      "filterPitch": "Lọc theo cao độ",
+      "anyPitch": "Tất cả cao độ",
+      "pitch": {
+        "low": "Cao độ thấp",
+        "medium": "Cao độ trung bình",
+        "high": "Cao độ cao"
+      },
+      "studioOnly": "Chỉ giọng Studio",
+      "studioTag": "Studio",
+      "count": "Số giọng tìm thấy: {count}",
+      "legacy": "Giọng cũ ({id})",
+      "stopSample": "Dừng mẫu nghe thử của {voice}"
+    },
+    "step": {
+      "speed": {
+        "very_slow": "Rất chậm",
+        "slow": "Chậm",
+        "normal": "Bình thường",
+        "fast": "Nhanh",
+        "very_fast": "Rất nhanh"
+      },
+      "pitch": {
+        "very_low": "Rất thấp",
+        "low": "Thấp",
+        "normal": "Bình thường",
+        "high": "Cao",
+        "very_high": "Rất cao"
+      }
+    },
+    "style": {
+      "count": "{count}/{max} ký tự"
     }
   },
   "page": {
     "skipToMainContent": "Chuyển đến nội dung chính"
-  },
-  "sidebarEngNormVal": {
-    "off": "Tắt"
   },
   "sidebarLanguageVal": {
     "automatic": "Tự động"

@@ -35,9 +35,6 @@
   "calibrationSaveBtn": {
     "save": "Simpan"
   },
-  "calibrationVoiceSearch": {
-    "searchVoicesToCalibrate": "Cari suara untuk ditentukur..."
-  },
   "channelNameStatus": {
     "yourChannel": "saluran anda"
   },
@@ -73,7 +70,6 @@
     "deactivationStopsTheBotFrom": "Penyahaktifan menghalang bot daripada membaca mesej sembang. Tetapan anda akan kekal disimpan. Anda boleh mengaktifkan perkhidmatan ini semula pada bila-bila masa.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentasi",
     "emotion": "Emosi",
-    "engNormalization": "Penormalan B. Inggeris",
     "language": "Bahasa",
     "pitch": "Pic",
     "quickLinks": "Pautan pantas",
@@ -87,22 +83,36 @@
   },
   "defaultEmotion": {
     "angry": "Marah",
+    "calm": "Tenang",
+    "custom": "Tersuai…",
     "disgusted": "Jijik",
     "fearful": "Takut",
+    "fluent": "Lancar",
     "happy": "Gembira",
     "neutral": "Neutral",
     "sad": "Sedih",
     "surprised": "Terkejut"
   },
-  "defaultPitch": {
-    "defaultPitch12To12": "Pic Lalai (-12 hingga +12)"
+  "defaultPitchLabel": {
+    "defaultPitch": "<strong>Pic Lalai</strong>"
   },
-  "defaultSpeed": {
-    "defaultSpeed05To": "Kelajuan Lalai (0.5 hingga 2.0)"
+  "defaultSpeedLabel": {
+    "defaultSpeed": "<strong>Kelajuan Lalai</strong>"
   },
-  "defaultVoiceSearch": {
-    "searchDefaultVoices": "Cari suara lalai",
-    "searchVoices": "Cari suara..."
+  "defaultStepsHint": {
+    "pitchAndSpeedAreApproximate": "Pic dan kelajuan adalah anggaran. Model suara menerima tetapan ini sebagai perkataan, bukan nombor."
+  },
+  "defaultStyle": {
+    "exampleCalmAndSlowLike": "Contoh: tenang dan perlahan, seperti penyampai radio pada waktu malam"
+  },
+  "defaultStyleGroup": {
+    "style": "Gaya"
+  },
+  "defaultStyleHint": {
+    "describeInAFewWords": "Terangkan dalam beberapa perkataan bagaimana suara ini bertutur."
+  },
+  "defaultVoiceLabel": {
+    "defaultVoice": "<strong>Suara Lalai</strong>"
   },
   "defaultVolume": {
     "voiceVolume01To": "Kelantangan Suara (0.1 hingga 10)"
@@ -111,9 +121,6 @@
     "describeEmotes": "Huraikan emot",
     "readEmoteNames": "Baca nama emot",
     "skipEmotes": "Langkau emot"
-  },
-  "englishNormalization": {
-    "englishNormalization": "Penormalan Bahasa Inggeris"
   },
   "eventsEnabled": {
     "announceEvents": "Umumkan Acara"
@@ -214,7 +221,8 @@
       "hasVoice": "Pengguna {user} menetapkan suara tersuai: {voice}",
       "noVoice": "Pengguna {user} tidak menetapkan suara tersuai.",
       "searching": "Mencari…",
-      "voiceUnknown": "Suara ini tiada dalam senarai suara yang tersedia."
+      "voiceUnknown": "Suara ini tiada dalam senarai suara yang tersedia.",
+      "storedVoice": "Penonton ini menyimpan suara lama {stored}. Sebaliknya, TTS menggunakan suara di atas."
     },
     "mutedRewards": {
       "announceLabel": "Umumkan penebusan {title}",
@@ -279,7 +287,6 @@
       "defaultSpeed": "Kelajuan Lalai",
       "defaultVoice": "Suara Lalai",
       "emoteMode": "Mod Emote",
-      "englishNormalization": "Pernormalan Bahasa Inggeris",
       "eventAnnouncements": "Pengumuman Acara",
       "expandAcronyms": "Kembangkan Akronim Sembang",
       "minimumBits": "Bits Minimum",
@@ -288,6 +295,8 @@
       "readCommandMessages": "Baca Perintah Sembang",
       "readFullUrls": "Baca URL Penuh",
       "redemptionAnnouncements": "Pengumuman Penebusan",
+      "soundTags": "Tag Bunyi",
+      "style": "Gaya",
       "ttsEngine": "Enjin TTS",
       "ttsMode": "Mod TTS",
       "ttsPermission": "Kebenaran TTS",
@@ -380,14 +389,6 @@
   "removeBotBtn": {
     "deactivateTtsService": "Nyahaktifkan perkhidmatan TTS"
   },
-  "resetPitchBtn": {
-    "reset": "Tetapkan semula",
-    "resetDefaultPitchTo0": "Tetapkan semula nada suara lalai kepada 0"
-  },
-  "resetSpeedBtn": {
-    "reset": "Set Semula",
-    "resetDefaultSpeedTo1": "Set semula kelajuan lalai ke 1.0"
-  },
   "resetVolumeBtn": {
     "reset": "Set Semula",
     "resetVoiceVolumeTo1": "Set semula kelantangan suara ke 1.0"
@@ -398,8 +399,8 @@
   "serviceHeadline": {
     "ttsService": "Perkhidmatan TTS"
   },
-  "sidebarVoiceName": {
-    "friendlyPerson": "Orang Mesra"
+  "soundTagsTitle": {
+    "soundTags": "Tag Bunyi"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Benarkan bot membalas arahan sembang seperti !myvoice",
@@ -476,27 +477,23 @@
     "broadcaster": "Penyiar"
   },
   "tabBtnViewerDefaults": {
-    "voiceDefaults": "Lalai Suara"
+    "voiceDefaults": "Suara Lalai"
   },
   "tabViewerDefaults": {
-    "adjustThePitchForThe": "Laraskan nada untuk suara lalai",
     "adjustTheVolumeForThe": "Laraskan kelantangan untuk suara yang dipilih. AWAS: Nilai lebih daripada 1.0 boleh menyebabkan herotan.",
     "calibratedVoices": "Suara Ditentukur",
     "calibrateVolumeForSpecificVoices": "Tentukur kelantangan untuk suara tertentu. AWAS: Nilai lebih daripada 1.0 boleh menyebabkan herotan.",
-    "controlHowFastTheDefault": "Kawal kelajuan pertuturan suara lalai",
     "defaultEmotion": "<strong>Emosi Lalai</strong>",
     "defaultLanguage": "<strong>Bahasa Lalai</strong>",
-    "defaultPitch12To12": "Pic Lalai (-12 hingga +12):",
-    "defaultSpeed05To": "Kelajuan Lalai (0.5 hingga 2.0):",
-    "defaultVoice": "<strong>Suara Lalai</strong>",
     "defaultVoiceSettings": "Tetapan Suara Lalai",
-    "englishNormalization": "Penormalan Bahasa Inggeris",
-    "improvePronunciationForSpecificLanguages": "Tingkatkan sebutan untuk bahasa tertentu",
-    "improveThePronunciationOfNumbers": "Tingkatkan sebutan nombor dan teks",
-    "selectTheDefaultTtsVoice": "Pilih suara TTS lalai untuk saluran",
+    "selectHowFastTheDefault": "Pilih seberapa laju suara lalai bertutur",
+    "selectHowHighOrLow": "Pilih seberapa tinggi atau rendah suara lalai bertutur",
+    "selectTheVoiceThatTts": "Pilih suara yang digunakan oleh TTS untuk penonton yang tiada suara sendiri",
     "selectVoice": "Pilih Suara",
     "setDefaultVoiceSettingsFor": "Tetapkan tetapan suara lalai untuk saluran anda",
-    "setTheEmotionalToneOf": "Tetapkan nada emosi suara lalai",
+    "setTheEmotionOfThe": "Tetapkan emosi suara lalai. Pilih Tersuai untuk menerangkan suara dengan kata-kata anda sendiri.",
+    "theVoiceModelReadsThe": "Model suara membaca bahasa daripada teks. Jika teks pendek atau tidak jelas, tetapan ini memberi model petunjuk. Ia juga menetapkan bahasa lalai untuk pengumuman dan memilih senarai perkataan bagi penapis kata kesat.",
+    "viewersCanTypeASound": "Penonton boleh menaip tag bunyi dalam mesej, dan suara akan menghasilkan bunyi tersebut. Contohnya ialah <code>&lt;laugh&gt;</code> dan <code>&lt;sigh&gt;</code>. Semua tag dihidupkan secara lalai. Untuk mematikan tag, nyahtanda kotak pilihnya.",
     "viewerVoiceLookup": "Carian Suara Penonton",
     "voiceCalibration": "Penentukuran Suara",
     "voicesWithCustomVolumeSettings": "Suara dengan tetapan kelantangan tersuai.",

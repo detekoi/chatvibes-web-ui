@@ -37,20 +37,16 @@
   },
   "emotionSelect": {
     "angry": "Nahnevaný",
+    "calm": "Pokojný",
+    "custom": "Vlastný…",
     "disgusted": "Znechutený",
     "fearful": "Vystrašený",
+    "fluent": "Plynulý",
     "happy": "Šťastný",
     "neutral": "Neutrálny",
     "sad": "Smutný",
     "surprised": "Prekvapený",
     "useChannelDefault": "Použiť predvolené nastavenie kanála"
-  },
-  "englishNormalizationCheckbox": {
-    "englishNormalization": "Normalizácia angličtiny"
-  },
-  "englishNormalizationReset": {
-    "clear": "Vymazať",
-    "resetEnglishNormalizationToDefault": "Obnoviť normalizáciu angličtiny na predvolenú"
   },
   "ignoreTts": {
     "optOutInThisChannel": "Odhlásiť sa na tomto kanáli"
@@ -110,11 +106,11 @@
       "hintChannel": "Používa sa predvolená hodnota kanála: {value}",
       "hintSystem": "Používa sa predvolená hodnota systému",
       "hintUser": "Používa sa vaša globálna predvoľba: {value}",
-      "noVoicesFound": "Nenašli sa žiadne hlasy",
       "sendPreview": "Odoslať ukážku",
       "testCompletedTestMode": "Test dokončený (testovací režim).",
       "updated": "Predvoľba bola aktualizovaná.",
-      "updatedTestMode": "Predvoľba bola aktualizovaná (testovací režim)."
+      "updatedTestMode": "Predvoľba bola aktualizovaná (testovací režim).",
+      "customStyle": "Vlastný ({style})"
     }
   },
   "openChannelContextModalBtn": {
@@ -140,36 +136,29 @@
     "viewerSettings": "Nastavenia diváka",
     "viewerTtsPreferences": "Predvoľby TTS pre diváka"
   },
+  "pitchLabel": {
+    "pitch": "<strong>Výška</strong>"
+  },
   "pitchReset": {
     "clear": "Vymazať",
     "resetPitchToDefault": "Obnoviť predvolenú výšku hlasu"
   },
-  "pitchSlider": {
-    "pitchAdjustment12To12": "Úprava výšky hlasu (-12 až +12)"
-  },
   "preferencesPanel": {
-    "adjustTheVoicePitchHigher": "Upravte výšku hlasu na vyššiu alebo nižšiu",
-    "controlHowFastTheVoice": "Nastavte, ako rýchlo má hlas hovoriť",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentácia </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Nastavenia pre streamera </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
     "emotion": "<strong>Emócia</strong>",
     "emotion2": "Emócia",
-    "englishNormalization": "Normalizácia angličtiny",
-    "engNormalization": "Normalizácia angl.",
-    "ifTtsReadsNumbersIncorrectly": "Ak TTS číta čísla nesprávne, zapnite normalizáciu anglického textu. Toto nastavenie mierne zvyšuje odozvu.",
-    "improvePronunciationForSpecificLanguages": "Zlepšiť výslovnosť pre konkrétne jazyky",
-    "improveThePronunciationOfNumbers": "Zlepšiť výslovnosť čísel a textu",
+    "ifYourTextIsShort": "Ak je tvoj text krátky alebo nejasný, toto nastavenie dá hlasovému modelu nápovedu. Tiež vyberá zoznam slov pre filter vulgarizmov.",
     "language": "Jazyk",
-    "languageBoost": "<strong>Language Boost</strong>",
+    "languageLabel": "<strong>Jazyk</strong>",
     "pitch": "Výška hlasu",
-    "pitch12To12": "Výška hlasu (-12 až +12):",
     "quickLinks": "Rýchle odkazy",
-    "selectYourPreferredTtsVoice": "Vyberte si preferovaný hlas TTS",
+    "selectHowFastTheVoice": "Vyber, ako rýchlo hlas hovorí",
+    "selectHowHighOrLow": "Vyber, ako vysoko alebo nízko hlas hovorí",
+    "selectTheVoiceThatTts": "Vyber hlas, ktorý TTS použije pre tvoje správy",
     "setHowYourMessagesSound": "Nastavte, ako majú znieť vaše správy pri čítaní cez TTS",
-    "setTheEmotionalToneOf": "Nastavte emocionálny tón hlasu",
+    "setTheEmotionOfThe": "Nastav emóciu hlasu. Vyber Vlastný, ak chceš hlas opísať vlastnými slovami.",
     "speed": "Rýchlosť",
-    "speed05To2": "Rýchlosť (0,5 až 2,0):",
     "testMessage": "Testovacia správa",
-    "voice": "<strong>Hlas</strong>",
     "voicePreview": "Ukážka hlasu",
     "voiceSettings": "Nastavenia hlasu"
   },
@@ -179,22 +168,33 @@
   "previewBtn": {
     "sendPreview": "Odoslať ukážku"
   },
+  "speedLabel": {
+    "speed": "<strong>Rýchlosť</strong>"
+  },
   "speedReset": {
     "clear": "Vymazať",
     "resetSpeedToDefault": "Obnoviť predvolenú rýchlosť"
   },
-  "speedSlider": {
-    "speedAdjustment05To": "Úprava rýchlosti (0,5 až 2,0)"
-  },
   "statChannelContext": {
     "noneLoaded": "Nič nenačítané"
+  },
+  "stepsHint": {
+    "pitchAndSpeedAreApproximate": "Výška a rýchlosť sú orientačné. Hlasový model dostáva tieto nastavenia ako slová, nie ako čísla."
+  },
+  "styleGroup": {
+    "style": "Štýl"
+  },
+  "styleHint": {
+    "describeInAFewWords": "Opíš niekoľkými slovami, ako hlas hovorí."
+  },
+  "styleInput": {
+    "exampleCalmAndSlowLike": "Príklad: pokojne a pomaly, ako moderátor nočného rádia"
+  },
+  "voiceLabel": {
+    "voice": "<strong>Hlas</strong>"
   },
   "voiceReset": {
     "clear": "Vymazať",
     "resetVoiceToDefault": "Obnoviť predvolený hlas"
-  },
-  "voiceSearch": {
-    "searchVoices": "Hľadať hlasy",
-    "searchVoices2": "Hľadať hlasy..."
   }
 }

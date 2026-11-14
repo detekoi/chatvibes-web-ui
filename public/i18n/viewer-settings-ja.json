@@ -37,20 +37,16 @@
   },
   "emotionSelect": {
     "angry": "怒り",
+    "calm": "穏やか",
+    "custom": "カスタム…",
     "disgusted": "嫌悪",
     "fearful": "恐怖",
+    "fluent": "流暢",
     "happy": "喜び",
     "neutral": "ニュートラル",
     "sad": "悲しみ",
     "surprised": "驚き",
     "useChannelDefault": "チャンネルのデフォルトを使用"
-  },
-  "englishNormalizationCheckbox": {
-    "englishNormalization": "英語の正規化"
-  },
-  "englishNormalizationReset": {
-    "clear": "クリア",
-    "resetEnglishNormalizationToDefault": "英語の正規化をデフォルトにリセット"
   },
   "ignoreTts": {
     "optOutInThisChannel": "このチャンネルで除外する"
@@ -110,11 +106,11 @@
       "hintChannel": "チャンネルのデフォルトを使用中: {value}",
       "hintSystem": "システムデフォルトを使用中",
       "hintUser": "グローバル設定を使用中: {value}",
-      "noVoicesFound": "ボイスが見つかりません",
       "sendPreview": "プレビューを送信",
       "testCompletedTestMode": "テスト完了（テストモード）。",
       "updated": "設定を更新しました。",
-      "updatedTestMode": "設定を更新しました（テストモード）。"
+      "updatedTestMode": "設定を更新しました（テストモード）。",
+      "customStyle": "カスタム ({style})"
     }
   },
   "openChannelContextModalBtn": {
@@ -140,36 +136,29 @@
     "viewerSettings": "視聴者設定",
     "viewerTtsPreferences": "視聴者TTS設定"
   },
+  "pitchLabel": {
+    "pitch": "<strong>ピッチ</strong>"
+  },
   "pitchReset": {
     "clear": "クリア",
     "resetPitchToDefault": "ピッチをデフォルトにリセット"
   },
-  "pitchSlider": {
-    "pitchAdjustment12To12": "ピッチ調整（-12〜+12）"
-  },
   "preferencesPanel": {
-    "adjustTheVoicePitchHigher": "声の高さを調整",
-    "controlHowFastTheVoice": "読み上げ速度を調整",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>ドキュメント </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>配信者設定 </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
     "emotion": "<strong>感情</strong>",
     "emotion2": "感情",
-    "englishNormalization": "英語テキストの正規化",
-    "engNormalization": "英語正規化",
-    "ifTtsReadsNumbersIncorrectly": "TTSが数字を正しく読み上げない場合は、英語テキストの正規化を有効にしてください。この設定により遅延がわずかに増加します。",
-    "improvePronunciationForSpecificLanguages": "特定言語の発音を向上",
-    "improveThePronunciationOfNumbers": "数字やテキストの発音を向上",
+    "ifYourTextIsShort": "テキストが短かったり不明瞭だったりする場合、この設定が音声モデルのヒントになります。また、不適切語フィルターの単語リストの選択にも使われます。",
     "language": "言語",
-    "languageBoost": "<strong>言語ブースト</strong>",
+    "languageLabel": "<strong>言語</strong>",
     "pitch": "ピッチ",
-    "pitch12To12": "ピッチ (-12〜+12):",
     "quickLinks": "クイックリンク",
-    "selectYourPreferredTtsVoice": "お好みのTTSボイスを選択",
+    "selectHowFastTheVoice": "声の速さを選択",
+    "selectHowHighOrLow": "声の高さを選択",
+    "selectTheVoiceThatTts": "メッセージにTTSが使用する音声を選択",
     "setHowYourMessagesSound": "TTSがメッセージを読み上げる際の設定を調整",
-    "setTheEmotionalToneOf": "声の感情トーンを設定",
+    "setTheEmotionOfThe": "声の感情を設定します。「カスタム」を選択すると、自分の言葉で声の特徴を指定できます。",
     "speed": "速度",
-    "speed05To2": "速度 (0.5〜2.0):",
     "testMessage": "テストメッセージ",
-    "voice": "<strong>ボイス</strong>",
     "voicePreview": "ボイスプレビュー",
     "voiceSettings": "ボイス設定"
   },
@@ -179,22 +168,33 @@
   "previewBtn": {
     "sendPreview": "プレビューを送信"
   },
+  "speedLabel": {
+    "speed": "<strong>速度</strong>"
+  },
   "speedReset": {
     "clear": "クリア",
     "resetSpeedToDefault": "速度をデフォルトに戻す"
   },
-  "speedSlider": {
-    "speedAdjustment05To": "速度調整（0.5〜2.0）"
-  },
   "statChannelContext": {
     "noneLoaded": "読み込みなし"
+  },
+  "stepsHint": {
+    "pitchAndSpeedAreApproximate": "ピッチと速度は目安です。音声モデルには数値ではなく言葉として設定が渡されます。"
+  },
+  "styleGroup": {
+    "style": "スタイル"
+  },
+  "styleHint": {
+    "describeInAFewWords": "声の話し方を短い言葉で説明してください。"
+  },
+  "styleInput": {
+    "exampleCalmAndSlowLike": "例：夜のラジオパーソナリティのように落ち着いてゆっくり"
+  },
+  "voiceLabel": {
+    "voice": "<strong>音声</strong>"
   },
   "voiceReset": {
     "clear": "クリア",
     "resetVoiceToDefault": "ボイスをデフォルトに戻す"
-  },
-  "voiceSearch": {
-    "searchVoices": "ボイスを検索",
-    "searchVoices2": "ボイスを検索..."
   }
 }

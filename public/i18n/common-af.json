@@ -37,6 +37,7 @@
     "prefs_invalid_language": "Dit is nie 'n geldige taal nie.",
     "prefs_invalid_pitch": "Dit is nie 'n geldige toonhoogte nie.",
     "prefs_invalid_speed": "Dit is nie 'n geldige spoed nie.",
+    "prefs_invalid_style": "Dit is nie 'n geldige styl nie.",
     "prefs_invalid_voice": "Dit is nie 'n geldige stem nie.",
     "prefs_missing_data": "Geen veranderinge is gestuur nie.",
     "prefs_update_failed": "Jou verandering is nie gestoor nie weens 'n bedienerfout. Probeer weer.",
@@ -68,11 +69,13 @@
     "setting_update_failed": "Kan die TTS-instelling nie bywerk nie.",
     "settings_fetch_failed": "Kan TTS-instellings nie laai nie.",
     "shortlink_failed": "Kan nie die kort skakel skep nie.",
+    "sound_tag_unknown": "Die klankmerker \"{tag}\" is nie in die lys nie. Herlaai die bladsy en probeer weer.",
     "storage_unavailable": "Berging is nie beskikbaar nie.",
+    "style_too_long": "Die styl is te lank. Gebruik {max} karakters of minder.",
+    "tts_blocked": "Die spraakdiens het hierdie teks geweier. Verander die teks en probeer weer.",
     "tts_generation_failed": "Spraakgenerering het misluk: {reason}",
     "tts_no_audio": "Die spraakverskaffer het geen oudio teruggestuur nie.",
     "tts_not_configured": "Geen spraakverskaffer is opgestel nie.",
-    "tts_provider_failed": "Die spraakverskaffer kon nie oudio genereer nie.",
     "tts_test_failed": "Die spraaktoets het misluk.",
     "tts_text_required": "Voer teks in om te toets.",
     "twitch_reauth_required": "Jou Twitch-aanmelding het verval. Koppel jou rekening weer.",
@@ -80,8 +83,6 @@
     "url_required": "'n URL word vereis.",
     "username_invalid": "Daardie gebruikersnaam is ongeldig.",
     "username_required": "'n Gebruikersnaam word vereis.",
-    "voice_access_denied": "Die stem \"{voice}\" benodig spesiale toegang. Probeer 'n ander stem.",
-    "voice_invalid": "Die stem \"{voice}\" is nie beskikbaar nie. Gaan die stem na en probeer weer.",
     "voice_lookup_failed": "Kan nie daardie gebruiker se stem opsoek nie.",
     "word_invalid": "Daardie woord of frase is ongeldig.",
     "word_required": "'n Woord of frase word vereis."
@@ -117,7 +118,6 @@
     },
     "emotion": {
       "angry": "Kwaad",
-      "auto": "Outo",
       "calm": "Kalm",
       "disgusted": "Gevalg",
       "fearful": "Bang",
@@ -125,7 +125,8 @@
       "happy": "Bly",
       "neutral": "Neutraal",
       "sad": "Hartseer",
-      "surprised": "Verras"
+      "surprised": "Verras",
+      "custom": "Pasgemaak"
     },
     "ignore": {
       "enterUsername": "Voer 'n gebruikersnaam in."
@@ -138,27 +139,65 @@
     },
     "preview": {
       "enterText": "Voer teks in om te toets.",
-      "unavailable": "Geen voorskou beskikbaar nie."
-    },
-    "value": {
-      "off": "Af",
-      "on": "Aan"
+      "unavailable": "Geen voorbeeld is vir hierdie stem beskikbaar nie."
     },
     "voice": {
       "cannotPlay": "Kan nie oudiomonster speel nie.",
       "generating": "Genereer…",
       "noAudio": "Die bediener het geen oudio teruggestuur nie.",
       "noneFound": "Geen stemme gevind nie.",
-      "preview": "Voorskou {voice}",
+      "preview": "Speel 'n voorbeeld van {voice}",
       "regenerate": "Hergenereer",
-      "testFailed": "Toets het misluk: {reason}"
+      "testFailed": "Toets het misluk: {reason}",
+      "choose": "Kies 'n stem",
+      "panelLabel": "Stemsoektog",
+      "listLabel": "Stemme",
+      "searchLabel": "Soek stemme",
+      "searchHint": "Tik een of meer woorde, byvoorbeeld \"german calm low\". Die soektog vind die stemme wat elke woord bevat. Stembeskrywings is slegs in Engels.",
+      "filterLanguage": "Filter volgens taal",
+      "anyLanguage": "Alle tale",
+      "filterGender": "Filter volgens geslag",
+      "anyGender": "Alle geslagte",
+      "gender": {
+        "female": "Vroulik",
+        "male": "Manlik",
+        "neutral": "Neutraal"
+      },
+      "filterPitch": "Filter volgens toonhoogte",
+      "anyPitch": "Alle toonhoogtes",
+      "pitch": {
+        "low": "Lae toonhoogte",
+        "medium": "Medium toonhoogte",
+        "high": "Hoë toonhoogte"
+      },
+      "studioOnly": "Slegs ateljeestemme",
+      "studioTag": "Ateljee",
+      "count": "Stemme gevind: {count}",
+      "legacy": "Verouderde stem ({id})",
+      "stopSample": "Stop die voorbeeld van {voice}"
+    },
+    "step": {
+      "speed": {
+        "very_slow": "Baie stadig",
+        "slow": "Stadig",
+        "normal": "Normaal",
+        "fast": "Vinnig",
+        "very_fast": "Baie vinnig"
+      },
+      "pitch": {
+        "very_low": "Baie laag",
+        "low": "Laag",
+        "normal": "Normaal",
+        "high": "Hoog",
+        "very_high": "Baie hoog"
+      }
+    },
+    "style": {
+      "count": "{count} van {max} karakters"
     }
   },
   "page": {
     "skipToMainContent": "Slaan oor na hoofinhoud"
-  },
-  "sidebarEngNormVal": {
-    "off": "Af"
   },
   "sidebarLanguageVal": {
     "automatic": "Outomaties"

@@ -1,13 +1,18 @@
 import { fetchWithAuth } from '../common/api.js';
 import { showToast } from '../common/ui.js';
 import { displayError, fillLanguageSelect, languageBoostOptions, t } from '../common/i18n.js';
-import { formatNumberCompact, formatVoiceName } from '../common/utils.js';
 import { performVoiceTest, TTSPayload, PlayerElements, HintElements } from '../common/voice-preview.js';
+import { VoicePicker } from '../common/voice-picker.js';
+import { buildVoiceCatalog, languageName, loadVoiceCatalog, type VoiceCatalog } from '../common/voice-catalog.js';
+import {
+  CUSTOM_EMOTION, STYLE_MAX_LENGTH,
+  createStepControl, emotionLabel, stepLabel, type StepControl,
+} from '../common/tts-options.js';
 import type { IgnoreStatus } from './opt-out.js';
 
 /**
  * Viewer voice preferences module.
- * Handles voice dropdown, preference controls, and preview playback.
+ * Handles the voice picker, the preference controls, and preview playback.
  */
 
 /**
@@ -18,8 +23,9 @@ export interface ViewerPreferences {
   pitch?: number | null;
   speed?: number | null;
   emotion?: string | null;
+  /** Free text that tells the voice model how to speak. Not empty means that it replaces the emotion. */
+  style?: string | null;
   language?: string | null;
-  englishNormalization?: boolean | null;
 }
 
 /**
@@ -31,8 +37,9 @@ export interface ChannelDefaults {
   pitch?: number | null;
   speed?: number | null;
   emotion?: string | null;
+  style?: string | null;
   language?: string | null;
-  englishNormalization?: boolean;
+  disabledSoundTags?: string[];
 }
 
 /**
@@ -55,8 +62,8 @@ export interface PreferencesData {
   pitch?: number | null;
   speed?: number | null;
   emotion?: string | null;
+  style?: string | null;
   language?: string | null;
-  englishNormalization?: boolean | null;
   channelDefaults?: ChannelDefaults;
   channelPolicy?: ChannelPolicy;
   ignoreStatus?: IgnoreStatus;
@@ -81,29 +88,21 @@ export interface PreferencesInfo {
  * DOM elements used by the preferences module
  */
 interface PreferencesElements {
-  voiceSelect: HTMLSelectElement | null;
-  voiceSearch: HTMLInputElement | null;
-  voiceDropdown: HTMLElement | null;
-  voiceMenu: HTMLElement | null;
-  pitchSlider: HTMLInputElement | null;
-  pitchValue: HTMLElement | null;
-  speedSlider: HTMLInputElement | null;
-  speedValue: HTMLElement | null;
   emotionSelect: HTMLSelectElement | null;
+  styleGroup: HTMLElement | null;
+  styleInput: HTMLInputElement | null;
+  styleCount: HTMLElement | null;
   languageSelect: HTMLSelectElement | null;
   voiceReset: HTMLButtonElement | null;
   pitchReset: HTMLButtonElement | null;
   speedReset: HTMLButtonElement | null;
   emotionReset: HTMLButtonElement | null;
   languageReset: HTMLButtonElement | null;
-  englishNormalizationCheckbox: HTMLInputElement | null;
-  englishNormalizationReset: HTMLButtonElement | null;
   hintVoice: HTMLElement | null;
   hintPitch: HTMLElement | null;
   hintSpeed: HTMLElement | null;
   hintEmotion: HTMLElement | null;
   hintLanguage: HTMLElement | null;
-  hintEnglishNorm: HTMLElement | null;
   previewText: HTMLTextAreaElement | null;
   previewBtn: HTMLButtonElement | null;
   previewPlayer: HTMLElement | null;
@@ -116,13 +115,9 @@ interface PreferencesElements {
  * State tracked by the preferences module
  */
 interface PreferencesState {
-  availableVoices: string[];
+  catalog: VoiceCatalog;
   currentPreferences: PreferencesData;
   cachedAudioUrl: string | null;
-  cachedSettings: TTSPayload | null;
-  isDirty: boolean;
-  currentlyPlayingAudio: HTMLAudioElement | null;
-  currentlyPlayingVoiceId: string | null;
 }
 
 /**
@@ -158,14 +153,19 @@ export interface PreferencesModule {
 }
 
 /**
- * Preference keys
+ * Preference keys, as the viewer API names them. `language` is stored as `languageBoost`.
  */
-type PreferenceKey = 'voiceId' | 'pitch' | 'speed' | 'emotion' | 'language' | 'englishNormalization';
+type PreferenceKey = 'voiceId' | 'pitch' | 'speed' | 'emotion' | 'style' | 'language';
 
 /**
  * Preference value types
  */
-type PreferenceValue = string | number | boolean | null;
+type PreferenceValue = string | number | null;
+
+/** The rows that show a "Using …" hint. The emotion row also covers the style. */
+type HintKey = 'voiceId' | 'pitch' | 'speed' | 'emotion' | 'language';
+
+const hasValue = (value: unknown): boolean => value !== null && value !== undefined && value !== '';
 
 export function initPreferencesModule(
   context: PreferencesContext,
@@ -177,29 +177,21 @@ export function initPreferencesModule(
   const { onPreferencesLoaded } = deps;
 
   const elements: PreferencesElements = {
-    voiceSelect: document.getElementById('voice-select') as HTMLSelectElement | null,
-    voiceSearch: document.getElementById('voice-search') as HTMLInputElement | null,
-    voiceDropdown: document.getElementById('voice-dropdown'),
-    voiceMenu: document.getElementById('voice-menu'),
-    pitchSlider: document.getElementById('pitch-slider') as HTMLInputElement | null,
-    pitchValue: document.getElementById('pitch-value'),
-    speedSlider: document.getElementById('speed-slider') as HTMLInputElement | null,
-    speedValue: document.getElementById('speed-value'),
     emotionSelect: document.getElementById('emotion-select') as HTMLSelectElement | null,
+    styleGroup: document.getElementById('style-group'),
+    styleInput: document.getElementById('style-input') as HTMLInputElement | null,
+    styleCount: document.getElementById('style-count'),
     languageSelect: document.getElementById('language-select') as HTMLSelectElement | null,
     voiceReset: document.getElementById('voice-reset') as HTMLButtonElement | null,
     pitchReset: document.getElementById('pitch-reset') as HTMLButtonElement | null,
     speedReset: document.getElementById('speed-reset') as HTMLButtonElement | null,
     emotionReset: document.getElementById('emotion-reset') as HTMLButtonElement | null,
     languageReset: document.getElementById('language-reset') as HTMLButtonElement | null,
-    englishNormalizationCheckbox: document.getElementById('english-normalization-checkbox') as HTMLInputElement | null,
-    englishNormalizationReset: document.getElementById('english-normalization-reset') as HTMLButtonElement | null,
     hintVoice: document.getElementById('hint-voice'),
     hintPitch: document.getElementById('hint-pitch'),
     hintSpeed: document.getElementById('hint-speed'),
     hintEmotion: document.getElementById('hint-emotion'),
     hintLanguage: document.getElementById('hint-language'),
-    hintEnglishNorm: document.getElementById('hint-englishNormalization'),
     previewText: document.getElementById('preview-text') as HTMLTextAreaElement | null,
     previewBtn: document.getElementById('preview-btn') as HTMLButtonElement | null,
     previewPlayer: document.getElementById('voice-preview-player'),
@@ -213,24 +205,43 @@ export function initPreferencesModule(
   }
 
   const state: PreferencesState = {
-    availableVoices: [],
+    catalog: buildVoiceCatalog([]),
     currentPreferences: {},
     cachedAudioUrl: null,
-    cachedSettings: null,
-    isDirty: false,
-    currentlyPlayingAudio: null,
-    currentlyPlayingVoiceId: null,
   };
 
+  // The same picker as the dashboard. The empty row means "use the channel default".
+  const voicePicker = new VoicePicker({
+    root: document.getElementById('voice-picker'),
+    labelId: 'voice-label',
+    emptyLabel: t('msg.prefs.useChannelDefault'),
+    onSelect: (voiceId) => {
+      markSettingsAsDirty();
+      void savePreferences({ voiceId: voiceId || null });
+    },
+  });
+  // Pitch and speed: five steps each, stored as the same numbers as before.
+  // No step is checked while the viewer has no value of their own.
+  const pitchControl: StepControl = createStepControl(document.getElementById('pitch-steps'), 'pitch', (value) => {
+    markSettingsAsDirty();
+    void savePreferences({ pitch: value });
+  });
+  const speedControl: StepControl = createStepControl(document.getElementById('speed-steps'), 'speed', (value) => {
+    markSettingsAsDirty();
+    void savePreferences({ speed: value });
+  });
 
-  attachSliderOutputs();
+  let saveQueue: Promise<void> = Promise.resolve();
+
   attachResetButtons();
   attachPreferenceSaves();
   attachPreviewHandlers();
 
   return {
     async loadVoices(): Promise<void> {
-      await loadVoices();
+      // Same source the dashboard uses, so both pages offer the same voices.
+      state.catalog = await loadVoiceCatalog(`${apiBaseUrl}/api/voices`, { demoFallback: testMode });
+      voicePicker.setCatalog(state.catalog);
     },
     async loadPreferences(options: { quiet?: boolean } = {}): Promise<PreferencesInfo> {
       const info = await loadPreferences(options);
@@ -241,85 +252,130 @@ export function initPreferencesModule(
     getCurrentPreferences: (): PreferencesData => state.currentPreferences,
   };
 
-  function attachSliderOutputs(): void {
-    if (elements.pitchSlider && elements.pitchValue) {
-      elements.pitchSlider.addEventListener('input', () => {
-        if (elements.pitchSlider && elements.pitchValue) {
-          elements.pitchValue.textContent = elements.pitchSlider.value;
-          updateSidebarMeta({ pitch: Number(elements.pitchSlider.value) });
-        }
-      });
-    }
-    if (elements.speedSlider && elements.speedValue) {
-      elements.speedSlider.addEventListener('input', () => {
-        if (elements.speedSlider && elements.speedValue) {
-          elements.speedValue.textContent = Number(elements.speedSlider.value).toFixed(1);
-          updateSidebarMeta({ speed: Number(elements.speedSlider.value) });
-        }
-      });
-    }
+  /** The preview that the page holds no longer matches the settings: say so. */
+  function markSettingsAsDirty(): void {
+    if (elements.previewHint && state.cachedAudioUrl) elements.previewHint.style.display = 'block';
   }
 
   function attachResetButtons(): void {
-    const { voiceReset, pitchReset, speedReset, emotionReset, languageReset, englishNormalizationReset, englishNormalizationCheckbox } = elements;
-    if (voiceReset) voiceReset.addEventListener('click', () => resetPreference('voiceId', elements.voiceSelect, ''));
-    if (pitchReset) pitchReset.addEventListener('click', () => resetPreference('pitch', elements.pitchSlider, 0));
-    if (speedReset) speedReset.addEventListener('click', () => resetPreference('speed', elements.speedSlider, 1));
-    if (emotionReset) emotionReset.addEventListener('click', () => resetPreference('emotion', elements.emotionSelect, ''));
-    if (languageReset) languageReset.addEventListener('click', () => resetPreference('language', elements.languageSelect, ''));
-    if (englishNormalizationReset && englishNormalizationCheckbox) {
-      englishNormalizationReset.addEventListener('click', () => resetPreference('englishNormalization', englishNormalizationCheckbox, false));
-    }
+    const { voiceReset, pitchReset, speedReset, emotionReset, languageReset } = elements;
+    const reset = (button: HTMLButtonElement | null, patch: Partial<Record<PreferenceKey, PreferenceValue>>): void => {
+      button?.addEventListener('click', () => {
+        markSettingsAsDirty();
+        void savePreferences(patch);
+      });
+    };
+    reset(voiceReset, { voiceId: null });
+    reset(pitchReset, { pitch: null });
+    reset(speedReset, { speed: null });
+    // The emotion and the style are one choice, so Clear removes both.
+    reset(emotionReset, { emotion: null, style: null });
+    reset(languageReset, { language: null });
+  }
+
+  function updateStyleCount(): void {
+    if (!elements.styleCount) return;
+    elements.styleCount.textContent = t('msg.style.count', {
+      count: (elements.styleInput?.value || '').length,
+      max: STYLE_MAX_LENGTH,
+    });
   }
 
   function attachPreferenceSaves(): void {
-    const {
-      voiceSelect,
-      pitchSlider,
-      speedSlider,
-      emotionSelect,
-      languageSelect,
-      englishNormalizationCheckbox,
-    } = elements;
+    const { emotionSelect, styleGroup, styleInput, languageSelect } = elements;
 
-    if (voiceSelect) voiceSelect.addEventListener('change', () => savePreference('voiceId', voiceSelect.value || null));
-    if (pitchSlider) {
-      pitchSlider.addEventListener('change', () => {
-        const v = Number(pitchSlider.value);
-        savePreference('pitch', v);
+    if (emotionSelect) emotionSelect.addEventListener('change', () => {
+      markSettingsAsDirty();
+      if (emotionSelect.value === CUSTOM_EMOTION) {
+        // Nothing to save until there is text: an empty style means that the emotion applies.
+        if (styleGroup) styleGroup.hidden = false;
+        updateStyleCount();
+        styleInput?.focus();
+        return;
+      }
+      // The server removes the style when it saves an emotion. Send both, so
+      // the page and the server hold the same values.
+      void savePreferences({ emotion: emotionSelect.value || null, style: null });
+    });
+
+    if (styleInput) {
+      styleInput.maxLength = STYLE_MAX_LENGTH;
+      styleInput.addEventListener('input', updateStyleCount);
+      styleInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') styleInput.blur(); });
+      styleInput.addEventListener('blur', (e) => {
+        // A click on another control takes the focus away before its own event.
+        const next = (e as FocusEvent).relatedTarget;
+        const style = styleInput.value.trim().slice(0, STYLE_MAX_LENGTH);
+        const stored = state.currentPreferences.style || '';
+        if (style !== stored) {
+          // Also when the focus goes to Clear: the Tab key takes it there with no
+          // click. A click on Clear saves after this one, because the saves keep their order.
+          markSettingsAsDirty();
+          void savePreferences({ style: style || null });
+        } else if (!next || next !== elements.emotionSelect) {
+          // No text and nothing stored: show the emotion that applies again. Not
+          // while the viewer opens the emotion list, which this would change under them.
+          renderControls();
+        }
       });
     }
-    if (speedSlider) {
-      speedSlider.addEventListener('change', () => {
-        const v = Number(speedSlider.value);
-        savePreference('speed', v);
-      });
-    }
-    if (emotionSelect) emotionSelect.addEventListener('change', () => savePreference('emotion', emotionSelect.value || null));
-    if (languageSelect) languageSelect.addEventListener('change', () => savePreference('language', languageSelect.value || null));
-    if (englishNormalizationCheckbox) englishNormalizationCheckbox.addEventListener('change', () => {
-      savePreference('englishNormalization', englishNormalizationCheckbox.checked || false);
+
+    if (languageSelect) languageSelect.addEventListener('change', () => {
+      markSettingsAsDirty();
+      void savePreferences({ language: languageSelect.value || null });
     });
   }
 
-  function attachPreviewHandlers(): void {
-    const { previewBtn, previewText, voiceSelect, pitchSlider, speedSlider, emotionSelect, languageSelect, englishNormalizationCheckbox } = elements;
+  /**
+   * The values that TTS uses for this viewer: the value of the viewer, else the
+   * channel default. A style that is not empty replaces the emotion at its level.
+   */
+  function effectiveSettings(): Omit<TTSPayload, 'text'> {
+    const prefs = state.currentPreferences || {};
+    // The API sends null, not undefined, for a field the channel never set
+    // (slymutt has no `speed`), so every channel fallback uses `??` or `||`.
+    const cd = prefs.channelDefaults || {};
 
-    const changeElements = [voiceSelect, pitchSlider, speedSlider, emotionSelect, languageSelect, englishNormalizationCheckbox];
-    changeElements.forEach(el => {
-      if (el) el.addEventListener('change', markSettingsAsDirty);
-    });
+    let emotion: string | undefined;
+    let style = '';
+    // The style in the box counts while the viewer still types it.
+    const typedStyle = elements.emotionSelect?.value === CUSTOM_EMOTION
+      ? (elements.styleInput?.value || '').trim().slice(0, STYLE_MAX_LENGTH)
+      : '';
+    if (typedStyle) {
+      style = typedStyle;
+      emotion = prefs.emotion || cd.emotion || undefined;
+    } else if (prefs.style) {
+      style = prefs.style;
+      emotion = prefs.emotion || cd.emotion || undefined;
+    } else if (prefs.emotion) {
+      emotion = prefs.emotion;
+    } else {
+      style = cd.style || '';
+      emotion = cd.emotion || undefined;
+    }
+
+    let language = prefs.language || cd.language || undefined;
+    if (language === 'Automatic' || language === 'None') language = 'auto'; // Old spellings in channel records
+
+    return {
+      voiceId: prefs.voiceId || cd.voiceId || state.catalog.defaultVoiceId || undefined,
+      pitch: prefs.pitch ?? cd.pitch ?? undefined,
+      speed: prefs.speed ?? cd.speed ?? undefined,
+      emotion,
+      style,
+      languageBoost: language,
+    };
+  }
+
+  function attachPreviewHandlers(): void {
+    const { previewBtn, previewText } = elements;
 
     if (previewBtn) previewBtn.addEventListener('click', () => testVoice());
 
     window.addEventListener('beforeunload', () => {
       if (state.cachedAudioUrl) URL.revokeObjectURL(state.cachedAudioUrl);
     });
-
-    function markSettingsAsDirty(): void {
-      state.isDirty = true;
-      if (elements.previewHint && state.cachedAudioUrl) elements.previewHint.style.display = 'block';
-    }
 
     async function testVoice(): Promise<void> {
       const text = (previewText?.value || '').trim();
@@ -333,18 +389,7 @@ export function initPreferencesModule(
         return;
       }
 
-      const pitchHasOverride = state.currentPreferences?.pitch !== undefined && state.currentPreferences?.pitch !== null;
-      const speedHasOverride = state.currentPreferences?.speed !== undefined && state.currentPreferences?.speed !== null;
-      const cd = state.currentPreferences?.channelDefaults || {};
-
-      const payload: TTSPayload = {
-        text,
-        voiceId: voiceSelect?.value || cd.voiceId || undefined,
-        pitch: pitchHasOverride ? Number(pitchSlider?.value ?? 0) : (cd.pitch ?? undefined),
-        speed: speedHasOverride ? Number(speedSlider?.value ?? 1) : (cd.speed ?? undefined),
-        emotion: emotionSelect?.value || cd.emotion || undefined,
-        languageBoost: languageSelect?.value || cd.language || undefined,
-      };
+      const payload: TTSPayload = { text, ...effectiveSettings() };
 
       const playerElements: PlayerElements = {
         playerEl: elements.previewPlayer,
@@ -355,232 +400,13 @@ export function initPreferencesModule(
         hintEl: elements.previewHint,
       };
 
-      const buttons = [previewBtn].filter((btn): btn is HTMLButtonElement => btn !== null);
-
-      const onAudioGenerated = (audioUrl: string, settings: TTSPayload): void => {
+      const onAudioGenerated = (audioUrl: string): void => {
         if (state.cachedAudioUrl) URL.revokeObjectURL(state.cachedAudioUrl);
         state.cachedAudioUrl = audioUrl;
-        state.cachedSettings = settings;
-        state.isDirty = false;
         if (elements.previewHint) elements.previewHint.style.display = 'none';
       };
 
-      await performVoiceTest(payload, buttons, {
-        defaultText: 'Chat is this real?',
-        playerElements,
-        hintElements,
-        onAudioGenerated,
-      });
-    }
-  }
-
-  async function loadVoices(): Promise<void> {
-    // Same source the dashboard uses, so both pages offer the same voice IDs.
-    let voices: string[] = testMode ? ['Friendly_Person', 'Wise_Woman', 'Deep_Voice_Man'] : [];
-
-    if (!testMode) {
-      try {
-        const response = await fetch(`${apiBaseUrl}/api/voices`);
-        if (response.ok) {
-          const data = await response.json() as { voices?: string[] };
-          voices = data.voices || [];
-        }
-      } catch (error) {
-        console.error('Failed to load voices:', error);
-      }
-    }
-
-    state.availableVoices = voices;
-    setupVoiceDropdown(voices);
-  }
-
-  function setupVoiceDropdown(voices: string[]): void {
-    const { voiceSearch, voiceSelect, voiceMenu, voiceDropdown } = elements;
-    if (!voiceSearch || !voiceSelect || !voiceMenu || !voiceDropdown) return;
-
-    const list = voiceMenu.querySelector('.voice-dropdown-list');
-    if (!list) return;
-
-    voiceSelect.value = '';
-    voiceSearch.value = t('msg.prefs.useChannelDefault');
-
-    renderVoiceList(voices);
-
-    voiceSearch.addEventListener('click', (e: MouseEvent) => {
-      e.stopPropagation();
-      const isOpen = voiceMenu.classList.contains('show');
-      if (isOpen) {
-        closeDropdown();
-      } else {
-        openDropdown();
-      }
-    });
-
-    voiceSearch.addEventListener('input', () => {
-      const query = voiceSearch.value.toLowerCase();
-      if (query === '' || query === 'use channel default') {
-        renderVoiceList(voices);
-        return;
-      }
-      const filtered = voices.filter(voice =>
-        formatVoiceName(voice).toLowerCase().includes(query)
-      );
-      renderVoiceList(filtered, false);
-    });
-
-    document.addEventListener('click', (e: MouseEvent) => {
-      if (!voiceDropdown.contains(e.target as Node)) {
-        closeDropdown();
-      }
-    });
-
-    function openDropdown(): void {
-      if (!voiceMenu || !voiceSearch) return;
-      voiceMenu.classList.add('show');
-      voiceSearch.removeAttribute('readonly');
-      voiceSearch.focus();
-      voiceSearch.select();
-    }
-
-    function closeDropdown(): void {
-      if (!voiceMenu || !voiceSearch || !voiceSelect) return;
-      voiceMenu.classList.remove('show');
-      voiceSearch.setAttribute('readonly', 'readonly');
-      const currentValue = voiceSelect.value;
-      voiceSearch.value = currentValue ? formatVoiceName(currentValue) : t('msg.prefs.useChannelDefault');
-    }
-
-    function renderVoiceList(listVoices: string[], showDefault = true): void {
-      if (!list) return;
-      list.innerHTML = '';
-
-      if (showDefault) {
-        const defaultItem = document.createElement('div');
-        defaultItem.className = 'voice-dropdown-item';
-        const label = document.createElement('span');
-        label.className = 'voice-label';
-        label.textContent = t('msg.prefs.useChannelDefault');
-        label.addEventListener('click', () => {
-          selectVoice('');
-        });
-        defaultItem.appendChild(label);
-        list.appendChild(defaultItem);
-      }
-
-      if (!listVoices.length) {
-        const empty = document.createElement('div');
-        empty.className = 'voice-dropdown-item no-results';
-        empty.textContent = t('msg.prefs.noVoicesFound');
-        list.appendChild(empty);
-        return;
-      }
-
-      listVoices.forEach(voiceId => {
-        const item = document.createElement('div');
-        item.className = 'voice-dropdown-item d-flex justify-content-between align-items-center';
-
-        const label = document.createElement('span');
-        label.className = 'voice-label';
-        label.textContent = formatVoiceName(voiceId);
-        label.addEventListener('click', () => selectVoice(voiceId));
-
-        const playBtn = document.createElement('button');
-        playBtn.type = 'button';
-        playBtn.className = 'voice-play-btn';
-        playBtn.setAttribute('aria-label', t('msg.voice.preview', { voice: voiceId }));
-        playBtn.innerHTML = `
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M8 5v14l11-7z"/>
-                    </svg>
-                `;
-        playBtn.addEventListener('click', async (e: MouseEvent) => {
-          e.stopPropagation();
-          await playVoiceSample(voiceId, playBtn);
-        });
-
-        item.appendChild(label);
-        item.appendChild(playBtn);
-        list.appendChild(item);
-      });
-    }
-
-    function selectVoice(voiceId: string): void {
-      if (!voiceSelect || !voiceSearch || !voiceMenu) return;
-      voiceSelect.value = voiceId;
-      voiceSearch.value = voiceId ? formatVoiceName(voiceId) : t('msg.prefs.useChannelDefault');
-      voiceMenu.classList.remove('show');
-      voiceSearch.setAttribute('readonly', 'readonly');
-      savePreference('voiceId', voiceId || null);
-    }
-  }
-
-  async function playVoiceSample(voiceId: string, button: HTMLButtonElement): Promise<void> {
-    if (!voiceId) return;
-
-    if (state.currentlyPlayingVoiceId === voiceId && state.currentlyPlayingAudio) {
-      state.currentlyPlayingAudio.pause();
-      state.currentlyPlayingAudio = null;
-      state.currentlyPlayingVoiceId = null;
-      updatePlayButton(button, false);
-      return;
-    }
-
-    if (state.currentlyPlayingAudio) {
-      state.currentlyPlayingAudio.pause();
-      const prevBtn = document.querySelector('.voice-play-btn.playing') as HTMLButtonElement | null;
-      if (prevBtn) updatePlayButton(prevBtn, false);
-    }
-
-    const preMadeUrl = `/assets/voices/${voiceId}-chat-is-this-real.mp3`;
-
-    try {
-      const response = await fetch(preMadeUrl);
-      if (!response.ok) {
-        showToast(t('msg.preview.unavailable'), 'info');
-        return;
-      }
-      const blob = await response.blob();
-      const audioUrl = URL.createObjectURL(blob);
-      const audio = new Audio(audioUrl);
-      state.currentlyPlayingAudio = audio;
-      state.currentlyPlayingVoiceId = voiceId;
-      updatePlayButton(button, true);
-
-      const cleanup = (): void => {
-        URL.revokeObjectURL(audioUrl);
-        updatePlayButton(button, false);
-        state.currentlyPlayingAudio = null;
-        state.currentlyPlayingVoiceId = null;
-      };
-
-      audio.addEventListener('ended', cleanup, { once: true });
-      audio.addEventListener('error', cleanup, { once: true });
-
-      await audio.play();
-    } catch (error) {
-      console.error('Error playing voice preview:', error);
-      updatePlayButton(button, false);
-      state.currentlyPlayingAudio = null;
-      state.currentlyPlayingVoiceId = null;
-    }
-  }
-
-  function updatePlayButton(button: HTMLButtonElement | null, isPlaying: boolean): void {
-    if (!button) return;
-    if (isPlaying) {
-      button.classList.add('playing');
-      button.innerHTML = `
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
-                </svg>
-            `;
-    } else {
-      button.classList.remove('playing');
-      button.innerHTML = `
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M8 5v14l11-7z"/>
-                </svg>
-            `;
+      await performVoiceTest(payload, [previewBtn], { playerElements, hintElements, onAudioGenerated });
     }
   }
 
@@ -597,15 +423,15 @@ export function initPreferencesModule(
         pitch: null,
         speed: null,
         emotion: '',
+        style: null,
         language: '',
-        englishNormalization: false,
         channelDefaults: {
-          voiceId: 'Friendly_Person',
+          voiceId: state.catalog.defaultVoiceId,
           pitch: 0,
           speed: 1.0,
           emotion: 'neutral',
+          style: null,
           language: 'auto',
-          englishNormalization: false,
         },
         channelPolicy: { allowViewerPreferences: true },
         ignoreStatus: { tts: false },
@@ -658,227 +484,168 @@ export function initPreferencesModule(
 
   function applyPreferences(data: PreferencesData): void {
     state.currentPreferences = data || {};
-    const prefs = state.currentPreferences;
+    renderControls();
 
-    const {
-      voiceSelect,
-      pitchSlider,
-      pitchValue,
-      speedSlider,
-      speedValue,
-      emotionSelect,
-      languageSelect,
-      englishNormalizationCheckbox,
-      voiceReset,
-      pitchReset,
-      speedReset,
-      emotionReset,
-      languageReset,
-      prefsDisabledNote,
-    } = elements;
-
-    if (voiceSelect) {
-      voiceSelect.value = prefs.voiceId || '';
-      if (elements.voiceSearch) {
-        elements.voiceSearch.value = voiceSelect.value ? formatVoiceName(voiceSelect.value) : t('msg.prefs.useChannelDefault');
-      }
-    }
-    if (pitchSlider && pitchValue) {
-      pitchSlider.value = String(prefs.pitch ?? 0);
-      pitchValue.textContent = String(prefs.pitch ?? 0);
-    }
-    if (speedSlider && speedValue) {
-      const val = prefs.speed ?? 1.0;
-      speedSlider.value = String(val);
-      speedValue.textContent = Number(val).toFixed(2);
-    }
-    if (emotionSelect) emotionSelect.value = prefs.emotion || '';
-    if (languageSelect) languageSelect.value = prefs.language || '';
-    if (englishNormalizationCheckbox) englishNormalizationCheckbox.checked = prefs.englishNormalization || false;
-
-    updateHints();
-
-    const allowViewerPrefs = prefs?.channelPolicy?.allowViewerPreferences !== false;
-    const inputs: (HTMLElement | null)[] = [
-      voiceSelect, pitchSlider, speedSlider, emotionSelect,
-      languageSelect, englishNormalizationCheckbox,
-      voiceReset, pitchReset, speedReset, emotionReset, languageReset,
-    ];
-    inputs.forEach(el => {
-      if (!el) return;
-      (el as HTMLInputElement | HTMLSelectElement | HTMLButtonElement).disabled = !allowViewerPrefs;
+    const allowViewerPrefs = state.currentPreferences?.channelPolicy?.allowViewerPreferences !== false;
+    const { emotionSelect, styleInput, languageSelect, voiceReset, pitchReset, speedReset, emotionReset, languageReset, prefsDisabledNote } = elements;
+    voicePicker.setDisabled(!allowViewerPrefs);
+    pitchControl.setDisabled(!allowViewerPrefs);
+    speedControl.setDisabled(!allowViewerPrefs);
+    [emotionSelect, styleInput, languageSelect, voiceReset, pitchReset, speedReset, emotionReset, languageReset].forEach(el => {
+      if (el) el.disabled = !allowViewerPrefs;
     });
     if (prefsDisabledNote) {
       prefsDisabledNote.classList.toggle('d-none', allowViewerPrefs);
     }
+  }
+
+  /** Draw every control, hint and sidebar value from the current preferences. */
+  function renderControls(): void {
+    const prefs = state.currentPreferences || {};
+    const { emotionSelect, styleGroup, styleInput, languageSelect } = elements;
+
+    // The stored ID can still be a MiniMax ID. The picker shows it as a legacy voice.
+    voicePicker.setValue(prefs.voiceId || '');
+    pitchControl.setValue(prefs.pitch ?? null);
+    speedControl.setValue(prefs.speed ?? null);
+
+    const style = prefs.style || '';
+    if (emotionSelect) {
+      emotionSelect.value = style ? CUSTOM_EMOTION : (prefs.emotion || '');
+      // A stored emotion that is not an option reads as "use channel default".
+      if (emotionSelect.selectedIndex === -1) emotionSelect.value = '';
+    }
+    if (styleInput) styleInput.value = style;
+    if (styleGroup) styleGroup.hidden = !style;
+    updateStyleCount();
+    if (languageSelect) {
+      languageSelect.value = prefs.language || '';
+      if (languageSelect.selectedIndex === -1) languageSelect.value = '';
+    }
+
+    updateHints();
     updateSidebarMeta();
   }
 
-  function updateHints(keys?: PreferenceKey[]): void {
-    const map: Record<PreferenceKey, HTMLElement | null> = {
+  function updateHints(): void {
+    const map: Record<HintKey, HTMLElement | null> = {
       voiceId: elements.hintVoice,
       pitch: elements.hintPitch,
       speed: elements.hintSpeed,
       emotion: elements.hintEmotion,
       language: elements.hintLanguage,
-      englishNormalization: elements.hintEnglishNorm,
     };
-    const toUpdate = Array.isArray(keys) ? keys : (Object.keys(map) as PreferenceKey[]);
-    toUpdate.forEach(key => {
+    (Object.keys(map) as HintKey[]).forEach(key => {
       const el = map[key];
       if (!el) return;
       el.textContent = describePreferenceHint(key);
       el.style.display = '';
-      void el.offsetHeight; // force reflow for immediate update
     });
   }
 
-  function describePreferenceHint(key: PreferenceKey): string {
+  function describePreferenceHint(key: HintKey): string {
     const prefs = state.currentPreferences || {};
     const cd = prefs.channelDefaults || {};
-    const userVal = prefs[key];
-    const defVal = cd[key];
-    const hasUser = userVal !== null && userVal !== undefined && userVal !== '';
-    const hasDef = defVal !== null && defVal !== undefined && defVal !== '';
-    if (hasUser) return t('msg.prefs.hintUser', { value: formatValueForHint(key, userVal) });
-    if (hasDef) return t('msg.prefs.hintChannel', { value: formatValueForHint(key, defVal) });
+    // The emotion row stands for the style too: either one is a value.
+    const hasUser = hasValue(prefs[key]) || (key === 'emotion' && hasValue(prefs.style));
+    const hasDef = hasValue(cd[key]) || (key === 'emotion' && hasValue(cd.style));
+    if (hasUser) return t('msg.prefs.hintUser', { value: formatValueForHint(key, prefs) });
+    if (hasDef) return t('msg.prefs.hintChannel', { value: formatValueForHint(key, cd) });
     return t('msg.prefs.hintSystem');
   }
 
-  function formatValueForHint(key: PreferenceKey, value: PreferenceValue): string {
-    if (value === '' || value === undefined || value === null) return String(value);
-    if (key === 'speed') return formatNumberCompact(Number(value));
-    return String(value);
+  function describeVoice(voiceId: string): string {
+    const voice = state.catalog.get(voiceId);
+    // Names repeat across languages, so the language is part of the name here.
+    return voice ? `${voice.name} (${languageName(voice.language)})` : state.catalog.displayName(voiceId);
   }
 
-  function revertDOMElement(key: PreferenceKey, value: PreferenceValue): void {
-    const { voiceSelect, pitchSlider, speedSlider, emotionSelect, languageSelect, englishNormalizationCheckbox } = elements;
-    if (key === 'voiceId' && voiceSelect) voiceSelect.value = String(value ?? '');
-    if (key === 'pitch' && pitchSlider) pitchSlider.value = String(value ?? 0);
-    if (key === 'speed' && speedSlider) speedSlider.value = String(value ?? 1);
-    if (key === 'emotion' && emotionSelect) emotionSelect.value = String(value ?? '');
-    if (key === 'language' && languageSelect) languageSelect.value = String(value ?? '');
-    if (key === 'englishNormalization' && englishNormalizationCheckbox) englishNormalizationCheckbox.checked = Boolean(value ?? false);
+  function describeLanguage(language: string): string {
+    if (language === 'auto' || language === 'Automatic' || language === 'None') return t('msg.lang.automatic');
+    return languageBoostOptions().find(o => o.value === language)?.label ?? language;
   }
 
-  async function savePreference(key: PreferenceKey, value: PreferenceValue): Promise<void> {
-    const previous = state.currentPreferences ? state.currentPreferences[key] : undefined;
+  /** A stored value as the reader sees it in the control, not as the API stores it. */
+  function formatValueForHint(key: HintKey, source: ViewerPreferences | ChannelDefaults): string {
+    switch (key) {
+      case 'voiceId': return describeVoice(String(source.voiceId));
+      case 'pitch': return stepLabel('pitch', source.pitch);
+      case 'speed': return stepLabel('speed', source.speed);
+      case 'emotion':
+        return source.style
+          ? t('msg.prefs.customStyle', { style: source.style })
+          : emotionLabel(source.emotion);
+      case 'language': return describeLanguage(String(source.language));
+      default: return '';
+    }
+  }
+
+  /**
+   * Save one or more preferences in one request. Null removes a preference.
+   * On a failure the page goes back to the values that the server holds.
+   */
+  function savePreferences(patch: Partial<Record<PreferenceKey, PreferenceValue>>): Promise<void> {
+    // One save at a time, in the order of the clicks. Two requests in flight
+    // can arrive in the other order (the style box saves on blur, and the next
+    // click saves too), and the later save needs the result of the earlier one
+    // to know what to go back to.
+    const run = saveQueue.then(() => saveOnePatch(patch));
+    saveQueue = run;
+    return run;
+  }
+
+  /** One save. It does not reject: a failure ends in a toast. */
+  async function saveOnePatch(patch: Partial<Record<PreferenceKey, PreferenceValue>>): Promise<void> {
+    const keys = Object.keys(patch) as PreferenceKey[];
+    const current = state.currentPreferences as Record<string, unknown>;
+    const previous = new Map(keys.map(key => [key, current[key]]));
     // The local update sits inside the try. Outside it, a bug in redrawing the
     // sidebar threw before the request went out, so Clear did nothing at all:
     // no save, no toast, and a page that no longer matched the server.
     try {
-      if (state.currentPreferences) {
-        (state.currentPreferences as Record<string, PreferenceValue>)[key] = value;
-        updateHints([key]);
-        updateSidebarMeta();
-      }
+      keys.forEach(key => { current[key] = patch[key]; });
+      renderControls();
       if (testMode) {
         showToast(t('msg.prefs.updatedTestMode'), 'success');
         return;
       }
       const currentChannel = getCurrentChannel();
-      const body = { [key]: value };
       const url = currentChannel
         ? `${apiBaseUrl}/api/viewer/preferences/${encodeURIComponent(currentChannel)}`
         : `${apiBaseUrl}/api/viewer/preferences`;
-      await fetchWithAuth(url, { method: 'PUT', body: JSON.stringify(body) });
+      await fetchWithAuth(url, { method: 'PUT', body: JSON.stringify(patch) });
       showToast(t('msg.prefs.updated'), 'success');
     } catch (error) {
-      if (state.currentPreferences) {
-        (state.currentPreferences as Record<string, PreferenceValue>)[key] = previous as PreferenceValue;
-        revertDOMElement(key, previous as PreferenceValue);
-        updateHints([key]);
-        updateSidebarMeta();
+      previous.forEach((value, key) => { current[key] = value; });
+      try {
+        renderControls();
+      } catch (renderError) {
+        console.error('Failed to render preferences:', renderError);
       }
       // The reason alone. "Cannot save {key}: {reason}" put the internal field
-      // name in front of a reason that already says what failed, for example
-      // "Cannot save englishNormalization: Cannot save your preferences."
-      console.error(`Failed to save ${key}:`, error);
+      // name in front of a reason that already says what failed.
+      console.error(`Failed to save ${keys.join(', ')}:`, error);
       showToast(displayError(error), 'error');
     }
   }
 
-  async function resetPreference(
-    key: PreferenceKey,
-    element: HTMLInputElement | HTMLSelectElement | null,
-    fallbackValue: PreferenceValue
-  ): Promise<void> {
-    const cd = (state.currentPreferences && state.currentPreferences.channelDefaults) ? state.currentPreferences.channelDefaults : {};
-    const defaultValue = (cd[key] !== undefined && cd[key] !== null) ? cd[key] : fallbackValue;
-    if (!element) return;
-    if (element instanceof HTMLInputElement && element.type === 'checkbox') {
-      element.checked = Boolean(defaultValue);
-    } else {
-      element.value = (defaultValue === undefined || defaultValue === null) ? '' : String(defaultValue);
-    }
-    if (element instanceof HTMLInputElement && element.type === 'range') {
-      const output = document.getElementById(element.id.replace('-slider', '-value'));
-      if (output) {
-        const outVal = element.id === 'speed-slider' ? Number(defaultValue ?? 1).toFixed(1) : String(defaultValue ?? 0);
-        output.textContent = outVal;
-      }
-    }
-    await savePreference(key, null);
-  }
-
-  function updateSidebarMeta(liveOverrides: { pitch?: number, speed?: number } = {}): void {
-    const prefs = state.currentPreferences || {};
-    // The API sends null, not undefined, for a field the channel never set
-    // (slymutt has no `speed`), so every channel fallback below uses `??`. A
-    // `!== undefined` test let null through to `speed.toFixed`, which threw
-    // inside loadPreferences and hid the opt-out toggle.
-    const cd = prefs.channelDefaults || {};
-
-    const hasVoice = prefs.voiceId !== undefined && prefs.voiceId !== null && prefs.voiceId !== '';
-    const voiceId = hasVoice ? String(prefs.voiceId) : (cd.voiceId || 'Friendly_Person');
-    
-    let pitch: number;
-    if (liveOverrides.pitch !== undefined) {
-      pitch = liveOverrides.pitch;
-    } else {
-      const hasOverride = prefs.pitch !== undefined && prefs.pitch !== null;
-      pitch = hasOverride ? Number(prefs.pitch) : (cd.pitch ?? 0);
-    }
-
-    let speed: number;
-    if (liveOverrides.speed !== undefined) {
-      speed = liveOverrides.speed;
-    } else {
-      const hasOverride = prefs.speed !== undefined && prefs.speed !== null;
-      speed = hasOverride ? Number(prefs.speed) : (cd.speed ?? 1.0);
-    }
-
-    const hasEmotion = prefs.emotion !== undefined && prefs.emotion !== null && prefs.emotion !== '';
-    const emotion = hasEmotion ? String(prefs.emotion) : (cd.emotion || 'neutral');
-
-    const hasEngNorm = prefs.englishNormalization !== undefined && prefs.englishNormalization !== null;
-    const engNorm = hasEngNorm ? Boolean(prefs.englishNormalization) : (cd.englishNormalization ?? false);
-
-    const hasLanguage = prefs.language !== undefined && prefs.language !== null && prefs.language !== '';
-    let language = hasLanguage ? String(prefs.language) : (cd.language ?? 'auto');
-    if (language === 'Automatic') language = 'auto'; // Normalize backend channel default mismatch
+  function updateSidebarMeta(): void {
+    const { voiceId, pitch, speed, emotion, style, languageBoost } = effectiveSettings();
 
     const voiceNameEl = document.getElementById('sidebar-voice-name');
     const pitchValEl = document.getElementById('sidebar-pitch-val');
     const speedValEl = document.getElementById('sidebar-speed-val');
     const emotionValEl = document.getElementById('sidebar-emotion-val');
     const languageValEl = document.getElementById('sidebar-language-val');
-    const engNormValEl = document.getElementById('sidebar-eng-norm-val');
 
-    if (voiceNameEl) voiceNameEl.textContent = formatVoiceName(voiceId);
-    if (pitchValEl) pitchValEl.textContent = String(pitch);
-    if (speedValEl) speedValEl.textContent = speed.toFixed(1) + '×';
+    if (voiceNameEl) voiceNameEl.textContent = state.catalog.displayName(voiceId) || '—';
     // These overwrite markup that has already been translated, so they have to
     // be translated too -- capitalizing the raw enum value put an English word
     // back into every locale's sidebar.
-    if (emotionValEl) emotionValEl.textContent = t(`msg.emotion.${emotion}`);
-    if (languageValEl) {
-      const named = languageBoostOptions().find(o => o.value === language);
-      languageValEl.textContent = language === 'auto'
-        ? t('msg.lang.automatic')
-        : (named?.label ?? language);
-    }
-    if (engNormValEl) engNormValEl.textContent = t(engNorm ? 'msg.value.on' : 'msg.value.off');
+    if (pitchValEl) pitchValEl.textContent = stepLabel('pitch', pitch);
+    if (speedValEl) speedValEl.textContent = stepLabel('speed', speed);
+    if (emotionValEl) emotionValEl.textContent = emotionLabel(emotion, style);
+    if (languageValEl) languageValEl.textContent = describeLanguage(languageBoost || 'auto');
   }
 
   function clearCachedAudio(): void {
@@ -886,9 +653,7 @@ export function initPreferencesModule(
       URL.revokeObjectURL(state.cachedAudioUrl);
       state.cachedAudioUrl = null;
     }
-    state.cachedSettings = null;
     if (elements.previewPlayer) elements.previewPlayer.style.display = 'none';
     if (elements.previewBtn) elements.previewBtn.textContent = t('msg.prefs.sendPreview');
-    state.isDirty = false;
   }
 }

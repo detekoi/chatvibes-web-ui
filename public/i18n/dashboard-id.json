@@ -35,9 +35,6 @@
   "calibrationSaveBtn": {
     "save": "Simpan"
   },
-  "calibrationVoiceSearch": {
-    "searchVoicesToCalibrate": "Cari suara untuk dikalibrasi..."
-  },
   "channelNameStatus": {
     "yourChannel": "saluran Anda"
   },
@@ -73,7 +70,6 @@
     "deactivationStopsTheBotFrom": "Penonaktifan akan menghentikan bot membaca pesan obrolan. Pengaturan Anda tetap tersimpan. Anda dapat mengaktifkan kembali layanan ini kapan saja.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentasi",
     "emotion": "Emosi",
-    "engNormalization": "Normalisasi bhs. Inggris",
     "language": "Bahasa",
     "pitch": "Nada",
     "quickLinks": "Tautan cepat",
@@ -87,22 +83,36 @@
   },
   "defaultEmotion": {
     "angry": "Marah",
+    "calm": "Tenang",
+    "custom": "Kustom…",
     "disgusted": "Jijik",
     "fearful": "Takut",
+    "fluent": "Fasih",
     "happy": "Senang",
     "neutral": "Netral",
     "sad": "Sedih",
     "surprised": "Terkejut"
   },
-  "defaultPitch": {
-    "defaultPitch12To12": "Pitch Default (-12 hingga +12)"
+  "defaultPitchLabel": {
+    "defaultPitch": "<strong>Nada Default</strong>"
   },
-  "defaultSpeed": {
-    "defaultSpeed05To": "Kecepatan Default (0,5 hingga 2,0)"
+  "defaultSpeedLabel": {
+    "defaultSpeed": "<strong>Kecepatan Default</strong>"
   },
-  "defaultVoiceSearch": {
-    "searchDefaultVoices": "Cari suara default",
-    "searchVoices": "Cari suara..."
+  "defaultStepsHint": {
+    "pitchAndSpeedAreApproximate": "Nada dan kecepatan bersifat perkiraan. Model suara menerima pengaturan ini sebagai kata-kata, bukan angka."
+  },
+  "defaultStyle": {
+    "exampleCalmAndSlowLike": "Contoh: tenang dan lambat, seperti penyiar radio di malam hari"
+  },
+  "defaultStyleGroup": {
+    "style": "Gaya"
+  },
+  "defaultStyleHint": {
+    "describeInAFewWords": "Jelaskan dalam beberapa kata bagaimana suara ini berbicara."
+  },
+  "defaultVoiceLabel": {
+    "defaultVoice": "<strong>Suara Default</strong>"
   },
   "defaultVolume": {
     "voiceVolume01To": "Volume Suara (0,1 hingga 10)"
@@ -111,9 +121,6 @@
     "describeEmotes": "Deskripsikan emote",
     "readEmoteNames": "Baca nama emote",
     "skipEmotes": "Lewati emote"
-  },
-  "englishNormalization": {
-    "englishNormalization": "Normalisasi Bahasa Inggris"
   },
   "eventsEnabled": {
     "announceEvents": "Umumkan Acara"
@@ -214,7 +221,8 @@
       "hasVoice": "Pengguna {user} menyetel suara khusus: {voice}",
       "noVoice": "Pengguna {user} tidak menyetel suara khusus.",
       "searching": "Mencari…",
-      "voiceUnknown": "Suara ini tidak ada dalam daftar suara yang tersedia."
+      "voiceUnknown": "Suara ini tidak ada dalam daftar suara yang tersedia.",
+      "storedVoice": "Penonton ini menyimpan suara lama {stored}. Sebagai gantinya, TTS menggunakan suara di atas."
     },
     "mutedRewards": {
       "announceLabel": "Umumkan penukaran {title}",
@@ -279,7 +287,6 @@
       "defaultSpeed": "Kecepatan Default",
       "defaultVoice": "Suara Default",
       "emoteMode": "Mode Emote",
-      "englishNormalization": "Normalisasi Bahasa Inggris",
       "eventAnnouncements": "Pengumuman Acara",
       "expandAcronyms": "Perluas Akronim Obrolan",
       "minimumBits": "Bits Minimum",
@@ -288,6 +295,8 @@
       "readCommandMessages": "Baca Perintah Obrolan",
       "readFullUrls": "Baca URL Lengkap",
       "redemptionAnnouncements": "Pengumuman Penukaran",
+      "soundTags": "Tag Suara",
+      "style": "Gaya",
       "ttsEngine": "Mesin TTS",
       "ttsMode": "Mode TTS",
       "ttsPermission": "Izin TTS",
@@ -380,14 +389,6 @@
   "removeBotBtn": {
     "deactivateTtsService": "Nonaktifkan layanan TTS"
   },
-  "resetPitchBtn": {
-    "reset": "Atur ulang",
-    "resetDefaultPitchTo0": "Atur ulang nada default ke 0"
-  },
-  "resetSpeedBtn": {
-    "reset": "Reset",
-    "resetDefaultSpeedTo1": "Reset kecepatan default ke 1.0"
-  },
   "resetVolumeBtn": {
     "reset": "Reset",
     "resetVoiceVolumeTo1": "Reset volume suara ke 1.0"
@@ -398,8 +399,8 @@
   "serviceHeadline": {
     "ttsService": "Layanan TTS"
   },
-  "sidebarVoiceName": {
-    "friendlyPerson": "Orang Ramah"
+  "soundTagsTitle": {
+    "soundTags": "Tag Suara"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Izinkan bot merespons perintah chat seperti !myvoice",
@@ -479,24 +480,20 @@
     "voiceDefaults": "Default Suara"
   },
   "tabViewerDefaults": {
-    "adjustThePitchForThe": "Sesuaikan titinada (pitch) untuk suara default",
     "adjustTheVolumeForThe": "Sesuaikan volume untuk suara yang dipilih. PERHATIAN: Nilai lebih dari 1.0 dapat menyebabkan distorsi.",
     "calibratedVoices": "Suara Terkalibrasi",
     "calibrateVolumeForSpecificVoices": "Kalibrasi volume untuk suara tertentu. PERHATIAN: Nilai lebih dari 1.0 dapat menyebabkan distorsi.",
-    "controlHowFastTheDefault": "Atur kecepatan bicara suara default",
     "defaultEmotion": "<strong>Emosi Default</strong>",
     "defaultLanguage": "<strong>Bahasa Default</strong>",
-    "defaultPitch12To12": "Pitch Bawaan (-12 hingga +12):",
-    "defaultSpeed05To": "Kecepatan Bawaan (0.5 hingga 2.0):",
-    "defaultVoice": "<strong>Suara Default</strong>",
     "defaultVoiceSettings": "Pengaturan Suara Default",
-    "englishNormalization": "Normalisasi Bahasa Inggris",
-    "improvePronunciationForSpecificLanguages": "Tingkatkan pengucapan untuk bahasa tertentu",
-    "improveThePronunciationOfNumbers": "Tingkatkan pengucapan angka dan teks",
-    "selectTheDefaultTtsVoice": "Pilih suara TTS default untuk channel",
+    "selectHowFastTheDefault": "Pilih seberapa cepat suara default berbicara",
+    "selectHowHighOrLow": "Pilih seberapa tinggi atau rendah suara default berbicara",
+    "selectTheVoiceThatTts": "Pilih suara yang digunakan TTS untuk penonton yang belum memiliki suara sendiri",
     "selectVoice": "Pilih Suara",
     "setDefaultVoiceSettingsFor": "Atur pengaturan suara default untuk channel Anda",
-    "setTheEmotionalToneOf": "Atur nada emosi suara default",
+    "setTheEmotionOfThe": "Atur emosi suara default. Pilih Kustom untuk menjelaskan suara dengan kata-kata Anda sendiri.",
+    "theVoiceModelReadsThe": "Model suara membaca bahasa dari teks. Jika teks pendek atau tidak jelas, pengaturan ini memberi petunjuk pada model. Pengaturan ini juga menetapkan bahasa default untuk pengumuman dan memilih daftar kata untuk filter kata kasar.",
+    "viewersCanTypeASound": "Penonton dapat mengetik tag suara dalam pesan, dan suara akan mengeluarkan bunyi tersebut. Contohnya <code>&lt;laugh&gt;</code> dan <code>&lt;sigh&gt;</code>. Semua tag aktif secara default. Untuk menonaktifkan tag, hapus centang pada kotaknya.",
     "viewerVoiceLookup": "Pencarian Suara Penonton",
     "voiceCalibration": "Kalibrasi Suara",
     "voicesWithCustomVolumeSettings": "Suara dengan pengaturan volume kustom.",

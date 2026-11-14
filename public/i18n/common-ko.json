@@ -37,6 +37,7 @@
     "prefs_invalid_language": "올바른 언어가 아닙니다.",
     "prefs_invalid_pitch": "올바른 음높이가 아닙니다.",
     "prefs_invalid_speed": "올바른 속도가 아닙니다.",
+    "prefs_invalid_style": "올바른 스타일이 아닙니다.",
     "prefs_invalid_voice": "올바른 음성이 아닙니다.",
     "prefs_missing_data": "전송된 변경 사항이 없습니다.",
     "prefs_update_failed": "서버 오류로 인해 변경사항이 저장되지 않았습니다. 다시 시도해 주세요.",
@@ -68,11 +69,13 @@
     "setting_update_failed": "TTS 설정을 업데이트할 수 없습니다.",
     "settings_fetch_failed": "TTS 설정을 불러올 수 없습니다.",
     "shortlink_failed": "단축 링크를 생성할 수 없습니다.",
+    "sound_tag_unknown": "사운드 태그 \"{tag}\"이(가) 목록에 없습니다. 페이지를 새로 고치고 다시 시도하세요.",
     "storage_unavailable": "저장소를 사용할 수 없습니다.",
+    "style_too_long": "스타일이 너무 깁니다. {max}자 이하로 입력하세요.",
+    "tts_blocked": "음성 서비스에서 이 텍스트를 거부했습니다. 텍스트를 변경하고 다시 시도하세요.",
     "tts_generation_failed": "음성 생성 실패: {reason}",
     "tts_no_audio": "음성 제공자에서 반환된 오디오가 없습니다.",
     "tts_not_configured": "설정된 음성 제공자가 없습니다.",
-    "tts_provider_failed": "음성 제공자가 오디오를 생성하지 못했습니다.",
     "tts_test_failed": "음성 테스트에 실패했습니다.",
     "tts_text_required": "테스트할 텍스트를 입력하세요.",
     "twitch_reauth_required": "Twitch 로그인이 만료되었습니다. 계정을 다시 연결하세요.",
@@ -80,8 +83,6 @@
     "url_required": "URL이 필요합니다.",
     "username_invalid": "올바른 사용자 이름이 아닙니다.",
     "username_required": "사용자 이름이 필요합니다.",
-    "voice_access_denied": "\"{voice}\" 음성은 특별한 접근 권한이 필요합니다. 다른 음성을 사용해 보세요.",
-    "voice_invalid": "\"{voice}\" 음성을 사용할 수 없습니다. 음성을 확인하고 다시 시도하세요.",
     "voice_lookup_failed": "해당 사용자의 음성을 조회할 수 없습니다.",
     "word_invalid": "올바른 단어나 문구가 아닙니다.",
     "word_required": "단어나 문구를 입력해야 합니다."
@@ -117,7 +118,6 @@
     },
     "emotion": {
       "angry": "분노",
-      "auto": "자동",
       "calm": "차분함",
       "disgusted": "혐오",
       "fearful": "두려움",
@@ -125,7 +125,8 @@
       "happy": "기쁨",
       "neutral": "중립",
       "sad": "슬픔",
-      "surprised": "놀람"
+      "surprised": "놀람",
+      "custom": "사용자 지정"
     },
     "ignore": {
       "enterUsername": "사용자 이름을 입력하세요."
@@ -138,27 +139,65 @@
     },
     "preview": {
       "enterText": "테스트할 텍스트를 입력하세요.",
-      "unavailable": "미리보기를 사용할 수 없습니다."
-    },
-    "value": {
-      "off": "꺼짐",
-      "on": "켜짐"
+      "unavailable": "이 음성의 샘플이 없습니다."
     },
     "voice": {
       "cannotPlay": "오디오 샘플을 재생할 수 없습니다.",
       "generating": "생성 중…",
       "noAudio": "서버에서 반환된 오디오가 없습니다.",
       "noneFound": "음성을 찾을 수 없습니다.",
-      "preview": "{voice} 미리듣기",
+      "preview": "{voice} 샘플 재생",
       "regenerate": "다시 생성",
-      "testFailed": "테스트 실패: {reason}"
+      "testFailed": "테스트 실패: {reason}",
+      "choose": "음성 선택",
+      "panelLabel": "음성 검색",
+      "listLabel": "음성",
+      "searchLabel": "음성 검색",
+      "searchHint": "\"german calm low\"처럼 단어를 하나 이상 입력하세요. 모든 단어가 포함된 음성을 찾습니다. 음성 설명은 영어로만 제공됩니다.",
+      "filterLanguage": "언어별 필터",
+      "anyLanguage": "모든 언어",
+      "filterGender": "성별 필터",
+      "anyGender": "모든 성별",
+      "gender": {
+        "female": "여성",
+        "male": "남성",
+        "neutral": "중성"
+      },
+      "filterPitch": "음높이 필터",
+      "anyPitch": "모든 음높이",
+      "pitch": {
+        "low": "낮은 음높이",
+        "medium": "중간 음높이",
+        "high": "높은 음높이"
+      },
+      "studioOnly": "스튜디오 음성만",
+      "studioTag": "스튜디오",
+      "count": "검색된 음성: {count}",
+      "legacy": "기존 음성 ({id})",
+      "stopSample": "{voice} 샘플 중지"
+    },
+    "step": {
+      "speed": {
+        "very_slow": "매우 느림",
+        "slow": "느림",
+        "normal": "보통",
+        "fast": "빠름",
+        "very_fast": "매우 빠름"
+      },
+      "pitch": {
+        "very_low": "매우 낮음",
+        "low": "낮음",
+        "normal": "보통",
+        "high": "높음",
+        "very_high": "매우 높음"
+      }
+    },
+    "style": {
+      "count": "{count}/{max}자"
     }
   },
   "page": {
     "skipToMainContent": "본문으로 바로가기"
-  },
-  "sidebarEngNormVal": {
-    "off": "꺼짐"
   },
   "sidebarLanguageVal": {
     "automatic": "자동"

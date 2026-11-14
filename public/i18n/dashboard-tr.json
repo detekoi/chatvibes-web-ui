@@ -35,9 +35,6 @@
   "calibrationSaveBtn": {
     "save": "Kaydet"
   },
-  "calibrationVoiceSearch": {
-    "searchVoicesToCalibrate": "Kalibre edilecek sesleri ara..."
-  },
   "channelNameStatus": {
     "yourChannel": "kanalınız"
   },
@@ -73,7 +70,6 @@
     "deactivationStopsTheBotFrom": "Devre dışı bırakıldığında bot sohbet mesajlarını okumayı durdurur. Ayarlarınız kayıtlı kalır. Hizmeti istediğiniz zaman tekrar etkinleştirebilirsiniz.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokümantasyon",
     "emotion": "Duygu",
-    "engNormalization": "İng. normalizasyon",
     "language": "Dil",
     "pitch": "Perde",
     "quickLinks": "Hızlı bağlantılar",
@@ -87,22 +83,36 @@
   },
   "defaultEmotion": {
     "angry": "Öfkeli",
+    "calm": "Sakin",
+    "custom": "Özel…",
     "disgusted": "İğrenmiş",
     "fearful": "Korkmuş",
+    "fluent": "Akıcı",
     "happy": "Mutlu",
     "neutral": "Nötr",
     "sad": "Üzgün",
     "surprised": "Şaşırmış"
   },
-  "defaultPitch": {
-    "defaultPitch12To12": "Varsayılan Ses Tonu (-12 ila +12)"
+  "defaultPitchLabel": {
+    "defaultPitch": "<strong>Varsayılan Perde</strong>"
   },
-  "defaultSpeed": {
-    "defaultSpeed05To": "Varsayılan Hız (0.5 ila 2.0)"
+  "defaultSpeedLabel": {
+    "defaultSpeed": "<strong>Varsayılan Hız</strong>"
   },
-  "defaultVoiceSearch": {
-    "searchDefaultVoices": "Varsayılan sesleri ara",
-    "searchVoices": "Sesleri ara..."
+  "defaultStepsHint": {
+    "pitchAndSpeedAreApproximate": "Perde ve hız yaklaşıktır. Ses modeli bu ayarları sayı olarak değil, kelime olarak alır."
+  },
+  "defaultStyle": {
+    "exampleCalmAndSlowLike": "Örnek: gece radyo sunucusu gibi sakin ve yavaş"
+  },
+  "defaultStyleGroup": {
+    "style": "Stil"
+  },
+  "defaultStyleHint": {
+    "describeInAFewWords": "Sesin nasıl konuşacağını birkaç kelimeyle açıklayın."
+  },
+  "defaultVoiceLabel": {
+    "defaultVoice": "<strong>Varsayılan Ses</strong>"
   },
   "defaultVolume": {
     "voiceVolume01To": "Ses Düzeyi (0.1 ila 10)"
@@ -111,9 +121,6 @@
     "describeEmotes": "İfadeleri betimle",
     "readEmoteNames": "İfade adlarını oku",
     "skipEmotes": "İfadeleri atla"
-  },
-  "englishNormalization": {
-    "englishNormalization": "İngilizce Normalizasyonu"
   },
   "eventsEnabled": {
     "announceEvents": "Etkinlikleri Duyur"
@@ -214,7 +221,8 @@
       "hasVoice": "{user} kullanıcısının belirlediği özel ses: {voice}",
       "noVoice": "{user} kullanıcısının ayarlanmış özel sesi yok.",
       "searching": "Aranıyor…",
-      "voiceUnknown": "Bu ses kullanılabilir sesler listesinde bulunmuyor."
+      "voiceUnknown": "Bu ses kullanılabilir sesler listesinde bulunmuyor.",
+      "storedVoice": "Bu izleyici eski {stored} sesini kaydetti. TTS bunun yerine yukarıdaki sesi kullanır."
     },
     "mutedRewards": {
       "announceLabel": "{title} kullanımlarını duyur",
@@ -279,7 +287,6 @@
       "defaultSpeed": "Varsayılan Hız",
       "defaultVoice": "Varsayılan Ses",
       "emoteMode": "İfade Modu",
-      "englishNormalization": "İngilizce Normalizasyon",
       "eventAnnouncements": "Etkinlik Duyuruları",
       "expandAcronyms": "Sohbet Kısaltmalarını Aç",
       "minimumBits": "Minimum Bits",
@@ -288,6 +295,8 @@
       "readCommandMessages": "Sohbet Komutlarını Oku",
       "readFullUrls": "URL'lerin Tamamını Oku",
       "redemptionAnnouncements": "Ödül Kullanım Duyuruları",
+      "soundTags": "Ses Etiketleri",
+      "style": "Stil",
       "ttsEngine": "TTS Motoru",
       "ttsMode": "TTS Modu",
       "ttsPermission": "TTS İzni",
@@ -380,14 +389,6 @@
   "removeBotBtn": {
     "deactivateTtsService": "TTS hizmetini devre dışı bırak"
   },
-  "resetPitchBtn": {
-    "reset": "Sıfırla",
-    "resetDefaultPitchTo0": "Varsayılan ses perdesini 0'a sıfırla"
-  },
-  "resetSpeedBtn": {
-    "reset": "Sıfırla",
-    "resetDefaultSpeedTo1": "Varsayılan hızı 1.0 değerine sıfırla"
-  },
   "resetVolumeBtn": {
     "reset": "Sıfırla",
     "resetVoiceVolumeTo1": "Ses düzeyini 1.0 değerine sıfırla"
@@ -398,8 +399,8 @@
   "serviceHeadline": {
     "ttsService": "TTS hizmeti"
   },
-  "sidebarVoiceName": {
-    "friendlyPerson": "Dost Canlısı Kişi"
+  "soundTagsTitle": {
+    "soundTags": "Ses Etiketleri"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Botun !myvoice gibi sohbet komutlarına yanıt vermesine izin ver",
@@ -476,27 +477,23 @@
     "broadcaster": "Yayıncı"
   },
   "tabBtnViewerDefaults": {
-    "voiceDefaults": "Varsayılan Ses Ayarları"
+    "voiceDefaults": "Ses Varsayılanları"
   },
   "tabViewerDefaults": {
-    "adjustThePitchForThe": "Varsayılan sesin tonunu ayarlayın",
     "adjustTheVolumeForThe": "Seçilen sesin düzeyini ayarlayın. DİKKAT: 1.0'dan büyük değerler seste bozulmaya neden olabilir.",
     "calibratedVoices": "Kalibre Edilmiş Sesler",
     "calibrateVolumeForSpecificVoices": "Belirli seslerin düzeyini kalibre edin. DİKKAT: 1.0'dan büyük değerler seste bozulmaya neden olabilir.",
-    "controlHowFastTheDefault": "Varsayılan sesin konuşma hızını kontrol edin",
     "defaultEmotion": "<strong>Varsayılan Duygu</strong>",
     "defaultLanguage": "<strong>Varsayılan Dil</strong>",
-    "defaultPitch12To12": "Varsayılan Perde (-12 ila +12):",
-    "defaultSpeed05To": "Varsayılan Hız (0.5 ila 2.0):",
-    "defaultVoice": "<strong>Varsayılan Ses</strong>",
     "defaultVoiceSettings": "Varsayılan Ses Ayarları",
-    "englishNormalization": "İngilizce Normalizasyonu",
-    "improvePronunciationForSpecificLanguages": "Belirli diller için telaffuzu iyileştirin",
-    "improveThePronunciationOfNumbers": "Sayıların ve metinlerin telaffuzunu iyileştirin",
-    "selectTheDefaultTtsVoice": "Kanal için varsayılan TTS sesini seçin",
+    "selectHowFastTheDefault": "Varsayılan sesin ne kadar hızlı konuşacağını seçin",
+    "selectHowHighOrLow": "Varsayılan sesin ne kadar tiz veya pes konuşacağını seçin",
+    "selectTheVoiceThatTts": "Kendi sesi olmayan izleyiciler için TTS tarafından kullanılacak sesi seçin",
     "selectVoice": "Ses Seç",
     "setDefaultVoiceSettingsFor": "Kanalınız için varsayılan ses ayarlarını belirleyin",
-    "setTheEmotionalToneOf": "Varsayılan sesin duygu tonunu ayarlayın",
+    "setTheEmotionOfThe": "Varsayılan sesin duygusunu ayarlayın. Sesi kendi kelimelerinizle tanımlamak için Özel'i seçin.",
+    "theVoiceModelReadsThe": "Ses modeli dili metinden algılar. Metin kısa veya belirsizse bu ayar modele ipucu verir. Ayrıca duyurular için varsayılan dili ayarlar ve küfür filtresi için kelime listesini seçer.",
+    "viewersCanTypeASound": "İzleyiciler mesaja bir ses etiketi yazabilir ve ses o sesi çıkarır. Örnekler: <code>&lt;laugh&gt;</code> ve <code>&lt;sigh&gt;</code>. Tüm etiketler varsayılan olarak açıktır. Bir etiketi kapatmak için onay kutusunun işaretini kaldırın.",
     "viewerVoiceLookup": "İzleyici Sesi Arama",
     "voiceCalibration": "Ses Kalibrasyonu",
     "voicesWithCustomVolumeSettings": "Özel ses düzeyi ayarları olan sesler.",

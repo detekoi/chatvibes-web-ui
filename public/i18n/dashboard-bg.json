@@ -35,9 +35,6 @@
   "calibrationSaveBtn": {
     "save": "Запазване"
   },
-  "calibrationVoiceSearch": {
-    "searchVoicesToCalibrate": "Търсене на гласове за калибриране..."
-  },
   "channelNameStatus": {
     "yourChannel": "твоят канал"
   },
@@ -73,7 +70,6 @@
     "deactivationStopsTheBotFrom": "Деактивирането спира бота да чете съобщения от чата. Настройките ти се запазват. Можеш да активираш услугата отново по всяко време.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Документация",
     "emotion": "Емоция",
-    "engNormalization": "Нормализация на англ.",
     "language": "Език",
     "pitch": "Височина",
     "quickLinks": "Бързи връзки",
@@ -87,22 +83,36 @@
   },
   "defaultEmotion": {
     "angry": "Ядосан",
+    "calm": "Спокоен",
+    "custom": "По избор…",
     "disgusted": "Отвратен",
     "fearful": "Уплашен",
+    "fluent": "Плавен",
     "happy": "Щастлив",
     "neutral": "Неутрален",
     "sad": "Тъжен",
     "surprised": "Изненадан"
   },
-  "defaultPitch": {
-    "defaultPitch12To12": "Височина на тона по подразбиране (-12 до +12)"
+  "defaultPitchLabel": {
+    "defaultPitch": "<strong>Височина по подразбиране</strong>"
   },
-  "defaultSpeed": {
-    "defaultSpeed05To": "Скорост по подразбиране (0.5 до 2.0)"
+  "defaultSpeedLabel": {
+    "defaultSpeed": "<strong>Скорост по подразбиране</strong>"
   },
-  "defaultVoiceSearch": {
-    "searchDefaultVoices": "Търсене на гласове по подразбиране",
-    "searchVoices": "Търсене на гласове..."
+  "defaultStepsHint": {
+    "pitchAndSpeedAreApproximate": "Височината и скоростта са приблизителни. Гласовият модел получава тези настройки като думи, а не като числа."
+  },
+  "defaultStyle": {
+    "exampleCalmAndSlowLike": "Пример: спокойно и бавно, като нощен радиоводещ"
+  },
+  "defaultStyleGroup": {
+    "style": "Стил"
+  },
+  "defaultStyleHint": {
+    "describeInAFewWords": "Опишете с няколко думи как говори гласът."
+  },
+  "defaultVoiceLabel": {
+    "defaultVoice": "<strong>Глас по подразбиране</strong>"
   },
   "defaultVolume": {
     "voiceVolume01To": "Сила на гласа (0.1 до 10)"
@@ -111,9 +121,6 @@
     "describeEmotes": "Описване на емотиконите",
     "readEmoteNames": "Четене на имената на емотикони",
     "skipEmotes": "Пропускане на емотикони"
-  },
-  "englishNormalization": {
-    "englishNormalization": "Нормализация на английски"
   },
   "eventsEnabled": {
     "announceEvents": "Обявяване на събития"
@@ -214,7 +221,8 @@
       "hasVoice": "Потребителят {user} е задал персонализиран глас: {voice}",
       "noVoice": "Потребителят {user} няма зададен персонализиран глас.",
       "searching": "Търсене…",
-      "voiceUnknown": "Този глас не е в списъка с налични гласове."
+      "voiceUnknown": "Този глас не е в списъка с налични гласове.",
+      "storedVoice": "Този зрител е запазил стария глас {stored}. Вместо него TTS използва гласа по-горе."
     },
     "mutedRewards": {
       "announceLabel": "Обявяване на активирането на {title}",
@@ -279,7 +287,6 @@
       "defaultSpeed": "Скорост по подразбиране",
       "defaultVoice": "Глас по подразбиране",
       "emoteMode": "Режим на емотикони",
-      "englishNormalization": "Нормализация на английски",
       "eventAnnouncements": "Обявяване на събития",
       "expandAcronyms": "Разширяване на съкращенията в чата",
       "minimumBits": "Минимум bits",
@@ -288,6 +295,8 @@
       "readCommandMessages": "Четене на чат команди",
       "readFullUrls": "Изчитане на пълни URL адреси",
       "redemptionAnnouncements": "Обявяване на активирани награди",
+      "soundTags": "Звукови тагове",
+      "style": "Стил",
       "ttsEngine": "TTS система",
       "ttsMode": "TTS режим",
       "ttsPermission": "Права за TTS",
@@ -380,14 +389,6 @@
   "removeBotBtn": {
     "deactivateTtsService": "Деактивиране на услугата TTS"
   },
-  "resetPitchBtn": {
-    "reset": "Нулиране",
-    "resetDefaultPitchTo0": "Връщане на тоналността по подразбиране на 0"
-  },
-  "resetSpeedBtn": {
-    "reset": "Нулиране",
-    "resetDefaultSpeedTo1": "Връщане на скоростта по подразбиране на 1.0"
-  },
   "resetVolumeBtn": {
     "reset": "Нулиране",
     "resetVoiceVolumeTo1": "Връщане силата на звука на гласа на 1.0"
@@ -398,8 +399,8 @@
   "serviceHeadline": {
     "ttsService": "TTS услуга"
   },
-  "sidebarVoiceName": {
-    "friendlyPerson": "Любезен човек"
+  "soundTagsTitle": {
+    "soundTags": "Звукови тагове"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Позволете на бота да отговаря на команди в чата като например !myvoice",
@@ -476,27 +477,23 @@
     "broadcaster": "Стриймър"
   },
   "tabBtnViewerDefaults": {
-    "voiceDefaults": "Гласове по подразбиране"
+    "voiceDefaults": "Гласови настройки по подразбиране"
   },
   "tabViewerDefaults": {
-    "adjustThePitchForThe": "Регулиране на височината на гласа по подразбиране",
     "adjustTheVolumeForThe": "Регулирайте силата на звука за избрания глас. ВНИМАНИЕ: Стойности над 1.0 могат да доведат до изкривяване.",
     "calibratedVoices": "Калибрирани гласове",
     "calibrateVolumeForSpecificVoices": "Калибрирайте силата на звука за отделни гласове. ВНИМАНИЕ: Стойности над 1.0 могат да доведат до изкривяване.",
-    "controlHowFastTheDefault": "Управлявайте скоростта на говор на гласа по подразбиране",
     "defaultEmotion": "<strong>Емоция по подразбиране</strong>",
     "defaultLanguage": "<strong>Език по подразбиране</strong>",
-    "defaultPitch12To12": "Височина на тона по подразбиране (-12 до +12):",
-    "defaultSpeed05To": "Скорост по подразбиране (0.5 до 2.0):",
-    "defaultVoice": "<strong>Глас по подразбиране</strong>",
     "defaultVoiceSettings": "Настройки на гласа по подразбиране",
-    "englishNormalization": "Нормализация на английски",
-    "improvePronunciationForSpecificLanguages": "Подобряване на произношението за конкретни езици",
-    "improveThePronunciationOfNumbers": "Подобряване на произношението на числа и текст",
-    "selectTheDefaultTtsVoice": "Изберете гласа на TTS по подразбиране за канала",
+    "selectHowFastTheDefault": "Изберете колко бързо говори гласът по подразбиране",
+    "selectHowHighOrLow": "Изберете колко високо или ниско говори гласът по подразбиране",
+    "selectTheVoiceThatTts": "Изберете гласа, който TTS използва за зрители без собствен глас",
     "selectVoice": "Изберете глас",
     "setDefaultVoiceSettingsFor": "Задайте настройки на гласа по подразбиране за канала си",
-    "setTheEmotionalToneOf": "Задайте емоционалния тон на гласа по подразбиране",
+    "setTheEmotionOfThe": "Задайте емоцията на гласа по подразбиране. Изберете „По избор“, за да опишете гласа със свои думи.",
+    "theVoiceModelReadsThe": "Гласовият модел разпознава езика от текста. Ако текстът е кратък или неясен, тази настройка подсказва на модела. Тя също задава езика по подразбиране за съобщенията и избира списъка с думи за филтъра за нецензурни думи.",
+    "viewersCanTypeASound": "Зрителите могат да въведат звуков таг в съобщението и гласът ще издаде този звук. Примери са <code>&lt;laugh&gt;</code> и <code>&lt;sigh&gt;</code>. По подразбиране всички тагове са включени. За да изключите таг, премахнете отметката му.",
     "viewerVoiceLookup": "Търсене на глас на зрител",
     "voiceCalibration": "Калибриране на гласа",
     "voicesWithCustomVolumeSettings": "Гласове с персонализирани настройки на силата на звука.",

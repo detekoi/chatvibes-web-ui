@@ -18,7 +18,6 @@ export async function createTestApp() {
   process.env.FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:5002';
   process.env.CALLBACK_URL = process.env.CALLBACK_URL || 'http://localhost:5001/test-project/us-central1/webUi/auth/twitch/callback';
   process.env.GCLOUD_PROJECT = process.env.GCLOUD_PROJECT || 'test-project';
-  process.env.WAVESPEED_API_KEY = process.env.WAVESPEED_API_KEY || '';
 
   // Clear the require cache to ensure fresh config load with new env vars
   delete require.cache[require.resolve('../../config')];

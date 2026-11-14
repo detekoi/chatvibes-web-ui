@@ -12,7 +12,14 @@ export interface ViewerPreferences {
   speed?: number | null;
   emotion?: string | null;
   languageBoost?: string | null;
-  englishNormalization?: boolean;
+  // A free-text manner of speaking. It replaces the emotion preset.
+  style?: string | null;
+  // The manner that the voice backfill adds for a mapped MiniMax voice. It
+  // belongs to the stored voiceId and is removed when the voice changes.
+  voiceStyle?: string | null;
+  // The language of a mapped MiniMax voice whose new voice is a studio voice.
+  // The backfill writes it, and it is removed when the voice changes.
+  voiceLanguage?: string | null;
   emoteMode?: string | null;
   // The viewer's opt-out from TTS in every channel. Written only by
   // PUT /api/viewer/opt-out, never by the preference routes, and read by the bot

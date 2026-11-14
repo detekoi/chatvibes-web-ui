@@ -37,6 +37,7 @@
     "prefs_invalid_language": "呢個語言設定無效。",
     "prefs_invalid_pitch": "呢個音調設定無效。",
     "prefs_invalid_speed": "呢個速度設定無效。",
+    "prefs_invalid_style": "呢個風格無效。",
     "prefs_invalid_voice": "呢個語音設定無效。",
     "prefs_missing_data": "未有傳送任何變更。",
     "prefs_update_failed": "伺服器出錯，儲存唔到你嘅變更。請再試一次。",
@@ -68,11 +69,13 @@
     "setting_update_failed": "無法更新 TTS 設定。",
     "settings_fetch_failed": "無法載入 TTS 設定。",
     "shortlink_failed": "無法建立短連結。",
+    "sound_tag_unknown": "音效標籤「{tag}」唔喺列表入面。請重新載入頁面再試。",
     "storage_unavailable": "儲存空間無法使用。",
+    "style_too_long": "風格描述太長。請用 {max} 個字元或以下。",
+    "tts_blocked": "語音服務拒絕咗呢段文字。請改下文字再試。",
     "tts_generation_failed": "語音生成失敗：{reason}",
     "tts_no_audio": "語音服務提供商冇傳回任何音訊。",
     "tts_not_configured": "仲未設定語音服務提供商。",
-    "tts_provider_failed": "語音服務提供商無法生成音訊。",
     "tts_test_failed": "語音測試失敗。",
     "tts_text_required": "請輸入文字嚟測試。",
     "twitch_reauth_required": "你嘅 Twitch 登入已過期。請重新連結你嘅帳戶。",
@@ -80,8 +83,6 @@
     "url_required": "需要提供 URL。",
     "username_invalid": "呢個用戶名稱無效。",
     "username_required": "需要輸入用戶名稱。",
-    "voice_access_denied": "語音「{voice}」需要特殊權限。請試吓第個語音。",
-    "voice_invalid": "語音「{voice}」無法使用。請檢查語音後再試。",
     "voice_lookup_failed": "搵唔到嗰位用戶嘅語音。",
     "word_invalid": "嗰個詞語或短語無效。",
     "word_required": "需要輸入詞語或短語。"
@@ -117,7 +118,6 @@
     },
     "emotion": {
       "angry": "憤怒",
-      "auto": "自動",
       "calm": "平靜",
       "disgusted": "厭惡",
       "fearful": "恐懼",
@@ -125,7 +125,8 @@
       "happy": "開心",
       "neutral": "中性",
       "sad": "悲傷",
-      "surprised": "驚訝"
+      "surprised": "驚訝",
+      "custom": "自訂"
     },
     "ignore": {
       "enterUsername": "輸入用戶名稱。"
@@ -138,27 +139,65 @@
     },
     "preview": {
       "enterText": "輸入文字以進行測試。",
-      "unavailable": "無可用預覽。"
-    },
-    "value": {
-      "off": "關閉",
-      "on": "開啟"
+      "unavailable": "呢個語音冇試聽樣本。"
     },
     "voice": {
       "cannotPlay": "播唔到音訊範例。",
       "generating": "生成緊…",
       "noAudio": "伺服器冇傳回任何音訊。",
       "noneFound": "搵唔到任何聲音。",
-      "preview": "試聽 {voice}",
+      "preview": "播放 {voice} 嘅試聽樣本",
       "regenerate": "重新生成",
-      "testFailed": "測試失敗：{reason}"
+      "testFailed": "測試失敗：{reason}",
+      "choose": "選擇語音",
+      "panelLabel": "語音搜尋",
+      "listLabel": "語音",
+      "searchLabel": "搜尋語音",
+      "searchHint": "輸入一個或多個字詞，例如「german calm low」。搜尋會搵出包含所有字詞嘅語音。語音描述只有英文。",
+      "filterLanguage": "按語言篩選",
+      "anyLanguage": "所有語言",
+      "filterGender": "按性別篩選",
+      "anyGender": "所有性別",
+      "gender": {
+        "female": "女性",
+        "male": "男性",
+        "neutral": "中性"
+      },
+      "filterPitch": "按音高篩選",
+      "anyPitch": "所有音高",
+      "pitch": {
+        "low": "低音",
+        "medium": "中音",
+        "high": "高音"
+      },
+      "studioOnly": "只顯示錄音室語音",
+      "studioTag": "錄音室",
+      "count": "搵到嘅語音：{count}",
+      "legacy": "舊版語音 ({id})",
+      "stopSample": "停止播放 {voice} 嘅試聽樣本"
+    },
+    "step": {
+      "speed": {
+        "very_slow": "極慢",
+        "slow": "慢",
+        "normal": "正常",
+        "fast": "快",
+        "very_fast": "極快"
+      },
+      "pitch": {
+        "very_low": "極低",
+        "low": "低",
+        "normal": "正常",
+        "high": "高",
+        "very_high": "極高"
+      }
+    },
+    "style": {
+      "count": "{count} / {max} 個字元"
     }
   },
   "page": {
     "skipToMainContent": "跳至主要內容"
-  },
-  "sidebarEngNormVal": {
-    "off": "關閉"
   },
   "sidebarLanguageVal": {
     "automatic": "自動"

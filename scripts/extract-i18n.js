@@ -62,9 +62,9 @@ const ATTRS = {
 /**
  * Strings that must stay in English wherever they appear.
  *
- * The sample phrases are the pointed ones: they name pre-rendered files in
- * `public/assets/voices/*.mp3`, so translating the caption desynchronizes it
- * from the audio a viewer actually hears.
+ * The two sample phrases are the default text of the preview boxes. They named
+ * pre-rendered MiniMax files before. They stay in English, so that the default
+ * preview sounds the same in each dashboard language.
  */
 const DO_NOT_TRANSLATE = new Set([
   'WildcatTTS',

@@ -37,20 +37,16 @@
   },
   "emotionSelect": {
     "angry": "Furios",
+    "calm": "Calm",
+    "custom": "Personalizat…",
     "disgusted": "Dezgustat",
     "fearful": "Speriat",
+    "fluent": "Fluent",
     "happy": "Fericit",
     "neutral": "Neutru",
     "sad": "Trist",
     "surprised": "Surprins",
     "useChannelDefault": "Folosește valoarea implicită a canalului"
-  },
-  "englishNormalizationCheckbox": {
-    "englishNormalization": "Normalizare engleză"
-  },
-  "englishNormalizationReset": {
-    "clear": "Șterge",
-    "resetEnglishNormalizationToDefault": "Resetează normalizarea engleză la valoarea implicită"
   },
   "ignoreTts": {
     "optOutInThisChannel": "Dezactivează pe acest canal"
@@ -110,11 +106,11 @@
       "hintChannel": "Se folosește setarea implicită a canalului: {value}",
       "hintSystem": "Se folosește setarea implicită a sistemului",
       "hintUser": "Se folosește preferința ta globală: {value}",
-      "noVoicesFound": "Nicio voce găsită",
       "sendPreview": "Trimite previzualizare",
       "testCompletedTestMode": "Test finalizat (mod test).",
       "updated": "Preferință actualizată.",
-      "updatedTestMode": "Preferință actualizată (mod test)."
+      "updatedTestMode": "Preferință actualizată (mod test).",
+      "customStyle": "Personalizat ({style})"
     }
   },
   "openChannelContextModalBtn": {
@@ -140,36 +136,29 @@
     "viewerSettings": "Setări spectator",
     "viewerTtsPreferences": "Preferințe TTS spectator"
   },
+  "pitchLabel": {
+    "pitch": "<strong>Tonalitate</strong>"
+  },
   "pitchReset": {
     "clear": "Șterge",
     "resetPitchToDefault": "Resetează înălțimea vocii la valoarea implicită"
   },
-  "pitchSlider": {
-    "pitchAdjustment12To12": "Ajustare înălțime voce (-12 la +12)"
-  },
   "preferencesPanel": {
-    "adjustTheVoicePitchHigher": "Ajustează înălțimea vocii mai sus sau mai jos",
-    "controlHowFastTheVoice": "Controlează viteza de vorbire a vocii",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Documentație </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Setări streamer </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
     "emotion": "<strong>Emoție</strong>",
     "emotion2": "Emoție",
-    "englishNormalization": "Normalizare engleză",
-    "engNormalization": "Normalizare engleză",
-    "ifTtsReadsNumbersIncorrectly": "Dacă TTS citește incorect numerele, activează normalizarea textului în engleză. Această setare crește ușor latența.",
-    "improvePronunciationForSpecificLanguages": "Îmbunătățește pronunția pentru anumite limbi",
-    "improveThePronunciationOfNumbers": "Îmbunătățește pronunția numerelor și a textului",
+    "ifYourTextIsShort": "Dacă textul tău este scurt sau neclar, această setare oferă un indiciu modelului vocal. De asemenea, selectează lista de cuvinte pentru filtrul de limbaj vulgar.",
     "language": "Limbă",
-    "languageBoost": "<strong>Amplificare limbă</strong>",
+    "languageLabel": "<strong>Limbă</strong>",
     "pitch": "Înălțime voce",
-    "pitch12To12": "Tonalitate (-12 la +12):",
     "quickLinks": "Linkuri rapide",
-    "selectYourPreferredTtsVoice": "Selectează vocea TTS preferată",
+    "selectHowFastTheVoice": "Selectează cât de repede vorbește vocea",
+    "selectHowHighOrLow": "Selectează cât de înalt sau jos vorbește vocea",
+    "selectTheVoiceThatTts": "Selectează vocea pe care TTS o folosește pentru mesajele tale",
     "setHowYourMessagesSound": "Setează cum se aud mesajele tale când le citește TTS",
-    "setTheEmotionalToneOf": "Setează tonul emoțional al vocii",
+    "setTheEmotionOfThe": "Setează emoția vocii. Selectează Personalizat pentru a descrie vocea cu propriile cuvinte.",
     "speed": "Viteză",
-    "speed05To2": "Viteză (0.5 la 2.0):",
     "testMessage": "Mesaj de test",
-    "voice": "<strong>Voce</strong>",
     "voicePreview": "Previzualizare voce",
     "voiceSettings": "Setări voce"
   },
@@ -179,22 +168,33 @@
   "previewBtn": {
     "sendPreview": "Trimite previzualizare"
   },
+  "speedLabel": {
+    "speed": "<strong>Viteză</strong>"
+  },
   "speedReset": {
     "clear": "Șterge",
     "resetSpeedToDefault": "Resetează viteza la valoarea implicită"
   },
-  "speedSlider": {
-    "speedAdjustment05To": "Ajustare viteză (de la 0,5 la 2,0)"
-  },
   "statChannelContext": {
     "noneLoaded": "Nimic încărcat"
+  },
+  "stepsHint": {
+    "pitchAndSpeedAreApproximate": "Tonalitatea și viteza sunt aproximative. Modelul vocal primește aceste setări sub formă de cuvinte, nu de numere."
+  },
+  "styleGroup": {
+    "style": "Stil"
+  },
+  "styleHint": {
+    "describeInAFewWords": "Descrie în câteva cuvinte cum vorbește vocea."
+  },
+  "styleInput": {
+    "exampleCalmAndSlowLike": "Exemplu: calm și rar, ca un prezentator radio noaptea"
+  },
+  "voiceLabel": {
+    "voice": "<strong>Voce</strong>"
   },
   "voiceReset": {
     "clear": "Șterge",
     "resetVoiceToDefault": "Resetează vocea la cea implicită"
-  },
-  "voiceSearch": {
-    "searchVoices": "Caută voci",
-    "searchVoices2": "Caută voci..."
   }
 }

@@ -37,20 +37,16 @@
   },
   "emotionSelect": {
     "angry": "عصبانی",
+    "calm": "آرام",
+    "custom": "سفارشی…",
     "disgusted": "منزجر",
     "fearful": "ترسیده",
+    "fluent": "روان",
     "happy": "خوشحال",
     "neutral": "خنثی",
     "sad": "غمگین",
     "surprised": "شگفت‌زده",
     "useChannelDefault": "استفاده از پیش‌فرض کانال"
-  },
-  "englishNormalizationCheckbox": {
-    "englishNormalization": "عادی‌سازی انگلیسی"
-  },
-  "englishNormalizationReset": {
-    "clear": "پاک کردن",
-    "resetEnglishNormalizationToDefault": "بازنشانی عادی‌سازی انگلیسی به پیش‌فرض"
   },
   "ignoreTts": {
     "optOutInThisChannel": "انصراف در این کانال"
@@ -110,11 +106,11 @@
       "hintChannel": "استفاده از پیش‌فرض کانال: {value}",
       "hintSystem": "استفاده از پیش‌فرض سیستم",
       "hintUser": "استفاده از ترجیح سراسری شما: {value}",
-      "noVoicesFound": "صدایی یافت نشد",
       "sendPreview": "ارسال پیش‌نمایش",
       "testCompletedTestMode": "آزمایش کامل شد (حالت آزمایشی).",
       "updated": "تنظیم برگزیده به‌روزرسانی شد.",
-      "updatedTestMode": "تنظیم برگزیده به‌روزرسانی شد (حالت آزمایشی)."
+      "updatedTestMode": "تنظیم برگزیده به‌روزرسانی شد (حالت آزمایشی).",
+      "customStyle": "سفارشی ({style})"
     }
   },
   "openChannelContextModalBtn": {
@@ -140,36 +136,29 @@
     "viewerSettings": "تنظیمات بیننده",
     "viewerTtsPreferences": "ترجیحات TTS بیننده"
   },
+  "pitchLabel": {
+    "pitch": "<strong>زیر و بمی</strong>"
+  },
   "pitchReset": {
     "clear": "پاک کردن",
     "resetPitchToDefault": "بازنشانی زیروبمی به پیش‌فرض"
   },
-  "pitchSlider": {
-    "pitchAdjustment12To12": "تنظیم زیروبمی (۱۲- تا ۱۲+)"
-  },
   "preferencesPanel": {
-    "adjustTheVoicePitchHigher": "تنظیم زیروبمی صدا (زیرتر یا بم‌تر)",
-    "controlHowFastTheVoice": "کنترل سرعت خواندن صدا",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>مستندات </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>تنظیمات استریمر </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
     "emotion": "<strong>احساس</strong>",
     "emotion2": "احساس",
-    "englishNormalization": "نرمال‌سازی انگلیسی",
-    "engNormalization": "عادی‌سازی انگلیسی",
-    "ifTtsReadsNumbersIncorrectly": "اگر TTS اعداد را اشتباه می‌خواند، نرمال‌سازی متن انگلیسی را روشن کنید. این تنظیم تاخیر را کمی افزایش می‌دهد.",
-    "improvePronunciationForSpecificLanguages": "بهبود تلفظ برای زبان‌های خاص",
-    "improveThePronunciationOfNumbers": "بهبود تلفظ اعداد و متن",
+    "ifYourTextIsShort": "اگر متن شما کوتاه یا نامفهوم باشد، این تنظیم به مدل صدا راهنمایی می‌دهد. همچنین فهرست واژه‌های فیلتر ناسزا را انتخاب می‌کند.",
     "language": "زبان",
-    "languageBoost": "<strong>تقویت زبان</strong>",
+    "languageLabel": "<strong>زبان</strong>",
     "pitch": "زیروبمی",
-    "pitch12To12": "زیر و بمی (-12 تا +12):",
     "quickLinks": "پیوندهای سریع",
-    "selectYourPreferredTtsVoice": "صدای TTS دلخواه خود را انتخاب کنید",
+    "selectHowFastTheVoice": "سرعت صحبت کردن صدا را انتخاب کنید",
+    "selectHowHighOrLow": "زیر و بم بودن صدا را انتخاب کنید",
+    "selectTheVoiceThatTts": "صدایی را انتخاب کنید که TTS برای پیام‌های شما استفاده می‌کند",
     "setHowYourMessagesSound": "نحوه خوانده شدن پیام‌هایتان توسط TTS را تنظیم کنید",
-    "setTheEmotionalToneOf": "تنظیم لحن احساسی صدا",
+    "setTheEmotionOfThe": "حس و حال صدا را تنظیم کنید. برای توصیف صدا به زبان خودتان، «سفارشی» را انتخاب کنید.",
     "speed": "سرعت",
-    "speed05To2": "سرعت (0.5 تا 2.0):",
     "testMessage": "پیام آزمایشی",
-    "voice": "<strong>صدا</strong>",
     "voicePreview": "پیش‌نمایش صدا",
     "voiceSettings": "تنظیمات صدا"
   },
@@ -179,22 +168,33 @@
   "previewBtn": {
     "sendPreview": "ارسال پیش‌نمایش"
   },
+  "speedLabel": {
+    "speed": "<strong>سرعت</strong>"
+  },
   "speedReset": {
     "clear": "پاک کردن",
     "resetSpeedToDefault": "بازنشانی سرعت به پیش‌فرض"
   },
-  "speedSlider": {
-    "speedAdjustment05To": "تنظیم سرعت (0.5 تا 2.0)"
-  },
   "statChannelContext": {
     "noneLoaded": "موردی بارگیری نشده"
+  },
+  "stepsHint": {
+    "pitchAndSpeedAreApproximate": "زیر و بمی و سرعت تقریبی هستند. مدل صدا این تنظیمات را به صورت کلمه دریافت می‌کند، نه عدد."
+  },
+  "styleGroup": {
+    "style": "سبک"
+  },
+  "styleHint": {
+    "describeInAFewWords": "در چند کلمه توصیف کنید که صدا چگونه صحبت کند."
+  },
+  "styleInput": {
+    "exampleCalmAndSlowLike": "مثال: آرام و آهسته، مثل یک مجری رادیو در شب"
+  },
+  "voiceLabel": {
+    "voice": "<strong>صدا</strong>"
   },
   "voiceReset": {
     "clear": "پاک کردن",
     "resetVoiceToDefault": "بازنشانی صدا به پیش‌فرض"
-  },
-  "voiceSearch": {
-    "searchVoices": "جستجوی صداها",
-    "searchVoices2": "جستجوی صداها..."
   }
 }

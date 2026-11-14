@@ -37,6 +37,7 @@
     "prefs_invalid_language": "Ese idioma no es válido.",
     "prefs_invalid_pitch": "Ese tono no es válido.",
     "prefs_invalid_speed": "Esa velocidad no es válida.",
+    "prefs_invalid_style": "Ese estilo no es válido.",
     "prefs_invalid_voice": "Esa voz no es válida.",
     "prefs_missing_data": "No se enviaron cambios.",
     "prefs_update_failed": "No se guardó tu cambio debido a un error del servidor. Inténtalo de nuevo.",
@@ -68,11 +69,13 @@
     "setting_update_failed": "No se puede actualizar el ajuste de TTS.",
     "settings_fetch_failed": "No se pueden cargar los ajustes de TTS.",
     "shortlink_failed": "No se puede crear el enlace corto.",
+    "sound_tag_unknown": "La etiqueta de sonido \"{tag}\" no está en la lista. Recarga la página e inténtalo de nuevo.",
     "storage_unavailable": "El almacenamiento no está disponible.",
+    "style_too_long": "El estilo es demasiado largo. Usa {max} caracteres o menos.",
+    "tts_blocked": "El servicio de voz rechazó este texto. Cámbialo e inténtalo de nuevo.",
     "tts_generation_failed": "Error al generar la voz: {reason}",
     "tts_no_audio": "El proveedor de voz no devolvió audio.",
     "tts_not_configured": "No hay ningún proveedor de voz configurado.",
-    "tts_provider_failed": "El proveedor de voz no pudo generar audio.",
     "tts_test_failed": "Error en la prueba de voz.",
     "tts_text_required": "Introduce texto para probar.",
     "twitch_reauth_required": "Tu sesión de Twitch ha caducado. Vuelve a conectar tu cuenta.",
@@ -80,8 +83,6 @@
     "url_required": "Se requiere una URL.",
     "username_invalid": "Ese nombre de usuario no es válido.",
     "username_required": "Se requiere un nombre de usuario.",
-    "voice_access_denied": "La voz \"{voice}\" requiere acceso especial. Prueba con otra voz.",
-    "voice_invalid": "La voz \"{voice}\" no está disponible. Comprueba la voz e inténtalo de nuevo.",
     "voice_lookup_failed": "No se puede consultar la voz de ese usuario.",
     "word_invalid": "Esa palabra o frase no es válida.",
     "word_required": "Se requiere una palabra o frase."
@@ -117,7 +118,6 @@
     },
     "emotion": {
       "angry": "Enfadado",
-      "auto": "Automático",
       "calm": "Tranquilo",
       "disgusted": "Disgustado",
       "fearful": "Asustado",
@@ -125,7 +125,8 @@
       "happy": "Feliz",
       "neutral": "Neutro",
       "sad": "Triste",
-      "surprised": "Sorprendido"
+      "surprised": "Sorprendido",
+      "custom": "Personalizado"
     },
     "ignore": {
       "enterUsername": "Introduce un nombre de usuario."
@@ -138,27 +139,65 @@
     },
     "preview": {
       "enterText": "Introduce texto para probar.",
-      "unavailable": "No hay vista previa disponible."
-    },
-    "value": {
-      "off": "Desactivado",
-      "on": "Activado"
+      "unavailable": "No hay muestra disponible para esta voz."
     },
     "voice": {
       "cannotPlay": "No se puede reproducir la muestra de audio.",
       "generating": "Generando…",
       "noAudio": "El servidor no devolvió audio.",
       "noneFound": "No se encontraron voces.",
-      "preview": "Vista previa de {voice}",
+      "preview": "Reproducir muestra de {voice}",
       "regenerate": "Regenerar",
-      "testFailed": "Error en la prueba: {reason}"
+      "testFailed": "Error en la prueba: {reason}",
+      "choose": "Selecciona una voz",
+      "panelLabel": "Búsqueda de voces",
+      "listLabel": "Voces",
+      "searchLabel": "Buscar voces",
+      "searchHint": "Escribe una o más palabras, por ejemplo \"german calm low\". La búsqueda encuentra las voces que contienen todas las palabras. Las descripciones de las voces solo están en inglés.",
+      "filterLanguage": "Filtrar por idioma",
+      "anyLanguage": "Todos los idiomas",
+      "filterGender": "Filtrar por género",
+      "anyGender": "Todos los géneros",
+      "gender": {
+        "female": "Femenino",
+        "male": "Masculino",
+        "neutral": "Neutro"
+      },
+      "filterPitch": "Filtrar por tono",
+      "anyPitch": "Todos los tonos",
+      "pitch": {
+        "low": "Tono grave",
+        "medium": "Tono medio",
+        "high": "Tono agudo"
+      },
+      "studioOnly": "Solo voces de estudio",
+      "studioTag": "Estudio",
+      "count": "Voces encontradas: {count}",
+      "legacy": "Voz heredada ({id})",
+      "stopSample": "Detener muestra de {voice}"
+    },
+    "step": {
+      "speed": {
+        "very_slow": "Muy lento",
+        "slow": "Lento",
+        "normal": "Normal",
+        "fast": "Rápido",
+        "very_fast": "Muy rápido"
+      },
+      "pitch": {
+        "very_low": "Muy grave",
+        "low": "Grave",
+        "normal": "Normal",
+        "high": "Agudo",
+        "very_high": "Muy agudo"
+      }
+    },
+    "style": {
+      "count": "{count} de {max} caracteres"
     }
   },
   "page": {
     "skipToMainContent": "Saltar al contenido principal"
-  },
-  "sidebarEngNormVal": {
-    "off": "Desactivado"
   },
   "sidebarLanguageVal": {
     "automatic": "Automático"

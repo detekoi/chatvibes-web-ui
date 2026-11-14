@@ -35,9 +35,6 @@
   "calibrationSaveBtn": {
     "save": "保存"
   },
-  "calibrationVoiceSearch": {
-    "searchVoicesToCalibrate": "搜索要校准的语音…"
-  },
   "channelNameStatus": {
     "yourChannel": "你的频道"
   },
@@ -73,7 +70,6 @@
     "deactivationStopsTheBotFrom": "停用后，机器人将停止朗读聊天消息。你的设置仍会保留。你可以随时重新启用该服务。",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>文档",
     "emotion": "情绪",
-    "engNormalization": "英语规范化",
     "language": "语言",
     "pitch": "音调",
     "quickLinks": "快捷链接",
@@ -87,22 +83,36 @@
   },
   "defaultEmotion": {
     "angry": "愤怒",
+    "calm": "平静",
+    "custom": "自定义…",
     "disgusted": "厌恶",
     "fearful": "恐惧",
+    "fluent": "流畅",
     "happy": "开心",
     "neutral": "中性",
     "sad": "悲伤",
     "surprised": "惊讶"
   },
-  "defaultPitch": {
-    "defaultPitch12To12": "默认音调（-12 至 +12）"
+  "defaultPitchLabel": {
+    "defaultPitch": "<strong>默认音调</strong>"
   },
-  "defaultSpeed": {
-    "defaultSpeed05To": "默认语速（0.5 至 2.0）"
+  "defaultSpeedLabel": {
+    "defaultSpeed": "<strong>默认语速</strong>"
   },
-  "defaultVoiceSearch": {
-    "searchDefaultVoices": "搜索默认声音",
-    "searchVoices": "搜索声音..."
+  "defaultStepsHint": {
+    "pitchAndSpeedAreApproximate": "音调和语速仅为大概值。语音模型接收的是文字描述，而非具体数值。"
+  },
+  "defaultStyle": {
+    "exampleCalmAndSlowLike": "示例：平静缓慢，像深夜电台主播一样"
+  },
+  "defaultStyleGroup": {
+    "style": "风格"
+  },
+  "defaultStyleHint": {
+    "describeInAFewWords": "用几个词描述声音的说话方式。"
+  },
+  "defaultVoiceLabel": {
+    "defaultVoice": "<strong>默认声音</strong>"
   },
   "defaultVolume": {
     "voiceVolume01To": "声音音量（0.1 至 10）"
@@ -111,9 +121,6 @@
     "describeEmotes": "描述表情",
     "readEmoteNames": "朗读表情名称",
     "skipEmotes": "跳过表情"
-  },
-  "englishNormalization": {
-    "englishNormalization": "英文规范化"
   },
   "eventsEnabled": {
     "announceEvents": "播报事件"
@@ -214,7 +221,8 @@
       "hasVoice": "用户 {user} 设置了自定义声音：{voice}",
       "noVoice": "用户 {user} 未设置自定义声音。",
       "searching": "正在搜索…",
-      "voiceUnknown": "此声音不在可用声音列表中。"
+      "voiceUnknown": "此声音不在可用声音列表中。",
+      "storedVoice": "该观众保存了旧声音 {stored}。TTS 将改用上方声音。"
     },
     "mutedRewards": {
       "announceLabel": "播报 {title} 的兑换",
@@ -279,7 +287,6 @@
       "defaultSpeed": "默认语速",
       "defaultVoice": "默认声音",
       "emoteMode": "表情模式",
-      "englishNormalization": "英语规范化",
       "eventAnnouncements": "事件播报",
       "expandAcronyms": "展开聊天缩写",
       "minimumBits": "最低 bits",
@@ -288,6 +295,8 @@
       "readCommandMessages": "朗读聊天指令",
       "readFullUrls": "朗读完整 URL",
       "redemptionAnnouncements": "兑换播报",
+      "soundTags": "音效标签",
+      "style": "风格",
       "ttsEngine": "TTS 引擎",
       "ttsMode": "TTS 模式",
       "ttsPermission": "TTS 权限",
@@ -380,14 +389,6 @@
   "removeBotBtn": {
     "deactivateTtsService": "停用 TTS 服务"
   },
-  "resetPitchBtn": {
-    "reset": "重置",
-    "resetDefaultPitchTo0": "将默认音调重置为 0"
-  },
-  "resetSpeedBtn": {
-    "reset": "重置",
-    "resetDefaultSpeedTo1": "重置默认语速为 1.0"
-  },
   "resetVolumeBtn": {
     "reset": "重置",
     "resetVoiceVolumeTo1": "重置语音音量为 1.0"
@@ -398,8 +399,8 @@
   "serviceHeadline": {
     "ttsService": "TTS 服务"
   },
-  "sidebarVoiceName": {
-    "friendlyPerson": "友善之声"
+  "soundTagsTitle": {
+    "soundTags": "音效标签"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "允许机器人响应聊天命令（如 !myvoice）",
@@ -476,27 +477,23 @@
     "broadcaster": "主播"
   },
   "tabBtnViewerDefaults": {
-    "voiceDefaults": "默认语音"
+    "voiceDefaults": "默认声音设置"
   },
   "tabViewerDefaults": {
-    "adjustThePitchForThe": "调整默认语音的音调",
     "adjustTheVolumeForThe": "调整所选语音的音量。注意：大于 1.0 的值可能导致失真。",
     "calibratedVoices": "已校准语音",
     "calibrateVolumeForSpecificVoices": "校准特定语音的音量。注意：大于 1.0 的值可能导致失真。",
-    "controlHowFastTheDefault": "控制默认语音的语速",
     "defaultEmotion": "<strong>默认情绪</strong>",
     "defaultLanguage": "<strong>默认语言</strong>",
-    "defaultPitch12To12": "默认音调 (-12 到 +12):",
-    "defaultSpeed05To": "默认语速 (0.5 到 2.0):",
-    "defaultVoice": "<strong>默认语音</strong>",
     "defaultVoiceSettings": "默认语音设置",
-    "englishNormalization": "英语文本规范化",
-    "improvePronunciationForSpecificLanguages": "改善特定语言的发音",
-    "improveThePronunciationOfNumbers": "改善数字和文本的发音",
-    "selectTheDefaultTtsVoice": "为频道选择默认 TTS 语音",
+    "selectHowFastTheDefault": "选择默认声音的说话语速",
+    "selectHowHighOrLow": "选择默认声音的音调高低",
+    "selectTheVoiceThatTts": "为没有专属声音的观众选择 TTS 使用的声音",
     "selectVoice": "选择语音",
     "setDefaultVoiceSettingsFor": "为你的频道配置默认语音设置",
-    "setTheEmotionalToneOf": "设置默认语音的情感基调",
+    "setTheEmotionOfThe": "设置默认声音的情感。选择“自定义”即可用你自己的话来描述声音。",
+    "theVoiceModelReadsThe": "语音模型会根据文本自动识别语言。如果文本过短或不清晰，此设置可为模型提供提示。同时，它还会设置播报的默认语言，并选择脏话过滤器的词库。",
+    "viewersCanTypeASound": "观众可以在消息中输入音效标签，声音就会发出相应的音效，例如 <code>&lt;laugh&gt;</code> 和 <code>&lt;sigh&gt;</code>。所有标签默认启用。要关闭某个标签，请取消勾选其复选框。",
     "viewerVoiceLookup": "观众语音查询",
     "voiceCalibration": "语音校准",
     "voicesWithCustomVolumeSettings": "已自定义音量设置的语音。",

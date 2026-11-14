@@ -37,6 +37,7 @@
     "prefs_invalid_language": "هذه اللغة غير صالحة.",
     "prefs_invalid_pitch": "طبقة الصوت هذه غير صالحة.",
     "prefs_invalid_speed": "سرعة الصوت هذه غير صالحة.",
+    "prefs_invalid_style": "هذا الأسلوب غير صالح.",
     "prefs_invalid_voice": "هذا الصوت غير صالح.",
     "prefs_missing_data": "لم يتم إرسال أي تغييرات.",
     "prefs_update_failed": "لم يُحفظ تغييرك بسبب خطأ في الخادم. أعد المحاولة.",
@@ -68,11 +69,13 @@
     "setting_update_failed": "تعذر تحديث إعداد TTS.",
     "settings_fetch_failed": "تعذر تحميل إعدادات TTS.",
     "shortlink_failed": "تعذر إنشاء الرابط القصير.",
+    "sound_tag_unknown": "وسم الصوت \"{tag}\" غير موجود في القائمة. أعد تحميل الصفحة وحاول مرة أخرى.",
     "storage_unavailable": "وحدة التخزين غير متوفرة.",
+    "style_too_long": "الأسلوب طويل جدًا. استخدم {max} حرفًا أو أقل.",
+    "tts_blocked": "رفضت خدمة النطق هذا النص. غيّر النص وحاول مرة أخرى.",
     "tts_generation_failed": "فشل توليد الكلام: {reason}",
     "tts_no_audio": "لم يُرجع مزود الكلام أي صوت.",
     "tts_not_configured": "لم يتم إعداد أي مزود كلام.",
-    "tts_provider_failed": "تعذر على مزود الكلام توليد الصوت.",
     "tts_test_failed": "فشل اختبار الكلام.",
     "tts_text_required": "أدخل نصًا للاختبار.",
     "twitch_reauth_required": "انتهت صلاحية تسجيل دخولك إلى Twitch. أعد ربط حسابك.",
@@ -80,8 +83,6 @@
     "url_required": "عنوان URL مطلوب.",
     "username_invalid": "اسم المستخدم هذا غير صالح.",
     "username_required": "اسم المستخدم مطلوب.",
-    "voice_access_denied": "يتطلب الصوت \"{voice}\" إذن وصول خاص. جرب صوتًا آخر.",
-    "voice_invalid": "الصوت \"{voice}\" غير متاح. تحقق من الصوت وحاول مجددًا.",
     "voice_lookup_failed": "تعذر البحث عن صوت هذا المستخدم.",
     "word_invalid": "تلك الكلمة أو العبارة غير صالحة.",
     "word_required": "الكلمة أو العبارة مطلوبة."
@@ -117,7 +118,6 @@
     },
     "emotion": {
       "angry": "غاضب",
-      "auto": "تلقائي",
       "calm": "هادئ",
       "disgusted": "مشمئز",
       "fearful": "خائف",
@@ -125,7 +125,8 @@
       "happy": "سعيد",
       "neutral": "محايد",
       "sad": "حزين",
-      "surprised": "متفاجئ"
+      "surprised": "متفاجئ",
+      "custom": "مخصّص"
     },
     "ignore": {
       "enterUsername": "أدخل اسم مستخدم."
@@ -138,27 +139,65 @@
     },
     "preview": {
       "enterText": "أدخل نصاً لاختباره.",
-      "unavailable": "المعاينة غير متوفرة."
-    },
-    "value": {
-      "off": "إيقاف",
-      "on": "تشغيل"
+      "unavailable": "لا تتوفر عيّنة لهذا الصوت."
     },
     "voice": {
       "cannotPlay": "تعذر تشغيل العينة الصوتية.",
       "generating": "جارٍ التوليد…",
       "noAudio": "لم يُرجع الخادم أي صوت.",
       "noneFound": "لم يتم العثور على أصوات.",
-      "preview": "معاينة {voice}",
+      "preview": "تشغيل عيّنة من {voice}",
       "regenerate": "إعادة التوليد",
-      "testFailed": "فشل الاختبار: {reason}"
+      "testFailed": "فشل الاختبار: {reason}",
+      "choose": "اختر صوتًا",
+      "panelLabel": "بحث الأصوات",
+      "listLabel": "الأصوات",
+      "searchLabel": "البحث في الأصوات",
+      "searchHint": "اكتب كلمة أو أكثر، مثل \"german calm low\". يجد البحث الأصوات التي تتضمن كل كلمة. أوصاف الأصوات باللغة الإنجليزية فقط.",
+      "filterLanguage": "تصفية حسب اللغة",
+      "anyLanguage": "كل اللغات",
+      "filterGender": "تصفية حسب الجنس",
+      "anyGender": "جميع الأجناس",
+      "gender": {
+        "female": "أنثى",
+        "male": "ذكر",
+        "neutral": "محايد"
+      },
+      "filterPitch": "تصفية حسب طبقة الصوت",
+      "anyPitch": "كل الطبقات",
+      "pitch": {
+        "low": "طبقة منخفضة",
+        "medium": "طبقة متوسطة",
+        "high": "طبقة مرتفعة"
+      },
+      "studioOnly": "أصوات الاستوديو فقط",
+      "studioTag": "استوديو",
+      "count": "الأصوات الموجودة: {count}",
+      "legacy": "صوت قديم ({id})",
+      "stopSample": "إيقاف عيّنة {voice}"
+    },
+    "step": {
+      "speed": {
+        "very_slow": "بطيء جدًا",
+        "slow": "بطيء",
+        "normal": "عادي",
+        "fast": "سريع",
+        "very_fast": "سريع جدًا"
+      },
+      "pitch": {
+        "very_low": "منخفض جدًا",
+        "low": "منخفض",
+        "normal": "عادي",
+        "high": "مرتفع",
+        "very_high": "مرتفع جدًا"
+      }
+    },
+    "style": {
+      "count": "{count} من {max} حرف"
     }
   },
   "page": {
     "skipToMainContent": "التخطي إلى المحتوى الرئيسي"
-  },
-  "sidebarEngNormVal": {
-    "off": "إيقاف"
   },
   "sidebarLanguageVal": {
     "automatic": "تلقائي"

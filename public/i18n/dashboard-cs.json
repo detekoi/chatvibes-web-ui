@@ -35,9 +35,6 @@
   "calibrationSaveBtn": {
     "save": "Uložit"
   },
-  "calibrationVoiceSearch": {
-    "searchVoicesToCalibrate": "Hledat hlasy ke kalibraci..."
-  },
   "channelNameStatus": {
     "yourChannel": "váš kanál"
   },
@@ -73,7 +70,6 @@
     "deactivationStopsTheBotFrom": "Deaktivací zabráníte botovi ve čtení zpráv v chatu. Vaše nastavení zůstane uložené. Službu můžete kdykoli znovu aktivovat.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentace",
     "emotion": "Emoce",
-    "engNormalization": "Normalizace angl.",
     "language": "Jazyk",
     "pitch": "Výška hlasu",
     "quickLinks": "Rychlé odkazy",
@@ -87,22 +83,36 @@
   },
   "defaultEmotion": {
     "angry": "Rozhněvaný",
+    "calm": "Klidný",
+    "custom": "Vlastní…",
     "disgusted": "Znechucený",
     "fearful": "Vyděšený",
+    "fluent": "Plynulý",
     "happy": "Šťastný",
     "neutral": "Neutrální",
     "sad": "Smutný",
     "surprised": "Překvapený"
   },
-  "defaultPitch": {
-    "defaultPitch12To12": "Výchozí výška hlasu (-12 až +12)"
+  "defaultPitchLabel": {
+    "defaultPitch": "<strong>Výchozí výška hlasu</strong>"
   },
-  "defaultSpeed": {
-    "defaultSpeed05To": "Výchozí rychlost (0,5 až 2,0)"
+  "defaultSpeedLabel": {
+    "defaultSpeed": "<strong>Výchozí rychlost</strong>"
   },
-  "defaultVoiceSearch": {
-    "searchDefaultVoices": "Hledat výchozí hlasy",
-    "searchVoices": "Hledat hlasy..."
+  "defaultStepsHint": {
+    "pitchAndSpeedAreApproximate": "Výška a rychlost jsou přibližné. Hlasový model dostává tato nastavení jako slova, ne jako čísla."
+  },
+  "defaultStyle": {
+    "exampleCalmAndSlowLike": "Příklad: klidný a pomalý, jako noční rozhlasový moderátor"
+  },
+  "defaultStyleGroup": {
+    "style": "Styl"
+  },
+  "defaultStyleHint": {
+    "describeInAFewWords": "Popište několika slovy, jak hlas mluví."
+  },
+  "defaultVoiceLabel": {
+    "defaultVoice": "<strong>Výchozí hlas</strong>"
   },
   "defaultVolume": {
     "voiceVolume01To": "Hlasitost hlasu (0,1 až 10)"
@@ -111,9 +121,6 @@
     "describeEmotes": "Popisovat emotikony",
     "readEmoteNames": "Číst názvy emotů",
     "skipEmotes": "Přeskakovat emoty"
-  },
-  "englishNormalization": {
-    "englishNormalization": "Normalizace angličtiny"
   },
   "eventsEnabled": {
     "announceEvents": "Oznamovat události"
@@ -214,7 +221,8 @@
       "hasVoice": "Uživatel {user} má nastavený vlastní hlas: {voice}",
       "noVoice": "Uživatel {user} nemá nastavený žádný vlastní hlas.",
       "searching": "Vyhledávání…",
-      "voiceUnknown": "Tento hlas není v seznamu dostupných hlasů."
+      "voiceUnknown": "Tento hlas není v seznamu dostupných hlasů.",
+      "storedVoice": "Tento divák má uložený starý hlas {stored}. TTS místo něj používá hlas výše."
     },
     "mutedRewards": {
       "announceLabel": "Ohlašovat uplatnění {title}",
@@ -279,7 +287,6 @@
       "defaultSpeed": "Výchozí rychlost",
       "defaultVoice": "Výchozí hlas",
       "emoteMode": "Režim emotikonů",
-      "englishNormalization": "Normalizace angličtiny",
       "eventAnnouncements": "Oznámení událostí",
       "expandAcronyms": "Rozbalovat zkratky z chatu",
       "minimumBits": "Minimální počet Bits",
@@ -288,6 +295,8 @@
       "readCommandMessages": "Číst příkazy v chatu",
       "readFullUrls": "Číst celé URL",
       "redemptionAnnouncements": "Oznámení o uplatnění",
+      "soundTags": "Zvukové tagy",
+      "style": "Styl",
       "ttsEngine": "Engine TTS",
       "ttsMode": "Režim TTS",
       "ttsPermission": "Oprávnění pro TTS",
@@ -380,14 +389,6 @@
   "removeBotBtn": {
     "deactivateTtsService": "Deaktivovat službu TTS"
   },
-  "resetPitchBtn": {
-    "reset": "Obnovit",
-    "resetDefaultPitchTo0": "Obnovit výchozí výšku hlasu na 0"
-  },
-  "resetSpeedBtn": {
-    "reset": "Resetovat",
-    "resetDefaultSpeedTo1": "Obnovit výchozí rychlost na 1.0"
-  },
   "resetVolumeBtn": {
     "reset": "Resetovat",
     "resetVoiceVolumeTo1": "Obnovit hlasitost hlasu na 1.0"
@@ -398,8 +399,8 @@
   "serviceHeadline": {
     "ttsService": "Služba TTS"
   },
-  "sidebarVoiceName": {
-    "friendlyPerson": "Přátelská osoba"
+  "soundTagsTitle": {
+    "soundTags": "Zvukové tagy"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Povolit botovi reagovat na příkazy v chatu, například !myvoice",
@@ -476,27 +477,23 @@
     "broadcaster": "Vysílající"
   },
   "tabBtnViewerDefaults": {
-    "voiceDefaults": "Výchozí hlasy"
+    "voiceDefaults": "Výchozí nastavení hlasu"
   },
   "tabViewerDefaults": {
-    "adjustThePitchForThe": "Upravit výšku tónu pro výchozí hlas",
     "adjustTheVolumeForThe": "Upravte hlasitost pro vybraný hlas. POZOR: Hodnoty vyšší než 1.0 mohou způsobit zkreslení.",
     "calibratedVoices": "Kalibrované hlasy",
     "calibrateVolumeForSpecificVoices": "Kalibrace hlasitosti pro konkrétní hlasy. POZOR: Hodnoty vyšší než 1.0 mohou způsobit zkreslení.",
-    "controlHowFastTheDefault": "Nastavte rychlost mluvení výchozího hlasu",
     "defaultEmotion": "<strong>Výchozí emoce</strong>",
     "defaultLanguage": "<strong>Výchozí jazyk</strong>",
-    "defaultPitch12To12": "Výchozí výška hlasu (-12 až +12):",
-    "defaultSpeed05To": "Výchozí rychlost (0,5 až 2,0):",
-    "defaultVoice": "<strong>Výchozí hlas</strong>",
     "defaultVoiceSettings": "Výchozí nastavení hlasu",
-    "englishNormalization": "Normalizace angličtiny",
-    "improvePronunciationForSpecificLanguages": "Vylepšit výslovnost pro konkrétní jazyky",
-    "improveThePronunciationOfNumbers": "Vylepšit výslovnost čísel a textu",
-    "selectTheDefaultTtsVoice": "Vyberte výchozí hlas TTS pro kanál",
+    "selectHowFastTheDefault": "Vyberte, jak rychle výchozí hlas mluví",
+    "selectHowHighOrLow": "Vyberte, jak vysoko nebo nízko výchozí hlas mluví",
+    "selectTheVoiceThatTts": "Vyberte hlas, který TTS použije pro diváky bez vlastního hlasu",
     "selectVoice": "Vybrat hlas",
     "setDefaultVoiceSettingsFor": "Nastavte výchozí nastavení hlasu pro svůj kanál",
-    "setTheEmotionalToneOf": "Nastavte emoční tón výchozího hlasu",
+    "setTheEmotionOfThe": "Nastavte emoci výchozího hlasu. Vyberte Vlastní, chcete-li hlas popsat vlastními slovy.",
+    "theVoiceModelReadsThe": "Hlasový model rozpoznává jazyk z textu. Pokud je text krátký nebo nejasný, toto nastavení modelu napoví. Zároveň určuje výchozí jazyk oznámení a vybírá seznam slov pro filtr vulgarismů.",
+    "viewersCanTypeASound": "Diváci mohou do zprávy napsat zvukový tag a hlas daný zvuk vydá. Příkladem jsou <code>&lt;laugh&gt;</code> a <code>&lt;sigh&gt;</code>. Všechny tagy jsou ve výchozím nastavení zapnuté. Chcete-li tag vypnout, zrušte jeho zaškrtnutí.",
     "viewerVoiceLookup": "Vyhledání hlasu diváka",
     "voiceCalibration": "Kalibrace hlasu",
     "voicesWithCustomVolumeSettings": "Hlasy s vlastním nastavením hlasitosti.",

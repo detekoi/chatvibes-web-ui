@@ -3,10 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "description": "WildcatTTS Web UI",
-  "main": "scripts/generate-voice-previews.js",
   "scripts": {
-    "generate-voices": "node scripts/generate-voice-previews.js",
-    "test-api": "node scripts/test-api.js",
     "build:frontend": "node scripts/build-frontend.js",
     "watch:frontend": "node scripts/build-frontend.js --watch",
     "typecheck:frontend": "tsc --noEmit -p public/tsconfig.json",
@@ -22,7 +19,6 @@
   "keywords": [
     "tts",
     "voice",
-    "wavespeed",
     "chatvibes"
   ],
   "author": "",

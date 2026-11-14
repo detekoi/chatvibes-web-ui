@@ -35,9 +35,6 @@
   "calibrationSaveBtn": {
     "save": "Salvar"
   },
-  "calibrationVoiceSearch": {
-    "searchVoicesToCalibrate": "Pesquisar vozes para calibrar..."
-  },
   "channelNameStatus": {
     "yourChannel": "seu canal"
   },
@@ -73,7 +70,6 @@
     "deactivationStopsTheBotFrom": "A desativação impede o bot de ler mensagens do chat. Suas configurações permanecem salvas. Você pode reativar o serviço a qualquer momento.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Documentação",
     "emotion": "Emoção",
-    "engNormalization": "Normalização de inglês",
     "language": "Idioma",
     "pitch": "Tom",
     "quickLinks": "Links rápidos",
@@ -87,22 +83,36 @@
   },
   "defaultEmotion": {
     "angry": "Irritado",
+    "calm": "Calma",
+    "custom": "Personalizado…",
     "disgusted": "Enojado",
     "fearful": "Assustado",
+    "fluent": "Fluente",
     "happy": "Feliz",
     "neutral": "Neutro",
     "sad": "Triste",
     "surprised": "Surpreso"
   },
-  "defaultPitch": {
-    "defaultPitch12To12": "Tom padrão (-12 a +12)"
+  "defaultPitchLabel": {
+    "defaultPitch": "<strong>Tom padrão</strong>"
   },
-  "defaultSpeed": {
-    "defaultSpeed05To": "Velocidade padrão (0,5 a 2,0)"
+  "defaultSpeedLabel": {
+    "defaultSpeed": "<strong>Velocidade padrão</strong>"
   },
-  "defaultVoiceSearch": {
-    "searchDefaultVoices": "Buscar vozes padrão",
-    "searchVoices": "Buscar vozes..."
+  "defaultStepsHint": {
+    "pitchAndSpeedAreApproximate": "O tom e a velocidade são aproximados. O modelo de voz recebe essas configurações como palavras, não como números."
+  },
+  "defaultStyle": {
+    "exampleCalmAndSlowLike": "Exemplo: calmo e lento, como um locutor de rádio à noite"
+  },
+  "defaultStyleGroup": {
+    "style": "Estilo"
+  },
+  "defaultStyleHint": {
+    "describeInAFewWords": "Descreva em poucas palavras como a voz fala."
+  },
+  "defaultVoiceLabel": {
+    "defaultVoice": "<strong>Voz padrão</strong>"
   },
   "defaultVolume": {
     "voiceVolume01To": "Volume da voz (0,1 a 10)"
@@ -111,9 +121,6 @@
     "describeEmotes": "Descrever emotes",
     "readEmoteNames": "Ler nomes dos emotes",
     "skipEmotes": "Pular emotes"
-  },
-  "englishNormalization": {
-    "englishNormalization": "Normalização de inglês"
   },
   "eventsEnabled": {
     "announceEvents": "Anunciar eventos"
@@ -214,7 +221,8 @@
       "hasVoice": "O usuário {user} definiu a voz personalizada: {voice}",
       "noVoice": "O usuário {user} não tem uma voz personalizada definida.",
       "searching": "Buscando…",
-      "voiceUnknown": "Esta voz não está na lista de vozes disponíveis."
+      "voiceUnknown": "Esta voz não está na lista de vozes disponíveis.",
+      "storedVoice": "Este espectador salvou a voz antiga {stored}. O TTS usa a voz acima em vez dela."
     },
     "mutedRewards": {
       "announceLabel": "Anunciar resgates de {title}",
@@ -279,7 +287,6 @@
       "defaultSpeed": "Velocidade padrão",
       "defaultVoice": "Voz padrão",
       "emoteMode": "Modo de emotes",
-      "englishNormalization": "Normalização em inglês",
       "eventAnnouncements": "Anúncios de eventos",
       "expandAcronyms": "Expandir siglas do chat",
       "minimumBits": "Bits mínimos",
@@ -288,6 +295,8 @@
       "readCommandMessages": "Ler comandos do chat",
       "readFullUrls": "Ler URLs completas",
       "redemptionAnnouncements": "Anúncios de resgate",
+      "soundTags": "Tags de som",
+      "style": "Estilo",
       "ttsEngine": "Mecanismo de TTS",
       "ttsMode": "Modo de TTS",
       "ttsPermission": "Permissão de TTS",
@@ -380,14 +389,6 @@
   "removeBotBtn": {
     "deactivateTtsService": "Desativar serviço TTS"
   },
-  "resetPitchBtn": {
-    "reset": "Redefinir",
-    "resetDefaultPitchTo0": "Redefinir tom padrão para 0"
-  },
-  "resetSpeedBtn": {
-    "reset": "Redefinir",
-    "resetDefaultSpeedTo1": "Redefinir velocidade padrão para 1.0"
-  },
   "resetVolumeBtn": {
     "reset": "Redefinir",
     "resetVoiceVolumeTo1": "Redefinir volume da voz para 1.0"
@@ -398,8 +399,8 @@
   "serviceHeadline": {
     "ttsService": "Serviço de TTS"
   },
-  "sidebarVoiceName": {
-    "friendlyPerson": "Pessoa Amigável"
+  "soundTagsTitle": {
+    "soundTags": "Tags de som"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Permitir que o bot responda a comandos do chat como !myvoice",
@@ -473,30 +474,26 @@
     "youtubeTtsEnabled": "TTS do YouTube ativado"
   },
   "tabBtnBroadcaster": {
-    "broadcaster": "Transmissor"
+    "broadcaster": "Streamer"
   },
   "tabBtnViewerDefaults": {
     "voiceDefaults": "Padrões de voz"
   },
   "tabViewerDefaults": {
-    "adjustThePitchForThe": "Ajustar o tom da voz padrão",
     "adjustTheVolumeForThe": "Ajustar o volume da voz selecionada. ATENÇÃO: valores acima de 1,0 podem causar distorção.",
     "calibratedVoices": "Vozes Calibradas",
     "calibrateVolumeForSpecificVoices": "Calibrar o volume para vozes específicas. ATENÇÃO: valores acima de 1,0 podem causar distorção.",
-    "controlHowFastTheDefault": "Controle a velocidade da voz padrão",
     "defaultEmotion": "<strong>Emoção padrão</strong>",
     "defaultLanguage": "<strong>Idioma padrão</strong>",
-    "defaultPitch12To12": "Tom padrão (-12 a +12):",
-    "defaultSpeed05To": "Velocidade padrão (0,5 a 2,0):",
-    "defaultVoice": "<strong>Voz padrão</strong>",
     "defaultVoiceSettings": "Configurações de voz padrão",
-    "englishNormalization": "Normalização de inglês",
-    "improvePronunciationForSpecificLanguages": "Melhore a pronúncia para idiomas específicos",
-    "improveThePronunciationOfNumbers": "Melhore a pronúncia de números e texto",
-    "selectTheDefaultTtsVoice": "Selecione a voz de TTS padrão para o canal",
+    "selectHowFastTheDefault": "Selecione quão rápido a voz padrão fala",
+    "selectHowHighOrLow": "Selecione quão grave ou aguda a voz padrão fala",
+    "selectTheVoiceThatTts": "Selecione a voz que o TTS usa para espectadores que não têm uma voz própria",
     "selectVoice": "Selecionar voz",
     "setDefaultVoiceSettingsFor": "Defina as configurações de voz padrão para seu canal",
-    "setTheEmotionalToneOf": "Defina o tom emocional da voz padrão",
+    "setTheEmotionOfThe": "Defina a emoção da voz padrão. Selecione Personalizado para descrever a voz com suas próprias palavras.",
+    "theVoiceModelReadsThe": "O modelo de voz identifica o idioma pelo texto. Se o texto for curto ou pouco claro, essa configuração dá uma dica ao modelo. Ela também define o idioma padrão para anúncios e seleciona a lista de palavras para o filtro de palavrões.",
+    "viewersCanTypeASound": "Os espectadores podem digitar uma tag de som na mensagem e a voz faz esse som. Exemplos: <code>&lt;laugh&gt;</code> e <code>&lt;sigh&gt;</code>. Todas as tags vêm ativadas por padrão. Para desativar uma tag, desmarque a caixa de seleção dela.",
     "viewerVoiceLookup": "Consulta de voz do espectador",
     "voiceCalibration": "Calibração de voz",
     "voicesWithCustomVolumeSettings": "Vozes com configurações de volume personalizadas.",

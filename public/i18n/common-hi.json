@@ -37,6 +37,7 @@
     "prefs_invalid_language": "वह मान्य भाषा नहीं है।",
     "prefs_invalid_pitch": "वह मान्य पिच नहीं है।",
     "prefs_invalid_speed": "वह मान्य गति नहीं है।",
+    "prefs_invalid_style": "यह मान्य शैली नहीं है।",
     "prefs_invalid_voice": "वह मान्य आवाज़ नहीं है।",
     "prefs_missing_data": "कोई बदलाव नहीं भेजा गया।",
     "prefs_update_failed": "सर्वर में गड़बड़ी के कारण आपका बदलाव सहेजा नहीं गया। फिर से कोशिश करें।",
@@ -68,11 +69,13 @@
     "setting_update_failed": "TTS सेटिंग अपडेट नहीं की जा सकती।",
     "settings_fetch_failed": "TTS सेटिंग्स लोड नहीं की जा सकतीं।",
     "shortlink_failed": "छोटा लिंक नहीं बनाया जा सका।",
+    "sound_tag_unknown": "साउंड टैग \"{tag}\" सूची में नहीं है। पेज रीलोड करें और फिर से कोशिश करें।",
     "storage_unavailable": "स्टोरेज उपलब्ध नहीं है।",
+    "style_too_long": "शैली बहुत लंबी है। {max} या उससे कम कैरेक्टर का उपयोग करें।",
+    "tts_blocked": "स्पीच सेवा ने इस टेक्स्ट को अस्वीकार कर दिया। टेक्स्ट बदलें और फिर से कोशिश करें।",
     "tts_generation_failed": "स्पीच जनरेशन विफल: {reason}",
     "tts_no_audio": "स्पीच प्रोवाइडर से कोई ऑडियो नहीं मिला।",
     "tts_not_configured": "कोई स्पीच प्रोवाइडर कॉन्फ़िगर नहीं है।",
-    "tts_provider_failed": "स्पीच प्रोवाइडर ऑडियो जनरेट नहीं कर सका।",
     "tts_test_failed": "स्पीच टेस्ट विफल रहा।",
     "tts_text_required": "टेस्ट करने के लिए कुछ टेक्स्ट दर्ज करें।",
     "twitch_reauth_required": "आपका Twitch साइन-इन समाप्त हो गया है। अपना खाता फिर से कनेक्ट करें।",
@@ -80,8 +83,6 @@
     "url_required": "URL आवश्यक है।",
     "username_invalid": "वह यूज़रनेम मान्य नहीं है।",
     "username_required": "यूज़रनेम आवश्यक है।",
-    "voice_access_denied": "\"{voice}\" वॉइस के लिए विशेष एक्सेस चाहिए। कोई अन्य वॉइस आज़माएँ।",
-    "voice_invalid": "\"{voice}\" वॉइस उपलब्ध नहीं है। वॉइस जांचें और फिर से कोशिश करें।",
     "voice_lookup_failed": "उस यूज़र की वॉइस खोजी नहीं जा सकी।",
     "word_invalid": "वह शब्द या वाक्यांश मान्य नहीं है।",
     "word_required": "शब्द या वाक्यांश आवश्यक है।"
@@ -117,7 +118,6 @@
     },
     "emotion": {
       "angry": "गुस्सा",
-      "auto": "ऑटो",
       "calm": "शांत",
       "disgusted": "घृणा",
       "fearful": "भयभीत",
@@ -125,7 +125,8 @@
       "happy": "खुश",
       "neutral": "तटस्थ",
       "sad": "उदास",
-      "surprised": "हैरान"
+      "surprised": "हैरान",
+      "custom": "कस्टम"
     },
     "ignore": {
       "enterUsername": "यूज़रनेम दर्ज करें।"
@@ -138,27 +139,65 @@
     },
     "preview": {
       "enterText": "परीक्षण के लिए टेक्स्ट दर्ज करें।",
-      "unavailable": "कोई पूर्वावलोकन उपलब्ध नहीं है।"
-    },
-    "value": {
-      "off": "बंद",
-      "on": "चालू"
+      "unavailable": "इस आवाज़ का कोई सैंपल उपलब्ध नहीं है।"
     },
     "voice": {
       "cannotPlay": "ऑडियो सैंपल नहीं चलाया जा सकता।",
       "generating": "जेनरेट हो रहा है…",
       "noAudio": "सर्वर ने कोई ऑडियो नहीं भेजा।",
       "noneFound": "कोई वॉइस नहीं मिली।",
-      "preview": "{voice} का प्रीव्यू",
+      "preview": "{voice} का सैंपल चलाएं",
       "regenerate": "फिर से जेनरेट करें",
-      "testFailed": "टेस्ट विफल रहा: {reason}"
+      "testFailed": "टेस्ट विफल रहा: {reason}",
+      "choose": "आवाज़ चुनें",
+      "panelLabel": "आवाज़ खोज",
+      "listLabel": "आवाज़ें",
+      "searchLabel": "आवाज़ें खोजें",
+      "searchHint": "एक या अधिक शब्द लिखें, उदाहरण के लिए \"german calm low\"। खोज उन आवाज़ों को ढूंढती है जिनमें हर शब्द शामिल हो। आवाज़ों के विवरण केवल अंग्रेज़ी में हैं।",
+      "filterLanguage": "भाषा के अनुसार फ़िल्टर करें",
+      "anyLanguage": "सभी भाषाएं",
+      "filterGender": "लिंग के अनुसार फ़िल्टर करें",
+      "anyGender": "सभी लिंग",
+      "gender": {
+        "female": "महिला",
+        "male": "पुरुष",
+        "neutral": "तटस्थ"
+      },
+      "filterPitch": "पिच के अनुसार फ़िल्टर करें",
+      "anyPitch": "सभी पिच",
+      "pitch": {
+        "low": "नीची पिच",
+        "medium": "मध्यम पिच",
+        "high": "ऊंची पिच"
+      },
+      "studioOnly": "केवल स्टूडियो आवाज़ें",
+      "studioTag": "स्टूडियो",
+      "count": "मिली आवाज़ें: {count}",
+      "legacy": "पुरानी आवाज़ ({id})",
+      "stopSample": "{voice} का सैंपल रोकें"
+    },
+    "step": {
+      "speed": {
+        "very_slow": "बहुत धीमी",
+        "slow": "धीमी",
+        "normal": "सामान्य",
+        "fast": "तेज़",
+        "very_fast": "बहुत तेज़"
+      },
+      "pitch": {
+        "very_low": "बहुत नीची",
+        "low": "नीची",
+        "normal": "सामान्य",
+        "high": "ऊंची",
+        "very_high": "बहुत ऊंची"
+      }
+    },
+    "style": {
+      "count": "{max} में से {count} कैरेक्टर"
     }
   },
   "page": {
     "skipToMainContent": "सीधे मुख्य सामग्री पर जाएँ"
-  },
-  "sidebarEngNormVal": {
-    "off": "बंद"
   },
   "sidebarLanguageVal": {
     "automatic": "स्वचालित"

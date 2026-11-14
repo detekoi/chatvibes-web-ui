@@ -35,9 +35,6 @@
   "calibrationSaveBtn": {
     "save": "I-save"
   },
-  "calibrationVoiceSearch": {
-    "searchVoicesToCalibrate": "Maghanap ng mga boses na ika-calibrate..."
-  },
   "channelNameStatus": {
     "yourChannel": "iyong channel"
   },
@@ -73,7 +70,6 @@
     "deactivationStopsTheBotFrom": "Hihinto ang bot sa pagbasa ng mga mensahe sa chat kapag na-deactivate. Mananatiling naka-save ang iyong mga setting. Maaari mong i-activate muli ang serbisyo anumang oras.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentasyon",
     "emotion": "Emosyon",
-    "engNormalization": "Eng. normalization",
     "language": "Wika",
     "pitch": "Pitch",
     "quickLinks": "Mga quick link",
@@ -87,22 +83,36 @@
   },
   "defaultEmotion": {
     "angry": "Galit",
+    "calm": "Kalmado",
+    "custom": "Pasadya…",
     "disgusted": "Nandidiri",
     "fearful": "Takot",
+    "fluent": "Matatas",
     "happy": "Masaya",
     "neutral": "Neutral",
     "sad": "Malungkot",
     "surprised": "Nagulat"
   },
-  "defaultPitch": {
-    "defaultPitch12To12": "Default na Pitch (-12 hanggang +12)"
+  "defaultPitchLabel": {
+    "defaultPitch": "<strong>Default na Pitch</strong>"
   },
-  "defaultSpeed": {
-    "defaultSpeed05To": "Default na Bilis (0.5 hanggang 2.0)"
+  "defaultSpeedLabel": {
+    "defaultSpeed": "<strong>Default na Bilis</strong>"
   },
-  "defaultVoiceSearch": {
-    "searchDefaultVoices": "Maghanap ng default na boses",
-    "searchVoices": "Maghanap ng boses..."
+  "defaultStepsHint": {
+    "pitchAndSpeedAreApproximate": "Tinataya lang ang pitch at bilis. Natatanggap ng modelo ng boses ang mga setting na ito bilang mga salita, hindi mga numero."
+  },
+  "defaultStyle": {
+    "exampleCalmAndSlowLike": "Halimbawa: kalmado at mabagal, parang host sa radyo sa gabi"
+  },
+  "defaultStyleGroup": {
+    "style": "Estilo"
+  },
+  "defaultStyleHint": {
+    "describeInAFewWords": "Ilarawan sa ilang salita kung paano magsalita ang boses."
+  },
+  "defaultVoiceLabel": {
+    "defaultVoice": "<strong>Default na Boses</strong>"
   },
   "defaultVolume": {
     "voiceVolume01To": "Volume ng Boses (0.1 hanggang 10)"
@@ -111,9 +121,6 @@
     "describeEmotes": "Ilarawan ang mga emote",
     "readEmoteNames": "Basahin ang mga pangalan ng emote",
     "skipEmotes": "Laktawan ang mga emote"
-  },
-  "englishNormalization": {
-    "englishNormalization": "Normalisasyon ng English"
   },
   "eventsEnabled": {
     "announceEvents": "I-anunsyo ang mga Kaganapan"
@@ -214,7 +221,8 @@
       "hasVoice": "Nag-set ang user na si {user} ng custom voice: {voice}",
       "noVoice": "Walang naka-set na custom voice ang user na si {user}.",
       "searching": "Naghahanap…",
-      "voiceUnknown": "Wala ang voice na ito sa listahan ng mga available na voice."
+      "voiceUnknown": "Wala ang voice na ito sa listahan ng mga available na voice.",
+      "storedVoice": "Na-save ng viewer na ito ang lumang boses na {stored}. Ang boses sa itaas ang ginagamit ng TTS sa halip nito."
     },
     "mutedRewards": {
       "announceLabel": "I-announce ang mga redeem ng {title}",
@@ -279,7 +287,6 @@
       "defaultSpeed": "Default na Bilis",
       "defaultVoice": "Default na Boses",
       "emoteMode": "Emote Mode",
-      "englishNormalization": "Normalisasyon ng Ingles",
       "eventAnnouncements": "Mga Anunsyo ng Event",
       "expandAcronyms": "I-expand ang mga Chat Acronym",
       "minimumBits": "Minimum na Bits",
@@ -288,6 +295,8 @@
       "readCommandMessages": "Basahin ang mga Chat Command",
       "readFullUrls": "Basahin ang Buong mga URL",
       "redemptionAnnouncements": "Mga Anunsyo ng Redemption",
+      "soundTags": "Mga Sound Tag",
+      "style": "Estilo",
       "ttsEngine": "TTS Engine",
       "ttsMode": "TTS Mode",
       "ttsPermission": "Pahintulot sa TTS",
@@ -380,14 +389,6 @@
   "removeBotBtn": {
     "deactivateTtsService": "I-deactivate ang serbisyo ng TTS"
   },
-  "resetPitchBtn": {
-    "reset": "I-reset",
-    "resetDefaultPitchTo0": "I-reset ang default pitch sa 0"
-  },
-  "resetSpeedBtn": {
-    "reset": "I-reset",
-    "resetDefaultSpeedTo1": "I-reset ang default na bilis sa 1.0"
-  },
   "resetVolumeBtn": {
     "reset": "I-reset",
     "resetVoiceVolumeTo1": "I-reset ang lakas ng boses sa 1.0"
@@ -398,8 +399,8 @@
   "serviceHeadline": {
     "ttsService": "Serbisyo ng TTS"
   },
-  "sidebarVoiceName": {
-    "friendlyPerson": "Palakaibigang Tao"
+  "soundTagsTitle": {
+    "soundTags": "Mga Sound Tag"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Payagan ang bot na sumagot sa mga chat command tulad ng !myvoice",
@@ -476,27 +477,23 @@
     "broadcaster": "Broadcaster"
   },
   "tabBtnViewerDefaults": {
-    "voiceDefaults": "Voice Defaults"
+    "voiceDefaults": "Mga Default ng Boses"
   },
   "tabViewerDefaults": {
-    "adjustThePitchForThe": "I-adjust ang pitch para sa default na boses",
     "adjustTheVolumeForThe": "I-adjust ang volume para sa napiling boses. BABALA: Ang mga value na higit sa 1.0 ay maaaring magdulot ng distortion.",
     "calibratedVoices": "Mga Na-calibrate na Boses",
     "calibrateVolumeForSpecificVoices": "I-calibrate ang volume para sa mga partikular na boses. BABALA: Ang mga value na higit sa 1.0 ay maaaring magdulot ng distortion.",
-    "controlHowFastTheDefault": "Kontrolin kung gaano kabilis magsalita ang default na boses",
     "defaultEmotion": "<strong>Default na Emosyon</strong>",
     "defaultLanguage": "<strong>Default na Wika</strong>",
-    "defaultPitch12To12": "Default na Pitch (-12 hanggang +12):",
-    "defaultSpeed05To": "Default na Bilis (0.5 hanggang 2.0):",
-    "defaultVoice": "<strong>Default na Boses</strong>",
     "defaultVoiceSettings": "Mga Default na Setting ng Boses",
-    "englishNormalization": "English Normalization",
-    "improvePronunciationForSpecificLanguages": "Pahusayin ang pagbigkas para sa mga partikular na wika",
-    "improveThePronunciationOfNumbers": "Pahusayin ang pagbigkas ng mga numero at teksto",
-    "selectTheDefaultTtsVoice": "Piliin ang default na boses ng TTS para sa channel",
+    "selectHowFastTheDefault": "Piliin kung gaano kabilis magsalita ang default na boses",
+    "selectHowHighOrLow": "Piliin kung gaano kataas o kababa magsalita ang default na boses",
+    "selectTheVoiceThatTts": "Piliin ang boses na gagamitin ng TTS para sa mga viewer na walang sariling boses",
     "selectVoice": "Pumili ng Boses",
     "setDefaultVoiceSettingsFor": "Itakda ang mga default na setting ng boses para sa iyong channel",
-    "setTheEmotionalToneOf": "Itakda ang emosyonal na tono ng default na boses",
+    "setTheEmotionOfThe": "Itakda ang emosyon ng default na boses. Piliin ang Pasadya para ilarawan ang boses sa sarili mong mga salita.",
+    "theVoiceModelReadsThe": "Binabasa ng modelo ng boses ang wika mula sa teksto. Kung maikli o hindi malinaw ang teksto, nagbibigay ito ng pahiwatig sa modelo. Itinatakda rin nito ang default na wika para sa mga anunsyo at pinipili ang listahan ng mga salita para sa filter ng pagmumura.",
+    "viewersCanTypeASound": "Maaaring mag-type ang mga viewer ng sound tag sa mensahe, at gagawin ng boses ang tunog na iyon. Halimbawa ang <code>&lt;laugh&gt;</code> at <code>&lt;sigh&gt;</code>. Naka-on ang lahat ng tag bilang default. Para i-off ang isang tag, alisin ang check sa box nito.",
     "viewerVoiceLookup": "Paghahanap ng Boses ng Manonood",
     "voiceCalibration": "Voice Calibration",
     "voicesWithCustomVolumeSettings": "Mga boses na may custom na setting ng volume.",

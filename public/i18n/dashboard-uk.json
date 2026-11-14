@@ -35,9 +35,6 @@
   "calibrationSaveBtn": {
     "save": "Зберегти"
   },
-  "calibrationVoiceSearch": {
-    "searchVoicesToCalibrate": "Пошук голосів для калібрування..."
-  },
   "channelNameStatus": {
     "yourChannel": "ваш канал"
   },
@@ -73,7 +70,6 @@
     "deactivationStopsTheBotFrom": "Деактивація зупиняє читання ботом повідомлень чату. Ваші налаштування збережуться. Ви можете знову активувати сервіс будь-коли.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Документація",
     "emotion": "Емоція",
-    "engNormalization": "Англ. нормалізація",
     "language": "Мова",
     "pitch": "Висота тону",
     "quickLinks": "Швидкі посилання",
@@ -87,22 +83,36 @@
   },
   "defaultEmotion": {
     "angry": "Злий",
+    "calm": "Спокійний",
+    "custom": "Власний…",
     "disgusted": "З відразою",
     "fearful": "Зляканий",
+    "fluent": "Плавний",
     "happy": "Щасливий",
     "neutral": "Нейтральний",
     "sad": "Сумний",
     "surprised": "Здивований"
   },
-  "defaultPitch": {
-    "defaultPitch12To12": "Висота тону за замовчуванням (від -12 до +12)"
+  "defaultPitchLabel": {
+    "defaultPitch": "<strong>Висота тону за замовчуванням</strong>"
   },
-  "defaultSpeed": {
-    "defaultSpeed05To": "Швидкість за замовчуванням (від 0.5 до 2.0)"
+  "defaultSpeedLabel": {
+    "defaultSpeed": "<strong>Швидкість за замовчуванням</strong>"
   },
-  "defaultVoiceSearch": {
-    "searchDefaultVoices": "Пошук голосів за замовчуванням",
-    "searchVoices": "Пошук голосів..."
+  "defaultStepsHint": {
+    "pitchAndSpeedAreApproximate": "Висота тону та швидкість є приблизними. Голосова модель отримує ці налаштування словами, а не числами."
+  },
+  "defaultStyle": {
+    "exampleCalmAndSlowLike": "Приклад: спокійно й повільно, як нічний радіоведучий"
+  },
+  "defaultStyleGroup": {
+    "style": "Стиль"
+  },
+  "defaultStyleHint": {
+    "describeInAFewWords": "Опишіть у кількох словах, як говорить голос."
+  },
+  "defaultVoiceLabel": {
+    "defaultVoice": "<strong>Голос за замовчуванням</strong>"
   },
   "defaultVolume": {
     "voiceVolume01To": "Гучність голосу (від 0.1 до 10)"
@@ -111,9 +121,6 @@
     "describeEmotes": "Описувати емоути",
     "readEmoteNames": "Читати назви емоутів",
     "skipEmotes": "Пропускати емоути"
-  },
-  "englishNormalization": {
-    "englishNormalization": "Нормалізація англійської"
   },
   "eventsEnabled": {
     "announceEvents": "Оголошувати події"
@@ -214,7 +221,8 @@
       "hasVoice": "Користувач {user} встановив власний голос: {voice}",
       "noVoice": "Користувач {user} не встановив власний голос.",
       "searching": "Пошук…",
-      "voiceUnknown": "Цього голосу немає в списку доступних голосів."
+      "voiceUnknown": "Цього голосу немає в списку доступних голосів.",
+      "storedVoice": "Цей глядач зберіг старий голос {stored}. Замість нього TTS використовує вказаний вище голос."
     },
     "mutedRewards": {
       "announceLabel": "Оголошувати активації {title}",
@@ -279,7 +287,6 @@
       "defaultSpeed": "Швидкість за замовчуванням",
       "defaultVoice": "Голос за замовчуванням",
       "emoteMode": "Режим емоутів",
-      "englishNormalization": "Нормалізація англійської",
       "eventAnnouncements": "Оголошення подій",
       "expandAcronyms": "Розгортати скорочення з чату",
       "minimumBits": "Мінімум Bits",
@@ -288,6 +295,8 @@
       "readCommandMessages": "Читати команди чату",
       "readFullUrls": "Читати повні URL",
       "redemptionAnnouncements": "Оголошення про нагороди",
+      "soundTags": "Звукові теги",
+      "style": "Стиль",
       "ttsEngine": "Рушій TTS",
       "ttsMode": "Режим TTS",
       "ttsPermission": "Дозвіл на TTS",
@@ -380,14 +389,6 @@
   "removeBotBtn": {
     "deactivateTtsService": "Деактивувати службу TTS"
   },
-  "resetPitchBtn": {
-    "reset": "Скинути",
-    "resetDefaultPitchTo0": "Скинути стандартну висоту тону на 0"
-  },
-  "resetSpeedBtn": {
-    "reset": "Скинути",
-    "resetDefaultSpeedTo1": "Скинути швидкість за замовчуванням до 1.0"
-  },
   "resetVolumeBtn": {
     "reset": "Скинути",
     "resetVoiceVolumeTo1": "Скинути гучність голосу до 1.0"
@@ -398,8 +399,8 @@
   "serviceHeadline": {
     "ttsService": "Служба TTS"
   },
-  "sidebarVoiceName": {
-    "friendlyPerson": "Привітна людина"
+  "soundTagsTitle": {
+    "soundTags": "Звукові теги"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Дозволити боту відповідати на команди в чаті, як-от !myvoice",
@@ -476,27 +477,23 @@
     "broadcaster": "Стример"
   },
   "tabBtnViewerDefaults": {
-    "voiceDefaults": "Стандартні параметри голосу"
+    "voiceDefaults": "Голос за замовчуванням"
   },
   "tabViewerDefaults": {
-    "adjustThePitchForThe": "Налаштувати висоту стандартного голосу",
     "adjustTheVolumeForThe": "Налаштуйте гучність вибраного голосу. УВАГА: значення понад 1.0 можуть спричинити спотворення звуку.",
     "calibratedVoices": "Калібровані голоси",
     "calibrateVolumeForSpecificVoices": "Калібруйте гучність для окремих голосів. УВАГА: значення понад 1.0 можуть спричинити спотворення звуку.",
-    "controlHowFastTheDefault": "Керуйте швидкістю мовлення типового голосу",
     "defaultEmotion": "<strong>Типова емоція</strong>",
     "defaultLanguage": "<strong>Типова мова</strong>",
-    "defaultPitch12To12": "Стандартна висота тону (-12 до +12):",
-    "defaultSpeed05To": "Стандартна швидкість (0.5 до 2.0):",
-    "defaultVoice": "<strong>Типовий голос</strong>",
     "defaultVoiceSettings": "Типові налаштування голосу",
-    "englishNormalization": "Нормалізація англійської",
-    "improvePronunciationForSpecificLanguages": "Покращення вимови для окремих мов",
-    "improveThePronunciationOfNumbers": "Покращення вимови чисел і тексту",
-    "selectTheDefaultTtsVoice": "Оберіть типовий голос TTS для каналу",
+    "selectHowFastTheDefault": "Виберіть, наскільки швидко говорить голос за замовчуванням",
+    "selectHowHighOrLow": "Виберіть, наскільки високо чи низько говорить голос за замовчуванням",
+    "selectTheVoiceThatTts": "Виберіть голос, який TTS використовуватиме для глядачів без власного голосу",
     "selectVoice": "Обрати голос",
     "setDefaultVoiceSettingsFor": "Установіть типові налаштування голосу для вашого каналу",
-    "setTheEmotionalToneOf": "Установіть емоційний тон типового голосу",
+    "setTheEmotionOfThe": "Установіть емоцію голосу за замовчуванням. Виберіть «Власний», щоб описати голос власними словами.",
+    "theVoiceModelReadsThe": "Голосова модель визначає мову за текстом. Якщо текст короткий або незрозумілий, це налаштування дає моделі підказку. Воно також задає мову за замовчуванням для оголошень і вибирає список слів для фільтра нецензурної лексики.",
+    "viewersCanTypeASound": "Глядачі можуть ввести звуковий тег у повідомленні, і голос відтворить цей звук. Наприклад, <code>&lt;laugh&gt;</code> та <code>&lt;sigh&gt;</code>. Усі теги увімкнено за замовчуванням. Щоб вимкнути тег, зніміть відповідний прапорець.",
     "viewerVoiceLookup": "Пошук голосу глядача",
     "voiceCalibration": "Калібрування голосу",
     "voicesWithCustomVolumeSettings": "Голоси з власними налаштуваннями гучності.",

@@ -35,9 +35,6 @@
   "calibrationSaveBtn": {
     "save": "저장"
   },
-  "calibrationVoiceSearch": {
-    "searchVoicesToCalibrate": "보정할 음성 검색..."
-  },
   "channelNameStatus": {
     "yourChannel": "내 채널"
   },
@@ -73,7 +70,6 @@
     "deactivationStopsTheBotFrom": "비활성화하면 봇이 채팅 메시지를 읽지 않습니다. 설정은 저장된 상태로 유지됩니다. 언제든지 서비스를 다시 활성화할 수 있습니다.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>문서",
     "emotion": "감정",
-    "engNormalization": "영어 정규화",
     "language": "언어",
     "pitch": "음높이",
     "quickLinks": "빠른 링크",
@@ -87,22 +83,36 @@
   },
   "defaultEmotion": {
     "angry": "분노",
+    "calm": "차분함",
+    "custom": "사용자 지정…",
     "disgusted": "혐오",
     "fearful": "공포",
+    "fluent": "유창함",
     "happy": "행복",
     "neutral": "중립",
     "sad": "슬픔",
     "surprised": "놀람"
   },
-  "defaultPitch": {
-    "defaultPitch12To12": "기본 음높이 (-12 ~ +12)"
+  "defaultPitchLabel": {
+    "defaultPitch": "<strong>기본 음높이</strong>"
   },
-  "defaultSpeed": {
-    "defaultSpeed05To": "기본 속도 (0.5 ~ 2.0)"
+  "defaultSpeedLabel": {
+    "defaultSpeed": "<strong>기본 속도</strong>"
   },
-  "defaultVoiceSearch": {
-    "searchDefaultVoices": "기본 음성 검색",
-    "searchVoices": "음성 검색..."
+  "defaultStepsHint": {
+    "pitchAndSpeedAreApproximate": "음높이와 속도는 대략적인 값입니다. 음성 모델은 이 설정을 숫자가 아닌 단어로 전달받습니다."
+  },
+  "defaultStyle": {
+    "exampleCalmAndSlowLike": "예: 밤 시간대 라디오 진행자처럼 차분하고 느리게"
+  },
+  "defaultStyleGroup": {
+    "style": "스타일"
+  },
+  "defaultStyleHint": {
+    "describeInAFewWords": "음성이 말하는 방식을 몇 단어로 설명하세요."
+  },
+  "defaultVoiceLabel": {
+    "defaultVoice": "<strong>기본 음성</strong>"
   },
   "defaultVolume": {
     "voiceVolume01To": "음성 음량 (0.1 ~ 10)"
@@ -111,9 +121,6 @@
     "describeEmotes": "이모티콘 설명",
     "readEmoteNames": "이모티콘 이름 읽기",
     "skipEmotes": "이모티콘 건너뛰기"
-  },
-  "englishNormalization": {
-    "englishNormalization": "영어 정규화"
   },
   "eventsEnabled": {
     "announceEvents": "이벤트 알리기"
@@ -214,7 +221,8 @@
       "hasVoice": "{user} 사용자의 맞춤 음성: {voice}",
       "noVoice": "{user} 사용자가 설정한 맞춤 음성이 없습니다.",
       "searching": "검색 중…",
-      "voiceUnknown": "사용 가능한 음성 목록에 없는 음성입니다."
+      "voiceUnknown": "사용 가능한 음성 목록에 없는 음성입니다.",
+      "storedVoice": "이 시청자는 이전 음성({stored})을 저장했습니다. 대신 위의 음성이 TTS에 사용됩니다."
     },
     "mutedRewards": {
       "announceLabel": "{title} 교환 알림",
@@ -279,7 +287,6 @@
       "defaultSpeed": "기본 속도",
       "defaultVoice": "기본 음성",
       "emoteMode": "이모티콘 모드",
-      "englishNormalization": "영어 정규화",
       "eventAnnouncements": "이벤트 알림",
       "expandAcronyms": "채팅 약어 확장",
       "minimumBits": "최소 Bits",
@@ -288,6 +295,8 @@
       "readCommandMessages": "채팅 명령어 읽기",
       "readFullUrls": "전체 URL 읽기",
       "redemptionAnnouncements": "리워드 수령 알림",
+      "soundTags": "사운드 태그",
+      "style": "스타일",
       "ttsEngine": "TTS 엔진",
       "ttsMode": "TTS 모드",
       "ttsPermission": "TTS 권한",
@@ -380,14 +389,6 @@
   "removeBotBtn": {
     "deactivateTtsService": "TTS 서비스 비활성화"
   },
-  "resetPitchBtn": {
-    "reset": "재설정",
-    "resetDefaultPitchTo0": "기본 음높이를 0으로 재설정"
-  },
-  "resetSpeedBtn": {
-    "reset": "초기화",
-    "resetDefaultSpeedTo1": "기본 속도를 1.0으로 초기화"
-  },
   "resetVolumeBtn": {
     "reset": "초기화",
     "resetVoiceVolumeTo1": "음성 볼륨을 1.0으로 초기화"
@@ -398,8 +399,8 @@
   "serviceHeadline": {
     "ttsService": "TTS 서비스"
   },
-  "sidebarVoiceName": {
-    "friendlyPerson": "친근한 음성"
+  "soundTagsTitle": {
+    "soundTags": "사운드 태그"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "!myvoice 등 채팅 명령어에 봇이 응답하도록 허용",
@@ -476,27 +477,23 @@
     "broadcaster": "스트리머"
   },
   "tabBtnViewerDefaults": {
-    "voiceDefaults": "기본 음성 설정"
+    "voiceDefaults": "음성 기본값"
   },
   "tabViewerDefaults": {
-    "adjustThePitchForThe": "기본 음성의 음높이 조정",
     "adjustTheVolumeForThe": "선택한 음성의 음량을 조정합니다. 주의: 1.0보다 큰 값은 음왜곡을 일으킬 수 있습니다.",
     "calibratedVoices": "보정된 음성",
     "calibrateVolumeForSpecificVoices": "특정 음성의 음량을 보정합니다. 주의: 1.0보다 큰 값은 음왜곡을 일으킬 수 있습니다.",
-    "controlHowFastTheDefault": "기본 음성의 말하기 속도를 조절합니다",
     "defaultEmotion": "<strong>기본 감정</strong>",
     "defaultLanguage": "<strong>기본 언어</strong>",
-    "defaultPitch12To12": "기본 피치(-12 ~ +12):",
-    "defaultSpeed05To": "기본 속도(0.5 ~ 2.0):",
-    "defaultVoice": "<strong>기본 음성</strong>",
     "defaultVoiceSettings": "기본 음성 설정",
-    "englishNormalization": "영어 정규화",
-    "improvePronunciationForSpecificLanguages": "특정 언어의 발음 개선",
-    "improveThePronunciationOfNumbers": "숫자 및 텍스트 발음 개선",
-    "selectTheDefaultTtsVoice": "채널의 기본 TTS 음성을 선택하세요",
+    "selectHowFastTheDefault": "기본 음성의 말하기 속도를 선택하세요",
+    "selectHowHighOrLow": "기본 음성의 높낮이를 선택하세요",
+    "selectTheVoiceThatTts": "개별 음성이 없는 시청자에게 TTS가 사용할 음성을 선택하세요",
     "selectVoice": "음성 선택",
     "setDefaultVoiceSettingsFor": "채널의 기본 음성 설정을 지정하세요",
-    "setTheEmotionalToneOf": "기본 음성의 감정 톤을 설정합니다",
+    "setTheEmotionOfThe": "기본 음성의 감정을 설정하세요. 음성을 직접 설명하려면 '사용자 지정'을 선택하세요.",
+    "theVoiceModelReadsThe": "음성 모델은 텍스트에서 언어를 파악합니다. 텍스트가 짧거나 불분명한 경우 이 설정이 모델에 힌트를 제공합니다. 또한 안내 메시지의 기본 언어와 비속어 필터의 단어 목록을 설정합니다.",
+    "viewersCanTypeASound": "시청자가 메시지에 사운드 태그를 입력하면 음성이 해당 소리를 냅니다. 예: <code>&lt;laugh&gt;</code>, <code>&lt;sigh&gt;</code>. 모든 태그는 기본적으로 켜져 있습니다. 태그를 끄려면 체크박스를 해제하세요.",
     "viewerVoiceLookup": "시청자 음성 조회",
     "voiceCalibration": "음성 보정",
     "voicesWithCustomVolumeSettings": "맞춤 음량 설정이 적용된 음성 목록입니다.",

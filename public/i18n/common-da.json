@@ -37,6 +37,7 @@
     "prefs_invalid_language": "Det er ikke et gyldigt sprog.",
     "prefs_invalid_pitch": "Det er ikke en gyldig tonehøjde.",
     "prefs_invalid_speed": "Det er ikke en gyldig hastighed.",
+    "prefs_invalid_style": "Det er ikke en gyldig stil.",
     "prefs_invalid_voice": "Det er ikke en gyldig stemme.",
     "prefs_missing_data": "Der blev ikke sendt nogen ændringer.",
     "prefs_update_failed": "Din ændring blev ikke gemt på grund af en serverfejl. Prøv igen.",
@@ -68,11 +69,13 @@
     "setting_update_failed": "Kan ikke opdatere TTS-indstillingen.",
     "settings_fetch_failed": "Kan ikke indlæse TTS-indstillinger.",
     "shortlink_failed": "Kan ikke oprette det korte link.",
+    "sound_tag_unknown": "Lydtagget \"{tag}\" er ikke på listen. Genindlæs siden, og prøv igen.",
     "storage_unavailable": "Lagring er utilgængelig.",
+    "style_too_long": "Stilen er for lang. Brug højst {max} tegn.",
+    "tts_blocked": "Taletjenesten afviste denne tekst. Ændr teksten, og prøv igen.",
     "tts_generation_failed": "Generering af tale mislykkedes: {reason}",
     "tts_no_audio": "Taleudbyderen returnerede ingen lyd.",
     "tts_not_configured": "Ingen taleudbyder er konfigureret.",
-    "tts_provider_failed": "Taleudbyderen kunne ikke generere lyd.",
     "tts_test_failed": "Taletesten mislykkedes.",
     "tts_text_required": "Indtast noget tekst for at teste.",
     "twitch_reauth_required": "Dit Twitch-login er udløbet. Tilslut din konto igen.",
@@ -80,8 +83,6 @@
     "url_required": "En URL er påkrævet.",
     "username_invalid": "Brugernavnet er ugyldigt.",
     "username_required": "Et brugernavn er påkrævet.",
-    "voice_access_denied": "Stemmen \"{voice}\" kræver særlig adgang. Prøv en anden stemme.",
-    "voice_invalid": "Stemmen \"{voice}\" er ikke tilgængelig. Tjek stemmen, og prøv igen.",
     "voice_lookup_failed": "Kan ikke slå brugerens stemme op.",
     "word_invalid": "Ordet eller udtrykket er ugyldigt.",
     "word_required": "Et ord eller udtryk er påkrævet."
@@ -117,7 +118,6 @@
     },
     "emotion": {
       "angry": "Vred",
-      "auto": "Auto",
       "calm": "Rolig",
       "disgusted": "Væmmet",
       "fearful": "Bange",
@@ -125,7 +125,8 @@
       "happy": "Glad",
       "neutral": "Neutral",
       "sad": "Trist",
-      "surprised": "Overrasket"
+      "surprised": "Overrasket",
+      "custom": "Tilpasset"
     },
     "ignore": {
       "enterUsername": "Indtast et brugernavn."
@@ -138,27 +139,65 @@
     },
     "preview": {
       "enterText": "Indtast tekst for at teste.",
-      "unavailable": "Ingen forhåndsvisning tilgængelig."
-    },
-    "value": {
-      "off": "Fra",
-      "on": "Til"
+      "unavailable": "Ingen lydprøve er tilgængelig for denne stemme."
     },
     "voice": {
       "cannotPlay": "Kan ikke afspille lydprøve.",
       "generating": "Genererer…",
       "noAudio": "Serveren returnerede ingen lyd.",
       "noneFound": "Ingen stemmer fundet.",
-      "preview": "Forhåndsvis {voice}",
+      "preview": "Afspil en lydprøve af {voice}",
       "regenerate": "Generer igen",
-      "testFailed": "Test mislykkedes: {reason}"
+      "testFailed": "Test mislykkedes: {reason}",
+      "choose": "Vælg en stemme",
+      "panelLabel": "Stemmesøgning",
+      "listLabel": "Stemmer",
+      "searchLabel": "Søg efter stemmer",
+      "searchHint": "Skriv et eller flere ord, f.eks. \"german calm low\". Søgningen finder de stemmer, der indeholder alle ordene. Stemmebeskrivelser er kun på engelsk.",
+      "filterLanguage": "Filtrer efter sprog",
+      "anyLanguage": "Alle sprog",
+      "filterGender": "Filtrer efter køn",
+      "anyGender": "Alle køn",
+      "gender": {
+        "female": "Kvinde",
+        "male": "Mand",
+        "neutral": "Neutral"
+      },
+      "filterPitch": "Filtrer efter tonehøjde",
+      "anyPitch": "Alle tonehøjder",
+      "pitch": {
+        "low": "Lav tonehøjde",
+        "medium": "Mellem tonehøjde",
+        "high": "Høj tonehøjde"
+      },
+      "studioOnly": "Kun studiestemmer",
+      "studioTag": "Studie",
+      "count": "Stemmer fundet: {count}",
+      "legacy": "Ældre stemme ({id})",
+      "stopSample": "Stop lydprøven af {voice}"
+    },
+    "step": {
+      "speed": {
+        "very_slow": "Meget langsom",
+        "slow": "Langsom",
+        "normal": "Normal",
+        "fast": "Hurtig",
+        "very_fast": "Meget hurtig"
+      },
+      "pitch": {
+        "very_low": "Meget lav",
+        "low": "Lav",
+        "normal": "Normal",
+        "high": "Høj",
+        "very_high": "Meget høj"
+      }
+    },
+    "style": {
+      "count": "{count} af {max} tegn"
     }
   },
   "page": {
     "skipToMainContent": "Spring til hovedindhold"
-  },
-  "sidebarEngNormVal": {
-    "off": "Fra"
   },
   "sidebarLanguageVal": {
     "automatic": "Automatisk"

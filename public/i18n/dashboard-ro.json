@@ -35,9 +35,6 @@
   "calibrationSaveBtn": {
     "save": "Salvează"
   },
-  "calibrationVoiceSearch": {
-    "searchVoicesToCalibrate": "Caută voci de calibrat..."
-  },
   "channelNameStatus": {
     "yourChannel": "canalul tău"
   },
@@ -73,7 +70,6 @@
     "deactivationStopsTheBotFrom": "Dezactivarea împiedică botul să citească mesajele din chat. Setările tale rămân salvate. Poți reactiva serviciul în orice moment.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Documentație",
     "emotion": "Emoție",
-    "engNormalization": "Normalizare eng.",
     "language": "Limbă",
     "pitch": "Tonalitate",
     "quickLinks": "Linkuri rapide",
@@ -87,22 +83,36 @@
   },
   "defaultEmotion": {
     "angry": "Furios",
+    "calm": "Calm",
+    "custom": "Personalizat…",
     "disgusted": "Dezgustat",
     "fearful": "Speriat",
+    "fluent": "Fluent",
     "happy": "Fericit",
     "neutral": "Neutru",
     "sad": "Trist",
     "surprised": "Surprins"
   },
-  "defaultPitch": {
-    "defaultPitch12To12": "Înălțime implicită (de la -12 la +12)"
+  "defaultPitchLabel": {
+    "defaultPitch": "<strong>Înălțime implicită</strong>"
   },
-  "defaultSpeed": {
-    "defaultSpeed05To": "Viteză implicită (de la 0,5 la 2,0)"
+  "defaultSpeedLabel": {
+    "defaultSpeed": "<strong>Viteză implicită</strong>"
   },
-  "defaultVoiceSearch": {
-    "searchDefaultVoices": "Caută voci implicite",
-    "searchVoices": "Caută voci..."
+  "defaultStepsHint": {
+    "pitchAndSpeedAreApproximate": "Înălțimea și viteza sunt aproximative. Modelul vocal primește aceste setări drept cuvinte, nu ca numere."
+  },
+  "defaultStyle": {
+    "exampleCalmAndSlowLike": "Exemplu: calm și rar, ca un prezentator de radio noaptea"
+  },
+  "defaultStyleGroup": {
+    "style": "Stil"
+  },
+  "defaultStyleHint": {
+    "describeInAFewWords": "Descrie în câteva cuvinte cum vorbește vocea."
+  },
+  "defaultVoiceLabel": {
+    "defaultVoice": "<strong>Voce implicită</strong>"
   },
   "defaultVolume": {
     "voiceVolume01To": "Volum voce (de la 0,1 la 10)"
@@ -111,9 +121,6 @@
     "describeEmotes": "Descrie emoticoanele",
     "readEmoteNames": "Citește numele emoticoanelor",
     "skipEmotes": "Omite emoticoanele"
-  },
-  "englishNormalization": {
-    "englishNormalization": "Normalizare în engleză"
   },
   "eventsEnabled": {
     "announceEvents": "Anunță evenimentele"
@@ -214,7 +221,8 @@
       "hasVoice": "Utilizatorul {user} a setat o voce personalizată: {voice}",
       "noVoice": "Utilizatorul {user} nu are o voce personalizată setată.",
       "searching": "Se caută…",
-      "voiceUnknown": "Această voce nu se află în lista de voci disponibile."
+      "voiceUnknown": "Această voce nu se află în lista de voci disponibile.",
+      "storedVoice": "Acest spectator a salvat vechea voce {stored}. TTS folosește în schimb vocea de mai sus."
     },
     "mutedRewards": {
       "announceLabel": "Anunță revendicările pentru {title}",
@@ -279,7 +287,6 @@
       "defaultSpeed": "Viteză implicită",
       "defaultVoice": "Voce implicită",
       "emoteMode": "Mod emote-uri",
-      "englishNormalization": "Normalizare în engleză",
       "eventAnnouncements": "Anunțuri pentru evenimente",
       "expandAcronyms": "Extinde acronimele din chat",
       "minimumBits": "Număr minim de bits",
@@ -288,6 +295,8 @@
       "readCommandMessages": "Citește comenzile din chat",
       "readFullUrls": "Citește URL-urile complete",
       "redemptionAnnouncements": "Anunțuri de revendicare",
+      "soundTags": "Etichete sonore",
+      "style": "Stil",
       "ttsEngine": "Motor TTS",
       "ttsMode": "Mod TTS",
       "ttsPermission": "Permisiune TTS",
@@ -380,14 +389,6 @@
   "removeBotBtn": {
     "deactivateTtsService": "Dezactivează serviciul TTS"
   },
-  "resetPitchBtn": {
-    "reset": "Resetează",
-    "resetDefaultPitchTo0": "Resetează înălțimea implicită a vocii la 0"
-  },
-  "resetSpeedBtn": {
-    "reset": "Resetează",
-    "resetDefaultSpeedTo1": "Resetează viteza implicită la 1.0"
-  },
   "resetVolumeBtn": {
     "reset": "Resetează",
     "resetVoiceVolumeTo1": "Resetează volumul vocii la 1.0"
@@ -398,8 +399,8 @@
   "serviceHeadline": {
     "ttsService": "Serviciu TTS"
   },
-  "sidebarVoiceName": {
-    "friendlyPerson": "Persoană prietenoasă"
+  "soundTagsTitle": {
+    "soundTags": "Etichete sonore"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Permite botului să răspundă la comenzi din chat precum !myvoice",
@@ -473,30 +474,26 @@
     "youtubeTtsEnabled": "TTS YouTube activat"
   },
   "tabBtnBroadcaster": {
-    "broadcaster": "Broadcaster"
+    "broadcaster": "Streamer"
   },
   "tabBtnViewerDefaults": {
     "voiceDefaults": "Setări implicite voce"
   },
   "tabViewerDefaults": {
-    "adjustThePitchForThe": "Ajustează tonalitatea pentru vocea implicită",
     "adjustTheVolumeForThe": "Ajustează volumul pentru vocea selectată. ATENȚIE: Valorile mai mari de 1,0 pot provoca distorsiuni.",
     "calibratedVoices": "Voci calibrate",
     "calibrateVolumeForSpecificVoices": "Calibrează volumul pentru anumite voci. ATENȚIE: Valorile mai mari de 1,0 pot provoca distorsiuni.",
-    "controlHowFastTheDefault": "Controlează viteza vocii implicite",
     "defaultEmotion": "<strong>Emoție implicită</strong>",
     "defaultLanguage": "<strong>Limbă implicită</strong>",
-    "defaultPitch12To12": "Tonalitate implicită (-12 la +12):",
-    "defaultSpeed05To": "Viteză implicită (0.5 la 2.0):",
-    "defaultVoice": "<strong>Voce implicită</strong>",
     "defaultVoiceSettings": "Setări voce implicită",
-    "englishNormalization": "Normalizare engleză",
-    "improvePronunciationForSpecificLanguages": "Îmbunătățește pronunția pentru anumite limbi",
-    "improveThePronunciationOfNumbers": "Îmbunătățește pronunția numerelor și a textului",
-    "selectTheDefaultTtsVoice": "Selectează vocea TTS implicită pentru canal",
+    "selectHowFastTheDefault": "Alege cât de repede vorbește vocea implicită",
+    "selectHowHighOrLow": "Alege cât de ascuțit sau de grav vorbește vocea implicită",
+    "selectTheVoiceThatTts": "Alege vocea pe care o folosește TTS pentru spectatorii care nu au o voce proprie",
     "selectVoice": "Selectează vocea",
     "setDefaultVoiceSettingsFor": "Setează opțiunile implicite de voce pentru canal",
-    "setTheEmotionalToneOf": "Setează tonul emoțional al vocii implicite",
+    "setTheEmotionOfThe": "Setează emoția vocii implicite. Selectează Personalizat pentru a descrie vocea cu propriile cuvinte.",
+    "theVoiceModelReadsThe": "Modelul vocal detectează limba din text. Dacă textul este scurt sau neclar, această setare oferă un indiciu modelului. De asemenea, setează limba implicită pentru anunțuri și alege lista de cuvinte pentru filtrul de limbaj vulgar.",
+    "viewersCanTypeASound": "Spectatorii pot scrie o etichetă sonoră într-un mesaj, iar vocea va reda acel sunet. Exemple: <code>&lt;laugh&gt;</code> și <code>&lt;sigh&gt;</code>. Toate etichetele sunt activate implicit. Pentru a dezactiva o etichetă, debifează caseta ei.",
     "viewerVoiceLookup": "Căutare voce spectator",
     "voiceCalibration": "Calibrare voce",
     "voicesWithCustomVolumeSettings": "Voci cu setări de volum personalizate.",

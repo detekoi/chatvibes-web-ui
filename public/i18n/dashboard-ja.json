@@ -35,9 +35,6 @@
   "calibrationSaveBtn": {
     "save": "保存"
   },
-  "calibrationVoiceSearch": {
-    "searchVoicesToCalibrate": "調整するボイスを検索..."
-  },
   "channelNameStatus": {
     "yourChannel": "あなたのチャンネル"
   },
@@ -73,7 +70,6 @@
     "deactivationStopsTheBotFrom": "無効化するとBotがチャットメッセージを読み上げなくなります。設定は保存されたまま残り、いつでもサービスを再開できます。",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>ドキュメント",
     "emotion": "感情",
-    "engNormalization": "英語の正規化",
     "language": "言語",
     "pitch": "ピッチ",
     "quickLinks": "クイックリンク",
@@ -87,22 +83,36 @@
   },
   "defaultEmotion": {
     "angry": "怒り",
+    "calm": "穏やか",
+    "custom": "カスタム…",
     "disgusted": "嫌悪",
     "fearful": "恐怖",
+    "fluent": "流暢",
     "happy": "喜び",
     "neutral": "ニュートラル",
     "sad": "悲しみ",
     "surprised": "驚き"
   },
-  "defaultPitch": {
-    "defaultPitch12To12": "デフォルトピッチ（-12～+12）"
+  "defaultPitchLabel": {
+    "defaultPitch": "<strong>デフォルトのピッチ</strong>"
   },
-  "defaultSpeed": {
-    "defaultSpeed05To": "デフォルト速度（0.5～2.0）"
+  "defaultSpeedLabel": {
+    "defaultSpeed": "<strong>デフォルトの速度</strong>"
   },
-  "defaultVoiceSearch": {
-    "searchDefaultVoices": "デフォルトボイスを検索",
-    "searchVoices": "ボイスを検索..."
+  "defaultStepsHint": {
+    "pitchAndSpeedAreApproximate": "ピッチと速度はおおよその目安です。音声モデルには数値ではなく言葉として設定が渡されます。"
+  },
+  "defaultStyle": {
+    "exampleCalmAndSlowLike": "例: 深夜ラジオのパーソナリティのように、落ち着いてゆっくりと"
+  },
+  "defaultStyleGroup": {
+    "style": "スタイル"
+  },
+  "defaultStyleHint": {
+    "describeInAFewWords": "声の話し方を短い言葉で指定します。"
+  },
+  "defaultVoiceLabel": {
+    "defaultVoice": "<strong>デフォルトボイス</strong>"
   },
   "defaultVolume": {
     "voiceVolume01To": "ボイス音量（0.1～10）"
@@ -111,9 +121,6 @@
     "describeEmotes": "エモートを読み上げる",
     "readEmoteNames": "エモート名を読み上げる",
     "skipEmotes": "エモートをスキップ"
-  },
-  "englishNormalization": {
-    "englishNormalization": "英語の正規化"
   },
   "eventsEnabled": {
     "announceEvents": "イベントを通知"
@@ -214,7 +221,8 @@
       "hasVoice": "ユーザー {user} はカスタムボイスを設定しています: {voice}",
       "noVoice": "ユーザー {user} はカスタムボイスを設定していません。",
       "searching": "検索中…",
-      "voiceUnknown": "このボイスは利用可能なボイス一覧にありません。"
+      "voiceUnknown": "このボイスは利用可能なボイス一覧にありません。",
+      "storedVoice": "この視聴者は古いボイス「{stored}」を保存しています。TTSでは代わりに上記のボイスを使用します。"
     },
     "mutedRewards": {
       "announceLabel": "{title}の引き換えを読み上げる",
@@ -279,7 +287,6 @@
       "defaultSpeed": "デフォルトの速度",
       "defaultVoice": "デフォルトの音声",
       "emoteMode": "エモートモード",
-      "englishNormalization": "英語の正規化",
       "eventAnnouncements": "イベント通知",
       "expandAcronyms": "チャットの略語を展開",
       "minimumBits": "最小Bits",
@@ -288,6 +295,8 @@
       "readCommandMessages": "チャットコマンドを読み上げる",
       "readFullUrls": "URLを最後まで読み上げる",
       "redemptionAnnouncements": "引き換え通知",
+      "soundTags": "サウンドタグ",
+      "style": "スタイル",
       "ttsEngine": "TTSエンジン",
       "ttsMode": "TTSモード",
       "ttsPermission": "TTS権限",
@@ -380,14 +389,6 @@
   "removeBotBtn": {
     "deactivateTtsService": "TTSサービスを無効化"
   },
-  "resetPitchBtn": {
-    "reset": "リセット",
-    "resetDefaultPitchTo0": "デフォルトのピッチを0にリセット"
-  },
-  "resetSpeedBtn": {
-    "reset": "リセット",
-    "resetDefaultSpeedTo1": "デフォルトの速度を1.0にリセット"
-  },
   "resetVolumeBtn": {
     "reset": "リセット",
     "resetVoiceVolumeTo1": "ボイス音量を1.0にリセット"
@@ -398,8 +399,8 @@
   "serviceHeadline": {
     "ttsService": "TTSサービス"
   },
-  "sidebarVoiceName": {
-    "friendlyPerson": "フレンドリーな人物"
+  "soundTagsTitle": {
+    "soundTags": "サウンドタグ"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "!myvoiceなどのチャットコマンドへのボットの応答を許可",
@@ -476,27 +477,23 @@
     "broadcaster": "配信者"
   },
   "tabBtnViewerDefaults": {
-    "voiceDefaults": "デフォルトボイス設定"
+    "voiceDefaults": "ボイスのデフォルト"
   },
   "tabViewerDefaults": {
-    "adjustThePitchForThe": "デフォルトボイスのピッチを調整",
     "adjustTheVolumeForThe": "選択したボイスの音量を調整します。注意: 1.0より大きい値にすると音割れの原因になります。",
     "calibratedVoices": "調整済みボイス",
     "calibrateVolumeForSpecificVoices": "特定のボイスの音量を調整します。注意: 1.0より大きい値にすると音割れの原因になります。",
-    "controlHowFastTheDefault": "デフォルト音声の読み上げ速度を調整",
     "defaultEmotion": "<strong>デフォルトの感情</strong>",
     "defaultLanguage": "<strong>デフォルトの言語</strong>",
-    "defaultPitch12To12": "デフォルトのピッチ (-12〜+12):",
-    "defaultSpeed05To": "デフォルトの速度 (0.5〜2.0):",
-    "defaultVoice": "<strong>デフォルトの音声</strong>",
     "defaultVoiceSettings": "デフォルト音声設定",
-    "englishNormalization": "英語の正規化",
-    "improvePronunciationForSpecificLanguages": "特定の言語の発音を改善",
-    "improveThePronunciationOfNumbers": "数字やテキストの発音を改善",
-    "selectTheDefaultTtsVoice": "チャンネルのデフォルトTTS音声を選択",
+    "selectHowFastTheDefault": "デフォルトボイスの話す速さを選択します",
+    "selectHowHighOrLow": "デフォルトボイスの声の高さを選択します",
+    "selectTheVoiceThatTts": "ボイスを設定していない視聴者に対してTTSが使用するボイスを選択します",
     "selectVoice": "音声を選択",
     "setDefaultVoiceSettingsFor": "チャンネルのデフォルト音声設定",
-    "setTheEmotionalToneOf": "デフォルト音声の感情トーンを設定",
+    "setTheEmotionOfThe": "デフォルトボイスの感情を設定します。自分の言葉で声の表現を指定するには「カスタム」を選択してください。",
+    "theVoiceModelReadsThe": "音声モデルはテキストから言語を判別します。テキストが短い場合や不明瞭な場合、この設定がモデルへのヒントになります。また、アナウンスのデフォルト言語や不適切語句フィルターの単語リストの選択にも使用されます。",
+    "viewersCanTypeASound": "視聴者がメッセージにサウンドタグを入力すると、ボイスがその音を出します。例: <code>&lt;laugh&gt;</code>、<code>&lt;sigh&gt;</code>。初期設定ではすべてのタグが有効です。タグをオフにするにはチェックボックスを外してください。",
     "viewerVoiceLookup": "視聴者音声の検索",
     "voiceCalibration": "音声キャリブレーション",
     "voicesWithCustomVolumeSettings": "音量がカスタム設定されている音声。",

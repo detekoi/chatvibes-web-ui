@@ -20,8 +20,7 @@ interface Secrets {
   TWITCH_CLIENT_ID: string;
   TWITCH_CLIENT_SECRET: string;
   JWT_SECRET: string; // Internal name, loaded from JWT_SECRET_KEY env var
-  WAVESPEED_API_KEY: string;
-  "302_KEY": string;
+  GEMINI_API_KEY: string;
 }
 
 interface Config {
@@ -39,8 +38,7 @@ const secrets: Secrets = {
   TWITCH_CLIENT_ID: process.env.TWITCH_CLIENT_ID || "",
   TWITCH_CLIENT_SECRET: process.env.TWITCH_CLIENT_SECRET || "",
   JWT_SECRET: process.env.JWT_SECRET_KEY || process.env.JWT_SECRET || "", // Support both names for compatibility
-  WAVESPEED_API_KEY: process.env.WAVESPEED_API_KEY || "",
-  "302_KEY": process.env["302_KEY"] || process.env.T302_API_KEY || "",
+  GEMINI_API_KEY: process.env.GEMINI_API_KEY || "",
 };
 
 // Configuration variables (not secrets)
@@ -90,10 +88,8 @@ function validateSecrets(): void {
     else presentSecrets.push("TWITCH_CLIENT_SECRET");
     if (!originalSecrets.JWT_SECRET) missingSecrets.push("JWT_SECRET_KEY (or JWT_SECRET)");
     else presentSecrets.push("JWT_SECRET");
-    if (!originalSecrets.WAVESPEED_API_KEY) missingSecrets.push("WAVESPEED_API_KEY");
-    else presentSecrets.push("WAVESPEED_API_KEY");
-    if (!originalSecrets["302_KEY"]) missingSecrets.push("302_KEY");
-    else presentSecrets.push("302_KEY");
+    if (!originalSecrets.GEMINI_API_KEY) missingSecrets.push("GEMINI_API_KEY");
+    else presentSecrets.push("GEMINI_API_KEY");
 
     if (missingSecrets.length > 0) {
       logger.error({

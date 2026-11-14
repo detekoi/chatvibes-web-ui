@@ -37,20 +37,16 @@
   },
   "emotionSelect": {
     "angry": "Jezen",
+    "calm": "Miren",
+    "custom": "Po meri…",
     "disgusted": "Zgrožen",
     "fearful": "Prestrašen",
+    "fluent": "Tekoč",
     "happy": "Vesel",
     "neutral": "Nevtralen",
     "sad": "Žalosten",
     "surprised": "Presenečen",
     "useChannelDefault": "Uporabi privzeto za kanal"
-  },
-  "englishNormalizationCheckbox": {
-    "englishNormalization": "Normalizacija angleščine"
-  },
-  "englishNormalizationReset": {
-    "clear": "Počisti",
-    "resetEnglishNormalizationToDefault": "Ponastavi normalizacijo angleščine na privzeto"
   },
   "ignoreTts": {
     "optOutInThisChannel": "Izklopi na tem kanalu"
@@ -110,11 +106,11 @@
       "hintChannel": "Uporaba privzete nastavitve kanala: {value}",
       "hintSystem": "Uporaba sistemsko privzete nastavitve",
       "hintUser": "Uporaba vaše globalne nastavitve: {value}",
-      "noVoicesFound": "Ni najdenih glasov",
       "sendPreview": "Pošlji predogled",
       "testCompletedTestMode": "Preizkus zaključen (preizkusni način).",
       "updated": "Nastavitev posodobljena.",
-      "updatedTestMode": "Nastavitev posodobljena (preizkusni način)."
+      "updatedTestMode": "Nastavitev posodobljena (preizkusni način).",
+      "customStyle": "Po meri ({style})"
     }
   },
   "openChannelContextModalBtn": {
@@ -140,36 +136,29 @@
     "viewerSettings": "Nastavitve za gledalce",
     "viewerTtsPreferences": "Nastavitve TTS za gledalce"
   },
+  "pitchLabel": {
+    "pitch": "<strong>Višina</strong>"
+  },
   "pitchReset": {
     "clear": "Počisti",
     "resetPitchToDefault": "Ponastavi višino tona na privzeto"
   },
-  "pitchSlider": {
-    "pitchAdjustment12To12": "Prilagoditev višine tona (-12 do +12)"
-  },
   "preferencesPanel": {
-    "adjustTheVoicePitchHigher": "Prilagodite višino glasu višje ali nižje",
-    "controlHowFastTheVoice": "Nadzorujte hitrost govorjenja glasu",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentacija </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Nastavitve za pretakalce </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
     "emotion": "<strong>Čustvo</strong>",
     "emotion2": "Čustvo",
-    "englishNormalization": "Normalizacija angleščine",
-    "engNormalization": "Angl. normalizacija",
-    "ifTtsReadsNumbersIncorrectly": "Če TTS nepravilno bere številke, vklopite normalizacijo angleškega besedila. Ta nastavitev nekoliko poveča zakasnitev.",
-    "improvePronunciationForSpecificLanguages": "Izboljšajte izgovorjavo za določene jezike",
-    "improveThePronunciationOfNumbers": "Izboljšajte izgovorjavo številk in besedila",
+    "ifYourTextIsShort": "Če je tvoje besedilo kratko ali nejasno, ta nastavitev glasovnemu modelu poda namig. Izbere tudi seznam besed za filter kletvic.",
     "language": "Jezik",
-    "languageBoost": "<strong>Language Boost</strong>",
+    "languageLabel": "<strong>Jezik</strong>",
     "pitch": "Višina tona",
-    "pitch12To12": "Višina tona (-12 do +12):",
     "quickLinks": "Hitre povezave",
-    "selectYourPreferredTtsVoice": "Izberite želeni TTS glas",
+    "selectHowFastTheVoice": "Izberi, kako hitro govori glas",
+    "selectHowHighOrLow": "Izberi, kako visoko ali nizko govori glas",
+    "selectTheVoiceThatTts": "Izberi glas, ki ga TTS uporablja za tvoja sporočila",
     "setHowYourMessagesSound": "Nastavite, kako naj zvenijo vaša sporočila, ko jih bere TTS",
-    "setTheEmotionalToneOf": "Nastavite čustveni ton glasu",
+    "setTheEmotionOfThe": "Nastavi čustvo glasu. Izberi Po meri, če želiš glas opisati s svojimi besedami.",
     "speed": "Hitrost",
-    "speed05To2": "Hitrost (0.5 do 2.0):",
     "testMessage": "Preizkusno sporočilo",
-    "voice": "<strong>Glas</strong>",
     "voicePreview": "Predogled glasu",
     "voiceSettings": "Nastavitve glasu"
   },
@@ -179,22 +168,33 @@
   "previewBtn": {
     "sendPreview": "Pošlji predogled"
   },
+  "speedLabel": {
+    "speed": "<strong>Hitrost</strong>"
+  },
   "speedReset": {
     "clear": "Počisti",
     "resetSpeedToDefault": "Ponastavi hitrost na privzeto"
   },
-  "speedSlider": {
-    "speedAdjustment05To": "Prilagoditev hitrosti (0,5 do 2,0)"
-  },
   "statChannelContext": {
     "noneLoaded": "Nič ni naloženo"
+  },
+  "stepsHint": {
+    "pitchAndSpeedAreApproximate": "Višina in hitrost sta približni. Glasovni model te nastavitve prejme kot besede, ne kot številke."
+  },
+  "styleGroup": {
+    "style": "Slog"
+  },
+  "styleHint": {
+    "describeInAFewWords": "V nekaj besedah opiši, kako glas govori."
+  },
+  "styleInput": {
+    "exampleCalmAndSlowLike": "Primer: miren in počasen, kot nočni radijski voditelj"
+  },
+  "voiceLabel": {
+    "voice": "<strong>Glas</strong>"
   },
   "voiceReset": {
     "clear": "Počisti",
     "resetVoiceToDefault": "Ponastavi glas na privzeto"
-  },
-  "voiceSearch": {
-    "searchVoices": "Išči glasove",
-    "searchVoices2": "Išči glasove ..."
   }
 }

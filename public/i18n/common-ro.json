@@ -37,6 +37,7 @@
     "prefs_invalid_language": "Aceea nu este o limbă validă.",
     "prefs_invalid_pitch": "Aceea nu este o tonalitate validă.",
     "prefs_invalid_speed": "Aceea nu este o viteză validă.",
+    "prefs_invalid_style": "Acesta nu este un stil valid.",
     "prefs_invalid_voice": "Aceea nu este o voce validă.",
     "prefs_missing_data": "Nu a fost trimisă nicio modificare.",
     "prefs_update_failed": "Modificarea nu a fost salvată din cauza unei erori de server. Încearcă din nou.",
@@ -68,11 +69,13 @@
     "setting_update_failed": "Nu se poate actualiza setarea TTS.",
     "settings_fetch_failed": "Nu se pot încărca setările TTS.",
     "shortlink_failed": "Nu se poate crea linkul scurt.",
+    "sound_tag_unknown": "Eticheta de sunet „{tag}” nu este în listă. Reîncarcă pagina și încearcă din nou.",
     "storage_unavailable": "Stocarea nu este disponibilă.",
+    "style_too_long": "Stilul este prea lung. Folosește {max} caractere sau mai puțin.",
+    "tts_blocked": "Serviciul vocal a refuzat acest text. Modifică textul și încearcă din nou.",
     "tts_generation_failed": "Generarea vocală a eșuat: {reason}",
     "tts_no_audio": "Furnizorul vocal nu a returnat conținut audio.",
     "tts_not_configured": "Nu este configurat niciun furnizor vocal.",
-    "tts_provider_failed": "Furnizorul vocal nu a putut genera conținut audio.",
     "tts_test_failed": "Testul vocal a eșuat.",
     "tts_text_required": "Introdu un text pentru testare.",
     "twitch_reauth_required": "Autentificarea ta Twitch a expirat. Reconectează-ți contul.",
@@ -80,8 +83,6 @@
     "url_required": "Este necesar un URL.",
     "username_invalid": "Numele de utilizator nu este valid.",
     "username_required": "Este necesar un nume de utilizator.",
-    "voice_access_denied": "Vocea \"{voice}\" necesită acces special. Încearcă altă voce.",
-    "voice_invalid": "Vocea \"{voice}\" nu este disponibilă. Verifică vocea și încearcă din nou.",
     "voice_lookup_failed": "Nu se poate căuta vocea acelui utilizator.",
     "word_invalid": "Cuvântul sau expresia nu este validă.",
     "word_required": "Este necesar un cuvânt sau o expresie."
@@ -117,7 +118,6 @@
     },
     "emotion": {
       "angry": "Furios",
-      "auto": "Auto",
       "calm": "Calm",
       "disgusted": "Dezgustat",
       "fearful": "Speriat",
@@ -125,7 +125,8 @@
       "happy": "Fericit",
       "neutral": "Neutru",
       "sad": "Trist",
-      "surprised": "Surprins"
+      "surprised": "Surprins",
+      "custom": "Personalizat"
     },
     "ignore": {
       "enterUsername": "Introdu un nume de utilizator."
@@ -138,27 +139,65 @@
     },
     "preview": {
       "enterText": "Introdu un text pentru testare.",
-      "unavailable": "Nicio previzualizare disponibilă."
-    },
-    "value": {
-      "off": "Oprit",
-      "on": "Pornit"
+      "unavailable": "Nu este disponibilă nicio mostră pentru această voce."
     },
     "voice": {
       "cannotPlay": "Nu se poate reda eșantionul audio.",
       "generating": "Se generează…",
       "noAudio": "Serverul nu a returnat conținut audio.",
       "noneFound": "Nu s-au găsit voci.",
-      "preview": "Previzualizează {voice}",
+      "preview": "Redă o mostră pentru {voice}",
       "regenerate": "Regenerează",
-      "testFailed": "Test eșuat: {reason}"
+      "testFailed": "Test eșuat: {reason}",
+      "choose": "Selectează o voce",
+      "panelLabel": "Căutare voci",
+      "listLabel": "Voci",
+      "searchLabel": "Caută voci",
+      "searchHint": "Scrie unul sau mai multe cuvinte, de exemplu „german calm low”. Căutarea găsește vocile care conțin toate cuvintele. Descrierile vocilor sunt doar în engleză.",
+      "filterLanguage": "Filtrează după limbă",
+      "anyLanguage": "Toate limbile",
+      "filterGender": "Filtrează după gen",
+      "anyGender": "Toate genurile",
+      "gender": {
+        "female": "Feminin",
+        "male": "Masculin",
+        "neutral": "Neutru"
+      },
+      "filterPitch": "Filtrează după tonalitate",
+      "anyPitch": "Toate tonalitățile",
+      "pitch": {
+        "low": "Tonalitate joasă",
+        "medium": "Tonalitate medie",
+        "high": "Tonalitate înaltă"
+      },
+      "studioOnly": "Doar voci Studio",
+      "studioTag": "Studio",
+      "count": "Voci găsite: {count}",
+      "legacy": "Voce veche ({id})",
+      "stopSample": "Oprește mostra pentru {voice}"
+    },
+    "step": {
+      "speed": {
+        "very_slow": "Foarte lent",
+        "slow": "Lent",
+        "normal": "Normal",
+        "fast": "Rapid",
+        "very_fast": "Foarte rapid"
+      },
+      "pitch": {
+        "very_low": "Foarte jos",
+        "low": "Jos",
+        "normal": "Normal",
+        "high": "Înalt",
+        "very_high": "Foarte înalt"
+      }
+    },
+    "style": {
+      "count": "{count} din {max} caractere"
     }
   },
   "page": {
     "skipToMainContent": "Sari la conținutul principal"
-  },
-  "sidebarEngNormVal": {
-    "off": "Oprit"
   },
   "sidebarLanguageVal": {
     "automatic": "Automat"

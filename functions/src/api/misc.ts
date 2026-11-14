@@ -2,16 +2,17 @@
  * Miscellaneous API routes (shortlinks, TTS test, etc.)
  */
 
+import { gzipSync } from "zlib";
 import express, { Request, Response, Router } from "express";
-import axios from "axios";
 import { db, COLLECTIONS } from "../services/firestore";
 import { createShortLink, normalizeEmotion, validateEmotion } from "../services/utils";
-import * as ttsConfig from "../services/tts-config.json";
 import { authenticateApiRequest, assertAuthenticated } from "../middleware/auth";
 import { ttsTestLimiter } from "../middleware/rateLimit";
 import { secrets, config } from "../config";
-import { logger, redactSensitive } from "../logger";
-import { RELEASED_VOICES } from "../services/voice-list";
+import { logger } from "../logger";
+import { getVoiceCatalog, getVoiceCatalogVersion, getDefaultVoiceId, resolveVoice } from "../services/voices";
+import { buildStyle } from "../services/style";
+import { generateSpeech, languageHint, getGeminiTtsModel, TtsBlockedError, TtsProviderError } from "../services/geminiTts";
 import { getUserIdFromUsername } from "../services/twitch";
 import { loadGlobalUserPreferences } from "../services/preferences";
 import { apiError } from "./utils";
@@ -26,35 +27,6 @@ interface ShortlinkData {
   clicks?: number;
   createdAt?: Date;
   lastClickedAt?: Date;
-}
-
-
-
-interface WavespeedInput {
-  text: string;
-  voice_id: string;
-  speed: number;
-  volume: number;
-  pitch: number;
-  emotion: string;
-  language_boost: string;
-  english_normalization: boolean;
-  sample_rate: number;
-  bitrate: number;
-  channel: string;
-  format: string;
-  enable_sync_mode: boolean;
-}
-
-interface WavespeedResponse {
-  status: string;
-  outputs?: string[];
-  error?: string;
-  data?: {
-    status: string;
-    outputs?: string[];
-    error?: string;
-  };
 }
 
 // Route: /api/shortlink - Create a short link (requires app/viewer JWT)
@@ -124,14 +96,41 @@ redirectRouter.get("/s/:slug", async (req: Request, res: Response): Promise<void
   }
 });
 
+// The catalog is about 0.9 MB of JSON and the app has no compression
+// middleware, so the body is built and compressed one time for each instance.
+let voicesBody: { json: Buffer; gzip: Buffer; etag: string } | null = null;
 
+function getVoicesBody(): { json: Buffer; gzip: Buffer; etag: string } {
+  if (!voicesBody) {
+    const version = getVoiceCatalogVersion();
+    const defaultVoiceId = getDefaultVoiceId();
+    const json = Buffer.from(JSON.stringify({ success: true, version, defaultVoiceId, voices: getVoiceCatalog() }));
+    voicesBody = { json, gzip: gzipSync(json), etag: `"${version}-${defaultVoiceId}"` };
+  }
+  return voicesBody;
+}
 
-// Route: /api/voices - Get list of available voices
-apiRouter.get("/voices", async (_req: Request, res: Response): Promise<void> => {
-  res.json({
-    success: true,
-    voices: RELEASED_VOICES
-  });
+// Route: /api/voices - The voice catalog (public)
+apiRouter.get("/voices", (req: Request, res: Response): void => {
+  const body = getVoicesBody();
+  res.set("Cache-Control", "public, max-age=3600");
+  res.set("ETag", body.etag);
+  res.vary("Accept-Encoding");
+  // req.fresh compares the ETag as Express does in res.send(), where a weak
+  // tag (W/"...", which a proxy makes when it compresses) also matches. A plain
+  // string comparison missed the weak tag, and res.send() then answered 304
+  // with Content-Encoding: gzip and no body.
+  if (req.fresh) {
+    res.status(304).end();
+    return;
+  }
+  res.type("application/json");
+  if (req.acceptsEncodings("gzip")) {
+    res.set("Content-Encoding", "gzip");
+    res.send(body.gzip);
+    return;
+  }
+  res.send(body.json);
 });
 
 // Route: /api/tts/user-voice/:username - Lookup a user's custom voice ID
@@ -162,11 +161,16 @@ apiRouter.get("/tts/user-voice/:username", authenticateApiRequest, async (req: R
     // Only the voice. Any signed-in broadcaster can call this for any login, so
     // the rest of the document (the opt-out among it) is the viewer's business,
     // and the response must not change shape with what else the document holds.
-    const voiceId: string | null = (docSnap?.exists && docSnap.data()?.voiceId) || null;
+    const stored: unknown = (docSnap?.exists && docSnap.data()?.voiceId) || null;
+    const storedVoiceId: string | null = typeof stored === "string" ? stored : null;
+    // The document can still hold a MiniMax ID. The caller gets the Gemini
+    // voice that the bot speaks with, and the stored ID when the two differ.
+    const voiceId = storedVoiceId ? resolveVoice(storedVoiceId).voice : null;
     res.json({
       success: true,
       username: username,
       voiceId,
+      ...(storedVoiceId && storedVoiceId !== voiceId ? { storedVoiceId } : {}),
       ...(voiceId ? {} : { message: "User has no custom voice set" }),
     });
   } catch (error) {
@@ -176,35 +180,46 @@ apiRouter.get("/tts/user-voice/:username", authenticateApiRequest, async (req: R
   }
 });
 
+// The highest volume a channel can store for a voice (see settings.ts).
+const MAX_TEST_VOLUME = 10;
+
 // Route: /api/tts/test - Test TTS functionality
 // Authenticate first: ttsTestLimiter keys on req.user.userId and falls back to
 // the (shared, proxied) IP when it is not set yet.
 apiRouter.post("/tts/test", authenticateApiRequest, ttsTestLimiter, async (req: Request, res: Response): Promise<void> => {
   assertAuthenticated(req);
 
-  const { text, voiceId, emotion, pitch, speed, volume, languageBoost } = req.body || {};
+  const { text, voiceId, emotion, style, pitch, speed, volume, languageBoost } = req.body || {};
   const channelLogin = req.user.userLogin;
   const log = logger.child({ endpoint: "/api/tts/test", channelLogin, voiceId: voiceId || "default" });
 
   try {
-    if (!text) {
+    if (!text || typeof text !== "string") {
       apiError(res, 400, "tts_text_required", "Text is required for TTS test");
       return;
     }
 
     log.info({ textLength: text.length }, "TTS test requested");
 
+    const given = (value: unknown): boolean => value !== undefined && value !== null && value !== "";
+
     // Resolve effective parameters in order: request override -> viewer global prefs
     let effective: {
       voiceId: string | null;
+      voiceStyle: string | null;
+      voiceLanguage: string | null;
       emotion: string | null;
+      style: string | null;
       pitch: number | null;
       speed: number | null;
       volume: number | null;
       languageBoost: string | null;
     } = {
       voiceId: voiceId ?? null,
+      voiceStyle: null,
+      voiceLanguage: null,
       emotion: normalizeEmotion(emotion),
+      style: given(style) ? style : null,
       pitch: (pitch !== undefined) ? pitch : null,
       speed: (speed !== undefined) ? speed : null,
       volume: (volume !== undefined) ? volume : null,
@@ -216,13 +231,25 @@ apiRouter.post("/tts/test", authenticateApiRequest, ttsTestLimiter, async (req: 
       const userPrefs = await loadGlobalUserPreferences(req.user.userId);
 
       const pick = (reqVal: unknown, userVal: unknown): unknown => {
-        if (reqVal !== undefined && reqVal !== null && reqVal !== "") return reqVal; // explicit request
-        return (userVal !== undefined && userVal !== null && userVal !== "") ? userVal : null; // viewer global
+        if (given(reqVal)) return reqVal; // explicit request
+        return given(userVal) ? userVal : null; // viewer global
       };
+
+      const sameVoice = (a: unknown, b: unknown): boolean =>
+        typeof a === "string" && typeof b === "string" && a.trim().toLowerCase() === b.trim().toLowerCase();
+      const usesStoredVoice = !given(voiceId) || sameVoice(voiceId, userPrefs.voiceId);
 
       effective = {
         voiceId: pick(voiceId, userPrefs.voiceId) as string | null,
+        // The stored manner and language belong to the stored voice. A different
+        // voice named in the request does not take them. The viewer page always
+        // names the voice, so the same voice must keep them.
+        voiceStyle: usesStoredVoice ? pick(null, userPrefs.voiceStyle) as string | null : null,
+        voiceLanguage: usesStoredVoice ? pick(null, userPrefs.voiceLanguage) as string | null : null,
         emotion: normalizeEmotion(pick(emotion, userPrefs.emotion) as string | null),
+        // A custom style replaces the emotion. An emotion named in the request
+        // is the one to hear, so the stored style does not replace it.
+        style: pick(style, given(emotion) ? null : userPrefs.style) as string | null,
         pitch: pick(pitch, userPrefs.pitch) as number | null,
         speed: pick(speed, userPrefs.speed) as number | null,
         volume: pick(volume, null) as number | null, // viewers have no volume preference
@@ -234,228 +261,55 @@ apiRouter.post("/tts/test", authenticateApiRequest, ttsTestLimiter, async (req: 
       log.warn({ error: err.message }, "Failed to resolve defaults; proceeding with request values only");
     }
 
-    // All voices use 302.ai (speech-2.8-turbo) as primary provider
-    // Verified 2026-03-06: all 475 voices work on 302.ai
-    const voice = effective.voiceId || "Friendly_Person";
-    const use302 = !!secrets["302_KEY"];
-
-    // Validate emotion before sending to any provider
     if (effective.emotion && !validateEmotion(effective.emotion)) {
-      log.warn({ emotion: effective.emotion }, "Invalid emotion value, falling back to auto-detect");
+      log.warn({ emotion: effective.emotion }, "Invalid emotion value, falling back to no emotion");
       effective.emotion = null;
     }
 
-    // Use 302.ai API
-    if (use302) {
-      try {
-        log.debug("302.ai client initialized for TTS test");
-
-        // Map language boost
-        let languageBoostValue = effective.languageBoost || "auto";
-        if (languageBoostValue === "Automatic" || languageBoostValue === "None") {
-          languageBoostValue = "auto";
-        }
-
-        const input = {
-          model: "speech-2.8-turbo",
-          text,
-          stream: false,
-          voice_setting: {
-            voice_id: voice,
-            speed: typeof effective.speed === "number" ? effective.speed : 1.0,
-            vol: typeof effective.volume === "number" ? effective.volume : 1.0,
-            pitch: typeof effective.pitch === "number" ? effective.pitch : 0,
-            emotion: (effective.emotion && effective.emotion !== "neutral") ? effective.emotion : undefined,
-            text_normalization: false,
-          },
-          audio_setting: {
-            sample_rate: 32000,
-            bitrate: 128000,
-            format: "mp3",
-            channel: 1,
-          },
-          language_boost: languageBoostValue,
-          output_format: "url",
-        };
-
-        const response = await axios.post(
-          "https://api.302.ai/minimaxi/v1/t2a_v2",
-          input,
-          {
-            headers: {
-              "Authorization": `Bearer ${secrets["302_KEY"]}`,
-              "Content-Type": "application/json",
-            },
-            timeout: 60000,
-          }
-        );
-
-        const result = response.data;
-        let audioUrl: string | undefined;
-
-        if (result.data && result.data.url) {
-          audioUrl = result.data.url;
-        } else if (result.data && result.data.audio) {
-          audioUrl = result.data.audio;
-        } else if (result.url) {
-          audioUrl = result.url;
-        }
-
-        if (audioUrl) {
-          res.json({ success: true, audioUrl, provider: "302.ai", model: "speech-2.8-turbo" });
-          return;
-        } else {
-          log.error({ result }, "302.ai returned unexpected response");
-          // Fall through to Wavespeed? Or just error? Let's error for now as fallthrough might be confusing
-          apiError(res, 502, "tts_no_audio", "302.ai generated no audio URL");
-          return;
-        }
-
-      } catch (err302) {
-        const error = err302 as any;
-        log.error({ 
-          error: error.message, 
-          apiError: error.response?.data, 
-        }, "302.ai call failed");
-        // Could fallback to Wavespeed here if we wanted
-        apiError(res, 500, "tts_provider_failed", "302.ai TTS generation failed");
-        return;
-      }
+    if (!secrets.GEMINI_API_KEY) {
+      apiError(res, 501, "tts_not_configured", "TTS provider not configured");
+      return;
     }
 
-    // Fallback/Default: generate audio via Wavespeed AI (minimax/speech-02-turbo)
-    if (secrets.WAVESPEED_API_KEY) {
-      try {
-        log.debug("Wavespeed AI client initialized for TTS test");
+    // A stored MiniMax ID maps to a Gemini voice plus the manner the map adds.
+    const resolved = resolveVoice(effective.voiceId);
+    const requestStyle = buildStyle({
+      style: effective.style,
+      voiceStyle: effective.voiceStyle ?? resolved.voiceStyle,
+      emotion: effective.emotion,
+      speed: effective.speed,
+      pitch: effective.pitch,
+    });
+    const gain = typeof effective.volume === "number" && effective.volume > 0 ?
+      Math.min(effective.volume, MAX_TEST_VOLUME) : 1;
 
-        // Map legacy language boost values to Wavespeed format
-        let languageBoostValue = effective.languageBoost || "auto";
-        if (languageBoostValue === "Automatic" || languageBoostValue === "None") {
-          languageBoostValue = "auto";
-        }
-
-        // Sanitize emotion for Wavespeed (speech-02-turbo doesn't support calm/fluent)
-        let wavespeedEmotion: string | undefined = effective.emotion || undefined;
-        if (wavespeedEmotion && !(ttsConfig.LEGACY_SAFE_EMOTIONS as readonly string[]).includes(wavespeedEmotion)) {
-          log.debug({ emotion: wavespeedEmotion }, "Emotion not supported by Wavespeed, omitting");
-          wavespeedEmotion = undefined;
-        }
-        // neutral → omit for auto-detect
-        if (wavespeedEmotion === "neutral") {
-          wavespeedEmotion = undefined;
-        }
-
-        // Sanitize language for Wavespeed (speech-02-turbo supports fewer languages)
-        if (languageBoostValue && !(ttsConfig.LEGACY_SAFE_LANGUAGE_BOOSTS as readonly string[]).includes(languageBoostValue)) {
-          log.debug({ language: languageBoostValue }, "Language not supported by Wavespeed, falling back to auto");
-          languageBoostValue = "auto";
-        }
-
-        const input: WavespeedInput & { vol: number } = {
-          text,
-          voice_id: voice,
-          speed: typeof effective.speed === "number" ? effective.speed : 1.0,
-          vol: typeof effective.volume === "number" ? effective.volume : 1.0,
-          volume: typeof effective.volume === "number" ? effective.volume : 1.0,
-          pitch: typeof effective.pitch === "number" ? effective.pitch : 0,
-          emotion: wavespeedEmotion as string,
-          language_boost: languageBoostValue,
-          english_normalization: false,
-          sample_rate: 32000,
-          bitrate: 128000,
-          channel: "1",
-          format: "mp3",
-          enable_sync_mode: true, // Enable sync mode for lowest latency
-        };
-
-        const response = await axios.post<WavespeedResponse>(
-          "https://api.wavespeed.ai/api/v3/minimax/speech-02-turbo",
-          input,
-          {
-            headers: {
-              "Authorization": `Bearer ${secrets.WAVESPEED_API_KEY}`,
-              "Content-Type": "application/json",
-            },
-            timeout: 60000, // 60 second timeout
-          },
-        );
-
-        const result = response.data;
-        const data = result.data || result;
-
-        if (data.status === "completed" && data.outputs && data.outputs.length > 0) {
-          const audioUrl = data.outputs[0];
-          res.json({ success: true, audioUrl, provider: "wavespeed", model: "minimax/speech-02-turbo" });
-          return;
-        } else if (data.status === "failed") {
-          log.error({ error: data.error }, "Wavespeed AI returned failed status");
-
-          // Provide specific error messages based on the failure reason
-          if (data.error?.includes("you don't have access to this voice_id")) {
-            apiError(res, 403, "voice_access_denied",
-              `Voice access denied: The voice "${effective.voiceId}" requires special access permissions. Please try a different voice.`,
-              { voice: effective.voiceId });
-            return;
-          }
-
-          if (data.error?.includes("voice_id")) {
-            apiError(res, 400, "voice_invalid",
-              `Invalid voice: "${effective.voiceId}" is not available. Please check the voice ID and try again.`,
-              { voice: effective.voiceId });
-            return;
-          }
-
-          apiError(res, 502, "tts_generation_failed",
-            `TTS generation failed: ${data.error || "Unknown error"}`,
-            { reason: data.error || "Unknown error" });
-          return;
-        } else {
-          log.warn({ data: redactSensitive(data) }, "Wavespeed AI returned unexpected status or missing outputs");
-          apiError(res, 502, "tts_no_audio", "No audio URL returned by TTS provider");
-          return;
-        }
-      } catch (wavespeedError) {
-        const err = wavespeedError as { message: string; response?: { data?: { message?: string } } };
-        log.error({
-          error: err.message,
-          responseData: redactSensitive(err?.response?.data),
-        }, "Wavespeed AI call failed");
-
-        // Provide specific error messages based on Wavespeed API response
-        if (err.response?.data) {
-          const providerError = err.response.data;
-
-          // Check for specific Wavespeed error messages
-          if (providerError.message && providerError.message.includes("you don't have access to this voice_id")) {
-            apiError(res, 403, "voice_access_denied",
-              `Voice access denied: The voice "${effective.voiceId}" requires special access permissions. Please try a different voice.`,
-              { voice: effective.voiceId });
-            return;
-          }
-
-          if (providerError.message && providerError.message.includes("voice_id")) {
-            apiError(res, 400, "voice_invalid",
-              `Invalid voice: "${effective.voiceId}" is not available. Please check the voice ID and try again.`,
-              { voice: effective.voiceId });
-            return;
-          }
-
-          if (providerError.message) {
-            apiError(res, 502, "tts_generation_failed",
-              `TTS generation failed: ${providerError.message}`,
-              { reason: providerError.message });
-            return;
-          }
-        }
-
-        // Fallback to generic error
-        apiError(res, 500, "tts_provider_failed", "TTS generation failed");
+    try {
+      const { wav, model } = await generateSpeech({
+        apiKey: secrets.GEMINI_API_KEY,
+        text,
+        voice: resolved.voice,
+        style: requestStyle,
+        // As in the bot: an explicit language wins, then the language stored
+        // beside the voice, then the language that the voice brings.
+        language: languageHint(effective.languageBoost) ?? (effective.voiceLanguage || resolved.language),
+        volume: gain,
+      });
+      res.json({ success: true, audioBase64: wav.toString("base64"), mimeType: "audio/wav", provider: "gemini", model });
+    } catch (ttsError) {
+      const err = ttsError as Error;
+      if (err instanceof TtsBlockedError) {
+        log.info({ voice: resolved.voice }, "Gemini TTS refused the text");
+        apiError(res, 400, "tts_blocked", "The voice service refused this text. Change the text and try again.");
         return;
       }
+      const reason = err instanceof TtsProviderError ? err.reason : "unknown";
+      log.error({ error: err.message, voice: resolved.voice, model: getGeminiTtsModel() }, "Gemini TTS call failed");
+      if (reason === "no audio") {
+        apiError(res, 502, "tts_no_audio", "No audio returned by TTS provider");
+        return;
+      }
+      apiError(res, 502, "tts_generation_failed", `TTS generation failed: ${reason}`, { reason });
     }
-
-    // Fallback when Wavespeed AI is not configured
-    apiError(res, 501, "tts_not_configured", "TTS provider not configured");
   } catch (error) {
     const err = error as Error;
     log.error({ error: err.message }, "Error in TTS test");

@@ -96,7 +96,7 @@ Viewers who sign in to set personal TTS preferences require no special OAuth sco
    * Configure Firebase Hosting and Cloud Functions.
 3. **Environment Variables:**
    * **For Local Development (Firebase Emulator):** Copy `.env.example` to `.env` (or `.env.local` / `.env.<YOUR_PROJECT_ID>` in `functions/`) and update with your local configuration values.
-   * **For Deployed Functions:** In production, sensitive secrets (`TWITCH_CLIENT_ID`, `TWITCH_CLIENT_SECRET`, `JWT_SECRET_KEY`, `302_KEY`, `WAVESPEED_API_KEY`) are mounted from Google Cloud Secret Manager as specified in `firebase.json`. Non-secret config can be set in Google Cloud Console under runtime environment variables.
+   * **For Deployed Functions:** In production, sensitive secrets (`TWITCH_CLIENT_ID`, `TWITCH_CLIENT_SECRET`, `JWT_SECRET_KEY`, `GEMINI_API_KEY`) are mounted from Google Cloud Secret Manager as specified in `firebase.json`. Non-secret config can be set in Google Cloud Console under runtime environment variables.
 4. **Install Dependencies:**
    * Open the `functions/` directory in your terminal.
    * Run `npm install` to install backend dependencies.

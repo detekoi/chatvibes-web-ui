@@ -35,9 +35,6 @@
   "calibrationSaveBtn": {
     "save": "บันทึก"
   },
-  "calibrationVoiceSearch": {
-    "searchVoicesToCalibrate": "ค้นหาเสียงที่ต้องการปรับเทียบ..."
-  },
   "channelNameStatus": {
     "yourChannel": "ช่องของคุณ"
   },
@@ -73,7 +70,6 @@
     "deactivationStopsTheBotFrom": "การปิดใช้งานจะหยุดบอทไม่ให้อ่านข้อความในแชท การตั้งค่าของคุณจะยังคงได้รับการบันทึกไว้ คุณสามารถเปิดใช้งานบริการได้อีกครั้งทุกเมื่อ",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>เอกสาร",
     "emotion": "อารมณ์",
-    "engNormalization": "การปรับมาตรฐานภาษาอังกฤษ",
     "language": "ภาษา",
     "pitch": "ระดับเสียง",
     "quickLinks": "ลิงก์ด่วน",
@@ -87,22 +83,36 @@
   },
   "defaultEmotion": {
     "angry": "โกรธ",
+    "calm": "สงบ",
+    "custom": "กำหนดเอง…",
     "disgusted": "รังเกียจ",
     "fearful": "กลัว",
+    "fluent": "ลื่นไหล",
     "happy": "มีความสุข",
     "neutral": "เป็นกลาง",
     "sad": "เศร้า",
     "surprised": "ประหลาดใจ"
   },
-  "defaultPitch": {
-    "defaultPitch12To12": "ระดับเสียงสูงต่ำเริ่มต้น (-12 ถึง +12)"
+  "defaultPitchLabel": {
+    "defaultPitch": "<strong>ระดับเสียงเริ่มต้น</strong>"
   },
-  "defaultSpeed": {
-    "defaultSpeed05To": "ความเร็วเริ่มต้น (0.5 ถึง 2.0)"
+  "defaultSpeedLabel": {
+    "defaultSpeed": "<strong>ความเร็วเริ่มต้น</strong>"
   },
-  "defaultVoiceSearch": {
-    "searchDefaultVoices": "ค้นหาเสียงเริ่มต้น",
-    "searchVoices": "ค้นหาเสียง..."
+  "defaultStepsHint": {
+    "pitchAndSpeedAreApproximate": "ระดับเสียงและความเร็วเป็นค่าโดยประมาณ โมเดลเสียงจะรับการตั้งค่าเหล่านี้เป็นคำบรรยาย ไม่ใช่ตัวเลข"
+  },
+  "defaultStyle": {
+    "exampleCalmAndSlowLike": "ตัวอย่าง: สงบและช้า เหมือนนักจัดรายการวิทยุตอนกลางคืน"
+  },
+  "defaultStyleGroup": {
+    "style": "สไตล์"
+  },
+  "defaultStyleHint": {
+    "describeInAFewWords": "อธิบายสั้นๆ ว่าเสียงพูดควรเป็นอย่างไร"
+  },
+  "defaultVoiceLabel": {
+    "defaultVoice": "<strong>เสียงเริ่มต้น</strong>"
   },
   "defaultVolume": {
     "voiceVolume01To": "ระดับเสียง (0.1 ถึง 10)"
@@ -111,9 +121,6 @@
     "describeEmotes": "อธิบายอีโมต",
     "readEmoteNames": "อ่านชื่ออิโมต",
     "skipEmotes": "ข้ามอิโมต"
-  },
-  "englishNormalization": {
-    "englishNormalization": "การปรับมาตรฐานภาษาอังกฤษ"
   },
   "eventsEnabled": {
     "announceEvents": "ประกาศกิจกรรม"
@@ -214,7 +221,8 @@
       "hasVoice": "ผู้ใช้ {user} ตั้งค่าเสียงกำหนดเอง: {voice}",
       "noVoice": "ผู้ใช้ {user} ไม่ได้ตั้งค่าเสียงกำหนดเอง",
       "searching": "กำลังค้นหา…",
-      "voiceUnknown": "ไม่มีเสียงนี้ในรายการเสียงที่ใช้ได้"
+      "voiceUnknown": "ไม่มีเสียงนี้ในรายการเสียงที่ใช้ได้",
+      "storedVoice": "ผู้ชมรายนี้บันทึกเสียงเก่า {stored} ไว้ TTS จะใช้เสียงด้านบนแทน"
     },
     "mutedRewards": {
       "announceLabel": "ประกาศการแลก {title}",
@@ -279,7 +287,6 @@
       "defaultSpeed": "ความเร็วเริ่มต้น",
       "defaultVoice": "เสียงเริ่มต้น",
       "emoteMode": "โหมดอีโมต",
-      "englishNormalization": "การปรับมาตรฐานภาษาอังกฤษ",
       "eventAnnouncements": "การประกาศกิจกรรม",
       "expandAcronyms": "ขยายคำย่อในแชท",
       "minimumBits": "Bits ขั้นต่ำ",
@@ -288,6 +295,8 @@
       "readCommandMessages": "อ่านคำสั่งแชท",
       "readFullUrls": "อ่าน URL แบบเต็ม",
       "redemptionAnnouncements": "การประกาศการแลกรับ",
+      "soundTags": "แท็กเสียง",
+      "style": "สไตล์",
       "ttsEngine": "TTS Engine",
       "ttsMode": "โหมด TTS",
       "ttsPermission": "สิทธิ์การใช้งาน TTS",
@@ -380,14 +389,6 @@
   "removeBotBtn": {
     "deactivateTtsService": "ปิดใช้งานบริการ TTS"
   },
-  "resetPitchBtn": {
-    "reset": "รีเซ็ต",
-    "resetDefaultPitchTo0": "รีเซ็ตระดับเสียงเริ่มต้นเป็น 0"
-  },
-  "resetSpeedBtn": {
-    "reset": "รีเซ็ต",
-    "resetDefaultSpeedTo1": "รีเซ็ตความเร็วเริ่มต้นเป็น 1.0"
-  },
   "resetVolumeBtn": {
     "reset": "รีเซ็ต",
     "resetVoiceVolumeTo1": "รีเซ็ตระดับเสียงเป็น 1.0"
@@ -398,8 +399,8 @@
   "serviceHeadline": {
     "ttsService": "บริการ TTS"
   },
-  "sidebarVoiceName": {
-    "friendlyPerson": "คนเป็นมิตร"
+  "soundTagsTitle": {
+    "soundTags": "แท็กเสียง"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "อนุญาตให้บอทตอบสนองต่อคำสั่งแชท เช่น !myvoice",
@@ -479,24 +480,20 @@
     "voiceDefaults": "ค่าเริ่มต้นของเสียง"
   },
   "tabViewerDefaults": {
-    "adjustThePitchForThe": "ปรับระดับเสียงสูงต่ำสำหรับเสียงเริ่มต้น",
     "adjustTheVolumeForThe": "ปรับระดับเสียงสำหรับเสียงที่เลือก ข้อควรระวัง: ค่าที่มากกว่า 1.0 อาจทำให้เสียงแตกพร่าได้",
     "calibratedVoices": "เสียงที่ปรับเทียบแล้ว",
     "calibrateVolumeForSpecificVoices": "ปรับเทียบระดับเสียงสำหรับแต่ละเสียง ข้อควรระวัง: ค่าที่มากกว่า 1.0 อาจทำให้เสียงแตกพร่าได้",
-    "controlHowFastTheDefault": "ควบคุมความเร็วเสียงพูดเริ่มต้น",
     "defaultEmotion": "<strong>อารมณ์เริ่มต้น</strong>",
     "defaultLanguage": "<strong>ภาษาเริ่มต้น</strong>",
-    "defaultPitch12To12": "ระดับเสียงสูงต่ำเริ่มต้น (-12 ถึง +12):",
-    "defaultSpeed05To": "ความเร็วเริ่มต้น (0.5 ถึง 2.0):",
-    "defaultVoice": "<strong>เสียงเริ่มต้น</strong>",
     "defaultVoiceSettings": "การตั้งค่าเสียงเริ่มต้น",
-    "englishNormalization": "การปรับมาตรฐานภาษาอังกฤษ",
-    "improvePronunciationForSpecificLanguages": "ปรับปรุงการออกเสียงสำหรับบางภาษา",
-    "improveThePronunciationOfNumbers": "ปรับปรุงการออกเสียงตัวเลขและข้อความ",
-    "selectTheDefaultTtsVoice": "เลือกเสียง TTS เริ่มต้นสำหรับช่อง",
+    "selectHowFastTheDefault": "เลือกความเร็วในการพูดของเสียงเริ่มต้น",
+    "selectHowHighOrLow": "เลือกระดับเสียงสูงหรือต่ำของเสียงเริ่มต้น",
+    "selectTheVoiceThatTts": "เลือกเสียงที่ TTS ใช้สำหรับผู้ชมที่ยังไม่มีเสียงของตนเอง",
     "selectVoice": "เลือกเสียง",
     "setDefaultVoiceSettingsFor": "กำหนดการตั้งค่าเสียงเริ่มต้นสำหรับช่องของคุณ",
-    "setTheEmotionalToneOf": "กำหนดโทนอารมณ์ของเสียงเริ่มต้น",
+    "setTheEmotionOfThe": "ตั้งค่าอารมณ์ของเสียงเริ่มต้น เลือก กำหนดเอง เพื่ออธิบายเสียงด้วยคำพูดของคุณเอง",
+    "theVoiceModelReadsThe": "โมเดลเสียงจะตรวจจับภาษาจากข้อความ หากข้อความสั้นหรือไม่ชัดเจน การตั้งค่านี้จะช่วยบอกใบ้โมเดล นอกจากนี้ยังใช้ตั้งค่าภาษาเริ่มต้นสำหรับการประกาศและเลือกรายการคำสำหรับตัวกรองคำหยาบคายอีกด้วย",
+    "viewersCanTypeASound": "ผู้ชมสามารถพิมพ์แท็กเสียงในข้อความได้ แล้วเสียงจะทำเสียงนั้นออกมา ตัวอย่างเช่น <code>&lt;laugh&gt;</code> และ <code>&lt;sigh&gt;</code> แท็กทั้งหมดเปิดใช้งานอยู่โดยค่าเริ่มต้น หากต้องการปิดแท็กใด ให้ยกเลิกการเลือกในช่องทำเครื่องหมาย",
     "viewerVoiceLookup": "ค้นหาเสียงของผู้ชม",
     "voiceCalibration": "การปรับเทียบระดับเสียง",
     "voicesWithCustomVolumeSettings": "เสียงที่มีการปรับระดับเสียงแบบกำหนดเอง",

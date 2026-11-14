@@ -51,10 +51,13 @@ export interface TtsSettings {
   bitsMinimumAmount?: number;
   voiceId?: string;
   emotion?: string;
+  /** Free text that tells the voice model how to speak. Not empty means that it replaces the emotion. */
+  style?: string;
   pitch?: number;
   speed?: number;
   languageBoost?: string;
-  englishNormalization?: boolean;
+  /** Canonical names from SOUND_TAGS that the channel turned off. */
+  disabledSoundTags?: string[];
   emoteMode?: string;
   /**
    * TTS ignore list, keyed by immutable platform account ID ("twitch:<id>").
@@ -88,13 +91,6 @@ export interface SettingsResponse {
 }
 
 /**
- * API response for voices endpoint
- */
-export interface VoicesResponse {
-  voices?: string[];
-}
-
-/**
  * Error response from API
  */
 export interface ErrorResponse {
@@ -110,7 +106,10 @@ export interface ErrorResponse {
 export interface VoiceLookupResponse {
   success: boolean;
   username: string;
+  /** The Gemini voice that the bot speaks with. */
   voiceId: string | null;
+  /** The ID in the viewer record, sent only when it differs (an old MiniMax ID). */
+  storedVoiceId?: string;
   message?: string;
   error?: string;
 }

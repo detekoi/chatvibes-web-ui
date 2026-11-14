@@ -35,9 +35,6 @@
   "calibrationSaveBtn": {
     "save": "Gem"
   },
-  "calibrationVoiceSearch": {
-    "searchVoicesToCalibrate": "Søg efter stemmer til kalibrering..."
-  },
   "channelNameStatus": {
     "yourChannel": "din kanal"
   },
@@ -73,7 +70,6 @@
     "deactivationStopsTheBotFrom": "Deaktivering stopper botten i at læse chatbeskeder. Dine indstillinger forbliver gemt. Du kan aktivere tjenesten igen når som helst.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentation",
     "emotion": "Følelse",
-    "engNormalization": "Eng. normalisering",
     "language": "Sprog",
     "pitch": "Tonehøjde",
     "quickLinks": "Hurtige links",
@@ -87,22 +83,36 @@
   },
   "defaultEmotion": {
     "angry": "Vred",
+    "calm": "Rolig",
+    "custom": "Tilpasset…",
     "disgusted": "Væmmet",
     "fearful": "Frygtsom",
+    "fluent": "Flydende",
     "happy": "Glad",
     "neutral": "Neutral",
     "sad": "Trist",
     "surprised": "Overrasket"
   },
-  "defaultPitch": {
-    "defaultPitch12To12": "Standardtonehøjde (-12 til +12)"
+  "defaultPitchLabel": {
+    "defaultPitch": "<strong>Standardtoneleje</strong>"
   },
-  "defaultSpeed": {
-    "defaultSpeed05To": "Standardhastighed (0,5 til 2,0)"
+  "defaultSpeedLabel": {
+    "defaultSpeed": "<strong>Standardhastighed</strong>"
   },
-  "defaultVoiceSearch": {
-    "searchDefaultVoices": "Søg i standardstemmer",
-    "searchVoices": "Søg efter stemmer..."
+  "defaultStepsHint": {
+    "pitchAndSpeedAreApproximate": "Toneleje og hastighed er omtrentlige. Stemmemodellen modtager disse indstillinger som ord, ikke som tal."
+  },
+  "defaultStyle": {
+    "exampleCalmAndSlowLike": "Eksempel: rolig og langsom, som en radiovært om natten"
+  },
+  "defaultStyleGroup": {
+    "style": "Stil"
+  },
+  "defaultStyleHint": {
+    "describeInAFewWords": "Beskriv med få ord, hvordan stemmen taler."
+  },
+  "defaultVoiceLabel": {
+    "defaultVoice": "<strong>Standardstemme</strong>"
   },
   "defaultVolume": {
     "voiceVolume01To": "Stemmelydstyrke (0,1 til 10)"
@@ -111,9 +121,6 @@
     "describeEmotes": "Beskriv emotes",
     "readEmoteNames": "Læs emote-navne",
     "skipEmotes": "Spring emotes over"
-  },
-  "englishNormalization": {
-    "englishNormalization": "Engelsk normalisering"
   },
   "eventsEnabled": {
     "announceEvents": "Annoncer begivenheder"
@@ -214,7 +221,8 @@
       "hasVoice": "Brugeren {user} har valgt brugerdefineret stemme: {voice}",
       "noVoice": "Brugeren {user} har ikke indstillet en brugerdefineret stemme.",
       "searching": "Søger…",
-      "voiceUnknown": "Denne stemme er ikke på listen over tilgængelige stemmer."
+      "voiceUnknown": "Denne stemme er ikke på listen over tilgængelige stemmer.",
+      "storedVoice": "Denne seer gemte den gamle stemme {stored}. TTS bruger stemmen ovenfor i stedet."
     },
     "mutedRewards": {
       "announceLabel": "Annoncér indløsninger af {title}",
@@ -279,7 +287,6 @@
       "defaultSpeed": "Standardhastighed",
       "defaultVoice": "Standardstemme",
       "emoteMode": "Emote-tilstand",
-      "englishNormalization": "Engelsk normalisering",
       "eventAnnouncements": "Begivenhedsannonceringer",
       "expandAcronyms": "Udvid chatforkortelser",
       "minimumBits": "Minimum bits",
@@ -288,6 +295,8 @@
       "readCommandMessages": "Læs chatkommandoer",
       "readFullUrls": "Læs hele URL'er",
       "redemptionAnnouncements": "Indløsningsannonceringer",
+      "soundTags": "Lydtags",
+      "style": "Stil",
       "ttsEngine": "TTS-motor",
       "ttsMode": "TTS-tilstand",
       "ttsPermission": "TTS-tilladelse",
@@ -380,14 +389,6 @@
   "removeBotBtn": {
     "deactivateTtsService": "Deaktiver TTS-tjeneste"
   },
-  "resetPitchBtn": {
-    "reset": "Nulstil",
-    "resetDefaultPitchTo0": "Nulstil standardtonehøjde til 0"
-  },
-  "resetSpeedBtn": {
-    "reset": "Nulstil",
-    "resetDefaultSpeedTo1": "Nulstil standardhastighed til 1,0"
-  },
   "resetVolumeBtn": {
     "reset": "Nulstil",
     "resetVoiceVolumeTo1": "Nulstil stemmelydstyrke til 1,0"
@@ -398,8 +399,8 @@
   "serviceHeadline": {
     "ttsService": "TTS-tjeneste"
   },
-  "sidebarVoiceName": {
-    "friendlyPerson": "Venlig person"
+  "soundTagsTitle": {
+    "soundTags": "Lydtags"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Tillad botten at svare på chatkommandoer som f.eks. !myvoice",
@@ -476,27 +477,23 @@
     "broadcaster": "Streamer"
   },
   "tabBtnViewerDefaults": {
-    "voiceDefaults": "Stemme-standarder"
+    "voiceDefaults": "Stemmestandarder"
   },
   "tabViewerDefaults": {
-    "adjustThePitchForThe": "Juster tonehøjden for standardstemmen",
     "adjustTheVolumeForThe": "Juster lydstyrken for den valgte stemme. ADVARSEL: Værdier over 1,0 kan forårsage forvrængning.",
     "calibratedVoices": "Kalibrerede stemmer",
     "calibrateVolumeForSpecificVoices": "Kalibrer lydstyrke for specifikke stemmer. ADVARSEL: Værdier over 1,0 kan forårsage forvrængning.",
-    "controlHowFastTheDefault": "Styr, hvor hurtigt standardstemmen taler",
     "defaultEmotion": "<strong>Standardfølelse</strong>",
     "defaultLanguage": "<strong>Standardsprog</strong>",
-    "defaultPitch12To12": "Standardtonehøjde (-12 til +12):",
-    "defaultSpeed05To": "Standardhastighed (0,5 til 2,0):",
-    "defaultVoice": "<strong>Standardstemme</strong>",
     "defaultVoiceSettings": "Standardstemmeindstillinger",
-    "englishNormalization": "Engelsk normalisering",
-    "improvePronunciationForSpecificLanguages": "Forbedr udtalen for specifikke sprog",
-    "improveThePronunciationOfNumbers": "Forbedr udtalen af tal og tekst",
-    "selectTheDefaultTtsVoice": "Vælg standard-TTS-stemmen for kanalen",
+    "selectHowFastTheDefault": "Vælg, hvor hurtigt standardstemmen taler",
+    "selectHowHighOrLow": "Vælg, hvor højt eller dybt standardstemmen taler",
+    "selectTheVoiceThatTts": "Vælg den stemme, som TTS bruger til seere, der ikke har deres egen stemme",
     "selectVoice": "Vælg stemme",
     "setDefaultVoiceSettingsFor": "Angiv standardstemmeindstillinger for din kanal",
-    "setTheEmotionalToneOf": "Indstil den følelsesmæssige tone for standardstemmen",
+    "setTheEmotionOfThe": "Indstil standardstemmens følelse. Vælg Tilpasset for at beskrive stemmen med dine egne ord.",
+    "theVoiceModelReadsThe": "Stemmemodellen aflæser sproget ud fra teksten. Hvis teksten er kort eller uklar, giver denne indstilling modellen et hint. Den angiver også standardsproget for annonceringer og vælger ordlisten til bandeordsfilteret.",
+    "viewersCanTypeASound": "Seere kan skrive et lydtag i en besked, hvorefter stemmen laver den lyd. Eksempler er <code>&lt;laugh&gt;</code> og <code>&lt;sigh&gt;</code>. Alle tags er slået til som standard. Fjern markeringen i afkrydsningsfeltet for at slå et tag fra.",
     "viewerVoiceLookup": "Opslag af seerstemme",
     "voiceCalibration": "Stemmekalibrering",
     "voicesWithCustomVolumeSettings": "Stemmer med tilpassede lydstyrkeindstillinger.",
