@@ -33,20 +33,7 @@
   },
   "emotionReset": {
     "clear": "مسح",
-    "resetEmotionToDefault": "إعادة تعيين المشاعر إلى الافتراضي"
-  },
-  "emotionSelect": {
-    "angry": "غاضب",
-    "calm": "هادئ",
-    "custom": "مخصص…",
-    "disgusted": "مشمئز",
-    "fearful": "خائف",
-    "fluent": "طليق",
-    "happy": "سعيد",
-    "neutral": "محايد",
-    "sad": "حزين",
-    "surprised": "متفاجئ",
-    "useChannelDefault": "استخدام الإعداد الافتراضي للقناة"
+    "resetEmotionToDefault": "إعادة ضبط نمط الصوت إلى الافتراضي"
   },
   "ignoreTts": {
     "optOutInThisChannel": "إلغاء التفعيل في هذه القناة"
@@ -109,8 +96,7 @@
       "sendPreview": "إرسال معاينة",
       "testCompletedTestMode": "اكتمل الاختبار (وضع الاختبار).",
       "updated": "تم تحديث التفضيل.",
-      "updatedTestMode": "تم تحديث التفضيل (وضع الاختبار).",
-      "customStyle": "مخصص ({style})"
+      "updatedTestMode": "تم تحديث التفضيل (وضع الاختبار)."
     }
   },
   "openChannelContextModalBtn": {
@@ -144,9 +130,8 @@
     "resetPitchToDefault": "إعادة ضبط طبقة الصوت للافتراضي"
   },
   "preferencesPanel": {
+    "describeHowTheVoiceSpeaks": "صف طريقة تحدث الصوت بكلماتك الخاصة. إذا كان المربع فارغًا، يُطبّق الإعداد الافتراضي للقناة.",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>التوثيق </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>إعدادات البث </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
-    "emotion": "<strong>المشاعر</strong>",
-    "emotion2": "المشاعر",
     "ifYourTextIsShort": "إذا كان نصك قصيرًا أو غير واضح، يمنح هذا الإعداد نموذج الصوت تلميحًا، كما يحدد قائمة الكلمات لمرشح الألفاظ النابية.",
     "language": "اللغة",
     "languageLabel": "<strong>اللغة</strong>",
@@ -156,11 +141,12 @@
     "selectHowHighOrLow": "اختر ارتفاع أو انخفاض طبقة الصوت",
     "selectTheVoiceThatTts": "اختر الصوت الذي يستخدمه TTS لرسائلك",
     "setHowYourMessagesSound": "حدد كيف تبدو رسائلك عندما يقرؤها TTS",
-    "setTheEmotionOfThe": "اضبط انفعال الصوت. اختر «مخصص» لوصف الصوت بكلماتك الخاصة.",
     "speed": "السرعة",
+    "style": "النمط",
     "testMessage": "رسالة اختبار",
     "voicePreview": "معاينة الصوت",
-    "voiceSettings": "إعدادات الصوت"
+    "voiceSettings": "إعدادات الصوت",
+    "voiceStyle": "<strong>نمط الصوت</strong>"
   },
   "prefsDisabledNote": {
     "theStreamerDisabledPersonalVoice": "عطّل صاحب البث إعدادات الصوت الشخصية لهذه القناة. ستستخدم هذه القناة صوتها الافتراضي بدلاً من تفضيلاتك."
@@ -181,14 +167,11 @@
   "stepsHint": {
     "pitchAndSpeedAreApproximate": "طبقة الصوت والسرعة تقريبيتان. يتلقى نموذج الصوت هذه الإعدادات ككلمات، لا كأرقام."
   },
-  "styleGroup": {
-    "style": "الأسلوب"
-  },
-  "styleHint": {
-    "describeInAFewWords": "صف في كلمات قليلة كيف يتحدث الصوت."
-  },
   "styleInput": {
     "exampleCalmAndSlowLike": "مثال: هادئ وبطيء، مثل مذيع راديو في الليل"
+  },
+  "stylePresetsLabel": {
+    "orStartWithAPreset": "أو ابدأ بإعداد مسبق. يمكنك تغيير الكلمات."
   },
   "voiceLabel": {
     "voice": "<strong>الصوت</strong>"

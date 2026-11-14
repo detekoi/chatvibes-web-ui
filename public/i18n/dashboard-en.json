@@ -69,29 +69,17 @@
     "dashboardConfigurationTabs": "Dashboard configuration tabs",
     "deactivationStopsTheBotFrom": "Deactivation stops the bot from reading chat messages. Your settings remain saved. You can activate the service again at any time.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Documentation",
-    "emotion": "Emotion",
     "language": "Language",
     "pitch": "Pitch",
     "quickLinks": "Quick links",
     "service": "Service",
     "signedInAs": "Signed in as",
     "speed": "Speed",
+    "style": "Style",
     "testMessage": "Test message",
     "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Viewer settings",
     "voicePreview": "Voice preview",
     "volume": "Volume"
-  },
-  "defaultEmotion": {
-    "angry": "Angry",
-    "calm": "Calm",
-    "custom": "Custom…",
-    "disgusted": "Disgusted",
-    "fearful": "Fearful",
-    "fluent": "Fluent",
-    "happy": "Happy",
-    "neutral": "Neutral",
-    "sad": "Sad",
-    "surprised": "Surprised"
   },
   "defaultPitchLabel": {
     "defaultPitch": "<strong>Default Pitch</strong>"
@@ -105,11 +93,8 @@
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Example: calm and slow, like a radio host at night"
   },
-  "defaultStyleGroup": {
-    "style": "Style"
-  },
-  "defaultStyleHint": {
-    "describeInAFewWords": "Describe in a few words how the voice speaks."
+  "defaultStylePresetsLabel": {
+    "orStartWithAPreset": "Or start with a preset. You can change the words."
   },
   "defaultVoiceLabel": {
     "defaultVoice": "<strong>Default Voice</strong>"
@@ -281,7 +266,6 @@
       "anonymizeFollowers": "Anonymize Followers",
       "botRespondsInChat": "Bot Responds in Chat",
       "cheerAnnouncements": "Cheer Announcements",
-      "defaultEmotion": "Default Emotion",
       "defaultLanguage": "Default Language",
       "defaultPitch": "Default Pitch",
       "defaultSpeed": "Default Speed",
@@ -296,7 +280,7 @@
       "readFullUrls": "Read Full URLs",
       "redemptionAnnouncements": "Redemption Announcements",
       "soundTags": "Sound Tags",
-      "style": "Style",
+      "style": "Default voice style",
       "ttsEngine": "TTS Engine",
       "ttsMode": "TTS Mode",
       "ttsPermission": "TTS Permission",
@@ -483,15 +467,15 @@
     "adjustTheVolumeForThe": "Adjust the volume for the selected voice. CAUTION: Values greater than 1.0 can cause distortion.",
     "calibratedVoices": "Calibrated Voices",
     "calibrateVolumeForSpecificVoices": "Calibrate volume for specific voices. CAUTION: Values greater than 1.0 can cause distortion.",
-    "defaultEmotion": "<strong>Default Emotion</strong>",
     "defaultLanguage": "<strong>Default Language</strong>",
     "defaultVoiceSettings": "Default Voice Settings",
+    "defaultVoiceStyle": "<strong>Default voice style</strong>",
+    "describeHowTheVoiceSpeaks": "Describe how the voice speaks, in your own words. If the box is empty, the voice has no style.",
     "selectHowFastTheDefault": "Select how fast the default voice speaks",
     "selectHowHighOrLow": "Select how high or low the default voice speaks",
     "selectTheVoiceThatTts": "Select the voice that TTS uses for viewers who have no voice of their own",
     "selectVoice": "Select Voice",
     "setDefaultVoiceSettingsFor": "Set default voice settings for your channel",
-    "setTheEmotionOfThe": "Set the emotion of the default voice. Select Custom to describe the voice in your own words.",
     "theVoiceModelReadsThe": "The voice model reads the language from the text. If the text is short or unclear, this setting gives the model a hint. It also sets the default language for announcements and selects the word list for the profanity filter.",
     "viewersCanTypeASound": "Viewers can type a sound tag in a message, and the voice makes that sound. Examples are <code>&lt;laugh&gt;</code> and <code>&lt;sigh&gt;</code>. All tags are on by default. To turn off a tag, clear its check box.",
     "viewerVoiceLookup": "Viewer Voice Lookup",

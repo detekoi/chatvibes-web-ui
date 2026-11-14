@@ -116,18 +116,6 @@
       "signedOut": "Você não iniciou sessão.",
       "tokenMissing": "Token de autenticação ausente. Entre novamente."
     },
-    "emotion": {
-      "angry": "Irritado",
-      "calm": "Calmo",
-      "disgusted": "Enojado",
-      "fearful": "Assustado",
-      "fluent": "Fluente",
-      "happy": "Feliz",
-      "neutral": "Neutro",
-      "sad": "Triste",
-      "surprised": "Surpreso",
-      "custom": "Personalizado"
-    },
     "ignore": {
       "enterUsername": "Digite um nome de usuário."
     },
@@ -193,7 +181,40 @@
       }
     },
     "style": {
-      "count": "{count} de {max} caracteres"
+      "count": "{count} de {max} caracteres",
+      "none": "Sem estilo"
+    },
+    "stylePreset": {
+      "label": {
+        "neutral": "Neutro",
+        "happy": "Feliz",
+        "excited": "Animado",
+        "calm": "Calmo",
+        "sad": "Triste",
+        "angry": "Com raiva",
+        "fearful": "Assustado",
+        "surprised": "Surpreso",
+        "sarcastic": "Sarcástico",
+        "whisper": "Sussurro",
+        "dramatic": "Dramático",
+        "announcer": "Locutor esportivo"
+      },
+      "text": {
+        "neutral": "em tom neutro",
+        "happy": "feliz e alegre",
+        "excited": "animado e cheio de energia",
+        "calm": "calmo e relaxado",
+        "sad": "triste e abatido",
+        "angry": "com raiva",
+        "fearful": "com medo e assustado",
+        "surprised": "surpreso e espantado",
+        "sarcastic": "seco e sarcástico",
+        "whisper": "sussurrando, como se estivesse contando um segredo",
+        "dramatic": "dramático, como um narrador de trailer de filme",
+        "announcer": "como um locutor esportivo empolgado",
+        "disgusted": "enojado",
+        "fluent": "suave e fluente"
+      }
     }
   },
   "page": {

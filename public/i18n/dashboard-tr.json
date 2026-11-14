@@ -69,29 +69,17 @@
     "dashboardConfigurationTabs": "Kontrol paneli yapılandırma sekmeleri",
     "deactivationStopsTheBotFrom": "Devre dışı bırakıldığında bot sohbet mesajlarını okumayı durdurur. Ayarlarınız kayıtlı kalır. Hizmeti istediğiniz zaman tekrar etkinleştirebilirsiniz.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokümantasyon",
-    "emotion": "Duygu",
     "language": "Dil",
     "pitch": "Perde",
     "quickLinks": "Hızlı bağlantılar",
     "service": "Hizmet",
     "signedInAs": "Şu hesapla oturum açıldı:",
     "speed": "Hız",
+    "style": "Stil",
     "testMessage": "Test mesajı",
     "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>İzleyici ayarları",
     "voicePreview": "Ses önizleme",
     "volume": "Ses düzeyi"
-  },
-  "defaultEmotion": {
-    "angry": "Öfkeli",
-    "calm": "Sakin",
-    "custom": "Özel…",
-    "disgusted": "İğrenmiş",
-    "fearful": "Korkmuş",
-    "fluent": "Akıcı",
-    "happy": "Mutlu",
-    "neutral": "Nötr",
-    "sad": "Üzgün",
-    "surprised": "Şaşırmış"
   },
   "defaultPitchLabel": {
     "defaultPitch": "<strong>Varsayılan Perde</strong>"
@@ -105,17 +93,14 @@
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Örnek: gece radyo sunucusu gibi sakin ve yavaş"
   },
-  "defaultStyleGroup": {
-    "style": "Stil"
-  },
-  "defaultStyleHint": {
-    "describeInAFewWords": "Sesin nasıl konuşacağını birkaç kelimeyle açıklayın."
+  "defaultStylePresetsLabel": {
+    "orStartWithAPreset": "Veya bir ön ayarla başla. Kelimeleri değiştirebilirsin."
   },
   "defaultVoiceLabel": {
     "defaultVoice": "<strong>Varsayılan Ses</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "Ses Düzeyi (0.1 ila 2.0)"
+    "voiceVolume01To": "Ses Seviyesi (0.1 - 2.0)"
   },
   "emoteMode": {
     "describeEmotes": "İfadeleri betimle",
@@ -281,7 +266,6 @@
       "anonymizeFollowers": "Takipçileri Anonimleştir",
       "botRespondsInChat": "Bot Sohbette Yanıt Versin",
       "cheerAnnouncements": "Cheer Duyuruları",
-      "defaultEmotion": "Varsayılan Duygu",
       "defaultLanguage": "Varsayılan Dil",
       "defaultPitch": "Varsayılan Ses Perdesi",
       "defaultSpeed": "Varsayılan Hız",
@@ -296,7 +280,7 @@
       "readFullUrls": "URL'lerin Tamamını Oku",
       "redemptionAnnouncements": "Ödül Kullanım Duyuruları",
       "soundTags": "Ses Etiketleri",
-      "style": "Stil",
+      "style": "Varsayılan ses stili",
       "ttsEngine": "TTS Motoru",
       "ttsMode": "TTS Modu",
       "ttsPermission": "TTS İzni",
@@ -483,21 +467,21 @@
     "adjustTheVolumeForThe": "Seçilen sesin düzeyini ayarlayın. DİKKAT: 1.0'dan büyük değerler seste bozulmaya neden olabilir.",
     "calibratedVoices": "Kalibre Edilmiş Sesler",
     "calibrateVolumeForSpecificVoices": "Belirli seslerin düzeyini kalibre edin. DİKKAT: 1.0'dan büyük değerler seste bozulmaya neden olabilir.",
-    "defaultEmotion": "<strong>Varsayılan Duygu</strong>",
     "defaultLanguage": "<strong>Varsayılan Dil</strong>",
     "defaultVoiceSettings": "Varsayılan Ses Ayarları",
+    "defaultVoiceStyle": "<strong>Varsayılan ses stili</strong>",
+    "describeHowTheVoiceSpeaks": "Sesin nasıl konuşacağını kendi kelimelerinle tarif et. Kutu boşsa sesin bir stili olmaz.",
     "selectHowFastTheDefault": "Varsayılan sesin ne kadar hızlı konuşacağını seçin",
     "selectHowHighOrLow": "Varsayılan sesin ne kadar tiz veya pes konuşacağını seçin",
     "selectTheVoiceThatTts": "Kendi sesi olmayan izleyiciler için TTS tarafından kullanılacak sesi seçin",
     "selectVoice": "Ses Seç",
     "setDefaultVoiceSettingsFor": "Kanalınız için varsayılan ses ayarlarını belirleyin",
-    "setTheEmotionOfThe": "Varsayılan sesin duygusunu ayarlayın. Sesi kendi kelimelerinizle tanımlamak için Özel'i seçin.",
     "theVoiceModelReadsThe": "Ses modeli dili metinden algılar. Metin kısa veya belirsizse bu ayar modele ipucu verir. Ayrıca duyurular için varsayılan dili ayarlar ve küfür filtresi için kelime listesini seçer.",
     "viewersCanTypeASound": "İzleyiciler mesaja bir ses etiketi yazabilir ve ses o sesi çıkarır. Örnekler: <code>&lt;laugh&gt;</code> ve <code>&lt;sigh&gt;</code>. Tüm etiketler varsayılan olarak açıktır. Bir etiketi kapatmak için onay kutusunun işaretini kaldırın.",
     "viewerVoiceLookup": "İzleyici Sesi Arama",
     "voiceCalibration": "Ses Kalibrasyonu",
     "voicesWithCustomVolumeSettings": "Özel ses düzeyi ayarları olan sesler.",
-    "voiceVolume01To": "Ses Düzeyi (0.1 ila 2.0):",
+    "voiceVolume01To": "Ses Seviyesi (0.1 - 2.0):",
     "volumeOverride": "Ses Düzeyi Geçersiz Kılma:"
   },
   "ttsBannedWordInput": {

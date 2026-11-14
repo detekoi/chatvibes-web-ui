@@ -69,29 +69,17 @@
     "dashboardConfigurationTabs": "Pestanyes de configuració del tauler",
     "deactivationStopsTheBotFrom": "La desactivació impedeix que el bot llegeixi missatges del xat. La teva configuració es mantindrà desada. Pots tornar a activar el servei en qualsevol moment.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Documentació",
-    "emotion": "Emoció",
     "language": "Idioma",
     "pitch": "To",
     "quickLinks": "Enllaços ràpids",
     "service": "Servei",
     "signedInAs": "Sessió iniciada com a",
     "speed": "Velocitat",
+    "style": "Estil",
     "testMessage": "Missatge de prova",
     "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Ajustos de l'espectador",
     "voicePreview": "Previsualització de veu",
     "volume": "Volum"
-  },
-  "defaultEmotion": {
-    "angry": "Enfadat",
-    "calm": "Tranquil",
-    "custom": "Personalitzat…",
-    "disgusted": "Disgustat",
-    "fearful": "Espantat",
-    "fluent": "Fluid",
-    "happy": "Alegre",
-    "neutral": "Neutral",
-    "sad": "Trist",
-    "surprised": "Sorprès"
   },
   "defaultPitchLabel": {
     "defaultPitch": "<strong>To predeterminat</strong>"
@@ -105,11 +93,8 @@
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Exemple: tranquil i lent, com un locutor de ràdio de nit"
   },
-  "defaultStyleGroup": {
-    "style": "Estil"
-  },
-  "defaultStyleHint": {
-    "describeInAFewWords": "Descriu en poques paraules com parla la veu."
+  "defaultStylePresetsLabel": {
+    "orStartWithAPreset": "O comença amb un valor predefinit. Pots canviar les paraules."
   },
   "defaultVoiceLabel": {
     "defaultVoice": "<strong>Veu predeterminada</strong>"
@@ -281,7 +266,6 @@
       "anonymizeFollowers": "Anonimitza els seguidors",
       "botRespondsInChat": "El bot respon al xat",
       "cheerAnnouncements": "Anuncis de Cheer",
-      "defaultEmotion": "Emoció predeterminada",
       "defaultLanguage": "Idioma predeterminat",
       "defaultPitch": "To predeterminat",
       "defaultSpeed": "Velocitat predeterminada",
@@ -296,7 +280,7 @@
       "readFullUrls": "Llegeix els URL sencers",
       "redemptionAnnouncements": "Anuncis de bescanvis",
       "soundTags": "Etiquetes de so",
-      "style": "Estil",
+      "style": "Estil de veu predeterminat",
       "ttsEngine": "Motor de TTS",
       "ttsMode": "Mode de TTS",
       "ttsPermission": "Permís de TTS",
@@ -483,21 +467,21 @@
     "adjustTheVolumeForThe": "Ajusta el volum per a la veu seleccionada. ATENCIÓ: Els valors superiors a 1.0 poden causar distorsió.",
     "calibratedVoices": "Veus calibrades",
     "calibrateVolumeForSpecificVoices": "Calibra el volum per a veus específiques. ATENCIÓ: Els valors superiors a 1.0 poden causar distorsió.",
-    "defaultEmotion": "<strong>Emoció predeterminada</strong>",
     "defaultLanguage": "<strong>Idioma predeterminat</strong>",
     "defaultVoiceSettings": "Configuració de la veu predeterminada",
+    "defaultVoiceStyle": "<strong>Estil de veu predeterminat</strong>",
+    "describeHowTheVoiceSpeaks": "Descriu com parla la veu amb les teves pròpies paraules. Si el quadre és buit, la veu no té estil.",
     "selectHowFastTheDefault": "Selecciona a quina velocitat parla la veu predeterminada",
     "selectHowHighOrLow": "Selecciona com d'agut o greu parla la veu predeterminada",
     "selectTheVoiceThatTts": "Selecciona la veu que TTS fa servir per als espectadors que no tenen veu pròpia",
     "selectVoice": "Selecciona una veu",
     "setDefaultVoiceSettingsFor": "Defineix la configuració de veu predeterminada del teu canal",
-    "setTheEmotionOfThe": "Defineix l'emoció de la veu predeterminada. Selecciona Personalitzat per descriure la veu amb les teves paraules.",
     "theVoiceModelReadsThe": "El model de veu detecta l'idioma a partir del text. Si el text és curt o poc clar, aquest ajust dona una pista al model. També estableix l'idioma predeterminat per als anuncis i selecciona la llista de paraules per al filtre de paraules malsonants.",
     "viewersCanTypeASound": "Els espectadors poden escriure una etiqueta de so en un missatge i la veu farà aquest so. Alguns exemples són <code>&lt;laugh&gt;</code> i <code>&lt;sigh&gt;</code>. Totes les etiquetes estan activades per defecte. Per desactivar-ne una, desmarca la casella corresponent.",
     "viewerVoiceLookup": "Cerca de veu d'espectador",
     "voiceCalibration": "Calibració de veu",
     "voicesWithCustomVolumeSettings": "Veus amb ajustos de volum personalitzats.",
-    "voiceVolume01To": "Volum de la veu (0.1 a 2.0):",
+    "voiceVolume01To": "Volum de la veu (0,1 a 2,0):",
     "volumeOverride": "Sobreescriptura de volum:"
   },
   "ttsBannedWordInput": {

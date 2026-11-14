@@ -33,20 +33,7 @@
   },
   "emotionReset": {
     "clear": "Rensa",
-    "resetEmotionToDefault": "Återställ känsla till standard"
-  },
-  "emotionSelect": {
-    "angry": "Arg",
-    "calm": "Lugn",
-    "custom": "Anpassad…",
-    "disgusted": "Äcklad",
-    "fearful": "Rädd",
-    "fluent": "Flytande",
-    "happy": "Glad",
-    "neutral": "Neutral",
-    "sad": "Ledsen",
-    "surprised": "Förvånad",
-    "useChannelDefault": "Använd kanalens standard"
+    "resetEmotionToDefault": "Återställ röststil till standard"
   },
   "ignoreTts": {
     "optOutInThisChannel": "Välj bort i den här kanalen"
@@ -109,8 +96,7 @@
       "sendPreview": "Skicka förhandsvisning",
       "testCompletedTestMode": "Test slutfört (testläge).",
       "updated": "Inställningen har uppdaterats.",
-      "updatedTestMode": "Inställningen har uppdaterats (testläge).",
-      "customStyle": "Anpassad ({style})"
+      "updatedTestMode": "Inställningen har uppdaterats (testläge)."
     }
   },
   "openChannelContextModalBtn": {
@@ -144,9 +130,8 @@
     "resetPitchToDefault": "Återställ tonhöjd till standard"
   },
   "preferencesPanel": {
+    "describeHowTheVoiceSpeaks": "Beskriv med egna ord hur rösten talar. Om rutan är tom gäller kanalens standard.",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentation </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Streamer-inställningar </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
-    "emotion": "<strong>Känsla</strong>",
-    "emotion2": "Känsla",
     "ifYourTextIsShort": "Om din text är kort eller otydlig ger den här inställningen röstmodellen en ledtråd. Den väljer också ordlistan för svordomsfiltret.",
     "language": "Språk",
     "languageLabel": "<strong>Språk</strong>",
@@ -156,11 +141,12 @@
     "selectHowHighOrLow": "Välj hur ljust eller mörkt rösten talar",
     "selectTheVoiceThatTts": "Välj rösten som TTS använder för dina meddelanden",
     "setHowYourMessagesSound": "Ställ in hur dina meddelanden låter när TTS läser upp dem",
-    "setTheEmotionOfThe": "Ange röstens känsla. Välj Anpassad för att beskriva rösten med egna ord.",
     "speed": "Hastighet",
+    "style": "Stil",
     "testMessage": "Testmeddelande",
     "voicePreview": "Röstförhandsgranskning",
-    "voiceSettings": "Röstinställningar"
+    "voiceSettings": "Röstinställningar",
+    "voiceStyle": "<strong>Röststil</strong>"
   },
   "prefsDisabledNote": {
     "theStreamerDisabledPersonalVoice": "Streamern har inaktiverat personliga röstinställningar för den här kanalen. Den här kanalen kommer att använda sin standardröst i stället för dina inställningar."
@@ -181,14 +167,11 @@
   "stepsHint": {
     "pitchAndSpeedAreApproximate": "Tonhöjd och hastighet är ungefärliga. Röstmodellen får dessa inställningar som ord, inte som siffror."
   },
-  "styleGroup": {
-    "style": "Stil"
-  },
-  "styleHint": {
-    "describeInAFewWords": "Beskriv med några få ord hur rösten talar."
-  },
   "styleInput": {
     "exampleCalmAndSlowLike": "Exempel: lugn och långsam, som en radiopratare på natten"
+  },
+  "stylePresetsLabel": {
+    "orStartWithAPreset": "Eller börja med en förinställning. Du kan ändra orden."
   },
   "voiceLabel": {
     "voice": "<strong>Röst</strong>"

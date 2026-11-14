@@ -69,29 +69,17 @@
     "dashboardConfigurationTabs": "控制台設定分頁",
     "deactivationStopsTheBotFrom": "停用後 Bot 會停止朗讀聊天室訊息。你嘅設定會保留落嚟。你可以隨時重新啟用服務。",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>說明文件",
-    "emotion": "情緒",
     "language": "語言",
     "pitch": "音調",
     "quickLinks": "快速連結",
     "service": "服務",
     "signedInAs": "已登入為",
     "speed": "速度",
+    "style": "風格",
     "testMessage": "測試訊息",
     "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>觀眾設定",
     "voicePreview": "聲音試聽",
     "volume": "音量"
-  },
-  "defaultEmotion": {
-    "angry": "憤怒",
-    "calm": "平靜",
-    "custom": "自訂…",
-    "disgusted": "厭惡",
-    "fearful": "恐懼",
-    "fluent": "流暢",
-    "happy": "開心",
-    "neutral": "中性",
-    "sad": "傷心",
-    "surprised": "驚訝"
   },
   "defaultPitchLabel": {
     "defaultPitch": "<strong>預設音調</strong>"
@@ -105,17 +93,14 @@
   "defaultStyle": {
     "exampleCalmAndSlowLike": "例子：平靜又慢，似深夜電台主持"
   },
-  "defaultStyleGroup": {
-    "style": "風格"
-  },
-  "defaultStyleHint": {
-    "describeInAFewWords": "用幾個字形容把聲點樣講嘢。"
+  "defaultStylePresetsLabel": {
+    "orStartWithAPreset": "或者由預設開始，你可以自己改啲字。"
   },
   "defaultVoiceLabel": {
     "defaultVoice": "<strong>預設聲音</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "語音音量 (0.1 至 2.0)"
+    "voiceVolume01To": "語音音量（0.1 至 2.0）"
   },
   "emoteMode": {
     "describeEmotes": "描述表情符號",
@@ -281,7 +266,6 @@
       "anonymizeFollowers": "匿名化追隨者",
       "botRespondsInChat": "Bot 喺聊天室回覆",
       "cheerAnnouncements": "Cheer 播報",
-      "defaultEmotion": "預設情緒",
       "defaultLanguage": "預設語言",
       "defaultPitch": "預設音調",
       "defaultSpeed": "預設速度",
@@ -296,7 +280,7 @@
       "readFullUrls": "朗讀完整 URL",
       "redemptionAnnouncements": "兌換播報",
       "soundTags": "音效標籤",
-      "style": "風格",
+      "style": "預設語音風格",
       "ttsEngine": "TTS 引擎",
       "ttsMode": "TTS 模式",
       "ttsPermission": "TTS 權限",
@@ -483,21 +467,21 @@
     "adjustTheVolumeForThe": "調整所選語音嘅音量。注意：數值大於 1.0 可能會導致破音。",
     "calibratedVoices": "已校準聲線",
     "calibrateVolumeForSpecificVoices": "校準特定語音嘅音量。注意：數值大於 1.0 可能會導致破音。",
-    "defaultEmotion": "<strong>預設情緒</strong>",
     "defaultLanguage": "<strong>預設語言</strong>",
     "defaultVoiceSettings": "預設聲音設定",
+    "defaultVoiceStyle": "<strong>預設語音風格</strong>",
+    "describeHowTheVoiceSpeaks": "用你自己嘅話形容語音點樣講嘢。如果個框留空，語音就唔會有風格。",
     "selectHowFastTheDefault": "揀選預設聲音講嘢有幾快",
     "selectHowHighOrLow": "揀選預設聲音有幾高音或者低音",
     "selectTheVoiceThatTts": "揀選觀眾冇自己嘅聲音時，TTS 所用嘅聲音",
     "selectVoice": "揀選聲音",
     "setDefaultVoiceSettingsFor": "為你嘅頻道指定預設聲音設定",
-    "setTheEmotionOfThe": "設定預設聲音嘅情緒。揀「自訂」就可以用自己嘅文字形容把聲。",
     "theVoiceModelReadsThe": "語音模型會從文字判斷語言。如果文字太短或者唔清楚，呢個設定會畀模型一個提示。佢亦會設定公告嘅預設語言，並揀選粗口過濾器嘅詞表。",
     "viewersCanTypeASound": "觀眾可以喺訊息入面輸入音效標籤，把聲就會發出嗰個聲。例如 <code>&lt;laugh&gt;</code> 同 <code>&lt;sigh&gt;</code>。全部標籤預設都係開啟。要關閉某個標籤，取消剔選佢嘅方格就得。",
     "viewerVoiceLookup": "觀眾聲音查詢",
     "voiceCalibration": "聲音校準",
     "voicesWithCustomVolumeSettings": "自訂咗音量嘅聲音。",
-    "voiceVolume01To": "語音音量 (0.1 至 2.0)：",
+    "voiceVolume01To": "語音音量（0.1 至 2.0）：",
     "volumeOverride": "覆寫音量："
   },
   "ttsBannedWordInput": {

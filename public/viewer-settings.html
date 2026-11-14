@@ -206,39 +206,24 @@
                                     </div>
                                 </div>
                                 <div class="list-group-item">
-                                    <div class="row align-items-center">
+                                    <div class="row style-row">
                                         <div class="col">
-                                            <label data-i18n="preferencesPanel.emotion" for="emotion-select"
-                                                class="form-label mb-1"><strong>Emotion</strong></label>
-                                            <p data-i18n="preferencesPanel.setTheEmotionOfThe" class="text-muted mb-0">Set the emotion of the voice. Select Custom to describe the voice in your own words.</p>
+                                            <label data-i18n="preferencesPanel.voiceStyle" for="style-input"
+                                                class="form-label mb-1"><strong>Voice style</strong></label>
+                                            <p data-i18n="preferencesPanel.describeHowTheVoiceSpeaks" class="text-muted mb-0">Describe how the voice speaks, in your own words. If the box is empty, the channel default applies.</p>
                                             <small class="form-text text-muted" id="hint-emotion"
                                                 style="display:none;"></small>
                                         </div>
-                                        <div class="col-auto d-flex align-items-center gap-2">
-                                            <div class="emotion-control">
-                                                <select id="emotion-select" class="form-select">
-                                                    <option data-i18n="emotionSelect.useChannelDefault" value="">Use channel default</option>
-                                                    <option data-i18n="emotionSelect.neutral" value="neutral">Neutral</option>
-                                                    <option data-i18n="emotionSelect.happy" value="happy">Happy</option>
-                                                    <option data-i18n="emotionSelect.sad" value="sad">Sad</option>
-                                                    <option data-i18n="emotionSelect.angry" value="angry">Angry</option>
-                                                    <option data-i18n="emotionSelect.fearful" value="fearful">Fearful</option>
-                                                    <option data-i18n="emotionSelect.disgusted" value="disgusted">Disgusted</option>
-                                                    <option data-i18n="emotionSelect.surprised" value="surprised">Surprised</option>
-                                                    <option data-i18n="emotionSelect.calm" value="calm">Calm</option>
-                                                    <option data-i18n="emotionSelect.fluent" value="fluent">Fluent</option>
-                                                    <option data-i18n="emotionSelect.custom" value="__custom__">Custom…</option>
-                                                </select>
-                                                <div class="style-group" id="style-group" hidden>
-                                                    <label data-i18n="styleGroup.style" for="style-input" class="visually-hidden">Style</label>
-                                                    <input data-i18n-placeholder="styleInput.exampleCalmAndSlowLike" type="text" id="style-input" class="form-control" maxlength="120"
-                                                        placeholder="Example: calm and slow, like a radio host at night" aria-describedby="style-hint style-count">
-                                                    <small data-i18n="styleHint.describeInAFewWords" class="form-text text-muted" id="style-hint">Describe in a few words how the voice speaks.</small>
-                                                    <small class="form-text text-muted" id="style-count"></small>
-                                                </div>
+                                        <div class="col-12 col-md-6 d-flex align-items-start gap-2">
+                                            <div class="style-control">
+                                                <input data-i18n-placeholder="styleInput.exampleCalmAndSlowLike" type="text" id="style-input" class="form-control" maxlength="120"
+                                                    placeholder="Example: calm and slow, like a radio host at night" aria-describedby="style-count">
+                                                <small class="form-text text-muted style-count" id="style-count"></small>
+                                                <span data-i18n="stylePresetsLabel.orStartWithAPreset" class="style-presets-label" id="style-presets-label">Or start with a preset. You can change the words.</span>
+                                                <div class="style-presets" id="style-presets" role="group" aria-labelledby="style-presets-label"></div>
                                             </div>
                                             <button data-i18n="emotionReset.clear" data-i18n-aria-label="emotionReset.resetEmotionToDefault" type="button" class="btn btn-outline-secondary btn-sm"
-                                                id="emotion-reset" aria-label="Reset emotion to default">Clear</button>
+                                                id="emotion-reset" aria-label="Reset voice style to default">Clear</button>
                                         </div>
                                     </div>
                                 </div>
@@ -359,7 +344,7 @@
                                 <dl class="wc-kv">
                                     <div><dt data-i18n="preferencesPanel.pitch">Pitch</dt><dd id="sidebar-pitch-val">—</dd></div>
                                     <div><dt data-i18n="preferencesPanel.speed">Speed</dt><dd id="sidebar-speed-val">—</dd></div>
-                                    <div><dt data-i18n="preferencesPanel.emotion2">Emotion</dt><dd id="sidebar-emotion-val">—</dd></div>
+                                    <div><dt data-i18n="preferencesPanel.style">Style</dt><dd id="sidebar-style-val">—</dd></div>
                                     <div><dt data-i18n="preferencesPanel.language">Language</dt><dd data-i18n="sidebarLanguageVal.automatic" id="sidebar-language-val">Automatic</dd></div>
                                 </dl>
                             </div>

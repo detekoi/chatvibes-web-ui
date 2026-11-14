@@ -69,29 +69,17 @@
     "dashboardConfigurationTabs": "Abas de configuração do painel",
     "deactivationStopsTheBotFrom": "A desativação impede o bot de ler mensagens do chat. Suas configurações permanecem salvas. Você pode reativar o serviço a qualquer momento.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Documentação",
-    "emotion": "Emoção",
     "language": "Idioma",
     "pitch": "Tom",
     "quickLinks": "Links rápidos",
     "service": "Serviço",
     "signedInAs": "Conectado como",
     "speed": "Velocidade",
+    "style": "Estilo",
     "testMessage": "Mensagem de teste",
     "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Configurações do espectador",
     "voicePreview": "Prévia da voz",
     "volume": "Volume"
-  },
-  "defaultEmotion": {
-    "angry": "Irritado",
-    "calm": "Calma",
-    "custom": "Personalizado…",
-    "disgusted": "Enojado",
-    "fearful": "Assustado",
-    "fluent": "Fluente",
-    "happy": "Feliz",
-    "neutral": "Neutro",
-    "sad": "Triste",
-    "surprised": "Surpreso"
   },
   "defaultPitchLabel": {
     "defaultPitch": "<strong>Tom padrão</strong>"
@@ -105,11 +93,8 @@
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Exemplo: calmo e lento, como um locutor de rádio à noite"
   },
-  "defaultStyleGroup": {
-    "style": "Estilo"
-  },
-  "defaultStyleHint": {
-    "describeInAFewWords": "Descreva em poucas palavras como a voz fala."
+  "defaultStylePresetsLabel": {
+    "orStartWithAPreset": "Ou comece com uma predefinição. Você pode alterar as palavras."
   },
   "defaultVoiceLabel": {
     "defaultVoice": "<strong>Voz padrão</strong>"
@@ -281,7 +266,6 @@
       "anonymizeFollowers": "Anonimizar seguidores",
       "botRespondsInChat": "Bot responde no chat",
       "cheerAnnouncements": "Anúncios de Cheer",
-      "defaultEmotion": "Emoção padrão",
       "defaultLanguage": "Idioma padrão",
       "defaultPitch": "Tom padrão",
       "defaultSpeed": "Velocidade padrão",
@@ -296,7 +280,7 @@
       "readFullUrls": "Ler URLs completas",
       "redemptionAnnouncements": "Anúncios de resgate",
       "soundTags": "Tags de som",
-      "style": "Estilo",
+      "style": "Estilo de voz padrão",
       "ttsEngine": "Mecanismo de TTS",
       "ttsMode": "Modo de TTS",
       "ttsPermission": "Permissão de TTS",
@@ -483,15 +467,15 @@
     "adjustTheVolumeForThe": "Ajustar o volume da voz selecionada. ATENÇÃO: valores acima de 1,0 podem causar distorção.",
     "calibratedVoices": "Vozes calibradas",
     "calibrateVolumeForSpecificVoices": "Calibrar o volume para vozes específicas. ATENÇÃO: valores acima de 1,0 podem causar distorção.",
-    "defaultEmotion": "<strong>Emoção padrão</strong>",
     "defaultLanguage": "<strong>Idioma padrão</strong>",
     "defaultVoiceSettings": "Configurações de voz padrão",
+    "defaultVoiceStyle": "<strong>Estilo de voz padrão</strong>",
+    "describeHowTheVoiceSpeaks": "Descreva como a voz fala, com suas próprias palavras. Se a caixa estiver vazia, a voz não terá estilo.",
     "selectHowFastTheDefault": "Selecione quão rápido a voz padrão fala",
     "selectHowHighOrLow": "Selecione quão grave ou aguda a voz padrão fala",
     "selectTheVoiceThatTts": "Selecione a voz que o TTS usa para espectadores que não têm uma voz própria",
     "selectVoice": "Selecionar voz",
     "setDefaultVoiceSettingsFor": "Defina as configurações de voz padrão para seu canal",
-    "setTheEmotionOfThe": "Defina a emoção da voz padrão. Selecione Personalizado para descrever a voz com suas próprias palavras.",
     "theVoiceModelReadsThe": "O modelo de voz identifica o idioma pelo texto. Se o texto for curto ou pouco claro, essa configuração dá uma dica ao modelo. Ela também define o idioma padrão para anúncios e seleciona a lista de palavras para o filtro de palavrões.",
     "viewersCanTypeASound": "Os espectadores podem digitar uma tag de som na mensagem e a voz faz esse som. Exemplos: <code>&lt;laugh&gt;</code> e <code>&lt;sigh&gt;</code>. Todas as tags vêm ativadas por padrão. Para desativar uma tag, desmarque a caixa de seleção dela.",
     "viewerVoiceLookup": "Consulta de voz do espectador",

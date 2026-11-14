@@ -116,18 +116,6 @@
       "signedOut": "Du er ikkje logga inn.",
       "tokenMissing": "Autentiseringstoken manglar. Logg inn på nytt."
     },
-    "emotion": {
-      "angry": "Sint",
-      "calm": "Roleg",
-      "disgusted": "Fråstøytt",
-      "fearful": "Redd",
-      "fluent": "Flytande",
-      "happy": "Glad",
-      "neutral": "Nøytral",
-      "sad": "Trist",
-      "surprised": "Overraska",
-      "custom": "Tilpassa"
-    },
     "ignore": {
       "enterUsername": "Skriv inn eit brukarnamn."
     },
@@ -193,7 +181,40 @@
       }
     },
     "style": {
-      "count": "{count} av {max} teikn"
+      "count": "{count} av {max} teikn",
+      "none": "Ingen stil"
+    },
+    "stylePreset": {
+      "label": {
+        "neutral": "Nøytral",
+        "happy": "Glad",
+        "excited": "Oppglødd",
+        "calm": "Roleg",
+        "sad": "Trist",
+        "angry": "Sint",
+        "fearful": "Redd",
+        "surprised": "Overraska",
+        "sarcastic": "Sarkastisk",
+        "whisper": "Kviskring",
+        "dramatic": "Dramatisk",
+        "announcer": "Sportskommentator"
+      },
+      "text": {
+        "neutral": "i ein nøytral tone",
+        "happy": "glad og munter",
+        "excited": "oppglødd og full av energi",
+        "calm": "roleg og avslappa",
+        "sad": "trist og nedfor",
+        "angry": "sint",
+        "fearful": "engsteleg og redd",
+        "surprised": "overraska og forbløffa",
+        "sarcastic": "tørr og sarkastisk",
+        "whisper": "kviskrande, som om ein fortel ein løyndom",
+        "dramatic": "dramatisk, som ein forteljar i ein filmtrailer",
+        "announcer": "som ein oppglødd sportskommentator",
+        "disgusted": "full av avsky",
+        "fluent": "jamn og flytande"
+      }
     }
   },
   "page": {

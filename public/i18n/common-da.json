@@ -116,18 +116,6 @@
       "signedOut": "Du er ikke logget ind.",
       "tokenMissing": "Godkendelsestoken mangler. Log ind igen."
     },
-    "emotion": {
-      "angry": "Vred",
-      "calm": "Rolig",
-      "disgusted": "Væmmet",
-      "fearful": "Bange",
-      "fluent": "Flydende",
-      "happy": "Glad",
-      "neutral": "Neutral",
-      "sad": "Trist",
-      "surprised": "Overrasket",
-      "custom": "Tilpasset"
-    },
     "ignore": {
       "enterUsername": "Indtast et brugernavn."
     },
@@ -193,7 +181,40 @@
       }
     },
     "style": {
-      "count": "{count} af {max} tegn"
+      "count": "{count} af {max} tegn",
+      "none": "Ingen stil"
+    },
+    "stylePreset": {
+      "label": {
+        "neutral": "Neutral",
+        "happy": "Glad",
+        "excited": "Begejstret",
+        "calm": "Rolig",
+        "sad": "Trist",
+        "angry": "Vred",
+        "fearful": "Bange",
+        "surprised": "Overrasket",
+        "sarcastic": "Sarkastisk",
+        "whisper": "Hvisken",
+        "dramatic": "Dramatisk",
+        "announcer": "Sportskommentator"
+      },
+      "text": {
+        "neutral": "i en neutral tone",
+        "happy": "glad og munter",
+        "excited": "begejstret og fuld af energi",
+        "calm": "rolig og afslappet",
+        "sad": "trist og nedtrykt",
+        "angry": "vred",
+        "fearful": "ængstelig og bange",
+        "surprised": "overrasket og forbløffet",
+        "sarcastic": "tør og sarkastisk",
+        "whisper": "hviskende, som om man fortæller en hemmelighed",
+        "dramatic": "dramatisk, som en speaker i en filmtrailer",
+        "announcer": "som en begejstret sportskommentator",
+        "disgusted": "væmmet",
+        "fluent": "jævn og flydende"
+      }
     }
   },
   "page": {

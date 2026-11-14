@@ -116,18 +116,6 @@
       "signedOut": "Du er ikke logget på.",
       "tokenMissing": "Autentiseringstoken mangler. Logg på igjen."
     },
-    "emotion": {
-      "angry": "Sint",
-      "calm": "Rolig",
-      "disgusted": "Frastøtt",
-      "fearful": "Redd",
-      "fluent": "Flytende",
-      "happy": "Glad",
-      "neutral": "Nøytral",
-      "sad": "Trist",
-      "surprised": "Overrasket",
-      "custom": "Egendefinert"
-    },
     "ignore": {
       "enterUsername": "Skriv inn et brukernavn."
     },
@@ -193,7 +181,40 @@
       }
     },
     "style": {
-      "count": "{count} av {max} tegn"
+      "count": "{count} av {max} tegn",
+      "none": "Ingen stil"
+    },
+    "stylePreset": {
+      "label": {
+        "neutral": "Nøytral",
+        "happy": "Glad",
+        "excited": "Entusiastisk",
+        "calm": "Rolig",
+        "sad": "Trist",
+        "angry": "Sint",
+        "fearful": "Redd",
+        "surprised": "Overrasket",
+        "sarcastic": "Sarkastisk",
+        "whisper": "Hvisking",
+        "dramatic": "Dramatisk",
+        "announcer": "Sportskommentator"
+      },
+      "text": {
+        "neutral": "i en nøytral tone",
+        "happy": "glad og munter",
+        "excited": "entusiastisk og full av energi",
+        "calm": "rolig og avslappet",
+        "sad": "trist og nedstemt",
+        "angry": "sint",
+        "fearful": "engstelig og redd",
+        "surprised": "overrasket og forbauset",
+        "sarcastic": "tørr og sarkastisk",
+        "whisper": "hviskende, som om man forteller en hemmelighet",
+        "dramatic": "dramatisk, som fortellerstemmen i en filmtrailer",
+        "announcer": "som en entusiastisk sportskommentator",
+        "disgusted": "vemmet",
+        "fluent": "jevn og flytende"
+      }
     }
   },
   "page": {

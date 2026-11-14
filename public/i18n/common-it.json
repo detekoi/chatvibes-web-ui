@@ -116,18 +116,6 @@
       "signedOut": "Accesso non effettuato.",
       "tokenMissing": "Token di autenticazione mancante. Accedi di nuovo."
     },
-    "emotion": {
-      "angry": "Arrabbiato",
-      "calm": "Calmo",
-      "disgusted": "Disgustato",
-      "fearful": "Spaventato",
-      "fluent": "Fluente",
-      "happy": "Felice",
-      "neutral": "Neutro",
-      "sad": "Triste",
-      "surprised": "Sorpreso",
-      "custom": "Personalizzato"
-    },
     "ignore": {
       "enterUsername": "Inserisci un nome utente."
     },
@@ -193,7 +181,40 @@
       }
     },
     "style": {
-      "count": "{count} di {max} caratteri"
+      "count": "{count} di {max} caratteri",
+      "none": "Nessuno stile"
+    },
+    "stylePreset": {
+      "label": {
+        "neutral": "Neutro",
+        "happy": "Felice",
+        "excited": "Entusiasta",
+        "calm": "Calmo",
+        "sad": "Triste",
+        "angry": "Arrabbiato",
+        "fearful": "Spaventato",
+        "surprised": "Sorpreso",
+        "sarcastic": "Sarcastico",
+        "whisper": "Sussurro",
+        "dramatic": "Drammatico",
+        "announcer": "Telecronista"
+      },
+      "text": {
+        "neutral": "in tono neutro",
+        "happy": "felice e allegro",
+        "excited": "entusiasta e pieno di energia",
+        "calm": "calmo e rilassato",
+        "sad": "triste e abbattuto",
+        "angry": "arrabbiato",
+        "fearful": "timoroso e spaventato",
+        "surprised": "sorpreso e stupito",
+        "sarcastic": "asciutto e sarcastico",
+        "whisper": "sussurrando, come per svelare un segreto",
+        "dramatic": "drammatico, come il narratore di un trailer",
+        "announcer": "come un telecronista sportivo entusiasta",
+        "disgusted": "disgustato",
+        "fluent": "fluido e scorrevole"
+      }
     }
   },
   "page": {

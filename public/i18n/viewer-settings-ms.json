@@ -33,20 +33,7 @@
   },
   "emotionReset": {
     "clear": "Kosongkan",
-    "resetEmotionToDefault": "Tetapkan semula emosi kepada lalai"
-  },
-  "emotionSelect": {
-    "angry": "Marah",
-    "calm": "Tenang",
-    "custom": "Tersuai…",
-    "disgusted": "Jijik",
-    "fearful": "Takut",
-    "fluent": "Lancar",
-    "happy": "Gembira",
-    "neutral": "Neutral",
-    "sad": "Sedih",
-    "surprised": "Terkejut",
-    "useChannelDefault": "Gunakan lalai saluran"
+    "resetEmotionToDefault": "Tetapkan semula gaya suara ke lalai"
   },
   "ignoreTts": {
     "optOutInThisChannel": "Tarik diri dalam saluran ini"
@@ -109,8 +96,7 @@
       "sendPreview": "Hantar Pratonton",
       "testCompletedTestMode": "Ujian selesai (mod ujian).",
       "updated": "Keutamaan dikemas kini.",
-      "updatedTestMode": "Keutamaan dikemas kini (mod ujian).",
-      "customStyle": "Tersuai ({style})"
+      "updatedTestMode": "Keutamaan dikemas kini (mod ujian)."
     }
   },
   "openChannelContextModalBtn": {
@@ -144,9 +130,8 @@
     "resetPitchToDefault": "Set semula pic ke lalai"
   },
   "preferencesPanel": {
+    "describeHowTheVoiceSpeaks": "Terangkan cara suara bercakap dengan kata-kata anda sendiri. Jika kotak ini kosong, tetapan lalai saluran akan digunakan.",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentasi </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Tetapan penstrim </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
-    "emotion": "<strong>Emosi</strong>",
-    "emotion2": "Emosi",
     "ifYourTextIsShort": "Jika teks anda pendek atau kurang jelas, tetapan ini memberi model suara satu petunjuk. Ia juga memilih senarai kata untuk penapis kata kesat.",
     "language": "Bahasa",
     "languageLabel": "<strong>Bahasa</strong>",
@@ -156,11 +141,12 @@
     "selectHowHighOrLow": "Pilih setinggi atau serendah mana suara bercakap",
     "selectTheVoiceThatTts": "Pilih suara yang digunakan TTS untuk mesej anda",
     "setHowYourMessagesSound": "Tetapkan bunyi mesej anda apabila TTS membacanya",
-    "setTheEmotionOfThe": "Tetapkan emosi suara. Pilih Tersuai untuk menggambarkan suara dengan kata-kata anda sendiri.",
     "speed": "Kelajuan",
+    "style": "Gaya",
     "testMessage": "Mesej ujian",
     "voicePreview": "Pratonton suara",
-    "voiceSettings": "Tetapan Suara"
+    "voiceSettings": "Tetapan Suara",
+    "voiceStyle": "<strong>Gaya suara</strong>"
   },
   "prefsDisabledNote": {
     "theStreamerDisabledPersonalVoice": "Penstrim telah menyahdayakan tetapan suara peribadi untuk saluran ini. Saluran ini akan menggunakan suara lalainya dan bukannya pilihan anda."
@@ -181,14 +167,11 @@
   "stepsHint": {
     "pitchAndSpeedAreApproximate": "Nada dan kelajuan adalah anggaran. Model suara menerima tetapan ini sebagai perkataan, bukan nombor."
   },
-  "styleGroup": {
-    "style": "Gaya"
-  },
-  "styleHint": {
-    "describeInAFewWords": "Terangkan dalam beberapa patah perkataan cara suara bercakap."
-  },
   "styleInput": {
     "exampleCalmAndSlowLike": "Contoh: tenang dan perlahan, seperti penyampai radio pada waktu malam"
+  },
+  "stylePresetsLabel": {
+    "orStartWithAPreset": "Atau mulakan dengan praset. Anda boleh mengubah perkataannya."
   },
   "voiceLabel": {
     "voice": "<strong>Suara</strong>"

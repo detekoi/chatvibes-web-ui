@@ -8,16 +8,13 @@
  */
 import { t } from './i18n.js';
 
-/** `VALID_EMOTIONS`. Each one needs a `msg.emotion.<name>` label. */
+/** `VALID_EMOTIONS`. The pages do not offer them, but an old record can hold one. */
 export const VALID_EMOTIONS = [
   'neutral', 'happy', 'sad', 'angry', 'fearful', 'disgusted', 'surprised', 'calm', 'fluent',
 ] as const;
 
 /** `STYLE.MAX_LENGTH`. */
 export const STYLE_MAX_LENGTH = 120;
-
-/** The `<select>` value that stands for "the style text applies", never stored. */
-export const CUSTOM_EMOTION = '__custom__';
 
 export interface Step {
   key: string;
@@ -138,19 +135,122 @@ export function createStepControl(
   };
 }
 
-/** The label of an emotion preset, or of the custom choice. */
-export function emotionLabel(emotion: string | null | undefined, style?: string | null): string {
-  if (style) return t('msg.emotion.custom');
+export interface StylePreset {
+  key: string;
+  /** The words on the chip. */
+  label: () => string;
+  /** The words that the chip writes into the style box. */
+  text: () => string;
+}
+
+/**
+ * The chips under the style box. A chip is a shortcut for text: it writes its
+ * words into the box, and the person can change them. The page stores the
+ * words as the `style`, so a new chip needs no change on the server or the bot.
+ *
+ * One literal `t()` call per string, so `scripts/validate-i18n.js` can see every key.
+ */
+export const STYLE_PRESETS: readonly StylePreset[] = [
+  { key: 'neutral', label: () => t('msg.stylePreset.label.neutral'), text: () => t('msg.stylePreset.text.neutral') },
+  { key: 'happy', label: () => t('msg.stylePreset.label.happy'), text: () => t('msg.stylePreset.text.happy') },
+  { key: 'excited', label: () => t('msg.stylePreset.label.excited'), text: () => t('msg.stylePreset.text.excited') },
+  { key: 'calm', label: () => t('msg.stylePreset.label.calm'), text: () => t('msg.stylePreset.text.calm') },
+  { key: 'sad', label: () => t('msg.stylePreset.label.sad'), text: () => t('msg.stylePreset.text.sad') },
+  { key: 'angry', label: () => t('msg.stylePreset.label.angry'), text: () => t('msg.stylePreset.text.angry') },
+  { key: 'fearful', label: () => t('msg.stylePreset.label.fearful'), text: () => t('msg.stylePreset.text.fearful') },
+  { key: 'surprised', label: () => t('msg.stylePreset.label.surprised'), text: () => t('msg.stylePreset.text.surprised') },
+  { key: 'sarcastic', label: () => t('msg.stylePreset.label.sarcastic'), text: () => t('msg.stylePreset.text.sarcastic') },
+  { key: 'whisper', label: () => t('msg.stylePreset.label.whisper'), text: () => t('msg.stylePreset.text.whisper') },
+  { key: 'dramatic', label: () => t('msg.stylePreset.label.dramatic'), text: () => t('msg.stylePreset.text.dramatic') },
+  { key: 'announcer', label: () => t('msg.stylePreset.label.announcer'), text: () => t('msg.stylePreset.text.announcer') },
+];
+
+/** Two styles are the same choice when only the case or the spaces differ. */
+function sameStyle(a: string, b: string): boolean {
+  const fold = (s: string): string => s.trim().replace(/\s+/g, ' ').toLocaleLowerCase();
+  return fold(a) === fold(b);
+}
+
+/**
+ * The words that the style box shows for an emotion that an old record holds.
+ * The emotion is a setting of the old provider, and the server removes it at
+ * the next save of the style. "" for a value that is not an emotion.
+ *
+ * `neutral` has no words for a channel. For a viewer it has, because a viewer
+ * with no style gets the style of the channel.
+ */
+export function emotionStyleText(emotion: string | null | undefined, { viewer = false } = {}): string {
   switch (emotion) {
-    case 'happy': return t('msg.emotion.happy');
-    case 'sad': return t('msg.emotion.sad');
-    case 'angry': return t('msg.emotion.angry');
-    case 'fearful': return t('msg.emotion.fearful');
-    case 'disgusted': return t('msg.emotion.disgusted');
-    case 'surprised': return t('msg.emotion.surprised');
-    case 'calm': return t('msg.emotion.calm');
-    case 'fluent': return t('msg.emotion.fluent');
-    // "auto" is the value that old channel records hold. The server reads it as neutral.
-    default: return t('msg.emotion.neutral');
+    case 'neutral': return viewer ? t('msg.stylePreset.text.neutral') : '';
+    case 'happy': return t('msg.stylePreset.text.happy');
+    case 'sad': return t('msg.stylePreset.text.sad');
+    case 'angry': return t('msg.stylePreset.text.angry');
+    case 'fearful': return t('msg.stylePreset.text.fearful');
+    case 'surprised': return t('msg.stylePreset.text.surprised');
+    case 'calm': return t('msg.stylePreset.text.calm');
+    case 'disgusted': return t('msg.stylePreset.text.disgusted');
+    case 'fluent': return t('msg.stylePreset.text.fluent');
+    default: return '';
   }
+}
+
+/** The style in a few words: the label of a preset, else the text itself. */
+export function styleSummary(emotion: string | null | undefined, style?: string | null, { viewer = false } = {}): string {
+  const text = (style || '').trim() || emotionStyleText(emotion, { viewer });
+  if (!text) return t('msg.style.none');
+  return STYLE_PRESETS.find(preset => sameStyle(preset.text(), text))?.label() ?? text;
+}
+
+export interface StylePresetOptions {
+  /** A click on a chip. "" means that the person turned off the chip that was on. */
+  onPick: (text: string) => void;
+}
+
+export interface StylePresetControl {
+  /** Set the pressed state of each chip from the text in the box. */
+  refresh: () => void;
+  setDisabled: (disabled: boolean) => void;
+}
+
+/**
+ * Fill a `role="group"` container with one toggle button for each preset.
+ * A chip is pressed while the box holds its words.
+ */
+export function createStylePresets(
+  container: HTMLElement | null,
+  input: HTMLInputElement | null,
+  options: StylePresetOptions,
+): StylePresetControl {
+  const chips: { button: HTMLButtonElement; isOn: () => boolean }[] = [];
+  const refresh = (): void => {
+    chips.forEach(({ button, isOn }) => button.setAttribute('aria-pressed', String(isOn())));
+  };
+  const addChip = (label: string, isOn: () => boolean, onClick: (wasOn: boolean) => void): void => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'style-preset';
+    button.textContent = label;
+    button.addEventListener('click', () => {
+      onClick(isOn());
+      refresh();
+    });
+    container?.appendChild(button);
+    chips.push({ button, isOn });
+  };
+
+  if (container && input) {
+    container.replaceChildren();
+    for (const preset of STYLE_PRESETS) {
+      addChip(preset.label(), () => sameStyle(input.value, preset.text()), (wasOn) => {
+        input.value = wasOn ? '' : preset.text();
+        options.onPick(input.value);
+      });
+    }
+    input.addEventListener('input', refresh);
+    refresh();
+  }
+  return {
+    refresh,
+    setDisabled: (disabled) => { chips.forEach(({ button }) => { button.disabled = disabled; }); },
+  };
 }

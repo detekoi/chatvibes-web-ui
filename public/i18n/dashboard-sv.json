@@ -69,29 +69,17 @@
     "dashboardConfigurationTabs": "Konfigurationsflikar för instrumentpanelen",
     "deactivationStopsTheBotFrom": "Inaktivering stoppar botten från att läsa chattmeddelanden. Dina inställningar sparas. Du kan aktivera tjänsten igen när som helst.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentation",
-    "emotion": "Känsla",
     "language": "Språk",
     "pitch": "Tonhöjd",
     "quickLinks": "Snabblänkar",
     "service": "Tjänst",
     "signedInAs": "Inloggad som",
     "speed": "Hastighet",
+    "style": "Stil",
     "testMessage": "Testmeddelande",
     "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Tittarinställningar",
     "voicePreview": "Förhandsgranska röst",
     "volume": "Volym"
-  },
-  "defaultEmotion": {
-    "angry": "Arg",
-    "calm": "Lugn",
-    "custom": "Anpassad…",
-    "disgusted": "Äcklad",
-    "fearful": "Rädd",
-    "fluent": "Flytande",
-    "happy": "Glad",
-    "neutral": "Neutral",
-    "sad": "Ledsen",
-    "surprised": "Förvånad"
   },
   "defaultPitchLabel": {
     "defaultPitch": "<strong>Standardtonhöjd</strong>"
@@ -105,11 +93,8 @@
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Exempel: lugn och långsam, som en radiovärd på natten"
   },
-  "defaultStyleGroup": {
-    "style": "Stil"
-  },
-  "defaultStyleHint": {
-    "describeInAFewWords": "Beskriv med några få ord hur rösten talar."
+  "defaultStylePresetsLabel": {
+    "orStartWithAPreset": "Eller börja med en förinställning. Du kan ändra orden."
   },
   "defaultVoiceLabel": {
     "defaultVoice": "<strong>Standardröst</strong>"
@@ -281,7 +266,6 @@
       "anonymizeFollowers": "Anonymisera följare",
       "botRespondsInChat": "Boten svarar i chatten",
       "cheerAnnouncements": "Cheer-aviseringar",
-      "defaultEmotion": "Standardkänsla",
       "defaultLanguage": "Standardspråk",
       "defaultPitch": "Standardtonhöjd",
       "defaultSpeed": "Standardhastighet",
@@ -296,7 +280,7 @@
       "readFullUrls": "Läs upp hela URL:er",
       "redemptionAnnouncements": "Inlösningsaviseringar",
       "soundTags": "Ljudtaggar",
-      "style": "Stil",
+      "style": "Förvald röststil",
       "ttsEngine": "TTS-motor",
       "ttsMode": "TTS-läge",
       "ttsPermission": "TTS-behörighet",
@@ -483,15 +467,15 @@
     "adjustTheVolumeForThe": "Justera volymen för den valda rösten. VARNING: Värden över 1,0 kan orsaka distorsion.",
     "calibratedVoices": "Kalibrerade röster",
     "calibrateVolumeForSpecificVoices": "Kalibrera volymen för specifika röster. VARNING: Värden över 1,0 kan orsaka distorsion.",
-    "defaultEmotion": "<strong>Standardkänsla</strong>",
     "defaultLanguage": "<strong>Standardspråk</strong>",
     "defaultVoiceSettings": "Standardröstinställningar",
+    "defaultVoiceStyle": "<strong>Förvald röststil</strong>",
+    "describeHowTheVoiceSpeaks": "Beskriv hur rösten talar med egna ord. Om rutan är tom har rösten ingen stil.",
     "selectHowFastTheDefault": "Välj hur snabbt standardrösten talar",
     "selectHowHighOrLow": "Välj hur ljust eller mörkt standardrösten talar",
     "selectTheVoiceThatTts": "Välj den röst som TTS använder för tittare som inte har någon egen röst",
     "selectVoice": "Välj röst",
     "setDefaultVoiceSettingsFor": "Ställ in standardröstinställningar för din kanal",
-    "setTheEmotionOfThe": "Ange känslan för standardrösten. Välj Anpassad för att beskriva rösten med egna ord.",
     "theVoiceModelReadsThe": "Röstmodellen läser av språket från texten. Om texten är kort eller otydlig ger den här inställningen modellen en ledtråd. Den anger också standardspråk för meddelanden och väljer ordlista för svordomsfiltret.",
     "viewersCanTypeASound": "Tittare kan skriva en ljudtagg i ett meddelande, så gör rösten det ljudet. Exempel är <code>&lt;laugh&gt;</code> och <code>&lt;sigh&gt;</code>. Alla taggar är på som standard. Avmarkera kryssrutan för att stänga av en tagg.",
     "viewerVoiceLookup": "Sök tittarröst",

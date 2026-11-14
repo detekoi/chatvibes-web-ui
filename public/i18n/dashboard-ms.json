@@ -69,29 +69,17 @@
     "dashboardConfigurationTabs": "Tab konfigurasi papan pemuka",
     "deactivationStopsTheBotFrom": "Penyahaktifan menghalang bot daripada membaca mesej sembang. Tetapan anda akan kekal disimpan. Anda boleh mengaktifkan perkhidmatan ini semula pada bila-bila masa.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentasi",
-    "emotion": "Emosi",
     "language": "Bahasa",
     "pitch": "Pic",
     "quickLinks": "Pautan pantas",
     "service": "Perkhidmatan",
     "signedInAs": "Log masuk sebagai",
     "speed": "Kelajuan",
+    "style": "Gaya",
     "testMessage": "Mesej ujian",
     "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Tetapan penonton",
     "voicePreview": "Pratonton suara",
     "volume": "Kelantangan"
-  },
-  "defaultEmotion": {
-    "angry": "Marah",
-    "calm": "Tenang",
-    "custom": "Tersuai…",
-    "disgusted": "Jijik",
-    "fearful": "Takut",
-    "fluent": "Lancar",
-    "happy": "Gembira",
-    "neutral": "Neutral",
-    "sad": "Sedih",
-    "surprised": "Terkejut"
   },
   "defaultPitchLabel": {
     "defaultPitch": "<strong>Pic Lalai</strong>"
@@ -105,11 +93,8 @@
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Contoh: tenang dan perlahan, seperti penyampai radio pada waktu malam"
   },
-  "defaultStyleGroup": {
-    "style": "Gaya"
-  },
-  "defaultStyleHint": {
-    "describeInAFewWords": "Terangkan dalam beberapa perkataan bagaimana suara ini bertutur."
+  "defaultStylePresetsLabel": {
+    "orStartWithAPreset": "Atau mulakan dengan praset. Anda boleh ubah perkataannya."
   },
   "defaultVoiceLabel": {
     "defaultVoice": "<strong>Suara Lalai</strong>"
@@ -281,7 +266,6 @@
       "anonymizeFollowers": "Awanamkan Pengikut",
       "botRespondsInChat": "Bot Balas dalam Sembang",
       "cheerAnnouncements": "Pengumuman Cheer",
-      "defaultEmotion": "Emosi Lalai",
       "defaultLanguage": "Bahasa Lalai",
       "defaultPitch": "Pic Lalai",
       "defaultSpeed": "Kelajuan Lalai",
@@ -296,7 +280,7 @@
       "readFullUrls": "Baca URL Penuh",
       "redemptionAnnouncements": "Pengumuman Penebusan",
       "soundTags": "Tag Bunyi",
-      "style": "Gaya",
+      "style": "Gaya suara lalai",
       "ttsEngine": "Enjin TTS",
       "ttsMode": "Mod TTS",
       "ttsPermission": "Kebenaran TTS",
@@ -483,15 +467,15 @@
     "adjustTheVolumeForThe": "Laraskan kelantangan untuk suara yang dipilih. AWAS: Nilai lebih daripada 1.0 boleh menyebabkan herotan.",
     "calibratedVoices": "Suara Ditentukur",
     "calibrateVolumeForSpecificVoices": "Tentukur kelantangan untuk suara tertentu. AWAS: Nilai lebih daripada 1.0 boleh menyebabkan herotan.",
-    "defaultEmotion": "<strong>Emosi Lalai</strong>",
     "defaultLanguage": "<strong>Bahasa Lalai</strong>",
     "defaultVoiceSettings": "Tetapan Suara Lalai",
+    "defaultVoiceStyle": "<strong>Gaya suara lalai</strong>",
+    "describeHowTheVoiceSpeaks": "Terangkan cara suara bertutur dengan kata-kata anda sendiri. Jika kotak kosong, suara tiada gaya.",
     "selectHowFastTheDefault": "Pilih seberapa laju suara lalai bertutur",
     "selectHowHighOrLow": "Pilih seberapa tinggi atau rendah suara lalai bertutur",
     "selectTheVoiceThatTts": "Pilih suara yang digunakan oleh TTS untuk penonton yang tiada suara sendiri",
     "selectVoice": "Pilih Suara",
     "setDefaultVoiceSettingsFor": "Tetapkan tetapan suara lalai untuk saluran anda",
-    "setTheEmotionOfThe": "Tetapkan emosi suara lalai. Pilih Tersuai untuk menerangkan suara dengan kata-kata anda sendiri.",
     "theVoiceModelReadsThe": "Model suara membaca bahasa daripada teks. Jika teks pendek atau tidak jelas, tetapan ini memberi model petunjuk. Ia juga menetapkan bahasa lalai untuk pengumuman dan memilih senarai perkataan bagi penapis kata kesat.",
     "viewersCanTypeASound": "Penonton boleh menaip tag bunyi dalam mesej, dan suara akan menghasilkan bunyi tersebut. Contohnya ialah <code>&lt;laugh&gt;</code> dan <code>&lt;sigh&gt;</code>. Semua tag dihidupkan secara lalai. Untuk mematikan tag, nyahtanda kotak pilihnya.",
     "viewerVoiceLookup": "Carian Suara Penonton",

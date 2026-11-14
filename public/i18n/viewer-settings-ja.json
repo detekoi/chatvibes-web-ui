@@ -33,20 +33,7 @@
   },
   "emotionReset": {
     "clear": "クリア",
-    "resetEmotionToDefault": "感情をデフォルトにリセット"
-  },
-  "emotionSelect": {
-    "angry": "怒り",
-    "calm": "穏やか",
-    "custom": "カスタム…",
-    "disgusted": "嫌悪",
-    "fearful": "恐怖",
-    "fluent": "流暢",
-    "happy": "喜び",
-    "neutral": "ニュートラル",
-    "sad": "悲しみ",
-    "surprised": "驚き",
-    "useChannelDefault": "チャンネルのデフォルトを使用"
+    "resetEmotionToDefault": "ボイススタイルをデフォルトにリセット"
   },
   "ignoreTts": {
     "optOutInThisChannel": "このチャンネルで除外する"
@@ -109,8 +96,7 @@
       "sendPreview": "プレビューを送信",
       "testCompletedTestMode": "テスト完了（テストモード）。",
       "updated": "設定を更新しました。",
-      "updatedTestMode": "設定を更新しました（テストモード）。",
-      "customStyle": "カスタム ({style})"
+      "updatedTestMode": "設定を更新しました（テストモード）。"
     }
   },
   "openChannelContextModalBtn": {
@@ -144,9 +130,8 @@
     "resetPitchToDefault": "ピッチをデフォルトにリセット"
   },
   "preferencesPanel": {
+    "describeHowTheVoiceSpeaks": "声の話し方を自由に記述してください。空欄の場合はチャンネルのデフォルトが適用されます。",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>ドキュメント </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>配信者設定 </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
-    "emotion": "<strong>感情</strong>",
-    "emotion2": "感情",
     "ifYourTextIsShort": "テキストが短かったり不明瞭だったりする場合、この設定が音声モデルのヒントになります。また、不適切語フィルターの単語リストの選択にも使われます。",
     "language": "言語",
     "languageLabel": "<strong>言語</strong>",
@@ -156,11 +141,12 @@
     "selectHowHighOrLow": "声の高さを選択",
     "selectTheVoiceThatTts": "メッセージにTTSが使用する音声を選択",
     "setHowYourMessagesSound": "TTSがメッセージを読み上げる際の設定を調整",
-    "setTheEmotionOfThe": "声の感情を設定します。「カスタム」を選択すると、自分の言葉で声の特徴を指定できます。",
     "speed": "速度",
+    "style": "スタイル",
     "testMessage": "テストメッセージ",
     "voicePreview": "ボイスプレビュー",
-    "voiceSettings": "ボイス設定"
+    "voiceSettings": "ボイス設定",
+    "voiceStyle": "<strong>ボイススタイル</strong>"
   },
   "prefsDisabledNote": {
     "theStreamerDisabledPersonalVoice": "配信者がこのチャンネルの個別ボイス設定を無効にしました。あなたの設定ではなく、デフォルトのボイスが使用されます。"
@@ -181,14 +167,11 @@
   "stepsHint": {
     "pitchAndSpeedAreApproximate": "ピッチと速度は目安です。音声モデルには数値ではなく言葉として設定が渡されます。"
   },
-  "styleGroup": {
-    "style": "スタイル"
-  },
-  "styleHint": {
-    "describeInAFewWords": "声の話し方を短い言葉で説明してください。"
-  },
   "styleInput": {
     "exampleCalmAndSlowLike": "例：夜のラジオパーソナリティのように落ち着いてゆっくり"
+  },
+  "stylePresetsLabel": {
+    "orStartWithAPreset": "またはプリセットから始められます。内容は変更できます。"
   },
   "voiceLabel": {
     "voice": "<strong>音声</strong>"

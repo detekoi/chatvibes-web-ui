@@ -33,20 +33,7 @@
   },
   "emotionReset": {
     "clear": "Nullstill",
-    "resetEmotionToDefault": "Tilbakestill følelse til standard"
-  },
-  "emotionSelect": {
-    "angry": "Sint",
-    "calm": "Rolig",
-    "custom": "Egendefinert…",
-    "disgusted": "Vemmet",
-    "fearful": "Redd",
-    "fluent": "Flytende",
-    "happy": "Glad",
-    "neutral": "Nøytral",
-    "sad": "Trist",
-    "surprised": "Overrasket",
-    "useChannelDefault": "Bruk kanalstandard"
+    "resetEmotionToDefault": "Tilbakestill stemmestil til standard"
   },
   "ignoreTts": {
     "optOutInThisChannel": "Reserver deg i denne kanalen"
@@ -109,8 +96,7 @@
       "sendPreview": "Send forhåndsvisning",
       "testCompletedTestMode": "Test fullført (testmodus).",
       "updated": "Innstilling oppdatert.",
-      "updatedTestMode": "Innstilling oppdatert (testmodus).",
-      "customStyle": "Egendefinert ({style})"
+      "updatedTestMode": "Innstilling oppdatert (testmodus)."
     }
   },
   "openChannelContextModalBtn": {
@@ -144,9 +130,8 @@
     "resetPitchToDefault": "Tilbakestill tonehøyde til standard"
   },
   "preferencesPanel": {
+    "describeHowTheVoiceSpeaks": "Beskriv hvordan stemmen snakker, med egne ord. Hvis feltet er tomt, brukes kanalens standard.",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentasjon </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Streamerinnstillinger </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
-    "emotion": "<strong>Følelse</strong>",
-    "emotion2": "Følelse",
     "ifYourTextIsShort": "Hvis teksten din er kort eller uklar, gir denne innstillingen stemmemodellen et hint. Den velger også ordlisten for bannefilteret.",
     "language": "Språk",
     "languageLabel": "<strong>Språk</strong>",
@@ -156,11 +141,12 @@
     "selectHowHighOrLow": "Velg hvor lyst eller mørkt stemmen snakker",
     "selectTheVoiceThatTts": "Velg stemmen TTS bruker for meldingene dine",
     "setHowYourMessagesSound": "Velg hvordan meldingene dine høres ut når TTS leser dem opp",
-    "setTheEmotionOfThe": "Angi stemmens følelse. Velg Egendefinert for å beskrive stemmen med egne ord.",
     "speed": "Hastighet",
+    "style": "Stil",
     "testMessage": "Testmelding",
     "voicePreview": "Forhåndsvisning av stemme",
-    "voiceSettings": "Stemmeinnstillinger"
+    "voiceSettings": "Stemmeinnstillinger",
+    "voiceStyle": "<strong>Stemmestil</strong>"
   },
   "prefsDisabledNote": {
     "theStreamerDisabledPersonalVoice": "Strømmeren har deaktivert personlige stemmeinnstillinger for denne kanalen. Denne kanalen vil bruke standardstemmen sin i stedet for preferansene dine."
@@ -181,14 +167,11 @@
   "stepsHint": {
     "pitchAndSpeedAreApproximate": "Tonehøyde og hastighet er omtrentlige. Stemmemodellen får disse innstillingene som ord, ikke som tall."
   },
-  "styleGroup": {
-    "style": "Stil"
-  },
-  "styleHint": {
-    "describeInAFewWords": "Beskriv med noen få ord hvordan stemmen snakker."
-  },
   "styleInput": {
     "exampleCalmAndSlowLike": "Eksempel: rolig og sakte, som en radiovert om natten"
+  },
+  "stylePresetsLabel": {
+    "orStartWithAPreset": "Eller start med en forhåndsinnstilling. Du kan endre ordene."
   },
   "voiceLabel": {
     "voice": "<strong>Stemme</strong>"

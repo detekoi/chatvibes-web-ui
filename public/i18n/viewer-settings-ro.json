@@ -33,20 +33,7 @@
   },
   "emotionReset": {
     "clear": "Șterge",
-    "resetEmotionToDefault": "Resetează emoția la valoarea implicită"
-  },
-  "emotionSelect": {
-    "angry": "Furios",
-    "calm": "Calm",
-    "custom": "Personalizat…",
-    "disgusted": "Dezgustat",
-    "fearful": "Speriat",
-    "fluent": "Fluent",
-    "happy": "Fericit",
-    "neutral": "Neutru",
-    "sad": "Trist",
-    "surprised": "Surprins",
-    "useChannelDefault": "Folosește valoarea implicită a canalului"
+    "resetEmotionToDefault": "Resetează stilul vocii la cel implicit"
   },
   "ignoreTts": {
     "optOutInThisChannel": "Dezactivează pe acest canal"
@@ -109,8 +96,7 @@
       "sendPreview": "Trimite previzualizare",
       "testCompletedTestMode": "Test finalizat (mod test).",
       "updated": "Preferință actualizată.",
-      "updatedTestMode": "Preferință actualizată (mod test).",
-      "customStyle": "Personalizat ({style})"
+      "updatedTestMode": "Preferință actualizată (mod test)."
     }
   },
   "openChannelContextModalBtn": {
@@ -144,9 +130,8 @@
     "resetPitchToDefault": "Resetează înălțimea vocii la valoarea implicită"
   },
   "preferencesPanel": {
+    "describeHowTheVoiceSpeaks": "Descrie cum vorbește vocea, cu propriile cuvinte. Dacă caseta este goală, se aplică setarea implicită a canalului.",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Documentație </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Setări streamer </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
-    "emotion": "<strong>Emoție</strong>",
-    "emotion2": "Emoție",
     "ifYourTextIsShort": "Dacă textul tău este scurt sau neclar, această setare oferă un indiciu modelului vocal. De asemenea, selectează lista de cuvinte pentru filtrul de limbaj vulgar.",
     "language": "Limbă",
     "languageLabel": "<strong>Limbă</strong>",
@@ -156,11 +141,12 @@
     "selectHowHighOrLow": "Selectează cât de înalt sau jos vorbește vocea",
     "selectTheVoiceThatTts": "Selectează vocea pe care TTS o folosește pentru mesajele tale",
     "setHowYourMessagesSound": "Setează cum se aud mesajele tale când le citește TTS",
-    "setTheEmotionOfThe": "Setează emoția vocii. Selectează Personalizat pentru a descrie vocea cu propriile cuvinte.",
     "speed": "Viteză",
+    "style": "Stil",
     "testMessage": "Mesaj de test",
     "voicePreview": "Previzualizare voce",
-    "voiceSettings": "Setări voce"
+    "voiceSettings": "Setări voce",
+    "voiceStyle": "<strong>Stilul vocii</strong>"
   },
   "prefsDisabledNote": {
     "theStreamerDisabledPersonalVoice": "Streamerul a dezactivat setările vocale personale pentru acest canal. Acest canal va folosi vocea sa implicită în locul preferințelor tale."
@@ -181,14 +167,11 @@
   "stepsHint": {
     "pitchAndSpeedAreApproximate": "Tonalitatea și viteza sunt aproximative. Modelul vocal primește aceste setări sub formă de cuvinte, nu de numere."
   },
-  "styleGroup": {
-    "style": "Stil"
-  },
-  "styleHint": {
-    "describeInAFewWords": "Descrie în câteva cuvinte cum vorbește vocea."
-  },
   "styleInput": {
     "exampleCalmAndSlowLike": "Exemplu: calm și rar, ca un prezentator radio noaptea"
+  },
+  "stylePresetsLabel": {
+    "orStartWithAPreset": "Sau începe cu o presetare. Poți schimba cuvintele."
   },
   "voiceLabel": {
     "voice": "<strong>Voce</strong>"

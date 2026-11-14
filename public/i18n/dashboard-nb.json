@@ -69,29 +69,17 @@
     "dashboardConfigurationTabs": "Faner for dashbordkonfigurasjon",
     "deactivationStopsTheBotFrom": "Deaktivering stopper boten fra å lese chatmeldinger. Innstillingene dine forblir lagret. Du kan aktivere tjenesten igjen når som helst.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentasjon",
-    "emotion": "Følelse",
     "language": "Språk",
     "pitch": "Tonehøyde",
     "quickLinks": "Hurtiglenker",
     "service": "Tjeneste",
     "signedInAs": "Logget inn som",
     "speed": "Hastighet",
+    "style": "Stil",
     "testMessage": "Testmelding",
     "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Seerinnstillinger",
     "voicePreview": "Forhåndsvisning av stemme",
     "volume": "Volum"
-  },
-  "defaultEmotion": {
-    "angry": "Sint",
-    "calm": "Rolig",
-    "custom": "Egendefinert…",
-    "disgusted": "Frastøtt",
-    "fearful": "Redd",
-    "fluent": "Flytende",
-    "happy": "Glad",
-    "neutral": "Nøytral",
-    "sad": "Trist",
-    "surprised": "Overrasket"
   },
   "defaultPitchLabel": {
     "defaultPitch": "<strong>Standard tonehøyde</strong>"
@@ -105,11 +93,8 @@
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Eksempel: rolig og sakte, som en radiovert om natten"
   },
-  "defaultStyleGroup": {
-    "style": "Stil"
-  },
-  "defaultStyleHint": {
-    "describeInAFewWords": "Beskriv med noen få ord hvordan stemmen snakker."
+  "defaultStylePresetsLabel": {
+    "orStartWithAPreset": "Eller start med en forhåndsinnstilling. Du kan endre ordene."
   },
   "defaultVoiceLabel": {
     "defaultVoice": "<strong>Standardstemme</strong>"
@@ -281,7 +266,6 @@
       "anonymizeFollowers": "Anonymiser følgere",
       "botRespondsInChat": "Boten svarer i chatten",
       "cheerAnnouncements": "Cheer-kunngjøringer",
-      "defaultEmotion": "Standardfølelse",
       "defaultLanguage": "Standardspråk",
       "defaultPitch": "Standard tonehøyde",
       "defaultSpeed": "Standardhastighet",
@@ -296,7 +280,7 @@
       "readFullUrls": "Les hele URL-er",
       "redemptionAnnouncements": "Innløsningskunngjøringer",
       "soundTags": "Lydtagger",
-      "style": "Stil",
+      "style": "Standard stemmestil",
       "ttsEngine": "TTS-motor",
       "ttsMode": "TTS-modus",
       "ttsPermission": "TTS-tillatelse",
@@ -483,15 +467,15 @@
     "adjustTheVolumeForThe": "Juster volumet for den valgte stemmen. ADVARSEL: Verdier over 1,0 kan føre til forvrengning.",
     "calibratedVoices": "Kalibrerte stemmer",
     "calibrateVolumeForSpecificVoices": "Kalibrer volumet for bestemte stemmer. ADVARSEL: Verdier over 1,0 kan føre til forvrengning.",
-    "defaultEmotion": "<strong>Standard sinnsstemning</strong>",
     "defaultLanguage": "<strong>Standardspråk</strong>",
     "defaultVoiceSettings": "Innstillinger for standardstemme",
+    "defaultVoiceStyle": "<strong>Standard stemmestil</strong>",
+    "describeHowTheVoiceSpeaks": "Beskriv hvordan stemmen snakker, med egne ord. Hvis feltet er tomt, har stemmen ingen stil.",
     "selectHowFastTheDefault": "Velg hvor raskt standardstemmen snakker",
     "selectHowHighOrLow": "Velg hvor lyst eller mørkt standardstemmen snakker",
     "selectTheVoiceThatTts": "Velg stemmen TTS bruker for seere som ikke har en egen stemme",
     "selectVoice": "Velg stemme",
     "setDefaultVoiceSettingsFor": "Angi standard stemmeinnstillinger for kanalen din",
-    "setTheEmotionOfThe": "Angi følelsen til standardstemmen. Velg Egendefinert for å beskrive stemmen med egne ord.",
     "theVoiceModelReadsThe": "Stemmemodellen leser språket ut fra teksten. Hvis teksten er kort eller uklar, gir denne innstillingen modellen et hint. Den angir også standardspråket for kunngjøringer og velger ordlisten for bannefilteret.",
     "viewersCanTypeASound": "Seere kan skrive en lydtagg i en melding, så lager stemmen den lyden. Eksempler er <code>&lt;laugh&gt;</code> og <code>&lt;sigh&gt;</code>. Alle tagger er på som standard. For å slå av en tagg fjerner du avmerkingen i boksen.",
     "viewerVoiceLookup": "Oppslag av seerstemme",

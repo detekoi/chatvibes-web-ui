@@ -33,20 +33,7 @@
   },
   "emotionReset": {
     "clear": "Сбросить",
-    "resetEmotionToDefault": "Сбросить эмоцию на значение по умолчанию"
-  },
-  "emotionSelect": {
-    "angry": "Злой",
-    "calm": "Спокойный",
-    "custom": "Свой вариант…",
-    "disgusted": "С отвращением",
-    "fearful": "Испуганный",
-    "fluent": "Плавный",
-    "happy": "Радостный",
-    "neutral": "Нейтральный",
-    "sad": "Грустный",
-    "surprised": "Удивленный",
-    "useChannelDefault": "По умолчанию для канала"
+    "resetEmotionToDefault": "Сбросить стиль голоса по умолчанию"
   },
   "ignoreTts": {
     "optOutInThisChannel": "Отказаться на этом канале"
@@ -109,8 +96,7 @@
       "sendPreview": "Отправить превью",
       "testCompletedTestMode": "Тест завершён (тестовый режим).",
       "updated": "Настройка обновлена.",
-      "updatedTestMode": "Настройка обновлена (тестовый режим).",
-      "customStyle": "Свой ({style})"
+      "updatedTestMode": "Настройка обновлена (тестовый режим)."
     }
   },
   "openChannelContextModalBtn": {
@@ -144,9 +130,8 @@
     "resetPitchToDefault": "Сбросить высоту тона по умолчанию"
   },
   "preferencesPanel": {
+    "describeHowTheVoiceSpeaks": "Опишите своими словами, как говорит голос. Если поле пустое, применяется настройка канала по умолчанию.",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Документация </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Настройки стримера </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
-    "emotion": "<strong>Эмоция</strong>",
-    "emotion2": "Эмоция",
     "ifYourTextIsShort": "Если ваш текст короткий или неясный, эта настройка даёт голосовой модели подсказку. Она также выбирает список слов для фильтра нецензурной лексики.",
     "language": "Язык",
     "languageLabel": "<strong>Язык</strong>",
@@ -156,11 +141,12 @@
     "selectHowHighOrLow": "Выберите, насколько высоко или низко говорит голос",
     "selectTheVoiceThatTts": "Выберите голос, которым TTS озвучивает ваши сообщения",
     "setHowYourMessagesSound": "Настройте звучание сообщений при их озвучивании TTS",
-    "setTheEmotionOfThe": "Задайте эмоцию голоса. Выберите «Свой вариант», чтобы описать голос своими словами.",
     "speed": "Скорость",
+    "style": "Стиль",
     "testMessage": "Тестовое сообщение",
     "voicePreview": "Прослушивание голоса",
-    "voiceSettings": "Настройки голоса"
+    "voiceSettings": "Настройки голоса",
+    "voiceStyle": "<strong>Стиль голоса</strong>"
   },
   "prefsDisabledNote": {
     "theStreamerDisabledPersonalVoice": "Стример отключил персональные настройки голоса для этого канала. Будет использоваться голос по умолчанию вместо ваших настроек."
@@ -181,14 +167,11 @@
   "stepsHint": {
     "pitchAndSpeedAreApproximate": "Тон и скорость приблизительны. Голосовая модель получает эти настройки в виде слов, а не чисел."
   },
-  "styleGroup": {
-    "style": "Стиль"
-  },
-  "styleHint": {
-    "describeInAFewWords": "Опишите в нескольких словах, как говорит голос."
-  },
   "styleInput": {
     "exampleCalmAndSlowLike": "Например: спокойно и медленно, как ночной радиоведущий"
+  },
+  "stylePresetsLabel": {
+    "orStartWithAPreset": "Или начните с пресета. Слова можно изменить."
   },
   "voiceLabel": {
     "voice": "<strong>Голос</strong>"

@@ -116,18 +116,6 @@
       "signedOut": "Du är inte inloggad.",
       "tokenMissing": "Autentiseringstoken saknas. Logga in igen."
     },
-    "emotion": {
-      "angry": "Arg",
-      "calm": "Lugn",
-      "disgusted": "Äcklad",
-      "fearful": "Rädd",
-      "fluent": "Flytande",
-      "happy": "Glad",
-      "neutral": "Neutral",
-      "sad": "Ledsen",
-      "surprised": "Förvånad",
-      "custom": "Anpassad"
-    },
     "ignore": {
       "enterUsername": "Ange ett användarnamn."
     },
@@ -193,7 +181,40 @@
       }
     },
     "style": {
-      "count": "{count} av {max} tecken"
+      "count": "{count} av {max} tecken",
+      "none": "Ingen stil"
+    },
+    "stylePreset": {
+      "label": {
+        "neutral": "Neutral",
+        "happy": "Glad",
+        "excited": "Exalterad",
+        "calm": "Lugn",
+        "sad": "Ledsen",
+        "angry": "Arg",
+        "fearful": "Rädd",
+        "surprised": "Förvånad",
+        "sarcastic": "Sarkastisk",
+        "whisper": "Viskande",
+        "dramatic": "Dramatisk",
+        "announcer": "Sportkommentator"
+      },
+      "text": {
+        "neutral": "i en neutral ton",
+        "happy": "glad och munter",
+        "excited": "exalterad och full av energi",
+        "calm": "lugn och avslappnad",
+        "sad": "ledsen och nedstämd",
+        "angry": "arg",
+        "fearful": "ängslig och rädd",
+        "surprised": "förvånad och häpen",
+        "sarcastic": "torr och sarkastisk",
+        "whisper": "viskande, som om du berättar en hemlighet",
+        "dramatic": "dramatisk, som en berättarröst i en filmtrailer",
+        "announcer": "som en exalterad sportkommentator",
+        "disgusted": "äcklad",
+        "fluent": "mjuk och flytande"
+      }
     }
   },
   "page": {

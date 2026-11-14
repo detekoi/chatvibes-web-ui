@@ -116,18 +116,6 @@
       "signedOut": "Vous n'êtes pas connecté.",
       "tokenMissing": "Jeton d'authentification manquant. Reconnectez-vous."
     },
-    "emotion": {
-      "angry": "En colère",
-      "calm": "Calme",
-      "disgusted": "Dégoûté",
-      "fearful": "Effrayé",
-      "fluent": "Fluide",
-      "happy": "Joyeux",
-      "neutral": "Neutre",
-      "sad": "Triste",
-      "surprised": "Surpris",
-      "custom": "Personnalisé"
-    },
     "ignore": {
       "enterUsername": "Entrez un nom d'utilisateur."
     },
@@ -193,7 +181,40 @@
       }
     },
     "style": {
-      "count": "{count} sur {max} caractères"
+      "count": "{count} sur {max} caractères",
+      "none": "Aucun style"
+    },
+    "stylePreset": {
+      "label": {
+        "neutral": "Neutre",
+        "happy": "Joyeux",
+        "excited": "Enthousiaste",
+        "calm": "Calme",
+        "sad": "Triste",
+        "angry": "En colère",
+        "fearful": "Effrayé",
+        "surprised": "Surpris",
+        "sarcastic": "Sarcastique",
+        "whisper": "Chuchotement",
+        "dramatic": "Dramatique",
+        "announcer": "Commentateur sportif"
+      },
+      "text": {
+        "neutral": "d'un ton neutre",
+        "happy": "joyeux et enjoué",
+        "excited": "enthousiaste et plein d'énergie",
+        "calm": "calme et détendu",
+        "sad": "triste et abattu",
+        "angry": "en colère",
+        "fearful": "craintif et effrayé",
+        "surprised": "surpris et étonné",
+        "sarcastic": "sec et sarcastique",
+        "whisper": "en chuchotant, comme pour confier un secret",
+        "dramatic": "dramatique, comme un narrateur de bande-annonce",
+        "announcer": "comme un commentateur sportif enthousiaste",
+        "disgusted": "dégoûté",
+        "fluent": "doux et fluide"
+      }
     }
   },
   "page": {

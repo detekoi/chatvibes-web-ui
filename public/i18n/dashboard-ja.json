@@ -69,29 +69,17 @@
     "dashboardConfigurationTabs": "ダッシュボード設定タブ",
     "deactivationStopsTheBotFrom": "無効化するとBotがチャットメッセージを読み上げなくなります。設定は保存されたまま残り、いつでもサービスを再開できます。",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>ドキュメント",
-    "emotion": "感情",
     "language": "言語",
     "pitch": "ピッチ",
     "quickLinks": "クイックリンク",
     "service": "サービス",
     "signedInAs": "ログイン中:",
     "speed": "速度",
+    "style": "スタイル",
     "testMessage": "テストメッセージ",
     "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>視聴者設定",
     "voicePreview": "ボイスプレビュー",
     "volume": "音量"
-  },
-  "defaultEmotion": {
-    "angry": "怒り",
-    "calm": "穏やか",
-    "custom": "カスタム…",
-    "disgusted": "嫌悪",
-    "fearful": "恐怖",
-    "fluent": "流暢",
-    "happy": "喜び",
-    "neutral": "ニュートラル",
-    "sad": "悲しみ",
-    "surprised": "驚き"
   },
   "defaultPitchLabel": {
     "defaultPitch": "<strong>デフォルトのピッチ</strong>"
@@ -105,17 +93,14 @@
   "defaultStyle": {
     "exampleCalmAndSlowLike": "例: 深夜ラジオのパーソナリティのように、落ち着いてゆっくりと"
   },
-  "defaultStyleGroup": {
-    "style": "スタイル"
-  },
-  "defaultStyleHint": {
-    "describeInAFewWords": "声の話し方を短い言葉で指定します。"
+  "defaultStylePresetsLabel": {
+    "orStartWithAPreset": "またはプリセットから始めることもできます。文言は変更できます。"
   },
   "defaultVoiceLabel": {
     "defaultVoice": "<strong>デフォルトボイス</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "ボイス音量（0.1～2.0）"
+    "voiceVolume01To": "音声の音量 (0.1〜2.0)"
   },
   "emoteMode": {
     "describeEmotes": "エモートを読み上げる",
@@ -281,7 +266,6 @@
       "anonymizeFollowers": "フォロワーを匿名化",
       "botRespondsInChat": "ボットがチャットで応答",
       "cheerAnnouncements": "Cheer通知",
-      "defaultEmotion": "デフォルトの感情",
       "defaultLanguage": "デフォルトの言語",
       "defaultPitch": "デフォルトのピッチ",
       "defaultSpeed": "デフォルトの速度",
@@ -296,7 +280,7 @@
       "readFullUrls": "URLを最後まで読み上げる",
       "redemptionAnnouncements": "引き換え通知",
       "soundTags": "サウンドタグ",
-      "style": "スタイル",
+      "style": "デフォルトの音声スタイル",
       "ttsEngine": "TTSエンジン",
       "ttsMode": "TTSモード",
       "ttsPermission": "TTS権限",
@@ -483,21 +467,21 @@
     "adjustTheVolumeForThe": "選択したボイスの音量を調整します。注意: 1.0より大きい値にすると音割れの原因になります。",
     "calibratedVoices": "調整済みボイス",
     "calibrateVolumeForSpecificVoices": "特定のボイスの音量を調整します。注意: 1.0より大きい値にすると音割れの原因になります。",
-    "defaultEmotion": "<strong>デフォルトの感情</strong>",
     "defaultLanguage": "<strong>デフォルトの言語</strong>",
     "defaultVoiceSettings": "デフォルト音声設定",
+    "defaultVoiceStyle": "<strong>デフォルトの音声スタイル</strong>",
+    "describeHowTheVoiceSpeaks": "音声の話し方を自分の言葉で説明してください。空欄の場合、スタイルは設定されません。",
     "selectHowFastTheDefault": "デフォルトボイスの話す速さを選択します",
     "selectHowHighOrLow": "デフォルトボイスの声の高さを選択します",
     "selectTheVoiceThatTts": "ボイスを設定していない視聴者に対してTTSが使用するボイスを選択します",
     "selectVoice": "音声を選択",
     "setDefaultVoiceSettingsFor": "チャンネルのデフォルト音声設定",
-    "setTheEmotionOfThe": "デフォルトボイスの感情を設定します。自分の言葉で声の表現を指定するには「カスタム」を選択してください。",
     "theVoiceModelReadsThe": "音声モデルはテキストから言語を判別します。テキストが短い場合や不明瞭な場合、この設定がモデルへのヒントになります。また、アナウンスのデフォルト言語や不適切語句フィルターの単語リストの選択にも使用されます。",
     "viewersCanTypeASound": "視聴者がメッセージにサウンドタグを入力すると、ボイスがその音を出します。例: <code>&lt;laugh&gt;</code>、<code>&lt;sigh&gt;</code>。初期設定ではすべてのタグが有効です。タグをオフにするにはチェックボックスを外してください。",
     "viewerVoiceLookup": "視聴者音声の検索",
     "voiceCalibration": "音声キャリブレーション",
     "voicesWithCustomVolumeSettings": "音量がカスタム設定されている音声。",
-    "voiceVolume01To": "ボイスの音量 (0.1〜2.0):",
+    "voiceVolume01To": "音声の音量 (0.1〜2.0):",
     "volumeOverride": "音量の上書き:"
   },
   "ttsBannedWordInput": {

@@ -69,29 +69,17 @@
     "dashboardConfigurationTabs": "Karty konfiguracji panelu",
     "deactivationStopsTheBotFrom": "Dezaktywacja sprawi, że bot przestanie czytać wiadomości z czatu. Twoje ustawienia zostaną zachowane. Możesz ponownie aktywować usługę w dowolnym momencie.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentacja",
-    "emotion": "Emocje",
     "language": "Język",
     "pitch": "Wysokość tonu",
     "quickLinks": "Szybkie linki",
     "service": "Usługa",
     "signedInAs": "Zalogowano jako",
     "speed": "Prędkość",
+    "style": "Styl",
     "testMessage": "Wiadomość testowa",
     "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Ustawienia widza",
     "voicePreview": "Próbka głosu",
     "volume": "Głośność"
-  },
-  "defaultEmotion": {
-    "angry": "Zły",
-    "calm": "Spokojny",
-    "custom": "Własny…",
-    "disgusted": "Zniesmaczony",
-    "fearful": "Przestraszony",
-    "fluent": "Płynny",
-    "happy": "Radosny",
-    "neutral": "Neutralny",
-    "sad": "Smutny",
-    "surprised": "Zaskoczony"
   },
   "defaultPitchLabel": {
     "defaultPitch": "<strong>Domyślna wysokość</strong>"
@@ -105,17 +93,14 @@
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Przykład: spokojny i powolny, jak nocny prezenter radiowy"
   },
-  "defaultStyleGroup": {
-    "style": "Styl"
-  },
-  "defaultStyleHint": {
-    "describeInAFewWords": "Opisz w kilku słowach, jak głos ma mówić."
+  "defaultStylePresetsLabel": {
+    "orStartWithAPreset": "Lub zacznij od szablonu. Możesz zmienić słowa."
   },
   "defaultVoiceLabel": {
     "defaultVoice": "<strong>Domyślny głos</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "Głośność głosu (od 0,1 do 2,0)"
+    "voiceVolume01To": "Głośność głosu (0.1 do 2.0)"
   },
   "emoteMode": {
     "describeEmotes": "Opisuj emotki",
@@ -281,7 +266,6 @@
       "anonymizeFollowers": "Anonimizuj obserwujących",
       "botRespondsInChat": "Bot odpowiada na czacie",
       "cheerAnnouncements": "Ogłoszenia Cheer",
-      "defaultEmotion": "Domyślna emocja",
       "defaultLanguage": "Domyślny język",
       "defaultPitch": "Domyślna wysokość głosu",
       "defaultSpeed": "Domyślna prędkość",
@@ -296,7 +280,7 @@
       "readFullUrls": "Czytaj pełne adresy URL",
       "redemptionAnnouncements": "Ogłoszenia o odebraniu nagród",
       "soundTags": "Tagi dźwiękowe",
-      "style": "Styl",
+      "style": "Domyślny styl głosu",
       "ttsEngine": "Silnik TTS",
       "ttsMode": "Tryb TTS",
       "ttsPermission": "Uprawnienia TTS",
@@ -483,21 +467,21 @@
     "adjustTheVolumeForThe": "Dostosuj głośność wybranego głosu. UWAGA: Wartości większe niż 1.0 mogą powodować zniekształcenia dźwięku.",
     "calibratedVoices": "Skalibrowane głosy",
     "calibrateVolumeForSpecificVoices": "Skalibruj głośność dla poszczególnych głosów. UWAGA: Wartości większe niż 1.0 mogą powodować zniekształcenia dźwięku.",
-    "defaultEmotion": "<strong>Domyślna emocja</strong>",
     "defaultLanguage": "<strong>Domyślny język</strong>",
     "defaultVoiceSettings": "Ustawienia domyślnego głosu",
+    "defaultVoiceStyle": "<strong>Domyślny styl głosu</strong>",
+    "describeHowTheVoiceSpeaks": "Opisz własnymi słowami, jak ma mówić głos. Jeśli pole jest puste, głos nie ma stylu.",
     "selectHowFastTheDefault": "Wybierz, jak szybko mówi domyślny głos",
     "selectHowHighOrLow": "Wybierz, jak wysoko lub nisko mówi domyślny głos",
     "selectTheVoiceThatTts": "Wybierz głos, którego TTS używa dla widzów bez własnego głosu",
     "selectVoice": "Wybierz głos",
     "setDefaultVoiceSettingsFor": "Ustaw domyślne parametry głosu dla swojego kanału",
-    "setTheEmotionOfThe": "Ustaw emocję domyślnego głosu. Wybierz Własny, aby opisać głos własnymi słowami.",
     "theVoiceModelReadsThe": "Model głosu rozpoznaje język na podstawie tekstu. Jeśli tekst jest krótki lub niejasny, to ustawienie daje modelowi wskazówkę. Ustawia również domyślny język ogłoszeń i wybiera listę słów dla filtra wulgaryzmów.",
     "viewersCanTypeASound": "Widzowie mogą wpisać tag dźwiękowy w wiadomości, a głos wyda ten dźwięk. Przykłady to <code>&lt;laugh&gt;</code> i <code>&lt;sigh&gt;</code>. Domyślnie wszystkie tagi są włączone. Aby wyłączyć tag, odznacz jego pole wyboru.",
     "viewerVoiceLookup": "Wyszukiwanie głosu widza",
     "voiceCalibration": "Kalibracja głosu",
     "voicesWithCustomVolumeSettings": "Głosy z niestandardowymi ustawieniami głośności.",
-    "voiceVolume01To": "Głośność głosu (0,1 do 2,0):",
+    "voiceVolume01To": "Głośność głosu (0.1 do 2.0):",
     "volumeOverride": "Nadpisanie głośności:"
   },
   "ttsBannedWordInput": {

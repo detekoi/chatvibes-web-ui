@@ -33,20 +33,7 @@
   },
   "emotionReset": {
     "clear": "지우기",
-    "resetEmotionToDefault": "감정을 기본값으로 초기화"
-  },
-  "emotionSelect": {
-    "angry": "화남",
-    "calm": "차분함",
-    "custom": "사용자 지정…",
-    "disgusted": "혐오",
-    "fearful": "두려움",
-    "fluent": "유창함",
-    "happy": "행복",
-    "neutral": "중립",
-    "sad": "슬픔",
-    "surprised": "놀람",
-    "useChannelDefault": "채널 기본값 사용"
+    "resetEmotionToDefault": "음성 스타일을 기본값으로 초기화"
   },
   "ignoreTts": {
     "optOutInThisChannel": "이 채널에서 제외"
@@ -109,8 +96,7 @@
       "sendPreview": "미리듣기 전송",
       "testCompletedTestMode": "테스트 완료(테스트 모드).",
       "updated": "설정이 업데이트되었습니다.",
-      "updatedTestMode": "설정이 업데이트되었습니다(테스트 모드).",
-      "customStyle": "사용자 지정 ({style})"
+      "updatedTestMode": "설정이 업데이트되었습니다(테스트 모드)."
     }
   },
   "openChannelContextModalBtn": {
@@ -144,9 +130,8 @@
     "resetPitchToDefault": "음높이 기본값으로 초기화"
   },
   "preferencesPanel": {
+    "describeHowTheVoiceSpeaks": "음성이 말하는 방식을 원하는 표현으로 설명하세요. 입력란이 비어 있으면 채널 기본값이 적용됩니다.",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>문서 </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>스트리머 설정 </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
-    "emotion": "<strong>감정</strong>",
-    "emotion2": "감정",
     "ifYourTextIsShort": "텍스트가 짧거나 불명확할 때 음성 모델에 힌트를 주며, 비속어 필터의 단어 목록을 선택하는 데도 사용됩니다.",
     "language": "언어",
     "languageLabel": "<strong>언어</strong>",
@@ -156,11 +141,12 @@
     "selectHowHighOrLow": "음성의 높낮이 선택",
     "selectTheVoiceThatTts": "메시지에 TTS가 사용할 음성 선택",
     "setHowYourMessagesSound": "TTS가 메시지를 읽을 때의 음성 설정",
-    "setTheEmotionOfThe": "음성의 감정을 설정하세요. 음성을 직접 설명하려면 사용자 지정을 선택하세요.",
     "speed": "속도",
+    "style": "스타일",
     "testMessage": "테스트 메시지",
     "voicePreview": "음성 미리듣기",
-    "voiceSettings": "음성 설정"
+    "voiceSettings": "음성 설정",
+    "voiceStyle": "<strong>음성 스타일</strong>"
   },
   "prefsDisabledNote": {
     "theStreamerDisabledPersonalVoice": "스트리머가 이 채널의 개인 음성 설정을 비활성화했습니다. 개인 설정 대신 채널 기본 음성을 사용합니다."
@@ -181,14 +167,11 @@
   "stepsHint": {
     "pitchAndSpeedAreApproximate": "음높이와 속도는 대략적인 값입니다. 음성 모델은 이 설정을 숫자가 아닌 단어로 전달받습니다."
   },
-  "styleGroup": {
-    "style": "스타일"
-  },
-  "styleHint": {
-    "describeInAFewWords": "음성이 말하는 방식을 몇 단어로 설명하세요."
-  },
   "styleInput": {
     "exampleCalmAndSlowLike": "예: 밤의 라디오 진행자처럼 차분하고 느리게"
+  },
+  "stylePresetsLabel": {
+    "orStartWithAPreset": "또는 프리셋으로 시작하세요. 문구는 수정할 수 있습니다."
   },
   "voiceLabel": {
     "voice": "<strong>음성</strong>"

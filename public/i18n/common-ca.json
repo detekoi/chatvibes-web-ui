@@ -116,18 +116,6 @@
       "signedOut": "No has iniciat la sessió.",
       "tokenMissing": "Falta el testimoni d'autenticació. Torna a iniciar la sessió."
     },
-    "emotion": {
-      "angry": "Enfadat",
-      "calm": "Calmat",
-      "disgusted": "Disgustat",
-      "fearful": "Espantat",
-      "fluent": "Fluid",
-      "happy": "Content",
-      "neutral": "Neutral",
-      "sad": "Trist",
-      "surprised": "Sorprès",
-      "custom": "Personalitzat"
-    },
     "ignore": {
       "enterUsername": "Introdueix un nom d'usuari."
     },
@@ -193,7 +181,40 @@
       }
     },
     "style": {
-      "count": "{count} de {max} caràcters"
+      "count": "{count} de {max} caràcters",
+      "none": "Sense estil"
+    },
+    "stylePreset": {
+      "label": {
+        "neutral": "Neutral",
+        "happy": "Feliç",
+        "excited": "Emocionat",
+        "calm": "Tranquil",
+        "sad": "Trist",
+        "angry": "Enfadat",
+        "fearful": "Espantat",
+        "surprised": "Sorprès",
+        "sarcastic": "Sarcàstic",
+        "whisper": "Xiuxiueig",
+        "dramatic": "Dramàtic",
+        "announcer": "Locutor esportiu"
+      },
+      "text": {
+        "neutral": "amb un to neutral",
+        "happy": "feliç i alegre",
+        "excited": "emocionat i ple d'energia",
+        "calm": "tranquil i relaxat",
+        "sad": "trist i abatut",
+        "angry": "enfadat",
+        "fearful": "temorós i espantat",
+        "surprised": "sorprès i astorat",
+        "sarcastic": "sec i sarcàstic",
+        "whisper": "xiuxiuejant, com qui explica un secret",
+        "dramatic": "dramàtic, com el narrador d'un tràiler de pel·lícula",
+        "announcer": "com un locutor esportiu emocionat",
+        "disgusted": "fastiguejat",
+        "fluent": "suau i fluid"
+      }
     }
   },
   "page": {

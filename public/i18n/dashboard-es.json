@@ -69,29 +69,17 @@
     "dashboardConfigurationTabs": "Pestañas de configuración del panel",
     "deactivationStopsTheBotFrom": "La desactivación impide que el bot lea mensajes del chat. Tu configuración permanecerá guardada. Puedes volver a activar el servicio en cualquier momento.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Documentación",
-    "emotion": "Emoción",
     "language": "Idioma",
     "pitch": "Tono",
     "quickLinks": "Enlaces rápidos",
     "service": "Servicio",
     "signedInAs": "Sesión iniciada como",
     "speed": "Velocidad",
+    "style": "Estilo",
     "testMessage": "Mensaje de prueba",
     "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Ajustes del espectador",
     "voicePreview": "Vista previa de voz",
     "volume": "Volumen"
-  },
-  "defaultEmotion": {
-    "angry": "Enojado",
-    "calm": "Tranquila",
-    "custom": "Personalizada…",
-    "disgusted": "Disgustado",
-    "fearful": "Temeroso",
-    "fluent": "Fluida",
-    "happy": "Feliz",
-    "neutral": "Neutral",
-    "sad": "Triste",
-    "surprised": "Sorprendido"
   },
   "defaultPitchLabel": {
     "defaultPitch": "<strong>Tono predeterminado</strong>"
@@ -105,11 +93,8 @@
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Ejemplo: tranquila y lenta, como un locutor de radio nocturno"
   },
-  "defaultStyleGroup": {
-    "style": "Estilo"
-  },
-  "defaultStyleHint": {
-    "describeInAFewWords": "Describe en pocas palabras cómo habla la voz."
+  "defaultStylePresetsLabel": {
+    "orStartWithAPreset": "O empieza con un preajuste. Puedes cambiar las palabras."
   },
   "defaultVoiceLabel": {
     "defaultVoice": "<strong>Voz predeterminada</strong>"
@@ -281,7 +266,6 @@
       "anonymizeFollowers": "Anonimizar seguidores",
       "botRespondsInChat": "El bot responde en el chat",
       "cheerAnnouncements": "Anuncios de Cheers",
-      "defaultEmotion": "Emoción predeterminada",
       "defaultLanguage": "Idioma predeterminado",
       "defaultPitch": "Tono predeterminado",
       "defaultSpeed": "Velocidad predeterminada",
@@ -296,7 +280,7 @@
       "readFullUrls": "Leer URLs completas",
       "redemptionAnnouncements": "Anuncios de canjes",
       "soundTags": "Etiquetas de sonido",
-      "style": "Estilo",
+      "style": "Estilo de voz predeterminado",
       "ttsEngine": "Motor de TTS",
       "ttsMode": "Modo de TTS",
       "ttsPermission": "Permiso de TTS",
@@ -483,15 +467,15 @@
     "adjustTheVolumeForThe": "Ajusta el volumen de la voz seleccionada. PRECAUCIÓN: Valores superiores a 1.0 pueden causar distorsión.",
     "calibratedVoices": "Voces calibradas",
     "calibrateVolumeForSpecificVoices": "Calibra el volumen para voces específicas. PRECAUCIÓN: Valores superiores a 1.0 pueden causar distorsión.",
-    "defaultEmotion": "<strong>Emoción predeterminada</strong>",
     "defaultLanguage": "<strong>Idioma predeterminado</strong>",
     "defaultVoiceSettings": "Ajustes de voz predeterminada",
+    "defaultVoiceStyle": "<strong>Estilo de voz predeterminado</strong>",
+    "describeHowTheVoiceSpeaks": "Describe cómo habla la voz con tus propias palabras. Si el cuadro está vacío, la voz no tiene estilo.",
     "selectHowFastTheDefault": "Selecciona la velocidad a la que habla la voz predeterminada",
     "selectHowHighOrLow": "Selecciona qué tan grave o agudo habla la voz predeterminada",
     "selectTheVoiceThatTts": "Selecciona la voz que TTS usa para los espectadores que no tienen una voz propia",
     "selectVoice": "Seleccionar voz",
     "setDefaultVoiceSettingsFor": "Configura los ajustes de voz predeterminados de tu canal",
-    "setTheEmotionOfThe": "Define la emoción de la voz predeterminada. Selecciona Personalizada para describir la voz con tus propias palabras.",
     "theVoiceModelReadsThe": "El modelo de voz detecta el idioma a partir del texto. Si el texto es corto o poco claro, este ajuste le da una pista al modelo. También define el idioma predeterminado para los anuncios y selecciona la lista de palabras del filtro de lenguaje ofensivo.",
     "viewersCanTypeASound": "Los espectadores pueden escribir una etiqueta de sonido en un mensaje y la voz hará ese sonido. Por ejemplo, <code>&lt;laugh&gt;</code> y <code>&lt;sigh&gt;</code>. Todas las etiquetas están activadas de forma predeterminada. Para desactivar una etiqueta, desmarca su casilla.",
     "viewerVoiceLookup": "Búsqueda de voz de espectador",

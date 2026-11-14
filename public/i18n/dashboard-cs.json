@@ -69,29 +69,17 @@
     "dashboardConfigurationTabs": "Záložky nastavení přehledu",
     "deactivationStopsTheBotFrom": "Deaktivací zabráníte botovi ve čtení zpráv v chatu. Vaše nastavení zůstane uložené. Službu můžete kdykoli znovu aktivovat.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentace",
-    "emotion": "Emoce",
     "language": "Jazyk",
     "pitch": "Výška hlasu",
     "quickLinks": "Rychlé odkazy",
     "service": "Služba",
     "signedInAs": "Přihlášen jako",
     "speed": "Rychlost",
+    "style": "Styl",
     "testMessage": "Zkušební zpráva",
     "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Nastavení pro diváky",
     "voicePreview": "Ukázka hlasu",
     "volume": "Hlasitost"
-  },
-  "defaultEmotion": {
-    "angry": "Rozhněvaný",
-    "calm": "Klidný",
-    "custom": "Vlastní…",
-    "disgusted": "Znechucený",
-    "fearful": "Vyděšený",
-    "fluent": "Plynulý",
-    "happy": "Šťastný",
-    "neutral": "Neutrální",
-    "sad": "Smutný",
-    "surprised": "Překvapený"
   },
   "defaultPitchLabel": {
     "defaultPitch": "<strong>Výchozí výška hlasu</strong>"
@@ -105,11 +93,8 @@
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Příklad: klidný a pomalý, jako noční rozhlasový moderátor"
   },
-  "defaultStyleGroup": {
-    "style": "Styl"
-  },
-  "defaultStyleHint": {
-    "describeInAFewWords": "Popište několika slovy, jak hlas mluví."
+  "defaultStylePresetsLabel": {
+    "orStartWithAPreset": "Nebo začněte s předvolbou. Slova můžete změnit."
   },
   "defaultVoiceLabel": {
     "defaultVoice": "<strong>Výchozí hlas</strong>"
@@ -281,7 +266,6 @@
       "anonymizeFollowers": "Anonymizovat sledující",
       "botRespondsInChat": "Bot odpovídá v chatu",
       "cheerAnnouncements": "Oznámení Cheer",
-      "defaultEmotion": "Výchozí emoce",
       "defaultLanguage": "Výchozí jazyk",
       "defaultPitch": "Výchozí výška hlasu",
       "defaultSpeed": "Výchozí rychlost",
@@ -296,7 +280,7 @@
       "readFullUrls": "Číst celé URL",
       "redemptionAnnouncements": "Oznámení o uplatnění",
       "soundTags": "Zvukové tagy",
-      "style": "Styl",
+      "style": "Výchozí styl hlasu",
       "ttsEngine": "Engine TTS",
       "ttsMode": "Režim TTS",
       "ttsPermission": "Oprávnění pro TTS",
@@ -483,15 +467,15 @@
     "adjustTheVolumeForThe": "Upravte hlasitost pro vybraný hlas. POZOR: Hodnoty vyšší než 1.0 mohou způsobit zkreslení.",
     "calibratedVoices": "Kalibrované hlasy",
     "calibrateVolumeForSpecificVoices": "Kalibrace hlasitosti pro konkrétní hlasy. POZOR: Hodnoty vyšší než 1.0 mohou způsobit zkreslení.",
-    "defaultEmotion": "<strong>Výchozí emoce</strong>",
     "defaultLanguage": "<strong>Výchozí jazyk</strong>",
     "defaultVoiceSettings": "Výchozí nastavení hlasu",
+    "defaultVoiceStyle": "<strong>Výchozí styl hlasu</strong>",
+    "describeHowTheVoiceSpeaks": "Popište vlastními slovy, jak hlas mluví. Pokud je pole prázdné, hlas nemá žádný styl.",
     "selectHowFastTheDefault": "Vyberte, jak rychle výchozí hlas mluví",
     "selectHowHighOrLow": "Vyberte, jak vysoko nebo nízko výchozí hlas mluví",
     "selectTheVoiceThatTts": "Vyberte hlas, který TTS použije pro diváky bez vlastního hlasu",
     "selectVoice": "Vybrat hlas",
     "setDefaultVoiceSettingsFor": "Nastavte výchozí nastavení hlasu pro svůj kanál",
-    "setTheEmotionOfThe": "Nastavte emoci výchozího hlasu. Vyberte Vlastní, chcete-li hlas popsat vlastními slovy.",
     "theVoiceModelReadsThe": "Hlasový model rozpoznává jazyk z textu. Pokud je text krátký nebo nejasný, toto nastavení modelu napoví. Zároveň určuje výchozí jazyk oznámení a vybírá seznam slov pro filtr vulgarismů.",
     "viewersCanTypeASound": "Diváci mohou do zprávy napsat zvukový tag a hlas daný zvuk vydá. Příkladem jsou <code>&lt;laugh&gt;</code> a <code>&lt;sigh&gt;</code>. Všechny tagy jsou ve výchozím nastavení zapnuté. Chcete-li tag vypnout, zrušte jeho zaškrtnutí.",
     "viewerVoiceLookup": "Vyhledání hlasu diváka",

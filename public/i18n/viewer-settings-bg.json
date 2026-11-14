@@ -33,20 +33,7 @@
   },
   "emotionReset": {
     "clear": "Изчистване",
-    "resetEmotionToDefault": "Връщане на емоцията по подразбиране"
-  },
-  "emotionSelect": {
-    "angry": "Ядосано",
-    "calm": "Спокоен",
-    "custom": "По избор…",
-    "disgusted": "Отвратено",
-    "fearful": "Изплашено",
-    "fluent": "Плавен",
-    "happy": "Радостно",
-    "neutral": "Неутрално",
-    "sad": "Тъжно",
-    "surprised": "Изненадано",
-    "useChannelDefault": "По подразбиране за канала"
+    "resetEmotionToDefault": "Възстанови стила на гласа по подразбиране"
   },
   "ignoreTts": {
     "optOutInThisChannel": "Отказ в този канал"
@@ -109,8 +96,7 @@
       "sendPreview": "Изпращане на преглед",
       "testCompletedTestMode": "Тестът е завършен (тестов режим).",
       "updated": "Предпочитанието е обновено.",
-      "updatedTestMode": "Предпочитанието е обновено (тестов режим).",
-      "customStyle": "По избор ({style})"
+      "updatedTestMode": "Предпочитанието е обновено (тестов режим)."
     }
   },
   "openChannelContextModalBtn": {
@@ -144,9 +130,8 @@
     "resetPitchToDefault": "Възстановяване на височината по подразбиране"
   },
   "preferencesPanel": {
+    "describeHowTheVoiceSpeaks": "Опиши със свои думи как говори гласът. Ако полето е празно, важи настройката по подразбиране за канала.",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Документация </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Настройки за стриймъри </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
-    "emotion": "<strong>Емоция</strong>",
-    "emotion2": "Емоция",
     "ifYourTextIsShort": "Ако текстът ви е кратък или неясен, тази настройка дава насока на гласовия модел. Тя избира и списъка с думи за филтъра за нецензурна реч.",
     "language": "Език",
     "languageLabel": "<strong>Език</strong>",
@@ -156,11 +141,12 @@
     "selectHowHighOrLow": "Изберете колко високо или ниско да говори гласът",
     "selectTheVoiceThatTts": "Изберете гласа, който TTS използва за вашите съобщения",
     "setHowYourMessagesSound": "Задайте как да звучат съобщенията ви, когато TTS ги чете",
-    "setTheEmotionOfThe": "Задайте емоцията на гласа. Изберете „По избор“, за да опишете гласа със свои думи.",
     "speed": "Скорост",
+    "style": "Стил",
     "testMessage": "Тестово съобщение",
     "voicePreview": "Преглед на гласа",
-    "voiceSettings": "Настройки на гласа"
+    "voiceSettings": "Настройки на гласа",
+    "voiceStyle": "<strong>Стил на гласа</strong>"
   },
   "prefsDisabledNote": {
     "theStreamerDisabledPersonalVoice": "Стриймърът е изключил личните настройки на гласа за този канал. Каналът ще използва гласа си по подразбиране вместо вашите предпочитания."
@@ -181,14 +167,11 @@
   "stepsHint": {
     "pitchAndSpeedAreApproximate": "Височината и скоростта са приблизителни. Гласовият модел получава тези настройки като думи, а не като числа."
   },
-  "styleGroup": {
-    "style": "Стил"
-  },
-  "styleHint": {
-    "describeInAFewWords": "Опишете с няколко думи как говори гласът."
-  },
   "styleInput": {
     "exampleCalmAndSlowLike": "Пример: спокойно и бавно, като нощен радиоводещ"
+  },
+  "stylePresetsLabel": {
+    "orStartWithAPreset": "Или започни с шаблон. Можеш да промениш думите."
   },
   "voiceLabel": {
     "voice": "<strong>Глас</strong>"

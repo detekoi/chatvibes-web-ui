@@ -116,18 +116,6 @@
       "signedOut": "你未登入。",
       "tokenMissing": "缺少驗證權杖。請重新登入。"
     },
-    "emotion": {
-      "angry": "憤怒",
-      "calm": "平靜",
-      "disgusted": "厭惡",
-      "fearful": "恐懼",
-      "fluent": "流暢",
-      "happy": "開心",
-      "neutral": "中性",
-      "sad": "悲傷",
-      "surprised": "驚訝",
-      "custom": "自訂"
-    },
     "ignore": {
       "enterUsername": "輸入用戶名稱。"
     },
@@ -193,7 +181,40 @@
       }
     },
     "style": {
-      "count": "{count} / {max} 個字元"
+      "count": "{count} / {max} 個字元",
+      "none": "無風格"
+    },
+    "stylePreset": {
+      "label": {
+        "neutral": "中性",
+        "happy": "開心",
+        "excited": "興奮",
+        "calm": "平靜",
+        "sad": "傷心",
+        "angry": "憤怒",
+        "fearful": "驚慌",
+        "surprised": "驚訝",
+        "sarcastic": "諷刺",
+        "whisper": "耳語",
+        "dramatic": "戲劇化",
+        "announcer": "體育旁述"
+      },
+      "text": {
+        "neutral": "用中性語氣",
+        "happy": "開心又開朗",
+        "excited": "興奮又充滿活力",
+        "calm": "平靜又輕鬆",
+        "sad": "傷心又低落",
+        "angry": "憤怒",
+        "fearful": "驚恐又害怕",
+        "surprised": "驚訝又詫異",
+        "sarcastic": "語氣冷淡又帶諷刺",
+        "whisper": "細細聲講，好似講緊秘密咁",
+        "dramatic": "充滿戲劇感，好似電影預告片旁白咁",
+        "announcer": "好似興奮嘅體育旁述員咁",
+        "disgusted": "厭惡",
+        "fluent": "順暢流利"
+      }
     }
   },
   "page": {

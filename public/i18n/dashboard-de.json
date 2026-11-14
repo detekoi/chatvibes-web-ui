@@ -69,29 +69,17 @@
     "dashboardConfigurationTabs": "Dashboard-Konfigurations-Tabs",
     "deactivationStopsTheBotFrom": "Durch die Deaktivierung liest der Bot keine Chatnachrichten mehr vor. Deine Einstellungen bleiben gespeichert. Du kannst den Dienst jederzeit wieder aktivieren.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentation",
-    "emotion": "Emotion",
     "language": "Sprache",
     "pitch": "Tonhöhe",
     "quickLinks": "Quicklinks",
     "service": "Dienst",
     "signedInAs": "Angemeldet als",
     "speed": "Geschwindigkeit",
+    "style": "Stil",
     "testMessage": "Testnachricht",
     "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Zuschauereinstellungen",
     "voicePreview": "Stimmvorschau",
     "volume": "Lautstärke"
-  },
-  "defaultEmotion": {
-    "angry": "Wütend",
-    "calm": "Ruhig",
-    "custom": "Benutzerdefiniert…",
-    "disgusted": "Angeekelt",
-    "fearful": "Ängstlich",
-    "fluent": "Fließend",
-    "happy": "Fröhlich",
-    "neutral": "Neutral",
-    "sad": "Traurig",
-    "surprised": "Überrascht"
   },
   "defaultPitchLabel": {
     "defaultPitch": "<strong>Standardtonhöhe</strong>"
@@ -105,17 +93,14 @@
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Beispiel: ruhig und langsam, wie ein Radiomoderator bei Nacht"
   },
-  "defaultStyleGroup": {
-    "style": "Stil"
-  },
-  "defaultStyleHint": {
-    "describeInAFewWords": "Beschreibe in wenigen Worten, wie die Stimme spricht."
+  "defaultStylePresetsLabel": {
+    "orStartWithAPreset": "Oder starte mit einer Vorlage. Du kannst die Wörter ändern."
   },
   "defaultVoiceLabel": {
     "defaultVoice": "<strong>Standardstimme</strong>"
   },
   "defaultVolume": {
-    "voiceVolume01To": "Stimmenlautstärke (0,1 bis 2,0)"
+    "voiceVolume01To": "Stimmlautstärke (0,1 bis 2,0)"
   },
   "emoteMode": {
     "describeEmotes": "Emotes beschreiben",
@@ -281,7 +266,6 @@
       "anonymizeFollowers": "Follower anonymisieren",
       "botRespondsInChat": "Bot antwortet im Chat",
       "cheerAnnouncements": "Cheer-Ansagen",
-      "defaultEmotion": "Standard-Emotion",
       "defaultLanguage": "Standardsprache",
       "defaultPitch": "Standard-Tonhöhe",
       "defaultSpeed": "Standardgeschwindigkeit",
@@ -296,7 +280,7 @@
       "readFullUrls": "Vollständige URLs vorlesen",
       "redemptionAnnouncements": "Einlösungs-Ansagen",
       "soundTags": "Sound-Tags",
-      "style": "Stil",
+      "style": "Standard-Stimmstil",
       "ttsEngine": "TTS-Engine",
       "ttsMode": "TTS-Modus",
       "ttsPermission": "TTS-Berechtigung",
@@ -483,15 +467,15 @@
     "adjustTheVolumeForThe": "Lautstärke für die ausgewählte Stimme anpassen. ACHTUNG: Werte über 1,0 können zu Verzerrungen führen.",
     "calibratedVoices": "Kalibrierte Stimmen",
     "calibrateVolumeForSpecificVoices": "Lautstärke für bestimmte Stimmen kalibrieren. ACHTUNG: Werte über 1,0 können zu Verzerrungen führen.",
-    "defaultEmotion": "<strong>Standard-Emotion</strong>",
     "defaultLanguage": "<strong>Standardsprache</strong>",
     "defaultVoiceSettings": "Standard-Stimmeneinstellungen",
+    "defaultVoiceStyle": "<strong>Standard-Stimmstil</strong>",
+    "describeHowTheVoiceSpeaks": "Beschreibe mit eigenen Worten, wie die Stimme spricht. Wenn das Feld leer ist, hat die Stimme keinen Stil.",
     "selectHowFastTheDefault": "Wähle, wie schnell die Standardstimme spricht",
     "selectHowHighOrLow": "Wähle, wie hoch oder tief die Standardstimme spricht",
     "selectTheVoiceThatTts": "Wähle die Stimme, die TTS für Zuschauer ohne eigene Stimme verwendet",
     "selectVoice": "Stimme auswählen",
     "setDefaultVoiceSettingsFor": "Standard-Stimmeneinstellungen für deinen Kanal festlegen",
-    "setTheEmotionOfThe": "Lege die Emotion der Standardstimme fest. Wähle „Benutzerdefiniert“, um die Stimme in eigenen Worten zu beschreiben.",
     "theVoiceModelReadsThe": "Das Sprachmodell erkennt die Sprache anhand des Texts. Wenn der Text kurz oder unklar ist, gibt diese Einstellung dem Modell einen Hinweis. Sie legt außerdem die Standardsprache für Ankündigungen fest und wählt die Wortliste für den Schimpfwortfilter aus.",
     "viewersCanTypeASound": "Zuschauer können ein Sound-Tag in eine Nachricht schreiben, und die Stimme macht dieses Geräusch. Beispiele sind <code>&lt;laugh&gt;</code> und <code>&lt;sigh&gt;</code>. Standardmäßig sind alle Tags aktiv. Um ein Tag zu deaktivieren, entferne das Häkchen.",
     "viewerVoiceLookup": "Zuschauerstimmen-Suche",

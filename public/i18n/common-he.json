@@ -116,18 +116,6 @@
       "signedOut": "אינך מחובר.",
       "tokenMissing": "אסימון האימות חסר. יש להתחבר מחדש."
     },
-    "emotion": {
-      "angry": "כועס",
-      "calm": "רגוע",
-      "disgusted": "נגעל",
-      "fearful": "מפוחד",
-      "fluent": "שוטף",
-      "happy": "שמח",
-      "neutral": "ניטרלי",
-      "sad": "עצוב",
-      "surprised": "מופתע",
-      "custom": "מותאם אישית"
-    },
     "ignore": {
       "enterUsername": "יש להזין שם משתמש."
     },
@@ -193,7 +181,40 @@
       }
     },
     "style": {
-      "count": "{count} מתוך {max} תווים"
+      "count": "{count} מתוך {max} תווים",
+      "none": "ללא סגנון"
+    },
+    "stylePreset": {
+      "label": {
+        "neutral": "ניטרלי",
+        "happy": "שמח",
+        "excited": "נרגש",
+        "calm": "רגוע",
+        "sad": "עצוב",
+        "angry": "כועס",
+        "fearful": "מפוחד",
+        "surprised": "מופתע",
+        "sarcastic": "סרקסטי",
+        "whisper": "לחישה",
+        "dramatic": "דרמטי",
+        "announcer": "שדר ספורט"
+      },
+      "text": {
+        "neutral": "בטון ניטרלי",
+        "happy": "שמח ועליז",
+        "excited": "נרגש ומלא אנרגיה",
+        "calm": "רגוע ונינוח",
+        "sad": "עצוב ומדוכדך",
+        "angry": "כועס",
+        "fearful": "חרד ומפוחד",
+        "surprised": "מופתע ונדהם",
+        "sarcastic": "יבש וסרקסטי",
+        "whisper": "לוחש, כאילו מספר סוד",
+        "dramatic": "דרמטי, כמו קריין של טריילר לסרט",
+        "announcer": "כמו שדר ספורט נלהב",
+        "disgusted": "נגעל",
+        "fluent": "חלק ושוטף"
+      }
     }
   },
   "page": {

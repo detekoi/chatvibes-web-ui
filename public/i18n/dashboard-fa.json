@@ -69,29 +69,17 @@
     "dashboardConfigurationTabs": "برگه‌های پیکربندی داشبورد",
     "deactivationStopsTheBotFrom": "غیرفعال‌سازی مانع از خواندن پیام‌های چت توسط ربات می‌شود. تنظیمات شما ذخیره می‌ماند. می‌توانید هر زمان که بخواهید سرویس را دوباره فعال کنید.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>مستندات",
-    "emotion": "احساس",
     "language": "زبان",
     "pitch": "زیروبمی صدا",
     "quickLinks": "لینک‌های سریع",
     "service": "سرویس",
     "signedInAs": "واردشده با حساب",
     "speed": "سرعت",
+    "style": "سبک",
     "testMessage": "پیام آزمایشی",
     "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>تنظیمات بیننده",
     "voicePreview": "پیش‌نمایش صدا",
     "volume": "بلندی صدا"
-  },
-  "defaultEmotion": {
-    "angry": "عصبانی",
-    "calm": "آرام",
-    "custom": "سفارشی…",
-    "disgusted": "بیزار",
-    "fearful": "ترسیده",
-    "fluent": "روان",
-    "happy": "خوشحال",
-    "neutral": "خنثی",
-    "sad": "غمگین",
-    "surprised": "شگفت‌زده"
   },
   "defaultPitchLabel": {
     "defaultPitch": "<strong>زیر و بم پیش‌فرض</strong>"
@@ -105,11 +93,8 @@
   "defaultStyle": {
     "exampleCalmAndSlowLike": "مثال: آرام و آهسته، مثل مجری رادیو در شب"
   },
-  "defaultStyleGroup": {
-    "style": "سبک"
-  },
-  "defaultStyleHint": {
-    "describeInAFewWords": "در چند کلمه توضیح دهید صدا چگونه صحبت کند."
+  "defaultStylePresetsLabel": {
+    "orStartWithAPreset": "یا با یک پیش‌تنظیم شروع کنید. می‌توانید کلمات را تغییر دهید."
   },
   "defaultVoiceLabel": {
     "defaultVoice": "<strong>صدای پیش‌فرض</strong>"
@@ -281,7 +266,6 @@
       "anonymizeFollowers": "ناشناس کردن دنبال‌کنندگان",
       "botRespondsInChat": "پاسخ ربات در چت",
       "cheerAnnouncements": "اعلام‌های Cheer",
-      "defaultEmotion": "حالت احساسی پیش‌فرض",
       "defaultLanguage": "زبان پیش‌فرض",
       "defaultPitch": "زیروبمی پیش‌فرض صدا",
       "defaultSpeed": "سرعت پیش‌فرض",
@@ -296,7 +280,7 @@
       "readFullUrls": "خواندن کامل URLها",
       "redemptionAnnouncements": "اعلام دریافت‌های پاداش",
       "soundTags": "برچسب‌های صوتی",
-      "style": "سبک",
+      "style": "سبک پیش‌فرض صدا",
       "ttsEngine": "موتور TTS",
       "ttsMode": "حالت TTS",
       "ttsPermission": "دسترسی TTS",
@@ -483,15 +467,15 @@
     "adjustTheVolumeForThe": "تنظیم بلندی صدای انتخاب‌شده. احتیاط: مقادیر بیشتر از ۱٫۰ می‌توانند باعث اعوجاج صدا شوند.",
     "calibratedVoices": "صداهای کالیبره‌شده",
     "calibrateVolumeForSpecificVoices": "تنظیم بلندی صدا برای صداهای خاص. احتیاط: مقادیر بیشتر از ۱٫۰ می‌توانند باعث اعوجاج صدا شوند.",
-    "defaultEmotion": "<strong>احساس پیش‌فرض</strong>",
     "defaultLanguage": "<strong>زبان پیش‌فرض</strong>",
     "defaultVoiceSettings": "تنظیمات صدای پیش‌فرض",
+    "defaultVoiceStyle": "<strong>سبک پیش‌فرض صدا</strong>",
+    "describeHowTheVoiceSpeaks": "با کلمات خودتان توضیح دهید صدا چگونه صحبت کند. اگر کادر خالی باشد، صدا سبکی نخواهد داشت.",
     "selectHowFastTheDefault": "سرعت صحبت کردن صدای پیش‌فرض را انتخاب کنید",
     "selectHowHighOrLow": "میزان زیر و بم بودن صدای پیش‌فرض را انتخاب کنید",
     "selectTheVoiceThatTts": "صدایی را انتخاب کنید که TTS برای بینندگانی که صدای اختصاصی ندارند استفاده کند",
     "selectVoice": "انتخاب صدا",
     "setDefaultVoiceSettingsFor": "تنظیمات صدای پیش‌فرض را برای کانال خود تعیین کنید",
-    "setTheEmotionOfThe": "احساس صدای پیش‌فرض را تنظیم کنید. برای توصیف صدا با کلمات خودتان، «سفارشی» را انتخاب کنید.",
     "theVoiceModelReadsThe": "مدل صدا زبان را از روی متن تشخیص می‌دهد. اگر متن کوتاه یا نامشخص باشد، این تنظیم به مدل سرنخ می‌دهد. همچنین زبان پیش‌فرض اعلان‌ها را تنظیم کرده و فهرست کلمات فیلتر الفاظ رکیک را انتخاب می‌کند.",
     "viewersCanTypeASound": "بینندگان می‌توانند یک برچسب صوتی در پیام تایپ کنند تا آن صدا ایجاد شود. نمونه‌های آن <code>&lt;laugh&gt;</code> و <code>&lt;sigh&gt;</code> هستند. همه برچسب‌ها به طور پیش‌فرض فعال هستند. برای غیرفعال کردن یک برچسب، تیک آن را بردارید.",
     "viewerVoiceLookup": "جستجوی صدای بیننده",

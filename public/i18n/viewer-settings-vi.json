@@ -33,20 +33,7 @@
   },
   "emotionReset": {
     "clear": "Xóa",
-    "resetEmotionToDefault": "Đặt lại cảm xúc về mặc định"
-  },
-  "emotionSelect": {
-    "angry": "Tức giận",
-    "calm": "Bình tĩnh",
-    "custom": "Tùy chỉnh…",
-    "disgusted": "Ghê tởm",
-    "fearful": "Sợ hãi",
-    "fluent": "Lưu loát",
-    "happy": "Vui vẻ",
-    "neutral": "Trung tính",
-    "sad": "Buồn bã",
-    "surprised": "Ngạc nhiên",
-    "useChannelDefault": "Dùng mặc định của kênh"
+    "resetEmotionToDefault": "Đặt lại phong cách giọng nói về mặc định"
   },
   "ignoreTts": {
     "optOutInThisChannel": "Chọn không dùng trong kênh này"
@@ -109,8 +96,7 @@
       "sendPreview": "Gửi nghe thử",
       "testCompletedTestMode": "Kiểm tra hoàn tất (chế độ thử nghiệm).",
       "updated": "Đã cập nhật tùy chọn.",
-      "updatedTestMode": "Đã cập nhật tùy chọn (chế độ thử nghiệm).",
-      "customStyle": "Tùy chỉnh ({style})"
+      "updatedTestMode": "Đã cập nhật tùy chọn (chế độ thử nghiệm)."
     }
   },
   "openChannelContextModalBtn": {
@@ -144,9 +130,8 @@
     "resetPitchToDefault": "Đặt lại cao độ về mặc định"
   },
   "preferencesPanel": {
+    "describeHowTheVoiceSpeaks": "Mô tả cách giọng nói thể hiện bằng lời của bạn. Nếu ô này trống, mặc định của kênh sẽ được áp dụng.",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Tài liệu </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Cài đặt streamer </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
-    "emotion": "<strong>Cảm xúc</strong>",
-    "emotion2": "Cảm xúc",
     "ifYourTextIsShort": "Nếu văn bản của bạn ngắn hoặc không rõ ràng, cài đặt này sẽ gợi ý cho mô hình giọng nói. Nó cũng chọn danh sách từ cho bộ lọc từ ngữ thô tục.",
     "language": "Ngôn ngữ",
     "languageLabel": "<strong>Ngôn ngữ</strong>",
@@ -156,11 +141,12 @@
     "selectHowHighOrLow": "Chọn độ cao thấp của giọng nói",
     "selectTheVoiceThatTts": "Chọn giọng nói mà TTS dùng cho tin nhắn của bạn",
     "setHowYourMessagesSound": "Đặt cách phát âm tin nhắn khi TTS đọc",
-    "setTheEmotionOfThe": "Đặt cảm xúc cho giọng nói. Chọn Tùy chỉnh để tự mô tả giọng nói theo ý bạn.",
     "speed": "Tốc độ",
+    "style": "Phong cách",
     "testMessage": "Tin nhắn thử",
     "voicePreview": "Nghe thử giọng nói",
-    "voiceSettings": "Cài đặt giọng nói"
+    "voiceSettings": "Cài đặt giọng nói",
+    "voiceStyle": "<strong>Phong cách giọng nói</strong>"
   },
   "prefsDisabledNote": {
     "theStreamerDisabledPersonalVoice": "Streamer đã tắt cài đặt giọng nói cá nhân cho kênh này. Kênh sẽ sử dụng giọng nói mặc định thay vì tùy chọn của bạn."
@@ -181,14 +167,11 @@
   "stepsHint": {
     "pitchAndSpeedAreApproximate": "Cao độ và tốc độ chỉ mang tính tương đối. Mô hình giọng nói nhận các cài đặt này dưới dạng từ ngữ, không phải số."
   },
-  "styleGroup": {
-    "style": "Phong cách"
-  },
-  "styleHint": {
-    "describeInAFewWords": "Mô tả ngắn gọn cách giọng nói thể hiện."
-  },
   "styleInput": {
     "exampleCalmAndSlowLike": "Ví dụ: bình tĩnh và chậm rãi, như phát thanh viên radio ban đêm"
+  },
+  "stylePresetsLabel": {
+    "orStartWithAPreset": "Hoặc bắt đầu với một mẫu có sẵn. Bạn có thể thay đổi từ ngữ."
   },
   "voiceLabel": {
     "voice": "<strong>Giọng nói</strong>"

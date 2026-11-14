@@ -116,18 +116,6 @@
       "signedOut": "لم تقم بتسجيل الدخول.",
       "tokenMissing": "رمز المصادقة مفقود. سجّل الدخول مرة أخرى."
     },
-    "emotion": {
-      "angry": "غاضب",
-      "calm": "هادئ",
-      "disgusted": "مشمئز",
-      "fearful": "خائف",
-      "fluent": "سلس",
-      "happy": "سعيد",
-      "neutral": "محايد",
-      "sad": "حزين",
-      "surprised": "متفاجئ",
-      "custom": "مخصّص"
-    },
     "ignore": {
       "enterUsername": "أدخل اسم مستخدم."
     },
@@ -193,7 +181,40 @@
       }
     },
     "style": {
-      "count": "{count} من {max} حرف"
+      "count": "{count} من {max} حرف",
+      "none": "بلا أسلوب"
+    },
+    "stylePreset": {
+      "label": {
+        "neutral": "محايد",
+        "happy": "سعيد",
+        "excited": "متحمس",
+        "calm": "هادئ",
+        "sad": "حزين",
+        "angry": "غاضب",
+        "fearful": "خائف",
+        "surprised": "متفاجئ",
+        "sarcastic": "ساخر",
+        "whisper": "همس",
+        "dramatic": "درامي",
+        "announcer": "معلق رياضي"
+      },
+      "text": {
+        "neutral": "بنبرة محايدة",
+        "happy": "سعيد ومبهج",
+        "excited": "متحمس ومليء بالطاقة",
+        "calm": "هادئ ومسترخٍ",
+        "sad": "حزين ومكتئب",
+        "angry": "غاضب",
+        "fearful": "خائف ومذعور",
+        "surprised": "متفاجئ ومندهش",
+        "sarcastic": "جاف وساخر",
+        "whisper": "يهمس، كأنه يبوح بسر",
+        "dramatic": "درامي، مثل راوي إعلان فيلم",
+        "announcer": "مثل معلق رياضي متحمس",
+        "disgusted": "مشمئز",
+        "fluent": "سلس وطليق"
+      }
     }
   },
   "page": {

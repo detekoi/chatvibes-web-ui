@@ -33,20 +33,7 @@
   },
   "emotionReset": {
     "clear": "清除",
-    "resetEmotionToDefault": "將情緒重設為預設值"
-  },
-  "emotionSelect": {
-    "angry": "憤怒",
-    "calm": "平靜",
-    "custom": "自訂…",
-    "disgusted": "厭惡",
-    "fearful": "恐懼",
-    "fluent": "流暢",
-    "happy": "開心",
-    "neutral": "中性",
-    "sad": "傷心",
-    "surprised": "驚訝",
-    "useChannelDefault": "使用頻道預設"
+    "resetEmotionToDefault": "重設語音風格為預設"
   },
   "ignoreTts": {
     "optOutInThisChannel": "喺呢個頻道退出"
@@ -109,8 +96,7 @@
       "sendPreview": "傳送預覽",
       "testCompletedTestMode": "測試完成（測試模式）。",
       "updated": "偏好設定已更新。",
-      "updatedTestMode": "偏好設定已更新（測試模式）。",
-      "customStyle": "自訂（{style}）"
+      "updatedTestMode": "偏好設定已更新（測試模式）。"
     }
   },
   "openChannelContextModalBtn": {
@@ -144,9 +130,8 @@
     "resetPitchToDefault": "重設音調為預設值"
   },
   "preferencesPanel": {
+    "describeHowTheVoiceSpeaks": "用你自己嘅話形容把聲點樣講嘢。如果個框留空，就會用頻道預設。",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>文件 </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>實況主設定 </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
-    "emotion": "<strong>情緒</strong>",
-    "emotion2": "情緒",
     "ifYourTextIsShort": "如果你嘅文字好短或者唔夠清晰，呢個設定會畀語音模型一個提示。佢同時會揀選粗口過濾器要用嘅詞語表。",
     "language": "語言",
     "languageLabel": "<strong>語言</strong>",
@@ -156,11 +141,12 @@
     "selectHowHighOrLow": "揀選語音講嘢嘅音調高低",
     "selectTheVoiceThatTts": "揀選 TTS 用嚟讀你訊息嘅語音",
     "setHowYourMessagesSound": "設定 TTS 朗讀你嘅訊息時嘅聲音效果",
-    "setTheEmotionOfThe": "設定語音嘅情緒。揀「自訂」就可以用你自己嘅字眼描述語音。",
     "speed": "速度",
+    "style": "風格",
     "testMessage": "測試訊息",
     "voicePreview": "語音試聽",
-    "voiceSettings": "語音設定"
+    "voiceSettings": "語音設定",
+    "voiceStyle": "<strong>語音風格</strong>"
   },
   "prefsDisabledNote": {
     "theStreamerDisabledPersonalVoice": "直播主已停用呢個頻道嘅個人語音設定。呢個頻道將會使用預設語音，而唔係你嘅偏好設定。"
@@ -181,14 +167,11 @@
   "stepsHint": {
     "pitchAndSpeedAreApproximate": "音調同速度只係大概。語音模型收到嘅係文字描述，而唔係數字。"
   },
-  "styleGroup": {
-    "style": "風格"
-  },
-  "styleHint": {
-    "describeInAFewWords": "用幾個字簡單描述語音點樣講嘢。"
-  },
   "styleInput": {
     "exampleCalmAndSlowLike": "例子：平靜又慢條斯理，好似深夜電台主持噉"
+  },
+  "stylePresetsLabel": {
+    "orStartWithAPreset": "或者由預設開始。你可以改啲字。"
   },
   "voiceLabel": {
     "voice": "<strong>語音</strong>"

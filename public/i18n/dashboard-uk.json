@@ -69,29 +69,17 @@
     "dashboardConfigurationTabs": "Вкладки налаштувань панелі керування",
     "deactivationStopsTheBotFrom": "Деактивація зупиняє читання ботом повідомлень чату. Ваші налаштування збережуться. Ви можете знову активувати сервіс будь-коли.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Документація",
-    "emotion": "Емоція",
     "language": "Мова",
     "pitch": "Висота тону",
     "quickLinks": "Швидкі посилання",
     "service": "Сервіс",
     "signedInAs": "Ви увійшли як",
     "speed": "Швидкість",
+    "style": "Стиль",
     "testMessage": "Тестове повідомлення",
     "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Налаштування глядача",
     "voicePreview": "Прослуховування голосу",
     "volume": "Гучність"
-  },
-  "defaultEmotion": {
-    "angry": "Злий",
-    "calm": "Спокійний",
-    "custom": "Власний…",
-    "disgusted": "З відразою",
-    "fearful": "Зляканий",
-    "fluent": "Плавний",
-    "happy": "Щасливий",
-    "neutral": "Нейтральний",
-    "sad": "Сумний",
-    "surprised": "Здивований"
   },
   "defaultPitchLabel": {
     "defaultPitch": "<strong>Висота тону за замовчуванням</strong>"
@@ -105,11 +93,8 @@
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Приклад: спокійно й повільно, як нічний радіоведучий"
   },
-  "defaultStyleGroup": {
-    "style": "Стиль"
-  },
-  "defaultStyleHint": {
-    "describeInAFewWords": "Опишіть у кількох словах, як говорить голос."
+  "defaultStylePresetsLabel": {
+    "orStartWithAPreset": "Або почніть із шаблону. Слова можна змінити."
   },
   "defaultVoiceLabel": {
     "defaultVoice": "<strong>Голос за замовчуванням</strong>"
@@ -281,7 +266,6 @@
       "anonymizeFollowers": "Анонімізувати підписників",
       "botRespondsInChat": "Бот відповідає в чаті",
       "cheerAnnouncements": "Оголошення Cheer",
-      "defaultEmotion": "Емоція за замовчуванням",
       "defaultLanguage": "Мова за замовчуванням",
       "defaultPitch": "Висота тону за замовчуванням",
       "defaultSpeed": "Швидкість за замовчуванням",
@@ -296,7 +280,7 @@
       "readFullUrls": "Читати повні URL",
       "redemptionAnnouncements": "Оголошення про нагороди",
       "soundTags": "Звукові теги",
-      "style": "Стиль",
+      "style": "Стиль голосу за замовчуванням",
       "ttsEngine": "Рушій TTS",
       "ttsMode": "Режим TTS",
       "ttsPermission": "Дозвіл на TTS",
@@ -483,21 +467,21 @@
     "adjustTheVolumeForThe": "Налаштуйте гучність вибраного голосу. УВАГА: значення понад 1.0 можуть спричинити спотворення звуку.",
     "calibratedVoices": "Відкалібровані голоси",
     "calibrateVolumeForSpecificVoices": "Калібруйте гучність для окремих голосів. УВАГА: значення понад 1.0 можуть спричинити спотворення звуку.",
-    "defaultEmotion": "<strong>Типова емоція</strong>",
     "defaultLanguage": "<strong>Типова мова</strong>",
     "defaultVoiceSettings": "Типові налаштування голосу",
+    "defaultVoiceStyle": "<strong>Стиль голосу за замовчуванням</strong>",
+    "describeHowTheVoiceSpeaks": "Опишіть своїми словами, як говорить голос. Якщо поле порожнє, голос не має стилю.",
     "selectHowFastTheDefault": "Виберіть, наскільки швидко говорить голос за замовчуванням",
     "selectHowHighOrLow": "Виберіть, наскільки високо чи низько говорить голос за замовчуванням",
     "selectTheVoiceThatTts": "Виберіть голос, який TTS використовуватиме для глядачів без власного голосу",
     "selectVoice": "Обрати голос",
     "setDefaultVoiceSettingsFor": "Установіть типові налаштування голосу для вашого каналу",
-    "setTheEmotionOfThe": "Установіть емоцію голосу за замовчуванням. Виберіть «Власний», щоб описати голос власними словами.",
     "theVoiceModelReadsThe": "Голосова модель визначає мову за текстом. Якщо текст короткий або незрозумілий, це налаштування дає моделі підказку. Воно також задає мову за замовчуванням для оголошень і вибирає список слів для фільтра нецензурної лексики.",
     "viewersCanTypeASound": "Глядачі можуть ввести звуковий тег у повідомленні, і голос відтворить цей звук. Наприклад, <code>&lt;laugh&gt;</code> та <code>&lt;sigh&gt;</code>. Усі теги увімкнено за замовчуванням. Щоб вимкнути тег, зніміть відповідний прапорець.",
     "viewerVoiceLookup": "Пошук голосу глядача",
     "voiceCalibration": "Калібрування голосу",
     "voicesWithCustomVolumeSettings": "Голоси з власними налаштуваннями гучності.",
-    "voiceVolume01To": "Гучність голосу (0.1 до 2.0):",
+    "voiceVolume01To": "Гучність голосу (від 0.1 до 2.0):",
     "volumeOverride": "Перевизначення гучності:"
   },
   "ttsBannedWordInput": {

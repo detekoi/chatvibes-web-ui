@@ -278,7 +278,8 @@ describe('Settings API Integration Tests (Mocked Firestore)', () => {
       expect((db as any).set).toHaveBeenCalledWith({ [key]: value }, { merge: true });
     });
 
-    it.each(['happy', 'auto'])('should clear the custom style when the emotion %s is written', async (value) => {
+    // The emotion is a setting of the old provider. A cached page can still send one.
+    it.each([['happy', 'happy and cheerful'], ['auto', ''], ['neutral', '']])('should write the emotion %s as the style %p', async (value, style) => {
       ((db as any).set as any).mockResolvedValueOnce({} as any);
 
       await request(app)
@@ -287,7 +288,7 @@ describe('Settings API Integration Tests (Mocked Firestore)', () => {
         .send({ key: 'emotion', value })
         .expect(200);
 
-      expect((db as any).set).toHaveBeenCalledWith({ emotion: value, style: '' }, { merge: true });
+      expect((db as any).set).toHaveBeenCalledWith({ style, emotion: { type: 'delete' } }, { merge: true });
     });
 
     it.each([
@@ -295,7 +296,7 @@ describe('Settings API Integration Tests (Mocked Firestore)', () => {
       ['an empty style, which clears it', '', ''],
       ['a style with markup and line breaks', '  <b>calm</b>\n{slow}  ', 'b calm /b slow'],
       ['a style of the maximum length', 'a'.repeat(120), 'a'.repeat(120)],
-    ])('should store %s and leave the emotion alone', async (_label, value, stored) => {
+    ])('should store %s and remove the emotion', async (_label, value, stored) => {
       ((db as any).set as any).mockResolvedValueOnce({} as any);
 
       await request(app)
@@ -304,7 +305,7 @@ describe('Settings API Integration Tests (Mocked Firestore)', () => {
         .send({ key: 'style', value })
         .expect(200);
 
-      expect((db as any).set).toHaveBeenCalledWith({ style: stored }, { merge: true });
+      expect((db as any).set).toHaveBeenCalledWith({ style: stored, emotion: { type: 'delete' } }, { merge: true });
     });
 
     it('should reject a style that is too long with its own code', async () => {

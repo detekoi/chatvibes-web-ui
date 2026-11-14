@@ -116,18 +116,6 @@
       "signedOut": "你尚未登录。",
       "tokenMissing": "身份验证令牌缺失。请重新登录。"
     },
-    "emotion": {
-      "angry": "愤怒",
-      "calm": "平静",
-      "disgusted": "厌恶",
-      "fearful": "恐惧",
-      "fluent": "流畅",
-      "happy": "开心",
-      "neutral": "中性",
-      "sad": "悲伤",
-      "surprised": "惊讶",
-      "custom": "自定义"
-    },
     "ignore": {
       "enterUsername": "输入用户名。"
     },
@@ -193,7 +181,40 @@
       }
     },
     "style": {
-      "count": "{count} / {max} 个字符"
+      "count": "{count} / {max} 个字符",
+      "none": "无风格"
+    },
+    "stylePreset": {
+      "label": {
+        "neutral": "中性",
+        "happy": "开心",
+        "excited": "兴奋",
+        "calm": "平静",
+        "sad": "悲伤",
+        "angry": "愤怒",
+        "fearful": "害怕",
+        "surprised": "惊讶",
+        "sarcastic": "讽刺",
+        "whisper": "耳语",
+        "dramatic": "戏剧化",
+        "announcer": "体育解说"
+      },
+      "text": {
+        "neutral": "用中性的语气",
+        "happy": "开心愉快",
+        "excited": "兴奋且充满活力",
+        "calm": "平静且放松",
+        "sad": "悲伤低落",
+        "angry": "愤怒",
+        "fearful": "恐惧害怕",
+        "surprised": "惊讶震惊",
+        "sarcastic": "冷淡讽刺",
+        "whisper": "轻声耳语，仿佛在说秘密",
+        "dramatic": "充满戏剧感，像电影预告片旁白一样",
+        "announcer": "像兴奋的体育解说员一样",
+        "disgusted": "厌恶",
+        "fluent": "自然流畅"
+      }
     }
   },
   "page": {

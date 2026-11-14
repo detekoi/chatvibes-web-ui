@@ -33,20 +33,7 @@
   },
   "emotionReset": {
     "clear": "Vee uit",
-    "resetEmotionToDefault": "Stel emosie terug na verstek"
-  },
-  "emotionSelect": {
-    "angry": "Kwaad",
-    "calm": "Kalm",
-    "custom": "Pasgemaak…",
-    "disgusted": "Gevalg",
-    "fearful": "Bang",
-    "fluent": "Vlot",
-    "happy": "Gelukkig",
-    "neutral": "Neutraal",
-    "sad": "Hartseer",
-    "surprised": "Verras",
-    "useChannelDefault": "Gebruik kanaalverstek"
+    "resetEmotionToDefault": "Herstel stemstyl na verstek"
   },
   "ignoreTts": {
     "optOutInThisChannel": "Onttrek in hierdie kanaal"
@@ -109,8 +96,7 @@
       "sendPreview": "Stuur voorskou",
       "testCompletedTestMode": "Toets voltooi (toetsmodus).",
       "updated": "Voorkeur opgedateer.",
-      "updatedTestMode": "Voorkeur opgedateer (toetsmodus).",
-      "customStyle": "Pasgemaak ({style})"
+      "updatedTestMode": "Voorkeur opgedateer (toetsmodus)."
     }
   },
   "openChannelContextModalBtn": {
@@ -144,9 +130,8 @@
     "resetPitchToDefault": "Stel toonhoogte terug na verstek"
   },
   "preferencesPanel": {
+    "describeHowTheVoiceSpeaks": "Beskryf hoe die stem praat, in jou eie woorde. As die kassie leeg is, geld die kanaalverstek.",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentasie </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Stroomerinstellings </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
-    "emotion": "<strong>Emosie</strong>",
-    "emotion2": "Emosie",
     "ifYourTextIsShort": "As jou teks kort of onduidelik is, gee hierdie instelling vir die stemmodel 'n leidraad. Dit kies ook die woordelys vir die vloekwoordfilter.",
     "language": "Taal",
     "languageLabel": "<strong>Taal</strong>",
@@ -156,11 +141,12 @@
     "selectHowHighOrLow": "Kies hoe hoog of laag die stem praat",
     "selectTheVoiceThatTts": "Kies die stem wat TTS vir jou boodskappe gebruik",
     "setHowYourMessagesSound": "Stel hoe jou boodskappe klink wanneer TTS dit lees",
-    "setTheEmotionOfThe": "Stel die emosie van die stem in. Kies Pasgemaak om die stem in jou eie woorde te beskryf.",
     "speed": "Spoed",
+    "style": "Styl",
     "testMessage": "Toetsboodskap",
     "voicePreview": "Stemvoorskou",
-    "voiceSettings": "Steminstellings"
+    "voiceSettings": "Steminstellings",
+    "voiceStyle": "<strong>Stemstyl</strong>"
   },
   "prefsDisabledNote": {
     "theStreamerDisabledPersonalVoice": "Die streamer het persoonlike steminstellings vir hierdie kanaal gedeaktiveer. Hierdie kanaal sal sy verstekstem in plaas van jou voorkeure gebruik."
@@ -181,14 +167,11 @@
   "stepsHint": {
     "pitchAndSpeedAreApproximate": "Toonhoogte en spoed is benaderd. Die stemmodel kry hierdie instellings as woorde, nie as getalle nie."
   },
-  "styleGroup": {
-    "style": "Styl"
-  },
-  "styleHint": {
-    "describeInAFewWords": "Beskryf in 'n paar woorde hoe die stem praat."
-  },
   "styleInput": {
     "exampleCalmAndSlowLike": "Byvoorbeeld: kalm en stadig, soos 'n radio-aanbieder snags"
+  },
+  "stylePresetsLabel": {
+    "orStartWithAPreset": "Of begin met 'n voorafinstelling. Jy kan die woorde verander."
   },
   "voiceLabel": {
     "voice": "<strong>Stem</strong>"

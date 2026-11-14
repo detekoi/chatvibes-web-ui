@@ -69,29 +69,17 @@
     "dashboardConfigurationTabs": "Раздели за конфигурация на таблото",
     "deactivationStopsTheBotFrom": "Деактивирането спира бота да чете съобщения от чата. Настройките ти се запазват. Можеш да активираш услугата отново по всяко време.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Документация",
-    "emotion": "Емоция",
     "language": "Език",
     "pitch": "Височина",
     "quickLinks": "Бързи връзки",
     "service": "Услуга",
     "signedInAs": "Вход като",
     "speed": "Скорост",
+    "style": "Стил",
     "testMessage": "Тестово съобщение",
     "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Настройки за зрители",
     "voicePreview": "Преглед на гласа",
     "volume": "Сила на звука"
-  },
-  "defaultEmotion": {
-    "angry": "Ядосан",
-    "calm": "Спокоен",
-    "custom": "По избор…",
-    "disgusted": "Отвратен",
-    "fearful": "Уплашен",
-    "fluent": "Плавен",
-    "happy": "Щастлив",
-    "neutral": "Неутрален",
-    "sad": "Тъжен",
-    "surprised": "Изненадан"
   },
   "defaultPitchLabel": {
     "defaultPitch": "<strong>Височина по подразбиране</strong>"
@@ -105,11 +93,8 @@
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Пример: спокойно и бавно, като нощен радиоводещ"
   },
-  "defaultStyleGroup": {
-    "style": "Стил"
-  },
-  "defaultStyleHint": {
-    "describeInAFewWords": "Опишете с няколко думи как говори гласът."
+  "defaultStylePresetsLabel": {
+    "orStartWithAPreset": "Или започнете с шаблон. Можете да промените думите."
   },
   "defaultVoiceLabel": {
     "defaultVoice": "<strong>Глас по подразбиране</strong>"
@@ -281,7 +266,6 @@
       "anonymizeFollowers": "Анонимизиране на последователи",
       "botRespondsInChat": "Ботът отговаря в чата",
       "cheerAnnouncements": "Обявяване на Cheer",
-      "defaultEmotion": "Емоция по подразбиране",
       "defaultLanguage": "Език по подразбиране",
       "defaultPitch": "Височина на гласа по подразбиране",
       "defaultSpeed": "Скорост по подразбиране",
@@ -296,7 +280,7 @@
       "readFullUrls": "Изчитане на пълни URL адреси",
       "redemptionAnnouncements": "Обявяване на активирани награди",
       "soundTags": "Звукови тагове",
-      "style": "Стил",
+      "style": "Стил на гласа по подразбиране",
       "ttsEngine": "TTS система",
       "ttsMode": "TTS режим",
       "ttsPermission": "Права за TTS",
@@ -483,15 +467,15 @@
     "adjustTheVolumeForThe": "Регулирайте силата на звука за избрания глас. ВНИМАНИЕ: Стойности над 1.0 могат да доведат до изкривяване.",
     "calibratedVoices": "Калибрирани гласове",
     "calibrateVolumeForSpecificVoices": "Калибрирайте силата на звука за отделни гласове. ВНИМАНИЕ: Стойности над 1.0 могат да доведат до изкривяване.",
-    "defaultEmotion": "<strong>Емоция по подразбиране</strong>",
     "defaultLanguage": "<strong>Език по подразбиране</strong>",
     "defaultVoiceSettings": "Настройки на гласа по подразбиране",
+    "defaultVoiceStyle": "<strong>Стил на гласа по подразбиране</strong>",
+    "describeHowTheVoiceSpeaks": "Опишете със свои думи как говори гласът. Ако полето е празно, гласът няма стил.",
     "selectHowFastTheDefault": "Изберете колко бързо говори гласът по подразбиране",
     "selectHowHighOrLow": "Изберете колко високо или ниско говори гласът по подразбиране",
     "selectTheVoiceThatTts": "Изберете гласа, който TTS използва за зрители без собствен глас",
     "selectVoice": "Изберете глас",
     "setDefaultVoiceSettingsFor": "Задайте настройки на гласа по подразбиране за канала си",
-    "setTheEmotionOfThe": "Задайте емоцията на гласа по подразбиране. Изберете „По избор“, за да опишете гласа със свои думи.",
     "theVoiceModelReadsThe": "Гласовият модел разпознава езика от текста. Ако текстът е кратък или неясен, тази настройка подсказва на модела. Тя също задава езика по подразбиране за съобщенията и избира списъка с думи за филтъра за нецензурни думи.",
     "viewersCanTypeASound": "Зрителите могат да въведат звуков таг в съобщението и гласът ще издаде този звук. Примери са <code>&lt;laugh&gt;</code> и <code>&lt;sigh&gt;</code>. По подразбиране всички тагове са включени. За да изключите таг, премахнете отметката му.",
     "viewerVoiceLookup": "Търсене на глас на зрител",

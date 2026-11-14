@@ -33,20 +33,7 @@
   },
   "emotionReset": {
     "clear": "Tyhjennä",
-    "resetEmotionToDefault": "Palauta tunnetila oletukseen"
-  },
-  "emotionSelect": {
-    "angry": "Vihainen",
-    "calm": "Rauhallinen",
-    "custom": "Mukautettu…",
-    "disgusted": "Inhostunut",
-    "fearful": "Pelokas",
-    "fluent": "Sujuva",
-    "happy": "Iloinen",
-    "neutral": "Neutraali",
-    "sad": "Surullinen",
-    "surprised": "Yllättynyt",
-    "useChannelDefault": "Käytä kanavan oletusta"
+    "resetEmotionToDefault": "Palauta äänen tyyli oletukseksi"
   },
   "ignoreTts": {
     "optOutInThisChannel": "Kieltäydy tällä kanavalla"
@@ -109,8 +96,7 @@
       "sendPreview": "Lähetä esikatselu",
       "testCompletedTestMode": "Testi suoritettu (testitila).",
       "updated": "Asetus päivitetty.",
-      "updatedTestMode": "Asetus päivitetty (testitila).",
-      "customStyle": "Mukautettu ({style})"
+      "updatedTestMode": "Asetus päivitetty (testitila)."
     }
   },
   "openChannelContextModalBtn": {
@@ -144,9 +130,8 @@
     "resetPitchToDefault": "Palauta oletussävelkorkeus"
   },
   "preferencesPanel": {
+    "describeHowTheVoiceSpeaks": "Kuvaile omin sanoin, miten ääni puhuu. Jos kenttä on tyhjä, käytetään kanavan oletusta.",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentaatio </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Striimaajan asetukset </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
-    "emotion": "<strong>Tunnetila</strong>",
-    "emotion2": "Tunnetila",
     "ifYourTextIsShort": "Jos tekstisi on lyhyt tai epäselvä, tämä asetus antaa äänimallille vihjeen. Se valitsee myös kirosanasuodattimen sanalistan.",
     "language": "Kieli",
     "languageLabel": "<strong>Kieli</strong>",
@@ -156,11 +141,12 @@
     "selectHowHighOrLow": "Valitse, kuinka korkealta tai matalalta ääni puhuu",
     "selectTheVoiceThatTts": "Valitse ääni, jota TTS käyttää viesteillesi",
     "setHowYourMessagesSound": "Määritä, miltä viestisi kuulostavat, kun TTS lukee ne",
-    "setTheEmotionOfThe": "Aseta äänen tunne. Valitse Mukautettu kuvaillaksesi ääntä omin sanoin.",
     "speed": "Nopeus",
+    "style": "Tyyli",
     "testMessage": "Testiviesti",
     "voicePreview": "Äänen esikuuntelu",
-    "voiceSettings": "Ääniasetukset"
+    "voiceSettings": "Ääniasetukset",
+    "voiceStyle": "<strong>Äänen tyyli</strong>"
   },
   "prefsDisabledNote": {
     "theStreamerDisabledPersonalVoice": "Striimaaja on poistanut henkilökohtaiset ääniasetukset käytöstä tällä kanavalla. Kanava käyttää oletusääntään omien asetustesi sijaan."
@@ -181,14 +167,11 @@
   "stepsHint": {
     "pitchAndSpeedAreApproximate": "Äänenkorkeus ja nopeus ovat suuntaa antavia. Äänimalli saa nämä asetukset sanoina, ei numeroina."
   },
-  "styleGroup": {
-    "style": "Tyyli"
-  },
-  "styleHint": {
-    "describeInAFewWords": "Kuvaile muutamalla sanalla, miten ääni puhuu."
-  },
   "styleInput": {
     "exampleCalmAndSlowLike": "Esimerkki: rauhallinen ja hidas, kuin radiojuontaja yöllä"
+  },
+  "stylePresetsLabel": {
+    "orStartWithAPreset": "Tai aloita esiasetuksella. Voit muuttaa sanoja."
   },
   "voiceLabel": {
     "voice": "<strong>Ääni</strong>"

@@ -69,29 +69,17 @@
     "dashboardConfigurationTabs": "Onglets de configuration du tableau de bord",
     "deactivationStopsTheBotFrom": "La désactivation empêche le bot de lire les messages du chat. Vos paramètres restent enregistrés. Vous pouvez réactiver le service à tout moment.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Documentation",
-    "emotion": "Émotion",
     "language": "Langue",
     "pitch": "Hauteur",
     "quickLinks": "Liens rapides",
     "service": "Service",
     "signedInAs": "Connecté en tant que",
     "speed": "Vitesse",
+    "style": "Style",
     "testMessage": "Message de test",
     "viewerSettings": "<i data-lucide=\"settings\" aria-hidden=\"true\"></i>Paramètres spectateur",
     "voicePreview": "Aperçu de la voix",
     "volume": "Volume"
-  },
-  "defaultEmotion": {
-    "angry": "En colère",
-    "calm": "Calme",
-    "custom": "Personnalisé…",
-    "disgusted": "Dégoûté",
-    "fearful": "Effrayé",
-    "fluent": "Fluide",
-    "happy": "Joyeux",
-    "neutral": "Neutre",
-    "sad": "Triste",
-    "surprised": "Surpris"
   },
   "defaultPitchLabel": {
     "defaultPitch": "<strong>Hauteur par défaut</strong>"
@@ -105,11 +93,8 @@
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Exemple : calme et lent, comme un animateur radio de nuit"
   },
-  "defaultStyleGroup": {
-    "style": "Style"
-  },
-  "defaultStyleHint": {
-    "describeInAFewWords": "Décrivez en quelques mots la façon dont la voix parle."
+  "defaultStylePresetsLabel": {
+    "orStartWithAPreset": "Ou partez d'un préréglage. Vous pouvez modifier les mots."
   },
   "defaultVoiceLabel": {
     "defaultVoice": "<strong>Voix par défaut</strong>"
@@ -281,7 +266,6 @@
       "anonymizeFollowers": "Anonymiser les followers",
       "botRespondsInChat": "Le bot répond dans le chat",
       "cheerAnnouncements": "Annonces de Cheers",
-      "defaultEmotion": "Émotion par défaut",
       "defaultLanguage": "Langue par défaut",
       "defaultPitch": "Hauteur par défaut",
       "defaultSpeed": "Vitesse par défaut",
@@ -296,7 +280,7 @@
       "readFullUrls": "Lire les URL complètes",
       "redemptionAnnouncements": "Annonces de récompenses",
       "soundTags": "Balises sonores",
-      "style": "Style",
+      "style": "Style de voix par défaut",
       "ttsEngine": "Moteur TTS",
       "ttsMode": "Mode TTS",
       "ttsPermission": "Autorisation TTS",
@@ -483,21 +467,21 @@
     "adjustTheVolumeForThe": "Ajuster le volume de la voix sélectionnée. ATTENTION : les valeurs supérieures à 1,0 peuvent provoquer des distorsions.",
     "calibratedVoices": "Voix calibrées",
     "calibrateVolumeForSpecificVoices": "Calibrer le volume de voix spécifiques. ATTENTION : les valeurs supérieures à 1,0 peuvent provoquer des distorsions.",
-    "defaultEmotion": "<strong>Émotion par défaut</strong>",
     "defaultLanguage": "<strong>Langue par défaut</strong>",
     "defaultVoiceSettings": "Paramètres de la voix par défaut",
+    "defaultVoiceStyle": "<strong>Style de voix par défaut</strong>",
+    "describeHowTheVoiceSpeaks": "Décrivez la façon dont la voix parle, avec vos propres mots. Si le champ est vide, la voix n'a pas de style.",
     "selectHowFastTheDefault": "Sélectionnez la vitesse à laquelle parle la voix par défaut",
     "selectHowHighOrLow": "Sélectionnez la hauteur (grave ou aiguë) de la voix par défaut",
     "selectTheVoiceThatTts": "Sélectionnez la voix que le TTS utilise pour les spectateurs qui n'ont pas leur propre voix",
     "selectVoice": "Sélectionner une voix",
     "setDefaultVoiceSettingsFor": "Définissez les paramètres de voix par défaut pour votre chaîne",
-    "setTheEmotionOfThe": "Définissez l'émotion de la voix par défaut. Sélectionnez Personnalisé pour décrire la voix avec vos propres mots.",
     "theVoiceModelReadsThe": "Le modèle vocal détecte la langue à partir du texte. Si le texte est court ou ambigu, ce paramètre lui donne un indice. Il définit également la langue par défaut des annonces et sélectionne la liste de mots du filtre à grossièretés.",
     "viewersCanTypeASound": "Les spectateurs peuvent saisir une balise sonore dans un message et la voix produit ce son, par exemple <code>&lt;laugh&gt;</code> et <code>&lt;sigh&gt;</code>. Toutes les balises sont activées par défaut. Pour en désactiver une, décochez sa case.",
     "viewerVoiceLookup": "Recherche de voix de spectateur",
     "voiceCalibration": "Calibrage de la voix",
     "voicesWithCustomVolumeSettings": "Voix avec paramètres de volume personnalisés.",
-    "voiceVolume01To": "Volume de la voix (0.1 à 2.0) :",
+    "voiceVolume01To": "Volume de la voix (0,1 à 2,0) :",
     "volumeOverride": "Remplacement du volume :"
   },
   "ttsBannedWordInput": {

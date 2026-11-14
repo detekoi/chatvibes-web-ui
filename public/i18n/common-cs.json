@@ -116,18 +116,6 @@
       "signedOut": "Nejste přihlášeni.",
       "tokenMissing": "Chybí ověřovací token. Přihlaste se znovu."
     },
-    "emotion": {
-      "angry": "Naštvaný",
-      "calm": "Klidný",
-      "disgusted": "Znechucený",
-      "fearful": "Vystrašený",
-      "fluent": "Plynulý",
-      "happy": "Šťastný",
-      "neutral": "Neutrální",
-      "sad": "Smutný",
-      "surprised": "Překvapený",
-      "custom": "Vlastní"
-    },
     "ignore": {
       "enterUsername": "Zadejte uživatelské jméno."
     },
@@ -193,7 +181,40 @@
       }
     },
     "style": {
-      "count": "{count} z {max} znaků"
+      "count": "{count} z {max} znaků",
+      "none": "Bez stylu"
+    },
+    "stylePreset": {
+      "label": {
+        "neutral": "Neutrální",
+        "happy": "Veselý",
+        "excited": "Nadšený",
+        "calm": "Klidný",
+        "sad": "Smutný",
+        "angry": "Naštvaný",
+        "fearful": "Vyděšený",
+        "surprised": "Překvapený",
+        "sarcastic": "Sarkastický",
+        "whisper": "Šepot",
+        "dramatic": "Dramatický",
+        "announcer": "Sportovní komentátor"
+      },
+      "text": {
+        "neutral": "neutrálním tónem",
+        "happy": "vesele a radostně",
+        "excited": "nadšeně a energicky",
+        "calm": "klidně a uvolněně",
+        "sad": "smutně a sklesle",
+        "angry": "naštvaně",
+        "fearful": "bázlivě a vyděšeně",
+        "surprised": "překvapeně a ohromeně",
+        "sarcastic": "suše a sarkasticky",
+        "whisper": "šeptem, jako by prozrazoval tajemství",
+        "dramatic": "dramaticky, jako vypravěč filmového traileru",
+        "announcer": "jako nadšený sportovní komentátor",
+        "disgusted": "znechuceně",
+        "fluent": "plynule a hladce"
+      }
     }
   },
   "page": {

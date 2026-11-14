@@ -33,20 +33,7 @@
   },
   "emotionReset": {
     "clear": "Effacer",
-    "resetEmotionToDefault": "Rétablir l'émotion par défaut"
-  },
-  "emotionSelect": {
-    "angry": "En colère",
-    "calm": "Calme",
-    "custom": "Personnalisé…",
-    "disgusted": "Dégoûté",
-    "fearful": "Effrayé",
-    "fluent": "Fluide",
-    "happy": "Joyeux",
-    "neutral": "Neutre",
-    "sad": "Triste",
-    "surprised": "Surpris",
-    "useChannelDefault": "Par défaut de la chaîne"
+    "resetEmotionToDefault": "Réinitialiser le style de voix par défaut"
   },
   "ignoreTts": {
     "optOutInThisChannel": "Désactiver sur cette chaîne"
@@ -109,8 +96,7 @@
       "sendPreview": "Envoyer un aperçu",
       "testCompletedTestMode": "Test terminé (mode test).",
       "updated": "Préférence mise à jour.",
-      "updatedTestMode": "Préférence mise à jour (mode test).",
-      "customStyle": "Personnalisé ({style})"
+      "updatedTestMode": "Préférence mise à jour (mode test)."
     }
   },
   "openChannelContextModalBtn": {
@@ -144,9 +130,8 @@
     "resetPitchToDefault": "Réinitialiser la hauteur par défaut"
   },
   "preferencesPanel": {
+    "describeHowTheVoiceSpeaks": "Décrivez comment la voix parle, avec vos propres mots. Si le champ est vide, le réglage par défaut de la chaîne s'applique.",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Documentation </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Paramètres streamer </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
-    "emotion": "<strong>Émotion</strong>",
-    "emotion2": "Émotion",
     "ifYourTextIsShort": "Si votre texte est court ou ambigu, ce paramètre donne un indice au modèle vocal. Il sélectionne également la liste de mots pour le filtre à grossièretés.",
     "language": "Langue",
     "languageLabel": "<strong>Langue</strong>",
@@ -156,11 +141,12 @@
     "selectHowHighOrLow": "Sélectionnez si la voix est plus grave ou plus aiguë",
     "selectTheVoiceThatTts": "Sélectionnez la voix que TTS utilise pour vos messages",
     "setHowYourMessagesSound": "Définissez le son de vos messages lorsqu'ils sont lus par le TTS",
-    "setTheEmotionOfThe": "Définissez l'émotion de la voix. Sélectionnez Personnalisé pour décrire la voix avec vos propres mots.",
     "speed": "Vitesse",
+    "style": "Style",
     "testMessage": "Message de test",
     "voicePreview": "Aperçu de la voix",
-    "voiceSettings": "Paramètres de voix"
+    "voiceSettings": "Paramètres de voix",
+    "voiceStyle": "<strong>Style de voix</strong>"
   },
   "prefsDisabledNote": {
     "theStreamerDisabledPersonalVoice": "Le streamer a désactivé les paramètres de voix personnalisés pour cette chaîne. Cette chaîne utilisera sa voix par défaut au lieu de vos préférences."
@@ -181,14 +167,11 @@
   "stepsHint": {
     "pitchAndSpeedAreApproximate": "La hauteur et la vitesse sont approximatives. Le modèle vocal reçoit ces paramètres sous forme de mots, pas de nombres."
   },
-  "styleGroup": {
-    "style": "Style"
-  },
-  "styleHint": {
-    "describeInAFewWords": "Décrivez en quelques mots comment la voix parle."
-  },
   "styleInput": {
     "exampleCalmAndSlowLike": "Exemple : calme et lente, comme un animateur radio la nuit"
+  },
+  "stylePresetsLabel": {
+    "orStartWithAPreset": "Ou commencez avec un préréglage. Vous pouvez modifier les mots."
   },
   "voiceLabel": {
     "voice": "<strong>Voix</strong>"

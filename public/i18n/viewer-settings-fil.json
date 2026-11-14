@@ -33,20 +33,7 @@
   },
   "emotionReset": {
     "clear": "I-clear",
-    "resetEmotionToDefault": "I-reset ang emosyon sa default"
-  },
-  "emotionSelect": {
-    "angry": "Galit",
-    "calm": "Kalmado",
-    "custom": "Pasadya…",
-    "disgusted": "Nasusuklam",
-    "fearful": "Natatakot",
-    "fluent": "Matatas",
-    "happy": "Masaya",
-    "neutral": "Neutral",
-    "sad": "Malungkot",
-    "surprised": "Nagulat",
-    "useChannelDefault": "Gamitin ang default ng channel"
+    "resetEmotionToDefault": "I-reset ang estilo ng boses sa default"
   },
   "ignoreTts": {
     "optOutInThisChannel": "Mag-opt out sa channel na ito"
@@ -109,8 +96,7 @@
       "sendPreview": "Magpadala ng Preview",
       "testCompletedTestMode": "Tapos na ang test (test mode).",
       "updated": "Na-update ang preference.",
-      "updatedTestMode": "Na-update ang preference (test mode).",
-      "customStyle": "Pasadya ({style})"
+      "updatedTestMode": "Na-update ang preference (test mode)."
     }
   },
   "openChannelContextModalBtn": {
@@ -144,9 +130,8 @@
     "resetPitchToDefault": "I-reset ang pitch sa default"
   },
   "preferencesPanel": {
+    "describeHowTheVoiceSpeaks": "Ilarawan kung paano magsalita ang boses sa sarili mong mga salita. Kung walang laman ang kahon, ang default ng channel ang gagamitin.",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentasyon </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Mga setting ng streamer </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
-    "emotion": "<strong>Emosyon</strong>",
-    "emotion2": "Emosyon",
     "ifYourTextIsShort": "Kung maikli o hindi malinaw ang teksto mo, binibigyan ng setting na ito ng pahiwatig ang modelo ng boses. Pinipili rin nito ang listahan ng mga salita para sa filter ng pagmumura.",
     "language": "Wika",
     "languageLabel": "<strong>Wika</strong>",
@@ -156,11 +141,12 @@
     "selectHowHighOrLow": "Piliin kung gaano kataas o kababa magsalita ang boses",
     "selectTheVoiceThatTts": "Piliin ang boses na gagamitin ng TTS para sa mga mensahe mo",
     "setHowYourMessagesSound": "Itakda kung paano tutunog ang mga mensahe mo kapag binasa ng TTS",
-    "setTheEmotionOfThe": "Itakda ang emosyon ng boses. Piliin ang Pasadya para ilarawan ang boses sa sarili mong mga salita.",
     "speed": "Bilis",
+    "style": "Estilo",
     "testMessage": "Subok na mensahe",
     "voicePreview": "Preview ng boses",
-    "voiceSettings": "Mga Setting ng Boses"
+    "voiceSettings": "Mga Setting ng Boses",
+    "voiceStyle": "<strong>Estilo ng boses</strong>"
   },
   "prefsDisabledNote": {
     "theStreamerDisabledPersonalVoice": "Hindi pinagana ng streamer ang personal na mga setting ng boses para sa channel na ito. Gagamitin ng channel na ito ang default na boses nito sa halip na ang iyong mga kagustuhan."
@@ -181,14 +167,11 @@
   "stepsHint": {
     "pitchAndSpeedAreApproximate": "Tinatantya lang ang tono at bilis. Natatanggap ng modelo ng boses ang mga setting na ito bilang mga salita, hindi bilang mga numero."
   },
-  "styleGroup": {
-    "style": "Estilo"
-  },
-  "styleHint": {
-    "describeInAFewWords": "Ilarawan sa ilang salita kung paano magsalita ang boses."
-  },
   "styleInput": {
     "exampleCalmAndSlowLike": "Halimbawa: kalmado at mabagal, parang radio host sa gabi"
+  },
+  "stylePresetsLabel": {
+    "orStartWithAPreset": "O magsimula sa isang preset. Maaari mong baguhin ang mga salita."
   },
   "voiceLabel": {
     "voice": "<strong>Boses</strong>"

@@ -33,20 +33,7 @@
   },
   "emotionReset": {
     "clear": "ניקוי",
-    "resetEmotionToDefault": "איפוס הרגש לברירת המחדל"
-  },
-  "emotionSelect": {
-    "angry": "כועס",
-    "calm": "רגוע",
-    "custom": "מותאם אישית…",
-    "disgusted": "נגעל",
-    "fearful": "מפחד",
-    "fluent": "שוטף",
-    "happy": "שמח",
-    "neutral": "ניטרלי",
-    "sad": "עצוב",
-    "surprised": "מופתע",
-    "useChannelDefault": "השתמש בברירת המחדל של הערוץ"
+    "resetEmotionToDefault": "איפוס סגנון הקול לברירת המחדל"
   },
   "ignoreTts": {
     "optOutInThisChannel": "ביטול בערוץ זה"
@@ -109,8 +96,7 @@
       "sendPreview": "שליחת תצוגה מקדימה",
       "testCompletedTestMode": "הבדיקה הושלמה (מצב בדיקה).",
       "updated": "ההעדפה עודכנה.",
-      "updatedTestMode": "ההעדפה עודכנה (מצב בדיקה).",
-      "customStyle": "מותאם אישית ({style})"
+      "updatedTestMode": "ההעדפה עודכנה (מצב בדיקה)."
     }
   },
   "openChannelContextModalBtn": {
@@ -144,9 +130,8 @@
     "resetPitchToDefault": "איפוס גובה הקול לברירת המחדל"
   },
   "preferencesPanel": {
+    "describeHowTheVoiceSpeaks": "תאר במילים שלך איך הקול מדבר. אם התיבה ריקה, תחול ברירת המחדל של הערוץ.",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>תיעוד </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>הגדרות סטרימר </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
-    "emotion": "<strong>רגש</strong>",
-    "emotion2": "רגש",
     "ifYourTextIsShort": "אם הטקסט שלך קצר או לא ברור, הגדרה זו נותנת למודל הקול רמז. היא גם בוחרת את רשימת המילים למסנן הקללות.",
     "language": "שפה",
     "languageLabel": "<strong>שפה</strong>",
@@ -156,11 +141,12 @@
     "selectHowHighOrLow": "בחר עד כמה גבוה או נמוך הקול מדבר",
     "selectTheVoiceThatTts": "בחר את הקול שבו TTS משתמש עבור ההודעות שלך",
     "setHowYourMessagesSound": "הגדרת האופן שבו ההודעות שלך יישמעו כאשר TTS מקריא אותן",
-    "setTheEmotionOfThe": "הגדר את הרגש של הקול. בחר \"מותאם אישית\" כדי לתאר את הקול במילים שלך.",
     "speed": "מהירות",
+    "style": "סגנון",
     "testMessage": "הודעת בדיקה",
     "voicePreview": "תצוגה מקדימה של הקול",
-    "voiceSettings": "הגדרות קול"
+    "voiceSettings": "הגדרות קול",
+    "voiceStyle": "<strong>סגנון קול</strong>"
   },
   "prefsDisabledNote": {
     "theStreamerDisabledPersonalVoice": "הסטרימר השבית את הגדרות הקול האישיות בערוץ זה. הערוץ ישתמש בקול ברירת המחדל שלו במקום בהעדפות שלך."
@@ -181,14 +167,11 @@
   "stepsHint": {
     "pitchAndSpeedAreApproximate": "גובה הצליל והמהירות הם משוערים. מודל הקול מקבל הגדרות אלו כמילים, ולא כמספרים."
   },
-  "styleGroup": {
-    "style": "סגנון"
-  },
-  "styleHint": {
-    "describeInAFewWords": "תאר בכמה מילים איך הקול מדבר."
-  },
   "styleInput": {
     "exampleCalmAndSlowLike": "דוגמה: רגוע ואיטי, כמו שדרן רדיו בלילה"
+  },
+  "stylePresetsLabel": {
+    "orStartWithAPreset": "או התחל עם תבנית מוכנה. אפשר לשנות את המילים."
   },
   "voiceLabel": {
     "voice": "<strong>קול</strong>"

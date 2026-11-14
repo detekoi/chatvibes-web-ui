@@ -116,18 +116,6 @@
       "signedOut": "Giriş yapmadın.",
       "tokenMissing": "Kimlik doğrulama jetonu eksik. Tekrar giriş yap."
     },
-    "emotion": {
-      "angry": "Kızgın",
-      "calm": "Sakin",
-      "disgusted": "İğrenmiş",
-      "fearful": "Korkmuş",
-      "fluent": "Akıcı",
-      "happy": "Mutlu",
-      "neutral": "Nötr",
-      "sad": "Üzgün",
-      "surprised": "Şaşırmış",
-      "custom": "Özel"
-    },
     "ignore": {
       "enterUsername": "Bir kullanıcı adı gir."
     },
@@ -193,7 +181,40 @@
       }
     },
     "style": {
-      "count": "{count} / {max} karakter"
+      "count": "{count} / {max} karakter",
+      "none": "Stil yok"
+    },
+    "stylePreset": {
+      "label": {
+        "neutral": "Nötr",
+        "happy": "Mutlu",
+        "excited": "Heyecanlı",
+        "calm": "Sakin",
+        "sad": "Üzgün",
+        "angry": "Öfkeli",
+        "fearful": "Korkmuş",
+        "surprised": "Şaşkın",
+        "sarcastic": "Alaycı",
+        "whisper": "Fısıltı",
+        "dramatic": "Dramatik",
+        "announcer": "Spor spikeri"
+      },
+      "text": {
+        "neutral": "nötr bir tonda",
+        "happy": "mutlu ve neşeli",
+        "excited": "heyecanlı ve enerji dolu",
+        "calm": "sakin ve rahat",
+        "sad": "üzgün ve kederli",
+        "angry": "öfkeli",
+        "fearful": "korkulu ve ürkmüş",
+        "surprised": "şaşkın ve hayrete düşmüş",
+        "sarcastic": "düz ve alaycı",
+        "whisper": "sır verir gibi fısıldayarak",
+        "dramatic": "film fragmanı anlatıcısı gibi dramatik",
+        "announcer": "heyecanlı bir spor spikeri gibi",
+        "disgusted": "tiksinmiş",
+        "fluent": "düzgün ve akıcı"
+      }
     }
   },
   "page": {

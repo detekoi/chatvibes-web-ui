@@ -33,20 +33,7 @@
   },
   "emotionReset": {
     "clear": "साफ़ करें",
-    "resetEmotionToDefault": "इमोशन को डिफ़ॉल्ट पर रीसेट करें"
-  },
-  "emotionSelect": {
-    "angry": "क्रोधित",
-    "calm": "शांत",
-    "custom": "कस्टम…",
-    "disgusted": "घृणा",
-    "fearful": "भयभीत",
-    "fluent": "धाराप्रवाह",
-    "happy": "खुश",
-    "neutral": "तटस्थ",
-    "sad": "उदास",
-    "surprised": "हैरान",
-    "useChannelDefault": "चैनल डिफ़ॉल्ट का उपयोग करें"
+    "resetEmotionToDefault": "आवाज़ की शैली डिफ़ॉल्ट पर रीसेट करें"
   },
   "ignoreTts": {
     "optOutInThisChannel": "इस चैनल में ऑप्ट-आउट करें"
@@ -109,8 +96,7 @@
       "sendPreview": "पूर्वावलोकन भेजें",
       "testCompletedTestMode": "परीक्षण पूरा हुआ (टेस्ट मोड)।",
       "updated": "प्राथमिकता अपडेट की गई।",
-      "updatedTestMode": "प्राथमिकता अपडेट की गई (टेस्ट मोड)।",
-      "customStyle": "कस्टम ({style})"
+      "updatedTestMode": "प्राथमिकता अपडेट की गई (टेस्ट मोड)।"
     }
   },
   "openChannelContextModalBtn": {
@@ -144,9 +130,8 @@
     "resetPitchToDefault": "पिच को डिफ़ॉल्ट पर रीसेट करें"
   },
   "preferencesPanel": {
+    "describeHowTheVoiceSpeaks": "अपने शब्दों में बताएं कि आवाज़ कैसे बोलती है। अगर बॉक्स खाली है, तो चैनल का डिफ़ॉल्ट लागू होता है।",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>दस्तावेज़ </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>स्ट्रीमर सेटिंग्स </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
-    "emotion": "<strong>भाव</strong>",
-    "emotion2": "भाव",
     "ifYourTextIsShort": "यदि आपका टेक्स्ट छोटा या अस्पष्ट है, तो यह सेटिंग वॉइस मॉडल को एक संकेत देती है। यह अपशब्द फ़िल्टर के लिए शब्द सूची भी चुनती है।",
     "language": "भाषा",
     "languageLabel": "<strong>भाषा</strong>",
@@ -156,11 +141,12 @@
     "selectHowHighOrLow": "चुनें कि आवाज़ कितनी ऊँची या नीची बोलती है",
     "selectTheVoiceThatTts": "वह आवाज़ चुनें जिसका उपयोग TTS आपके संदेशों के लिए करता है",
     "setHowYourMessagesSound": "सेट करें कि TTS द्वारा पढ़े जाने पर आपके संदेश कैसे सुनाई दें",
-    "setTheEmotionOfThe": "आवाज़ का भाव सेट करें। अपने शब्दों में आवाज़ का वर्णन करने के लिए 'कस्टम' चुनें।",
     "speed": "गति",
+    "style": "शैली",
     "testMessage": "टेस्ट संदेश",
     "voicePreview": "वॉइस प्रीव्यू",
-    "voiceSettings": "वॉइस सेटिंग्स"
+    "voiceSettings": "वॉइस सेटिंग्स",
+    "voiceStyle": "<strong>आवाज़ की शैली</strong>"
   },
   "prefsDisabledNote": {
     "theStreamerDisabledPersonalVoice": "स्ट्रीमर ने इस चैनल के लिए पर्सनल वॉइस सेटिंग्स बंद कर दी हैं। यह चैनल आपकी प्राथमिकताओं के बजाय अपनी डिफ़ॉल्ट आवाज़ का इस्तेमाल करेगा।"
@@ -181,14 +167,11 @@
   "stepsHint": {
     "pitchAndSpeedAreApproximate": "पिच और गति अनुमानित हैं। वॉइस मॉडल को ये सेटिंग्स संख्याओं के रूप में नहीं, बल्कि शब्दों के रूप में मिलती हैं।"
   },
-  "styleGroup": {
-    "style": "शैली"
-  },
-  "styleHint": {
-    "describeInAFewWords": "कुछ शब्दों में बताएँ कि आवाज़ कैसे बोलती है।"
-  },
   "styleInput": {
     "exampleCalmAndSlowLike": "उदाहरण: शांत और धीमी, रात के रेडियो होस्ट की तरह"
+  },
+  "stylePresetsLabel": {
+    "orStartWithAPreset": "या किसी प्रीसेट से शुरू करें। आप शब्दों को बदल सकते हैं।"
   },
   "voiceLabel": {
     "voice": "<strong>आवाज़</strong>"

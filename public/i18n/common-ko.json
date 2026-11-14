@@ -116,18 +116,6 @@
       "signedOut": "로그인되어 있지 않습니다.",
       "tokenMissing": "인증 토큰이 없습니다. 다시 로그인하세요."
     },
-    "emotion": {
-      "angry": "분노",
-      "calm": "차분함",
-      "disgusted": "혐오",
-      "fearful": "두려움",
-      "fluent": "유창함",
-      "happy": "기쁨",
-      "neutral": "중립",
-      "sad": "슬픔",
-      "surprised": "놀람",
-      "custom": "사용자 지정"
-    },
     "ignore": {
       "enterUsername": "사용자 이름을 입력하세요."
     },
@@ -193,7 +181,40 @@
       }
     },
     "style": {
-      "count": "{count}/{max}자"
+      "count": "{count}/{max}자",
+      "none": "스타일 없음"
+    },
+    "stylePreset": {
+      "label": {
+        "neutral": "중립",
+        "happy": "기쁨",
+        "excited": "신남",
+        "calm": "차분함",
+        "sad": "슬픔",
+        "angry": "화남",
+        "fearful": "두려움",
+        "surprised": "놀람",
+        "sarcastic": "비꼼",
+        "whisper": "속삭임",
+        "dramatic": "드라마틱",
+        "announcer": "스포츠 아나운서"
+      },
+      "text": {
+        "neutral": "중립적인 어조로",
+        "happy": "기쁘고 쾌활하게",
+        "excited": "신나고 에너지 넘치게",
+        "calm": "차분하고 편안하게",
+        "sad": "슬프고 우울하게",
+        "angry": "화난 어조로",
+        "fearful": "두렵고 겁에 질린 듯이",
+        "surprised": "깜짝 놀란 듯이",
+        "sarcastic": "무미건조하고 비꼬는 듯이",
+        "whisper": "비밀을 말하듯 속삭이며",
+        "dramatic": "영화 예고편 내레이터처럼 극적으로",
+        "announcer": "흥분한 스포츠 아나운서처럼",
+        "disgusted": "역겨워하는 듯이",
+        "fluent": "매끄럽고 유창하게"
+      }
     }
   },
   "page": {
