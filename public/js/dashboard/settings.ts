@@ -218,12 +218,14 @@ export function initSettingsModule(
     void saveStyleSetting(style, t('msg.setting.style')).then((saved) => {
       // A newer change owns the values now.
       if (saved || storedStyle !== style) return;
-      // The server still holds the previous values. Typed text stays in the box,
-      // so that the next blur sends it again.
+      // The server still holds the previous values.
       storedEmotion = previousEmotion;
       storedStyle = previousStyle;
-      // A style that was not removed is still the one that applies: show it again.
-      if (!style) showStyle();
+      // Text that the person still types stays in the box, so that the next blur
+      // sends it again. In every other case (a removed style, a click on a chip)
+      // no blur follows, so the box, the chips and the sidebar go back to the
+      // stored style.
+      if (!style || document.activeElement !== defaultStyleInput) showStyle();
       updateSidebarPreview();
     });
   }

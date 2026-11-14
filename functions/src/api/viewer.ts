@@ -96,7 +96,9 @@ function validateAndBuildUpdateData(
       // one (a cached copy) gets the style words of that emotion. Null removes
       // the choice, and the viewer then uses the style of the channel.
       updateData.emotion = FieldValue.delete();
-      updateData.style = (normalized && styleForEmotion(normalized, { viewer: true })) || FieldValue.delete();
+      // The typed value, not the normalized one: normalizeEmotion turns "auto"
+      // into "neutral", and only "auto" means no style for a viewer.
+      updateData.style = (normalized && styleForEmotion(updates.emotion, { viewer: true })) || FieldValue.delete();
     } else {
       apiError(res, 400, "prefs_invalid_emotion", "Invalid emotion value");
       return null;

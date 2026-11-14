@@ -222,6 +222,11 @@ export function initPreferencesModule(
   // Pitch and speed: five steps each, stored as the same numbers as before.
   // No step is checked while the viewer has no value of their own.
   let stylePresets: StylePresetControl | null = null;
+  // The style of the newest save that still waits or runs. A save changes
+  // state.currentPreferences only when its turn in the queue comes. Until then
+  // this is the style that the viewer chose, and the next choice compares with it.
+  // Declared above the `return`, because a `let` below it never gets its value.
+  let pendingStyle: string | undefined;
   const pitchControl: StepControl = createStepControl(document.getElementById('pitch-steps'), 'pitch', (value) => {
     markSettingsAsDirty();
     void savePreferences({ pitch: value });
@@ -282,10 +287,12 @@ export function initPreferencesModule(
   }
 
   /**
-   * The words that the box shows for the stored preferences. An emotion comes
-   * from an old record, and the box shows it as words.
+   * The words that the box shows: the style of a save that still waits, else
+   * the stored preferences. An emotion comes from an old record, and the box
+   * shows it as words.
    */
   function shownStyle(): string {
+    if (pendingStyle !== undefined) return pendingStyle;
     const prefs = state.currentPreferences || {};
     return prefs.style || emotionStyleText(prefs.emotion, { viewer: true });
   }
@@ -294,10 +301,18 @@ export function initPreferencesModule(
   function saveTypedStyle(): boolean {
     const style = (elements.styleInput?.value || '').trim().slice(0, STYLE_MAX_LENGTH);
     if (style === shownStyle()) return false;
+    pendingStyle = style;
     markSettingsAsDirty();
     // An empty box means "use the channel default". The emotion of an old
     // record goes away with each save, here and on the server.
-    void savePreferences({ emotion: null, style: style || null });
+    void savePreferences({ emotion: null, style: style || null }).finally(() => {
+      // A newer choice owns the value now.
+      if (pendingStyle !== style) return;
+      pendingStyle = undefined;
+      // After a failed save the box still shows the style that was not saved.
+      // Not while the viewer types: that text is newer than this save.
+      if (document.activeElement !== elements.styleInput) renderControls();
+    });
     return true;
   }
 
@@ -342,16 +357,15 @@ export function initPreferencesModule(
     // The style in the box counts while the viewer still types it. The words of
     // an old emotion are not a style: the bot reads the emotion.
     const boxStyle = (elements.styleInput?.value || '').trim().slice(0, STYLE_MAX_LENGTH);
-    const typedStyle = !prefs.style && boxStyle === emotionStyleText(prefs.emotion, { viewer: true }) ? '' : boxStyle;
-    if (typedStyle) {
-      style = typedStyle;
+    const emotionWords = prefs.style ? '' : emotionStyleText(prefs.emotion, { viewer: true });
+    if (boxStyle && boxStyle !== emotionWords) {
+      style = boxStyle;
       emotion = prefs.emotion || cd.emotion || undefined;
-    } else if (prefs.style) {
-      style = prefs.style;
-      emotion = prefs.emotion || cd.emotion || undefined;
-    } else if (prefs.emotion) {
-      emotion = prefs.emotion;
+    } else if (boxStyle) {
+      emotion = prefs.emotion || undefined;
     } else {
+      // An empty box means "use the channel default", also before the save of
+      // the empty box ran. The stored style is then older than the box.
       style = cd.style || '';
       emotion = cd.emotion || undefined;
     }

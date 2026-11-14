@@ -322,6 +322,15 @@ describe('Viewer API Integration Tests', () => {
       expect(await stored()).toEqual({ style: 'in a neutral tone' });
     });
 
+    // "auto" was the word for "use the channel default".
+    it('should remove the style and the emotion for the emotion auto', async () => {
+      await prefs().set({ style: 'like a tired pirate', emotion: 'happy', pitch: 2 });
+
+      await put({ emotion: 'auto' }).expect(200);
+
+      expect(await stored()).toEqual({ pitch: 2 });
+    });
+
     it('should remove the style and the emotion for a null emotion', async () => {
       await prefs().set({ style: 'like a tired pirate', emotion: 'happy', pitch: 2 });
 
