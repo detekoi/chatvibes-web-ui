@@ -37,6 +37,7 @@
     "prefs_invalid_language": "無効な言語です。",
     "prefs_invalid_pitch": "無効なピッチです。",
     "prefs_invalid_speed": "無効な速度です。",
+    "prefs_invalid_style": "無効なスタイルです。",
     "prefs_invalid_voice": "無効なボイスです。",
     "prefs_missing_data": "変更内容が送信されませんでした。",
     "prefs_update_failed": "サーバーエラーのため変更を保存できませんでした。もう一度お試しください。",
@@ -68,11 +69,13 @@
     "setting_update_failed": "TTS設定を更新できません。",
     "settings_fetch_failed": "TTS設定を読み込めません。",
     "shortlink_failed": "短縮リンクを作成できません。",
+    "sound_tag_unknown": "サウンドタグ「{tag}」はリストにありません。ページを再読み込みしてやり直してください。",
     "storage_unavailable": "ストレージを利用できません。",
+    "style_too_long": "スタイルが長すぎます。{max}文字以内で入力してください。",
+    "tts_blocked": "音声サービスがこのテキストを拒否しました。テキストを変更してやり直してください。",
     "tts_generation_failed": "音声の生成に失敗しました: {reason}",
     "tts_no_audio": "音声プロバイダーからオーディオが返されませんでした。",
     "tts_not_configured": "音声プロバイダーが設定されていません。",
-    "tts_provider_failed": "音声プロバイダーがオーディオを生成できませんでした。",
     "tts_test_failed": "音声テストに失敗しました。",
     "tts_text_required": "テスト用のテキストを入力してください。",
     "twitch_reauth_required": "Twitchのログイン有効期限が切れました。アカウントを再連携してください。",
@@ -80,8 +83,6 @@
     "url_required": "URLが必要です。",
     "username_invalid": "無効なユーザー名です。",
     "username_required": "ユーザー名が必要です。",
-    "voice_access_denied": "ボイス「{voice}」には特別な権限が必要です。別のボイスをお試しください。",
-    "voice_invalid": "ボイス「{voice}」は利用できません。ボイスを確認してやり直してください。",
     "voice_lookup_failed": "該当ユーザーのボイスを取得できません。",
     "word_invalid": "無効な単語またはフレーズです。",
     "word_required": "単語またはフレーズが必要です。"
@@ -117,7 +118,6 @@
     },
     "emotion": {
       "angry": "怒り",
-      "auto": "自動",
       "calm": "穏やか",
       "disgusted": "嫌悪",
       "fearful": "恐怖",
@@ -125,7 +125,8 @@
       "happy": "喜び",
       "neutral": "ニュートラル",
       "sad": "悲しみ",
-      "surprised": "驚き"
+      "surprised": "驚き",
+      "custom": "カスタム"
     },
     "ignore": {
       "enterUsername": "ユーザー名を入力してください。"
@@ -138,27 +139,65 @@
     },
     "preview": {
       "enterText": "テスト用のテキストを入力してください。",
-      "unavailable": "プレビューを利用できません。"
-    },
-    "value": {
-      "off": "オフ",
-      "on": "オン"
+      "unavailable": "このボイスのサンプルはありません。"
     },
     "voice": {
       "cannotPlay": "サンプル音声を再生できません。",
       "generating": "生成中…",
       "noAudio": "サーバーからオーディオが返されませんでした。",
       "noneFound": "ボイスが見つかりません。",
-      "preview": "{voice}をプレビュー",
+      "preview": "{voice}のサンプルを再生",
       "regenerate": "再生成",
-      "testFailed": "テストに失敗しました: {reason}"
+      "testFailed": "テストに失敗しました: {reason}",
+      "choose": "ボイスを選択",
+      "panelLabel": "ボイス検索",
+      "listLabel": "ボイス一覧",
+      "searchLabel": "ボイスを検索",
+      "searchHint": "「german calm low」のように1つ以上の単語を入力してください。すべての単語を含むボイスが検索されます。ボイスの説明は英語のみです。",
+      "filterLanguage": "言語で絞り込む",
+      "anyLanguage": "すべての言語",
+      "filterGender": "性別で絞り込む",
+      "anyGender": "すべての性別",
+      "gender": {
+        "female": "女性",
+        "male": "男性",
+        "neutral": "ニュートラル"
+      },
+      "filterPitch": "ピッチで絞り込む",
+      "anyPitch": "すべてのピッチ",
+      "pitch": {
+        "low": "低いピッチ",
+        "medium": "中くらいのピッチ",
+        "high": "高いピッチ"
+      },
+      "studioOnly": "スタジオボイスのみ",
+      "studioTag": "スタジオ",
+      "count": "見つかったボイス: {count}",
+      "legacy": "レガシーボイス ({id})",
+      "stopSample": "{voice}のサンプルを停止"
+    },
+    "step": {
+      "speed": {
+        "very_slow": "とても遅い",
+        "slow": "遅い",
+        "normal": "標準",
+        "fast": "速い",
+        "very_fast": "とても速い"
+      },
+      "pitch": {
+        "very_low": "とても低い",
+        "low": "低い",
+        "normal": "標準",
+        "high": "高い",
+        "very_high": "とても高い"
+      }
+    },
+    "style": {
+      "count": "{count} / {max}文字"
     }
   },
   "page": {
     "skipToMainContent": "メインコンテンツへスキップ"
-  },
-  "sidebarEngNormVal": {
-    "off": "オフ"
   },
   "sidebarLanguageVal": {
     "automatic": "自動"

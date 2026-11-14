@@ -35,9 +35,6 @@
   "calibrationSaveBtn": {
     "save": "Tallenna"
   },
-  "calibrationVoiceSearch": {
-    "searchVoicesToCalibrate": "Etsi kalibroitavia ääniä..."
-  },
   "channelNameStatus": {
     "yourChannel": "kanavasi"
   },
@@ -73,7 +70,6 @@
     "deactivationStopsTheBotFrom": "Käytöstä poistaminen estää bottia lukemasta chat-viestejä. Asetuksesi säilyvät tallennettuina. Voit aktivoida palvelun uudelleen milloin tahansa.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentaatio",
     "emotion": "Tunne",
-    "engNormalization": "Engl. normalisointi",
     "language": "Kieli",
     "pitch": "Sävelkorkeus",
     "quickLinks": "Pikalinkit",
@@ -87,22 +83,36 @@
   },
   "defaultEmotion": {
     "angry": "Vihainen",
+    "calm": "Rauhallinen",
+    "custom": "Mukautettu…",
     "disgusted": "Inhostunut",
     "fearful": "Pelokas",
+    "fluent": "Sujuva",
     "happy": "Iloinen",
     "neutral": "Neutraali",
     "sad": "Surullinen",
     "surprised": "Yllättynyt"
   },
-  "defaultPitch": {
-    "defaultPitch12To12": "Oletussävelkorkeus (-12 – +12)"
+  "defaultPitchLabel": {
+    "defaultPitch": "<strong>Oletuskorkeus</strong>"
   },
-  "defaultSpeed": {
-    "defaultSpeed05To": "Oletusnopeus (0,5–2,0)"
+  "defaultSpeedLabel": {
+    "defaultSpeed": "<strong>Oletusnopeus</strong>"
   },
-  "defaultVoiceSearch": {
-    "searchDefaultVoices": "Hae oletusääniä",
-    "searchVoices": "Hae ääniä..."
+  "defaultStepsHint": {
+    "pitchAndSpeedAreApproximate": "Äänenkorkeus ja nopeus ovat suuntaa antavia. Äänimalli saa nämä asetukset sanoina, ei numeroina."
+  },
+  "defaultStyle": {
+    "exampleCalmAndSlowLike": "Esimerkki: rauhallinen ja hidas, kuin myöhäisillan radiojuontaja"
+  },
+  "defaultStyleGroup": {
+    "style": "Tyyli"
+  },
+  "defaultStyleHint": {
+    "describeInAFewWords": "Kuvaile muutamalla sanalla, miten ääni puhuu."
+  },
+  "defaultVoiceLabel": {
+    "defaultVoice": "<strong>Oletusääni</strong>"
   },
   "defaultVolume": {
     "voiceVolume01To": "Äänenvoimakkuus (0,1–10)"
@@ -111,9 +121,6 @@
     "describeEmotes": "Kuvaile hymiöt",
     "readEmoteNames": "Lue hymiöiden nimet",
     "skipEmotes": "Ohita hymiöt"
-  },
-  "englishNormalization": {
-    "englishNormalization": "Englannin normalisointi"
   },
   "eventsEnabled": {
     "announceEvents": "Ilmoita tapahtumat"
@@ -214,7 +221,8 @@
       "hasVoice": "Käyttäjä {user} asetti mukautetun äänen: {voice}",
       "noVoice": "Käyttäjällä {user} ei ole asetettu mukautettua ääntä.",
       "searching": "Haetaan…",
-      "voiceUnknown": "Tämä ääni ei ole saatavilla olevien äänten luettelossa."
+      "voiceUnknown": "Tämä ääni ei ole saatavilla olevien äänten luettelossa.",
+      "storedVoice": "Tämä katsoja tallensi vanhan äänen {stored}. TTS käyttää sen sijaan yllä olevaa ääntä."
     },
     "mutedRewards": {
       "announceLabel": "Ilmoita kohteen {title} lunastukset",
@@ -279,7 +287,6 @@
       "defaultSpeed": "Oletusnopeus",
       "defaultVoice": "Oletusääni",
       "emoteMode": "Emote-tila",
-      "englishNormalization": "Englannin normalisointi",
       "eventAnnouncements": "Tapahtumailmoitukset",
       "expandAcronyms": "Laajenna chatin lyhenteet",
       "minimumBits": "Bits-vähimmäismäärä",
@@ -288,6 +295,8 @@
       "readCommandMessages": "Lue chat-komennot",
       "readFullUrls": "Lue täydet URL-osoitteet",
       "redemptionAnnouncements": "Lunastusilmoitukset",
+      "soundTags": "Äänitagit",
+      "style": "Tyyli",
       "ttsEngine": "TTS-moottori",
       "ttsMode": "TTS-tila",
       "ttsPermission": "TTS-käyttöoikeus",
@@ -380,14 +389,6 @@
   "removeBotBtn": {
     "deactivateTtsService": "Poista TTS-palvelu käytöstä"
   },
-  "resetPitchBtn": {
-    "reset": "Palauta",
-    "resetDefaultPitchTo0": "Palauta oletussävelkorkeus arvoon 0"
-  },
-  "resetSpeedBtn": {
-    "reset": "Palauta",
-    "resetDefaultSpeedTo1": "Palauta oletusnopeus arvoon 1.0"
-  },
   "resetVolumeBtn": {
     "reset": "Palauta",
     "resetVoiceVolumeTo1": "Palauta äänenvoimakkuus arvoon 1.0"
@@ -398,8 +399,8 @@
   "serviceHeadline": {
     "ttsService": "TTS-palvelu"
   },
-  "sidebarVoiceName": {
-    "friendlyPerson": "Ystävällinen henkilö"
+  "soundTagsTitle": {
+    "soundTags": "Äänitagit"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Salli botin vastata chat-komentoihin, kuten !myvoice",
@@ -479,24 +480,20 @@
     "voiceDefaults": "Äänen oletukset"
   },
   "tabViewerDefaults": {
-    "adjustThePitchForThe": "Säädä oletusäänen korkeutta",
     "adjustTheVolumeForThe": "Säädä valitun äänen äänenvoimakkuutta. VAROITUS: Yli 1.0 arvot voivat aiheuttaa säröytymistä.",
     "calibratedVoices": "<strong>Kalibroidut äänet</strong>",
     "calibrateVolumeForSpecificVoices": "Kalibroi tiettyjen äänten äänenvoimakkuus. VAROITUS: Yli 1.0 arvot voivat aiheuttaa säröytymistä.",
-    "controlHowFastTheDefault": "Säädä oletusäänen puhenopeutta",
     "defaultEmotion": "<strong>Oletustunnetila</strong>",
     "defaultLanguage": "<strong>Oletuskieli</strong>",
-    "defaultPitch12To12": "Oletusäänenkorkeus (-12 – +12):",
-    "defaultSpeed05To": "Oletusnopeus (0,5–2,0):",
-    "defaultVoice": "<strong>Oletusääni</strong>",
     "defaultVoiceSettings": "Oletusääniasetukset",
-    "englishNormalization": "Englannin kielen normalisointi",
-    "improvePronunciationForSpecificLanguages": "Paranna tiettyjen kielten ääntämistä",
-    "improveThePronunciationOfNumbers": "Paranna numeroiden ja tekstin ääntämistä",
-    "selectTheDefaultTtsVoice": "Valitse kanavan TTS-oletusääni",
+    "selectHowFastTheDefault": "Valitse, kuinka nopeasti oletusääni puhuu",
+    "selectHowHighOrLow": "Valitse, kuinka korkealla tai matalalla äänellä oletusääni puhuu",
+    "selectTheVoiceThatTts": "Valitse ääni, jota TTS käyttää katsojille, joilla ei ole omaa ääntä",
     "selectVoice": "Valitse ääni",
     "setDefaultVoiceSettingsFor": "Määritä kanavasi oletusääniasetukset",
-    "setTheEmotionalToneOf": "Aseta oletusäänen tunnesävy",
+    "setTheEmotionOfThe": "Aseta oletusäänen tunnetila. Valitse Mukautettu, jos haluat kuvailla ääntä omin sanoin.",
+    "theVoiceModelReadsThe": "Äänimalli tunnistaa kielen tekstistä. Jos teksti on lyhyt tai epäselvä, tämä asetus antaa mallille vihjeen. Se asettaa myös ilmoitusten oletuskielen ja valitsee sanalistan kirosanasuodattimelle.",
+    "viewersCanTypeASound": "Katsojat voivat kirjoittaa viestiin äänitagin, jolloin puheääni tuottaa kyseisen äänen. Esimerkkejä ovat <code>&lt;laugh&gt;</code> ja <code>&lt;sigh&gt;</code>. Kaikki tagit ovat oletuksena käytössä. Voit poistaa tagin käytöstä tyhjentämällä sen valintaruudun.",
     "viewerVoiceLookup": "Katsojan äänen haku",
     "voiceCalibration": "Äänen kalibrointi",
     "voicesWithCustomVolumeSettings": "Äänet, joilla on mukautettu äänenvoimakkuus.",

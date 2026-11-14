@@ -37,6 +37,7 @@
     "prefs_invalid_language": "Bahasa tersebut tidak valid.",
     "prefs_invalid_pitch": "Pitch tersebut tidak valid.",
     "prefs_invalid_speed": "Kecepatan tersebut tidak valid.",
+    "prefs_invalid_style": "Gaya itu tidak valid.",
     "prefs_invalid_voice": "Suara tersebut tidak valid.",
     "prefs_missing_data": "Tidak ada perubahan yang dikirim.",
     "prefs_update_failed": "Perubahan kamu tidak tersimpan karena kesalahan server. Coba lagi.",
@@ -68,11 +69,13 @@
     "setting_update_failed": "Tidak dapat memperbarui pengaturan TTS.",
     "settings_fetch_failed": "Tidak dapat memuat pengaturan TTS.",
     "shortlink_failed": "Tidak dapat membuat tautan pendek.",
+    "sound_tag_unknown": "Tag suara \"{tag}\" tidak ada dalam daftar. Muat ulang halaman dan coba lagi.",
     "storage_unavailable": "Penyimpanan tidak tersedia.",
+    "style_too_long": "Gaya terlalu panjang. Gunakan maksimal {max} karakter.",
+    "tts_blocked": "Layanan suara menolak teks ini. Ubah teks dan coba lagi.",
     "tts_generation_failed": "Gagal membuat ucapan: {reason}",
     "tts_no_audio": "Penyedia ucapan tidak mengembalikan audio.",
     "tts_not_configured": "Tidak ada penyedia ucapan yang dikonfigurasi.",
-    "tts_provider_failed": "Penyedia ucapan tidak dapat membuat audio.",
     "tts_test_failed": "Tes ucapan gagal.",
     "tts_text_required": "Masukkan teks untuk diuji.",
     "twitch_reauth_required": "Sesi masuk Twitch Anda telah kedaluwarsa. Hubungkan ulang akun Anda.",
@@ -80,8 +83,6 @@
     "url_required": "URL diperlukan.",
     "username_invalid": "Nama pengguna tidak valid.",
     "username_required": "Nama pengguna wajib diisi.",
-    "voice_access_denied": "Suara \"{voice}\" memerlukan akses khusus. Coba suara yang berbeda.",
-    "voice_invalid": "Suara \"{voice}\" tidak tersedia. Periksa suara dan coba lagi.",
     "voice_lookup_failed": "Tidak dapat menemukan suara pengguna tersebut.",
     "word_invalid": "Kata atau frasa tidak valid.",
     "word_required": "Kata atau frasa wajib diisi."
@@ -117,7 +118,6 @@
     },
     "emotion": {
       "angry": "Marah",
-      "auto": "Otomatis",
       "calm": "Tenang",
       "disgusted": "Jijik",
       "fearful": "Takut",
@@ -125,7 +125,8 @@
       "happy": "Senang",
       "neutral": "Netral",
       "sad": "Sedih",
-      "surprised": "Terkejut"
+      "surprised": "Terkejut",
+      "custom": "Kustom"
     },
     "ignore": {
       "enterUsername": "Masukkan nama pengguna."
@@ -138,27 +139,65 @@
     },
     "preview": {
       "enterText": "Masukkan teks untuk menguji.",
-      "unavailable": "Pratinjau tidak tersedia."
-    },
-    "value": {
-      "off": "Nonaktif",
-      "on": "Aktif"
+      "unavailable": "Sampel tidak tersedia untuk suara ini."
     },
     "voice": {
       "cannotPlay": "Tidak dapat memutar sampel audio.",
       "generating": "Membuat…",
       "noAudio": "Server tidak mengembalikan audio.",
       "noneFound": "Suara tidak ditemukan.",
-      "preview": "Pratinjau {voice}",
+      "preview": "Putar sampel {voice}",
       "regenerate": "Buat ulang",
-      "testFailed": "Uji coba gagal: {reason}"
+      "testFailed": "Uji coba gagal: {reason}",
+      "choose": "Pilih suara",
+      "panelLabel": "Pencarian suara",
+      "listLabel": "Suara",
+      "searchLabel": "Cari suara",
+      "searchHint": "Ketik satu kata atau lebih, misalnya \"german calm low\". Pencarian akan menemukan suara yang memuat semua kata tersebut. Deskripsi suara hanya tersedia dalam bahasa Inggris.",
+      "filterLanguage": "Filter bahasa",
+      "anyLanguage": "Semua bahasa",
+      "filterGender": "Filter gender",
+      "anyGender": "Semua gender",
+      "gender": {
+        "female": "Wanita",
+        "male": "Pria",
+        "neutral": "Netral"
+      },
+      "filterPitch": "Filter nada",
+      "anyPitch": "Semua nada",
+      "pitch": {
+        "low": "Nada rendah",
+        "medium": "Nada sedang",
+        "high": "Nada tinggi"
+      },
+      "studioOnly": "Hanya suara studio",
+      "studioTag": "Studio",
+      "count": "Suara ditemukan: {count}",
+      "legacy": "Suara lama ({id})",
+      "stopSample": "Hentikan sampel {voice}"
+    },
+    "step": {
+      "speed": {
+        "very_slow": "Sangat lambat",
+        "slow": "Lambat",
+        "normal": "Normal",
+        "fast": "Cepat",
+        "very_fast": "Sangat cepat"
+      },
+      "pitch": {
+        "very_low": "Sangat rendah",
+        "low": "Rendah",
+        "normal": "Normal",
+        "high": "Tinggi",
+        "very_high": "Sangat tinggi"
+      }
+    },
+    "style": {
+      "count": "{count} dari {max} karakter"
     }
   },
   "page": {
     "skipToMainContent": "Lompat ke konten utama"
-  },
-  "sidebarEngNormVal": {
-    "off": "Nonaktif"
   },
   "sidebarLanguageVal": {
     "automatic": "Otomatis"

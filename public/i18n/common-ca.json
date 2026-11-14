@@ -37,6 +37,7 @@
     "prefs_invalid_language": "Aquest idioma no és vàlid.",
     "prefs_invalid_pitch": "Aquest to no és vàlid.",
     "prefs_invalid_speed": "Aquesta velocitat no és vàlida.",
+    "prefs_invalid_style": "Aquest estil no és vàlid.",
     "prefs_invalid_voice": "Aquesta veu no és vàlida.",
     "prefs_missing_data": "No s'ha enviat cap canvi.",
     "prefs_update_failed": "El canvi no s'ha desat per un error del servidor. Torna-ho a provar.",
@@ -68,11 +69,13 @@
     "setting_update_failed": "No es pot actualitzar el paràmetre de TTS.",
     "settings_fetch_failed": "No es poden carregar els paràmetres de TTS.",
     "shortlink_failed": "No es pot crear l'enllaç curt.",
+    "sound_tag_unknown": "L'etiqueta de so \"{tag}\" no és a la llista. Recarrega la pàgina i torna-ho a provar.",
     "storage_unavailable": "L'emmagatzematge no està disponible.",
+    "style_too_long": "L'estil és massa llarg. Fes servir {max} caràcters o menys.",
+    "tts_blocked": "El servei de veu ha rebutjat aquest text. Canvia'l i torna-ho a provar.",
     "tts_generation_failed": "Ha fallat la generació de veu: {reason}",
     "tts_no_audio": "El proveïdor de veu no ha retornat cap àudio.",
     "tts_not_configured": "No hi ha cap proveïdor de veu configurat.",
-    "tts_provider_failed": "El proveïdor de veu no ha pogut generar l'àudio.",
     "tts_test_failed": "Ha fallat la prova de veu.",
     "tts_text_required": "Introdueix un text per fer la prova.",
     "twitch_reauth_required": "La teva sessió de Twitch ha caducat. Torna a connectar el teu compte.",
@@ -80,8 +83,6 @@
     "url_required": "Cal un URL.",
     "username_invalid": "Aquest nom d'usuari no és vàlid.",
     "username_required": "Cal un nom d'usuari.",
-    "voice_access_denied": "La veu \"{voice}\" requereix accés especial. Prova una altra veu.",
-    "voice_invalid": "La veu \"{voice}\" no està disponible. Comprova la veu i torna-ho a provar.",
     "voice_lookup_failed": "No es pot consultar la veu d'aquest usuari.",
     "word_invalid": "Aquesta paraula o frase no és vàlida.",
     "word_required": "Cal una paraula o frase."
@@ -117,7 +118,6 @@
     },
     "emotion": {
       "angry": "Enfadat",
-      "auto": "Auto",
       "calm": "Calmat",
       "disgusted": "Disgustat",
       "fearful": "Espantat",
@@ -125,7 +125,8 @@
       "happy": "Content",
       "neutral": "Neutral",
       "sad": "Trist",
-      "surprised": "Sorprès"
+      "surprised": "Sorprès",
+      "custom": "Personalitzat"
     },
     "ignore": {
       "enterUsername": "Introdueix un nom d'usuari."
@@ -138,27 +139,65 @@
     },
     "preview": {
       "enterText": "Introdueix text per provar.",
-      "unavailable": "No hi ha cap previsualització disponible."
-    },
-    "value": {
-      "off": "Desactivat",
-      "on": "Activat"
+      "unavailable": "No hi ha cap mostra disponible per a aquesta veu."
     },
     "voice": {
       "cannotPlay": "No es pot reproduir la mostra d'àudio.",
       "generating": "Generant…",
       "noAudio": "El servidor no ha retornat cap àudio.",
       "noneFound": "No s'han trobat veus.",
-      "preview": "Previsualitza {voice}",
+      "preview": "Reprodueix una mostra de {voice}",
       "regenerate": "Regenera",
-      "testFailed": "Ha fallat la prova: {reason}"
+      "testFailed": "Ha fallat la prova: {reason}",
+      "choose": "Selecciona una veu",
+      "panelLabel": "Cerca de veus",
+      "listLabel": "Veus",
+      "searchLabel": "Cerca veus",
+      "searchHint": "Escriu una o més paraules, per exemple \"german calm low\". La cerca troba les veus que contenen totes les paraules. Les descripcions de les veus només són en anglès.",
+      "filterLanguage": "Filtra per idioma",
+      "anyLanguage": "Tots els idiomes",
+      "filterGender": "Filtra per gènere",
+      "anyGender": "Tots els gèneres",
+      "gender": {
+        "female": "Femení",
+        "male": "Masculí",
+        "neutral": "Neutre"
+      },
+      "filterPitch": "Filtra per to",
+      "anyPitch": "Tots els tons",
+      "pitch": {
+        "low": "To greu",
+        "medium": "To mitjà",
+        "high": "To agut"
+      },
+      "studioOnly": "Només veus d'estudi",
+      "studioTag": "Estudi",
+      "count": "Veus trobades: {count}",
+      "legacy": "Veu antiga ({id})",
+      "stopSample": "Atura la mostra de {voice}"
+    },
+    "step": {
+      "speed": {
+        "very_slow": "Molt lent",
+        "slow": "Lent",
+        "normal": "Normal",
+        "fast": "Ràpid",
+        "very_fast": "Molt ràpid"
+      },
+      "pitch": {
+        "very_low": "Molt greu",
+        "low": "Greu",
+        "normal": "Normal",
+        "high": "Agut",
+        "very_high": "Molt agut"
+      }
+    },
+    "style": {
+      "count": "{count} de {max} caràcters"
     }
   },
   "page": {
     "skipToMainContent": "Salta al contingut principal"
-  },
-  "sidebarEngNormVal": {
-    "off": "Desactivat"
   },
   "sidebarLanguageVal": {
     "automatic": "Automàtic"

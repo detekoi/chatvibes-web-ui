@@ -37,6 +37,7 @@
     "prefs_invalid_language": "Kieli ei kelpaa.",
     "prefs_invalid_pitch": "Äänenkorkeus ei kelpaa.",
     "prefs_invalid_speed": "Nopeus ei kelpaa.",
+    "prefs_invalid_style": "Tyyli ei kelpaa.",
     "prefs_invalid_voice": "Ääni ei kelpaa.",
     "prefs_missing_data": "Muutoksia ei lähetetty.",
     "prefs_update_failed": "Muutostasi ei tallennettu palvelinvirheen vuoksi. Yritä uudelleen.",
@@ -68,11 +69,13 @@
     "setting_update_failed": "TTS-asetusta ei voi päivittää.",
     "settings_fetch_failed": "TTS-asetuksia ei voi ladata.",
     "shortlink_failed": "Lyhytlinkkiä ei voi luoda.",
+    "sound_tag_unknown": "Äänitunniste \"{tag}\" ei ole luettelossa. Lataa sivu uudelleen ja yritä uudelleen.",
     "storage_unavailable": "Tallennustila ei ole käytettävissä.",
+    "style_too_long": "Tyyli on liian pitkä. Käytä enintään {max} merkkiä.",
+    "tts_blocked": "Puhepalvelu hylkäsi tämän tekstin. Muokkaa tekstiä ja yritä uudelleen.",
     "tts_generation_failed": "Puheen luonti epäonnistui: {reason}",
     "tts_no_audio": "Puhepalvelu ei palauttanut ääntä.",
     "tts_not_configured": "Puhepalvelua ei ole määritetty.",
-    "tts_provider_failed": "Puhepalvelu ei voinut luoda ääntä.",
     "tts_test_failed": "Puhetesti epäonnistui.",
     "tts_text_required": "Kirjoita tekstiä testausta varten.",
     "twitch_reauth_required": "Twitch-kirjautumisesi on vanhentunut. Yhdistä tilisi uudelleen.",
@@ -80,8 +83,6 @@
     "url_required": "URL-osoite vaaditaan.",
     "username_invalid": "Käyttäjätunnus ei kelpaa.",
     "username_required": "Käyttäjätunnus vaaditaan.",
-    "voice_access_denied": "Ääni \"{voice}\" vaatii erityisoikeuksia. Kokeile toista ääntä.",
-    "voice_invalid": "Ääni \"{voice}\" ei ole saatavilla. Tarkista ääni ja yritä uudelleen.",
     "voice_lookup_failed": "Kyseisen käyttäjän äänen hakeminen epäonnistui.",
     "word_invalid": "Sana tai lause ei kelpaa.",
     "word_required": "Sana tai lause vaaditaan."
@@ -117,7 +118,6 @@
     },
     "emotion": {
       "angry": "Vihainen",
-      "auto": "Automaattinen",
       "calm": "Rauhallinen",
       "disgusted": "Inhostunut",
       "fearful": "Pelokas",
@@ -125,7 +125,8 @@
       "happy": "Iloinen",
       "neutral": "Neutraali",
       "sad": "Surullinen",
-      "surprised": "Yllättynyt"
+      "surprised": "Yllättynyt",
+      "custom": "Mukautettu"
     },
     "ignore": {
       "enterUsername": "Syötä käyttäjätunnus."
@@ -138,27 +139,65 @@
     },
     "preview": {
       "enterText": "Kirjoita tekstiä testataksesi.",
-      "unavailable": "Esikatselua ei ole saatavilla."
-    },
-    "value": {
-      "off": "Pois päältä",
-      "on": "Päällä"
+      "unavailable": "Tästä äänestä ei ole näytettä."
     },
     "voice": {
       "cannotPlay": "Ääninäytettä ei voi toistaa.",
       "generating": "Luodaan…",
       "noAudio": "Palvelin ei palauttanut ääntä.",
       "noneFound": "Ääniä ei löytynyt.",
-      "preview": "Esikuuntele {voice}",
+      "preview": "Toista näyte äänestä {voice}",
       "regenerate": "Luo uudelleen",
-      "testFailed": "Testi epäonnistui: {reason}"
+      "testFailed": "Testi epäonnistui: {reason}",
+      "choose": "Valitse ääni",
+      "panelLabel": "Äänihaku",
+      "listLabel": "Äänet",
+      "searchLabel": "Etsi ääniä",
+      "searchHint": "Kirjoita yksi tai useampi sana, esimerkiksi \"german calm low\". Haku löytää äänet, jotka sisältävät kaikki sanat. Äänten kuvaukset ovat vain englanniksi.",
+      "filterLanguage": "Suodata kielen mukaan",
+      "anyLanguage": "Kaikki kielet",
+      "filterGender": "Suodata sukupuolen mukaan",
+      "anyGender": "Kaikki sukupuolet",
+      "gender": {
+        "female": "Nainen",
+        "male": "Mies",
+        "neutral": "Neutraali"
+      },
+      "filterPitch": "Suodata sävelkorkeuden mukaan",
+      "anyPitch": "Kaikki sävelkorkeudet",
+      "pitch": {
+        "low": "Matala sävelkorkeus",
+        "medium": "Keskikorkea sävelkorkeus",
+        "high": "Korkea sävelkorkeus"
+      },
+      "studioOnly": "Vain studioäänet",
+      "studioTag": "Studio",
+      "count": "Ääniä löytyi: {count}",
+      "legacy": "Vanha ääni ({id})",
+      "stopSample": "Pysäytä näyte äänestä {voice}"
+    },
+    "step": {
+      "speed": {
+        "very_slow": "Erittäin hidas",
+        "slow": "Hidas",
+        "normal": "Normaali",
+        "fast": "Nopea",
+        "very_fast": "Erittäin nopea"
+      },
+      "pitch": {
+        "very_low": "Erittäin matala",
+        "low": "Matala",
+        "normal": "Normaali",
+        "high": "Korkea",
+        "very_high": "Erittäin korkea"
+      }
+    },
+    "style": {
+      "count": "{count} / {max} merkkiä"
     }
   },
   "page": {
     "skipToMainContent": "Siirry pääsisältöön"
-  },
-  "sidebarEngNormVal": {
-    "off": "Pois"
   },
   "sidebarLanguageVal": {
     "automatic": "Automaattinen"

@@ -37,20 +37,16 @@
   },
   "emotionSelect": {
     "angry": "憤怒",
+    "calm": "平靜",
+    "custom": "自訂…",
     "disgusted": "厭惡",
     "fearful": "恐懼",
+    "fluent": "流暢",
     "happy": "開心",
     "neutral": "中性",
     "sad": "傷心",
     "surprised": "驚訝",
     "useChannelDefault": "使用頻道預設"
-  },
-  "englishNormalizationCheckbox": {
-    "englishNormalization": "英文正規化"
-  },
-  "englishNormalizationReset": {
-    "clear": "清除",
-    "resetEnglishNormalizationToDefault": "將英文正規化重設為預設值"
   },
   "ignoreTts": {
     "optOutInThisChannel": "喺呢個頻道退出"
@@ -110,11 +106,11 @@
       "hintChannel": "用緊頻道預設值：{value}",
       "hintSystem": "用緊系統預設值",
       "hintUser": "用緊你嘅全域偏好設定：{value}",
-      "noVoicesFound": "搵唔到語音",
       "sendPreview": "傳送預覽",
       "testCompletedTestMode": "測試完成（測試模式）。",
       "updated": "偏好設定已更新。",
-      "updatedTestMode": "偏好設定已更新（測試模式）。"
+      "updatedTestMode": "偏好設定已更新（測試模式）。",
+      "customStyle": "自訂（{style}）"
     }
   },
   "openChannelContextModalBtn": {
@@ -140,36 +136,29 @@
     "viewerSettings": "觀眾設定",
     "viewerTtsPreferences": "觀眾 TTS 偏好設定"
   },
+  "pitchLabel": {
+    "pitch": "<strong>音調</strong>"
+  },
   "pitchReset": {
     "clear": "清除",
     "resetPitchToDefault": "重設音調為預設值"
   },
-  "pitchSlider": {
-    "pitchAdjustment12To12": "音調調整（-12 至 +12）"
-  },
   "preferencesPanel": {
-    "adjustTheVoicePitchHigher": "調高或調低語音音調",
-    "controlHowFastTheVoice": "控制語音說話速度",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>文件 </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>實況主設定 </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
     "emotion": "<strong>情緒</strong>",
     "emotion2": "情緒",
-    "englishNormalization": "英文文字標準化",
-    "engNormalization": "英文正規化",
-    "ifTtsReadsNumbersIncorrectly": "如果 TTS 讀錯數字，可以開啟英文文字標準化。呢個設定會稍微增加延遲。",
-    "improvePronunciationForSpecificLanguages": "改善特定語言嘅發音",
-    "improveThePronunciationOfNumbers": "改善數字同文字嘅發音",
+    "ifYourTextIsShort": "如果你嘅文字好短或者唔夠清晰，呢個設定會畀語音模型一個提示。佢同時會揀選粗口過濾器要用嘅詞語表。",
     "language": "語言",
-    "languageBoost": "<strong>語言增強</strong>",
+    "languageLabel": "<strong>語言</strong>",
     "pitch": "音調",
-    "pitch12To12": "音高（-12 至 +12）：",
     "quickLinks": "快速連結",
-    "selectYourPreferredTtsVoice": "選擇你偏好嘅 TTS 語音",
+    "selectHowFastTheVoice": "揀選語音講嘢嘅速度",
+    "selectHowHighOrLow": "揀選語音講嘢嘅音調高低",
+    "selectTheVoiceThatTts": "揀選 TTS 用嚟讀你訊息嘅語音",
     "setHowYourMessagesSound": "設定 TTS 朗讀你嘅訊息時嘅聲音效果",
-    "setTheEmotionalToneOf": "設定語音嘅情緒語調",
+    "setTheEmotionOfThe": "設定語音嘅情緒。揀「自訂」就可以用你自己嘅字眼描述語音。",
     "speed": "速度",
-    "speed05To2": "語速（0.5 至 2.0）：",
     "testMessage": "測試訊息",
-    "voice": "<strong>語音</strong>",
     "voicePreview": "語音試聽",
     "voiceSettings": "語音設定"
   },
@@ -179,22 +168,33 @@
   "previewBtn": {
     "sendPreview": "傳送試聽"
   },
+  "speedLabel": {
+    "speed": "<strong>速度</strong>"
+  },
   "speedReset": {
     "clear": "清除",
     "resetSpeedToDefault": "將速度重設為預設值"
   },
-  "speedSlider": {
-    "speedAdjustment05To": "速度調整（0.5 至 2.0）"
-  },
   "statChannelContext": {
     "noneLoaded": "未載入"
+  },
+  "stepsHint": {
+    "pitchAndSpeedAreApproximate": "音調同速度只係大概。語音模型收到嘅係文字描述，而唔係數字。"
+  },
+  "styleGroup": {
+    "style": "風格"
+  },
+  "styleHint": {
+    "describeInAFewWords": "用幾個字簡單描述語音點樣講嘢。"
+  },
+  "styleInput": {
+    "exampleCalmAndSlowLike": "例子：平靜又慢條斯理，好似深夜電台主持噉"
+  },
+  "voiceLabel": {
+    "voice": "<strong>語音</strong>"
   },
   "voiceReset": {
     "clear": "清除",
     "resetVoiceToDefault": "將語音重設為預設值"
-  },
-  "voiceSearch": {
-    "searchVoices": "搜尋語音",
-    "searchVoices2": "搜尋語音..."
   }
 }

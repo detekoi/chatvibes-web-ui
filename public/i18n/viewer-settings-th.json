@@ -37,20 +37,16 @@
   },
   "emotionSelect": {
     "angry": "โกรธ",
+    "calm": "สงบ",
+    "custom": "กำหนดเอง…",
     "disgusted": "รังเกียจ",
     "fearful": "หวาดกลัว",
+    "fluent": "ลื่นไหล",
     "happy": "มีความสุข",
     "neutral": "เป็นกลาง",
     "sad": "เศร้า",
     "surprised": "ประหลาดใจ",
     "useChannelDefault": "ใช้ค่าเริ่มต้นของช่อง"
-  },
-  "englishNormalizationCheckbox": {
-    "englishNormalization": "การปรับมาตรฐานภาษาอังกฤษ"
-  },
-  "englishNormalizationReset": {
-    "clear": "ล้าง",
-    "resetEnglishNormalizationToDefault": "รีเซ็ตการปรับมาตรฐานภาษาอังกฤษเป็นค่าเริ่มต้น"
   },
   "ignoreTts": {
     "optOutInThisChannel": "เลือกไม่ใช้ในช่องนี้"
@@ -110,11 +106,11 @@
       "hintChannel": "ใช้ค่าเริ่มต้นของช่อง: {value}",
       "hintSystem": "ใช้ค่าเริ่มต้นของระบบ",
       "hintUser": "ใช้การตั้งค่าส่วนกลางของคุณ: {value}",
-      "noVoicesFound": "ไม่พบเสียง",
       "sendPreview": "ส่งตัวอย่าง",
       "testCompletedTestMode": "ทดสอบเสร็จสิ้น (โหมดทดสอบ)",
       "updated": "อัปเดตการตั้งค่าแล้ว",
-      "updatedTestMode": "อัปเดตการตั้งค่าแล้ว (โหมดทดสอบ)"
+      "updatedTestMode": "อัปเดตการตั้งค่าแล้ว (โหมดทดสอบ)",
+      "customStyle": "กำหนดเอง ({style})"
     }
   },
   "openChannelContextModalBtn": {
@@ -140,36 +136,29 @@
     "viewerSettings": "การตั้งค่าผู้ชม",
     "viewerTtsPreferences": "การตั้งค่า TTS ของผู้ชม"
   },
+  "pitchLabel": {
+    "pitch": "<strong>ระดับเสียง</strong>"
+  },
   "pitchReset": {
     "clear": "ล้าง",
     "resetPitchToDefault": "รีเซ็ตระดับเสียงเป็นค่าเริ่มต้น"
   },
-  "pitchSlider": {
-    "pitchAdjustment12To12": "การปรับระดับเสียง (-12 ถึง +12)"
-  },
   "preferencesPanel": {
-    "adjustTheVoicePitchHigher": "ปรับระดับเสียงให้สูงขึ้นหรือต่ำลง",
-    "controlHowFastTheVoice": "ควบคุมความเร็วในการพูดของเสียง",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>เอกสารประกอบ </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>การตั้งค่าสตรีมเมอร์ </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
     "emotion": "<strong>อารมณ์</strong>",
     "emotion2": "อารมณ์",
-    "englishNormalization": "การปรับมาตรฐานภาษาอังกฤษ",
-    "engNormalization": "การปรับมาตรฐานภาษาอังกฤษ",
-    "ifTtsReadsNumbersIncorrectly": "หาก TTS อ่านตัวเลขไม่ถูกต้อง ให้เปิดการปรับมาตรฐานข้อความภาษาอังกฤษ การตั้งค่านี้จะเพิ่มความหน่วงเล็กน้อย",
-    "improvePronunciationForSpecificLanguages": "ปรับปรุงการออกเสียงสำหรับบางภาษา",
-    "improveThePronunciationOfNumbers": "ปรับปรุงการออกเสียงตัวเลขและข้อความ",
+    "ifYourTextIsShort": "หากข้อความของคุณสั้นหรือไม่ชัดเจน การตั้งค่านี้จะช่วยบอกใบ้โมเดลเสียง และยังใช้เลือกรายการคำสำหรับตัวกรองคำหยาบด้วย",
     "language": "ภาษา",
-    "languageBoost": "<strong>Language Boost</strong>",
+    "languageLabel": "<strong>ภาษา</strong>",
     "pitch": "ระดับเสียง",
-    "pitch12To12": "ระดับเสียง (-12 ถึง +12):",
     "quickLinks": "ลิงก์ด่วน",
-    "selectYourPreferredTtsVoice": "เลือกเสียง TTS ที่คุณต้องการ",
+    "selectHowFastTheVoice": "เลือกความเร็วในการพูดของเสียง",
+    "selectHowHighOrLow": "เลือกระดับความสูงต่ำของเสียงพูด",
+    "selectTheVoiceThatTts": "เลือกเสียงที่ TTS ใช้สำหรับข้อความของคุณ",
     "setHowYourMessagesSound": "กำหนดเสียงข้อความของคุณเมื่อ TTS อ่านออกเสียง",
-    "setTheEmotionalToneOf": "กำหนดโทนอารมณ์ของเสียง",
+    "setTheEmotionOfThe": "ตั้งค่าอารมณ์ของเสียง เลือกกำหนดเองเพื่ออธิบายเสียงด้วยคำของคุณเอง",
     "speed": "ความเร็ว",
-    "speed05To2": "ความเร็ว (0.5 ถึง 2.0):",
     "testMessage": "ข้อความทดสอบ",
-    "voice": "<strong>เสียง</strong>",
     "voicePreview": "ตัวอย่างเสียง",
     "voiceSettings": "การตั้งค่าเสียง"
   },
@@ -179,22 +168,33 @@
   "previewBtn": {
     "sendPreview": "ส่งตัวอย่าง"
   },
+  "speedLabel": {
+    "speed": "<strong>ความเร็ว</strong>"
+  },
   "speedReset": {
     "clear": "ล้างค่า",
     "resetSpeedToDefault": "รีเซ็ตความเร็วเป็นค่าเริ่มต้น"
   },
-  "speedSlider": {
-    "speedAdjustment05To": "ปรับความเร็ว (0.5 ถึง 2.0)"
-  },
   "statChannelContext": {
     "noneLoaded": "ยังไม่ได้โหลด"
+  },
+  "stepsHint": {
+    "pitchAndSpeedAreApproximate": "ระดับเสียงและความเร็วเป็นค่าโดยประมาณ โมเดลเสียงจะได้รับค่าเหล่านี้เป็นคำอธิบาย ไม่ใช่ตัวเลข"
+  },
+  "styleGroup": {
+    "style": "สไตล์"
+  },
+  "styleHint": {
+    "describeInAFewWords": "อธิบายลักษณะการพูดของเสียงด้วยคำสั้นๆ"
+  },
+  "styleInput": {
+    "exampleCalmAndSlowLike": "ตัวอย่าง: สงบและช้า เหมือนนักจัดรายการวิทยุตอนกลางคืน"
+  },
+  "voiceLabel": {
+    "voice": "<strong>เสียง</strong>"
   },
   "voiceReset": {
     "clear": "ล้างค่า",
     "resetVoiceToDefault": "รีเซ็ตเสียงเป็นค่าเริ่มต้น"
-  },
-  "voiceSearch": {
-    "searchVoices": "ค้นหาเสียง",
-    "searchVoices2": "ค้นหาเสียง..."
   }
 }

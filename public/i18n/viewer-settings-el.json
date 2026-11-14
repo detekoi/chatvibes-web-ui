@@ -37,20 +37,16 @@
   },
   "emotionSelect": {
     "angry": "Θυμωμένο",
+    "calm": "Ήρεμο",
+    "custom": "Προσαρμοσμένο…",
     "disgusted": "Αηδιασμένο",
     "fearful": "Φοβισμένο",
+    "fluent": "Ομαλό",
     "happy": "Χαρούμενο",
     "neutral": "Ουδέτερο",
     "sad": "Λυπημένο",
     "surprised": "Έκπληκτο",
     "useChannelDefault": "Χρήση προεπιλογής καναλιού"
-  },
-  "englishNormalizationCheckbox": {
-    "englishNormalization": "Κανονικοποίηση αγγλικών"
-  },
-  "englishNormalizationReset": {
-    "clear": "Εκκαθάριση",
-    "resetEnglishNormalizationToDefault": "Επαναφορά κανονικοποίησης αγγλικών στην προεπιλογή"
   },
   "ignoreTts": {
     "optOutInThisChannel": "Εξαίρεση σε αυτό το κανάλι"
@@ -110,11 +106,11 @@
       "hintChannel": "Χρήση προεπιλογής καναλιού: {value}",
       "hintSystem": "Χρήση προεπιλογής συστήματος",
       "hintUser": "Χρήση της καθολικής προτίμησής σας: {value}",
-      "noVoicesFound": "Δεν βρέθηκαν φωνές",
       "sendPreview": "Αποστολή προεπισκόπησης",
       "testCompletedTestMode": "Η δοκιμή ολοκληρώθηκε (λειτουργία δοκιμής).",
       "updated": "Η προτίμηση ενημερώθηκε.",
-      "updatedTestMode": "Η προτίμηση ενημερώθηκε (λειτουργία δοκιμής)."
+      "updatedTestMode": "Η προτίμηση ενημερώθηκε (λειτουργία δοκιμής).",
+      "customStyle": "Προσαρμοσμένο ({style})"
     }
   },
   "openChannelContextModalBtn": {
@@ -140,36 +136,29 @@
     "viewerSettings": "Ρυθμίσεις θεατή",
     "viewerTtsPreferences": "Προτιμήσεις TTS θεατή"
   },
+  "pitchLabel": {
+    "pitch": "<strong>Τόνος</strong>"
+  },
   "pitchReset": {
     "clear": "Εκκαθάριση",
     "resetPitchToDefault": "Επαναφορά τονικού ύψους στην προεπιλογή"
   },
-  "pitchSlider": {
-    "pitchAdjustment12To12": "Ρύθμιση τονικού ύψους (-12 έως +12)"
-  },
   "preferencesPanel": {
-    "adjustTheVoicePitchHigher": "Ρυθμίστε το τονικό ύψος της φωνής υψηλότερα ή χαμηλότερα",
-    "controlHowFastTheVoice": "Ελέγξτε την ταχύτητα ομιλίας της φωνής",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Τεκμηρίωση </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Ρυθμίσεις streamer </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
     "emotion": "<strong>Συναίσθημα</strong>",
     "emotion2": "Συναίσθημα",
-    "englishNormalization": "Κανονικοποίηση αγγλικών",
-    "engNormalization": "Κανονικοποίηση αγγλικών",
-    "ifTtsReadsNumbersIncorrectly": "Αν το TTS διαβάζει αριθμούς εσφαλμένα, ενεργοποιήστε την κανονικοποίηση αγγλικού κειμένου. Αυτή η ρύθμιση αυξάνει ελαφρώς την καθυστέρηση.",
-    "improvePronunciationForSpecificLanguages": "Βελτίωση προφοράς για συγκεκριμένες γλώσσες",
-    "improveThePronunciationOfNumbers": "Βελτίωση της προφοράς αριθμών και κειμένου",
+    "ifYourTextIsShort": "Αν το κείμενό σου είναι σύντομο ή ασαφές, αυτή η ρύθμιση δίνει μια ένδειξη στο μοντέλο φωνής. Επιλέγει επίσης τη λίστα λέξεων για το φίλτρο βωμολοχιών.",
     "language": "Γλώσσα",
-    "languageBoost": "<strong>Ενίσχυση γλώσσας</strong>",
+    "languageLabel": "<strong>Γλώσσα</strong>",
     "pitch": "Τονικό ύψος",
-    "pitch12To12": "Τόνος (-12 έως +12):",
     "quickLinks": "Γρήγοροι σύνδεσμοι",
-    "selectYourPreferredTtsVoice": "Επιλέξτε την προτιμώμενη φωνή TTS",
+    "selectHowFastTheVoice": "Επίλεξε πόσο γρήγορα μιλάει η φωνή",
+    "selectHowHighOrLow": "Επίλεξε πόσο ψηλά ή χαμηλά μιλάει η φωνή",
+    "selectTheVoiceThatTts": "Επίλεξε τη φωνή που χρησιμοποιεί το TTS για τα μηνύματά σου",
     "setHowYourMessagesSound": "Ορίστε πώς θα ακούγονται τα μηνύματά σας όταν τα διαβάζει το TTS",
-    "setTheEmotionalToneOf": "Ορίστε τον συναισθηματικό τόνο της φωνής",
+    "setTheEmotionOfThe": "Όρισε το συναίσθημα της φωνής. Επίλεξε «Προσαρμοσμένο» για να περιγράψεις τη φωνή με δικά σου λόγια.",
     "speed": "Ταχύτητα",
-    "speed05To2": "Ταχύτητα (0.5 έως 2.0):",
     "testMessage": "Δοκιμαστικό μήνυμα",
-    "voice": "<strong>Φωνή</strong>",
     "voicePreview": "Προεπισκόπηση φωνής",
     "voiceSettings": "Ρυθμίσεις φωνής"
   },
@@ -179,22 +168,33 @@
   "previewBtn": {
     "sendPreview": "Αποστολή προεπισκόπησης"
   },
+  "speedLabel": {
+    "speed": "<strong>Ταχύτητα</strong>"
+  },
   "speedReset": {
     "clear": "Εκκαθάριση",
     "resetSpeedToDefault": "Επαναφορά ταχύτητας στην προεπιλογή"
   },
-  "speedSlider": {
-    "speedAdjustment05To": "Προσαρμογή ταχύτητας (0,5 έως 2,0)"
-  },
   "statChannelContext": {
     "noneLoaded": "Δεν φορτώθηκε κανένα"
+  },
+  "stepsHint": {
+    "pitchAndSpeedAreApproximate": "Ο τόνος και η ταχύτητα είναι κατά προσέγγιση. Το μοντέλο φωνής λαμβάνει αυτές τις ρυθμίσεις ως λέξεις, όχι ως αριθμούς."
+  },
+  "styleGroup": {
+    "style": "Στυλ"
+  },
+  "styleHint": {
+    "describeInAFewWords": "Περίγραψε με λίγα λόγια πώς μιλάει η φωνή."
+  },
+  "styleInput": {
+    "exampleCalmAndSlowLike": "Παράδειγμα: ήρεμα και αργά, σαν ραδιοφωνικός παραγωγός τη νύχτα"
+  },
+  "voiceLabel": {
+    "voice": "<strong>Φωνή</strong>"
   },
   "voiceReset": {
     "clear": "Εκκαθάριση",
     "resetVoiceToDefault": "Επαναφορά φωνής στην προεπιλογή"
-  },
-  "voiceSearch": {
-    "searchVoices": "Αναζήτηση φωνών",
-    "searchVoices2": "Αναζήτηση φωνών..."
   }
 }

@@ -35,9 +35,6 @@
   "calibrationSaveBtn": {
     "save": "שמירה"
   },
-  "calibrationVoiceSearch": {
-    "searchVoicesToCalibrate": "חיפוש קולות לכיול..."
-  },
   "channelNameStatus": {
     "yourChannel": "הערוץ שלך"
   },
@@ -73,7 +70,6 @@
     "deactivationStopsTheBotFrom": "השבתה מפסיקה את הקראת הודעות הצ'אט על ידי הבוט. ההגדרות שלך יישמרו. תוכל להפעיל מחדש את השירות בכל עת.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>תיעוד",
     "emotion": "רגש",
-    "engNormalization": "נרמול אנגלית",
     "language": "שפה",
     "pitch": "גובה צליל",
     "quickLinks": "קישורים מהירים",
@@ -87,22 +83,36 @@
   },
   "defaultEmotion": {
     "angry": "כועס",
+    "calm": "רגוע",
+    "custom": "מותאם אישית…",
     "disgusted": "נגעל",
     "fearful": "מפוחד",
+    "fluent": "שוטף",
     "happy": "שמח",
     "neutral": "ניטרלי",
     "sad": "עצוב",
     "surprised": "מופתע"
   },
-  "defaultPitch": {
-    "defaultPitch12To12": "גובה צליל ברירת מחדל (-12 עד +12)"
+  "defaultPitchLabel": {
+    "defaultPitch": "<strong>גובה צליל ברירת מחדל</strong>"
   },
-  "defaultSpeed": {
-    "defaultSpeed05To": "מהירות ברירת מחדל (0.5 עד 2.0)"
+  "defaultSpeedLabel": {
+    "defaultSpeed": "<strong>מהירות ברירת מחדל</strong>"
   },
-  "defaultVoiceSearch": {
-    "searchDefaultVoices": "חיפוש קולות ברירת מחדל",
-    "searchVoices": "חיפוש קולות..."
+  "defaultStepsHint": {
+    "pitchAndSpeedAreApproximate": "גובה הצליל והמהירות הם משוערים. מודל הקול מקבל הגדרות אלה כמילים, לא כמספרים."
+  },
+  "defaultStyle": {
+    "exampleCalmAndSlowLike": "דוגמה: רגוע ואיטי, כמו שדרן רדיו בלילה"
+  },
+  "defaultStyleGroup": {
+    "style": "סגנון"
+  },
+  "defaultStyleHint": {
+    "describeInAFewWords": "תאר בכמה מילים איך הקול מדבר."
+  },
+  "defaultVoiceLabel": {
+    "defaultVoice": "<strong>קול ברירת מחדל</strong>"
   },
   "defaultVolume": {
     "voiceVolume01To": "עוצמת קול (0.1 עד 10)"
@@ -111,9 +121,6 @@
     "describeEmotes": "תיאור אימוטים",
     "readEmoteNames": "הקרא שמות אימוטים",
     "skipEmotes": "דלג על אימוטים"
-  },
-  "englishNormalization": {
-    "englishNormalization": "נורמליזציה של אנגלית"
   },
   "eventsEnabled": {
     "announceEvents": "הכרז על אירועים"
@@ -214,7 +221,8 @@
       "hasVoice": "המשתמש {user} הגדיר קול מותאם אישית: {voice}",
       "noVoice": "המשתמש {user} לא הגדיר קול מותאם אישית.",
       "searching": "מחפש…",
-      "voiceUnknown": "קול זה אינו מופיע ברשימת הקולות הזמינים."
+      "voiceUnknown": "קול זה אינו מופיע ברשימת הקולות הזמינים.",
+      "storedVoice": "צופה זה שמר את הקול הישן {stored}. TTS משתמש בקול שלמעלה במקומו."
     },
     "mutedRewards": {
       "announceLabel": "הכרזה על מימושים של {title}",
@@ -279,7 +287,6 @@
       "defaultSpeed": "מהירות ברירת מחדל",
       "defaultVoice": "קול ברירת מחדל",
       "emoteMode": "מצב אימוטים",
-      "englishNormalization": "נרמול אנגלית",
       "eventAnnouncements": "הכרזות על אירועים",
       "expandAcronyms": "הרחב ראשי תיבות בצ'אט",
       "minimumBits": "מינימום Bits",
@@ -288,6 +295,8 @@
       "readCommandMessages": "הקראת פקודות צ'אט",
       "readFullUrls": "הקרא כתובות URL מלאות",
       "redemptionAnnouncements": "הכרזות על מימושים",
+      "soundTags": "תגיות צליל",
+      "style": "סגנון",
       "ttsEngine": "מנוע TTS",
       "ttsMode": "מצב TTS",
       "ttsPermission": "הרשאת TTS",
@@ -380,14 +389,6 @@
   "removeBotBtn": {
     "deactivateTtsService": "השבתת שירות TTS"
   },
-  "resetPitchBtn": {
-    "reset": "איפוס",
-    "resetDefaultPitchTo0": "איפוס גובה צליל ברירת המחדל ל-0"
-  },
-  "resetSpeedBtn": {
-    "reset": "איפוס",
-    "resetDefaultSpeedTo1": "איפוס מהירות ברירת המחדל ל-1.0"
-  },
   "resetVolumeBtn": {
     "reset": "איפוס",
     "resetVoiceVolumeTo1": "איפוס עוצמת הקול ל-1.0"
@@ -398,8 +399,8 @@
   "serviceHeadline": {
     "ttsService": "שירות TTS"
   },
-  "sidebarVoiceName": {
-    "friendlyPerson": "אדם ידידותי"
+  "soundTagsTitle": {
+    "soundTags": "תגיות צליל"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "אפשר לבוט להגיב לפקודות בצ'אט כגון !myvoice",
@@ -479,24 +480,20 @@
     "voiceDefaults": "ברירות מחדל לקול"
   },
   "tabViewerDefaults": {
-    "adjustThePitchForThe": "כוונן את גובה הצליל עבור קול ברירת המחדל",
     "adjustTheVolumeForThe": "כוונן את עוצמת השמע עבור הקול שנבחר. זהירות: ערכים מעל 1.0 עלולים לגרום לעיוות.",
     "calibratedVoices": "<strong>קולות מכוילים</strong>",
     "calibrateVolumeForSpecificVoices": "כיול עוצמת השמע עבור קולות ספציפיים. זהירות: ערכים מעל 1.0 עלולים לגרום לעיוות.",
-    "controlHowFastTheDefault": "שליטה במהירות הדיבור של קול ברירת המחדל",
     "defaultEmotion": "<strong>רגש ברירת מחדל</strong>",
     "defaultLanguage": "<strong>שפת ברירת מחדל</strong>",
-    "defaultPitch12To12": "גובה צליל ברירת מחדל (-12 עד +12):",
-    "defaultSpeed05To": "מהירות ברירת מחדל (0.5 עד 2.0):",
-    "defaultVoice": "<strong>קול ברירת מחדל</strong>",
     "defaultVoiceSettings": "הגדרות קול ברירת מחדל",
-    "englishNormalization": "נרמול אנגלית",
-    "improvePronunciationForSpecificLanguages": "שיפור ההגייה עבור שפות ספציפיות",
-    "improveThePronunciationOfNumbers": "שיפור ההגייה של מספרים וטקסט",
-    "selectTheDefaultTtsVoice": "בחירת קול ברירת המחדל של TTS לערוץ",
+    "selectHowFastTheDefault": "בחר באיזו מהירות קול ברירת המחדל מדבר",
+    "selectHowHighOrLow": "בחר כמה גבוה או נמוך קול ברירת המחדל מדבר",
+    "selectTheVoiceThatTts": "בחר את הקול ש-TTS משתמש בו עבור צופים שאין להם קול משלהם",
     "selectVoice": "בחירת קול",
     "setDefaultVoiceSettingsFor": "הגדרת קול ברירת המחדל לערוץ שלך",
-    "setTheEmotionalToneOf": "הגדרת הנימה הרגשית של קול ברירת המחדל",
+    "setTheEmotionOfThe": "הגדר את הרגש של קול ברירת המחדל. בחר מותאם אישית כדי לתאר את הקול במילים שלך.",
+    "theVoiceModelReadsThe": "מודל הקול קורא את השפה מתוך הטקסט. אם הטקסט קצר או לא ברור, הגדרה זו נותנת למודל רמז. היא גם קובעת את שפת ברירת המחדל להכרזות ובוחרת את רשימת המילים למסנן השפה הגסה.",
+    "viewersCanTypeASound": "צופים יכולים להקליד תגית צליל בהודעה, והקול ישמיע את הצליל הזה. דוגמאות הן <code>&lt;laugh&gt;</code> ו-<code>&lt;sigh&gt;</code>. כל התגיות מופעלות כברירת מחדל. כדי לכבות תגית, בטל את סימון תיבת הסימון שלה.",
     "viewerVoiceLookup": "חיפוש קול צופה",
     "voiceCalibration": "כיול קול",
     "voicesWithCustomVolumeSettings": "קולות עם הגדרות עוצמת שמע מותאמות אישית.",

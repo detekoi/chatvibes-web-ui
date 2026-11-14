@@ -37,20 +37,16 @@
   },
   "emotionSelect": {
     "angry": "Tức giận",
+    "calm": "Bình tĩnh",
+    "custom": "Tùy chỉnh…",
     "disgusted": "Ghê tởm",
     "fearful": "Sợ hãi",
+    "fluent": "Lưu loát",
     "happy": "Vui vẻ",
     "neutral": "Trung tính",
     "sad": "Buồn bã",
     "surprised": "Ngạc nhiên",
     "useChannelDefault": "Dùng mặc định của kênh"
-  },
-  "englishNormalizationCheckbox": {
-    "englishNormalization": "Chuẩn hóa tiếng Anh"
-  },
-  "englishNormalizationReset": {
-    "clear": "Xóa",
-    "resetEnglishNormalizationToDefault": "Đặt lại chuẩn hóa tiếng Anh về mặc định"
   },
   "ignoreTts": {
     "optOutInThisChannel": "Chọn không dùng trong kênh này"
@@ -110,11 +106,11 @@
       "hintChannel": "Dùng mặc định của kênh: {value}",
       "hintSystem": "Dùng mặc định của hệ thống",
       "hintUser": "Dùng tùy chọn chung của bạn: {value}",
-      "noVoicesFound": "Không tìm thấy giọng đọc nào",
       "sendPreview": "Gửi nghe thử",
       "testCompletedTestMode": "Kiểm tra hoàn tất (chế độ thử nghiệm).",
       "updated": "Đã cập nhật tùy chọn.",
-      "updatedTestMode": "Đã cập nhật tùy chọn (chế độ thử nghiệm)."
+      "updatedTestMode": "Đã cập nhật tùy chọn (chế độ thử nghiệm).",
+      "customStyle": "Tùy chỉnh ({style})"
     }
   },
   "openChannelContextModalBtn": {
@@ -140,36 +136,29 @@
     "viewerSettings": "Cài đặt người xem",
     "viewerTtsPreferences": "Tùy chọn TTS của người xem"
   },
+  "pitchLabel": {
+    "pitch": "<strong>Cao độ</strong>"
+  },
   "pitchReset": {
     "clear": "Xóa",
     "resetPitchToDefault": "Đặt lại cao độ về mặc định"
   },
-  "pitchSlider": {
-    "pitchAdjustment12To12": "Điều chỉnh cao độ (-12 đến +12)"
-  },
   "preferencesPanel": {
-    "adjustTheVoicePitchHigher": "Điều chỉnh cao độ giọng nói cao hơn hoặc thấp hơn",
-    "controlHowFastTheVoice": "Điều chỉnh tốc độ đọc của giọng nói",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Tài liệu </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Cài đặt streamer </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
     "emotion": "<strong>Cảm xúc</strong>",
     "emotion2": "Cảm xúc",
-    "englishNormalization": "Chuẩn hóa tiếng Anh",
-    "engNormalization": "Chuẩn hóa tiếng Anh",
-    "ifTtsReadsNumbersIncorrectly": "Nếu TTS đọc số không chính xác, hãy bật chuẩn hóa văn bản tiếng Anh. Cài đặt này sẽ làm tăng độ trễ một chút.",
-    "improvePronunciationForSpecificLanguages": "Cải thiện phát âm cho các ngôn ngữ cụ thể",
-    "improveThePronunciationOfNumbers": "Cải thiện phát âm số và văn bản",
+    "ifYourTextIsShort": "Nếu văn bản của bạn ngắn hoặc không rõ ràng, cài đặt này sẽ gợi ý cho mô hình giọng nói. Nó cũng chọn danh sách từ cho bộ lọc từ ngữ thô tục.",
     "language": "Ngôn ngữ",
-    "languageBoost": "<strong>Tăng cường ngôn ngữ</strong>",
+    "languageLabel": "<strong>Ngôn ngữ</strong>",
     "pitch": "Cao độ",
-    "pitch12To12": "Cao độ (-12 đến +12):",
     "quickLinks": "Liên kết nhanh",
-    "selectYourPreferredTtsVoice": "Chọn giọng đọc TTS yêu thích của bạn",
+    "selectHowFastTheVoice": "Chọn tốc độ nói của giọng nói",
+    "selectHowHighOrLow": "Chọn độ cao thấp của giọng nói",
+    "selectTheVoiceThatTts": "Chọn giọng nói mà TTS dùng cho tin nhắn của bạn",
     "setHowYourMessagesSound": "Đặt cách phát âm tin nhắn khi TTS đọc",
-    "setTheEmotionalToneOf": "Đặt sắc thái cảm xúc cho giọng đọc",
+    "setTheEmotionOfThe": "Đặt cảm xúc cho giọng nói. Chọn Tùy chỉnh để tự mô tả giọng nói theo ý bạn.",
     "speed": "Tốc độ",
-    "speed05To2": "Tốc độ (0.5 đến 2.0):",
     "testMessage": "Tin nhắn thử",
-    "voice": "<strong>Giọng đọc</strong>",
     "voicePreview": "Nghe thử giọng nói",
     "voiceSettings": "Cài đặt giọng nói"
   },
@@ -179,22 +168,33 @@
   "previewBtn": {
     "sendPreview": "Gửi nghe thử"
   },
+  "speedLabel": {
+    "speed": "<strong>Tốc độ</strong>"
+  },
   "speedReset": {
     "clear": "Xóa",
     "resetSpeedToDefault": "Đặt lại tốc độ về mặc định"
   },
-  "speedSlider": {
-    "speedAdjustment05To": "Điều chỉnh tốc độ (0.5 đến 2.0)"
-  },
   "statChannelContext": {
     "noneLoaded": "Chưa tải dữ liệu"
+  },
+  "stepsHint": {
+    "pitchAndSpeedAreApproximate": "Cao độ và tốc độ chỉ mang tính tương đối. Mô hình giọng nói nhận các cài đặt này dưới dạng từ ngữ, không phải số."
+  },
+  "styleGroup": {
+    "style": "Phong cách"
+  },
+  "styleHint": {
+    "describeInAFewWords": "Mô tả ngắn gọn cách giọng nói thể hiện."
+  },
+  "styleInput": {
+    "exampleCalmAndSlowLike": "Ví dụ: bình tĩnh và chậm rãi, như phát thanh viên radio ban đêm"
+  },
+  "voiceLabel": {
+    "voice": "<strong>Giọng nói</strong>"
   },
   "voiceReset": {
     "clear": "Xóa",
     "resetVoiceToDefault": "Đặt lại giọng nói về mặc định"
-  },
-  "voiceSearch": {
-    "searchVoices": "Tìm kiếm giọng nói",
-    "searchVoices2": "Tìm kiếm giọng nói..."
   }
 }

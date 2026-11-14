@@ -35,9 +35,6 @@
   "calibrationSaveBtn": {
     "save": "Speichern"
   },
-  "calibrationVoiceSearch": {
-    "searchVoicesToCalibrate": "Stimmen zum Kalibrieren suchen..."
-  },
   "channelNameStatus": {
     "yourChannel": "dein Kanal"
   },
@@ -73,7 +70,6 @@
     "deactivationStopsTheBotFrom": "Durch die Deaktivierung liest der Bot keine Chatnachrichten mehr vor. Deine Einstellungen bleiben gespeichert. Du kannst den Dienst jederzeit wieder aktivieren.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentation",
     "emotion": "Emotion",
-    "engNormalization": "Eng. Normalisierung",
     "language": "Sprache",
     "pitch": "Tonhöhe",
     "quickLinks": "Quicklinks",
@@ -87,22 +83,36 @@
   },
   "defaultEmotion": {
     "angry": "Wütend",
+    "calm": "Ruhig",
+    "custom": "Benutzerdefiniert…",
     "disgusted": "Angeekelt",
     "fearful": "Ängstlich",
+    "fluent": "Fließend",
     "happy": "Fröhlich",
     "neutral": "Neutral",
     "sad": "Traurig",
     "surprised": "Überrascht"
   },
-  "defaultPitch": {
-    "defaultPitch12To12": "Standard-Tonhöhe (-12 bis +12)"
+  "defaultPitchLabel": {
+    "defaultPitch": "<strong>Standardtonhöhe</strong>"
   },
-  "defaultSpeed": {
-    "defaultSpeed05To": "Standard-Geschwindigkeit (0,5 bis 2,0)"
+  "defaultSpeedLabel": {
+    "defaultSpeed": "<strong>Standardtempo</strong>"
   },
-  "defaultVoiceSearch": {
-    "searchDefaultVoices": "Standardstimmen durchsuchen",
-    "searchVoices": "Stimmen durchsuchen..."
+  "defaultStepsHint": {
+    "pitchAndSpeedAreApproximate": "Tonhöhe und Tempo sind ungefähre Werte. Das Sprachmodell erhält diese Einstellungen als Wörter, nicht als Zahlen."
+  },
+  "defaultStyle": {
+    "exampleCalmAndSlowLike": "Beispiel: ruhig und langsam, wie ein Radiomoderator bei Nacht"
+  },
+  "defaultStyleGroup": {
+    "style": "Stil"
+  },
+  "defaultStyleHint": {
+    "describeInAFewWords": "Beschreibe in wenigen Worten, wie die Stimme spricht."
+  },
+  "defaultVoiceLabel": {
+    "defaultVoice": "<strong>Standardstimme</strong>"
   },
   "defaultVolume": {
     "voiceVolume01To": "Stimmenlautstärke (0,1 bis 10)"
@@ -111,9 +121,6 @@
     "describeEmotes": "Emotes beschreiben",
     "readEmoteNames": "Emote-Namen vorlesen",
     "skipEmotes": "Emotes überspringen"
-  },
-  "englishNormalization": {
-    "englishNormalization": "Englische Normalisierung"
   },
   "eventsEnabled": {
     "announceEvents": "Ereignisse ankündigen"
@@ -214,7 +221,8 @@
       "hasVoice": "Nutzer {user} hat benutzerdefinierte Stimme festgelegt: {voice}",
       "noVoice": "Nutzer {user} hat keine benutzerdefinierte Stimme festgelegt.",
       "searching": "Wird gesucht…",
-      "voiceUnknown": "Diese Stimme ist nicht in der Liste verfügbarer Stimmen."
+      "voiceUnknown": "Diese Stimme ist nicht in der Liste verfügbarer Stimmen.",
+      "storedVoice": "Dieser Zuschauer hat die alte Stimme {stored} gespeichert. TTS verwendet stattdessen die Stimme oben."
     },
     "mutedRewards": {
       "announceLabel": "Einlösungen von {title} ansagen",
@@ -279,7 +287,6 @@
       "defaultSpeed": "Standardgeschwindigkeit",
       "defaultVoice": "Standardstimme",
       "emoteMode": "Emote-Modus",
-      "englishNormalization": "Englische Normalisierung",
       "eventAnnouncements": "Event-Ansagen",
       "expandAcronyms": "Chat-Akronyme ausschreiben",
       "minimumBits": "Mindest-Bits",
@@ -288,6 +295,8 @@
       "readCommandMessages": "Chatbefehle vorlesen",
       "readFullUrls": "Vollständige URLs vorlesen",
       "redemptionAnnouncements": "Einlösungs-Ansagen",
+      "soundTags": "Sound-Tags",
+      "style": "Stil",
       "ttsEngine": "TTS-Engine",
       "ttsMode": "TTS-Modus",
       "ttsPermission": "TTS-Berechtigung",
@@ -380,14 +389,6 @@
   "removeBotBtn": {
     "deactivateTtsService": "TTS-Dienst deaktivieren"
   },
-  "resetPitchBtn": {
-    "reset": "Zurücksetzen",
-    "resetDefaultPitchTo0": "Standard-Tonhöhe auf 0 zurücksetzen"
-  },
-  "resetSpeedBtn": {
-    "reset": "Zurücksetzen",
-    "resetDefaultSpeedTo1": "Standardgeschwindigkeit auf 1.0 zurücksetzen"
-  },
   "resetVolumeBtn": {
     "reset": "Zurücksetzen",
     "resetVoiceVolumeTo1": "Stimmenlautstärke auf 1.0 zurücksetzen"
@@ -398,8 +399,8 @@
   "serviceHeadline": {
     "ttsService": "TTS-Dienst"
   },
-  "sidebarVoiceName": {
-    "friendlyPerson": "Freundliche Person"
+  "soundTagsTitle": {
+    "soundTags": "Sound-Tags"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Dem Bot erlauben, auf Chat-Befehle wie !myvoice zu antworten",
@@ -473,30 +474,26 @@
     "youtubeTtsEnabled": "YouTube-TTS aktiviert"
   },
   "tabBtnBroadcaster": {
-    "broadcaster": "Broadcaster"
+    "broadcaster": "Streamer"
   },
   "tabBtnViewerDefaults": {
-    "voiceDefaults": "Stimmen-Standardwerte"
+    "voiceDefaults": "Stimmvorgaben"
   },
   "tabViewerDefaults": {
-    "adjustThePitchForThe": "Tonhöhe für die Standardstimme anpassen",
     "adjustTheVolumeForThe": "Lautstärke für die ausgewählte Stimme anpassen. ACHTUNG: Werte über 1,0 können zu Verzerrungen führen.",
     "calibratedVoices": "<strong>Kalibrierte Stimmen</strong>",
     "calibrateVolumeForSpecificVoices": "Lautstärke für bestimmte Stimmen kalibrieren. ACHTUNG: Werte über 1,0 können zu Verzerrungen führen.",
-    "controlHowFastTheDefault": "Steuere, wie schnell die Standardstimme spricht",
     "defaultEmotion": "<strong>Standard-Emotion</strong>",
     "defaultLanguage": "<strong>Standardsprache</strong>",
-    "defaultPitch12To12": "Standard-Tonhöhe (-12 bis +12):",
-    "defaultSpeed05To": "Standard-Geschwindigkeit (0,5 bis 2,0):",
-    "defaultVoice": "<strong>Standardstimme</strong>",
     "defaultVoiceSettings": "Standard-Stimmeneinstellungen",
-    "englishNormalization": "Englische Normalisierung",
-    "improvePronunciationForSpecificLanguages": "Aussprache für bestimmte Sprachen verbessern",
-    "improveThePronunciationOfNumbers": "Aussprache von Zahlen und Text verbessern",
-    "selectTheDefaultTtsVoice": "Wähle die Standard-TTS-Stimme für den Kanal",
+    "selectHowFastTheDefault": "Wähle, wie schnell die Standardstimme spricht",
+    "selectHowHighOrLow": "Wähle, wie hoch oder tief die Standardstimme spricht",
+    "selectTheVoiceThatTts": "Wähle die Stimme, die TTS für Zuschauer ohne eigene Stimme verwendet",
     "selectVoice": "Stimme auswählen",
     "setDefaultVoiceSettingsFor": "Standard-Stimmeneinstellungen für deinen Kanal festlegen",
-    "setTheEmotionalToneOf": "Emotionalen Ton der Standardstimme festlegen",
+    "setTheEmotionOfThe": "Lege die Emotion der Standardstimme fest. Wähle „Benutzerdefiniert“, um die Stimme in eigenen Worten zu beschreiben.",
+    "theVoiceModelReadsThe": "Das Sprachmodell erkennt die Sprache anhand des Texts. Wenn der Text kurz oder unklar ist, gibt diese Einstellung dem Modell einen Hinweis. Sie legt außerdem die Standardsprache für Ankündigungen fest und wählt die Wortliste für den Schimpfwortfilter aus.",
+    "viewersCanTypeASound": "Zuschauer können ein Sound-Tag in eine Nachricht schreiben, und die Stimme macht dieses Geräusch. Beispiele sind <code>&lt;laugh&gt;</code> und <code>&lt;sigh&gt;</code>. Standardmäßig sind alle Tags aktiv. Um ein Tag zu deaktivieren, entferne das Häkchen.",
     "viewerVoiceLookup": "Zuschauerstimmen-Suche",
     "voiceCalibration": "Stimmen-Kalibrierung",
     "voicesWithCustomVolumeSettings": "Stimmen mit benutzerdefinierter Lautstärke.",

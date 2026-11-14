@@ -37,6 +37,7 @@
     "prefs_invalid_language": "Érvénytelen nyelv.",
     "prefs_invalid_pitch": "Érvénytelen hangmagasság.",
     "prefs_invalid_speed": "Érvénytelen sebesség.",
+    "prefs_invalid_style": "Ez nem érvényes stílus.",
     "prefs_invalid_voice": "Érvénytelen hang.",
     "prefs_missing_data": "Nem érkezett módosítás.",
     "prefs_update_failed": "A módosításodat szerverhiba miatt nem sikerült elmenteni. Próbáld újra.",
@@ -68,11 +69,13 @@
     "setting_update_failed": "Nem sikerült frissíteni a TTS-beállítást.",
     "settings_fetch_failed": "Nem sikerült betölteni a TTS-beállításokat.",
     "shortlink_failed": "Nem sikerült létrehozni a rövid linket.",
+    "sound_tag_unknown": "A(z) „{tag}” hangcímke nincs a listában. Töltsd újra az oldalt, és próbáld újra.",
     "storage_unavailable": "A tárhely nem érhető el.",
+    "style_too_long": "A stílus túl hosszú. Legfeljebb {max} karaktert használj.",
+    "tts_blocked": "A beszédszolgáltatás elutasította ezt a szöveget. Módosítsd a szöveget, és próbáld újra.",
     "tts_generation_failed": "A beszédgenerálás sikertelen: {reason}",
     "tts_no_audio": "A beszédszolgáltató nem adott vissza hangot.",
     "tts_not_configured": "Nincs beállítva beszédszolgáltató.",
-    "tts_provider_failed": "A beszédszolgáltató nem tudott hangot generálni.",
     "tts_test_failed": "A beszédteszt sikertelen.",
     "tts_text_required": "Írj be szöveget a teszteléshez.",
     "twitch_reauth_required": "A Twitch-bejelentkezésed lejárt. Csatlakoztasd újra a fiókodat.",
@@ -80,8 +83,6 @@
     "url_required": "URL megadása kötelező.",
     "username_invalid": "Ez a felhasználónév érvénytelen.",
     "username_required": "A felhasználónév megadása kötelező.",
-    "voice_access_denied": "A(z) \"{voice}\" hanghoz különleges hozzáférés szükséges. Válassz másik hangot.",
-    "voice_invalid": "A(z) \"{voice}\" hang nem érhető el. Ellenőrizd a hangot, és próbáld újra.",
     "voice_lookup_failed": "Nem sikerült lekérni a felhasználó hangját.",
     "word_invalid": "Ez a szó vagy kifejezés érvénytelen.",
     "word_required": "A szó vagy kifejezés megadása kötelező."
@@ -117,7 +118,6 @@
     },
     "emotion": {
       "angry": "Dühös",
-      "auto": "Automatikus",
       "calm": "Nyugodt",
       "disgusted": "Undorodó",
       "fearful": "Rémült",
@@ -125,7 +125,8 @@
       "happy": "Boldog",
       "neutral": "Semleges",
       "sad": "Szomorú",
-      "surprised": "Meglepett"
+      "surprised": "Meglepett",
+      "custom": "Egyéni"
     },
     "ignore": {
       "enterUsername": "Adj meg egy felhasználónevet."
@@ -138,27 +139,65 @@
     },
     "preview": {
       "enterText": "Írj be szöveget a teszteléshez.",
-      "unavailable": "Nincs előnézet."
-    },
-    "value": {
-      "off": "Ki",
-      "on": "Be"
+      "unavailable": "Ehhez a hanghoz nem érhető el minta."
     },
     "voice": {
       "cannotPlay": "Nem játszható le a hangminta.",
       "generating": "Generálás…",
       "noAudio": "A szerver nem adott vissza hangot.",
       "noneFound": "Nem található hang.",
-      "preview": "{voice} előhallgatása",
+      "preview": "{voice} hangmintájának lejátszása",
       "regenerate": "Újragenerálás",
-      "testFailed": "A teszt sikertelen: {reason}"
+      "testFailed": "A teszt sikertelen: {reason}",
+      "choose": "Hang kiválasztása",
+      "panelLabel": "Hangkeresés",
+      "listLabel": "Hangok",
+      "searchLabel": "Hangok keresése",
+      "searchHint": "Írj be egy vagy több szót, például: „german calm low”. A keresés azokat a hangokat találja meg, amelyek minden szót tartalmaznak. A hangleírások csak angol nyelven érhetők el.",
+      "filterLanguage": "Szűrés nyelv szerint",
+      "anyLanguage": "Minden nyelv",
+      "filterGender": "Szűrés nem szerint",
+      "anyGender": "Minden nem",
+      "gender": {
+        "female": "Női",
+        "male": "Férfi",
+        "neutral": "Semleges"
+      },
+      "filterPitch": "Szűrés hangmagasság szerint",
+      "anyPitch": "Minden hangmagasság",
+      "pitch": {
+        "low": "Mély hang",
+        "medium": "Közepes hang",
+        "high": "Magas hang"
+      },
+      "studioOnly": "Csak stúdióhangok",
+      "studioTag": "Stúdió",
+      "count": "Talált hangok: {count}",
+      "legacy": "Régi hang ({id})",
+      "stopSample": "{voice} hangmintájának leállítása"
+    },
+    "step": {
+      "speed": {
+        "very_slow": "Nagyon lassú",
+        "slow": "Lassú",
+        "normal": "Normál",
+        "fast": "Gyors",
+        "very_fast": "Nagyon gyors"
+      },
+      "pitch": {
+        "very_low": "Nagyon mély",
+        "low": "Mély",
+        "normal": "Normál",
+        "high": "Magas",
+        "very_high": "Nagyon magas"
+      }
+    },
+    "style": {
+      "count": "{count} / {max} karakter"
     }
   },
   "page": {
     "skipToMainContent": "Ugrás a fő tartalomra"
-  },
-  "sidebarEngNormVal": {
-    "off": "Ki"
   },
   "sidebarLanguageVal": {
     "automatic": "Automatikus"

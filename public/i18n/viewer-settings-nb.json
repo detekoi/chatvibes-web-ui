@@ -37,20 +37,16 @@
   },
   "emotionSelect": {
     "angry": "Sint",
+    "calm": "Rolig",
+    "custom": "Egendefinert…",
     "disgusted": "Vemmet",
     "fearful": "Redd",
+    "fluent": "Flytende",
     "happy": "Glad",
     "neutral": "Nøytral",
     "sad": "Trist",
     "surprised": "Overrasket",
     "useChannelDefault": "Bruk kanalstandard"
-  },
-  "englishNormalizationCheckbox": {
-    "englishNormalization": "Engelsk normalisering"
-  },
-  "englishNormalizationReset": {
-    "clear": "Nullstill",
-    "resetEnglishNormalizationToDefault": "Tilbakestill engelsk normalisering til standard"
   },
   "ignoreTts": {
     "optOutInThisChannel": "Reserver deg i denne kanalen"
@@ -110,11 +106,11 @@
       "hintChannel": "Bruker kanalstandard: {value}",
       "hintSystem": "Bruker systemstandard",
       "hintUser": "Bruker din globale innstilling: {value}",
-      "noVoicesFound": "Ingen stemmer funnet",
       "sendPreview": "Send forhåndsvisning",
       "testCompletedTestMode": "Test fullført (testmodus).",
       "updated": "Innstilling oppdatert.",
-      "updatedTestMode": "Innstilling oppdatert (testmodus)."
+      "updatedTestMode": "Innstilling oppdatert (testmodus).",
+      "customStyle": "Egendefinert ({style})"
     }
   },
   "openChannelContextModalBtn": {
@@ -140,36 +136,29 @@
     "viewerSettings": "Seerinnstillinger",
     "viewerTtsPreferences": "TTS-innstillinger for seere"
   },
+  "pitchLabel": {
+    "pitch": "<strong>Tonehøyde</strong>"
+  },
   "pitchReset": {
     "clear": "Nullstill",
     "resetPitchToDefault": "Tilbakestill tonehøyde til standard"
   },
-  "pitchSlider": {
-    "pitchAdjustment12To12": "Tonehøydejustering (-12 til +12)"
-  },
   "preferencesPanel": {
-    "adjustTheVoicePitchHigher": "Juster stemmens tonehøyde opp eller ned",
-    "controlHowFastTheVoice": "Juster hvor raskt stemmen snakker",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentasjon </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Streamerinnstillinger </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
     "emotion": "<strong>Følelse</strong>",
     "emotion2": "Følelse",
-    "englishNormalization": "Engelsk normalisering",
-    "engNormalization": "Eng. normalisering",
-    "ifTtsReadsNumbersIncorrectly": "Hvis TTS leser tall feil, slå på engelsk tekstnormalisering. Denne innstillingen øker forsinkelsen noe.",
-    "improvePronunciationForSpecificLanguages": "Forbedre uttale for bestemte språk",
-    "improveThePronunciationOfNumbers": "Forbedre uttalen av tall og tekst",
+    "ifYourTextIsShort": "Hvis teksten din er kort eller uklar, gir denne innstillingen stemmemodellen et hint. Den velger også ordlisten for bannefilteret.",
     "language": "Språk",
-    "languageBoost": "<strong>Språkboost</strong>",
+    "languageLabel": "<strong>Språk</strong>",
     "pitch": "Tonehøyde",
-    "pitch12To12": "Tonehøyde (-12 til +12):",
     "quickLinks": "Snarveier",
-    "selectYourPreferredTtsVoice": "Velg din foretrukne TTS-stemme",
+    "selectHowFastTheVoice": "Velg hvor raskt stemmen snakker",
+    "selectHowHighOrLow": "Velg hvor lyst eller mørkt stemmen snakker",
+    "selectTheVoiceThatTts": "Velg stemmen TTS bruker for meldingene dine",
     "setHowYourMessagesSound": "Velg hvordan meldingene dine høres ut når TTS leser dem opp",
-    "setTheEmotionalToneOf": "Angi stemmens følelsesmessige tone",
+    "setTheEmotionOfThe": "Angi stemmens følelse. Velg Egendefinert for å beskrive stemmen med egne ord.",
     "speed": "Hastighet",
-    "speed05To2": "Hastighet (0,5 til 2,0):",
     "testMessage": "Testmelding",
-    "voice": "<strong>Stemme</strong>",
     "voicePreview": "Forhåndsvisning av stemme",
     "voiceSettings": "Stemmeinnstillinger"
   },
@@ -179,22 +168,33 @@
   "previewBtn": {
     "sendPreview": "Send forhåndsvisning"
   },
+  "speedLabel": {
+    "speed": "<strong>Hastighet</strong>"
+  },
   "speedReset": {
     "clear": "Tilbakestill",
     "resetSpeedToDefault": "Tilbakestill hastighet til standard"
   },
-  "speedSlider": {
-    "speedAdjustment05To": "Hastighetsjustering (0,5 til 2,0)"
-  },
   "statChannelContext": {
     "noneLoaded": "Ingen lastet inn"
+  },
+  "stepsHint": {
+    "pitchAndSpeedAreApproximate": "Tonehøyde og hastighet er omtrentlige. Stemmemodellen får disse innstillingene som ord, ikke som tall."
+  },
+  "styleGroup": {
+    "style": "Stil"
+  },
+  "styleHint": {
+    "describeInAFewWords": "Beskriv med noen få ord hvordan stemmen snakker."
+  },
+  "styleInput": {
+    "exampleCalmAndSlowLike": "Eksempel: rolig og sakte, som en radiovert om natten"
+  },
+  "voiceLabel": {
+    "voice": "<strong>Stemme</strong>"
   },
   "voiceReset": {
     "clear": "Tilbakestill",
     "resetVoiceToDefault": "Tilbakestill stemme til standard"
-  },
-  "voiceSearch": {
-    "searchVoices": "Søk etter stemmer",
-    "searchVoices2": "Søk etter stemmer..."
   }
 }

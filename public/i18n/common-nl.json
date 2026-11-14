@@ -37,6 +37,7 @@
     "prefs_invalid_language": "Dat is geen geldige taal.",
     "prefs_invalid_pitch": "Dat is geen geldige toonhoogte.",
     "prefs_invalid_speed": "Dat is geen geldige snelheid.",
+    "prefs_invalid_style": "Dat is geen geldige stijl.",
     "prefs_invalid_voice": "Dat is geen geldige stem.",
     "prefs_missing_data": "Er zijn geen wijzigingen verzonden.",
     "prefs_update_failed": "Je wijziging is niet opgeslagen vanwege een serverfout. Probeer het opnieuw.",
@@ -68,11 +69,13 @@
     "setting_update_failed": "Kan de TTS-instelling niet bijwerken.",
     "settings_fetch_failed": "Kan TTS-instellingen niet laden.",
     "shortlink_failed": "Kan de korte link niet aanmaken.",
+    "sound_tag_unknown": "De geluidstag \"{tag}\" staat niet in de lijst. Laad de pagina opnieuw en probeer het opnieuw.",
     "storage_unavailable": "Opslag is niet beschikbaar.",
+    "style_too_long": "De stijl is te lang. Gebruik maximaal {max} tekens.",
+    "tts_blocked": "De spraakdienst heeft deze tekst geweigerd. Pas de tekst aan en probeer het opnieuw.",
     "tts_generation_failed": "Spraak genereren mislukt: {reason}",
     "tts_no_audio": "De spraakprovider heeft geen audio geretourneerd.",
     "tts_not_configured": "Er is geen spraakprovider geconfigureerd.",
-    "tts_provider_failed": "De spraakprovider kon geen audio genereren.",
     "tts_test_failed": "De spraaktest is mislukt.",
     "tts_text_required": "Voer tekst in om te testen.",
     "twitch_reauth_required": "Je Twitch-aanmelding is verlopen. Koppel je account opnieuw.",
@@ -80,8 +83,6 @@
     "url_required": "Een URL is verplicht.",
     "username_invalid": "Die gebruikersnaam is niet geldig.",
     "username_required": "Een gebruikersnaam is vereist.",
-    "voice_access_denied": "Voor de stem \"{voice}\" is speciale toegang vereist. Probeer een andere stem.",
-    "voice_invalid": "De stem \"{voice}\" is niet beschikbaar. Controleer de stem en probeer het opnieuw.",
     "voice_lookup_failed": "Kan de stem van die gebruiker niet opzoeken.",
     "word_invalid": "Dat woord of die woordgroep is niet geldig.",
     "word_required": "Een woord of woordgroep is vereist."
@@ -117,7 +118,6 @@
     },
     "emotion": {
       "angry": "Boos",
-      "auto": "Automatisch",
       "calm": "Kalm",
       "disgusted": "Walgend",
       "fearful": "Angstig",
@@ -125,7 +125,8 @@
       "happy": "Blij",
       "neutral": "Neutraal",
       "sad": "Verdrietig",
-      "surprised": "Verrast"
+      "surprised": "Verrast",
+      "custom": "Aangepast"
     },
     "ignore": {
       "enterUsername": "Voer een gebruikersnaam in."
@@ -138,27 +139,65 @@
     },
     "preview": {
       "enterText": "Voer tekst in om te testen.",
-      "unavailable": "Geen voorbeeld beschikbaar."
-    },
-    "value": {
-      "off": "Uit",
-      "on": "Aan"
+      "unavailable": "Er is geen voorbeeld beschikbaar voor deze stem."
     },
     "voice": {
       "cannotPlay": "Kan audiofragment niet afspelen.",
       "generating": "Genereren…",
       "noAudio": "De server heeft geen audio geretourneerd.",
       "noneFound": "Geen stemmen gevonden.",
-      "preview": "Voorbeeld van {voice}",
+      "preview": "Voorbeeld van {voice} afspelen",
       "regenerate": "Opnieuw genereren",
-      "testFailed": "Test mislukt: {reason}"
+      "testFailed": "Test mislukt: {reason}",
+      "choose": "Kies een stem",
+      "panelLabel": "Stemmen zoeken",
+      "listLabel": "Stemmen",
+      "searchLabel": "Stemmen zoeken",
+      "searchHint": "Typ een of meer woorden, bijvoorbeeld \"german calm low\". De zoekopdracht vindt stemmen die elk woord bevatten. Stembeschrijvingen zijn alleen in het Engels.",
+      "filterLanguage": "Filteren op taal",
+      "anyLanguage": "Alle talen",
+      "filterGender": "Filteren op geslacht",
+      "anyGender": "Alle geslachten",
+      "gender": {
+        "female": "Vrouwelijk",
+        "male": "Mannelijk",
+        "neutral": "Neutraal"
+      },
+      "filterPitch": "Filteren op toonhoogte",
+      "anyPitch": "Alle toonhoogtes",
+      "pitch": {
+        "low": "Lage toonhoogte",
+        "medium": "Gemiddelde toonhoogte",
+        "high": "Hoge toonhoogte"
+      },
+      "studioOnly": "Alleen studiostemmen",
+      "studioTag": "Studio",
+      "count": "Gevonden stemmen: {count}",
+      "legacy": "Verouderde stem ({id})",
+      "stopSample": "Voorbeeld van {voice} stoppen"
+    },
+    "step": {
+      "speed": {
+        "very_slow": "Heel langzaam",
+        "slow": "Langzaam",
+        "normal": "Normaal",
+        "fast": "Snel",
+        "very_fast": "Heel snel"
+      },
+      "pitch": {
+        "very_low": "Heel laag",
+        "low": "Laag",
+        "normal": "Normaal",
+        "high": "Hoog",
+        "very_high": "Heel hoog"
+      }
+    },
+    "style": {
+      "count": "{count} van {max} tekens"
     }
   },
   "page": {
     "skipToMainContent": "Direct naar hoofdinhoud"
-  },
-  "sidebarEngNormVal": {
-    "off": "Uit"
   },
   "sidebarLanguageVal": {
     "automatic": "Automatisch"

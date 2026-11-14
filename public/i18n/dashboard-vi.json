@@ -35,9 +35,6 @@
   "calibrationSaveBtn": {
     "save": "Lưu"
   },
-  "calibrationVoiceSearch": {
-    "searchVoicesToCalibrate": "Tìm giọng để cân chỉnh..."
-  },
   "channelNameStatus": {
     "yourChannel": "kênh của bạn"
   },
@@ -73,7 +70,6 @@
     "deactivationStopsTheBotFrom": "Việc hủy kích hoạt sẽ dừng bot đọc tin nhắn chat. Cài đặt của bạn vẫn được lưu. Bạn có thể kích hoạt lại dịch vụ bất kỳ lúc nào.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Tài liệu",
     "emotion": "Cảm xúc",
-    "engNormalization": "Chuẩn hóa tiếng Anh",
     "language": "Ngôn ngữ",
     "pitch": "Cao độ",
     "quickLinks": "Liên kết nhanh",
@@ -87,22 +83,36 @@
   },
   "defaultEmotion": {
     "angry": "Tức giận",
+    "calm": "Điềm tĩnh",
+    "custom": "Tùy chỉnh…",
     "disgusted": "Ghê tởm",
     "fearful": "Sợ hãi",
+    "fluent": "Lưu loát",
     "happy": "Vui vẻ",
     "neutral": "Trung tính",
     "sad": "Buồn",
     "surprised": "Ngạc nhiên"
   },
-  "defaultPitch": {
-    "defaultPitch12To12": "Cao độ mặc định (-12 đến +12)"
+  "defaultPitchLabel": {
+    "defaultPitch": "<strong>Cao độ mặc định</strong>"
   },
-  "defaultSpeed": {
-    "defaultSpeed05To": "Tốc độ mặc định (0.5 đến 2.0)"
+  "defaultSpeedLabel": {
+    "defaultSpeed": "<strong>Tốc độ mặc định</strong>"
   },
-  "defaultVoiceSearch": {
-    "searchDefaultVoices": "Tìm giọng mặc định",
-    "searchVoices": "Tìm giọng nói..."
+  "defaultStepsHint": {
+    "pitchAndSpeedAreApproximate": "Cao độ và tốc độ chỉ mang tính ước lượng. Mô hình giọng đọc nhận các thiết lập này dưới dạng từ ngữ, không phải số."
+  },
+  "defaultStyle": {
+    "exampleCalmAndSlowLike": "Ví dụ: điềm tĩnh và chậm rãi, như người dẫn chương trình radio ban đêm"
+  },
+  "defaultStyleGroup": {
+    "style": "Phong cách"
+  },
+  "defaultStyleHint": {
+    "describeInAFewWords": "Mô tả ngắn gọn cách giọng này nói."
+  },
+  "defaultVoiceLabel": {
+    "defaultVoice": "<strong>Giọng mặc định</strong>"
   },
   "defaultVolume": {
     "voiceVolume01To": "Âm lượng giọng (0.1 đến 10)"
@@ -111,9 +121,6 @@
     "describeEmotes": "Mô tả emote",
     "readEmoteNames": "Đọc tên emote",
     "skipEmotes": "Bỏ qua emote"
-  },
-  "englishNormalization": {
-    "englishNormalization": "Chuẩn hóa tiếng Anh"
   },
   "eventsEnabled": {
     "announceEvents": "Thông báo sự kiện"
@@ -214,7 +221,8 @@
       "hasVoice": "Người dùng {user} đã đặt giọng nói tùy chỉnh: {voice}",
       "noVoice": "Người dùng {user} chưa đặt giọng nói tùy chỉnh.",
       "searching": "Đang tìm kiếm…",
-      "voiceUnknown": "Giọng nói này không có trong danh sách giọng nói khả dụng."
+      "voiceUnknown": "Giọng nói này không có trong danh sách giọng nói khả dụng.",
+      "storedVoice": "Người xem này đã lưu giọng cũ {stored}. TTS sẽ dùng giọng ở trên thay thế."
     },
     "mutedRewards": {
       "announceLabel": "Thông báo khi đổi {title}",
@@ -279,7 +287,6 @@
       "defaultSpeed": "Tốc độ mặc định",
       "defaultVoice": "Giọng đọc mặc định",
       "emoteMode": "Chế độ Emote",
-      "englishNormalization": "Chuẩn hóa tiếng Anh",
       "eventAnnouncements": "Thông báo sự kiện",
       "expandAcronyms": "Mở rộng từ viết tắt trong chat",
       "minimumBits": "Số Bits tối thiểu",
@@ -288,6 +295,8 @@
       "readCommandMessages": "Đọc lệnh chat",
       "readFullUrls": "Đọc toàn bộ URL",
       "redemptionAnnouncements": "Thông báo đổi thưởng",
+      "soundTags": "Thẻ âm thanh",
+      "style": "Phong cách",
       "ttsEngine": "Công cụ TTS",
       "ttsMode": "Chế độ TTS",
       "ttsPermission": "Quyền sử dụng TTS",
@@ -380,14 +389,6 @@
   "removeBotBtn": {
     "deactivateTtsService": "Hủy kích hoạt dịch vụ TTS"
   },
-  "resetPitchBtn": {
-    "reset": "Đặt lại",
-    "resetDefaultPitchTo0": "Đặt lại cao độ mặc định về 0"
-  },
-  "resetSpeedBtn": {
-    "reset": "Đặt lại",
-    "resetDefaultSpeedTo1": "Đặt lại tốc độ mặc định về 1.0"
-  },
   "resetVolumeBtn": {
     "reset": "Đặt lại",
     "resetVoiceVolumeTo1": "Đặt lại âm lượng giọng về 1.0"
@@ -398,8 +399,8 @@
   "serviceHeadline": {
     "ttsService": "Dịch vụ TTS"
   },
-  "sidebarVoiceName": {
-    "friendlyPerson": "Người thân thiện"
+  "soundTagsTitle": {
+    "soundTags": "Thẻ âm thanh"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Cho phép bot phản hồi các lệnh chat như !myvoice",
@@ -476,27 +477,23 @@
     "broadcaster": "Người phát sóng"
   },
   "tabBtnViewerDefaults": {
-    "voiceDefaults": "Giọng đọc mặc định"
+    "voiceDefaults": "Mặc định giọng đọc"
   },
   "tabViewerDefaults": {
-    "adjustThePitchForThe": "Điều chỉnh cao độ cho giọng đọc mặc định",
     "adjustTheVolumeForThe": "Điều chỉnh âm lượng cho giọng đọc đã chọn. LƯU Ý: Giá trị lớn hơn 1.0 có thể gây méo tiếng.",
     "calibratedVoices": "<strong>Giọng đọc đã hiệu chỉnh</strong>",
     "calibrateVolumeForSpecificVoices": "Hiệu chỉnh âm lượng cho từng giọng đọc cụ thể. LƯU Ý: Giá trị lớn hơn 1.0 có thể gây méo tiếng.",
-    "controlHowFastTheDefault": "Chỉnh tốc độ đọc của giọng mặc định",
     "defaultEmotion": "<strong>Cảm xúc mặc định</strong>",
     "defaultLanguage": "<strong>Ngôn ngữ mặc định</strong>",
-    "defaultPitch12To12": "Cao độ mặc định (-12 đến +12):",
-    "defaultSpeed05To": "Tốc độ mặc định (0.5 đến 2.0):",
-    "defaultVoice": "<strong>Giọng đọc mặc định</strong>",
     "defaultVoiceSettings": "Cài đặt giọng đọc mặc định",
-    "englishNormalization": "Chuẩn hóa tiếng Anh",
-    "improvePronunciationForSpecificLanguages": "Cải thiện phát âm cho các ngôn ngữ cụ thể",
-    "improveThePronunciationOfNumbers": "Cải thiện phát âm số và văn bản",
-    "selectTheDefaultTtsVoice": "Chọn giọng đọc TTS mặc định cho kênh",
+    "selectHowFastTheDefault": "Chọn tốc độ nói của giọng mặc định",
+    "selectHowHighOrLow": "Chọn độ cao hoặc thấp của giọng mặc định",
+    "selectTheVoiceThatTts": "Chọn giọng mà TTS sử dụng cho người xem chưa có giọng riêng",
     "selectVoice": "Chọn giọng đọc",
     "setDefaultVoiceSettingsFor": "Cài đặt giọng đọc mặc định cho kênh của bạn",
-    "setTheEmotionalToneOf": "Đặt tông cảm xúc cho giọng mặc định",
+    "setTheEmotionOfThe": "Đặt cảm xúc cho giọng mặc định. Chọn Tùy chỉnh để tự mô tả giọng đọc theo ý bạn.",
+    "theVoiceModelReadsThe": "Mô hình giọng đọc tự nhận diện ngôn ngữ từ văn bản. Nếu văn bản ngắn hoặc không rõ ràng, thiết lập này sẽ gợi ý cho mô hình. Nó cũng đặt ngôn ngữ mặc định cho thông báo và chọn danh sách từ cho bộ lọc từ ngữ thô tục.",
+    "viewersCanTypeASound": "Người xem có thể nhập thẻ âm thanh vào tin nhắn để giọng đọc phát ra âm thanh đó. Ví dụ như <code>&lt;laugh&gt;</code> và <code>&lt;sigh&gt;</code>. Mọi thẻ đều được bật mặc định. Để tắt thẻ, hãy bỏ chọn ô tương ứng.",
     "viewerVoiceLookup": "Tra cứu giọng người xem",
     "voiceCalibration": "Hiệu chỉnh giọng đọc",
     "voicesWithCustomVolumeSettings": "Các giọng có cài đặt âm lượng tùy chỉnh.",

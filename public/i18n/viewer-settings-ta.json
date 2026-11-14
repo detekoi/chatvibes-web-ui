@@ -37,20 +37,16 @@
   },
   "emotionSelect": {
     "angry": "கோபம்",
+    "calm": "அமைதியான",
+    "custom": "தனிப்பயன்…",
     "disgusted": "வெறுப்பு",
     "fearful": "பயம்",
+    "fluent": "சரளமான",
     "happy": "மகிழ்ச்சி",
     "neutral": "நடுநிலை",
     "sad": "வருத்தம்",
     "surprised": "ஆச்சரியம்",
     "useChannelDefault": "சேனலின் இயல்புநிலையைப் பயன்படுத்து"
-  },
-  "englishNormalizationCheckbox": {
-    "englishNormalization": "ஆங்கில இயல்பாக்கம்"
-  },
-  "englishNormalizationReset": {
-    "clear": "அழி",
-    "resetEnglishNormalizationToDefault": "ஆங்கில இயல்பாக்கத்தை இயல்புநிலைக்கு மீட்டமை"
   },
   "ignoreTts": {
     "optOutInThisChannel": "இந்தச் சேனலில் தவிர்"
@@ -110,11 +106,11 @@
       "hintChannel": "சேனல் இயல்புநிலையைப் பயன்படுத்துகிறது: {value}",
       "hintSystem": "கணினி இயல்புநிலையைப் பயன்படுத்துகிறது",
       "hintUser": "உங்கள் பொதுவான விருப்பத்தேர்வைப் பயன்படுத்துகிறது: {value}",
-      "noVoicesFound": "குரல்கள் எதுவும் கிடைக்கவில்லை",
       "sendPreview": "முன்னோட்டத்தை அனுப்பு",
       "testCompletedTestMode": "சோதனை முடிந்தது (சோதனைப் பயன்முறை).",
       "updated": "விருப்பத்தேர்வு புதுப்பிக்கப்பட்டது.",
-      "updatedTestMode": "விருப்பத்தேர்வு புதுப்பிக்கப்பட்டது (சோதனைப் பயன்முறை)."
+      "updatedTestMode": "விருப்பத்தேர்வு புதுப்பிக்கப்பட்டது (சோதனைப் பயன்முறை).",
+      "customStyle": "தனிப்பயன் ({style})"
     }
   },
   "openChannelContextModalBtn": {
@@ -140,36 +136,29 @@
     "viewerSettings": "பார்வையாளர் அமைப்புகள்",
     "viewerTtsPreferences": "பார்வையாளர் TTS விருப்பத்தேர்வுகள்"
   },
+  "pitchLabel": {
+    "pitch": "<strong>சுருதி</strong>"
+  },
   "pitchReset": {
     "clear": "அழி",
     "resetPitchToDefault": "சுருதியை இயல்புநிலைக்கு மீட்டமை"
   },
-  "pitchSlider": {
-    "pitchAdjustment12To12": "சுருதி சரிசெய்தல் (-12 முதல் +12 வரை)"
-  },
   "preferencesPanel": {
-    "adjustTheVoicePitchHigher": "குரலின் சுருதியை அதிகமாகவோ குறைவாகவோ மாற்றியமைக்கவும்",
-    "controlHowFastTheVoice": "குரல் எவ்வளவு வேகமாகப் பேச வேண்டும் என்பதைக் கட்டுப்படுத்தவும்",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>ஆவணங்கள் </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>ஸ்ட்ரீமர் அமைப்புகள் </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
     "emotion": "<strong>உணர்ச்சி</strong>",
     "emotion2": "உணர்ச்சி",
-    "englishNormalization": "ஆங்கில இயல்பாக்கம்",
-    "engNormalization": "ஆங்கில இயல்பாக்கம்",
-    "ifTtsReadsNumbersIncorrectly": "TTS எண்களைத் தவறாகப் படித்தால், ஆங்கில உரை இயல்பாக்கத்தை இயக்கவும். இந்த அமைப்பு தாமதத்தை சற்று அதிகரிக்கும்.",
-    "improvePronunciationForSpecificLanguages": "குறிப்பிட்ட மொழிகளுக்கான உச்சரிப்பை மேம்படுத்தவும்",
-    "improveThePronunciationOfNumbers": "எண்கள் மற்றும் உரையின் உச்சரிப்பை மேம்படுத்தவும்",
+    "ifYourTextIsShort": "உங்கள் உரை சிறியதாகவோ தெளிவற்றதாகவோ இருந்தால், இந்த அமைப்பு குரல் மாதிரிக்கு ஒரு குறிப்பை வழங்கும். இது தகாத சொல் வடிகட்டிக்கான சொல் பட்டியலையும் தேர்ந்தெடுக்கும்.",
     "language": "மொழி",
-    "languageBoost": "<strong>Language Boost</strong>",
+    "languageLabel": "<strong>மொழி</strong>",
     "pitch": "சுருதி",
-    "pitch12To12": "சுருதி (-12 முதல் +12 வரை):",
     "quickLinks": "விரைவு இணைப்புகள்",
-    "selectYourPreferredTtsVoice": "உங்களுக்கு விருப்பமான TTS குரலைத் தேர்ந்தெடுக்கவும்",
+    "selectHowFastTheVoice": "குரல் எவ்வளவு வேகமாகப் பேசும் என்பதைத் தேர்ந்தெடுக்கவும்",
+    "selectHowHighOrLow": "குரல் எவ்வளவு உயர்ந்த அல்லது தாழ்ந்த தொனியில் பேசும் என்பதைத் தேர்ந்தெடுக்கவும்",
+    "selectTheVoiceThatTts": "உங்கள் செய்திகளுக்கு TTS பயன்படுத்தும் குரலைத் தேர்ந்தெடுக்கவும்",
     "setHowYourMessagesSound": "TTS உங்கள் செய்திகளை வாசிக்கும்போது அவை எவ்வாறு ஒலிக்க வேண்டும் என்பதை அமைக்கவும்",
-    "setTheEmotionalToneOf": "குரலின் உணர்ச்சித் தொனியை அமைக்கவும்",
+    "setTheEmotionOfThe": "குரலின் உணர்வை அமைக்கவும். உங்கள் சொந்த வார்த்தைகளில் குரலை விவரிக்க 'தனிப்பயன்' என்பதைத் தேர்ந்தெடுக்கவும்.",
     "speed": "வேகம்",
-    "speed05To2": "வேகம் (0.5 முதல் 2.0 வரை):",
     "testMessage": "சோதனைச் செய்தி",
-    "voice": "<strong>குரல்</strong>",
     "voicePreview": "குரல் முன்னோட்டம்",
     "voiceSettings": "குரல் அமைப்புகள்"
   },
@@ -179,22 +168,33 @@
   "previewBtn": {
     "sendPreview": "முன்னோட்டத்தை அனுப்பு"
   },
+  "speedLabel": {
+    "speed": "<strong>வேகம்</strong>"
+  },
   "speedReset": {
     "clear": "அழி",
     "resetSpeedToDefault": "வேகத்தை இயல்புநிலைக்கு மீட்டமை"
   },
-  "speedSlider": {
-    "speedAdjustment05To": "வேகச் சரிசெய்தல் (0.5 முதல் 2.0 வரை)"
-  },
   "statChannelContext": {
     "noneLoaded": "எதுவும் ஏற்றப்படவில்லை"
+  },
+  "stepsHint": {
+    "pitchAndSpeedAreApproximate": "சுருதியும் வேகமும் தோராயமானவை. குரல் மாதிரி இந்த அமைப்புகளை எண்களாக அல்லாமல் சொற்களாகப் பெறுகிறது."
+  },
+  "styleGroup": {
+    "style": "பாணி"
+  },
+  "styleHint": {
+    "describeInAFewWords": "குரல் எவ்வாறு பேசுகிறது என்பதைச் சில சொற்களில் விவரிக்கவும்."
+  },
+  "styleInput": {
+    "exampleCalmAndSlowLike": "எடுத்துக்காட்டு: இரவு நேர வானொலி தொகுப்பாளர் போல அமைதியாகவும் மெதுவாகவும்"
+  },
+  "voiceLabel": {
+    "voice": "<strong>குரல்</strong>"
   },
   "voiceReset": {
     "clear": "அழி",
     "resetVoiceToDefault": "குரலை இயல்புநிலைக்கு மீட்டமை"
-  },
-  "voiceSearch": {
-    "searchVoices": "குரல்களைத் தேடு",
-    "searchVoices2": "குரல்களைத் தேடு..."
   }
 }

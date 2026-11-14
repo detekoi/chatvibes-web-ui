@@ -37,20 +37,16 @@
   },
   "emotionSelect": {
     "angry": "Злий",
+    "calm": "Спокійний",
+    "custom": "Власний…",
     "disgusted": "З огидою",
     "fearful": "Наляканий",
+    "fluent": "Плавний",
     "happy": "Радісний",
     "neutral": "Нейтральний",
     "sad": "Сумний",
     "surprised": "Здивований",
     "useChannelDefault": "Стандартне для каналу"
-  },
-  "englishNormalizationCheckbox": {
-    "englishNormalization": "Нормалізація англійської"
-  },
-  "englishNormalizationReset": {
-    "clear": "Очистити",
-    "resetEnglishNormalizationToDefault": "Скинути нормалізацію англійської до стандартної"
   },
   "ignoreTts": {
     "optOutInThisChannel": "Відмовитися на цьому каналі"
@@ -110,11 +106,11 @@
       "hintChannel": "Використовується значення каналу за замовчуванням: {value}",
       "hintSystem": "Використовується системне значення за замовчуванням",
       "hintUser": "Використовується ваше глобальне налаштування: {value}",
-      "noVoicesFound": "Голосів не знайдено",
       "sendPreview": "Надіслати зразок",
       "testCompletedTestMode": "Тест завершено (тестовий режим).",
       "updated": "Налаштування оновлено.",
-      "updatedTestMode": "Налаштування оновлено (тестовий режим)."
+      "updatedTestMode": "Налаштування оновлено (тестовий режим).",
+      "customStyle": "Власний ({style})"
     }
   },
   "openChannelContextModalBtn": {
@@ -140,36 +136,29 @@
     "viewerSettings": "Налаштування глядача",
     "viewerTtsPreferences": "Налаштування TTS для глядача"
   },
+  "pitchLabel": {
+    "pitch": "<strong>Висота тону</strong>"
+  },
   "pitchReset": {
     "clear": "Очистити",
     "resetPitchToDefault": "Скинути висоту тону"
   },
-  "pitchSlider": {
-    "pitchAdjustment12To12": "Коригування тону (від -12 до +12)"
-  },
   "preferencesPanel": {
-    "adjustTheVoicePitchHigher": "Зробіть тон голосу вищим або нижчим",
-    "controlHowFastTheVoice": "Керуйте швидкістю мовлення голосу",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Документація </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Налаштування стрімера </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
     "emotion": "<strong>Емоція</strong>",
     "emotion2": "Емоція",
-    "englishNormalization": "Нормалізація англійського тексту",
-    "engNormalization": "Англ. нормалізація",
-    "ifTtsReadsNumbersIncorrectly": "Якщо TTS неправильно озвучує числа, увімкніть нормалізацію англійського тексту. Це налаштування трохи збільшує затримку.",
-    "improvePronunciationForSpecificLanguages": "Покращити вимову для окремих мов",
-    "improveThePronunciationOfNumbers": "Покращити вимову чисел і тексту",
+    "ifYourTextIsShort": "Якщо ваш текст короткий або нечіткий, це налаштування дає підказку голосовій моделі. Воно також вибирає список слів для фільтра нецензурної лексики.",
     "language": "Мова",
-    "languageBoost": "<strong>Language Boost</strong>",
+    "languageLabel": "<strong>Мова</strong>",
     "pitch": "Висота тону",
-    "pitch12To12": "Висота тону (від -12 до +12):",
     "quickLinks": "Швидкі посилання",
-    "selectYourPreferredTtsVoice": "Виберіть бажаний голос TTS",
+    "selectHowFastTheVoice": "Виберіть, наскільки швидко говорить голос",
+    "selectHowHighOrLow": "Виберіть, наскільки високо чи низько говорить голос",
+    "selectTheVoiceThatTts": "Виберіть голос, який TTS використовує для ваших повідомлень",
     "setHowYourMessagesSound": "Налаштуйте звучання своїх повідомлень під час озвучення TTS",
-    "setTheEmotionalToneOf": "Налаштуйте емоційне забарвлення голосу",
+    "setTheEmotionOfThe": "Задайте емоцію голосу. Виберіть «Власний», щоб описати голос своїми словами.",
     "speed": "Швидкість",
-    "speed05To2": "Швидкість (від 0.5 до 2.0):",
     "testMessage": "Тестове повідомлення",
-    "voice": "<strong>Голос</strong>",
     "voicePreview": "Прослуховування голосу",
     "voiceSettings": "Налаштування голосу"
   },
@@ -179,22 +168,33 @@
   "previewBtn": {
     "sendPreview": "Надіслати зразок"
   },
+  "speedLabel": {
+    "speed": "<strong>Швидкість</strong>"
+  },
   "speedReset": {
     "clear": "Очистити",
     "resetSpeedToDefault": "Скинути швидкість до типової"
   },
-  "speedSlider": {
-    "speedAdjustment05To": "Регулювання швидкості (від 0.5 до 2.0)"
-  },
   "statChannelContext": {
     "noneLoaded": "Не завантажено"
+  },
+  "stepsHint": {
+    "pitchAndSpeedAreApproximate": "Висота тону та швидкість приблизні. Голосова модель отримує ці налаштування словами, а не числами."
+  },
+  "styleGroup": {
+    "style": "Стиль"
+  },
+  "styleHint": {
+    "describeInAFewWords": "Опишіть у кількох словах, як говорить голос."
+  },
+  "styleInput": {
+    "exampleCalmAndSlowLike": "Приклад: спокійно й повільно, як нічний радіоведучий"
+  },
+  "voiceLabel": {
+    "voice": "<strong>Голос</strong>"
   },
   "voiceReset": {
     "clear": "Очистити",
     "resetVoiceToDefault": "Скинути голос до типового"
-  },
-  "voiceSearch": {
-    "searchVoices": "Пошук голосів",
-    "searchVoices2": "Пошук голосів..."
   }
 }

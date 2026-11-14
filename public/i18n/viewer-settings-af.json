@@ -37,20 +37,16 @@
   },
   "emotionSelect": {
     "angry": "Kwaad",
+    "calm": "Kalm",
+    "custom": "Pasgemaak…",
     "disgusted": "Gevalg",
     "fearful": "Bang",
+    "fluent": "Vlot",
     "happy": "Gelukkig",
     "neutral": "Neutraal",
     "sad": "Hartseer",
     "surprised": "Verras",
     "useChannelDefault": "Gebruik kanaalverstek"
-  },
-  "englishNormalizationCheckbox": {
-    "englishNormalization": "Engelse normalisering"
-  },
-  "englishNormalizationReset": {
-    "clear": "Vee uit",
-    "resetEnglishNormalizationToDefault": "Stel Engelse normalisering terug na verstek"
   },
   "ignoreTts": {
     "optOutInThisChannel": "Onttrek in hierdie kanaal"
@@ -110,11 +106,11 @@
       "hintChannel": "Gebruik kanaalverstek: {value}",
       "hintSystem": "Gebruik stelselverstek",
       "hintUser": "Gebruik jou globale voorkeur: {value}",
-      "noVoicesFound": "Geen stemme gevind nie",
       "sendPreview": "Stuur voorskou",
       "testCompletedTestMode": "Toets voltooi (toetsmodus).",
       "updated": "Voorkeur opgedateer.",
-      "updatedTestMode": "Voorkeur opgedateer (toetsmodus)."
+      "updatedTestMode": "Voorkeur opgedateer (toetsmodus).",
+      "customStyle": "Pasgemaak ({style})"
     }
   },
   "openChannelContextModalBtn": {
@@ -140,36 +136,29 @@
     "viewerSettings": "Kykerinstellings",
     "viewerTtsPreferences": "Kyker-TTS-voorkeure"
   },
+  "pitchLabel": {
+    "pitch": "<strong>Toonhoogte</strong>"
+  },
   "pitchReset": {
     "clear": "Maak skoon",
     "resetPitchToDefault": "Stel toonhoogte terug na verstek"
   },
-  "pitchSlider": {
-    "pitchAdjustment12To12": "Toonhoogteverstelling (-12 tot +12)"
-  },
   "preferencesPanel": {
-    "adjustTheVoicePitchHigher": "Verstel die stem se toonhoogte hoër of laer",
-    "controlHowFastTheVoice": "Beheer hoe vinnig die stem praat",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentasie </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Stroomerinstellings </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
     "emotion": "<strong>Emosie</strong>",
     "emotion2": "Emosie",
-    "englishNormalization": "Engelse normalisering",
-    "engNormalization": "Eng. normalisering",
-    "ifTtsReadsNumbersIncorrectly": "As TTS getalle verkeerd lees, skakel Engelse teksnormalisering aan. Hierdie instelling verhoog latensie effens.",
-    "improvePronunciationForSpecificLanguages": "Verbeter uitspraak vir spesifieke tale",
-    "improveThePronunciationOfNumbers": "Verbeter die uitspraak van getalle en teks",
+    "ifYourTextIsShort": "As jou teks kort of onduidelik is, gee hierdie instelling vir die stemmodel 'n leidraad. Dit kies ook die woordelys vir die vloekwoordfilter.",
     "language": "Taal",
-    "languageBoost": "<strong>Taalversterking</strong>",
+    "languageLabel": "<strong>Taal</strong>",
     "pitch": "Toonhoogte",
-    "pitch12To12": "Toonhoogte (-12 tot +12):",
     "quickLinks": "Vinnige skakels",
-    "selectYourPreferredTtsVoice": "Kies jou voorkeur-TTS-stem",
+    "selectHowFastTheVoice": "Kies hoe vinnig die stem praat",
+    "selectHowHighOrLow": "Kies hoe hoog of laag die stem praat",
+    "selectTheVoiceThatTts": "Kies die stem wat TTS vir jou boodskappe gebruik",
     "setHowYourMessagesSound": "Stel hoe jou boodskappe klink wanneer TTS dit lees",
-    "setTheEmotionalToneOf": "Stel die emosionele toon van die stem",
+    "setTheEmotionOfThe": "Stel die emosie van die stem in. Kies Pasgemaak om die stem in jou eie woorde te beskryf.",
     "speed": "Spoed",
-    "speed05To2": "Spoed (0.5 tot 2.0):",
     "testMessage": "Toetsboodskap",
-    "voice": "<strong>Stem</strong>",
     "voicePreview": "Stemvoorskou",
     "voiceSettings": "Steminstellings"
   },
@@ -179,22 +168,33 @@
   "previewBtn": {
     "sendPreview": "Stuur voorskou"
   },
+  "speedLabel": {
+    "speed": "<strong>Spoed</strong>"
+  },
   "speedReset": {
     "clear": "Herstel",
     "resetSpeedToDefault": "Herstel spoed na verstek"
   },
-  "speedSlider": {
-    "speedAdjustment05To": "Spoedverstelling (0.5 tot 2.0)"
-  },
   "statChannelContext": {
     "noneLoaded": "Geen gelaai nie"
+  },
+  "stepsHint": {
+    "pitchAndSpeedAreApproximate": "Toonhoogte en spoed is benaderd. Die stemmodel kry hierdie instellings as woorde, nie as getalle nie."
+  },
+  "styleGroup": {
+    "style": "Styl"
+  },
+  "styleHint": {
+    "describeInAFewWords": "Beskryf in 'n paar woorde hoe die stem praat."
+  },
+  "styleInput": {
+    "exampleCalmAndSlowLike": "Byvoorbeeld: kalm en stadig, soos 'n radio-aanbieder snags"
+  },
+  "voiceLabel": {
+    "voice": "<strong>Stem</strong>"
   },
   "voiceReset": {
     "clear": "Herstel",
     "resetVoiceToDefault": "Herstel stem na verstek"
-  },
-  "voiceSearch": {
-    "searchVoices": "Soek stemme",
-    "searchVoices2": "Soek stemme..."
   }
 }

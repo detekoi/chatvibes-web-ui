@@ -37,6 +37,7 @@
     "prefs_invalid_language": "ภาษาไม่ถูกต้อง",
     "prefs_invalid_pitch": "ระดับเสียงสูงต่ำไม่ถูกต้อง",
     "prefs_invalid_speed": "ความเร็วไม่ถูกต้อง",
+    "prefs_invalid_style": "สไตล์นี้ไม่ถูกต้อง",
     "prefs_invalid_voice": "เสียงไม่ถูกต้อง",
     "prefs_missing_data": "ไม่มีการส่งการเปลี่ยนแปลงใด ๆ",
     "prefs_update_failed": "บันทึกการเปลี่ยนแปลงของคุณไม่สำเร็จเนื่องจากเซิร์ฟเวอร์เกิดข้อผิดพลาด โปรดลองอีกครั้ง",
@@ -68,11 +69,13 @@
     "setting_update_failed": "ไม่สามารถอัปเดตการตั้งค่า TTS ได้",
     "settings_fetch_failed": "ไม่สามารถโหลดการตั้งค่า TTS ได้",
     "shortlink_failed": "ไม่สามารถสร้างลิงก์สั้นได้",
+    "sound_tag_unknown": "ไม่พบแท็กเสียง \"{tag}\" ในรายการ โหลดหน้านี้ใหม่แล้วลองอีกครั้ง",
     "storage_unavailable": "พื้นที่จัดเก็บข้อมูลไม่พร้อมใช้งาน",
+    "style_too_long": "สไตล์ยาวเกินไป ใช้ได้ไม่เกิน {max} ตัวอักษร",
+    "tts_blocked": "บริการสร้างเสียงพูดปฏิเสธข้อความนี้ เปลี่ยนข้อความแล้วลองอีกครั้ง",
     "tts_generation_failed": "สร้างเสียงพูดไม่สำเร็จ: {reason}",
     "tts_no_audio": "ผู้ให้บริการเสียงพูดไม่ได้ส่งข้อมูลเสียงกลับมา",
     "tts_not_configured": "ยังไม่ได้กำหนดค่าผู้ให้บริการเสียงพูด",
-    "tts_provider_failed": "ผู้ให้บริการเสียงพูดไม่สามารถสร้างเสียงได้",
     "tts_test_failed": "ทดสอบเสียงพูดไม่สำเร็จ",
     "tts_text_required": "ป้อนข้อความเพื่อทดสอบ",
     "twitch_reauth_required": "การเข้าสู่ระบบ Twitch ของคุณหมดอายุแล้ว โปรดเชื่อมต่อบัญชีอีกครั้ง",
@@ -80,8 +83,6 @@
     "url_required": "จำเป็นต้องระบุ URL",
     "username_invalid": "ชื่อผู้ใช้นั้นไม่ถูกต้อง",
     "username_required": "ต้องระบุชื่อผู้ใช้",
-    "voice_access_denied": "เสียง \"{voice}\" ต้องใช้สิทธิ์พิเศษ โปรดลองใช้เสียงอื่น",
-    "voice_invalid": "ไม่มีเสียง \"{voice}\" ให้ใช้งาน โปรดตรวจสอบเสียงแล้วลองใหม่อีกครั้ง",
     "voice_lookup_failed": "ไม่สามารถค้นหาเสียงของผู้ใช้รายนั้นได้",
     "word_invalid": "คำหรือวลีนั้นไม่ถูกต้อง",
     "word_required": "ต้องระบุคำหรือวลี"
@@ -117,7 +118,6 @@
     },
     "emotion": {
       "angry": "โกรธ",
-      "auto": "อัตโนมัติ",
       "calm": "สงบ",
       "disgusted": "รังเกียจ",
       "fearful": "หวาดกลัว",
@@ -125,7 +125,8 @@
       "happy": "มีความสุข",
       "neutral": "เป็นกลาง",
       "sad": "เศร้า",
-      "surprised": "ประหลาดใจ"
+      "surprised": "ประหลาดใจ",
+      "custom": "กำหนดเอง"
     },
     "ignore": {
       "enterUsername": "ป้อนชื่อผู้ใช้"
@@ -138,27 +139,65 @@
     },
     "preview": {
       "enterText": "ป้อนข้อความเพื่อทดสอบ",
-      "unavailable": "ไม่มีตัวอย่าง"
-    },
-    "value": {
-      "off": "ปิด",
-      "on": "เปิด"
+      "unavailable": "ไม่มีตัวอย่างสำหรับเสียงนี้"
     },
     "voice": {
       "cannotPlay": "ไม่สามารถเล่นตัวอย่างเสียงได้",
       "generating": "กำลังสร้าง…",
       "noAudio": "เซิร์ฟเวอร์ไม่ได้ส่งข้อมูลเสียงกลับมา",
       "noneFound": "ไม่พบเสียง",
-      "preview": "ทดลองฟัง {voice}",
+      "preview": "เล่นตัวอย่างเสียง {voice}",
       "regenerate": "สร้างใหม่",
-      "testFailed": "การทดสอบล้มเหลว: {reason}"
+      "testFailed": "การทดสอบล้มเหลว: {reason}",
+      "choose": "เลือกเสียง",
+      "panelLabel": "ค้นหาเสียง",
+      "listLabel": "เสียง",
+      "searchLabel": "ค้นหาเสียง",
+      "searchHint": "พิมพ์อย่างน้อยหนึ่งคำ เช่น \"german calm low\" ระบบจะค้นหาเสียงที่มีทุกคำเหล่านั้น คำอธิบายเสียงเป็นภาษาอังกฤษเท่านั้น",
+      "filterLanguage": "กรองตามภาษา",
+      "anyLanguage": "ทุกภาษา",
+      "filterGender": "กรองตามเพศ",
+      "anyGender": "ทุกเพศ",
+      "gender": {
+        "female": "หญิง",
+        "male": "ชาย",
+        "neutral": "ไม่ระบุเพศ"
+      },
+      "filterPitch": "กรองตามระดับเสียง",
+      "anyPitch": "ทุกระดับเสียง",
+      "pitch": {
+        "low": "เสียงต่ำ",
+        "medium": "เสียงกลาง",
+        "high": "เสียงสูง"
+      },
+      "studioOnly": "เฉพาะเสียงสตูดิโอ",
+      "studioTag": "สตูดิโอ",
+      "count": "พบเสียง: {count}",
+      "legacy": "เสียงรุ่นเก่า ({id})",
+      "stopSample": "หยุดตัวอย่างเสียง {voice}"
+    },
+    "step": {
+      "speed": {
+        "very_slow": "ช้ามาก",
+        "slow": "ช้า",
+        "normal": "ปกติ",
+        "fast": "เร็ว",
+        "very_fast": "เร็วมาก"
+      },
+      "pitch": {
+        "very_low": "ต่ำมาก",
+        "low": "ต่ำ",
+        "normal": "ปกติ",
+        "high": "สูง",
+        "very_high": "สูงมาก"
+      }
+    },
+    "style": {
+      "count": "{count} จาก {max} ตัวอักษร"
     }
   },
   "page": {
     "skipToMainContent": "ข้ามไปยังเนื้อหาหลัก"
-  },
-  "sidebarEngNormVal": {
-    "off": "ปิด"
   },
   "sidebarLanguageVal": {
     "automatic": "อัตโนมัติ"

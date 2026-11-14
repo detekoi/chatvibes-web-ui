@@ -37,20 +37,16 @@
   },
   "emotionSelect": {
     "angry": "Marah",
+    "calm": "Tenang",
+    "custom": "Tersuai…",
     "disgusted": "Jijik",
     "fearful": "Takut",
+    "fluent": "Lancar",
     "happy": "Gembira",
     "neutral": "Neutral",
     "sad": "Sedih",
     "surprised": "Terkejut",
     "useChannelDefault": "Gunakan lalai saluran"
-  },
-  "englishNormalizationCheckbox": {
-    "englishNormalization": "Penormalan Bahasa Inggeris"
-  },
-  "englishNormalizationReset": {
-    "clear": "Kosongkan",
-    "resetEnglishNormalizationToDefault": "Tetapkan semula penormalan Bahasa Inggeris kepada lalai"
   },
   "ignoreTts": {
     "optOutInThisChannel": "Tarik diri dalam saluran ini"
@@ -110,11 +106,11 @@
       "hintChannel": "Menggunakan lalai saluran: {value}",
       "hintSystem": "Menggunakan lalai sistem",
       "hintUser": "Menggunakan pilihan global anda: {value}",
-      "noVoicesFound": "Tiada suara dijumpai",
       "sendPreview": "Hantar Pratonton",
       "testCompletedTestMode": "Ujian selesai (mod ujian).",
       "updated": "Keutamaan dikemas kini.",
-      "updatedTestMode": "Keutamaan dikemas kini (mod ujian)."
+      "updatedTestMode": "Keutamaan dikemas kini (mod ujian).",
+      "customStyle": "Tersuai ({style})"
     }
   },
   "openChannelContextModalBtn": {
@@ -140,36 +136,29 @@
     "viewerSettings": "Tetapan penonton",
     "viewerTtsPreferences": "Keutamaan TTS penonton"
   },
+  "pitchLabel": {
+    "pitch": "<strong>Nada</strong>"
+  },
   "pitchReset": {
     "clear": "Kosongkan",
     "resetPitchToDefault": "Set semula pic ke lalai"
   },
-  "pitchSlider": {
-    "pitchAdjustment12To12": "Pelarasan pic (-12 hingga +12)"
-  },
   "preferencesPanel": {
-    "adjustTheVoicePitchHigher": "Laras pic suara lebih tinggi atau rendah",
-    "controlHowFastTheVoice": "Kawal kelajuan suara bertutur",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentasi </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Tetapan penstrim </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
     "emotion": "<strong>Emosi</strong>",
     "emotion2": "Emosi",
-    "englishNormalization": "Penormalan Bahasa Inggeris",
-    "engNormalization": "Penormalan B. Inggeris",
-    "ifTtsReadsNumbersIncorrectly": "Jika TTS membaca nombor dengan salah, hidupkan penormalan teks bahasa Inggeris. Tetapan ini sedikit meningkatkan kependaman.",
-    "improvePronunciationForSpecificLanguages": "Tingkatkan sebutan untuk bahasa tertentu",
-    "improveThePronunciationOfNumbers": "Tingkatkan sebutan nombor dan teks",
+    "ifYourTextIsShort": "Jika teks anda pendek atau kurang jelas, tetapan ini memberi model suara satu petunjuk. Ia juga memilih senarai kata untuk penapis kata kesat.",
     "language": "Bahasa",
-    "languageBoost": "<strong>Peningkatan Bahasa</strong>",
+    "languageLabel": "<strong>Bahasa</strong>",
     "pitch": "Pic",
-    "pitch12To12": "Pic (-12 hingga +12):",
     "quickLinks": "Pautan pantas",
-    "selectYourPreferredTtsVoice": "Pilih suara TTS pilihan anda",
+    "selectHowFastTheVoice": "Pilih kelajuan suara bercakap",
+    "selectHowHighOrLow": "Pilih setinggi atau serendah mana suara bercakap",
+    "selectTheVoiceThatTts": "Pilih suara yang digunakan TTS untuk mesej anda",
     "setHowYourMessagesSound": "Tetapkan bunyi mesej anda apabila TTS membacanya",
-    "setTheEmotionalToneOf": "Tetapkan nada emosi suara",
+    "setTheEmotionOfThe": "Tetapkan emosi suara. Pilih Tersuai untuk menggambarkan suara dengan kata-kata anda sendiri.",
     "speed": "Kelajuan",
-    "speed05To2": "Kelajuan (0.5 hingga 2.0):",
     "testMessage": "Mesej ujian",
-    "voice": "<strong>Suara</strong>",
     "voicePreview": "Pratonton suara",
     "voiceSettings": "Tetapan Suara"
   },
@@ -179,22 +168,33 @@
   "previewBtn": {
     "sendPreview": "Hantar pratonton"
   },
+  "speedLabel": {
+    "speed": "<strong>Kelajuan</strong>"
+  },
   "speedReset": {
     "clear": "Kosongkan",
     "resetSpeedToDefault": "Tetapkan semula kelajuan kepada lalai"
   },
-  "speedSlider": {
-    "speedAdjustment05To": "Pelarasan kelajuan (0.5 hingga 2.0)"
-  },
   "statChannelContext": {
     "noneLoaded": "Tiada dimuatkan"
+  },
+  "stepsHint": {
+    "pitchAndSpeedAreApproximate": "Nada dan kelajuan adalah anggaran. Model suara menerima tetapan ini sebagai perkataan, bukan nombor."
+  },
+  "styleGroup": {
+    "style": "Gaya"
+  },
+  "styleHint": {
+    "describeInAFewWords": "Terangkan dalam beberapa patah perkataan cara suara bercakap."
+  },
+  "styleInput": {
+    "exampleCalmAndSlowLike": "Contoh: tenang dan perlahan, seperti penyampai radio pada waktu malam"
+  },
+  "voiceLabel": {
+    "voice": "<strong>Suara</strong>"
   },
   "voiceReset": {
     "clear": "Kosongkan",
     "resetVoiceToDefault": "Tetapkan semula suara kepada lalai"
-  },
-  "voiceSearch": {
-    "searchVoices": "Cari suara",
-    "searchVoices2": "Cari suara..."
   }
 }

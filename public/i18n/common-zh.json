@@ -37,6 +37,7 @@
     "prefs_invalid_language": "不是有效的语言选项。",
     "prefs_invalid_pitch": "不是有效的音调选项。",
     "prefs_invalid_speed": "不是有效的语速选项。",
+    "prefs_invalid_style": "该风格无效。",
     "prefs_invalid_voice": "不是有效的语音选项。",
     "prefs_missing_data": "未发送任何更改。",
     "prefs_update_failed": "因服务器错误，更改未保存。请重试。",
@@ -68,11 +69,13 @@
     "setting_update_failed": "无法更新 TTS 设置。",
     "settings_fetch_failed": "无法加载 TTS 设置。",
     "shortlink_failed": "无法创建短链接。",
+    "sound_tag_unknown": "声音标签“{tag}”不在列表中。请刷新页面后重试。",
     "storage_unavailable": "存储不可用。",
+    "style_too_long": "风格描述过长，请控制在 {max} 个字符以内。",
+    "tts_blocked": "语音服务拒绝了该文本，请修改文本后重试。",
     "tts_generation_failed": "语音生成失败：{reason}",
     "tts_no_audio": "语音服务商未返回音频。",
     "tts_not_configured": "未配置语音服务商。",
-    "tts_provider_failed": "语音服务商无法生成音频。",
     "tts_test_failed": "语音测试失败。",
     "tts_text_required": "请输入要测试的文本。",
     "twitch_reauth_required": "你的 Twitch 登录已过期。请重新连接账号。",
@@ -80,8 +83,6 @@
     "url_required": "需要提供 URL。",
     "username_invalid": "该用户名无效。",
     "username_required": "用户名不能为空。",
-    "voice_access_denied": "声音“{voice}”需要特殊访问权限。请尝试其他声音。",
-    "voice_invalid": "声音“{voice}”不可用。请检查后重试。",
     "voice_lookup_failed": "无法查询该用户的声音。",
     "word_invalid": "该词语或短语无效。",
     "word_required": "词语或短语不能为空。"
@@ -117,7 +118,6 @@
     },
     "emotion": {
       "angry": "愤怒",
-      "auto": "自动",
       "calm": "平静",
       "disgusted": "厌恶",
       "fearful": "恐惧",
@@ -125,7 +125,8 @@
       "happy": "开心",
       "neutral": "中性",
       "sad": "悲伤",
-      "surprised": "惊讶"
+      "surprised": "惊讶",
+      "custom": "自定义"
     },
     "ignore": {
       "enterUsername": "输入用户名。"
@@ -138,27 +139,65 @@
     },
     "preview": {
       "enterText": "输入要测试的文本。",
-      "unavailable": "暂无预览。"
-    },
-    "value": {
-      "off": "关",
-      "on": "开"
+      "unavailable": "该语音暂无试听样本。"
     },
     "voice": {
       "cannotPlay": "无法播放音频示例。",
       "generating": "生成中…",
       "noAudio": "服务器未返回音频。",
       "noneFound": "未找到语音。",
-      "preview": "试听 {voice}",
+      "preview": "播放 {voice} 的试听样本",
       "regenerate": "重新生成",
-      "testFailed": "测试失败：{reason}"
+      "testFailed": "测试失败：{reason}",
+      "choose": "选择语音",
+      "panelLabel": "语音搜索",
+      "listLabel": "语音列表",
+      "searchLabel": "搜索语音",
+      "searchHint": "输入一个或多个词语（例如“german calm low”），即可查找包含所有词语的语音。语音描述仅提供英文。",
+      "filterLanguage": "按语言筛选",
+      "anyLanguage": "所有语言",
+      "filterGender": "按性别筛选",
+      "anyGender": "所有性别",
+      "gender": {
+        "female": "女声",
+        "male": "男声",
+        "neutral": "中性"
+      },
+      "filterPitch": "按音调筛选",
+      "anyPitch": "所有音调",
+      "pitch": {
+        "low": "低音调",
+        "medium": "中音调",
+        "high": "高音调"
+      },
+      "studioOnly": "仅限录音室语音",
+      "studioTag": "录音室",
+      "count": "已找到 {count} 个语音",
+      "legacy": "旧版语音 ({id})",
+      "stopSample": "停止播放 {voice} 的试听样本"
+    },
+    "step": {
+      "speed": {
+        "very_slow": "极慢",
+        "slow": "慢",
+        "normal": "正常",
+        "fast": "快",
+        "very_fast": "极快"
+      },
+      "pitch": {
+        "very_low": "极低",
+        "low": "低",
+        "normal": "正常",
+        "high": "高",
+        "very_high": "极高"
+      }
+    },
+    "style": {
+      "count": "{count} / {max} 个字符"
     }
   },
   "page": {
     "skipToMainContent": "跳至主要内容"
-  },
-  "sidebarEngNormVal": {
-    "off": "关闭"
   },
   "sidebarLanguageVal": {
     "automatic": "自动"

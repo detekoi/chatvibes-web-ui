@@ -37,6 +37,7 @@
     "prefs_invalid_language": "Bahasa tersebut tidak sah.",
     "prefs_invalid_pitch": "Pic tersebut tidak sah.",
     "prefs_invalid_speed": "Kelajuan tersebut tidak sah.",
+    "prefs_invalid_style": "Itu bukan gaya yang sah.",
     "prefs_invalid_voice": "Suara tersebut tidak sah.",
     "prefs_missing_data": "Tiada perubahan dihantar.",
     "prefs_update_failed": "Perubahan anda tidak disimpan kerana ralat pelayan. Cuba lagi.",
@@ -68,11 +69,13 @@
     "setting_update_failed": "Gagal mengemas kini tetapan TTS.",
     "settings_fetch_failed": "Gagal memuatkan tetapan TTS.",
     "shortlink_failed": "Tidak dapat mencipta pautan pendek.",
+    "sound_tag_unknown": "Tag bunyi \"{tag}\" tiada dalam senarai. Muat semula halaman dan cuba lagi.",
     "storage_unavailable": "Storan tidak tersedia.",
+    "style_too_long": "Gaya terlalu panjang. Gunakan {max} aksara atau kurang.",
+    "tts_blocked": "Perkhidmatan pertuturan menolak teks ini. Tukar teks dan cuba lagi.",
     "tts_generation_failed": "Penjanaan pertuturan gagal: {reason}",
     "tts_no_audio": "Penyedia pertuturan tidak mengembalikan sebarang audio.",
     "tts_not_configured": "Tiada penyedia pertuturan dikonfigurasikan.",
-    "tts_provider_failed": "Penyedia pertuturan tidak dapat menjana audio.",
     "tts_test_failed": "Ujian pertuturan gagal.",
     "tts_text_required": "Masukkan teks untuk diuji.",
     "twitch_reauth_required": "Log masuk Twitch anda telah tamat tempoh. Sambung semula akaun anda.",
@@ -80,8 +83,6 @@
     "url_required": "URL diperlukan.",
     "username_invalid": "Nama pengguna itu tidak sah.",
     "username_required": "Nama pengguna diperlukan.",
-    "voice_access_denied": "Suara \"{voice}\" memerlukan akses khas. Cuba suara lain.",
-    "voice_invalid": "Suara \"{voice}\" tidak tersedia. Semak suara tersebut dan cuba lagi.",
     "voice_lookup_failed": "Tidak dapat mencari suara pengguna tersebut.",
     "word_invalid": "Perkataan atau frasa itu tidak sah.",
     "word_required": "Perkataan atau frasa diperlukan."
@@ -117,7 +118,6 @@
     },
     "emotion": {
       "angry": "Marah",
-      "auto": "Auto",
       "calm": "Tenang",
       "disgusted": "Jijik",
       "fearful": "Takut",
@@ -125,7 +125,8 @@
       "happy": "Gembira",
       "neutral": "Neutral",
       "sad": "Sedih",
-      "surprised": "Terkejut"
+      "surprised": "Terkejut",
+      "custom": "Tersuai"
     },
     "ignore": {
       "enterUsername": "Masukkan nama pengguna."
@@ -138,27 +139,65 @@
     },
     "preview": {
       "enterText": "Masukkan teks untuk diuji.",
-      "unavailable": "Tiada pratonton tersedia."
-    },
-    "value": {
-      "off": "Mati",
-      "on": "Hidup"
+      "unavailable": "Tiada sampel tersedia untuk suara ini."
     },
     "voice": {
       "cannotPlay": "Tidak dapat memainkan sampel audio.",
       "generating": "Menjana…",
       "noAudio": "Pelayan tidak mengembalikan sebarang audio.",
       "noneFound": "Tiada suara ditemui.",
-      "preview": "Pradengar {voice}",
+      "preview": "Mainkan sampel {voice}",
       "regenerate": "Jana semula",
-      "testFailed": "Ujian gagal: {reason}"
+      "testFailed": "Ujian gagal: {reason}",
+      "choose": "Pilih suara",
+      "panelLabel": "Carian suara",
+      "listLabel": "Suara",
+      "searchLabel": "Cari suara",
+      "searchHint": "Taip satu atau lebih perkataan, contohnya \"german calm low\". Carian mencari suara yang mengandungi setiap perkataan. Perihalan suara adalah dalam bahasa Inggeris sahaja.",
+      "filterLanguage": "Tapis mengikut bahasa",
+      "anyLanguage": "Semua bahasa",
+      "filterGender": "Tapis mengikut jantina",
+      "anyGender": "Semua jantina",
+      "gender": {
+        "female": "Perempuan",
+        "male": "Lelaki",
+        "neutral": "Neutral"
+      },
+      "filterPitch": "Tapis mengikut nada",
+      "anyPitch": "Semua nada",
+      "pitch": {
+        "low": "Nada rendah",
+        "medium": "Nada sederhana",
+        "high": "Nada tinggi"
+      },
+      "studioOnly": "Suara Studio sahaja",
+      "studioTag": "Studio",
+      "count": "Suara ditemui: {count}",
+      "legacy": "Suara legasi ({id})",
+      "stopSample": "Hentikan sampel {voice}"
+    },
+    "step": {
+      "speed": {
+        "very_slow": "Sangat perlahan",
+        "slow": "Perlahan",
+        "normal": "Biasa",
+        "fast": "Laju",
+        "very_fast": "Sangat laju"
+      },
+      "pitch": {
+        "very_low": "Sangat rendah",
+        "low": "Rendah",
+        "normal": "Biasa",
+        "high": "Tinggi",
+        "very_high": "Sangat tinggi"
+      }
+    },
+    "style": {
+      "count": "{count} daripada {max} aksara"
     }
   },
   "page": {
     "skipToMainContent": "Langkau ke kandungan utama"
-  },
-  "sidebarEngNormVal": {
-    "off": "Mati"
   },
   "sidebarLanguageVal": {
     "automatic": "Automatik"

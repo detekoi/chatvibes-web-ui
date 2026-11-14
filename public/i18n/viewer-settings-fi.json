@@ -37,20 +37,16 @@
   },
   "emotionSelect": {
     "angry": "Vihainen",
+    "calm": "Rauhallinen",
+    "custom": "Mukautettu…",
     "disgusted": "Inhostunut",
     "fearful": "Pelokas",
+    "fluent": "Sujuva",
     "happy": "Iloinen",
     "neutral": "Neutraali",
     "sad": "Surullinen",
     "surprised": "Yllättynyt",
     "useChannelDefault": "Käytä kanavan oletusta"
-  },
-  "englishNormalizationCheckbox": {
-    "englishNormalization": "Englannin normalisointi"
-  },
-  "englishNormalizationReset": {
-    "clear": "Tyhjennä",
-    "resetEnglishNormalizationToDefault": "Palauta englannin normalisointi oletukseen"
   },
   "ignoreTts": {
     "optOutInThisChannel": "Kieltäydy tällä kanavalla"
@@ -110,11 +106,11 @@
       "hintChannel": "Käytetään kanavan oletusta: {value}",
       "hintSystem": "Käytetään järjestelmän oletusta",
       "hintUser": "Käytetään yleistä asetustasi: {value}",
-      "noVoicesFound": "Ääniä ei löytynyt",
       "sendPreview": "Lähetä esikatselu",
       "testCompletedTestMode": "Testi suoritettu (testitila).",
       "updated": "Asetus päivitetty.",
-      "updatedTestMode": "Asetus päivitetty (testitila)."
+      "updatedTestMode": "Asetus päivitetty (testitila).",
+      "customStyle": "Mukautettu ({style})"
     }
   },
   "openChannelContextModalBtn": {
@@ -140,36 +136,29 @@
     "viewerSettings": "Katsojan asetukset",
     "viewerTtsPreferences": "Katsojan TTS-asetukset"
   },
+  "pitchLabel": {
+    "pitch": "<strong>Äänenkorkeus</strong>"
+  },
   "pitchReset": {
     "clear": "Tyhjennä",
     "resetPitchToDefault": "Palauta oletussävelkorkeus"
   },
-  "pitchSlider": {
-    "pitchAdjustment12To12": "Sävelkorkeuden säätö (-12 – +12)"
-  },
   "preferencesPanel": {
-    "adjustTheVoicePitchHigher": "Säädä äänen sävelkorkeutta korkeammaksi tai matalammaksi",
-    "controlHowFastTheVoice": "Säädä äänen puhenopeutta",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentaatio </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Striimaajan asetukset </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
     "emotion": "<strong>Tunnetila</strong>",
     "emotion2": "Tunnetila",
-    "englishNormalization": "Englanninkielinen normalisointi",
-    "engNormalization": "Engl. normalisointi",
-    "ifTtsReadsNumbersIncorrectly": "Jos TTS lukee numeroita väärin, ota englanninkielisen tekstin normalisointi käyttöön. Tämä asetus lisää viivettä hieman.",
-    "improvePronunciationForSpecificLanguages": "Paranna ääntämistä tietyillä kielillä",
-    "improveThePronunciationOfNumbers": "Paranna numeroiden ja tekstin ääntämistä",
+    "ifYourTextIsShort": "Jos tekstisi on lyhyt tai epäselvä, tämä asetus antaa äänimallille vihjeen. Se valitsee myös kirosanasuodattimen sanalistan.",
     "language": "Kieli",
-    "languageBoost": "<strong>Language Boost</strong>",
+    "languageLabel": "<strong>Kieli</strong>",
     "pitch": "Sävelkorkeus",
-    "pitch12To12": "Äänenkorkeus (-12 – +12):",
     "quickLinks": "Pikalinkit",
-    "selectYourPreferredTtsVoice": "Valitse haluamasi TTS-ääni",
+    "selectHowFastTheVoice": "Valitse, kuinka nopeasti ääni puhuu",
+    "selectHowHighOrLow": "Valitse, kuinka korkealta tai matalalta ääni puhuu",
+    "selectTheVoiceThatTts": "Valitse ääni, jota TTS käyttää viesteillesi",
     "setHowYourMessagesSound": "Määritä, miltä viestisi kuulostavat, kun TTS lukee ne",
-    "setTheEmotionalToneOf": "Aseta äänen tunnesävy",
+    "setTheEmotionOfThe": "Aseta äänen tunne. Valitse Mukautettu kuvaillaksesi ääntä omin sanoin.",
     "speed": "Nopeus",
-    "speed05To2": "Nopeus (0,5 – 2,0):",
     "testMessage": "Testiviesti",
-    "voice": "<strong>Ääni</strong>",
     "voicePreview": "Äänen esikuuntelu",
     "voiceSettings": "Ääniasetukset"
   },
@@ -179,22 +168,33 @@
   "previewBtn": {
     "sendPreview": "Lähetä esikuuntelu"
   },
+  "speedLabel": {
+    "speed": "<strong>Nopeus</strong>"
+  },
   "speedReset": {
     "clear": "Tyhjennä",
     "resetSpeedToDefault": "Palauta nopeus oletukseksi"
   },
-  "speedSlider": {
-    "speedAdjustment05To": "Nopeuden säätö (0,5–2,0)"
-  },
   "statChannelContext": {
     "noneLoaded": "Ei ladattu"
+  },
+  "stepsHint": {
+    "pitchAndSpeedAreApproximate": "Äänenkorkeus ja nopeus ovat suuntaa antavia. Äänimalli saa nämä asetukset sanoina, ei numeroina."
+  },
+  "styleGroup": {
+    "style": "Tyyli"
+  },
+  "styleHint": {
+    "describeInAFewWords": "Kuvaile muutamalla sanalla, miten ääni puhuu."
+  },
+  "styleInput": {
+    "exampleCalmAndSlowLike": "Esimerkki: rauhallinen ja hidas, kuin radiojuontaja yöllä"
+  },
+  "voiceLabel": {
+    "voice": "<strong>Ääni</strong>"
   },
   "voiceReset": {
     "clear": "Tyhjennä",
     "resetVoiceToDefault": "Palauta ääni oletukseksi"
-  },
-  "voiceSearch": {
-    "searchVoices": "Hae ääniä",
-    "searchVoices2": "Hae ääniä..."
   }
 }

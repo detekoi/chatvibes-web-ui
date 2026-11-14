@@ -35,9 +35,6 @@
   "calibrationSaveBtn": {
     "save": "सहेजें"
   },
-  "calibrationVoiceSearch": {
-    "searchVoicesToCalibrate": "कैलिब्रेट करने के लिए आवाज़ें खोजें..."
-  },
   "channelNameStatus": {
     "yourChannel": "आपका चैनल"
   },
@@ -73,7 +70,6 @@
     "deactivationStopsTheBotFrom": "निष्क्रिय करने पर बॉट चैट संदेश पढ़ना बंद कर देता है। आपकी सेटिंग्स सहेजी रहेंगी। आप किसी भी समय सेवा को फिर से सक्रिय कर सकते हैं।",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>दस्तावेज़",
     "emotion": "भाव",
-    "engNormalization": "Eng. सामान्यीकरण",
     "language": "भाषा",
     "pitch": "पिच",
     "quickLinks": "त्वरित लिंक",
@@ -87,22 +83,36 @@
   },
   "defaultEmotion": {
     "angry": "क्रोधित",
+    "calm": "शांत",
+    "custom": "कस्टम…",
     "disgusted": "घृणा",
     "fearful": "भयभीत",
+    "fluent": "धाराप्रवाह",
     "happy": "खुश",
     "neutral": "तटस्थ",
     "sad": "उदास",
     "surprised": "हैरान"
   },
-  "defaultPitch": {
-    "defaultPitch12To12": "डिफ़ॉल्ट पिच (-12 से +12)"
+  "defaultPitchLabel": {
+    "defaultPitch": "<strong>डिफ़ॉल्ट पिच</strong>"
   },
-  "defaultSpeed": {
-    "defaultSpeed05To": "डिफ़ॉल्ट गति (0.5 से 2.0)"
+  "defaultSpeedLabel": {
+    "defaultSpeed": "<strong>डिफ़ॉल्ट गति</strong>"
   },
-  "defaultVoiceSearch": {
-    "searchDefaultVoices": "डिफ़ॉल्ट आवाज़ें खोजें",
-    "searchVoices": "आवाज़ें खोजें..."
+  "defaultStepsHint": {
+    "pitchAndSpeedAreApproximate": "पिच और गति अनुमानित हैं। वॉइस मॉडल को ये सेटिंग्स संख्याओं के बजाय शब्दों के रूप में मिलती हैं।"
+  },
+  "defaultStyle": {
+    "exampleCalmAndSlowLike": "उदाहरण: शांत और धीमा, जैसे रात के समय कोई रेडियो होस्ट"
+  },
+  "defaultStyleGroup": {
+    "style": "शैली"
+  },
+  "defaultStyleHint": {
+    "describeInAFewWords": "कुछ शब्दों में बताएं कि आवाज़ कैसे बोलती है।"
+  },
+  "defaultVoiceLabel": {
+    "defaultVoice": "<strong>डिफ़ॉल्ट आवाज़</strong>"
   },
   "defaultVolume": {
     "voiceVolume01To": "आवाज़ का वॉल्यूम (0.1 से 10)"
@@ -111,9 +121,6 @@
     "describeEmotes": "इमोट्स का वर्णन करें",
     "readEmoteNames": "इमोट नाम पढ़ें",
     "skipEmotes": "इमोट छोड़ें"
-  },
-  "englishNormalization": {
-    "englishNormalization": "अंग्रेज़ी सामान्यीकरण"
   },
   "eventsEnabled": {
     "announceEvents": "इवेंट्स की घोषणा करें"
@@ -214,7 +221,8 @@
       "hasVoice": "उपयोगकर्ता {user} ने कस्टम voice सेट की: {voice}",
       "noVoice": "उपयोगकर्ता {user} की कोई कस्टम voice सेट नहीं है।",
       "searching": "खोजा जा रहा है…",
-      "voiceUnknown": "यह voice उपलब्ध voices की सूची में नहीं है।"
+      "voiceUnknown": "यह voice उपलब्ध voices की सूची में नहीं है।",
+      "storedVoice": "इस दर्शक ने पुरानी आवाज़ {stored} सेव की थी। TTS इसके बजाय ऊपर दी गई आवाज़ का उपयोग करता है।"
     },
     "mutedRewards": {
       "announceLabel": "{title} के रिडीम की घोषणा करें",
@@ -279,7 +287,6 @@
       "defaultSpeed": "डिफ़ॉल्ट गति",
       "defaultVoice": "डिफ़ॉल्ट आवाज़",
       "emoteMode": "इमोट मोड",
-      "englishNormalization": "अंग्रेज़ी सामान्यीकरण",
       "eventAnnouncements": "इवेंट घोषणाएँ",
       "expandAcronyms": "चैट संक्षिप्त रूप विस्तृत करें",
       "minimumBits": "न्यूनतम Bits",
@@ -288,6 +295,8 @@
       "readCommandMessages": "चैट कमांड पढ़ें",
       "readFullUrls": "पूरे URLs पढ़ें",
       "redemptionAnnouncements": "रिडेम्पशन घोषणाएँ",
+      "soundTags": "साउंड टैग",
+      "style": "शैली",
       "ttsEngine": "TTS इंजन",
       "ttsMode": "TTS मोड",
       "ttsPermission": "TTS अनुमति",
@@ -380,14 +389,6 @@
   "removeBotBtn": {
     "deactivateTtsService": "TTS सेवा निष्क्रिय करें"
   },
-  "resetPitchBtn": {
-    "reset": "रीसेट करें",
-    "resetDefaultPitchTo0": "डिफ़ॉल्ट पिच को 0 पर रीसेट करें"
-  },
-  "resetSpeedBtn": {
-    "reset": "रीसेट करें",
-    "resetDefaultSpeedTo1": "डिफ़ॉल्ट स्पीड को 1.0 पर रीसेट करें"
-  },
   "resetVolumeBtn": {
     "reset": "रीसेट करें",
     "resetVoiceVolumeTo1": "आवाज़ का वॉल्यूम 1.0 पर रीसेट करें"
@@ -398,8 +399,8 @@
   "serviceHeadline": {
     "ttsService": "TTS सेवा"
   },
-  "sidebarVoiceName": {
-    "friendlyPerson": "Friendly Person"
+  "soundTagsTitle": {
+    "soundTags": "साउंड टैग"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "!myvoice जैसे चैट कमांड पर बॉट को जवाब देने की अनुमति दें",
@@ -476,27 +477,23 @@
     "broadcaster": "ब्रॉडकास्टर"
   },
   "tabBtnViewerDefaults": {
-    "voiceDefaults": "डिफ़ॉल्ट वॉइस"
+    "voiceDefaults": "वॉइस डिफ़ॉल्ट"
   },
   "tabViewerDefaults": {
-    "adjustThePitchForThe": "डिफ़ॉल्ट वॉइस के लिए पिच समायोजित करें",
     "adjustTheVolumeForThe": "चुनी गई वॉइस के लिए वॉल्यूम समायोजित करें। सावधानी: 1.0 से अधिक मान डिस्टॉर्शन पैदा कर सकते हैं।",
     "calibratedVoices": "<strong>कैलिब्रेट की गई आवाज़ें</strong>",
     "calibrateVolumeForSpecificVoices": "विशिष्ट आवाज़ों के लिए वॉल्यूम कैलिब्रेट करें। सावधानी: 1.0 से अधिक मान डिस्टॉर्शन पैदा कर सकते हैं।",
-    "controlHowFastTheDefault": "डिफ़ॉल्ट आवाज़ की बोलने की गति नियंत्रित करें",
     "defaultEmotion": "<strong>डिफ़ॉल्ट भावना</strong>",
     "defaultLanguage": "<strong>डिफ़ॉल्ट भाषा</strong>",
-    "defaultPitch12To12": "डिफ़ॉल्ट पिच (-12 से +12):",
-    "defaultSpeed05To": "डिफ़ॉल्ट गति (0.5 से 2.0):",
-    "defaultVoice": "<strong>डिफ़ॉल्ट आवाज़</strong>",
     "defaultVoiceSettings": "डिफ़ॉल्ट आवाज़ सेटिंग्स",
-    "englishNormalization": "अंग्रेज़ी नॉर्मलाइज़ेशन",
-    "improvePronunciationForSpecificLanguages": "विशिष्ट भाषाओं के लिए उच्चारण बेहतर बनाएं",
-    "improveThePronunciationOfNumbers": "संख्याओं और टेक्स्ट का उच्चारण बेहतर बनाएं",
-    "selectTheDefaultTtsVoice": "चैनल के लिए डिफ़ॉल्ट TTS आवाज़ चुनें",
+    "selectHowFastTheDefault": "चुनें कि डिफ़ॉल्ट आवाज़ कितनी तेज़ी से बोलती है",
+    "selectHowHighOrLow": "चुनें कि डिफ़ॉल्ट आवाज़ कितनी ऊँची या नीची बोलती है",
+    "selectTheVoiceThatTts": "वह आवाज़ चुनें जिसका उपयोग TTS उन दर्शकों के लिए करता है जिनकी अपनी कोई आवाज़ नहीं है",
     "selectVoice": "आवाज़ चुनें",
     "setDefaultVoiceSettingsFor": "अपने चैनल के लिए डिफ़ॉल्ट आवाज़ सेटिंग्स सेट करें",
-    "setTheEmotionalToneOf": "डिफ़ॉल्ट आवाज़ का भावनात्मक टोन सेट करें",
+    "setTheEmotionOfThe": "डिफ़ॉल्ट आवाज़ का भाव सेट करें। अपने शब्दों में आवाज़ का वर्णन करने के लिए कस्टम चुनें।",
+    "theVoiceModelReadsThe": "वॉइस मॉडल टेक्स्ट से भाषा को पहचानता है। यदि टेक्स्ट छोटा या अस्पष्ट है, तो यह सेटिंग मॉडल को संकेत देती है। यह घोषणाओं के लिए डिफ़ॉल्ट भाषा भी सेट करती है और अपशब्द फ़िल्टर के लिए शब्द सूची चुनती है।",
+    "viewersCanTypeASound": "दर्शक संदेश में एक साउंड टैग टाइप कर सकते हैं, और आवाज़ वैसी ध्वनि निकालती है। उदाहरण के लिए <code>&lt;laugh&gt;</code> और <code>&lt;sigh&gt;</code>। सभी टैग डिफ़ॉल्ट रूप से चालू होते हैं। किसी टैग को बंद करने के लिए, उसका चेक बॉक्स अनचेक करें।",
     "viewerVoiceLookup": "दर्शक आवाज़ खोज",
     "voiceCalibration": "आवाज़ कैलिब्रेशन",
     "voicesWithCustomVolumeSettings": "कस्टम वॉल्यूम सेटिंग्स वाली आवाज़ें।",

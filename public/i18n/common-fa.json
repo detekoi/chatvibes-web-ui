@@ -37,6 +37,7 @@
     "prefs_invalid_language": "این زبان نامعتبر است.",
     "prefs_invalid_pitch": "این زیروبمی صدا نامعتبر است.",
     "prefs_invalid_speed": "این سرعت نامعتبر است.",
+    "prefs_invalid_style": "این سبک معتبر نیست.",
     "prefs_invalid_voice": "این صدا نامعتبر است.",
     "prefs_missing_data": "هیچ تغییری ارسال نشد.",
     "prefs_update_failed": "تغییر شما به‌دلیل خطای سرور ذخیره نشد. دوباره تلاش کنید.",
@@ -68,11 +69,13 @@
     "setting_update_failed": "به‌روزرسانی تنظیمات TTS ممکن نیست.",
     "settings_fetch_failed": "بارگیری تنظیمات TTS ممکن نیست.",
     "shortlink_failed": "امکان ایجاد پیوند کوتاه وجود ندارد.",
+    "sound_tag_unknown": "برچسب صدای «{tag}» در فهرست نیست. صفحه را بازآوری کنید و دوباره امتحان کنید.",
     "storage_unavailable": "فضای ذخیره‌سازی در دسترس نیست.",
+    "style_too_long": "سبک بیش از حد طولانی است. از {max} کاراکتر یا کمتر استفاده کنید.",
+    "tts_blocked": "سرویس گفتار این متن را رد کرد. متن را تغییر دهید و دوباره امتحان کنید.",
     "tts_generation_failed": "تولید گفتار ناموفق بود: {reason}",
     "tts_no_audio": "ارائه‌دهنده گفتار هیچ صوتی برنگرداند.",
     "tts_not_configured": "هیچ ارائه‌دهنده گفتاری پیکربندی نشده است.",
-    "tts_provider_failed": "ارائه‌دهنده گفتار نتوانست صدا تولید کند.",
     "tts_test_failed": "آزمایش گفتار ناموفق بود.",
     "tts_text_required": "متنی برای آزمایش وارد کنید.",
     "twitch_reauth_required": "ورود به حساب Twitch شما منقضی شده است. حسابتان را دوباره متصل کنید.",
@@ -80,8 +83,6 @@
     "url_required": "وارد کردن URL الزامی است.",
     "username_invalid": "این نام کاربری معتبر نیست.",
     "username_required": "نام کاربری الزامی است.",
-    "voice_access_denied": "صدای «{voice}» به دسترسی ویژه نیاز دارد. صدای دیگری را امتحان کنید.",
-    "voice_invalid": "صدای «{voice}» در دسترس نیست. صدا را بررسی کرده و دوباره تلاش کنید.",
     "voice_lookup_failed": "امکان یافتن صدای آن کاربر وجود ندارد.",
     "word_invalid": "این واژه یا عبارت معتبر نیست.",
     "word_required": "واژه یا عبارت الزامی است."
@@ -117,7 +118,6 @@
     },
     "emotion": {
       "angry": "عصبانی",
-      "auto": "خودکار",
       "calm": "آرام",
       "disgusted": "منزجر",
       "fearful": "ترسان",
@@ -125,7 +125,8 @@
       "happy": "خوشحال",
       "neutral": "خنثی",
       "sad": "غمگین",
-      "surprised": "شگفت‌زده"
+      "surprised": "شگفت‌زده",
+      "custom": "سفارشی"
     },
     "ignore": {
       "enterUsername": "یک نام کاربری وارد کنید."
@@ -138,27 +139,65 @@
     },
     "preview": {
       "enterText": "متنی را برای آزمایش وارد کنید.",
-      "unavailable": "پیش‌نمایشی در دسترس نیست."
-    },
-    "value": {
-      "off": "خاموش",
-      "on": "روشن"
+      "unavailable": "نمونه‌ای برای این صدا موجود نیست."
     },
     "voice": {
       "cannotPlay": "امکان پخش نمونه صوتی نیست.",
       "generating": "در حال تولید…",
       "noAudio": "سرور هیچ صوتی برنگرداند.",
       "noneFound": "هیچ صدایی پیدا نشد.",
-      "preview": "پیش‌نمایش {voice}",
+      "preview": "پخش نمونه‌ای از {voice}",
       "regenerate": "تولید مجدد",
-      "testFailed": "آزمایش ناموفق بود: {reason}"
+      "testFailed": "آزمایش ناموفق بود: {reason}",
+      "choose": "انتخاب صدا",
+      "panelLabel": "جستجوی صدا",
+      "listLabel": "صداها",
+      "searchLabel": "جستجوی صداها",
+      "searchHint": "یک یا چند کلمه تایپ کنید، برای مثال \"german calm low\". جستجو صداهایی را پیدا می‌کند که شامل همه کلمات باشند. توضیحات صداها فقط به زبان انگلیسی است.",
+      "filterLanguage": "فیلتر بر اساس زبان",
+      "anyLanguage": "همه زبان‌ها",
+      "filterGender": "فیلتر بر اساس جنسیت",
+      "anyGender": "همه جنسیت‌ها",
+      "gender": {
+        "female": "زن",
+        "male": "مرد",
+        "neutral": "خنثی"
+      },
+      "filterPitch": "فیلتر بر اساس گام صدا",
+      "anyPitch": "همه گام‌ها",
+      "pitch": {
+        "low": "گام بم",
+        "medium": "گام متوسط",
+        "high": "گام زیر"
+      },
+      "studioOnly": "فقط صداهای استودیویی",
+      "studioTag": "استودیو",
+      "count": "صداهای یافت‌شده: {count}",
+      "legacy": "صدای قدیمی ({id})",
+      "stopSample": "توقف پخش نمونه {voice}"
+    },
+    "step": {
+      "speed": {
+        "very_slow": "خیلی آهسته",
+        "slow": "آهسته",
+        "normal": "عادی",
+        "fast": "سریع",
+        "very_fast": "خیلی سریع"
+      },
+      "pitch": {
+        "very_low": "خیلی بم",
+        "low": "بم",
+        "normal": "عادی",
+        "high": "زیر",
+        "very_high": "خیلی زیر"
+      }
+    },
+    "style": {
+      "count": "{count} از {max} کاراکتر"
     }
   },
   "page": {
     "skipToMainContent": "پرش به محتوای اصلی"
-  },
-  "sidebarEngNormVal": {
-    "off": "خاموش"
   },
   "sidebarLanguageVal": {
     "automatic": "خودکار"

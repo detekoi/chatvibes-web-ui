@@ -37,6 +37,7 @@
     "prefs_invalid_language": "השפה שנבחרה אינה תקינה.",
     "prefs_invalid_pitch": "גובה הקול אינו תקין.",
     "prefs_invalid_speed": "המהירות אינה תקינה.",
+    "prefs_invalid_style": "זה אינו סגנון תקין.",
     "prefs_invalid_voice": "הקול שנבחר אינו תקין.",
     "prefs_missing_data": "לא נשלחו שינויים.",
     "prefs_update_failed": "השינוי שלך לא נשמר עקב שגיאת שרת. נסה שוב.",
@@ -68,11 +69,13 @@
     "setting_update_failed": "לא ניתן לעדכן את הגדרת ה-TTS.",
     "settings_fetch_failed": "לא ניתן לטעון את הגדרות ה-TTS.",
     "shortlink_failed": "לא ניתן ליצור את הקישור המקוצר.",
+    "sound_tag_unknown": "תגית הצליל \"{tag}\" אינה ברשימה. רענן את הדף ונסה שוב.",
     "storage_unavailable": "האחסון אינו זמין.",
+    "style_too_long": "הסגנון ארוך מדי. השתמש ב-{max} תווים או פחות.",
+    "tts_blocked": "שירות הדיבור דחה את הטקסט הזה. שנה את הטקסט ונסה שוב.",
     "tts_generation_failed": "יצירת הדיבור נכשלה: {reason}",
     "tts_no_audio": "ספק הדיבור לא החזיר שמע.",
     "tts_not_configured": "לא הוגדר ספק דיבור.",
-    "tts_provider_failed": "ספק הדיבור לא הצליח להפיק שמע.",
     "tts_test_failed": "בדיקת הדיבור נכשלה.",
     "tts_text_required": "יש להזין טקסט לבדיקה.",
     "twitch_reauth_required": "ההתחברות שלך ל-Twitch פגה. יש לחבר מחדש את החשבון.",
@@ -80,8 +83,6 @@
     "url_required": "נדרש URL.",
     "username_invalid": "שם משתמש זה אינו תקין.",
     "username_required": "חובה להזין שם משתמש.",
-    "voice_access_denied": "הקול \"{voice}\" דורש גישה מיוחדת. יש לנסות קול אחר.",
-    "voice_invalid": "הקול \"{voice}\" אינו זמין. יש לבדוק את הקול ולנסות שוב.",
     "voice_lookup_failed": "לא ניתן לאתר את הקול של משתמש זה.",
     "word_invalid": "מילה או ביטוי אלה אינם תקינים.",
     "word_required": "חובה להזין מילה או ביטוי."
@@ -117,7 +118,6 @@
     },
     "emotion": {
       "angry": "כועס",
-      "auto": "אוטומטי",
       "calm": "רגוע",
       "disgusted": "נגעל",
       "fearful": "מפוחד",
@@ -125,7 +125,8 @@
       "happy": "שמח",
       "neutral": "ניטרלי",
       "sad": "עצוב",
-      "surprised": "מופתע"
+      "surprised": "מופתע",
+      "custom": "מותאם אישית"
     },
     "ignore": {
       "enterUsername": "יש להזין שם משתמש."
@@ -138,27 +139,65 @@
     },
     "preview": {
       "enterText": "יש להזין טקסט לבדיקה.",
-      "unavailable": "אין תצוגה מקדימה זמינה."
-    },
-    "value": {
-      "off": "כבוי",
-      "on": "פעיל"
+      "unavailable": "אין דגימה זמינה עבור קול זה."
     },
     "voice": {
       "cannotPlay": "לא ניתן להשמיע דגימת שמע.",
       "generating": "מייצר…",
       "noAudio": "השרת לא החזיר שמע.",
       "noneFound": "לא נמצאו קולות.",
-      "preview": "השמעת דוגמה של {voice}",
+      "preview": "השמע דגימה של {voice}",
       "regenerate": "צור מחדש",
-      "testFailed": "הבדיקה נכשלה: {reason}"
+      "testFailed": "הבדיקה נכשלה: {reason}",
+      "choose": "בחר קול",
+      "panelLabel": "חיפוש קולות",
+      "listLabel": "קולות",
+      "searchLabel": "חפש קולות",
+      "searchHint": "הקלד מילה אחת או יותר, לדוגמה \"german calm low\". החיפוש מוצא קולות שמכילים את כל המילים. תיאורי הקולות הם באנגלית בלבד.",
+      "filterLanguage": "סינון לפי שפה",
+      "anyLanguage": "כל השפות",
+      "filterGender": "סינון לפי מגדר",
+      "anyGender": "כל המגדרים",
+      "gender": {
+        "female": "נקבה",
+        "male": "זכר",
+        "neutral": "ניטרלי"
+      },
+      "filterPitch": "סינון לפי גובה צליל",
+      "anyPitch": "כל גבהי הצליל",
+      "pitch": {
+        "low": "צליל נמוך",
+        "medium": "צליל בינוני",
+        "high": "צליל גבוה"
+      },
+      "studioOnly": "קולות אולפן בלבד",
+      "studioTag": "אולפן",
+      "count": "קולות שנמצאו: {count}",
+      "legacy": "קול ישן ({id})",
+      "stopSample": "עצור את הדגימה של {voice}"
+    },
+    "step": {
+      "speed": {
+        "very_slow": "איטי מאוד",
+        "slow": "איטי",
+        "normal": "רגיל",
+        "fast": "מהיר",
+        "very_fast": "מהיר מאוד"
+      },
+      "pitch": {
+        "very_low": "נמוך מאוד",
+        "low": "נמוך",
+        "normal": "רגיל",
+        "high": "גבוה",
+        "very_high": "גבוה מאוד"
+      }
+    },
+    "style": {
+      "count": "{count} מתוך {max} תווים"
     }
   },
   "page": {
     "skipToMainContent": "דילוג לתוכן הראשי"
-  },
-  "sidebarEngNormVal": {
-    "off": "כבוי"
   },
   "sidebarLanguageVal": {
     "automatic": "אוטומטי"

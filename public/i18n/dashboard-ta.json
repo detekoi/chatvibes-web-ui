@@ -35,9 +35,6 @@
   "calibrationSaveBtn": {
     "save": "சேமி"
   },
-  "calibrationVoiceSearch": {
-    "searchVoicesToCalibrate": "அளவீடு செய்ய வேண்டிய குரல்களைத் தேடவும்..."
-  },
   "channelNameStatus": {
     "yourChannel": "உங்கள் சேனல்"
   },
@@ -73,7 +70,6 @@
     "deactivationStopsTheBotFrom": "செயலிழக்கச் செய்வது, பாட் சாட் செய்திகளை வாசிப்பதை நிறுத்தும். உங்கள் அமைப்புகள் சேமிக்கப்பட்டே இருக்கும். நீங்கள் எப்போது வேண்டுமானாலும் மீண்டும் சேவையைச் செயல்படுத்தலாம்.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>ஆவணங்கள்",
     "emotion": "உணர்ச்சி",
-    "engNormalization": "ஆங்கில சீராக்கம்",
     "language": "மொழி",
     "pitch": "சுருதி",
     "quickLinks": "விரைவு இணைப்புகள்",
@@ -87,22 +83,36 @@
   },
   "defaultEmotion": {
     "angry": "கோபம்",
+    "calm": "அமைதி",
+    "custom": "தனிப்பயன்…",
     "disgusted": "அருவருப்பு",
     "fearful": "பயம்",
+    "fluent": "சரளம்",
     "happy": "மகிழ்ச்சி",
     "neutral": "நடுநிலை",
     "sad": "சோகம்",
     "surprised": "ஆச்சரியம்"
   },
-  "defaultPitch": {
-    "defaultPitch12To12": "இயல்புநிலை சுருதி (-12 முதல் +12 வரை)"
+  "defaultPitchLabel": {
+    "defaultPitch": "<strong>இயல்புநிலை சுருதி</strong>"
   },
-  "defaultSpeed": {
-    "defaultSpeed05To": "இயல்புநிலை வேகம் (0.5 முதல் 2.0 வரை)"
+  "defaultSpeedLabel": {
+    "defaultSpeed": "<strong>இயல்புநிலை வேகம்</strong>"
   },
-  "defaultVoiceSearch": {
-    "searchDefaultVoices": "இயல்புநிலைக் குரல்களைத் தேடுங்கள்",
-    "searchVoices": "குரல்களைத் தேடுங்கள்..."
+  "defaultStepsHint": {
+    "pitchAndSpeedAreApproximate": "சுருதியும் வேகமும் தோராயமானவை. குரல் மாதிரி இந்த அமைப்புகளை எண்களாக அல்லாமல் சொற்களாகப் பெறுகிறது."
+  },
+  "defaultStyle": {
+    "exampleCalmAndSlowLike": "எடுத்துக்காட்டு: இரவு நேர வானொலித் தொகுப்பாளரைப் போல அமைதியாகவும் மெதுவாகவும்"
+  },
+  "defaultStyleGroup": {
+    "style": "பாணி"
+  },
+  "defaultStyleHint": {
+    "describeInAFewWords": "குரல் எவ்வாறு பேசுகிறது என்பதைச் சில சொற்களில் விவரிக்கவும்."
+  },
+  "defaultVoiceLabel": {
+    "defaultVoice": "<strong>இயல்புநிலை குரல்</strong>"
   },
   "defaultVolume": {
     "voiceVolume01To": "குரல் ஒலி அளவு (0.1 முதல் 10 வரை)"
@@ -111,9 +121,6 @@
     "describeEmotes": "எமோட்டுகளை விவரி",
     "readEmoteNames": "எமோட் பெயர்களைப் படிக்கவும்",
     "skipEmotes": "எமோட்களைத் தவிர்க்கவும்"
-  },
-  "englishNormalization": {
-    "englishNormalization": "ஆங்கில இயல்பாக்கம்"
   },
   "eventsEnabled": {
     "announceEvents": "நிகழ்வுகளை அறிவிக்கவும்"
@@ -214,7 +221,8 @@
       "hasVoice": "{user} பயனர் அமைத்த தனிப்பயன் குரல்: {voice}",
       "noVoice": "{user} பயனர் தனிப்பயன் குரல் எதையும் அமைக்கவில்லை.",
       "searching": "தேடுகிறது…",
-      "voiceUnknown": "இந்தக் குரல் கிடைக்கக்கூடிய குரல்களின் பட்டியலில் இல்லை."
+      "voiceUnknown": "இந்தக் குரல் கிடைக்கக்கூடிய குரல்களின் பட்டியலில் இல்லை.",
+      "storedVoice": "இந்தப் பார்வையாளர் {stored} என்ற பழைய குரலைச் சேமித்துள்ளார். அதற்குப் பதிலாக TTS மேலே உள்ள குரலைப் பயன்படுத்துகிறது."
     },
     "mutedRewards": {
       "announceLabel": "{title} ரிடீம்களை அறிவி",
@@ -279,7 +287,6 @@
       "defaultSpeed": "இயல்புநிலை வேகம்",
       "defaultVoice": "இயல்புநிலைக் குரல்",
       "emoteMode": "Emote பயன்முறை",
-      "englishNormalization": "ஆங்கில இயல்பாக்கம்",
       "eventAnnouncements": "நிகழ்வு அறிவிப்புகள்",
       "expandAcronyms": "சாட் சுருக்கப்பெயர்களை விரிவாக்கு",
       "minimumBits": "குறைந்தபட்ச Bits",
@@ -288,6 +295,8 @@
       "readCommandMessages": "அரட்டை கட்டளைகளை வாசி",
       "readFullUrls": "முழு URL-களையும் வாசி",
       "redemptionAnnouncements": "Redemption அறிவிப்புகள்",
+      "soundTags": "ஒலிக் குறிச்சொற்கள்",
+      "style": "பாணி",
       "ttsEngine": "TTS என்ஜின்",
       "ttsMode": "TTS முறை",
       "ttsPermission": "TTS அனுமதி",
@@ -380,14 +389,6 @@
   "removeBotBtn": {
     "deactivateTtsService": "TTS சேவையை முடக்கு"
   },
-  "resetPitchBtn": {
-    "reset": "மீட்டமை",
-    "resetDefaultPitchTo0": "இயல்புநிலை சுருதியை 0-க்கு மீட்டமை"
-  },
-  "resetSpeedBtn": {
-    "reset": "மீட்டமை",
-    "resetDefaultSpeedTo1": "இயல்புநிலை வேகத்தை 1.0 என மீட்டமைக்க"
-  },
   "resetVolumeBtn": {
     "reset": "மீட்டமை",
     "resetVoiceVolumeTo1": "குரலின் ஒலியளவை 1.0 என மீட்டமைக்க"
@@ -398,8 +399,8 @@
   "serviceHeadline": {
     "ttsService": "TTS சேவை"
   },
-  "sidebarVoiceName": {
-    "friendlyPerson": "நட்பான நபர்"
+  "soundTagsTitle": {
+    "soundTags": "ஒலிக் குறிச்சொற்கள்"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "!myvoice போன்ற அரட்டைக் கட்டளைகளுக்கு பாட் பதிலளிக்க அனுமதிக்கவும்",
@@ -479,24 +480,20 @@
     "voiceDefaults": "குரல் இயல்புநிலைகள்"
   },
   "tabViewerDefaults": {
-    "adjustThePitchForThe": "இயல்புநிலைக் குரலுக்கான சுருதியைச் சரிசெய்யவும்",
     "adjustTheVolumeForThe": "தேர்ந்தெடுக்கப்பட்ட குரலுக்கான ஒலியளவைச் சரிசெய்யவும். எச்சரிக்கை: 1.0-ஐ விட அதிகமான மதிப்புகள் சிதைவை ஏற்படுத்தக்கூடும்.",
     "calibratedVoices": "<strong>அளவீடு செய்யப்பட்ட குரல்கள்</strong>",
     "calibrateVolumeForSpecificVoices": "குறிப்பிட்ட குரல்களுக்கான ஒலியளவை அளவீடு செய்யவும். எச்சரிக்கை: 1.0-ஐ விட அதிகமான மதிப்புகள் சிதைவை ஏற்படுத்தக்கூடும்.",
-    "controlHowFastTheDefault": "இயல்புநிலைக் குரலின் பேசும் வேகத்தைக் கட்டுப்படுத்தவும்",
     "defaultEmotion": "<strong>இயல்புநிலை உணர்ச்சி</strong>",
     "defaultLanguage": "<strong>இயல்புநிலை மொழி</strong>",
-    "defaultPitch12To12": "இயல்புநிலை Pitch (-12 முதல் +12 வரை):",
-    "defaultSpeed05To": "இயல்புநிலை வேகம் (0.5 முதல் 2.0 வரை):",
-    "defaultVoice": "<strong>இயல்புநிலைக் குரல்</strong>",
     "defaultVoiceSettings": "இயல்புநிலைக் குரல் அமைப்புகள்",
-    "englishNormalization": "ஆங்கில இயல்பாக்கம்",
-    "improvePronunciationForSpecificLanguages": "குறிப்பிட்ட மொழிகளுக்கான உச்சரிப்பை மேம்படுத்தவும்",
-    "improveThePronunciationOfNumbers": "எண்கள் மற்றும் உரையின் உச்சரிப்பை மேம்படுத்தவும்",
-    "selectTheDefaultTtsVoice": "சேனலுக்கான இயல்புநிலை TTS குரலைத் தேர்ந்தெடுக்கவும்",
+    "selectHowFastTheDefault": "இயல்புநிலை குரல் எவ்வளவு வேகமாகப் பேச வேண்டும் என்பதைத் தேர்ந்தெடுக்கவும்",
+    "selectHowHighOrLow": "இயல்புநிலை குரல் எவ்வளவு உயரமாகவோ தாழ்வாகவோ பேச வேண்டும் என்பதைத் தேர்ந்தெடுக்கவும்",
+    "selectTheVoiceThatTts": "தங்களுக்கென குரல் இல்லாத பார்வையாளர்களுக்கு TTS பயன்படுத்தும் குரலைத் தேர்ந்தெடுக்கவும்",
     "selectVoice": "குரலைத் தேர்ந்தெடுக்கவும்",
     "setDefaultVoiceSettingsFor": "உங்கள் சேனலுக்கான இயல்புநிலைக் குரல் அமைப்புகளை அமைக்கவும்",
-    "setTheEmotionalToneOf": "இயல்புநிலைக் குரலின் உணர்ச்சித் தொனியை அமைக்கவும்",
+    "setTheEmotionOfThe": "இயல்புநிலை குரலின் உணர்ச்சியை அமைக்கவும். உங்கள் சொந்த வார்த்தைகளில் குரலை விவரிக்க தனிப்பயன் என்பதைத் தேர்ந்தெடுக்கவும்.",
+    "theVoiceModelReadsThe": "குரல் மாதிரி உரையிலிருந்து மொழியைப் படிக்கிறது. உரை சிறியதாகவோ தெளிவற்றதாகவோ இருந்தால், இந்த அமைப்பு மாதிரிக்கு ஒரு குறிப்பை வழங்குகிறது. இது அறிவிப்புகளுக்கான இயல்புநிலை மொழியையும் அமைக்கிறது மற்றும் தகாத சொல் வடிகட்டிக்கான சொல் பட்டியலையும் தேர்ந்தெடுக்கிறது.",
+    "viewersCanTypeASound": "பார்வையாளர்கள் செய்தியில் ஒரு ஒலிக் குறிச்சொல்லைத் தட்டச்சு செய்யலாம், அப்போது குரல் அந்த ஒலியை எழுப்பும். எடுத்துக்காட்டுகள்: <code>&lt;laugh&gt;</code> மற்றும் <code>&lt;sigh&gt;</code>. இயல்பாக எல்லா குறிச்சொற்களும் இயக்கத்தில் இருக்கும். ஒரு குறிச்சொல்லை அணைக்க, அதன் தேர்வுப் பெட்டியைத் தேர்வுநீக்கவும்.",
     "viewerVoiceLookup": "பார்வையாளர் குரல் தேடல்",
     "voiceCalibration": "குரல் அளவுத்திருத்தம்",
     "voicesWithCustomVolumeSettings": "தனிப்பயன் ஒலி அமைப்புகளைக் கொண்ட குரல்கள்.",

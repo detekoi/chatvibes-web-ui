@@ -37,6 +37,7 @@
     "prefs_invalid_language": "To ni veljaven jezik.",
     "prefs_invalid_pitch": "To ni veljavna višina glasu.",
     "prefs_invalid_speed": "To ni veljavna hitrost.",
+    "prefs_invalid_style": "To ni veljaven slog.",
     "prefs_invalid_voice": "To ni veljaven glas.",
     "prefs_missing_data": "Spremembe niso bile poslane.",
     "prefs_update_failed": "Vaša sprememba zaradi napake strežnika ni bila shranjena. Poskusite znova.",
@@ -68,11 +69,13 @@
     "setting_update_failed": "Nastavitve TTS ni mogoče posodobiti.",
     "settings_fetch_failed": "Nastavitev TTS ni mogoče naložiti.",
     "shortlink_failed": "Kratke povezave ni mogoče ustvariti.",
+    "sound_tag_unknown": "Zvočna oznaka »{tag}« ni na seznamu. Osveži stran in poskusi znova.",
     "storage_unavailable": "Shramba ni na voljo.",
+    "style_too_long": "Slog je predolg. Uporabi največ {max} znakov.",
+    "tts_blocked": "Govorna storitev je zavrnila to besedilo. Spremeni besedilo in poskusi znova.",
     "tts_generation_failed": "Generiranje govora ni uspelo: {reason}",
     "tts_no_audio": "Ponudnik govora ni vrnil zvoka.",
     "tts_not_configured": "Noben ponudnik govora ni nastavljen.",
-    "tts_provider_failed": "Ponudnik govora ni mogel ustvariti zvoka.",
     "tts_test_failed": "Preizkus govora ni uspel.",
     "tts_text_required": "Vnesite besedilo za preizkus.",
     "twitch_reauth_required": "Vaša prijava v Twitch je potekla. Znova povežite svoj račun.",
@@ -80,8 +83,6 @@
     "url_required": "URL je obvezen.",
     "username_invalid": "To uporabniško ime ni veljavno.",
     "username_required": "Uporabniško ime je obvezno.",
-    "voice_access_denied": "Glas \"{voice}\" zahteva poseben dostop. Poskusite z drugim glasom.",
-    "voice_invalid": "Glas \"{voice}\" ni na voljo. Preverite glas in poskusite znova.",
     "voice_lookup_failed": "Glasu tega uporabnika ni mogoče najti.",
     "word_invalid": "Ta beseda ali fraza ni veljavna.",
     "word_required": "Beseda ali fraza je obvezna."
@@ -117,7 +118,6 @@
     },
     "emotion": {
       "angry": "Jezen",
-      "auto": "Samodejno",
       "calm": "Umirjeno",
       "disgusted": "Zgrožen",
       "fearful": "Prestrašen",
@@ -125,7 +125,8 @@
       "happy": "Vesel",
       "neutral": "Nevtralen",
       "sad": "Žalosten",
-      "surprised": "Presenečen"
+      "surprised": "Presenečen",
+      "custom": "Po meri"
     },
     "ignore": {
       "enterUsername": "Vnesi uporabniško ime."
@@ -138,27 +139,65 @@
     },
     "preview": {
       "enterText": "Vnesi besedilo za preizkus.",
-      "unavailable": "Predogled ni na voljo."
-    },
-    "value": {
-      "off": "Izklopljeno",
-      "on": "Vklopljeno"
+      "unavailable": "Za ta glas vzorec ni na voljo."
     },
     "voice": {
       "cannotPlay": "Zvočnega vzorca ni mogoče predvajati.",
       "generating": "Generiranje …",
       "noAudio": "Strežnik ni vrnil zvoka.",
       "noneFound": "Ni najdenih glasov.",
-      "preview": "Predposlušaj {voice}",
+      "preview": "Predvajaj vzorec glasu {voice}",
       "regenerate": "Ponovno ustvari",
-      "testFailed": "Preizkus ni uspel: {reason}"
+      "testFailed": "Preizkus ni uspel: {reason}",
+      "choose": "Izberi glas",
+      "panelLabel": "Iskanje glasov",
+      "listLabel": "Glasovi",
+      "searchLabel": "Išči glasove",
+      "searchHint": "Vnesi eno ali več besed, na primer »german calm low«. Iskanje najde glasove, ki vsebujejo vsako besedo. Opisi glasov so samo v angleščini.",
+      "filterLanguage": "Filtriraj po jeziku",
+      "anyLanguage": "Vsi jeziki",
+      "filterGender": "Filtriraj po spolu",
+      "anyGender": "Vsi spoli",
+      "gender": {
+        "female": "Ženski",
+        "male": "Moški",
+        "neutral": "Nevtralen"
+      },
+      "filterPitch": "Filtriraj po višini",
+      "anyPitch": "Vse višine",
+      "pitch": {
+        "low": "Nizka višina",
+        "medium": "Srednja višina",
+        "high": "Visoka višina"
+      },
+      "studioOnly": "Samo studijski glasovi",
+      "studioTag": "Studio",
+      "count": "Najdeni glasovi: {count}",
+      "legacy": "Starejši glas ({id})",
+      "stopSample": "Ustavi vzorec glasu {voice}"
+    },
+    "step": {
+      "speed": {
+        "very_slow": "Zelo počasi",
+        "slow": "Počasi",
+        "normal": "Običajno",
+        "fast": "Hitro",
+        "very_fast": "Zelo hitro"
+      },
+      "pitch": {
+        "very_low": "Zelo nizko",
+        "low": "Nizko",
+        "normal": "Običajno",
+        "high": "Visoko",
+        "very_high": "Zelo visoko"
+      }
+    },
+    "style": {
+      "count": "{count} od {max} znakov"
     }
   },
   "page": {
     "skipToMainContent": "Preskoči na glavno vsebino"
-  },
-  "sidebarEngNormVal": {
-    "off": "Izklopljeno"
   },
   "sidebarLanguageVal": {
     "automatic": "Samodejno"

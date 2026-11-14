@@ -37,20 +37,16 @@
   },
   "emotionSelect": {
     "angry": "Dühös",
+    "calm": "Nyugodt",
+    "custom": "Egyéni…",
     "disgusted": "Undorodó",
     "fearful": "Rémült",
+    "fluent": "Gördülékeny",
     "happy": "Boldog",
     "neutral": "Semleges",
     "sad": "Szomorú",
     "surprised": "Meglepett",
     "useChannelDefault": "Csatorna alapértelmezése"
-  },
-  "englishNormalizationCheckbox": {
-    "englishNormalization": "Angol normalizáció"
-  },
-  "englishNormalizationReset": {
-    "clear": "Törlés",
-    "resetEnglishNormalizationToDefault": "Angol normalizáció visszaállítása alapértelmezettre"
   },
   "ignoreTts": {
     "optOutInThisChannel": "Letiltás ezen a csatornán"
@@ -110,11 +106,11 @@
       "hintChannel": "Csatorna alapértelmezése: {value}",
       "hintSystem": "Rendszer alapértelmezése",
       "hintUser": "Globális beállításod: {value}",
-      "noVoicesFound": "Nem található hang",
       "sendPreview": "Előnézet küldése",
       "testCompletedTestMode": "Teszt befejezve (tesztmód).",
       "updated": "Beállítás frissítve.",
-      "updatedTestMode": "Beállítás frissítve (tesztmód)."
+      "updatedTestMode": "Beállítás frissítve (tesztmód).",
+      "customStyle": "Egyéni ({style})"
     }
   },
   "openChannelContextModalBtn": {
@@ -140,36 +136,29 @@
     "viewerSettings": "Nézői beállítások",
     "viewerTtsPreferences": "Nézői TTS-beállítások"
   },
+  "pitchLabel": {
+    "pitch": "<strong>Hangmagasság</strong>"
+  },
   "pitchReset": {
     "clear": "Törlés",
     "resetPitchToDefault": "Hangmagasság visszaállítása alapértelmezettre"
   },
-  "pitchSlider": {
-    "pitchAdjustment12To12": "Hangmagasság módosítása (-12 és +12 között)"
-  },
   "preferencesPanel": {
-    "adjustTheVoicePitchHigher": "Állítsd a hangmagasságot magasabbra vagy mélyebbre",
-    "controlHowFastTheVoice": "A beszéd sebességének szabályozása",
     "documentationStreamerSettingsWildcatChat": "<a class=\"wc-link wc-link--muted\" href=\"https://docs.wildcat.chat/wildcatttsdocs.html\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentáció </a> <a class=\"wc-link wc-link--muted\" href=\"dashboard.html\"> <i data-lucide=\"radio\" aria-hidden=\"true\"></i>Streamer-beállítások </a> <a class=\"wc-link wc-link--muted\" href=\"https://wildcat.chat\" target=\"_blank\" rel=\"noopener\"> <i data-lucide=\"external-link\" aria-hidden=\"true\"></i>Wildcat Chat </a>",
     "emotion": "<strong>Érzelem</strong>",
     "emotion2": "Érzelem",
-    "englishNormalization": "Angol szövegnormalizálás",
-    "engNormalization": "Angol normalizálás",
-    "ifTtsReadsNumbersIncorrectly": "Ha a TTS helytelenül olvassa a számokat, kapcsold be az angol szövegnormalizálást. Ez a beállítás kissé növeli a késleltetést.",
-    "improvePronunciationForSpecificLanguages": "Kiejtés javítása adott nyelvekhez",
-    "improveThePronunciationOfNumbers": "Számok és szöveg kiejtésének javítása",
+    "ifYourTextIsShort": "Ha a szöveged rövid vagy nem egyértelmű, ez a beállítás támpontot ad a hangmodellnek. Emellett ez választja ki a káromkodásszűrő szólistáját is.",
     "language": "Nyelv",
-    "languageBoost": "<strong>Language Boost</strong>",
+    "languageLabel": "<strong>Nyelv</strong>",
     "pitch": "Hangmagasság",
-    "pitch12To12": "Hangmagasság (-12-től +12-ig):",
     "quickLinks": "Gyorshivatkozások",
-    "selectYourPreferredTtsVoice": "Válaszd ki a kívánt TTS-hangot",
+    "selectHowFastTheVoice": "Válaszd ki, milyen gyorsan beszéljen a hang",
+    "selectHowHighOrLow": "Válaszd ki, milyen magas vagy mély legyen a hang",
+    "selectTheVoiceThatTts": "Válaszd ki a hangot, amelyet a TTS az üzeneteidhez használ",
     "setHowYourMessagesSound": "Állítsd be, hogyan hangzanak az üzeneteid a TTS felolvasásakor",
-    "setTheEmotionalToneOf": "A hang érzelmi tónusának beállítása",
+    "setTheEmotionOfThe": "Állítsd be a hang érzelmét. Válaszd az Egyéni lehetőséget, ha saját szavaiddal írnád le a hangot.",
     "speed": "Sebesség",
-    "speed05To2": "Sebesség (0,5-től 2,0-ig):",
     "testMessage": "Tesztüzenet",
-    "voice": "<strong>Hang</strong>",
     "voicePreview": "Hang előnézete",
     "voiceSettings": "Hangbeállítások"
   },
@@ -179,22 +168,33 @@
   "previewBtn": {
     "sendPreview": "Előnézet küldése"
   },
+  "speedLabel": {
+    "speed": "<strong>Sebesség</strong>"
+  },
   "speedReset": {
     "clear": "Visszaállítás",
     "resetSpeedToDefault": "Sebesség visszaállítása alapértelmezettre"
   },
-  "speedSlider": {
-    "speedAdjustment05To": "Sebesség beállítása (0,5–2,0)"
-  },
   "statChannelContext": {
     "noneLoaded": "Nincs betöltve"
+  },
+  "stepsHint": {
+    "pitchAndSpeedAreApproximate": "A hangmagasság és a sebesség hozzávetőleges. A hangmodell ezeket a beállításokat szavakként kapja meg, nem számokként."
+  },
+  "styleGroup": {
+    "style": "Stílus"
+  },
+  "styleHint": {
+    "describeInAFewWords": "Írd le néhány szóban, hogyan beszéljen a hang."
+  },
+  "styleInput": {
+    "exampleCalmAndSlowLike": "Példa: nyugodt és lassú, mint egy éjszakai rádiós műsorvezető"
+  },
+  "voiceLabel": {
+    "voice": "<strong>Hang</strong>"
   },
   "voiceReset": {
     "clear": "Visszaállítás",
     "resetVoiceToDefault": "Hang visszaállítása alapértelmezettre"
-  },
-  "voiceSearch": {
-    "searchVoices": "Hangok keresése",
-    "searchVoices2": "Hangok keresése..."
   }
 }

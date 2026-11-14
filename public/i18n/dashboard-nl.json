@@ -35,9 +35,6 @@
   "calibrationSaveBtn": {
     "save": "Opslaan"
   },
-  "calibrationVoiceSearch": {
-    "searchVoicesToCalibrate": "Zoek te kalibreren stemmen..."
-  },
   "channelNameStatus": {
     "yourChannel": "je kanaal"
   },
@@ -73,7 +70,6 @@
     "deactivationStopsTheBotFrom": "Deactivatie zorgt ervoor dat de bot stopt met het voorlezen van chatberichten. Je instellingen blijven bewaard. Je kunt de service op elk moment weer activeren.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Documentatie",
     "emotion": "Emotie",
-    "engNormalization": "Eng. normalisatie",
     "language": "Taal",
     "pitch": "Toonhoogte",
     "quickLinks": "Snelle links",
@@ -87,22 +83,36 @@
   },
   "defaultEmotion": {
     "angry": "Boos",
+    "calm": "Kalm",
+    "custom": "Aangepast…",
     "disgusted": "Walgend",
     "fearful": "Bang",
+    "fluent": "Vloeiend",
     "happy": "Blij",
     "neutral": "Neutraal",
     "sad": "Verdrietig",
     "surprised": "Verrast"
   },
-  "defaultPitch": {
-    "defaultPitch12To12": "Standaardtoonhoogte (-12 tot +12)"
+  "defaultPitchLabel": {
+    "defaultPitch": "<strong>Standaard toonhoogte</strong>"
   },
-  "defaultSpeed": {
-    "defaultSpeed05To": "Standaardsnelheid (0,5 tot 2,0)"
+  "defaultSpeedLabel": {
+    "defaultSpeed": "<strong>Standaard snelheid</strong>"
   },
-  "defaultVoiceSearch": {
-    "searchDefaultVoices": "Standaardstemmen zoeken",
-    "searchVoices": "Stemmen zoeken..."
+  "defaultStepsHint": {
+    "pitchAndSpeedAreApproximate": "Toonhoogte en snelheid zijn bij benadering. Het stemmodel krijgt deze instellingen als woorden, niet als getallen."
+  },
+  "defaultStyle": {
+    "exampleCalmAndSlowLike": "Bijvoorbeeld: kalm en langzaam, zoals een radiopresentator 's nachts"
+  },
+  "defaultStyleGroup": {
+    "style": "Stijl"
+  },
+  "defaultStyleHint": {
+    "describeInAFewWords": "Beschrijf in een paar woorden hoe de stem spreekt."
+  },
+  "defaultVoiceLabel": {
+    "defaultVoice": "<strong>Standaardstem</strong>"
   },
   "defaultVolume": {
     "voiceVolume01To": "Stemvolume (0,1 tot 10)"
@@ -111,9 +121,6 @@
     "describeEmotes": "Emotes beschrijven",
     "readEmoteNames": "Emotenamen voorlezen",
     "skipEmotes": "Emotes overslaan"
-  },
-  "englishNormalization": {
-    "englishNormalization": "Engelse normalisatie"
   },
   "eventsEnabled": {
     "announceEvents": "Evenementen aankondigen"
@@ -214,7 +221,8 @@
       "hasVoice": "Gebruiker {user} heeft aangepaste stem ingesteld: {voice}",
       "noVoice": "Gebruiker {user} heeft geen aangepaste stem ingesteld.",
       "searching": "Zoeken…",
-      "voiceUnknown": "Deze stem staat niet in de lijst met beschikbare stemmen."
+      "voiceUnknown": "Deze stem staat niet in de lijst met beschikbare stemmen.",
+      "storedVoice": "Deze kijker heeft de oude stem {stored} opgeslagen. TTS gebruikt in plaats daarvan de bovenstaande stem."
     },
     "mutedRewards": {
       "announceLabel": "Inwisselingen van {title} aankondigen",
@@ -279,7 +287,6 @@
       "defaultSpeed": "Standaardsnelheid",
       "defaultVoice": "Standaardstem",
       "emoteMode": "Emote-modus",
-      "englishNormalization": "Engelse normalisatie",
       "eventAnnouncements": "Evenementaankondigingen",
       "expandAcronyms": "Chat-acroniemen uitbreiden",
       "minimumBits": "Minimum aantal Bits",
@@ -288,6 +295,8 @@
       "readCommandMessages": "Chatcommando's voorlezen",
       "readFullUrls": "Volledige URL's voorlezen",
       "redemptionAnnouncements": "Inwisselaankondigingen",
+      "soundTags": "Geluidstags",
+      "style": "Stijl",
       "ttsEngine": "TTS-engine",
       "ttsMode": "TTS-modus",
       "ttsPermission": "TTS-toestemming",
@@ -380,14 +389,6 @@
   "removeBotBtn": {
     "deactivateTtsService": "TTS-service deactiveren"
   },
-  "resetPitchBtn": {
-    "reset": "Herstellen",
-    "resetDefaultPitchTo0": "Standaardtoonhoogte herstellen naar 0"
-  },
-  "resetSpeedBtn": {
-    "reset": "Herstellen",
-    "resetDefaultSpeedTo1": "Standaardsnelheid herstellen naar 1,0"
-  },
   "resetVolumeBtn": {
     "reset": "Herstellen",
     "resetVoiceVolumeTo1": "Stemvolume herstellen naar 1,0"
@@ -398,8 +399,8 @@
   "serviceHeadline": {
     "ttsService": "TTS-dienst"
   },
-  "sidebarVoiceName": {
-    "friendlyPerson": "Vriendelijk persoon"
+  "soundTagsTitle": {
+    "soundTags": "Geluidstags"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "De bot laten reageren op chatcommando's zoals !myvoice",
@@ -476,27 +477,23 @@
     "broadcaster": "Streamer"
   },
   "tabBtnViewerDefaults": {
-    "voiceDefaults": "Standaardstemmen"
+    "voiceDefaults": "Standaardwaarden stem"
   },
   "tabViewerDefaults": {
-    "adjustThePitchForThe": "Pas de toonhoogte aan voor de standaardstem",
     "adjustTheVolumeForThe": "Pas het volume aan voor de geselecteerde stem. LET OP: Waarden hoger dan 1,0 kunnen vervorming veroorzaken.",
     "calibratedVoices": "<strong>Gekalibreerde stemmen</strong>",
     "calibrateVolumeForSpecificVoices": "Kalibreer het volume voor specifieke stemmen. LET OP: Waarden hoger dan 1,0 kunnen vervorming veroorzaken.",
-    "controlHowFastTheDefault": "Stel in hoe snel de standaardstem spreekt",
     "defaultEmotion": "<strong>Standaardemotie</strong>",
     "defaultLanguage": "<strong>Standaardtaal</strong>",
-    "defaultPitch12To12": "Standaardtoonhoogte (-12 tot +12):",
-    "defaultSpeed05To": "Standaardsnelheid (0,5 tot 2,0):",
-    "defaultVoice": "<strong>Standaardstem</strong>",
     "defaultVoiceSettings": "Standaard steminstellingen",
-    "englishNormalization": "Engelse normalisatie",
-    "improvePronunciationForSpecificLanguages": "Verbeter de uitspraak voor specifieke talen",
-    "improveThePronunciationOfNumbers": "Verbeter de uitspraak van cijfers en tekst",
-    "selectTheDefaultTtsVoice": "Selecteer de standaard TTS-stem voor het kanaal",
+    "selectHowFastTheDefault": "Kies hoe snel de standaardstem spreekt",
+    "selectHowHighOrLow": "Kies hoe hoog of laag de standaardstem spreekt",
+    "selectTheVoiceThatTts": "Kies de stem die TTS gebruikt voor kijkers zonder eigen stem",
     "selectVoice": "Stem selecteren",
     "setDefaultVoiceSettingsFor": "Stel standaard steminstellingen in voor je kanaal",
-    "setTheEmotionalToneOf": "Stel de emotionele toon van de standaardstem in",
+    "setTheEmotionOfThe": "Stel de emotie van de standaardstem in. Kies Aangepast om de stem in je eigen woorden te beschrijven.",
+    "theVoiceModelReadsThe": "Het stemmodel leest de taal uit de tekst. Als de tekst kort of onduidelijk is, geeft deze instelling het model een hint. Deze stelt ook de standaardtaal voor aankondigingen in en kiest de woordenlijst voor het scheldwoordenfilter.",
+    "viewersCanTypeASound": "Kijkers kunnen een geluidstag in een bericht typen en de stem maakt dat geluid. Voorbeelden zijn <code>&lt;laugh&gt;</code> en <code>&lt;sigh&gt;</code>. Alle tags staan standaard aan. Haal het vinkje weg om een tag uit te schakelen.",
     "viewerVoiceLookup": "Kijkersstem opzoeken",
     "voiceCalibration": "Stemkalibratie",
     "voicesWithCustomVolumeSettings": "Stemmen met aangepaste volume-instellingen.",

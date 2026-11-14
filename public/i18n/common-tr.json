@@ -37,6 +37,7 @@
     "prefs_invalid_language": "Bu geçerli bir dil değil.",
     "prefs_invalid_pitch": "Bu geçerli bir ses tonu değil.",
     "prefs_invalid_speed": "Bu geçerli bir hız değil.",
+    "prefs_invalid_style": "Bu geçerli bir stil değil.",
     "prefs_invalid_voice": "Bu geçerli bir ses değil.",
     "prefs_missing_data": "Hiçbir değişiklik gönderilmedi.",
     "prefs_update_failed": "Bir sunucu hatası nedeniyle değişikliğiniz kaydedilemedi. Tekrar deneyin.",
@@ -68,11 +69,13 @@
     "setting_update_failed": "TTS ayarı güncellenemedi.",
     "settings_fetch_failed": "TTS ayarları yüklenemedi.",
     "shortlink_failed": "Kısa bağlantı oluşturulamıyor.",
+    "sound_tag_unknown": "\"{tag}\" ses etiketi listede yok. Sayfayı yenile ve tekrar dene.",
     "storage_unavailable": "Depolama kullanılamıyor.",
+    "style_too_long": "Stil çok uzun. En fazla {max} karakter kullan.",
+    "tts_blocked": "Konuşma hizmeti bu metni reddetti. Metni değiştir ve tekrar dene.",
     "tts_generation_failed": "Konuşma oluşturulamadı: {reason}",
     "tts_no_audio": "Konuşma sağlayıcısı ses döndürmedi.",
     "tts_not_configured": "Yapılandırılmış bir konuşma sağlayıcısı yok.",
-    "tts_provider_failed": "Konuşma sağlayıcısı ses oluşturamadı.",
     "tts_test_failed": "Konuşma testi başarısız oldu.",
     "tts_text_required": "Test etmek için bir metin girin.",
     "twitch_reauth_required": "Twitch oturumunuzun süresi doldu. Hesabınızı yeniden bağlayın.",
@@ -80,8 +83,6 @@
     "url_required": "Bir URL gereklidir.",
     "username_invalid": "Geçersiz kullanıcı adı.",
     "username_required": "Kullanıcı adı gerekli.",
-    "voice_access_denied": "\"{voice}\" sesi özel erişim gerektiriyor. Farklı bir ses deneyin.",
-    "voice_invalid": "\"{voice}\" sesi kullanılamıyor. Sesi kontrol edip tekrar deneyin.",
     "voice_lookup_failed": "Bu kullanıcının sesi bulunamıyor.",
     "word_invalid": "Geçersiz kelime veya kelime öbeği.",
     "word_required": "Kelime veya kelime öbeği gerekli."
@@ -117,7 +118,6 @@
     },
     "emotion": {
       "angry": "Kızgın",
-      "auto": "Otomatik",
       "calm": "Sakin",
       "disgusted": "İğrenmiş",
       "fearful": "Korkmuş",
@@ -125,7 +125,8 @@
       "happy": "Mutlu",
       "neutral": "Nötr",
       "sad": "Üzgün",
-      "surprised": "Şaşırmış"
+      "surprised": "Şaşırmış",
+      "custom": "Özel"
     },
     "ignore": {
       "enterUsername": "Bir kullanıcı adı gir."
@@ -138,27 +139,65 @@
     },
     "preview": {
       "enterText": "Test etmek için metin gir.",
-      "unavailable": "Önizleme yok."
-    },
-    "value": {
-      "off": "Kapalı",
-      "on": "Açık"
+      "unavailable": "Bu ses için örnek yok."
     },
     "voice": {
       "cannotPlay": "Ses örneği oynatılamıyor.",
       "generating": "Oluşturuluyor…",
       "noAudio": "Sunucu ses döndürmedi.",
       "noneFound": "Ses bulunamadı.",
-      "preview": "{voice} sesini önizle",
+      "preview": "{voice} ses örneğini oynat",
       "regenerate": "Yeniden oluştur",
-      "testFailed": "Test başarısız oldu: {reason}"
+      "testFailed": "Test başarısız oldu: {reason}",
+      "choose": "Ses seç",
+      "panelLabel": "Ses arama",
+      "listLabel": "Sesler",
+      "searchLabel": "Ses ara",
+      "searchHint": "Bir veya daha fazla kelime yaz, örneğin \"german calm low\". Arama, tüm kelimeleri içeren sesleri bulur. Ses açıklamaları yalnızca İngilizcedir.",
+      "filterLanguage": "Dile göre filtrele",
+      "anyLanguage": "Tüm diller",
+      "filterGender": "Cinsiyete göre filtrele",
+      "anyGender": "Tüm cinsiyetler",
+      "gender": {
+        "female": "Kadın",
+        "male": "Erkek",
+        "neutral": "Nötr"
+      },
+      "filterPitch": "Ses perdesine göre filtrele",
+      "anyPitch": "Tüm perdeler",
+      "pitch": {
+        "low": "Düşük perde",
+        "medium": "Orta perde",
+        "high": "Yüksek perde"
+      },
+      "studioOnly": "Yalnızca stüdyo sesleri",
+      "studioTag": "Stüdyo",
+      "count": "Bulunan ses: {count}",
+      "legacy": "Eski ses ({id})",
+      "stopSample": "{voice} ses örneğini durdur"
+    },
+    "step": {
+      "speed": {
+        "very_slow": "Çok yavaş",
+        "slow": "Yavaş",
+        "normal": "Normal",
+        "fast": "Hızlı",
+        "very_fast": "Çok hızlı"
+      },
+      "pitch": {
+        "very_low": "Çok düşük",
+        "low": "Düşük",
+        "normal": "Normal",
+        "high": "Yüksek",
+        "very_high": "Çok yüksek"
+      }
+    },
+    "style": {
+      "count": "{count} / {max} karakter"
     }
   },
   "page": {
     "skipToMainContent": "Ana içeriğe atla"
-  },
-  "sidebarEngNormVal": {
-    "off": "Kapalı"
   },
   "sidebarLanguageVal": {
     "automatic": "Otomatik"

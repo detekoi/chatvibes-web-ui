@@ -35,9 +35,6 @@
   "calibrationSaveBtn": {
     "save": "Stoor"
   },
-  "calibrationVoiceSearch": {
-    "searchVoicesToCalibrate": "Soek stemme om te kalibreer..."
-  },
   "channelNameStatus": {
     "yourChannel": "jou kanaal"
   },
@@ -73,7 +70,6 @@
     "deactivationStopsTheBotFrom": "Deaktivering keer dat die bot kletsboodskappe lees. Jou instellings bly gestoor. Jy kan die diens te eniger tyd weer aktiveer.",
     "documentation": "<i data-lucide=\"book\" aria-hidden=\"true\"></i>Dokumentasie",
     "emotion": "Emosie",
-    "engNormalization": "Eng. normalisering",
     "language": "Taal",
     "pitch": "Toonhoogte",
     "quickLinks": "Vinnige skakels",
@@ -87,22 +83,36 @@
   },
   "defaultEmotion": {
     "angry": "Kwaad",
+    "calm": "Kalm",
+    "custom": "Pasgemaak…",
     "disgusted": "Gewalg",
     "fearful": "Bang",
+    "fluent": "Vlot",
     "happy": "Bly",
     "neutral": "Neutraal",
     "sad": "Hartseer",
     "surprised": "Verras"
   },
-  "defaultPitch": {
-    "defaultPitch12To12": "Verstektoonhoogte (-12 tot +12)"
+  "defaultPitchLabel": {
+    "defaultPitch": "<strong>Verstektoonhoogte</strong>"
   },
-  "defaultSpeed": {
-    "defaultSpeed05To": "Verstekspoed (0.5 tot 2.0)"
+  "defaultSpeedLabel": {
+    "defaultSpeed": "<strong>Verstekspoed</strong>"
   },
-  "defaultVoiceSearch": {
-    "searchDefaultVoices": "Soek verstekstemme",
-    "searchVoices": "Soek stemme..."
+  "defaultStepsHint": {
+    "pitchAndSpeedAreApproximate": "Toonhoogte en spoed is benaderd. Die stemmodel kry hierdie instellings as woorde, nie as syfers nie."
+  },
+  "defaultStyle": {
+    "exampleCalmAndSlowLike": "Voorbeeld: kalm en stadig, soos 'n radio-aanbieder in die nag"
+  },
+  "defaultStyleGroup": {
+    "style": "Styl"
+  },
+  "defaultStyleHint": {
+    "describeInAFewWords": "Beskryf in 'n paar woorde hoe die stem praat."
+  },
+  "defaultVoiceLabel": {
+    "defaultVoice": "<strong>Verstekstem</strong>"
   },
   "defaultVolume": {
     "voiceVolume01To": "Stemvolume (0.1 tot 10)"
@@ -111,9 +121,6 @@
     "describeEmotes": "Beskryf emotes",
     "readEmoteNames": "Lees emote-name",
     "skipEmotes": "Slaan emotes oor"
-  },
-  "englishNormalization": {
-    "englishNormalization": "Engelse normalisering"
   },
   "eventsEnabled": {
     "announceEvents": "Kondig gebeure aan"
@@ -214,7 +221,8 @@
       "hasVoice": "Gebruiker {user} het gepasmaakte stem gestel: {voice}",
       "noVoice": "Gebruiker {user} het geen gepasmaakte stem gestel nie.",
       "searching": "Soek tans…",
-      "voiceUnknown": "Hierdie stem is nie in die lys van beskikbare stemme nie."
+      "voiceUnknown": "Hierdie stem is nie in die lys van beskikbare stemme nie.",
+      "storedVoice": "Hierdie kyker het die ou stem {stored} gestoor. TTS gebruik eerder die stem hierbo."
     },
     "mutedRewards": {
       "announceLabel": "Kondig inwisselings van {title} aan",
@@ -279,7 +287,6 @@
       "defaultSpeed": "Verstekspoed",
       "defaultVoice": "Verstekstem",
       "emoteMode": "Emote-modus",
-      "englishNormalization": "Engelse normalisering",
       "eventAnnouncements": "Gebeurtenisaankondigings",
       "expandAcronyms": "Brei kletsakronieme uit",
       "minimumBits": "Minimum bits",
@@ -288,6 +295,8 @@
       "readCommandMessages": "Lees kletsopdragte",
       "readFullUrls": "Lees volledige URL's",
       "redemptionAnnouncements": "Inwisselingaankondigings",
+      "soundTags": "Klankmerkers",
+      "style": "Styl",
       "ttsEngine": "TTS-enjin",
       "ttsMode": "TTS-modus",
       "ttsPermission": "TTS-toestemming",
@@ -380,14 +389,6 @@
   "removeBotBtn": {
     "deactivateTtsService": "Deaktiveer TTS-diens"
   },
-  "resetPitchBtn": {
-    "reset": "Herstel",
-    "resetDefaultPitchTo0": "Herstel verstektoonhoogte na 0"
-  },
-  "resetSpeedBtn": {
-    "reset": "Herstel",
-    "resetDefaultSpeedTo1": "Herstel verstekspoed na 1.0"
-  },
   "resetVolumeBtn": {
     "reset": "Herstel",
     "resetVoiceVolumeTo1": "Herstel stemvolume na 1.0"
@@ -398,8 +399,8 @@
   "serviceHeadline": {
     "ttsService": "TTS-diens"
   },
-  "sidebarVoiceName": {
-    "friendlyPerson": "Vriendelike Persoon"
+  "soundTagsTitle": {
+    "soundTags": "Klankmerkers"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Laat die bot toe om op kletsbevele soos !myvoice te reageer",
@@ -479,24 +480,20 @@
     "voiceDefaults": "Stemverstekke"
   },
   "tabViewerDefaults": {
-    "adjustThePitchForThe": "Pas die toonhoogte vir die verstekstem aan",
     "adjustTheVolumeForThe": "Pas die volume vir die gekose stem aan. VERSIGTIG: Waardes hoër as 1.0 kan vervorming veroorsaak.",
     "calibratedVoices": "<strong>Gekalibreerde stemme</strong>",
     "calibrateVolumeForSpecificVoices": "Kalibreer volume vir spesifieke stemme. VERSIGTIG: Waardes hoër as 1.0 kan vervorming veroorsaak.",
-    "controlHowFastTheDefault": "Beheer hoe vinnig die verstekstem praat",
     "defaultEmotion": "<strong>Verstek-emosie</strong>",
     "defaultLanguage": "<strong>Verstektaal</strong>",
-    "defaultPitch12To12": "Verstektoonhoogte (-12 tot +12):",
-    "defaultSpeed05To": "Verstekspoed (0.5 tot 2.0):",
-    "defaultVoice": "<strong>Verstekstem</strong>",
     "defaultVoiceSettings": "Versteksteminstellings",
-    "englishNormalization": "Engelse normalisering",
-    "improvePronunciationForSpecificLanguages": "Verbeter uitspraak vir spesifieke tale",
-    "improveThePronunciationOfNumbers": "Verbeter die uitspraak van getalle en teks",
-    "selectTheDefaultTtsVoice": "Kies die verstek-TTS-stem vir die kanaal",
+    "selectHowFastTheDefault": "Kies hoe vinnig die verstekstem praat",
+    "selectHowHighOrLow": "Kies hoe hoog of laag die verstekstem praat",
+    "selectTheVoiceThatTts": "Kies die stem wat TTS gebruik vir kykers wat nie hul eie stem het nie",
     "selectVoice": "Kies stem",
     "setDefaultVoiceSettingsFor": "Stel versteksteminstellings vir jou kanaal in",
-    "setTheEmotionalToneOf": "Stel die emosionele toon van die verstekstem in",
+    "setTheEmotionOfThe": "Stel die emosie van die verstekstem in. Kies Pasgemaak om die stem in jou eie woorde te beskryf.",
+    "theVoiceModelReadsThe": "Die stemmodel lees die taal uit die teks. As die teks kort of onduidelik is, gee hierdie instelling vir die model 'n wenk. Dit stel ook die verstektaal vir aankondigings in en kies die woordelys vir die vloekwoordfilter.",
+    "viewersCanTypeASound": "Kykers kan 'n klankmerker in 'n boodskap tik, en die stem maak daardie klank. Voorbeelde is <code>&lt;laugh&gt;</code> en <code>&lt;sigh&gt;</code>. Alle merkers is by verstek aan. Om 'n merker af te skakel, ontmerk sy merkblokkie.",
     "viewerVoiceLookup": "Kykers-stemopsoek",
     "voiceCalibration": "Stemkalibrasie",
     "voicesWithCustomVolumeSettings": "Stemme met pasgemaakte volume-instellings.",
