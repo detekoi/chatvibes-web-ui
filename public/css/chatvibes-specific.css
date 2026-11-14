@@ -260,6 +260,18 @@
 .step-control-option input:disabled + span { opacity: 0.55; }
 
 /* =====================================================
+   CLEAR BUTTONS
+   Each preference row ends in a Clear button. A button
+   keeps the width of its label and does not shrink to
+   give room to the control, so every Clear button on the
+   page has the same width.
+   ===================================================== */
+.pref-clear {
+    flex: none;
+    white-space: nowrap;
+}
+
+/* =====================================================
    VOICE STYLE
    A text box, with preset chips under it. A chip writes
    its words into the box.
@@ -277,6 +289,10 @@
 /* The control is tall, so the label and the Clear button stay at its top. */
 :root .wc-card .list-group-item > .row.style-row { align-items: flex-start; }
 .style-control + .btn { align-self: flex-start; }
+
+/* This cell is not a .col-auto, so it gets the column padding of the grid.
+   Remove the padding, so the Clear button lines up with the other rows. */
+:root .wc-card .list-group-item > .row.style-row > .col-12 { padding-inline: 0; }
 
 .style-count { align-self: flex-end; }
 
