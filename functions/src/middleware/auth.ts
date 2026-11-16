@@ -33,6 +33,36 @@ declare global {
 }
 
 /**
+ * The token in an `Authorization: Bearer <token>` header, else null. The rate
+ * limiter and authenticateApiRequest both read the token here: if they parsed
+ * the header differently, a header that one rejects and the other accepts would
+ * move a signed-in user out of their own rate limit bucket.
+ */
+export function bearerToken(req: Request): string | null {
+  const header = req.headers.authorization;
+  if (!header?.startsWith("Bearer ")) return null;
+  return header.slice("Bearer ".length) || null;
+}
+
+/**
+ * The session token in a request, verified. Throws when it is not valid.
+ * @param token - The token after "Bearer ".
+ */
+export function verifySessionToken(token: string): AuthenticatedUser {
+  if (!secrets.JWT_SECRET) throw new Error("JWT_SECRET is not configured");
+  const decoded = jwt.verify(token, secrets.JWT_SECRET, {
+    audience: ["wildcat-tts-api", "chatvibes-api"],
+    issuer: ["wildcat-tts-auth", "chatvibes-auth"],
+  }) as JwtPayload;
+  return {
+    userId: decoded.userId,
+    userLogin: decoded.userLogin,
+    displayName: decoded.displayName,
+    scope: decoded.scope,
+  };
+}
+
+/**
  * Middleware to authenticate API requests using JWT tokens
  * @param req - Express request object
  * @param res - Express response object
@@ -51,7 +81,7 @@ const authenticateApiRequest = (req: Request, res: Response, next: NextFunction)
     return;
   }
 
-  const token = authHeader.split(" ")[1];
+  const token = bearerToken(req);
   if (!token) {
     log.warn("Token not found after Bearer prefix");
     res.status(401).json({ success: false, message: "Unauthorized: Token not found." });
@@ -65,16 +95,7 @@ const authenticateApiRequest = (req: Request, res: Response, next: NextFunction)
   }
 
   try {
-    const decoded = jwt.verify(token, secrets.JWT_SECRET, {
-      audience: ["wildcat-tts-api", "chatvibes-api"],
-      issuer: ["wildcat-tts-auth", "chatvibes-auth"],
-    }) as JwtPayload;
-    req.user = {
-      userId: decoded.userId,
-      userLogin: decoded.userLogin,
-      displayName: decoded.displayName,
-      scope: decoded.scope,
-    };
+    req.user = verifySessionToken(token);
     log.info({ userLogin: req.user.userLogin }, "User authenticated successfully");
     next();
   } catch (error) {

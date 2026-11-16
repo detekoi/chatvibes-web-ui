@@ -3,11 +3,14 @@
  * Protects API endpoints from abuse
  */
 
-import rateLimit, { type Options } from "express-rate-limit";
+import rateLimit, { ipKeyGenerator, type Options } from "express-rate-limit";
+import type { Request } from "express";
+import { bearerToken, verifySessionToken } from "./auth";
 
-// Default IP-based key generator that handles IPv6 normalization correctly.
-// Used as fallback when no authenticated user ID is available.
-const defaultIpKey: Options["keyGenerator"] = (req, _res) => req.ip ?? "unknown";
+// The key for a request without a known user. ipKeyGenerator groups an IPv6
+// address into its /56 network: one client can have many addresses in it, and
+// a key per address would give that client a bucket per address.
+const defaultIpKey: Options["keyGenerator"] = (req, _res) => (req.ip ? ipKeyGenerator(req.ip) : "unknown");
 
 /**
  * Rate limiter for authentication routes (/auth/*)
@@ -24,15 +27,48 @@ export const authLimiter = rateLimit({
     legacyHeaders: false,
 });
 
+/** Requests in 15 minutes for one signed-in user. */
+export const API_LIMIT_PER_USER = 300;
+/** Requests in 15 minutes for one address that sends no valid session token. */
+export const API_LIMIT_PER_IP = 100;
+
 /**
- * Rate limiter for general API routes (/api/*)
+ * The user ID in a valid session token, else null. The token is verified, not
+ * only decoded: an unverified ID would let a client pick a new bucket for every
+ * request.
+ */
+function sessionUserId(req: Request): string | null {
+    const token = bearerToken(req);
+    if (!token) return null;
+    try {
+        return verifySessionToken(token).userId || null;
+    } catch {
+        return null;
+    }
+}
+
+/**
+ * Rate limiter for general API routes (/api/*). Mount it once for the whole
+ * /api tree: each mount that a request passes through counts it again.
+ *
+ * A signed-in user has a bucket of their own. On 2026-11-16 one viewer who tried
+ * voices (34 previews, 37 automatic saves) used up the old limit of 100 per IP in
+ * about 10 minutes. After that, every call failed with 429, the sign-in check
+ * among them, so the page asked them to sign in again and showed no settings.
+ * The busiest real user in the week before needed 67 in 15 minutes, so 300
+ * leaves room for a long session. The cost of previews is capped separately by
+ * ttsTestLimiter.
  */
 export const apiLimiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 100,
+    limit: (req) => (sessionUserId(req) ? API_LIMIT_PER_USER : API_LIMIT_PER_IP),
     message: "Too many requests, please try again later.",
     standardHeaders: true,
     legacyHeaders: false,
+    keyGenerator: (req, res) => {
+        const userId = sessionUserId(req);
+        return userId ? `user:${userId}` : `ip:${defaultIpKey(req, res)}`;
+    },
 });
 
 /**
