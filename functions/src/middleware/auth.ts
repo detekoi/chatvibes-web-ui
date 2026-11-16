@@ -33,6 +33,24 @@ declare global {
 }
 
 /**
+ * The session token in a request, verified. Throws when it is not valid.
+ * @param token - The token after "Bearer ".
+ */
+export function verifySessionToken(token: string): AuthenticatedUser {
+  if (!secrets.JWT_SECRET) throw new Error("JWT_SECRET is not configured");
+  const decoded = jwt.verify(token, secrets.JWT_SECRET, {
+    audience: ["wildcat-tts-api", "chatvibes-api"],
+    issuer: ["wildcat-tts-auth", "chatvibes-auth"],
+  }) as JwtPayload;
+  return {
+    userId: decoded.userId,
+    userLogin: decoded.userLogin,
+    displayName: decoded.displayName,
+    scope: decoded.scope,
+  };
+}
+
+/**
  * Middleware to authenticate API requests using JWT tokens
  * @param req - Express request object
  * @param res - Express response object
@@ -65,16 +83,7 @@ const authenticateApiRequest = (req: Request, res: Response, next: NextFunction)
   }
 
   try {
-    const decoded = jwt.verify(token, secrets.JWT_SECRET, {
-      audience: ["wildcat-tts-api", "chatvibes-api"],
-      issuer: ["wildcat-tts-auth", "chatvibes-auth"],
-    }) as JwtPayload;
-    req.user = {
-      userId: decoded.userId,
-      userLogin: decoded.userLogin,
-      displayName: decoded.displayName,
-      scope: decoded.scope,
-    };
+    req.user = verifySessionToken(token);
     log.info({ userLogin: req.user.userLogin }, "User authenticated successfully");
     next();
   } catch (error) {

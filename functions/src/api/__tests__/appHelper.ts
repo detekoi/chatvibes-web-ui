@@ -77,13 +77,14 @@ export async function createTestApp() {
 
   // Mount route modules (with rate limiting)
   app.use('/auth', authLimiter, authRoutes);
-  app.use('/api/auth', apiLimiter, authApiRoutes);
-  app.use('/api/bot', apiLimiter, botRoutes);
-  app.use('/api/rewards', apiLimiter, rewardsRoutes);
-  app.use('/api/obs', apiLimiter, obsRoutes);
-  app.use('/api/viewer', apiLimiter, viewerRoutes);
-  app.use('/api', apiLimiter, settingsRoutes);
-  app.use('/api', apiLimiter, miscApiRoutes);
+  app.use('/api', apiLimiter);
+  app.use('/api/auth', authApiRoutes);
+  app.use('/api/bot', botRoutes);
+  app.use('/api/rewards', rewardsRoutes);
+  app.use('/api/obs', obsRoutes);
+  app.use('/api/viewer', viewerRoutes);
+  app.use('/api', settingsRoutes);
+  app.use('/api', miscApiRoutes);
   app.use('/', redirectsRoutes);
 
   // Health check endpoint
