@@ -3,13 +3,14 @@
  * Protects API endpoints from abuse
  */
 
-import rateLimit, { type Options } from "express-rate-limit";
+import rateLimit, { ipKeyGenerator, type Options } from "express-rate-limit";
 import type { Request } from "express";
-import { verifySessionToken } from "./auth";
+import { bearerToken, verifySessionToken } from "./auth";
 
-// Default IP-based key generator that handles IPv6 normalization correctly.
-// Used as fallback when no authenticated user ID is available.
-const defaultIpKey: Options["keyGenerator"] = (req, _res) => req.ip ?? "unknown";
+// The key for a request without a known user. ipKeyGenerator groups an IPv6
+// address into its /56 network: one client can have many addresses in it, and
+// a key per address would give that client a bucket per address.
+const defaultIpKey: Options["keyGenerator"] = (req, _res) => (req.ip ? ipKeyGenerator(req.ip) : "unknown");
 
 /**
  * Rate limiter for authentication routes (/auth/*)
@@ -37,9 +38,7 @@ export const API_LIMIT_PER_IP = 100;
  * request.
  */
 function sessionUserId(req: Request): string | null {
-    const header = req.headers.authorization;
-    if (!header?.startsWith("Bearer ")) return null;
-    const token = header.slice("Bearer ".length);
+    const token = bearerToken(req);
     if (!token) return null;
     try {
         return verifySessionToken(token).userId || null;

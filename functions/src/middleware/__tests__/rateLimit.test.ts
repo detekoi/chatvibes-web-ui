@@ -6,6 +6,7 @@ const SECRET = "rate-limit-test-secret";
 jest.mock("../../config", () => ({ secrets: { JWT_SECRET: "rate-limit-test-secret" } }));
 
 import { apiLimiter, API_LIMIT_PER_IP, API_LIMIT_PER_USER } from "../rateLimit";
+import { authenticateApiRequest } from "../auth";
 
 const tokenFor = (userId: string, secret = SECRET): string =>
   jwt.sign({ userId, userLogin: userId, displayName: userId }, secret, {
@@ -20,6 +21,7 @@ const app = express();
 app.set("trust proxy", true);
 app.use("/api", apiLimiter);
 app.get("/api/ping", (_req, res) => res.json({ ok: true }));
+app.get("/api/me", authenticateApiRequest, (req, res) => res.json({ userId: req.user?.userId }));
 
 const send = (opts: { token?: string; ip: string }) => {
   const req = request(app).get("/api/ping").set("X-Forwarded-For", opts.ip);
@@ -59,5 +61,19 @@ describe("apiLimiter", () => {
     const ip = "198.51.100.4";
     for (let i = 0; i < API_LIMIT_PER_IP; i++) await send({ token: forged(i), ip });
     expect((await send({ token: forged(API_LIMIT_PER_IP), ip })).status).toBe(429);
+  });
+
+  it("rejects a header with text after the token, which the limiter also does not take as the user", async () => {
+    const res = await request(app)
+      .get("/api/me")
+      .set("X-Forwarded-For", "198.51.100.5")
+      .set("Authorization", `Bearer ${tokenFor("user-d")} extra`);
+    expect(res.status).toBe(401);
+  });
+
+  it("puts IPv6 addresses of one /56 network in one bucket", async () => {
+    await sendMany(API_LIMIT_PER_IP, { ip: "2001:db8:aa:bb00::1" });
+    expect((await send({ ip: "2001:db8:aa:bbff::2" })).status).toBe(429);
+    expect((await send({ ip: "2001:db8:aa:cc00::1" })).status).toBe(200);
   });
 });
