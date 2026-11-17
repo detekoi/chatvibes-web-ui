@@ -165,7 +165,7 @@
     "noneLoaded": "कोई लोड नहीं हुआ"
   },
   "stepsHint": {
-    "pitchAndSpeedAreApproximate": "पिच और गति अनुमानित हैं। वॉइस मॉडल को ये सेटिंग्स संख्याओं के रूप में नहीं, बल्कि शब्दों के रूप में मिलती हैं।"
+    "pitchAndSpeedAreApproximate": "पिच और गति अनुमानित हैं।"
   },
   "styleInput": {
     "exampleCalmAndSlowLike": "उदाहरण: शांत और धीमी, रात के रेडियो होस्ट की तरह"

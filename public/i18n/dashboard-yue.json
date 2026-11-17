@@ -88,7 +88,7 @@
     "defaultSpeed": "<strong>預設語速</strong>"
   },
   "defaultStepsHint": {
-    "pitchAndSpeedAreApproximate": "音調同語速只係大概數值。語音模型會用文字而唔係數字去理解呢啲設定。"
+    "pitchAndSpeedAreApproximate": "音調同語速只係大概數值。"
   },
   "defaultStyle": {
     "exampleCalmAndSlowLike": "例子：平靜又慢，似深夜電台主持"

@@ -88,7 +88,7 @@
     "defaultSpeed": "<strong>Oletusnopeus</strong>"
   },
   "defaultStepsHint": {
-    "pitchAndSpeedAreApproximate": "Äänenkorkeus ja nopeus ovat suuntaa antavia. Äänimalli saa nämä asetukset sanoina, ei numeroina."
+    "pitchAndSpeedAreApproximate": "Äänenkorkeus ja nopeus ovat suuntaa antavia."
   },
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Esimerkki: rauhallinen ja hidas, kuin myöhäisillan radiojuontaja"

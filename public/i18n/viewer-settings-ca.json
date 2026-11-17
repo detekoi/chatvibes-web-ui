@@ -165,7 +165,7 @@
     "noneLoaded": "Cap carregat"
   },
   "stepsHint": {
-    "pitchAndSpeedAreApproximate": "El to i la velocitat són aproximats. El model de veu rep aquests paràmetres com a paraules, no com a números."
+    "pitchAndSpeedAreApproximate": "El to i la velocitat són aproximats."
   },
   "styleInput": {
     "exampleCalmAndSlowLike": "Exemple: tranquil i lent, com un locutor de ràdio de nit"

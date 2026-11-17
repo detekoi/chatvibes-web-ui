@@ -88,7 +88,7 @@
     "defaultSpeed": "<strong>Verstekspoed</strong>"
   },
   "defaultStepsHint": {
-    "pitchAndSpeedAreApproximate": "Toonhoogte en spoed is benaderd. Die stemmodel kry hierdie instellings as woorde, nie as syfers nie."
+    "pitchAndSpeedAreApproximate": "Toonhoogte en spoed is benaderd."
   },
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Voorbeeld: kalm en stadig, soos 'n radio-aanbieder in die nag"

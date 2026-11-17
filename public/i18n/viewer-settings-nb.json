@@ -165,7 +165,7 @@
     "noneLoaded": "Ingen lastet inn"
   },
   "stepsHint": {
-    "pitchAndSpeedAreApproximate": "Tonehøyde og hastighet er omtrentlige. Stemmemodellen får disse innstillingene som ord, ikke som tall."
+    "pitchAndSpeedAreApproximate": "Tonehøyde og hastighet er omtrentlige."
   },
   "styleInput": {
     "exampleCalmAndSlowLike": "Eksempel: rolig og sakte, som en radiovert om natten"

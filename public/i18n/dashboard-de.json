@@ -88,7 +88,7 @@
     "defaultSpeed": "<strong>Standardtempo</strong>"
   },
   "defaultStepsHint": {
-    "pitchAndSpeedAreApproximate": "Tonhöhe und Tempo sind ungefähre Werte. Das Sprachmodell erhält diese Einstellungen als Wörter, nicht als Zahlen."
+    "pitchAndSpeedAreApproximate": "Tonhöhe und Tempo sind ungefähre Werte."
   },
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Beispiel: ruhig und langsam, wie ein Radiomoderator bei Nacht"

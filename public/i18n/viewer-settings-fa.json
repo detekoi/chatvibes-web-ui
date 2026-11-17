@@ -165,7 +165,7 @@
     "noneLoaded": "موردی بارگیری نشده"
   },
   "stepsHint": {
-    "pitchAndSpeedAreApproximate": "زیر و بمی و سرعت تقریبی هستند. مدل صدا این تنظیمات را به صورت کلمه دریافت می‌کند، نه عدد."
+    "pitchAndSpeedAreApproximate": "زیر و بمی و سرعت تقریبی هستند."
   },
   "styleInput": {
     "exampleCalmAndSlowLike": "مثال: آرام و آهسته، مثل یک مجری رادیو در شب"

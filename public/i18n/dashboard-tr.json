@@ -88,7 +88,7 @@
     "defaultSpeed": "<strong>Varsayılan Hız</strong>"
   },
   "defaultStepsHint": {
-    "pitchAndSpeedAreApproximate": "Perde ve hız yaklaşıktır. Ses modeli bu ayarları sayı olarak değil, kelime olarak alır."
+    "pitchAndSpeedAreApproximate": "Perde ve hız yaklaşıktır."
   },
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Örnek: gece radyo sunucusu gibi sakin ve yavaş"

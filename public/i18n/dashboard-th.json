@@ -88,7 +88,7 @@
     "defaultSpeed": "<strong>ความเร็วเริ่มต้น</strong>"
   },
   "defaultStepsHint": {
-    "pitchAndSpeedAreApproximate": "ระดับเสียงและความเร็วเป็นค่าโดยประมาณ โมเดลเสียงจะรับการตั้งค่าเหล่านี้เป็นคำบรรยาย ไม่ใช่ตัวเลข"
+    "pitchAndSpeedAreApproximate": "ระดับเสียงและความเร็วเป็นค่าโดยประมาณ"
   },
   "defaultStyle": {
     "exampleCalmAndSlowLike": "ตัวอย่าง: สงบและช้า เหมือนนักจัดรายการวิทยุตอนกลางคืน"

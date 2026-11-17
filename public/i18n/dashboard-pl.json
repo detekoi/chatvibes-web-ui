@@ -88,7 +88,7 @@
     "defaultSpeed": "<strong>Domyślna szybkość</strong>"
   },
   "defaultStepsHint": {
-    "pitchAndSpeedAreApproximate": "Wysokość i szybkość są przybliżone. Model głosu otrzymuje te ustawienia jako słowa, a nie liczby."
+    "pitchAndSpeedAreApproximate": "Wysokość i szybkość są przybliżone."
   },
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Przykład: spokojny i powolny, jak nocny prezenter radiowy"

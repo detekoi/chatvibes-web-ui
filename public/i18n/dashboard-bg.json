@@ -88,7 +88,7 @@
     "defaultSpeed": "<strong>Скорост по подразбиране</strong>"
   },
   "defaultStepsHint": {
-    "pitchAndSpeedAreApproximate": "Височината и скоростта са приблизителни. Гласовият модел получава тези настройки като думи, а не като числа."
+    "pitchAndSpeedAreApproximate": "Височината и скоростта са приблизителни."
   },
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Пример: спокойно и бавно, като нощен радиоводещ"

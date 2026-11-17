@@ -88,7 +88,7 @@
     "defaultSpeed": "<strong>Default Speed</strong>"
   },
   "defaultStepsHint": {
-    "pitchAndSpeedAreApproximate": "Pitch and speed are approximate. The voice model gets these settings as words, not as numbers."
+    "pitchAndSpeedAreApproximate": "Pitch and speed are approximate."
   },
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Example: calm and slow, like a radio host at night"

@@ -165,7 +165,7 @@
     "noneLoaded": "ยังไม่ได้โหลด"
   },
   "stepsHint": {
-    "pitchAndSpeedAreApproximate": "ระดับเสียงและความเร็วเป็นค่าโดยประมาณ โมเดลเสียงจะได้รับค่าเหล่านี้เป็นคำอธิบาย ไม่ใช่ตัวเลข"
+    "pitchAndSpeedAreApproximate": "ระดับเสียงและความเร็วเป็นค่าโดยประมาณ"
   },
   "styleInput": {
     "exampleCalmAndSlowLike": "ตัวอย่าง: สงบและช้า เหมือนนักจัดรายการวิทยุตอนกลางคืน"

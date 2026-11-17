@@ -165,7 +165,7 @@
     "noneLoaded": "Nimic încărcat"
   },
   "stepsHint": {
-    "pitchAndSpeedAreApproximate": "Tonalitatea și viteza sunt aproximative. Modelul vocal primește aceste setări sub formă de cuvinte, nu de numere."
+    "pitchAndSpeedAreApproximate": "Tonalitatea și viteza sunt aproximative."
   },
   "styleInput": {
     "exampleCalmAndSlowLike": "Exemplu: calm și rar, ca un prezentator radio noaptea"

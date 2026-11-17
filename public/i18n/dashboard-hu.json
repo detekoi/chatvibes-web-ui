@@ -88,7 +88,7 @@
     "defaultSpeed": "<strong>Alapértelmezett sebesség</strong>"
   },
   "defaultStepsHint": {
-    "pitchAndSpeedAreApproximate": "A hangmagasság és a sebesség hozzávetőleges. A hangmodell szavakként kapja meg ezeket a beállításokat, nem számokként."
+    "pitchAndSpeedAreApproximate": "A hangmagasság és a sebesség hozzávetőleges."
   },
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Például: nyugodt és lassú, mint egy éjszakai rádiós műsorvezető"

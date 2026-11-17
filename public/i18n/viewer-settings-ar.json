@@ -165,7 +165,7 @@
     "noneLoaded": "لم يُحمَّل شيء"
   },
   "stepsHint": {
-    "pitchAndSpeedAreApproximate": "طبقة الصوت والسرعة تقريبيتان. يتلقى نموذج الصوت هذه الإعدادات ككلمات، لا كأرقام."
+    "pitchAndSpeedAreApproximate": "طبقة الصوت والسرعة تقريبيتان."
   },
   "styleInput": {
     "exampleCalmAndSlowLike": "مثال: هادئ وبطيء، مثل مذيع راديو في الليل"

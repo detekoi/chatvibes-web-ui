@@ -88,7 +88,7 @@
     "defaultSpeed": "<strong>Standard fart</strong>"
   },
   "defaultStepsHint": {
-    "pitchAndSpeedAreApproximate": "Tonehøgd og fart er omtrentlege. Stemmemodellen får desse innstillingane som ord, ikkje som tal."
+    "pitchAndSpeedAreApproximate": "Tonehøgd og fart er omtrentlege."
   },
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Døme: roleg og sakte, som ein radiovert om natta"

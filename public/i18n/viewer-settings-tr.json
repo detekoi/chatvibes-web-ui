@@ -165,7 +165,7 @@
     "noneLoaded": "Hiçbiri yüklenmedi"
   },
   "stepsHint": {
-    "pitchAndSpeedAreApproximate": "Perde ve hız yaklaşık değerlerdir. Ses modeli bu ayarları sayı olarak değil, kelime olarak alır."
+    "pitchAndSpeedAreApproximate": "Perde ve hız yaklaşık değerlerdir."
   },
   "styleInput": {
     "exampleCalmAndSlowLike": "Örnek: gece yayın yapan bir radyo sunucusu gibi sakin ve yavaş"

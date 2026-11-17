@@ -88,7 +88,7 @@
     "defaultSpeed": "<strong>Προεπιλεγμένη ταχύτητα</strong>"
   },
   "defaultStepsHint": {
-    "pitchAndSpeedAreApproximate": "Ο τόνος και η ταχύτητα είναι κατά προσέγγιση. Το μοντέλο φωνής λαμβάνει αυτές τις ρυθμίσεις ως λέξεις και όχι ως αριθμούς."
+    "pitchAndSpeedAreApproximate": "Ο τόνος και η ταχύτητα είναι κατά προσέγγιση."
   },
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Παράδειγμα: ήρεμα και αργά, όπως ένας βραδινός ραδιοφωνικός παραγωγός"

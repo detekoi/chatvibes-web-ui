@@ -88,7 +88,7 @@
     "defaultSpeed": "<strong>Viteză implicită</strong>"
   },
   "defaultStepsHint": {
-    "pitchAndSpeedAreApproximate": "Înălțimea și viteza sunt aproximative. Modelul vocal primește aceste setări drept cuvinte, nu ca numere."
+    "pitchAndSpeedAreApproximate": "Înălțimea și viteza sunt aproximative."
   },
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Exemplu: calm și rar, ca un prezentator de radio noaptea"

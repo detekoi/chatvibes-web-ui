@@ -165,7 +165,7 @@
     "noneLoaded": "Не загружено"
   },
   "stepsHint": {
-    "pitchAndSpeedAreApproximate": "Тон и скорость приблизительны. Голосовая модель получает эти настройки в виде слов, а не чисел."
+    "pitchAndSpeedAreApproximate": "Тон и скорость приблизительны."
   },
   "styleInput": {
     "exampleCalmAndSlowLike": "Например: спокойно и медленно, как ночной радиоведущий"

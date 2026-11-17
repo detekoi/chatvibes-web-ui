@@ -165,7 +165,7 @@
     "noneLoaded": "לא נטען דבר"
   },
   "stepsHint": {
-    "pitchAndSpeedAreApproximate": "גובה הצליל והמהירות הם משוערים. מודל הקול מקבל הגדרות אלו כמילים, ולא כמספרים."
+    "pitchAndSpeedAreApproximate": "גובה הצליל והמהירות הם משוערים."
   },
   "styleInput": {
     "exampleCalmAndSlowLike": "דוגמה: רגוע ואיטי, כמו שדרן רדיו בלילה"

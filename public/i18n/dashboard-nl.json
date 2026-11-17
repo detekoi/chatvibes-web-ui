@@ -88,7 +88,7 @@
     "defaultSpeed": "<strong>Standaard snelheid</strong>"
   },
   "defaultStepsHint": {
-    "pitchAndSpeedAreApproximate": "Toonhoogte en snelheid zijn bij benadering. Het stemmodel krijgt deze instellingen als woorden, niet als getallen."
+    "pitchAndSpeedAreApproximate": "Toonhoogte en snelheid zijn bij benadering."
   },
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Bijvoorbeeld: kalm en langzaam, zoals een radiopresentator 's nachts"

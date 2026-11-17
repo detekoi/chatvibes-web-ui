@@ -88,7 +88,7 @@
     "defaultSpeed": "<strong>Zadana brzina</strong>"
   },
   "defaultStepsHint": {
-    "pitchAndSpeedAreApproximate": "Visina glasa i brzina su približne. Glasovni model prima ove postavke kao riječi, a ne kao brojeve."
+    "pitchAndSpeedAreApproximate": "Visina glasa i brzina su približne."
   },
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Primjer: smireno i polako, poput noćnog radijskog voditelja"

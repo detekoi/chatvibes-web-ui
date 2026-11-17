@@ -88,7 +88,7 @@
     "defaultSpeed": "<strong>מהירות ברירת מחדל</strong>"
   },
   "defaultStepsHint": {
-    "pitchAndSpeedAreApproximate": "גובה הצליל והמהירות הם משוערים. מודל הקול מקבל הגדרות אלה כמילים, לא כמספרים."
+    "pitchAndSpeedAreApproximate": "גובה הצליל והמהירות הם משוערים."
   },
   "defaultStyle": {
     "exampleCalmAndSlowLike": "דוגמה: רגוע ואיטי, כמו שדרן רדיו בלילה"

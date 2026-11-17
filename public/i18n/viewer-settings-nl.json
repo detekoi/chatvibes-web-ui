@@ -165,7 +165,7 @@
     "noneLoaded": "Geen geladen"
   },
   "stepsHint": {
-    "pitchAndSpeedAreApproximate": "Toonhoogte en snelheid zijn bij benadering. Het stemmodel ontvangt deze instellingen als woorden, niet als getallen."
+    "pitchAndSpeedAreApproximate": "Toonhoogte en snelheid zijn bij benadering."
   },
   "styleInput": {
     "exampleCalmAndSlowLike": "Voorbeeld: kalm en langzaam, als een radiopresentator 's nachts"

@@ -165,7 +165,7 @@
     "noneLoaded": "Aucun chargé"
   },
   "stepsHint": {
-    "pitchAndSpeedAreApproximate": "La hauteur et la vitesse sont approximatives. Le modèle vocal reçoit ces paramètres sous forme de mots, pas de nombres."
+    "pitchAndSpeedAreApproximate": "La hauteur et la vitesse sont approximatives."
   },
   "styleInput": {
     "exampleCalmAndSlowLike": "Exemple : calme et lente, comme un animateur radio la nuit"

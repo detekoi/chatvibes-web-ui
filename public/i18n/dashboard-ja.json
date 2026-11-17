@@ -88,7 +88,7 @@
     "defaultSpeed": "<strong>デフォルトの速度</strong>"
   },
   "defaultStepsHint": {
-    "pitchAndSpeedAreApproximate": "ピッチと速度はおおよその目安です。音声モデルには数値ではなく言葉として設定が渡されます。"
+    "pitchAndSpeedAreApproximate": "ピッチと速度はおおよその目安です。"
   },
   "defaultStyle": {
     "exampleCalmAndSlowLike": "例: 深夜ラジオのパーソナリティのように、落ち着いてゆっくりと"
