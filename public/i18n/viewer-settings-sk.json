@@ -165,7 +165,7 @@
     "noneLoaded": "Nič nenačítané"
   },
   "stepsHint": {
-    "pitchAndSpeedAreApproximate": "Výška a rýchlosť sú orientačné. Hlasový model dostáva tieto nastavenia ako slová, nie ako čísla."
+    "pitchAndSpeedAreApproximate": "Výška a rýchlosť sú orientačné."
   },
   "styleInput": {
     "exampleCalmAndSlowLike": "Príklad: pokojne a pomaly, ako moderátor nočného rádia"

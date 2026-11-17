@@ -165,7 +165,7 @@
     "noneLoaded": "Tidak ada yang dimuat"
   },
   "stepsHint": {
-    "pitchAndSpeedAreApproximate": "Nada dan kecepatan bersifat perkiraan. Model suara menerima setelan ini sebagai kata-kata, bukan angka."
+    "pitchAndSpeedAreApproximate": "Nada dan kecepatan bersifat perkiraan."
   },
   "styleInput": {
     "exampleCalmAndSlowLike": "Contoh: tenang dan lambat, seperti penyiar radio malam hari"

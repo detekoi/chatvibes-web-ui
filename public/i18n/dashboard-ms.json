@@ -88,7 +88,7 @@
     "defaultSpeed": "<strong>Kelajuan Lalai</strong>"
   },
   "defaultStepsHint": {
-    "pitchAndSpeedAreApproximate": "Pic dan kelajuan adalah anggaran. Model suara menerima tetapan ini sebagai perkataan, bukan nombor."
+    "pitchAndSpeedAreApproximate": "Pic dan kelajuan adalah anggaran."
   },
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Contoh: tenang dan perlahan, seperti penyampai radio pada waktu malam"

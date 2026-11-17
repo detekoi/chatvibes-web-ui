@@ -88,7 +88,7 @@
     "defaultSpeed": "<strong>Швидкість за замовчуванням</strong>"
   },
   "defaultStepsHint": {
-    "pitchAndSpeedAreApproximate": "Висота тону та швидкість є приблизними. Голосова модель отримує ці налаштування словами, а не числами."
+    "pitchAndSpeedAreApproximate": "Висота тону та швидкість є приблизними."
   },
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Приклад: спокійно й повільно, як нічний радіоведучий"

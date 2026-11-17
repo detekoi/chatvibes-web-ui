@@ -88,7 +88,7 @@
     "defaultSpeed": "<strong>Predvolená rýchlosť</strong>"
   },
   "defaultStepsHint": {
-    "pitchAndSpeedAreApproximate": "Výška a rýchlosť hlasu sú približné. Hlasový model dostáva tieto nastavenia ako slová, nie ako čísla."
+    "pitchAndSpeedAreApproximate": "Výška a rýchlosť hlasu sú približné."
   },
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Príklad: pokojný a pomalý, ako nočný moderátor v rádiu"

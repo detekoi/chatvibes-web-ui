@@ -165,7 +165,7 @@
     "noneLoaded": "未加载"
   },
   "stepsHint": {
-    "pitchAndSpeedAreApproximate": "音调和语速仅为大致参考。语音模型接收的是文字描述，而非具体数值。"
+    "pitchAndSpeedAreApproximate": "音调和语速仅为大致参考。"
   },
   "styleInput": {
     "exampleCalmAndSlowLike": "示例：平静缓慢，像深夜电台主播"

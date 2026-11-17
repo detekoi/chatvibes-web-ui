@@ -88,7 +88,7 @@
     "defaultSpeed": "<strong>Tốc độ mặc định</strong>"
   },
   "defaultStepsHint": {
-    "pitchAndSpeedAreApproximate": "Cao độ và tốc độ chỉ mang tính ước lượng. Mô hình giọng đọc nhận các thiết lập này dưới dạng từ ngữ, không phải số."
+    "pitchAndSpeedAreApproximate": "Cao độ và tốc độ chỉ mang tính ước lượng."
   },
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Ví dụ: điềm tĩnh và chậm rãi, như người dẫn chương trình radio ban đêm"

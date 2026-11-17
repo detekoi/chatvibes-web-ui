@@ -165,7 +165,7 @@
     "noneLoaded": "Ništa nije učitano"
   },
   "stepsHint": {
-    "pitchAndSpeedAreApproximate": "Visina tona i brzina su približne. Glasovni model prima ove postavke kao riječi, a ne kao brojeve."
+    "pitchAndSpeedAreApproximate": "Visina tona i brzina su približne."
   },
   "styleInput": {
     "exampleCalmAndSlowLike": "Primjer: smireno i polako, poput noćnog radijskog voditelja"

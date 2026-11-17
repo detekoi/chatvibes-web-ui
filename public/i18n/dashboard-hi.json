@@ -88,7 +88,7 @@
     "defaultSpeed": "<strong>डिफ़ॉल्ट गति</strong>"
   },
   "defaultStepsHint": {
-    "pitchAndSpeedAreApproximate": "पिच और गति अनुमानित हैं। वॉइस मॉडल को ये सेटिंग्स संख्याओं के बजाय शब्दों के रूप में मिलती हैं।"
+    "pitchAndSpeedAreApproximate": "पिच और गति अनुमानित हैं।"
   },
   "defaultStyle": {
     "exampleCalmAndSlowLike": "उदाहरण: शांत और धीमा, जैसे रात के समय कोई रेडियो होस्ट"

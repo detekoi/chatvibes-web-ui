@@ -165,7 +165,7 @@
     "noneLoaded": "Nič ni naloženo"
   },
   "stepsHint": {
-    "pitchAndSpeedAreApproximate": "Višina in hitrost sta približni. Glasovni model te nastavitve prejme kot besede, ne kot številke."
+    "pitchAndSpeedAreApproximate": "Višina in hitrost sta približni."
   },
   "styleInput": {
     "exampleCalmAndSlowLike": "Primer: miren in počasen, kot nočni radijski voditelj"

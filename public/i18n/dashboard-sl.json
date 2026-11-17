@@ -88,7 +88,7 @@
     "defaultSpeed": "<strong>Privzeta hitrost</strong>"
   },
   "defaultStepsHint": {
-    "pitchAndSpeedAreApproximate": "Višina in hitrost sta približni. Glasovni model prejme te nastavitve kot besede, ne kot številke."
+    "pitchAndSpeedAreApproximate": "Višina in hitrost sta približni."
   },
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Primer: umirjen in počasen, kot nočni radijski voditelj"

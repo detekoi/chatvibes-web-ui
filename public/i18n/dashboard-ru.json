@@ -88,7 +88,7 @@
     "defaultSpeed": "<strong>Скорость по умолчанию</strong>"
   },
   "defaultStepsHint": {
-    "pitchAndSpeedAreApproximate": "Тон и скорость задаются приблизительно. Голосовая модель получает эти настройки в виде слов, а не чисел."
+    "pitchAndSpeedAreApproximate": "Тон и скорость задаются приблизительно."
   },
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Пример: спокойно и медленно, как ночной радиоведущий"

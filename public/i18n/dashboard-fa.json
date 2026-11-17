@@ -88,7 +88,7 @@
     "defaultSpeed": "<strong>سرعت پیش‌فرض</strong>"
   },
   "defaultStepsHint": {
-    "pitchAndSpeedAreApproximate": "زیر و بم و سرعت تقریبی هستند. مدل صدا این تنظیمات را به صورت کلمه دریافت می‌کند، نه عدد."
+    "pitchAndSpeedAreApproximate": "زیر و بم و سرعت تقریبی هستند."
   },
   "defaultStyle": {
     "exampleCalmAndSlowLike": "مثال: آرام و آهسته، مثل مجری رادیو در شب"

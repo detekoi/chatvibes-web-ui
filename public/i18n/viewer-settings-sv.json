@@ -165,7 +165,7 @@
     "noneLoaded": "Ingen inläst"
   },
   "stepsHint": {
-    "pitchAndSpeedAreApproximate": "Tonhöjd och hastighet är ungefärliga. Röstmodellen får dessa inställningar som ord, inte som siffror."
+    "pitchAndSpeedAreApproximate": "Tonhöjd och hastighet är ungefärliga."
   },
   "styleInput": {
     "exampleCalmAndSlowLike": "Exempel: lugn och långsam, som en radiopratare på natten"

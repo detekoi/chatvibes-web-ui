@@ -165,7 +165,7 @@
     "noneLoaded": "Nie załadowano"
   },
   "stepsHint": {
-    "pitchAndSpeedAreApproximate": "Wysokość i prędkość są przybliżone. Model głosu otrzymuje te ustawienia jako słowa, a nie liczby."
+    "pitchAndSpeedAreApproximate": "Wysokość i prędkość są przybliżone."
   },
   "styleInput": {
     "exampleCalmAndSlowLike": "Przykład: spokojnie i powoli, jak nocny prezenter radiowy"

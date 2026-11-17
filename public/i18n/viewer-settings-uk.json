@@ -165,7 +165,7 @@
     "noneLoaded": "Не завантажено"
   },
   "stepsHint": {
-    "pitchAndSpeedAreApproximate": "Висота тону та швидкість приблизні. Голосова модель отримує ці налаштування словами, а не числами."
+    "pitchAndSpeedAreApproximate": "Висота тону та швидкість приблизні."
   },
   "styleInput": {
     "exampleCalmAndSlowLike": "Приклад: спокійно й повільно, як нічний радіоведучий"

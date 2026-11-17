@@ -165,7 +165,7 @@
     "noneLoaded": "Chưa tải dữ liệu"
   },
   "stepsHint": {
-    "pitchAndSpeedAreApproximate": "Cao độ và tốc độ chỉ mang tính tương đối. Mô hình giọng nói nhận các cài đặt này dưới dạng từ ngữ, không phải số."
+    "pitchAndSpeedAreApproximate": "Cao độ và tốc độ chỉ mang tính tương đối."
   },
   "styleInput": {
     "exampleCalmAndSlowLike": "Ví dụ: bình tĩnh và chậm rãi, như phát thanh viên radio ban đêm"

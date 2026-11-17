@@ -165,7 +165,7 @@
     "noneLoaded": "Няма заредени"
   },
   "stepsHint": {
-    "pitchAndSpeedAreApproximate": "Височината и скоростта са приблизителни. Гласовият модел получава тези настройки като думи, а не като числа."
+    "pitchAndSpeedAreApproximate": "Височината и скоростта са приблизителни."
   },
   "styleInput": {
     "exampleCalmAndSlowLike": "Пример: спокойно и бавно, като нощен радиоводещ"

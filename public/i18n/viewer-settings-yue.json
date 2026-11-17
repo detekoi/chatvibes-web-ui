@@ -165,7 +165,7 @@
     "noneLoaded": "未載入"
   },
   "stepsHint": {
-    "pitchAndSpeedAreApproximate": "音調同速度只係大概。語音模型收到嘅係文字描述，而唔係數字。"
+    "pitchAndSpeedAreApproximate": "音調同速度只係大概。"
   },
   "styleInput": {
     "exampleCalmAndSlowLike": "例子：平靜又慢條斯理，好似深夜電台主持噉"

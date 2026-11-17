@@ -88,7 +88,7 @@
     "defaultSpeed": "<strong>Standardhastighet</strong>"
   },
   "defaultStepsHint": {
-    "pitchAndSpeedAreApproximate": "Tonhöjd och hastighet är ungefärliga. Röstmodellen får dessa inställningar som ord, inte som siffror."
+    "pitchAndSpeedAreApproximate": "Tonhöjd och hastighet är ungefärliga."
   },
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Exempel: lugn och långsam, som en radiovärd på natten"

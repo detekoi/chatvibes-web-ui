@@ -88,7 +88,7 @@
     "defaultSpeed": "<strong>Default na Bilis</strong>"
   },
   "defaultStepsHint": {
-    "pitchAndSpeedAreApproximate": "Tinataya lang ang pitch at bilis. Natatanggap ng modelo ng boses ang mga setting na ito bilang mga salita, hindi mga numero."
+    "pitchAndSpeedAreApproximate": "Tinataya lang ang pitch at bilis."
   },
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Halimbawa: kalmado at mabagal, parang host sa radyo sa gabi"

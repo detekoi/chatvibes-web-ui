@@ -165,7 +165,7 @@
     "noneLoaded": "読み込みなし"
   },
   "stepsHint": {
-    "pitchAndSpeedAreApproximate": "ピッチと速度は目安です。音声モデルには数値ではなく言葉として設定が渡されます。"
+    "pitchAndSpeedAreApproximate": "ピッチと速度は目安です。"
   },
   "styleInput": {
     "exampleCalmAndSlowLike": "例：夜のラジオパーソナリティのように落ち着いてゆっくり"

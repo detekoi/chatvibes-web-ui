@@ -88,7 +88,7 @@
     "defaultSpeed": "<strong>Standardhastighed</strong>"
   },
   "defaultStepsHint": {
-    "pitchAndSpeedAreApproximate": "Toneleje og hastighed er omtrentlige. Stemmemodellen modtager disse indstillinger som ord, ikke som tal."
+    "pitchAndSpeedAreApproximate": "Toneleje og hastighed er omtrentlige."
   },
   "defaultStyle": {
     "exampleCalmAndSlowLike": "Eksempel: rolig og langsom, som en radiovært om natten"

@@ -165,7 +165,7 @@
     "noneLoaded": "Ei ladattu"
   },
   "stepsHint": {
-    "pitchAndSpeedAreApproximate": "Äänenkorkeus ja nopeus ovat suuntaa antavia. Äänimalli saa nämä asetukset sanoina, ei numeroina."
+    "pitchAndSpeedAreApproximate": "Äänenkorkeus ja nopeus ovat suuntaa antavia."
   },
   "styleInput": {
     "exampleCalmAndSlowLike": "Esimerkki: rauhallinen ja hidas, kuin radiojuontaja yöllä"

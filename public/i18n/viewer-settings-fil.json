@@ -165,7 +165,7 @@
     "noneLoaded": "Walang na-load"
   },
   "stepsHint": {
-    "pitchAndSpeedAreApproximate": "Tinatantya lang ang tono at bilis. Natatanggap ng modelo ng boses ang mga setting na ito bilang mga salita, hindi bilang mga numero."
+    "pitchAndSpeedAreApproximate": "Tinatantya lang ang tono at bilis."
   },
   "styleInput": {
     "exampleCalmAndSlowLike": "Halimbawa: kalmado at mabagal, parang radio host sa gabi"

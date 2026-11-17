@@ -165,7 +165,7 @@
     "noneLoaded": "Nincs betöltve"
   },
   "stepsHint": {
-    "pitchAndSpeedAreApproximate": "A hangmagasság és a sebesség hozzávetőleges. A hangmodell ezeket a beállításokat szavakként kapja meg, nem számokként."
+    "pitchAndSpeedAreApproximate": "A hangmagasság és a sebesség hozzávetőleges."
   },
   "styleInput": {
     "exampleCalmAndSlowLike": "Példa: nyugodt és lassú, mint egy éjszakai rádiós műsorvezető"

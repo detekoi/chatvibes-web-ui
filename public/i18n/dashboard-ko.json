@@ -88,7 +88,7 @@
     "defaultSpeed": "<strong>기본 속도</strong>"
   },
   "defaultStepsHint": {
-    "pitchAndSpeedAreApproximate": "음높이와 속도는 대략적인 값입니다. 음성 모델은 이 설정을 숫자가 아닌 단어로 전달받습니다."
+    "pitchAndSpeedAreApproximate": "음높이와 속도는 대략적인 값입니다."
   },
   "defaultStyle": {
     "exampleCalmAndSlowLike": "예: 밤 시간대 라디오 진행자처럼 차분하고 느리게"

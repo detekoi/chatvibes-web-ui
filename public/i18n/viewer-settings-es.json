@@ -165,7 +165,7 @@
     "noneLoaded": "Ninguno cargado"
   },
   "stepsHint": {
-    "pitchAndSpeedAreApproximate": "El tono y la velocidad son aproximados. El modelo de voz recibe estos ajustes como palabras, no como números."
+    "pitchAndSpeedAreApproximate": "El tono y la velocidad son aproximados."
   },
   "styleInput": {
     "exampleCalmAndSlowLike": "Ejemplo: tranquilo y lento, como un locutor de radio por la noche"

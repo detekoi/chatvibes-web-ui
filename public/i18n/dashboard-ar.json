@@ -88,7 +88,7 @@
     "defaultSpeed": "<strong>السرعة الافتراضية</strong>"
   },
   "defaultStepsHint": {
-    "pitchAndSpeedAreApproximate": "طبقة الصوت والسرعة تقريبيتان. يتلقى نموذج الصوت هذه الإعدادات ككلمات، لا كأرقام."
+    "pitchAndSpeedAreApproximate": "طبقة الصوت والسرعة تقريبيتان."
   },
   "defaultStyle": {
     "exampleCalmAndSlowLike": "مثال: هادئ وبطيء، كمذيع راديو في الليل"

@@ -165,7 +165,7 @@
     "noneLoaded": "Keine geladen"
   },
   "stepsHint": {
-    "pitchAndSpeedAreApproximate": "Tonhöhe und Tempo sind Richtwerte. Das Sprachmodell erhält diese Einstellungen als Wörter, nicht als Zahlen."
+    "pitchAndSpeedAreApproximate": "Tonhöhe und Tempo sind Richtwerte."
   },
   "styleInput": {
     "exampleCalmAndSlowLike": "Beispiel: ruhig und langsam, wie ein Radiomoderator nachts"

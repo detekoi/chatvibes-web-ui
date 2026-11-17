@@ -165,7 +165,7 @@
     "noneLoaded": "Ingen lasta inn"
   },
   "stepsHint": {
-    "pitchAndSpeedAreApproximate": "Tonehøgd og tempo er omtrentlege. Stemmemodellen får desse innstillingane som ord, ikkje som tal."
+    "pitchAndSpeedAreApproximate": "Tonehøgd og tempo er omtrentlege."
   },
   "styleInput": {
     "exampleCalmAndSlowLike": "Døme: roleg og sakte, som ein radiovert om natta"
