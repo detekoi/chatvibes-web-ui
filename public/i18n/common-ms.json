@@ -85,7 +85,9 @@
     "username_required": "Nama pengguna diperlukan.",
     "voice_lookup_failed": "Tidak dapat mencari suara pengguna tersebut.",
     "word_invalid": "Perkataan atau frasa itu tidak sah.",
-    "word_required": "Perkataan atau frasa diperlukan."
+    "word_required": "Perkataan atau frasa diperlukan.",
+    "spotlight_guidance_too_long": "Panduan terlalu panjang. Gunakan {max} aksara atau kurang.",
+    "spotlight_picks_fetch_failed": "Tidak dapat memuatkan pilihan Spotlight."
   },
   "logoutLink": {
     "logout": "Log keluar"

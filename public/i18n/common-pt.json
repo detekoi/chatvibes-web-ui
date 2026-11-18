@@ -85,7 +85,9 @@
     "username_required": "O nome de usuário é obrigatório.",
     "voice_lookup_failed": "Não foi possível consultar a voz desse usuário.",
     "word_invalid": "Essa palavra ou frase não é válida.",
-    "word_required": "Uma palavra ou frase é obrigatória."
+    "word_required": "Uma palavra ou frase é obrigatória.",
+    "spotlight_guidance_too_long": "A orientação é muito longa. Use {max} caracteres ou menos.",
+    "spotlight_picks_fetch_failed": "Não foi possível carregar as escolhas do Spotlight."
   },
   "logoutLink": {
     "logout": "Sair"

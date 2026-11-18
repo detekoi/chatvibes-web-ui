@@ -280,6 +280,8 @@
       "readFullUrls": "Čítať celé URL",
       "redemptionAnnouncements": "Oznámenia o uplatnení odmien",
       "soundTags": "Zvukové značky",
+      "spotlightCard": "Karta Spotlight",
+      "spotlightGuidance": "Pokyny pre Spotlight",
       "style": "Predvolený štýl hlasu",
       "ttsEngine": "TTS Engine",
       "ttsMode": "Režim TTS",
@@ -293,6 +295,14 @@
       "loadFailed": "Nepodarilo sa načítať tvoje nastavenia.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Pred zapnutím YouTube TTS zadajte YouTube handle."
+    },
+    "spotlight": {
+      "count": "Nájdené výbery: {count}",
+      "empty": "Zatiaľ žiadne výbery. Výber sa tu zobrazí po tom, čo ho bot prečíta.",
+      "loadFailed": "Výbery sa nedajú načítať. Vyberte Obnoviť a skúste to znova.",
+      "loading": "Načítavajú sa výbery…",
+      "reason": "Dôvod: {reason}",
+      "unknownUser": "Neznámy divák"
     }
   },
   "mutedRewardsClose": {
@@ -497,13 +507,15 @@
     "allMessages": "Všetky správy v chate",
     "bitsPointsOnly": "Iba cheery a odmeny",
     "highlightedOnly": "Zvýraznené správy",
-    "ttsCommandOnly": "Správy s !tts"
+    "ttsCommandOnly": "Správy s !tts",
+    "spotlightTheBotPicksNotable": "Spotlight (bot vyberá pozoruhodné správy)"
   },
   "ttsModeSummary": {
     "all": "TTS číta každú správu v chate. Patria sem aj správy, ktoré začínajú na !tts.",
     "bitsPointsOnly": "TTS číta iba cheery a odmenu TTS za Channel Points. Nečíta správy s !tts, zvýraznené správy ani iné správy v chate.",
     "command": "TTS číta správy, ktoré začínajú na !tts. Nečíta iné správy v chate.",
-    "highlightedOnly": "TTS číta správy, ktoré diváci zvýraznia pomocou Channel Points. Nečíta správy s !tts ani iné správy v chate."
+    "highlightedOnly": "TTS číta správy, ktoré diváci zvýraznia pomocou Channel Points. Nečíta správy s !tts ani iné správy v chate.",
+    "theBotReadsChatAnd": "Bot číta chat a vyberá pozoruhodné správy. TTS číta iba tieto správy. Pred každou povie \"Výber z chatu\". Číta aj správy !tts."
   },
   "ttsPermission": {
     "everyone": "Všetci",
@@ -536,5 +548,26 @@
   },
   "youtubeHandle": {
     "yourhandle": "@vashandle"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "Kým bot číta výber, zdroj prehliadača zobrazí kartu s menom diváka a správou."
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "Povedzte botovi, aké správy sa vám páčia. Bot stále preskakuje spam a hrubé správy. Príklad: Uprednostňuj otázky o hre. Preskakuj radenie."
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "Nedávne výbery"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "Tento zoznam zobrazuje posledné správy, ktoré bot vybral. Každá správa má dôvod výberu. Najnovšia správa je prvá."
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "Obnoviť"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "Vyberte, čo má bot v chate hľadať. Pozrite si správy, ktoré vybral.",
+    "showACardInThe": "<strong>Zobraziť kartu v zdroji prehliadača</strong>",
+    "spotlight": "Spotlight",
+    "whatToLookForOptional": "<strong>Čo hľadať (voliteľné)</strong>"
   }
 }

@@ -85,7 +85,9 @@
     "username_required": "'n Gebruikersnaam word vereis.",
     "voice_lookup_failed": "Kan nie daardie gebruiker se stem opsoek nie.",
     "word_invalid": "Daardie woord of frase is ongeldig.",
-    "word_required": "'n Woord of frase word vereis."
+    "word_required": "'n Woord of frase word vereis.",
+    "spotlight_guidance_too_long": "Die riglyn is te lank. Gebruik {max} karakters of minder.",
+    "spotlight_picks_fetch_failed": "Kan nie die Spotlight-keuses laai nie."
   },
   "logoutLink": {
     "logout": "Teken uit"

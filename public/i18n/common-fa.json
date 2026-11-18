@@ -85,7 +85,9 @@
     "username_required": "نام کاربری الزامی است.",
     "voice_lookup_failed": "امکان یافتن صدای آن کاربر وجود ندارد.",
     "word_invalid": "این واژه یا عبارت معتبر نیست.",
-    "word_required": "واژه یا عبارت الزامی است."
+    "word_required": "واژه یا عبارت الزامی است.",
+    "spotlight_guidance_too_long": "راهنما بیش از حد طولانی است. از {max} نویسه یا کمتر استفاده کنید.",
+    "spotlight_picks_fetch_failed": "بارگذاری انتخاب‌های Spotlight ممکن نیست."
   },
   "logoutLink": {
     "logout": "خروج"

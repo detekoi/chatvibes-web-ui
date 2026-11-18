@@ -81,6 +81,28 @@ export interface TtsSettings {
   pronunciations?: Record<string, string>;
   pronunciationEnabled?: boolean;
   profanityFilterEnabled?: boolean;
+  /** Spotlight mode: what the streamer wants the bot to look for. Empty or absent means no guidance. */
+  spotlightGuidance?: string;
+  /** Spotlight mode: show a card with the viewer and the message in the browser source. Absent reads as false. */
+  spotlightCard?: boolean;
+}
+
+/**
+ * One message that Spotlight mode picked. The bot writes the log
+ * (`ttsSpotlightLog/<broadcasterId>`) and the API returns it newest first.
+ */
+export interface SpotlightPick {
+  user: string;
+  userId: string | null;
+  text: string;
+  reason: string;
+  /** Epoch milliseconds. */
+  at: number;
+  platform?: 'twitch' | 'youtube';
+}
+
+export interface SpotlightPicksResponse {
+  picks: SpotlightPick[];
 }
 
 /**

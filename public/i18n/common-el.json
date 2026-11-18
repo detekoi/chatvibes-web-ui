@@ -85,7 +85,9 @@
     "username_required": "Απαιτείται όνομα χρήστη.",
     "voice_lookup_failed": "Δεν είναι δυνατή η εύρεση της φωνής αυτού του χρήστη.",
     "word_invalid": "Μη έγκυρη λέξη ή φράση.",
-    "word_required": "Απαιτείται λέξη ή φράση."
+    "word_required": "Απαιτείται λέξη ή φράση.",
+    "spotlight_guidance_too_long": "Οι οδηγίες είναι πολύ μεγάλες. Χρησιμοποιήστε {max} χαρακτήρες ή λιγότερους.",
+    "spotlight_picks_fetch_failed": "Δεν είναι δυνατή η φόρτωση των επιλογών Spotlight."
   },
   "logoutLink": {
     "logout": "Αποσύνδεση"

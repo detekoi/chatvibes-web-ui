@@ -85,7 +85,9 @@
     "username_required": "Korisničko ime je obavezno.",
     "voice_lookup_failed": "Nije moguće pronaći glas tog korisnika.",
     "word_invalid": "Ta riječ ili izraz nije valjan.",
-    "word_required": "Riječ ili izraz je obavezan."
+    "word_required": "Riječ ili izraz je obavezan.",
+    "spotlight_guidance_too_long": "Smjernica je preduga. Upotrijebite {max} znakova ili manje.",
+    "spotlight_picks_fetch_failed": "Nije moguće učitati Spotlight odabire."
   },
   "logoutLink": {
     "logout": "Odjava"

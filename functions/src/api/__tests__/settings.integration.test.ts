@@ -28,6 +28,7 @@ jest.mock('../../services/firestore', () => {
     db: mockDbInstance,
     COLLECTIONS: {
       TTS_CHANNEL_CONFIGS: 'ttsChannelConfigs',
+      TTS_SPOTLIGHT_LOG: 'ttsSpotlightLog',
     },
     FieldValue: {
       arrayUnion: jest.fn((val: any) => ({ type: 'arrayUnion', value: val })),
@@ -244,6 +245,8 @@ describe('Settings API Integration Tests (Mocked Firestore)', () => {
       ['an out-of-range speed', { key: 'speed', value: 99 }],
       ['an unknown emote mode', { key: 'emoteMode', value: 'shout' }],
       ['an unknown TTS mode', { key: 'mode', value: 'bogus' }],
+      ['a Spotlight card flag that is not a boolean', { key: 'spotlightCard', value: 'yes' }],
+      ['Spotlight guidance that is not a string', { key: 'spotlightGuidance', value: 5 }],
       ['a negative bits minimum', { key: 'bitsMinimumAmount', value: -1 }],
       ['an unknown voice', { key: 'voiceId', value: 'Not_A_Real_Voice' }],
       ['a volume for an unknown voice', { key: 'voiceVolumes.Not_A_Real_Voice', value: 2 }],
@@ -266,6 +269,9 @@ describe('Settings API Integration Tests (Mocked Firestore)', () => {
       ['auto', 'languageBoost', 'auto'],
       ['the dashboard\'s "Automatic" alias', 'languageBoost', 'Automatic'],
       ['the highlighted_only mode', 'mode', 'highlighted_only'],
+      ['the spotlight mode', 'mode', 'spotlight'],
+      ['the Spotlight card turned on', 'spotlightCard', true],
+      ['the Spotlight card turned off', 'spotlightCard', false],
     ])('should accept %s', async (_label, key, value) => {
       ((db as any).set as any).mockResolvedValueOnce({} as any);
 
@@ -316,6 +322,39 @@ describe('Settings API Integration Tests (Mocked Firestore)', () => {
         .expect(400);
 
       expect(response.body).toMatchObject({ success: false, code: 'style_too_long', params: { key: 'style', max: 120 } });
+      expect((db as any).set).not.toHaveBeenCalled();
+    });
+
+    it.each([
+      ['plain guidance', 'Prefer questions about the game. Skip backseating.', 'Prefer questions about the game. Skip backseating.'],
+      ['empty guidance, which clears it', '', ''],
+      ['guidance of the maximum length', 'a'.repeat(300), 'a'.repeat(300)],
+      ['guidance with spaces and line breaks around it', '  Funny\nmessages  ', 'Funny messages'],
+      ['guidance that is 300 characters after the trim', ' ' + 'a'.repeat(300) + ' ', 'a'.repeat(300)],
+    ])('should store %s as spotlightGuidance', async (_label, value, stored) => {
+      ((db as any).set as any).mockResolvedValueOnce({} as any);
+
+      await request(app)
+        .put(`/api/tts/settings/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ key: 'spotlightGuidance', value })
+        .expect(200);
+
+      expect((db as any).set).toHaveBeenCalledWith({ spotlightGuidance: stored }, { merge: true });
+    });
+
+    it('should reject guidance that is too long with its own code', async () => {
+      const response = await request(app)
+        .put(`/api/tts/settings/channel/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ key: 'spotlightGuidance', value: 'a'.repeat(301) })
+        .expect(400);
+
+      expect(response.body).toMatchObject({
+        success: false,
+        code: 'spotlight_guidance_too_long',
+        params: { key: 'spotlightGuidance', max: 300 },
+      });
       expect((db as any).set).not.toHaveBeenCalled();
     });
 
@@ -980,6 +1019,123 @@ describe('Settings API Integration Tests (Mocked Firestore)', () => {
         .set('Authorization', `Bearer ${authToken}`)
         .send({ rewardId: '92af127c-7326-4483-a52b-b0da0be61c01' })
         .expect(200);
+    });
+  });
+  describe('GET /api/tts/spotlight/picks/:channelName', () => {
+    const pick = (n: number, extra: Record<string, unknown> = {}) => ({
+      user: `viewer${n}`,
+      userId: `id-${n}`,
+      text: `message ${n}`,
+      reason: `reason ${n}`,
+      at: 1_700_000_000_000 + n,
+      ...extra,
+    });
+
+    it('should return 401 without authentication', async () => {
+      await request(app)
+        .get(`/api/tts/spotlight/picks/${channelName}`)
+        .expect(401);
+    });
+
+    it('should return 403 if userLogin does not match channelName', async () => {
+      const wrongToken = createTestToken({ userId: 'user-456', userLogin: 'differentchannel' });
+
+      await request(app)
+        .get(`/api/tts/spotlight/picks/${channelName}`)
+        .set('Authorization', `Bearer ${wrongToken}`)
+        .expect(403);
+
+      expect((db as any).get).not.toHaveBeenCalled();
+    });
+
+    it('should return no picks when the log document does not exist', async () => {
+      ((db as any).get as any).mockResolvedValueOnce({ exists: false });
+
+      const response = await request(app)
+        .get(`/api/tts/spotlight/picks/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .expect(200);
+
+      expect(response.body).toEqual({ picks: [] });
+      expect(db.collection).toHaveBeenCalledWith('ttsSpotlightLog');
+      expect(db.doc).toHaveBeenCalledWith(testUser.userId);
+    });
+
+    it('should return no picks when the document has no picks list', async () => {
+      ((db as any).get as any).mockResolvedValueOnce({ exists: true, data: () => ({ picks: 'broken' }) });
+
+      const response = await request(app)
+        .get(`/api/tts/spotlight/picks/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .expect(200);
+
+      expect(response.body).toEqual({ picks: [] });
+    });
+
+    it('should return the picks newest first', async () => {
+      ((db as any).get as any).mockResolvedValueOnce({
+        exists: true,
+        data: () => ({ picks: [pick(1), pick(2, { platform: 'youtube' }), pick(3, { userId: null })] }),
+      });
+
+      const response = await request(app)
+        .get(`/api/tts/spotlight/picks/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .expect(200);
+
+      expect(response.body.picks.map((p: any) => p.text)).toEqual(['message 3', 'message 2', 'message 1']);
+      expect(response.body.picks[0].userId).toBeNull();
+      expect(response.body.picks[1].platform).toBe('youtube');
+      expect(response.body.picks[2]).not.toHaveProperty('platform');
+    });
+
+    it('should return at most 30 picks, keeping the newest', async () => {
+      const picks = Array.from({ length: 35 }, (_unused, i) => pick(i + 1));
+      ((db as any).get as any).mockResolvedValueOnce({ exists: true, data: () => ({ picks }) });
+
+      const response = await request(app)
+        .get(`/api/tts/spotlight/picks/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .expect(200);
+
+      expect(response.body.picks).toHaveLength(30);
+      expect(response.body.picks[0].text).toBe('message 35');
+      expect(response.body.picks[29].text).toBe('message 6');
+    });
+
+    it('should pass only the known fields of each pick', async () => {
+      ((db as any).get as any).mockResolvedValueOnce({
+        exists: true,
+        data: () => ({
+          picks: [
+            pick(1, { secret: 'x', token: 'y', platform: 'mastodon' }),
+            'not an object',
+            null,
+            { user: 'nobody', at: 1 },
+            { text: 'no time' },
+          ],
+        }),
+      });
+
+      const response = await request(app)
+        .get(`/api/tts/spotlight/picks/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .expect(200);
+
+      expect(response.body.picks).toEqual([
+        { user: 'viewer1', userId: 'id-1', text: 'message 1', reason: 'reason 1', at: 1_700_000_000_001 },
+      ]);
+    });
+
+    it('should return 500 when the read fails', async () => {
+      ((db as any).get as any).mockRejectedValueOnce(new Error('firestore down'));
+
+      const response = await request(app)
+        .get(`/api/tts/spotlight/picks/${channelName}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .expect(500);
+
+      expect(response.body).toMatchObject({ code: 'spotlight_picks_fetch_failed' });
     });
   });
 });

@@ -85,7 +85,9 @@
     "username_required": "ต้องระบุชื่อผู้ใช้",
     "voice_lookup_failed": "ไม่สามารถค้นหาเสียงของผู้ใช้รายนั้นได้",
     "word_invalid": "คำหรือวลีนั้นไม่ถูกต้อง",
-    "word_required": "ต้องระบุคำหรือวลี"
+    "word_required": "ต้องระบุคำหรือวลี",
+    "spotlight_guidance_too_long": "คำแนะนำยาวเกินไป ใช้ไม่เกิน {max} ตัวอักษร",
+    "spotlight_picks_fetch_failed": "ไม่สามารถโหลดรายการที่เลือกของ Spotlight ได้"
   },
   "logoutLink": {
     "logout": "ออกจากระบบ"

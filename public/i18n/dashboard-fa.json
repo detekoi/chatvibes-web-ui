@@ -280,6 +280,8 @@
       "readFullUrls": "خواندن کامل URLها",
       "redemptionAnnouncements": "اعلام دریافت‌های پاداش",
       "soundTags": "برچسب‌های صوتی",
+      "spotlightCard": "کارت Spotlight",
+      "spotlightGuidance": "راهنمای Spotlight",
       "style": "سبک پیش‌فرض صدا",
       "ttsEngine": "موتور TTS",
       "ttsMode": "حالت TTS",
@@ -293,6 +295,14 @@
       "loadFailed": "بارگذاری تنظیمات شما امکان‌پذیر نیست.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "قبل از روشن کردن TTS برای YouTube، یک شناسه YouTube وارد کنید."
+    },
+    "spotlight": {
+      "count": "انتخاب‌های یافت‌شده: {count}",
+      "empty": "هنوز انتخابی نیست. هر انتخاب پس از خوانده شدن توسط ربات اینجا ظاهر می‌شود.",
+      "loadFailed": "بارگذاری انتخاب‌ها ممکن نیست. برای تلاش مجدد، تازه‌سازی را انتخاب کنید.",
+      "loading": "در حال بارگذاری انتخاب‌ها…",
+      "reason": "دلیل: {reason}",
+      "unknownUser": "بیننده ناشناس"
     }
   },
   "mutedRewardsClose": {
@@ -497,13 +507,15 @@
     "allMessages": "همه پیام‌های چت",
     "bitsPointsOnly": "فقط Cheers و پاداش‌ها",
     "highlightedOnly": "پیام‌های برجسته‌شده",
-    "ttsCommandOnly": "پیام‌های ‎!tts"
+    "ttsCommandOnly": "پیام‌های ‎!tts",
+    "spotlightTheBotPicksNotable": "Spotlight (ربات پیام‌های برجسته را انتخاب می‌کند)"
   },
   "ttsModeSummary": {
     "all": "TTS همه پیام‌های چت را می‌خواند. این شامل پیام‌هایی است که با ‎!tts شروع می‌شوند.",
     "bitsPointsOnly": "TTS فقط Cheers و پاداش TTS در Channel Points را می‌خواند. پیام‌های ‎!tts، پیام‌های برجسته‌شده و سایر پیام‌های چت را نمی‌خواند.",
     "command": "TTS پیام‌هایی را می‌خواند که با ‎!tts شروع می‌شوند. سایر پیام‌های چت را نمی‌خواند.",
-    "highlightedOnly": "TTS پیام‌هایی را می‌خواند که بینندگان با Channel Points برجسته می‌کنند. پیام‌های ‎!tts و سایر پیام‌های چت را نمی‌خواند."
+    "highlightedOnly": "TTS پیام‌هایی را می‌خواند که بینندگان با Channel Points برجسته می‌کنند. پیام‌های ‎!tts و سایر پیام‌های چت را نمی‌خواند.",
+    "theBotReadsChatAnd": "ربات گفتگو را می‌خواند و پیام‌های برجسته را انتخاب می‌کند. TTS فقط همان پیام‌ها را می‌خواند و پیش از هر کدام می‌گوید «برگزیده گفتگو». پیام‌های !tts را نیز می‌خواند."
   },
   "ttsPermission": {
     "everyone": "همه",
@@ -536,5 +548,26 @@
   },
   "youtubeHandle": {
     "yourhandle": "@yourhandle"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "هنگامی که ربات یک انتخاب را می‌خواند، منبع مرورگر کارتی با نام بیننده و پیام نمایش می‌دهد."
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "به ربات بگویید چه پیام‌هایی را دوست دارید. ربات همچنان هرزنامه و پیام‌های بی‌ادبانه را نادیده می‌گیرد. مثال: پرسش‌های مربوط به بازی را ترجیح بده. راهنمایی ناخواسته را نادیده بگیر."
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "انتخاب‌های اخیر"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "این فهرست آخرین پیام‌هایی را که ربات انتخاب کرده نشان می‌دهد. هر پیام دلیل انتخاب را دارد. جدیدترین پیام اول است."
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "تازه‌سازی"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "انتخاب کنید ربات در گفتگو دنبال چه چیزی بگردد. پیام‌هایی را که انتخاب کرده ببینید.",
+    "showACardInThe": "<strong>نمایش یک کارت در منبع مرورگر</strong>",
+    "spotlight": "Spotlight",
+    "whatToLookForOptional": "<strong>دنبال چه چیزی بگردد (اختیاری)</strong>"
   }
 }

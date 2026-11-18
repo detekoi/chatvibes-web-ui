@@ -280,6 +280,8 @@
       "readFullUrls": "Preberi celotne URL-je",
       "redemptionAnnouncements": "Obvestila o unovčitvah",
       "soundTags": "Zvočne oznake",
+      "spotlightCard": "Kartica Spotlight",
+      "spotlightGuidance": "Smernica Spotlight",
       "style": "Privzeti slog glasu",
       "ttsEngine": "Pogon TTS",
       "ttsMode": "Način TTS",
@@ -293,6 +295,14 @@
       "loadFailed": "Vaših nastavitev ni mogoče naložiti.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Preden vklopiš YouTube TTS, vnesi ročaj YouTube."
+    },
+    "spotlight": {
+      "count": "Najdene izbire: {count}",
+      "empty": "Še ni izbir. Izbira se prikaže tukaj, ko jo bot prebere.",
+      "loadFailed": "Izbire ni mogoče naložiti. Izberite Osveži za ponovni poskus.",
+      "loading": "Nalaganje izbir…",
+      "reason": "Razlog: {reason}",
+      "unknownUser": "Neznani gledalec"
     }
   },
   "mutedRewardsClose": {
@@ -497,13 +507,15 @@
     "allMessages": "Vsa sporočila v klepetu",
     "bitsPointsOnly": "Samo cheeri in nagrade",
     "highlightedOnly": "Poudarjena sporočila",
-    "ttsCommandOnly": "Sporočila z !tts"
+    "ttsCommandOnly": "Sporočila z !tts",
+    "spotlightTheBotPicksNotable": "Spotlight (bot izbere opazna sporočila)"
   },
   "ttsModeSummary": {
     "all": "TTS bere vsako sporočilo v klepetu. To vključuje sporočila, ki se začnejo z !tts.",
     "bitsPointsOnly": "TTS bere samo cheere in nagrado TTS za Channel Points. Ne bere sporočil z !tts, poudarjenih sporočil ali drugih sporočil v klepetu.",
     "command": "TTS bere sporočila, ki se začnejo z !tts. Ne bere drugih sporočil v klepetu.",
-    "highlightedOnly": "TTS bere sporočila, ki jih gledalci poudarijo s Channel Points. Ne bere sporočil z !tts ali drugih sporočil v klepetu."
+    "highlightedOnly": "TTS bere sporočila, ki jih gledalci poudarijo s Channel Points. Ne bere sporočil z !tts ali drugih sporočil v klepetu.",
+    "theBotReadsChatAnd": "Bot bere klepet in izbere opazna sporočila. TTS bere samo ta sporočila. Pred vsakim reče \"Poudarek klepeta\". Bere tudi sporočila !tts."
   },
   "ttsPermission": {
     "everyone": "Vsi",
@@ -536,5 +548,26 @@
   },
   "youtubeHandle": {
     "yourhandle": "@yourhandle"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "Medtem ko bot bere izbiro, vir brskalnika prikaže kartico z imenom gledalca in sporočilom."
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "Povejte botu, katera sporočila so vam všeč. Bot še vedno preskoči neželeno pošto in nevljudna sporočila. Primer: Daj prednost vprašanjem o igri. Preskoči neželene nasvete."
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "Nedavne izbire"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "Ta seznam prikazuje zadnja sporočila, ki jih je bot izbral. Vsako sporočilo ima razlog za izbiro. Najnovejše sporočilo je prvo."
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "Osveži"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "Izberite, kaj bot išče v klepetu. Oglejte si sporočila, ki jih je izbral.",
+    "showACardInThe": "<strong>Prikaži kartico v viru brskalnika</strong>",
+    "spotlight": "Spotlight",
+    "whatToLookForOptional": "<strong>Kaj iskati (izbirno)</strong>"
   }
 }

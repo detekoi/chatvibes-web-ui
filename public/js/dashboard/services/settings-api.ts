@@ -1,6 +1,7 @@
 import {
 
     SettingsResponse,
+    SpotlightPicksResponse,
     ErrorResponse,
     VoiceLookupResponse
 } from '../types.js';
@@ -31,6 +32,19 @@ export class SettingsApi {
             return this.handleResponse<SettingsResponse>(response);
         } catch (error) {
             console.error('Failed to get settings:', error);
+            return { error: 'Network error', code: 'network_error' };
+        }
+    }
+
+    async getSpotlightPicks(channelName: string): Promise<SpotlightPicksResponse | ErrorResponse> {
+        try {
+            const response = await fetch(`${this.apiBaseUrl}/tts/spotlight/picks/${channelName}?t=${Date.now()}`, {
+                headers: this.authHeaders(),
+                cache: 'no-store'
+            });
+            return this.handleResponse<SpotlightPicksResponse>(response);
+        } catch (error) {
+            console.error('Failed to get Spotlight picks:', error);
             return { error: 'Network error', code: 'network_error' };
         }
     }

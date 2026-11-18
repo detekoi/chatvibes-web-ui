@@ -85,7 +85,9 @@
     "username_required": "חובה להזין שם משתמש.",
     "voice_lookup_failed": "לא ניתן לאתר את הקול של משתמש זה.",
     "word_invalid": "מילה או ביטוי אלה אינם תקינים.",
-    "word_required": "חובה להזין מילה או ביטוי."
+    "word_required": "חובה להזין מילה או ביטוי.",
+    "spotlight_guidance_too_long": "ההנחיה ארוכה מדי. השתמשו ב-{max} תווים או פחות.",
+    "spotlight_picks_fetch_failed": "לא ניתן לטעון את בחירות ה-Spotlight."
   },
   "logoutLink": {
     "logout": "התנתקות"

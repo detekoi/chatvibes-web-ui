@@ -85,7 +85,9 @@
     "username_required": "Uživatelské jméno je povinné.",
     "voice_lookup_failed": "Nelze vyhledat hlas tohoto uživatele.",
     "word_invalid": "Toto slovo nebo fráze není platná.",
-    "word_required": "Slovo nebo fráze je povinné pole."
+    "word_required": "Slovo nebo fráze je povinné pole.",
+    "spotlight_guidance_too_long": "Pokyny jsou příliš dlouhé. Použijte nejvýše {max} znaků.",
+    "spotlight_picks_fetch_failed": "Výběry Spotlight nelze načíst."
   },
   "logoutLink": {
     "logout": "Odhlásit se"

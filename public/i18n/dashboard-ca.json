@@ -280,6 +280,8 @@
       "readFullUrls": "Llegeix els URL sencers",
       "redemptionAnnouncements": "Anuncis de bescanvis",
       "soundTags": "Etiquetes de so",
+      "spotlightCard": "Targeta de Spotlight",
+      "spotlightGuidance": "Guia de Spotlight",
       "style": "Estil de veu predeterminat",
       "ttsEngine": "Motor de TTS",
       "ttsMode": "Mode de TTS",
@@ -293,6 +295,14 @@
       "loadFailed": "No es pot carregar la teva configuració.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Introdueix un identificador de YouTube abans d'activar el TTS de YouTube."
+    },
+    "spotlight": {
+      "count": "Seleccions trobades: {count}",
+      "empty": "Encara no hi ha seleccions. Una selecció apareix aquí després que el bot la llegeixi.",
+      "loadFailed": "No es poden carregar les seleccions. Selecciona Actualitzar per tornar-ho a provar.",
+      "loading": "S'estan carregant les seleccions…",
+      "reason": "Motiu: {reason}",
+      "unknownUser": "Espectador desconegut"
     }
   },
   "mutedRewardsClose": {
@@ -497,13 +507,15 @@
     "allMessages": "Tots els missatges del xat",
     "bitsPointsOnly": "Només cheers i recompenses",
     "highlightedOnly": "Missatges destacats",
-    "ttsCommandOnly": "Missatges amb !tts"
+    "ttsCommandOnly": "Missatges amb !tts",
+    "spotlightTheBotPicksNotable": "Spotlight (el bot tria missatges destacables)"
   },
   "ttsModeSummary": {
     "all": "El TTS llegeix tots els missatges del xat. Això inclou els missatges que comencen amb !tts.",
     "bitsPointsOnly": "El TTS només llegeix els cheers i la recompensa de TTS de Channel Points. No llegeix missatges amb !tts, missatges destacats ni altres missatges del xat.",
     "command": "El TTS llegeix els missatges que comencen amb !tts. No llegeix altres missatges del xat.",
-    "highlightedOnly": "El TTS llegeix els missatges que els espectadors destaquen amb Channel Points. No llegeix missatges amb !tts ni altres missatges del xat."
+    "highlightedOnly": "El TTS llegeix els missatges que els espectadors destaquen amb Channel Points. No llegeix missatges amb !tts ni altres missatges del xat.",
+    "theBotReadsChatAnd": "El bot llegeix el xat i tria els missatges destacables. El TTS només llegeix aquests missatges. Diu \"Destacat del xat\" abans de cadascun. També llegeix missatges !tts."
   },
   "ttsPermission": {
     "everyone": "Tothom",
@@ -536,5 +548,26 @@
   },
   "youtubeHandle": {
     "yourhandle": "@elteuusuari"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "Mentre el bot llegeix una selecció, la font del navegador mostra una targeta amb el nom de l'espectador i el missatge."
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "Digues al bot quins missatges t'agraden. El bot continua ometent el correu brossa i els missatges grollers. Exemple: Prefereix preguntes sobre el joc. Omet els consells no demanats."
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "Seleccions recents"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "Aquesta llista mostra els darrers missatges que el bot ha seleccionat. Cada missatge té el motiu de la selecció. El missatge més nou és el primer."
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "Actualitzar"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "Tria què busca el bot al xat. Consulta els missatges que ha seleccionat.",
+    "showACardInThe": "<strong>Mostra una targeta a la font del navegador</strong>",
+    "spotlight": "Spotlight",
+    "whatToLookForOptional": "<strong>Què cal buscar (opcional)</strong>"
   }
 }

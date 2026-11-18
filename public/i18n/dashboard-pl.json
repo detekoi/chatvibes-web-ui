@@ -280,6 +280,8 @@
       "readFullUrls": "Czytaj pełne adresy URL",
       "redemptionAnnouncements": "Ogłoszenia o odebraniu nagród",
       "soundTags": "Tagi dźwiękowe",
+      "spotlightCard": "Karta Spotlight",
+      "spotlightGuidance": "Wskazówki Spotlight",
       "style": "Domyślny styl głosu",
       "ttsEngine": "Silnik TTS",
       "ttsMode": "Tryb TTS",
@@ -293,6 +295,14 @@
       "loadFailed": "Nie można wczytać Twoich ustawień.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Wprowadź identyfikator YouTube przed włączeniem TTS dla YouTube."
+    },
+    "spotlight": {
+      "count": "Znalezione wybory: {count}",
+      "empty": "Brak wyborów. Wybór pojawi się tutaj po przeczytaniu go przez bota.",
+      "loadFailed": "Nie można wczytać wyborów. Wybierz Odśwież, aby spróbować ponownie.",
+      "loading": "Wczytywanie wyborów…",
+      "reason": "Powód: {reason}",
+      "unknownUser": "Nieznany widz"
     }
   },
   "mutedRewardsClose": {
@@ -497,13 +507,15 @@
     "allMessages": "Wszystkie wiadomości na czacie",
     "bitsPointsOnly": "Tylko cheery i nagrody",
     "highlightedOnly": "Wyróżnione wiadomości",
-    "ttsCommandOnly": "Wiadomości z !tts"
+    "ttsCommandOnly": "Wiadomości z !tts",
+    "spotlightTheBotPicksNotable": "Spotlight (bot wybiera wyróżniające się wiadomości)"
   },
   "ttsModeSummary": {
     "all": "TTS czyta każdą wiadomość na czacie. Obejmuje to wiadomości zaczynające się od !tts.",
     "bitsPointsOnly": "TTS czyta tylko cheery i nagrodę TTS za Channel Points. Nie czyta wiadomości z !tts, wyróżnionych wiadomości ani innych wiadomości na czacie.",
     "command": "TTS czyta wiadomości zaczynające się od !tts. Nie czyta innych wiadomości na czacie.",
-    "highlightedOnly": "TTS czyta wiadomości, które widzowie wyróżniają za pomocą Channel Points. Nie czyta wiadomości z !tts ani innych wiadomości na czacie."
+    "highlightedOnly": "TTS czyta wiadomości, które widzowie wyróżniają za pomocą Channel Points. Nie czyta wiadomości z !tts ani innych wiadomości na czacie.",
+    "theBotReadsChatAnd": "Bot czyta czat i wybiera wyróżniające się wiadomości. TTS czyta tylko te wiadomości. Przed każdą z nich mówi \"Wyróżnienie z czatu\". Czyta też wiadomości !tts."
   },
   "ttsPermission": {
     "everyone": "Wszyscy",
@@ -536,5 +548,26 @@
   },
   "youtubeHandle": {
     "yourhandle": "@twojhandle"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "Gdy bot czyta wybór, źródło przeglądarki wyświetla kartę z nazwą widza i wiadomością."
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "Powiedz botowi, jakie wiadomości lubisz. Bot nadal pomija spam i niegrzeczne wiadomości. Przykład: Preferuj pytania o grę. Pomijaj podpowiadanie."
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "Ostatnie wybory"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "Ta lista pokazuje ostatnie wiadomości wybrane przez bota. Każda wiadomość zawiera powód wyboru. Najnowsza wiadomość jest pierwsza."
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "Odśwież"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "Wybierz, czego bot szuka na czacie. Zobacz wybrane przez niego wiadomości.",
+    "showACardInThe": "<strong>Pokaż kartę w źródle przeglądarki</strong>",
+    "spotlight": "Spotlight",
+    "whatToLookForOptional": "<strong>Czego szukać (opcjonalnie)</strong>"
   }
 }

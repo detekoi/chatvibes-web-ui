@@ -85,7 +85,9 @@
     "username_required": "Ett användarnamn krävs.",
     "voice_lookup_failed": "Kunde inte slå upp den användarens röst.",
     "word_invalid": "Ordet eller frasen är inte giltig.",
-    "word_required": "Ett ord eller en fras krävs."
+    "word_required": "Ett ord eller en fras krävs.",
+    "spotlight_guidance_too_long": "Riktlinjen är för lång. Använd {max} tecken eller färre.",
+    "spotlight_picks_fetch_failed": "Kan inte läsa in Spotlight-valen."
   },
   "logoutLink": {
     "logout": "Logga ut"

@@ -280,6 +280,8 @@
       "readFullUrls": "Изчитане на пълни URL адреси",
       "redemptionAnnouncements": "Обявяване на активирани награди",
       "soundTags": "Звукови тагове",
+      "spotlightCard": "Карта за Spotlight",
+      "spotlightGuidance": "Насоки за Spotlight",
       "style": "Стил на гласа по подразбиране",
       "ttsEngine": "TTS система",
       "ttsMode": "TTS режим",
@@ -293,6 +295,14 @@
       "loadFailed": "Настройките ви не могат да се заредят.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Въведи YouTube потребителско име, преди да включиш YouTube TTS."
+    },
+    "spotlight": {
+      "count": "Намерени избори: {count}",
+      "empty": "Все още няма избори. Изборът се появява тук, след като ботът го прочете.",
+      "loadFailed": "Изборите не могат да бъдат заредени. Изберете Опресняване, за да опитате отново.",
+      "loading": "Зареждане на изборите…",
+      "reason": "Причина: {reason}",
+      "unknownUser": "Неизвестен зрител"
     }
   },
   "mutedRewardsClose": {
@@ -497,13 +507,15 @@
     "allMessages": "Всички съобщения в чата",
     "bitsPointsOnly": "Само Cheers и награди",
     "highlightedOnly": "Откроени съобщения",
-    "ttsCommandOnly": "Съобщения с !tts"
+    "ttsCommandOnly": "Съобщения с !tts",
+    "spotlightTheBotPicksNotable": "Spotlight (ботът избира забележителни съобщения)"
   },
   "ttsModeSummary": {
     "all": "TTS чете всяко съобщение в чата. Това включва съобщенията, които започват с !tts.",
     "bitsPointsOnly": "TTS чете само Cheers и наградата за TTS с Channel Points. Не чете съобщения с !tts, откроени съобщения или други съобщения в чата.",
     "command": "TTS чете съобщенията, които започват с !tts. Не чете други съобщения в чата.",
-    "highlightedOnly": "TTS чете съобщенията, които зрителите открояват с Channel Points. Не чете съобщения с !tts или други съобщения в чата."
+    "highlightedOnly": "TTS чете съобщенията, които зрителите открояват с Channel Points. Не чете съобщения с !tts или други съобщения в чата.",
+    "theBotReadsChatAnd": "Ботът чете чата и избира забележителните съобщения. TTS чете само тези съобщения. Казва \"Акцент от чата\" преди всяко от тях. Чете и !tts съобщения."
   },
   "ttsPermission": {
     "everyone": "Всички",
@@ -536,5 +548,26 @@
   },
   "youtubeHandle": {
     "yourhandle": "@yourhandle"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "Докато ботът чете избор, източникът на браузъра показва карта с името на зрителя и съобщението."
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "Кажете на бота какви съобщения харесвате. Ботът все още пропуска спам и груби съобщения. Пример: Предпочитай въпроси за играта. Пропускай подсказване."
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "Скорошни избори"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "Този списък показва последните съобщения, които ботът е избрал. Всяко съобщение има причина за избора. Най-новото съобщение е първо."
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "Опресняване"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "Изберете какво да търси ботът в чата. Вижте съобщенията, които е избрал.",
+    "showACardInThe": "<strong>Показване на карта в източника на браузъра</strong>",
+    "spotlight": "Spotlight",
+    "whatToLookForOptional": "<strong>Какво да търси (по избор)</strong>"
   }
 }

@@ -85,7 +85,9 @@
     "username_required": "Требуется имя пользователя.",
     "voice_lookup_failed": "Не удалось найти голос этого пользователя.",
     "word_invalid": "Недопустимое слово или фраза.",
-    "word_required": "Требуется слово или фраза."
+    "word_required": "Требуется слово или фраза.",
+    "spotlight_guidance_too_long": "Подсказка слишком длинная. Используйте не более {max} символов.",
+    "spotlight_picks_fetch_failed": "Не удалось загрузить подборку Spotlight."
   },
   "logoutLink": {
     "logout": "Выйти"

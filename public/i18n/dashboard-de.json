@@ -280,6 +280,8 @@
       "readFullUrls": "Vollständige URLs vorlesen",
       "redemptionAnnouncements": "Einlösungs-Ansagen",
       "soundTags": "Sound-Tags",
+      "spotlightCard": "Spotlight-Karte",
+      "spotlightGuidance": "Spotlight-Vorgabe",
       "style": "Standard-Stimmstil",
       "ttsEngine": "TTS-Engine",
       "ttsMode": "TTS-Modus",
@@ -293,6 +295,14 @@
       "loadFailed": "Deine Einstellungen konnten nicht geladen werden.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Gib ein YouTube-Handle ein, bevor du YouTube-TTS aktivierst."
+    },
+    "spotlight": {
+      "count": "Gefundene Auswahlen: {count}",
+      "empty": "Noch keine Auswahlen. Eine Auswahl erscheint hier, nachdem der Bot sie vorgelesen hat.",
+      "loadFailed": "Die Auswahlen können nicht geladen werden. Wähle Aktualisieren, um es erneut zu versuchen.",
+      "loading": "Auswahlen werden geladen…",
+      "reason": "Grund: {reason}",
+      "unknownUser": "Unbekannter Zuschauer"
     }
   },
   "mutedRewardsClose": {
@@ -497,13 +507,15 @@
     "allMessages": "Alle Chatnachrichten",
     "bitsPointsOnly": "Nur Cheers und Belohnungen",
     "highlightedOnly": "Hervorgehobene Nachrichten",
-    "ttsCommandOnly": "!tts-Nachrichten"
+    "ttsCommandOnly": "!tts-Nachrichten",
+    "spotlightTheBotPicksNotable": "Spotlight (der Bot wählt bemerkenswerte Nachrichten aus)"
   },
   "ttsModeSummary": {
     "all": "TTS liest jede Chatnachricht vor. Dazu gehören Nachrichten, die mit !tts beginnen.",
     "bitsPointsOnly": "TTS liest nur Cheers und die TTS-Belohnung für Channel Points vor. !tts-Nachrichten, hervorgehobene Nachrichten und andere Chatnachrichten liest es nicht vor.",
     "command": "TTS liest Nachrichten vor, die mit !tts beginnen. Andere Chatnachrichten liest es nicht vor.",
-    "highlightedOnly": "TTS liest Nachrichten vor, die Zuschauer mit Channel Points hervorheben. !tts-Nachrichten und andere Chatnachrichten liest es nicht vor."
+    "highlightedOnly": "TTS liest Nachrichten vor, die Zuschauer mit Channel Points hervorheben. !tts-Nachrichten und andere Chatnachrichten liest es nicht vor.",
+    "theBotReadsChatAnd": "Der Bot liest den Chat und wählt die bemerkenswerten Nachrichten aus. TTS liest nur diese Nachrichten vor. Es sagt vor jeder Nachricht \"Chat-Spotlight\". Es liest auch !tts-Nachrichten."
   },
   "ttsPermission": {
     "everyone": "Alle",
@@ -536,5 +548,26 @@
   },
   "youtubeHandle": {
     "yourhandle": "@deinhandle"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "Während der Bot eine Auswahl vorliest, zeigt die Browserquelle eine Karte mit dem Namen des Zuschauers und der Nachricht."
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "Sage dem Bot, welche Nachrichten dir gefallen. Der Bot überspringt weiterhin Spam und unhöfliche Nachrichten. Beispiel: Bevorzuge Fragen zum Spiel. Überspringe Backseating."
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "Letzte Auswahlen"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "Diese Liste zeigt die letzten Nachrichten, die der Bot ausgewählt hat. Jede Nachricht enthält den Grund für die Auswahl. Die neueste Nachricht steht zuerst."
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "Aktualisieren"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "Wähle aus, wonach der Bot im Chat suchen soll. Sieh dir die ausgewählten Nachrichten an.",
+    "showACardInThe": "<strong>Eine Karte in der Browserquelle anzeigen</strong>",
+    "spotlight": "Spotlight",
+    "whatToLookForOptional": "<strong>Wonach gesucht werden soll (optional)</strong>"
   }
 }

@@ -16,6 +16,9 @@ export const VALID_EMOTIONS = [
 /** `STYLE.MAX_LENGTH`. */
 export const STYLE_MAX_LENGTH = 120;
 
+/** `SPOTLIGHT.GUIDANCE_MAX`: the longest guidance for Spotlight mode. */
+export const SPOTLIGHT_GUIDANCE_MAX = 300;
+
 export interface Step {
   key: string;
   /** The number stored when the step is chosen. */

@@ -85,7 +85,9 @@
     "username_required": "Este necesar un nume de utilizator.",
     "voice_lookup_failed": "Nu se poate căuta vocea acelui utilizator.",
     "word_invalid": "Cuvântul sau expresia nu este validă.",
-    "word_required": "Este necesar un cuvânt sau o expresie."
+    "word_required": "Este necesar un cuvânt sau o expresie.",
+    "spotlight_guidance_too_long": "Îndrumarea este prea lungă. Folosește {max} caractere sau mai puține.",
+    "spotlight_picks_fetch_failed": "Nu se pot încărca alegerile Spotlight."
   },
   "logoutLink": {
     "logout": "Deconectare"

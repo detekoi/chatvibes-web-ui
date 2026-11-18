@@ -85,7 +85,9 @@
     "username_required": "Se requiere un nombre de usuario.",
     "voice_lookup_failed": "No se puede consultar la voz de ese usuario.",
     "word_invalid": "Esa palabra o frase no es válida.",
-    "word_required": "Se requiere una palabra o frase."
+    "word_required": "Se requiere una palabra o frase.",
+    "spotlight_guidance_too_long": "La guía es demasiado larga. Usa {max} caracteres o menos.",
+    "spotlight_picks_fetch_failed": "No se pueden cargar las elecciones de Spotlight."
   },
   "logoutLink": {
     "logout": "Cerrar sesión"

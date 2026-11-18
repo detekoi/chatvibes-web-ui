@@ -85,7 +85,9 @@
     "username_required": "Eit brukarnamn er påkravd.",
     "voice_lookup_failed": "Kan ikkje slå opp stemma til den brukaren.",
     "word_invalid": "Det ordet eller uttrykket er ikkje gyldig.",
-    "word_required": "Eit ord eller uttrykk er påkravd."
+    "word_required": "Eit ord eller uttrykk er påkravd.",
+    "spotlight_guidance_too_long": "Rettleiinga er for lang. Bruk {max} teikn eller færre.",
+    "spotlight_picks_fetch_failed": "Kan ikkje laste inn Spotlight-vala."
   },
   "logoutLink": {
     "logout": "Logg ut"

@@ -280,6 +280,8 @@
       "readFullUrls": "Lue täydet URL-osoitteet",
       "redemptionAnnouncements": "Lunastusilmoitukset",
       "soundTags": "Äänitagit",
+      "spotlightCard": "Spotlight-kortti",
+      "spotlightGuidance": "Spotlight-ohje",
       "style": "Äänen oletustyyli",
       "ttsEngine": "TTS-moottori",
       "ttsMode": "TTS-tila",
@@ -293,6 +295,14 @@
       "loadFailed": "Asetuksiasi ei voi ladata.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Anna YouTube-tunnus ennen kuin otat YouTube TTS -toiminnon käyttöön."
+    },
+    "spotlight": {
+      "count": "Valintoja löytyi: {count}",
+      "empty": "Ei vielä valintoja. Valinta näkyy täällä, kun botti on lukenut sen.",
+      "loadFailed": "Valintoja ei voida ladata. Yritä uudelleen valitsemalla Päivitä.",
+      "loading": "Ladataan valintoja…",
+      "reason": "Syy: {reason}",
+      "unknownUser": "Tuntematon katsoja"
     }
   },
   "mutedRewardsClose": {
@@ -497,13 +507,15 @@
     "allMessages": "Kaikki chat-viestit",
     "bitsPointsOnly": "Vain cheerit ja palkinnot",
     "highlightedOnly": "Korostetut viestit",
-    "ttsCommandOnly": "!tts-viestit"
+    "ttsCommandOnly": "!tts-viestit",
+    "spotlightTheBotPicksNotable": "Spotlight (botti valitsee huomionarvoiset viestit)"
   },
   "ttsModeSummary": {
     "all": "TTS lukee jokaisen chat-viestin. Tähän kuuluvat myös viestit, jotka alkavat !tts:llä.",
     "bitsPointsOnly": "TTS lukee vain cheerit ja Channel Points -palkinnon TTS:lle. Se ei lue !tts-viestejä, korostettuja viestejä tai muita chat-viestejä.",
     "command": "TTS lukee viestit, jotka alkavat !tts:llä. Se ei lue muita chat-viestejä.",
-    "highlightedOnly": "TTS lukee viestit, jotka katsojat korostavat Channel Pointsilla. Se ei lue !tts-viestejä tai muita chat-viestejä."
+    "highlightedOnly": "TTS lukee viestit, jotka katsojat korostavat Channel Pointsilla. Se ei lue !tts-viestejä tai muita chat-viestejä.",
+    "theBotReadsChatAnd": "Botti lukee chattia ja valitsee huomionarvoiset viestit. TTS lukee vain ne viestit. Se sanoo \"Chatin kohokohta\" ennen jokaista. Se lukee myös !tts-viestit."
   },
   "ttsPermission": {
     "everyone": "Kaikki",
@@ -536,5 +548,26 @@
   },
   "youtubeHandle": {
     "yourhandle": "@käyttäjänimesi"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "Kun botti lukee valintaa, selainlähde näyttää kortin, jossa on katsojan nimi ja viesti."
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "Kerro botille, millaisista viesteistä pidät. Botti ohittaa silti roskapostin ja töykeät viestit. Esimerkki: Suosi peliin liittyviä kysymyksiä. Ohita neuvominen."
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "Viimeisimmät valinnat"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "Tämä luettelo näyttää viimeisimmät viestit, jotka botti valitsi. Jokaisessa viestissä on valinnan syy. Uusin viesti on ensin."
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "Päivitä"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "Valitse, mitä botti etsii chatista. Katso viestit, jotka se valitsi.",
+    "showACardInThe": "<strong>Näytä kortti selainlähteessä</strong>",
+    "spotlight": "Spotlight",
+    "whatToLookForOptional": "<strong>Mitä etsiä (valinnainen)</strong>"
   }
 }

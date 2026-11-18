@@ -85,7 +85,9 @@
     "username_required": "ユーザー名が必要です。",
     "voice_lookup_failed": "該当ユーザーのボイスを取得できません。",
     "word_invalid": "無効な単語またはフレーズです。",
-    "word_required": "単語またはフレーズが必要です。"
+    "word_required": "単語またはフレーズが必要です。",
+    "spotlight_guidance_too_long": "指針が長すぎます。{max}文字以内で入力してください。",
+    "spotlight_picks_fetch_failed": "Spotlightの選択を読み込めません。"
   },
   "logoutLink": {
     "logout": "サインアウト"

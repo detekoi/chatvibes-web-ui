@@ -85,7 +85,9 @@
     "username_required": "Cần có tên người dùng.",
     "voice_lookup_failed": "Không thể tra cứu giọng đọc của người dùng đó.",
     "word_invalid": "Từ hoặc cụm từ đó không hợp lệ.",
-    "word_required": "Cần có từ hoặc cụm từ."
+    "word_required": "Cần có từ hoặc cụm từ.",
+    "spotlight_guidance_too_long": "Hướng dẫn quá dài. Hãy dùng tối đa {max} ký tự.",
+    "spotlight_picks_fetch_failed": "Không thể tải các lựa chọn Spotlight."
   },
   "logoutLink": {
     "logout": "Đăng xuất"

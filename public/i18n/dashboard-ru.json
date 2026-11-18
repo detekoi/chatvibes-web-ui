@@ -280,6 +280,8 @@
       "readFullUrls": "Зачитывать URL полностью",
       "redemptionAnnouncements": "Оповещения об активации наград",
       "soundTags": "Звуковые теги",
+      "spotlightCard": "Карточка Spotlight",
+      "spotlightGuidance": "Подсказка для Spotlight",
       "style": "Стиль голоса по умолчанию",
       "ttsEngine": "Движок TTS",
       "ttsMode": "Режим TTS",
@@ -293,6 +295,14 @@
       "loadFailed": "Не удалось загрузить настройки.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Введите хэндл YouTube перед включением YouTube TTS."
+    },
+    "spotlight": {
+      "count": "Найдено выборов: {count}",
+      "empty": "Пока нет выборов. Выбор появится здесь после того, как бот его прочитает.",
+      "loadFailed": "Не удалось загрузить подборку. Нажмите «Обновить», чтобы попробовать снова.",
+      "loading": "Загрузка подборки…",
+      "reason": "Причина: {reason}",
+      "unknownUser": "Неизвестный зритель"
     }
   },
   "mutedRewardsClose": {
@@ -497,13 +507,15 @@
     "allMessages": "Все сообщения чата",
     "bitsPointsOnly": "Только Cheers и награды",
     "highlightedOnly": "Выделенные сообщения",
-    "ttsCommandOnly": "Сообщения с !tts"
+    "ttsCommandOnly": "Сообщения с !tts",
+    "spotlightTheBotPicksNotable": "Spotlight (бот выбирает примечательные сообщения)"
   },
   "ttsModeSummary": {
     "all": "TTS озвучивает каждое сообщение чата. Сюда входят сообщения, которые начинаются с !tts.",
     "bitsPointsOnly": "TTS озвучивает только Cheers и награду TTS за Channel Points. Сообщения с !tts, выделенные сообщения и другие сообщения чата не озвучиваются.",
     "command": "TTS озвучивает сообщения, которые начинаются с !tts. Другие сообщения чата не озвучиваются.",
-    "highlightedOnly": "TTS озвучивает сообщения, которые зрители выделяют с помощью Channel Points. Сообщения с !tts и другие сообщения чата не озвучиваются."
+    "highlightedOnly": "TTS озвучивает сообщения, которые зрители выделяют с помощью Channel Points. Сообщения с !tts и другие сообщения чата не озвучиваются.",
+    "theBotReadsChatAnd": "Бот читает чат и выбирает примечательные сообщения. TTS читает только эти сообщения. Перед каждым он произносит «В центре внимания чата». Он также читает сообщения !tts."
   },
   "ttsPermission": {
     "everyone": "Все",
@@ -536,5 +548,26 @@
   },
   "youtubeHandle": {
     "yourhandle": "@yourhandle"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "Пока бот читает выбранное сообщение, источник браузера показывает карточку с именем зрителя и сообщением."
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "Укажите боту, какие сообщения вам нравятся. Бот по-прежнему пропускает спам и грубые сообщения. Пример: Отдавай предпочтение вопросам об игре. Пропускай подсказки."
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "Недавние выборы"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "Этот список показывает последние сообщения, которые выбрал бот. У каждого сообщения указана причина выбора. Самое новое сообщение — первое."
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "Обновить"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "Выберите, что бот ищет в чате. Посмотрите сообщения, которые он выбрал.",
+    "showACardInThe": "<strong>Показывать карточку в источнике браузера</strong>",
+    "spotlight": "Spotlight",
+    "whatToLookForOptional": "<strong>Что искать (необязательно)</strong>"
   }
 }

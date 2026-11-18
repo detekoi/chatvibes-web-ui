@@ -280,6 +280,8 @@
       "readFullUrls": "הקרא כתובות URL מלאות",
       "redemptionAnnouncements": "הכרזות על מימושים",
       "soundTags": "תגיות צליל",
+      "spotlightCard": "כרטיס Spotlight",
+      "spotlightGuidance": "הנחיית Spotlight",
       "style": "סגנון קול ברירת מחדל",
       "ttsEngine": "מנוע TTS",
       "ttsMode": "מצב TTS",
@@ -293,6 +295,14 @@
       "loadFailed": "לא ניתן לטעון את ההגדרות שלך.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "יש להזין כינוי (handle) של YouTube לפני הפעלת YouTube TTS."
+    },
+    "spotlight": {
+      "count": "בחירות שנמצאו: {count}",
+      "empty": "אין בחירות עדיין. בחירה מופיעה כאן לאחר שהבוט קורא אותה.",
+      "loadFailed": "לא ניתן לטעון את הבחירות. בחרו רענן כדי לנסות שוב.",
+      "loading": "טוען את הבחירות…",
+      "reason": "סיבה: {reason}",
+      "unknownUser": "צופה לא ידוע"
     }
   },
   "mutedRewardsClose": {
@@ -497,13 +507,15 @@
     "allMessages": "כל הודעות הצ'אט",
     "bitsPointsOnly": "Cheers ופרסים בלבד",
     "highlightedOnly": "הודעות מודגשות",
-    "ttsCommandOnly": "הודעות ‎!tts"
+    "ttsCommandOnly": "הודעות ‎!tts",
+    "spotlightTheBotPicksNotable": "Spotlight (הבוט בוחר הודעות בולטות)"
   },
   "ttsModeSummary": {
     "all": "TTS מקריא כל הודעה בצ'אט. זה כולל הודעות שמתחילות ב-‎!tts.",
     "bitsPointsOnly": "TTS מקריא רק Cheers ואת פרס ה-TTS של Channel Points. הוא לא מקריא הודעות ‎!tts, הודעות מודגשות או הודעות צ'אט אחרות.",
     "command": "TTS מקריא הודעות שמתחילות ב-‎!tts. הוא לא מקריא הודעות צ'אט אחרות.",
-    "highlightedOnly": "TTS מקריא הודעות שצופים מדגישים באמצעות Channel Points. הוא לא מקריא הודעות ‎!tts או הודעות צ'אט אחרות."
+    "highlightedOnly": "TTS מקריא הודעות שצופים מדגישים באמצעות Channel Points. הוא לא מקריא הודעות ‎!tts או הודעות צ'אט אחרות.",
+    "theBotReadsChatAnd": "הבוט קורא את הצ׳אט ובוחר את ההודעות הבולטות. ה-TTS קורא רק את ההודעות האלה. הוא אומר \"זרקור צ׳אט\" לפני כל אחת. הוא קורא גם הודעות !tts."
   },
   "ttsPermission": {
     "everyone": "כולם",
@@ -536,5 +548,26 @@
   },
   "youtubeHandle": {
     "yourhandle": "@yourhandle"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "בזמן שהבוט קורא בחירה, מקור הדפדפן מציג כרטיס עם שם הצופה וההודעה."
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "ספרו לבוט אילו הודעות אתם אוהבים. הבוט עדיין מדלג על ספאם והודעות גסות. דוגמה: העדף שאלות על המשחק. דלג על עצות מיותרות."
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "בחירות אחרונות"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "רשימה זו מציגה את ההודעות האחרונות שהבוט בחר. לכל הודעה יש את סיבת הבחירה. ההודעה החדשה ביותר מופיעה ראשונה."
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "רענן"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "בחרו מה הבוט מחפש בצ׳אט. ראו את ההודעות שהוא בחר.",
+    "showACardInThe": "<strong>הצג כרטיס במקור הדפדפן</strong>",
+    "spotlight": "Spotlight",
+    "whatToLookForOptional": "<strong>מה לחפש (אופציונלי)</strong>"
   }
 }

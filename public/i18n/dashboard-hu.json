@@ -280,6 +280,8 @@
       "readFullUrls": "Teljes URL-ek felolvasása",
       "redemptionAnnouncements": "Beváltás-bejelentések",
       "soundTags": "Hangcímkék",
+      "spotlightCard": "Spotlight-kártya",
+      "spotlightGuidance": "Spotlight-útmutató",
       "style": "Alapértelmezett hangstílus",
       "ttsEngine": "TTS-motor",
       "ttsMode": "TTS-mód",
@@ -293,6 +295,14 @@
       "loadFailed": "Nem sikerült betölteni a beállításaidat.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Add meg a YouTube-azonosítódat a YouTube TTS bekapcsolása előtt."
+    },
+    "spotlight": {
+      "count": "Talált választások: {count}",
+      "empty": "Még nincsenek választások. A választás itt jelenik meg, miután a bot felolvasta.",
+      "loadFailed": "A választások nem tölthetők be. Válaszd a Frissítés lehetőséget az újrapróbálkozáshoz.",
+      "loading": "Választások betöltése…",
+      "reason": "Ok: {reason}",
+      "unknownUser": "Ismeretlen néző"
     }
   },
   "mutedRewardsClose": {
@@ -497,13 +507,15 @@
     "allMessages": "Minden chatüzenet",
     "bitsPointsOnly": "Csak cheerek és jutalmak",
     "highlightedOnly": "Kiemelt üzenetek",
-    "ttsCommandOnly": "!tts-üzenetek"
+    "ttsCommandOnly": "!tts-üzenetek",
+    "spotlightTheBotPicksNotable": "Spotlight (a bot kiválasztja a figyelemre méltó üzeneteket)"
   },
   "ttsModeSummary": {
     "all": "A TTS minden chatüzenetet felolvas. Ebbe beletartoznak a !tts-sel kezdődő üzenetek is.",
     "bitsPointsOnly": "A TTS csak a cheereket és a TTS Channel Points-jutalmat olvassa fel. A !tts-üzeneteket, a kiemelt üzeneteket és a többi chatüzenetet nem olvassa fel.",
     "command": "A TTS a !tts-sel kezdődő üzeneteket olvassa fel. A többi chatüzenetet nem olvassa fel.",
-    "highlightedOnly": "A TTS azokat az üzeneteket olvassa fel, amelyeket a nézők Channel Points segítségével kiemelnek. A !tts-üzeneteket és a többi chatüzenetet nem olvassa fel."
+    "highlightedOnly": "A TTS azokat az üzeneteket olvassa fel, amelyeket a nézők Channel Points segítségével kiemelnek. A !tts-üzeneteket és a többi chatüzenetet nem olvassa fel.",
+    "theBotReadsChatAnd": "A bot olvassa a chatet és kiválasztja a figyelemre méltó üzeneteket. A TTS csak ezeket az üzeneteket olvassa fel. Mindegyik előtt azt mondja, hogy \"Chat-kiemelés\". A !tts üzeneteket is felolvassa."
   },
   "ttsPermission": {
     "everyone": "Mindenki",
@@ -536,5 +548,26 @@
   },
   "youtubeHandle": {
     "yourhandle": "@yourhandle"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "Miközben a bot felolvas egy választást, a böngészőforrás egy kártyát jelenít meg a néző nevével és az üzenettel."
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "Mondd meg a botnak, milyen üzeneteket kedvelsz. A bot továbbra is kihagyja a spamet és a durva üzeneteket. Példa: Részesítsd előnyben a játékkal kapcsolatos kérdéseket. Hagyd ki a kéretlen tanácsokat."
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "Legutóbbi választások"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "Ez a lista a bot által utoljára kiválasztott üzeneteket mutatja. Minden üzenetnél szerepel a választás oka. A legújabb üzenet van elöl."
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "Frissítés"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "Válaszd ki, mit keressen a bot a chatben. Nézd meg az általa kiválasztott üzeneteket.",
+    "showACardInThe": "<strong>Kártya megjelenítése a böngészőforrásban</strong>",
+    "spotlight": "Spotlight",
+    "whatToLookForOptional": "<strong>Mit keressen (opcionális)</strong>"
   }
 }

@@ -280,6 +280,8 @@
       "readFullUrls": "Læs hele URL'er",
       "redemptionAnnouncements": "Indløsningsannonceringer",
       "soundTags": "Lydtags",
+      "spotlightCard": "Spotlight-kort",
+      "spotlightGuidance": "Spotlight-vejledning",
       "style": "Standard stemmestil",
       "ttsEngine": "TTS-motor",
       "ttsMode": "TTS-tilstand",
@@ -293,6 +295,14 @@
       "loadFailed": "Kan ikke indlæse dine indstillinger.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Indtast et YouTube-handle, før du aktiverer YouTube-TTS."
+    },
+    "spotlight": {
+      "count": "Valg fundet: {count}",
+      "empty": "Ingen valg endnu. Et valg vises her, efter botten har læst det.",
+      "loadFailed": "Kan ikke indlæse valgene. Vælg Opdater for at prøve igen.",
+      "loading": "Indlæser valgene…",
+      "reason": "Årsag: {reason}",
+      "unknownUser": "Ukendt seer"
     }
   },
   "mutedRewardsClose": {
@@ -497,13 +507,15 @@
     "allMessages": "Alle chatbeskeder",
     "bitsPointsOnly": "Kun cheers og belønninger",
     "highlightedOnly": "Fremhævede beskeder",
-    "ttsCommandOnly": "!tts-beskeder"
+    "ttsCommandOnly": "!tts-beskeder",
+    "spotlightTheBotPicksNotable": "Spotlight (botten vælger bemærkelsesværdige beskeder)"
   },
   "ttsModeSummary": {
     "all": "TTS læser alle chatbeskeder. Det omfatter beskeder, der starter med !tts.",
     "bitsPointsOnly": "TTS læser kun cheers og TTS-belønningen for Channel Points. Den læser ikke !tts-beskeder, fremhævede beskeder eller andre chatbeskeder.",
     "command": "TTS læser beskeder, der starter med !tts. Den læser ikke andre chatbeskeder.",
-    "highlightedOnly": "TTS læser beskeder, som seerne fremhæver med Channel Points. Den læser ikke !tts-beskeder eller andre chatbeskeder."
+    "highlightedOnly": "TTS læser beskeder, som seerne fremhæver med Channel Points. Den læser ikke !tts-beskeder eller andre chatbeskeder.",
+    "theBotReadsChatAnd": "Botten læser chatten og vælger de bemærkelsesværdige beskeder. TTS læser kun disse beskeder. Den siger \"Chat-spotlight\" før hver enkelt. Den læser også !tts-beskeder."
   },
   "ttsPermission": {
     "everyone": "Alle",
@@ -536,5 +548,26 @@
   },
   "youtubeHandle": {
     "yourhandle": "@ditbrugernavn"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "Mens botten læser et valg, viser browserkilden et kort med seerens navn og beskeden."
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "Fortæl botten, hvilke beskeder du kan lide. Botten springer stadig spam og uhøflige beskeder over. Eksempel: Foretræk spørgsmål om spillet. Spring backseating over."
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "Seneste valg"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "Denne liste viser de seneste beskeder, som botten har valgt. Hver besked har årsagen til valget. Den nyeste besked er først."
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "Opdater"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "Vælg, hvad botten skal lede efter i chatten. Se de beskeder, den har valgt.",
+    "showACardInThe": "<strong>Vis et kort i browserkilden</strong>",
+    "spotlight": "Spotlight",
+    "whatToLookForOptional": "<strong>Hvad der skal ledes efter (valgfrit)</strong>"
   }
 }

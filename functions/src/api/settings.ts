@@ -10,6 +10,7 @@ import { apiError } from "./utils";
 import { validateSpeed, validatePitch, validateEmotion, validateLanguageBoost } from "../services/utils";
 import { canonicalVoiceId } from "../services/voices";
 import { validateStyle, validateDisabledSoundTags, styleForEmotion } from "../services/style";
+import { validateSpotlightGuidance, normalizeSpotlightPicks } from "../services/spotlight";
 import { normalizeMatchKey, validateSay, PRONUNCIATION_LIMITS } from "../services/pronunciation";
 import { getUserByUsername } from "../services/twitch";
 import { secrets } from "../config";
@@ -38,6 +39,7 @@ const BOOLEAN_SETTINGS = [
     "youtubeEnabled",
     "pronunciationEnabled",
     "profanityFilterEnabled",
+    "spotlightCard",
 ];
 
 // Settings of the previous TTS provider. A dashboard cached from before the
@@ -65,7 +67,7 @@ function validateTtsSetting(key: string, value: unknown): boolean {
 
     switch (key) {
     case "mode":
-        return ["all", "command", "bits_points_only", "highlighted_only"].includes(value as string);
+        return ["all", "spotlight", "command", "bits_points_only", "highlighted_only"].includes(value as string);
     case "ttsPermissionLevel":
         return ["everyone", "subs", "mods", "vip"].includes(value as string);
     case "emoteMode":
@@ -130,6 +132,17 @@ function prepareTtsSetting(key: string, value: unknown): PreparedSetting {
         if (style.reasonCode === "style_too_long") {
             const max = style.reasonParams?.max;
             return { ok: false, code: "style_too_long", error: `Style must be ${max} characters or fewer`, params: { key, max } };
+        }
+        return invalid;
+    }
+
+    if (key === "spotlightGuidance") {
+        const guidance = validateSpotlightGuidance(value);
+        // An empty text clears the setting. It is stored as "", as the style is.
+        if (guidance.ok) return { ok: true, update: { spotlightGuidance: guidance.value } };
+        if (guidance.reasonCode === "spotlight_guidance_too_long") {
+            const max = guidance.reasonParams?.max;
+            return { ok: false, code: "spotlight_guidance_too_long", error: `Guidance must be ${max} characters or fewer`, params: { key, max } };
         }
         return invalid;
     }
@@ -210,6 +223,21 @@ router.put("/tts/settings/channel/:channelName", authenticateApiRequest, authori
     } catch (error) {
         logger.error({ error, channelName, key }, "Error updating TTS settings");
         apiError(res, 500, "setting_update_failed", "Failed to update TTS setting");
+    }
+}) as RequestHandler);
+
+// GET /tts/spotlight/picks/:channelName
+// The pick log of Spotlight mode. The bot is the only writer, so this is read only.
+router.get("/tts/spotlight/picks/:channelName", authenticateApiRequest, authorizeChannelAccess, (async (req: AuthenticatedRequest, res: Response): Promise<void> => {
+    const { channelName } = req.params;
+
+    try {
+        const docSnap = await db.collection(COLLECTIONS.TTS_SPOTLIGHT_LOG).doc(req.user.userId).get();
+        const stored = docSnap.exists ? docSnap.data()?.picks : [];
+        res.json({ picks: normalizeSpotlightPicks(stored) });
+    } catch (error) {
+        logger.error({ error, channelName }, "Error fetching Spotlight picks");
+        apiError(res, 500, "spotlight_picks_fetch_failed", "Failed to fetch Spotlight picks");
     }
 }) as RequestHandler);
 
