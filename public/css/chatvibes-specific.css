@@ -322,6 +322,18 @@
 }
 .spotlight-picks-summary::-webkit-details-marker { display: none; }
 
+/* The heading stays an h3 for screen readers, but it looks like the labels of
+   the other rows in the card. The h3 face is larger than the card title. */
+:root .wc-card .spotlight-picks-summary h3 {
+    font-family: var(--wc-font-body);
+    font-size: 13.5px;
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--wc-text-1);
+}
+
 .spotlight-picks-chevron {
     flex: none;
     display: inline-flex;
