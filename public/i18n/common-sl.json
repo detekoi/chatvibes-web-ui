@@ -85,7 +85,9 @@
     "username_required": "Uporabniško ime je obvezno.",
     "voice_lookup_failed": "Glasu tega uporabnika ni mogoče najti.",
     "word_invalid": "Ta beseda ali fraza ni veljavna.",
-    "word_required": "Beseda ali fraza je obvezna."
+    "word_required": "Beseda ali fraza je obvezna.",
+    "spotlight_guidance_too_long": "Smernica je predolga. Uporabite največ {max} znakov.",
+    "spotlight_picks_fetch_failed": "Izbire Spotlight ni mogoče naložiti."
   },
   "logoutLink": {
     "logout": "Odjava"

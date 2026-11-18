@@ -293,6 +293,18 @@
       "loadFailed": "Αδυναμία φόρτωσης των ρυθμίσεών σας.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Εισαγάγετε ένα YouTube handle πριν ενεργοποιήσετε το YouTube TTS."
+    },
+    "labels": {
+      "spotlightCard": "Κάρτα Spotlight",
+      "spotlightGuidance": "Οδηγίες Spotlight"
+    },
+    "spotlight": {
+      "count": "Επιλογές που βρέθηκαν: {count}",
+      "empty": "Δεν υπάρχουν επιλογές ακόμα. Μια επιλογή εμφανίζεται εδώ αφού τη διαβάσει το bot.",
+      "loadFailed": "Δεν είναι δυνατή η φόρτωση των επιλογών. Επιλέξτε Ανανέωση για να δοκιμάσετε ξανά.",
+      "loading": "Φόρτωση επιλογών…",
+      "reason": "Λόγος: {reason}",
+      "unknownUser": "Άγνωστος θεατής"
     }
   },
   "mutedRewardsClose": {
@@ -497,13 +509,15 @@
     "allMessages": "Όλα τα μηνύματα συνομιλίας",
     "bitsPointsOnly": "Μόνο Cheers και ανταμοιβές",
     "highlightedOnly": "Επισημασμένα μηνύματα",
-    "ttsCommandOnly": "Μηνύματα !tts"
+    "ttsCommandOnly": "Μηνύματα !tts",
+    "spotlightTheBotPicksNotable": "Spotlight (το bot επιλέγει αξιοσημείωτα μηνύματα)"
   },
   "ttsModeSummary": {
     "all": "Το TTS διαβάζει κάθε μήνυμα συνομιλίας. Αυτό περιλαμβάνει τα μηνύματα που ξεκινούν με !tts.",
     "bitsPointsOnly": "Το TTS διαβάζει μόνο Cheers και την ανταμοιβή TTS των Channel Points. Δεν διαβάζει μηνύματα !tts, επισημασμένα μηνύματα ή άλλα μηνύματα συνομιλίας.",
     "command": "Το TTS διαβάζει μηνύματα που ξεκινούν με !tts. Δεν διαβάζει άλλα μηνύματα συνομιλίας.",
-    "highlightedOnly": "Το TTS διαβάζει μηνύματα που οι θεατές επισημαίνουν με Channel Points. Δεν διαβάζει μηνύματα !tts ή άλλα μηνύματα συνομιλίας."
+    "highlightedOnly": "Το TTS διαβάζει μηνύματα που οι θεατές επισημαίνουν με Channel Points. Δεν διαβάζει μηνύματα !tts ή άλλα μηνύματα συνομιλίας.",
+    "theBotReadsChatAnd": "Το bot διαβάζει τη συνομιλία και επιλέγει τα αξιοσημείωτα μηνύματα. Το TTS διαβάζει μόνο αυτά τα μηνύματα. Λέει \"Επιλογή συνομιλίας\" πριν από το καθένα. Διαβάζει επίσης μηνύματα !tts."
   },
   "ttsPermission": {
     "everyone": "Όλοι",
@@ -536,5 +550,26 @@
   },
   "youtubeHandle": {
     "yourhandle": "@yourhandle"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "Ενώ το bot διαβάζει μια επιλογή, η πηγή προγράμματος περιήγησης εμφανίζει μια κάρτα με το όνομα του θεατή και το μήνυμα."
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "Πείτε στο bot ποια μηνύματα σας αρέσουν. Το bot εξακολουθεί να παραλείπει ανεπιθύμητα και αγενή μηνύματα. Παράδειγμα: Προτίμησε ερωτήσεις για το παιχνίδι. Παράλειψε υποδείξεις."
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "Πρόσφατες επιλογές"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "Αυτή η λίστα δείχνει τα τελευταία μηνύματα που επέλεξε το bot. Κάθε μήνυμα έχει τον λόγο της επιλογής. Το νεότερο μήνυμα είναι πρώτο."
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "Ανανέωση"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "Επιλέξτε τι αναζητά το bot στη συνομιλία. Δείτε τα μηνύματα που επέλεξε.",
+    "showACardInThe": "<strong>Εμφάνιση κάρτας στην πηγή προγράμματος περιήγησης</strong>",
+    "spotlight": "Spotlight",
+    "whatToLookForOptional": "<strong>Τι να αναζητά (προαιρετικό)</strong>"
   }
 }

@@ -293,6 +293,18 @@
       "loadFailed": "Kan ikke laste inn innstillingene dine.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Skriv inn et YouTube-brukernavn før du slår på YouTube TTS."
+    },
+    "labels": {
+      "spotlightCard": "Spotlight-kort",
+      "spotlightGuidance": "Spotlight-veiledning"
+    },
+    "spotlight": {
+      "count": "Valg funnet: {count}",
+      "empty": "Ingen valg ennå. Et valg vises her etter at botten har lest det.",
+      "loadFailed": "Kan ikke laste inn valgene. Velg Oppdater for å prøve igjen.",
+      "loading": "Laster inn valgene…",
+      "reason": "Årsak: {reason}",
+      "unknownUser": "Ukjent seer"
     }
   },
   "mutedRewardsClose": {
@@ -497,13 +509,15 @@
     "allMessages": "Alle chatmeldinger",
     "bitsPointsOnly": "Kun cheers og belønninger",
     "highlightedOnly": "Uthevede meldinger",
-    "ttsCommandOnly": "!tts-meldinger"
+    "ttsCommandOnly": "!tts-meldinger",
+    "spotlightTheBotPicksNotable": "Spotlight (botten velger bemerkelsesverdige meldinger)"
   },
   "ttsModeSummary": {
     "all": "TTS leser opp alle chatmeldinger. Dette inkluderer meldinger som starter med !tts.",
     "bitsPointsOnly": "TTS leser bare opp cheers og TTS-belønningen for Channel Points. Den leser ikke opp !tts-meldinger, uthevede meldinger eller andre chatmeldinger.",
     "command": "TTS leser opp meldinger som starter med !tts. Den leser ikke opp andre chatmeldinger.",
-    "highlightedOnly": "TTS leser opp meldinger som seerne uthever med Channel Points. Den leser ikke opp !tts-meldinger eller andre chatmeldinger."
+    "highlightedOnly": "TTS leser opp meldinger som seerne uthever med Channel Points. Den leser ikke opp !tts-meldinger eller andre chatmeldinger.",
+    "theBotReadsChatAnd": "Botten leser chatten og velger de bemerkelsesverdige meldingene. TTS leser bare disse meldingene. Den sier \"Chat-spotlight\" før hver enkelt. Den leser også !tts-meldinger."
   },
   "ttsPermission": {
     "everyone": "Alle",
@@ -536,5 +550,26 @@
   },
   "youtubeHandle": {
     "yourhandle": "@dittbrukernavn"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "Mens botten leser et valg, viser nettleserkilden et kort med navnet på seeren og meldingen."
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "Fortell botten hvilke meldinger du liker. Botten hopper fortsatt over spam og uhøflige meldinger. Eksempel: Foretrekk spørsmål om spillet. Hopp over backseating."
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "Nylige valg"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "Denne listen viser de siste meldingene botten valgte. Hver melding har årsaken til valget. Den nyeste meldingen er først."
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "Oppdater"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "Velg hva botten ser etter i chatten. Se meldingene den valgte.",
+    "showACardInThe": "<strong>Vis et kort i nettleserkilden</strong>",
+    "spotlight": "Spotlight",
+    "whatToLookForOptional": "<strong>Hva den skal se etter (valgfritt)</strong>"
   }
 }

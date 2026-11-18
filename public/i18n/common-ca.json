@@ -85,7 +85,9 @@
     "username_required": "Cal un nom d'usuari.",
     "voice_lookup_failed": "No es pot consultar la veu d'aquest usuari.",
     "word_invalid": "Aquesta paraula o frase no és vàlida.",
-    "word_required": "Cal una paraula o frase."
+    "word_required": "Cal una paraula o frase.",
+    "spotlight_guidance_too_long": "La guia és massa llarga. Fes servir {max} caràcters o menys.",
+    "spotlight_picks_fetch_failed": "No es poden carregar les seleccions de Spotlight."
   },
   "logoutLink": {
     "logout": "Tanca la sessió"

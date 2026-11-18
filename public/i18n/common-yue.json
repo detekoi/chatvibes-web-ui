@@ -85,7 +85,9 @@
     "username_required": "需要輸入用戶名稱。",
     "voice_lookup_failed": "搵唔到嗰位用戶嘅語音。",
     "word_invalid": "嗰個詞語或短語無效。",
-    "word_required": "需要輸入詞語或短語。"
+    "word_required": "需要輸入詞語或短語。",
+    "spotlight_guidance_too_long": "指引太長。請使用 {max} 個字元或以下。",
+    "spotlight_picks_fetch_failed": "無法載入 Spotlight 精選。"
   },
   "logoutLink": {
     "logout": "登出"

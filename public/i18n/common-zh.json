@@ -85,7 +85,9 @@
     "username_required": "用户名不能为空。",
     "voice_lookup_failed": "无法查询该用户的声音。",
     "word_invalid": "该词语或短语无效。",
-    "word_required": "词语或短语不能为空。"
+    "word_required": "词语或短语不能为空。",
+    "spotlight_guidance_too_long": "指引过长。请使用 {max} 个字符或更少。",
+    "spotlight_picks_fetch_failed": "无法加载 Spotlight 精选。"
   },
   "logoutLink": {
     "logout": "退出登录"

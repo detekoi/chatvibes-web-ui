@@ -85,7 +85,9 @@
     "username_required": "Vyžaduje sa používateľské meno.",
     "voice_lookup_failed": "Hlas tohto používateľa sa nepodarilo nájsť.",
     "word_invalid": "Toto slovo alebo fráza nie je platná.",
-    "word_required": "Vyžaduje sa slovo alebo fráza."
+    "word_required": "Vyžaduje sa slovo alebo fráza.",
+    "spotlight_guidance_too_long": "Pokyny sú príliš dlhé. Použite najviac {max} znakov.",
+    "spotlight_picks_fetch_failed": "Výbery Spotlight sa nedajú načítať."
   },
   "logoutLink": {
     "logout": "Odhlásiť sa"

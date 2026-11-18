@@ -293,6 +293,18 @@
       "loadFailed": "Nu se pot încărca setările tale.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Introdu un handle YouTube înainte de a activa YouTube TTS."
+    },
+    "labels": {
+      "spotlightCard": "Card Spotlight",
+      "spotlightGuidance": "Îndrumare Spotlight"
+    },
+    "spotlight": {
+      "count": "Alegeri găsite: {count}",
+      "empty": "Încă nu există alegeri. O alegere apare aici după ce botul o citește.",
+      "loadFailed": "Nu se pot încărca alegerile. Selectează Reîmprospătare pentru a încerca din nou.",
+      "loading": "Se încarcă alegerile…",
+      "reason": "Motiv: {reason}",
+      "unknownUser": "Spectator necunoscut"
     }
   },
   "mutedRewardsClose": {
@@ -497,13 +509,15 @@
     "allMessages": "Toate mesajele din chat",
     "bitsPointsOnly": "Doar cheers și recompense",
     "highlightedOnly": "Mesaje evidențiate",
-    "ttsCommandOnly": "Mesaje cu !tts"
+    "ttsCommandOnly": "Mesaje cu !tts",
+    "spotlightTheBotPicksNotable": "Spotlight (botul alege mesajele remarcabile)"
   },
   "ttsModeSummary": {
     "all": "TTS citește fiecare mesaj din chat. Sunt incluse și mesajele care încep cu !tts.",
     "bitsPointsOnly": "TTS citește doar cheers și recompensa TTS din Channel Points. Nu citește mesaje cu !tts, mesaje evidențiate sau alte mesaje din chat.",
     "command": "TTS citește mesajele care încep cu !tts. Nu citește alte mesaje din chat.",
-    "highlightedOnly": "TTS citește mesajele pe care spectatorii le evidențiază cu Channel Points. Nu citește mesaje cu !tts sau alte mesaje din chat."
+    "highlightedOnly": "TTS citește mesajele pe care spectatorii le evidențiază cu Channel Points. Nu citește mesaje cu !tts sau alte mesaje din chat.",
+    "theBotReadsChatAnd": "Botul citește chatul și alege mesajele remarcabile. TTS citește doar acele mesaje. Spune \"Moment de chat\" înainte de fiecare. Citește și mesajele !tts."
   },
   "ttsPermission": {
     "everyone": "Oricine",
@@ -536,5 +550,26 @@
   },
   "youtubeHandle": {
     "yourhandle": "@yourhandle"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "În timp ce botul citește o alegere, sursa de browser afișează un card cu numele spectatorului și mesajul."
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "Spune-i botului ce mesaje îți plac. Botul ignoră în continuare spamul și mesajele nepoliticoase. Exemplu: Preferă întrebările despre joc. Sari peste sfaturile nesolicitate."
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "Alegeri recente"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "Această listă arată ultimele mesaje pe care le-a ales botul. Fiecare mesaj are motivul alegerii. Cel mai nou mesaj este primul."
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "Reîmprospătare"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "Alege ce caută botul în chat. Vezi mesajele pe care le-a ales.",
+    "showACardInThe": "<strong>Afișează un card în sursa de browser</strong>",
+    "spotlight": "Spotlight",
+    "whatToLookForOptional": "<strong>Ce să caute (opțional)</strong>"
   }
 }

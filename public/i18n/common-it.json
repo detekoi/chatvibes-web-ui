@@ -85,7 +85,9 @@
     "username_required": "Il nome utente è obbligatorio.",
     "voice_lookup_failed": "Impossibile trovare la voce dell'utente.",
     "word_invalid": "Parola o frase non valida.",
-    "word_required": "È richiesta una parola o frase."
+    "word_required": "È richiesta una parola o frase.",
+    "spotlight_guidance_too_long": "La guida è troppo lunga. Usa {max} caratteri o meno.",
+    "spotlight_picks_fetch_failed": "Impossibile caricare le scelte di Spotlight."
   },
   "logoutLink": {
     "logout": "Esci"

@@ -85,7 +85,9 @@
     "username_required": "Потрібно вказати ім’я користувача.",
     "voice_lookup_failed": "Не вдалося знайти голос цього користувача.",
     "word_invalid": "Неприпустиме слово або фраза.",
-    "word_required": "Потрібно вказати слово або фразу."
+    "word_required": "Потрібно вказати слово або фразу.",
+    "spotlight_guidance_too_long": "Підказка задовга. Використайте не більше {max} символів.",
+    "spotlight_picks_fetch_failed": "Не вдалося завантажити вибірку Spotlight."
   },
   "logoutLink": {
     "logout": "Вийти"

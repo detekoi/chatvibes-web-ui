@@ -293,6 +293,18 @@
       "loadFailed": "Tidak dapat memuat pengaturan Anda.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Masukkan handle YouTube sebelum mengaktifkan YouTube TTS."
+    },
+    "labels": {
+      "spotlightCard": "Kartu Spotlight",
+      "spotlightGuidance": "Panduan Spotlight"
+    },
+    "spotlight": {
+      "count": "Pilihan ditemukan: {count}",
+      "empty": "Belum ada pilihan. Pilihan muncul di sini setelah bot membacanya.",
+      "loadFailed": "Tidak dapat memuat pilihan. Pilih Segarkan untuk mencoba lagi.",
+      "loading": "Memuat pilihan…",
+      "reason": "Alasan: {reason}",
+      "unknownUser": "Penonton tidak dikenal"
     }
   },
   "mutedRewardsClose": {
@@ -497,13 +509,15 @@
     "allMessages": "Semua Pesan Obrolan",
     "bitsPointsOnly": "Hanya Cheer dan Hadiah",
     "highlightedOnly": "Pesan yang Disorot",
-    "ttsCommandOnly": "Pesan !tts"
+    "ttsCommandOnly": "Pesan !tts",
+    "spotlightTheBotPicksNotable": "Spotlight (bot memilih pesan yang menonjol)"
   },
   "ttsModeSummary": {
     "all": "TTS membaca setiap pesan obrolan. Ini termasuk pesan yang diawali dengan !tts.",
     "bitsPointsOnly": "TTS hanya membaca cheer dan hadiah TTS Channel Points. TTS tidak membaca pesan !tts, pesan yang disorot, atau pesan obrolan lainnya.",
     "command": "TTS membaca pesan yang diawali dengan !tts. TTS tidak membaca pesan obrolan lainnya.",
-    "highlightedOnly": "TTS membaca pesan yang disorot penonton dengan Channel Points. TTS tidak membaca pesan !tts atau pesan obrolan lainnya."
+    "highlightedOnly": "TTS membaca pesan yang disorot penonton dengan Channel Points. TTS tidak membaca pesan !tts atau pesan obrolan lainnya.",
+    "theBotReadsChatAnd": "Bot membaca chat dan memilih pesan yang menonjol. TTS hanya membaca pesan tersebut. Ia mengucapkan \"Sorotan chat\" sebelum masing-masing pesan. Ia juga membaca pesan !tts."
   },
   "ttsPermission": {
     "everyone": "Semua Orang",
@@ -536,5 +550,26 @@
   },
   "youtubeHandle": {
     "yourhandle": "@handleanda"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "Saat bot membaca pilihan, sumber browser menampilkan kartu berisi nama penonton dan pesan."
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "Beri tahu bot pesan mana yang Anda sukai. Bot tetap melewati spam dan pesan kasar. Contoh: Utamakan pertanyaan tentang game. Lewati backseating."
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "Pilihan terbaru"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "Daftar ini menampilkan pesan terakhir yang dipilih bot. Setiap pesan memiliki alasan pemilihan. Pesan terbaru berada di urutan pertama."
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "Segarkan"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "Pilih apa yang dicari bot di chat. Lihat pesan yang dipilihnya.",
+    "showACardInThe": "<strong>Tampilkan kartu di sumber browser</strong>",
+    "spotlight": "Spotlight",
+    "whatToLookForOptional": "<strong>Apa yang harus dicari (opsional)</strong>"
   }
 }

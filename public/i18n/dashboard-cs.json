@@ -293,6 +293,18 @@
       "loadFailed": "Nastavení nelze načíst.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Před zapnutím YouTube TTS zadejte svůj YouTube handle."
+    },
+    "labels": {
+      "spotlightCard": "Karta Spotlight",
+      "spotlightGuidance": "Pokyny pro Spotlight"
+    },
+    "spotlight": {
+      "count": "Nalezené výběry: {count}",
+      "empty": "Zatím žádné výběry. Výběr se zde zobrazí poté, co jej bot přečte.",
+      "loadFailed": "Výběry nelze načíst. Vyberte Obnovit a zkuste to znovu.",
+      "loading": "Načítání výběrů…",
+      "reason": "Důvod: {reason}",
+      "unknownUser": "Neznámý divák"
     }
   },
   "mutedRewardsClose": {
@@ -497,13 +509,15 @@
     "allMessages": "Všechny zprávy v chatu",
     "bitsPointsOnly": "Pouze cheery a odměny",
     "highlightedOnly": "Zvýrazněné zprávy",
-    "ttsCommandOnly": "Zprávy s !tts"
+    "ttsCommandOnly": "Zprávy s !tts",
+    "spotlightTheBotPicksNotable": "Spotlight (bot vybírá pozoruhodné zprávy)"
   },
   "ttsModeSummary": {
     "all": "TTS čte každou zprávu v chatu. To zahrnuje zprávy, které začínají na !tts.",
     "bitsPointsOnly": "TTS čte pouze cheery a odměnu TTS za Channel Points. Nečte zprávy s !tts, zvýrazněné zprávy ani jiné zprávy v chatu.",
     "command": "TTS čte zprávy, které začínají na !tts. Nečte jiné zprávy v chatu.",
-    "highlightedOnly": "TTS čte zprávy, které diváci zvýrazní pomocí Channel Points. Nečte zprávy s !tts ani jiné zprávy v chatu."
+    "highlightedOnly": "TTS čte zprávy, které diváci zvýrazní pomocí Channel Points. Nečte zprávy s !tts ani jiné zprávy v chatu.",
+    "theBotReadsChatAnd": "Bot čte chat a vybírá pozoruhodné zprávy. TTS čte pouze tyto zprávy. Před každou z nich řekne \"Výběr z chatu\". Čte také zprávy !tts."
   },
   "ttsPermission": {
     "everyone": "Všichni",
@@ -536,5 +550,26 @@
   },
   "youtubeHandle": {
     "yourhandle": "@vasejmeno"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "Zatímco bot čte výběr, zdroj prohlížeče zobrazí kartu se jménem diváka a zprávou."
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "Řekněte botovi, jaké zprávy se vám líbí. Bot stále přeskakuje spam a hrubé zprávy. Příklad: Upřednostňuj otázky ke hře. Přeskakuj radění."
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "Nedávné výběry"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "Tento seznam zobrazuje poslední zprávy, které bot vybral. Každá zpráva má důvod výběru. Nejnovější zpráva je první."
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "Obnovit"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "Vyberte, co má bot v chatu hledat. Podívejte se na zprávy, které vybral.",
+    "showACardInThe": "<strong>Zobrazit kartu ve zdroji prohlížeče</strong>",
+    "spotlight": "Spotlight",
+    "whatToLookForOptional": "<strong>Co hledat (volitelné)</strong>"
   }
 }

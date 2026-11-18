@@ -85,7 +85,9 @@
     "username_required": "यूज़रनेम आवश्यक है।",
     "voice_lookup_failed": "उस यूज़र की वॉइस खोजी नहीं जा सकी।",
     "word_invalid": "वह शब्द या वाक्यांश मान्य नहीं है।",
-    "word_required": "शब्द या वाक्यांश आवश्यक है।"
+    "word_required": "शब्द या वाक्यांश आवश्यक है।",
+    "spotlight_guidance_too_long": "मार्गदर्शन बहुत लंबा है। {max} या उससे कम अक्षरों का उपयोग करें।",
+    "spotlight_picks_fetch_failed": "Spotlight चयन लोड नहीं किए जा सकते।"
   },
   "logoutLink": {
     "logout": "साइन आउट"

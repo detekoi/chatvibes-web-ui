@@ -85,7 +85,9 @@
     "username_required": "Изисква се потребителско име.",
     "voice_lookup_failed": "Гласът на този потребител не може да бъде намерен.",
     "word_invalid": "Думата или фразата е невалидна.",
-    "word_required": "Изисква се дума или фраза."
+    "word_required": "Изисква се дума или фраза.",
+    "spotlight_guidance_too_long": "Насоките са твърде дълги. Използвайте {max} знака или по-малко.",
+    "spotlight_picks_fetch_failed": "Изборите за Spotlight не могат да бъдат заредени."
   },
   "logoutLink": {
     "logout": "Изход"

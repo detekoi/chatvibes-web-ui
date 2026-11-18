@@ -293,6 +293,18 @@
       "loadFailed": "आपकी सेटिंग्स लोड नहीं की जा सकीं।",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "YouTube TTS चालू करने से पहले एक YouTube हैंडल दर्ज करें।"
+    },
+    "labels": {
+      "spotlightCard": "Spotlight कार्ड",
+      "spotlightGuidance": "Spotlight मार्गदर्शन"
+    },
+    "spotlight": {
+      "count": "मिले चयन: {count}",
+      "empty": "अभी तक कोई चयन नहीं। बॉट द्वारा पढ़े जाने के बाद चयन यहाँ दिखाई देता है।",
+      "loadFailed": "चयन लोड नहीं किए जा सकते। फिर से प्रयास करने के लिए रीफ़्रेश चुनें।",
+      "loading": "चयन लोड हो रहे हैं…",
+      "reason": "कारण: {reason}",
+      "unknownUser": "अज्ञात दर्शक"
     }
   },
   "mutedRewardsClose": {
@@ -497,13 +509,15 @@
     "allMessages": "सभी चैट संदेश",
     "bitsPointsOnly": "केवल Cheers और रिवॉर्ड",
     "highlightedOnly": "हाइलाइट किए गए संदेश",
-    "ttsCommandOnly": "!tts संदेश"
+    "ttsCommandOnly": "!tts संदेश",
+    "spotlightTheBotPicksNotable": "Spotlight (बॉट उल्लेखनीय संदेश चुनता है)"
   },
   "ttsModeSummary": {
     "all": "TTS हर चैट संदेश पढ़ता है। इसमें !tts से शुरू होने वाले संदेश भी शामिल हैं।",
     "bitsPointsOnly": "TTS केवल Cheers और Channel Points का TTS रिवॉर्ड पढ़ता है। यह !tts संदेश, हाइलाइट किए गए संदेश या अन्य चैट संदेश नहीं पढ़ता।",
     "command": "TTS उन संदेशों को पढ़ता है जो !tts से शुरू होते हैं। यह अन्य चैट संदेश नहीं पढ़ता।",
-    "highlightedOnly": "TTS उन संदेशों को पढ़ता है जिन्हें दर्शक Channel Points से हाइलाइट करते हैं। यह !tts संदेश या अन्य चैट संदेश नहीं पढ़ता।"
+    "highlightedOnly": "TTS उन संदेशों को पढ़ता है जिन्हें दर्शक Channel Points से हाइलाइट करते हैं। यह !tts संदेश या अन्य चैट संदेश नहीं पढ़ता।",
+    "theBotReadsChatAnd": "बॉट चैट पढ़ता है और उल्लेखनीय संदेश चुनता है। TTS केवल उन्हीं संदेशों को पढ़ता है। वह प्रत्येक से पहले \"चैट स्पॉटलाइट\" कहता है। यह !tts संदेश भी पढ़ता है।"
   },
   "ttsPermission": {
     "everyone": "सभी",
@@ -536,5 +550,26 @@
   },
   "youtubeHandle": {
     "yourhandle": "@yourhandle"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "जब बॉट कोई चयन पढ़ता है, तो ब्राउज़र स्रोत दर्शक के नाम और संदेश वाला एक कार्ड दिखाता है।"
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "बॉट को बताएं कि आपको कौन-से संदेश पसंद हैं। बॉट फिर भी स्पैम और अभद्र संदेश छोड़ देता है। उदाहरण: गेम के बारे में सवालों को प्राथमिकता दें। अनचाही सलाह छोड़ दें।"
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "हाल के चयन"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "यह सूची वे अंतिम संदेश दिखाती है जिन्हें बॉट ने चुना। प्रत्येक संदेश में चयन का कारण होता है। सबसे नया संदेश सबसे पहले होता है।"
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "रीफ़्रेश करें"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "चुनें कि बॉट चैट में क्या खोजे। उसके द्वारा चुने गए संदेश देखें।",
+    "showACardInThe": "<strong>ब्राउज़र स्रोत में कार्ड दिखाएं</strong>",
+    "spotlight": "Spotlight",
+    "whatToLookForOptional": "<strong>क्या खोजना है (वैकल्पिक)</strong>"
   }
 }

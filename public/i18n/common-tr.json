@@ -85,7 +85,9 @@
     "username_required": "Kullanıcı adı gerekli.",
     "voice_lookup_failed": "Bu kullanıcının sesi bulunamıyor.",
     "word_invalid": "Geçersiz kelime veya kelime öbeği.",
-    "word_required": "Kelime veya kelime öbeği gerekli."
+    "word_required": "Kelime veya kelime öbeği gerekli.",
+    "spotlight_guidance_too_long": "Yönerge çok uzun. En fazla {max} karakter kullanın.",
+    "spotlight_picks_fetch_failed": "Spotlight seçimleri yüklenemiyor."
   },
   "logoutLink": {
     "logout": "Çıkış yap"

@@ -85,7 +85,9 @@
     "username_required": "Et brugernavn er påkrævet.",
     "voice_lookup_failed": "Kan ikke slå brugerens stemme op.",
     "word_invalid": "Ordet eller udtrykket er ugyldigt.",
-    "word_required": "Et ord eller udtryk er påkrævet."
+    "word_required": "Et ord eller udtryk er påkrævet.",
+    "spotlight_guidance_too_long": "Vejledningen er for lang. Brug {max} tegn eller færre.",
+    "spotlight_picks_fetch_failed": "Kan ikke indlæse Spotlight-valgene."
   },
   "logoutLink": {
     "logout": "Log ud"

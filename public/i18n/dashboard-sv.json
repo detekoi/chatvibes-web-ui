@@ -293,6 +293,18 @@
       "loadFailed": "Kan inte läsa in dina inställningar.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Ange ett YouTube-användarnamn innan du aktiverar YouTube TTS."
+    },
+    "labels": {
+      "spotlightCard": "Spotlight-kort",
+      "spotlightGuidance": "Spotlight-riktlinje"
+    },
+    "spotlight": {
+      "count": "Val hittade: {count}",
+      "empty": "Inga val ännu. Ett val visas här efter att botten har läst det.",
+      "loadFailed": "Kan inte läsa in valen. Välj Uppdatera för att försöka igen.",
+      "loading": "Läser in valen…",
+      "reason": "Orsak: {reason}",
+      "unknownUser": "Okänd tittare"
     }
   },
   "mutedRewardsClose": {
@@ -497,13 +509,15 @@
     "allMessages": "Alla chattmeddelanden",
     "bitsPointsOnly": "Endast cheers och belöningar",
     "highlightedOnly": "Markerade meddelanden",
-    "ttsCommandOnly": "!tts-meddelanden"
+    "ttsCommandOnly": "!tts-meddelanden",
+    "spotlightTheBotPicksNotable": "Spotlight (botten väljer anmärkningsvärda meddelanden)"
   },
   "ttsModeSummary": {
     "all": "TTS läser upp alla chattmeddelanden. Det gäller även meddelanden som börjar med !tts.",
     "bitsPointsOnly": "TTS läser bara upp cheers och TTS-belöningen för Channel Points. Den läser inte upp !tts-meddelanden, markerade meddelanden eller andra chattmeddelanden.",
     "command": "TTS läser upp meddelanden som börjar med !tts. Den läser inte upp andra chattmeddelanden.",
-    "highlightedOnly": "TTS läser upp meddelanden som tittarna markerar med Channel Points. Den läser inte upp !tts-meddelanden eller andra chattmeddelanden."
+    "highlightedOnly": "TTS läser upp meddelanden som tittarna markerar med Channel Points. Den läser inte upp !tts-meddelanden eller andra chattmeddelanden.",
+    "theBotReadsChatAnd": "Botten läser chatten och väljer de anmärkningsvärda meddelandena. TTS läser bara dessa meddelanden. Den säger \"Chatt-spotlight\" före varje. Den läser också !tts-meddelanden."
   },
   "ttsPermission": {
     "everyone": "Alla",
@@ -536,5 +550,26 @@
   },
   "youtubeHandle": {
     "yourhandle": "@dittanvändarnamn"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "Medan botten läser ett val visar webbläsarkällan ett kort med tittarens namn och meddelandet."
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "Berätta för botten vilka meddelanden du gillar. Botten hoppar fortfarande över skräppost och otrevliga meddelanden. Exempel: Föredra frågor om spelet. Hoppa över backseating."
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "Senaste valen"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "Den här listan visar de senaste meddelandena som botten valde. Varje meddelande har orsaken till valet. Det nyaste meddelandet är först."
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "Uppdatera"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "Välj vad botten ska leta efter i chatten. Se meddelandena som den valde.",
+    "showACardInThe": "<strong>Visa ett kort i webbläsarkällan</strong>",
+    "spotlight": "Spotlight",
+    "whatToLookForOptional": "<strong>Vad den ska leta efter (valfritt)</strong>"
   }
 }

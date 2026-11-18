@@ -85,7 +85,9 @@
     "username_required": "사용자 이름이 필요합니다.",
     "voice_lookup_failed": "해당 사용자의 음성을 조회할 수 없습니다.",
     "word_invalid": "올바른 단어나 문구가 아닙니다.",
-    "word_required": "단어나 문구를 입력해야 합니다."
+    "word_required": "단어나 문구를 입력해야 합니다.",
+    "spotlight_guidance_too_long": "안내가 너무 깁니다. {max}자 이하로 입력하세요.",
+    "spotlight_picks_fetch_failed": "Spotlight 선택 항목을 불러올 수 없습니다."
   },
   "logoutLink": {
     "logout": "로그아웃"

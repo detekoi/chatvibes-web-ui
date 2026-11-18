@@ -293,6 +293,18 @@
       "loadFailed": "Impossible de charger vos paramètres.",
       "saveFailed": "{label} : {reason}",
       "youtubeHandleRequired": "Saisissez un identifiant YouTube avant d'activer le TTS YouTube."
+    },
+    "labels": {
+      "spotlightCard": "Carte Spotlight",
+      "spotlightGuidance": "Consigne Spotlight"
+    },
+    "spotlight": {
+      "count": "Choix trouvés : {count}",
+      "empty": "Aucun choix pour le moment. Un choix apparaît ici après que le bot l’a lu.",
+      "loadFailed": "Impossible de charger les choix. Sélectionnez Actualiser pour réessayer.",
+      "loading": "Chargement des choix…",
+      "reason": "Raison : {reason}",
+      "unknownUser": "Spectateur inconnu"
     }
   },
   "mutedRewardsClose": {
@@ -497,13 +509,15 @@
     "allMessages": "Tous les messages du chat",
     "bitsPointsOnly": "Cheers et récompenses uniquement",
     "highlightedOnly": "Messages mis en évidence",
-    "ttsCommandOnly": "Messages !tts"
+    "ttsCommandOnly": "Messages !tts",
+    "spotlightTheBotPicksNotable": "Spotlight (le bot choisit les messages marquants)"
   },
   "ttsModeSummary": {
     "all": "Le TTS lit chaque message du chat. Cela inclut les messages qui commencent par !tts.",
     "bitsPointsOnly": "Le TTS lit uniquement les cheers et la récompense TTS des Channel Points. Il ne lit pas les messages !tts, les messages mis en évidence ni les autres messages du chat.",
     "command": "Le TTS lit les messages qui commencent par !tts. Il ne lit pas les autres messages du chat.",
-    "highlightedOnly": "Le TTS lit les messages que les spectateurs mettent en évidence avec des Channel Points. Il ne lit pas les messages !tts ni les autres messages du chat."
+    "highlightedOnly": "Le TTS lit les messages que les spectateurs mettent en évidence avec des Channel Points. Il ne lit pas les messages !tts ni les autres messages du chat.",
+    "theBotReadsChatAnd": "Le bot lit le chat et choisit les messages marquants. Le TTS ne lit que ces messages. Il prononce « Coup de projecteur sur le chat » avant chacun. Il lit aussi les messages !tts."
   },
   "ttsPermission": {
     "everyone": "Tout le monde",
@@ -536,5 +550,26 @@
   },
   "youtubeHandle": {
     "yourhandle": "@votreidentifiant"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "Pendant que le bot lit un choix, la source navigateur affiche une carte avec le nom du spectateur et le message."
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "Indiquez au bot quels messages vous aimez. Le bot ignore toujours le spam et les messages impolis. Exemple : Privilégie les questions sur le jeu. Ignore les conseils non sollicités."
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "Choix récents"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "Cette liste affiche les derniers messages choisis par le bot. Chaque message indique la raison du choix. Le message le plus récent est en premier."
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "Actualiser"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "Choisissez ce que le bot recherche dans le chat. Consultez les messages qu’il a choisis.",
+    "showACardInThe": "<strong>Afficher une carte dans la source navigateur</strong>",
+    "spotlight": "Spotlight",
+    "whatToLookForOptional": "<strong>Ce qu’il faut rechercher (facultatif)</strong>"
   }
 }

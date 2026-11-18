@@ -85,7 +85,9 @@
     "username_required": "Kailangan ng username.",
     "voice_lookup_failed": "Hindi mahanap ang boses ng user na iyon.",
     "word_invalid": "Hindi wasto ang salita o pariralang iyon.",
-    "word_required": "Kailangan ng salita o parirala."
+    "word_required": "Kailangan ng salita o parirala.",
+    "spotlight_guidance_too_long": "Masyadong mahaba ang gabay. Gumamit ng {max} character o mas kaunti.",
+    "spotlight_picks_fetch_failed": "Hindi ma-load ang mga napili sa Spotlight."
   },
   "logoutLink": {
     "logout": "Mag-sign out"

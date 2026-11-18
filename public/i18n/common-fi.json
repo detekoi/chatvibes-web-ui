@@ -85,7 +85,9 @@
     "username_required": "Käyttäjätunnus vaaditaan.",
     "voice_lookup_failed": "Kyseisen käyttäjän äänen hakeminen epäonnistui.",
     "word_invalid": "Sana tai lause ei kelpaa.",
-    "word_required": "Sana tai lause vaaditaan."
+    "word_required": "Sana tai lause vaaditaan.",
+    "spotlight_guidance_too_long": "Ohje on liian pitkä. Käytä enintään {max} merkkiä.",
+    "spotlight_picks_fetch_failed": "Spotlight-valintoja ei voida ladata."
   },
   "logoutLink": {
     "logout": "Kirjaudu ulos"

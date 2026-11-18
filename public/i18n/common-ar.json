@@ -85,7 +85,9 @@
     "username_required": "اسم المستخدم مطلوب.",
     "voice_lookup_failed": "تعذر البحث عن صوت هذا المستخدم.",
     "word_invalid": "تلك الكلمة أو العبارة غير صالحة.",
-    "word_required": "الكلمة أو العبارة مطلوبة."
+    "word_required": "الكلمة أو العبارة مطلوبة.",
+    "spotlight_guidance_too_long": "الإرشادات طويلة جداً. استخدم {max} حرفاً أو أقل.",
+    "spotlight_picks_fetch_failed": "تعذر تحميل اختيارات Spotlight."
   },
   "logoutLink": {
     "logout": "تسجيل الخروج"

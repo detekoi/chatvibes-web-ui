@@ -293,6 +293,18 @@
       "loadFailed": "Hindi ma-load ang iyong mga setting.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Maglagay ng YouTube handle bago i-on ang YouTube TTS."
+    },
+    "labels": {
+      "spotlightCard": "Spotlight card",
+      "spotlightGuidance": "Gabay sa Spotlight"
+    },
+    "spotlight": {
+      "count": "Mga napiling nahanap: {count}",
+      "empty": "Wala pang mga napili. Lalabas dito ang isang napili pagkatapos itong basahin ng bot.",
+      "loadFailed": "Hindi ma-load ang mga napili. Piliin ang I-refresh para subukan ulit.",
+      "loading": "Nilo-load ang mga napili…",
+      "reason": "Dahilan: {reason}",
+      "unknownUser": "Hindi kilalang manonood"
     }
   },
   "mutedRewardsClose": {
@@ -497,13 +509,15 @@
     "allMessages": "Lahat ng Mensahe sa Chat",
     "bitsPointsOnly": "Mga Cheer at Reward Lamang",
     "highlightedOnly": "Mga Naka-highlight na Mensahe",
-    "ttsCommandOnly": "Mga Mensaheng !tts"
+    "ttsCommandOnly": "Mga Mensaheng !tts",
+    "spotlightTheBotPicksNotable": "Spotlight (pinipili ng bot ang mga kapansin-pansing mensahe)"
   },
   "ttsModeSummary": {
     "all": "Binabasa ng TTS ang bawat mensahe sa chat. Kasama rito ang mga mensaheng nagsisimula sa !tts.",
     "bitsPointsOnly": "Ang mga cheer at ang TTS reward sa Channel Points lang ang binabasa ng TTS. Hindi nito binabasa ang mga mensaheng !tts, mga naka-highlight na mensahe, o iba pang mensahe sa chat.",
     "command": "Binabasa ng TTS ang mga mensaheng nagsisimula sa !tts. Hindi nito binabasa ang iba pang mensahe sa chat.",
-    "highlightedOnly": "Binabasa ng TTS ang mga mensaheng hina-highlight ng mga manonood gamit ang Channel Points. Hindi nito binabasa ang mga mensaheng !tts o iba pang mensahe sa chat."
+    "highlightedOnly": "Binabasa ng TTS ang mga mensaheng hina-highlight ng mga manonood gamit ang Channel Points. Hindi nito binabasa ang mga mensaheng !tts o iba pang mensahe sa chat.",
+    "theBotReadsChatAnd": "Binabasa ng bot ang chat at pinipili ang mga kapansin-pansing mensahe. Binabasa lang ng TTS ang mga mensaheng iyon. Sinasabi nito ang \"Tampok sa chat\" bago ang bawat isa. Binabasa rin nito ang mga mensaheng !tts."
   },
   "ttsPermission": {
     "everyone": "Lahat",
@@ -536,5 +550,26 @@
   },
   "youtubeHandle": {
     "yourhandle": "@iyonghandle"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "Habang binabasa ng bot ang isang napili, nagpapakita ang browser source ng card na may pangalan ng manonood at ang mensahe."
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "Sabihin sa bot kung aling mga mensahe ang gusto mo. Nilalaktawan pa rin ng bot ang spam at bastos na mensahe. Halimbawa: Mas piliin ang mga tanong tungkol sa laro. Laktawan ang backseating."
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "Mga kamakailang napili"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "Ipinapakita ng listahang ito ang mga huling mensaheng pinili ng bot. May dahilan ang bawat mensahe para sa pagpili. Una ang pinakabagong mensahe."
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "I-refresh"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "Piliin kung ano ang hinahanap ng bot sa chat. Tingnan ang mga mensaheng pinili nito.",
+    "showACardInThe": "<strong>Magpakita ng card sa browser source</strong>",
+    "spotlight": "Spotlight",
+    "whatToLookForOptional": "<strong>Ano ang hahanapin (opsyonal)</strong>"
   }
 }

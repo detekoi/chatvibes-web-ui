@@ -85,7 +85,9 @@
     "username_required": "Ein Benutzername ist erforderlich.",
     "voice_lookup_failed": "Die Stimme dieses Nutzers kann nicht ermittelt werden.",
     "word_invalid": "Dieses Wort oder dieser Begriff ist ungültig.",
-    "word_required": "Ein Wort oder ein Begriff ist erforderlich."
+    "word_required": "Ein Wort oder ein Begriff ist erforderlich.",
+    "spotlight_guidance_too_long": "Die Vorgabe ist zu lang. Verwende höchstens {max} Zeichen.",
+    "spotlight_picks_fetch_failed": "Die Spotlight-Auswahlen können nicht geladen werden."
   },
   "logoutLink": {
     "logout": "Abmelden"

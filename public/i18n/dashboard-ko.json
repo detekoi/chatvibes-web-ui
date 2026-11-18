@@ -293,6 +293,18 @@
       "loadFailed": "설정을 불러올 수 없습니다.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "YouTube TTS를 켜기 전에 YouTube 핸들을 입력하세요."
+    },
+    "labels": {
+      "spotlightCard": "Spotlight 카드",
+      "spotlightGuidance": "Spotlight 안내"
+    },
+    "spotlight": {
+      "count": "찾은 선택 항목: {count}",
+      "empty": "아직 선택 항목이 없습니다. 봇이 읽은 후 여기에 표시됩니다.",
+      "loadFailed": "선택 항목을 불러올 수 없습니다. 새로 고침을 선택하여 다시 시도하세요.",
+      "loading": "선택 항목 불러오는 중…",
+      "reason": "이유: {reason}",
+      "unknownUser": "알 수 없는 시청자"
     }
   },
   "mutedRewardsClose": {
@@ -497,13 +509,15 @@
     "allMessages": "모든 채팅 메시지",
     "bitsPointsOnly": "응원 및 보상 전용",
     "highlightedOnly": "강조된 메시지",
-    "ttsCommandOnly": "!tts 메시지"
+    "ttsCommandOnly": "!tts 메시지",
+    "spotlightTheBotPicksNotable": "Spotlight(봇이 주목할 만한 메시지 선택)"
   },
   "ttsModeSummary": {
     "all": "TTS는 모든 채팅 메시지를 읽습니다. !tts로 시작하는 메시지도 포함됩니다.",
     "bitsPointsOnly": "TTS는 응원과 Channel Points TTS 보상만 읽습니다. !tts 메시지, 강조된 메시지, 기타 채팅 메시지는 읽지 않습니다.",
     "command": "TTS는 !tts로 시작하는 메시지를 읽습니다. 기타 채팅 메시지는 읽지 않습니다.",
-    "highlightedOnly": "TTS는 시청자가 Channel Points로 강조한 메시지를 읽습니다. !tts 메시지와 기타 채팅 메시지는 읽지 않습니다."
+    "highlightedOnly": "TTS는 시청자가 Channel Points로 강조한 메시지를 읽습니다. !tts 메시지와 기타 채팅 메시지는 읽지 않습니다.",
+    "theBotReadsChatAnd": "봇이 채팅을 읽고 주목할 만한 메시지를 선택합니다. TTS는 해당 메시지만 읽습니다. 각 메시지 앞에 \"채팅 스포트라이트\"라고 말합니다. !tts 메시지도 읽습니다."
   },
   "ttsPermission": {
     "everyone": "모든 사용자",
@@ -536,5 +550,26 @@
   },
   "youtubeHandle": {
     "yourhandle": "@yourhandle"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "봇이 선택 항목을 읽는 동안 브라우저 소스에 시청자 이름과 메시지가 담긴 카드가 표시됩니다."
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "봇에게 어떤 메시지를 선호하는지 알려주세요. 봇은 여전히 스팸과 무례한 메시지를 건너뜁니다. 예: 게임에 관한 질문을 우선해 줘. 훈수는 건너뛰어 줘."
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "최근 선택 항목"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "이 목록은 봇이 마지막으로 선택한 메시지를 보여줍니다. 각 메시지에는 선택 이유가 있습니다. 최신 메시지가 먼저 표시됩니다."
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "새로 고침"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "봇이 채팅에서 무엇을 찾을지 선택하세요. 봇이 선택한 메시지를 확인하세요.",
+    "showACardInThe": "<strong>브라우저 소스에 카드 표시</strong>",
+    "spotlight": "Spotlight",
+    "whatToLookForOptional": "<strong>찾을 내용(선택 사항)</strong>"
   }
 }

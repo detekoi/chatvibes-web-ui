@@ -293,6 +293,18 @@
       "loadFailed": "Ayarlarınız yüklenemiyor.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "YouTube TTS'yi açmadan önce bir YouTube kullanıcı adı girin."
+    },
+    "labels": {
+      "spotlightCard": "Spotlight kartı",
+      "spotlightGuidance": "Spotlight yönergesi"
+    },
+    "spotlight": {
+      "count": "Bulunan seçimler: {count}",
+      "empty": "Henüz seçim yok. Bot okuduktan sonra bir seçim burada görünür.",
+      "loadFailed": "Seçimler yüklenemiyor. Tekrar denemek için Yenile'yi seçin.",
+      "loading": "Seçimler yükleniyor…",
+      "reason": "Neden: {reason}",
+      "unknownUser": "Bilinmeyen izleyici"
     }
   },
   "mutedRewardsClose": {
@@ -497,13 +509,15 @@
     "allMessages": "Tüm Sohbet Mesajları",
     "bitsPointsOnly": "Yalnızca Cheer'lar ve Ödüller",
     "highlightedOnly": "Vurgulanan Mesajlar",
-    "ttsCommandOnly": "!tts Mesajları"
+    "ttsCommandOnly": "!tts Mesajları",
+    "spotlightTheBotPicksNotable": "Spotlight (bot dikkat çekici mesajları seçer)"
   },
   "ttsModeSummary": {
     "all": "TTS her sohbet mesajını okur. Buna !tts ile başlayan mesajlar da dahildir.",
     "bitsPointsOnly": "TTS yalnızca Cheer'ları ve Channel Points TTS ödülünü okur. !tts mesajlarını, vurgulanan mesajları veya diğer sohbet mesajlarını okumaz.",
     "command": "TTS, !tts ile başlayan mesajları okur. Diğer sohbet mesajlarını okumaz.",
-    "highlightedOnly": "TTS, izleyicilerin Channel Points ile vurguladığı mesajları okur. !tts mesajlarını veya diğer sohbet mesajlarını okumaz."
+    "highlightedOnly": "TTS, izleyicilerin Channel Points ile vurguladığı mesajları okur. !tts mesajlarını veya diğer sohbet mesajlarını okumaz.",
+    "theBotReadsChatAnd": "Bot sohbeti okur ve dikkat çekici mesajları seçer. TTS yalnızca bu mesajları okur. Her birinden önce \"Sohbet öne çıkanı\" der. Ayrıca !tts mesajlarını da okur."
   },
   "ttsPermission": {
     "everyone": "Herkes",
@@ -536,5 +550,26 @@
   },
   "youtubeHandle": {
     "yourhandle": "@kullaniciadiniz"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "Bot bir seçimi okurken tarayıcı kaynağı, izleyicinin adını ve mesajını içeren bir kart gösterir."
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "Bota hangi mesajları sevdiğinizi söyleyin. Bot yine de spam ve kaba mesajları atlar. Örnek: Oyunla ilgili soruları tercih et. İstenmeyen yönlendirmeleri atla."
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "Son seçimler"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "Bu liste botun seçtiği son mesajları gösterir. Her mesajda seçilme nedeni yer alır. En yeni mesaj en üsttedir."
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "Yenile"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "Botun sohbette ne arayacağını seçin. Seçtiği mesajları görün.",
+    "showACardInThe": "<strong>Tarayıcı kaynağında bir kart göster</strong>",
+    "spotlight": "Spotlight",
+    "whatToLookForOptional": "<strong>Ne aranacak (isteğe bağlı)</strong>"
   }
 }

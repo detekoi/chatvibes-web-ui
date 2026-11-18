@@ -85,7 +85,9 @@
     "username_required": "Een gebruikersnaam is vereist.",
     "voice_lookup_failed": "Kan de stem van die gebruiker niet opzoeken.",
     "word_invalid": "Dat woord of die woordgroep is niet geldig.",
-    "word_required": "Een woord of woordgroep is vereist."
+    "word_required": "Een woord of woordgroep is vereist.",
+    "spotlight_guidance_too_long": "De richtlijn is te lang. Gebruik {max} tekens of minder.",
+    "spotlight_picks_fetch_failed": "Kan de Spotlight-keuzes niet laden."
   },
   "logoutLink": {
     "logout": "Uitloggen"
