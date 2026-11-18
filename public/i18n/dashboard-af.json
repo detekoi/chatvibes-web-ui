@@ -280,8 +280,8 @@
       "readFullUrls": "Lees volledige URL's",
       "redemptionAnnouncements": "Inwisselingaankondigings",
       "soundTags": "Klankmerkers",
-      "spotlightCard": "Kollig-kaart",
-      "spotlightGuidance": "Kollig-riglyn",
+      "spotlightCard": "Kolligkaart",
+      "spotlightGuidance": "Kolligleiding",
       "style": "Verstekstemstyl",
       "ttsEngine": "TTS-enjin",
       "ttsMode": "TTS-modus",
@@ -300,7 +300,7 @@
       "count": "Keuses gevind: {count}",
       "empty": "Nog geen keuses nie. 'n Keuse verskyn hier nadat die bot dit gelees het.",
       "loadFailed": "Kan nie die keuses laai nie. Kies Verfris om weer te probeer.",
-      "loading": "Laai tans die keuses…",
+      "loading": "Keuses word gelaai…",
       "reason": "Rede: {reason}",
       "unknownUser": "Onbekende kyker"
     }
@@ -395,6 +395,27 @@
   },
   "soundTagsTitle": {
     "soundTags": "Klankmerkers"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "Terwyl die bot 'n keuse lees, wys die Browser Source 'n kaart met die naam van die kyker en die boodskap."
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "Vertel die bot van watter boodskappe jy hou. Die bot slaan steeds gemorspos en onbeskofte boodskappe oor. Voorbeeld: Verkies vrae oor die speletjie. Slaan ongevraagde advies oor."
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "Onlangse keuses"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "Hierdie lys wys die laaste boodskappe wat die bot gekies het. Elke boodskap het die rede vir die keuse. Die nuutste boodskap is eerste."
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "Verfris"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "Kies waarna die bot in die klets soek. Sien die boodskappe wat dit gekies het.",
+    "showACardInThe": "<strong>Wys 'n kaart in die Browser Source</strong>",
+    "spotlight": "Kollig",
+    "whatToLookForOptional": "<strong>Waarna om te soek (opsioneel)</strong>"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Laat die bot toe om op kletsbevele soos !myvoice te reageer",
@@ -507,15 +528,15 @@
     "allMessages": "Alle Kletsboodskappe",
     "bitsPointsOnly": "Slegs Cheers en Belonings",
     "highlightedOnly": "Uitgeligte Boodskappe",
-    "ttsCommandOnly": "!tts-boodskappe",
-    "spotlightTheBotPicksNotable": "Spotlight (die bot kies noemenswaardige boodskappe)"
+    "spotlightTheBotPicksNotable": "Kollig (die bot kies noemenswaardige boodskappe)",
+    "ttsCommandOnly": "!tts-boodskappe"
   },
   "ttsModeSummary": {
     "all": "TTS lees elke kletsboodskap. Dit sluit boodskappe in wat met !tts begin.",
     "bitsPointsOnly": "TTS lees slegs cheers en die Channel Points TTS-beloning. Dit lees nie !tts-boodskappe, uitgeligte boodskappe of ander kletsboodskappe nie.",
     "command": "TTS lees boodskappe wat met !tts begin. Dit lees nie ander kletsboodskappe nie.",
     "highlightedOnly": "TTS lees boodskappe wat kykers met Channel Points uitlig. Dit lees nie !tts-boodskappe of ander kletsboodskappe nie.",
-    "theBotReadsChatAnd": "Die bot lees die klets en kies die noemenswaardige boodskappe. TTS lees slegs daardie boodskappe. Dit sê \"Kletskollig\" voor elkeen. Dit lees ook !tts-boodskappe."
+    "theBotReadsChatAnd": "Die bot lees die klets en kies die noemenswaardige boodskappe. TTS lees slegs daardie boodskappe. Dit sê \"Chat spotlight\" voor elkeen. Dit lees ook !tts-boodskappe."
   },
   "ttsPermission": {
     "everyone": "Almal",
@@ -548,26 +569,5 @@
   },
   "youtubeHandle": {
     "yourhandle": "@jouhandvatsel"
-  },
-  "spotlightCardHelp": {
-    "whileTheBotReadsA": "Terwyl die bot 'n keuse lees, wys die blaaierbron 'n kaart met die naam van die kyker en die boodskap."
-  },
-  "spotlightGuidanceHelp": {
-    "tellTheBotWhichMessages": "Vertel die bot van watter boodskappe jy hou. Die bot slaan steeds gemorspos en onbeskofte boodskappe oor. Voorbeeld: Verkies vrae oor die speletjie. Slaan raadgewing oor."
-  },
-  "spotlightPicksHeading": {
-    "recentPicks": "Onlangse keuses"
-  },
-  "spotlightPicksNote": {
-    "theLastMessagesThatThe": "Hierdie lys wys die laaste boodskappe wat die bot gekies het. Elke boodskap het die rede vir die keuse. Die nuutste boodskap is eerste."
-  },
-  "spotlightPicksRefresh": {
-    "refresh": "Verfris"
-  },
-  "spotlightSettings": {
-    "chooseWhatTheBotLooks": "Kies waarna die bot in die klets moet soek. Sien die boodskappe wat dit gekies het.",
-    "showACardInThe": "<strong>Wys 'n kaart in die blaaierbron</strong>",
-    "spotlight": "Spotlight",
-    "whatToLookForOptional": "<strong>Waarna om te soek (opsioneel)</strong>"
   }
 }

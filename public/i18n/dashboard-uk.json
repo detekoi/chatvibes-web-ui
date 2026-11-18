@@ -280,8 +280,8 @@
       "readFullUrls": "Читати повні URL",
       "redemptionAnnouncements": "Оголошення про нагороди",
       "soundTags": "Звукові теги",
-      "spotlightCard": "Картка Spotlight",
-      "spotlightGuidance": "Підказка для Spotlight",
+      "spotlightCard": "Картка вибраного",
+      "spotlightGuidance": "Критерії відбору",
       "style": "Стиль голосу за замовчуванням",
       "ttsEngine": "Рушій TTS",
       "ttsMode": "Режим TTS",
@@ -297,10 +297,10 @@
       "youtubeHandleRequired": "Введіть хендл YouTube перед тим, як увімкнути YouTube TTS."
     },
     "spotlight": {
-      "count": "Знайдено виборів: {count}",
-      "empty": "Поки немає виборів. Вибір з’явиться тут після того, як бот його прочитає.",
-      "loadFailed": "Не вдалося завантажити вибірку. Натисніть «Оновити», щоб спробувати ще раз.",
-      "loading": "Завантаження вибірки…",
+      "count": "Знайдено вибраних: {count}",
+      "empty": "Поки що немає вибраних повідомлень. Повідомлення з’явиться тут після того, як бот його зачитає.",
+      "loadFailed": "Не вдається завантажити вибрані повідомлення. Натисніть «Оновити», щоб спробувати ще раз.",
+      "loading": "Завантаження вибраних повідомлень…",
       "reason": "Причина: {reason}",
       "unknownUser": "Невідомий глядач"
     }
@@ -395,6 +395,27 @@
   },
   "soundTagsTitle": {
     "soundTags": "Звукові теги"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "Поки бот зачитує вибране повідомлення, Browser Source показує картку з іменем глядача та повідомленням."
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "Підкажіть боту, які повідомлення вам подобаються. Бот усе одно пропускатиме спам і грубощі. Наприклад: надавай перевагу запитанням про гру. Пропускай непрохані підказки."
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "Нещодавно вибрані"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "У цьому списку показано останні повідомлення, які вибрав бот. Для кожного вказано причину вибору. Найновіше повідомлення — перше."
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "Оновити"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "Виберіть, що бот шукає в чаті. Переглядайте вибрані ним повідомлення.",
+    "showACardInThe": "<strong>Показувати картку в Browser Source</strong>",
+    "spotlight": "Вибране",
+    "whatToLookForOptional": "<strong>Що шукати (необов’язково)</strong>"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Дозволити боту відповідати на команди в чаті, як-от !myvoice",
@@ -507,15 +528,15 @@
     "allMessages": "Усі повідомлення чату",
     "bitsPointsOnly": "Лише Cheers і нагороди",
     "highlightedOnly": "Виділені повідомлення",
-    "ttsCommandOnly": "Повідомлення з !tts",
-    "spotlightTheBotPicksNotable": "Spotlight (бот вибирає варті уваги повідомлення)"
+    "spotlightTheBotPicksNotable": "Вибране (бот вибирає помітні повідомлення)",
+    "ttsCommandOnly": "Повідомлення з !tts"
   },
   "ttsModeSummary": {
     "all": "TTS озвучує кожне повідомлення чату. Сюди входять повідомлення, що починаються з !tts.",
     "bitsPointsOnly": "TTS озвучує лише Cheers і нагороду TTS за Channel Points. Повідомлення з !tts, виділені повідомлення та інші повідомлення чату не озвучуються.",
     "command": "TTS озвучує повідомлення, що починаються з !tts. Інші повідомлення чату не озвучуються.",
     "highlightedOnly": "TTS озвучує повідомлення, які глядачі виділяють за допомогою Channel Points. Повідомлення з !tts та інші повідомлення чату не озвучуються.",
-    "theBotReadsChatAnd": "Бот читає чат і вибирає варті уваги повідомлення. TTS читає лише ці повідомлення. Перед кожним він каже «У центрі уваги чату». Він також читає повідомлення !tts."
+    "theBotReadsChatAnd": "Бот читає чат і вибирає помітні повідомлення. TTS зачитує лише їх. Перед кожним він каже «Chat spotlight». Також він зачитує повідомлення з !tts."
   },
   "ttsPermission": {
     "everyone": "Усі",
@@ -548,26 +569,5 @@
   },
   "youtubeHandle": {
     "yourhandle": "@yourhandle"
-  },
-  "spotlightCardHelp": {
-    "whileTheBotReadsA": "Поки бот читає вибране повідомлення, джерело браузера показує картку з іменем глядача та повідомленням."
-  },
-  "spotlightGuidanceHelp": {
-    "tellTheBotWhichMessages": "Підкажіть боту, які повідомлення вам подобаються. Бот усе одно пропускає спам і грубі повідомлення. Приклад: Віддавай перевагу питанням про гру. Пропускай підказки."
-  },
-  "spotlightPicksHeading": {
-    "recentPicks": "Нещодавні вибори"
-  },
-  "spotlightPicksNote": {
-    "theLastMessagesThatThe": "Цей список показує останні повідомлення, які вибрав бот. Кожне повідомлення має причину вибору. Найновіше повідомлення — перше."
-  },
-  "spotlightPicksRefresh": {
-    "refresh": "Оновити"
-  },
-  "spotlightSettings": {
-    "chooseWhatTheBotLooks": "Виберіть, що бот шукає в чаті. Перегляньте повідомлення, які він вибрав.",
-    "showACardInThe": "<strong>Показувати картку в джерелі браузера</strong>",
-    "spotlight": "Spotlight",
-    "whatToLookForOptional": "<strong>Що шукати (необов’язково)</strong>"
   }
 }

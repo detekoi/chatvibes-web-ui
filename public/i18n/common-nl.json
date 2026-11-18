@@ -71,6 +71,8 @@
     "shortlink_failed": "Kan de korte link niet aanmaken.",
     "sound_tag_unknown": "De geluidstag \"{tag}\" staat niet in de lijst. Laad de pagina opnieuw en probeer het opnieuw.",
     "storage_unavailable": "Opslag is niet beschikbaar.",
+    "spotlight_guidance_too_long": "De instructie is te lang. Gebruik maximaal {max} tekens.",
+    "spotlight_picks_fetch_failed": "Kan de Spotlight-keuzes niet laden.",
     "style_too_long": "De stijl is te lang. Gebruik maximaal {max} tekens.",
     "tts_blocked": "De spraakdienst heeft deze tekst geweigerd. Pas de tekst aan en probeer het opnieuw.",
     "tts_generation_failed": "Spraak genereren mislukt: {reason}",
@@ -85,9 +87,7 @@
     "username_required": "Een gebruikersnaam is vereist.",
     "voice_lookup_failed": "Kan de stem van die gebruiker niet opzoeken.",
     "word_invalid": "Dat woord of die woordgroep is niet geldig.",
-    "word_required": "Een woord of woordgroep is vereist.",
-    "spotlight_guidance_too_long": "De richtlijn is te lang. Gebruik {max} tekens of minder.",
-    "spotlight_picks_fetch_failed": "Kan de Spotlight-keuzes niet laden."
+    "word_required": "Een woord of woordgroep is vereist."
   },
   "logoutLink": {
     "logout": "Uitloggen"

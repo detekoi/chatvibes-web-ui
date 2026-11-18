@@ -71,6 +71,8 @@
     "shortlink_failed": "No es pot crear l'enllaç curt.",
     "sound_tag_unknown": "L'etiqueta de so \"{tag}\" no és a la llista. Recarrega la pàgina i torna-ho a provar.",
     "storage_unavailable": "L'emmagatzematge no està disponible.",
+    "spotlight_guidance_too_long": "Les indicacions són massa llargues. Fes servir {max} caràcters o menys.",
+    "spotlight_picks_fetch_failed": "No es poden carregar les seleccions de Spotlight.",
     "style_too_long": "L'estil és massa llarg. Fes servir {max} caràcters o menys.",
     "tts_blocked": "El servei de veu ha rebutjat aquest text. Canvia'l i torna-ho a provar.",
     "tts_generation_failed": "Ha fallat la generació de veu: {reason}",
@@ -85,9 +87,7 @@
     "username_required": "Cal un nom d'usuari.",
     "voice_lookup_failed": "No es pot consultar la veu d'aquest usuari.",
     "word_invalid": "Aquesta paraula o frase no és vàlida.",
-    "word_required": "Cal una paraula o frase.",
-    "spotlight_guidance_too_long": "La guia és massa llarga. Fes servir {max} caràcters o menys.",
-    "spotlight_picks_fetch_failed": "No es poden carregar les seleccions de Spotlight."
+    "word_required": "Cal una paraula o frase."
   },
   "logoutLink": {
     "logout": "Tanca la sessió"

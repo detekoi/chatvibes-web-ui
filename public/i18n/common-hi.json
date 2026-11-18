@@ -71,6 +71,8 @@
     "shortlink_failed": "छोटा लिंक नहीं बनाया जा सका।",
     "sound_tag_unknown": "साउंड टैग \"{tag}\" सूची में नहीं है। पेज रीलोड करें और फिर से कोशिश करें।",
     "storage_unavailable": "स्टोरेज उपलब्ध नहीं है।",
+    "spotlight_guidance_too_long": "दिशानिर्देश बहुत लंबा है। {max} या उससे कम वर्णों का उपयोग करें।",
+    "spotlight_picks_fetch_failed": "स्पॉटलाइट चयन लोड नहीं किए जा सकते।",
     "style_too_long": "शैली बहुत लंबी है। {max} या उससे कम कैरेक्टर का उपयोग करें।",
     "tts_blocked": "स्पीच सेवा ने इस टेक्स्ट को अस्वीकार कर दिया। टेक्स्ट बदलें और फिर से कोशिश करें।",
     "tts_generation_failed": "स्पीच जनरेशन विफल: {reason}",
@@ -85,9 +87,7 @@
     "username_required": "यूज़रनेम आवश्यक है।",
     "voice_lookup_failed": "उस यूज़र की वॉइस खोजी नहीं जा सकी।",
     "word_invalid": "वह शब्द या वाक्यांश मान्य नहीं है।",
-    "word_required": "शब्द या वाक्यांश आवश्यक है।",
-    "spotlight_guidance_too_long": "मार्गदर्शन बहुत लंबा है। {max} या उससे कम अक्षरों का उपयोग करें।",
-    "spotlight_picks_fetch_failed": "Spotlight चयन लोड नहीं किए जा सकते।"
+    "word_required": "शब्द या वाक्यांश आवश्यक है।"
   },
   "logoutLink": {
     "logout": "साइन आउट"

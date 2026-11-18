@@ -71,6 +71,8 @@
     "shortlink_failed": "단축 링크를 생성할 수 없습니다.",
     "sound_tag_unknown": "사운드 태그 \"{tag}\"이(가) 목록에 없습니다. 페이지를 새로 고치고 다시 시도하세요.",
     "storage_unavailable": "저장소를 사용할 수 없습니다.",
+    "spotlight_guidance_too_long": "지침이 너무 깁니다. {max}자 이하로 입력하세요.",
+    "spotlight_picks_fetch_failed": "Spotlight 추천 항목을 불러올 수 없습니다.",
     "style_too_long": "스타일이 너무 깁니다. {max}자 이하로 입력하세요.",
     "tts_blocked": "음성 서비스에서 이 텍스트를 거부했습니다. 텍스트를 변경하고 다시 시도하세요.",
     "tts_generation_failed": "음성 생성 실패: {reason}",
@@ -85,9 +87,7 @@
     "username_required": "사용자 이름이 필요합니다.",
     "voice_lookup_failed": "해당 사용자의 음성을 조회할 수 없습니다.",
     "word_invalid": "올바른 단어나 문구가 아닙니다.",
-    "word_required": "단어나 문구를 입력해야 합니다.",
-    "spotlight_guidance_too_long": "안내가 너무 깁니다. {max}자 이하로 입력하세요.",
-    "spotlight_picks_fetch_failed": "Spotlight 선택 항목을 불러올 수 없습니다."
+    "word_required": "단어나 문구를 입력해야 합니다."
   },
   "logoutLink": {
     "logout": "로그아웃"

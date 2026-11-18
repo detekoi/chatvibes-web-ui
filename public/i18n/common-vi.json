@@ -71,6 +71,8 @@
     "shortlink_failed": "Không thể tạo liên kết rút gọn.",
     "sound_tag_unknown": "Thẻ âm thanh \"{tag}\" không có trong danh sách. Hãy tải lại trang và thử lại.",
     "storage_unavailable": "Bộ lưu trữ hiện không khả dụng.",
+    "spotlight_guidance_too_long": "Hướng dẫn quá dài. Dùng tối đa {max} ký tự.",
+    "spotlight_picks_fetch_failed": "Không thể tải các lựa chọn Spotlight.",
     "style_too_long": "Phong cách quá dài. Chỉ dùng tối đa {max} ký tự.",
     "tts_blocked": "Dịch vụ đọc văn bản đã từ chối nội dung này. Hãy đổi nội dung và thử lại.",
     "tts_generation_failed": "Tạo giọng nói thất bại: {reason}",
@@ -85,9 +87,7 @@
     "username_required": "Cần có tên người dùng.",
     "voice_lookup_failed": "Không thể tra cứu giọng đọc của người dùng đó.",
     "word_invalid": "Từ hoặc cụm từ đó không hợp lệ.",
-    "word_required": "Cần có từ hoặc cụm từ.",
-    "spotlight_guidance_too_long": "Hướng dẫn quá dài. Hãy dùng tối đa {max} ký tự.",
-    "spotlight_picks_fetch_failed": "Không thể tải các lựa chọn Spotlight."
+    "word_required": "Cần có từ hoặc cụm từ."
   },
   "logoutLink": {
     "logout": "Đăng xuất"

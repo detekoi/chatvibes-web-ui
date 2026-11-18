@@ -280,8 +280,8 @@
       "readFullUrls": "朗读完整 URL",
       "redemptionAnnouncements": "兑换播报",
       "soundTags": "音效标签",
-      "spotlightCard": "Spotlight 卡片",
-      "spotlightGuidance": "Spotlight 指引",
+      "spotlightCard": "精选卡片",
+      "spotlightGuidance": "精选引导",
       "style": "默认语音风格",
       "ttsEngine": "TTS 引擎",
       "ttsMode": "TTS 模式",
@@ -297,10 +297,10 @@
       "youtubeHandleRequired": "开启 YouTube TTS 前请输入 YouTube Handle。"
     },
     "spotlight": {
-      "count": "找到的精选：{count}",
-      "empty": "暂无精选。机器人在朗读后，精选会显示在这里。",
-      "loadFailed": "无法加载精选。请选择刷新以重试。",
-      "loading": "正在加载精选…",
+      "count": "已找到精选消息：{count}",
+      "empty": "暂无精选消息。机器人朗读一条精选消息后，它会显示在这里。",
+      "loadFailed": "无法加载精选消息。请选择“刷新”重试。",
+      "loading": "正在加载精选消息…",
       "reason": "原因：{reason}",
       "unknownUser": "未知观众"
     }
@@ -395,6 +395,27 @@
   },
   "soundTagsTitle": {
     "soundTags": "音效标签"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "当机器人朗读精选消息时，浏览器源会显示一张卡片，包含观众名称和消息内容。"
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "告诉机器人你喜欢哪些消息。机器人仍会跳过垃圾信息和粗鲁内容。示例：优先选择关于游戏的问题。跳过指手画脚的消息。"
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "近期精选"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "此列表显示机器人最近精选的消息。每条消息都附带入选原因，最新消息排在最前面。"
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "刷新"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "选择机器人在聊天中关注的内容，并查看它精选的消息。",
+    "showACardInThe": "<strong>在浏览器源中显示卡片</strong>",
+    "spotlight": "精选",
+    "whatToLookForOptional": "<strong>关注内容（可选）</strong>"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "允许机器人响应聊天命令（如 !myvoice）",
@@ -507,15 +528,15 @@
     "allMessages": "所有聊天消息",
     "bitsPointsOnly": "仅限 Cheers 和奖励",
     "highlightedOnly": "高亮消息",
-    "ttsCommandOnly": "!tts 消息",
-    "spotlightTheBotPicksNotable": "Spotlight（机器人挑选值得注意的消息）"
+    "spotlightTheBotPicksNotable": "精选（机器人挑选值得注意的消息）",
+    "ttsCommandOnly": "!tts 消息"
   },
   "ttsModeSummary": {
     "all": "TTS 朗读每条聊天消息，包括以 !tts 开头的消息。",
     "bitsPointsOnly": "TTS 仅朗读 Cheers 和 Channel Points 的 TTS 奖励。不朗读 !tts 消息、高亮消息或其他聊天消息。",
     "command": "TTS 朗读以 !tts 开头的消息。不朗读其他聊天消息。",
     "highlightedOnly": "TTS 朗读观众使用 Channel Points 高亮的消息。不朗读 !tts 消息或其他聊天消息。",
-    "theBotReadsChatAnd": "机器人阅读聊天并挑选值得注意的消息。TTS 仅朗读这些消息，并在每条消息前说“聊天精选”。它也会朗读 !tts 消息。"
+    "theBotReadsChatAnd": "机器人会阅读聊天并挑选值得注意的消息。TTS 仅朗读这些消息，并在每条消息前播报“Chat spotlight”。它也会朗读 !tts 消息。"
   },
   "ttsPermission": {
     "everyone": "所有人",
@@ -548,26 +569,5 @@
   },
   "youtubeHandle": {
     "yourhandle": "@yourhandle"
-  },
-  "spotlightCardHelp": {
-    "whileTheBotReadsA": "当机器人朗读一条精选时，浏览器源会显示一张带有观众名称和消息的卡片。"
-  },
-  "spotlightGuidanceHelp": {
-    "tellTheBotWhichMessages": "告诉机器人你喜欢哪些消息。机器人仍会跳过垃圾消息和粗鲁消息。示例：优先选择关于游戏的问题。跳过指手画脚。"
-  },
-  "spotlightPicksHeading": {
-    "recentPicks": "最近精选"
-  },
-  "spotlightPicksNote": {
-    "theLastMessagesThatThe": "此列表显示机器人最近挑选的消息。每条消息都附有挑选原因。最新消息排在最前面。"
-  },
-  "spotlightPicksRefresh": {
-    "refresh": "刷新"
-  },
-  "spotlightSettings": {
-    "chooseWhatTheBotLooks": "选择机器人在聊天中寻找的内容。查看它挑选的消息。",
-    "showACardInThe": "<strong>在浏览器源中显示卡片</strong>",
-    "spotlight": "Spotlight",
-    "whatToLookForOptional": "<strong>寻找什么（可选）</strong>"
   }
 }

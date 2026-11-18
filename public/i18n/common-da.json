@@ -71,6 +71,8 @@
     "shortlink_failed": "Kan ikke oprette det korte link.",
     "sound_tag_unknown": "Lydtagget \"{tag}\" er ikke på listen. Genindlæs siden, og prøv igen.",
     "storage_unavailable": "Lagring er utilgængelig.",
+    "spotlight_guidance_too_long": "Vejledningen er for lang. Brug højst {max} tegn.",
+    "spotlight_picks_fetch_failed": "Kan ikke indlæse Spotlight-valgene.",
     "style_too_long": "Stilen er for lang. Brug højst {max} tegn.",
     "tts_blocked": "Taletjenesten afviste denne tekst. Ændr teksten, og prøv igen.",
     "tts_generation_failed": "Generering af tale mislykkedes: {reason}",
@@ -85,9 +87,7 @@
     "username_required": "Et brugernavn er påkrævet.",
     "voice_lookup_failed": "Kan ikke slå brugerens stemme op.",
     "word_invalid": "Ordet eller udtrykket er ugyldigt.",
-    "word_required": "Et ord eller udtryk er påkrævet.",
-    "spotlight_guidance_too_long": "Vejledningen er for lang. Brug {max} tegn eller færre.",
-    "spotlight_picks_fetch_failed": "Kan ikke indlæse Spotlight-valgene."
+    "word_required": "Et ord eller udtryk er påkrævet."
   },
   "logoutLink": {
     "logout": "Log ud"

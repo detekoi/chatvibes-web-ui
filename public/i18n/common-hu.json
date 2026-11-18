@@ -71,6 +71,8 @@
     "shortlink_failed": "Nem sikerült létrehozni a rövid linket.",
     "sound_tag_unknown": "A(z) „{tag}” hangcímke nincs a listában. Töltsd újra az oldalt, és próbáld újra.",
     "storage_unavailable": "A tárhely nem érhető el.",
+    "spotlight_guidance_too_long": "Az útmutatás túl hosszú. Használj legfeljebb {max} karaktert.",
+    "spotlight_picks_fetch_failed": "Nem tölthetők be a Spotlight-válogatások.",
     "style_too_long": "A stílus túl hosszú. Legfeljebb {max} karaktert használj.",
     "tts_blocked": "A beszédszolgáltatás elutasította ezt a szöveget. Módosítsd a szöveget, és próbáld újra.",
     "tts_generation_failed": "A beszédgenerálás sikertelen: {reason}",
@@ -85,9 +87,7 @@
     "username_required": "A felhasználónév megadása kötelező.",
     "voice_lookup_failed": "Nem sikerült lekérni a felhasználó hangját.",
     "word_invalid": "Ez a szó vagy kifejezés érvénytelen.",
-    "word_required": "A szó vagy kifejezés megadása kötelező.",
-    "spotlight_guidance_too_long": "Az útmutató túl hosszú. Legfeljebb {max} karaktert használj.",
-    "spotlight_picks_fetch_failed": "A Spotlight-választások nem tölthetők be."
+    "word_required": "A szó vagy kifejezés megadása kötelező."
   },
   "logoutLink": {
     "logout": "Kijelentkezés"

@@ -297,10 +297,10 @@
       "youtubeHandleRequired": "Nhập tên người dùng YouTube trước khi bật YouTube TTS."
     },
     "spotlight": {
-      "count": "Số lựa chọn tìm thấy: {count}",
-      "empty": "Chưa có lựa chọn nào. Một lựa chọn sẽ xuất hiện ở đây sau khi bot đọc nó.",
-      "loadFailed": "Không thể tải các lựa chọn. Chọn Làm mới để thử lại.",
-      "loading": "Đang tải các lựa chọn…",
+      "count": "Số tin đã chọn: {count}",
+      "empty": "Chưa có tin nào được chọn. Tin nhắn được chọn sẽ hiện ở đây sau khi bot đọc.",
+      "loadFailed": "Không thể tải danh sách tin đã chọn. Chọn Làm mới để thử lại.",
+      "loading": "Đang tải tin đã chọn…",
       "reason": "Lý do: {reason}",
       "unknownUser": "Người xem không xác định"
     }
@@ -395,6 +395,27 @@
   },
   "soundTagsTitle": {
     "soundTags": "Thẻ âm thanh"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "Khi bot đọc một tin đã chọn, Browser Source sẽ hiển thị thẻ kèm tên người xem và nội dung tin nhắn."
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "Cho bot biết bạn thích những loại tin nhắn nào. Bot vẫn sẽ bỏ qua spam và tin nhắn khiếm nhã. Ví dụ: Ưu tiên câu hỏi về game. Bỏ qua tin nhắn chỉ đạo (backseat)."
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "Tin đã chọn gần đây"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "Danh sách này hiển thị những tin nhắn gần nhất mà bot đã chọn. Mỗi tin nhắn đều kèm lý do được chọn. Tin mới nhất hiển thị đầu tiên."
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "Làm mới"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "Chọn nội dung bot cần tìm trong chat. Xem các tin nhắn mà bot đã chọn.",
+    "showACardInThe": "<strong>Hiển thị thẻ trong Browser Source</strong>",
+    "spotlight": "Spotlight",
+    "whatToLookForOptional": "<strong>Nội dung cần tìm (tùy chọn)</strong>"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Cho phép bot phản hồi các lệnh chat như !myvoice",
@@ -507,15 +528,15 @@
     "allMessages": "Tất cả tin nhắn trò chuyện",
     "bitsPointsOnly": "Chỉ Cheer và phần thưởng",
     "highlightedOnly": "Tin nhắn được làm nổi bật",
-    "ttsCommandOnly": "Tin nhắn !tts",
-    "spotlightTheBotPicksNotable": "Spotlight (bot chọn các tin nhắn đáng chú ý)"
+    "spotlightTheBotPicksNotable": "Spotlight (bot chọn tin nhắn nổi bật)",
+    "ttsCommandOnly": "Tin nhắn !tts"
   },
   "ttsModeSummary": {
     "all": "TTS đọc mọi tin nhắn trò chuyện. Điều này bao gồm cả tin nhắn bắt đầu bằng !tts.",
     "bitsPointsOnly": "TTS chỉ đọc Cheer và phần thưởng TTS của Channel Points. TTS không đọc tin nhắn !tts, tin nhắn được làm nổi bật hoặc các tin nhắn trò chuyện khác.",
     "command": "TTS đọc tin nhắn bắt đầu bằng !tts. TTS không đọc các tin nhắn trò chuyện khác.",
     "highlightedOnly": "TTS đọc tin nhắn mà người xem làm nổi bật bằng Channel Points. TTS không đọc tin nhắn !tts hoặc các tin nhắn trò chuyện khác.",
-    "theBotReadsChatAnd": "Bot đọc trò chuyện và chọn các tin nhắn đáng chú ý. TTS chỉ đọc những tin nhắn đó. Bot sẽ nói \"Tiêu điểm trò chuyện\" trước mỗi tin nhắn. Bot cũng đọc tin nhắn !tts."
+    "theBotReadsChatAnd": "Bot đọc chat và chọn ra những tin nhắn nổi bật. TTS sẽ chỉ đọc những tin đó. Bot nói \"Chat spotlight\" trước mỗi tin. Bot cũng đọc cả tin nhắn !tts."
   },
   "ttsPermission": {
     "everyone": "Mọi người",
@@ -548,26 +569,5 @@
   },
   "youtubeHandle": {
     "yourhandle": "@yourhandle"
-  },
-  "spotlightCardHelp": {
-    "whileTheBotReadsA": "Trong khi bot đọc một lựa chọn, nguồn trình duyệt sẽ hiển thị thẻ có tên người xem và tin nhắn."
-  },
-  "spotlightGuidanceHelp": {
-    "tellTheBotWhichMessages": "Cho bot biết bạn thích những tin nhắn nào. Bot vẫn bỏ qua thư rác và tin nhắn thô lỗ. Ví dụ: Ưu tiên câu hỏi về trò chơi. Bỏ qua chỉ dẫn chơi."
-  },
-  "spotlightPicksHeading": {
-    "recentPicks": "Lựa chọn gần đây"
-  },
-  "spotlightPicksNote": {
-    "theLastMessagesThatThe": "Danh sách này hiển thị những tin nhắn cuối cùng mà bot đã chọn. Mỗi tin nhắn có lý do được chọn. Tin nhắn mới nhất ở đầu."
-  },
-  "spotlightPicksRefresh": {
-    "refresh": "Làm mới"
-  },
-  "spotlightSettings": {
-    "chooseWhatTheBotLooks": "Chọn những gì bot tìm kiếm trong trò chuyện. Xem các tin nhắn mà bot đã chọn.",
-    "showACardInThe": "<strong>Hiển thị thẻ trong nguồn trình duyệt</strong>",
-    "spotlight": "Spotlight",
-    "whatToLookForOptional": "<strong>Nội dung cần tìm (tùy chọn)</strong>"
   }
 }

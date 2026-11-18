@@ -71,6 +71,8 @@
     "shortlink_failed": "無法建立短連結。",
     "sound_tag_unknown": "音效標籤「{tag}」唔喺列表入面。請重新載入頁面再試。",
     "storage_unavailable": "儲存空間無法使用。",
+    "spotlight_guidance_too_long": "指引太長。請用 {max} 個字元或以下。",
+    "spotlight_picks_fetch_failed": "載入唔到 Spotlight 精選。",
     "style_too_long": "風格描述太長。請用 {max} 個字元或以下。",
     "tts_blocked": "語音服務拒絕咗呢段文字。請改下文字再試。",
     "tts_generation_failed": "語音生成失敗：{reason}",
@@ -85,9 +87,7 @@
     "username_required": "需要輸入用戶名稱。",
     "voice_lookup_failed": "搵唔到嗰位用戶嘅語音。",
     "word_invalid": "嗰個詞語或短語無效。",
-    "word_required": "需要輸入詞語或短語。",
-    "spotlight_guidance_too_long": "指引太長。請使用 {max} 個字元或以下。",
-    "spotlight_picks_fetch_failed": "無法載入 Spotlight 精選。"
+    "word_required": "需要輸入詞語或短語。"
   },
   "logoutLink": {
     "logout": "登出"

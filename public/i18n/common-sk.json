@@ -71,6 +71,8 @@
     "shortlink_failed": "Nemožno vytvoriť krátky odkaz.",
     "sound_tag_unknown": "Zvuková značka \"{tag}\" nie je v zozname. Obnovte stránku a skúste to znova.",
     "storage_unavailable": "Úložisko nie je dostupné.",
+    "spotlight_guidance_too_long": "Usmernenie je príliš dlhé. Použite najviac {max} znakov.",
+    "spotlight_picks_fetch_failed": "Nemožno načítať výbery Spotlight.",
     "style_too_long": "Štýl je príliš dlhý. Použite najviac {max} znakov.",
     "tts_blocked": "Hlasová služba tento text odmietla. Zmeňte text a skúste to znova.",
     "tts_generation_failed": "Generovanie TTS zlyhalo: {reason}",
@@ -85,9 +87,7 @@
     "username_required": "Vyžaduje sa používateľské meno.",
     "voice_lookup_failed": "Hlas tohto používateľa sa nepodarilo nájsť.",
     "word_invalid": "Toto slovo alebo fráza nie je platná.",
-    "word_required": "Vyžaduje sa slovo alebo fráza.",
-    "spotlight_guidance_too_long": "Pokyny sú príliš dlhé. Použite najviac {max} znakov.",
-    "spotlight_picks_fetch_failed": "Výbery Spotlight sa nedajú načítať."
+    "word_required": "Vyžaduje sa slovo alebo fráza."
   },
   "logoutLink": {
     "logout": "Odhlásiť sa"

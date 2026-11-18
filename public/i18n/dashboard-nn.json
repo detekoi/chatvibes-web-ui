@@ -297,10 +297,10 @@
       "youtubeHandleRequired": "Skriv inn eit YouTube-brukarnamn før du slår på YouTube TTS."
     },
     "spotlight": {
-      "count": "Val funne: {count}",
-      "empty": "Ingen val enno. Eit val dukkar opp her etter at botten har lese det.",
-      "loadFailed": "Kan ikkje laste inn vala. Vel Oppdater for å prøve igjen.",
-      "loading": "Lastar inn vala…",
+      "count": "Utval funne: {count}",
+      "empty": "Ingen utval enno. Eit utval dukkar opp her etter at botten har lese det.",
+      "loadFailed": "Kan ikkje laste inn utvala. Vel Oppdater for å prøve igjen.",
+      "loading": "Lastar inn utvala…",
       "reason": "Grunn: {reason}",
       "unknownUser": "Ukjend sjåar"
     }
@@ -395,6 +395,27 @@
   },
   "soundTagsTitle": {
     "soundTags": "Lydtaggar"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "Medan botten les eit utval, viser nettlesarkjelda eit kort med namnet til sjåaren og meldinga."
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "Fortel botten kva meldingar du likar. Botten hoppar framleis over spam og uhøflege meldingar. Døme: Føretrekk spørsmål om spelet. Hopp over backseating."
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "Nylege utval"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "Denne lista viser dei siste meldingane botten valde ut. Kvar melding har grunnen til utvalet. Den nyaste meldinga kjem først."
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "Oppdater"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "Vel kva botten skal sjå etter i chatten. Sjå meldingane han valde ut.",
+    "showACardInThe": "<strong>Vis eit kort i nettlesarkjelda</strong>",
+    "spotlight": "Spotlight",
+    "whatToLookForOptional": "<strong>Kva botten skal sjå etter (valfritt)</strong>"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Lat boten svara på chat-kommandoar som !myvoice",
@@ -507,15 +528,15 @@
     "allMessages": "Alle chatmeldingar",
     "bitsPointsOnly": "Berre cheers og belønningar",
     "highlightedOnly": "Utheva meldingar",
-    "ttsCommandOnly": "!tts-meldingar",
-    "spotlightTheBotPicksNotable": "Spotlight (botten vel merkverdige meldingar)"
+    "spotlightTheBotPicksNotable": "Spotlight (botten vel ut meldingar som skil seg ut)",
+    "ttsCommandOnly": "!tts-meldingar"
   },
   "ttsModeSummary": {
     "all": "TTS les opp alle chatmeldingar. Dette inkluderer meldingar som byrjar med !tts.",
     "bitsPointsOnly": "TTS les berre opp cheers og TTS-belønninga for Channel Points. TTS les ikkje opp !tts-meldingar, utheva meldingar eller andre chatmeldingar.",
     "command": "TTS les opp meldingar som byrjar med !tts. TTS les ikkje opp andre chatmeldingar.",
     "highlightedOnly": "TTS les opp meldingar som sjåarane uthevar med Channel Points. TTS les ikkje opp !tts-meldingar eller andre chatmeldingar.",
-    "theBotReadsChatAnd": "Botten les chatten og vel dei merkverdige meldingane. TTS les berre desse meldingane. Han seier \"Chat-spotlight\" før kvar enkelt. Han les òg !tts-meldingar."
+    "theBotReadsChatAnd": "Botten les chatten og vel ut meldingane som skil seg ut. TTS les berre desse meldingane og seier «Chat spotlight» før kvar av dei. Han les også !tts-meldingar."
   },
   "ttsPermission": {
     "everyone": "Alle",
@@ -548,26 +569,5 @@
   },
   "youtubeHandle": {
     "yourhandle": "@dittbrukarnamn"
-  },
-  "spotlightCardHelp": {
-    "whileTheBotReadsA": "Medan botten les eit val, viser nettlesarkjelda eit kort med namnet på sjåaren og meldinga."
-  },
-  "spotlightGuidanceHelp": {
-    "tellTheBotWhichMessages": "Fortel botten kva meldingar du likar. Botten hoppar framleis over spam og uhøflege meldingar. Døme: Føretrekk spørsmål om spelet. Hopp over backseating."
-  },
-  "spotlightPicksHeading": {
-    "recentPicks": "Nylege val"
-  },
-  "spotlightPicksNote": {
-    "theLastMessagesThatThe": "Denne lista viser dei siste meldingane botten valde. Kvar melding har grunnen til valet. Den nyaste meldinga er først."
-  },
-  "spotlightPicksRefresh": {
-    "refresh": "Oppdater"
-  },
-  "spotlightSettings": {
-    "chooseWhatTheBotLooks": "Vel kva botten ser etter i chatten. Sjå meldingane han valde.",
-    "showACardInThe": "<strong>Vis eit kort i nettlesarkjelda</strong>",
-    "spotlight": "Spotlight",
-    "whatToLookForOptional": "<strong>Kva han skal sjå etter (valfritt)</strong>"
   }
 }

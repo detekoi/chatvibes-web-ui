@@ -280,8 +280,8 @@
       "readFullUrls": "הקרא כתובות URL מלאות",
       "redemptionAnnouncements": "הכרזות על מימושים",
       "soundTags": "תגיות צליל",
-      "spotlightCard": "כרטיס Spotlight",
-      "spotlightGuidance": "הנחיית Spotlight",
+      "spotlightCard": "כרטיס זרקור",
+      "spotlightGuidance": "הנחיות לזרקור",
       "style": "סגנון קול ברירת מחדל",
       "ttsEngine": "מנוע TTS",
       "ttsMode": "מצב TTS",
@@ -298,11 +298,11 @@
     },
     "spotlight": {
       "count": "בחירות שנמצאו: {count}",
-      "empty": "אין בחירות עדיין. בחירה מופיעה כאן לאחר שהבוט קורא אותה.",
-      "loadFailed": "לא ניתן לטעון את הבחירות. בחרו רענן כדי לנסות שוב.",
-      "loading": "טוען את הבחירות…",
+      "empty": "אין בחירות עדיין. בחירה תופיע כאן לאחר שהבוט יקריא אותה.",
+      "loadFailed": "לא ניתן לטעון את הבחירות. בחרו ב\"רענון\" כדי לנסות שוב.",
+      "loading": "הבחירות נטענות…",
       "reason": "סיבה: {reason}",
-      "unknownUser": "צופה לא ידוע"
+      "unknownUser": "צופה ללא זיהוי"
     }
   },
   "mutedRewardsClose": {
@@ -395,6 +395,27 @@
   },
   "soundTagsTitle": {
     "soundTags": "תגיות צליל"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "בזמן שהבוט מקריא בחירה, ה-Browser Source מציג כרטיס עם שם הצופה וההודעה."
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "הגידו לבוט אילו הודעות להעדיף. הבוט עדיין מדלג על ספאם והודעות גסות. לדוגמה: להעדיף שאלות על המשחק. לדלג על הוראות איך לשחק."
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "בחירות אחרונות"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "רשימה זו מציגה את ההודעות האחרונות שהבוט בחר. לכל הודעה מופיעה סיבת הבחירה. ההודעה החדשה ביותר מופיעה ראשונה."
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "רענון"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "בחרו מה הבוט מחפש בצ'אט. צפו בהודעות שהוא בחר.",
+    "showACardInThe": "<strong>הצגת כרטיס ב-Browser Source</strong>",
+    "spotlight": "זרקור",
+    "whatToLookForOptional": "<strong>מה לחפש (אופציונלי)</strong>"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "אפשר לבוט להגיב לפקודות בצ'אט כגון !myvoice",
@@ -507,15 +528,15 @@
     "allMessages": "כל הודעות הצ'אט",
     "bitsPointsOnly": "Cheers ופרסים בלבד",
     "highlightedOnly": "הודעות מודגשות",
-    "ttsCommandOnly": "הודעות ‎!tts",
-    "spotlightTheBotPicksNotable": "Spotlight (הבוט בוחר הודעות בולטות)"
+    "spotlightTheBotPicksNotable": "זרקור (הבוט בוחר הודעות בולטות)",
+    "ttsCommandOnly": "הודעות ‎!tts"
   },
   "ttsModeSummary": {
     "all": "TTS מקריא כל הודעה בצ'אט. זה כולל הודעות שמתחילות ב-‎!tts.",
     "bitsPointsOnly": "TTS מקריא רק Cheers ואת פרס ה-TTS של Channel Points. הוא לא מקריא הודעות ‎!tts, הודעות מודגשות או הודעות צ'אט אחרות.",
     "command": "TTS מקריא הודעות שמתחילות ב-‎!tts. הוא לא מקריא הודעות צ'אט אחרות.",
     "highlightedOnly": "TTS מקריא הודעות שצופים מדגישים באמצעות Channel Points. הוא לא מקריא הודעות ‎!tts או הודעות צ'אט אחרות.",
-    "theBotReadsChatAnd": "הבוט קורא את הצ׳אט ובוחר את ההודעות הבולטות. ה-TTS קורא רק את ההודעות האלה. הוא אומר \"זרקור צ׳אט\" לפני כל אחת. הוא קורא גם הודעות !tts."
+    "theBotReadsChatAnd": "הבוט קורא את הצ'אט ובוחר הודעות בולטות. TTS מקריא רק את ההודעות האלה, ואומר \"זרקור צ'אט\" לפני כל אחת מהן. הוא מקריא גם הודעות !tts."
   },
   "ttsPermission": {
     "everyone": "כולם",
@@ -548,26 +569,5 @@
   },
   "youtubeHandle": {
     "yourhandle": "@yourhandle"
-  },
-  "spotlightCardHelp": {
-    "whileTheBotReadsA": "בזמן שהבוט קורא בחירה, מקור הדפדפן מציג כרטיס עם שם הצופה וההודעה."
-  },
-  "spotlightGuidanceHelp": {
-    "tellTheBotWhichMessages": "ספרו לבוט אילו הודעות אתם אוהבים. הבוט עדיין מדלג על ספאם והודעות גסות. דוגמה: העדף שאלות על המשחק. דלג על עצות מיותרות."
-  },
-  "spotlightPicksHeading": {
-    "recentPicks": "בחירות אחרונות"
-  },
-  "spotlightPicksNote": {
-    "theLastMessagesThatThe": "רשימה זו מציגה את ההודעות האחרונות שהבוט בחר. לכל הודעה יש את סיבת הבחירה. ההודעה החדשה ביותר מופיעה ראשונה."
-  },
-  "spotlightPicksRefresh": {
-    "refresh": "רענן"
-  },
-  "spotlightSettings": {
-    "chooseWhatTheBotLooks": "בחרו מה הבוט מחפש בצ׳אט. ראו את ההודעות שהוא בחר.",
-    "showACardInThe": "<strong>הצג כרטיס במקור הדפדפן</strong>",
-    "spotlight": "Spotlight",
-    "whatToLookForOptional": "<strong>מה לחפש (אופציונלי)</strong>"
   }
 }

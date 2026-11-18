@@ -71,6 +71,8 @@
     "shortlink_failed": "ไม่สามารถสร้างลิงก์สั้นได้",
     "sound_tag_unknown": "ไม่พบแท็กเสียง \"{tag}\" ในรายการ โหลดหน้านี้ใหม่แล้วลองอีกครั้ง",
     "storage_unavailable": "พื้นที่จัดเก็บข้อมูลไม่พร้อมใช้งาน",
+    "spotlight_guidance_too_long": "คำแนะนำยาวเกินไป ใช้ได้ไม่เกิน {max} ตัวอักษร",
+    "spotlight_picks_fetch_failed": "ไม่สามารถโหลดรายการ Spotlight ได้",
     "style_too_long": "สไตล์ยาวเกินไป ใช้ได้ไม่เกิน {max} ตัวอักษร",
     "tts_blocked": "บริการสร้างเสียงพูดปฏิเสธข้อความนี้ เปลี่ยนข้อความแล้วลองอีกครั้ง",
     "tts_generation_failed": "สร้างเสียงพูดไม่สำเร็จ: {reason}",
@@ -85,9 +87,7 @@
     "username_required": "ต้องระบุชื่อผู้ใช้",
     "voice_lookup_failed": "ไม่สามารถค้นหาเสียงของผู้ใช้รายนั้นได้",
     "word_invalid": "คำหรือวลีนั้นไม่ถูกต้อง",
-    "word_required": "ต้องระบุคำหรือวลี",
-    "spotlight_guidance_too_long": "คำแนะนำยาวเกินไป ใช้ไม่เกิน {max} ตัวอักษร",
-    "spotlight_picks_fetch_failed": "ไม่สามารถโหลดรายการที่เลือกของ Spotlight ได้"
+    "word_required": "ต้องระบุคำหรือวลี"
   },
   "logoutLink": {
     "logout": "ออกจากระบบ"

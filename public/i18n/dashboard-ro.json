@@ -281,7 +281,7 @@
       "redemptionAnnouncements": "Anunțuri de revendicare",
       "soundTags": "Etichete sonore",
       "spotlightCard": "Card Spotlight",
-      "spotlightGuidance": "Îndrumare Spotlight",
+      "spotlightGuidance": "Indicații Spotlight",
       "style": "Stil implicit al vocii",
       "ttsEngine": "Motor TTS",
       "ttsMode": "Mod TTS",
@@ -297,10 +297,10 @@
       "youtubeHandleRequired": "Introdu un handle YouTube înainte de a activa YouTube TTS."
     },
     "spotlight": {
-      "count": "Alegeri găsite: {count}",
-      "empty": "Încă nu există alegeri. O alegere apare aici după ce botul o citește.",
-      "loadFailed": "Nu se pot încărca alegerile. Selectează Reîmprospătare pentru a încerca din nou.",
-      "loading": "Se încarcă alegerile…",
+      "count": "Selecții găsite: {count}",
+      "empty": "Nicio selecție încă. O selecție apare aici după ce botul o citește.",
+      "loadFailed": "Nu se pot încărca selecțiile. Selectează Reîmprospătare pentru a încerca din nou.",
+      "loading": "Se încarcă selecțiile…",
       "reason": "Motiv: {reason}",
       "unknownUser": "Spectator necunoscut"
     }
@@ -395,6 +395,27 @@
   },
   "soundTagsTitle": {
     "soundTags": "Etichete sonore"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "În timp ce botul citește o selecție, Browser Source afișează un card cu numele spectatorului și mesajul."
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "Spune-i botului ce mesaje preferi. Botul va sări în continuare peste spam și mesajele nepoliticoase. Exemplu: Preferă întrebările despre joc. Sari peste backseating."
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "Selecții recente"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "Această listă arată ultimele mesaje alese de bot. Fiecare mesaj include motivul selecției. Cel mai nou mesaj este primul."
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "Reîmprospătare"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "Alege ce caută botul în chat. Vezi mesajele pe care le-a ales.",
+    "showACardInThe": "<strong>Afișează un card în Browser Source</strong>",
+    "spotlight": "Spotlight",
+    "whatToLookForOptional": "<strong>Ce să caute (opțional)</strong>"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Permite botului să răspundă la comenzi din chat precum !myvoice",
@@ -507,15 +528,15 @@
     "allMessages": "Toate mesajele din chat",
     "bitsPointsOnly": "Doar cheers și recompense",
     "highlightedOnly": "Mesaje evidențiate",
-    "ttsCommandOnly": "Mesaje cu !tts",
-    "spotlightTheBotPicksNotable": "Spotlight (botul alege mesajele remarcabile)"
+    "spotlightTheBotPicksNotable": "Spotlight (botul alege mesajele remarcabile)",
+    "ttsCommandOnly": "Mesaje cu !tts"
   },
   "ttsModeSummary": {
     "all": "TTS citește fiecare mesaj din chat. Sunt incluse și mesajele care încep cu !tts.",
     "bitsPointsOnly": "TTS citește doar cheers și recompensa TTS din Channel Points. Nu citește mesaje cu !tts, mesaje evidențiate sau alte mesaje din chat.",
     "command": "TTS citește mesajele care încep cu !tts. Nu citește alte mesaje din chat.",
     "highlightedOnly": "TTS citește mesajele pe care spectatorii le evidențiază cu Channel Points. Nu citește mesaje cu !tts sau alte mesaje din chat.",
-    "theBotReadsChatAnd": "Botul citește chatul și alege mesajele remarcabile. TTS citește doar acele mesaje. Spune \"Moment de chat\" înainte de fiecare. Citește și mesajele !tts."
+    "theBotReadsChatAnd": "Botul citește chatul și alege mesajele remarcabile. TTS citește doar acele mesaje. Spune \"Chat spotlight\" înainte de fiecare. Citește și mesajele !tts."
   },
   "ttsPermission": {
     "everyone": "Oricine",
@@ -548,26 +569,5 @@
   },
   "youtubeHandle": {
     "yourhandle": "@yourhandle"
-  },
-  "spotlightCardHelp": {
-    "whileTheBotReadsA": "În timp ce botul citește o alegere, sursa de browser afișează un card cu numele spectatorului și mesajul."
-  },
-  "spotlightGuidanceHelp": {
-    "tellTheBotWhichMessages": "Spune-i botului ce mesaje îți plac. Botul ignoră în continuare spamul și mesajele nepoliticoase. Exemplu: Preferă întrebările despre joc. Sari peste sfaturile nesolicitate."
-  },
-  "spotlightPicksHeading": {
-    "recentPicks": "Alegeri recente"
-  },
-  "spotlightPicksNote": {
-    "theLastMessagesThatThe": "Această listă arată ultimele mesaje pe care le-a ales botul. Fiecare mesaj are motivul alegerii. Cel mai nou mesaj este primul."
-  },
-  "spotlightPicksRefresh": {
-    "refresh": "Reîmprospătare"
-  },
-  "spotlightSettings": {
-    "chooseWhatTheBotLooks": "Alege ce caută botul în chat. Vezi mesajele pe care le-a ales.",
-    "showACardInThe": "<strong>Afișează un card în sursa de browser</strong>",
-    "spotlight": "Spotlight",
-    "whatToLookForOptional": "<strong>Ce să caute (opțional)</strong>"
   }
 }

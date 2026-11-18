@@ -71,6 +71,8 @@
     "shortlink_failed": "Nije moguće izraditi skraćenu poveznicu.",
     "sound_tag_unknown": "Zvučna oznaka \"{tag}\" nije na popisu. Ponovno učitaj stranicu i pokušaj ponovno.",
     "storage_unavailable": "Pohrana nije dostupna.",
+    "spotlight_guidance_too_long": "Smjernice su preduge. Koristite najviše {max} znakova.",
+    "spotlight_picks_fetch_failed": "Nije moguće učitati Spotlight odabire.",
     "style_too_long": "Stil je predug. Koristi najviše {max} znakova.",
     "tts_blocked": "Usluga govora odbila je ovaj tekst. Promijeni tekst i pokušaj ponovno.",
     "tts_generation_failed": "Generiranje govora nije uspjelo: {reason}",
@@ -85,9 +87,7 @@
     "username_required": "Korisničko ime je obavezno.",
     "voice_lookup_failed": "Nije moguće pronaći glas tog korisnika.",
     "word_invalid": "Ta riječ ili izraz nije valjan.",
-    "word_required": "Riječ ili izraz je obavezan.",
-    "spotlight_guidance_too_long": "Smjernica je preduga. Upotrijebite {max} znakova ili manje.",
-    "spotlight_picks_fetch_failed": "Nije moguće učitati Spotlight odabire."
+    "word_required": "Riječ ili izraz je obavezan."
   },
   "logoutLink": {
     "logout": "Odjava"

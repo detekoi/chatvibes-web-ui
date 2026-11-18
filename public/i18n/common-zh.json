@@ -71,6 +71,8 @@
     "shortlink_failed": "无法创建短链接。",
     "sound_tag_unknown": "声音标签“{tag}”不在列表中。请刷新页面后重试。",
     "storage_unavailable": "存储不可用。",
+    "spotlight_guidance_too_long": "引导内容过长，请控制在 {max} 个字符以内。",
+    "spotlight_picks_fetch_failed": "无法加载 Spotlight 精选。",
     "style_too_long": "风格描述过长，请控制在 {max} 个字符以内。",
     "tts_blocked": "语音服务拒绝了该文本，请修改文本后重试。",
     "tts_generation_failed": "语音生成失败：{reason}",
@@ -85,9 +87,7 @@
     "username_required": "用户名不能为空。",
     "voice_lookup_failed": "无法查询该用户的声音。",
     "word_invalid": "该词语或短语无效。",
-    "word_required": "词语或短语不能为空。",
-    "spotlight_guidance_too_long": "指引过长。请使用 {max} 个字符或更少。",
-    "spotlight_picks_fetch_failed": "无法加载 Spotlight 精选。"
+    "word_required": "词语或短语不能为空。"
   },
   "logoutLink": {
     "logout": "退出登录"

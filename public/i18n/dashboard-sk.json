@@ -298,8 +298,8 @@
     },
     "spotlight": {
       "count": "Nájdené výbery: {count}",
-      "empty": "Zatiaľ žiadne výbery. Výber sa tu zobrazí po tom, čo ho bot prečíta.",
-      "loadFailed": "Výbery sa nedajú načítať. Vyberte Obnoviť a skúste to znova.",
+      "empty": "Zatiaľ žiadne výbery. Výber sa tu zobrazí po tom, ako ho bot prečíta.",
+      "loadFailed": "Výbery nie je možné načítať. Vyberte Obnoviť a skúste to znova.",
       "loading": "Načítavajú sa výbery…",
       "reason": "Dôvod: {reason}",
       "unknownUser": "Neznámy divák"
@@ -395,6 +395,27 @@
   },
   "soundTagsTitle": {
     "soundTags": "Zvukové značky"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "Kým bot číta výber, Browser Source zobrazuje kartu s menom diváka a správou."
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "Povedzte botovi, ktoré správy sa vám páčia. Bot stále preskakuje spam a neslušné správy. Príklad: Uprednostni otázky o hre. Preskoč backseating."
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "Nedávne výbery"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "Tento zoznam zobrazuje posledné správy, ktoré bot vybral. Každá správa obsahuje dôvod výberu. Najnovšia správa je prvá."
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "Obnoviť"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "Vyberte, čo má bot v chate hľadať. Pozrite si správy, ktoré vybral.",
+    "showACardInThe": "<strong>Zobraziť kartu v Browser Source</strong>",
+    "spotlight": "Spotlight",
+    "whatToLookForOptional": "<strong>Čo hľadať (voliteľné)</strong>"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Povoliť botovi odpovedať na príkazy v chate, napríklad !myvoice",
@@ -507,15 +528,15 @@
     "allMessages": "Všetky správy v chate",
     "bitsPointsOnly": "Iba cheery a odmeny",
     "highlightedOnly": "Zvýraznené správy",
-    "ttsCommandOnly": "Správy s !tts",
-    "spotlightTheBotPicksNotable": "Spotlight (bot vyberá pozoruhodné správy)"
+    "spotlightTheBotPicksNotable": "Spotlight (bot vyberá zaujímavé správy)",
+    "ttsCommandOnly": "Správy s !tts"
   },
   "ttsModeSummary": {
     "all": "TTS číta každú správu v chate. Patria sem aj správy, ktoré začínajú na !tts.",
     "bitsPointsOnly": "TTS číta iba cheery a odmenu TTS za Channel Points. Nečíta správy s !tts, zvýraznené správy ani iné správy v chate.",
     "command": "TTS číta správy, ktoré začínajú na !tts. Nečíta iné správy v chate.",
     "highlightedOnly": "TTS číta správy, ktoré diváci zvýraznia pomocou Channel Points. Nečíta správy s !tts ani iné správy v chate.",
-    "theBotReadsChatAnd": "Bot číta chat a vyberá pozoruhodné správy. TTS číta iba tieto správy. Pred každou povie \"Výber z chatu\". Číta aj správy !tts."
+    "theBotReadsChatAnd": "Bot číta chat a vyberá zaujímavé správy. TTS číta iba tieto správy. Pred každou z nich povie „Chat spotlight“. Číta aj správy s !tts."
   },
   "ttsPermission": {
     "everyone": "Všetci",
@@ -548,26 +569,5 @@
   },
   "youtubeHandle": {
     "yourhandle": "@vashandle"
-  },
-  "spotlightCardHelp": {
-    "whileTheBotReadsA": "Kým bot číta výber, zdroj prehliadača zobrazí kartu s menom diváka a správou."
-  },
-  "spotlightGuidanceHelp": {
-    "tellTheBotWhichMessages": "Povedzte botovi, aké správy sa vám páčia. Bot stále preskakuje spam a hrubé správy. Príklad: Uprednostňuj otázky o hre. Preskakuj radenie."
-  },
-  "spotlightPicksHeading": {
-    "recentPicks": "Nedávne výbery"
-  },
-  "spotlightPicksNote": {
-    "theLastMessagesThatThe": "Tento zoznam zobrazuje posledné správy, ktoré bot vybral. Každá správa má dôvod výberu. Najnovšia správa je prvá."
-  },
-  "spotlightPicksRefresh": {
-    "refresh": "Obnoviť"
-  },
-  "spotlightSettings": {
-    "chooseWhatTheBotLooks": "Vyberte, čo má bot v chate hľadať. Pozrite si správy, ktoré vybral.",
-    "showACardInThe": "<strong>Zobraziť kartu v zdroji prehliadača</strong>",
-    "spotlight": "Spotlight",
-    "whatToLookForOptional": "<strong>Čo hľadať (voliteľné)</strong>"
   }
 }

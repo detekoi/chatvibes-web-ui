@@ -71,6 +71,8 @@
     "shortlink_failed": "短縮リンクを作成できません。",
     "sound_tag_unknown": "サウンドタグ「{tag}」はリストにありません。ページを再読み込みしてやり直してください。",
     "storage_unavailable": "ストレージを利用できません。",
+    "spotlight_guidance_too_long": "ガイダンスが長すぎます。{max}文字以内で入力してください。",
+    "spotlight_picks_fetch_failed": "Spotlightのピックアップを読み込めません。",
     "style_too_long": "スタイルが長すぎます。{max}文字以内で入力してください。",
     "tts_blocked": "音声サービスがこのテキストを拒否しました。テキストを変更してやり直してください。",
     "tts_generation_failed": "音声の生成に失敗しました: {reason}",
@@ -85,9 +87,7 @@
     "username_required": "ユーザー名が必要です。",
     "voice_lookup_failed": "該当ユーザーのボイスを取得できません。",
     "word_invalid": "無効な単語またはフレーズです。",
-    "word_required": "単語またはフレーズが必要です。",
-    "spotlight_guidance_too_long": "指針が長すぎます。{max}文字以内で入力してください。",
-    "spotlight_picks_fetch_failed": "Spotlightの選択を読み込めません。"
+    "word_required": "単語またはフレーズが必要です。"
   },
   "logoutLink": {
     "logout": "サインアウト"
