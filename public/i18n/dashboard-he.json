@@ -280,6 +280,8 @@
       "readFullUrls": "הקרא כתובות URL מלאות",
       "redemptionAnnouncements": "הכרזות על מימושים",
       "soundTags": "תגיות צליל",
+      "spotlightCard": "כרטיס Spotlight",
+      "spotlightGuidance": "הנחיית Spotlight",
       "style": "סגנון קול ברירת מחדל",
       "ttsEngine": "מנוע TTS",
       "ttsMode": "מצב TTS",
@@ -293,10 +295,6 @@
       "loadFailed": "לא ניתן לטעון את ההגדרות שלך.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "יש להזין כינוי (handle) של YouTube לפני הפעלת YouTube TTS."
-    },
-    "labels": {
-      "spotlightCard": "כרטיס Spotlight",
-      "spotlightGuidance": "הנחיית Spotlight"
     },
     "spotlight": {
       "count": "בחירות שנמצאו: {count}",

@@ -280,6 +280,8 @@
       "readFullUrls": "Basahin ang Buong mga URL",
       "redemptionAnnouncements": "Mga Anunsyo ng Redemption",
       "soundTags": "Mga Sound Tag",
+      "spotlightCard": "Spotlight card",
+      "spotlightGuidance": "Gabay sa Spotlight",
       "style": "Default na istilo ng boses",
       "ttsEngine": "TTS Engine",
       "ttsMode": "TTS Mode",
@@ -293,10 +295,6 @@
       "loadFailed": "Hindi ma-load ang iyong mga setting.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Maglagay ng YouTube handle bago i-on ang YouTube TTS."
-    },
-    "labels": {
-      "spotlightCard": "Spotlight card",
-      "spotlightGuidance": "Gabay sa Spotlight"
     },
     "spotlight": {
       "count": "Mga napiling nahanap: {count}",

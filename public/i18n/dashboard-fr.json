@@ -280,6 +280,8 @@
       "readFullUrls": "Lire les URL complètes",
       "redemptionAnnouncements": "Annonces de récompenses",
       "soundTags": "Balises sonores",
+      "spotlightCard": "Carte Spotlight",
+      "spotlightGuidance": "Consigne Spotlight",
       "style": "Style de voix par défaut",
       "ttsEngine": "Moteur TTS",
       "ttsMode": "Mode TTS",
@@ -293,10 +295,6 @@
       "loadFailed": "Impossible de charger vos paramètres.",
       "saveFailed": "{label} : {reason}",
       "youtubeHandleRequired": "Saisissez un identifiant YouTube avant d'activer le TTS YouTube."
-    },
-    "labels": {
-      "spotlightCard": "Carte Spotlight",
-      "spotlightGuidance": "Consigne Spotlight"
     },
     "spotlight": {
       "count": "Choix trouvés : {count}",

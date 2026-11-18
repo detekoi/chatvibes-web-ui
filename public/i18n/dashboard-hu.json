@@ -280,6 +280,8 @@
       "readFullUrls": "Teljes URL-ek felolvasása",
       "redemptionAnnouncements": "Beváltás-bejelentések",
       "soundTags": "Hangcímkék",
+      "spotlightCard": "Spotlight-kártya",
+      "spotlightGuidance": "Spotlight-útmutató",
       "style": "Alapértelmezett hangstílus",
       "ttsEngine": "TTS-motor",
       "ttsMode": "TTS-mód",
@@ -293,10 +295,6 @@
       "loadFailed": "Nem sikerült betölteni a beállításaidat.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Add meg a YouTube-azonosítódat a YouTube TTS bekapcsolása előtt."
-    },
-    "labels": {
-      "spotlightCard": "Spotlight-kártya",
-      "spotlightGuidance": "Spotlight-útmutató"
     },
     "spotlight": {
       "count": "Talált választások: {count}",

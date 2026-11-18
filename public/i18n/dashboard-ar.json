@@ -280,6 +280,8 @@
       "readFullUrls": "قراءة عناوين URL كاملة",
       "redemptionAnnouncements": "إعلانات الاسترداد",
       "soundTags": "وسوم الصوت",
+      "spotlightCard": "بطاقة Spotlight",
+      "spotlightGuidance": "إرشادات Spotlight",
       "style": "أسلوب الصوت الافتراضي",
       "ttsEngine": "محرك TTS",
       "ttsMode": "وضع TTS",
@@ -293,10 +295,6 @@
       "loadFailed": "تعذر تحميل إعداداتك.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "أدخل مقبض YouTube قبل تفعيل YouTube TTS."
-    },
-    "labels": {
-      "spotlightCard": "بطاقة Spotlight",
-      "spotlightGuidance": "إرشادات Spotlight"
     },
     "spotlight": {
       "count": "الاختيارات التي تم العثور عليها: {count}",

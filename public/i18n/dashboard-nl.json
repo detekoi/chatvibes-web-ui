@@ -280,6 +280,8 @@
       "readFullUrls": "Volledige URL's voorlezen",
       "redemptionAnnouncements": "Inwisselaankondigingen",
       "soundTags": "Geluidstags",
+      "spotlightCard": "Spotlight-kaart",
+      "spotlightGuidance": "Spotlight-richtlijn",
       "style": "Standaard stemstijl",
       "ttsEngine": "TTS-engine",
       "ttsMode": "TTS-modus",
@@ -293,10 +295,6 @@
       "loadFailed": "Kan je instellingen niet laden.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Voer een YouTube-handle in voordat je YouTube-TTS inschakelt."
-    },
-    "labels": {
-      "spotlightCard": "Spotlight-kaart",
-      "spotlightGuidance": "Spotlight-richtlijn"
     },
     "spotlight": {
       "count": "Keuzes gevonden: {count}",

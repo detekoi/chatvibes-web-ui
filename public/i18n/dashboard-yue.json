@@ -280,6 +280,8 @@
       "readFullUrls": "朗讀完整 URL",
       "redemptionAnnouncements": "兌換播報",
       "soundTags": "音效標籤",
+      "spotlightCard": "Spotlight 卡片",
+      "spotlightGuidance": "Spotlight 指引",
       "style": "預設語音風格",
       "ttsEngine": "TTS 引擎",
       "ttsMode": "TTS 模式",
@@ -293,10 +295,6 @@
       "loadFailed": "載入唔到你嘅設定。",
       "saveFailed": "{label}：{reason}",
       "youtubeHandleRequired": "開啟 YouTube TTS 前請先輸入 YouTube handle。"
-    },
-    "labels": {
-      "spotlightCard": "Spotlight 卡片",
-      "spotlightGuidance": "Spotlight 指引"
     },
     "spotlight": {
       "count": "搵到嘅精選：{count}",

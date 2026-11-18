@@ -280,6 +280,8 @@
       "readFullUrls": "Læs hele URL'er",
       "redemptionAnnouncements": "Indløsningsannonceringer",
       "soundTags": "Lydtags",
+      "spotlightCard": "Spotlight-kort",
+      "spotlightGuidance": "Spotlight-vejledning",
       "style": "Standard stemmestil",
       "ttsEngine": "TTS-motor",
       "ttsMode": "TTS-tilstand",
@@ -293,10 +295,6 @@
       "loadFailed": "Kan ikke indlæse dine indstillinger.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Indtast et YouTube-handle, før du aktiverer YouTube-TTS."
-    },
-    "labels": {
-      "spotlightCard": "Spotlight-kort",
-      "spotlightGuidance": "Spotlight-vejledning"
     },
     "spotlight": {
       "count": "Valg fundet: {count}",

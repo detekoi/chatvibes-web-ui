@@ -280,6 +280,8 @@
       "readFullUrls": "पूरे URLs पढ़ें",
       "redemptionAnnouncements": "रिडेम्पशन घोषणाएँ",
       "soundTags": "साउंड टैग",
+      "spotlightCard": "Spotlight कार्ड",
+      "spotlightGuidance": "Spotlight मार्गदर्शन",
       "style": "डिफ़ॉल्ट आवाज़ शैली",
       "ttsEngine": "TTS इंजन",
       "ttsMode": "TTS मोड",
@@ -293,10 +295,6 @@
       "loadFailed": "आपकी सेटिंग्स लोड नहीं की जा सकीं।",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "YouTube TTS चालू करने से पहले एक YouTube हैंडल दर्ज करें।"
-    },
-    "labels": {
-      "spotlightCard": "Spotlight कार्ड",
-      "spotlightGuidance": "Spotlight मार्गदर्शन"
     },
     "spotlight": {
       "count": "मिले चयन: {count}",

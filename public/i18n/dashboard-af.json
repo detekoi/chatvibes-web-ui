@@ -280,6 +280,8 @@
       "readFullUrls": "Lees volledige URL's",
       "redemptionAnnouncements": "Inwisselingaankondigings",
       "soundTags": "Klankmerkers",
+      "spotlightCard": "Kollig-kaart",
+      "spotlightGuidance": "Kollig-riglyn",
       "style": "Verstekstemstyl",
       "ttsEngine": "TTS-enjin",
       "ttsMode": "TTS-modus",
@@ -293,10 +295,6 @@
       "loadFailed": "Kan nie jou instellings laai nie.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Voer 'n YouTube-handvatsel in voordat jy YouTube-TTS aanskakel."
-    },
-    "labels": {
-      "spotlightCard": "Kollig-kaart",
-      "spotlightGuidance": "Kollig-riglyn"
     },
     "spotlight": {
       "count": "Keuses gevind: {count}",

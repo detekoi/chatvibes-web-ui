@@ -280,6 +280,8 @@
       "readFullUrls": "URL'lerin Tamamını Oku",
       "redemptionAnnouncements": "Ödül Kullanım Duyuruları",
       "soundTags": "Ses Etiketleri",
+      "spotlightCard": "Spotlight kartı",
+      "spotlightGuidance": "Spotlight yönergesi",
       "style": "Varsayılan ses stili",
       "ttsEngine": "TTS Motoru",
       "ttsMode": "TTS Modu",
@@ -293,10 +295,6 @@
       "loadFailed": "Ayarlarınız yüklenemiyor.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "YouTube TTS'yi açmadan önce bir YouTube kullanıcı adı girin."
-    },
-    "labels": {
-      "spotlightCard": "Spotlight kartı",
-      "spotlightGuidance": "Spotlight yönergesi"
     },
     "spotlight": {
       "count": "Bulunan seçimler: {count}",

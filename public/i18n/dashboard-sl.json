@@ -280,6 +280,8 @@
       "readFullUrls": "Preberi celotne URL-je",
       "redemptionAnnouncements": "Obvestila o unovčitvah",
       "soundTags": "Zvočne oznake",
+      "spotlightCard": "Kartica Spotlight",
+      "spotlightGuidance": "Smernica Spotlight",
       "style": "Privzeti slog glasu",
       "ttsEngine": "Pogon TTS",
       "ttsMode": "Način TTS",
@@ -293,10 +295,6 @@
       "loadFailed": "Vaših nastavitev ni mogoče naložiti.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Preden vklopiš YouTube TTS, vnesi ročaj YouTube."
-    },
-    "labels": {
-      "spotlightCard": "Kartica Spotlight",
-      "spotlightGuidance": "Smernica Spotlight"
     },
     "spotlight": {
       "count": "Najdene izbire: {count}",

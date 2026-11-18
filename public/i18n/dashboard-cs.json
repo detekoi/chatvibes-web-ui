@@ -280,6 +280,8 @@
       "readFullUrls": "Číst celé URL",
       "redemptionAnnouncements": "Oznámení o uplatnění",
       "soundTags": "Zvukové tagy",
+      "spotlightCard": "Karta Spotlight",
+      "spotlightGuidance": "Pokyny pro Spotlight",
       "style": "Výchozí styl hlasu",
       "ttsEngine": "Engine TTS",
       "ttsMode": "Režim TTS",
@@ -293,10 +295,6 @@
       "loadFailed": "Nastavení nelze načíst.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Před zapnutím YouTube TTS zadejte svůj YouTube handle."
-    },
-    "labels": {
-      "spotlightCard": "Karta Spotlight",
-      "spotlightGuidance": "Pokyny pro Spotlight"
     },
     "spotlight": {
       "count": "Nalezené výběry: {count}",

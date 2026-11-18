@@ -280,6 +280,8 @@
       "readFullUrls": "Читати повні URL",
       "redemptionAnnouncements": "Оголошення про нагороди",
       "soundTags": "Звукові теги",
+      "spotlightCard": "Картка Spotlight",
+      "spotlightGuidance": "Підказка для Spotlight",
       "style": "Стиль голосу за замовчуванням",
       "ttsEngine": "Рушій TTS",
       "ttsMode": "Режим TTS",
@@ -293,10 +295,6 @@
       "loadFailed": "Не вдалося завантажити ваші налаштування.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Введіть хендл YouTube перед тим, як увімкнути YouTube TTS."
-    },
-    "labels": {
-      "spotlightCard": "Картка Spotlight",
-      "spotlightGuidance": "Підказка для Spotlight"
     },
     "spotlight": {
       "count": "Знайдено виборів: {count}",

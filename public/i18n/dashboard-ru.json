@@ -280,6 +280,8 @@
       "readFullUrls": "Зачитывать URL полностью",
       "redemptionAnnouncements": "Оповещения об активации наград",
       "soundTags": "Звуковые теги",
+      "spotlightCard": "Карточка Spotlight",
+      "spotlightGuidance": "Подсказка для Spotlight",
       "style": "Стиль голоса по умолчанию",
       "ttsEngine": "Движок TTS",
       "ttsMode": "Режим TTS",
@@ -293,10 +295,6 @@
       "loadFailed": "Не удалось загрузить настройки.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Введите хэндл YouTube перед включением YouTube TTS."
-    },
-    "labels": {
-      "spotlightCard": "Карточка Spotlight",
-      "spotlightGuidance": "Подсказка для Spotlight"
     },
     "spotlight": {
       "count": "Найдено выборов: {count}",

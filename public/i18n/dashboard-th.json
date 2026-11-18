@@ -280,6 +280,8 @@
       "readFullUrls": "อ่าน URL แบบเต็ม",
       "redemptionAnnouncements": "การประกาศการแลกรับ",
       "soundTags": "แท็กเสียง",
+      "spotlightCard": "การ์ด Spotlight",
+      "spotlightGuidance": "คำแนะนำ Spotlight",
       "style": "สไตล์เสียงเริ่มต้น",
       "ttsEngine": "TTS Engine",
       "ttsMode": "โหมด TTS",
@@ -293,10 +295,6 @@
       "loadFailed": "ไม่สามารถโหลดการตั้งค่าของคุณได้",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "โปรดป้อนแฮนเดิล YouTube ก่อนเปิดใช้งาน YouTube TTS"
-    },
-    "labels": {
-      "spotlightCard": "การ์ด Spotlight",
-      "spotlightGuidance": "คำแนะนำ Spotlight"
     },
     "spotlight": {
       "count": "พบรายการที่เลือก: {count}",

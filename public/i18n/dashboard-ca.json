@@ -280,6 +280,8 @@
       "readFullUrls": "Llegeix els URL sencers",
       "redemptionAnnouncements": "Anuncis de bescanvis",
       "soundTags": "Etiquetes de so",
+      "spotlightCard": "Targeta de Spotlight",
+      "spotlightGuidance": "Guia de Spotlight",
       "style": "Estil de veu predeterminat",
       "ttsEngine": "Motor de TTS",
       "ttsMode": "Mode de TTS",
@@ -293,10 +295,6 @@
       "loadFailed": "No es pot carregar la teva configuració.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Introdueix un identificador de YouTube abans d'activar el TTS de YouTube."
-    },
-    "labels": {
-      "spotlightCard": "Targeta de Spotlight",
-      "spotlightGuidance": "Guia de Spotlight"
     },
     "spotlight": {
       "count": "Seleccions trobades: {count}",

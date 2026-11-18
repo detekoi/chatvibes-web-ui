@@ -280,6 +280,8 @@
       "readFullUrls": "Leer URLs completas",
       "redemptionAnnouncements": "Anuncios de canjes",
       "soundTags": "Etiquetas de sonido",
+      "spotlightCard": "Tarjeta de Spotlight",
+      "spotlightGuidance": "Guía de Spotlight",
       "style": "Estilo de voz predeterminado",
       "ttsEngine": "Motor de TTS",
       "ttsMode": "Modo de TTS",
@@ -293,10 +295,6 @@
       "loadFailed": "No se puede cargar tu configuración.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Introduce un nombre de usuario de YouTube antes de activar el TTS de YouTube."
-    },
-    "labels": {
-      "spotlightCard": "Tarjeta de Spotlight",
-      "spotlightGuidance": "Guía de Spotlight"
     },
     "spotlight": {
       "count": "Elecciones encontradas: {count}",

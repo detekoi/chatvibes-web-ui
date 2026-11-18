@@ -280,6 +280,8 @@
       "readFullUrls": "Čítať celé URL",
       "redemptionAnnouncements": "Oznámenia o uplatnení odmien",
       "soundTags": "Zvukové značky",
+      "spotlightCard": "Karta Spotlight",
+      "spotlightGuidance": "Pokyny pre Spotlight",
       "style": "Predvolený štýl hlasu",
       "ttsEngine": "TTS Engine",
       "ttsMode": "Režim TTS",
@@ -293,10 +295,6 @@
       "loadFailed": "Nepodarilo sa načítať tvoje nastavenia.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Pred zapnutím YouTube TTS zadajte YouTube handle."
-    },
-    "labels": {
-      "spotlightCard": "Karta Spotlight",
-      "spotlightGuidance": "Pokyny pre Spotlight"
     },
     "spotlight": {
       "count": "Nájdené výbery: {count}",

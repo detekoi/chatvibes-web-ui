@@ -280,6 +280,8 @@
       "readFullUrls": "Đọc toàn bộ URL",
       "redemptionAnnouncements": "Thông báo đổi thưởng",
       "soundTags": "Thẻ âm thanh",
+      "spotlightCard": "Thẻ Spotlight",
+      "spotlightGuidance": "Hướng dẫn Spotlight",
       "style": "Phong cách giọng mặc định",
       "ttsEngine": "Công cụ TTS",
       "ttsMode": "Chế độ TTS",
@@ -293,10 +295,6 @@
       "loadFailed": "Không thể tải cài đặt của bạn.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Nhập tên người dùng YouTube trước khi bật YouTube TTS."
-    },
-    "labels": {
-      "spotlightCard": "Thẻ Spotlight",
-      "spotlightGuidance": "Hướng dẫn Spotlight"
     },
     "spotlight": {
       "count": "Số lựa chọn tìm thấy: {count}",

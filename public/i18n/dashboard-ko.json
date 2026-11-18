@@ -280,6 +280,8 @@
       "readFullUrls": "전체 URL 읽기",
       "redemptionAnnouncements": "리워드 수령 알림",
       "soundTags": "사운드 태그",
+      "spotlightCard": "Spotlight 카드",
+      "spotlightGuidance": "Spotlight 안내",
       "style": "기본 음성 스타일",
       "ttsEngine": "TTS 엔진",
       "ttsMode": "TTS 모드",
@@ -293,10 +295,6 @@
       "loadFailed": "설정을 불러올 수 없습니다.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "YouTube TTS를 켜기 전에 YouTube 핸들을 입력하세요."
-    },
-    "labels": {
-      "spotlightCard": "Spotlight 카드",
-      "spotlightGuidance": "Spotlight 안내"
     },
     "spotlight": {
       "count": "찾은 선택 항목: {count}",

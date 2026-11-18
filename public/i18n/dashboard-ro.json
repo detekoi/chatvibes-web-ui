@@ -280,6 +280,8 @@
       "readFullUrls": "Citește URL-urile complete",
       "redemptionAnnouncements": "Anunțuri de revendicare",
       "soundTags": "Etichete sonore",
+      "spotlightCard": "Card Spotlight",
+      "spotlightGuidance": "Îndrumare Spotlight",
       "style": "Stil implicit al vocii",
       "ttsEngine": "Motor TTS",
       "ttsMode": "Mod TTS",
@@ -293,10 +295,6 @@
       "loadFailed": "Nu se pot încărca setările tale.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Introdu un handle YouTube înainte de a activa YouTube TTS."
-    },
-    "labels": {
-      "spotlightCard": "Card Spotlight",
-      "spotlightGuidance": "Îndrumare Spotlight"
     },
     "spotlight": {
       "count": "Alegeri găsite: {count}",

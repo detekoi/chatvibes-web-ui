@@ -280,6 +280,8 @@
       "readFullUrls": "Baca URL Penuh",
       "redemptionAnnouncements": "Pengumuman Penebusan",
       "soundTags": "Tag Bunyi",
+      "spotlightCard": "Kad Spotlight",
+      "spotlightGuidance": "Panduan Spotlight",
       "style": "Gaya suara lalai",
       "ttsEngine": "Enjin TTS",
       "ttsMode": "Mod TTS",
@@ -293,10 +295,6 @@
       "loadFailed": "Tidak dapat memuatkan tetapan anda.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Masukkan pemegang YouTube sebelum anda menghidupkan YouTube TTS."
-    },
-    "labels": {
-      "spotlightCard": "Kad Spotlight",
-      "spotlightGuidance": "Panduan Spotlight"
     },
     "spotlight": {
       "count": "Pilihan ditemui: {count}",

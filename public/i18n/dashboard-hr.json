@@ -280,6 +280,8 @@
       "readFullUrls": "Čitaj cijele URL-ove",
       "redemptionAnnouncements": "Najave preuzimanja nagrada",
       "soundTags": "Zvučne oznake",
+      "spotlightCard": "Spotlight kartica",
+      "spotlightGuidance": "Spotlight smjernica",
       "style": "Zadani stil glasa",
       "ttsEngine": "TTS mehanizam",
       "ttsMode": "TTS način rada",
@@ -293,10 +295,6 @@
       "loadFailed": "Nije moguće učitati postavke.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Unesi YouTube korisničko ime prije uključivanja YouTube TTS-a."
-    },
-    "labels": {
-      "spotlightCard": "Spotlight kartica",
-      "spotlightGuidance": "Spotlight smjernica"
     },
     "spotlight": {
       "count": "Pronađeni odabiri: {count}",

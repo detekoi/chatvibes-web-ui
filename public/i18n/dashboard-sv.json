@@ -280,6 +280,8 @@
       "readFullUrls": "Läs upp hela URL:er",
       "redemptionAnnouncements": "Inlösningsaviseringar",
       "soundTags": "Ljudtaggar",
+      "spotlightCard": "Spotlight-kort",
+      "spotlightGuidance": "Spotlight-riktlinje",
       "style": "Förvald röststil",
       "ttsEngine": "TTS-motor",
       "ttsMode": "TTS-läge",
@@ -293,10 +295,6 @@
       "loadFailed": "Kan inte läsa in dina inställningar.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Ange ett YouTube-användarnamn innan du aktiverar YouTube TTS."
-    },
-    "labels": {
-      "spotlightCard": "Spotlight-kort",
-      "spotlightGuidance": "Spotlight-riktlinje"
     },
     "spotlight": {
       "count": "Val hittade: {count}",

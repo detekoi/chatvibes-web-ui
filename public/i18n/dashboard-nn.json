@@ -280,6 +280,8 @@
       "readFullUrls": "Les heile URL-ar",
       "redemptionAnnouncements": "Innløysingskunngjeringar",
       "soundTags": "Lydtaggar",
+      "spotlightCard": "Spotlight-kort",
+      "spotlightGuidance": "Spotlight-rettleiing",
       "style": "Standard stemmestil",
       "ttsEngine": "TTS-motor",
       "ttsMode": "TTS-modus",
@@ -293,10 +295,6 @@
       "loadFailed": "Kan ikkje laste innstillingane dine.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Skriv inn eit YouTube-brukarnamn før du slår på YouTube TTS."
-    },
-    "labels": {
-      "spotlightCard": "Spotlight-kort",
-      "spotlightGuidance": "Spotlight-rettleiing"
     },
     "spotlight": {
       "count": "Val funne: {count}",

@@ -280,6 +280,8 @@
       "readFullUrls": "URLを最後まで読み上げる",
       "redemptionAnnouncements": "引き換え通知",
       "soundTags": "サウンドタグ",
+      "spotlightCard": "Spotlightカード",
+      "spotlightGuidance": "Spotlightの指針",
       "style": "デフォルトの音声スタイル",
       "ttsEngine": "TTSエンジン",
       "ttsMode": "TTSモード",
@@ -293,10 +295,6 @@
       "loadFailed": "設定を読み込めません。",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "YouTube TTSを有効にする前にYouTubeハンドルを入力してください。"
-    },
-    "labels": {
-      "spotlightCard": "Spotlightカード",
-      "spotlightGuidance": "Spotlightの指針"
     },
     "spotlight": {
       "count": "見つかった選択：{count}",

@@ -280,6 +280,8 @@
       "readFullUrls": "خواندن کامل URLها",
       "redemptionAnnouncements": "اعلام دریافت‌های پاداش",
       "soundTags": "برچسب‌های صوتی",
+      "spotlightCard": "کارت Spotlight",
+      "spotlightGuidance": "راهنمای Spotlight",
       "style": "سبک پیش‌فرض صدا",
       "ttsEngine": "موتور TTS",
       "ttsMode": "حالت TTS",
@@ -293,10 +295,6 @@
       "loadFailed": "بارگذاری تنظیمات شما امکان‌پذیر نیست.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "قبل از روشن کردن TTS برای YouTube، یک شناسه YouTube وارد کنید."
-    },
-    "labels": {
-      "spotlightCard": "کارت Spotlight",
-      "spotlightGuidance": "راهنمای Spotlight"
     },
     "spotlight": {
       "count": "انتخاب‌های یافت‌شده: {count}",

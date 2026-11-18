@@ -280,6 +280,8 @@
       "readFullUrls": "Изчитане на пълни URL адреси",
       "redemptionAnnouncements": "Обявяване на активирани награди",
       "soundTags": "Звукови тагове",
+      "spotlightCard": "Карта за Spotlight",
+      "spotlightGuidance": "Насоки за Spotlight",
       "style": "Стил на гласа по подразбиране",
       "ttsEngine": "TTS система",
       "ttsMode": "TTS режим",
@@ -293,10 +295,6 @@
       "loadFailed": "Настройките ви не могат да се заредят.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Въведи YouTube потребителско име, преди да включиш YouTube TTS."
-    },
-    "labels": {
-      "spotlightCard": "Карта за Spotlight",
-      "spotlightGuidance": "Насоки за Spotlight"
     },
     "spotlight": {
       "count": "Намерени избори: {count}",

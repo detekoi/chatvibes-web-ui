@@ -280,6 +280,8 @@
       "readFullUrls": "Lue täydet URL-osoitteet",
       "redemptionAnnouncements": "Lunastusilmoitukset",
       "soundTags": "Äänitagit",
+      "spotlightCard": "Spotlight-kortti",
+      "spotlightGuidance": "Spotlight-ohje",
       "style": "Äänen oletustyyli",
       "ttsEngine": "TTS-moottori",
       "ttsMode": "TTS-tila",
@@ -293,10 +295,6 @@
       "loadFailed": "Asetuksiasi ei voi ladata.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Anna YouTube-tunnus ennen kuin otat YouTube TTS -toiminnon käyttöön."
-    },
-    "labels": {
-      "spotlightCard": "Spotlight-kortti",
-      "spotlightGuidance": "Spotlight-ohje"
     },
     "spotlight": {
       "count": "Valintoja löytyi: {count}",

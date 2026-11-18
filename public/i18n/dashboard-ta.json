@@ -280,6 +280,8 @@
       "readFullUrls": "முழு URL-களையும் வாசி",
       "redemptionAnnouncements": "Redemption அறிவிப்புகள்",
       "soundTags": "ஒலிக் குறிச்சொற்கள்",
+      "spotlightCard": "Spotlight அட்டை",
+      "spotlightGuidance": "Spotlight வழிகாட்டுதல்",
       "style": "இயல்புநிலை குரல் பாணி",
       "ttsEngine": "TTS என்ஜின்",
       "ttsMode": "TTS முறை",
@@ -293,10 +295,6 @@
       "loadFailed": "உங்கள் அமைப்புகளை ஏற்ற முடியவில்லை.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "YouTube TTS-ஐ இயக்குவதற்கு முன் ஒரு YouTube handle-ஐ உள்ளிடவும்."
-    },
-    "labels": {
-      "spotlightCard": "Spotlight அட்டை",
-      "spotlightGuidance": "Spotlight வழிகாட்டுதல்"
     },
     "spotlight": {
       "count": "கண்டறியப்பட்ட தேர்வுகள்: {count}",

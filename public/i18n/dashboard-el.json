@@ -280,6 +280,8 @@
       "readFullUrls": "Ανάγνωση πλήρων URL",
       "redemptionAnnouncements": "Ανακοινώσεις εξαργυρώσεων",
       "soundTags": "Ετικέτες ήχου",
+      "spotlightCard": "Κάρτα Spotlight",
+      "spotlightGuidance": "Οδηγίες Spotlight",
       "style": "Προεπιλεγμένο στυλ φωνής",
       "ttsEngine": "Μηχανή TTS",
       "ttsMode": "Λειτουργία TTS",
@@ -293,10 +295,6 @@
       "loadFailed": "Αδυναμία φόρτωσης των ρυθμίσεών σας.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Εισαγάγετε ένα YouTube handle πριν ενεργοποιήσετε το YouTube TTS."
-    },
-    "labels": {
-      "spotlightCard": "Κάρτα Spotlight",
-      "spotlightGuidance": "Οδηγίες Spotlight"
     },
     "spotlight": {
       "count": "Επιλογές που βρέθηκαν: {count}",
