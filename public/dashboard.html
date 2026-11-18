@@ -336,6 +336,7 @@
                                                 <p data-i18n="tabBroadcaster.chooseWhichMessagesTriggerTts" class="text-muted mb-0">Choose which chat messages TTS reads. If cheers and the Channel Points TTS reward are on, TTS reads them in every mode.</p>
                                                 <div id="tts-mode-summary" class="mt-2" aria-live="polite">
                                                     <p data-i18n="ttsModeSummary.all" data-tts-mode-summary="all" class="text-muted mb-0" hidden>TTS reads every chat message. This includes messages that start with !tts.</p>
+                                                    <p data-i18n="ttsModeSummary.theBotReadsChatAnd" data-tts-mode-summary="spotlight" class="text-muted mb-0" hidden>The bot reads chat and picks the notable messages. TTS reads only those messages. It says "Chat spotlight" before each one. It also reads !tts messages.</p>
                                                     <p data-i18n="ttsModeSummary.command" data-tts-mode-summary="command" class="text-muted mb-0" hidden>TTS reads messages that start with !tts. It does not read other chat messages.</p>
                                                     <p data-i18n="ttsModeSummary.highlightedOnly" data-tts-mode-summary="highlighted_only" class="text-muted mb-0" hidden>TTS reads messages that viewers highlight with Channel Points. It does not read !tts messages or other chat messages.</p>
                                                     <p data-i18n="ttsModeSummary.bitsPointsOnly" data-tts-mode-summary="bits_points_only" class="text-muted mb-0" hidden>TTS reads only cheers and the Channel Points TTS reward. It does not read !tts messages, highlighted messages, or other chat messages.</p>
@@ -344,6 +345,7 @@
                                             <div class="col-auto">
                                                 <select id="tts-mode" class="form-select" aria-describedby="tts-mode-summary">
                                                     <option data-i18n="ttsMode.allMessages" value="all">All Chat Messages</option>
+                                                    <option data-i18n="ttsMode.spotlightTheBotPicksNotable" value="spotlight">Spotlight (the bot picks notable messages)</option>
                                                     <option data-i18n="ttsMode.ttsCommandOnly" value="command">!tts Messages</option>
                                                     <option data-i18n="ttsMode.highlightedOnly" value="highlighted_only">Highlighted Messages</option>
                                                     <option data-i18n="ttsMode.bitsPointsOnly" value="bits_points_only">Cheers and Rewards Only</option>
@@ -516,6 +518,60 @@
                                                     value="1" style="width: 120px;">
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Spotlight: shown only while the TTS mode is Spotlight -->
+                        <div class="card wc-card" id="spotlight-settings" hidden>
+                            <div class="card-header">
+                                <h2 data-i18n="spotlightSettings.spotlight" class="wc-card-title mb-0">Spotlight</h2>
+                            </div>
+                            <div class="card-body">
+                                <p data-i18n="spotlightSettings.chooseWhatTheBotLooks" class="wc-card-desc">Choose what the bot looks for in chat. See the messages that it picked.</p>
+                                <div class="list-group shadow">
+                                    <div class="list-group-item">
+                                        <div class="row style-row">
+                                            <div class="col">
+                                                <label data-i18n="spotlightSettings.whatToLookForOptional" for="spotlight-guidance" class="form-label mb-1"><strong>What to look for (optional)</strong></label>
+                                                <p data-i18n="spotlightGuidanceHelp.tellTheBotWhichMessages" id="spotlight-guidance-help" class="text-muted mb-0">Tell the bot which messages you like. The bot still skips spam and rude messages. Example: Prefer questions about the game. Skip backseating.</p>
+                                            </div>
+                                            <div class="col-12 col-md-6 d-flex align-items-start" style="gap:8px;">
+                                                <div class="style-control">
+                                                    <textarea id="spotlight-guidance" class="form-control" rows="3" maxlength="300"
+                                                        aria-describedby="spotlight-guidance-help spotlight-guidance-count"></textarea>
+                                                    <small class="form-text text-muted style-count" id="spotlight-guidance-count"></small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item">
+                                        <div class="row align-items-center">
+                                            <div class="col">
+                                                <label data-i18n="spotlightSettings.showACardInThe" for="spotlight-card" class="form-label mb-1"><strong>Show a card in the browser source</strong></label>
+                                                <p data-i18n="spotlightCardHelp.whileTheBotReadsA" id="spotlight-card-help" class="text-muted mb-0">While the bot reads a pick, the browser source shows a card with the name of the viewer and the message.</p>
+                                            </div>
+                                            <div class="col-auto">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" id="spotlight-card" aria-describedby="spotlight-card-help">
+                                                    <span class="form-check-label"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item">
+                                        <div class="d-flex justify-content-between align-items-center gap-2 mb-2">
+                                            <div>
+                                                <h3 data-i18n="spotlightPicksHeading.recentPicks" id="spotlight-picks-heading" class="h6 mb-1">Recent picks</h3>
+                                                <p data-i18n="spotlightPicksNote.theLastMessagesThatThe" id="spotlight-picks-note" class="text-muted mb-0">This list shows the last messages that the bot picked. Each message has the reason for the pick. The newest message is first.</p>
+                                            </div>
+                                            <button data-i18n="spotlightPicksRefresh.refresh" type="button" id="spotlight-picks-refresh" class="btn btn-secondary btn-sm flex-shrink-0"
+                                                aria-describedby="spotlight-picks-heading" aria-controls="spotlight-picks-list">Refresh</button>
+                                        </div>
+                                        <p id="spotlight-picks-status" class="small text-muted mb-2" aria-live="polite"></p>
+                                        <ul id="spotlight-picks-list" class="list-group spotlight-picks-list"
+                                            aria-labelledby="spotlight-picks-heading"></ul>
                                     </div>
                                 </div>
                             </div>

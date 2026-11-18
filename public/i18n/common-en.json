@@ -71,6 +71,8 @@
     "shortlink_failed": "Cannot create the short link.",
     "sound_tag_unknown": "The sound tag \"{tag}\" is not in the list. Reload the page and try again.",
     "storage_unavailable": "Storage is unavailable.",
+    "spotlight_guidance_too_long": "The guidance is too long. Use {max} characters or fewer.",
+    "spotlight_picks_fetch_failed": "Cannot load the Spotlight picks.",
     "style_too_long": "The style is too long. Use {max} characters or fewer.",
     "tts_blocked": "The speech service refused this text. Change the text and try again.",
     "tts_generation_failed": "Speech generation failed: {reason}",

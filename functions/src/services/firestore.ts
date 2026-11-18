@@ -24,6 +24,8 @@ const COLLECTIONS = {
   TTS_CHANNEL_CONFIGS: "ttsChannelConfigs",
   SHORTLINKS: "shortlinks",
   TTS_USER_PREFS: "ttsUserPreferences",
+  // One document per channel, written only by the bot.
+  TTS_SPOTLIGHT_LOG: "ttsSpotlightLog",
 } as const;
 
 export {

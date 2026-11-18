@@ -1,15 +1,15 @@
 import { showToast } from '../common/ui.js';
-import { apiErrorMessage, displayError, fillLanguageSelect, languageBoostOptions, t } from '../common/i18n.js';
+import { apiErrorMessage, displayError, fillLanguageSelect, getLocale, languageBoostOptions, t } from '../common/i18n.js';
 import { debounce } from '../common/utils.js';
 import { performVoiceTest, TTSPayload, PlayerElements, HintElements } from '../common/voice-preview.js';
 import { VoicePicker } from '../common/voice-picker.js';
 import { buildVoiceCatalog, languageName, loadVoiceCatalog, type VoiceCatalog } from '../common/voice-catalog.js';
 import {
-  SOUND_TAGS, STYLE_MAX_LENGTH, VALID_EMOTIONS,
+  SOUND_TAGS, SPOTLIGHT_GUIDANCE_MAX, STYLE_MAX_LENGTH, VALID_EMOTIONS,
   createStepControl, createStylePresets, emotionStyleText, stepLabel, styleSummary,
   type StepControl, type StylePresetControl,
 } from '../common/tts-options.js';
-import { DashboardServices, TtsSettings } from './types.js';
+import { DashboardServices, SpotlightPick, TtsSettings } from './types.js';
 import { SettingsApi } from './services/settings-api.js';
 import { VoiceCalibration } from './components/voice-calibration.js';
 import type { StoredIgnoreValue } from '../common/ignoreEntries.js';
@@ -81,6 +81,15 @@ export function initSettingsModule(
   let lastStoredReadCommandMessages = true;
   const anonymizeFollowersCheckbox = document.getElementById('anonymize-followers') as HTMLInputElement | null;
 
+  // Spotlight group, shown only while the mode is Spotlight
+  const spotlightGroup = document.getElementById('spotlight-settings') as HTMLElement | null;
+  const spotlightGuidanceInput = document.getElementById('spotlight-guidance') as HTMLTextAreaElement | null;
+  const spotlightGuidanceCount = document.getElementById('spotlight-guidance-count') as HTMLElement | null;
+  const spotlightCardCheckbox = document.getElementById('spotlight-card') as HTMLInputElement | null;
+  const spotlightPicksRefresh = document.getElementById('spotlight-picks-refresh') as HTMLButtonElement | null;
+  const spotlightPicksStatus = document.getElementById('spotlight-picks-status') as HTMLElement | null;
+  const spotlightPicksList = document.getElementById('spotlight-picks-list') as HTMLElement | null;
+
   // YouTube integration elements
   const youtubeEnabledCheckbox = document.getElementById('youtube-enabled') as HTMLInputElement | null;
   const youtubeHandleInput = document.getElementById('youtube-handle') as HTMLInputElement | null;
@@ -112,6 +121,11 @@ export function initSettingsModule(
   // Declared above the `return`, because a `let` below it never gets its value.
   let styleSaveQueue: Promise<unknown> = Promise.resolve();
   let disabledSoundTags = new Set<string>();
+  // The guidance as the server holds it. Its saves go out one at a time, like the style.
+  let storedSpotlightGuidance = '';
+  let spotlightGuidanceSaveQueue: Promise<unknown> = Promise.resolve();
+  // A newer load of the pick log owns the list. An older answer is dropped.
+  let spotlightPicksRequest = 0;
 
   // Components
   let defaultVoiceDropdown: VoicePicker | null = null;
@@ -230,6 +244,140 @@ export function initSettingsModule(
     });
   }
 
+  /** The typed guidance on one line, as the server stores it. */
+  function currentSpotlightGuidance(): string {
+    return (spotlightGuidanceInput?.value || '').replace(/\s+/g, ' ').trim().slice(0, SPOTLIGHT_GUIDANCE_MAX);
+  }
+
+  function updateSpotlightGuidanceCount(): void {
+    if (!spotlightGuidanceCount) return;
+    spotlightGuidanceCount.textContent = t('msg.style.count', {
+      count: (spotlightGuidanceInput?.value || '').length,
+      max: SPOTLIGHT_GUIDANCE_MAX,
+    });
+  }
+
+  function showSpotlightGuidance(): void {
+    if (spotlightGuidanceInput) spotlightGuidanceInput.value = storedSpotlightGuidance;
+    updateSpotlightGuidanceCount();
+  }
+
+  function saveSpotlightGuidance(): void {
+    const guidance = currentSpotlightGuidance();
+    if (guidance === storedSpotlightGuidance) return;
+    const previous = storedSpotlightGuidance;
+    storedSpotlightGuidance = guidance;
+    const run = spotlightGuidanceSaveQueue.then(() => saveSettingWrapper('spotlightGuidance', guidance, t('msg.setting.spotlightGuidance')));
+    spotlightGuidanceSaveQueue = run;
+    void run.then((saved) => {
+      // A newer change owns the value now.
+      if (saved || storedSpotlightGuidance !== guidance) return;
+      // The server still holds the previous guidance. Text that the person still
+      // types stays in the box, so that the next blur sends it again.
+      storedSpotlightGuidance = previous;
+      if (!guidance || document.activeElement !== spotlightGuidanceInput) showSpotlightGuidance();
+    });
+  }
+
+  function setSpotlightPicksStatus(text: string, isError = false): void {
+    if (!spotlightPicksStatus) return;
+    spotlightPicksStatus.textContent = text;
+    spotlightPicksStatus.classList.toggle('text-danger', isError);
+    spotlightPicksStatus.classList.toggle('text-muted', !isError);
+  }
+
+  function formatPickTime(at: number): string {
+    try {
+      return new Date(at).toLocaleString(getLocale(), { dateStyle: 'medium', timeStyle: 'short' });
+    } catch {
+      return new Date(at).toLocaleString();
+    }
+  }
+
+  /**
+   * Chat text is not trusted: the viewer, the message and the reason all go in
+   * through textContent, never as markup.
+   */
+  function renderSpotlightPicks(picks: SpotlightPick[]): void {
+    if (!spotlightPicksList) return;
+    spotlightPicksList.replaceChildren();
+    for (const pick of picks) {
+      const item = document.createElement('li');
+      item.className = 'list-group-item spotlight-pick';
+
+      const head = document.createElement('div');
+      head.className = 'd-flex justify-content-between gap-2';
+      const user = document.createElement('strong');
+      user.textContent = pick.user || t('msg.spotlight.unknownUser');
+      const time = document.createElement('time');
+      time.className = 'small text-muted flex-shrink-0';
+      time.dateTime = new Date(pick.at).toISOString();
+      time.textContent = formatPickTime(pick.at);
+      head.append(user, time);
+
+      const text = document.createElement('p');
+      text.className = 'mb-1';
+      text.textContent = pick.text;
+      item.append(head, text);
+
+      if (pick.reason) {
+        const reason = document.createElement('p');
+        reason.className = 'small text-muted mb-0';
+        reason.textContent = t('msg.spotlight.reason', { reason: pick.reason });
+        item.appendChild(reason);
+      }
+      spotlightPicksList.appendChild(item);
+    }
+  }
+
+  /** Load the pick log. The status line says what happened: it is the live region. */
+  async function loadSpotlightPicks(): Promise<void> {
+    if (!spotlightPicksList) return;
+    const request = ++spotlightPicksRequest;
+    spotlightPicksList.setAttribute('aria-busy', 'true');
+    setSpotlightPicksStatus(t('msg.spotlight.loading'));
+
+    let picks: SpotlightPick[] | null = null;
+    let failure = t('msg.spotlight.loadFailed');
+    if (testMode) {
+      picks = [
+        { user: 'DemoViewer', userId: null, text: 'Did you plan that clutch on purpose?', reason: 'A real question for the streamer', at: Date.now() - 60_000 },
+        { user: 'AnotherViewer', userId: null, text: 'That boss never had a chance.', reason: 'A strong reaction to the moment', at: Date.now() - 600_000 },
+      ];
+    } else {
+      const channelName = getChannelName();
+      if (!channelName) {
+        failure = t('msg.auth.signedOut');
+      } else {
+        const response = await api.getSpotlightPicks(channelName);
+        if ('picks' in response && Array.isArray(response.picks)) picks = response.picks;
+        else if ('error' in response) failure = apiErrorMessage(response, 'msg.spotlight.loadFailed');
+      }
+    }
+    if (request !== spotlightPicksRequest) return;
+
+    spotlightPicksList.removeAttribute('aria-busy');
+    if (!picks) {
+      // The old list stays: it is still the last that the bot picked.
+      setSpotlightPicksStatus(failure, true);
+      return;
+    }
+    renderSpotlightPicks(picks);
+    setSpotlightPicksStatus(picks.length === 0
+      ? t('msg.spotlight.empty')
+      : t('msg.spotlight.count', { count: picks.length }));
+  }
+
+  // The group exists only for Spotlight mode. The pick log loads each time the
+  // group appears, so that it is current when the streamer looks at it.
+  function syncSpotlightGroup(): void {
+    if (!spotlightGroup) return;
+    const show = ttsModeSelect?.value === 'spotlight';
+    const wasHidden = spotlightGroup.hidden;
+    spotlightGroup.hidden = !show;
+    if (show && wasHidden) void loadSpotlightPicks();
+  }
+
   function renderSoundTags(): void {
     if (!soundTagsList) return;
     soundTagsList.replaceChildren();
@@ -268,6 +416,7 @@ export function initSettingsModule(
     if (ttsModeSelect) ttsModeSelect.addEventListener('change', () => {
       saveSettingWrapper('mode', ttsModeSelect.value || 'command', t('msg.setting.ttsMode'));
       syncTtsModeSummary();
+      syncSpotlightGroup();
       syncReadCheerMessagesToMode();
       syncReadCommandMessagesToMode();
     });
@@ -301,6 +450,25 @@ export function initSettingsModule(
       );
       bitsAmountInput.addEventListener('input', () => { if (!isInitializing) debouncedBitsAmountSave(); });
       bitsAmountInput.addEventListener('change', () => saveSettingWrapper('bitsMinimumAmount', Math.max(1, parseInt(bitsAmountInput.value || '1', 10) || 1), t('msg.setting.minimumBits')));
+    }
+
+    if (spotlightCardCheckbox) spotlightCardCheckbox.addEventListener('change', () => saveSettingWrapper('spotlightCard', !!spotlightCardCheckbox.checked, t('msg.setting.spotlightCard')));
+    spotlightPicksRefresh?.addEventListener('click', () => void loadSpotlightPicks());
+
+    // The same rule as the style: while the reader types, an empty box is a step on the way to new text. Do not save it.
+    const debouncedSpotlightGuidanceSave = debounce(() => { if (currentSpotlightGuidance()) saveSpotlightGuidance(); }, 800);
+    if (spotlightGuidanceInput) {
+      spotlightGuidanceInput.maxLength = SPOTLIGHT_GUIDANCE_MAX;
+      spotlightGuidanceInput.addEventListener('input', () => {
+        updateSpotlightGuidanceCount();
+        if (!isInitializing) debouncedSpotlightGuidanceSave();
+      });
+      spotlightGuidanceInput.addEventListener('blur', () => {
+        debouncedSpotlightGuidanceSave.cancel();
+        saveSpotlightGuidance();
+        // Show the text as it is stored: on one line, with no space around it.
+        if (currentSpotlightGuidance() === storedSpotlightGuidance) showSpotlightGuidance();
+      });
     }
 
     // While the reader types, an empty box is a step on the way to new text. Do not save it.
@@ -717,6 +885,8 @@ export function initSettingsModule(
         },
         pronunciationEnabled: true,
         profanityFilterEnabled: false,
+        spotlightGuidance: 'Prefer questions about the game. Skip backseating.',
+        spotlightCard: false,
         pronunciations: { wcat: 'wildcat', lfg: '' },
         mutedRewardIds: { 'demo-horn': { title: 'Air Horn', by: null, at: null } },
       };
@@ -753,6 +923,7 @@ export function initSettingsModule(
     if (botRespondsInChatCheckbox) botRespondsInChatCheckbox.checked = settings.botRespondsInChat !== false;
     if (ttsModeSelect) ttsModeSelect.value = settings.mode || 'command';
     syncTtsModeSummary();
+    syncSpotlightGroup();
     if (ttsPermissionSelect) ttsPermissionSelect.value = settings.ttsPermissionLevel || 'everyone';
     if (eventsEnabledCheckbox) eventsEnabledCheckbox.checked = settings.speakEvents !== false;
     const cheerEventsEnabledCheckbox = document.getElementById('cheer-events-enabled') as HTMLInputElement | null;
@@ -817,6 +988,10 @@ export function initSettingsModule(
     // YouTube integration
     if (youtubeEnabledCheckbox) youtubeEnabledCheckbox.checked = settings.youtubeEnabled || false;
     if (youtubeHandleInput) youtubeHandleInput.value = settings.youtubeHandle || '';
+
+    storedSpotlightGuidance = (settings.spotlightGuidance || '').trim();
+    showSpotlightGuidance();
+    if (spotlightCardCheckbox) spotlightCardCheckbox.checked = settings.spotlightCard === true;
 
     updateSidebarPreview();
   }

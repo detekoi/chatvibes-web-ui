@@ -280,6 +280,8 @@
       "readFullUrls": "Read Full URLs",
       "redemptionAnnouncements": "Redemption Announcements",
       "soundTags": "Sound Tags",
+      "spotlightCard": "Spotlight card",
+      "spotlightGuidance": "Spotlight guidance",
       "style": "Default voice style",
       "ttsEngine": "TTS Engine",
       "ttsMode": "TTS Mode",
@@ -293,6 +295,14 @@
       "loadFailed": "Cannot load your settings.",
       "saveFailed": "{label}: {reason}",
       "youtubeHandleRequired": "Enter a YouTube handle before you turn on YouTube TTS."
+    },
+    "spotlight": {
+      "count": "Picks found: {count}",
+      "empty": "No picks yet. A pick appears here after the bot reads it.",
+      "loadFailed": "Cannot load the picks. Select Refresh to try again.",
+      "loading": "Loading the picks…",
+      "reason": "Reason: {reason}",
+      "unknownUser": "Unknown viewer"
     }
   },
   "mutedRewardsClose": {
@@ -385,6 +395,27 @@
   },
   "soundTagsTitle": {
     "soundTags": "Sound Tags"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "While the bot reads a pick, the browser source shows a card with the name of the viewer and the message."
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "Tell the bot which messages you like. The bot still skips spam and rude messages. Example: Prefer questions about the game. Skip backseating."
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "Recent picks"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "This list shows the last messages that the bot picked. Each message has the reason for the pick. The newest message is first."
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "Refresh"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "Choose what the bot looks for in chat. See the messages that it picked.",
+    "showACardInThe": "<strong>Show a card in the browser source</strong>",
+    "spotlight": "Spotlight",
+    "whatToLookForOptional": "<strong>What to look for (optional)</strong>"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Allow the bot to respond to chat commands such as !myvoice",
@@ -497,13 +528,15 @@
     "allMessages": "All Chat Messages",
     "bitsPointsOnly": "Cheers and Rewards Only",
     "highlightedOnly": "Highlighted Messages",
+    "spotlightTheBotPicksNotable": "Spotlight (the bot picks notable messages)",
     "ttsCommandOnly": "!tts Messages"
   },
   "ttsModeSummary": {
     "all": "TTS reads every chat message. This includes messages that start with !tts.",
     "bitsPointsOnly": "TTS reads only cheers and the Channel Points TTS reward. It does not read !tts messages, highlighted messages, or other chat messages.",
     "command": "TTS reads messages that start with !tts. It does not read other chat messages.",
-    "highlightedOnly": "TTS reads messages that viewers highlight with Channel Points. It does not read !tts messages or other chat messages."
+    "highlightedOnly": "TTS reads messages that viewers highlight with Channel Points. It does not read !tts messages or other chat messages.",
+    "theBotReadsChatAnd": "The bot reads chat and picks the notable messages. TTS reads only those messages. It says \"Chat spotlight\" before each one. It also reads !tts messages."
   },
   "ttsPermission": {
     "everyone": "Everyone",
