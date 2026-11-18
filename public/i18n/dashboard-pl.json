@@ -280,8 +280,8 @@
       "readFullUrls": "Czytaj pełne adresy URL",
       "redemptionAnnouncements": "Ogłoszenia o odebraniu nagród",
       "soundTags": "Tagi dźwiękowe",
-      "spotlightCard": "Karta Spotlight",
-      "spotlightGuidance": "Wskazówki Spotlight",
+      "spotlightCard": "Karta wyróżnienia",
+      "spotlightGuidance": "Wskazówki dla wyróżnień",
       "style": "Domyślny styl głosu",
       "ttsEngine": "Silnik TTS",
       "ttsMode": "Tryb TTS",
@@ -297,10 +297,10 @@
       "youtubeHandleRequired": "Wprowadź identyfikator YouTube przed włączeniem TTS dla YouTube."
     },
     "spotlight": {
-      "count": "Znalezione wybory: {count}",
-      "empty": "Brak wyborów. Wybór pojawi się tutaj po przeczytaniu go przez bota.",
-      "loadFailed": "Nie można wczytać wyborów. Wybierz Odśwież, aby spróbować ponownie.",
-      "loading": "Wczytywanie wyborów…",
+      "count": "Znalezione wyróżnienia: {count}",
+      "empty": "Brak wyróżnień. Wyróżnienie pojawi się tutaj, gdy bot je przeczyta.",
+      "loadFailed": "Nie można wczytać wyróżnień. Wybierz Odśwież, aby spróbować ponownie.",
+      "loading": "Wczytywanie wyróżnień…",
       "reason": "Powód: {reason}",
       "unknownUser": "Nieznany widz"
     }
@@ -395,6 +395,27 @@
   },
   "soundTagsTitle": {
     "soundTags": "Tagi dźwiękowe"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "Gdy bot czyta wyróżnienie, źródło przeglądarki wyświetla kartę z nazwą widza i treścią wiadomości."
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "Powiedz botowi, jakie wiadomości lubisz. Bot nadal pomija spam i obraźliwe wiadomości. Przykład: Preferuj pytania o grę. Pomijaj backseating."
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "Ostatnie wyróżnienia"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "Ta lista pokazuje ostatnie wiadomości wybrane przez bota. Każda wiadomość zawiera powód wyboru. Najnowsza wiadomość jest pierwsza."
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "Odśwież"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "Wybierz, czego bot szuka na czacie. Zobacz wybrane przez niego wiadomości.",
+    "showACardInThe": "<strong>Pokaż kartę w źródle przeglądarki</strong>",
+    "spotlight": "Wyróżnienia",
+    "whatToLookForOptional": "<strong>Czego szukać (opcjonalnie)</strong>"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Zezwalaj botowi na odpowiadanie na polecenia czatu, np. !myvoice",
@@ -507,15 +528,15 @@
     "allMessages": "Wszystkie wiadomości na czacie",
     "bitsPointsOnly": "Tylko cheery i nagrody",
     "highlightedOnly": "Wyróżnione wiadomości",
-    "ttsCommandOnly": "Wiadomości z !tts",
-    "spotlightTheBotPicksNotable": "Spotlight (bot wybiera wyróżniające się wiadomości)"
+    "spotlightTheBotPicksNotable": "Wyróżnienia (bot wybiera ciekawe wiadomości)",
+    "ttsCommandOnly": "Wiadomości z !tts"
   },
   "ttsModeSummary": {
     "all": "TTS czyta każdą wiadomość na czacie. Obejmuje to wiadomości zaczynające się od !tts.",
     "bitsPointsOnly": "TTS czyta tylko cheery i nagrodę TTS za Channel Points. Nie czyta wiadomości z !tts, wyróżnionych wiadomości ani innych wiadomości na czacie.",
     "command": "TTS czyta wiadomości zaczynające się od !tts. Nie czyta innych wiadomości na czacie.",
     "highlightedOnly": "TTS czyta wiadomości, które widzowie wyróżniają za pomocą Channel Points. Nie czyta wiadomości z !tts ani innych wiadomości na czacie.",
-    "theBotReadsChatAnd": "Bot czyta czat i wybiera wyróżniające się wiadomości. TTS czyta tylko te wiadomości. Przed każdą z nich mówi \"Wyróżnienie z czatu\". Czyta też wiadomości !tts."
+    "theBotReadsChatAnd": "Bot czyta czat i wybiera ciekawe wiadomości. TTS czyta tylko te wiadomości. Przed każdą z nich mówi „Wyróżnienie na czacie”. Czyta też wiadomości !tts."
   },
   "ttsPermission": {
     "everyone": "Wszyscy",
@@ -548,26 +569,5 @@
   },
   "youtubeHandle": {
     "yourhandle": "@twojhandle"
-  },
-  "spotlightCardHelp": {
-    "whileTheBotReadsA": "Gdy bot czyta wybór, źródło przeglądarki wyświetla kartę z nazwą widza i wiadomością."
-  },
-  "spotlightGuidanceHelp": {
-    "tellTheBotWhichMessages": "Powiedz botowi, jakie wiadomości lubisz. Bot nadal pomija spam i niegrzeczne wiadomości. Przykład: Preferuj pytania o grę. Pomijaj podpowiadanie."
-  },
-  "spotlightPicksHeading": {
-    "recentPicks": "Ostatnie wybory"
-  },
-  "spotlightPicksNote": {
-    "theLastMessagesThatThe": "Ta lista pokazuje ostatnie wiadomości wybrane przez bota. Każda wiadomość zawiera powód wyboru. Najnowsza wiadomość jest pierwsza."
-  },
-  "spotlightPicksRefresh": {
-    "refresh": "Odśwież"
-  },
-  "spotlightSettings": {
-    "chooseWhatTheBotLooks": "Wybierz, czego bot szuka na czacie. Zobacz wybrane przez niego wiadomości.",
-    "showACardInThe": "<strong>Pokaż kartę w źródle przeglądarki</strong>",
-    "spotlight": "Spotlight",
-    "whatToLookForOptional": "<strong>Czego szukać (opcjonalnie)</strong>"
   }
 }

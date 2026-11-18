@@ -280,8 +280,8 @@
       "readFullUrls": "Leer URLs completas",
       "redemptionAnnouncements": "Anuncios de canjes",
       "soundTags": "Etiquetas de sonido",
-      "spotlightCard": "Tarjeta de Spotlight",
-      "spotlightGuidance": "Guía de Spotlight",
+      "spotlightCard": "Tarjeta de destacados",
+      "spotlightGuidance": "Guía de destacados",
       "style": "Estilo de voz predeterminado",
       "ttsEngine": "Motor de TTS",
       "ttsMode": "Modo de TTS",
@@ -297,12 +297,12 @@
       "youtubeHandleRequired": "Introduce un nombre de usuario de YouTube antes de activar el TTS de YouTube."
     },
     "spotlight": {
-      "count": "Elecciones encontradas: {count}",
-      "empty": "Aún no hay elecciones. Una elección aparece aquí después de que el bot la lea.",
-      "loadFailed": "No se pueden cargar las elecciones. Selecciona Actualizar para intentarlo de nuevo.",
-      "loading": "Cargando las elecciones…",
+      "count": "Selecciones encontradas: {count}",
+      "empty": "Aún no hay selecciones. Aquí aparecerá una después de que el bot la lea.",
+      "loadFailed": "No se pueden cargar las selecciones. Selecciona Actualizar para intentarlo de nuevo.",
+      "loading": "Cargando las selecciones…",
       "reason": "Motivo: {reason}",
-      "unknownUser": "Espectador desconocido"
+      "unknownUser": "Persona desconocida"
     }
   },
   "mutedRewardsClose": {
@@ -395,6 +395,27 @@
   },
   "soundTagsTitle": {
     "soundTags": "Etiquetas de sonido"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "Mientras el bot lee una selección, la fuente de navegador muestra una tarjeta con el nombre de quien la envió y el mensaje."
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "Indica al bot qué mensajes te gustan. El bot sigue omitiendo el spam y los mensajes groseros. Ejemplo: Prioriza preguntas sobre el juego. Omite consejos no pedidos."
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "Selecciones recientes"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "Esta lista muestra los últimos mensajes que eligió el bot. Cada mensaje incluye el motivo de la selección. El mensaje más reciente aparece primero."
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "Actualizar"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "Elige qué busca el bot en el chat. Consulta los mensajes que eligió.",
+    "showACardInThe": "<strong>Mostrar una tarjeta en la fuente de navegador</strong>",
+    "spotlight": "Destacados",
+    "whatToLookForOptional": "<strong>Qué buscar (opcional)</strong>"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Permite que el bot responda a comandos del chat como !myvoice",
@@ -507,15 +528,15 @@
     "allMessages": "Todos los mensajes del chat",
     "bitsPointsOnly": "Solo cheers y recompensas",
     "highlightedOnly": "Mensajes destacados",
-    "ttsCommandOnly": "Mensajes con !tts",
-    "spotlightTheBotPicksNotable": "Spotlight (el bot elige mensajes destacados)"
+    "spotlightTheBotPicksNotable": "Destacados (el bot elige mensajes notables)",
+    "ttsCommandOnly": "Mensajes con !tts"
   },
   "ttsModeSummary": {
     "all": "El TTS lee todos los mensajes del chat. Esto incluye los mensajes que empiezan con !tts.",
     "bitsPointsOnly": "El TTS solo lee los cheers y la recompensa de TTS de Channel Points. No lee mensajes con !tts, mensajes destacados ni otros mensajes del chat.",
     "command": "El TTS lee los mensajes que empiezan con !tts. No lee otros mensajes del chat.",
     "highlightedOnly": "El TTS lee los mensajes que los espectadores destacan con Channel Points. No lee mensajes con !tts ni otros mensajes del chat.",
-    "theBotReadsChatAnd": "El bot lee el chat y elige los mensajes destacados. TTS solo lee esos mensajes. Dice \"Chat destacado\" antes de cada uno. También lee mensajes !tts."
+    "theBotReadsChatAnd": "El bot lee el chat y elige los mensajes notables. TTS solo lee esos mensajes. Dice \"Destacado del chat\" antes de cada uno. También lee los mensajes con !tts."
   },
   "ttsPermission": {
     "everyone": "Todos",
@@ -548,26 +569,5 @@
   },
   "youtubeHandle": {
     "yourhandle": "@tuusuario"
-  },
-  "spotlightCardHelp": {
-    "whileTheBotReadsA": "Mientras el bot lee una elección, la fuente de navegador muestra una tarjeta con el nombre del espectador y el mensaje."
-  },
-  "spotlightGuidanceHelp": {
-    "tellTheBotWhichMessages": "Indica al bot qué mensajes te gustan. El bot sigue omitiendo el spam y los mensajes groseros. Ejemplo: Prefiere preguntas sobre el juego. Omite consejos no pedidos."
-  },
-  "spotlightPicksHeading": {
-    "recentPicks": "Elecciones recientes"
-  },
-  "spotlightPicksNote": {
-    "theLastMessagesThatThe": "Esta lista muestra los últimos mensajes que el bot eligió. Cada mensaje tiene el motivo de la elección. El mensaje más nuevo va primero."
-  },
-  "spotlightPicksRefresh": {
-    "refresh": "Actualizar"
-  },
-  "spotlightSettings": {
-    "chooseWhatTheBotLooks": "Elige qué busca el bot en el chat. Mira los mensajes que eligió.",
-    "showACardInThe": "<strong>Mostrar una tarjeta en la fuente de navegador</strong>",
-    "spotlight": "Spotlight",
-    "whatToLookForOptional": "<strong>Qué buscar (opcional)</strong>"
   }
 }

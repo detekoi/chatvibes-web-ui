@@ -280,8 +280,8 @@
       "readFullUrls": "朗讀完整 URL",
       "redemptionAnnouncements": "兌換播報",
       "soundTags": "音效標籤",
-      "spotlightCard": "Spotlight 卡片",
-      "spotlightGuidance": "Spotlight 指引",
+      "spotlightCard": "焦點提示卡",
+      "spotlightGuidance": "焦點指引",
       "style": "預設語音風格",
       "ttsEngine": "TTS 引擎",
       "ttsMode": "TTS 模式",
@@ -297,10 +297,10 @@
       "youtubeHandleRequired": "開啟 YouTube TTS 前請先輸入 YouTube handle。"
     },
     "spotlight": {
-      "count": "搵到嘅精選：{count}",
-      "empty": "仲未有精選。機械人讀出之後，精選會喺度顯示。",
-      "loadFailed": "無法載入精選。請選擇重新整理再試。",
-      "loading": "正在載入精選…",
+      "count": "搵到精選訊息：{count}",
+      "empty": "暫時未有精選訊息。機械人讀出訊息後，就會喺度顯示。",
+      "loadFailed": "載入唔到精選訊息。請撳「重新整理」再試。",
+      "loading": "正在載入精選訊息…",
       "reason": "原因：{reason}",
       "unknownUser": "未知觀眾"
     }
@@ -395,6 +395,27 @@
   },
   "soundTagsTitle": {
     "soundTags": "音效標籤"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "當機械人讀出精選訊息嗰陣，Browser Source 會顯示一張包含觀眾名稱同訊息內容嘅提示卡。"
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "話畀機械人知你鍾意邊類訊息。機械人依然會略過垃圾訊息同無禮內容。例如：優先揀關於遊戲嘅問題。略過教人點玩嘅留言。"
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "近期精選"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "呢個清單會顯示機械人最近揀出嚟嘅訊息，每條都會附上入選原因，最新嘅排最前。"
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "重新整理"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "揀選機械人喺聊天室要留意邊類訊息，並查看佢揀出嚟嘅內容。",
+    "showACardInThe": "<strong>喺 Browser Source 顯示提示卡</strong>",
+    "spotlight": "焦點精選",
+    "whatToLookForOptional": "<strong>要留意嘅內容（可選）</strong>"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "允許 Bot 回應聊天室指令（例如 !myvoice）",
@@ -507,15 +528,15 @@
     "allMessages": "所有聊天訊息",
     "bitsPointsOnly": "只限 Cheers 同獎勵",
     "highlightedOnly": "醒目提示訊息",
-    "ttsCommandOnly": "!tts 訊息",
-    "spotlightTheBotPicksNotable": "Spotlight（機械人揀選值得留意嘅訊息）"
+    "spotlightTheBotPicksNotable": "焦點精選（機械人會揀出值得留意嘅訊息）",
+    "ttsCommandOnly": "!tts 訊息"
   },
   "ttsModeSummary": {
     "all": "TTS 會讀出每一條聊天訊息，包括以 !tts 開頭嘅訊息。",
     "bitsPointsOnly": "TTS 只會讀出 Cheers 同 Channel Points 嘅 TTS 獎勵。佢唔會讀 !tts 訊息、醒目提示訊息或者其他聊天訊息。",
     "command": "TTS 會讀出以 !tts 開頭嘅訊息。佢唔會讀其他聊天訊息。",
     "highlightedOnly": "TTS 會讀出觀眾用 Channel Points 醒目提示嘅訊息。佢唔會讀 !tts 訊息或者其他聊天訊息。",
-    "theBotReadsChatAnd": "機械人會閱讀聊天室並揀選值得留意嘅訊息。TTS 只會讀出呢啲訊息，並喺每條之前講「聊天室焦點」。佢亦都會讀出 !tts 訊息。"
+    "theBotReadsChatAnd": "機械人會讀取聊天室並揀出值得留意嘅訊息，TTS 只會讀出呢啲訊息，並喺每條之前讀出「Chat spotlight」。同時亦會讀出 !tts 訊息。"
   },
   "ttsPermission": {
     "everyone": "所有人",
@@ -548,26 +569,5 @@
   },
   "youtubeHandle": {
     "yourhandle": "@yourhandle"
-  },
-  "spotlightCardHelp": {
-    "whileTheBotReadsA": "當機械人讀出精選時，瀏覽器來源會顯示一張帶有觀眾名稱同訊息嘅卡片。"
-  },
-  "spotlightGuidanceHelp": {
-    "tellTheBotWhichMessages": "話俾機械人知你鍾意邊啲訊息。機械人依然會略過垃圾訊息同無禮訊息。例子：優先揀關於遊戲嘅問題。略過劇透或指揮。"
-  },
-  "spotlightPicksHeading": {
-    "recentPicks": "最近精選"
-  },
-  "spotlightPicksNote": {
-    "theLastMessagesThatThe": "呢個列表顯示機械人最近揀選嘅訊息。每條訊息都有揀選原因。最新嘅訊息排喺最前。"
-  },
-  "spotlightPicksRefresh": {
-    "refresh": "重新整理"
-  },
-  "spotlightSettings": {
-    "chooseWhatTheBotLooks": "選擇機械人喺聊天室搵乜嘢。睇下佢揀咗邊啲訊息。",
-    "showACardInThe": "<strong>喺瀏覽器來源顯示卡片</strong>",
-    "spotlight": "Spotlight",
-    "whatToLookForOptional": "<strong>要搵乜嘢（可選）</strong>"
   }
 }

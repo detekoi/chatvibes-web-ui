@@ -71,6 +71,8 @@
     "shortlink_failed": "Hindi magawa ang maikling link.",
     "sound_tag_unknown": "Wala sa listahan ang sound tag na \"{tag}\". I-reload ang page at subukan ulit.",
     "storage_unavailable": "Hindi available ang storage.",
+    "spotlight_guidance_too_long": "Masyadong mahaba ang gabay. Gumamit ng {max} karakter o mas kaunti.",
+    "spotlight_picks_fetch_failed": "Hindi ma-load ang mga pinili sa Spotlight.",
     "style_too_long": "Masyadong mahaba ang istilo. Gumamit ng {max} karakter o mas kaunti.",
     "tts_blocked": "Tinanggihan ng speech service ang text na ito. Palitan ang text at subukan ulit.",
     "tts_generation_failed": "Nabigo ang pagbuo ng speech: {reason}",
@@ -85,9 +87,7 @@
     "username_required": "Kailangan ng username.",
     "voice_lookup_failed": "Hindi mahanap ang boses ng user na iyon.",
     "word_invalid": "Hindi wasto ang salita o pariralang iyon.",
-    "word_required": "Kailangan ng salita o parirala.",
-    "spotlight_guidance_too_long": "Masyadong mahaba ang gabay. Gumamit ng {max} character o mas kaunti.",
-    "spotlight_picks_fetch_failed": "Hindi ma-load ang mga napili sa Spotlight."
+    "word_required": "Kailangan ng salita o parirala."
   },
   "logoutLink": {
     "logout": "Mag-sign out"

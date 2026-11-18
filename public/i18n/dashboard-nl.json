@@ -280,8 +280,8 @@
       "readFullUrls": "Volledige URL's voorlezen",
       "redemptionAnnouncements": "Inwisselaankondigingen",
       "soundTags": "Geluidstags",
-      "spotlightCard": "Spotlight-kaart",
-      "spotlightGuidance": "Spotlight-richtlijn",
+      "spotlightCard": "Spotlightkaart",
+      "spotlightGuidance": "Spotlightrichtlijnen",
       "style": "Standaard stemstijl",
       "ttsEngine": "TTS-engine",
       "ttsMode": "TTS-modus",
@@ -297,9 +297,9 @@
       "youtubeHandleRequired": "Voer een YouTube-handle in voordat je YouTube-TTS inschakelt."
     },
     "spotlight": {
-      "count": "Keuzes gevonden: {count}",
+      "count": "Gevonden keuzes: {count}",
       "empty": "Nog geen keuzes. Een keuze verschijnt hier nadat de bot deze heeft voorgelezen.",
-      "loadFailed": "Kan de keuzes niet laden. Selecteer Vernieuwen om het opnieuw te proberen.",
+      "loadFailed": "Kan de keuzes niet laden. Kies Vernieuwen om het opnieuw te proberen.",
       "loading": "Keuzes laden…",
       "reason": "Reden: {reason}",
       "unknownUser": "Onbekende kijker"
@@ -395,6 +395,27 @@
   },
   "soundTagsTitle": {
     "soundTags": "Geluidstags"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "Terwijl de bot een keuze voorleest, toont de Browser Source een kaart met de naam van de kijker en het bericht."
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "Vertel de bot welke berichten je leuk vindt. De bot slaat nog steeds spam en onbeleefde berichten over. Bijvoorbeeld: Geef de voorkeur aan vragen over de game. Sla backseating over."
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "Recente keuzes"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "Deze lijst toont de laatste berichten die de bot heeft gekozen. Bij elk bericht staat de reden voor de keuze. Het nieuwste bericht staat bovenaan."
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "Vernieuwen"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "Kies waar de bot op let in de chat. Bekijk de berichten die de bot heeft gekozen.",
+    "showACardInThe": "<strong>Toon een kaart in de Browser Source</strong>",
+    "spotlight": "Spotlight",
+    "whatToLookForOptional": "<strong>Waarop letten (optioneel)</strong>"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "De bot laten reageren op chatcommando's zoals !myvoice",
@@ -507,15 +528,15 @@
     "allMessages": "Alle chatberichten",
     "bitsPointsOnly": "Alleen cheers en beloningen",
     "highlightedOnly": "Gemarkeerde berichten",
-    "ttsCommandOnly": "!tts-berichten",
-    "spotlightTheBotPicksNotable": "Spotlight (de bot kiest opvallende berichten)"
+    "spotlightTheBotPicksNotable": "Spotlight (de bot kiest opvallende berichten)",
+    "ttsCommandOnly": "!tts-berichten"
   },
   "ttsModeSummary": {
     "all": "TTS leest elk chatbericht voor. Dit omvat berichten die met !tts beginnen.",
     "bitsPointsOnly": "TTS leest alleen cheers en de TTS-beloning voor Channel Points voor. Het leest geen !tts-berichten, gemarkeerde berichten of andere chatberichten voor.",
     "command": "TTS leest berichten voor die met !tts beginnen. Het leest geen andere chatberichten voor.",
     "highlightedOnly": "TTS leest berichten voor die kijkers met Channel Points markeren. Het leest geen !tts-berichten of andere chatberichten voor.",
-    "theBotReadsChatAnd": "De bot leest de chat en kiest de opvallende berichten. TTS leest alleen die berichten voor. Hij zegt \"Chat-spotlight\" voor elk bericht. Hij leest ook !tts-berichten."
+    "theBotReadsChatAnd": "De bot leest de chat en kiest de opvallende berichten. TTS leest alleen die berichten voor. Voor elk bericht zegt de bot \"Chat spotlight\". De bot leest ook berichten met !tts voor."
   },
   "ttsPermission": {
     "everyone": "Iedereen",
@@ -548,26 +569,5 @@
   },
   "youtubeHandle": {
     "yourhandle": "@jouwhandle"
-  },
-  "spotlightCardHelp": {
-    "whileTheBotReadsA": "Terwijl de bot een keuze voorleest, toont de browserbron een kaart met de naam van de kijker en het bericht."
-  },
-  "spotlightGuidanceHelp": {
-    "tellTheBotWhichMessages": "Vertel de bot welke berichten je leuk vindt. De bot slaat nog steeds spam en onbeleefde berichten over. Voorbeeld: Geef de voorkeur aan vragen over het spel. Sla backseating over."
-  },
-  "spotlightPicksHeading": {
-    "recentPicks": "Recente keuzes"
-  },
-  "spotlightPicksNote": {
-    "theLastMessagesThatThe": "Deze lijst toont de laatste berichten die de bot heeft gekozen. Elk bericht heeft de reden voor de keuze. Het nieuwste bericht staat bovenaan."
-  },
-  "spotlightPicksRefresh": {
-    "refresh": "Vernieuwen"
-  },
-  "spotlightSettings": {
-    "chooseWhatTheBotLooks": "Kies waarnaar de bot in de chat zoekt. Bekijk de berichten die hij heeft gekozen.",
-    "showACardInThe": "<strong>Toon een kaart in de browserbron</strong>",
-    "spotlight": "Spotlight",
-    "whatToLookForOptional": "<strong>Waarop letten (optioneel)</strong>"
   }
 }

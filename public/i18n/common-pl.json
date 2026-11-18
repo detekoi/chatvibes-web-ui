@@ -71,6 +71,8 @@
     "shortlink_failed": "Nie można utworzyć krótkiego linku.",
     "sound_tag_unknown": "Tag dźwięku \"{tag}\" nie znajduje się na liście. Odśwież stronę i spróbuj ponownie.",
     "storage_unavailable": "Magazyn danych jest niedostępny.",
+    "spotlight_guidance_too_long": "Wskazówki są za długie. Użyj maksymalnie {max} znaków.",
+    "spotlight_picks_fetch_failed": "Nie można wczytać wyborów Spotlight.",
     "style_too_long": "Styl jest za długi. Użyj maksymalnie {max} znaków.",
     "tts_blocked": "Usługa syntezy mowy odrzuciła ten tekst. Zmień tekst i spróbuj ponownie.",
     "tts_generation_failed": "Generowanie mowy nie powiodło się: {reason}",
@@ -85,9 +87,7 @@
     "username_required": "Nazwa użytkownika jest wymagana.",
     "voice_lookup_failed": "Nie można znaleźć głosu tego użytkownika.",
     "word_invalid": "To słowo lub fraza jest nieprawidłowa.",
-    "word_required": "Słowo lub fraza jest wymagana.",
-    "spotlight_guidance_too_long": "Wskazówki są za długie. Użyj maksymalnie {max} znaków.",
-    "spotlight_picks_fetch_failed": "Nie można wczytać wyborów Spotlight."
+    "word_required": "Słowo lub fraza jest wymagana."
   },
   "logoutLink": {
     "logout": "Wyloguj się"

@@ -71,6 +71,8 @@
     "shortlink_failed": "Kan ikkje opprette kortlenkja.",
     "sound_tag_unknown": "Lydmerket «{tag}» finst ikkje i lista. Last inn sida på nytt og prøv igjen.",
     "storage_unavailable": "Lagring er utilgjengeleg.",
+    "spotlight_guidance_too_long": "Rettleiinga er for lang. Bruk {max} teikn eller færre.",
+    "spotlight_picks_fetch_failed": "Kan ikkje laste inn Spotlight-vala.",
     "style_too_long": "Stilen er for lang. Bruk {max} teikn eller færre.",
     "tts_blocked": "Taletenesta avviste denne teksten. Endre teksten og prøv igjen.",
     "tts_generation_failed": "Generering av tale mislukkast: {reason}",
@@ -85,9 +87,7 @@
     "username_required": "Eit brukarnamn er påkravd.",
     "voice_lookup_failed": "Kan ikkje slå opp stemma til den brukaren.",
     "word_invalid": "Det ordet eller uttrykket er ikkje gyldig.",
-    "word_required": "Eit ord eller uttrykk er påkravd.",
-    "spotlight_guidance_too_long": "Rettleiinga er for lang. Bruk {max} teikn eller færre.",
-    "spotlight_picks_fetch_failed": "Kan ikkje laste inn Spotlight-vala."
+    "word_required": "Eit ord eller uttrykk er påkravd."
   },
   "logoutLink": {
     "logout": "Logg ut"

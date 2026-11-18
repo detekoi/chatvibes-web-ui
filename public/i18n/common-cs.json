@@ -71,6 +71,8 @@
     "shortlink_failed": "Nelze vytvořit zkrácený odkaz.",
     "sound_tag_unknown": "Zvuková značka \"{tag}\" není v seznamu. Obnov stránku a zkus to znovu.",
     "storage_unavailable": "Úložiště není dostupné.",
+    "spotlight_guidance_too_long": "Pokyny jsou příliš dlouhé. Použijte maximálně {max} znaků.",
+    "spotlight_picks_fetch_failed": "Nelze načíst výběry Spotlight.",
     "style_too_long": "Styl je příliš dlouhý. Použij maximálně {max} znaků.",
     "tts_blocked": "Služba převodu řeči tento text odmítla. Uprav text a zkus to znovu.",
     "tts_generation_failed": "Generování řeči selhalo: {reason}",
@@ -85,9 +87,7 @@
     "username_required": "Uživatelské jméno je povinné.",
     "voice_lookup_failed": "Nelze vyhledat hlas tohoto uživatele.",
     "word_invalid": "Toto slovo nebo fráze není platná.",
-    "word_required": "Slovo nebo fráze je povinné pole.",
-    "spotlight_guidance_too_long": "Pokyny jsou příliš dlouhé. Použijte nejvýše {max} znaků.",
-    "spotlight_picks_fetch_failed": "Výběry Spotlight nelze načíst."
+    "word_required": "Slovo nebo fráze je povinné pole."
   },
   "logoutLink": {
     "logout": "Odhlásit se"

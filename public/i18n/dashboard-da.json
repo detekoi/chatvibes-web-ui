@@ -297,10 +297,10 @@
       "youtubeHandleRequired": "Indtast et YouTube-handle, før du aktiverer YouTube-TTS."
     },
     "spotlight": {
-      "count": "Valg fundet: {count}",
-      "empty": "Ingen valg endnu. Et valg vises her, efter botten har læst det.",
-      "loadFailed": "Kan ikke indlæse valgene. Vælg Opdater for at prøve igen.",
-      "loading": "Indlæser valgene…",
+      "count": "Udvalgte fundet: {count}",
+      "empty": "Ingen udvalgte endnu. En udvalgt besked vises her, når botten har læst den.",
+      "loadFailed": "Kan ikke indlæse de udvalgte. Vælg Opdater for at prøve igen.",
+      "loading": "Indlæser udvalgte…",
       "reason": "Årsag: {reason}",
       "unknownUser": "Ukendt seer"
     }
@@ -395,6 +395,27 @@
   },
   "soundTagsTitle": {
     "soundTags": "Lydtags"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "Mens botten læser en udvalgt besked, viser Browser Source et kort med seerens navn og beskeden."
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "Fortæl botten, hvilke beskeder du kan lide. Botten springer stadig spam og uhøflige beskeder over. Eksempel: Foretræk spørgsmål om spillet. Spring backseating over."
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "Seneste udvalgte"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "Denne liste viser de seneste beskeder, som botten har valgt. Hver besked har årsagen til valget. Den nyeste besked står først."
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "Opdater"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "Vælg, hvad botten leder efter i chatten. Se de beskeder, den har valgt.",
+    "showACardInThe": "<strong>Vis et kort i Browser Source</strong>",
+    "spotlight": "Spotlight",
+    "whatToLookForOptional": "<strong>Hvad der skal ledes efter (valgfrit)</strong>"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Tillad botten at svare på chatkommandoer som f.eks. !myvoice",
@@ -507,15 +528,15 @@
     "allMessages": "Alle chatbeskeder",
     "bitsPointsOnly": "Kun cheers og belønninger",
     "highlightedOnly": "Fremhævede beskeder",
-    "ttsCommandOnly": "!tts-beskeder",
-    "spotlightTheBotPicksNotable": "Spotlight (botten vælger bemærkelsesværdige beskeder)"
+    "spotlightTheBotPicksNotable": "Spotlight (botten vælger bemærkelsesværdige beskeder)",
+    "ttsCommandOnly": "!tts-beskeder"
   },
   "ttsModeSummary": {
     "all": "TTS læser alle chatbeskeder. Det omfatter beskeder, der starter med !tts.",
     "bitsPointsOnly": "TTS læser kun cheers og TTS-belønningen for Channel Points. Den læser ikke !tts-beskeder, fremhævede beskeder eller andre chatbeskeder.",
     "command": "TTS læser beskeder, der starter med !tts. Den læser ikke andre chatbeskeder.",
     "highlightedOnly": "TTS læser beskeder, som seerne fremhæver med Channel Points. Den læser ikke !tts-beskeder eller andre chatbeskeder.",
-    "theBotReadsChatAnd": "Botten læser chatten og vælger de bemærkelsesværdige beskeder. TTS læser kun disse beskeder. Den siger \"Chat-spotlight\" før hver enkelt. Den læser også !tts-beskeder."
+    "theBotReadsChatAnd": "Botten læser chatten og vælger de bemærkelsesværdige beskeder. TTS læser kun disse beskeder. Den siger \"Chat spotlight\" før hver enkelt. Den læser også !tts-beskeder."
   },
   "ttsPermission": {
     "everyone": "Alle",
@@ -548,26 +569,5 @@
   },
   "youtubeHandle": {
     "yourhandle": "@ditbrugernavn"
-  },
-  "spotlightCardHelp": {
-    "whileTheBotReadsA": "Mens botten læser et valg, viser browserkilden et kort med seerens navn og beskeden."
-  },
-  "spotlightGuidanceHelp": {
-    "tellTheBotWhichMessages": "Fortæl botten, hvilke beskeder du kan lide. Botten springer stadig spam og uhøflige beskeder over. Eksempel: Foretræk spørgsmål om spillet. Spring backseating over."
-  },
-  "spotlightPicksHeading": {
-    "recentPicks": "Seneste valg"
-  },
-  "spotlightPicksNote": {
-    "theLastMessagesThatThe": "Denne liste viser de seneste beskeder, som botten har valgt. Hver besked har årsagen til valget. Den nyeste besked er først."
-  },
-  "spotlightPicksRefresh": {
-    "refresh": "Opdater"
-  },
-  "spotlightSettings": {
-    "chooseWhatTheBotLooks": "Vælg, hvad botten skal lede efter i chatten. Se de beskeder, den har valgt.",
-    "showACardInThe": "<strong>Vis et kort i browserkilden</strong>",
-    "spotlight": "Spotlight",
-    "whatToLookForOptional": "<strong>Hvad der skal ledes efter (valgfrit)</strong>"
   }
 }

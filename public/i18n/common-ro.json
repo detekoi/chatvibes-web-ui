@@ -71,6 +71,8 @@
     "shortlink_failed": "Nu se poate crea linkul scurt.",
     "sound_tag_unknown": "Eticheta de sunet „{tag}” nu este în listă. Reîncarcă pagina și încearcă din nou.",
     "storage_unavailable": "Stocarea nu este disponibilă.",
+    "spotlight_guidance_too_long": "Îndrumarea este prea lungă. Folosește cel mult {max} caractere.",
+    "spotlight_picks_fetch_failed": "Nu se pot încărca selecțiile Spotlight.",
     "style_too_long": "Stilul este prea lung. Folosește {max} caractere sau mai puțin.",
     "tts_blocked": "Serviciul vocal a refuzat acest text. Modifică textul și încearcă din nou.",
     "tts_generation_failed": "Generarea vocală a eșuat: {reason}",
@@ -85,9 +87,7 @@
     "username_required": "Este necesar un nume de utilizator.",
     "voice_lookup_failed": "Nu se poate căuta vocea acelui utilizator.",
     "word_invalid": "Cuvântul sau expresia nu este validă.",
-    "word_required": "Este necesar un cuvânt sau o expresie.",
-    "spotlight_guidance_too_long": "Îndrumarea este prea lungă. Folosește {max} caractere sau mai puține.",
-    "spotlight_picks_fetch_failed": "Nu se pot încărca alegerile Spotlight."
+    "word_required": "Este necesar un cuvânt sau o expresie."
   },
   "logoutLink": {
     "logout": "Deconectare"

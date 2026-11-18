@@ -71,6 +71,8 @@
     "shortlink_failed": "تعذر إنشاء الرابط القصير.",
     "sound_tag_unknown": "وسم الصوت \"{tag}\" غير موجود في القائمة. أعد تحميل الصفحة وحاول مرة أخرى.",
     "storage_unavailable": "وحدة التخزين غير متوفرة.",
+    "spotlight_guidance_too_long": "التوجيه طويل جدًا. يُرجى استخدام {max} حرفًا أو أقل.",
+    "spotlight_picks_fetch_failed": "لا يمكن تحميل مختارات Spotlight.",
     "style_too_long": "الأسلوب طويل جدًا. استخدم {max} حرفًا أو أقل.",
     "tts_blocked": "رفضت خدمة النطق هذا النص. غيّر النص وحاول مرة أخرى.",
     "tts_generation_failed": "فشل توليد الكلام: {reason}",
@@ -85,9 +87,7 @@
     "username_required": "اسم المستخدم مطلوب.",
     "voice_lookup_failed": "تعذر البحث عن صوت هذا المستخدم.",
     "word_invalid": "تلك الكلمة أو العبارة غير صالحة.",
-    "word_required": "الكلمة أو العبارة مطلوبة.",
-    "spotlight_guidance_too_long": "الإرشادات طويلة جداً. استخدم {max} حرفاً أو أقل.",
-    "spotlight_picks_fetch_failed": "تعذر تحميل اختيارات Spotlight."
+    "word_required": "الكلمة أو العبارة مطلوبة."
   },
   "logoutLink": {
     "logout": "تسجيل الخروج"

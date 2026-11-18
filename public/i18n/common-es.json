@@ -71,6 +71,8 @@
     "shortlink_failed": "No se puede crear el enlace corto.",
     "sound_tag_unknown": "La etiqueta de sonido \"{tag}\" no está en la lista. Recarga la página e inténtalo de nuevo.",
     "storage_unavailable": "El almacenamiento no está disponible.",
+    "spotlight_guidance_too_long": "La guía es demasiado larga. Usa {max} caracteres o menos.",
+    "spotlight_picks_fetch_failed": "No se pueden cargar las selecciones de Spotlight.",
     "style_too_long": "El estilo es demasiado largo. Usa {max} caracteres o menos.",
     "tts_blocked": "El servicio de voz rechazó este texto. Cámbialo e inténtalo de nuevo.",
     "tts_generation_failed": "Error al generar la voz: {reason}",
@@ -85,9 +87,7 @@
     "username_required": "Se requiere un nombre de usuario.",
     "voice_lookup_failed": "No se puede consultar la voz de ese usuario.",
     "word_invalid": "Esa palabra o frase no es válida.",
-    "word_required": "Se requiere una palabra o frase.",
-    "spotlight_guidance_too_long": "La guía es demasiado larga. Usa {max} caracteres o menos.",
-    "spotlight_picks_fetch_failed": "No se pueden cargar las elecciones de Spotlight."
+    "word_required": "Se requiere una palabra o frase."
   },
   "logoutLink": {
     "logout": "Cerrar sesión"

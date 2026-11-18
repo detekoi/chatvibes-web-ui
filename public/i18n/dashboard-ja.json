@@ -280,8 +280,8 @@
       "readFullUrls": "URLを最後まで読み上げる",
       "redemptionAnnouncements": "引き換え通知",
       "soundTags": "サウンドタグ",
-      "spotlightCard": "Spotlightカード",
-      "spotlightGuidance": "Spotlightの指針",
+      "spotlightCard": "スポットライトカード",
+      "spotlightGuidance": "スポットライトの指示",
       "style": "デフォルトの音声スタイル",
       "ttsEngine": "TTSエンジン",
       "ttsMode": "TTSモード",
@@ -297,11 +297,11 @@
       "youtubeHandleRequired": "YouTube TTSを有効にする前にYouTubeハンドルを入力してください。"
     },
     "spotlight": {
-      "count": "見つかった選択：{count}",
-      "empty": "まだ選択はありません。ボットが読み上げた後、ここに表示されます。",
-      "loadFailed": "選択を読み込めません。更新を選択してもう一度お試しください。",
-      "loading": "選択を読み込み中…",
-      "reason": "理由：{reason}",
+      "count": "ピックアップ数: {count}",
+      "empty": "ピックアップはまだありません。ボットが読み上げるとここに表示されます。",
+      "loadFailed": "ピックアップを読み込めません。「更新」を選択して再試行してください。",
+      "loading": "ピックアップを読み込み中…",
+      "reason": "理由: {reason}",
       "unknownUser": "不明な視聴者"
     }
   },
@@ -395,6 +395,27 @@
   },
   "soundTagsTitle": {
     "soundTags": "サウンドタグ"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "ボットがピックアップを読み上げている間、ブラウザソースに視聴者名とメッセージのカードが表示されます。"
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "拾ってほしいメッセージの基準をボットに伝えます。スパムや不適切なメッセージは引き続きスキップされます。例: ゲームに関する質問を優先。指示コメントはスキップ。"
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "最近のピックアップ"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "このリストには、ボットが最近ピックアップしたメッセージが表示されます。各メッセージにピックアップ理由が添えられ、新しい順に表示されます。"
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "更新"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "ボットがチャットで探す内容を指定し、ピックアップされたメッセージを確認します。",
+    "showACardInThe": "<strong>ブラウザソースにカードを表示</strong>",
+    "spotlight": "スポットライト",
+    "whatToLookForOptional": "<strong>探す内容（任意）</strong>"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "!myvoiceなどのチャットコマンドへのボットの応答を許可",
@@ -507,15 +528,15 @@
     "allMessages": "すべてのチャットメッセージ",
     "bitsPointsOnly": "Cheerとリワードのみ",
     "highlightedOnly": "ハイライトされたメッセージ",
-    "ttsCommandOnly": "!ttsメッセージ",
-    "spotlightTheBotPicksNotable": "Spotlight（ボットが注目すべきメッセージを選択）"
+    "spotlightTheBotPicksNotable": "スポットライト（ボットが注目のメッセージを選択）",
+    "ttsCommandOnly": "!ttsメッセージ"
   },
   "ttsModeSummary": {
     "all": "TTSはすべてのチャットメッセージを読み上げます。!ttsで始まるメッセージも含まれます。",
     "bitsPointsOnly": "TTSはCheerとChannel PointsのTTSリワードのみを読み上げます。!ttsメッセージ、ハイライトされたメッセージ、その他のチャットメッセージは読み上げません。",
     "command": "TTSは!ttsで始まるメッセージを読み上げます。その他のチャットメッセージは読み上げません。",
     "highlightedOnly": "TTSは視聴者がChannel Pointsでハイライトしたメッセージを読み上げます。!ttsメッセージやその他のチャットメッセージは読み上げません。",
-    "theBotReadsChatAnd": "ボットがチャットを読み、注目すべきメッセージを選びます。TTSはそれらのメッセージのみを読み上げます。各メッセージの前に「チャットスポットライト」と言います。!ttsメッセージも読み上げます。"
+    "theBotReadsChatAnd": "ボットがチャットを読み、注目のメッセージをピックアップします。TTSはそれらのメッセージのみを読み上げます。各メッセージの前に「Chat spotlight」と読み上げます。!tts メッセージも読み上げます。"
   },
   "ttsPermission": {
     "everyone": "全員",
@@ -548,26 +569,5 @@
   },
   "youtubeHandle": {
     "yourhandle": "@yourhandle"
-  },
-  "spotlightCardHelp": {
-    "whileTheBotReadsA": "ボットが選択を読み上げている間、ブラウザソースに視聴者名とメッセージのカードが表示されます。"
-  },
-  "spotlightGuidanceHelp": {
-    "tellTheBotWhichMessages": "どのようなメッセージが好みかをボットに伝えます。ボットは引き続きスパムや無礼なメッセージをスキップします。例：ゲームに関する質問を優先して。ネタバレや指示はスキップして。"
-  },
-  "spotlightPicksHeading": {
-    "recentPicks": "最近の選択"
-  },
-  "spotlightPicksNote": {
-    "theLastMessagesThatThe": "このリストにはボットが最後に選んだメッセージが表示されます。各メッセージには選択の理由が付いています。最新のメッセージが先頭です。"
-  },
-  "spotlightPicksRefresh": {
-    "refresh": "更新"
-  },
-  "spotlightSettings": {
-    "chooseWhatTheBotLooks": "ボットがチャットで何を探すかを選択します。選ばれたメッセージを確認できます。",
-    "showACardInThe": "<strong>ブラウザソースにカードを表示する</strong>",
-    "spotlight": "Spotlight",
-    "whatToLookForOptional": "<strong>探す内容（任意）</strong>"
   }
 }

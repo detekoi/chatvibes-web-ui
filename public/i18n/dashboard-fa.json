@@ -280,8 +280,8 @@
       "readFullUrls": "خواندن کامل URLها",
       "redemptionAnnouncements": "اعلام دریافت‌های پاداش",
       "soundTags": "برچسب‌های صوتی",
-      "spotlightCard": "کارت Spotlight",
-      "spotlightGuidance": "راهنمای Spotlight",
+      "spotlightCard": "کارت اسپات‌لایت",
+      "spotlightGuidance": "راهنمای اسپات‌لایت",
       "style": "سبک پیش‌فرض صدا",
       "ttsEngine": "موتور TTS",
       "ttsMode": "حالت TTS",
@@ -297,10 +297,10 @@
       "youtubeHandleRequired": "قبل از روشن کردن TTS برای YouTube، یک شناسه YouTube وارد کنید."
     },
     "spotlight": {
-      "count": "انتخاب‌های یافت‌شده: {count}",
-      "empty": "هنوز انتخابی نیست. هر انتخاب پس از خوانده شدن توسط ربات اینجا ظاهر می‌شود.",
-      "loadFailed": "بارگذاری انتخاب‌ها ممکن نیست. برای تلاش مجدد، تازه‌سازی را انتخاب کنید.",
-      "loading": "در حال بارگذاری انتخاب‌ها…",
+      "count": "برگزیده‌های یافت‌شده: {count}",
+      "empty": "هنوز برگزیده‌ای نیست. پس از اینکه ربات آن را بخواند، اینجا نمایش داده می‌شود.",
+      "loadFailed": "بارگیری برگزیده‌ها ممکن نیست. برای تلاش دوباره، «تازه‌سازی» را انتخاب کنید.",
+      "loading": "در حال بارگیری برگزیده‌ها…",
       "reason": "دلیل: {reason}",
       "unknownUser": "بیننده ناشناس"
     }
@@ -395,6 +395,27 @@
   },
   "soundTagsTitle": {
     "soundTags": "برچسب‌های صوتی"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "هنگامی که ربات یک برگزیده را می‌خواند، Browser Source کارتی شامل نام بیننده و متن پیام را نمایش می‌دهد."
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "به ربات بگویید کدام پیام‌ها را می‌پسندید. ربات همچنان اسپم و پیام‌های توهین‌آمیز را رد می‌کند. مثال: پرسش‌های مربوط به بازی را در اولویت قرار بده. پیام‌های راهنمایی ناخواسته بازی را رد کن."
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "برگزیده‌های اخیر"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "این فهرست آخرین پیام‌هایی را نشان می‌دهد که ربات انتخاب کرده است. هر پیام دلیل انتخاب شدنش را دارد. جدیدترین پیام در ابتدا قرار دارد."
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "تازه‌سازی"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "انتخاب کنید ربات در چت به دنبال چه چیزهایی باشد و پیام‌های برگزیده را ببینید.",
+    "showACardInThe": "<strong>نمایش کارت در Browser Source</strong>",
+    "spotlight": "اسپات‌لایت",
+    "whatToLookForOptional": "<strong>به دنبال چه چیزهایی باشد (اختیاری)</strong>"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "اجازه دادن به بات برای پاسخ به دستورات چت مانند ‎!myvoice",
@@ -507,15 +528,15 @@
     "allMessages": "همه پیام‌های چت",
     "bitsPointsOnly": "فقط Cheers و پاداش‌ها",
     "highlightedOnly": "پیام‌های برجسته‌شده",
-    "ttsCommandOnly": "پیام‌های ‎!tts",
-    "spotlightTheBotPicksNotable": "Spotlight (ربات پیام‌های برجسته را انتخاب می‌کند)"
+    "spotlightTheBotPicksNotable": "اسپات‌لایت (ربات پیام‌های قابل‌توجه را انتخاب می‌کند)",
+    "ttsCommandOnly": "پیام‌های ‎!tts"
   },
   "ttsModeSummary": {
     "all": "TTS همه پیام‌های چت را می‌خواند. این شامل پیام‌هایی است که با ‎!tts شروع می‌شوند.",
     "bitsPointsOnly": "TTS فقط Cheers و پاداش TTS در Channel Points را می‌خواند. پیام‌های ‎!tts، پیام‌های برجسته‌شده و سایر پیام‌های چت را نمی‌خواند.",
     "command": "TTS پیام‌هایی را می‌خواند که با ‎!tts شروع می‌شوند. سایر پیام‌های چت را نمی‌خواند.",
     "highlightedOnly": "TTS پیام‌هایی را می‌خواند که بینندگان با Channel Points برجسته می‌کنند. پیام‌های ‎!tts و سایر پیام‌های چت را نمی‌خواند.",
-    "theBotReadsChatAnd": "ربات گفتگو را می‌خواند و پیام‌های برجسته را انتخاب می‌کند. TTS فقط همان پیام‌ها را می‌خواند و پیش از هر کدام می‌گوید «برگزیده گفتگو». پیام‌های !tts را نیز می‌خواند."
+    "theBotReadsChatAnd": "ربات چت را می‌خواند و پیام‌های قابل‌توجه را انتخاب می‌کند. TTS فقط همان پیام‌ها را می‌خواند و پیش از هر کدام عبارت \"Chat spotlight\" را می‌گوید. پیام‌های !tts را هم می‌خواند."
   },
   "ttsPermission": {
     "everyone": "همه",
@@ -548,26 +569,5 @@
   },
   "youtubeHandle": {
     "yourhandle": "@yourhandle"
-  },
-  "spotlightCardHelp": {
-    "whileTheBotReadsA": "هنگامی که ربات یک انتخاب را می‌خواند، منبع مرورگر کارتی با نام بیننده و پیام نمایش می‌دهد."
-  },
-  "spotlightGuidanceHelp": {
-    "tellTheBotWhichMessages": "به ربات بگویید چه پیام‌هایی را دوست دارید. ربات همچنان هرزنامه و پیام‌های بی‌ادبانه را نادیده می‌گیرد. مثال: پرسش‌های مربوط به بازی را ترجیح بده. راهنمایی ناخواسته را نادیده بگیر."
-  },
-  "spotlightPicksHeading": {
-    "recentPicks": "انتخاب‌های اخیر"
-  },
-  "spotlightPicksNote": {
-    "theLastMessagesThatThe": "این فهرست آخرین پیام‌هایی را که ربات انتخاب کرده نشان می‌دهد. هر پیام دلیل انتخاب را دارد. جدیدترین پیام اول است."
-  },
-  "spotlightPicksRefresh": {
-    "refresh": "تازه‌سازی"
-  },
-  "spotlightSettings": {
-    "chooseWhatTheBotLooks": "انتخاب کنید ربات در گفتگو دنبال چه چیزی بگردد. پیام‌هایی را که انتخاب کرده ببینید.",
-    "showACardInThe": "<strong>نمایش یک کارت در منبع مرورگر</strong>",
-    "spotlight": "Spotlight",
-    "whatToLookForOptional": "<strong>دنبال چه چیزی بگردد (اختیاری)</strong>"
   }
 }

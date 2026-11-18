@@ -310,6 +310,58 @@
     gap: 0;
 }
 
+/* Recent picks is a disclosure. The whole summary row opens it, and the
+   chevron in its box turns when the list is open. */
+.spotlight-picks-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    line-height: inherit;
+    list-style: none;
+}
+.spotlight-picks-summary::-webkit-details-marker { display: none; }
+
+.spotlight-picks-chevron {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 32px;
+    block-size: 32px;
+    border: 1px solid var(--wc-text-3);
+    color: var(--wc-text-2);
+}
+.spotlight-picks-chevron::before {
+    content: '';
+    inline-size: 16px;
+    block-size: 16px;
+    background-color: currentColor;
+    -webkit-mask: var(--wc-icon-chevron-down) no-repeat center / contain;
+    mask: var(--wc-icon-chevron-down) no-repeat center / contain;
+}
+.spotlight-picks[open] .spotlight-picks-chevron::before { transform: rotate(180deg); }
+
+.spotlight-picks-summary:hover .spotlight-picks-chevron {
+    border-color: var(--wc-text-1);
+    color: var(--wc-text-1);
+}
+.spotlight-picks-summary:focus-visible {
+    outline: 2px solid var(--wc-accent);
+    outline-offset: 2px;
+}
+
+.spotlight-picks-body { padding-block-start: 10px; }
+
+@media (prefers-reduced-motion: no-preference) {
+    .spotlight-picks-chevron::before { transition: transform 150ms ease; }
+}
+
+@media (forced-colors: active) {
+    .spotlight-picks-chevron { border-color: ButtonText; }
+    .spotlight-picks-chevron::before { background-color: ButtonText; }
+}
+
 .style-presets-label {
     font-size: 12.5px;
     color: var(--wc-text-2);

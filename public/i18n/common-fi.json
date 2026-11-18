@@ -71,6 +71,8 @@
     "shortlink_failed": "Lyhytlinkkiä ei voi luoda.",
     "sound_tag_unknown": "Äänitunniste \"{tag}\" ei ole luettelossa. Lataa sivu uudelleen ja yritä uudelleen.",
     "storage_unavailable": "Tallennustila ei ole käytettävissä.",
+    "spotlight_guidance_too_long": "Ohjeistus on liian pitkä. Käytä enintään {max} merkkiä.",
+    "spotlight_picks_fetch_failed": "Spotlight-poimintoja ei voi ladata.",
     "style_too_long": "Tyyli on liian pitkä. Käytä enintään {max} merkkiä.",
     "tts_blocked": "Puhepalvelu hylkäsi tämän tekstin. Muokkaa tekstiä ja yritä uudelleen.",
     "tts_generation_failed": "Puheen luonti epäonnistui: {reason}",
@@ -85,9 +87,7 @@
     "username_required": "Käyttäjätunnus vaaditaan.",
     "voice_lookup_failed": "Kyseisen käyttäjän äänen hakeminen epäonnistui.",
     "word_invalid": "Sana tai lause ei kelpaa.",
-    "word_required": "Sana tai lause vaaditaan.",
-    "spotlight_guidance_too_long": "Ohje on liian pitkä. Käytä enintään {max} merkkiä.",
-    "spotlight_picks_fetch_failed": "Spotlight-valintoja ei voida ladata."
+    "word_required": "Sana tai lause vaaditaan."
   },
   "logoutLink": {
     "logout": "Kirjaudu ulos"

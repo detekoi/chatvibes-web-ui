@@ -71,6 +71,8 @@
     "shortlink_failed": "לא ניתן ליצור את הקישור המקוצר.",
     "sound_tag_unknown": "תגית הצליל \"{tag}\" אינה ברשימה. רענן את הדף ונסה שוב.",
     "storage_unavailable": "האחסון אינו זמין.",
+    "spotlight_guidance_too_long": "ההנחיה ארוכה מדי. יש להשתמש ב-{max} תווים או פחות.",
+    "spotlight_picks_fetch_failed": "לא ניתן לטעון את בחירות Spotlight.",
     "style_too_long": "הסגנון ארוך מדי. השתמש ב-{max} תווים או פחות.",
     "tts_blocked": "שירות הדיבור דחה את הטקסט הזה. שנה את הטקסט ונסה שוב.",
     "tts_generation_failed": "יצירת הדיבור נכשלה: {reason}",
@@ -85,9 +87,7 @@
     "username_required": "חובה להזין שם משתמש.",
     "voice_lookup_failed": "לא ניתן לאתר את הקול של משתמש זה.",
     "word_invalid": "מילה או ביטוי אלה אינם תקינים.",
-    "word_required": "חובה להזין מילה או ביטוי.",
-    "spotlight_guidance_too_long": "ההנחיה ארוכה מדי. השתמשו ב-{max} תווים או פחות.",
-    "spotlight_picks_fetch_failed": "לא ניתן לטעון את בחירות ה-Spotlight."
+    "word_required": "חובה להזין מילה או ביטוי."
   },
   "logoutLink": {
     "logout": "התנתקות"

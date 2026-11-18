@@ -280,8 +280,8 @@
       "readFullUrls": "Baca URL Penuh",
       "redemptionAnnouncements": "Pengumuman Penebusan",
       "soundTags": "Tag Bunyi",
-      "spotlightCard": "Kad Spotlight",
-      "spotlightGuidance": "Panduan Spotlight",
+      "spotlightCard": "Kad sorotan",
+      "spotlightGuidance": "Panduan sorotan",
       "style": "Gaya suara lalai",
       "ttsEngine": "Enjin TTS",
       "ttsMode": "Mod TTS",
@@ -298,8 +298,8 @@
     },
     "spotlight": {
       "count": "Pilihan ditemui: {count}",
-      "empty": "Belum ada pilihan. Pilihan muncul di sini selepas bot membacanya.",
-      "loadFailed": "Tidak dapat memuatkan pilihan. Pilih Muat semula untuk cuba lagi.",
+      "empty": "Tiada pilihan lagi. Pilihan akan muncul di sini selepas bot membacanya.",
+      "loadFailed": "Tidak dapat memuatkan pilihan. Pilih Segar semula untuk mencuba lagi.",
       "loading": "Memuatkan pilihan…",
       "reason": "Sebab: {reason}",
       "unknownUser": "Penonton tidak diketahui"
@@ -395,6 +395,27 @@
   },
   "soundTagsTitle": {
     "soundTags": "Tag Bunyi"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "Semasa bot membaca pilihan, Browser Source memaparkan kad dengan nama penonton dan mesej tersebut."
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "Beritahu bot mesej yang anda suka. Bot masih melangkau spam dan mesej biadab. Contoh: Utamakan soalan tentang permainan. Langkau komen mengajar."
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "Pilihan terkini"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "Senarai ini memaparkan mesej terakhir yang dipilih oleh bot. Setiap mesej mempunyai sebab ia dipilih. Mesej terbaharu berada di tempat pertama."
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "Segar semula"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "Pilih perkara yang dicari oleh bot dalam sembang. Lihat mesej yang dipilihnya.",
+    "showACardInThe": "<strong>Paparkan kad dalam Browser Source</strong>",
+    "spotlight": "Sorotan",
+    "whatToLookForOptional": "<strong>Perkara yang perlu dicari (pilihan)</strong>"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Benarkan bot membalas arahan sembang seperti !myvoice",
@@ -507,15 +528,15 @@
     "allMessages": "Semua Mesej Sembang",
     "bitsPointsOnly": "Cheer dan Ganjaran Sahaja",
     "highlightedOnly": "Mesej Diserlahkan",
-    "ttsCommandOnly": "Mesej !tts",
-    "spotlightTheBotPicksNotable": "Spotlight (bot memilih mesej yang menonjol)"
+    "spotlightTheBotPicksNotable": "Sorotan (bot memilih mesej yang menonjol)",
+    "ttsCommandOnly": "Mesej !tts"
   },
   "ttsModeSummary": {
     "all": "TTS membaca setiap mesej sembang. Ini termasuk mesej yang bermula dengan !tts.",
     "bitsPointsOnly": "TTS hanya membaca cheer dan ganjaran TTS Channel Points. TTS tidak membaca mesej !tts, mesej diserlahkan atau mesej sembang lain.",
     "command": "TTS membaca mesej yang bermula dengan !tts. TTS tidak membaca mesej sembang lain.",
     "highlightedOnly": "TTS membaca mesej yang diserlahkan oleh penonton dengan Channel Points. TTS tidak membaca mesej !tts atau mesej sembang lain.",
-    "theBotReadsChatAnd": "Bot membaca sembang dan memilih mesej yang menonjol. TTS hanya membaca mesej tersebut. Ia menyebut \"Sorotan sembang\" sebelum setiap satu. Ia juga membaca mesej !tts."
+    "theBotReadsChatAnd": "Bot membaca sembang dan memilih mesej yang menonjol. TTS hanya membaca mesej tersebut. Ia menyebut \"Chat spotlight\" sebelum setiap satu. Ia juga membaca mesej !tts."
   },
   "ttsPermission": {
     "everyone": "Semua Orang",
@@ -548,26 +569,5 @@
   },
   "youtubeHandle": {
     "yourhandle": "@pemeganganda"
-  },
-  "spotlightCardHelp": {
-    "whileTheBotReadsA": "Semasa bot membaca pilihan, sumber pelayar menunjukkan kad dengan nama penonton dan mesej."
-  },
-  "spotlightGuidanceHelp": {
-    "tellTheBotWhichMessages": "Beritahu bot mesej mana yang anda suka. Bot masih melangkau spam dan mesej biadab. Contoh: Utamakan soalan tentang permainan. Langkau backseating."
-  },
-  "spotlightPicksHeading": {
-    "recentPicks": "Pilihan terkini"
-  },
-  "spotlightPicksNote": {
-    "theLastMessagesThatThe": "Senarai ini menunjukkan mesej terakhir yang dipilih oleh bot. Setiap mesej mempunyai sebab pemilihan. Mesej terbaharu berada di atas."
-  },
-  "spotlightPicksRefresh": {
-    "refresh": "Muat semula"
-  },
-  "spotlightSettings": {
-    "chooseWhatTheBotLooks": "Pilih apa yang dicari oleh bot dalam sembang. Lihat mesej yang dipilihnya.",
-    "showACardInThe": "<strong>Tunjukkan kad dalam sumber pelayar</strong>",
-    "spotlight": "Spotlight",
-    "whatToLookForOptional": "<strong>Perkara untuk dicari (pilihan)</strong>"
   }
 }

@@ -86,6 +86,7 @@ export function initSettingsModule(
   const spotlightGuidanceInput = document.getElementById('spotlight-guidance') as HTMLTextAreaElement | null;
   const spotlightGuidanceCount = document.getElementById('spotlight-guidance-count') as HTMLElement | null;
   const spotlightCardCheckbox = document.getElementById('spotlight-card') as HTMLInputElement | null;
+  const spotlightPicksDetails = document.getElementById('spotlight-picks') as HTMLDetailsElement | null;
   const spotlightPicksRefresh = document.getElementById('spotlight-picks-refresh') as HTMLButtonElement | null;
   const spotlightPicksStatus = document.getElementById('spotlight-picks-status') as HTMLElement | null;
   const spotlightPicksList = document.getElementById('spotlight-picks-list') as HTMLElement | null;
@@ -368,14 +369,15 @@ export function initSettingsModule(
       : t('msg.spotlight.count', { count: picks.length }));
   }
 
-  // The group exists only for Spotlight mode. The pick log loads each time the
-  // group appears, so that it is current when the streamer looks at it.
+  // The group exists only for Spotlight mode. The pick log loads when the list
+  // opens, and again when the group appears with the list open, so that it is
+  // current when the streamer looks at it. A closed list loads nothing.
   function syncSpotlightGroup(): void {
     if (!spotlightGroup) return;
     const show = ttsModeSelect?.value === 'spotlight';
     const wasHidden = spotlightGroup.hidden;
     spotlightGroup.hidden = !show;
-    if (show && wasHidden) void loadSpotlightPicks();
+    if (show && wasHidden && spotlightPicksDetails?.open) void loadSpotlightPicks();
   }
 
   function renderSoundTags(): void {
@@ -454,6 +456,9 @@ export function initSettingsModule(
 
     if (spotlightCardCheckbox) spotlightCardCheckbox.addEventListener('change', () => saveSettingWrapper('spotlightCard', !!spotlightCardCheckbox.checked, t('msg.setting.spotlightCard')));
     spotlightPicksRefresh?.addEventListener('click', () => void loadSpotlightPicks());
+    spotlightPicksDetails?.addEventListener('toggle', () => {
+      if (spotlightPicksDetails.open) void loadSpotlightPicks();
+    });
 
     // The same rule as the style: while the reader types, an empty box is a step on the way to new text. Do not save it.
     const debouncedSpotlightGuidanceSave = debounce(() => { if (currentSpotlightGuidance()) saveSpotlightGuidance(); }, 800);

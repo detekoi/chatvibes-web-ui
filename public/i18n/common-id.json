@@ -71,6 +71,8 @@
     "shortlink_failed": "Tidak dapat membuat tautan pendek.",
     "sound_tag_unknown": "Tag suara \"{tag}\" tidak ada dalam daftar. Muat ulang halaman dan coba lagi.",
     "storage_unavailable": "Penyimpanan tidak tersedia.",
+    "spotlight_guidance_too_long": "Panduan terlalu panjang. Gunakan {max} karakter atau kurang.",
+    "spotlight_picks_fetch_failed": "Tidak dapat memuat pilihan Spotlight.",
     "style_too_long": "Gaya terlalu panjang. Gunakan maksimal {max} karakter.",
     "tts_blocked": "Layanan suara menolak teks ini. Ubah teks dan coba lagi.",
     "tts_generation_failed": "Gagal membuat ucapan: {reason}",
@@ -85,9 +87,7 @@
     "username_required": "Nama pengguna wajib diisi.",
     "voice_lookup_failed": "Tidak dapat menemukan suara pengguna tersebut.",
     "word_invalid": "Kata atau frasa tidak valid.",
-    "word_required": "Kata atau frasa wajib diisi.",
-    "spotlight_guidance_too_long": "Panduan terlalu panjang. Gunakan {max} karakter atau kurang.",
-    "spotlight_picks_fetch_failed": "Tidak dapat memuat pilihan Spotlight."
+    "word_required": "Kata atau frasa wajib diisi."
   },
   "logoutLink": {
     "logout": "Keluar"

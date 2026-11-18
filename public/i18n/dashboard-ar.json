@@ -280,8 +280,8 @@
       "readFullUrls": "قراءة عناوين URL كاملة",
       "redemptionAnnouncements": "إعلانات الاسترداد",
       "soundTags": "وسوم الصوت",
-      "spotlightCard": "بطاقة Spotlight",
-      "spotlightGuidance": "إرشادات Spotlight",
+      "spotlightCard": "بطاقة تسليط الضوء",
+      "spotlightGuidance": "توجيهات تسليط الضوء",
       "style": "أسلوب الصوت الافتراضي",
       "ttsEngine": "محرك TTS",
       "ttsMode": "وضع TTS",
@@ -297,10 +297,10 @@
       "youtubeHandleRequired": "أدخل مقبض YouTube قبل تفعيل YouTube TTS."
     },
     "spotlight": {
-      "count": "الاختيارات التي تم العثور عليها: {count}",
-      "empty": "لا توجد اختيارات بعد. يظهر الاختيار هنا بعد أن يقرأه البوت.",
-      "loadFailed": "تعذر تحميل الاختيارات. اختر تحديث للمحاولة مرة أخرى.",
-      "loading": "جارٍ تحميل الاختيارات…",
+      "count": "الرسائل المختارة: {count}",
+      "empty": "لا توجد رسائل مختارة بعد. تظهر الرسالة المختارة هنا بعد أن يقرأها البوت.",
+      "loadFailed": "تعذّر تحميل الرسائل المختارة. اختر «تحديث» للمحاولة مجددًا.",
+      "loading": "جارٍ تحميل الرسائل المختارة…",
       "reason": "السبب: {reason}",
       "unknownUser": "مشاهد غير معروف"
     }
@@ -395,6 +395,27 @@
   },
   "soundTagsTitle": {
     "soundTags": "وسوم الصوت"
+  },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "أثناء قراءة البوت لرسالة مختارة، يعرض Browser Source بطاقة تحتوي على اسم المشاهد والرسالة."
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "أخبر البوت بنوع الرسائل التي تفضّلها. سيواصل البوت تخطي الرسائل المزعجة والوقحة. مثال: فضّل الأسئلة حول اللعبة. تخطَّ إملاء طريقة اللعب."
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "أحدث المختارات"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "تعرض هذه القائمة آخر الرسائل التي اختارها البوت، مع ذكر سبب اختيار كل رسالة. وتظهر أحدث رسالة في البداية."
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "تحديث"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "اختر ما يبحث عنه البوت في الدردشة، واطّلع على الرسائل التي اختارها.",
+    "showACardInThe": "<strong>عرض بطاقة في Browser Source</strong>",
+    "spotlight": "تسليط الضوء",
+    "whatToLookForOptional": "<strong>ما يجب البحث عنه (اختياري)</strong>"
   },
   "tabBroadcaster": {
     "allowTheBotToRespond": "السماح للبوت بالرد على أوامر الدردشة مثل !myvoice",
@@ -507,15 +528,15 @@
     "allMessages": "جميع رسائل الدردشة",
     "bitsPointsOnly": "Cheers والمكافآت فقط",
     "highlightedOnly": "الرسائل المميّزة",
-    "ttsCommandOnly": "رسائل ‎!tts",
-    "spotlightTheBotPicksNotable": "Spotlight (يختار البوت الرسائل البارزة)"
+    "spotlightTheBotPicksNotable": "تسليط الضوء (يختار البوت الرسائل اللافتة)",
+    "ttsCommandOnly": "رسائل ‎!tts"
   },
   "ttsModeSummary": {
     "all": "يقرأ TTS كل رسالة في الدردشة. ويشمل ذلك الرسائل التي تبدأ بـ ‎!tts.",
     "bitsPointsOnly": "يقرأ TTS فقط Cheers ومكافأة TTS في Channel Points. ولا يقرأ رسائل ‎!tts أو الرسائل المميّزة أو رسائل الدردشة الأخرى.",
     "command": "يقرأ TTS الرسائل التي تبدأ بـ ‎!tts. ولا يقرأ رسائل الدردشة الأخرى.",
     "highlightedOnly": "يقرأ TTS الرسائل التي يميّزها المشاهدون باستخدام Channel Points. ولا يقرأ رسائل ‎!tts أو رسائل الدردشة الأخرى.",
-    "theBotReadsChatAnd": "يقرأ البوت الدردشة ويختار الرسائل البارزة. يقرأ TTS تلك الرسائل فقط. ويقول \"أضواء الدردشة\" قبل كل واحدة. كما يقرأ رسائل !tts."
+    "theBotReadsChatAnd": "يقرأ البوت الدردشة ويختار الرسائل اللافتة. يقرأ TTS تلك الرسائل فقط، وينطق \"تسليط الضوء على الدردشة\" قبل كل رسالة، كما يقرأ رسائل !tts."
   },
   "ttsPermission": {
     "everyone": "الجميع",
@@ -548,26 +569,5 @@
   },
   "youtubeHandle": {
     "yourhandle": "@yourhandle"
-  },
-  "spotlightCardHelp": {
-    "whileTheBotReadsA": "أثناء قراءة البوت لأحد الاختيارات، يعرض مصدر المتصفح بطاقة تحتوي على اسم المشاهد والرسالة."
-  },
-  "spotlightGuidanceHelp": {
-    "tellTheBotWhichMessages": "أخبر البوت بالرسائل التي تفضلها. لا يزال البوت يتجاهل الرسائل المزعجة والوقحة. مثال: فضّل الأسئلة حول اللعبة. تجاهل الإرشاد الزائد."
-  },
-  "spotlightPicksHeading": {
-    "recentPicks": "أحدث الاختيارات"
-  },
-  "spotlightPicksNote": {
-    "theLastMessagesThatThe": "تعرض هذه القائمة آخر الرسائل التي اختارها البوت. تحتوي كل رسالة على سبب الاختيار. أحدث رسالة تأتي أولاً."
-  },
-  "spotlightPicksRefresh": {
-    "refresh": "تحديث"
-  },
-  "spotlightSettings": {
-    "chooseWhatTheBotLooks": "اختر ما يبحث عنه البوت في الدردشة. شاهد الرسائل التي اختارها.",
-    "showACardInThe": "<strong>عرض بطاقة في مصدر المتصفح</strong>",
-    "spotlight": "Spotlight",
-    "whatToLookForOptional": "<strong>ما يجب البحث عنه (اختياري)</strong>"
   }
 }

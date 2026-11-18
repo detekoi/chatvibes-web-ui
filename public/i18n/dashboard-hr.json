@@ -281,7 +281,7 @@
       "redemptionAnnouncements": "Najave preuzimanja nagrada",
       "soundTags": "Zvučne oznake",
       "spotlightCard": "Spotlight kartica",
-      "spotlightGuidance": "Spotlight smjernica",
+      "spotlightGuidance": "Smjernice za Spotlight",
       "style": "Zadani stil glasa",
       "ttsEngine": "TTS mehanizam",
       "ttsMode": "TTS način rada",
@@ -396,6 +396,27 @@
   "soundTagsTitle": {
     "soundTags": "Zvučne oznake"
   },
+  "spotlightCardHelp": {
+    "whileTheBotReadsA": "Dok bot čita odabir, Browser Source prikazuje karticu s imenom gledatelja i porukom."
+  },
+  "spotlightGuidanceHelp": {
+    "tellTheBotWhichMessages": "Recite botu koje vam se poruke sviđaju. Bot i dalje preskače spam i nepristojne poruke. Primjer: Daj prednost pitanjima o igri. Preskoči backseating."
+  },
+  "spotlightPicksHeading": {
+    "recentPicks": "Nedavni odabiri"
+  },
+  "spotlightPicksNote": {
+    "theLastMessagesThatThe": "Ovaj popis prikazuje posljednje poruke koje je bot odabrao. Svaka poruka sadrži razlog odabira. Najnovija poruka je prva."
+  },
+  "spotlightPicksRefresh": {
+    "refresh": "Osvježi"
+  },
+  "spotlightSettings": {
+    "chooseWhatTheBotLooks": "Odaberite što bot traži u chatu. Pogledajte poruke koje je odabrao.",
+    "showACardInThe": "<strong>Prikaži karticu u izvoru Browser Source</strong>",
+    "spotlight": "Spotlight",
+    "whatToLookForOptional": "<strong>Što tražiti (neobvezno)</strong>"
+  },
   "tabBroadcaster": {
     "allowTheBotToRespond": "Dopusti botu da odgovara na naredbe u chatu poput !myvoice",
     "allowViewersToUseChannel": "Dopusti gledateljima korištenje Channel Points za TTS",
@@ -507,15 +528,15 @@
     "allMessages": "Sve poruke u chatu",
     "bitsPointsOnly": "Samo cheerovi i nagrade",
     "highlightedOnly": "Istaknute poruke",
-    "ttsCommandOnly": "Poruke s !tts",
-    "spotlightTheBotPicksNotable": "Spotlight (bot odabire zapažene poruke)"
+    "spotlightTheBotPicksNotable": "Spotlight (bot odabire zapažene poruke)",
+    "ttsCommandOnly": "Poruke s !tts"
   },
   "ttsModeSummary": {
     "all": "TTS čita svaku poruku u chatu. To uključuje poruke koje počinju s !tts.",
     "bitsPointsOnly": "TTS čita samo cheerove i TTS nagradu za Channel Points. Ne čita poruke s !tts, istaknute poruke ni druge poruke u chatu.",
     "command": "TTS čita poruke koje počinju s !tts. Ne čita druge poruke u chatu.",
     "highlightedOnly": "TTS čita poruke koje gledatelji istaknu pomoću Channel Points. Ne čita poruke s !tts ni druge poruke u chatu.",
-    "theBotReadsChatAnd": "Bot čita chat i odabire zapažene poruke. TTS čita samo te poruke. Prije svake kaže \"Istaknuto iz chata\". Čita i !tts poruke."
+    "theBotReadsChatAnd": "Bot čita chat i odabire zapažene poruke. TTS čita samo te poruke. Prije svake kaže \"Chat spotlight\". Također čita i !tts poruke."
   },
   "ttsPermission": {
     "everyone": "Svi",
@@ -548,26 +569,5 @@
   },
   "youtubeHandle": {
     "yourhandle": "@tvojhandle"
-  },
-  "spotlightCardHelp": {
-    "whileTheBotReadsA": "Dok bot čita odabir, izvor preglednika prikazuje karticu s imenom gledatelja i porukom."
-  },
-  "spotlightGuidanceHelp": {
-    "tellTheBotWhichMessages": "Recite botu koje vam se poruke sviđaju. Bot i dalje preskače neželjenu poštu i nepristojne poruke. Primjer: Daj prednost pitanjima o igri. Preskoči sufliranje."
-  },
-  "spotlightPicksHeading": {
-    "recentPicks": "Nedavni odabiri"
-  },
-  "spotlightPicksNote": {
-    "theLastMessagesThatThe": "Ovaj popis prikazuje posljednje poruke koje je bot odabrao. Svaka poruka ima razlog odabira. Najnovija poruka je prva."
-  },
-  "spotlightPicksRefresh": {
-    "refresh": "Osvježi"
-  },
-  "spotlightSettings": {
-    "chooseWhatTheBotLooks": "Odaberite što bot traži u chatu. Pogledajte poruke koje je odabrao.",
-    "showACardInThe": "<strong>Prikaži karticu u izvoru preglednika</strong>",
-    "spotlight": "Spotlight",
-    "whatToLookForOptional": "<strong>Što tražiti (neobavezno)</strong>"
   }
 }

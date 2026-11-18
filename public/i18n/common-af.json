@@ -71,6 +71,8 @@
     "shortlink_failed": "Kan nie die kort skakel skep nie.",
     "sound_tag_unknown": "Die klankmerker \"{tag}\" is nie in die lys nie. Herlaai die bladsy en probeer weer.",
     "storage_unavailable": "Berging is nie beskikbaar nie.",
+    "spotlight_guidance_too_long": "Die leiding is te lank. Gebruik {max} karakters of minder.",
+    "spotlight_picks_fetch_failed": "Kan nie die Spotlight-keuses laai nie.",
     "style_too_long": "Die styl is te lank. Gebruik {max} karakters of minder.",
     "tts_blocked": "Die spraakdiens het hierdie teks geweier. Verander die teks en probeer weer.",
     "tts_generation_failed": "Spraakgenerering het misluk: {reason}",
@@ -85,9 +87,7 @@
     "username_required": "'n Gebruikersnaam word vereis.",
     "voice_lookup_failed": "Kan nie daardie gebruiker se stem opsoek nie.",
     "word_invalid": "Daardie woord of frase is ongeldig.",
-    "word_required": "'n Woord of frase word vereis.",
-    "spotlight_guidance_too_long": "Die riglyn is te lank. Gebruik {max} karakters of minder.",
-    "spotlight_picks_fetch_failed": "Kan nie die Spotlight-keuses laai nie."
+    "word_required": "'n Woord of frase word vereis."
   },
   "logoutLink": {
     "logout": "Teken uit"
