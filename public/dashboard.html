@@ -561,17 +561,23 @@
                                         </div>
                                     </div>
                                     <div class="list-group-item spotlight-picks-item">
-                                        <div class="d-flex justify-content-between align-items-center gap-2 mb-2">
-                                            <div>
-                                                <h3 data-i18n="spotlightPicksHeading.recentPicks" id="spotlight-picks-heading" class="h6 mb-1">Recent picks</h3>
-                                                <p data-i18n="spotlightPicksNote.theLastMessagesThatThe" id="spotlight-picks-note" class="text-muted mb-0">This list shows the last messages that the bot picked. Each message has the reason for the pick. The newest message is first.</p>
+                                        <!-- Closed by default. The picks load each time the list opens. -->
+                                        <details id="spotlight-picks" class="spotlight-picks">
+                                            <summary class="spotlight-picks-summary">
+                                                <h3 data-i18n="spotlightPicksHeading.recentPicks" id="spotlight-picks-heading" class="h6 mb-0">Recent picks</h3>
+                                                <span class="spotlight-picks-chevron" aria-hidden="true"></span>
+                                            </summary>
+                                            <div class="spotlight-picks-body">
+                                                <div class="d-flex justify-content-between align-items-center gap-2 mb-2">
+                                                    <p data-i18n="spotlightPicksNote.theLastMessagesThatThe" id="spotlight-picks-note" class="text-muted mb-0">This list shows the last messages that the bot picked. Each message has the reason for the pick. The newest message is first.</p>
+                                                    <button data-i18n="spotlightPicksRefresh.refresh" type="button" id="spotlight-picks-refresh" class="btn btn-secondary btn-sm flex-shrink-0"
+                                                        aria-describedby="spotlight-picks-heading" aria-controls="spotlight-picks-list">Refresh</button>
+                                                </div>
+                                                <p id="spotlight-picks-status" class="small text-muted mb-2" aria-live="polite"></p>
+                                                <ul id="spotlight-picks-list" class="list-group spotlight-picks-list"
+                                                    aria-labelledby="spotlight-picks-heading"></ul>
                                             </div>
-                                            <button data-i18n="spotlightPicksRefresh.refresh" type="button" id="spotlight-picks-refresh" class="btn btn-secondary btn-sm flex-shrink-0"
-                                                aria-describedby="spotlight-picks-heading" aria-controls="spotlight-picks-list">Refresh</button>
-                                        </div>
-                                        <p id="spotlight-picks-status" class="small text-muted mb-2" aria-live="polite"></p>
-                                        <ul id="spotlight-picks-list" class="list-group spotlight-picks-list"
-                                            aria-labelledby="spotlight-picks-heading"></ul>
+                                        </details>
                                     </div>
                                 </div>
                             </div>
